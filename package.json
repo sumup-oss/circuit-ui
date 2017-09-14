@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "npm test",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,9 @@
   },
   "homepage": "https://github.com/sumup/ui-components#readme",
   "devDependencies": {
-    "@storybook/react": "^3.2.8"
+    "@storybook/react": "^3.2.8",
+    "@storybook/addon-actions": "^3.2.6",
+    "@storybook/addon-links": "^3.2.6"
   },
   "dependencies": {
     "react": "^15.6.1",
