@@ -1,13 +1,23 @@
 import React from 'react';
 
-import { storiesOf } from '@storybook/react';
+import { storiesOf, addDecorator } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
+import { Button } from '../src/index';
+import StyleProvider from '../src/StyleProvider';
 
-import { Button, Welcome } from '@storybook/react/demo';
-
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+const insertCss = (...styles) => styles.forEach(s => s._insertCss());
+const styleDecorator = (storyFn) => (
+  <StyleProvider insertCss={insertCss}>
+    {storyFn()}
+  </StyleProvider>
+);
+addDecorator(styleDecorator);
 
 storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
+  .add('with text', () => (
+    <Button className="btn btn--highlight" onClick={action('clicked')}>Hello Button</Button>
+  ))
+  .add('with some emojies', () => (
+    <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
+  ));

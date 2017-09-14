@@ -1,0 +1,215 @@
+@import "./shared";
+
+.btn {
+  transition: color .2s cubic-bezier(.4, .0, .2, 1), background-color .2s cubic-bezier(.4, .0, .2, 1);
+  display: inline-block;
+  border: 1px solid;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-size: $font-size-l;
+  font-weight: 500;
+  padding: 11px $spacing-xl;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  line-height: $line-height-s;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+
+  &:hover,
+  &:active {
+    color: $color-brand-darker;
+  }
+
+  &[disabled], &.btn--disabled {
+    opacity: .4;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--loading {
+    transition: padding .2s ease-in-out;
+    padding-right: $spacing-xxl !important;
+
+    .spinner {
+      display: inline-block;
+      margin-left: $spacing-xs;
+    }
+  }
+
+  // TODO: remove the highlight modifier as we're
+  //       going to stick with cta as terminology.
+  &#{&}--cta, &#{&}--highlight {
+    background-color: $color-highlight;
+    border-color: $color-highlight;
+    color: white;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $color-highlight-darker;
+      border-color: $color-highlight-darker;
+
+      &[disabled], &.btn--disabled {
+        background-color: $color-highlight;
+        border-color: $color-highlight;
+      }
+    }
+  }
+
+  // TODO: remove the outline modifier as we're
+  //       going to stick with secondary as terminology.
+  &#{&}--secondary, &#{&}--outline {
+    background-color: transparent;
+    border-color: $color-highlight;
+    color: $color-highlight;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: $color-highlight-darker;
+      color: $color-highlight-darker;
+
+      &[disabled], &.btn--disabled {
+        border-color: $color-highlight;
+        color: $color-highlight;
+      }
+    }
+  }
+
+  // TODO: remove the outline-dark modifier as we're going
+  //       to strick with secondary as terminology.
+  &#{&}--secondary-dark, &#{&}--outline-dark {
+    background-color: transparent;
+    border: 1px solid $color-dark;
+    color: $color-dark;
+
+    &:hover {
+      color: white;
+      background-color: $color-dark;
+    }
+  }
+
+  &#{&}--secondary-white, &#{&}--outline-white {
+    background-color: transparent;
+    border: 1px solid #FFF;
+    color: #FFF;
+
+    &:hover {
+      color: $color-error;
+      background-color: #FFF;
+    }
+  }
+
+  // TODO: clarify if this will stay. Currently it's
+  //       only used by the transaction filters on
+  //       mobile.
+  &#{&}--grey {
+    background-color: $color-light;
+    border-color: $color-light;
+    color: $color-dark;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: darken($color-light, 5%);
+      border-color: darken($color-light, 5%);
+
+      &[disabled], &.btn--disabled {
+        background-color: $color-light;
+        border-color: $color-light;
+      }
+    }
+  }
+
+  &#{&}--warning {
+    background-color: darken($color-warning, 5%);
+    border-color: darken($color-warning, 5%);
+    color: white;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: darken($color-warning, 5%);
+      border-color: darken($color-warning, 5%);
+    }
+  }
+
+  &#{&}--alert {
+    background-color: $color-error;
+    border-color: $color-error;
+    color: white;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $color-error;
+      border-color: $color-error;
+    }
+  }
+
+  &#{&}--s {
+    padding: $spacing-xs $spacing-m;
+    font-size: $font-size-m;
+    line-height: $line-height-s;
+
+    &.btn--loading .spinner {
+      right: 9px;
+      top: 10px;
+    }
+  }
+}
+
+/* Text buttons */
+
+.text-btn {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: $font-size-l;
+  font-weight: 500;
+  line-height: $line-height-s;
+  padding: 0;
+
+  &[disabled],
+  &#{&}--disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &#{&}--highlight {
+    color: $color-highlight;
+
+    &[disabled], &.btn--disabled {
+      color: lighten($color-highlight, .2);
+    }
+  }
+
+  &#{&}--brand {
+    color: $color-brand;
+
+    &[disabled], &.btn--disabled {
+      color: lighten($color-brand, 20%);
+    }
+  }
+
+  &#{&}--dark {
+    color: $color-dark;
+
+    &[disabled], &.btn--disabled {
+      color: lighten($color-dark, 20%);
+    }
+  }
+
+  &:focus { outline: none }
+}
+

@@ -24,7 +24,20 @@
     "@storybook/addon-links": "^3.2.6"
   },
   "dependencies": {
+    "auto-prefixer": "^0.4.2",
+    "bourbon": "^4.3.4",
+    "bourbon-neat": "^1.9.0",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.28.7",
+    "isomorphic-style-loader": "^4.0.0",
+    "node-sass": "^4.5.3",
+    "normalize.css": "^7.0.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-object-fit-images": "^1.1.2",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2"
   }
 }
