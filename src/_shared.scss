@@ -1,0 +1,34 @@
+/* All deprecation warnings in our codebase should be fixed.
+ * Somehow, Bourbon kept showing warnings for its own codebase,
+ * despite this supposedly being fixed:
+ *
+ * https://github.com/thoughtbot/bourbon/issues/1001
+ *
+ * This disables the warnings. We should enable it, again,
+ * once we upgrade to version 5.
+ */
+$output-bourbon-deprecation-warnings: false !default;
+
+//-------------------------------------
+// Shared libraries needed to parse our SCSS
+//-------------------------------------
+@import "bourbon";
+//@import "neat-helpers";
+//@import "grid_settings";
+@import "neat";
+
+$fontFamilyBody: museo-rounded, Helvetica, Arial, sans-serif;
+$fontFamilyDisplay: museo-rounded, Helvetica, Arial, sans-serif;
+
+$topnav-height: 60px;
+$topnav-height-mobile: 48px;
+
+// Temporarily here -- will be de-duped by gzip,
+// but in the long-run we separate variables and mixins
+// out of actual CSS.
+// @import "./fonts"; -- fonts causes bus error?!
+
+@import "brand-styles/variables";
+@import "brand-styles/typography_mixins";
+@import "brand-styles/mixins";
+@import "brand-styles/components";
