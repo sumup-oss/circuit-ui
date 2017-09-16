@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "npm test",
-    "storybook": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "repository": {
@@ -19,9 +19,10 @@
   },
   "homepage": "https://github.com/sumup/ui-components#readme",
   "devDependencies": {
-    "@storybook/react": "^3.2.8",
     "@storybook/addon-actions": "^3.2.6",
-    "@storybook/addon-links": "^3.2.6"
+    "@storybook/addon-links": "^3.2.6",
+    "@storybook/react": "^3.2.8",
+    "eslint": "^4.7.0"
   },
   "dependencies": {
     "auto-prefixer": "^0.4.2",
