@@ -4,6 +4,13 @@ const neatPath = require('bourbon-neat').includePaths;
 const normalizePath = path.join(__dirname, '../node_modules/normalize.css');
 
 module.exports = {
+  externals: {
+   'jsdom': 'window',
+   'cheerio': 'window',
+   'react/lib/ExecutionEnvironment': true,
+   'react/lib/ReactContext': 'window',
+   'react/addons': true,
+ },
   module: {
     rules: [
       {
