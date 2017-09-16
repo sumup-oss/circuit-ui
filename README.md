@@ -3,5 +3,11 @@
 ```
 npm install
 npm i -g @storybook/cli
-npm run storybook
+npm start
+```
+
+# Deployment
+
+```
+npm run deploy
 ```
