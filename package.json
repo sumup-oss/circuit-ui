@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm test",
     "start": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "export": "build-storybook -c .storybook -o .out",
+    "deploy": "storybook-to-ghpages"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "@storybook/addon-actions": "^3.2.6",
     "@storybook/addon-links": "^3.2.6",
     "@storybook/react": "^3.2.8",
+    "@storybook/storybook-deployer": "^2.0.0",
     "eslint": "^4.7.0"
   },
   "dependencies": {
