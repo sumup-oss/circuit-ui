@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import withStyles from '../util/withStyles';
 import styles from './Button.scss';
 
 const Button = ({ onClick, label, className, disabled = false, children }) => {
@@ -16,8 +16,6 @@ const Button = ({ onClick, label, className, disabled = false, children }) => {
     },
     className
   );
-
-  debugger;
 
   return (
     <button onClick={onClick} title={content} className={classes}>

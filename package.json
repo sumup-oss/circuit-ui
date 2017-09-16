@@ -2,7 +2,7 @@
   "name": "ui-components",
   "version": "0.0.1",
   "description": "SumUp's React UI component library",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "npm test",
     "start": "start-storybook -p 6006",
@@ -21,10 +21,19 @@
   "homepage": "https://github.com/sumup/ui-components#readme",
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.6",
+    "@storybook/addon-info": "^3.2.9",
+    "@storybook/addon-knobs": "^3.2.8",
     "@storybook/addon-links": "^3.2.6",
+    "@storybook/addon-options": "^3.2.6",
     "@storybook/react": "^3.2.8",
     "@storybook/storybook-deployer": "^2.0.0",
-    "eslint": "^4.7.0"
+    "enzyme": "^2.8.0",
+    "eslint": "^4.7.0",
+    "expect": "^21.1.0",
+    "react-addons-test-utils": "^15.6.0",
+    "react-test-renderer": "^15.6.1",
+    "storybook-addon-smart-knobs": "^3.0.1",
+    "storybook-addon-specifications": "^2.1.1"
   },
   "dependencies": {
     "auto-prefixer": "^0.4.2",

@@ -1,8 +1,10 @@
 import React from 'react';
 
 import { addDecorator } from '@storybook/react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import StyleProvider from '../src/StyleProvider';
+import { withKnobs } from '@storybook/addon-knobs'
+import { withSmartKnobs } from 'storybook-addon-smart-knobs'
+import withStyles from '../util/withStyles';
+import StyleProvider from '../util/StyleProvider';
 import styles from '../src/index.scss';
 
 const insertCss = (...styles) => styles.forEach(s => s._insertCss());
@@ -17,3 +19,5 @@ const styleDecorator = (storyFn) => (
 );
 
 addDecorator(styleDecorator);
+addDecorator(withSmartKnobs);
+addDecorator(withKnobs);
