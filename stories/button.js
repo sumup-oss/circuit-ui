@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
-import mount from '../util/mount';
+import { mount } from '../util/enzyme';
 import expect from 'expect';
 import { specs, describe, it } from 'storybook-addon-specifications'
 
@@ -15,7 +15,7 @@ storiesOf('Buttons', module)
     );
 
     specs(() => describe('Buttons', function () {
-      it('Should have the Hello World label', function () {
+      it('Should have the Hello Button label', function () {
         let output = mount(story);
         expect(output.text()).toContain('Hello Button');
       });
