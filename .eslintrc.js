@@ -5,24 +5,27 @@ module.exports = {
     'prettier',
     'prettier/react'
   ],
-  plugins: [
-    'react',
-    'prettier'
-  ],
+  plugins: ['react', 'prettier'],
   rules: {
     'no-use-before-define': ['error', { functions: false }],
     'no-underscore-dangle': 'off',
     'no-param-reassign': 'off',
-    'max-len': ['error', {
-      code: 80,
-      tabWidth: 2,
-      ignorePattern: "^\\s*it\\(",
-      ignoreComments: true,
-      ignoreUrls: true
-    }],
-    'prettier/prettier': ["error", {
-      singleQuote: true
-    }],
+    'max-len': [
+      'error',
+      {
+        code: 80,
+        tabWidth: 2,
+        ignorePattern: "^\\s*it\\(",
+        ignoreComments: true,
+        ignoreUrls: true
+      }
+    ],
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true
+      }
+    ],
     'react/prop-types': [1, { ignore: ['i18n', 'children'] }],
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': [
