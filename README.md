@@ -12,7 +12,21 @@ npm start
 npm run deploy
 ```
 
+# Linting and formatting
+
+```
+npm run fix:prettier
+npm run fix:estlint
+npm run fix:stylelint
+
+npm run fix # Run all autofixing
+```
+
 # Testing
+
+```
+npm run test:unit:watch
+```
 
 ```javascript
 import React from 'react';
