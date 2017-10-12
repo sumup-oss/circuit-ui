@@ -24,7 +24,11 @@ module.exports = {
       singleQuote: true
     }],
     'react/prop-types': [1, { ignore: ['i18n', 'children'] }],
-    'import/prefer-default-export': 0
+    'import/prefer-default-export': 0,
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: ['stories/**/*.js'] }
+    ]
   },
   globals: {
     describe: true,
