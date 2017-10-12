@@ -14,38 +14,22 @@ npm run deploy
 
 # Testing
 
-Tests can be written alongside components.
-
-Since components need to be wrapped with a `StyleProvider`, you should
-import functionality from `util/enzyme` rather than `enzyme`. For instance:
-
 ```javascript
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { mount } from '../util/enzyme';
-import expect from 'expect';
-import { specs, describe, it } from 'storybook-addon-specifications'
+import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
+import Button from '.';
 
-/**
- * storiesOf and describe must have the same string
- * to link the tests together.
- */
-storiesOf('Buttons', module)
-  .add('Button', () => {
-    const story = (
-      <button className="btn btn--highlight" onClick={action('clicked')}>Hello Button</Button>
-    );
-
-    specs(() => describe('Buttons', function () {
-      it('Should have the Hello Button label', function () {
-        let output = mount(story);
-        expect(output.text()).toContain('Hello Button');
-      });
-    }));
-
-    return story;
+describe('Button', () => {
+  it('should not render if there is no click handler, label, or children', () => {
+    const button = renderer.create(<Button />);
+    expect(button).toMatchSnapshot();
   });
-
+  it('should take the body text as a child', () => {
+    const output = mount(<Button onClick={() => {}}>Hello World</Button>);
+    expect(output.text()).toContain('Hello World');
+  });
+});
 
 ```
 

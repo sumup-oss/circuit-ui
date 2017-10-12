@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 import Button from '.';
 
 describe('Button', () => {
@@ -14,5 +15,9 @@ describe('Button', () => {
       </Button>
     );
     expect(button).toMatchSnapshot();
+  });
+  it('should take the body text as a child', () => {
+    const output = mount(<Button onClick={() => {}}>Hello World</Button>);
+    expect(output.text()).toContain('Hello World');
   });
 });
