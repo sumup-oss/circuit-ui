@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import withStyles from '../util/withStyles';
-import styles from './Button.scss';
+import withStyles from '../../util/withStyles';
+import styles from './index.scss';
 
 const Button = ({ onClick, label, className, disabled = false, children }) => {
   if (!(onClick && (label || children))) {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Button from '../Button';
 
 class LoadingButton extends Component {
   constructor(props) {
@@ -46,11 +47,18 @@ class LoadingButton extends Component {
   }
 
   render() {
-    const { onClick, children, ...otherProps } = this.props;
+    const {
+      onClick,
+      children,
+      className: classes,
+      disabled,
+      ...otherProps
+    } = this.props;
+    const { loading } = this.state;
 
-    const className = classNames(this.props.className, {
-      'btn--loading': this.state.loading,
-      'btn--disabled': this.state.loading
+    const className = classNames(classes, {
+      'btn--loading': loading,
+      'btn--disabled': loading
     });
 
     const props = {
@@ -59,19 +67,25 @@ class LoadingButton extends Component {
       onClick: onClick ? e => this.setPromise(onClick(e)) : () => {}
     };
 
-    const disabled = this.props.disabled || this.state.loading;
+    const isDisabled = disabled || loading;
 
     return (
-      <button disabled={disabled} {...props}>
+      <Button disabled={isDisabled} {...props}>
         {children}
         <span className="spinner" />
-      </button>
+      </Button>
     );
   }
 }
 
 LoadingButton.contextTypes = {
   form: PropTypes.shape({ onSubmit: PropTypes.func })
+};
+
+LoadingButton.propTypes = {
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 export default LoadingButton;
