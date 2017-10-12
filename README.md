@@ -2,7 +2,6 @@
 
 ```
 npm install
-npm i -g @storybook/cli
 npm start
 ```
 
