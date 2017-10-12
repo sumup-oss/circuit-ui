@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 export default class StyleProvider extends Component {
   getChildContext() {
-    console.log('getting child context');
-    debugger;
     return { insertCss: this.props.insertCss };
   }
 
