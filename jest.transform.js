@@ -4,14 +4,12 @@ const babelConfig = {
   plugins: [
     'lodash',
     'syntax-dynamic-import',
+    'transform-es2015-modules-commonjs',
     'transform-object-rest-spread',
     'transform-class-properties'
   ],
   presets: [
-    [
-      'env',
-      { targets: { browsers: '> 2% in my stats', uglify: true }, useBuiltIns: true }
-    ]
+    ['env', { targets: { node: 'current' } } ],
     'react',
     'stage-3'
   ]
