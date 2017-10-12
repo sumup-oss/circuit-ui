@@ -54,7 +54,6 @@
     "prettier-eslint": "^8.2.0",
     "react-addons-test-utils": "^15.6.0",
     "storybook-addon-smart-knobs": "^3.0.1",
-    "storybook-addon-specifications": "^2.1.1",
     "stylelint": "^8.2.0",
     "stylelint-config-sass-guidelines": "^3.1.0",
     "stylelint-config-standard": "^17.0.0",
