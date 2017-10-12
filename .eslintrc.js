@@ -22,7 +22,7 @@ module.exports = {
     'prettier/prettier': ["error", {
       singleQuote: true
     }],
-    'react/prop-types': [1, { ignore: ['i18n'] }],
+    'react/prop-types': [1, { ignore: ['i18n', 'children'] }],
     'import/prefer-default-export': 0
   },
   globals: {
@@ -50,7 +50,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       webpack: {
-        config: 'webpack.config.js'
+        config: '.storybook/webpack.config.js'
       }
     }
   }
