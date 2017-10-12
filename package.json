@@ -47,9 +47,6 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
-    "stylelint-config-sass-guidelines": "^3.1.0",
-    "stylelint-config-standard": "^17.0.0",
-    "stylelint-scss": "^2.0.1",
     "expect": "^21.1.0",
     "jest": "^21.2.1",
     "onchange": "^3.2.1",
@@ -59,10 +56,13 @@
     "react-test-renderer": "^15.6.1",
     "storybook-addon-smart-knobs": "^3.0.1",
     "storybook-addon-specifications": "^2.1.1",
-    "stylelint": "^8.2.0"
+    "stylelint": "^8.2.0",
+    "stylelint-config-sass-guidelines": "^3.1.0",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-scss": "^2.0.1"
   },
   "dependencies": {
-    "auto-prefixer": "^0.4.2",
+    "autoprefixer": "^7.1.5",
     "babel-eslint": "^8.0.1",
     "bourbon": "^4.3.4",
     "bourbon-neat": "^1.9.0",

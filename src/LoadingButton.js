@@ -23,7 +23,7 @@ class LoadingButton extends Component {
   componentWillMount() {
     const { form } = this.context;
     if (form) {
-      this.submitListener = form.onSubmit((pr) => this.setPromise(pr));
+      this.submitListener = form.onSubmit(pr => this.setPromise(pr));
     }
   }
 
@@ -37,12 +37,10 @@ class LoadingButton extends Component {
 
   setPromise(promise) {
     if (promise && typeof promise.then === 'function') {
-      promise
-        .then(this.stopLoading)
-        .catch((err) => {
-          this.stopLoading();
-          return Promise.reject(err);
-        });
+      promise.then(this.stopLoading).catch(err => {
+        this.stopLoading();
+        return Promise.reject(err);
+      });
       this.setState({ promise, loading: true });
     }
   }
@@ -58,15 +56,15 @@ class LoadingButton extends Component {
     const props = {
       ...otherProps,
       className,
-      onClick: onClick ? e => this.setPromise(onClick(e)) : (() => {})
+      onClick: onClick ? e => this.setPromise(onClick(e)) : () => {}
     };
 
     const disabled = this.props.disabled || this.state.loading;
 
     return (
-      <button disabled={disabled} { ...props }>
+      <button disabled={disabled} {...props}>
         {children}
-        <span className="spinner"></span>
+        <span className="spinner" />
       </button>
     );
   }
