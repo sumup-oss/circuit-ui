@@ -53,7 +53,6 @@
     "prettier": "^1.7.4",
     "prettier-eslint": "^8.2.0",
     "react-addons-test-utils": "^15.6.0",
-    "react-test-renderer": "^15.6.1",
     "storybook-addon-smart-knobs": "^3.0.1",
     "storybook-addon-specifications": "^2.1.1",
     "stylelint": "^8.2.0",
@@ -64,6 +63,7 @@
   "dependencies": {
     "autoprefixer": "^7.1.5",
     "babel-eslint": "^8.0.1",
+    "babel-plugin-lodash": "^3.2.11",
     "bourbon": "^4.3.4",
     "bourbon-neat": "^1.9.0",
     "classnames": "^2.2.5",
@@ -76,6 +76,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2"
   }

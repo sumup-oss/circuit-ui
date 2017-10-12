@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should be disabled if the disabled property is passed 1`] = `
+<button
+  className="btn btn--disabled"
+  onClick={[Function]}
+  title="I'm disabled"
+>
+  I'm disabled
+</button>
+`;
+
+exports[`Button should not render if there is no click handler, label, or children 1`] = `null`;
