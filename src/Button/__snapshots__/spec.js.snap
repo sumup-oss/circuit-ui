@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button should accept classnames as props 1`] = `
+<button
+  className="btn btn--loading"
+  onClick={[Function]}
+  title="I might be loading"
+>
+  I might be loading
+</button>
+`;
+
 exports[`Button should be disabled if the disabled property is passed 1`] = `
 <button
   className="btn btn--disabled"
@@ -11,3 +21,13 @@ exports[`Button should be disabled if the disabled property is passed 1`] = `
 `;
 
 exports[`Button should not render if there happens to be no click handler, label, or children 1`] = `null`;
+
+exports[`Button should respect label or body 1`] = `
+<button
+  className="btn"
+  onClick={[Function]}
+  title="My label"
+>
+  My label
+</button>
+`;
