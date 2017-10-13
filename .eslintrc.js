@@ -36,7 +36,6 @@ module.exports = {
   globals: {
     describe: true,
     beforeEach: true,
-    angular: true,
     inject: true,
     it: true,
     test: true,
