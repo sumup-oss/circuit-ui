@@ -20,4 +20,19 @@ describe('Button', () => {
     const output = mount(<Button onClick={() => {}}>Hello World</Button>);
     expect(output.text()).toContain('Hello World');
   });
+  it('should respect label or body', () => {
+    const button = renderer.create(
+      <Button label="My label" onClick={() => {}}>
+      </Button>
+    );
+    expect(button).toMatchSnapshot();
+  });
+  it('should accept classnames as props', () => {
+    const button = renderer.create(
+      <Button className="btn--loading" onClick={() => {}}>
+        I might be loading
+      </Button>
+    );
+    expect(button).toMatchSnapshot();
+  });
 });
