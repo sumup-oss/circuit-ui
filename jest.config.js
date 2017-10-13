@@ -2,11 +2,8 @@ module.exports = {
   coverageDirectory: '../../__coverage__',
   rootDir: 'src',
   moduleFileExtensions: ['js'],
-  transformIgnorePatterns: [
-    "/node_modules/(?!test-component).+\\.js$"
-  ],
   collectCoverageFrom: [
-    'src/*.{js,jsx}',
+    '**/*.{js,jsx}',
     '!**/node_modules/**'
   ],
   moduleDirectories: ['node_modules', 'src'],

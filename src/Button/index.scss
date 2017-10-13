@@ -1,28 +1,28 @@
 @import "./../shared";
 
 .btn {
-  transition: color .2s cubic-bezier(.4, .0, .2, 1), background-color .2s cubic-bezier(.4, .0, .2, 1);
-  display: inline-block;
   border: 1px solid;
   border-radius: $border-radius;
   cursor: pointer;
+  display: inline-block;
   font-size: $font-size-l;
   font-weight: 500;
+  line-height: $line-height-s;
+  overflow: hidden;
   padding: 11px $spacing-xl;
   position: relative;
-  white-space: nowrap;
   text-align: center;
   text-decoration: none;
-  overflow: hidden;
-  vertical-align: middle;
   text-overflow: ellipsis;
-  line-height: $line-height-s;
+  transition: color .2s cubic-bezier(.4, .0, .2, 1), background-color .2s cubic-bezier(.4, .0, .2, 1);
+  vertical-align: middle;
+  white-space: nowrap;
 
   &:hover,
   &:active,
   &:focus {
-    text-decoration: none;
     outline: none;
+    text-decoration: none;
   }
 
   &:hover,
@@ -31,14 +31,14 @@
   }
 
   &[disabled], &.btn--disabled {
-    opacity: .4;
     cursor: default;
+    opacity: .4;
     pointer-events: none;
   }
 
   &--loading {
-    transition: padding .2s ease-in-out;
     padding-right: $spacing-xxl !important;
+    transition: padding .2s ease-in-out;
 
     .spinner {
       display: inline-block;
@@ -94,19 +94,19 @@
     color: $color-dark;
 
     &:hover {
-      color: white;
       background-color: $color-dark;
+      color: white;
     }
   }
 
   &#{&}--secondary-white, &#{&}--outline-white {
     background-color: transparent;
-    border: 1px solid #FFF;
-    color: #FFF;
+    border: 1px solid #fff;
+    color: #fff;
 
     &:hover {
+      background-color: #fff;
       color: $color-error;
-      background-color: #FFF;
     }
   }
 
@@ -158,9 +158,9 @@
   }
 
   &#{&}--s {
-    padding: $spacing-xs $spacing-m;
     font-size: $font-size-m;
     line-height: $line-height-s;
+    padding: $spacing-xs $spacing-m;
 
     &.btn--loading .spinner {
       right: 9px;

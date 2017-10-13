@@ -15,6 +15,6 @@ storiesOf('Buttons', module)
   })
   .add('LoadingButton', () => (
     <LoadingButton className="btn btn--highlight" onClick={action('clicked')}>
-      Loading!
+      I am Loading!
     </LoadingButton>
   ));

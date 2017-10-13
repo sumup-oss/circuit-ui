@@ -1,4 +1,5 @@
 package-lock.json
+.stylelintcache
 .eslintcache
 *.swp
 node_modules

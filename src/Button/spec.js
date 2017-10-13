@@ -4,14 +4,14 @@ import { mount } from 'enzyme';
 import Button from '.';
 
 describe('Button', () => {
-  it('should not render if there is no click handler, label, or children', () => {
+  it('should not render if there happens to be no click handler, label, or children', () => {
     const button = renderer.create(<Button />);
     expect(button).toMatchSnapshot();
   });
   it('should be disabled if the disabled property is passed', () => {
     const button = renderer.create(
       <Button disabled={true} onClick={() => {}}>
-        I'm disabled
+        I am disabled
       </Button>
     );
     expect(button).toMatchSnapshot();
