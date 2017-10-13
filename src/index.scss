@@ -1,10 +1,10 @@
-@import "bourbon";
-//@import "neat-helpers";
-//@import "grid_settings";
-@import "neat";
+@import 'bourbon';
+//@import 'neat-helpers';
+//@import 'grid_settings';
+@import 'neat';
 
-$fontFamilyBody: museo-rounded, Helvetica, Arial, sans-serif;
-$fontFamilyDisplay: museo-rounded, Helvetica, Arial, sans-serif;
+$font-family-body: museo-rounded, Helvetica, Arial, sans-serif;
+$font-family-display: museo-rounded, Helvetica, Arial, sans-serif;
 
 $topnav-height: 60px;
 $topnav-height-mobile: 48px;
@@ -12,19 +12,19 @@ $topnav-height-mobile: 48px;
 // Temporarily here -- will be de-duped by gzip,
 // but in the long-run we separate variables and mixins
 // out of actual CSS.
-// @import "./fonts"; -- fonts causes bus error?!
+// @import './fonts'; -- fonts causes bus error?!
 
-@import "brand-styles/variables";
-@import "brand-styles/typography_mixins";
-@import "brand-styles/mixins";
-@import "brand-styles/components";
-@import "brand-styles/animate";
-@import "brand-styles/buttons";
-@import "brand-styles/convenience";
-@import "brand-styles/forms";
-@import "brand-styles/grid";
-@import "brand-styles/hamburger";
-@import "brand-styles/mixins";
-@import "brand-styles/tables";
-@import "brand-styles/typography";
-@import "brand-styles/typography_mixins";
+@import 'brand-styles/variables';
+@import 'brand-styles/typography_mixins';
+@import 'brand-styles/mixins';
+@import 'brand-styles/components';
+@import 'brand-styles/animate';
+@import 'brand-styles/buttons';
+@import 'brand-styles/convenience';
+@import 'brand-styles/forms';
+@import 'brand-styles/grid';
+@import 'brand-styles/hamburger';
+@import 'brand-styles/mixins';
+@import 'brand-styles/tables';
+@import 'brand-styles/typography';
+@import 'brand-styles/typography_mixins';
