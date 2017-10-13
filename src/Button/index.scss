@@ -1,4 +1,4 @@
-@import "./../shared";
+@import './../shared';
 
 .btn {
   border: 1px solid;
@@ -14,7 +14,7 @@
   text-align: center;
   text-decoration: none;
   text-overflow: ellipsis;
-  transition: color .2s cubic-bezier(.4, .0, .2, 1), background-color .2s cubic-bezier(.4, .0, .2, 1);
+  transition: color .2s cubic-bezier(.4, 0, .2, 1), background-color .2s cubic-bezier(.4, 0, .2, 1);
   vertical-align: middle;
   white-space: nowrap;
 
@@ -30,7 +30,8 @@
     color: $color-brand-darker;
   }
 
-  &[disabled], &.btn--disabled {
+  &[disabled],
+  &.btn--disabled {
     cursor: default;
     opacity: .4;
     pointer-events: none;
@@ -48,10 +49,11 @@
 
   // TODO: remove the highlight modifier as we're
   //       going to stick with cta as terminology.
-  &#{&}--cta, &#{&}--highlight {
+  &#{&}--cta,
+  &#{&}--highlight {
     background-color: $color-highlight;
     border-color: $color-highlight;
-    color: white;
+    color: $color-white;
 
     &:hover,
     &:active,
@@ -59,7 +61,8 @@
       background-color: $color-highlight-darker;
       border-color: $color-highlight-darker;
 
-      &[disabled], &.btn--disabled {
+      &[disabled],
+      &.btn--disabled {
         background-color: $color-highlight;
         border-color: $color-highlight;
       }
@@ -68,7 +71,8 @@
 
   // TODO: remove the outline modifier as we're
   //       going to stick with secondary as terminology.
-  &#{&}--secondary, &#{&}--outline {
+  &#{&}--secondary,
+  &#{&}--outline {
     background-color: transparent;
     border-color: $color-highlight;
     color: $color-highlight;
@@ -79,7 +83,8 @@
       border-color: $color-highlight-darker;
       color: $color-highlight-darker;
 
-      &[disabled], &.btn--disabled {
+      &[disabled],
+      &.btn--disabled {
         border-color: $color-highlight;
         color: $color-highlight;
       }
@@ -88,18 +93,20 @@
 
   // TODO: remove the outline-dark modifier as we're going
   //       to strick with secondary as terminology.
-  &#{&}--secondary-dark, &#{&}--outline-dark {
+  &#{&}--secondary-dark,
+  &#{&}--outline-dark {
     background-color: transparent;
     border: 1px solid $color-dark;
     color: $color-dark;
 
     &:hover {
       background-color: $color-dark;
-      color: white;
+      color: $color-white;
     }
   }
 
-  &#{&}--secondary-white, &#{&}--outline-white {
+  &#{&}--secondary-white,
+  &#{&}--outline-white {
     background-color: transparent;
     border: 1px solid #fff;
     color: #fff;
@@ -124,7 +131,8 @@
       background-color: darken($color-light, 5%);
       border-color: darken($color-light, 5%);
 
-      &[disabled], &.btn--disabled {
+      &[disabled],
+      &.btn--disabled {
         background-color: $color-light;
         border-color: $color-light;
       }
@@ -134,7 +142,7 @@
   &#{&}--warning {
     background-color: darken($color-warning, 5%);
     border-color: darken($color-warning, 5%);
-    color: white;
+    color: $color-white;
 
     &:hover,
     &:active,
@@ -147,7 +155,7 @@
   &#{&}--alert {
     background-color: $color-error;
     border-color: $color-error;
-    color: white;
+    color: $color-white;
 
     &:hover,
     &:active,
@@ -189,7 +197,8 @@
   &#{&}--highlight {
     color: $color-highlight;
 
-    &[disabled], &.btn--disabled {
+    &[disabled],
+    &.btn--disabled {
       color: lighten($color-highlight, .2);
     }
   }
@@ -197,7 +206,8 @@
   &#{&}--brand {
     color: $color-brand;
 
-    &[disabled], &.btn--disabled {
+    &[disabled],
+    &.btn--disabled {
       color: lighten($color-brand, 20%);
     }
   }
@@ -205,11 +215,12 @@
   &#{&}--dark {
     color: $color-dark;
 
-    &[disabled], &.btn--disabled {
+    &[disabled],
+    &.btn--disabled {
       color: lighten($color-dark, 20%);
     }
   }
 
-  &:focus { outline: none }
+  &:focus { outline: none; }
 }
 

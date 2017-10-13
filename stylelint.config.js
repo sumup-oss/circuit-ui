@@ -3,6 +3,8 @@ module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-sass-guidelines'],
   ignoreFiles: ['src/brand-styles/**'],
   rules: {
+    'number-leading-zero': 'never',
+    'max-nesting-depth': 3,
     'selector-pseudo-class-no-unknown': [
       true,
       {
@@ -18,7 +20,7 @@ module.exports = {
     'property-no-unknown': [
       true,
       {
-        ignoreAtRules: ['composes']
+        ignoreProperties: ['composes']
       }
     ]
   }

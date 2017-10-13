@@ -22,8 +22,7 @@ describe('Button', () => {
   });
   it('should respect label or body', () => {
     const button = renderer.create(
-      <Button label="My label" onClick={() => {}}>
-      </Button>
+      <Button label="My label" onClick={() => {}} />
     );
     expect(button).toMatchSnapshot();
   });
