@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should respect the variant flag 1`] = `
+Array [
+  <div
+    className="card--standard"
+  >
+    Hi
+  </div>,
+  <div
+    className="card--inlay"
+  >
+    Hi
+  </div>,
+  <div
+    className="card--overlay"
+  >
+    Hi
+  </div>,
+]
+`;

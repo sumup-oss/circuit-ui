@@ -1,0 +1,46 @@
+@import '../shared';
+
+@mixin card-inlay {
+  background-color: $color-off;
+  border-radius: $border-radius;
+  padding: $spacing-s;
+}
+
+@mixin card-overlay {
+  @include drop-shadow;
+
+  background: rgba(255, 255, 255, .8);
+  border-radius: $border-radius;
+  padding: $spacing-s;
+}
+
+@mixin card($tablet-top, $tablet-sides, $mobile-top, $mobile-sides) {
+  $box-shadow: #dceafa;
+
+  background: $color-white;
+  border: 1px solid $color-light;
+  border-radius: $border-radius;
+  box-shadow: 0 1px 0 0 opacify($color-light, .2);
+  display: block;
+  margin-bottom: $spacing-s;
+  padding: $mobile-top $mobile-sides;
+
+  @include fancy-shadow($box-shadow);
+
+  @include media($big-screens) {
+    box-shadow: none;
+    padding: $tablet-top $tablet-sides;
+  }
+}
+
+.card--standard {
+  @include card($spacing-m, $spacing-l, $spacing-s, $spacing-m);
+}
+
+.card--inlay {
+  @include card-inlay;
+}
+
+.card--overlay {
+  @include card-overlay;
+}
