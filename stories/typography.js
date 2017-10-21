@@ -14,12 +14,12 @@ storiesOf('Typography', module)
     );
   })
   .add('Text', () => {
-    const SIZES = ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', 'xxxxxl'];
+    const SIZES = ['xxxxxl', 'xxxxl', 'xxxl', 'xxl', 'xl', 'm', 's', 'xs'];
     return (
       <div>
         {SIZES.map(size => (
           <Text key={size} size={size}>
-            {size}
+            Text {size}
           </Text>
         ))}
         <Text>
