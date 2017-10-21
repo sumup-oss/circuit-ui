@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Headline should render the type as the tag name by default 1`] = `
+<h1
+  className=""
+>
+  Hello
+</h1>
+`;
+
+exports[`Headline should use a paragraph tag if \`displayOnly\` property is provided 1`] = `
+<p
+  className="h1"
+>
+  Hello
+</p>
+`;
