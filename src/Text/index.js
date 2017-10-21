@@ -25,6 +25,7 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
+  size: 'm',
   display: 'block'
 };
 

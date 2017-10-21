@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paragraph should render a paragraph 1`] = `
+<p
+  className="paragraph"
+>
+  Hello
+</p>
+`;
