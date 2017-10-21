@@ -5,9 +5,7 @@ import withStyles from '../../util/withStyles';
 import { sizesToConfig } from './service';
 import styles from './index.scss';
 
-const SIZES = [
-  'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', 'xxxxxl'
-];
+const SIZES = ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', 'xxxxxl'];
 
 const Text = ({ size, display, children }) => {
   const sizeConfig = sizesToConfig(SIZES, size);
