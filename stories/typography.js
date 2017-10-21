@@ -3,14 +3,12 @@ import { storiesOf } from '@storybook/react';
 import { Headline, Text, Paragraph } from '..';
 
 storiesOf('Typography', module)
-  .add('Text', () => {
-    const SIZES = ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', 'xxxxxl'];
+  .add('Headline', () => {
+    const HEADLINE_TYPES = ['h1', 'h2', 'h3', 'h4', 'h5'];
     return (
       <div>
-        {SIZES.map(size => (
-          <Text key={size} size={size}>
-            {size}
-          </Text>
+        {HEADLINE_TYPES.map(type => (
+          <Headline type={type} key={type}>{`Heading ${type}`}</Headline>
         ))}
       </div>
     );
@@ -34,25 +32,27 @@ storiesOf('Typography', module)
         Adaptogen paleo coloring book mlkshk aesthetic tote bag. Synth semiotics
         dolore minim asymmetrical chambray banjo kitsch. Typewriter migas sint
         selvage paleo. Prism knausgaard truffaut lyft occupy vexillologist
-        humblebrag flannel gochujang. Heirloom pinterest consectetur 90's, marfa
+        humblebrag flannel gochujang. Heirloom pinterest consectetur 90s, marfa
         pork belly flannel tempor lomo gluten-free. Lo-fi laboris fugiat, retro
         sed vexillologist master cleanse squid gastropub jianbing viral la croix
         coloring book in. Selfies voluptate echo park biodiesel. Chicharrones
         cold-pressed intelligentsia tempor sint bitters unicorn shabby chic
         PBR&B anim before they sold out. Etsy narwhal echo park synth sriracha
-        90's distillery aesthetic. Squid cliche roof party consequat four loko
+        90s distillery aesthetic. Squid cliche roof party consequat four loko
         id. Minim umami yuccie deserunt snackwave id echo park whatever
         vexillologist mollit flexitarian literally ullamco organic. Lo-fi
         schlitz shabby chic truffaut.
       </Paragraph>
     </div>
   ))
-  .add('Headline', () => {
-    const HEADLINE_TYPES = ['h1', 'h2', 'h3', 'h4', 'h5'];
+  .add('Text', () => {
+    const SIZES = ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', 'xxxxxl'];
     return (
       <div>
-        {HEADLINE_TYPES.map(type => (
-          <Headline type={type} key={type}>{`Heading ${type}`}</Headline>
+        {SIZES.map(size => (
+          <Text key={size} size={size}>
+            {size}
+          </Text>
         ))}
       </div>
     );

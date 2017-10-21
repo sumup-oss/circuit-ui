@@ -20,6 +20,7 @@ const Text = ({ size, display, children, className, ...props }) => {
 
 Text.propTypes = {
   size: PropTypes.oneOf(SIZES),
+  className: PropTypes.string,
   display: PropTypes.oneOf(['inline', 'block']),
   children: PropTypes.node
 };
