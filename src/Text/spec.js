@@ -19,7 +19,7 @@ describe('Text', () => {
   it('should be possible to render text inline', () => {
     const size = 's';
     const actual = renderer.create(
-      <Text size={size} display="inline">
+      <Text size={size} inline={true}>
         Hi
       </Text>
     );

@@ -7,12 +7,11 @@ import styles from './index.scss';
 
 const SIZES = ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', 'xxxxxl'];
 
-const Text = ({ size, display, children, className, ...props }) => {
+const Text = ({ size, inline, children, className, ...props }) => {
   const sizeConfig = sizesToConfig(SIZES, size);
-  const { displayClass, tagName } =
-    display === 'block'
-      ? { displayClass: 'text', tagName: 'p' }
-      : { displayClass: 'text--inline', tagName: 'span' };
+  const { displayClass, tagName } = inline
+    ? { displayClass: 'text--inline', tagName: 'span' }
+    : { displayClass: 'text', tagName: 'p' };
 
   const classes = classNames(className, displayClass, sizeConfig);
   return createElement(tagName, { className: classes, ...props, children });
@@ -21,13 +20,13 @@ const Text = ({ size, display, children, className, ...props }) => {
 Text.propTypes = {
   size: PropTypes.oneOf(SIZES),
   className: PropTypes.string,
-  display: PropTypes.oneOf(['inline', 'block']),
+  inline: PropTypes.bool,
   children: PropTypes.node
 };
 
 Text.defaultProps = {
   size: 'm',
-  display: 'block'
+  inline: false
 };
 
 export default withStyles(styles)(Text);
