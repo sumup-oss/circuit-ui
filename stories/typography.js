@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Text, Paragraph } from '..';
+import { Headline, Text, Paragraph } from '..';
 
 storiesOf('Typography', module)
   .add('Text', () => {
@@ -46,4 +46,14 @@ storiesOf('Typography', module)
         schlitz shabby chic truffaut.
       </Paragraph>
     </div>
-  ));
+  ))
+  .add('Headline', () => {
+    const HEADLINE_TYPES = ['h1', 'h2', 'h3', 'h4', 'h5'];
+    return (
+      <div>
+        {HEADLINE_TYPES.map(type => (
+          <Headline type={type} key={type}>{`Heading ${type}`}</Headline>
+        ))}
+      </div>
+    );
+  });
