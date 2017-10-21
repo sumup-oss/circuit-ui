@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import withStyles from '../../util/withStyles';
 import styles from './index.scss';
 
-const Paragraph = ({ children }) => {
+const Paragraph = ({ children, ...props }) => {
   const classes = 'paragraph';
-  return <p className={classes}>{children}</p>;
+  return (
+    <p className={classes} {...props}>
+      {children}
+    </p>
+  );
 };
 
 Text.propTypes = {

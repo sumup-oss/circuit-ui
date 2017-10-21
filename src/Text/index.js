@@ -7,11 +7,15 @@ import styles from './index.scss';
 
 const SIZES = ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', 'xxxxxl'];
 
-const Text = ({ size, display, children }) => {
+const Text = ({ size, display, children, className, ...props }) => {
   const sizeConfig = sizesToConfig(SIZES, size);
   const displayClass = display === 'inline' ? 'text--inline' : 'text';
-  const classes = classNames(displayClass, sizeConfig);
-  return <span className={classes}>{children}</span>;
+  const classes = classNames(className, displayClass, sizeConfig);
+  return (
+    <span className={classes} {...props}>
+      {children}
+    </span>
+  );
 };
 
 Text.propTypes = {
