@@ -1,4 +1,4 @@
-import React from 'react';
+import { createElement } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withStyles from '../../util/withStyles';
@@ -9,13 +9,13 @@ const SIZES = ['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl', 'xxxxxl'];
 
 const Text = ({ size, display, children, className, ...props }) => {
   const sizeConfig = sizesToConfig(SIZES, size);
-  const displayClass = display === 'inline' ? 'text--inline' : 'text';
+  const { displayClass, tagName } =
+    display === 'block'
+      ? { displayClass: 'text', tagName: 'p' }
+      : { displayClass: 'text--inline', tagName: 'span' };
+
   const classes = classNames(className, displayClass, sizeConfig);
-  return (
-    <span className={classes} {...props}>
-      {children}
-    </span>
-  );
+  return createElement(tagName, { className: classes, ...props, children });
 };
 
 Text.propTypes = {

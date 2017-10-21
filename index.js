@@ -1,5 +1,4 @@
 export Text from './src/Text';
-export Paragraph from './src/Paragraph';
 export Headline from './src/Headline';
 
 export LoadingButton from './src/LoadingButton';

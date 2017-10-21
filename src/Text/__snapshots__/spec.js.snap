@@ -9,9 +9,9 @@ exports[`Text should be possible to render text inline 1`] = `
 `;
 
 exports[`Text should respect the size property 1`] = `
-<span
+<p
   className="text type-s"
 >
   Hello
-</span>
+</p>
 `;
