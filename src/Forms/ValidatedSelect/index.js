@@ -4,10 +4,15 @@ import Select from '../Select';
 import ValidationsAndLabel from '../ValidationsAndLabel';
 import withForm from '../withForm';
 
-function ValidatedSelect(
-  { field, name, id, label, children, ...otherProps },
-  { form: { onFieldChange, data } }
-) {
+function ValidatedSelect({
+  field,
+  name,
+  id,
+  label,
+  children,
+  form: { onFieldChange, data },
+  ...otherProps
+}) {
   const props = { field, label };
   return (
     <ValidationsAndLabel {...props}>

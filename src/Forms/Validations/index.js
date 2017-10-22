@@ -6,10 +6,7 @@ import ValidationList from '../ValidationList';
 import { setFormMeta, setFormErrors } from '../Form';
 import withForm from '../withForm';
 
-function Validations(
-  { children, field },
-  { form: { onChange, data, country } }
-) {
+function Validations({ children, field, form: { onChange, data, country } }) {
   const onValidate = ({ meta, errors }) => {
     compose(onChange, setFormMeta(field, meta), setFormErrors(field, errors))(
       data

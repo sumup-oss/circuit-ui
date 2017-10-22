@@ -4,10 +4,16 @@ import Label from '../Label';
 import Validations from '../Validations';
 import withForm from '../withForm';
 
-function ValidationsAndLabel(
-  { children, field, name, id, label, styleAsOptional, ...props },
-  { form: { data } }
-) {
+function ValidationsAndLabel({
+  children,
+  field,
+  name,
+  id,
+  label,
+  styleAsOptional,
+  form: { data },
+  ...props
+}) {
   const validationsProps = {
     field,
     ...props

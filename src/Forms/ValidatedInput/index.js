@@ -8,10 +8,16 @@ import ValidationsAndLabel from '../ValidationsAndLabel';
 import withForm from '../withForm';
 import withStyles from '../../../util/withStyles';
 
-function ValidatedInput(
-  { field, children, label, name, id, type = 'text', ...otherProps },
-  { form: { onFieldChange, data } }
-) {
+function ValidatedInput({
+  field,
+  children,
+  label,
+  name,
+  id,
+  type = 'text',
+  form: { onFieldChange, data },
+  ...otherProps
+}) {
   const props = { field, label };
   const Parent = label === undefined ? Validations : ValidationsAndLabel;
 
