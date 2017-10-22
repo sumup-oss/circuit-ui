@@ -1,5 +1,4 @@
 import { isOptional, getInputClasses } from './service';
-import { includes } from 'lodash/fp';
 
 describe('isOptional', () => {
   it('should be optional when meta info says not required', () => {

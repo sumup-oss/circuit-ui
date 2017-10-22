@@ -1,4 +1,4 @@
 import { hoistStatics, getContext } from 'recompose';
-import { CONTEXT } from '.';
+import { CONTEXT } from './Form';
 
 export default hoistStatics(getContext(CONTEXT));

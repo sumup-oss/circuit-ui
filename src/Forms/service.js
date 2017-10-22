@@ -8,13 +8,9 @@ export function isOptional({ validations, meta, styleAsOptional }) {
   return !isRequired && styleAsOptional !== false;
 }
 
-export function getInputClasses({
-  errors,
-  dirty,
-  disabled,
-  optional,
-  className
-} = {}) {
+export function getInputClasses(
+  { errors, dirty, disabled, optional, className } = {}
+) {
   const hasErrors = some(identity, values(errors));
   const classes = {
     'ng-dirty': dirty,
@@ -24,5 +20,5 @@ export function getInputClasses({
     'input--optional': optional
   };
 
-  return classNames('input', classes);
+  return classNames('input', className, classes);
 }
