@@ -3,6 +3,7 @@
 .validation-list {
   @include type-s;
 
+  padding-left: 0;
   position: relative;
 
   li {

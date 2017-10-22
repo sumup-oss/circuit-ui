@@ -16,7 +16,7 @@ function Label({
   const classes = optional ? 'label label--optional' : 'label';
   return (
     <label htmlFor={id} className={classes}>
-      {children} {optionalLabel}
+      {children} {optional && optionalLabel}
     </label>
   );
 }

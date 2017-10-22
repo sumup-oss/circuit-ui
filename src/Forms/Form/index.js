@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { omit, reduce, get } from 'lodash/fp';
+import withStyles from '../../../util/withStyles';
+import styles from './index.scss';
 
 export const FORM_CONTEXT = {
   form: PropTypes.shape({
@@ -48,7 +50,7 @@ export function createFormState(
   );
 }
 
-export default class Form extends Component {
+class Form extends Component {
   static childContextTypes = FORM_CONTEXT;
   static propTypes = {
     data: PropTypes.object,
@@ -99,9 +101,16 @@ export default class Form extends Component {
     };
 
     return (
-      <form autoComplete="off" onSubmit={wrappedOnSubmit} {...formProps}>
+      <form
+        className="form"
+        autoComplete="off"
+        onSubmit={wrappedOnSubmit}
+        {...formProps}
+      >
         {children}
       </form>
     );
   }
 }
+
+export default withStyles(styles)(Form);
