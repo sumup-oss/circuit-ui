@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import Validator from '../Validator';
 import ValidationList from '../ValidationList';
-import { setFormMeta, setFormErrors } from '../Form';
+import { setFormMeta, setFormErrors } from '../service';
 import withForm from '../withForm';
 
 function Validations({ children, field, form: { onChange, data, country } }) {
-  const onValidate = ({ meta, errors }) => {
+  const onValidate = ({ meta, errors }) =>
     compose(onChange, setFormMeta(field, meta), setFormErrors(field, errors))(
       data
     );
-  };
 
   return (
     <li>
@@ -37,6 +36,7 @@ function Validations({ children, field, form: { onChange, data, country } }) {
 }
 
 Validations.propTypes = {
+  form: PropTypes.object,
   children: PropTypes.node,
   field: PropTypes.string
 };

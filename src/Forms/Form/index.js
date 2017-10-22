@@ -25,13 +25,13 @@ export function createFormState(
   return reduce(
     (memo, field) => {
       const { values, metaPaths, validations, messages } = initialValues;
-      memo.values[field] = get(field, '', values);
+      memo.values[field] = get(field, values) || '';
       memo.errors[field] = {};
       memo.dirty[field] = false;
       memo.meta[field] = {};
-      memo.metaPaths[field] = get(field, '', metaPaths);
-      memo.validations[field] = get(field, {}, validations);
-      memo.messages[field] = get(field, {}, messages);
+      memo.metaPaths[field] = get(field, metaPaths) || '';
+      memo.validations[field] = get(field, validations) || {};
+      memo.messages[field] = get(field, messages) || {};
       return memo;
     },
     {

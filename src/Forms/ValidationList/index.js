@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getActiveErrors, getErrorMessages } from './service';
 import styles from './index.scss';
-import { withStyles } from '../../../util/withStyles';
+import withStyles from '../../../util/withStyles';
 
 class ValidationList extends Component {
   static propTypes = {

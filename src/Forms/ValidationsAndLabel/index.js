@@ -35,6 +35,7 @@ function ValidationsAndLabel({
 }
 
 ValidationsAndLabel.propTypes = {
+  form: PropTypes.object,
   field: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
