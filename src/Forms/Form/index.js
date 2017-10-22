@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { omit } from 'lodash/fp';
+import { omit, reduce, get } from 'lodash/fp';
 
 export const FORM_CONTEXT = {
   form: PropTypes.shape({
@@ -11,6 +11,46 @@ export const FORM_CONTEXT = {
     onSubmit: PropTypes.func
   }).isRequired
 };
+
+export function createFormState(
+  fields,
+  initialValues = {
+    values: {},
+    meta: {},
+    metaPaths: {},
+    validations: {},
+    messages: {}
+  }
+) {
+  return reduce(
+    (memo, field) => {
+      const { values, metaPaths, validations, messages } = initialValues;
+      memo.values[field] = get(field, '', values);
+      memo.errors[field] = {};
+      memo.dirty[field] = false;
+      memo.meta[field] = {};
+      memo.metaPaths[field] = get(field, '', metaPaths);
+      memo.validations[field] = get(field, {}, validations);
+      memo.messages[field] = get(field, {}, messages);
+      return memo;
+    },
+    {
+      values: {},
+      errors: {},
+      dirty: {},
+      meta: {},
+      metaPaths: {},
+      validations: {},
+      messages: {},
+      valid: false
+    },
+    fields
+  );
+}
+
+export function mergeFormValues(data, values) {
+  return { ...data, values: { ...data.values, ...values } };
+}
 
 export default class Form extends Component {
   static childContextTypes = FORM_CONTEXT;

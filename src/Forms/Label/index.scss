@@ -1,0 +1,12 @@
+@import '../../shared';
+
+.label {
+  font-size: $font-size-s;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-s;
+  margin-bottom: $spacing-xs;
+
+  &#{&}--disabled {
+    opacity: .4;
+  }
+}
