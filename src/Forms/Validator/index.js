@@ -88,6 +88,11 @@ class Validator extends Component {
   setAndEvaluate(meta, value) {
     this.setState({ meta }, () => this.evaluateRules(value));
   }
+
+  // eslint-disable-next-line
+  render() {
+    return null;
+  }
 }
 
 export default Validator;

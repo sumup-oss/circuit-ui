@@ -48,10 +48,6 @@ export function createFormState(
   );
 }
 
-export function mergeFormValues(data, values) {
-  return { ...data, values: { ...data.values, ...values } };
-}
-
 export default class Form extends Component {
   static childContextTypes = FORM_CONTEXT;
   static propTypes = {
