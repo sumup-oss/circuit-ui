@@ -7,10 +7,13 @@ import { setFormMeta, setFormErrors } from '../service';
 import withForm from '../withForm';
 
 function Validations({ children, field, form: { onChange, data, country } }) {
-  const onValidate = ({ meta, errors }) =>
-    compose(onChange, setFormMeta(field, meta), setFormErrors(field, errors))(
-      data
-    );
+  const onValidate = ({ meta, errors }) => {
+    const newData = compose(
+      setFormMeta(field, meta),
+      setFormErrors(field, errors)
+    )(data);
+    onChange(newData);
+  };
 
   return (
     <li>

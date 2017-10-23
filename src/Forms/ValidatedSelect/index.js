@@ -33,6 +33,7 @@ function ValidatedSelect({
 }
 
 ValidatedSelect.propTypes = {
+  form: PropTypes.object,
   field: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,

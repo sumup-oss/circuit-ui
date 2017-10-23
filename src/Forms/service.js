@@ -31,6 +31,7 @@ export const setFormMeta = curry((field, meta, formData) => {
       ...meta
     }
   };
+
   return { ...formData, meta: newMeta };
 });
 
@@ -42,6 +43,7 @@ export const setFormErrors = curry((field, errs, formData) => {
       ...errs
     }
   };
+
   const valid = reduce(
     (memo, errorMap) => {
       if (findKey(errorMap)) {
@@ -52,5 +54,6 @@ export const setFormErrors = curry((field, errs, formData) => {
     true,
     errors
   );
+
   return { ...formData, errors, valid };
 });

@@ -44,6 +44,7 @@ function ValidatedInput({
 ValidatedInput.propTypes = {
   field: PropTypes.string,
   children: PropTypes.node,
+  form: PropTypes.object,
   label: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,

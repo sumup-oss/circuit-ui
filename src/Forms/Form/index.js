@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { omit, reduce, get } from 'lodash/fp';
+import { merge, omit, reduce, get } from 'lodash/fp';
 import withStyles from '../../../util/withStyles';
 import styles from './index.scss';
 
@@ -13,6 +13,10 @@ export const FORM_CONTEXT = {
     onSubmit: PropTypes.func
   }).isRequired
 };
+
+export function onChangeForm(prevForm, form) {
+  return merge(prevForm, form);
+}
 
 export function createFormState(
   fields,
@@ -63,6 +67,7 @@ class Form extends Component {
 
   getChildContext() {
     const { data, onChange, country } = this.props;
+    console.log('data', data);
     return {
       form: {
         data,
