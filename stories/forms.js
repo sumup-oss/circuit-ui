@@ -5,6 +5,8 @@ import { action } from '@storybook/addon-actions';
 import {
   ValidatedInput,
   ValidatedSelect,
+  ValidatedRadioButton,
+  InputGroup,
   Form,
   onChangeForm,
   createFormState
@@ -80,4 +82,39 @@ storiesOf('Forms', module)
       </Form>
     ));
     return <MySelectForm />;
+  })
+  .add('ValidatedRadioButton', () => {
+    const MyRadioForm = withFormState(({ data, onUpdate }) => (
+      <Form
+        data={data}
+        onChange={newData =>
+          onUpdate(prevData => onChangeForm(prevData, newData))}
+        onSubmit={action('onSubmit')}
+      >
+        <InputGroup>
+          <ValidatedRadioButton
+            name="name-heinz"
+            id="name-heinz"
+            field="name"
+            value="Heinz"
+            label="Heinz"
+          />
+          <ValidatedRadioButton
+            name="name-helga"
+            id="name-helga"
+            field="name"
+            value="Helga"
+            label="Helga"
+          />
+          <ValidatedRadioButton
+            field="name"
+            name="name-heinrich"
+            id="name-heinrich"
+            value="Heinrich"
+            label="Heinrich"
+          />
+        </InputGroup>
+      </Form>
+    ));
+    return <MyRadioForm />;
   });

@@ -87,7 +87,7 @@ class ValidationList extends Component {
     { isVisible } = {}
   ) {
     if (!field || isEmpty(data)) {
-      return dirty && messages;
+      return dirty && !isEmpty(messages);
     }
     const { isVisible: prevIsVisible } = this.state;
     const { errors: prevErrors } = this.props;
@@ -96,7 +96,7 @@ class ValidationList extends Component {
     const valueChanged = value !== nextValue;
     const errorsChanged = !isEqual(errors, prevErrors);
     const visibilityChanged = prevIsVisible !== isVisible;
-    return (
+    return Boolean(
       dirty && messages && (valueChanged || visibilityChanged || errorsChanged)
     );
   }

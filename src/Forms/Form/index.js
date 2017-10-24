@@ -67,7 +67,6 @@ class Form extends Component {
 
   getChildContext() {
     const { data, onChange, country } = this.props;
-    console.log('data', data);
     return {
       form: {
         data,
