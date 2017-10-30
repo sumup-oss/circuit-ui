@@ -1,0 +1,70 @@
+@import '../../shared';
+
+.checkbox {
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size-m;
+  font-weight: 300;
+  margin-right: 15px;
+  padding-left: 25px;
+  padding-right: 15px;
+  position: relative;
+
+  label {
+    &::before {
+      background-color: $color-white;
+      border: 1px solid $color-medium;
+      content: '';
+      display: inline-block;
+      height: 16px;
+      left: 0;
+      margin-right: 10px;
+      position: absolute;
+      top: 0;
+      width: 16px;
+    }
+  }
+
+  input[type='checkbox'] { /* stylelint-disable-line selector-no-qualifying-type */
+    border: 0;
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: absolute;
+    visibility: hidden;
+    width: auto;
+  }
+
+  input[type='checkbox'] + label::before { /* stylelint-disable-line selector-no-qualifying-type */
+    border-radius: $border-radius;
+  }
+
+  input:checked + label::after {
+    display: inline-block;
+    height: 8px;
+    position: absolute;
+    width: 8px;
+  }
+
+  input[type='checkbox']:checked + label::after { /* stylelint-disable-line selector-no-qualifying-type */
+    background: url('data:image/svg+xml;encoding=UTF-8,%3Csvg%20width%3D%2213%22%20height%3D%2211%22%20viewBox%3D%220%200%2013%2011%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%235C8BCC%22%20d%3D%22M4.363%208.314l-2.63-2.82a.994.994%200%200%200-1.415-.051.999.999%200%200%200-.047%201.415l3.406%203.653a.994.994%200%200%200%201.201.205.996.996%200%200%200%20.426-.327l6.621-8.787A1%201%200%200%200%2010.328.398L4.363%208.314z%22%20%20fill-rule%3D%22evenodd%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    color: $color-brand;
+    content: '';
+    height: 12px;
+    left: 3px;
+    top: 4px;
+    width: 12px;
+  }
+
+  &.checkbox--disabled {
+    opacity: .4;
+
+    label {
+      cursor: default;
+    }
+  }
+}
+

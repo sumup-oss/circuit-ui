@@ -6,9 +6,11 @@ import {
   ValidatedInput,
   ValidatedSelect,
   ValidatedRadioButton,
-  InputGroup,
   ValidatedTextarea,
+  Checkbox,
+  InputGroup,
   Form,
+  Label,
   onChangeForm,
   createFormState
 } from '..';
@@ -119,7 +121,7 @@ storiesOf('Forms', module)
     ));
     return <MyRadioForm />;
   })
-  .add('Textarea', () => {
+  .add('ValidatedTextarea', () => {
     const MyTextareaForm = withFormState(({ data, onUpdate }) => (
       <Form
         data={data}
@@ -143,4 +145,11 @@ storiesOf('Forms', module)
       </Form>
     ));
     return <MyTextareaForm />;
-  });
+  })
+  .add('Checkbox', () => (
+    <Checkbox name="name" value="Hi">
+      <Label name="name" id="name">
+        Its my name
+      </Label>
+    </Checkbox>
+  ));

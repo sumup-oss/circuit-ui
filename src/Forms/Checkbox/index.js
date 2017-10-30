@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './index.scss';
 import withStyles from '../../../util/withStyles';
 
-const RadioButton = ({
+const Checkbox = ({
   children,
   id,
   name,
@@ -14,25 +14,28 @@ const RadioButton = ({
   checked,
   className
 }) => (
-  <li
-    className={classNames('radio-button', className, {
-      'radio-button--disabled': disabled
+  <div
+    className={classNames('checkbox', className, {
+      'checkbox--disabled': disabled
     })}
   >
     <input
-      type="radio"
+      type="checkbox"
       name={name}
       id={id || name}
       disabled={disabled}
-      onChange={onChange}
+      onChange={e => {
+        console.log(e);
+        onChange(e);
+      }}
       value={value}
       checked={checked}
     />
     {children}
-  </li>
+  </div>
 );
 
-RadioButton.propTypes = {
+Checkbox.propTypes = {
   name: PropTypes.string,
   id: PropTypes.string,
   value: PropTypes.string,
@@ -42,4 +45,4 @@ RadioButton.propTypes = {
   className: PropTypes.string
 };
 
-export default withStyles(styles)(RadioButton);
+export default withStyles(styles)(Checkbox);
