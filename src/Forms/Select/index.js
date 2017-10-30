@@ -29,21 +29,19 @@ const Select = ({
   });
 
   return (
-    <ul>
-      <li className="select-custom">
-        <select
-          name={name}
-          id={id}
-          value={value}
-          className={selectClassNames}
-          autoFocus={autoFocus}
-          disabled={disabled}
-          onChange={onChange}
-        >
-          {children}
-        </select>
-      </li>
-    </ul>
+    <div className="select-custom">
+      <select
+        name={name}
+        id={id}
+        value={value}
+        className={selectClassNames}
+        autoFocus={autoFocus}
+        disabled={disabled}
+        onChange={onChange}
+      >
+        {children}
+      </select>
+    </div>
   );
 };
 

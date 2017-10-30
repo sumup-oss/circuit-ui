@@ -1,8 +1,6 @@
 @import '../../shared';
 
 .radio-button {
-  list-style-type: none;
-
   label {
     cursor: pointer;
     display: inline-block;
@@ -26,11 +24,6 @@
       width: 16px;
     }
   }
-
-  /**
-   * Visually hiding default inputs,
-   * but keeping them tabbable
-   */
 
   input[type='radio'] { /* stylelint-disable-line selector-no-qualifying-type */
     border: 0;

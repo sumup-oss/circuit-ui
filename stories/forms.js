@@ -41,13 +41,20 @@ storiesOf('Forms', module)
           onUpdate(prevData => onChangeForm(prevData, newData))}
         onSubmit={action('onSubmit')}
       >
-        <ValidatedInput field="name" label="My name" />
+        <ValidatedInput name="name" id="name" field="name" label="My name" />
         <ValidatedInput
           field="fruit"
+          id="fruit"
+          name="fruit"
           label="My favorite fruit"
           disabled={true}
         />
-        <ValidatedInput field="color" label="My favorite color" />
+        <ValidatedInput
+          field="color"
+          id="color"
+          name="color"
+          label="My favorite color"
+        />
       </Form>
     ));
     return <MyInputForm />;

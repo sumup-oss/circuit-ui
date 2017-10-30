@@ -14,7 +14,7 @@ const RadioButton = ({
   checked,
   className
 }) => (
-  <li
+  <div
     className={classNames('radio-button', className, {
       'radio-button--disabled': disabled
     })}
@@ -29,7 +29,7 @@ const RadioButton = ({
       checked={checked}
     />
     {children}
-  </li>
+  </div>
 );
 
 RadioButton.propTypes = {

@@ -16,7 +16,7 @@ function Validations({ children, field, form: { onChange, data, country } }) {
   };
 
   return (
-    <li>
+    <div>
       {children}
       <Validator
         field={field}
@@ -34,7 +34,7 @@ function Validations({ children, field, form: { onChange, data, country } }) {
         dirty={data.dirty[field]}
         messages={data.messages[field]}
       />
-    </li>
+    </div>
   );
 }
 
