@@ -12,6 +12,7 @@ export Form, { onChangeForm, createFormState } from './src/Forms/Form';
 export ValidatedInput from './src/Forms/ValidatedInput';
 export ValidatedSelect from './src/Forms/ValidatedSelect';
 export ValidatedRadioButton from './src/Forms/ValidatedRadioButton';
+export ValidatedCheckbox from './src/Forms/ValidatedCheckbox';
 export ValidatedTextarea from './src/Forms/ValidatedTextarea';
 
 export withStyles from './util/withStyles';

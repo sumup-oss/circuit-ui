@@ -24,10 +24,7 @@ const Checkbox = ({
       name={name}
       id={id || name}
       disabled={disabled}
-      onChange={e => {
-        console.log(e);
-        onChange(e);
-      }}
+      onChange={onChange}
       value={value}
       checked={checked}
     />

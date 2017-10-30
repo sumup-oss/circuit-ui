@@ -6,11 +6,10 @@ import {
   ValidatedInput,
   ValidatedSelect,
   ValidatedRadioButton,
+  ValidatedCheckbox,
   ValidatedTextarea,
-  Checkbox,
   InputGroup,
   Form,
-  Label,
   onChangeForm,
   createFormState
 } from '..';
@@ -153,10 +152,38 @@ storiesOf('Forms', module)
     ));
     return <MyTextareaForm />;
   })
-  .add('Checkbox', () => (
-    <Checkbox name="name" value="Hi">
-      <Label name="name" id="name">
-        Its my name
-      </Label>
-    </Checkbox>
-  ));
+  .add('ValidatedCheckbox', () => {
+    const MyCheckboxForm = withFormState(({ data, onUpdate }) => (
+      <Form
+        data={data}
+        onChange={newData =>
+          onUpdate(prevData => onChangeForm(prevData, newData))}
+        onSubmit={action('onSubmit')}
+      >
+        <InputGroup>
+          <ValidatedCheckbox
+            name="name-heinz"
+            id="name-heinz"
+            field="name"
+            value="Heinz"
+            label="Heinz"
+          />
+          <ValidatedCheckbox
+            name="name-helga"
+            id="name-helga"
+            field="name"
+            value="Helga"
+            label="Helga"
+          />
+          <ValidatedCheckbox
+            field="name"
+            name="name-heinrich"
+            id="name-heinrich"
+            value="Heinrich"
+            label="Heinrich"
+          />
+        </InputGroup>
+      </Form>
+    ));
+    return <MyCheckboxForm />;
+  });
