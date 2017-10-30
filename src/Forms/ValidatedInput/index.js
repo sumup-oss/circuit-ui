@@ -42,12 +42,12 @@ function ValidatedInput({
 }
 
 ValidatedInput.propTypes = {
-  field: PropTypes.string,
+  field: PropTypes.string.isRequired,
   children: PropTypes.node,
   form: PropTypes.object,
   label: PropTypes.string,
-  name: PropTypes.string,
-  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   type: PropTypes.string
 };
 

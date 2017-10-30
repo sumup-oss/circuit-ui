@@ -7,6 +7,7 @@ import {
   ValidatedSelect,
   ValidatedRadioButton,
   InputGroup,
+  ValidatedTextarea,
   Form,
   onChangeForm,
   createFormState
@@ -117,4 +118,29 @@ storiesOf('Forms', module)
       </Form>
     ));
     return <MyRadioForm />;
+  })
+  .add('Textarea', () => {
+    const MyTextareaForm = withFormState(({ data, onUpdate }) => (
+      <Form
+        data={data}
+        onChange={newData =>
+          onUpdate(prevData => onChangeForm(prevData, newData))}
+        onSubmit={action('onSubmit')}
+      >
+        <ValidatedTextarea field="name" name="name" id="name" label="My name" />
+        <ValidatedTextarea
+          field="fruit"
+          name="fruit"
+          id="fruit"
+          label="Your favorite fruit"
+        />
+        <ValidatedTextarea
+          field="color"
+          name="color"
+          id="color"
+          label="Describe your favorite color"
+        />
+      </Form>
+    ));
+    return <MyTextareaForm />;
   });
