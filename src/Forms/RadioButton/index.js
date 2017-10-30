@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './index.scss';
-import Label from '../Label';
 import withStyles from '../../../util/withStyles';
 
 const RadioButton = ({
+  children,
+  id,
   name,
   value,
   disabled,
@@ -13,9 +14,6 @@ const RadioButton = ({
   checked,
   className,
   label,
-  meta,
-  validations,
-  styleAsOptional,
   ...props
 }) => (
   <li
@@ -26,14 +24,14 @@ const RadioButton = ({
     <input
       type="radio"
       name={name}
-      id={props.id || name}
+      id={id || name}
       disabled={disabled}
       onChange={onChange}
       value={value}
       checked={checked}
       {...props}
     />
-    <Label id={name}>{label}</Label>
+    {children}
   </li>
 );
 
@@ -45,9 +43,6 @@ RadioButton.propTypes = {
   checked: PropTypes.bool,
   onChange: PropTypes.func,
   className: PropTypes.string,
-  meta: PropTypes.object,
-  validations: PropTypes.object,
-  styleAsOptional: PropTypes.bool,
   label: PropTypes.string
 };
 

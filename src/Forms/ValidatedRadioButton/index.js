@@ -2,19 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RadioButton from '../RadioButton';
 import Validations from '../Validations';
+import Label from '../Label';
 import withForm from '../withForm';
 
 function ValidatedRadioButton({
   field,
-  children,
   label,
   name,
   id,
   value,
-  form: { onFieldChange, data },
-  ...props
+  styleAsOptional,
+  form: { onFieldChange, data }
 }) {
   const checked = data.values[field] === value;
+  const meta = data.meta[field];
+  const validations = data.validations[field];
+  const labelProps = { id: id || name, validations, styleAsOptional, meta };
+
   return (
     <Validations field={field}>
       <RadioButton
@@ -24,21 +28,24 @@ function ValidatedRadioButton({
         label={label}
         value={value}
         onChange={onFieldChange(field)}
-        {...props}
-      />
+        meta={meta}
+        validations={validations}
+      >
+        <Label {...labelProps}>{label}</Label>
+      </RadioButton>
     </Validations>
   );
 }
 
 ValidatedRadioButton.propTypes = {
-  field: PropTypes.string,
-  children: PropTypes.node,
+  field: PropTypes.string.isRequired,
   form: PropTypes.object,
   label: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  styleAsOptional: PropTypes.bool
 };
 
 export default withForm(ValidatedRadioButton);
