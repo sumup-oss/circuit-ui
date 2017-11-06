@@ -2,7 +2,8 @@ import {
   getErrors,
   hasRegexError,
   hasRequiredError,
-  hasNumberError
+  hasNumberError,
+  valueHasChanged
 } from './service';
 
 describe('hasRegexError', () => {
@@ -114,5 +115,18 @@ describe('getErrors', () => {
     const errors = getErrors(meta, value);
     expect(errors.required).toEqual(true);
     expect(errors.isEmpty).toEqual(false);
+  });
+});
+
+describe('UI logic', () => {
+  it('should re-render if the value has changed', () => {
+    const currentValue = ['a'];
+    const nextValue = ['a', 'b'];
+    expect(valueHasChanged(currentValue, nextValue)).toBeTruthy();
+  });
+  it('should not re-render if the value has not changed', () => {
+    const currentValue = ['a'];
+    const nextValue = ['a'];
+    expect(valueHasChanged(currentValue, nextValue)).toBeFalsy();
   });
 });

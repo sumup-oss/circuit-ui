@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty, isEqual } from 'lodash/fp';
-import { getErrors } from './service';
+import { valueHasChanged, getErrors } from './service';
 
 const VALIDATION_PROP_TYPES = {
   required: PropTypes.bool,
@@ -41,7 +41,7 @@ class Validator extends Component {
     } = nextProps;
 
     return (
-      nextValue !== value ||
+      valueHasChanged(value, nextValue) ||
       nextCountry !== country ||
       !isEqual(validations, nextValidations)
     );

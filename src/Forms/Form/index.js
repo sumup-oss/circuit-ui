@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { merge, omit, reduce, get } from 'lodash/fp';
+import {
+  intersection,
+  isArray,
+  isObject,
+  flow,
+  every,
+  mergeWith,
+  merge,
+  omit,
+  reduce,
+  values,
+  get
+} from 'lodash/fp';
 import withStyles from '../../../util/withStyles';
 import styles from './index.scss';
 
@@ -15,7 +27,13 @@ export const FORM_CONTEXT = {
 };
 
 export function onChangeForm(prevForm, form) {
-  return merge(prevForm, form);
+  return mergeWith(mergeCustomizer, form, prevForm);
+}
+
+function mergeCustomizer(objValue) {
+  if (isArray(objValue)) {
+    return objValue;
+  }
 }
 
 export function createFormState(

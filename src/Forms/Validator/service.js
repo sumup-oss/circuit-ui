@@ -1,6 +1,7 @@
 import {
   trim,
   negate,
+  intersection,
   mergeAll,
   keys,
   flow,
@@ -80,4 +81,14 @@ export const getErrors = curry((meta, value) => {
 
 function applyValidations(validators, value) {
   return mapValues(validator => flow(trim, validator)(value), validators);
+}
+
+export function valueHasChanged(value, nextValue) {
+  if (Array.isArray(value)) {
+    const sharedValues = intersection(value, nextValue);
+    return (
+      value.length !== nextValue.length || sharedValues.length !== value.length
+    );
+  }
+  return value !== nextValue;
 }

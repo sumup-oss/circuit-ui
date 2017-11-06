@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withState } from 'recompose';
 import { action } from '@storybook/addon-actions';
+import { noop } from 'lodash/fp';
 import {
   ValidatedInput,
   ValidatedSelect,
@@ -29,32 +30,52 @@ const INITIAL_STATE = createFormState(['name', 'fruit', 'color'], {
   }
 });
 
+const INITIAL_STATE_CHECKBOXES = createFormState(['name', 'fruit', 'color'], {
+  values: {
+    name: []
+  },
+  validations: {
+    name: { required: false }
+  },
+  messages: {
+    name: { required: 'Your name is required' }
+  }
+});
+
 const withFormState = withState('data', 'onUpdate', INITIAL_STATE);
+const withCheckboxFormState = withState(
+  'data',
+  'onUpdate',
+  INITIAL_STATE_CHECKBOXES
+);
 
 storiesOf('Forms', module)
   .add('ValidatedInput', () => {
     const MyInputForm = withFormState(({ data, onUpdate }) => (
-      <Form
-        data={data}
-        onChange={newData =>
-          onUpdate(prevData => onChangeForm(prevData, newData))}
-        onSubmit={action('onSubmit')}
-      >
-        <ValidatedInput name="name" id="name" field="name" label="My name" />
-        <ValidatedInput
-          field="fruit"
-          id="fruit"
-          name="fruit"
-          label="My favorite fruit"
-          disabled={true}
-        />
-        <ValidatedInput
-          field="color"
-          id="color"
-          name="color"
-          label="My favorite color"
-        />
-      </Form>
+      <div>
+        <Form
+          data={data}
+          onChange={newData =>
+            onUpdate(prevData => onChangeForm(prevData, newData))}
+          onSubmit={action('onSubmit')}
+        >
+          <ValidatedInput name="name" id="name" field="name" label="My name" />
+          <ValidatedInput
+            field="fruit"
+            id="fruit"
+            name="fruit"
+            label="My favorite fruit"
+            disabled={true}
+          />
+          <ValidatedInput
+            field="color"
+            id="color"
+            name="color"
+            label="My favorite color"
+          />
+        </Form>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </div>
     ));
     return <MyInputForm />;
   })
@@ -153,12 +174,12 @@ storiesOf('Forms', module)
     return <MyTextareaForm />;
   })
   .add('ValidatedCheckbox', () => {
-    const MyCheckboxForm = withFormState(({ data, onUpdate }) => (
+    const MyCheckboxForm = withCheckboxFormState(({ data, onUpdate }) => (
       <Form
         data={data}
         onChange={newData =>
           onUpdate(prevData => onChangeForm(prevData, newData))}
-        onSubmit={action('onSubmit')}
+        onSubmit={noop}
       >
         <InputGroup>
           <ValidatedCheckbox
@@ -183,6 +204,7 @@ storiesOf('Forms', module)
             label="Heinrich"
           />
         </InputGroup>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
       </Form>
     ));
     return <MyCheckboxForm />;
