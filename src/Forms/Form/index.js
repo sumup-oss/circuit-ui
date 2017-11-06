@@ -1,18 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  intersection,
-  isArray,
-  isObject,
-  flow,
-  every,
-  mergeWith,
-  merge,
-  omit,
-  reduce,
-  values,
-  get
-} from 'lodash/fp';
+import { isArray, mergeWith, omit, reduce, get } from 'lodash/fp';
 import withStyles from '../../../util/withStyles';
 import styles from './index.scss';
 
@@ -30,6 +18,7 @@ export function onChangeForm(prevForm, form) {
   return mergeWith(mergeCustomizer, form, prevForm);
 }
 
+// eslint-disable-next-line consistent-return
 function mergeCustomizer(objValue) {
   if (isArray(objValue)) {
     return objValue;

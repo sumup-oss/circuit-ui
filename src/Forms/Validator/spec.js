@@ -123,6 +123,10 @@ describe('UI logic', () => {
     const currentValue = ['a'];
     const nextValue = ['a', 'b'];
     expect(valueHasChanged(currentValue, nextValue)).toBeTruthy();
+
+    const currentValueStr = 'old';
+    const nextValueStr = 'new';
+    expect(valueHasChanged(currentValueStr, nextValueStr)).toBeTruthy();
   });
   it('should not re-render if the value has not changed', () => {
     const currentValue = ['a'];
