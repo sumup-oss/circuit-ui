@@ -14,7 +14,7 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['include']
+        ignoreAtRules: ['include', 'mixin']
       }
     ],
     'property-no-unknown': [
