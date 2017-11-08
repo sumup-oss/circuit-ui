@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="153px" height="150px" viewBox="0 0 153 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-checkmark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="icon-checkmark" sketch:type="MSArtboardGroup" stroke="#35C97C" stroke-width="5">
+            <path d="M77,148 C117.316787,148 150,115.316787 150,75 C150,34.6832133 117.316787,2 77,2 C36.6832133,2 4,34.6832133 4,75 C4,115.316787 36.6832133,148 77,148 Z" id="Oval-5" sketch:type="MSShapeGroup"></path>
+            <path d="M45.7869004,43.286064 L45.7869004,84.7156383 L116.182846,84.7156383" id="Path-179" stroke-linecap="round" stroke-linejoin="round" sketch:type="MSShapeGroup" transform="translate(80.984873, 64.000851) rotate(-45.000000) translate(-80.984873, -64.000851) "></path>
+        </g>
+    </g>
+</svg>

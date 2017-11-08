@@ -62,6 +62,7 @@
     "prettier": "^1.7.4",
     "prettier-eslint": "^8.2.0",
     "react-addons-test-utils": "^15.6.0",
+    "react-svg-loader": "^2.1.0",
     "storybook-addon-smart-knobs": "^3.0.1",
     "stylelint": "^8.2.0",
     "stylelint-config-sass-guidelines": "^3.1.0",

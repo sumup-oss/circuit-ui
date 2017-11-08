@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39 (31667) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Main-Navigation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Nav-iPhone-Landscape" transform="translate(-516.000000, -18.000000)" fill="#FAFBFC">
+            <g id="Header">
+                <g id="Account" transform="translate(516.000000, 18.000000)">
+                    <path d="M12,12 C10.9344941,9.1620632 8.64834001,7.2 6,7.2 C3.35165999,7.2 1.06550595,9.1620632 0,12 L12,12 L12,12 Z M6,6 C7.66661449,6 9.01767247,4.65685425 9.01767247,3 C9.01767247,1.34314575 7.66661449,0 6,0 C4.33338551,0 2.98232753,1.34314575 2.98232753,3 C2.98232753,4.65685425 4.33338551,6 6,6 L6,6 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
