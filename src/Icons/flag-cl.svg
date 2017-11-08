@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="199px" height="134px" viewBox="0 0 199 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
+    <title>flag-chile</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Flags" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="flag-Chile" transform="translate(-1.000000, -1.000000)">
+            <g id="flag-chile" transform="translate(1.000000, 1.000000)">
+                <path d="M17.1769231,133.792308 L181.588462,133.792308 C190.888462,133.792308 198.426923,126.253846 198.426923,116.953846 L198.426923,67.4346154 L0.342307692,67.4346154 L0.342307692,116.953846 C0.342307692,126.253846 7.88076923,133.792308 17.1769231,133.792308 Z" id="Fill-2" fill="#EE2734"></path>
+                <path d="M17.1769231,67.4346154 L181.588462,67.4346154 C190.888462,67.4346154 198.426923,59.7738117 198.426923,50.3228814 L198.426923,0 L0.342307692,0 L0.342307692,50.3228814 C0.342307692,59.7738117 7.88076923,67.4346154 17.1769231,67.4346154 Z" id="Fill-2-Copy" fill="#FFFFFF" transform="translate(99.384615, 33.717308) scale(1, -1) translate(-99.384615, -33.717308) "></path>
+                <path d="M0.340000033,18.0047895 C0.340000033,8.06101886 8.40752447,0 18.33967,0 L68.34,0 L68.34,67.4346154 L0.340000033,67.4346154 L0.340000033,18.0047895 Z" id="Combined-Shape" fill="#1A3179"></path>
+                <polygon id="Star-51" fill="#FFFFFF" points="34.5 40.819055 24.8015433 47.8487804 28.4902216 36.4526954 18.8075675 29.4012196 30.7857527 29.3877771 34.5 18 38.2142473 29.3877771 50.1924325 29.4012196 40.5097784 36.4526954 44.1984567 47.8487804"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

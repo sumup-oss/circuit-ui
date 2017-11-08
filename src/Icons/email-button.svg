@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="frame" transform="translate(-24.000000, -46.000000)">
+            <g id="frame2" transform="translate(24.000000, 12.000000)">
+                <g id="email_icon" transform="translate(0.000000, 34.000000)">
+                    <rect id="BG" x="0" y="0" width="42" height="42" rx="3"></rect>
+                    <g id="Rectangle-+-Rectangle-2-Mask" transform="translate(9.000000, 13.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Mask"></g>
+                        <path d="M2,0 L22,0 L22,0 C23.1045695,3.72131305e-15 24,0.8954305 24,2 L24,14 L24,14 C24,15.1045695 23.1045695,16 22,16 L2,16 L2,16 C0.8954305,16 1.11632554e-15,15.1045695 0,14 L0,2 L-4.4408921e-16,2 C-5.7935996e-16,0.8954305 0.8954305,2.02906125e-16 2,0 Z" id="path-1"></path>
+                        <path d="M0,3 L10.8905996,10.2603997 L10.8905996,10.2603997 C11.5623984,10.7082656 12.4376016,10.7082656 13.1094004,10.2603997 L24,3 L24,15 L24,15 C24,15.5522847 23.5522847,16 23,16 L1,16 L1,16 C0.44771525,16 1.04869017e-15,15.5522847 0,15 L0,3 Z" id="Rectangle" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                        <path d="M1.04081735e-12,1 L-1e-16,0.00850670098 L24,0.00850670098 L24,1 L13.1094004,8.26039974 L13.1094004,8.26039974 C12.4376016,8.70826562 11.5623984,8.70826562 10.8905996,8.26039974 L1.04081735e-12,1 Z" id="Rectangle-2" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

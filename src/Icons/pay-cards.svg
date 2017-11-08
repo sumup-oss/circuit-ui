@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="172px" height="150px" viewBox="0 0 172 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>pay-cards</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="pay-cards" sketch:type="MSArtboardGroup" stroke="#00A5DF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <g id="icon-cards" sketch:type="MSLayerGroup" transform="translate(86.877605, 69.773550) rotate(-250.000000) translate(-86.877605, -69.773550) translate(22.377605, 0.773550)">
+                <g id="card" transform="translate(80.348125, 79.602014) rotate(-70.000000) translate(-80.348125, -79.602014) translate(30.848125, 46.102014)" sketch:type="MSShapeGroup">
+                    <rect id="phone-2" x="0.811222891" y="0.504455065" width="97.9379621" height="66.1742987" rx="10"></rect>
+                    <path d="M4.78168081,17.4412922 L94.778727,17.4412922" id="Line"></path>
+                    <path d="M20.6635125,46.6453163 L51.2185579,46.6453163" id="Line"></path>
+                </g>
+                <g id="card" transform="translate(66.200726, 66.018127) rotate(-90.000000) translate(-66.200726, -66.018127) translate(17.200726, 32.518127)" sketch:type="MSShapeGroup">
+                    <rect id="phone-2" x="4.26325641e-13" y="0.504455065" width="97.9379621" height="66.1742987" rx="10"></rect>
+                    <path d="M3.97045792,17.4412922 L93.9675041,17.4412922" id="Line"></path>
+                    <path d="M19.8522896,46.6453163 L50.407335,46.6453163" id="Line"></path>
+                </g>
+                <g id="card" transform="translate(48.471632, 57.792968) rotate(-110.000000) translate(-48.471632, -57.792968) translate(-0.528368, 24.292968)" sketch:type="MSShapeGroup">
+                    <rect id="phone-2" x="7.10542736e-13" y="0.504455065" width="97.9379621" height="66.1742987" rx="10"></rect>
+                    <path d="M3.97045792,17.4412922 L93.9675041,17.4412922" id="Line"></path>
+                    <path d="M19.8522896,46.6453163 L50.407335,46.6453163" id="Line"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
