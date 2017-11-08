@@ -1,0 +1,11 @@
+@import '../shared';
+
+.su-logo {
+  &--dark {
+    fill: $color-darker;
+  }
+
+  &--light {
+    fill: $color-white;
+  }
+}
