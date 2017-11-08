@@ -2,7 +2,7 @@
 
 @mixin animate-alert {
   transform: translateY(0);
-  transition: all 0.15s ease-out 0s;
+  transition: all .15s ease-out 0s;
 }
 
 .flash-alert {
@@ -15,7 +15,7 @@
   text-align: center;
   top: 0;
   transform: translateY(-$topnav-height);
-  transition: all 0.15s ease-out 0s;
+  transition: all .15s ease-out 0s;
   width: 100%;
   z-index: 1000;
 
