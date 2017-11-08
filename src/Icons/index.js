@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { Component } from 'react';
+import React, { createElement, Component } from 'react';
 
 import acceleratedIcon from './accelerated.svg';
 export const AcceleratedIcon = asIcon(acceleratedIcon);
@@ -458,11 +458,15 @@ export function asIcon(Icon) {
 
 const gridStyles = {
   display: 'flex',
+  flexWrap: 'wrap',
   justifyContent: 'space-between',
   margin: '0 auto',
   maxWidth: '500px'
 };
 
-export const IconGrid = ({ children }) => (
-  <div style={gridStyles}>{children}</div>
-);
+export const IconGrid = ({ children }) => {
+  const childrenWithProps = React.Children.map(children, (child, i) =>
+    React.cloneElement(child, { key: i, style: { padding: '20px' } })
+  );
+  return <div style={gridStyles}>{childrenWithProps}</div>;
+};
