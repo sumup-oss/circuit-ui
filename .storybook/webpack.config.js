@@ -5,14 +5,25 @@ const normalizePath = path.join(__dirname, '../node_modules/normalize.css');
 
 module.exports = {
   externals: {
-   'jsdom': 'window',
-   'cheerio': 'window',
-   'react/lib/ExecutionEnvironment': true,
-   'react/lib/ReactContext': 'window',
-   'react/addons': true,
- },
+    'jsdom': 'window',
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': 'window',
+    'react/addons': true,
+  },
   module: {
     rules: [
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'react-svg-loader',
+            options: {
+              es5: true
+            }
+          }
+        ]
+      },
       {
         test: /\.scss$/,
         include: path.resolve(__dirname, '../'),
