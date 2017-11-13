@@ -4,7 +4,7 @@ import { SumUpLogo } from '..';
 
 storiesOf('Logo', module)
   .add('Light', () => (
-    <div style={{ backgroundColor: 'black', padding: '20px' }}>
+    <div style={{ backgroundColor: '#3c3d3d', padding: '20px' }}>
       <SumUpLogo fill="white" />
     </div>
   ))
