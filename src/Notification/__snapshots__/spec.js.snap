@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification should not render if there happens to be no children or data 1`] = `null`;
+
+exports[`Notification should render error type when error prop is passed 1`] = `
+<div
+  className="alert alert--error"
+>
+  there was an error
+</div>
+`;
