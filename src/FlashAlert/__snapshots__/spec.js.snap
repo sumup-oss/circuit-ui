@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flash Alert should not render if there happens to be no type and data(or children) 1`] = `null`;
