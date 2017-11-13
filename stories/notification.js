@@ -10,5 +10,4 @@ storiesOf('Notifications', module)
   .add('Info', () => <Notification type="info" data={{ msg: 'info' }} />)
   .add('Success', () => (
     <Notification type="success" data={{ msg: 'success' }} />
-  )
-);
+  ));
