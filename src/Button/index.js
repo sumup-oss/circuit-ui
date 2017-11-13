@@ -16,7 +16,6 @@ const Button = ({ onClick, label, className, disabled = false, children }) => {
     },
     className
   );
-
   return (
     <button onClick={onClick} title={content} className={classes}>
       {content}
