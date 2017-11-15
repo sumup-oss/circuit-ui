@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="frame" transform="translate(-132.000000, -46.000000)">
+            <g id="Share" transform="translate(24.000000, 12.000000)">
+                <g id="messenger_icon" transform="translate(108.000000, 34.000000)">
+                    <rect id="BG" x="0" y="0" width="42" height="42" rx="3"></rect>
+                    <g id="Messenger-Logo" transform="translate(9.000000, 9.000000)" fill-rule="nonzero" fill="#FFFFFF">
+                        <path d="M12,0 C5.37258335,0 0,4.97332803 0,11.1082771 C0,14.5982789 1.73876978,17.712318 4.45805365,19.7487669 L4.45805365,24.0000944 L8.55323891,21.751392 C9.64495855,22.0539333 10.8019603,22.2165542 12,22.2165542 C18.6274167,22.2165542 24,17.243196 24,11.1082469 C24,4.97329781 18.6274167,0 12,0 Z M13.2638409,14.8959839 L10.1602231,11.7042011 L4.18324589,14.9763573 L10.7361591,8.09244529 L13.8398074,11.2842281 L19.8167541,8.01207188 L13.2638409,14.8959839 Z" id="Bubble_Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

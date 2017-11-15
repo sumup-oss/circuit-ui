@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200px" height="136px" viewBox="0 0 200 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>flag-se</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Flags" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="flag-se" sketch:type="MSArtboardGroup">
+            <g id="Imported-Layers" sketch:type="MSLayerGroup" transform="translate(0.000000, 0.692308)">
+                <path d="M87.0653846,132.884615 L182.588462,132.884615 C191.884615,132.884615 199.423077,125.346154 199.423077,116.046154 L199.423077,79.8423077 L87.0653846,79.8423077 L87.0653846,132.884615" id="Fill-1" fill="#00578B" sketch:type="MSShapeGroup"></path>
+                <path d="M182.588462,0.165384615 L87.0653846,0.165384615 L87.0653846,53.2076923 L199.423077,53.2076923 L199.423077,17.0038462 C199.423077,7.70384615 191.884615,0.165384615 182.588462,0.165384615" id="Fill-2" fill="#00578B" sketch:type="MSShapeGroup"></path>
+                <path d="M1.34230769,79.8423077 L1.34230769,116.046154 C1.34230769,125.346154 8.88076923,132.884615 18.1769231,132.884615 L60.4307692,132.884615 L60.4307692,79.8423077 L1.34230769,79.8423077" id="Fill-3" fill="#00578B" sketch:type="MSShapeGroup"></path>
+                <path d="M60.4307692,0.165384615 L18.1769231,0.165384615 C8.88076923,0.165384615 1.34230769,7.70384615 1.34230769,17.0038462 L1.34230769,53.2076923 L60.4307692,53.2076923 L60.4307692,0.165384615" id="Fill-4" fill="#00578B" sketch:type="MSShapeGroup"></path>
+                <path d="M87.0653846,53.2076923 L87.0653846,0.165384615 L60.4307692,0.165384615 L60.4307692,53.2076923 L1.34230769,53.2076923 L1.34230769,79.8423077 L60.4307692,79.8423077 L60.4307692,132.884615 L87.0653846,132.884615 L87.0653846,79.8423077 L199.423077,79.8423077 L199.423077,53.2076923 L87.0653846,53.2076923" id="Fill-5" fill="#FFCA0F" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

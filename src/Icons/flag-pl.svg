@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200px" height="136px" viewBox="0 0 200 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>flag-pl</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Flags" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="flag-pl" sketch:type="MSArtboardGroup">
+            <g id="Imported-Layers" sketch:type="MSLayerGroup" transform="translate(0.000000, 0.692308)">
+                <path d="M182.588462,1.38076923 L18.1769231,1.38076923 C8.88076923,1.38076923 1.34230769,8.92307692 1.34230769,18.2192308 L1.34230769,67.7423077 L199.426923,67.7423077 L199.426923,18.2192308 C199.426923,8.92307692 191.888462,1.38076923 182.588462,1.38076923" id="Fill-1" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M1.34230769,117.261538 C1.34230769,126.561538 8.88076923,134.1 18.1769231,134.1 L182.588462,134.1 C191.888462,134.1 199.426923,126.561538 199.426923,117.261538 L199.426923,67.7423077 L1.34230769,67.7423077 L1.34230769,117.261538" id="Fill-2" fill="#EE2734" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>
