@@ -1,0 +1,52 @@
+@import '../../shared';
+
+.input {
+  appearance: none;
+  background: transparent;
+  border: 1px solid;
+  border-color: $color-medium;
+  border-radius: $border-radius;
+  font-size: $font-size-l;
+  height: 42px;
+  line-height: $line-height-s;
+  margin-bottom: $spacing-l;
+  padding: $spacing-s;
+  transition: border-color .2s, background-color .3s;
+  width: 100%;
+
+  @include media($big-screens) {
+    font-size: $font-size-m;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: rgba($color-brand-lighter, .1);
+    border-color: $color-brand;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $color-medium;
+  }
+}
+
+.input.input--disabled,
+.input[disabled],
+.input[disabled='disabled'],
+.input[readonly] {
+  @include disabled;
+}
+
+.input.input--no-margin,
+.textarea.textarea--no-margin {
+  margin-bottom: 0;
+}
+
+.input.input--optional,
+.textarea.textarea--optional {
+  border-style: dashed;
+}
+
+.input {
+  height: 42px;
+}

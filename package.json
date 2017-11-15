@@ -4,14 +4,14 @@
   "description": "SumUp's React UI component library",
   "main": "index.js",
   "scripts": {
-    "fix:prettier": "prettier --config prettier.config.js --write src/**/*.js && prettier --config prettier.config.js --write stories/*.js",
+    "fix:prettier": "prettier --config prettier.config.js --write src/**/**/*.js && prettier --config prettier.config.js --write stories/*.js",
     "fix:eslint": "eslint --fix --quiet src/**/*.js",
-    "fix:stylelint": "stylelint \"src/**/*.scss\" --cache --fix",
+    "fix:stylelint": "stylelint \"src/**/**/*.scss\" --cache --fix",
     "fix": "npm run fix:prettier; npm run fix:eslint; npm run fix:stylelint",
     "test": "npm run test:lint-js && npm run test:lint-css && npm run test:unit",
-    "test:lint-css:watch": "onchange \"src/**/*.scss\" \"src/**/*.scss\" -- npm run test:lint-css",
+    "test:lint-css:watch": "onchange \"src/**/**/*.scss\" \"src/**/**/*.scss\" -- npm run test:lint-css",
     "test:lint-css": "stylelint \"src/**/*.scss\" --cache",
-    "test:lint-js": "eslint --cache --quiet src/**/*.js",
+    "test:lint-js": "eslint --cache --quiet src/**/**/*.js",
     "test:lint-js:watch": "onchange \"src/**/*.js\" -- npm run test:lint-js",
     "test:unit": "jest --coverage",
     "test:unit:watch": "jest --watch",
@@ -89,6 +89,7 @@
     "react-dom": "^15.6.1",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^15.6.2",
+    "recompose": "^0.26.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2"
   }

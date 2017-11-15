@@ -1,0 +1,59 @@
+@import '../../shared';
+
+.select {
+  position: relative;
+
+  &::after {
+    color: $color-dark;
+    content: '\221F';
+    display: inline-block;
+    font-size: $font-size-xs;
+    height: 0;
+    pointer-events: none;
+    position: absolute;
+    right: $spacing-xxl;
+    top: $spacing-s + 3px;
+    transform: rotate(-45deg);
+    transition: all .15s ease-out 0s;
+    width: 0;
+    z-index: 40;
+  }
+
+  &--disabled::after {
+    content: '';
+  }
+
+  select {
+    appearance: none;
+    background: none;
+    border: 1px solid $color-medium;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: $font-size-l;
+    height: 42px;
+    line-height: 18px;
+    margin-bottom: $spacing-l;
+    outline: none;
+    padding: 12px;
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 30;
+
+    @include media($big-screens) {
+      font-size: $font-size-m;
+    }
+
+    &:focus,
+    &:hover,
+    &:active { border-color: $color-brand; }
+
+    &[disabled] { /* stylelint-disable-line selector-no-qualifying-type */
+      @include disabled;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@import '../../shared';
+
+.radio-button {
+  label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: $font-size-m;
+    font-weight: 300;
+    margin-right: 15px;
+    padding-left: 25px;
+    padding-right: 15px;
+    position: relative;
+
+    &::before {
+      background-color: $color-white;
+      border: 1px solid $color-medium;
+      content: '';
+      display: inline-block;
+      height: 16px;
+      left: 0;
+      margin-right: 10px;
+      position: absolute;
+      top: 0;
+      width: 16px;
+    }
+  }
+
+  input[type='radio'] { /* stylelint-disable-line selector-no-qualifying-type */
+    border: 0;
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: absolute;
+    visibility: hidden;
+    width: auto;
+  }
+
+  input[type='radio'] + label::before { /* stylelint-disable-line selector-no-qualifying-type */
+    border-radius: 9px;
+  }
+
+  input:checked + label::after {
+    display: inline-block;
+    height: 8px;
+    position: absolute;
+    width: 8px;
+  }
+
+  input[type='radio']:checked + label::after { /* stylelint-disable-line selector-no-qualifying-type */
+    background: $color-brand;
+    border-radius: 4px;
+    content: '';
+    left: 4px;
+    top: 4px;
+  }
+
+  .radio-button--disabled {
+    opacity: .4;
+
+    label {
+      cursor: default;
+    }
+  }
+}

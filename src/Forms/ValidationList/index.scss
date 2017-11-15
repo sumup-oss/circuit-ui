@@ -1,0 +1,31 @@
+@import '../../shared';
+
+.validation-list {
+  @include type-s;
+
+  padding-left: 0;
+  position: relative;
+
+  li {
+    color: $color-error;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-s;
+    position: relative;
+    transition: all .15s ease-out 0s;
+
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      color: $color-error;
+      text-decoration: underline;
+    }
+
+    &.warning { /* stylelint-disable-line selector-no-qualifying-type */
+      color: $color-warning-darker;
+    }
+
+    p { margin: 0; }
+  }
+}
+
