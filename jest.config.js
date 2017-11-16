@@ -1,14 +1,15 @@
 module.exports = {
   coverageDirectory: '../../__coverage__',
-  rootDir: 'src',
+  rootDir: '.',
+  roots: ['src', 'util'],
   moduleFileExtensions: ['js'],
   collectCoverageFrom: ['**/*.{js,jsx}', '!**/node_modules/**'],
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ['node_modules', 'src', 'util'],
   transform: {
-    '^.+\\.js$': '<rootDir>/../jest.transform.js',
-    '\\.svg$': '<rootDir>/../fileTransformer.js'
+    '^.+\\.js$': '<rootDir>/jest.transform.js',
+    '\\.svg$': '<rootDir>/fileTransformer.js'
   },
   moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>/__mocks__/style-mock.js'
+    '\\.(css|scss)$': '<rootDir>/src/__mocks__/style-mock.js'
   }
 };
