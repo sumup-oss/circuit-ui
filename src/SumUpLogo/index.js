@@ -9,17 +9,13 @@ import OldLogo from './logo-sumup-old.svg';
 const SumUpLogo = ({ fill, type, ...otherProps }) => {
   const toTheme = theme =>
     ({ blue: '#5C8BCC', light: '#EEE', dark: '#1d384c', white: '#fff' }[theme]);
-  const defaultProps = {
+  const props = {
     width: 125,
     height: 37,
     fill: toTheme(fill),
     ...otherProps
   };
-  return type === 'old' ? (
-    <OldLogo {...defaultProps} />
-  ) : (
-    <Logo {...defaultProps} />
-  );
+  return type === 'old' ? <OldLogo {...props} /> : <Logo {...props} />;
 };
 
 SumUpLogo.propTypes = {
