@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SumUpLogo should render blue logo when fill='blue' is passed 1`] = `
+<logo-sumup.svg
+  fill="#5C8BCC"
+  height={37}
+  width={125}
+/>
+`;
+
+exports[`SumUpLogo should render dark logo when fill='dark' is passed 1`] = `
+<logo-sumup.svg
+  fill="#1d384c"
+  height={37}
+  width={125}
+/>
+`;
+
+exports[`SumUpLogo should render old logo when type='old' is passed 1`] = `
+<logo-sumup-old.svg
+  fill={undefined}
+  height={37}
+  width={125}
+/>
+`;

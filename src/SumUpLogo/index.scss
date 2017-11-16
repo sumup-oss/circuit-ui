@@ -1,0 +1,14 @@
+@import '../shared';
+
+/*
+  replace colors to $color-darker and $color-white once we move to brand-styles 2.0
+*/
+.su-logo {
+  &--dark {
+    fill: #1d384c;
+  }
+
+  &--light {
+    fill: #fff;
+  }
+}

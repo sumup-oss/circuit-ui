@@ -9,6 +9,6 @@ module.exports = {
     '\\.svg$': '<rootDir>/../fileTransformer.js'
   },
   moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>/__mocks__/style-mock.js'
+    '\\.(css|scss)$': '<rootDir>/__mocks__/style-mock.js',
   }
 };

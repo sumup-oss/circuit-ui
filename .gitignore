@@ -3,3 +3,4 @@ package-lock.json
 .eslintcache
 *.swp
 node_modules
+.DS_Store
