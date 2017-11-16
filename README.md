@@ -56,3 +56,5 @@ might need in order to use the components. Two main ones:
 - `StyleProvider` - a component you'll use to wrap your root component,
   and you'll also signal to `insertCss` on the client-side and
   collect as a string on the server.
+- `numbers` - a module for dealing with number localization.
+- `currency` - a module for formatting currency amounts.
