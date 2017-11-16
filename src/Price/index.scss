@@ -1,11 +1,23 @@
 @import './../shared';
 
 .price {
-  align-items: flex-start;
   color: $color-brand;
   display: flex;
   font-size: $font-size-xxxl;
   line-height: $line-height-l;
+}
+
+.amount {
+  align-items: flex-start;
+  display: flex;
+}
+
+.amount--prepended-space {
+  margin-left: $spacing-xs;
+}
+
+.amount--postpended-space {
+  margin-right: $spacing-xs;
 }
 
 .price--disclaimer {

@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import withStyles from '../../util/withStyles';
 import styles from './index.scss';
-import { getPaddedSymbol } from './service';
 import { formatNumberParts } from '../../util/numbers';
 import { getCurrencyFormat } from '../../util/currency';
 
@@ -27,11 +26,7 @@ const Price = ({ currency, locale, amount, installments, hasDisclaimer }) => {
   const ccySymbolClassNames = classNames('price__currency', {
     'price__small-text': prepend && showInstallments
   });
-  const ccySymbol = (
-    <span className={ccySymbolClassNames}>
-      {getPaddedSymbol(symbol, prepend, addSpace)}
-    </span>
-  );
+  const ccySymbol = <span className={ccySymbolClassNames}>{symbol}</span>;
   const inst = showInstallments && (
     <span className="price__small-text">{`${installments}\u00D7`}</span>
   );
@@ -53,9 +48,16 @@ const Price = ({ currency, locale, amount, installments, hasDisclaimer }) => {
   return (
     <div className="price">
       {pre}
-      <span>{integer}</span>
-      {frac}
-      {post}
+      <div
+        className={classNames('amount', {
+          'amount--prepended-space': addSpace && prepend,
+          'amount--postpended-space': addSpace && !prepend
+        })}
+      >
+        <span>{integer}</span>
+        {frac}
+        {post}
+      </div>
       {hasDisclaimer && <span>*</span>}
     </div>
   );

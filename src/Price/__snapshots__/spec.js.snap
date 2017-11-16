@@ -4,14 +4,18 @@ exports[`Price should not show the fractional part if it's zero. 1`] = `
 <div
   className="price"
 >
-  <span>
-    99
-  </span>
-  <span
-    className="price__currency"
+  <div
+    className="amount amount--postpended-space"
   >
-    € 
-  </span>
+    <span>
+      99
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
 </div>
 `;
 
@@ -25,17 +29,21 @@ exports[`Price should prepend the currency symbol when necessary. 1`] = `
     <span
       className="price__currency"
     >
-      $ 
+      $
     </span>
   </div>
-  <span>
-    9
-  </span>
-  <span
-    className="price__fractional"
+  <div
+    className="amount"
   >
-    .99
-  </span>
+    <span>
+      9
+    </span>
+    <span
+      className="price__fractional"
+    >
+      .99
+    </span>
+  </div>
 </div>
 `;
 
@@ -43,19 +51,23 @@ exports[`Price should render a regular price by default. 1`] = `
 <div
   className="price"
 >
-  <span>
-    9
-  </span>
-  <span
-    className="price__fractional"
+  <div
+    className="amount amount--postpended-space"
   >
-    ,99
-  </span>
-  <span
-    className="price__currency"
-  >
-    € 
-  </span>
+    <span>
+      9
+    </span>
+    <span
+      className="price__fractional"
+    >
+      ,99
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
 </div>
 `;
 
@@ -63,19 +75,23 @@ exports[`Price should render an asterisk when hasDisclaimer is truthy. 1`] = `
 <div
   className="price"
 >
-  <span>
-    9
-  </span>
-  <span
-    className="price__fractional"
+  <div
+    className="amount amount--postpended-space"
   >
-    ,99
-  </span>
-  <span
-    className="price__currency"
-  >
-    € 
-  </span>
+    <span>
+      9
+    </span>
+    <span
+      className="price__fractional"
+    >
+      ,99
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
   <span>
     *
   </span>
@@ -95,18 +111,22 @@ exports[`Price should render installments when they are > 1. 1`] = `
       9×
     </span>
   </div>
-  <span>
-    9
-  </span>
-  <span
-    className="price__fractional"
+  <div
+    className="amount amount--postpended-space"
   >
-    ,99
-  </span>
-  <span
-    className="price__currency"
-  >
-    € 
-  </span>
+    <span>
+      9
+    </span>
+    <span
+      className="price__fractional"
+    >
+      ,99
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
 </div>
 `;
