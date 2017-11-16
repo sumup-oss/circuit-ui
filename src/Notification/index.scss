@@ -38,29 +38,6 @@
       margin: 0;
     }
   }
-
-  &.alert--bank-wire-details {
-    @include media($until-medium-screens) {
-      display: flex;
-      width: 100%;
-
-      .alert--bank-wire-header {
-        width: 66%;
-      }
-
-      .alert--bank-wire-details-block {
-        width: 33%;
-      }
-    }
-  }
-
-  &.alert-doc-upload {
-    display: none;
-
-    @include media($until-big-screens) {
-      display: flex;
-    }
-  }
 }
 
 .alert-button-wrapper {
