@@ -1,28 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import withStyles from '../../util/withStyles';
 import styles from './index.scss';
 
-const SumUpLogo = ({ fill, className, ...otherProps }) => {
-  const classes = classNames('su-logo', [`su-logo--${fill}`], className);
-  return (
-    <svg viewBox="0 0 125 37" className="icon" {...otherProps}>
-      <use className={classes} xlinkHref="/svgs/logos.svg#icon-logo-sumup" />
-    </svg>
+import Logo from './logo-sumup.svg';
+import OldLogo from './logo-sumup-old.svg';
+
+const SumUpLogo = ({ fill, type, ...otherProps }) => {
+  const toTheme = theme =>
+    ({ blue: '#5C8BCC', light: '#EEE', dark: '#1d384c', white: '#fff' }[theme]);
+  const defaultProps = { width: 125, height: 37, fill: toTheme(fill), ...otherProps };
+  return type === 'old' ? (
+    <OldLogo {...defaultProps} />
+  ) : (
+    <Logo {...defaultProps} />
   );
 };
 
 SumUpLogo.propTypes = {
   theme: PropTypes.string,
-  className: PropTypes.string
+  type: PropTypes.string
 };
 
-SumUpLogo.defaultProps = {
-  fill: 'dark',
-  className: ''
-};
-
-const s = withStyles(styles)(SumUpLogo);
-
-export { s as SumUpLogo };
+export default withStyles(styles)(SumUpLogo);
