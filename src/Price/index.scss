@@ -1,0 +1,38 @@
+@import './../shared';
+
+.price {
+  align-items: flex-start;
+  color: $color-brand;
+  display: flex;
+  font-size: $font-size-xxxl;
+  line-height: $line-height-l;
+}
+
+.price--disclaimer {
+  margin-bottom: $spacing-s;
+}
+
+.price__fractional {
+  font-size: $font-size-s;
+  line-height: $line-height-s;
+}
+
+.price__pre {
+  display: inline-block;
+
+  &.price__pre--installments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.price__decorator-text {
+  color: darken($color-medium, 30%);
+}
+
+.price__small-text {
+  font-size: $font-size-s;
+  font-weight: $font-weight-medium;
+  line-height: 14px;
+}
