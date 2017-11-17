@@ -48,7 +48,7 @@ export const hasValueError = curry(
     value && values && value.length ? includes(value, values) : false
 );
 
-export const getErrors = curry((meta, value) => {
+export const getErrors = curry((meta, form, value) => {
   const {
     regex,
     caseInsensitive,
@@ -76,11 +76,14 @@ export const getErrors = curry((meta, value) => {
     mapValues(negate, customValidators)
   ]);
 
-  return applyValidations(allValidators, value);
+  return applyValidations(allValidators, form, value);
 });
 
-function applyValidations(validators, value) {
-  return mapValues(validator => flow(trim, validator)(value), validators);
+function applyValidations(validators, form, value) {
+  return mapValues(
+    validator => flow(trim, val => validator(val, form))(value),
+    validators
+  );
 }
 
 export function valueHasChanged(value, nextValue) {

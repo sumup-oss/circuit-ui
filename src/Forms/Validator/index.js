@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { isEmpty, isEqual } from 'lodash/fp';
+
 import { valueHasChanged, getErrors } from './service';
+import { FORM_CONTEXT } from '../Form';
 
 const VALIDATION_PROP_TYPES = {
   required: PropTypes.bool,
@@ -20,7 +22,8 @@ class Validator extends Component {
     metaPath: PropTypes.string,
     value: PropTypes.any,
     country: PropTypes.string,
-    onValidate: PropTypes.func
+    onValidate: PropTypes.func,
+    form: FORM_CONTEXT.form
   };
 
   constructor(props) {
@@ -61,13 +64,13 @@ class Validator extends Component {
 
   evaluateRules(value) {
     const { meta } = this.state;
-    const { onValidate } = this.props;
+    const { onValidate, form } = this.props;
 
     if (isEmpty(meta)) {
       return;
     }
 
-    const errors = getErrors(meta, value);
+    const errors = getErrors(meta, form, value);
     onValidate({ meta, errors });
   }
 
