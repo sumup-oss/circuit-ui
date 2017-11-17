@@ -32,14 +32,22 @@ export function createFormState(
     meta: {},
     metaPaths: {},
     validations: {},
+    warnings: {},
     messages: {}
   }
 ) {
   return reduce(
     (memo, field) => {
-      const { values, metaPaths, validations, messages } = initialValues;
+      const {
+        values,
+        metaPaths,
+        validations,
+        warnings,
+        messages
+      } = initialValues;
       memo.values[field] = get(field, values) || '';
       memo.errors[field] = {};
+      memo.warnings[field] = get(field, warnings) || [];
       memo.dirty[field] = false;
       memo.meta[field] = {};
       memo.metaPaths[field] = get(field, metaPaths) || '';
@@ -50,6 +58,7 @@ export function createFormState(
     {
       values: {},
       errors: {},
+      warnings: {},
       dirty: {},
       meta: {},
       metaPaths: {},

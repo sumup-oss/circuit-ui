@@ -22,6 +22,7 @@ function Validations({ children, field, form: { onChange, data, country } }) {
         field={field}
         value={data.values[field]}
         errors={data.errors[field]}
+        warnings={data.warnings[field]}
         metaPath={data.metaPaths[field]}
         validations={data.validations[field]}
         country={country}

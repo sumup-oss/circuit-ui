@@ -1,5 +1,16 @@
 import classNames from 'classnames';
-import { curry, reduce, findKey, identity, some, values } from 'lodash/fp';
+import {
+  curry,
+  findKey,
+  flow,
+  identity,
+  isUndefined,
+  negate,
+  omit,
+  some,
+  values,
+  reduce
+} from 'lodash/fp';
 
 export function isOptional({ validations, meta, styleAsOptional }) {
   const requiredByMeta = meta && meta.required === true;
@@ -36,6 +47,7 @@ export const setFormMeta = curry((field, meta, formData) => {
 });
 
 export const setFormErrors = curry((field, errs, formData) => {
+  const { warnings } = formData;
   const errors = {
     ...formData.errors,
     [field]: {
@@ -46,7 +58,12 @@ export const setFormErrors = curry((field, errs, formData) => {
 
   const valid = reduce(
     (memo, errorMap) => {
-      if (findKey(errorMap)) {
+      const hasError = flow(
+        omit(warnings[field]),
+        findKey(identity),
+        negate(isUndefined)
+      )(errorMap);
+      if (hasError) {
         return false;
       }
       return memo;
