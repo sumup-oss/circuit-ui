@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import '@storybook/addon-console';
 import { Notification } from '..';
 
 storiesOf('Notifications', module)
