@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import '@storybook/addon-console';
 import { Notification } from '..';
 
 const act = () => console.log('I am a notification action');

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import '@storybook/addon-console';
 import withStyles from '../../util/withStyles';
 import styles from './index.scss';
 
