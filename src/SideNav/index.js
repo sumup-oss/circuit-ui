@@ -5,7 +5,7 @@ import styles from './index.scss';
 const SideNavComponent = props => {
   const status = props.expanded ? 'expanded' : 'collapsed';
   const childrenWithProps = React.Children.map(props.children, child =>
-    React.cloneElement(child, { expanded: props.expanded })
+    React.cloneElement(child, { expanded : props.expanded , activeItem : props.activeItem})
   );
 
   return (
@@ -22,11 +22,11 @@ const SideNavComponent = props => {
 };
 
 const MenuItemComponent = props => {
-  const itemLinkStatus = props.isActive ? 'sidenav-item-link--active' : '';
+  const itemLinkStatus = props.name === props.activeItem ? 'sidenav-item-link--active' : '';
   const itemTextStatus = props.expanded ? 'expanded' : 'collapsed';
 
   return (
-    <li className="sidenav-item ">
+    <li className="sidenav-item " onClick={props.select(props.name)}>
       <a className={`sidenav-item-link ${itemLinkStatus}`}>
         <span className="sidenav-icon--container">
           {React.cloneElement(props.icon, {
