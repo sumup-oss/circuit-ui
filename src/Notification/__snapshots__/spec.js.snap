@@ -9,3 +9,27 @@ exports[`Notification should render error type when error prop is passed 1`] = `
   there was an error
 </div>
 `;
+
+exports[`Notification should render notification of info type when info prop is passed 1`] = `
+<div
+  className="alert alert--info"
+>
+  info here
+</div>
+`;
+
+exports[`Notification should render notification of success type when success prop is passed 1`] = `
+<div
+  className="alert alert--success"
+>
+  success here
+</div>
+`;
+
+exports[`Notification should render notification of warning type when warning prop is passed 1`] = `
+<div
+  className="alert alert--warning"
+>
+  warning here
+</div>
+`;

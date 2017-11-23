@@ -8,22 +8,13 @@ const Notification = ({ type, msg, children, className, action }) => {
   if (!(msg || children)) return null;
   const content = children || msg;
   const classes = classNames(
-    {
-      alert: true
-    },
-    `alert--${type}`,
+    `alert alert--${type}`,
     className,
     action ? `alert--action` : ''
   );
 
   return action ? (
-    <div
-      className={classes}
-      onClick={() => {
-        action();
-      }}
-      style={{ cursor: 'pointer' }}
-    >
+    <div className={classes} onClick={action} style={{ cursor: 'pointer' }}>
       {content}
     </div>
   ) : (
