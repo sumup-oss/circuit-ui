@@ -6,7 +6,7 @@ import styles from './index.scss';
 
 const FlashAlert = props => {
   const { type, msg, className, children, onDismiss } = props;
-  let {show} = props;
+  let { show } = props;
   const dismissLabel = props.dismissLabel || 'Hide';
   if (show === undefined) show = true;
   const checkProps = show && type && (children || msg);
@@ -20,7 +20,6 @@ const FlashAlert = props => {
     className
   );
 
-  console.log(props);
   return (
     <div className={classes}>
       <span>{content}</span>
