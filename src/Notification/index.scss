@@ -1,0 +1,56 @@
+@import './../shared';
+
+.alert {
+  @include card-overlay;
+
+  margin-top: $spacing-m;
+  padding: $spacing-s $spacing-m;
+
+  &.alert--action {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include media($until-medium-screens) {
+      flex-direction: row;
+    }
+  }
+
+  &.alert--error {
+    border-top: $spacing-xxs solid $color-error;
+  }
+
+  &.alert--info {
+    border-top: $spacing-xxs solid $color-brand;
+  }
+
+  &.alert--success {
+    border-top: $spacing-xxs solid $color-highlight;
+  }
+
+  &.alert--warning {
+    border-top: $spacing-xxs solid $color-warning;
+  }
+
+  &.alert--single-line {
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.alert-button-wrapper {
+  margin-top: $spacing-s;
+  width: 100%;
+
+  @include media($until-medium-screens) {
+    margin-left: $spacing-s;
+    margin-top: 0;
+    width: auto;
+  }
+
+  > .btn {
+    width: 100%;
+  }
+}
