@@ -28,7 +28,14 @@ const MenuItemComponent = props => {
   return (
     <li className="sidenav-item ">
       <a className={`sidenav-item-link ${itemLinkStatus}`}>
-        <span className="sidenav-icon--container">{props.icon}</span>
+        <span className="sidenav-icon--container">
+          {React.cloneElement(props.icon, {
+            className: 'icon sidenav-icon',
+            viewBox: '0 0 24 24',
+            width: '20',
+            height: '20'
+          })}
+        </span>
         <span
           className={`sidenav-item-text sidenav-item-text--${itemTextStatus}`}
         >
