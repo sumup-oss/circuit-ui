@@ -23,21 +23,21 @@ class Navigation extends React.Component {
         <MenuItem
           icon={<NavOverviewIcon />}
           name="overview"
-          select={this.setActive.bind(this)}
+          select={this.setActive}
         >
           Item 1
         </MenuItem>
         <MenuItem
           icon={<NavOverviewIcon />}
           name="overview1"
-          select={this.setActive.bind(this)}
+          select={this.setActive}
         >
           Item 2
         </MenuItem>
         <MenuItem
           icon={<NavOverviewIcon />}
           name="overview2"
-          select={this.setActive.bind(this)}
+          select={this.setActive}
         >
           Item 3
         </MenuItem>
