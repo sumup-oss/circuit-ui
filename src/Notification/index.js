@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import withStyles from '../../util/withStyles';
 import styles from './index.scss';
 
-const Notification = ({ type, msg, children, className }) => {
+const Notification = ({ type, msg, children, className, action }) => {
   if (!(msg || children)) return null;
   const content = children || msg;
   const classes = classNames(
@@ -12,15 +12,31 @@ const Notification = ({ type, msg, children, className }) => {
       alert: true
     },
     `alert--${type}`,
-    className
+    className,
+    action ? `alert--action` : ''
   );
-  return <div className={classes}>{content}</div>;
+
+  return action ? (
+    <div
+      className={classes}
+      onClick={() => {
+        action();
+      }}
+      style={{ cursor: 'pointer' }}
+    >
+      {content}
+    </div>
+  ) : (
+    <div className={classes}>{content}</div>
+  );
 };
 
 Notification.propTypes = {
   type: PropTypes.string,
-  data: PropTypes.object,
-  children: PropTypes.any
+  msg: PropTypes.string,
+  children: PropTypes.any,
+  className: PropTypes.string,
+  action: PropTypes.func
 };
 
 export default withStyles(styles)(Notification);
