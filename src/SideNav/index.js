@@ -1,14 +1,13 @@
-import React, { Component, Element } from 'react';
+import React from 'react';
 import withStyles from '../../util/withStyles';
 import styles from './index.scss';
-import { NavOverviewIcon } from '../../src/Icons';
 
 const SideNavComponent = props => {
   const status = props.expanded ? 'expanded' : 'collapsed';
   const childrenWithProps = React.Children.map(props.children, child =>
     React.cloneElement(child, { expanded: props.expanded })
   );
-  
+
   return (
     <div>
       <div className={`layout-sidenav layout-sidenav--${status}`}>
