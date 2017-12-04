@@ -1,5 +1,5 @@
 {
-  "name": "ui-components",
+  "name": "sumup-ui",
   "version": "0.0.1",
   "description": "SumUp's React UI component library",
   "main": "index.js",
@@ -28,14 +28,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sumup/ui-components.git"
+    "url": "git+https://github.com/sumup/sumup-ui.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sumup/ui-components/issues"
+    "url": "https://github.com/sumup/sumup-ui/issues"
   },
-  "homepage": "https://github.com/sumup/ui-components#readme",
+  "homepage": "https://github.com/sumup/sumup-ui#readme",
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.6",
     "@storybook/addon-info": "^3.2.9",
