@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import withStyles from '../../util/withStyles';
-import styles from './index.scss';
 import { formatNumberParts } from '../../util/numbers';
 import { getCurrencyFormat } from '../../util/currency';
 
-const Price = ({ currency, locale, amount, installments, hasDisclaimer }) => {
+import { getColorClass } from './service';
+import styles from './index.scss';
+
+const Price = ({ currency, locale, amount, installments, color }) => {
   const {
     decimalSep,
     thousandSep,
@@ -21,10 +23,11 @@ const Price = ({ currency, locale, amount, installments, hasDisclaimer }) => {
     precision: currencyPrecision,
     thousandSep
   });
+  const hasFractionalPart = fractional !== '00';
 
   const showInstallments = installments > 1;
   const ccySymbolClassNames = classNames('price__currency', {
-    'price__small-text': prepend && showInstallments
+    'price__small-text': showInstallments || (!prepend && hasFractionalPart)
   });
   const ccySymbol = <span className={ccySymbolClassNames}>{symbol}</span>;
   const inst = showInstallments && (
@@ -40,13 +43,13 @@ const Price = ({ currency, locale, amount, installments, hasDisclaimer }) => {
       {prepend && ccySymbol}
     </div>
   );
-  const post = !prepend && ccySymbol;
   const frac = fractional !== '00' && (
-    <span className="price__fractional">{`${decimalSep}${fractional}`}</span>
+    <span className="price__small-text">{`${decimalSep}${fractional}`}</span>
   );
+  const post = !prepend && ccySymbol;
 
   return (
-    <div className="price">
+    <div className={classNames('price', getColorClass(color))}>
       {pre}
       <div
         className={classNames('amount', {
@@ -58,7 +61,6 @@ const Price = ({ currency, locale, amount, installments, hasDisclaimer }) => {
         {frac}
         {post}
       </div>
-      {hasDisclaimer && <span>*</span>}
     </div>
   );
 };
@@ -68,13 +70,13 @@ Price.propTypes = {
   locale: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
   installments: PropTypes.number,
-  hasDisclaimer: PropTypes.bool
+  color: PropTypes.string
 };
 
 Price.defaultProps = {
   fractionalPrecision: 2,
   installments: 1,
-  hasDisclaimer: false
+  color: 'brand'
 };
 
 export default withStyles(styles)(Price);

@@ -1,10 +1,35 @@
 @import './../shared';
 
+// TODO: design provided these weird numbers, but maybe we can clean them up?
 .price {
-  color: $color-brand;
   display: flex;
-  font-size: $font-size-xxxl;
-  line-height: $line-height-l;
+  font-size: $font-size-xxl;
+  line-height: 20px;
+
+  @include media($big-screens) {
+    font-size: 30px;
+    line-height: $line-height-m;
+  }
+}
+
+.price--brand {
+  color: $color-brand;
+}
+
+.price--highlight {
+  color: $color-highlight;
+}
+
+.price--success {
+  color: $color-success;
+}
+
+.price--warning {
+  color: $color-warning;
+}
+
+.price--error {
+  color: $color-error;
 }
 
 .amount {
@@ -13,20 +38,11 @@
 }
 
 .amount--prepended-space {
-  margin-left: $spacing-xs;
+  margin-left: $spacing-xs / 2;
 }
 
 .amount--postpended-space {
-  margin-right: $spacing-xs;
-}
-
-.price--disclaimer {
-  margin-bottom: $spacing-s;
-}
-
-.price__fractional {
-  font-size: $font-size-s;
-  line-height: $line-height-s;
+  margin-right: $spacing-xs / 2;
 }
 
 .price__pre {
@@ -39,12 +55,12 @@
   }
 }
 
-.price__decorator-text {
-  color: darken($color-medium, 30%);
-}
-
 .price__small-text {
-  font-size: $font-size-s;
+  font-size: $font-size-xs;
   font-weight: $font-weight-medium;
-  line-height: 14px;
+  line-height: $font-size-s;
+
+  @include media($big-screens) {
+    font-size: $font-size-s;
+  }
 }
