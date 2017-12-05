@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNavigation should render collapsed side navigation when expanded prop is false 1`] = `
+<div
+  className="layout-sidenav layout-sidenav--collapsed"
+>
+  <ul
+    className="sidenav-list sidenav-list--collapsed"
+  />
+</div>
+`;
+
+exports[`SideNavigation should render collapsed side navigation when there is no expanded prop 1`] = `
+<div
+  className="layout-sidenav layout-sidenav--collapsed"
+>
+  <ul
+    className="sidenav-list sidenav-list--collapsed"
+  />
+</div>
+`;
+
+exports[`SideNavigation should render expanded side navigation when passed expanded prop 1`] = `
+<div
+  className="layout-sidenav layout-sidenav--expanded"
+>
+  <ul
+    className="sidenav-list sidenav-list--expanded"
+  />
+</div>
+`;

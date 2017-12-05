@@ -9,35 +9,37 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: 'overview'
+      activeItem: 'item 1'
     };
   }
 
-  setActive = item => () => {
-    this.setState({ active: item });
-  };
-
   render() {
     return (
-      <SideNav expanded={true} activeItem={this.state.active}>
+      <SideNav expanded={true} onClick={this.setExpanded}>
         <MenuItem
           icon={<NavOverviewIcon />}
-          name="overview"
-          select={this.setActive}
+          isActive={this.state.activeItem === 'item 1'}
+          onClick={() => {
+            this.setState({ activeItem: 'item 1' });
+          }}
         >
           Item 1
         </MenuItem>
         <MenuItem
           icon={<NavOverviewIcon />}
-          name="overview1"
-          select={this.setActive}
+          isActive={this.state.activeItem === 'item 2'}
+          onClick={() => {
+            this.setState({ activeItem: 'item 2' });
+          }}
         >
           Item 2
         </MenuItem>
         <MenuItem
           icon={<NavOverviewIcon />}
-          name="overview2"
-          select={this.setActive}
+          isActive={this.state.activeItem === 'item 3'}
+          onClick={() => {
+            this.setState({ activeItem: 'item 3' });
+          }}
         >
           Item 3
         </MenuItem>

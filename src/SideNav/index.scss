@@ -93,7 +93,7 @@ body {
 
   &.sidenav-item-link--active {
     border-left: $left-border-width solid $color-brand;
-    font-weight: $font-weight-medium;
+    font-weight: 600;
   }
 
   &.sidenav-item-link--disabled {
