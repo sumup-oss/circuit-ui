@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="172px" height="150px" viewBox="0 0 172 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>pay-boleto</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="pay-boleto" sketch:type="MSArtboardGroup">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(15.000000, 25.000000)">
+                <rect id="Rectangle-path-Copy-8" fill="#41A6DF" sketch:type="MSShapeGroup" x="0" y="0" width="11.52" height="90.4878049"></rect>
+                <rect id="Rectangle-path-Copy" fill="#41A6DF" sketch:type="MSShapeGroup" x="20.16" y="0" width="11.52" height="90.4878049"></rect>
+                <rect id="Rectangle-path-Copy-2" fill="#41A6DF" sketch:type="MSShapeGroup" x="38.88" y="0" width="11.52" height="90.4878049"></rect>
+                <rect id="Rectangle-path-Copy-3" fill="#41A6DF" sketch:type="MSShapeGroup" x="56.16" y="0" width="5.76" height="90.4878049"></rect>
+                <rect id="Rectangle-path-Copy-4" fill="#41A6DF" sketch:type="MSShapeGroup" x="70.56" y="0" width="5.76" height="90.4878049"></rect>
+                <rect id="Rectangle-path-Copy-5" fill="#41A6DF" sketch:type="MSShapeGroup" x="90.72" y="0" width="15.84" height="90.4878049"></rect>
+                <rect id="Rectangle-path-Copy-6" fill="#41A6DF" sketch:type="MSShapeGroup" x="116.64" y="0" width="14.4" height="90.4878049"></rect>
+                <rect id="Rectangle-path-Copy-7" fill="#41A6DF" sketch:type="MSShapeGroup" x="138.24" y="0" width="5.76" height="90.4878049"></rect>
+                <rect id="Rectangle-70" fill="#FFFFFF" sketch:type="MSShapeGroup" x="14.6586826" y="70.6666667" width="109.508982" height="35.3333333"></rect>
+                <text id="BOLETO" sketch:type="MSTextLayer" font-family="Menlo" font-size="25.8536585" font-weight="normal" fill="#00A5DF">
+                    <tspan x="21.5568862" y="99.8373984">BOLETO</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,125 @@
+@import './../shared';
+
+$max-width: 960px;
+$border-box-sizing: false;
+
+//-------------------------------------
+// Overrides for Neat
+//-------------------------------------
+
+$column: golden-ratio(1em, 3) !default;
+$gutter: golden-ratio(1em, 3) !default;
+$fg-column: $column;
+$fg-gutter: $gutter;
+
+$topnav-height: 60px;
+$topnav-height-mobile: 48px;
+$expanded-side-nav-width: 225px;
+$collapsed-side-nav-width: 60px;
+
+body {
+  background-color: $color-off;
+  font-size: $font-size-m;
+}
+
+.layout-sidenav {
+  background-color: $color-light;
+  box-shadow: 1px 0 5px $color-medium;
+  height: 100%;
+  left: -$expanded-side-nav-width;
+  position: fixed;
+  top: $topnav-height-mobile;
+  transition: .3s ease-in;
+  z-index: 40;
+
+  &.layout-sidenav--expanded {
+    left: 0;
+    transition: .3s ease-in;
+    width: $expanded-side-nav-width;
+  }
+
+  @include media($big-screens) {
+    box-shadow: none;
+    left: 0;
+    top: $topnav-height;
+    transition: .3s ease-in;
+    width: $collapsed-side-nav-width;
+  }
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.sidenav-list {
+  margin-top: 20px;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.sidenav-item {
+  @include display(flex);
+
+  margin: 10px auto 10px 0;
+
+  &#{&}--fade-in {
+    @include animation(fadeInDown .2s ease-in-out);
+  }
+}
+
+.sidenav-item-text {
+  display: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &.sidenav-item-text--expanded {
+    display: inline-block;
+  }
+}
+
+.sidenav-item-link {
+  @include type-m;
+  $left-border-width: $spacing-xxs;
+
+  @include display(flex);
+  @include align-items(center);
+
+  border-left: $left-border-width solid transparent;
+  color: $color-dark;
+  height: 32px;
+  max-width: 100%;
+  padding: 7px 12px 0 14px;
+
+  &.sidenav-item-link--active {
+    border-left: $left-border-width solid $color-brand;
+    font-weight: 600;
+  }
+
+  &.sidenav-item-link--disabled {
+    color: $color-medium;
+    cursor: default;
+    transform-style: preserve-3d;
+
+    &:hover {
+      color: $color-medium;
+    }
+  }
+
+  &:hover {
+    color: $color-dark;
+  }
+}
+
+.sidenav-icon-container {
+  margin-right: $spacing-l;
+}
+
+.sidenav-icon {
+  fill: $color-medium;
+  margin-right: 20px;
+
+  use > svg {
+    fill: $color-medium;
+  }
+}
