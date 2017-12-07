@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`currency getCurrencyFormat() should fall back to the default format for a currency, if locale is not found. 1`] = `
+Object {
+  "addSpace": true,
+  "currencyPrecision": 2,
+  "decimalSep": ".",
+  "prepend": false,
+  "symbol": "€",
+  "thousandSep": ",",
+}
+`;
+
+exports[`currency getCurrencyFormat() should return a format object for a currency and locale. 1`] = `
+Object {
+  "addSpace": true,
+  "currencyPrecision": 2,
+  "decimalSep": ",",
+  "prepend": false,
+  "symbol": "€",
+  "thousandSep": ".",
+}
+`;
