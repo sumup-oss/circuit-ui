@@ -1,0 +1,50 @@
+@import './../shared';
+
+@mixin animate-alert {
+  transform: translateY(0);
+  transition: all .15s ease-out 0s;
+}
+
+.flash-alert {
+  color: $color-off;
+  font-size: $font-size-m;
+  left: 0;
+  min-height: $topnav-height-mobile;
+  padding: $spacing-s $spacing-s;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  transform: translateY(-$topnav-height);
+  transition: all .15s ease-out 0s;
+  width: 100%;
+  z-index: 1000;
+
+  &.flash-alert--error {
+    @include animate-alert;
+
+    background-color: $color-error;
+  }
+
+  &.flash-alert--success {
+    @include animate-alert;
+
+    background-color: $color-success;
+  }
+
+  &.flash-alert--warning {
+    @include animate-alert;
+
+    background-color: $color-warning;
+  }
+
+  @include media($medium-to-big-screens) {
+    height: $topnav-height;
+    min-height: 0;
+    padding: $spacing-m $spacing-m;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
