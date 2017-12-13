@@ -1,0 +1,53 @@
+@import '../shared';
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  a {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-highlight;
+    }
+  }
+
+  &--inline {
+    display: inline-block;
+  }
+}
+
+h1,
+.h1,
+h2,
+.h2 {
+  font-weight: $font-weight-light;
+
+  @include type-xxl;
+
+  @include media($medium-screens) {
+    @include type-xxxxl;
+  }
+
+  @include media($huge-screens) {
+    @include type-xxxxxl;
+  }
+}
+
+h3,
+.h3,
+h4,
+.h4 {
+  font-weight: $font-weight-regular;
+}
+
+h4,
+.h4 {
+  font-weight: $font-weight-light;
+}

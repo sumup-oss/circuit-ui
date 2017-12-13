@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text should be possible to render text inline 1`] = `
+<span
+  className="text--inline type-s"
+>
+  Hi
+</span>
+`;
+
+exports[`Text should respect the size property 1`] = `
+<p
+  className="text type-s"
+>
+  Hello
+</p>
+`;

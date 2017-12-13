@@ -1,0 +1,60 @@
+@import '../shared';
+
+.text {
+  display: block;
+}
+
+.text--inline {
+  display: inline-block;
+}
+
+.type-xxxxxl {
+  font-family: $font-family-display;
+  font-size: $font-size-xxxxxl;
+  line-height: $line-height-xxl;
+}
+
+.type-xxxxl {
+  font-family: $font-family-display;
+  font-size: $font-size-xxxxl;
+  line-height: $line-height-xl;
+}
+
+.type-xxxl {
+  font-family: $font-family-display;
+  font-size: $font-size-xxxl;
+  line-height: $line-height-xl;
+}
+
+.type-xxl {
+  font-family: $font-family-display;
+  font-size: $font-size-xxl;
+  line-height: $line-height-l;
+}
+
+.type-xl {
+  font-family: $font-family-display;
+  font-size: $font-size-xl;
+  line-height: $line-height-m;
+}
+
+.type-l {
+  font-family: $font-family-display;
+  font-size: $font-size-l;
+  line-height: $line-height-m;
+}
+
+.type-m {
+  font-size: $font-size-m;
+  line-height: $line-height-m;
+}
+
+.type-s {
+  font-size: $font-size-s;
+  line-height: $line-height-s;
+}
+
+.type-xs {
+  font-size: $font-size-xs;
+  line-height: $line-height-s;
+}
