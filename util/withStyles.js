@@ -37,6 +37,11 @@ function withStyles(...styles) {
     WithStyles.contextTypes = contextTypes;
     WithStyles.ComposedComponent = ComposedComponent;
 
+    if (STORYBOOK === true) {
+      WithStyles.propTypes = ComposedComponent.propTypes;
+      WithStyles.displayName = displayName;
+    }
+
     return hoistStatics(WithStyles, ComposedComponent);
   };
 }

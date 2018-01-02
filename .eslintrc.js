@@ -34,6 +34,7 @@ module.exports = {
     ]
   },
   globals: {
+    STORYBOOK: true,
     describe: true,
     beforeEach: true,
     inject: true,

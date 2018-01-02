@@ -6,3 +6,6 @@ Enzyme.configure({ adapter: new Adapter() });
 global.shallow = shallow;
 global.render = render;
 global.mount = mount;
+
+// This is defined by webpack in storybook builds using the DefinePlugin plugin.
+global.STORYBOOK = false;

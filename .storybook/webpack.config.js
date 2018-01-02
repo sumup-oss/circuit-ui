@@ -1,6 +1,8 @@
 const path = require('path');
 const bourbonPath = require('bourbon').includePaths;
 const neatPath = require('bourbon-neat').includePaths;
+const webpack = require('webpack');
+
 const normalizePath = path.join(__dirname, '../node_modules/normalize.css');
 const merge = require('webpack-merge');
 
@@ -50,7 +52,12 @@ module.exports = function(storybookBaseConfig, configType) {
           ]
         }
       ]
-    }
+    },
+    plugins: [
+      new webpack.DefinePlugin({
+        STORYBOOK: JSON.stringify(true),
+      })
+    ]
   };
 
   return merge(storybookBaseConfig, ourConfig);
