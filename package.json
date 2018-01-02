@@ -43,6 +43,7 @@
     "@storybook/addon-info": "^3.3.3",
     "@storybook/addon-knobs": "^3.3.3",
     "@storybook/addon-links": "^3.3.3",
+    "@storybook/addon-notes": "^3.3.3",
     "@storybook/addon-options": "^3.3.3",
     "@storybook/react": "^3.3.3",
     "@storybook/storybook-deployer": "^2.2.0",
