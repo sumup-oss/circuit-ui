@@ -14,10 +14,12 @@
     "test:lint-js": "eslint --cache --quiet src/**/*.js",
     "test:lint-js:watch": "onchange \"src/**/*.js\" -- npm run test:lint-js",
     "test:unit": "jest --coverage",
-    "test:unit:watch": "jest --watch",
+    "test:unit:watch": "npm run test:unit:generate-output -- --watch",
+    "test:unit:generate-output": "jest --json --outputFile=jest-test-results.json || true",
     "prepush": "npm test",
     "start": "start-storybook -p 6006",
-    "export": "build-storybook -c .storybook -o .out",
+    "prebuild": "npm run test:unit:generate-output",
+    "build": "build-storybook -c .storybook -o .out",
     "deploy": "storybook-to-ghpages"
   },
   "lint-staged": {
@@ -71,6 +73,7 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "@storybook/addon-jest": "^3.3.3",
     "autoprefixer": "^7.2.4",
     "babel-eslint": "^8.1.2",
     "babel-plugin-lodash": "^3.3.2",
