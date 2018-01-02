@@ -1,6 +1,8 @@
 import React from 'react';
+import { flow } from 'lodash/fp';
 import { storiesOf } from '@storybook/react';
 import { withNotes } from '@storybook/addon-notes';
+import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
 import { Price } from '../..';
@@ -10,7 +12,7 @@ storiesOf('Prices', module)
   .addDecorator(withTests('Price/spec.js'))
   .add(
     'Price',
-    withNotes(README)(() => (
+    flow(withNotes(README), withInfo())(() => (
       <div>
         {/* Adding some vertical spacing between the children */}
         <style
