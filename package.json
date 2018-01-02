@@ -15,7 +15,7 @@
     "test:lint-js:watch": "onchange \"src/**/*.js\" -- npm run test:lint-js",
     "test:unit": "jest --coverage",
     "test:unit:watch": "jest --watch",
-    "precommit": "npm run fix:prettier && npm test",
+    "prepush": "npm test",
     "start": "start-storybook -p 6006",
     "export": "build-storybook -c .storybook -o .out",
     "deploy": "storybook-to-ghpages"
