@@ -97,6 +97,7 @@
     "react-dom": "^16.2.0",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.2.0",
+    "recompose": "^0.26.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1"
   }
