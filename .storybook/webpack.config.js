@@ -1,24 +1,26 @@
 const path = require('path');
 const bourbonPath = require('bourbon').includePaths;
 const neatPath = require('bourbon-neat').includePaths;
+const webpack = require('webpack');
+
 const normalizePath = path.join(__dirname, '../node_modules/normalize.css');
 const merge = require('webpack-merge');
 
 module.exports = function(storybookBaseConfig, configType) {
   if (configType === 'PRODUCTION') {
-    storybookBaseConfig.plugins = storybookBaseConfig.plugins.filter(plugin =>
-      plugin.constructor.name !== 'UglifyJsPlugin'
+    storybookBaseConfig.plugins = storybookBaseConfig.plugins.filter(
+      plugin => plugin.constructor.name !== 'UglifyJsPlugin'
     );
   }
 
   const ourConfig = {
     externals: {
-     'jsdom': 'window',
-     'cheerio': 'window',
-     'react/lib/ExecutionEnvironment': true,
-     'react/lib/ReactContext': 'window',
-     'react/addons': true,
-   },
+      jsdom: 'window',
+      cheerio: 'window',
+      'react/lib/ExecutionEnvironment': true,
+      'react/lib/ReactContext': 'window',
+      'react/addons': true
+    },
     module: {
       rules: [
         {
@@ -44,14 +46,21 @@ module.exports = function(storybookBaseConfig, configType) {
               loader: 'sass-loader',
               options: {
                 sourceMap: true,
-                includePaths: [normalizePath].concat(neatPath).concat(bourbonPath)
+                includePaths: [normalizePath]
+                  .concat(neatPath)
+                  .concat(bourbonPath)
               }
             }
           ]
         }
       ]
-    }
+    },
+    plugins: [
+      new webpack.DefinePlugin({
+        STORYBOOK: JSON.stringify(true),
+      })
+    ]
   };
 
   return merge(storybookBaseConfig, ourConfig);
-}
+};

@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import hoistStatics from 'hoist-non-react-statics';
 
 const contextTypes = {
-  insertCss: PropTypes.func,
+  insertCss: PropTypes.func
 };
 
 function withStyles(...styles) {
@@ -31,11 +31,17 @@ function withStyles(...styles) {
       }
     }
 
-    const displayName = ComposedComponent.displayName || ComposedComponent.name || 'Component';
+    const displayName =
+      ComposedComponent.displayName || ComposedComponent.name || 'Component';
 
     WithStyles.displayName = `WithStyles(${displayName})`;
     WithStyles.contextTypes = contextTypes;
     WithStyles.ComposedComponent = ComposedComponent;
+
+    if (STORYBOOK === true) {
+      WithStyles.propTypes = ComposedComponent.propTypes;
+      WithStyles.displayName = displayName;
+    }
 
     return hoistStatics(WithStyles, ComposedComponent);
   };

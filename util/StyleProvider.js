@@ -14,4 +14,3 @@ export default class StyleProvider extends Component {
 StyleProvider.childContextTypes = {
   insertCss: PropTypes.func
 };
-

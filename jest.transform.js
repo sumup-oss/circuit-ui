@@ -8,11 +8,7 @@ const babelConfig = {
     'transform-object-rest-spread',
     'transform-class-properties'
   ],
-  presets: [
-    ['env', { targets: { node: 'current' } } ],
-    'react',
-    'stage-3'
-  ]
+  presets: [['env', { targets: { node: 'current' } }], 'react', 'stage-3']
 };
 
 module.exports = createTransformer(babelConfig);
