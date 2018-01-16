@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
 
-import withTests from '../../util/withTests';
+import withTests from '../../src/util/withTests';
 import { Price } from '../..';
 import README from './README.md';
 
