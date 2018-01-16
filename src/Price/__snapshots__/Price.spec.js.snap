@@ -1,0 +1,257 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price should fall back to brand color when an invalid color prop is passed. 1`] = `
+<div
+  className="price price--brand"
+>
+  <div
+    className="amount amount--postpended-space"
+  >
+    <span>
+      99
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should not show the fractional part if it's zero. 1`] = `
+<div
+  className="price price--brand"
+>
+  <div
+    className="amount amount--postpended-space"
+  >
+    <span>
+      99
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should prepend the currency symbol when necessary. 1`] = `
+<div
+  className="price price--brand"
+>
+  <div
+    className="price__pre"
+  >
+    <span
+      className="price__currency"
+    >
+      $
+    </span>
+  </div>
+  <div
+    className="amount"
+  >
+    <span>
+      9
+    </span>
+    <span
+      className="price__small-text"
+    >
+      .99
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should render a prepended currency symbol under the installments. 1`] = `
+<div
+  className="price price--brand"
+>
+  <div
+    className="price__pre price__pre--installments"
+  >
+    <span
+      className="price__small-text"
+    >
+      12×
+    </span>
+    <span
+      className="price__currency price__small-text"
+    >
+      R$
+    </span>
+  </div>
+  <div
+    className="amount amount--prepended-space"
+  >
+    <span>
+      9
+    </span>
+    <span
+      className="price__small-text"
+    >
+      ,99
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should render a regular price by default. 1`] = `
+<div
+  className="price price--brand"
+>
+  <div
+    className="amount amount--postpended-space"
+  >
+    <span>
+      9
+    </span>
+    <span
+      className="price__small-text"
+    >
+      ,99
+    </span>
+    <span
+      className="price__currency price__small-text"
+    >
+      €
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should render installments when they are > 1. 1`] = `
+<div
+  className="price price--brand"
+>
+  <div
+    className="price__pre price__pre--installments"
+  >
+    <span
+      className="price__small-text"
+    >
+      9×
+    </span>
+  </div>
+  <div
+    className="amount amount--postpended-space"
+  >
+    <span>
+      9
+    </span>
+    <span
+      className="price__small-text"
+    >
+      ,99
+    </span>
+    <span
+      className="price__currency price__small-text"
+    >
+      €
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should render the symbol with the fractional amount for amounts with fractional part. 1`] = `
+<div
+  className="price price--brand"
+>
+  <div
+    className="amount amount--postpended-space"
+  >
+    <span>
+      9
+    </span>
+    <span
+      className="price__small-text"
+    >
+      ,99
+    </span>
+    <span
+      className="price__currency price__small-text"
+    >
+      €
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should render the symbol with the integer part for amounts without fractional part. 1`] = `
+<div
+  className="price price--brand"
+>
+  <div
+    className="amount amount--postpended-space"
+  >
+    <span>
+      9
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should render with the error color. 1`] = `
+<div
+  className="price price--error"
+>
+  <div
+    className="amount amount--postpended-space"
+  >
+    <span>
+      99
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should render with the highlight color. 1`] = `
+<div
+  className="price price--highlight"
+>
+  <div
+    className="amount amount--postpended-space"
+  >
+    <span>
+      99
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Price should render with the warning color. 1`] = `
+<div
+  className="price price--warning"
+>
+  <div
+    className="amount amount--postpended-space"
+  >
+    <span>
+      99
+    </span>
+    <span
+      className="price__currency"
+    >
+      €
+    </span>
+  </div>
+</div>
+`;
