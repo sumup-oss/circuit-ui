@@ -1,10 +1,10 @@
 module.exports = {
   coverageDirectory: '../../__coverage__',
   rootDir: '.',
-  roots: ['src', 'util'],
+  roots: ['src'],
   moduleFileExtensions: ['js'],
   collectCoverageFrom: ['**/*.{js,jsx}', '!**/node_modules/**'],
-  moduleDirectories: ['node_modules', 'src', 'util'],
+  moduleDirectories: ['node_modules', 'src'],
   transform: {
     '^.+\\.js$': '<rootDir>/jest.transform.js',
     '\\.svg$': '<rootDir>/fileTransformer.js'

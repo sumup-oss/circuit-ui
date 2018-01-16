@@ -3,8 +3,8 @@ import { addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withSmartKnobs } from 'storybook-addon-smart-knobs';
 
-import withStyles from '../util/withStyles';
-import StyleProvider from '../util/StyleProvider';
+import withStyles from '../src/util/withStyles';
+import StyleProvider from '../src/util/StyleProvider';
 import styles from '../src/index.scss';
 
 const insertCss = (...stls) => stls.forEach(s => s._insertCss());

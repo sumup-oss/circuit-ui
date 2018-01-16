@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import withStyles from '../util/withStyles';
-import { formatNumberParts } from '../util/numbers';
-import { getCurrencyFormat } from '../util/currency';
+import withStyles from '../../util/withStyles';
+import { formatNumberParts } from '../../util/numbers';
+import { getCurrencyFormat } from '../../util/currency';
 
 import { getColorClass } from './PriceService';
 import sassStyles from './Price.scss';

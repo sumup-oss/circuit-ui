@@ -1,6 +1,6 @@
-export LoadingButton from './src/LoadingButton';
-export Button from './src/Button';
-export Price from './src/Price';
+export LoadingButton from './components/LoadingButton';
+export Button from './components/Button';
+export Price from './components/Price';
 
 export withStyles from './util/withStyles';
 export StyleProvider from './util/StyleProvider';

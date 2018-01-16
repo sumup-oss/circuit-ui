@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import withTests from '../util/withTests';
-import { Button, LoadingButton } from '..';
+import withTests from '../src/util/withTests';
+import { Button, LoadingButton } from '../src';
 
 storiesOf('Buttons', module)
   .addDecorator(withTests('Button/spec.js', 'LoadingButton/spec.js'))
