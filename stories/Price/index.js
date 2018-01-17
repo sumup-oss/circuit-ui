@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { flow } from 'lodash/fp';
 import { storiesOf } from '@storybook/react';
 import { withNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../src/util/withTests';
-import { Price } from '../../src';
+import { Price } from '../../src/components/Price';
 import README from './README.md';
 
 storiesOf('Prices', module)
@@ -13,7 +13,7 @@ storiesOf('Prices', module)
   .add(
     'Price',
     flow(withNotes(README), withInfo())(() => (
-      <div>
+      <Fragment>
         {/* Adding some vertical spacing between the children */}
         <style
           scoped
@@ -25,17 +25,47 @@ storiesOf('Prices', module)
       `
           }}
         />
-        <Price currency="EUR" locale="de-DE" amount={9.99} />
-        <Price currency="EUR" locale="de-DE" amount={9} />
-        <Price currency="EUR" locale="de-DE" installments={9} amount={9.99} />
-        <Price currency="BRL" locale="pt-BR" installments={12} amount={9.99} />
-        <Price currency="USD" locale="en-US" amount={9.99} />
-        <Price currency="USD" locale="en-US" amount={49} />
-        <Price currency="USD" locale="en-US" amount={9999999} />
-        <Price currency="BRL" locale="pt-BR" amount={9.99} />
-        <Price currency="EUR" locale="de-AT" amount={9.99} color="error" />
-        <Price currency="EUR" locale="de-AT" amount={9.99} color="warning" />
-        <Price currency="EUR" locale="de-AT" amount={9.99} color="highlight" />
-      </div>
+        <Price key="1" currency="EUR" locale="de-DE" amount={9.99} />
+        <Price key="2" currency="EUR" locale="de-DE" amount={9} />
+        <Price
+          key="3"
+          currency="EUR"
+          locale="de-DE"
+          installments={9}
+          amount={9.99}
+        />
+        <Price
+          key="4"
+          currency="BRL"
+          locale="pt-BR"
+          installments={12}
+          amount={9.99}
+        />
+        <Price key="5" currency="USD" locale="en-US" amount={9.99} />
+        <Price key="6" currency="USD" locale="en-US" amount={49} />
+        <Price key="7" currency="USD" locale="en-US" amount={9999999} />
+        <Price key="8" currency="BRL" locale="pt-BR" amount={9.99} />
+        <Price
+          key="9"
+          currency="EUR"
+          locale="de-AT"
+          amount={9.99}
+          color="error"
+        />
+        <Price
+          key="10"
+          currency="EUR"
+          locale="de-AT"
+          amount={9.99}
+          color="warning"
+        />
+        <Price
+          key="11"
+          currency="EUR"
+          locale="de-AT"
+          amount={9.99}
+          color="highlight"
+        />
+      </Fragment>
     ))
   );
