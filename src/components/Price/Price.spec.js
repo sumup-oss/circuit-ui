@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Price from '.';
+import { Price } from '.';
 
 describe('Price', () => {
   it('should render a regular price by default.', () => {

@@ -1,17 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Price should fall back to brand color when an invalid color prop is passed. 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-2 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2--brand {
+  color: #5C8BCC;
+}
+
+.circuit-0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-0--postpended-space {
+  margin-right: calc(6px / 2);
+}
+
 <div
-  className="price price--brand"
+  className="circuit-2 circuit-2--brand"
 >
   <div
-    className="amount amount--postpended-space"
+    className="circuit-0 circuit-0--postpended-space"
   >
     <span>
       99
     </span>
     <span
-      className="price__currency"
+      className=""
     >
       €
     </span>
@@ -20,17 +55,52 @@ exports[`Price should fall back to brand color when an invalid color prop is pas
 `;
 
 exports[`Price should not show the fractional part if it's zero. 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-2 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2--brand {
+  color: #5C8BCC;
+}
+
+.circuit-0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-0--postpended-space {
+  margin-right: calc(6px / 2);
+}
+
 <div
-  className="price price--brand"
+  className="circuit-2 circuit-2--brand"
 >
   <div
-    className="amount amount--postpended-space"
+    className="circuit-0 circuit-0--postpended-space"
   >
     <span>
       99
     </span>
     <span
-      className="price__currency"
+      className=""
     >
       €
     </span>
@@ -39,26 +109,67 @@ exports[`Price should not show the fractional part if it's zero. 1`] = `
 `;
 
 exports[`Price should prepend the currency symbol when necessary. 1`] = `
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-3 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-3--brand {
+  color: #5C8BCC;
+}
+
+.circuit-2 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-0 {
+  display: inline-block;
+}
+
+.circuit-1 {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
 <div
-  className="price price--brand"
+  className="circuit-3 circuit-3--brand"
 >
   <div
-    className="price__pre"
+    className="circuit-0"
   >
     <span
-      className="price__currency"
+      className=""
     >
       $
     </span>
   </div>
   <div
-    className="amount"
+    className="circuit-2"
   >
     <span>
       9
     </span>
     <span
-      className="price__small-text"
+      className="circuit-1"
     >
       .99
     </span>
@@ -67,31 +178,90 @@ exports[`Price should prepend the currency symbol when necessary. 1`] = `
 `;
 
 exports[`Price should render a prepended currency symbol under the installments. 1`] = `
+.circuit-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-7 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-7--brand {
+  color: #5C8BCC;
+}
+
+.circuit-5 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-5--prepended-space {
+  margin-left: calc(6px / 2);
+}
+
+.circuit-2 {
+  display: inline-block;
+}
+
+.circuit-2--installments {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.circuit-0 {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
 <div
-  className="price price--brand"
+  className="circuit-7 circuit-7--brand"
 >
   <div
-    className="price__pre price__pre--installments"
+    className="circuit-2 circuit-2--installments"
   >
     <span
-      className="price__small-text"
+      className="circuit-0"
     >
       12×
     </span>
     <span
-      className="price__currency price__small-text"
+      className="circuit-0"
     >
       R$
     </span>
   </div>
   <div
-    className="amount amount--prepended-space"
+    className="circuit-5 circuit-5--prepended-space"
   >
     <span>
       9
     </span>
     <span
-      className="price__small-text"
+      className="circuit-0"
     >
       ,99
     </span>
@@ -100,22 +270,63 @@ exports[`Price should render a prepended currency symbol under the installments.
 `;
 
 exports[`Price should render a regular price by default. 1`] = `
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-4 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-4--brand {
+  color: #5C8BCC;
+}
+
+.circuit-2 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-2--postpended-space {
+  margin-right: calc(6px / 2);
+}
+
+.circuit-0 {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
 <div
-  className="price price--brand"
+  className="circuit-4 circuit-4--brand"
 >
   <div
-    className="amount amount--postpended-space"
+    className="circuit-2 circuit-2--postpended-space"
   >
     <span>
       9
     </span>
     <span
-      className="price__small-text"
+      className="circuit-0"
     >
       ,99
     </span>
     <span
-      className="price__currency price__small-text"
+      className="circuit-0"
     >
       €
     </span>
@@ -124,31 +335,90 @@ exports[`Price should render a regular price by default. 1`] = `
 `;
 
 exports[`Price should render installments when they are > 1. 1`] = `
+.circuit-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-7 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-7--brand {
+  color: #5C8BCC;
+}
+
+.circuit-5 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-5--postpended-space {
+  margin-right: calc(6px / 2);
+}
+
+.circuit-1 {
+  display: inline-block;
+}
+
+.circuit-1--installments {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.circuit-0 {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
 <div
-  className="price price--brand"
+  className="circuit-7 circuit-7--brand"
 >
   <div
-    className="price__pre price__pre--installments"
+    className="circuit-1 circuit-1--installments"
   >
     <span
-      className="price__small-text"
+      className="circuit-0"
     >
       9×
     </span>
   </div>
   <div
-    className="amount amount--postpended-space"
+    className="circuit-5 circuit-5--postpended-space"
   >
     <span>
       9
     </span>
     <span
-      className="price__small-text"
+      className="circuit-0"
     >
       ,99
     </span>
     <span
-      className="price__currency price__small-text"
+      className="circuit-0"
     >
       €
     </span>
@@ -157,22 +427,63 @@ exports[`Price should render installments when they are > 1. 1`] = `
 `;
 
 exports[`Price should render the symbol with the fractional amount for amounts with fractional part. 1`] = `
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-4 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-4--brand {
+  color: #5C8BCC;
+}
+
+.circuit-2 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-2--postpended-space {
+  margin-right: calc(6px / 2);
+}
+
+.circuit-0 {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
 <div
-  className="price price--brand"
+  className="circuit-4 circuit-4--brand"
 >
   <div
-    className="amount amount--postpended-space"
+    className="circuit-2 circuit-2--postpended-space"
   >
     <span>
       9
     </span>
     <span
-      className="price__small-text"
+      className="circuit-0"
     >
       ,99
     </span>
     <span
-      className="price__currency price__small-text"
+      className="circuit-0"
     >
       €
     </span>
@@ -181,17 +492,52 @@ exports[`Price should render the symbol with the fractional amount for amounts w
 `;
 
 exports[`Price should render the symbol with the integer part for amounts without fractional part. 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-2 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2--brand {
+  color: #5C8BCC;
+}
+
+.circuit-0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-0--postpended-space {
+  margin-right: calc(6px / 2);
+}
+
 <div
-  className="price price--brand"
+  className="circuit-2 circuit-2--brand"
 >
   <div
-    className="amount amount--postpended-space"
+    className="circuit-0 circuit-0--postpended-space"
   >
     <span>
       9
     </span>
     <span
-      className="price__currency"
+      className=""
     >
       €
     </span>
@@ -200,17 +546,52 @@ exports[`Price should render the symbol with the integer part for amounts withou
 `;
 
 exports[`Price should render with the error color. 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-2 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2--error {
+  color: #CC5252;
+}
+
+.circuit-0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-0--postpended-space {
+  margin-right: calc(6px / 2);
+}
+
 <div
-  className="price price--error"
+  className="circuit-2 circuit-2--error"
 >
   <div
-    className="amount amount--postpended-space"
+    className="circuit-0 circuit-0--postpended-space"
   >
     <span>
       99
     </span>
     <span
-      className="price__currency"
+      className=""
     >
       €
     </span>
@@ -219,17 +600,52 @@ exports[`Price should render with the error color. 1`] = `
 `;
 
 exports[`Price should render with the highlight color. 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-2 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2--highlight {
+  color: #52CCA7;
+}
+
+.circuit-0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-0--postpended-space {
+  margin-right: calc(6px / 2);
+}
+
 <div
-  className="price price--highlight"
+  className="circuit-2 circuit-2--highlight"
 >
   <div
-    className="amount amount--postpended-space"
+    className="circuit-0 circuit-0--postpended-space"
   >
     <span>
       99
     </span>
     <span
-      className="price__currency"
+      className=""
     >
       €
     </span>
@@ -238,17 +654,52 @@ exports[`Price should render with the highlight color. 1`] = `
 `;
 
 exports[`Price should render with the warning color. 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 20px;
+}
+
+@media (min-width:801px) {
+  .circuit-2 {
+    font-size: 30px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2--warning {
+  color: #FACC37;
+}
+
+.circuit-0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-0--postpended-space {
+  margin-right: calc(6px / 2);
+}
+
 <div
-  className="price price--warning"
+  className="circuit-2 circuit-2--warning"
 >
   <div
-    className="amount amount--postpended-space"
+    className="circuit-0 circuit-0--postpended-space"
   >
     <span>
       99
     </span>
     <span
-      className="price__currency"
+      className=""
     >
       €
     </span>
