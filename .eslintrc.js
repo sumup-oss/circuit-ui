@@ -30,7 +30,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['stories/**/*.js'] }
+      { devDependencies: ['*.js', 'stories/**/*.js', 'src/**/*.spec.js'] }
     ]
   },
   globals: {
