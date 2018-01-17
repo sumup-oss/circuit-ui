@@ -61,6 +61,7 @@
     "husky": "^0.14.3",
     "jest": "^22.0.4",
     "jest-cli": "^22.0.4",
+    "jest-emotion": "^9.0.0-0",
     "lint-staged": "^6.0.0",
     "onchange": "^3.3.0",
     "prettier": "^1.9.2",
