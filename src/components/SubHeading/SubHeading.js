@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import styled, { css } from 'react-emotion';
 
 import { standard } from '../../themes';
 import { typeMarginResets } from '../../styles/global-styles';
+import HtmlElement from '../HtmlElement/HtmlElement';
 
 const baseStyles = ({ theme }) => css`
   label: sub-heading;
@@ -18,24 +18,7 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.subHeadings[size].lineHeight};
 `;
 
-const SubHeading = ({
-  element: Element,
-  size,
-  theme,
-  children,
-  className,
-  ...props
-}) => (
-  <Element
-    className={`${baseStyles({ theme })} ${sizeStyles({
-      theme,
-      size
-    })} ${className}`}
-    {...props}
-  >
-    {children}
-  </Element>
-);
+const SubHeading = styled(HtmlElement)(baseStyles, sizeStyles);
 
 SubHeading.propTypes = {
   /**

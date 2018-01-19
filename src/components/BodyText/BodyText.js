@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import styled, { css } from 'react-emotion';
 
 import { standard } from '../../themes';
 import { typeMarginResets } from '../../styles/global-styles';
+import HtmlElement from '../HtmlElement/HtmlElement';
 
 const baseStyles = ({ theme }) => css`
   label: body-text;
@@ -17,28 +17,12 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.body[size].lineHeight};
 `;
 
+const BodyText = styled(HtmlElement)(baseStyles, sizeStyles);
+
 /**
  * The BodyText component is used for long-form text. Typically with
  * <p>, <div>, <article>, or <section> elements.
  */
-const BodyText = ({
-  element: Element,
-  size,
-  theme,
-  children,
-  className,
-  ...props
-}) => (
-  <Element
-    className={`${baseStyles({ theme })} ${sizeStyles({
-      theme,
-      size
-    })} ${className}`}
-    {...props}
-  >
-    {children}
-  </Element>
-);
 
 BodyText.propTypes = {
   /**

@@ -7,15 +7,13 @@ exports[`BodyText should render as article element, when passed "article" for th
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 15px;
   line-height: 24px;
 }
 
 <article
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="mega"
 >
   ARTICLE heading
 </article>
@@ -28,15 +26,13 @@ exports[`BodyText should render as div element, when passed "div" for the elemen
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 15px;
   line-height: 24px;
 }
 
 <div
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="mega"
 >
   DIV heading
 </div>
@@ -49,15 +45,13 @@ exports[`BodyText should render as p element, when passed "p" for the element pr
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 15px;
   line-height: 24px;
 }
 
 <p
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="mega"
 >
   P heading
 </p>
@@ -70,15 +64,13 @@ exports[`BodyText should render with size giga, when passed "giga" for the size 
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 18px;
   line-height: 28px;
 }
 
 <p
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="giga"
 >
   giga heading
 </p>
@@ -91,15 +83,13 @@ exports[`BodyText should render with size kilo, when passed "kilo" for the size 
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 13px;
   line-height: 20px;
 }
 
 <p
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="kilo"
 >
   kilo heading
 </p>
@@ -112,15 +102,13 @@ exports[`BodyText should render with size mega, when passed "mega" for the size 
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 15px;
   line-height: 24px;
 }
 
 <p
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="mega"
 >
   mega heading
 </p>

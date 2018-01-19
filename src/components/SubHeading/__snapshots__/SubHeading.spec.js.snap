@@ -8,15 +8,13 @@ exports[`SubHeading should render as H2 element, when passed "h2" for the elemen
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 12px;
   line-height: 20px;
 }
 
 <h2
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="kilo"
 >
   H2 heading
 </h2>
@@ -30,15 +28,13 @@ exports[`SubHeading should render as H3 element, when passed "h3" for the elemen
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 12px;
   line-height: 20px;
 }
 
 <h3
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="kilo"
 >
   H3 heading
 </h3>
@@ -52,15 +48,13 @@ exports[`SubHeading should render as H4 element, when passed "h4" for the elemen
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 12px;
   line-height: 20px;
 }
 
 <h4
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="kilo"
 >
   H4 heading
 </h4>
@@ -74,15 +68,13 @@ exports[`SubHeading should render as H5 element, when passed "h5" for the elemen
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 12px;
   line-height: 20px;
 }
 
 <h5
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="kilo"
 >
   H5 heading
 </h5>
@@ -96,15 +88,13 @@ exports[`SubHeading should render as H6 element, when passed "h6" for the elemen
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 12px;
   line-height: 20px;
 }
 
 <h6
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="kilo"
 >
   H6 heading
 </h6>
@@ -118,15 +108,13 @@ exports[`SubHeading should render with size kilo, when passed "kilo" for the siz
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 12px;
   line-height: 20px;
 }
 
 <h3
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="kilo"
 >
   kilo heading
 </h3>
@@ -140,15 +128,13 @@ exports[`SubHeading should render with size mega, when passed "mega" for the siz
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-}
-
-.circuit-1 {
   font-size: 14px;
   line-height: 18px;
 }
 
 <h3
-  className="circuit-0 circuit-1 "
+  className="circuit-0"
+  size="mega"
 >
   mega heading
 </h3>
