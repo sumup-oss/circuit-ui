@@ -8,10 +8,5 @@ import globalStyles from '../src/styles/global-styles';
 
 globalStyles({ theme: standard });
 
-const App = ({ children }) => Children.only(children);
-
-const styleDecorator = storyFn => <App>{storyFn()}</App>;
-
-addDecorator(styleDecorator);
 addDecorator(withSmartKnobs);
 addDecorator(withKnobs);
