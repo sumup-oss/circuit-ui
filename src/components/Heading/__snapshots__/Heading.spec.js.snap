@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Heading should render as H1 element, when passed "h1" for the element prop 1`] = `
+exports[`Heading should render as h1 element, when passed "h1" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 800;
   -webkit-margin-before: 0;
@@ -21,7 +21,7 @@ exports[`Heading should render as H1 element, when passed "h1" for the element p
 </h1>
 `;
 
-exports[`Heading should render as H2 element, when passed "h2" for the element prop 1`] = `
+exports[`Heading should render as h2 element, when passed "h2" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 800;
   -webkit-margin-before: 0;
@@ -42,7 +42,7 @@ exports[`Heading should render as H2 element, when passed "h2" for the element p
 </h2>
 `;
 
-exports[`Heading should render as H3 element, when passed "h3" for the element prop 1`] = `
+exports[`Heading should render as h3 element, when passed "h3" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 800;
   -webkit-margin-before: 0;
@@ -63,7 +63,7 @@ exports[`Heading should render as H3 element, when passed "h3" for the element p
 </h3>
 `;
 
-exports[`Heading should render as H4 element, when passed "h4" for the element prop 1`] = `
+exports[`Heading should render as h4 element, when passed "h4" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 800;
   -webkit-margin-before: 0;
@@ -84,7 +84,7 @@ exports[`Heading should render as H4 element, when passed "h4" for the element p
 </h4>
 `;
 
-exports[`Heading should render as H5 element, when passed "h5" for the element prop 1`] = `
+exports[`Heading should render as h5 element, when passed "h5" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 800;
   -webkit-margin-before: 0;
@@ -105,7 +105,7 @@ exports[`Heading should render as H5 element, when passed "h5" for the element p
 </h5>
 `;
 
-exports[`Heading should render as H6 element, when passed "h6" for the element prop 1`] = `
+exports[`Heading should render as h6 element, when passed "h6" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 800;
   -webkit-margin-before: 0;
