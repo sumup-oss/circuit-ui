@@ -1,0 +1,274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading should render as H1 element, when passed "h1" for the element prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+<h1
+  className="circuit-0 circuit-1 "
+>
+  H1 heading
+</h1>
+`;
+
+exports[`Heading should render as H2 element, when passed "h2" for the element prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+<h2
+  className="circuit-0 circuit-1 "
+>
+  H2 heading
+</h2>
+`;
+
+exports[`Heading should render as H3 element, when passed "h3" for the element prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+<h3
+  className="circuit-0 circuit-1 "
+>
+  H3 heading
+</h3>
+`;
+
+exports[`Heading should render as H4 element, when passed "h4" for the element prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+<h4
+  className="circuit-0 circuit-1 "
+>
+  H4 heading
+</h4>
+`;
+
+exports[`Heading should render as H5 element, when passed "h5" for the element prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+<h5
+  className="circuit-0 circuit-1 "
+>
+  H5 heading
+</h5>
+`;
+
+exports[`Heading should render as H6 element, when passed "h6" for the element prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+<h6
+  className="circuit-0 circuit-1 "
+>
+  H6 heading
+</h6>
+`;
+
+exports[`Heading should render with size exa, when passed "exa" for the size prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 36px;
+  line-height: 44px;
+}
+
+<h2
+  className="circuit-0 circuit-1 "
+>
+  exa heading
+</h2>
+`;
+
+exports[`Heading should render with size giga, when passed "giga" for the size prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 22px;
+  line-height: 24px;
+}
+
+<h2
+  className="circuit-0 circuit-1 "
+>
+  giga heading
+</h2>
+`;
+
+exports[`Heading should render with size kilo, when passed "kilo" for the size prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 17px;
+  line-height: 24px;
+}
+
+<h2
+  className="circuit-0 circuit-1 "
+>
+  kilo heading
+</h2>
+`;
+
+exports[`Heading should render with size mega, when passed "mega" for the size prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 19px;
+  line-height: 24px;
+}
+
+<h2
+  className="circuit-0 circuit-1 "
+>
+  mega heading
+</h2>
+`;
+
+exports[`Heading should render with size peta, when passed "peta" for the size prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 28px;
+  line-height: 32px;
+}
+
+<h2
+  className="circuit-0 circuit-1 "
+>
+  peta heading
+</h2>
+`;
+
+exports[`Heading should render with size tera, when passed "tera" for the size prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+<h2
+  className="circuit-0 circuit-1 "
+>
+  tera heading
+</h2>
+`;
+
+exports[`Heading should render with size zetta, when passed "zetta" for the size prop 1`] = `
+.circuit-0 {
+  font-weight: 800;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+.circuit-1 {
+  font-size: 42px;
+  line-height: 48px;
+}
+
+<h2
+  className="circuit-0 circuit-1 "
+>
+  zetta heading
+</h2>
+`;
