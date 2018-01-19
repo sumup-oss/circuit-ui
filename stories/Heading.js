@@ -15,25 +15,25 @@ storiesOf('Headings', module)
     flow(withNotes(README), withInfo())(() => (
       <Fragment>
         <Heading key="h1zetta" element="h1" size="zetta">
-          This is a zetta heading with an H1 element
+          This is a zetta heading with an h1 element
         </Heading>
         <Heading key="h2exa" element="h2" size="exa">
-          This is an exa heading with an H2 element
+          This is an exa heading with an h2 element
         </Heading>
         <Heading key="h3peta" element="h3" size="peta">
-          This is a peta heading with an H3 element
+          This is a peta heading with an h3 element
         </Heading>
         <Heading key="h4tera" element="h4" size="tera">
-          This is a tera heading with an H4 element
+          This is a tera heading with an h4 element
         </Heading>
         <Heading key="h5giga" element="h5" size="giga">
-          This is a giga heading with an H5 element
+          This is a giga heading with an h5 element
         </Heading>
         <Heading key="h6mega" element="h6" size="mega">
-          This is a mega heading with an H6 element
+          This is a mega heading with an h6 element
         </Heading>
         <Heading key="h6kilo" element="h6" size="kilo">
-          This is a kilo heading with an H6 element
+          This is a kilo heading with an h6 element
         </Heading>
       </Fragment>
     ))

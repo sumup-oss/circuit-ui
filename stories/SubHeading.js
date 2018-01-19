@@ -14,10 +14,10 @@ storiesOf('SubHeadings', module)
     'SubHeading',
     flow(withNotes(README), withInfo())(() => [
       <SubHeading key="h2kilo" element="h2" size="kilo">
-        This is an kilo SubHeading with an H2 element
+        This is an kilo SubHeading with an h2 element
       </SubHeading>,
       <SubHeading key="h3mega" element="h3" size="mega">
-        This is a mega SubHeading with an H3 element
+        This is a mega SubHeading with an h3 element
       </SubHeading>
     ])
   );

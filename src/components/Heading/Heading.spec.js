@@ -6,7 +6,7 @@ import Heading from './Heading';
 describe('Heading', () => {
   const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
   elements.forEach(el => {
-    it(`should render as ${el.toUpperCase()} element, when passed "${el}" for the element prop`, () => {
+    it(`should render as ${el} element, when passed "${el}" for the element prop`, () => {
       const heading = renderer
         .create(<Heading element={el}>{`${el.toUpperCase()} heading`}</Heading>)
         .toJSON();
