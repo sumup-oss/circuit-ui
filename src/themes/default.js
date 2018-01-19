@@ -1,26 +1,38 @@
 export const colors = {
-  highlight: '#52CCA7',
-  highlightLighter: '#95E6CD',
-  highlightDarker: '#41A386',
-  brand: '#5C8BCC',
-  brandLighter: '#8EB6ED',
-  brandDarker: '#416494',
-  success: '#52CCA7',
-  successDarker: '#338069',
-  successLighter: '#95E6CD',
-  error: '#CC5252',
-  errorDarker: '#803332',
-  warning: '#FACC37',
-  warningDarker: '#B38F1B'
+  white: '#FFFFFF',
+  black: '#0F131A',
+  // Neutrals
+  n100: '#FAFBFC',
+  n300: '#D8DDE1',
+  n500: '#9DA7B1',
+  n700: '#5C656F',
+  n900: '#212933',
+  // Blues
+  b100: '#DAEAFF',
+  b300: '#7FB5FF',
+  b500: '#3388FF',
+  b700: '#2567D8',
+  b900: '#1641AC',
+  // Greens
+  g100: '#C6E5CB',
+  g300: '#97E2A3',
+  g500: '#62DE76',
+  g700: '#49B85B',
+  g900: '#2F903E',
+  // Greens
+  y100: '#F2E5CB',
+  y300: '#F7DA9F',
+  y500: '#FFC859',
+  y700: '#D4A546',
+  y900: '#AB8433',
+  // Greens
+  r100: '#FFE6E1',
+  r300: '#FFAF9F',
+  r500: '#FF7559',
+  r700: '#D55A41',
+  r900: '#A73D28'
 };
 
-export const neutrals = {
-  dark: '#323E4D',
-  medium: '#CED2D9',
-  light: '#F0F2F5',
-  off: '#FAFBFC',
-  white: '#FFF'
-};
 
 export const spacings = {
   xxs: '3px',
