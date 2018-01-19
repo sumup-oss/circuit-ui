@@ -13,8 +13,8 @@ const baseStyles = ({ theme }) => css`
 
 const sizeStyles = ({ theme, size }) => css`
   label: heading--${size};
-  font-size: ${theme.type.headings[size].fontSize};
-  line-height: ${theme.type.headings[size].lineHeight};
+  font-size: ${theme.typography.headings[size].fontSize};
+  line-height: ${theme.typography.headings[size].lineHeight};
 `;
 
 const Heading = ({

@@ -33,7 +33,6 @@ export const colors = {
   r900: '#A73D28'
 };
 
-
 export const spacings = {
   xxs: '3px',
   xs: '6px',
@@ -50,7 +49,7 @@ export const borderRadius = {
   l: '5px'
 };
 
-export const type = {
+export const typography = {
   headings: {
     kilo: {
       fontSize: '17px',

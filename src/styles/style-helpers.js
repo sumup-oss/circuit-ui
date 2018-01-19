@@ -32,7 +32,7 @@ export const shadowTripe = ({ theme }) => css`
  */
 
 const createTypeHelper = (type, name) => ({ theme }) => {
-  const { fontSize, lineHeight } = theme.type[type][name];
+  const { fontSize, lineHeight } = theme.typography[type][name];
   return css`
     font-size: ${fontSize};
     line-height: ${lineHeight};
