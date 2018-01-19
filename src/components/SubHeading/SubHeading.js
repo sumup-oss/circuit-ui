@@ -46,7 +46,7 @@ SubHeading.propTypes = {
     PropTypes.node
   ]),
   /**
-   * A Circuit UI heading size.
+   * A Circuit UI sub-heading size.
    */
   size: PropTypes.oneOf(['kilo', 'mega']),
   /**
