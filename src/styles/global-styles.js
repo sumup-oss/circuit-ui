@@ -1,17 +1,14 @@
 import { injectGlobal } from 'emotion';
+import { bodyMega } from './style-helpers';
 
 // TODO: make this define actual font faces and optimize for size.
 //       I think there is a better way to do this nowadays without
 //       @fontface.
 export const fontFaces = `
-  @font-face {
-    font-family: aktiv-grotesk;
-    src: url("https://use.typekit.net/dxb5kvg.css");
-  }
+  @import url("https://use.typekit.net/dxb5kvg.css");
 `;
 
 export const fontSettings = `
-  color: $color-darker;
   font-feature-settings: 'kern';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,8 +16,16 @@ export const fontSettings = `
   text-rendering: optimizeLegibility;
 `;
 
+export const typeMarginResets = `
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+`;
+
 export default ({ theme }) => injectGlobal`
   ${fontFaces}
+  ${fontSettings}
   // Best practice from http://callmenick.com/post/the-new-box-sizing-reset
   // TLDR: It’s easier to override and a slight performance boost.
   *,
@@ -31,8 +36,7 @@ export default ({ theme }) => injectGlobal`
 
   html {
     box-sizing: border-box;
-    font-size: ${theme.fontSize.kilo};
-    font-family: aktiv-grotesk;
+    font-family: aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI";
 
     [type='button'] {
       appearance: none;
@@ -40,10 +44,9 @@ export default ({ theme }) => injectGlobal`
   }
 
   body {
-    font-size: ${theme.fontSize.kilo};
+    color: ${theme.colors.black};
     font-weight: ${theme.fontWeight.regular};
-    line-height: ${theme.lineHeight.kilo};
-    font-family: aktiv-grotesk;
-    ${fontSettings}
+    font-family: aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI";
+    ${bodyMega({ theme })}
   }
 `;
