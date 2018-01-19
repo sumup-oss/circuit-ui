@@ -108,9 +108,8 @@ export const type = {
 };
 
 export const fontWeight = {
-  light: '100',
-  regular: '300',
-  medium: '500'
+  regular: '400',
+  bold: '800'
 };
 
 export const breakpoints = {
