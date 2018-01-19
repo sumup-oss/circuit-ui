@@ -50,36 +50,61 @@ export const borderRadius = {
   l: '5px'
 };
 
-export const typography = {
-  xxxxxl: '44px',
-  xxxxl: '40px',
-  xxxl: '32px',
-  xxl: '24px',
-  xl: '18px',
-  l: '16px',
-  m: '14px',
-  s: '12px',
-  xs: '10px'
-};
-
-export const fontSize = {
-  xxxxxl: '44px',
-  xxxxl: '40px',
-  xxxl: '32px',
-  xxl: '24px',
-  xl: '18px',
-  l: '16px',
-  m: '14px',
-  s: '12px',
-  xs: '10px'
-};
-
-export const lineHeight = {
-  xxl: '54px',
-  xl: '48px',
-  l: '30px',
-  m: '24px',
-  s: '18px'
+export const type = {
+  headings: {
+    kilo: {
+      fontSize: '17px',
+      lineHeight: '24px'
+    },
+    mega: {
+      fontSize: '19px',
+      lineHeight: '24px'
+    },
+    giga: {
+      fontSize: '22px',
+      lineHeight: '24px'
+    },
+    tera: {
+      fontSize: '24px',
+      lineHeight: '32px'
+    },
+    peta: {
+      fontSize: '28px',
+      lineHeight: '32px'
+    },
+    exa: {
+      fontSize: '36px',
+      lineHeight: '44px'
+    },
+    zetta: {
+      fontSize: '42px',
+      lineHeight: '48px'
+    }
+  },
+  subHeadings: {
+    kilo: {
+      fontSize: '12px',
+      lineHeight: '20px'
+    },
+    mega: {
+      fontSize: '14px',
+      lineHeight: '18px'
+    }
+  },
+  body: {
+    kilo: {
+      fontSize: '13px',
+      lineHeight: '20px'
+    },
+    mega: {
+      fontSize: '15px',
+      lineHeight: '24px'
+    },
+    giga: {
+      fontSize: '18px',
+      lineHeight: '28px'
+    }
+  }
 };
 
 export const fontWeight = {
