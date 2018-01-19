@@ -34,13 +34,15 @@ export const colors = {
 };
 
 export const spacings = {
-  xxs: '3px',
-  xs: '6px',
-  s: '12px',
-  m: '18px',
-  l: '24px',
-  xl: '30px',
-  xxl: '36px'
+  bit: '4px',
+  byte: '8px',
+  kilo: '16px',
+  mega: '24px',
+  giga: '32px',
+  tera: '40px',
+  peta: '48px',
+  exa: '56px',
+  zetta: '72px'
 };
 
 export const borderRadius = {
