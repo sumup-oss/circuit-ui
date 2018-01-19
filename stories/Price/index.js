@@ -5,7 +5,7 @@ import { withNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../src/util/withTests';
-import { Price } from '../../src/components/Price';
+import { PlainPrice as Price } from '../../src/components/Price';
 import README from './README.md';
 
 storiesOf('Prices', module)
