@@ -9,7 +9,7 @@ import { Price } from '../../src/components/Price';
 import README from './README.md';
 
 storiesOf('Prices', module)
-  .addDecorator(withTests('Price/spec.js'))
+  .addDecorator(withTests('Price'))
   .add(
     'Price',
     flow(withNotes(README), withInfo())(() => (
