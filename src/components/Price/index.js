@@ -1,5 +1,5 @@
 import { withTheme } from 'emotion-theming';
-import Price from './Price';
+import PlainPrice from './Price';
 
-export { Price };
-export default withTheme(Price);
+export { PlainPrice };
+export default withTheme(PlainPrice);
