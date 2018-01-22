@@ -15,7 +15,7 @@ module.exports = {
       {
         code: 80,
         tabWidth: 2,
-        ignorePattern: "^\\s*it\\(",
+        ignorePattern: '^\\s*it\\(',
         ignoreComments: true,
         ignoreUrls: true
       }
@@ -61,5 +61,31 @@ module.exports = {
         config: '.storybook/webpack.config.js'
       }
     }
-  }
+  },
+  overrides: [
+    {
+      files: ['src/**/*spec.js'],
+      rules: {
+        'max-len': [
+          'error',
+          {
+            code: 80,
+            tabWidth: 2,
+            ignorePattern: '^\\s*it\\(',
+            ignoreComments: true,
+            ignoreUrls: true
+          }
+        ]
+      },
+      globals: {
+        mount: true,
+        shallow: true,
+        render: true,
+        getStyles: true
+      },
+      env: {
+        'jest/globals': true
+      }
+    }
+  ]
 };
