@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 import withTests from './util/withTests';
 import { PlainSubHeading as SubHeading } from '../src/components/SubHeading';
 
-storiesOf('SubHeadings', module)
+storiesOf('SubHeading', module)
   .addDecorator(withTests('SubHeading'))
   .add(
     'Kilo SubHeading with h2',

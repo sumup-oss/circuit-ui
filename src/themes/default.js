@@ -36,19 +36,19 @@ export const colors = {
 export const spacings = {
   bit: '4px',
   byte: '8px',
-  kilo: '16px',
-  mega: '24px',
-  giga: '32px',
-  tera: '40px',
-  peta: '48px',
-  exa: '56px',
-  zetta: '72px'
+  kilo: '12px',
+  mega: '16px',
+  giga: '24px',
+  tera: '32px',
+  peta: '40px',
+  exa: '48px',
+  zetta: '56px'
 };
 
 export const borderRadius = {
-  s: '1px',
-  m: '3px',
-  l: '5px'
+  kilo: '1px',
+  mega: '4px',
+  giga: '5px'
 };
 
 export const typography = {
