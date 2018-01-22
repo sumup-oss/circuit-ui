@@ -1,12 +1,10 @@
 import React, { Fragment } from 'react';
 import { flow } from 'lodash/fp';
 import { storiesOf } from '@storybook/react';
-import { withNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../src/util/withTests';
 import { PlainPrice as Price } from '../../src/components/Price';
-import README from './README.md';
 
 // storiesOf('Prices', module)
 //   .addDecorator(withTests('Price'))
