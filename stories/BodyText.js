@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import withTests from '../src/util/withTests';
+import withTests from './util/withTests';
 import { PlainBodyText as BodyText } from '../src/components/BodyText';
 
 storiesOf('BodyText', module)

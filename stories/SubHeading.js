@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import withTests from '../src/util/withTests';
+import withTests from './util/withTests';
 import { PlainSubHeading as SubHeading } from '../src/components/SubHeading';
 
 storiesOf('SubHeadings', module)

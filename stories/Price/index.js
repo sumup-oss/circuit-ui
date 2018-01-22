@@ -3,7 +3,7 @@ import { flow } from 'lodash/fp';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import withTests from '../../src/util/withTests';
+import withTests from '../util/withTests';
 import { PlainPrice as Price } from '../../src/components/Price';
 
 // storiesOf('Prices', module)
