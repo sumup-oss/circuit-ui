@@ -46,9 +46,9 @@ export const spacings = {
 };
 
 export const borderRadius = {
-  s: '1px',
-  m: '3px',
-  l: '5px'
+  kilo: '1px',
+  mega: '4px',
+  giga: '5px'
 };
 
 export const typography = {
