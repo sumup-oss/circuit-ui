@@ -137,16 +137,6 @@
     global "^4.3.2"
     prop-types "^15.5.10"
 
-"@storybook/addon-notes@^3.3.3":
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-notes/-/addon-notes-3.3.3.tgz#1965f57c7fe5c2ee348a2e2b37edc03bc84fce1e"
-  dependencies:
-    babel-runtime "^6.26.0"
-    prop-types "^15.6.0"
-    util-deprecate "^1.0.2"
-  optionalDependencies:
-    "@types/react" "^16.0.20"
-
 "@storybook/addon-options@^3.3.3":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-3.3.3.tgz#23617537e3e1ef6a4be278b097c32720603f5c5a"
@@ -325,7 +315,7 @@
   version "8.5.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.5.2.tgz#83b8103fa9a2c2e83d78f701a9aa7c9539739aa5"
 
-"@types/react@^16.0.18", "@types/react@^16.0.20":
+"@types/react@^16.0.18":
   version "16.0.31"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.31.tgz#5285da62f3ac62b797f6d0729a1d6181f3180c3e"
 
@@ -2099,6 +2089,10 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+circular-json-es6@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/circular-json-es6/-/circular-json-es6-2.0.1.tgz#c9f4e37df74a655ced7245d31020bf5b5cd34ef6"
+
 circular-json@^0.3.1:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
@@ -2677,6 +2671,12 @@ dedent@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
 
+deep-equal-ident@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/deep-equal-ident/-/deep-equal-ident-1.1.1.tgz#06f4b89e53710cd6cea4a7781c7a956642de8dc9"
+  dependencies:
+    lodash.isequal "^3.0"
+
 deep-equal@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
@@ -3002,6 +3002,19 @@ enzyme-adapter-utils@^1.3.0:
     lodash "^4.17.4"
     object.assign "^4.0.4"
     prop-types "^15.6.0"
+
+enzyme-matchers@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/enzyme-matchers/-/enzyme-matchers-4.0.2.tgz#3f4457d0d0da3e268af4bee9f222439dfca26214"
+  dependencies:
+    circular-json-es6 "^2.0.1"
+    deep-equal-ident "^1.1.1"
+
+enzyme-to-json@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.3.0.tgz#553e23a09ffb4b0cf09287e2edf9c6539fddaa84"
+  dependencies:
+    lodash "^4.17.4"
 
 enzyme@^3.3.0:
   version "3.3.0"
@@ -3488,6 +3501,10 @@ extsprintf@1.3.0:
 extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
+
+facepaint@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/facepaint/-/facepaint-1.2.0.tgz#d8cdba370091c864e3fe089dd1640afec580bbcb"
 
 fast-deep-equal@^1.0.0:
   version "1.0.0"
@@ -4856,6 +4873,13 @@ jest-environment-node@^22.0.4:
     jest-mock "^22.0.3"
     jest-util "^22.0.4"
 
+jest-enzyme@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/jest-enzyme/-/jest-enzyme-4.0.2.tgz#c3a87f311889819d51ae2639c9da412da07cfc4a"
+  dependencies:
+    enzyme-matchers "^4.0.2"
+    enzyme-to-json "^3.3.0"
+
 jest-get-type@^21.2.0:
   version "21.2.0"
   resolved "https://registry.yarnpkg.com/jest-get-type/-/jest-get-type-21.2.0.tgz#f6376ab9db4b60d81e39f30749c6c466f40d4a23"
@@ -5346,6 +5370,18 @@ lodash._baseget@^3.0.0:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/lodash._baseget/-/lodash._baseget-3.7.2.tgz#1b6ae1d5facf3c25532350a13c1197cb8bb674f4"
 
+lodash._baseisequal@^3.0.0:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/lodash._baseisequal/-/lodash._baseisequal-3.0.7.tgz#d8025f76339d29342767dcc887ce5cb95a5b51f1"
+  dependencies:
+    lodash.isarray "^3.0.0"
+    lodash.istypedarray "^3.0.0"
+    lodash.keys "^3.0.0"
+
+lodash._bindcallback@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
+
 lodash._getnative@^3.0.0:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
@@ -5395,11 +5431,22 @@ lodash.isarray@^3.0.0:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
 
+lodash.isequal@^3.0:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-3.0.4.tgz#1c35eb3b6ef0cd1ff51743e3ea3cf7fdffdacb64"
+  dependencies:
+    lodash._baseisequal "^3.0.0"
+    lodash._bindcallback "^3.0.0"
+
 lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
 
-lodash.keys@^3.1.2:
+lodash.istypedarray@^3.0.0:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/lodash.istypedarray/-/lodash.istypedarray-3.0.6.tgz#c9a477498607501d8e8494d283b87c39281cef62"
+
+lodash.keys@^3.0.0, lodash.keys@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-3.1.2.tgz#4dbc0472b156be50a0b286855d1bd0b0c656098a"
   dependencies:
@@ -6499,6 +6546,10 @@ podda@^1.2.2:
   dependencies:
     babel-runtime "^6.11.6"
     immutable "^3.8.1"
+
+polished@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-1.9.0.tgz#76d277d6610dbcb85477dbba1bd1aa8e642741b6"
 
 postcss-calc@^5.2.0:
   version "5.3.1"
