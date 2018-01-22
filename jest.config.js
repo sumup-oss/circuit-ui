@@ -3,7 +3,10 @@ module.exports = {
   rootDir: '.',
   roots: ['src'],
   moduleFileExtensions: ['js'],
-  collectCoverageFrom: ['**/*.{js,jsx}', '!**/node_modules/**'],
+  collectCoverageFrom: [
+    'src/@(components|util|styles)/**/*.{js,jsx}',
+    '!**/node_modules/**'
+  ],
   moduleDirectories: ['node_modules', 'src'],
   transform: {
     '^.+\\.js$': '<rootDir>/jest.transform.js',
