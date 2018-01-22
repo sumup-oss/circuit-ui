@@ -24,6 +24,14 @@ storiesOf('Button', module)
   .add('Link Button', withInfo()(() => <Button href="#">Link</Button>))
   .add('Flat Button', withInfo()(() => <Button flat>Flat</Button>))
   .add(
+    'Flat Button disabled',
+    withInfo()(() => (
+      <Button flat disabled>
+        Flat
+      </Button>
+    ))
+  )
+  .add(
     'Flat Button secondary',
     withInfo()(() => (
       <Button type="secondary" flat>
