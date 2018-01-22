@@ -81,7 +81,7 @@ module.exports = {
         mount: true,
         shallow: true,
         render: true,
-        getStyles: true
+        create: true
       },
       env: {
         'jest/globals': true
