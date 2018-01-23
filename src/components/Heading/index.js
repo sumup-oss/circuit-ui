@@ -1,7 +1,7 @@
 import { withTheme } from 'emotion-theming';
 
-import PlainHeading from './Heading';
+import Heading from './Heading';
 
-export { PlainHeading };
+export { Heading };
 
-export default withTheme(PlainHeading);
+export default withTheme(Heading);
