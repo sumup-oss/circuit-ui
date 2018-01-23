@@ -4,6 +4,7 @@ import styled, { css } from 'react-emotion';
 import { standard } from '../../themes';
 import { typeMarginResets } from '../../styles/global-styles';
 import HtmlElement from '../HtmlElement/HtmlElement';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
   label: heading;
@@ -25,10 +26,7 @@ Heading.propTypes = {
   /**
    * Child nodes to be rendered.
    */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
+  children: childrenPropType,
   /**
    * A Circuit UI heading size.
    */
