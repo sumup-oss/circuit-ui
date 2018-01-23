@@ -18,3 +18,10 @@ export const childrenPropType = PropTypes.oneOfType([
 ]);
 
 export const childrenRenderPropType = PropTypes.func;
+
+export const themePropTypes = {
+  /**
+   * A Circuit UI theme object. Usually provided by a ThemeProvider.
+   */
+  theme: PropTypes.object
+};
