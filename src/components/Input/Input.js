@@ -82,11 +82,31 @@ const Input = styled('input')(
 );
 
 Input.propTypes = {
+  /**
+   * A Circuit UI theme object. Usually provided by a ThemeProvider.
+   */
   theme: PropTypes.object,
+  /**
+   * Triggers error styles on the component.
+   */
   isInvalid: PropTypes.bool,
+  /**
+   * Triggers optional styles on the component.
+   */
   isOptional: PropTypes.bool,
+  /**
+   * Triggers disabled styles on the component. This is also forwarded as
+   * attribute to the <input> element.
+   */
   disabled: PropTypes.bool,
+  /**
+   * Autocomplete attribute to be passed down to the <input> element.
+   */
   autoComplete: PropTypes.string,
+  /**
+   * An ID passed to the <input> element via a data attribute. This
+   * is used as an identifier for analytics tracking and e2e testing.
+   */
   analyticsId: PropTypes.string
 };
 
