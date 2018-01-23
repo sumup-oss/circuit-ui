@@ -85,14 +85,17 @@ Input.propTypes = {
   theme: PropTypes.object,
   isInvalid: PropTypes.bool,
   isOptional: PropTypes.bool,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  autoComplete: PropTypes.string,
+  analyticsId: PropTypes.string
 };
 
 Input.defaultProps = {
   theme: standard,
   isInvalid: false,
   isOptional: false,
-  disabled: false
+  disabled: false,
+  autoComplete: 'none'
 };
 
 /**
