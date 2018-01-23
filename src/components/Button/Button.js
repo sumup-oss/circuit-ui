@@ -60,7 +60,7 @@ const baseStyles = ({ theme, href }) => css`
   }
 `;
 
-const colorStyles = ({ theme, type, flat }) => {
+const colorStyles = ({ theme, variant, flat }) => {
   // TODO: this will most likely have to change once we actually
   //       introuce secondary button styles.
   const colorMap = {
@@ -68,11 +68,11 @@ const colorStyles = ({ theme, type, flat }) => {
     secondary: 'n'
   };
 
-  const baseColor = colorMap[type] || colorMap.primary;
+  const baseColor = colorMap[variant] || colorMap.primary;
   const selectColor = colorSelectorFor(baseColor);
 
   return css`
-    label: button--${type}${flat ? '--flat' : ''};
+    label: button--${variant}${flat ? '--flat' : ''};
     background-color: ${theme.colors[selectColor(500)]};
     border-color: ${theme.colors[selectColor(700)]};
     cursor: default;
@@ -159,7 +159,7 @@ const depthStyles = props => {
 
 const TextOrButtonElement = props => (
   <HtmlElement
-    blacklist={['type', 'flat']}
+    blacklist={['variant', 'flat']}
     element={({ href }) => (href ? 'a' : 'button')}
     {...props}
   />
@@ -189,7 +189,7 @@ Button.propTypes = {
    * Type of button to render. For example, use 'primary' for confirmation button
    * and 'secondary' for cancel button.
    */
-  type: PropTypes.oneOf(['primary', 'secondary']),
+  variant: PropTypes.oneOf(['primary', 'secondary']),
   /**
    * Button has a 'flat' variation, triggered with this prop.
    */
@@ -212,7 +212,7 @@ Button.propTypes = {
 Button.defaultProps = {
   theme: standard,
   disabled: false,
-  type: 'primary',
+  variant: 'primary',
   flat: false,
   target: undefined,
   href: undefined,
