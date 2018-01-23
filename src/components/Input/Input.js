@@ -74,6 +74,9 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
+/**
+ * Input component for forms.
+ */
 const Input = styled('input')(
   baseStyles,
   disabledStyles,
