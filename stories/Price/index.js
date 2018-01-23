@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../util/withTests';
-import { PlainPrice as Price } from '../../src/components/Price';
+import { Price } from '../../src/components/Price';
 
 // storiesOf('Prices', module)
 //   .addDecorator(withTests('Price'))
