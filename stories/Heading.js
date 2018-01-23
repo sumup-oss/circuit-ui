@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from './util/withTests';
-import { PlainHeading as Heading } from '../src/components/Heading';
+import { Heading } from '../src/components/Heading';
 
 storiesOf('Heading', module)
   .addDecorator(withTests('Heading'))

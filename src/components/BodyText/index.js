@@ -1,7 +1,7 @@
 import { withTheme } from 'emotion-theming';
 
-import PlainBodyText from './BodyText';
+import BodyText from './BodyText';
 
-export { PlainBodyText };
+export { BodyText };
 
-export default withTheme(PlainBodyText);
+export default withTheme(BodyText);
