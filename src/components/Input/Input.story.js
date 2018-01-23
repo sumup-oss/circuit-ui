@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import withTests from './util/withTests';
-import { Input } from '../src/components/Input';
+import withTests from '../../util/withTests';
+import Input from './Input';
 
 const styles = { display: 'block', marginBottom: '20px' };
 

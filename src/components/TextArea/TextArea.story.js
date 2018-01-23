@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import withTests from './util/withTests';
-import { TextArea } from '../src/components/TextArea';
+import withTests from '../../util/withTests';
+import TextArea from './TextArea';
 
 storiesOf('TextArea', module)
   .addDecorator(withTests('TextArea'))
