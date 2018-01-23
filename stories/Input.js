@@ -8,29 +8,19 @@ import { Input } from '../src/components/Input';
 const styles = { display: 'block', marginBottom: '20px' };
 
 storiesOf('Input', module)
-  .addDecorator(withTests('Button'))
-  .add(
-    'Input',
-    withInfo()(() => <Input key="regular" placeholder="Placeholder" />)
-  )
+  .addDecorator(withTests('Input'))
+  .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
   .add(
     'Input invalid',
-    withInfo()(() => (
-      <Input key="invalid" placeholder="Placeholder" isInvalid={true} />
-    ))
+    withInfo()(() => <Input placeholder="Placeholder" isInvalid={true} />)
   )
   .add(
     'Input optional',
     withInfo()(() => (
-      <Input
-        key="optional"
-        placeholder="Placeholder"
-        style={styles}
-        isOptional
-      />
+      <Input placeholder="Placeholder" style={styles} isOptional />
     ))
   )
   .add(
     'Input disabled',
-    withInfo()(() => <Input key="disabled" value="Some value" disabled />)
+    withInfo()(() => <Input value="Some value" disabled />)
   );
