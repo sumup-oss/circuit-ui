@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should have the correct default styles 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  color: #212933;
+  padding: 8px 12px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+<input
+  className="circuit-0"
+  disabled={false}
+/>
+`;
+
+exports[`Input should prioritize error over optional styles 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  color: #212933;
+  padding: 8px 12px;
+  font-size: 15px;
+  line-height: 24px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:not(:focus) {
+  background-color: #FFE6E1;
+  border-color: #FFAF9F;
+  color: #FF7559;
+  box-shadow: none;
+}
+
+.circuit-0:not(:focus)::-webkit-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::-moz-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus):-ms-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::placeholder {
+  color: #FFAF9F;
+}
+
+<input
+  className="circuit-0"
+  disabled={true}
+/>
+`;
+
+exports[`Input should show with disabled styled when passed the disabled prop 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  color: #212933;
+  padding: 8px 12px;
+  font-size: 15px;
+  line-height: 24px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+<input
+  className="circuit-0"
+  disabled={true}
+/>
+`;
+
+exports[`Input should show with invalid styles when passed the isInvalid prop 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  color: #212933;
+  padding: 8px 12px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:not(:focus) {
+  background-color: #FFE6E1;
+  border-color: #FFAF9F;
+  color: #FF7559;
+  box-shadow: none;
+}
+
+.circuit-0:not(:focus)::-webkit-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::-moz-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus):-ms-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::placeholder {
+  color: #FFAF9F;
+}
+
+<input
+  className="circuit-0"
+  disabled={false}
+/>
+`;
+
+exports[`Input should show with optional styles when passed the isOptional prop 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  color: #212933;
+  padding: 8px 12px;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: #FAFBFC;
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+<input
+  className="circuit-0"
+  disabled={false}
+/>
+`;
