@@ -195,10 +195,6 @@ Button.propTypes = {
    */
   flat: PropTypes.bool,
   /**
-   * A Circuit UI theme object. Usually provided by a ThemeProvider.
-   */
-  theme: PropTypes.object,
-  /**
    * Link target. Should only be passed, if href is passed, too.
    */
   target: PropTypes.string,

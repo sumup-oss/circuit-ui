@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { standard } from '../../themes';
 import { typeMarginResets } from '../../styles/global-styles';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
@@ -37,18 +36,13 @@ SubHeading.propTypes = {
   /**
    * The HTML heading element to render.
    */
-  element: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6']),
-  /**
-   * A Circuit UI theme object. Usually provided by a ThemeProvider.
-   */
-  theme: PropTypes.object
+  element: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6'])
 };
 
 SubHeading.defaultProps = {
   element: 'h3',
   size: 'kilo',
-  className: '',
-  theme: standard
+  className: ''
 };
 
 export default SubHeading;

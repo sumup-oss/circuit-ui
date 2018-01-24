@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { standard } from '../../themes';
-import { textKilo }  from '../../styles/style-helpers';
+import { textKilo } from '../../styles/style-helpers';
 
 const baseStyles = ({ theme }) => css`
   label: form-label;
@@ -20,15 +19,7 @@ FormLabel.propTypes = {
   /**
    * The identifier of the corresponding form element.
    */
-  htmlFor: PropTypes.string.isRequired,
-  /**
-   * A Circuit UI theme object. Usually provided by a ThemeProvider.
-   */
-  theme: PropTypes.object
-};
-
-FormLabel.defaultProps = {
-  theme: standard
+  htmlFor: PropTypes.string.isRequired
 };
 
 /**

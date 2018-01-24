@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { standard } from '../../themes';
 import { typeMarginResets } from '../../styles/global-styles';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
@@ -56,8 +55,7 @@ Heading.propTypes = {
 Heading.defaultProps = {
   element: 'h2',
   size: 'peta',
-  className: '',
-  theme: standard
+  className: ''
 };
 
 export default Heading;

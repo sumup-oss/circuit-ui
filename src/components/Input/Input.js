@@ -86,10 +86,6 @@ const Input = styled('input')(
 
 Input.propTypes = {
   /**
-   * A Circuit UI theme object. Usually provided by a ThemeProvider.
-   */
-  theme: PropTypes.object,
-  /**
    * Triggers error styles on the component.
    */
   isInvalid: PropTypes.bool,

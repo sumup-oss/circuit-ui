@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { standard } from '../../themes';
 import { typeMarginResets } from '../../styles/global-styles';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
@@ -41,18 +40,13 @@ Text.propTypes = {
   /**
    * The HTML element to render.
    */
-  element: PropTypes.string,
-  /**
-   * A Circuit UI theme object. Usually provided by a ThemeProvider.
-   */
-  theme: PropTypes.object
+  element: PropTypes.string
 };
 
 Text.defaultProps = {
   element: 'p',
   size: 'mega',
-  className: '',
-  theme: standard
+  className: ''
 };
 
 export default Text;

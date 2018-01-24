@@ -65,10 +65,6 @@ const SearchInput = ({ disabled, ...props }) => (
 
 SearchInput.propTypes = {
   /**
-   * A Circuit UI theme object. Usually provided by a ThemeProvider.
-   */
-  theme: PropTypes.object,
-  /**
    * An ID passed to the <input> element via a data attribute. This
    * is used as an identifier for analytics tracking and e2e testing.
    */
@@ -81,7 +77,6 @@ SearchInput.propTypes = {
 };
 
 SearchInput.defaultProps = {
-  theme: standard,
   disabled: false
 };
 
