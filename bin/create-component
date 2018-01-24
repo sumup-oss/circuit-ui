@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+components_path=src/components
+template_path=templates/component/*
+
+mkdir -p src/components/$1
+cp $template_path ${components_path}/$1
+rename "s/Component/$1/" ${components_path}/${1}/*.js
+find -E ${components_path}/${1} -regex ".*$1.*\.js$" -exec sed -i '' "s/Component/$1/g" {} +
