@@ -77,7 +77,8 @@ SearchInput.propTypes = {
 };
 
 SearchInput.defaultProps = {
-  disabled: false
+  disabled: false,
+  analyticsId: ''
 };
 
 /**

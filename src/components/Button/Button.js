@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { standard } from '../../themes';
-import { textMega }  from '../../styles/style-helpers';
+import { textMega } from '../../styles/style-helpers';
 
 const colorSelectorFor = baseColor => identifier => `${baseColor}${identifier}`;
 
