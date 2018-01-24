@@ -28,7 +28,7 @@ HtmlElement.propTypes = {
    * A list of props that should not be forwarded as attributes to the HTML element.
    * Prevents React from complaining about invalid attribute values.
    */
-  blacklist: PropTypes.array,
+  blacklist: PropTypes.arrayOf(PropTypes.string),
   /**
    * Child nodes to be rendered.
    */
@@ -39,7 +39,8 @@ HtmlElement.propTypes = {
 };
 
 HtmlElement.defaultProps = {
-  blacklist: []
+  blacklist: [],
+  children: null
 };
 
 export default HtmlElement;

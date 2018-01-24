@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import { standard } from '../../themes';
-import { textMega }  from '../../styles/style-helpers';
+import { textMega } from '../../styles/style-helpers';
 
 const invalidStyles = ({ theme, isInvalid }) => {
   if (!isInvalid) {

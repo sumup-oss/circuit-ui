@@ -1,12 +1,8 @@
 module.exports = {
-  extends: [
-    'airbnb-base',
-    'plugin:react/recommended',
-    'prettier',
-    'prettier/react'
-  ],
-  plugins: ['react', 'prettier'],
+  extends: ['airbnb', 'prettier', 'prettier/react'],
+  plugins: ['prettier'],
   rules: {
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'no-use-before-define': ['error', { functions: false }],
     'no-underscore-dangle': 'off',
     'no-param-reassign': 'off',
@@ -26,7 +22,6 @@ module.exports = {
         singleQuote: true
       }
     ],
-    'react/prop-types': [1, { ignore: ['i18n', 'children'] }],
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': [
       'error',
