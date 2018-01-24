@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormLabel should have the correct styles 1`] = `
+.circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+<label
+  className="circuit-0"
+>
+  Label
+</label>
+`;
