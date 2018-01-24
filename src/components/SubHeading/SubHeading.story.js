@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import withTests from './util/withTests';
-import { SubHeading } from '../src/components/SubHeading';
+import withTests from '../../util/withTests';
+import SubHeading from './SubHeading';
 
 storiesOf('SubHeading', module)
   .addDecorator(withTests('SubHeading'))

@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import withTests from './util/withTests';
-import { BodyText } from '../src/components/BodyText';
+import withTests from '../../util/withTests';
+import BodyText from './BodyText';
 
 storiesOf('BodyText', module)
   .addDecorator(withTests('BodyText'))
