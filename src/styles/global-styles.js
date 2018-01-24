@@ -1,5 +1,5 @@
 import { injectGlobal } from 'emotion';
-import { bodyMega } from './style-helpers';
+import { textMega } from './style-helpers';
 
 // TODO: make this define actual font faces and optimize for size.
 //       I think there is a better way to do this nowadays without
@@ -47,6 +47,6 @@ export default ({ theme }) => injectGlobal`
     color: ${theme.colors.black};
     font-weight: ${theme.fontWeight.regular};
     font-family: aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI";
-    ${bodyMega({ theme })}
+    ${textMega({ theme })}
   }
 `;

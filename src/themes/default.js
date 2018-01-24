@@ -92,7 +92,7 @@ export const typography = {
       lineHeight: '18px'
     }
   },
-  body: {
+  text: {
     kilo: {
       fontSize: '13px',
       lineHeight: '20px'

@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { standard } from '../../themes';
-import { bodyMega } from '../../styles/style-helpers';
+import { textMega }  from '../../styles/style-helpers';
 
 const colorSelectorFor = baseColor => identifier => `${baseColor}${identifier}`;
 
@@ -42,7 +42,7 @@ const baseStyles = ({ theme, href }) => css`
   width: auto;
   height: auto;
   text-decoration: none;
-  ${bodyMega({ theme })};
+  ${textMega({ theme })};
 
   &:focus {
     outline: 0;

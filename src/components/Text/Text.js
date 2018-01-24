@@ -14,18 +14,18 @@ const baseStyles = ({ theme }) => css`
 
 const sizeStyles = ({ theme, size }) => css`
   label: body-text--${size};
-  font-size: ${theme.typography.body[size].fontSize};
-  line-height: ${theme.typography.body[size].lineHeight};
+  font-size: ${theme.typography.text[size].fontSize};
+  line-height: ${theme.typography.text[size].lineHeight};
 `;
 
-const BodyText = styled(HtmlElement)(baseStyles, sizeStyles);
+const Text = styled(HtmlElement)(baseStyles, sizeStyles);
 
 /**
- * The BodyText component is used for long-form text. Typically with
+ * The Text component is used for long-form text. Typically with
  * <p>, <div>, <article>, or <section> elements.
  */
 
-BodyText.propTypes = {
+Text.propTypes = {
   /**
    * Child nodes to be rendered.
    */
@@ -48,11 +48,11 @@ BodyText.propTypes = {
   theme: PropTypes.object
 };
 
-BodyText.defaultProps = {
+Text.defaultProps = {
   element: 'p',
   size: 'mega',
   className: '',
   theme: standard
 };
 
-export default BodyText;
+export default Text;

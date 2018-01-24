@@ -49,6 +49,6 @@ export const headingZetta = createTypeHelper('heading', 'zetta');
 export const subHeadingKilo = createTypeHelper('subHeading', 'exa');
 export const subHeadingZetta = createTypeHelper('subHeading', 'zetta');
 
-export const bodyKilo = createTypeHelper('body', 'kilo');
-export const bodyMega = createTypeHelper('body', 'mega');
-export const bodyGiga = createTypeHelper('body', 'giga');
+export const textKilo = createTypeHelper('text', 'kilo');
+export const textMega = createTypeHelper('text', 'mega');
+export const textGiga = createTypeHelper('text', 'giga');

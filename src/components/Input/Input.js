@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import { standard } from '../../themes';
-import { bodyMega } from '../../styles/style-helpers';
+import { textMega }  from '../../styles/style-helpers';
 
 const invalidStyles = ({ theme, isInvalid }) => {
   if (!isInvalid) {
@@ -61,7 +61,7 @@ const baseStyles = ({ theme }) => css`
   box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.21);
   color: ${theme.colors.n900};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
-  ${bodyMega({ theme })};
+  ${textMega({ theme })};
 
   &:focus,
   &:active {

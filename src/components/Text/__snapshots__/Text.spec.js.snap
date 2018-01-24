@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BodyText should render as article element, when passed "article" for the element prop 1`] = `
+exports[`Text should render as article element, when passed "article" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   -webkit-margin-before: 0;
@@ -19,7 +19,7 @@ exports[`BodyText should render as article element, when passed "article" for th
 </article>
 `;
 
-exports[`BodyText should render as div element, when passed "div" for the element prop 1`] = `
+exports[`Text should render as div element, when passed "div" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   -webkit-margin-before: 0;
@@ -38,7 +38,7 @@ exports[`BodyText should render as div element, when passed "div" for the elemen
 </div>
 `;
 
-exports[`BodyText should render as p element, when passed "p" for the element prop 1`] = `
+exports[`Text should render as p element, when passed "p" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   -webkit-margin-before: 0;
@@ -57,7 +57,7 @@ exports[`BodyText should render as p element, when passed "p" for the element pr
 </p>
 `;
 
-exports[`BodyText should render with size giga, when passed "giga" for the size prop 1`] = `
+exports[`Text should render with size giga, when passed "giga" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   -webkit-margin-before: 0;
@@ -76,7 +76,7 @@ exports[`BodyText should render with size giga, when passed "giga" for the size 
 </p>
 `;
 
-exports[`BodyText should render with size kilo, when passed "kilo" for the size prop 1`] = `
+exports[`Text should render with size kilo, when passed "kilo" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   -webkit-margin-before: 0;
@@ -95,7 +95,7 @@ exports[`BodyText should render with size kilo, when passed "kilo" for the size 
 </p>
 `;
 
-exports[`BodyText should render with size mega, when passed "mega" for the size prop 1`] = `
+exports[`Text should render with size mega, when passed "mega" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   -webkit-margin-before: 0;
