@@ -29,6 +29,16 @@ const iconStyles = ({ theme }) => css`
   transform: translateY(-50%);
 `;
 
+const disabledIconStyles = ({ disabled }) => {
+  if (!disabled) {
+    return '';
+  }
+  return css`
+    label: search-input__icon--disabled;
+    opacity: 0.4;
+  `;
+};
+
 /**
  * SearchInput component for forms.
  */
@@ -36,7 +46,7 @@ const SearchInputWrapper = styled('div')(baseStyles);
 SearchInputWrapper.defaultProps = {
   theme: standard
 };
-const Icon = styled(SearchIconSvg)(iconStyles);
+const Icon = styled(SearchIconSvg)(iconStyles, disabledIconStyles);
 Icon.defaultProps = {
   theme: standard
 };
@@ -46,10 +56,10 @@ Input.defaultProps = {
   theme: standard
 };
 
-const SearchInput = props => (
+const SearchInput = ({ disabled, ...props }) => (
   <SearchInputWrapper role="search">
-    <Input {...props} />
-    <Icon />
+    <Input {...props} {...{ disabled }} />
+    <Icon {...{ disabled }} />
   </SearchInputWrapper>
 );
 
@@ -62,11 +72,17 @@ SearchInput.propTypes = {
    * An ID passed to the <input> element via a data attribute. This
    * is used as an identifier for analytics tracking and e2e testing.
    */
-  analyticsId: PropTypes.string
+  analyticsId: PropTypes.string,
+  /**
+   * Triggers disabled styles on the component. This is also forwarded as
+   * attribute to the <input> element.
+   */
+  disabled: PropTypes.bool
 };
 
 SearchInput.defaultProps = {
-  theme: standard
+  theme: standard,
+  disabled: false
 };
 
 /**

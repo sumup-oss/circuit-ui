@@ -7,4 +7,9 @@ describe('SearchInput', () => {
     const actual = create(<SearchInput />);
     expect(actual).toMatchSnapshot();
   });
+
+  it('should render icon with 0.4 opacity when disabled', () => {
+    const actual = create(<SearchInput disabled />);
+    expect(actual).toMatchSnapshot();
+  });
 });
