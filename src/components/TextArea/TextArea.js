@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import styled, { css } from 'react-emotion';
 
 import { Input } from '../Input';
 
-const baseStyles = ({ theme }) => css`
+const baseStyles = css`
   label: textarea;
   overflow: auto;
 `;
@@ -11,7 +11,7 @@ const baseStyles = ({ theme }) => css`
 /**
  * TextArea component for forms.
  */
-const TextArea = Input.withComponent('textarea');
+const TextArea = styled(Input.withComponent('textarea'))(baseStyles);
 
 // TODO: do we need to overwrite the prop types or can we reuse them
 //       for the automated documentation?
