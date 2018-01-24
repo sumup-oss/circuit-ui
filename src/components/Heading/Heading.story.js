@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
-import withTests from './util/withTests';
-import { Heading } from '../src/components/Heading';
+import withTests from '../../util/withTests';
+import Heading from './Heading';
 
 storiesOf('Heading', module)
   .addDecorator(withTests('Heading'))

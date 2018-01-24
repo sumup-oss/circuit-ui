@@ -4,7 +4,9 @@ module.exports = {
   roots: ['src'],
   moduleFileExtensions: ['js'],
   collectCoverageFrom: [
-    'src/@(components|util|styles)/**/[!index]*.{js,jsx}',
+    'src/@(components|util|styles)/**/*.{js,jsx}',
+    '!src/@(components|util|styles)/**/index.{js,jsx}',
+    '!src/@(components|util|styles)/**/*.story.{js,jsx}',
     '!**/node_modules/**'
   ],
   moduleDirectories: ['node_modules', 'src'],
