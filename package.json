@@ -39,6 +39,7 @@
   },
   "homepage": "https://github.com/sumup/circuit-ui#readme",
   "devDependencies": {
+    "@storybook/addon-a11y": "^3.3.10",
     "@storybook/addon-actions": "^3.3.3",
     "@storybook/addon-info": "^3.3.3",
     "@storybook/addon-jest": "^3.3.3",

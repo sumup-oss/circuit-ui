@@ -78,6 +78,14 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@storybook/addon-a11y@^3.3.10":
+  version "3.3.10"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-3.3.10.tgz#421871757bec83179ed532bcbc5548dba842f051"
+  dependencies:
+    "@storybook/components" "^3.3.10"
+    axe-core "^2.6.0"
+    prop-types "^15.6.0"
+
 "@storybook/addon-actions@^3.3.3":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.3.3.tgz#468e3426eb8f109825d9b41bf77f206711fa74b3"
@@ -160,6 +168,14 @@
 "@storybook/client-logger@^3.3.3":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-3.3.3.tgz#3fd2a8dc243d9d3d2f171f7a02f58c805c409385"
+
+"@storybook/components@^3.3.10":
+  version "3.3.10"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-3.3.10.tgz#f213a129ed49de33cdaf116da2c2b662b8eb3ea0"
+  dependencies:
+    glamor "^2.20.40"
+    glamorous "^4.11.2"
+    prop-types "^15.6.0"
 
 "@storybook/components@^3.3.3":
   version "3.3.3"
