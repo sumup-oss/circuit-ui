@@ -4,14 +4,9 @@ import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
 import { standard } from '../../themes';
-
-import StandardInput from '../Input';
+import { Input as StandardInput } from '../Input';
+import { InputWrapper } from '../InputWrapper';
 import SearchIconSvg from './search.svg';
-
-const baseStyles = css`
-  label: search-input;
-  position: relative;
-`;
 
 const inputStyles = ({ theme }) => css`
   label: search-input__input;
@@ -43,10 +38,6 @@ const disabledIconStyles = ({ disabled }) => {
 /**
  * SearchInput component for forms.
  */
-const SearchInputWrapper = styled('div')(baseStyles);
-SearchInputWrapper.defaultProps = {
-  theme: standard
-};
 const Icon = styled(SearchIconSvg)(iconStyles, disabledIconStyles);
 Icon.defaultProps = {
   theme: standard
@@ -58,10 +49,10 @@ Input.defaultProps = {
 };
 
 const SearchInput = ({ disabled, ...props }) => (
-  <SearchInputWrapper role="search">
+  <InputWrapper role="search">
     <Input {...props} {...{ disabled }} />
     <Icon {...{ disabled }} />
-  </SearchInputWrapper>
+  </InputWrapper>
 );
 
 SearchInput.propTypes = {
