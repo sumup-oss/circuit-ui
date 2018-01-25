@@ -14,8 +14,8 @@ describe('PasswordInput', () => {
   });
 
   it('should have type password by default', () => {
-    const wrapper = mount(<PasswordInput />);
-    const actual = wrapper.find('input').prop('type');
+    const wrapper = shallow(<PasswordInput />).dive();
+    const actual = wrapper.find('password-input__input').prop('type');
     expect(actual).toBe('password');
   });
 
@@ -23,10 +23,12 @@ describe('PasswordInput', () => {
     const wrapper = shallow(<PasswordInput />).dive();
     const button = wrapper.find('svg-button');
     button.simulate('click');
-    const actualFirstClick = wrapper.find('Styled(input)').prop('type');
+    const actualFirstClick = wrapper.find('password-input__input').prop('type');
     expect(actualFirstClick).toBe('text');
     button.simulate('click');
-    const actualSecondClick = wrapper.find('Styled(input)').prop('type');
+    const actualSecondClick = wrapper
+      .find('password-input__input')
+      .prop('type');
     expect(actualSecondClick).toBe('password');
   });
 });

@@ -9,27 +9,27 @@ import State from '../State/State';
 import RevealIconSvg from './eye.svg';
 import HideIconSvg from './eye-off.svg';
 
-const Input = styled(StandardInput)(
-  ({ theme }) => css`
-    label: password-input__input;
+const Input = styled(StandardInput, { label: 'password-input__input' })(
+  ({ theme }) => `
     padding-right: ${theme.spacings.peta};
   `
 );
 
-const InputWrapper = styled(StandardInputWrapper)`
-  label: password-input;
+const InputWrapper = styled(StandardInputWrapper, { label: 'password-input' })`
   display: inline-block;
 `;
 
-const RevealIcon = styled(RevealIconSvg)`
+const stylesIcon = css`
+  label: password-input__icon;
   position: absolute;
   top: 50%;
   right: 12px;
   transform: translateY(-50%);
 `;
 
-const HideIcon = RevealIcon.withComponent(HideIconSvg);
+const RevealIcon = styled(RevealIconSvg, { label: 'reveal-icon' })(stylesIcon);
 
+const HideIcon = styled(HideIconSvg, { label: 'hide-icon' })(stylesIcon);
 
 /**
  * PasswordInput component for forms.
