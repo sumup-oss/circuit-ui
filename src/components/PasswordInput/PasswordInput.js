@@ -4,6 +4,7 @@ import styled, { css } from 'react-emotion';
 
 import { InputWrapper as StandardInputWrapper } from '../InputWrapper';
 import { Input as StandardInput } from '../Input';
+import { SvgButton } from '../SvgButton';
 import State from '../State/State';
 import RevealIconSvg from './eye.svg';
 import HideIconSvg from './eye-off.svg';
@@ -29,19 +30,6 @@ const RevealIcon = styled(RevealIconSvg)`
 
 const HideIcon = RevealIcon.withComponent(HideIconSvg);
 
-const SvgButton = styled('button')`
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: default;
-
-  &:focus,
-  &:active {
-    outline: none;
-  }
-`;
 
 /**
  * PasswordInput component for forms.

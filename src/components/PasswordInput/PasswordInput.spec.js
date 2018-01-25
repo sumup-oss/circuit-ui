@@ -21,7 +21,7 @@ describe('PasswordInput', () => {
 
   it('should toggle type between "password" and "text" by clicking the eye icon', () => {
     const wrapper = shallow(<PasswordInput />).dive();
-    const button = wrapper.find('Styled(button)');
+    const button = wrapper.find('svg-button');
     button.simulate('click');
     const actualFirstClick = wrapper.find('Styled(input)').prop('type');
     expect(actualFirstClick).toBe('text');

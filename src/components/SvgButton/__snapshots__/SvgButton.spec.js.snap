@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SvgButton should render with the default styles 1`] = `
+.circuit-0 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: default;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  outline: none;
+}
+
+<button
+  className="circuit-0"
+>
+  <div>
+    SVG here
+  </div>
+</button>
+`;
