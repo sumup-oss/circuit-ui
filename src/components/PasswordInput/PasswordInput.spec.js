@@ -31,4 +31,15 @@ describe('PasswordInput', () => {
       .prop('type');
     expect(actualSecondClick).toBe('password');
   });
+
+  it('should update the icon when toggling input type', () => {
+    const wrapper = shallow(<PasswordInput />).dive();
+    const button = wrapper.find('svg-button');
+    button.simulate('click');
+    const actualHide = wrapper.find('hide-icon');
+    expect(actualHide.length).toBe(1);
+    button.simulate('click');
+    const actualReveal = wrapper.find('reveal-icon');
+    expect(actualReveal.length).toBe(1);
+  });
 });
