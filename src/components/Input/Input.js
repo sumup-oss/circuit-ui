@@ -74,6 +74,8 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
+// TODO add support for data-selector attribute.
+// TODO add dynamic invalid aria attribute.
 /**
  * Input component for forms.
  */
