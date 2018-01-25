@@ -2,6 +2,7 @@
 
 exports[`InputWrapper should have it's base styles 1`] = `
 .circuit-0 {
+  display: inline-block;
   position: relative;
 }
 

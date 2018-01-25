@@ -7,6 +7,7 @@ import styled from 'react-emotion';
  */
 const InputWrapper = styled('div')`
   label: input-wrapper;
+  display: inline-block;
   position: relative;
 `;
 

@@ -1,11 +1,22 @@
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
+
+const blockIdentifier = 'svg-button';
+
+const stylesDisabled = ({ disabled }) =>
+  disabled &&
+  css`
+    label: ${blockIdentifier}--disabled;
+    button {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  `;
 
 /**
  * SvgButton component for forms.
  */
-const SvgButton = styled('button', { label: 'svg-button' })`
-  label: svg-button;
+const SvgButton = styled('button', { label: blockIdentifier })`
   padding: 0;
   margin: 0;
   display: inline-block;
@@ -17,6 +28,8 @@ const SvgButton = styled('button', { label: 'svg-button' })`
   &:active {
     outline: none;
   }
+
+  ${stylesDisabled};
 `;
 
 SvgButton.propTypes = {
