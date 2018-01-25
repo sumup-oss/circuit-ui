@@ -12,10 +12,7 @@ module.exports = {
   moduleDirectories: ['node_modules', 'src'],
   transform: {
     '^.+\\.js$': '<rootDir>/jest.transform.js',
-    '\\.svg$': '<rootDir>/fileTransformer.js'
-  },
-  moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>/src/__mocks__/style-mock.js'
+    '^.+\\.svg$': '<rootDir>/fileTransformer.js'
   },
   setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js'
 };
