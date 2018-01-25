@@ -2,4 +2,6 @@ import React from 'react';
 
 import { Component } from '.';
 
-describe('Component', () => {});
+describe('Component', () => {
+  it.skip('should write a test');
+});
