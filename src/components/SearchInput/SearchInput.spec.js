@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SearchInput } from '.';
+import SearchInput from '.';
 
 describe('SearchInput', () => {
   it('should render with default styles', () => {

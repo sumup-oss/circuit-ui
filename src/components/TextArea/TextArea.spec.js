@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TextArea } from '.';
+import TextArea from '.';
 
 describe('TextArea', () => {
   it('should have the correct default styles', () => {

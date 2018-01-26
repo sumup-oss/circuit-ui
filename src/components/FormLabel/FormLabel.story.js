@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import FormLabel from './FormLabel';
+import FormLabel from '.';
 
 storiesOf('FormLabel', module)
   .addDecorator(withTests('FormLabel'))

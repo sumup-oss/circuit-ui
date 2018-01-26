@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import Text from './Text';
+import Text from '.';
 
 storiesOf('Text', module)
   .addDecorator(withTests('Text'))

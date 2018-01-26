@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import TextArea from './TextArea';
+import TextArea from '.';
 
 storiesOf('TextArea', module)
   .addDecorator(withTests('TextArea'))
@@ -16,7 +16,7 @@ storiesOf('TextArea', module)
     withInfo()(() => (
       <TextArea
         placeholder="Invalid TextArea, maybe too many chars?"
-        isInvalid={true}
+        isInvalid
       />
     ))
   )

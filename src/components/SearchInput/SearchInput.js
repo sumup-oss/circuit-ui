@@ -4,7 +4,8 @@ import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
 import { standard } from '../../themes';
-import { Input as StandardInput } from '../Input';
+
+import StandardInput from '../Input';
 import SearchIconSvg from './search.svg';
 
 const baseStyles = css`
