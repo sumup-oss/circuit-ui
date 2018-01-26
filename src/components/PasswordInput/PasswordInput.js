@@ -1,36 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import { cx } from 'react-emotion';
 
 import { IconInputWrapper } from '../IconInputWrapper';
-import { Input as StandardInput } from '../Input';
+import Input from '../Input';
 import { SvgButton } from '../SvgButton';
 import State from '../State/State';
-import RevealIconSvg from './eye.svg';
-import HideIconSvg from './eye-off.svg';
-
-const Input = styled(StandardInput, { label: 'password-input__input' })(
-  ({ theme }) => `
-    padding-right: ${theme.spacings.peta};
-  `
-);
-
-const stylesIcon = css`
-  label: password-input__icon;
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  transform: translateY(-50%);
-`;
-
-const RevealIcon = styled(RevealIconSvg, { label: 'reveal-icon' })(stylesIcon);
-
-const HideIcon = styled(HideIconSvg, { label: 'hide-icon' })(stylesIcon);
+import RevealIcon from './eye.svg';
+import HideIcon from './eye-off.svg';
 
 /**
  * PasswordInput component for forms.
  */
-const PasswordInput = ({ disabled, ...props }) => (
+const PasswordInput = ({ disabled, selector, ...props }) => (
   <State
     initialState={false}
     stateName="isVisible"
@@ -38,21 +20,32 @@ const PasswordInput = ({ disabled, ...props }) => (
     stateUpdater={isVisible => !isVisible}
   >
     {({ isVisible, onToggle }) => (
-      <IconInputWrapper {...{ disabled }} data-selector="password-input">
-        <Input
-          {...props}
-          {...{ disabled }}
-          type={isVisible ? 'text' : 'password'}
-        />
-        <SvgButton {...{ onClick: onToggle, disabled }}>
-          {isVisible ? <HideIcon /> : <RevealIcon />}
-        </SvgButton>
-      </IconInputWrapper>
+      <IconInputWrapper
+        {...{ disabled, selector }}
+        iconPosition="right"
+        icon={({ className, disabledClassName }) => (
+          <SvgButton
+            onClick={onToggle}
+            className={cx(className, { [disabledClassName]: disabled })}
+            selector={`${selector}__button`}
+          >
+            {isVisible ? <HideIcon /> : <RevealIcon />}
+          </SvgButton>
+        )}
+        input={({ className }) => (
+          <Input
+            {...{ ...props, disabled, className }}
+            type={isVisible ? 'text' : 'password'}
+            selector={`${selector}__input`}
+          />
+        )}
+      />
     )}
   </State>
 );
 
 PasswordInput.propTypes = {
+  selector: PropTypes.string.isRequired,
   /**
    * Placeholder string for this input.
    */

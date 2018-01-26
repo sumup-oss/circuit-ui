@@ -1,22 +1,9 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+import { size } from 'polished';
 
-const blockIdentifier = 'svg-button';
-
-const stylesDisabled = ({ disabled }) =>
-  disabled &&
-  css`
-    label: ${blockIdentifier}--disabled;
-    button {
-      opacity: 0.4;
-      pointer-events: none;
-    }
-  `;
-
-/**
- * SvgButton component for forms.
- */
-const SvgButton = styled('button', { label: blockIdentifier })`
+const baseStyles = css`
+  label: svg-button;
   padding: 0;
   margin: 0;
   display: inline-block;
@@ -29,8 +16,15 @@ const SvgButton = styled('button', { label: blockIdentifier })`
     outline: none;
   }
 
-  ${stylesDisabled};
+  > svg {
+    ${size('100%')};
+  }
 `;
+
+/**
+ * SvgButton component for forms.
+ */
+const SvgButton = styled('button', { label: 'SvgButton' })(baseStyles);
 
 SvgButton.propTypes = {
   children: PropTypes.element.isRequired

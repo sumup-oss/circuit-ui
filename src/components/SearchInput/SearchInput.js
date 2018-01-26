@@ -1,54 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
-import { size } from 'polished';
+import { cx } from 'react-emotion';
 
-import { Input as StandardInput } from '../Input';
+import { Input } from '../Input';
 import { IconInputWrapper } from '../IconInputWrapper';
-import SearchIconSvg from './search.svg';
-
-const inputStyles = ({ theme }) => css`
-  label: search-input__input;
-  padding-left: calc(
-    ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
-  );
-`;
-
-const iconStyles = ({ theme }) => css`
-  label: search-input__icon;
-  height: ${theme}
-  left: ${theme.spacings.kilo};
-  position: absolute;
-  ${size(theme.spacings.mega)};
-  top: 50%;
-  transform: translateY(-50%);
-`;
-
-const disabledIconStyles = ({ disabled }) => {
-  if (!disabled) {
-    return '';
-  }
-  return css`
-    label: search-input__icon--disabled;
-    opacity: 0.4;
-  `;
-};
+import SearchIcon from './search.svg';
 
 /**
  * SearchInput component for forms.
  */
-const Icon = styled(SearchIconSvg)(iconStyles, disabledIconStyles);
-
-const Input = styled(StandardInput)(inputStyles);
-
-const SearchInput = ({ disabled, ...props }) => (
-  <IconInputWrapper role="search">
-    <Input {...props} {...{ disabled }} />
-    <Icon {...{ disabled }} />
-  </IconInputWrapper>
+const SearchInput = ({ disabled, selector, ...props }) => (
+  <IconInputWrapper
+    {...{ selector }}
+    role="search"
+    icon={({ className, disabledClassName }) => (
+      <SearchIcon
+        {...{
+          disabled,
+          className: cx(className, { [disabledClassName]: disabled })
+        }}
+      />
+    )}
+    input={({ className }) => <Input {...{ ...props, disabled, className }} />}
+  />
 );
 
 SearchInput.propTypes = {
+  selector: PropTypes.string.isRequired,
   /**
    * An ID rendered as data-selector attribute on the
    * component. Used for tracking and e2e testing.

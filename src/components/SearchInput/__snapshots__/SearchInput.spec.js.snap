@@ -46,9 +46,10 @@ exports[`SearchInput should render icon with 0.4 opacity when disabled 1`] = `
 
 <div
   className="circuit-1"
-  role="search"
+  data-selector="search"
 >
   <input
+    autoComplete="none"
     className="circuit-0"
     disabled={true}
   />
@@ -102,9 +103,10 @@ exports[`SearchInput should render with default styles 1`] = `
 
 <div
   className="circuit-1"
-  role="search"
+  data-selector="search"
 >
   <input
+    autoComplete="none"
     className="circuit-0"
     disabled={false}
   />

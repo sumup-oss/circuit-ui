@@ -15,6 +15,11 @@ exports[`SvgButton should render with the default styles 1`] = `
   outline: none;
 }
 
+.circuit-0 > svg {
+  height: 100%;
+  width: 100%;
+}
+
 <button
   className="circuit-0"
 >

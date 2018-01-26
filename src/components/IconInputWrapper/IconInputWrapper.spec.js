@@ -1,10 +1,19 @@
 import React from 'react';
+import styled from 'react-emotion';
 
 import { IconInputWrapper } from '.';
 
+const RenderDummy = styled('div', { label: 'RenderDummy' })();
+
 describe('IconInputWrapper', () => {
   it("should have it's base styles", () => {
-    const actual = create(<IconInputWrapper />);
+    const actual = create(
+      <IconInputWrapper
+        selector="some-wrapper"
+        icon={props => <RenderDummy {...props} />}
+        input={props => <RenderDummy {...props} />}
+      />
+    );
     expect(actual).toMatchSnapshot();
   });
 });
