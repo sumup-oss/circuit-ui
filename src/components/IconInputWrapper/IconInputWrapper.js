@@ -27,10 +27,10 @@ const iconBaseStyles = ({ theme }) => css`
 const iconLeftStyles = ({ theme, iconPosition }) =>
   iconPosition === 'left' &&
   css`
-  label: icon-input__icon--left
-  left: ${theme.spacings.kilo};
-  right: auto;
-`;
+    label: icon-input__icon--left;
+    left: ${theme.spacings.kilo};
+    right: auto;
+  `;
 
 const iconRightStyles = ({ theme, iconPosition }) =>
   iconPosition === 'right' &&

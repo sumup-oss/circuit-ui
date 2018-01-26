@@ -15,10 +15,8 @@ const SearchInput = ({ disabled, selector, ...props }) => (
     role="search"
     icon={({ className, disabledClassName }) => (
       <SearchIcon
-        {...{
-          disabled,
-          className: cx(className, { [disabledClassName]: disabled })
-        }}
+        {...{ disabled }}
+        className={cx(className, { [disabledClassName]: disabled })}
       />
     )}
     input={({ className }) => <Input {...{ ...props, disabled, className }} />}

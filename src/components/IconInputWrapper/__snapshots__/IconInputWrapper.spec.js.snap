@@ -1,5 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`IconInputWrapper should allow rendering the icon on the right 1`] = `
+.circuit-2 {
+  display: inline-block;
+  position: relative;
+}
+
+.circuit-0 {
+  padding-right: calc( 12px + 16px + 12px );
+}
+
+.circuit-1 {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 12px;
+  left: auto;
+}
+
+<div
+  className="circuit-2"
+  data-selector="some-wrapper"
+>
+  <div
+    className="circuit-0"
+  />
+  <div
+    className="circuit-1"
+  />
+</div>
+`;
+
 exports[`IconInputWrapper should have it's base styles 1`] = `
 .circuit-2 {
   display: inline-block;
@@ -18,7 +53,7 @@ exports[`IconInputWrapper should have it's base styles 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  label: icon-input__icon--left left:12px;
+  left: 12px;
   right: auto;
 }
 
