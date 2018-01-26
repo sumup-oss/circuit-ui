@@ -20,7 +20,7 @@ TextArea.propTypes = {
    * An ID passed to the <input> element via a data attribute. This
    * is used as an identifier for analytics tracking and e2e testing.
    */
-  analyticsId: PropTypes.string
+  selector: PropTypes.string
 };
 
 /**

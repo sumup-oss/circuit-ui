@@ -68,7 +68,7 @@ SearchInput.propTypes = {
    * An ID passed to the <input> element via a data attribute. This
    * is used as an identifier for analytics tracking and e2e testing.
    */
-  analyticsId: PropTypes.string,
+  selector: PropTypes.string,
   /**
    * Triggers disabled styles on the component. This is also forwarded as
    * attribute to the <input> element.
@@ -78,7 +78,7 @@ SearchInput.propTypes = {
 
 SearchInput.defaultProps = {
   disabled: false,
-  analyticsId: ''
+  selector: ''
 };
 
 /**

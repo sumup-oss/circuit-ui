@@ -9,7 +9,7 @@ export const interactivePropTypes = {
    * An ID passed to the <input> element via a data attribute. This
    * is used as an identifier for analytics tracking and e2e testing.
    */
-  analyticsId: PropTypes
+  selector: PropTypes
 };
 
 export const childrenPropType = PropTypes.oneOfType([
