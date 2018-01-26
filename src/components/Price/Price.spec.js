@@ -1,6 +1,6 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import { Price } from '.';
+// import React from 'react';
+// import renderer from 'react-test-renderer';
+// import Price from '.';
 
 describe('Price', () => {
   it.skip('wait until we have a new price component with working tests');
