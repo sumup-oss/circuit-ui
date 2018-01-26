@@ -14,10 +14,10 @@ import HideIcon from './eye-off.svg';
  */
 const PasswordInput = ({ disabled, selector, ...props }) => (
   <State
-    initialState={false}
-    stateName="isVisible"
-    stateUpdaterName="onToggle"
-    stateUpdater={isVisible => !isVisible}
+    initial={false}
+    name="isVisible"
+    updaterName="onToggle"
+    updater={isVisible => !isVisible}
   >
     {({ isVisible, onToggle }) => (
       <IconInputWrapper

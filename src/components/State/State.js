@@ -6,31 +6,29 @@ import { isFunction } from '../../util/type-check';
 export default class State extends Component {
   static propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
-    initialState: PropTypes.any.isRequired,
-    stateName: PropTypes.string.isRequired,
-    stateUpdaterName: PropTypes.string.isRequired,
-    stateUpdater: PropTypes.func.isRequired,
+    initial: PropTypes.any.isRequired,
+    name: PropTypes.string.isRequired,
+    updaterName: PropTypes.string.isRequired,
+    updater: PropTypes.func.isRequired,
     children: PropTypes.func.isRequired
   };
   constructor(props) {
     super(props);
-    const { initialState, stateName } = props;
-    const initialStateValue = isFunction(initialState)
-      ? initialState(props)
-      : initialState;
+    const { initial, name } = props;
+    const initialStateValue = isFunction(initial) ? initial(props) : initial;
     this.state = {
-      [stateName]: initialStateValue
+      [name]: initialStateValue
     };
   }
 
   render() {
-    const { children, stateName, stateUpdaterName, stateUpdater } = this.props;
+    const { children, name, updaterName, updater } = this.props;
 
     const props = {
-      [stateName]: this.state[stateName],
-      [stateUpdaterName]: () => {
+      [name]: this.state[name],
+      [updaterName]: () => {
         this.setState(prevState => ({
-          [stateName]: stateUpdater(prevState[stateName])
+          [name]: updater(prevState[name])
         }));
       }
     };
