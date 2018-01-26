@@ -39,6 +39,11 @@ Heading.propTypes = {
     'zetta'
   ]),
   /**
+   * An ID rendered as data-selector attribute on the
+   * component. Used for tracking and e2e testing.
+   */
+  selector: PropTypes.string.isRequired,
+  /**
    * Optional additional className string to overwrite styles.
    */
   className: PropTypes.string,

@@ -13,14 +13,12 @@ const baseStyles = css`
  */
 const TextArea = styled(Input.withComponent('textarea'))(baseStyles);
 
-// TODO: do we need to overwrite the prop types or can we reuse them
-//       for the automated documentation?
 TextArea.propTypes = {
   /**
-   * An ID passed to the <input> element via a data attribute. This
-   * is used as an identifier for analytics tracking and e2e testing.
+   * An ID rendered as data-selector attribute on the
+   * component. Used for tracking and e2e testing.
    */
-  selector: PropTypes.string
+  selector: PropTypes.string.isRequired
 };
 
 /**

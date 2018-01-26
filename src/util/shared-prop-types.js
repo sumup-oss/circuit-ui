@@ -4,14 +4,6 @@ import PropTypes from 'prop-types';
 //       when they are imported and merged into a component's
 //       propTypes.
 
-export const interactivePropTypes = {
-  /**
-   * An ID passed to the <input> element via a data attribute. This
-   * is used as an identifier for analytics tracking and e2e testing.
-   */
-  selector: PropTypes
-};
-
 export const childrenPropType = PropTypes.oneOfType([
   PropTypes.arrayOf(PropTypes.node),
   PropTypes.node
