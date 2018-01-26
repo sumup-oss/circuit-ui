@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { InputWrapper } from '../InputWrapper';
+import { IconInputWrapper } from '../IconInputWrapper';
 import { Input as StandardInput } from '../Input';
 import { SvgButton } from '../SvgButton';
 import State from '../State/State';
@@ -38,7 +38,7 @@ const PasswordInput = ({ disabled, ...props }) => (
     stateUpdater={isVisible => !isVisible}
   >
     {({ isVisible, onToggle }) => (
-      <InputWrapper {...{ disabled }} data-selector="password-input">
+      <IconInputWrapper {...{ disabled }} data-selector="password-input">
         <Input
           {...props}
           {...{ disabled }}
@@ -47,7 +47,7 @@ const PasswordInput = ({ disabled, ...props }) => (
         <SvgButton {...{ onClick: onToggle, disabled }}>
           {isVisible ? <HideIcon /> : <RevealIcon />}
         </SvgButton>
-      </InputWrapper>
+      </IconInputWrapper>
     )}
   </State>
 );

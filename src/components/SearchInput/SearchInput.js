@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
 import { Input as StandardInput } from '../Input';
-import { InputWrapper } from '../InputWrapper';
+import { IconInputWrapper } from '../IconInputWrapper';
 import SearchIconSvg from './search.svg';
 
 const inputStyles = ({ theme }) => css`
@@ -42,10 +42,10 @@ const Icon = styled(SearchIconSvg)(iconStyles, disabledIconStyles);
 const Input = styled(StandardInput)(inputStyles);
 
 const SearchInput = ({ disabled, ...props }) => (
-  <InputWrapper role="search">
+  <IconInputWrapper role="search">
     <Input {...props} {...{ disabled }} />
     <Icon {...{ disabled }} />
-  </InputWrapper>
+  </IconInputWrapper>
 );
 
 SearchInput.propTypes = {
