@@ -22,7 +22,7 @@
     "prepush": "npm test",
     "start:firstrun": "yarn test:unit:output && start-storybook -p 6006",
     "start": "start-storybook -p 6006",
-    "prebuild": "npm run test:unit:generate-output",
+    "prebuild": "npm run test:unit:output",
     "build": "build-storybook -c .storybook -o .out",
     "deploy": "storybook-to-ghpages"
   },
