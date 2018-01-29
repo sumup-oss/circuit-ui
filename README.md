@@ -2,7 +2,7 @@
 
 ```
 npm install
-npm start
+npm start:firstrun // after you can simple use `npm start`
 ```
 
 # Deployment
