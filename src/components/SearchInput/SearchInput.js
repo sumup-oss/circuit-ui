@@ -4,7 +4,8 @@ import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
 import { standard } from '../../themes';
-import { Input as StandardInput } from '../Input';
+
+import StandardInput from '../Input';
 import SearchIconSvg from './search.svg';
 
 const baseStyles = css`
@@ -65,10 +66,10 @@ const SearchInput = ({ disabled, ...props }) => (
 
 SearchInput.propTypes = {
   /**
-   * An ID passed to the <input> element via a data attribute. This
-   * is used as an identifier for analytics tracking and e2e testing.
+   * An ID rendered as data-selector attribute on the
+   * component. Used for tracking and e2e testing.
    */
-  analyticsId: PropTypes.string,
+  selector: PropTypes.string.isRequired,
   /**
    * Triggers disabled styles on the component. This is also forwarded as
    * attribute to the <input> element.
@@ -77,8 +78,7 @@ SearchInput.propTypes = {
 };
 
 SearchInput.defaultProps = {
-  disabled: false,
-  analyticsId: ''
+  disabled: false
 };
 
 /**

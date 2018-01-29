@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Input } from '.';
+import Input from '.';
 
 describe('Input', () => {
   it('should have the correct default styles', () => {

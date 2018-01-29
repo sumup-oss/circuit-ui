@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Text from './Text';
+import Text from '.';
 
 describe('Text', () => {
   const elements = ['p', 'article', 'div'];

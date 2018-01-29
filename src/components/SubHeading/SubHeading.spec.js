@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SubHeading from './SubHeading';
+import SubHeading from '.';
 
 describe('SubHeading', () => {
   const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];

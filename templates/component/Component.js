@@ -6,16 +6,16 @@ const baseStyles = ({ theme }) => css`
 `;
 
 /**
- * Component component for forms.
+ * Describe your component here.
  */
 const Component = styled('element')(baseStyles);
 
 Component.propTypes = {
   /**
-   * An ID passed to the <input> element via a data attribute. This
-   * is used as an identifier for analytics tracking and e2e testing.
+   * An ID rendered as data-selector attribute on the
+   * component. Used for tracking and e2e testing.
    */
-  analyticsId: PropTypes.string
+  selector: PropTypes.string.isRequired
 };
 
 Component.defaultProps = {};

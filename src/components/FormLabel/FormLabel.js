@@ -19,7 +19,12 @@ FormLabel.propTypes = {
   /**
    * The identifier of the corresponding form element.
    */
-  htmlFor: PropTypes.string.isRequired
+  htmlFor: PropTypes.string.isRequired,
+  /**
+   * An ID rendered as data-selector attribute on the
+   * component. Used for tracking and e2e testing.
+   */
+  selector: PropTypes.string.isRequired
 };
 
 /**

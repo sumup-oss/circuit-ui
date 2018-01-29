@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FormLabel } from '.';
+import FormLabel from '.';
 
 describe('FormLabel', () => {
   it('should have the correct styles', () => {
