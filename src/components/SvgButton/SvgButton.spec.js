@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SvgButton } from '.';
+import SvgButton from '.';
 
 describe('SvgButton', () => {
   it('should render with the default styles', () => {

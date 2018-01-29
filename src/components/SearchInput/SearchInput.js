@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cx } from 'react-emotion';
 
-import { Input } from '../Input';
-import { IconInputWrapper } from '../IconInputWrapper';
+import Input from '../Input';
+import IconInputWrapper from '../IconInputWrapper';
 import SearchIcon from './search.svg';
 
 /**
@@ -24,7 +24,6 @@ const SearchInput = ({ disabled, selector, ...props }) => (
 );
 
 SearchInput.propTypes = {
-  selector: PropTypes.string.isRequired,
   /**
    * An ID rendered as data-selector attribute on the
    * component. Used for tracking and e2e testing.

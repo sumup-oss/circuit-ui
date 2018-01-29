@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { cx } from 'react-emotion';
 
-import { IconInputWrapper } from '../IconInputWrapper';
+import IconInputWrapper from '../IconInputWrapper';
 import Input from '../Input';
-import { SvgButton } from '../SvgButton';
+import SvgButton from '../SvgButton';
 import State from '../State/State';
 import RevealIcon from './eye.svg';
 import HideIcon from './eye-off.svg';

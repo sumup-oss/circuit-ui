@@ -108,6 +108,10 @@ IconInputWrapper.propTypes = {
    * style when the input is disabled.
    */
   icon: PropTypes.func.isRequired,
+  /**
+   * An ID rendered as data-selector attribute on the
+   * component. Used for tracking and e2e testing.
+   */
   selector: PropTypes.string.isRequired,
   /**
    * Position the icon render prop should show. Affects the

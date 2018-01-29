@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'react-emotion';
 
-import { IconInputWrapper } from '.';
+import IconInputWrapper from '.';
 
 const RenderDummy = styled('div', { label: 'RenderDummy' })();
 
