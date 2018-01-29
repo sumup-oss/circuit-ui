@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
@@ -22,29 +22,21 @@ const options = [
 ];
 
 storiesOf('Select', module)
-  // .addDecorator(withTests('Select'))
+  .addDecorator(withTests('Select'))
   .add(
     'Default Select',
     withInfo()(() => (
-      <Fragment>
-        <Select
-          key="no-selection"
-          options={options}
-          onChange={action('Option selected')}
-        />
-        <Select
-          key="second-selected"
-          options={options}
-          value={2}
-          onChange={action('Option selected')}
-        />
-        <Select
-          key="second-selected"
-          options={options}
-          value={2}
-          onChange={action('Option selected')}
-          disabled
-        />
-      </Fragment>
+      <Select options={options} onChange={action('Option selected')} />
+    ))
+  )
+  .add(
+    'Disabled Select',
+    withInfo()(() => (
+      <Select
+        options={options}
+        value={2}
+        onChange={action('Option selected')}
+        disabled
+      />
     ))
   );
