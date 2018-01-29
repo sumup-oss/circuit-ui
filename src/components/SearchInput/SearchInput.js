@@ -1,67 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
-import { size } from 'polished';
+import { cx } from 'react-emotion';
 
-import { standard } from '../../themes';
-
-import StandardInput from '../Input';
-import SearchIconSvg from './search.svg';
-
-const baseStyles = css`
-  label: search-input;
-  position: relative;
-`;
-
-const inputStyles = ({ theme }) => css`
-  label: search-input__input;
-  padding-left: calc(
-    ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
-  );
-`;
-
-const iconStyles = ({ theme }) => css`
-  label: search-input__icon;
-  height: ${theme}
-  left: ${theme.spacings.kilo};
-  position: absolute;
-  ${size(theme.spacings.mega)};
-  top: 50%;
-  transform: translateY(-50%);
-`;
-
-const disabledIconStyles = ({ disabled }) => {
-  if (!disabled) {
-    return '';
-  }
-  return css`
-    label: search-input__icon--disabled;
-    opacity: 0.4;
-  `;
-};
+import Input from '../Input';
+import IconInputWrapper from '../IconInputWrapper';
+import SearchIcon from './search.svg';
 
 /**
  * SearchInput component for forms.
  */
-const SearchInputWrapper = styled('div')(baseStyles);
-SearchInputWrapper.defaultProps = {
-  theme: standard
-};
-const Icon = styled(SearchIconSvg)(iconStyles, disabledIconStyles);
-Icon.defaultProps = {
-  theme: standard
-};
-
-const Input = styled(StandardInput)(inputStyles);
-Input.defaultProps = {
-  theme: standard
-};
-
-const SearchInput = ({ disabled, ...props }) => (
-  <SearchInputWrapper role="search">
-    <Input {...props} {...{ disabled }} />
-    <Icon {...{ disabled }} />
-  </SearchInputWrapper>
+const SearchInput = ({ disabled, selector, ...props }) => (
+  <IconInputWrapper
+    {...{ selector }}
+    role="search"
+    icon={({ className, disabledClassName }) => (
+      <SearchIcon
+        {...{ disabled }}
+        className={cx(className, { [disabledClassName]: disabled })}
+      />
+    )}
+    input={({ className }) => <Input {...{ ...props, disabled, className }} />}
+  />
 );
 
 SearchInput.propTypes = {

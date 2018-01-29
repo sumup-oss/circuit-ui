@@ -11,13 +11,20 @@ import { standard } from './src/themes';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const createWithTheme = component =>
-  create(<ThemeProvider theme={standard}>{component}</ThemeProvider>);
+const renderWithTheme = renderFn => (component, ...rest) =>
+  renderFn(<ThemeProvider theme={standard}>{component}</ThemeProvider>, rest);
 
-global.shallow = shallow;
+const shallowWithTheme = tree => {
+  const context = shallow(<ThemeProvider theme={standard} />)
+    .instance()
+    .getChildContext();
+  return shallow(tree, { context });
+};
+
+global.shallow = shallowWithTheme;
 global.render = render;
-global.create = createWithTheme;
-global.mount = mount;
+global.create = renderWithTheme(create);
+global.mount = renderWithTheme(mount);
 
 // This is defined by webpack in storybook builds using the DefinePlugin plugin.
 global.STORYBOOK = false;
@@ -31,3 +38,16 @@ expect.addSnapshotSerializer(
     }
   })
 );
+
+// Wrap console.error so we can filter out all those PropTypes errors.
+const { error } = console;
+// eslint-disable-next-line no-console
+console.error = (arg1, ...rest) => {
+  const isStringMsg = typeof arg1 === 'string';
+  const regex = /.*prop.+as required/;
+  const isPropTypesRequiredError = isStringMsg && regex.test(arg1);
+  if (isPropTypesRequiredError) {
+    return;
+  }
+  error(arg1, ...rest);
+};

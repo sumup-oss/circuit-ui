@@ -74,10 +74,12 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
+// TODO add support for data-selector attribute.
+// TODO add dynamic invalid aria attribute.
 /**
  * Input component for forms.
  */
-const Input = styled('input')(
+const Input = styled('input', { label: 'Input' })(
   baseStyles,
   disabledStyles,
   optionalStyles,
