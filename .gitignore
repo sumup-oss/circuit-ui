@@ -4,3 +4,4 @@ package-lock.json
 *.swp
 node_modules
 jest-test-results.json
+__coverage__
