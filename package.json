@@ -20,8 +20,7 @@
     "test:unit:watch": "npm run test:unit:output -- --watch",
     "test:unit:output": "jest --json --outputFile=jest-test-results.json",
     "prepush": "npm test",
-    "start:firstrun": "yarn test:unit:output && start-storybook -p 6006",
-    "start": "start-storybook -p 6006",
+    "start": "yarn test:unit:output && start-storybook -p 6006",
     "prebuild": "npm run test:unit:output",
     "build": "build-storybook -c .storybook -o .out",
     "deploy": "storybook-to-ghpages"
