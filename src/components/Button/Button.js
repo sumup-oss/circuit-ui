@@ -6,15 +6,21 @@ import HtmlElement from '../HtmlElement/HtmlElement';
 import { standard } from '../../themes';
 import { textMega } from '../../styles/style-helpers';
 
+const sizes = {
+  KILO: 'kilo',
+  MEGA: 'mega',
+  GIGA: 'giga'
+};
+
 const calculatePadding = ({ theme, size }) => (diff = '0px') => {
   const sizeMap = {
-    kilo: `calc(${theme.spacings.bit} - ${diff}) calc(${
+    [sizes.KILO]: `calc(${theme.spacings.bit} - ${diff}) calc(${
       theme.spacings.mega
     } - ${diff})`,
-    mega: `calc(${theme.spacings.byte} - ${diff}) calc(${
+    [sizes.MEGA]: `calc(${theme.spacings.byte} - ${diff}) calc(${
       theme.spacings.giga
     } - ${diff})`,
-    giga: `calc(${theme.spacings.kilo} - ${diff}) calc(${
+    [sizes.GIGA]: `calc(${theme.spacings.kilo} - ${diff}) calc(${
       theme.spacings.tera
     } - ${diff})`
   };
@@ -192,6 +198,10 @@ const Button = styled(TextOrButtonElement)(
   secondaryStyles
 );
 
+Button.KILO = sizes.KILO;
+Button.MEGA = sizes.MEGA;
+Button.GIGA = sizes.GIGA;
+
 Button.propTypes = {
   /**
    * An ID rendered as data-selector attribute on the
@@ -220,6 +230,10 @@ Button.propTypes = {
    */
   target: PropTypes.string,
   /**
+   * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
+   */
+  size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
+  /**
    * Standard onClick function. If used on an anchor this can be used to
    * cause additional side-effects like tracking.
    */
@@ -231,6 +245,7 @@ Button.defaultProps = {
   disabled: false,
   variant: 'primary',
   flat: false,
+  size: Button.MEGA,
   target: undefined,
   href: undefined,
   onClick: undefined
