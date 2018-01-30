@@ -23,8 +23,23 @@ function loadStories() {
   req.keys().forEach(filename => req(filename));
 }
 
-addDecorator(story => (
-  <ThemeProvider theme={standard}>{story()}</ThemeProvider>
+addDecorator(storyFn => (
+  <ThemeProvider theme={standard}>{storyFn()}</ThemeProvider>
+));
+
+addDecorator(storyFn => (
+  <div
+    style={{
+      backgroundColor: standard.colors.n100,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      with: '100vw',
+      height: '100vh'
+    }}
+  >
+    {storyFn()}
+  </div>
 ));
 
 configure(loadStories, module);
