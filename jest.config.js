@@ -1,5 +1,5 @@
 module.exports = {
-  coverageDirectory: '../../__coverage__',
+  coverageDirectory: './__coverage__',
   rootDir: '.',
   roots: ['src'],
   moduleFileExtensions: ['js'],
