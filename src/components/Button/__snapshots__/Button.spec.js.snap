@@ -2,64 +2,52 @@
 
 exports[`Button should have disabled primary button styles 1`] = `
 .circuit-0 {
+  background-color: #3388FF;
+  border-color: #2567D8;
   border-radius: 4px;
-  color: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
+  color: #FFFFFF;
+  cursor: default;
+  font-weight: 700;
   width: auto;
   height: auto;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
-  background-color: #3388FF;
-  border-color: #2567D8;
-  cursor: default;
-  border-width: 1px;
-  border-style: solid;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+}
+
+.circuit-0:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
 .circuit-0:focus {
+  border-color: #2567D8;
+  border-width: 2px;
   outline: 0;
-}
-
-.circuit-0[disabled],
-.circuit-0:disabled {
-  opacity: 0.4;
-  pointer-events: none;
+  padding: calc(8px - 1px) calc(24px - 1px);
 }
 
 .circuit-0:hover {
   background-color: #2567D8;
 }
 
-.circuit-0:active {
-  background-color: #2567D8;
-  border-color: #1641AC;
-}
-
-.circuit-0:focus {
-  border-color: #2567D8;
-}
-
 .circuit-0:hover,
 .circuit-0:active {
   border-color: #1641AC;
-}
-
-.circuit-0:active {
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-0:hover:focus,
-.circuit-0:hover:active {
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:focus {
-  border-width: 2px;
-  padding: calc(8px - 1px) calc(24px - 1px);
+.circuit-0[disabled],
+.circuit-0:disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 <button
@@ -75,24 +63,48 @@ exports[`Button should have disabled primary button styles 1`] = `
 
 exports[`Button should have flat disabled primary button styles 1`] = `
 .circuit-0 {
+  background-color: #3388FF;
+  border-color: #2567D8;
   border-radius: 4px;
-  color: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
+  color: #FFFFFF;
+  cursor: default;
+  font-weight: 700;
   width: auto;
   height: auto;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
-  background-color: #3388FF;
-  border-color: #2567D8;
-  cursor: default;
   border-width: 0px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06),0 4px 4px 0 rgba(12,15,20,0.06);
 }
 
+.circuit-0:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
 .circuit-0:focus {
+  border-color: #2567D8;
+  border-width: 2px;
   outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-0:hover {
+  background-color: #2567D8;
+}
+
+.circuit-0:hover,
+.circuit-0:active {
+  border-color: #1641AC;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0[disabled],
@@ -101,25 +113,8 @@ exports[`Button should have flat disabled primary button styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-0:hover {
-  background-color: #2567D8;
-}
-
 .circuit-0:active {
   background-color: #1641AC;
-  border-color: #1641AC;
-}
-
-.circuit-0:focus {
-  border-color: #2567D8;
-}
-
-.circuit-0:hover,
-.circuit-0:active {
-  border-color: #1641AC;
-}
-
-.circuit-0:active {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06),0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
@@ -147,24 +142,48 @@ exports[`Button should have flat disabled primary button styles 1`] = `
 
 exports[`Button should have flat primary button styles 1`] = `
 .circuit-0 {
+  background-color: #3388FF;
+  border-color: #2567D8;
   border-radius: 4px;
-  color: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
+  color: #FFFFFF;
+  cursor: default;
+  font-weight: 700;
   width: auto;
   height: auto;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
-  background-color: #3388FF;
-  border-color: #2567D8;
-  cursor: default;
   border-width: 0px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06),0 4px 4px 0 rgba(12,15,20,0.06);
 }
 
+.circuit-0:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
 .circuit-0:focus {
+  border-color: #2567D8;
+  border-width: 2px;
   outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-0:hover {
+  background-color: #2567D8;
+}
+
+.circuit-0:hover,
+.circuit-0:active {
+  border-color: #1641AC;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0[disabled],
@@ -173,25 +192,8 @@ exports[`Button should have flat primary button styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-0:hover {
-  background-color: #2567D8;
-}
-
 .circuit-0:active {
   background-color: #1641AC;
-  border-color: #1641AC;
-}
-
-.circuit-0:focus {
-  border-color: #2567D8;
-}
-
-.circuit-0:hover,
-.circuit-0:active {
-  border-color: #1641AC;
-}
-
-.circuit-0:active {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06),0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
@@ -219,64 +221,52 @@ exports[`Button should have flat primary button styles 1`] = `
 
 exports[`Button should have primary button styles 1`] = `
 .circuit-0 {
+  background-color: #3388FF;
+  border-color: #2567D8;
   border-radius: 4px;
-  color: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
+  color: #FFFFFF;
+  cursor: default;
+  font-weight: 700;
   width: auto;
   height: auto;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
-  background-color: #3388FF;
-  border-color: #2567D8;
-  cursor: default;
-  border-width: 1px;
-  border-style: solid;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+}
+
+.circuit-0:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
 .circuit-0:focus {
+  border-color: #2567D8;
+  border-width: 2px;
   outline: 0;
-}
-
-.circuit-0[disabled],
-.circuit-0:disabled {
-  opacity: 0.4;
-  pointer-events: none;
+  padding: calc(8px - 1px) calc(24px - 1px);
 }
 
 .circuit-0:hover {
   background-color: #2567D8;
 }
 
-.circuit-0:active {
-  background-color: #2567D8;
-  border-color: #1641AC;
-}
-
-.circuit-0:focus {
-  border-color: #2567D8;
-}
-
 .circuit-0:hover,
 .circuit-0:active {
   border-color: #1641AC;
-}
-
-.circuit-0:active {
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-0:hover:focus,
-.circuit-0:hover:active {
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:focus {
-  border-width: 2px;
-  padding: calc(8px - 1px) calc(24px - 1px);
+.circuit-0[disabled],
+.circuit-0:disabled {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 <button

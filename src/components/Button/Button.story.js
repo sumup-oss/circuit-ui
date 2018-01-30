@@ -11,7 +11,7 @@ storiesOf('Button', module)
   .add('Button disabled', withInfo()(() => <Button disabled>Disabled</Button>))
   .add(
     'Button secondary',
-    withInfo()(() => <Button variant="secondary">Secondary</Button>)
+    withInfo()(() => <Button secondary>Secondary</Button>)
   )
   .add('Button kilo', withInfo()(() => <Button size="kilo">Button</Button>))
   .add('Button mega', withInfo()(() => <Button size="mega">Button</Button>))
@@ -19,7 +19,7 @@ storiesOf('Button', module)
   .add(
     'Button secondary disabled',
     withInfo()(() => (
-      <Button variant="secondary" disabled>
+      <Button secondary disabled>
         Secondary disabled
       </Button>
     ))
@@ -37,7 +37,7 @@ storiesOf('Button', module)
   .add(
     'Flat Button secondary',
     withInfo()(() => (
-      <Button variant="secondary" flat>
+      <Button secondary flat>
         Flat Button
       </Button>
     ))
@@ -45,7 +45,7 @@ storiesOf('Button', module)
   .add(
     'Flat Button secondary disabled',
     withInfo()(() => (
-      <Button variant="secondary" flat disabled>
+      <Button secondary flat disabled>
         Flat Button
       </Button>
     ))
