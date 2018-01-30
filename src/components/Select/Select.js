@@ -28,6 +28,10 @@ const baseSelectStyles = ({ theme }) => css`
     outline: none;
   }
 
+  &:focus {
+    border: 1px solid ${theme.colors.b500};
+  }
+
   &::after {
   }
 `;
