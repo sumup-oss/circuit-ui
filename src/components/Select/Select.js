@@ -34,6 +34,11 @@ const baseSelectStyles = ({ theme }) => css`
 
   &::after {
   }
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
 `;
 
 const disabledSelectStyles = ({ disabled }) =>
