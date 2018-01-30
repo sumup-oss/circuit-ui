@@ -108,10 +108,10 @@ const Label = styled('label', { label: 'RadioInputLabel' })(
 /**
  * RadioInput component for forms.
  */
-const RadioInput = ({ value, label, name, checked, ...props }) => (
+const RadioInput = ({ onClick, label, name, ...props }) => (
   <Fragment>
-    <Input name={name} id={name} value={value} checked={checked} />
-    <Label htmlFor={name} {...{ ...props, checked }}>
+    <Input id={name} type="radio" {...{ ...props, name }} />
+    <Label htmlFor={name} {...{ ...props, onClick }}>
       {label}
     </Label>
   </Fragment>
@@ -119,7 +119,11 @@ const RadioInput = ({ value, label, name, checked, ...props }) => (
 
 RadioInput.propTypes = {
   /**
-   * // Label string for this radio input.
+   * Controles/Toggles the checked state.
+   */
+  onClick: PropTypes.func.isRequired,
+  /**
+   * Label string for this radio input.
    */
   label: PropTypes.string.isRequired,
   /**
