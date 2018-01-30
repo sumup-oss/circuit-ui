@@ -110,7 +110,7 @@ export const typography = {
 
 export const fontWeight = {
   regular: '400',
-  bold: '800'
+  bold: '700'
 };
 
 export const breakpoints = {
