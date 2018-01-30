@@ -22,27 +22,65 @@ describe('Button', () => {
    * Style snapshot testing via react test renderer and emotions snapshot
    * serializer.
    */
-  it('should have primary button styles', () => {
-    const actual = create(<Button>Button</Button>).toJSON();
+  it('should have button styles', () => {
+    const actual = create(<Button>Button</Button>);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have disabled primary button styles', () => {
-    const actual = create(<Button disabled>Disabled button</Button>).toJSON();
+  it('should have kilo button styles', () => {
+    const actual = create(<Button size={Button.KILO}>Button</Button>);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have flat primary button styles', () => {
-    const actual = create(<Button flat>Flat button</Button>).toJSON();
+  it('should have mega button styles', () => {
+    const actual = create(<Button size={Button.MEGA}>Button</Button>);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have flat disabled primary button styles', () => {
+  it('should have giga button styles', () => {
+    const actual = create(<Button size={Button.GIGA}>Button</Button>);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should have disabled button styles', () => {
+    const actual = create(<Button disabled>Disabled button</Button>);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should have flat button styles', () => {
+    const actual = create(<Button flat>Flat button</Button>);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should have flat disabled button styles', () => {
     const actual = create(
       <Button flat disabled>
         Flat button
       </Button>
-    ).toJSON();
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should have secondary button styles', () => {
+    const actual = create(<Button secondary>Secondary button</Button>);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should have secondary disabled button styles', () => {
+    const actual = create(
+      <Button secondary disabled>
+        Secondary disabled button
+      </Button>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should have secondary flat button styles', () => {
+    const actual = create(
+      <Button secondary flat>
+        Secondary flat button
+      </Button>
+    );
     expect(actual).toMatchSnapshot();
   });
 
