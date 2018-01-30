@@ -23,7 +23,7 @@ const baseStyles = ({ theme }) => css`
     left: 0;
     transform: translateY(-50%);
     width: ${theme.spacings.mega};
-    transition: border-color 0.05s ease-in;
+    transition: border 0.05s ease-in;
   }
 
   &::after {
@@ -39,11 +39,6 @@ const baseStyles = ({ theme }) => css`
     transform: translateY(-50%) scale(0, 0);
     visibility: hidden;
     transition: transform 0.05s ease-in, visibility 0.05s ease-in;
-  }
-
-  &:focus::before {
-    border-width: 2px;
-    border-color: ${theme.colors.b500};
   }
 `;
 
@@ -91,9 +86,14 @@ const disabledStyles = ({ theme, disabled }) =>
     }
   `;
 
-const inputStyles = () => css`
+const inputStyles = ({ theme }) => css`
   label: radio-input__input;
   ${hideVisually()};
+
+  &:focus + label::before {
+    border-width: 2px;
+    border-color: ${theme.colors.b500};
+  }
 `;
 
 const Input = styled('input', { label: 'RadioInputInput' })(inputStyles);
