@@ -20,7 +20,7 @@ export const shadowDouble = ({ theme }) => `
     0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
-export const shadowTripe = ({ theme }) => `
+export const shadowTriple = ({ theme }) => `
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 8px 8px 0 ${transparentize(0.94, theme.colors.shadow)};
@@ -52,3 +52,12 @@ export const subHeadingZetta = createTypeHelper('subHeading', 'zetta');
 export const textKilo = createTypeHelper('text', 'kilo');
 export const textMega = createTypeHelper('text', 'mega');
 export const textGiga = createTypeHelper('text', 'giga');
+
+/**
+ * Utilities
+ */
+
+export const disableVisually = () => `
+  opacity: 0.5;
+  pointer-events: none;
+`;
