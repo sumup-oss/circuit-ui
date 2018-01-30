@@ -13,10 +13,10 @@ const calculatePadding = ({ theme, size }) => (diff = '0px') => {
     kilo: `calc(${theme.spacings.bit} - ${diff}) calc(${
       theme.spacings.mega
     } - ${diff})`,
-    mega: `calc(${theme.spacings.kilo} - ${diff}) calc(${
+    mega: `calc(${theme.spacings.byte} - ${diff}) calc(${
       theme.spacings.giga
     } - ${diff})`,
-    giga: `calc(${theme.spacings.byte} - ${diff}) calc(${
+    giga: `calc(${theme.spacings.kilo} - ${diff}) calc(${
       theme.spacings.tera
     } - ${diff})`
   };

@@ -10,7 +10,7 @@ exports[`Button should have disabled primary button styles 1`] = `
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
-  padding: calc(12px - 0px) calc(24px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
   background-color: #3388FF;
   border-color: #2567D8;
   cursor: default;
@@ -54,12 +54,12 @@ exports[`Button should have disabled primary button styles 1`] = `
 .circuit-0:hover:focus,
 .circuit-0:hover:active {
   border-width: 1px;
-  padding: calc(12px - 0px) calc(24px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0:focus {
   border-width: 2px;
-  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px) calc(24px - 1px);
 }
 
 <button
@@ -83,7 +83,7 @@ exports[`Button should have flat disabled primary button styles 1`] = `
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
-  padding: calc(12px - 0px) calc(24px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
   background-color: #3388FF;
   border-color: #2567D8;
   cursor: default;
@@ -126,12 +126,12 @@ exports[`Button should have flat disabled primary button styles 1`] = `
 .circuit-0:active:focus,
 .circuit-0:hover:focus {
   border-width: 0;
-  padding: calc(12px - 0px) calc(24px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0:focus {
   border-width: 2px;
-  padding: calc(12px - 2px) calc(24px - 2px);
+  padding: calc(8px - 2px) calc(24px - 2px);
 }
 
 <button
@@ -155,7 +155,7 @@ exports[`Button should have flat primary button styles 1`] = `
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
-  padding: calc(12px - 0px) calc(24px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
   background-color: #3388FF;
   border-color: #2567D8;
   cursor: default;
@@ -198,12 +198,12 @@ exports[`Button should have flat primary button styles 1`] = `
 .circuit-0:active:focus,
 .circuit-0:hover:focus {
   border-width: 0;
-  padding: calc(12px - 0px) calc(24px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0:focus {
   border-width: 2px;
-  padding: calc(12px - 2px) calc(24px - 2px);
+  padding: calc(8px - 2px) calc(24px - 2px);
 }
 
 <button
@@ -227,7 +227,7 @@ exports[`Button should have primary button styles 1`] = `
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
-  padding: calc(12px - 0px) calc(24px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
   background-color: #3388FF;
   border-color: #2567D8;
   cursor: default;
@@ -271,12 +271,12 @@ exports[`Button should have primary button styles 1`] = `
 .circuit-0:hover:focus,
 .circuit-0:hover:active {
   border-width: 1px;
-  padding: calc(12px - 0px) calc(24px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0:focus {
   border-width: 2px;
-  padding: calc(12px - 1px) calc(24px - 1px);
+  padding: calc(8px - 1px) calc(24px - 1px);
 }
 
 <button

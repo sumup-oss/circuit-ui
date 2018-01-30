@@ -13,6 +13,9 @@ storiesOf('Button', module)
     'Button secondary',
     withInfo()(() => <Button variant="secondary">Secondary</Button>)
   )
+  .add('Button kilo', withInfo()(() => <Button size="kilo">Button</Button>))
+  .add('Button mega', withInfo()(() => <Button size="mega">Button</Button>))
+  .add('Button giga', withInfo()(() => <Button size="giga">Button</Button>))
   .add(
     'Button secondary disabled',
     withInfo()(() => (
