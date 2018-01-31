@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
 import Card, { CardHeader, CardFooter } from '.';
@@ -27,10 +28,10 @@ storiesOf('Card', module)
     ))
   )
   .add(
-    'Card with Header, body, and button',
+    'Card with Header, body, buttons, and close icon',
     withInfo()(() => (
       <Card>
-        <CardHeader>
+        <CardHeader onClose={action('CloseButton clicked')}>
           <Heading size="kilo">Card heading</Heading>
         </CardHeader>
         <Text>This is some text showing in my card</Text>
