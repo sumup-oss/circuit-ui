@@ -796,9 +796,3 @@ exports[`Button should have secondary flat button styles 1`] = `
   Secondary flat button
 </button>
 `;
-
-exports[`Button should provide the GIGA constant 1`] = `"giga"`;
-
-exports[`Button should provide the KILO constant 1`] = `"kilo"`;
-
-exports[`Button should provide the MEGA constant 1`] = `"mega"`;

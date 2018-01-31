@@ -3,21 +3,6 @@ import React from 'react';
 import Button from '.';
 
 describe('Button', () => {
-  it('should provide the KILO constant', () => {
-    const actual = Button.KILO;
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should provide the MEGA constant', () => {
-    const actual = Button.MEGA;
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should provide the GIGA constant', () => {
-    const actual = Button.GIGA;
-    expect(actual).toMatchSnapshot();
-  });
-
   /**
    * Style snapshot testing via react test renderer and emotions snapshot
    * serializer.
