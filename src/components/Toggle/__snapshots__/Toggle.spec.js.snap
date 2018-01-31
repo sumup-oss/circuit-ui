@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle should have the correct default styles 1`] = `
+.circuit-1 {
+  background-color: #D8DDE1;
+  border-radius: 24px;
+  position: relative;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  height: 24px;
+  width: 40px;
+}
+
+.circuit-0 {
+  background-color: #FAFBFC;
+  box-shadow: 0 2px 0 0 #9DA7B1,inset 0 2px #FFF, inset 0 1px 0 1px rgba(255,255,255,6%);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate3d(4px,-50%,0);
+  -ms-transform: translate3d(4px,-50%,0);
+  transform: translate3d(4px,-50%,0);
+  -webkit-transition: box-shadow 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+}
+
+<div
+  className="circuit-1"
+  onClick={[Function]}
+>
+  <div
+    className="circuit-0"
+  />
+</div>
+`;
+
+exports[`Toggle should have the correct on styles 1`] = `
+.circuit-1 {
+  background-color: #D8DDE1;
+  border-radius: 24px;
+  position: relative;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  height: 24px;
+  width: 40px;
+  background-color: #3388FF;
+}
+
+.circuit-0 {
+  background-color: #FAFBFC;
+  box-shadow: 0 2px 0 0 #9DA7B1,inset 0 2px #FFF, inset 0 1px 0 1px rgba(255,255,255,6%);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate3d(4px,-50%,0);
+  -ms-transform: translate3d(4px,-50%,0);
+  transform: translate3d(4px,-50%,0);
+  -webkit-transition: box-shadow 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  box-shadow: 0 2px 0 0 #2567D8,inset 0 2px #FFF, inset 0 1px 0 1px rgba(255,255,255,6%);
+  -webkit-transform: translate3d( calc(24px - 4px), -50%, 0 );
+  -ms-transform: translate3d( calc(24px - 4px), -50%, 0 );
+  transform: translate3d( calc(24px - 4px), -50%, 0 );
+}
+
+<div
+  className="circuit-1"
+  onClick={[Function]}
+>
+  <div
+    className="circuit-0"
+  />
+</div>
+`;
