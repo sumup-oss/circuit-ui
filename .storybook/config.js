@@ -34,7 +34,6 @@ addDecorator(storyFn => (
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      with: '100vw',
       height: '100vh'
     }}
   >
