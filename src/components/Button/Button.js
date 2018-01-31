@@ -191,7 +191,7 @@ const TextOrButtonElement = props => (
  * The Button component. Can also be styled as an anchor by passing an href
  * prop.
  */
-const Button = styled(TextOrButtonElement)(
+const Button = styled(TextOrButtonElement, { label: 'Button' })(
   baseStyles,
   sizeStyles,
   flatStyles,
