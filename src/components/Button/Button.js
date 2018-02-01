@@ -3,24 +3,19 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
+import { KILO, MEGA, GIGA } from '../../util/sizes';
 import { standard } from '../../themes';
 import { textMega } from '../../styles/style-helpers';
 
-const sizes = {
-  KILO: 'kilo',
-  MEGA: 'mega',
-  GIGA: 'giga'
-};
-
 const calculatePadding = ({ theme, size }) => (diff = '0px') => {
   const sizeMap = {
-    [sizes.KILO]: `calc(${theme.spacings.bit} - ${diff}) calc(${
+    [KILO]: `calc(${theme.spacings.bit} - ${diff}) calc(${
       theme.spacings.mega
     } - ${diff})`,
-    [sizes.MEGA]: `calc(${theme.spacings.byte} - ${diff}) calc(${
+    [MEGA]: `calc(${theme.spacings.byte} - ${diff}) calc(${
       theme.spacings.giga
     } - ${diff})`,
-    [sizes.GIGA]: `calc(${theme.spacings.kilo} - ${diff}) calc(${
+    [GIGA]: `calc(${theme.spacings.kilo} - ${diff}) calc(${
       theme.spacings.tera
     } - ${diff})`
   };
@@ -198,9 +193,9 @@ const Button = styled(TextOrButtonElement)(
   secondaryStyles
 );
 
-Button.KILO = sizes.KILO;
-Button.MEGA = sizes.MEGA;
-Button.GIGA = sizes.GIGA;
+Button.KILO = KILO;
+Button.MEGA = MEGA;
+Button.GIGA = GIGA;
 
 Button.propTypes = {
   /**
@@ -232,7 +227,7 @@ Button.propTypes = {
   /**
    * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
    */
-  size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
+  size: PropTypes.oneOf([KILO, MEGA, GIGA]),
   /**
    * Standard onClick function. If used on an anchor this can be used to
    * cause additional side-effects like tracking.
