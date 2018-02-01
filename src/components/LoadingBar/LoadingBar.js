@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import { childrenPropType } from '../../util/shared-prop-types';
+import { textKilo } from '../../styles/style-helpers';
+import id from '../../util/unique-id';
 
 const calculateSize = ({ theme, size }) => {
   const sizeMap = {
@@ -13,7 +15,14 @@ const calculateSize = ({ theme, size }) => {
   return sizeMap[size];
 };
 
-const baseStyles = ({ theme, size, value, max }) => css`
+const baseStyles = ({ theme }) => css`
+  label: loading-bar;
+  display: flex;
+  align-items: center;
+  margin-bottom: ${theme.spacings.mega};
+`;
+
+const progressStyles = ({ theme, size, value, max }) => css`
   label: loading-bar__progress;
   background-color: ${theme.colors.n100};
   border: 1px solid ${theme.colors.n300};
@@ -21,7 +30,6 @@ const baseStyles = ({ theme, size, value, max }) => css`
   position: relative;
   width: 100%;
   height: ${calculateSize({ theme, size })};
-  margin-bottom: ${theme.spacings.mega};
 
   &::after {
     content: '';
@@ -39,23 +47,35 @@ const baseStyles = ({ theme, size, value, max }) => css`
   }
 `;
 
-const Progress = styled('div', { label: 'LoadingBarProgress' })(baseStyles);
+const labelStyles = ({ theme }) => css`
+  label: loading-bar__label;
+  ${textKilo({ theme })};
+  margin-left: ${theme.spacings.byte};
+`;
+
+const LoadingBarWrapper = styled('div')(baseStyles);
+const LoadingBarProgress = styled('span')(progressStyles);
+const LoadingBarLabel = styled('span')(labelStyles);
 
 /**
  * Loading bar component to indicate progress
  */
-const LoadingBar = ({ children, max, value, ...props }) => (
-  <div>
-    <Progress
-      role="progressbar"
-      aria-valuenow={value}
-      aria-valuemin="0"
-      aria-valuemax={max}
-      {...{ ...props, max, value }}
-    />
-    {children}
-  </div>
-);
+const LoadingBar = ({ children, max, value, ...props }) => {
+  const ariaId = id('loadingBar_');
+  return (
+    <LoadingBarWrapper>
+      <LoadingBarProgress
+        role="progressbar"
+        aria-valuenow={value}
+        aria-valuemin="0"
+        aria-valuemax={max}
+        aria-labelledby={ariaId}
+        {...{ ...props, max, value }}
+      />
+      <LoadingBarLabel id={ariaId}>{children}</LoadingBarLabel>
+    </LoadingBarWrapper>
+  );
+};
 
 LoadingBar.propTypes = {
   /**
