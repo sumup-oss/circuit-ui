@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Setting should have no bottom margin when "withMargin" is falsy: [object Object] 1`] = `
-.circuit-1 {
+.circuit-2 {
   background-color: #D8DDE1;
   border-radius: 24px;
   position: relative;
@@ -27,7 +27,7 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
   border-radius: 16px;
 }
 
-.circuit-3 {
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -42,7 +42,7 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
   margin-left: 12px;
 }
 
-.circuit-2 {
+.circuit-4 {
   font-weight: 400;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
@@ -53,7 +53,7 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
   vertical-align: 1px;
 }
 
-.circuit-4 {
+.circuit-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -64,23 +64,23 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
 }
 
 <div
-  className="circuit-4"
+  className="circuit-8 circuit-9"
 >
   <div
     aria-checked={false}
-    className="circuit-1"
+    className="circuit-2 circuit-3"
     onClick={[Function]}
     role="switch"
   >
     <div
-      className="circuit-0"
+      className="circuit-0 circuit-1"
     />
   </div>
   <div
-    className="circuit-3"
+    className="circuit-6 circuit-7"
   >
     <label
-      className="circuit-2"
+      className="circuit-4 circuit-5"
       size="mega"
     />
   </div>
@@ -88,7 +88,7 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
 `;
 
 exports[`Setting should have the correct default styles 1`] = `
-.circuit-4 {
+.circuit-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -99,7 +99,7 @@ exports[`Setting should have the correct default styles 1`] = `
   margin-bottom: 16px;
 }
 
-.circuit-1 {
+.circuit-2 {
   background-color: #D8DDE1;
   border-radius: 24px;
   position: relative;
@@ -125,7 +125,7 @@ exports[`Setting should have the correct default styles 1`] = `
   border-radius: 16px;
 }
 
-.circuit-3 {
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -140,7 +140,7 @@ exports[`Setting should have the correct default styles 1`] = `
   margin-left: 12px;
 }
 
-.circuit-2 {
+.circuit-4 {
   font-weight: 400;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
@@ -152,23 +152,23 @@ exports[`Setting should have the correct default styles 1`] = `
 }
 
 <div
-  className="circuit-4"
+  className="circuit-8 circuit-9"
 >
   <div
     aria-checked={false}
-    className="circuit-1"
+    className="circuit-2 circuit-3"
     onClick={[Function]}
     role="switch"
   >
     <div
-      className="circuit-0"
+      className="circuit-0 circuit-1"
     />
   </div>
   <div
-    className="circuit-3"
+    className="circuit-6 circuit-7"
   >
     <label
-      className="circuit-2"
+      className="circuit-4 circuit-5"
       size="mega"
     />
   </div>
