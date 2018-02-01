@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
 import Toggle from './Toggle';
@@ -17,7 +18,15 @@ storiesOf('Toggle', module)
         updaterName="onToggle"
         updater={on => !on}
       >
-        {props => <Toggle {...props} />}
+        {({ onToggle, on }) => (
+          <Toggle
+            on={on}
+            onToggle={e => {
+              action('Toggle clicked')(e);
+              onToggle(e);
+            }}
+          />
+        )}
       </State>
     ))
   );
