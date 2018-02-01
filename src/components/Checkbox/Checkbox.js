@@ -100,9 +100,9 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const Input = styled('input')(inputStyles);
+const CheckboxInput = styled('input')(inputStyles);
 
-const Label = styled('label')(
+const CheckboxLabel = styled('label')(
   baseStyles,
   checkedStyles,
   disabledStyles,
@@ -114,10 +114,10 @@ const Label = styled('label')(
  */
 const Checkbox = ({ onToggle, children, name, ...props }) => (
   <Fragment>
-    <Input id={name} type="checkbox" {...{ ...props, name }} />
-    <Label htmlFor={name} onClick={onToggle} {...{ ...props }}>
+    <CheckboxInput id={name} type="checkbox" {...{ ...props, name }} />
+    <CheckboxLabel htmlFor={name} onClick={onToggle} {...{ ...props }}>
       {children}
-    </Label>
+    </CheckboxLabel>
   </Fragment>
 );
 
