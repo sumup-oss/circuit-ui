@@ -13,6 +13,11 @@ describe('Checkbox', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with checked styles', () => {
+    const actual = create(<Checkbox checked {...{ selector }} />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with disabled styles', () => {
     const actual = create(<Checkbox disabled {...{ selector }} />);
     expect(actual).toMatchSnapshot();

@@ -13,6 +13,11 @@ describe('RadioButton', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with checked styles', () => {
+    const actual = create(<RadioButton checked {...{ selector }} />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with disabled styles', () => {
     const actual = create(<RadioButton disabled {...{ selector }} />);
     expect(actual).toMatchSnapshot();
