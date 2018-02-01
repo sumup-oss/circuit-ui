@@ -13,7 +13,7 @@
     "test:lint-css": "stylelint \"src/**/*.scss\" --cache",
     "test:lint-js": "eslint --cache --quiet src/**/*.js",
     "test:lint-js:watch": "onchange \"src/**/*.js\" -- npm run test:lint-js",
-    "test:unit": "jest --coverage",
+    "test:unit": "jest --coverage --no-cache",
     "test:unit:watch": "npm run test:unit:output -- --watch",
     "test:unit:output": "jest --json --outputFile=jest-test-results.json",
     "prepush": "npm test",
