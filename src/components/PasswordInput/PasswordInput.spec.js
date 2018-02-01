@@ -5,12 +5,12 @@ import { PasswordInput } from '.';
 const selector = 'pw';
 
 describe('PasswordInput', () => {
-  it('should with default styles', () => {
+  it('should render with default styles', () => {
     const actual = create(<PasswordInput {...{ selector }} />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should with disabled styles', () => {
+  it('should render with disabled styles', () => {
     const actual = create(<PasswordInput disabled {...{ selector }} />);
     expect(actual).toMatchSnapshot();
   });
