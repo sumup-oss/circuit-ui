@@ -22,7 +22,7 @@ const shallowWithTheme = tree => {
 };
 
 global.shallow = shallowWithTheme;
-global.render = render;
+global.render = renderWithTheme(render);
 global.create = renderWithTheme(create);
 global.mount = renderWithTheme(mount);
 
