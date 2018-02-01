@@ -18,6 +18,6 @@ exports[`CardFooter should have the correct styles 1`] = `
 }
 
 <footer
-  className="circuit-0 circuit-1"
+  className="circuit-0"
 />
 `;
