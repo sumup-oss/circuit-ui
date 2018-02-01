@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Setting should have no bottom margin when "withMargin" is falsy: [object Object] 1`] = `
+.circuit-1 {
+  background-color: #D8DDE1;
+  border-radius: 24px;
+  position: relative;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  height: 24px;
+  width: 40px;
+}
+
+.circuit-0 {
+  background-color: #FAFBFC;
+  box-shadow: 0 2px 0 0 #9DA7B1,inset 0 2px #FFF, inset 0 1px 0 1px rgba(255,255,255,6%);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate3d(4px,-50%,0);
+  -ms-transform: translate3d(4px,-50%,0);
+  transform: translate3d(4px,-50%,0);
+  -webkit-transition: box-shadow 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+}
+
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin-left: 12px;
+}
+
+.circuit-2 {
+  font-weight: 400;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  font-size: 15px;
+  line-height: 24px;
+  vertical-align: 1px;
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-align: flex-start;
+  -ms-flex-align: flex-start;
+  flex-align: flex-start;
+}
+
+<div
+  className="circuit-4"
+>
+  <div
+    className="circuit-1"
+    onClick={[Function]}
+  >
+    <div
+      className="circuit-0"
+    />
+  </div>
+  <div
+    className="circuit-3"
+  >
+    <label
+      className="circuit-2"
+      size="mega"
+    />
+  </div>
+</div>
+`;
+
+exports[`Setting should have the correct default styles 1`] = `
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-align: flex-start;
+  -ms-flex-align: flex-start;
+  flex-align: flex-start;
+  margin-bottom: 16px;
+}
+
+.circuit-1 {
+  background-color: #D8DDE1;
+  border-radius: 24px;
+  position: relative;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  height: 24px;
+  width: 40px;
+}
+
+.circuit-0 {
+  background-color: #FAFBFC;
+  box-shadow: 0 2px 0 0 #9DA7B1,inset 0 2px #FFF, inset 0 1px 0 1px rgba(255,255,255,6%);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate3d(4px,-50%,0);
+  -ms-transform: translate3d(4px,-50%,0);
+  transform: translate3d(4px,-50%,0);
+  -webkit-transition: box-shadow 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+}
+
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin-left: 12px;
+}
+
+.circuit-2 {
+  font-weight: 400;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  font-size: 15px;
+  line-height: 24px;
+  vertical-align: 1px;
+}
+
+<div
+  className="circuit-4"
+>
+  <div
+    className="circuit-1"
+    onClick={[Function]}
+  >
+    <div
+      className="circuit-0"
+    />
+  </div>
+  <div
+    className="circuit-3"
+  >
+    <label
+      className="circuit-2"
+      size="mega"
+    />
+  </div>
+</div>
+`;
