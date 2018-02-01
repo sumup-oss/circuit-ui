@@ -10,6 +10,7 @@ exports[`Button should have button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
@@ -71,6 +72,7 @@ exports[`Button should have disabled button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
@@ -132,6 +134,7 @@ exports[`Button should have flat button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
@@ -211,6 +214,7 @@ exports[`Button should have flat disabled button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
@@ -290,6 +294,7 @@ exports[`Button should have giga button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
@@ -351,6 +356,7 @@ exports[`Button should have kilo button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
@@ -412,6 +418,7 @@ exports[`Button should have mega button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
@@ -473,6 +480,7 @@ exports[`Button should have secondary button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
@@ -581,6 +589,7 @@ exports[`Button should have secondary disabled button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
@@ -689,6 +698,7 @@ exports[`Button should have secondary flat button styles 1`] = `
   box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
   display: block;
   color: #FFFFFF;
+  cursor: default;
   font-weight: 700;
   width: auto;
   height: auto;
