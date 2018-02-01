@@ -57,11 +57,11 @@ const baseIconStyles = ({ theme }) => css`
   pointer-events: none;
 `;
 
-const SelectElement = styled('select', { label: 'SelectElement' })(
+const SelectElement = styled('select')(
   baseSelectStyles,
   disabledSelectStyles
 );
-const Icon = styled(DownTriangleIcon, { label: 'SelectIcon' })(baseIconStyles);
+const Icon = styled(DownTriangleIcon)(baseIconStyles);
 
 /**
  * A native select component.

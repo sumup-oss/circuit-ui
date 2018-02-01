@@ -3,7 +3,7 @@ import styled from 'react-emotion';
 
 import IconInputWrapper from '.';
 
-const RenderDummy = styled('div', { label: 'RenderDummy' })();
+const RenderDummy = styled('div')();
 
 describe('IconInputWrapper', () => {
   it("should have it's base styles", () => {

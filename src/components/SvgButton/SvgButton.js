@@ -24,7 +24,7 @@ const baseStyles = css`
 /**
  * SvgButton component for forms.
  */
-const SvgButton = styled('button', { label: 'SvgButton' })(baseStyles);
+const SvgButton = styled('button')(baseStyles);
 
 SvgButton.propTypes = {
   children: PropTypes.element.isRequired

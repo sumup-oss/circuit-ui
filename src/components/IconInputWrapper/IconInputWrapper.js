@@ -12,7 +12,7 @@ const containerStyles = css`
   position: relative;
 `;
 
-const IconInputContainer = styled('div', { label: 'IconInputContainer' })(
+const IconInputContainer = styled('div')(
   containerStyles
 );
 

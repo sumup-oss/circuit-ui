@@ -12,7 +12,7 @@ exports[`Text should render as article element, when passed "article" for the el
 }
 
 <article
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   size="mega"
 >
   ARTICLE heading
@@ -31,7 +31,7 @@ exports[`Text should render as div element, when passed "div" for the element pr
 }
 
 <div
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   size="mega"
 >
   DIV heading
@@ -50,7 +50,7 @@ exports[`Text should render as p element, when passed "p" for the element prop 1
 }
 
 <p
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   size="mega"
 >
   P heading
@@ -69,7 +69,7 @@ exports[`Text should render with size giga, when passed "giga" for the size prop
 }
 
 <p
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   size="giga"
 >
   giga heading
@@ -88,7 +88,7 @@ exports[`Text should render with size kilo, when passed "kilo" for the size prop
 }
 
 <p
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   size="kilo"
 >
   kilo heading
@@ -107,7 +107,7 @@ exports[`Text should render with size mega, when passed "mega" for the size prop
 }
 
 <p
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   size="mega"
 >
   mega heading

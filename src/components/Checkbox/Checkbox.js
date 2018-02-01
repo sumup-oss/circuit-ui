@@ -100,9 +100,9 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const Input = styled('input', { label: 'CheckboxInput' })(inputStyles);
+const Input = styled('input')(inputStyles);
 
-const Label = styled('label', { label: 'CheckboxLabel' })(
+const Label = styled('label')(
   baseStyles,
   checkedStyles,
   disabledStyles,

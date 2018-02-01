@@ -94,9 +94,9 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const Input = styled('input', { label: 'RadioButtonInput' })(inputStyles);
+const Input = styled('input')(inputStyles);
 
-const Label = styled('label', { label: 'RadioButtonLabel' })(
+const Label = styled('label')(
   baseStyles,
   checkedStyles,
   disabledStyles,

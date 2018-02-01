@@ -23,7 +23,7 @@ exports[`CloseButton should have the correct styles 1`] = `
 }
 
 <button
-  className="circuit-0"
+  className="circuit-0 circuit-1"
 >
   <div>
     close-icon.svg

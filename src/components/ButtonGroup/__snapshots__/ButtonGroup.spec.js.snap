@@ -13,6 +13,6 @@ exports[`ButtonGroup should have the correct styles 1`] = `
 }
 
 <ul
-  className="circuit-0"
+  className="circuit-0 circuit-1"
 />
 `;
