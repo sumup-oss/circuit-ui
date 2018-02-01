@@ -6,7 +6,15 @@ const babelConfig = {
     'syntax-dynamic-import',
     'transform-es2015-modules-commonjs',
     'transform-object-rest-spread',
-    'transform-class-properties'
+    'transform-class-properties',
+    [
+      'emotion',
+      {
+        autoLabel: true,
+        hoist: true,
+        sourceMap: true
+      }
+    ]
   ],
   presets: [['env', { targets: { node: 'current' } }], 'react', 'stage-3']
 };

@@ -38,7 +38,7 @@ exports[`TextArea should have the correct default styles 1`] = `
 }
 
 <textarea
-  className="circuit-0"
+  className="circuit-0 circuit-1"
 />
 `;
 
@@ -105,7 +105,7 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
 }
 
 <textarea
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   disabled={true}
 />
 `;
@@ -150,7 +150,7 @@ exports[`TextArea should show with disabled styled when passed the disabled prop
 }
 
 <textarea
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   disabled={true}
 />
 `;
@@ -216,7 +216,7 @@ exports[`TextArea should show with invalid styles when passed the isInvalid prop
 }
 
 <textarea
-  className="circuit-0"
+  className="circuit-0 circuit-1"
 />
 `;
 
@@ -261,6 +261,6 @@ exports[`TextArea should show with optional styles when passed the isOptional pr
 }
 
 <textarea
-  className="circuit-0"
+  className="circuit-0 circuit-1"
 />
 `;

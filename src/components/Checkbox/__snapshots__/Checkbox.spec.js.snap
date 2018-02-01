@@ -24,7 +24,7 @@ Array [
 
 <input
     checked={false}
-    className="circuit-0"
+    className="circuit-0 circuit-1"
     disabled={false}
     id={undefined}
     name={undefined}
@@ -75,7 +75,7 @@ Array [
 
 <label
     checked={false}
-    className="circuit-0"
+    className="circuit-0 circuit-1"
     disabled={false}
     htmlFor={undefined}
     onClick={[Function]}
@@ -107,7 +107,7 @@ Array [
 
 <input
     checked={false}
-    className="circuit-0"
+    className="circuit-0 circuit-1"
     disabled={true}
     id={undefined}
     name={undefined}
@@ -168,7 +168,7 @@ Array [
 
 <label
     checked={false}
-    className="circuit-0"
+    className="circuit-0 circuit-1"
     disabled={true}
     htmlFor={undefined}
     onClick={[Function]}
@@ -200,7 +200,7 @@ Array [
 
 <input
     checked={false}
-    className="circuit-0"
+    className="circuit-0 circuit-1"
     disabled={false}
     id={undefined}
     name={undefined}
@@ -259,7 +259,7 @@ Array [
 
 <label
     checked={false}
-    className="circuit-0"
+    className="circuit-0 circuit-1"
     disabled={false}
     htmlFor={undefined}
     onClick={[Function]}

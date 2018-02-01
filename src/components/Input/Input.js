@@ -79,7 +79,7 @@ const baseStyles = ({ theme }) => css`
 /**
  * Input component for forms.
  */
-const Input = styled('input', { label: 'Input' })(
+const Input = styled('input')(
   baseStyles,
   disabledStyles,
   optionalStyles,

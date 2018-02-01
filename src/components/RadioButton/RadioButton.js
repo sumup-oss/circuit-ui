@@ -94,9 +94,9 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const Input = styled('input', { label: 'RadioButtonInput' })(inputStyles);
+const RadioButtonInput = styled('input')(inputStyles);
 
-const Label = styled('label', { label: 'RadioButtonLabel' })(
+const RadioButtonLabel = styled('label')(
   baseStyles,
   checkedStyles,
   disabledStyles,
@@ -108,10 +108,10 @@ const Label = styled('label', { label: 'RadioButtonLabel' })(
  */
 const RadioButton = ({ onToggle, children, name, ...props }) => (
   <Fragment>
-    <Input id={name} type="radio" {...{ ...props, name }} />
-    <Label htmlFor={name} onClick={onToggle} {...{ ...props }}>
+    <RadioButtonInput id={name} type="radio" {...{ ...props, name }} />
+    <RadioButtonLabel htmlFor={name} onClick={onToggle} {...{ ...props }}>
       {children}
-    </Label>
+    </RadioButtonLabel>
   </Fragment>
 );
 

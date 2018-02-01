@@ -19,7 +19,7 @@ const baseStyles = ({ theme }) => css`
 /**
  * Card component that is used for displaying content on a grid.
  */
-const Card = styled('div', { label: 'Card' })(baseStyles);
+const Card = styled('div')(baseStyles);
 
 Card.propTypes = {
   /**

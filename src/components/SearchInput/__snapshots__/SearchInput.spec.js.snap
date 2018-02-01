@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchInput should render icon with 0.4 opacity when disabled 1`] = `
-.circuit-1 {
+.circuit-2 {
   display: inline-block;
   position: relative;
 }
@@ -45,12 +45,12 @@ exports[`SearchInput should render icon with 0.4 opacity when disabled 1`] = `
 }
 
 <div
-  className="circuit-1"
+  className="circuit-2 circuit-3"
   data-selector="search"
 >
   <input
     autoComplete="none"
-    className="circuit-0"
+    className="circuit-0 circuit-1"
     disabled={true}
   />
   <div>
@@ -60,7 +60,7 @@ exports[`SearchInput should render icon with 0.4 opacity when disabled 1`] = `
 `;
 
 exports[`SearchInput should render with default styles 1`] = `
-.circuit-1 {
+.circuit-2 {
   display: inline-block;
   position: relative;
 }
@@ -102,12 +102,12 @@ exports[`SearchInput should render with default styles 1`] = `
 }
 
 <div
-  className="circuit-1"
+  className="circuit-2 circuit-3"
   data-selector="search"
 >
   <input
     autoComplete="none"
-    className="circuit-0"
+    className="circuit-0 circuit-1"
     disabled={false}
   />
   <div>

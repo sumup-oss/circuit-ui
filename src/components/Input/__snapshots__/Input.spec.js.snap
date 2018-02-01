@@ -38,7 +38,7 @@ exports[`Input should have the correct default styles 1`] = `
 
 <input
   autoComplete="none"
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   disabled={false}
 />
 `;
@@ -106,7 +106,7 @@ exports[`Input should prioritize error over optional styles 1`] = `
 
 <input
   autoComplete="none"
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   disabled={true}
 />
 `;
@@ -151,7 +151,7 @@ exports[`Input should show with disabled styled when passed the disabled prop 1`
 
 <input
   autoComplete="none"
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   disabled={true}
 />
 `;
@@ -217,7 +217,7 @@ exports[`Input should show with invalid styles when passed the isInvalid prop 1`
 
 <input
   autoComplete="none"
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   disabled={false}
 />
 `;
@@ -263,7 +263,7 @@ exports[`Input should show with optional styles when passed the isOptional prop 
 
 <input
   autoComplete="none"
-  className="circuit-0"
+  className="circuit-0 circuit-1"
   disabled={false}
 />
 `;
