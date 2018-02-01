@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioInput should render with default styles 1`] = `
+exports[`RadioButton should render with default styles 1`] = `
 Array [
   .circuit-0 {
   border: 0px;
@@ -38,24 +38,26 @@ Array [
 
 .circuit-0::before {
   box-shadow: 0 0 0 1px rgba(102,113,123,0.02), 0 0 1px 0 rgba(102,113,123,0.06), 0 2px 2px 0 rgba(102,113,123,0.06);
+  height: 16px;
+  width: 16px;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
   content: '';
   display: block;
-  height: 16px;
   position: absolute;
   top: 50%;
   left: 0;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: 16px;
   -webkit-transition: border 0.05s ease-in;
   transition: border 0.05s ease-in;
 }
 
 .circuit-0::after {
+  height: 8px;
+  width: 8px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -63,15 +65,13 @@ Array [
   position: absolute;
   top: 50%;
   left: 4px;
-  height: 8px;
-  width: 8px;
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  visibility: hidden;
-  -webkit-transition: -webkit-transform 0.05s ease-in,visibility 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,visibility 0.05s ease-in;
-  transition: transform 0.05s ease-in,visibility 0.05s ease-in;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
 <label
@@ -84,7 +84,7 @@ Array [
 ]
 `;
 
-exports[`RadioInput should render with disabled styles 1`] = `
+exports[`RadioButton should render with disabled styles 1`] = `
 Array [
   .circuit-0 {
   border: 0px;
@@ -124,24 +124,26 @@ Array [
 
 .circuit-0::before {
   box-shadow: 0 0 0 1px rgba(102,113,123,0.02), 0 0 1px 0 rgba(102,113,123,0.06), 0 2px 2px 0 rgba(102,113,123,0.06);
+  height: 16px;
+  width: 16px;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
   content: '';
   display: block;
-  height: 16px;
   position: absolute;
   top: 50%;
   left: 0;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: 16px;
   -webkit-transition: border 0.05s ease-in;
   transition: border 0.05s ease-in;
 }
 
 .circuit-0::after {
+  height: 8px;
+  width: 8px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -149,15 +151,13 @@ Array [
   position: absolute;
   top: 50%;
   left: 4px;
-  height: 8px;
-  width: 8px;
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  visibility: hidden;
-  -webkit-transition: -webkit-transform 0.05s ease-in,visibility 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,visibility 0.05s ease-in;
-  transition: transform 0.05s ease-in,visibility 0.05s ease-in;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
 .circuit-0::before {
@@ -178,7 +178,7 @@ Array [
 ]
 `;
 
-exports[`RadioInput should render with invalid styles 1`] = `
+exports[`RadioButton should render with invalid styles 1`] = `
 Array [
   .circuit-0 {
   border: 0px;
@@ -216,24 +216,26 @@ Array [
 
 .circuit-0::before {
   box-shadow: 0 0 0 1px rgba(102,113,123,0.02), 0 0 1px 0 rgba(102,113,123,0.06), 0 2px 2px 0 rgba(102,113,123,0.06);
+  height: 16px;
+  width: 16px;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
   content: '';
   display: block;
-  height: 16px;
   position: absolute;
   top: 50%;
   left: 0;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  width: 16px;
   -webkit-transition: border 0.05s ease-in;
   transition: border 0.05s ease-in;
 }
 
 .circuit-0::after {
+  height: 8px;
+  width: 8px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -241,15 +243,13 @@ Array [
   position: absolute;
   top: 50%;
   left: 4px;
-  height: 8px;
-  width: 8px;
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  visibility: hidden;
-  -webkit-transition: -webkit-transform 0.05s ease-in,visibility 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,visibility 0.05s ease-in;
-  transition: transform 0.05s ease-in,visibility 0.05s ease-in;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
 .circuit-0:not(:focus)::before {

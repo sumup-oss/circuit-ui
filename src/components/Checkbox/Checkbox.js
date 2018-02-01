@@ -1,52 +1,56 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { hideVisually } from 'polished';
+import { hideVisually, size } from 'polished';
 import { shadowSingle, disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 
+const checkmarkSvg = fill =>
+  // NOTE: Optimizing SVGs in data URIs, https://codepen.io/tigt/post/optimizing-svgs-in-data-uris
+  `data:image/svg+xml,${encodeURIComponent(
+    `<svg width='10' height='10' xmlns='http://www.w3.org/2000/svg'><path d='M3.438 6.973l5.097-5.694a.858.858 0 0 1 1.175-.086c.349.288.389.793.089 1.128l-5.73 6.4a.856.856 0 0 1-1.264 0L.201 5.812a.778.778 0 0 1 .09-1.128.858.858 0 0 1 1.174.086l1.973 2.203z' fill='${fill}' fill-rule='nonzero'/></svg>`
+  )}`;
+
 const baseStyles = ({ theme }) => css`
-  label: radio-input__label;
+  label: checkbox__label;
   color: ${theme.colors.n700};
   padding-left: ${theme.spacings.giga};
   position: relative;
 
   &::before {
     ${shadowSingle({ theme })};
+    ${size(theme.spacings.mega)};
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
-    border-radius: 100%;
+    border-radius: 3px;
     content: '';
     display: block;
-    height: ${theme.spacings.mega};
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: ${theme.spacings.mega};
     transition: border 0.05s ease-in;
   }
 
   &::after {
-    background-color: ${theme.colors.b500};
-    border-radius: 100%;
-    content: '';
+    ${size(10)};
+
+    line-height: 0;
+    content: url("${checkmarkSvg(theme.colors.b500)}");
     display: block;
     position: absolute;
     top: 50%;
-    left: ${theme.spacings.bit};
-    height: ${theme.spacings.byte};
-    width: ${theme.spacings.byte};
+    left: 3px;
     transform: translateY(-50%) scale(0, 0);
-    visibility: hidden;
-    transition: transform 0.05s ease-in, visibility 0.05s ease-in;
+    opacity: 0;
+    transition: transform 0.05s ease-in, opacity 0.05s ease-in;
   }
 `;
 
 const checkedStyles = ({ theme, checked }) =>
   checked &&
   css`
-    label: radio-input--active;
+    label: checkbox--active;
 
     &::before {
       border-color: ${theme.colors.b500};
@@ -54,27 +58,27 @@ const checkedStyles = ({ theme, checked }) =>
 
     &::after {
       transform: translateY(-50%) scale(1, 1);
-      visibility: visible;
+      opacity: 1;
     }
   `;
 
 const invalidStyles = ({ theme, invalid }) =>
   invalid &&
   css`
-    label: radio-input--error;
+    label: checkbox--error;
     &:not(:focus)::before {
       border-color: ${theme.colors.r500};
     }
 
     &:not(:focus)::after {
-      background-color: ${theme.colors.r500};
+      content: url("${checkmarkSvg(theme.colors.r500)}");
     }
   `;
 
 const disabledStyles = ({ theme, disabled }) =>
   disabled &&
   css`
-    label: radio-input--disabled;
+    label: checkbox--disabled;
     ${disableVisually()};
 
     &::before {
@@ -82,12 +86,12 @@ const disabledStyles = ({ theme, disabled }) =>
     }
 
     &::after {
-      background-color: ${theme.colors.n500};
+      content: url("${checkmarkSvg(theme.colors.n500)}");
     }
   `;
 
 const inputStyles = ({ theme }) => css`
-  label: radio-input__input;
+  label: checkbox__input;
   ${hideVisually()};
 
   &:focus + label::before {
@@ -96,9 +100,9 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const Input = styled('input', { label: 'RadioInputInput' })(inputStyles);
+const Input = styled('input', { label: 'CheckboxInput' })(inputStyles);
 
-const Label = styled('label', { label: 'RadioInputLabel' })(
+const Label = styled('label', { label: 'CheckboxLabel' })(
   baseStyles,
   checkedStyles,
   disabledStyles,
@@ -106,18 +110,18 @@ const Label = styled('label', { label: 'RadioInputLabel' })(
 );
 
 /**
- * RadioInput component for forms.
+ * Checkbox component for forms.
  */
-const RadioInput = ({ onToggle, children, name, ...props }) => (
+const Checkbox = ({ onToggle, children, name, ...props }) => (
   <Fragment>
-    <Input id={name} type="radio" {...{ ...props, name }} />
+    <Input id={name} type="checkbox" {...{ ...props, name }} />
     <Label htmlFor={name} onClick={onToggle} {...{ ...props }}>
       {children}
     </Label>
   </Fragment>
 );
 
-RadioInput.propTypes = {
+Checkbox.propTypes = {
   /**
    * Controles/Toggles the checked state.
    */
@@ -155,7 +159,7 @@ RadioInput.propTypes = {
   selector: PropTypes.string.isRequired
 };
 
-RadioInput.defaultProps = {
+Checkbox.defaultProps = {
   checked: false,
   invalid: false,
   disabled: false,
@@ -166,4 +170,4 @@ RadioInput.defaultProps = {
 /**
  * @component
  */
-export default RadioInput;
+export default Checkbox;

@@ -5,12 +5,12 @@ import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
 import State from '../State';
-import CheckboxInput from './CheckboxInput';
+import Checkbox from './Checkbox';
 
-storiesOf('CheckboxInput', module)
-  .addDecorator(withTests('CheckboxInput'))
+storiesOf('Checkbox', module)
+  .addDecorator(withTests('Checkbox'))
   .add(
-    'Default CheckboxInput',
+    'Default Checkbox',
     withInfo()(() => (
       <State
         initial={false}
@@ -19,7 +19,7 @@ storiesOf('CheckboxInput', module)
         updater={isChecked => !isChecked}
       >
         {({ isChecked, onToggle }) => (
-          <CheckboxInput
+          <Checkbox
             value="checkbox"
             name="checkbox"
             onToggle={e => {
@@ -30,13 +30,13 @@ storiesOf('CheckboxInput', module)
             selector="ci"
           >
             {isChecked ? 'Checked' : 'Unchecked'}
-          </CheckboxInput>
+          </Checkbox>
         )}
       </State>
     ))
   )
   .add(
-    'Invalid CheckboxInput',
+    'Invalid Checkbox',
     withInfo()(() => (
       <State
         initial={false}
@@ -45,7 +45,7 @@ storiesOf('CheckboxInput', module)
         updater={isChecked => !isChecked}
       >
         {({ isChecked, onToggle }) => (
-          <CheckboxInput
+          <Checkbox
             value="checkbox"
             name="checkbox"
             onToggle={e => {
@@ -57,12 +57,12 @@ storiesOf('CheckboxInput', module)
             invalid
           >
             Error
-          </CheckboxInput>
+          </Checkbox>
         )}
       </State>
     ))
   )
   .add(
-    'Disabled CheckboxInput',
-    withInfo()(() => <CheckboxInput disabled>Disabled</CheckboxInput>)
+    'Disabled Checkbox',
+    withInfo()(() => <Checkbox disabled>Disabled</Checkbox>)
   );

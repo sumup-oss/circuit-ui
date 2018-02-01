@@ -5,12 +5,12 @@ import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
 import State from '../State';
-import RadioInput from './RadioInput';
+import RadioButton from './RadioButton';
 
-storiesOf('RadioInput', module)
-  .addDecorator(withTests('RadioInput'))
+storiesOf('RadioButton', module)
+  .addDecorator(withTests('RadioButton'))
   .add(
-    'Default RadioInput',
+    'Default RadioButton',
     withInfo()(() => (
       <State
         initial={false}
@@ -19,7 +19,7 @@ storiesOf('RadioInput', module)
         updater={isChecked => !isChecked}
       >
         {({ isChecked, onToggle }) => (
-          <RadioInput
+          <RadioButton
             value="radio"
             name="radio"
             onToggle={e => {
@@ -30,13 +30,13 @@ storiesOf('RadioInput', module)
             selector="ri"
           >
             {isChecked ? 'Checked' : 'Unchecked'}
-          </RadioInput>
+          </RadioButton>
         )}
       </State>
     ))
   )
   .add(
-    'Invalid RadioInput',
+    'Invalid RadioButton',
     withInfo()(() => (
       <State
         initial={false}
@@ -45,7 +45,7 @@ storiesOf('RadioInput', module)
         updater={isChecked => !isChecked}
       >
         {({ isChecked, onToggle }) => (
-          <RadioInput
+          <RadioButton
             value="radio"
             name="radio"
             onToggle={e => {
@@ -57,12 +57,12 @@ storiesOf('RadioInput', module)
             invalid
           >
             Error
-          </RadioInput>
+          </RadioButton>
         )}
       </State>
     ))
   )
   .add(
-    'Disabled RadioInput',
-    withInfo()(() => <RadioInput disabled>Disabled</RadioInput>)
+    'Disabled RadioButton',
+    withInfo()(() => <RadioButton disabled>Disabled</RadioButton>)
   );
