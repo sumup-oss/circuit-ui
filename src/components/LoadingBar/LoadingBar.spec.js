@@ -1,7 +1,18 @@
 import React from 'react';
 
-import { LoadingBar } from '.';
+import LoadingBar from '.';
 
 describe('LoadingBar', () => {
-  it.skip('should write a test');
+  /**
+   * Stylesheet tests.
+   */
+  it('should render with default styles', () => {
+    const actual = create(<LoadingBar />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with loading styles', () => {
+    const actual = create(<LoadingBar value={0.5} />);
+    expect(actual).toMatchSnapshot();
+  });
 });
