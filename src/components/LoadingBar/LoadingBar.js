@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+import { stripUnit } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import { textKilo } from '../../styles/style-helpers';
@@ -15,37 +16,43 @@ const calculateSize = ({ theme, size }) => {
   return sizeMap[size];
 };
 
-const baseStyles = ({ theme }) => css`
+const wrapperStyles = ({ theme }) => css`
   label: loading-bar;
   display: flex;
   align-items: center;
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const progressStyles = ({ theme, size, value, max }) => css`
-  label: loading-bar__progress;
-  background-color: ${theme.colors.n100};
-  border: 1px solid ${theme.colors.n300};
-  border-radius: ${theme.borderRadius.mega};
-  position: relative;
-  width: 100%;
-  height: ${calculateSize({ theme, size })};
+const progressStyles = ({ theme, size, value, max }) => {
+  const outerBorderWidth = '1px';
+  const outerBorderRadius = theme.borderRadius.mega;
+  const innerBorderRadius = `${stripUnit(outerBorderRadius) -
+    stripUnit(outerBorderWidth)}px`;
+  return css`
+    label: loading-bar__progress;
+    background-color: ${theme.colors.n100};
+    border: ${outerBorderWidth} solid ${theme.colors.n300};
+    border-radius: ${outerBorderRadius};
+    position: relative;
+    width: 100%;
+    height: ${calculateSize({ theme, size })};
 
-  &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: ${value / max * 100}%;
-    background-color: ${theme.colors.b500};
-    border: 1px solid ${theme.colors.b700};
-    box-shadow: inset 0 1px 0 0 ${theme.colors.b300};
-    border-radius: 3px 0 0 3px;
-    transition: width 0.05s ease-out;
-  }
-`;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: ${value / max * 100}%;
+      background-color: ${theme.colors.b500};
+      border: 1px solid ${theme.colors.b700};
+      box-shadow: inset 0 1px 0 0 ${theme.colors.b300};
+      border-radius: ${innerBorderRadius} 0 0 ${innerBorderRadius};
+      transition: width 0.05s ease-out;
+    }
+  `;
+};
 
 const labelStyles = ({ theme }) => css`
   label: loading-bar__label;
@@ -53,7 +60,7 @@ const labelStyles = ({ theme }) => css`
   margin-left: ${theme.spacings.byte};
 `;
 
-const LoadingBarWrapper = styled('div')(baseStyles);
+const LoadingBarWrapper = styled('div')(wrapperStyles);
 const LoadingBarProgress = styled('span')(progressStyles);
 const LoadingBarLabel = styled('span')(labelStyles);
 
