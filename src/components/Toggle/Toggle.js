@@ -67,7 +67,7 @@ const ToggleKnob = styled('div', { label: 'ToggleKnob' })(
  * A simple Toggle component.
  */
 const Toggle = ({ on, onToggle }) => (
-  <ToggleTrack {...{ on, onClick: onToggle }}>
+  <ToggleTrack onClick={onToggle} on={on} role="switch" aria-checked={on}>
     <ToggleKnob {...{ on }} />
   </ToggleTrack>
 );

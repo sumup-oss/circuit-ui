@@ -67,8 +67,10 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
   className="circuit-4"
 >
   <div
+    aria-checked={false}
     className="circuit-1"
     onClick={[Function]}
+    role="switch"
   >
     <div
       className="circuit-0"
@@ -153,8 +155,10 @@ exports[`Setting should have the correct default styles 1`] = `
   className="circuit-4"
 >
   <div
+    aria-checked={false}
     className="circuit-1"
     onClick={[Function]}
+    role="switch"
   >
     <div
       className="circuit-0"

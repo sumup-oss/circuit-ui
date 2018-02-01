@@ -28,8 +28,10 @@ exports[`Toggle should have the correct default styles 1`] = `
 }
 
 <div
+  aria-checked={false}
   className="circuit-1"
   onClick={[Function]}
+  role="switch"
 >
   <div
     className="circuit-0"
@@ -70,8 +72,10 @@ exports[`Toggle should have the correct on styles 1`] = `
 }
 
 <div
+  aria-checked={true}
   className="circuit-1"
   onClick={[Function]}
+  role="switch"
 >
   <div
     className="circuit-0"
