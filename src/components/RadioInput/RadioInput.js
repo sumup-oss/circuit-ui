@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually } from 'polished';
 import { shadowSingle, disableVisually } from '../../styles/style-helpers';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
   label: radio-input__label;
@@ -57,17 +58,16 @@ const checkedStyles = ({ theme, checked }) =>
     }
   `;
 
-const invalidStyles = ({ theme, isInvalid }) =>
-  isInvalid &&
+const invalidStyles = ({ theme, invalid }) =>
+  invalid &&
   css`
     label: radio-input--error;
     &:not(:focus)::before {
-      background-color: ${theme.colors.r100};
-      border-color: ${theme.colors.r300};
+      border-color: ${theme.colors.r500};
     }
 
     &:not(:focus)::after {
-      background-color: ${theme.colors.r100};
+      background-color: ${theme.colors.r500};
     }
   `;
 
@@ -108,11 +108,11 @@ const Label = styled('label', { label: 'RadioInputLabel' })(
 /**
  * RadioInput component for forms.
  */
-const RadioInput = ({ onClick, label, name, ...props }) => (
+const RadioInput = ({ onToggle, children, name, ...props }) => (
   <Fragment>
     <Input id={name} type="radio" {...{ ...props, name }} />
-    <Label htmlFor={name} {...{ ...props, onClick }}>
-      {label}
+    <Label htmlFor={name} onClick={onToggle} {...{ ...props }}>
+      {children}
     </Label>
   </Fragment>
 );
@@ -121,11 +121,11 @@ RadioInput.propTypes = {
   /**
    * Controles/Toggles the checked state.
    */
-  onClick: PropTypes.func.isRequired,
+  onToggle: PropTypes.func,
   /**
-   * Label string for this radio input.
+   * Child nodes to be rendered as the label.
    */
-  label: PropTypes.string.isRequired,
+  children: childrenPropType,
   /**
    * Value string for input.
    */
@@ -142,7 +142,7 @@ RadioInput.propTypes = {
   /**
    * Triggers error styles on the component.
    */
-  isInvalid: PropTypes.bool,
+  invalid: PropTypes.bool,
   /**
    * Triggers disabled styles on the component. This is also forwarded as
    * attribute to the <input> element.
@@ -157,8 +157,10 @@ RadioInput.propTypes = {
 
 RadioInput.defaultProps = {
   checked: false,
-  isInvalid: false,
-  disabled: false
+  invalid: false,
+  disabled: false,
+  children: null,
+  onToggle: () => {}
 };
 
 /**
