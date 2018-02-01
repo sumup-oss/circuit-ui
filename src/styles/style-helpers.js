@@ -5,25 +5,25 @@ import { transparentize } from 'polished';
  */
 
 export const shadowGround = ({ theme }) => `
-  box-shadow: 0 0 0 2px ${transparentize(theme.colors.shadow, 0.97)};
+  box-shadow: 0 0 0 2px ${transparentize(0.97, theme.colors.shadow)};
 `;
 
 export const shadowSingle = ({ theme }) => `
-  box-shadow: 0 0 0 1px ${transparentize(theme.colors.shadow, 0.98)},
-    0 0 1px 0 ${transparentize(theme.colors.shadow, 0.94)},
-    0 2px 2px 0 ${transparentize(theme.colors.shadow, 0.94)};
+  box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
+    0 0 1px 0 ${transparentize(0.94, theme.colors.shadow)},
+    0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
 export const shadowDouble = ({ theme }) => `
-  box-shadow: 0 0 0 1px ${transparentize(theme.colors.shadow, 0.98)},
-    0 2px 2px 0 ${transparentize(theme.colors.shadow, 0.94)},
-    0 4px 4px 0 ${transparentize(theme.colors.shadow, 0.94)};
+  box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
+    0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)},
+    0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
 export const shadowTripe = ({ theme }) => `
-  box-shadow: 0 0 0 1px ${transparentize(theme.colors.shadow, 0.98)},
-    0 4px 4px 0 ${transparentize(theme.colors.shadow, 0.94)},
-    0 8px 8px 0 ${transparentize(theme.colors.shadow, 0.94)};
+  box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
+    0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)},
+    0 8px 8px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
 /**

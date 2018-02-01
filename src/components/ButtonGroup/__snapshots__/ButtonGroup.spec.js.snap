@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup should have the correct styles 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.circuit-0 li:not(:last-of-type) {
+  margin-right: 16px;
+}
+
+<ul
+  className="circuit-0"
+/>
+`;
