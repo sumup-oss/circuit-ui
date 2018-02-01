@@ -48,8 +48,8 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   vertical-align: 1px;
 }
 
@@ -81,7 +81,7 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
   >
     <label
       className="circuit-4 circuit-5"
-      size="mega"
+      size="kilo"
     />
   </div>
 </div>
@@ -146,8 +146,8 @@ exports[`Setting should have the correct default styles 1`] = `
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   vertical-align: 1px;
 }
 
@@ -169,7 +169,7 @@ exports[`Setting should have the correct default styles 1`] = `
   >
     <label
       className="circuit-4 circuit-5"
-      size="mega"
+      size="kilo"
     />
   </div>
 </div>

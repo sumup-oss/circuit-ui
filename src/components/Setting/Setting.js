@@ -23,6 +23,8 @@ const labelStyles = css`
 `;
 
 const SettingLabel = styled(Text, { label: 'SettingLabel' })(labelStyles);
+SettingLabel.propTypes = Text.propTypes;
+SettingLabel.defaultProps = Text.defaultProps;
 
 const explanationStyles = ({ theme }) => css`
   label: setting__explanation;
@@ -32,6 +34,8 @@ const explanationStyles = ({ theme }) => css`
 const SettingExplanation = styled(Text, { label: 'SettingExplanation' })(
   explanationStyles
 );
+SettingExplanation.propTypes = Text.propTypes;
+SettingExplanation.defaultProps = Text.defaultProps;
 
 const settingWrapperStyles = css`
   label: setting;
@@ -58,13 +62,11 @@ const Setting = ({ label, explanation, withMargin, ...props }) => (
   <SettingWrapper {...{ withMargin }}>
     <Toggle {...props} />
     <SettingTextWrapper>
-      <SettingLabel element="label" size="mega">
+      <SettingLabel element="label" size="kilo">
         {label}
       </SettingLabel>
       {explanation && (
-        <SettingExplanation element="p" size="kilo">
-          {explanation}
-        </SettingExplanation>
+        <SettingExplanation size="kilo">{explanation}</SettingExplanation>
       )}
     </SettingTextWrapper>
   </SettingWrapper>
