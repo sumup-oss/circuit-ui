@@ -1,11 +1,13 @@
 import { injectGlobal } from 'emotion';
 import { textMega } from './style-helpers';
 
-// TODO: make this define actual font faces and optimize for size.
-//       I think there is a better way to do this nowadays without
-//       @fontface.
+// TODO: Make this define actual font faces and optimize for size.
 export const fontFaces = `
   @import url("https://use.typekit.net/dxb5kvg.css");
+`;
+
+export const fontStack = `
+  aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"
 `;
 
 export const fontSettings = `
@@ -75,7 +77,6 @@ export default ({ theme }) => injectGlobal`
 
   /* Our globals */
   ${fontFaces}
-  ${fontSettings}
 
   /**
    * Best practice from http://callmenick.com/post/the-new-box-sizing-reset
@@ -89,7 +90,6 @@ export default ({ theme }) => injectGlobal`
 
   html {
     box-sizing: border-box;
-    font-family: aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI";
 
     [type='button'] {
       appearance: none;
@@ -98,9 +98,16 @@ export default ({ theme }) => injectGlobal`
 
   body {
     color: ${theme.colors.black};
-    font-weight: ${theme.fontWeight.regular};
-    font-family: aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI";
     ${textMega({ theme })}
   }
 
+  /**
+   * NOTE: Form elements don't inherit font settings.
+   * https://stackoverflow.com/questions/26140050/why-is-font-family-not-inherited-in-button-tags-automatically
+   */
+  html, body, input, select, textarea, button {
+    font-weight: ${theme.fontWeight.regular};
+    font-family: ${fontStack};
+    ${fontSettings}
+  }
 `;
