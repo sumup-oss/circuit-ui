@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge should have the correct circular styles 1`] = `
+.circuit-0 {
+  background-color: #FF7559;
+  border-radius: 100px;
+  color: #FFFFFF;
+  cursor: default;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+}
+
+.circuit-0:hover {
+  background-color: #D55A41;
+}
+
+.circuit-0:active {
+  background-color: #A73D28;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+/>
+`;
+
+exports[`Badge should have the correct styles 1`] = `
+.circuit-0 {
+  background-color: #FF7559;
+  border-radius: 100px;
+  color: #FFFFFF;
+  cursor: default;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-0:hover {
+  background-color: #D55A41;
+}
+
+.circuit-0:active {
+  background-color: #A73D28;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+/>
+`;
