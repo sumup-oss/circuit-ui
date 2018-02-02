@@ -46,8 +46,8 @@ export const headingPeta = createTypeHelper('heading', 'peta');
 export const headingExa = createTypeHelper('heading', 'exa');
 export const headingZetta = createTypeHelper('heading', 'zetta');
 
-export const subHeadingKilo = createTypeHelper('subHeading', 'exa');
-export const subHeadingZetta = createTypeHelper('subHeading', 'zetta');
+export const subHeadingKilo = createTypeHelper('subHeadings', 'kilo');
+export const subHeadingMega = createTypeHelper('subHeadings', 'mega');
 
 export const textKilo = createTypeHelper('text', 'kilo');
 export const textMega = createTypeHelper('text', 'mega');
