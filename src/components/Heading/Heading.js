@@ -16,13 +16,18 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.headings[size].lineHeight};
 `;
 
+const marginStyles = ({ theme, withMargin }) =>
+  withMargin &&
+  css`
+    label: heading--with-margin;
+    margin-bottom: ${theme.spacings.giga};
+  `;
+
 /**
  * A heading flexible heading component capable of rendering using
  * different HTML tags.
  */
-const Heading = styled(HtmlElement)`
-  ${baseStyles} ${sizeStyles};
-`;
+const Heading = styled(HtmlElement)(baseStyles, sizeStyles, marginStyles);
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;
@@ -51,6 +56,10 @@ Heading.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * Adds bottom margin to the heading.
+   */
+  withMargin: PropTypes.bool,
+  /**
    * The HTML heading element to render.
    */
   element: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
@@ -59,7 +68,8 @@ Heading.propTypes = {
 Heading.defaultProps = {
   element: 'h2',
   size: PETA,
-  className: ''
+  className: '',
+  withMargin: false
 };
 
 export default Heading;
