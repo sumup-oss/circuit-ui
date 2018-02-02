@@ -16,12 +16,19 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.text[size].lineHeight};
 `;
 
+const marginStyles = ({ theme, withMargin }) =>
+  withMargin &&
+  css`
+    label: body-text--with-margin;
+    margin-bottom: ${theme.spacings.mega};
+  `;
+
 /**
  * The Text component is used for long-form text. Typically with
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
-const Text = styled(HtmlElement)(baseStyles, sizeStyles);
+const Text = styled(HtmlElement)(baseStyles, sizeStyles, marginStyles);
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;
@@ -46,6 +53,10 @@ Text.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * Adds bottom margin to the text.
+   */
+  withMargin: PropTypes.bool,
+  /**
    * The HTML element to render.
    */
   element: PropTypes.string
@@ -54,7 +65,8 @@ Text.propTypes = {
 Text.defaultProps = {
   element: 'p',
   size: MEGA,
-  className: ''
+  className: '',
+  withMargin: false
 };
 
 export default Text;
