@@ -4,6 +4,7 @@ import styled, { css } from 'react-emotion';
 import { typeMarginResets } from '../../styles/global-styles';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
+import { KILO, MEGA } from '../../util/sizes';
 
 const baseStyles = ({ theme }) => css`
   label: sub-heading;
@@ -18,6 +19,10 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.subHeadings[size].lineHeight};
 `;
 
+/**
+ * A flexible component for subheadings. Capable of rendering using
+ * different any of the heading HTML tags.
+ */
 const SubHeading = styled(HtmlElement)(baseStyles, sizeStyles);
 
 SubHeading.propTypes = {
@@ -33,7 +38,7 @@ SubHeading.propTypes = {
   /**
    * A Circuit UI sub-heading size.
    */
-  size: PropTypes.oneOf(['kilo', 'mega']),
+  size: PropTypes.oneOf([KILO, MEGA]),
   /**
    * Optional additional className string to overwrite styles.
    */
@@ -46,7 +51,7 @@ SubHeading.propTypes = {
 
 SubHeading.defaultProps = {
   element: 'h3',
-  size: 'kilo',
+  size: KILO,
   className: ''
 };
 

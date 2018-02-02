@@ -4,6 +4,7 @@ import styled, { css } from 'react-emotion';
 import { typeMarginResets } from '../../styles/global-styles';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
+import { KILO, MEGA, GIGA } from '../../util/sizes';
 
 const baseStyles = ({ theme }) => css`
   label: body-text;
@@ -17,12 +18,16 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.text[size].lineHeight};
 `;
 
-const Text = styled(HtmlElement)(baseStyles, sizeStyles);
-
 /**
  * The Text component is used for long-form text. Typically with
- * <p>, <div>, <article>, or <section> elements.
+ * <p>, <div>, <article>, or <section> elements. Capable of rendering
+ * using different HTML tags.
  */
+const Text = styled(HtmlElement)(baseStyles, sizeStyles);
+
+Text.KILO = KILO;
+Text.MEGA = MEGA;
+Text.GIGA = GIGA;
 
 Text.propTypes = {
   /**
@@ -37,7 +42,7 @@ Text.propTypes = {
   /**
    * A Circuit UI body text size.
    */
-  size: PropTypes.oneOf(['kilo', 'mega', 'giga']),
+  size: PropTypes.oneOf([KILO, MEGA, GIGA]),
   /**
    * Optional additional className string to overwrite styles.
    */
@@ -50,7 +55,7 @@ Text.propTypes = {
 
 Text.defaultProps = {
   element: 'p',
-  size: 'mega',
+  size: MEGA,
   className: ''
 };
 
