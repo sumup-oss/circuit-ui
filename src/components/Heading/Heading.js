@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { typeMarginResets } from '../../styles/global-styles';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } from '../../util/sizes';
@@ -9,7 +8,6 @@ import { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } from '../../util/sizes';
 const baseStyles = ({ theme }) => css`
   label: heading;
   font-weight: ${theme.fontWeight.bold};
-  ${typeMarginResets};
 `;
 
 const sizeStyles = ({ theme, size }) => css`

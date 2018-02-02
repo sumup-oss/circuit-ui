@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { typeMarginResets } from '../../styles/global-styles';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { KILO, MEGA } from '../../util/sizes';
@@ -10,7 +9,6 @@ const baseStyles = ({ theme }) => css`
   label: sub-heading;
   text-transform: uppercase;
   font-weight: ${theme.fontWeight.bold};
-  ${typeMarginResets};
 `;
 
 const sizeStyles = ({ theme, size }) => css`
