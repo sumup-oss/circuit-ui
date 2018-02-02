@@ -3,10 +3,6 @@
 exports[`Heading should render as h1 element, when passed "h1" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 28px;
   line-height: 32px;
 }
@@ -22,10 +18,6 @@ exports[`Heading should render as h1 element, when passed "h1" for the element p
 exports[`Heading should render as h2 element, when passed "h2" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 28px;
   line-height: 32px;
 }
@@ -41,10 +33,6 @@ exports[`Heading should render as h2 element, when passed "h2" for the element p
 exports[`Heading should render as h3 element, when passed "h3" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 28px;
   line-height: 32px;
 }
@@ -60,10 +48,6 @@ exports[`Heading should render as h3 element, when passed "h3" for the element p
 exports[`Heading should render as h4 element, when passed "h4" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 28px;
   line-height: 32px;
 }
@@ -79,10 +63,6 @@ exports[`Heading should render as h4 element, when passed "h4" for the element p
 exports[`Heading should render as h5 element, when passed "h5" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 28px;
   line-height: 32px;
 }
@@ -98,10 +78,6 @@ exports[`Heading should render as h5 element, when passed "h5" for the element p
 exports[`Heading should render as h6 element, when passed "h6" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 28px;
   line-height: 32px;
 }
@@ -117,10 +93,6 @@ exports[`Heading should render as h6 element, when passed "h6" for the element p
 exports[`Heading should render with size exa, when passed "exa" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 36px;
   line-height: 44px;
 }
@@ -136,10 +108,6 @@ exports[`Heading should render with size exa, when passed "exa" for the size pro
 exports[`Heading should render with size giga, when passed "giga" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 22px;
   line-height: 24px;
 }
@@ -155,10 +123,6 @@ exports[`Heading should render with size giga, when passed "giga" for the size p
 exports[`Heading should render with size kilo, when passed "kilo" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 17px;
   line-height: 24px;
 }
@@ -174,10 +138,6 @@ exports[`Heading should render with size kilo, when passed "kilo" for the size p
 exports[`Heading should render with size mega, when passed "mega" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 19px;
   line-height: 24px;
 }
@@ -193,10 +153,6 @@ exports[`Heading should render with size mega, when passed "mega" for the size p
 exports[`Heading should render with size peta, when passed "peta" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 28px;
   line-height: 32px;
 }
@@ -212,10 +168,6 @@ exports[`Heading should render with size peta, when passed "peta" for the size p
 exports[`Heading should render with size tera, when passed "tera" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 24px;
   line-height: 32px;
 }
@@ -231,10 +183,6 @@ exports[`Heading should render with size tera, when passed "tera" for the size p
 exports[`Heading should render with size zetta, when passed "zetta" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 42px;
   line-height: 48px;
 }

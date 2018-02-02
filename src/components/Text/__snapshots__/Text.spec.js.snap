@@ -3,10 +3,6 @@
 exports[`Text should render as article element, when passed "article" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 15px;
   line-height: 24px;
 }
@@ -22,10 +18,6 @@ exports[`Text should render as article element, when passed "article" for the el
 exports[`Text should render as div element, when passed "div" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 15px;
   line-height: 24px;
 }
@@ -41,10 +33,6 @@ exports[`Text should render as div element, when passed "div" for the element pr
 exports[`Text should render as p element, when passed "p" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 15px;
   line-height: 24px;
 }
@@ -60,10 +48,6 @@ exports[`Text should render as p element, when passed "p" for the element prop 1
 exports[`Text should render with size giga, when passed "giga" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 18px;
   line-height: 28px;
 }
@@ -79,10 +63,6 @@ exports[`Text should render with size giga, when passed "giga" for the size prop
 exports[`Text should render with size kilo, when passed "kilo" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 13px;
   line-height: 20px;
 }
@@ -98,10 +78,6 @@ exports[`Text should render with size kilo, when passed "kilo" for the size prop
 exports[`Text should render with size mega, when passed "mega" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 15px;
   line-height: 24px;
 }

@@ -4,10 +4,6 @@ exports[`SubHeading should render as H2 element, when passed "h2" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 12px;
   line-height: 20px;
 }
@@ -24,10 +20,6 @@ exports[`SubHeading should render as H3 element, when passed "h3" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 12px;
   line-height: 20px;
 }
@@ -44,10 +36,6 @@ exports[`SubHeading should render as H4 element, when passed "h4" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 12px;
   line-height: 20px;
 }
@@ -64,10 +52,6 @@ exports[`SubHeading should render as H5 element, when passed "h5" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 12px;
   line-height: 20px;
 }
@@ -84,10 +68,6 @@ exports[`SubHeading should render as H6 element, when passed "h6" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 12px;
   line-height: 20px;
 }
@@ -104,10 +84,6 @@ exports[`SubHeading should render with size kilo, when passed "kilo" for the siz
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 12px;
   line-height: 20px;
 }
@@ -124,10 +100,6 @@ exports[`SubHeading should render with size mega, when passed "mega" for the siz
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   font-size: 14px;
   line-height: 18px;
 }
