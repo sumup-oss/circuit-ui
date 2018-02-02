@@ -238,7 +238,6 @@ Button.propTypes = {
 Button.defaultProps = {
   theme: standard,
   disabled: false,
-  variant: 'primary',
   flat: false,
   size: Button.MEGA,
   target: undefined,
