@@ -176,7 +176,7 @@ const sizeStyles = props => {
 
 const TextOrButtonElement = props => (
   <HtmlElement
-    blacklist={['variant', 'flat']}
+    blacklist={{ size: true, flat: true }}
     element={({ href }) => (href ? 'a' : 'button')}
     {...props}
   />

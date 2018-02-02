@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
@@ -23,12 +24,16 @@ const marginStyles = ({ theme, withMargin }) =>
     margin-bottom: ${theme.spacings.mega};
   `;
 
+const TextElement = styled(HtmlElement)(baseStyles, sizeStyles, marginStyles);
+
 /**
  * The Text component is used for long-form text. Typically with
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
-const Text = styled(HtmlElement)(baseStyles, sizeStyles, marginStyles);
+const Text = props => (
+  <TextElement {...props} blacklist={{ withMargin: true }} />
+);
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;
@@ -66,7 +71,8 @@ Text.defaultProps = {
   element: 'p',
   size: MEGA,
   className: '',
-  withMargin: false
+  withMargin: false,
+  children: null
 };
 
 export default Text;

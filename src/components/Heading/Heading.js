@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
@@ -23,11 +24,19 @@ const marginStyles = ({ theme, withMargin }) =>
     margin-bottom: ${theme.spacings.giga};
   `;
 
+const HeadingElement = styled(HtmlElement)(
+  baseStyles,
+  sizeStyles,
+  marginStyles
+);
+
 /**
  * A heading flexible heading component capable of rendering using
  * different HTML tags.
  */
-const Heading = styled(HtmlElement)(baseStyles, sizeStyles, marginStyles);
+const Heading = props => (
+  <HeadingElement {...props} blacklist={{ withMargin: true }} />
+);
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;
@@ -69,7 +78,8 @@ Heading.defaultProps = {
   element: 'h2',
   size: PETA,
   className: '',
-  withMargin: false
+  withMargin: false,
+  children: null
 };
 
 export default Heading;

@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
@@ -24,11 +25,20 @@ const marginStyles = ({ theme, withMargin }) =>
     margin-bottom: ${theme.spacings.kilo};
   `;
 
+const SubHeadingElement = styled(HtmlElement)(
+  baseStyles,
+  sizeStyles,
+  marginStyles
+);
+
 /**
  * A flexible component for subheadings. Capable of rendering using
  * different any of the heading HTML tags.
  */
-const SubHeading = styled(HtmlElement)(baseStyles, sizeStyles, marginStyles);
+
+const SubHeading = props => (
+  <SubHeadingElement {...props} blacklist={{ withMargin: true }} />
+);
 
 SubHeading.propTypes = {
   /**
@@ -62,7 +72,8 @@ SubHeading.defaultProps = {
   element: 'h3',
   size: KILO,
   className: '',
-  withMargin: false
+  withMargin: false,
+  children: null
 };
 
 export default SubHeading;
