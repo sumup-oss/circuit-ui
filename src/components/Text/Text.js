@@ -6,12 +6,12 @@ import { childrenPropType } from '../../util/shared-prop-types';
 import { KILO, MEGA, GIGA } from '../../util/sizes';
 
 const baseStyles = ({ theme }) => css`
-  label: body-text;
+  label: text;
   font-weight: ${theme.fontWeight.regular};
 `;
 
 const sizeStyles = ({ theme, size }) => css`
-  label: body-text--${size};
+  label: text--${size};
   font-size: ${theme.typography.text[size].fontSize};
   line-height: ${theme.typography.text[size].lineHeight};
 `;
@@ -19,7 +19,7 @@ const sizeStyles = ({ theme, size }) => css`
 const marginStyles = ({ theme, withMargin }) =>
   withMargin &&
   css`
-    label: body-text--with-margin;
+    label: text--with-margin;
     margin-bottom: ${theme.spacings.mega};
   `;
 
