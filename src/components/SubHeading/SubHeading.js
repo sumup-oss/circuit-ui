@@ -17,11 +17,18 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.subHeadings[size].lineHeight};
 `;
 
+const marginStyles = ({ theme, withMargin }) =>
+  withMargin &&
+  css`
+    label: sub-heading--with-margin;
+    margin-bottom: ${theme.spacings.kilo};
+  `;
+
 /**
  * A flexible component for subheadings. Capable of rendering using
  * different any of the heading HTML tags.
  */
-const SubHeading = styled(HtmlElement)(baseStyles, sizeStyles);
+const SubHeading = styled(HtmlElement)(baseStyles, sizeStyles, marginStyles);
 
 SubHeading.propTypes = {
   /**
@@ -42,6 +49,10 @@ SubHeading.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * Adds bottom margin to the sub-heading.
+   */
+  withMargin: PropTypes.bool,
+  /**
    * The HTML heading element to render.
    */
   element: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6'])
@@ -50,7 +61,8 @@ SubHeading.propTypes = {
 SubHeading.defaultProps = {
   element: 'h3',
   size: KILO,
-  className: ''
+  className: '',
+  withMargin: false
 };
 
 export default SubHeading;
