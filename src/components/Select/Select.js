@@ -57,10 +57,7 @@ const baseIconStyles = ({ theme }) => css`
   pointer-events: none;
 `;
 
-const SelectElement = styled('select')(
-  baseSelectStyles,
-  disabledSelectStyles
-);
+const SelectElement = styled('select')(baseSelectStyles, disabledSelectStyles);
 const Icon = styled(DownTriangleIcon)(baseIconStyles);
 
 /**

@@ -12,9 +12,7 @@ const containerStyles = css`
   position: relative;
 `;
 
-const IconInputContainer = styled('div')(
-  containerStyles
-);
+const IconInputContainer = styled('div')(containerStyles);
 
 const iconBaseStyles = ({ theme }) => css`
   label: icon-input__icon;
