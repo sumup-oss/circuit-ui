@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import { flow } from 'lodash/fp';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+// import React, { Fragment } from 'react';
+// import { flow } from 'lodash/fp';
+// import { storiesOf } from '@storybook/react';
+// import { withInfo } from '@storybook/addon-info';
 
-import withTests from '../../util/withTests';
-import { Price } from './Price';
+// import withTests from '../../util/withTests';
+// import { Price } from './Price';
 
 // storiesOf('Prices', module)
 //   .addDecorator(withTests('Price'))
