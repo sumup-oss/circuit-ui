@@ -18,13 +18,6 @@ export const fontSettings = `
   text-rendering: optimizeLegibility;
 `;
 
-export const typeMarginResets = `
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
-`;
-
 export default ({ theme }) => injectGlobal`
   /* http://meyerweb.com/eric/tools/css/reset/
    * v2.0 | 20110126

@@ -1,7 +1,7 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { typeMarginResets } from '../../styles/global-styles';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } from '../../util/sizes';
@@ -9,7 +9,6 @@ import { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } from '../../util/sizes';
 const baseStyles = ({ theme }) => css`
   label: heading;
   font-weight: ${theme.fontWeight.bold};
-  ${typeMarginResets};
 `;
 
 const sizeStyles = ({ theme, size }) => css`
@@ -18,13 +17,26 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.headings[size].lineHeight};
 `;
 
+const marginStyles = ({ theme, margin }) =>
+  margin &&
+  css`
+    label: heading--no-margin;
+    margin-bottom: ${theme.spacings.giga};
+  `;
+
+const HeadingElement = styled(HtmlElement)(
+  baseStyles,
+  sizeStyles,
+  marginStyles
+);
+
 /**
  * A heading flexible heading component capable of rendering using
  * different HTML tags.
  */
-const Heading = styled(HtmlElement)`
-  ${baseStyles} ${sizeStyles};
-`;
+const Heading = props => (
+  <HeadingElement {...props} blacklist={{ margin: true }} />
+);
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;
@@ -53,6 +65,10 @@ Heading.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * Adds bottom margin to the heading.
+   */
+  margin: PropTypes.bool,
+  /**
    * The HTML heading element to render.
    */
   element: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
@@ -61,7 +77,9 @@ Heading.propTypes = {
 Heading.defaultProps = {
   element: 'h2',
   size: PETA,
-  className: ''
+  className: '',
+  margin: true,
+  children: null
 };
 
 export default Heading;

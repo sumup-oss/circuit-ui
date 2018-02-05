@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 const isFunction = val => typeof val === 'function';
 
-const filterProps = (blacklist, props) => {
-  const newProps = { ...props };
-  blacklist.forEach(prop => {
-    delete newProps[prop];
-  });
-  return newProps;
-};
+const filterProps = (blacklist, props) =>
+  Object.keys(props).reduce((filteredProps, prop) => {
+    if (blacklist[prop]) {
+      return filteredProps;
+    }
+    filteredProps[prop] = props[prop];
+    return filteredProps;
+  }, {});
 
 const HtmlElement = ({ element, children, blacklist, ...props }) => {
   const Element = isFunction(element) ? element(props) : element;
@@ -25,10 +26,10 @@ HtmlElement.propTypes = {
    */
   element: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
   /**
-   * A list of props that should not be forwarded as attributes to the HTML element.
+   * A hash of props that should not be forwarded as attributes to the HTML element.
    * Prevents React from complaining about invalid attribute values.
    */
-  blacklist: PropTypes.arrayOf(PropTypes.string),
+  blacklist: PropTypes.objectOf(PropTypes.bool),
   /**
    * Child nodes to be rendered.
    */
@@ -39,7 +40,7 @@ HtmlElement.propTypes = {
 };
 
 HtmlElement.defaultProps = {
-  blacklist: [],
+  blacklist: {},
   children: null
 };
 

@@ -55,7 +55,6 @@ exports[`Button should have button styles 1`] = `
   disabled={false}
   href={undefined}
   onClick={undefined}
-  size="mega"
   target={undefined}
 >
   Button
@@ -117,7 +116,6 @@ exports[`Button should have disabled button styles 1`] = `
   disabled={true}
   href={undefined}
   onClick={undefined}
-  size="mega"
   target={undefined}
 >
   Disabled button
@@ -197,7 +195,6 @@ exports[`Button should have flat button styles 1`] = `
   disabled={false}
   href={undefined}
   onClick={undefined}
-  size="mega"
   target={undefined}
 >
   Flat button
@@ -277,7 +274,6 @@ exports[`Button should have flat disabled button styles 1`] = `
   disabled={true}
   href={undefined}
   onClick={undefined}
-  size="mega"
   target={undefined}
 >
   Flat button
@@ -339,7 +335,6 @@ exports[`Button should have giga button styles 1`] = `
   disabled={false}
   href={undefined}
   onClick={undefined}
-  size="giga"
   target={undefined}
 >
   Button
@@ -401,7 +396,6 @@ exports[`Button should have kilo button styles 1`] = `
   disabled={false}
   href={undefined}
   onClick={undefined}
-  size="kilo"
   target={undefined}
 >
   Button
@@ -463,7 +457,6 @@ exports[`Button should have mega button styles 1`] = `
   disabled={false}
   href={undefined}
   onClick={undefined}
-  size="mega"
   target={undefined}
 >
   Button
@@ -572,7 +565,6 @@ exports[`Button should have secondary button styles 1`] = `
   href={undefined}
   onClick={undefined}
   secondary={true}
-  size="mega"
   target={undefined}
 >
   Secondary button
@@ -681,7 +673,6 @@ exports[`Button should have secondary disabled button styles 1`] = `
   href={undefined}
   onClick={undefined}
   secondary={true}
-  size="mega"
   target={undefined}
 >
   Secondary disabled button
@@ -790,7 +781,6 @@ exports[`Button should have secondary flat button styles 1`] = `
   href={undefined}
   onClick={undefined}
   secondary={true}
-  size="mega"
   target={undefined}
 >
   Secondary flat button
