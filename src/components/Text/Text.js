@@ -17,8 +17,8 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.text[size].lineHeight};
 `;
 
-const marginStyles = ({ theme, withMargin }) =>
-  withMargin &&
+const marginStyles = ({ theme, margin }) =>
+  margin &&
   css`
     label: text--with-margin;
     margin-bottom: ${theme.spacings.mega};
@@ -31,9 +31,7 @@ const TextElement = styled(HtmlElement)(baseStyles, sizeStyles, marginStyles);
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
-const Text = props => (
-  <TextElement {...props} blacklist={{ withMargin: true }} />
-);
+const Text = props => <TextElement {...props} blacklist={{ margin: true }} />;
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;
@@ -60,7 +58,7 @@ Text.propTypes = {
   /**
    * Adds bottom margin to the text.
    */
-  withMargin: PropTypes.bool,
+  margin: PropTypes.bool,
   /**
    * The HTML element to render.
    */
@@ -71,7 +69,7 @@ Text.defaultProps = {
   element: 'p',
   size: MEGA,
   className: '',
-  withMargin: false,
+  margin: true,
   children: null
 };
 
