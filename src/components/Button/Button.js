@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
-import { KILO, MEGA, GIGA } from '../../util/sizes';
-import { standard } from '../../themes';
+import * as SIZES from '../../util/sizes';
 import { textMega } from '../../styles/style-helpers';
+
+/**
+ * Doing named imports of constants somehow makes react-docgen cry.
+ * https://github.com/reactjs/react-docgen/issues/150
+ */
+const { KILO, MEGA, GIGA } = SIZES;
 
 const calculatePadding = ({ theme, size }) => (diff = '0px') => {
   const sizeMap = {
@@ -186,12 +191,9 @@ const TextOrButtonElement = props => (
  * The Button component. Can also be styled as an anchor by passing an href
  * prop.
  */
-const Button = styled(TextOrButtonElement)(
-  baseStyles,
-  sizeStyles,
-  flatStyles,
-  secondaryStyles
-);
+const Button = styled(TextOrButtonElement)`
+  ${baseStyles} ${sizeStyles} ${flatStyles} ${secondaryStyles};
+`;
 
 Button.KILO = KILO;
 Button.MEGA = MEGA;
@@ -231,7 +233,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  theme: standard,
   disabled: false,
   flat: false,
   size: Button.MEGA,
@@ -240,4 +241,7 @@ Button.defaultProps = {
   onClick: undefined
 };
 
+/**
+ * @component
+ */
 export default Button;
