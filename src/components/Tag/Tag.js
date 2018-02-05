@@ -6,28 +6,43 @@ import { themePropType } from '../../util/shared-prop-types';
 import { textMega } from '../../styles/style-helpers';
 import DefaultCloseButton from '../CloseButton';
 
-const closeButtonStyles = ({ selected, theme }) => css`
+const closeButtonStyles = ({ theme }) => css`
   label: tag__close-button;
   margin-left: ${theme.spacings.kilo};
   vertical-align: -1px;
-
-  > svg {
-    fill: ${selected && theme.colors.white};
-  }
 `;
 
-const CloseButton = styled(DefaultCloseButton)(closeButtonStyles);
+const closeButtonSelectedStyles = ({ selected, theme }) =>
+  selected &&
+  css`
+    label: tag__close-button--selected;
 
-const tagStyles = ({ selected, theme }) => css`
+    > svg {
+      fill: ${theme.colors.white};
+    }
+  `;
+
+const CloseButton = styled(DefaultCloseButton)(
+  closeButtonStyles,
+  closeButtonSelectedStyles
+);
+
+const tagStyles = ({ theme }) => css`
   label: tag;
   padding: ${theme.spacings.bit} ${theme.spacings.kilo};
   border-radius: ${theme.borderRadius.mega};
   border: 1px solid ${theme.colors.n300};
-  background-color: ${selected ? theme.colors.b500 : theme.colors.n100};
-  color: ${selected && theme.colors.white};
   ${textMega({ theme })};
   cursor: default;
 `;
+
+const tagSelectedStyles = ({ selected, theme }) =>
+  selected &&
+  css`
+  label: tag--selected;
+  background-color: ${theme.colors.b500};
+  color: ${theme.colors.white};
+}`;
 
 const tagClickableStyles = ({ onClick, theme }) =>
   onClick &&
@@ -50,8 +65,22 @@ const iconStyles = ({ selected, theme }) => css`
   }
 `;
 
-const IconContainer = styled('span')(iconStyles);
-const TagElement = styled('span')(tagStyles, tagClickableStyles);
+const iconSelectedStyles = ({ selected, theme }) =>
+  selected &&
+  css`
+    label: tag__icon--selected;
+
+    > svg {
+      fill: ${theme.colors.white};
+    }
+  `;
+
+const IconContainer = styled('span')(iconStyles, iconSelectedStyles);
+const TagElement = styled('span')(
+  tagStyles,
+  tagSelectedStyles,
+  tagClickableStyles
+);
 
 /**
  * Tag component
@@ -80,10 +109,12 @@ Tag.propTypes = {
       return new Error("When tag has onRemove prop it doesn't allow icon.");
     }
 
-    return PropTypes.checkPropTypes({ propName: PropTypes.element },
-                                    props,
-                                    propName,
-                                    componentName);
+    return PropTypes.checkPropTypes(
+      { propName: PropTypes.element },
+      props,
+      propName,
+      componentName
+    );
   },
 
   /**
