@@ -96,14 +96,14 @@ describe('Tag', () => {
     });
 
     it('warns about icon + removable', () => {
-      jest.spyOn(console, 'warn');
+      jest.spyOn(console, 'error');
       const onRemove = jest.fn();
 
       const component = shallow(
         <Tag {...{ onRemove, ...props }}>SomeTest</Tag>
       ).dive();
 
-      expect(console.warn).toHaveBeenCalledTimes(1);
+      expect(console.error).toHaveBeenCalledTimes(1);
     });
   });
 });

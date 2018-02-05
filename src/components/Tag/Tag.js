@@ -53,22 +53,13 @@ const iconStyles = ({ selected, theme }) => css`
 const IconContainer = styled('span')(iconStyles);
 const TagElement = styled('span')(tagStyles, tagClickableStyles);
 
-const allowIcon = (onRemove, icon) => {
-  if (onRemove && icon) {
-    console.warn("When tag has onRemove prop it doesn't allow icon.");
-  }
-
-  return !onRemove && icon;
-};
-
 /**
  * Tag component
  */
 const Tag = ({ children, icon, onRemove, selected, ...props }) => (
   <TagElement {...{ selected, ...props }}>
-    {allowIcon(onRemove, icon) && (
-      <IconContainer {...{ selected }}>{icon}</IconContainer>
-    )}
+    {!onRemove &&
+      icon && <IconContainer {...{ selected }}>{icon}</IconContainer>}
     {children}
     {onRemove && <CloseButton {...{ onClick: onRemove, selected }} />}
   </TagElement>
@@ -84,7 +75,16 @@ Tag.propTypes = {
    * The tag's icon.
    * *Cannot be used when onRemove is provided. The icon doesn't appear.*
    */
-  icon: PropTypes.element,
+  icon: (props, propName, componentName) => {
+    if (props.onRemove && props.icon) {
+      return new Error("When tag has onRemove prop it doesn't allow icon.");
+    }
+
+    return PropTypes.checkPropTypes({ propName: PropTypes.element },
+                                    props,
+                                    propName,
+                                    componentName);
+  },
 
   /**
    * onRemove is called when user clicks Close Button.
