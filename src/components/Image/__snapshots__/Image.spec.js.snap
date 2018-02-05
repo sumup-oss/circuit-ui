@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image should have responsive styles 1`] = `
+.circuit-0 {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+<img
+  alt="A random cute puppy"
+  className="circuit-0 circuit-1"
+  src="http://www.placepuppy.net/1p/800/500"
+/>
+`;
