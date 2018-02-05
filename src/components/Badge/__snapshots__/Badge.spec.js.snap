@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Badge should have the correct circular styles 1`] = `
+exports[`Badge should have the correct circle styles 1`] = `
 .circuit-0 {
   background-color: #FF7559;
   border-radius: 100px;

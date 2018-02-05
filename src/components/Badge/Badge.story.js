@@ -12,9 +12,9 @@ storiesOf('Badge', module)
     'Circular Badge',
     withInfo()(() => (
       <Fragment>
-        <Badge circular>1</Badge>
-        <Badge circular>12</Badge>
-        <Badge circular>88</Badge>
+        <Badge circle>1</Badge>
+        <Badge circle>12</Badge>
+        <Badge circle>88</Badge>
       </Fragment>
     ))
   );

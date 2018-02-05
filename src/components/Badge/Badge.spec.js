@@ -11,8 +11,8 @@ describe('Badge', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have the correct circular styles', () => {
-    const actual = create(<Badge circular />);
+  it('should have the correct circle styles', () => {
+    const actual = create(<Badge circle />);
     expect(actual).toMatchSnapshot();
   });
 

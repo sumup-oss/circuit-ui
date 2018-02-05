@@ -24,8 +24,8 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const circularStyles = ({ circular }) =>
-  circular &&
+const circleStyles = ({ circle }) =>
+  circle &&
   css`
     display: flex;
     align-items: center;
@@ -36,7 +36,7 @@ const circularStyles = ({ circular }) =>
 /**
  * A badge for displaying update notifications etc.
  */
-const Badge = styled('div')(baseStyles, circularStyles);
+const Badge = styled('div')(baseStyles, circleStyles);
 
 Badge.propTypes = {
   /**
@@ -51,13 +51,13 @@ Badge.propTypes = {
   /**
    * Ensures text is centered and the badge looks like a circle.
    */
-  circular: PropTypes.bool
+  circle: PropTypes.bool
 };
 
 Badge.defaultProps = {
   selector: null,
   onClick: () => {},
-  circular: false
+  circle: false
 };
 
 /**
