@@ -73,12 +73,13 @@ const Toggle = ({ label, explanation, margin, ...props }) => (
 );
 
 Toggle.propTypes = {
-  label: PropTypes.string.isRequired,
-  explanation: PropTypes.string
+  label: PropTypes.string,
+  explanation: PropTypes.string,
   margin: PropTypes.bool
 };
 
 Toggle.defaultProps = {
+  label: null,
   explanation: null,
   margin: true
 };
