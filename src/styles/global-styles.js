@@ -105,7 +105,7 @@ export default ({ theme }) => injectGlobal`
    * NOTE: Form elements don't inherit font settings.
    * https://stackoverflow.com/questions/26140050/why-is-font-family-not-inherited-in-button-tags-automatically
    */
-  html, body, input, select, textarea, button {
+  html, body, input, select, optgroup, textarea, button {
     font-weight: ${theme.fontWeight.regular};
     font-family: ${fontStack};
     ${fontSettings}
