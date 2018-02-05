@@ -5,6 +5,7 @@ exports[`Heading should render as h1 element, when passed "h1" for the element p
   font-weight: 700;
   font-size: 28px;
   line-height: 32px;
+  margin-bottom: 24px;
 }
 
 <h1
@@ -20,6 +21,7 @@ exports[`Heading should render as h2 element, when passed "h2" for the element p
   font-weight: 700;
   font-size: 28px;
   line-height: 32px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -35,6 +37,7 @@ exports[`Heading should render as h3 element, when passed "h3" for the element p
   font-weight: 700;
   font-size: 28px;
   line-height: 32px;
+  margin-bottom: 24px;
 }
 
 <h3
@@ -50,6 +53,7 @@ exports[`Heading should render as h4 element, when passed "h4" for the element p
   font-weight: 700;
   font-size: 28px;
   line-height: 32px;
+  margin-bottom: 24px;
 }
 
 <h4
@@ -65,6 +69,7 @@ exports[`Heading should render as h5 element, when passed "h5" for the element p
   font-weight: 700;
   font-size: 28px;
   line-height: 32px;
+  margin-bottom: 24px;
 }
 
 <h5
@@ -80,6 +85,7 @@ exports[`Heading should render as h6 element, when passed "h6" for the element p
   font-weight: 700;
   font-size: 28px;
   line-height: 32px;
+  margin-bottom: 24px;
 }
 
 <h6
@@ -95,6 +101,7 @@ exports[`Heading should render with size exa, when passed "exa" for the size pro
   font-weight: 700;
   font-size: 36px;
   line-height: 44px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -110,6 +117,7 @@ exports[`Heading should render with size giga, when passed "giga" for the size p
   font-weight: 700;
   font-size: 22px;
   line-height: 24px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -125,6 +133,7 @@ exports[`Heading should render with size kilo, when passed "kilo" for the size p
   font-weight: 700;
   font-size: 17px;
   line-height: 24px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -140,6 +149,7 @@ exports[`Heading should render with size mega, when passed "mega" for the size p
   font-weight: 700;
   font-size: 19px;
   line-height: 24px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -155,6 +165,7 @@ exports[`Heading should render with size peta, when passed "peta" for the size p
   font-weight: 700;
   font-size: 28px;
   line-height: 32px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -170,6 +181,7 @@ exports[`Heading should render with size tera, when passed "tera" for the size p
   font-weight: 700;
   font-size: 24px;
   line-height: 32px;
+  margin-bottom: 24px;
 }
 
 <h2
@@ -185,6 +197,7 @@ exports[`Heading should render with size zetta, when passed "zetta" for the size
   font-weight: 700;
   font-size: 42px;
   line-height: 48px;
+  margin-bottom: 24px;
 }
 
 <h2

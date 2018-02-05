@@ -17,10 +17,10 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.headings[size].lineHeight};
 `;
 
-const marginStyles = ({ theme, withMargin }) =>
-  withMargin &&
+const marginStyles = ({ theme, margin }) =>
+  margin &&
   css`
-    label: heading--with-margin;
+    label: heading--no-margin;
     margin-bottom: ${theme.spacings.giga};
   `;
 
@@ -35,7 +35,7 @@ const HeadingElement = styled(HtmlElement)(
  * different HTML tags.
  */
 const Heading = props => (
-  <HeadingElement {...props} blacklist={{ withMargin: true }} />
+  <HeadingElement {...props} blacklist={{ margin: true }} />
 );
 
 Text.KILO = KILO;
@@ -67,7 +67,7 @@ Heading.propTypes = {
   /**
    * Adds bottom margin to the heading.
    */
-  withMargin: PropTypes.bool,
+  margin: PropTypes.bool,
   /**
    * The HTML heading element to render.
    */
@@ -78,7 +78,7 @@ Heading.defaultProps = {
   element: 'h2',
   size: PETA,
   className: '',
-  withMargin: false,
+  margin: true,
   children: null
 };
 
