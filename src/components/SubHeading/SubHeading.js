@@ -18,10 +18,10 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.subHeadings[size].lineHeight};
 `;
 
-const marginStyles = ({ theme, withMargin }) =>
-  withMargin &&
+const marginStyles = ({ theme, margin }) =>
+  margin &&
   css`
-    label: sub-heading--with-margin;
+    label: sub-heading--margin;
     margin-bottom: ${theme.spacings.kilo};
   `;
 
@@ -37,7 +37,7 @@ const SubHeadingElement = styled(HtmlElement)(
  */
 
 const SubHeading = props => (
-  <SubHeadingElement {...props} blacklist={{ withMargin: true }} />
+  <SubHeadingElement {...props} blacklist={{ margin: true }} />
 );
 
 SubHeading.propTypes = {
@@ -61,7 +61,7 @@ SubHeading.propTypes = {
   /**
    * Adds bottom margin to the sub-heading.
    */
-  withMargin: PropTypes.bool,
+  margin: PropTypes.bool,
   /**
    * The HTML heading element to render.
    */
@@ -72,7 +72,7 @@ SubHeading.defaultProps = {
   element: 'h3',
   size: KILO,
   className: '',
-  withMargin: false,
+  margin: true,
   children: null
 };
 
