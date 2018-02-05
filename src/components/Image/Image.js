@@ -9,7 +9,7 @@ const baseStyles = () => css`
 `;
 
 /**
- * Describe your component here.
+ * The Image component. Responsive by default.
  */
 const Image = styled('img')(baseStyles);
 
@@ -25,8 +25,6 @@ Image.propTypes = {
    */
   alt: PropTypes.string.isRequired
 };
-
-Image.defaultProps = {};
 
 /**
  * @component
