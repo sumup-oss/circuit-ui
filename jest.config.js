@@ -11,7 +11,7 @@ module.exports = {
   ],
   moduleDirectories: ['node_modules', 'src'],
   transform: {
-    '^.+\\.js$': '<rootDir>/jest.transform.js',
+    '^.+\\.js$': 'babel-jest',
     '^.+\\.svg$': '<rootDir>/fileTransformer.js'
   },
   setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js'

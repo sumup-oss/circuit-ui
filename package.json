@@ -49,6 +49,7 @@
     "@storybook/react": "^3.3.3",
     "@storybook/storybook-deployer": "^2.2.0",
     "babel-eslint": "^8.1.2",
+    "babel-jest": "^22.1.0",
     "babel-loader": "^7.1.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
