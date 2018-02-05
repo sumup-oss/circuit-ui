@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { themePropType } from '../../util/shared-prop-types';
 import { textMega } from '../../styles/style-helpers';
 import DefaultCloseButton from '../CloseButton';
 
@@ -39,10 +38,10 @@ const tagStyles = ({ theme }) => css`
 const tagSelectedStyles = ({ selected, theme }) =>
   selected &&
   css`
-  label: tag--selected;
-  background-color: ${theme.colors.b500};
-  color: ${theme.colors.white};
-}`;
+    label: tag--selected;
+    background-color: ${theme.colors.b500};
+    color: ${theme.colors.white};
+  `;
 
 const tagClickableStyles = ({ onClick, theme }) =>
   onClick &&
@@ -55,14 +54,10 @@ const tagClickableStyles = ({ onClick, theme }) =>
     }
   `;
 
-const iconStyles = ({ selected, theme }) => css`
+const iconStyles = ({ theme }) => css`
   label: tag__icon;
   vertical-align: -2px;
   margin-right: ${theme.spacings.bit};
-
-  > svg {
-    fill: ${selected && theme.colors.white};
-  }
 `;
 
 const iconSelectedStyles = ({ selected, theme }) =>
@@ -127,6 +122,13 @@ Tag.propTypes = {
    * Makes the tag selected.
    */
   selected: PropTypes.bool
+};
+
+Tag.defaultProps = {
+  children: null,
+  icon: null,
+  onRemove: null,
+  selected: false
 };
 
 /**

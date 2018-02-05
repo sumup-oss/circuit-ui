@@ -99,9 +99,7 @@ describe('Tag', () => {
       jest.spyOn(console, 'error');
       const onRemove = jest.fn();
 
-      const component = shallow(
-        <Tag {...{ onRemove, ...props }}>SomeTest</Tag>
-      ).dive();
+      shallow(<Tag {...{ onRemove, ...props }}>SomeTest</Tag>);
 
       expect(console.error).toHaveBeenCalledTimes(1);
     });
