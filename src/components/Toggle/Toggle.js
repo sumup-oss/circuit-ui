@@ -61,16 +61,19 @@ const ToggleWrapper = styled('div', { label: 'ToggleWrapper' })(
 const Toggle = ({ label, explanation, margin, ...props }) => (
   <ToggleWrapper {...{ margin }}>
     <Switch {...props} />
-    <ToggleTextWrapper>
-      {label && (
-        <ToggleLabel element="label" size="kilo">
-          {label}
-        </ToggleLabel>
+    {label &&
+      explanation && (
+        <ToggleTextWrapper>
+          {label && (
+            <ToggleLabel element="label" size="kilo">
+              {label}
+            </ToggleLabel>
+          )}
+          {explanation && (
+            <ToggleExplanation size="kilo">{explanation}</ToggleExplanation>
+          )}
+        </ToggleTextWrapper>
       )}
-      {explanation && (
-        <ToggleExplanation size="kilo">{explanation}</ToggleExplanation>
-      )}
-    </ToggleTextWrapper>
   </ToggleWrapper>
 );
 
