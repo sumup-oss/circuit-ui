@@ -18,24 +18,27 @@ const sizeStyles = ({ theme, size }) => {
     [KILO]: {
       marginBottom: theme.spacings[KILO],
       marginLeft: theme.spacings[BIT],
+      nestedLeft: theme.spacings[KILO],
       type: textKilo({ theme })
     },
     [MEGA]: {
       marginBottom: theme.spacings[BYTE],
       marginLeft: theme.spacings[BIT],
+      nestedLeft: theme.spacings[KILO],
       type: textMega({ theme })
     }
   };
-  const { marginBottom, marginLeft, type } = settings[size];
+  const { nestedLeft, marginBottom, marginLeft, type } = settings[size];
   return css`
     label: list--${size};
+    margin-left: ${marginLeft};
     ${type}
     li {
       margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
     }
-    ul {
-      margin-left: ${marginLeft};
+    ul, ol {
+      margin-left: ${nestedLeft};
     }
   `;
 };
