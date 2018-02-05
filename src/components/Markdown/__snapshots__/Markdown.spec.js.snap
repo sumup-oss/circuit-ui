@@ -1,0 +1,546 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Markdown should override HTML tags with React components 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+
+.circuit-10 {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+<div
+  className={undefined}
+>
+  <h1
+    className={undefined}
+  >
+    Manu illa amorem committere exit membra minor
+  </h1>
+  <h2
+    className={undefined}
+  >
+    Utraque aut longe ore cruentum est
+  </h2>
+  <p
+    className="circuit-0 circuit-1"
+    size="mega"
+  >
+    Lorem markdownum vultusque eligit significent sinistro, et virgis, inter!
+Rapuere Apollineam equas coloni urbis conata, 
+    <em
+      className={undefined}
+    >
+      Theti
+    </em>
+    , colla simul latus magis
+et magnis prorumpit flere? Dura quantum.
+  </p>
+  <h3
+    className={undefined}
+  >
+    Indignantia tamen
+  </h3>
+  <p
+    className="circuit-0 circuit-1"
+    size="mega"
+  >
+    Mediis monstravit inmunis Troes non leonis 
+    <strong
+      className={undefined}
+    >
+      non
+    </strong>
+     externis cuncta inperfecta
+mihi 
+    <a
+      className={undefined}
+      href="http://etluteave.net/"
+      title={undefined}
+    >
+      aristas colligit
+    </a>
+     sacros, diu. Se prius
+praecordiaque velut totosque norant alipedi candida electae est vestis, posse.
+  </p>
+  <blockquote
+    className={undefined}
+  >
+    <p
+      className="circuit-0 circuit-1"
+      size="mega"
+    >
+      Adstat Procnes et, in tempora Maenalon moles in nocte relicta, membra nec
+sudore nymphas robur! Adduxit sua equus Cadmeida 
+      <strong
+        className={undefined}
+      >
+        egimus
+      </strong>
+       calathis ostendit
+quicquid ad heros. Usus atque, et talisque sum; quin ramis sectamque amore
+texerat Troada. Dedit murmure de iuvenis peraravit, addunt nihil; est est
+ostendens fer cum illa 
+      <strong
+        className={undefined}
+      >
+        Galanthida
+      </strong>
+      . Posset aliisque: enim tibi confinia
+terraeque gratus quaque, liquidumque quod: magnum mixta;
+
+      <a
+        className={undefined}
+        href="http://priusiuno.org/cur.aspx"
+        title={undefined}
+      >
+        sicco
+      </a>
+      .
+    </p>
+  </blockquote>
+  <h3
+    className={undefined}
+  >
+    Dumque et membris minas deprimeret Phrygiis sua
+  </h3>
+  <p
+    className="circuit-0 circuit-1"
+    size="mega"
+  >
+    Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
+
+    <strong
+      className={undefined}
+    >
+      Signans Trinacris errat
+    </strong>
+     attonitoque spicis magistra odioque, aera palus
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia 
+    <em
+      className={undefined}
+    >
+      qua
+quosque
+    </em>
+    , adde alma. Ait dixit suas gnatis ab facies altera nova 
+    <strong
+      className={undefined}
+    >
+      flentemque
+teneo
+    </strong>
+    : quoque profusis consequitur delusa et. Consistere adeunt.
+  </p>
+  <h3
+    className={undefined}
+  >
+    Develat nymphae
+  </h3>
+  <p
+    className="circuit-0 circuit-1"
+    size="mega"
+  >
+    Conceperat depositae si manibus utiliter resonare vitat ima mortis ecce. Huic
+leni agat pro! Fuit relinque.
+  </p>
+  <ol
+    className={undefined}
+    start={1}
+  >
+    <li
+      className={undefined}
+    >
+      Quodque nebulas turba orbem aut
+    </li>
+    <li
+      className={undefined}
+    >
+      Nymphae lapsasque
+    </li>
+    <li
+      className={undefined}
+    >
+      Regoque tenere
+    </li>
+  </ol>
+  <h2
+    className={undefined}
+  >
+    Circumstant iam reponere obibat indestrictus sine
+  </h2>
+  <p
+    className="circuit-0 circuit-1"
+    size="mega"
+  >
+    <img
+      alt="A random cute puppy"
+      className="circuit-10 circuit-11"
+      src="http://www.placepuppy.net/800/500"
+      title={undefined}
+    />
+  </p>
+  <p
+    className="circuit-0 circuit-1"
+    size="mega"
+  >
+    Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
+cultus coniunx adituque.
+  </p>
+</div>
+`;
+
+exports[`Markdown should parse and render Markdown to HTML 1`] = `
+<div
+  className={undefined}
+>
+  <h1
+    className={undefined}
+  >
+    Manu illa amorem committere exit membra minor
+  </h1>
+  <h2
+    className={undefined}
+  >
+    Utraque aut longe ore cruentum est
+  </h2>
+  <p
+    className={undefined}
+  >
+    Lorem markdownum vultusque eligit significent sinistro, et virgis, inter!
+Rapuere Apollineam equas coloni urbis conata, 
+    <em
+      className={undefined}
+    >
+      Theti
+    </em>
+    , colla simul latus magis
+et magnis prorumpit flere? Dura quantum.
+  </p>
+  <h3
+    className={undefined}
+  >
+    Indignantia tamen
+  </h3>
+  <p
+    className={undefined}
+  >
+    Mediis monstravit inmunis Troes non leonis 
+    <strong
+      className={undefined}
+    >
+      non
+    </strong>
+     externis cuncta inperfecta
+mihi 
+    <a
+      className={undefined}
+      href="http://etluteave.net/"
+      title={undefined}
+    >
+      aristas colligit
+    </a>
+     sacros, diu. Se prius
+praecordiaque velut totosque norant alipedi candida electae est vestis, posse.
+  </p>
+  <blockquote
+    className={undefined}
+  >
+    <p
+      className={undefined}
+    >
+      Adstat Procnes et, in tempora Maenalon moles in nocte relicta, membra nec
+sudore nymphas robur! Adduxit sua equus Cadmeida 
+      <strong
+        className={undefined}
+      >
+        egimus
+      </strong>
+       calathis ostendit
+quicquid ad heros. Usus atque, et talisque sum; quin ramis sectamque amore
+texerat Troada. Dedit murmure de iuvenis peraravit, addunt nihil; est est
+ostendens fer cum illa 
+      <strong
+        className={undefined}
+      >
+        Galanthida
+      </strong>
+      . Posset aliisque: enim tibi confinia
+terraeque gratus quaque, liquidumque quod: magnum mixta;
+
+      <a
+        className={undefined}
+        href="http://priusiuno.org/cur.aspx"
+        title={undefined}
+      >
+        sicco
+      </a>
+      .
+    </p>
+  </blockquote>
+  <h3
+    className={undefined}
+  >
+    Dumque et membris minas deprimeret Phrygiis sua
+  </h3>
+  <p
+    className={undefined}
+  >
+    Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
+
+    <strong
+      className={undefined}
+    >
+      Signans Trinacris errat
+    </strong>
+     attonitoque spicis magistra odioque, aera palus
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia 
+    <em
+      className={undefined}
+    >
+      qua
+quosque
+    </em>
+    , adde alma. Ait dixit suas gnatis ab facies altera nova 
+    <strong
+      className={undefined}
+    >
+      flentemque
+teneo
+    </strong>
+    : quoque profusis consequitur delusa et. Consistere adeunt.
+  </p>
+  <h3
+    className={undefined}
+  >
+    Develat nymphae
+  </h3>
+  <p
+    className={undefined}
+  >
+    Conceperat depositae si manibus utiliter resonare vitat ima mortis ecce. Huic
+leni agat pro! Fuit relinque.
+  </p>
+  <ol
+    className={undefined}
+    start={1}
+  >
+    <li
+      className={undefined}
+    >
+      Quodque nebulas turba orbem aut
+    </li>
+    <li
+      className={undefined}
+    >
+      Nymphae lapsasque
+    </li>
+    <li
+      className={undefined}
+    >
+      Regoque tenere
+    </li>
+  </ol>
+  <h2
+    className={undefined}
+  >
+    Circumstant iam reponere obibat indestrictus sine
+  </h2>
+  <p
+    className={undefined}
+  >
+    <img
+      alt="A random cute puppy"
+      className={undefined}
+      src="http://www.placepuppy.net/800/500"
+      title={undefined}
+    />
+  </p>
+  <p
+    className={undefined}
+  >
+    Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
+cultus coniunx adituque.
+  </p>
+</div>
+`;
+
+exports[`Markdown should transform the Markdown before parsing it 1`] = `
+<div
+  className={undefined}
+>
+  <h2
+    className={undefined}
+  >
+    Manu illa amorem committere exit membra minor
+  </h2>
+  <h4
+    className={undefined}
+  >
+    Utraque aut longe ore cruentum est
+  </h4>
+  <p
+    className={undefined}
+  >
+    Lorem markdownum vultusque eligit significent sinistro, et virgis, inter!
+Rapuere Apollineam equas coloni urbis conata, 
+    <em
+      className={undefined}
+    >
+      Theti
+    </em>
+    , colla simul latus magis
+et magnis prorumpit flere? Dura quantum.
+  </p>
+  <h6
+    className={undefined}
+  >
+    Indignantia tamen
+  </h6>
+  <p
+    className={undefined}
+  >
+    Mediis monstravit inmunis Troes non leonis 
+    <strong
+      className={undefined}
+    >
+      non
+    </strong>
+     externis cuncta inperfecta
+mihi 
+    <a
+      className={undefined}
+      href="http://etluteave.net/"
+      title={undefined}
+    >
+      aristas colligit
+    </a>
+     sacros, diu. Se prius
+praecordiaque velut totosque norant alipedi candida electae est vestis, posse.
+  </p>
+  <blockquote
+    className={undefined}
+  >
+    <p
+      className={undefined}
+    >
+      Adstat Procnes et, in tempora Maenalon moles in nocte relicta, membra nec
+sudore nymphas robur! Adduxit sua equus Cadmeida 
+      <strong
+        className={undefined}
+      >
+        egimus
+      </strong>
+       calathis ostendit
+quicquid ad heros. Usus atque, et talisque sum; quin ramis sectamque amore
+texerat Troada. Dedit murmure de iuvenis peraravit, addunt nihil; est est
+ostendens fer cum illa 
+      <strong
+        className={undefined}
+      >
+        Galanthida
+      </strong>
+      . Posset aliisque: enim tibi confinia
+terraeque gratus quaque, liquidumque quod: magnum mixta;
+
+      <a
+        className={undefined}
+        href="http://priusiuno.org/cur.aspx"
+        title={undefined}
+      >
+        sicco
+      </a>
+      .
+    </p>
+  </blockquote>
+  <h6
+    className={undefined}
+  >
+    Dumque et membris minas deprimeret Phrygiis sua
+  </h6>
+  <p
+    className={undefined}
+  >
+    Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
+
+    <strong
+      className={undefined}
+    >
+      Signans Trinacris errat
+    </strong>
+     attonitoque spicis magistra odioque, aera palus
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia 
+    <em
+      className={undefined}
+    >
+      qua
+quosque
+    </em>
+    , adde alma. Ait dixit suas gnatis ab facies altera nova 
+    <strong
+      className={undefined}
+    >
+      flentemque
+teneo
+    </strong>
+    : quoque profusis consequitur delusa et. Consistere adeunt.
+  </p>
+  <h6
+    className={undefined}
+  >
+    Develat nymphae
+  </h6>
+  <p
+    className={undefined}
+  >
+    Conceperat depositae si manibus utiliter resonare vitat ima mortis ecce. Huic
+leni agat pro! Fuit relinque.
+  </p>
+  <ol
+    className={undefined}
+    start={1}
+  >
+    <li
+      className={undefined}
+    >
+      Quodque nebulas turba orbem aut
+    </li>
+    <li
+      className={undefined}
+    >
+      Nymphae lapsasque
+    </li>
+    <li
+      className={undefined}
+    >
+      Regoque tenere
+    </li>
+  </ol>
+  <h4
+    className={undefined}
+  >
+    Circumstant iam reponere obibat indestrictus sine
+  </h4>
+  <p
+    className={undefined}
+  >
+    <img
+      alt="A random cute puppy"
+      className={undefined}
+      src="http://www.placepuppy.net/800/500"
+      title={undefined}
+    />
+  </p>
+  <p
+    className={undefined}
+  >
+    Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
+cultus coniunx adituque.
+  </p>
+</div>
+`;

@@ -11,12 +11,9 @@ const Markdown = ({
   forceInline,
   transformer
 }) => {
-  if (!children) {
-    return null;
-  }
-  const markdownOptions = { overrides, forceBlock, forceInline };
+  const options = { overrides, forceBlock, forceInline };
   const transformedMarkdown = transformer(children);
-  const html = compiler(transformedMarkdown, markdownOptions);
+  const html = compiler(transformedMarkdown, options);
   return html;
 };
 
