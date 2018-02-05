@@ -67,4 +67,12 @@ describe('Markdown', () => {
     );
     expect(actual).toMatchSnapshot();
   });
+  it('should treat all markdown strings as "block" elements.', () => {
+    const actual = create(<Markdown forceBlock>{markdown}</Markdown>);
+    expect(actual).toMatchSnapshot();
+  });
+  it('should treat all markdown strings as "inline" elements.', () => {
+    const actual = create(<Markdown forceInline>{markdown}</Markdown>);
+    expect(actual).toMatchSnapshot();
+  });
 });
