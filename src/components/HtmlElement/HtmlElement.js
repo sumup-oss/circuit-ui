@@ -44,4 +44,7 @@ HtmlElement.defaultProps = {
   children: null
 };
 
+/**
+ * @component
+ */
 export default HtmlElement;

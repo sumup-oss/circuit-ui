@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { isFunction } from '../../util/type-check';
 
-export default class State extends Component {
+class State extends Component {
   static propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     initial: PropTypes.any.isRequired,
@@ -36,3 +36,8 @@ export default class State extends Component {
     return children(props);
   }
 }
+
+/**
+ * @component
+ */
+export default State;

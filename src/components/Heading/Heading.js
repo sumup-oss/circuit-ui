@@ -4,7 +4,9 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
-import { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } from '../../util/sizes';
+import * as SIZES from '../../util/sizes';
+
+const { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } = SIZES;
 
 const baseStyles = ({ theme }) => css`
   label: heading;
@@ -85,4 +87,7 @@ Heading.defaultProps = {
   children: null
 };
 
+/**
+ * @component
+ */
 export default Heading;
