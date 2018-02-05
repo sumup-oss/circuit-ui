@@ -15,7 +15,7 @@
     "test:lint-js:watch": "onchange \"src/**/*.js\" -- npm run test:lint-js",
     "test:unit": "jest --coverage --no-cache",
     "test:unit:watch": "npm run test:unit:output -- --watch",
-    "test:unit:output": "jest --json --outputFile=jest-test-results.json",
+    "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache",
     "prepush": "npm test",
     "start": "npm run test:unit:output && start-storybook -p 6006",
     "prebuild": "npm run test:unit:output",
