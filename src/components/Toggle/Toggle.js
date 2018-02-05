@@ -43,8 +43,8 @@ const toggleWrapperStyles = css`
   flex-align: flex-start;
 `;
 
-const toggleWrapperMarginStyles = ({ theme, withMargin }) =>
-  withMargin &&
+const toggleWrapperMarginStyles = ({ theme, margin }) =>
+  margin &&
   css`
     label: toggle--with-margin;
     margin-bottom: ${theme.spacings.mega};
@@ -58,8 +58,8 @@ const ToggleWrapper = styled('div', { label: 'ToggleWrapper' })(
 /**
  * Describe your component here.
  */
-const Toggle = ({ label, explanation, withMargin, ...props }) => (
-  <ToggleWrapper {...{ withMargin }}>
+const Toggle = ({ label, explanation, margin, ...props }) => (
+  <ToggleWrapper {...{ margin }}>
     <Switch {...props} />
     <ToggleTextWrapper>
       <ToggleLabel element="label" size="kilo">
@@ -74,13 +74,13 @@ const Toggle = ({ label, explanation, withMargin, ...props }) => (
 
 Toggle.propTypes = {
   label: PropTypes.string.isRequired,
-  withMargin: PropTypes.bool,
   explanation: PropTypes.string
+  margin: PropTypes.bool
 };
 
 Toggle.defaultProps = {
-  withMargin: true,
-  explanation: null
+  explanation: null,
+  margin: true
 };
 
 /**

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Setting should have no bottom margin when "withMargin" is falsy: [object Object] 1`] = `
+exports[`Setting should have no bottom margin when "margin" is falsy: [object Object] 1`] = `
 .circuit-2 {
   background-color: #D8DDE1;
   border-radius: 24px;
@@ -27,33 +27,7 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
   border-radius: 16px;
 }
 
-.circuit-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  margin-left: 12px;
-}
-
 .circuit-4 {
-  font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
-  font-size: 13px;
-  line-height: 20px;
-  vertical-align: 1px;
-}
-
-.circuit-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -64,7 +38,7 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
 }
 
 <div
-  className="circuit-8 circuit-9"
+  className="circuit-4 circuit-5"
 >
   <div
     aria-checked={false}
@@ -76,19 +50,11 @@ exports[`Setting should have no bottom margin when "withMargin" is falsy: [objec
       className="circuit-0 circuit-1"
     />
   </div>
-  <div
-    className="circuit-6 circuit-7"
-  >
-    <label
-      className="circuit-4 circuit-5"
-      size="kilo"
-    />
-  </div>
 </div>
 `;
 
 exports[`Setting should have the correct default styles 1`] = `
-.circuit-8 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -125,34 +91,8 @@ exports[`Setting should have the correct default styles 1`] = `
   border-radius: 16px;
 }
 
-.circuit-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  margin-left: 12px;
-}
-
-.circuit-4 {
-  font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
-  font-size: 13px;
-  line-height: 20px;
-  vertical-align: 1px;
-}
-
 <div
-  className="circuit-8 circuit-9"
+  className="circuit-4 circuit-5"
 >
   <div
     aria-checked={false}
@@ -162,14 +102,6 @@ exports[`Setting should have the correct default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
-    />
-  </div>
-  <div
-    className="circuit-6 circuit-7"
-  >
-    <label
-      className="circuit-4 circuit-5"
-      size="kilo"
     />
   </div>
 </div>

@@ -8,8 +8,8 @@ describe('Setting', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have no bottom margin when "withMargin" is falsy', () => {
-    const actual = create(<Toggle withMargin={false} />);
+  it('should have no bottom margin when "margin" is falsy', () => {
+    const actual = create(<Toggle margin={false} />);
     expect(actual).toMatchSnapshot(actual);
   });
 });
