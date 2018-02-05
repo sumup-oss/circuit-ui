@@ -56,7 +56,7 @@ const ToggleWrapper = styled('div', { label: 'ToggleWrapper' })(
 );
 
 /**
- * Describe your component here.
+ * A toggle component with support for labels and additional explanations.
  */
 const Toggle = ({ label, explanation, margin, ...props }) => (
   <ToggleWrapper {...{ margin }}>
