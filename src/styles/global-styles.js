@@ -59,9 +59,6 @@ export default ({ theme }) => injectGlobal`
   body {
   	line-height: 1;
   }
-  ol, ul {
-  	list-style: none;
-  }
   blockquote, q {
   	quotes: none;
   }
