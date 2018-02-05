@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip aligns to the center 1`] = `
+.circuit-2 {
+  position: relative;
+  display: inline-block;
+}
+
+.circuit-2:hover > span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 60px;
+  background-color: #0F131A;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 4px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0:after {
+  content: '';
+  position: absolute;
+  margin-left: -4px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #0F131A transparent transparent transparent;
+  top: 100%;
+  left: 50%;
+}
+
+<div
+  className="circuit-2 circuit-3"
+>
+  <span
+    className="circuit-0 circuit-1"
+  >
+    The tooltip content
+  </span>
+  Something with tooltip
+</div>
+`;
+
+exports[`Tooltip aligns to the left 1`] = `
+.circuit-2 {
+  position: relative;
+  display: inline-block;
+}
+
+.circuit-2:hover > span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 60px;
+  background-color: #0F131A;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 4px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  right: 50%;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0:after {
+  content: '';
+  position: absolute;
+  margin-left: -4px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #0F131A transparent transparent transparent;
+  top: 100%;
+  right: 16px;
+}
+
+<div
+  className="circuit-2 circuit-3"
+>
+  <span
+    className="circuit-0 circuit-1"
+  >
+    The tooltip content
+  </span>
+  Something with tooltip
+</div>
+`;
+
+exports[`Tooltip aligns to the right 1`] = `
+.circuit-2 {
+  position: relative;
+  display: inline-block;
+}
+
+.circuit-2:hover > span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 60px;
+  background-color: #0F131A;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 4px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0:after {
+  content: '';
+  position: absolute;
+  margin-left: -4px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #0F131A transparent transparent transparent;
+  top: 100%;
+  left: 16px;
+}
+
+<div
+  className="circuit-2 circuit-3"
+>
+  <span
+    className="circuit-0 circuit-1"
+  >
+    The tooltip content
+  </span>
+  Something with tooltip
+</div>
+`;
