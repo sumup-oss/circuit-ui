@@ -4,7 +4,6 @@
   "description": "SumUp's React UI component library",
   "main": "index.js",
   "scripts": {
-    "fix:prettier": "prettier --config prettier.config.js --write src/**/**/*.js",
     "fix:eslint": "eslint --fix --quiet src/**/**/*.js",
     "fix:stylelint": "stylelint \"src/**/*.scss\" --cache --fix",
     "fix": "npm run fix:eslint; npm run fix:stylelint",
