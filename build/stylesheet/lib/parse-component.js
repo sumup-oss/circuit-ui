@@ -45,10 +45,10 @@ const parseComponent = async path => {
   try {
     const content = await readFile(path);
     const [{ props: rawProps }] = parse(content, annotationResolver);
-    const props = filterProps(rawProps);
-    return { path, props };
+    const propTypes = filterProps(rawProps);
+    return { path, propTypes };
   } catch (e) {
-    return { path, error: e, props: null };
+    return { path, error: e, propTypes: null };
   }
 };
 
