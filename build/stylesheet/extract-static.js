@@ -22,7 +22,7 @@ async function main() {
   const componentPaths = await listFiles(componentGlob);
   const componentData = await Promise.all(componentPaths.map(parseComponent));
   const allStyles = await Promise.all(componentData.map(extractStyles));
-  const formattedStyles = format(allStyles.join('\n'), { parser: 'css' });
+  console.log(format(allStyles.join('\n'), { parser: 'css' }));
 }
 
 // eslint-disable-next-line
