@@ -7,6 +7,7 @@ import Button from '../Button';
 const listStyles = ({ theme }) => css`
   label: button-group;
   display: flex;
+  list-style-type: none;
 
   li:not(:last-of-type) {
     margin-right: ${theme.spacings.mega};
