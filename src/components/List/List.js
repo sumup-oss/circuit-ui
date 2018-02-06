@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { typeMarginResets } from '../../styles/global-styles';
 import { childrenPropType } from '../../util/shared-prop-types';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { textMega, textKilo } from '../../styles/style-helpers';
@@ -10,7 +9,6 @@ import { BIT, BYTE, KILO, MEGA } from '../../util/sizes';
 const baseStyles = ({ theme }) => css`
   label: list;
   font-weight: ${theme.fontWeight.regular};
-  ${typeMarginResets};
 `;
 
 const sizeStyles = ({ theme, size }) => {
