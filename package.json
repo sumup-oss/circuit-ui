@@ -87,7 +87,7 @@
   "dependencies": {
     "babel-plugin-emotion": "^9.0.0-1",
     "babel-plugin-lodash": "^3.3.2",
-    "emotion": "9.0.0-1",
+    "emotion": "^9.0.0-1",
     "emotion-theming": "^8.0.12",
     "facepaint": "^1.2.0",
     "hoist-non-react-statics": "^2.3.1",
