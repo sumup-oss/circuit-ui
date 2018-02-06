@@ -42,7 +42,7 @@ describe('List', () => {
     const list = create(
       <List ordered>
         <li>Hi</li>
-        <li>It's me</li>
+        <li>It is me</li>
       </List>
     );
     expect(list).toMatchSnapshot();

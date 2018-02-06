@@ -106,7 +106,7 @@ exports[`List should render an ordered list 1`] = `
     Hi
   </li>
   <li>
-    It's me
+    It is me
   </li>
 </ol>
 `;

@@ -32,12 +32,12 @@ const sizeStyles = ({ theme, size }) => {
   return css`
     label: list--${size};
     margin-left: ${marginLeft};
-    ${type}
-    li {
+    ${type} li {
       margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
     }
-    ul, ol {
+    ul,
+    ol {
       margin-left: ${nestedLeft};
     }
   `;
