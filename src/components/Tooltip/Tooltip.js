@@ -17,25 +17,49 @@ const baseStyles = css`
   }
 `;
 
-const arrowAligns = theme => ({
-  center: `left: 50%`,
-  right: `left: ${theme.spacings.mega}`,
-  left: `right: ${theme.spacings.mega}`
-});
+const arrowAlignsStyles = ({ align, theme }) =>
+  ({
+    center: css`
+      label: tooltip__text-arrow--center;
+      &::after {
+        left: 50%;
+      }
+    `,
+    right: css`
+      label: tooltip__text-arrow--right;
+      &::after {
+        left: ${theme.spacings.mega};
+      }
+    `,
+    left: css`
+      label: tooltip__text-arrow--right;
+      &::after {
+        right: ${theme.spacings.mega};
+      }
+    `
+  }[align]);
 
-const tooltipAlign = {
-  center: `
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-  `,
-  right: 'left: 50%;',
-  left: 'right: 50%;'
-};
+const tooltipTextAlignStyles = ({ align }) =>
+  ({
+    center: css`
+      label: tooltip__text--center;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    `,
+    right: css`
+      label: tooltip__text--right;
+      left: 50%;
+    `,
+    left: css`
+      label: tooltip__text--left;
+      right: 50%;
+    `
+  }[align]);
 
-const tooltipTextStyles = ({ align, theme }) => css`
-  label: tooltip_text;
+const tooltipTextStyles = ({ theme }) => css`
+  label: tooltip__text;
   visibility: hidden;
   opacity: 0;
   width: max-content;
@@ -48,11 +72,10 @@ const tooltipTextStyles = ({ align, theme }) => css`
   position: absolute;
   z-index: 1;
   bottom: 125%;
-  ${tooltipAlign[align]};
   transition: opacity 0.3s;
   ${textKilo({ theme })};
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
     margin-left: -${theme.spacings.bit};
@@ -60,11 +83,14 @@ const tooltipTextStyles = ({ align, theme }) => css`
     border-style: solid;
     border-color: ${theme.colors.black} transparent transparent transparent;
     top: 100%;
-    ${arrowAligns(theme)[align]};
   }
 `;
 
-const TooltipContainer = styled('span')(tooltipTextStyles);
+const TooltipContainer = styled('span')(
+  tooltipTextStyles,
+  tooltipTextAlignStyles,
+  arrowAlignsStyles
+);
 const TooltipElement = styled('div')(baseStyles);
 
 /**
