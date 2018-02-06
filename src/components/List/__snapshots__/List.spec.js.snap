@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List should render a default unordered List 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  margin-left: 4px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  className="circuit-0 circuit-1"
+>
+  <li>
+    Hi there
+  </li>
+</ul>
+`;
+
+exports[`List should render a kilo unordered List 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  margin-left: 4px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  className="circuit-0 circuit-1"
+>
+  <li>
+    Hi there
+  </li>
+</ul>
+`;
+
+exports[`List should render a mega unordered List 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  margin-left: 4px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  className="circuit-0 circuit-1"
+>
+  <li>
+    Hi there
+  </li>
+</ul>
+`;
+
+exports[`List should render an ordered list 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  margin-left: 4px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ol
+  className="circuit-0 circuit-1"
+>
+  <li>
+    Hi
+  </li>
+  <li>
+    It's me
+  </li>
+</ol>
+`;
+
+exports[`List should render nested unordered lists 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  margin-left: 4px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  className="circuit-0 circuit-1"
+>
+  <li>
+    Hi there
+  </li>
+  <ul
+    className="circuit-0 circuit-1"
+  >
+    <li>
+      Hi there
+    </li>
+  </ul>
+</ul>
+`;
