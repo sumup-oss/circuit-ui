@@ -36,10 +36,20 @@ describe('Tooltip', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should align to the center', () => {
+  it('should render with icon', () => {
     const component = create(
       <Tooltip align={Tooltip.Center} content="The tooltip content">
-        <span>Text and a</span><DummyIcon />
+        <span>Text and a</span>
+        <DummyIcon />
+      </Tooltip>
+    );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should accept icon as content', () => {
+    const component = create(
+      <Tooltip align={Tooltip.Center} content={<DummyIcon />}>
+        Some text
       </Tooltip>
     );
     expect(component).toMatchSnapshot();

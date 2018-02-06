@@ -23,19 +23,19 @@ const baseStyles = css`
 
 const arrowAlignsStyles = ({ align, theme }) =>
   ({
-    ALIGN_CENTER: css`
+    center: css`
       label: tooltip__text-arrow--center;
       &::after {
         left: 50%;
       }
     `,
-    ALIGN_RIGHT: css`
+    right: css`
       label: tooltip__text-arrow--right;
       &::after {
         left: ${theme.spacings.mega};
       }
     `,
-    ALIGN_LEFT: css`
+    left: css`
       label: tooltip__text-arrow--left;
       &::after {
         right: ${theme.spacings.mega};
@@ -45,18 +45,18 @@ const arrowAlignsStyles = ({ align, theme }) =>
 
 const tooltipTextAlignStyles = ({ align }) =>
   ({
-    ALIGN_CENTER: css`
+    center: css`
       label: tooltip__text--center;
       left: 0;
       right: 0;
       margin-left: auto;
       margin-right: auto;
     `,
-    ALIGN_RIGHT: css`
+    right: css`
       label: tooltip__text--right;
       left: 50%;
     `,
-    ALIGN_LEFT: css`
+    left: css`
       label: tooltip__text--left;
       right: 50%;
     `

@@ -1,5 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Tooltip should accept icon as content 1`] = `
+.circuit-2 {
+  position: relative;
+  display: inline-block;
+}
+
+.circuit-2:hover > span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 60px;
+  background-color: #0F131A;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 4px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.circuit-0::after {
+  content: '';
+  position: absolute;
+  margin-left: -4px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #0F131A transparent transparent transparent;
+  top: 100%;
+}
+
+.circuit-0::after {
+  left: 50%;
+}
+
+<div
+  className="circuit-2 circuit-3"
+>
+  <span
+    className="circuit-0 circuit-1"
+  >
+    <svg
+      fill="#000000"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path />
+    </svg>
+  </span>
+  Some text
+</div>
+`;
+
 exports[`Tooltip should align to the center 1`] = `
 .circuit-2 {
   position: relative;
@@ -30,6 +97,10 @@ exports[`Tooltip should align to the center 1`] = `
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .circuit-0::after {
@@ -40,6 +111,10 @@ exports[`Tooltip should align to the center 1`] = `
   border-style: solid;
   border-color: #0F131A transparent transparent transparent;
   top: 100%;
+}
+
+.circuit-0::after {
+  left: 50%;
 }
 
 <div
@@ -51,68 +126,6 @@ exports[`Tooltip should align to the center 1`] = `
     The tooltip content
   </span>
   Something with tooltip
-</div>
-`;
-
-exports[`Tooltip should align to the center 2`] = `
-.circuit-2 {
-  position: relative;
-  display: inline-block;
-}
-
-.circuit-2:hover > span {
-  visibility: visible;
-  opacity: 1;
-}
-
-.circuit-0 {
-  visibility: hidden;
-  opacity: 0;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: 60px;
-  background-color: #0F131A;
-  color: #FFFFFF;
-  text-align: center;
-  border-radius: 4px;
-  padding: 8px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.circuit-0::after {
-  content: '';
-  position: absolute;
-  margin-left: -4px;
-  border-width: 4px;
-  border-style: solid;
-  border-color: #0F131A transparent transparent transparent;
-  top: 100%;
-}
-
-<div
-  className="circuit-2 circuit-3"
->
-  <span
-    className="circuit-0 circuit-1"
-  >
-    The tooltip content
-  </span>
-  <span>
-    Text and a
-  </span>
-  <svg
-    fill="#000000"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path />
-  </svg>
 </div>
 `;
 
@@ -146,6 +159,7 @@ exports[`Tooltip should align to the left 1`] = `
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  right: 50%;
 }
 
 .circuit-0::after {
@@ -156,6 +170,10 @@ exports[`Tooltip should align to the left 1`] = `
   border-style: solid;
   border-color: #0F131A transparent transparent transparent;
   top: 100%;
+}
+
+.circuit-0::after {
+  right: 16px;
 }
 
 <div
@@ -200,6 +218,7 @@ exports[`Tooltip should align to the right 1`] = `
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  left: 50%;
 }
 
 .circuit-0::after {
@@ -212,6 +231,10 @@ exports[`Tooltip should align to the right 1`] = `
   top: 100%;
 }
 
+.circuit-0::after {
+  left: 16px;
+}
+
 <div
   className="circuit-2 circuit-3"
 >
@@ -221,5 +244,75 @@ exports[`Tooltip should align to the right 1`] = `
     The tooltip content
   </span>
   Something with tooltip
+</div>
+`;
+
+exports[`Tooltip should render with icon 1`] = `
+.circuit-2 {
+  position: relative;
+  display: inline-block;
+}
+
+.circuit-2:hover > span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 60px;
+  background-color: #0F131A;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 4px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.circuit-0::after {
+  content: '';
+  position: absolute;
+  margin-left: -4px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #0F131A transparent transparent transparent;
+  top: 100%;
+}
+
+.circuit-0::after {
+  left: 50%;
+}
+
+<div
+  className="circuit-2 circuit-3"
+>
+  <span
+    className="circuit-0 circuit-1"
+  >
+    The tooltip content
+  </span>
+  <span>
+    Text and a
+  </span>
+  <svg
+    fill="#000000"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path />
+  </svg>
 </div>
 `;
