@@ -45,7 +45,7 @@ const sizeStyles = ({ theme, size }) => {
 
 const ListElement = props => (
   <HtmlElement
-    blacklist={['size', 'ordered']}
+    blacklist={{ size: true, ordered: true }}
     element={({ ordered }) => (ordered ? 'ol' : 'ul')}
     {...props}
   />

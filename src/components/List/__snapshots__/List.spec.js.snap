@@ -3,10 +3,6 @@
 exports[`List should render a default unordered List 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   margin-left: 4px;
   font-size: 13px;
   line-height: 20px;
@@ -34,10 +30,6 @@ exports[`List should render a default unordered List 1`] = `
 exports[`List should render a kilo unordered List 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   margin-left: 4px;
   font-size: 13px;
   line-height: 20px;
@@ -65,10 +57,6 @@ exports[`List should render a kilo unordered List 1`] = `
 exports[`List should render a mega unordered List 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   margin-left: 4px;
   font-size: 15px;
   line-height: 24px;
@@ -96,10 +84,6 @@ exports[`List should render a mega unordered List 1`] = `
 exports[`List should render an ordered list 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   margin-left: 4px;
   font-size: 13px;
   line-height: 20px;
@@ -130,10 +114,6 @@ exports[`List should render an ordered list 1`] = `
 exports[`List should render nested unordered lists 1`] = `
 .circuit-0 {
   font-weight: 400;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-margin-start: 0;
-  -webkit-margin-end: 0;
   margin-left: 4px;
   font-size: 13px;
   line-height: 20px;
