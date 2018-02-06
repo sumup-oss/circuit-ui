@@ -6,6 +6,7 @@ exports[`ButtonGroup should have the correct styles 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  list-style-type: none;
 }
 
 .circuit-0 li:not(:last-of-type) {

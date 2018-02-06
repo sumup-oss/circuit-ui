@@ -43,7 +43,7 @@ const baseStyles = ({ theme, href, ...otherProps }) => css`
   box-shadow: inset 0 1px 0 1px rgba(255, 255, 255, 0.06);
   display: ${href ? 'inline-block' : 'block'};
   color: ${theme.colors.white};
-  cursor: default;
+  cursor: pointer;
   font-weight: ${theme.fontWeight.bold};
   width: auto;
   height: auto;
