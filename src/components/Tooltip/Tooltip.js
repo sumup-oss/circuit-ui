@@ -4,6 +4,10 @@ import styled, { css } from 'react-emotion';
 
 import { textKilo } from '../../styles/style-helpers';
 
+const ALIGN_CENTER = 'center';
+const ALIGN_RIGHT = 'right';
+const ALIGN_LEFT = 'left';
+
 const baseStyles = css`
   label: tooltip;
   position: relative;
@@ -19,20 +23,20 @@ const baseStyles = css`
 
 const arrowAlignsStyles = ({ align, theme }) =>
   ({
-    center: css`
+    ALIGN_CENTER: css`
       label: tooltip__text-arrow--center;
       &::after {
         left: 50%;
       }
     `,
-    right: css`
+    ALIGN_RIGHT: css`
       label: tooltip__text-arrow--right;
       &::after {
         left: ${theme.spacings.mega};
       }
     `,
-    left: css`
-      label: tooltip__text-arrow--right;
+    ALIGN_LEFT: css`
+      label: tooltip__text-arrow--left;
       &::after {
         right: ${theme.spacings.mega};
       }
@@ -41,18 +45,18 @@ const arrowAlignsStyles = ({ align, theme }) =>
 
 const tooltipTextAlignStyles = ({ align }) =>
   ({
-    center: css`
+    ALIGN_CENTER: css`
       label: tooltip__text--center;
       left: 0;
       right: 0;
       margin-left: auto;
       margin-right: auto;
     `,
-    right: css`
+    ALIGN_RIGHT: css`
       label: tooltip__text--right;
       left: 50%;
     `,
-    left: css`
+    ALIGN_LEFT: css`
       label: tooltip__text--left;
       right: 50%;
     `
@@ -104,12 +108,12 @@ const Tooltip = ({ children, content, align, ...props }) => (
   </TooltipElement>
 );
 
-Tooltip.Center = 'center';
-Tooltip.Left = 'left';
-Tooltip.Right = 'right';
+Tooltip.Center = ALIGN_CENTER;
+Tooltip.Right = ALIGN_RIGHT;
+Tooltip.Left = ALIGN_LEFT;
 
 Tooltip.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 
   /**
    * The content inside of the tooltip being shown.
