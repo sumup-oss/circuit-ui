@@ -1,4 +1,4 @@
-import id from './unique-id';
+import { id } from './unique-id';
 
 describe('Id', () => {
   it('should generate a unique, auto-incrementing id', () => {

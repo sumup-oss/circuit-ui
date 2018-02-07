@@ -5,7 +5,7 @@ import { stripUnit } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import { textKilo } from '../../styles/style-helpers';
-import id from '../../util/unique-id';
+import { id } from '../../util/unique-id';
 
 const calculateSize = ({ theme, size }) => {
   const sizeMap = {

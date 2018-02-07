@@ -2,9 +2,7 @@
 
 let idCounter = 0;
 
-function id(prefix = '') {
+export const id = (prefix = '') => {
   idCounter += 1;
   return `${prefix}${idCounter}`;
-}
-
-export default id;
+};

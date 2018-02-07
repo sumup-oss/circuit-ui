@@ -176,7 +176,7 @@ function toCurrencyNumberFormat(number, currencyFormat) {
   return formatNumber(number, numberFormat);
 }
 
-export function formatNumberFor(number, currency, locale) {
+export function formatCurrencyForLocale(number, currency, locale) {
   const currencyFormat = getCurrencyFormat(currency, locale);
   return toCurrencyNumberFormat(number, currencyFormat);
 }
