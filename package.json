@@ -6,24 +6,24 @@
   "scripts": {
     "fix:eslint": "eslint --fix --quiet src/**/**/*.js",
     "fix:stylelint": "stylelint \"src/**/*.scss\" --cache --fix",
-    "fix": "npm run fix:eslint",
-    "test": "npm run test:lint-js && npm run test:unit",
-    "test:lint-css:watch": "onchange \"src/**/**/*.scss\" \"src/**/**/*.scss\" -- npm run test:lint-css",
+    "fix": "yarn fix:eslint",
+    "test": "yarn test:lint-js && yarn test:unit",
+    "test:lint-css:watch": "onchange \"src/**/**/*.scss\" \"src/**/**/*.scss\" -- yarn test:lint-css",
     "test:lint-css": "stylelint \"src/**/*.scss\" --cache",
     "test:lint-js": "eslint --cache --quiet src/**/**/*.js",
-    "test:lint-js:watch": "onchange \"src/**/**/*.js\" -- npm run test:lint-js",
+    "test:lint-js:watch": "onchange \"src/**/**/*.js\" -- yarn test:lint-js",
     "test:unit": "jest --coverage --no-cache",
-    "test:unit:watch": "npm run test:unit:output -- --watch",
+    "test:unit:watch": "yarn test:unit:output -- --watch",
     "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache",
-    "prepush": "npm test",
-    "start": "npm run test:unit:output && start-storybook -p 6006",
-    "prebuild": "npm run test:unit:output",
+    "prepush": "yarn test",
+    "start": "yarn test:unit:output && start-storybook -p 6006",
+    "prebuild": "yarn test:unit:output",
     "build": "build-storybook -c .storybook -o .out",
     "deploy": "storybook-to-ghpages"
   },
   "lint-staged": {
     "*.js": [
-      "npm run fix:prettier",
+      "yarn fix:prettier",
       "git add"
     ]
   },
