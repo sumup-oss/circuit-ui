@@ -1,6 +1,6 @@
 import { keys } from 'lodash';
 
-import * as numbers from '.';
+import * as numbers from './numbers';
 
 describe('numbers', () => {
   describe('formatNumber()', () => {
