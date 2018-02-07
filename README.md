@@ -1,30 +1,29 @@
 # Installation
 
 ```
-npm install
-npm start
+yarn && yarn start
 ```
 
 # Deployment
 
 ```
-npm run deploy
+yarn deploy
 ```
 
 # Linting and formatting
 
 ```
-npm run fix:prettier
-npm run fix:estlint
-npm run fix:stylelint
+yarn fix:prettier
+yarn fix:estlint
+yarn fix:stylelint
 
-npm run fix # Run all autofixing
+yarn fix # Run all autofixing
 ```
 
 # Testing
 
 ```
-npm run test:unit:watch
+yarn test:unit:watch
 ```
 
 ```javascript
