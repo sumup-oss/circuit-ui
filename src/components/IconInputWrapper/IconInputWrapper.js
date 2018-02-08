@@ -66,7 +66,7 @@ const inputRightStyles = ({ theme, iconPosition }) =>
  * Used to wrap inputs or selects that have an icon overlay. Takes two
  * render props (input and icon).
  */
-const IconInputWrapper = ({ iconPosition, theme, selector, input, icon }) => {
+const IconInputWrapper = ({ iconPosition, theme, input, icon }) => {
   const iconClassName = cx(
     iconBaseStyles({ theme }),
     iconLeftStyles({ theme, iconPosition }),
@@ -79,7 +79,7 @@ const IconInputWrapper = ({ iconPosition, theme, selector, input, icon }) => {
   );
 
   return (
-    <IconInputContainer data-selector={selector}>
+    <IconInputContainer>
       {input({ className: inputClassName })}
       {icon({
         className: iconClassName,
@@ -106,11 +106,6 @@ IconInputWrapper.propTypes = {
    * style when the input is disabled.
    */
   icon: PropTypes.func.isRequired,
-  /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired,
   /**
    * Position the icon render prop should show. Affects the
    * className passed to the render prop.

@@ -63,16 +63,8 @@ const Icon = styled(DownTriangleIcon)(baseIconStyles);
 /**
  * A native select component.
  */
-const Select = ({
-  options,
-  value,
-  placeholder,
-  selector,
-  disabled,
-  ...props
-}) => (
+const Select = ({ options, value, placeholder, disabled, ...props }) => (
   <IconInputWrapper
-    {...{ selector }}
     iconPosition="right"
     icon={({ className, disabledClassName }) => (
       <Icon className={cx(className, { [disabledClassName]: disabled })} />
@@ -92,11 +84,6 @@ const Select = ({
 );
 
 Select.propTypes = {
-  /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired,
   /**
    * onChange handler, called when the selection changes.
    */

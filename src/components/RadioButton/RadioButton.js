@@ -145,12 +145,7 @@ RadioButton.propTypes = {
    * Triggers disabled styles on the component. This is also forwarded as
    * attribute to the <input> element.
    */
-  disabled: PropTypes.bool,
-  /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired
+  disabled: PropTypes.bool
 };
 
 RadioButton.defaultProps = {

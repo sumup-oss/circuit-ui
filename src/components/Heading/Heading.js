@@ -56,11 +56,6 @@ Heading.propTypes = {
    */
   size: PropTypes.oneOf([KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA]),
   /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired,
-  /**
    * Optional additional className string to overwrite styles.
    */
   className: PropTypes.string,

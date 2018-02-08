@@ -42,11 +42,6 @@ const SubHeading = props => (
 
 SubHeading.propTypes = {
   /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired,
-  /**
    * Child nodes to be rendered.
    */
   children: childrenPropType,

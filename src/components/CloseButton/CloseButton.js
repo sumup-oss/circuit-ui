@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from 'react-emotion';
 
 import SvgButton from '../SvgButton';
@@ -19,14 +18,6 @@ const CloseButton = props => (
     <Icon />
   </SvgButton>
 );
-
-CloseButton.propTypes = {
-  /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired
-};
 
 /**
  * @component

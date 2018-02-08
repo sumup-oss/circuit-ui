@@ -103,12 +103,7 @@ Input.propTypes = {
   /**
    * Autocomplete attribute to be passed down to the <input> element.
    */
-  autoComplete: PropTypes.string,
-  /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired
+  autoComplete: PropTypes.string
 };
 
 Input.defaultProps = {
