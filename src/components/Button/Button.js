@@ -227,7 +227,7 @@ Button.propTypes = {
   /**
    * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
    */
-  size: PropTypes.oneOf([KILO, MEGA, GIGA]),
+  size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
   /**
    * Standard onClick function. If used on an anchor this can be used to
    * cause additional side-effects like tracking.

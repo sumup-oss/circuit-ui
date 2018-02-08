@@ -36,10 +36,10 @@ storiesOf('List', module)
   .add(
     'List kilo',
     withInfo()(() => (
-      <List size="kilo">
+      <List size={List.KILO}>
         <li>This is a list</li>
         <li>A very find list</li>
-        <List size="kilo">
+        <List size={List.KILO}>
           <li>Sometimes a nested list</li>
         </List>
         <li>The kind of list you like</li>
@@ -49,10 +49,10 @@ storiesOf('List', module)
   .add(
     'List mega',
     withInfo()(() => (
-      <List size="mega">
+      <List size={List.MEGA}>
         <li>This is a list</li>
         <li>A very find list</li>
-        <List size="mega">
+        <List size={List.MEGA}>
           <li>Sometimes a nested list</li>
         </List>
         <li>The kind of list you like</li>

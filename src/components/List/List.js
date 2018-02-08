@@ -53,6 +53,7 @@ const ListElement = props => (
  * A list, which can be ordered or unordered
  */
 const List = styled(ListElement)(baseStyles, sizeStyles);
+
 List.KILO = KILO;
 List.MEGA = MEGA;
 
@@ -64,7 +65,7 @@ List.propTypes = {
   /**
    * A Circuit UI body text size.
    */
-  size: PropTypes.oneOf([KILO, MEGA]),
+  size: PropTypes.oneOf([List.KILO, List.MEGA]),
   /**
    * Whether the list should be presented as an <ol>
    */
@@ -72,7 +73,7 @@ List.propTypes = {
 };
 
 List.defaultProps = {
-  size: KILO,
+  size: List.KILO,
   ordered: false
 };
 

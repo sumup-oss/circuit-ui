@@ -28,7 +28,7 @@ storiesOf('Tooltip', module)
   .add(
     'Centered ',
     withInfo()(() => (
-      <Tooltip align={Tooltip.Center} content="The tooltip content">
+      <Tooltip align={Tooltip.CENTER} content="The tooltip content">
         Something with tooltip
       </Tooltip>
     ))
@@ -36,7 +36,7 @@ storiesOf('Tooltip', module)
   .add(
     'Left ',
     withInfo()(() => (
-      <Tooltip align={Tooltip.Left} content="The tooltip content">
+      <Tooltip align={Tooltip.LEFT} content="The tooltip content">
         Something with tooltip
       </Tooltip>
     ))
@@ -44,7 +44,7 @@ storiesOf('Tooltip', module)
   .add(
     'Right ',
     withInfo()(() => (
-      <Tooltip align={Tooltip.Right} content="The tooltip content">
+      <Tooltip align={Tooltip.RIGHT} content="The tooltip content">
         Something with tooltip
       </Tooltip>
     ))

@@ -54,7 +54,15 @@ Heading.propTypes = {
   /**
    * A Circuit UI heading size.
    */
-  size: PropTypes.oneOf([KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA]),
+  size: PropTypes.oneOf([
+    Heading.KILO,
+    Heading.MEGA,
+    Heading.GIGA,
+    Heading.TERA,
+    Heading.PETA,
+    Heading.EXA,
+    Heading.ZETTA
+  ]),
   /**
    * An ID rendered as data-selector attribute on the
    * component. Used for tracking and e2e testing.
@@ -76,7 +84,7 @@ Heading.propTypes = {
 
 Heading.defaultProps = {
   element: 'h2',
-  size: PETA,
+  size: Heading.PETA,
   className: '',
   margin: true,
   children: null

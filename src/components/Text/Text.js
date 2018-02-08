@@ -50,7 +50,7 @@ Text.propTypes = {
   /**
    * A Circuit UI body text size.
    */
-  size: PropTypes.oneOf([KILO, MEGA, GIGA]),
+  size: PropTypes.oneOf([Text.KILO, Text.MEGA, Text.GIGA]),
   /**
    * Optional additional className string to overwrite styles.
    */
@@ -67,7 +67,7 @@ Text.propTypes = {
 
 Text.defaultProps = {
   element: 'p',
-  size: MEGA,
+  size: Text.MEGA,
   className: '',
   margin: true,
   children: null

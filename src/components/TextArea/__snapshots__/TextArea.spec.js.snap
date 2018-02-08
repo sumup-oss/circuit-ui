@@ -13,6 +13,7 @@ exports[`TextArea should have the correct default styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -57,6 +58,7 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   opacity: 0.5;
   pointer-events: none;
   overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -125,6 +127,7 @@ exports[`TextArea should show with disabled styled when passed the disabled prop
   opacity: 0.5;
   pointer-events: none;
   overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -168,6 +171,7 @@ exports[`TextArea should show with invalid styles when passed the isInvalid prop
   font-size: 15px;
   line-height: 24px;
   overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -236,6 +240,7 @@ exports[`TextArea should show with optional styles when passed the isOptional pr
   border-style: dashed;
   box-shadow: none;
   overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,

@@ -11,7 +11,7 @@ describe('Tooltip', () => {
 
   it('should align to the center', () => {
     const component = create(
-      <Tooltip align={Tooltip.Center} content="The tooltip content">
+      <Tooltip align={Tooltip.CENTER} content="The tooltip content">
         Something with tooltip
       </Tooltip>
     );
@@ -20,7 +20,7 @@ describe('Tooltip', () => {
 
   it('should align to the right', () => {
     const component = create(
-      <Tooltip align={Tooltip.Right} content="The tooltip content">
+      <Tooltip align={Tooltip.RIGHT} content="The tooltip content">
         Something with tooltip
       </Tooltip>
     );
@@ -29,7 +29,7 @@ describe('Tooltip', () => {
 
   it('should align to the left', () => {
     const component = create(
-      <Tooltip align={Tooltip.Left} content="The tooltip content">
+      <Tooltip align={Tooltip.LEFT} content="The tooltip content">
         Something with tooltip
       </Tooltip>
     );
@@ -38,7 +38,7 @@ describe('Tooltip', () => {
 
   it('should render with icon', () => {
     const component = create(
-      <Tooltip align={Tooltip.Center} content="The tooltip content">
+      <Tooltip align={Tooltip.CENTER} content="The tooltip content">
         <span>Text and a</span>
         <DummyIcon />
       </Tooltip>
@@ -48,7 +48,7 @@ describe('Tooltip', () => {
 
   it('should accept icon as content', () => {
     const component = create(
-      <Tooltip align={Tooltip.Center} content={<DummyIcon />}>
+      <Tooltip align={Tooltip.CENTER} content={<DummyIcon />}>
         Some text
       </Tooltip>
     );
