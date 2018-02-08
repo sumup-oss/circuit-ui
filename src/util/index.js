@@ -1,28 +1,8 @@
-export {
-  CURRENCY_FORMATS,
-  CURRENCY_SYMBOLS,
-  getCurrencyFormat,
-  shouldPrependSymbol,
-  formatCurrency,
-  formatCurrencyForLocale
-} from './currency';
+import * as id from './id';
+import * as numbers from './numbers';
+import * as currency from './currency';
+import * as sharedPropTypes from './shared-prop-types';
+import * as sizes from './sizes';
+import * as typeCheck from './type-check';
 
-export {
-  NUMBER_SEPARATORS,
-  getNumberFormat,
-  formatNumber,
-  formatNumberParts,
-  formatNumberForLocale
-} from './numbers';
-
-export {
-  childrenPropType,
-  childrenRenderPropType,
-  themePropType
-} from './shared-prop-types';
-
-export { BIT, BYTE, KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } from './sizes';
-
-export { isFunction, isString } from './type-check';
-
-export { id } from './unique-id';
+export { id, numbers, currency, sharedPropTypes, sizes, typeCheck };

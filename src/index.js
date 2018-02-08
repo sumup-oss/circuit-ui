@@ -1,7 +1,3 @@
-import * as themes from './themes';
-import * as numbers from './util/numbers';
-import * as currency from './util/currency';
-
 // Typography
 export { default as Heading } from './components/Heading';
 export { default as List } from './components/List';
@@ -36,5 +32,3 @@ export { default as Price } from './components/Price';
 
 // Helpers
 export { default as State } from './components/State';
-
-export { themes, numbers, currency };
