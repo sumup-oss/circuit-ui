@@ -5,7 +5,7 @@ import { stripUnit } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import { textKilo } from '../../styles/style-helpers';
-import id from '../../util/unique-id';
+import { uniqueId } from '../../util/id';
 
 const calculateSize = ({ theme, size }) => {
   const sizeMap = {
@@ -68,7 +68,7 @@ const LoadingBarLabel = styled('span')(labelStyles);
  * Loading bar component to indicate progress
  */
 const LoadingBar = ({ children, max, value, ...props }) => {
-  const ariaId = id('loadingBar_');
+  const ariaId = uniqueId('loadingBar_');
   return (
     <LoadingBarWrapper>
       <LoadingBarProgress

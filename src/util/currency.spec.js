@@ -1,4 +1,4 @@
-import * as currency from '.';
+import * as currency from './currency';
 
 describe('currency', () => {
   describe('getCurrencyFormat()', () => {

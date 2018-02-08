@@ -1,7 +1,7 @@
 import { get, isNumber, isString } from 'lodash/fp';
 import { get as _get } from 'lodash';
 
-import { formatNumber, getNumberFormat } from '../numbers';
+import { formatNumber, getNumberFormat } from './numbers';
 
 export const CURRENCY_FORMATS = {
   EUR: {
@@ -176,7 +176,7 @@ function toCurrencyNumberFormat(number, currencyFormat) {
   return formatNumber(number, numberFormat);
 }
 
-export function formatNumberFor(number, currency, locale) {
+export function formatCurrencyForLocale(number, currency, locale) {
   const currencyFormat = getCurrencyFormat(currency, locale);
   return toCurrencyNumberFormat(number, currencyFormat);
 }

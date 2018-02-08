@@ -2,7 +2,8 @@
   "name": "circuit-ui",
   "version": "0.0.1",
   "description": "SumUp's React UI component library",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "src/index.js",
   "scripts": {
     "fix:eslint": "eslint --fix --quiet src/**/**/*.js",
     "fix:stylelint": "stylelint \"src/**/*.scss\" --cache --fix",
