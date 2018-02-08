@@ -38,13 +38,13 @@ const Heading = props => (
   <HeadingElement {...props} blacklist={{ margin: true }} />
 );
 
-Text.KILO = KILO;
-Text.MEGA = MEGA;
-Text.GIGA = GIGA;
-Text.TERA = TERA;
-Text.PETA = PETA;
-Text.EXA = EXA;
-Text.ZETTA = ZETTA;
+Heading.KILO = KILO;
+Heading.MEGA = MEGA;
+Heading.GIGA = GIGA;
+Heading.TERA = TERA;
+Heading.PETA = PETA;
+Heading.EXA = EXA;
+Heading.ZETTA = ZETTA;
 
 Heading.propTypes = {
   /**
