@@ -40,6 +40,9 @@ const SubHeading = props => (
   <SubHeadingElement {...props} blacklist={{ margin: true }} />
 );
 
+SubHeading.KILO = KILO;
+SubHeading.MEGA = MEGA;
+
 SubHeading.propTypes = {
   /**
    * An ID rendered as data-selector attribute on the
@@ -53,7 +56,7 @@ SubHeading.propTypes = {
   /**
    * A Circuit UI sub-heading size.
    */
-  size: PropTypes.oneOf([KILO, MEGA]),
+  size: PropTypes.oneOf([SubHeading.KILO, SubHeading.MEGA]),
   /**
    * Optional additional className string to overwrite styles.
    */
@@ -70,7 +73,7 @@ SubHeading.propTypes = {
 
 SubHeading.defaultProps = {
   element: 'h3',
-  size: KILO,
+  size: SubHeading.KILO,
   className: '',
   margin: true,
   children: null

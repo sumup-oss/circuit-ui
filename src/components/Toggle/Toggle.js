@@ -65,12 +65,14 @@ const Toggle = ({ label, explanation, margin, ...props }) => (
       explanation && (
         <ToggleTextWrapper>
           {label && (
-            <ToggleLabel element="label" size="kilo">
+            <ToggleLabel element="label" size={Text.KILO}>
               {label}
             </ToggleLabel>
           )}
           {explanation && (
-            <ToggleExplanation size="kilo">{explanation}</ToggleExplanation>
+            <ToggleExplanation size={Text.KILO}>
+              {explanation}
+            </ToggleExplanation>
           )}
         </ToggleTextWrapper>
       )}

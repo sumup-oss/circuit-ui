@@ -6,6 +6,7 @@ import Input from '../Input';
 const baseStyles = css`
   label: textarea;
   overflow: auto;
+  resize: vertical;
 `;
 
 /**

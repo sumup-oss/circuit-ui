@@ -6,12 +6,13 @@ import { stripUnit } from 'polished';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
+import { KILO, MEGA, GIGA } from '../../util/sizes';
 
 const calculateSize = ({ theme, size }) => {
   const sizeMap = {
-    kilo: theme.spacings.byte,
-    mega: theme.spacings.mega,
-    giga: theme.spacings.tera
+    [KILO]: theme.spacings.byte,
+    [MEGA]: theme.spacings.mega,
+    [GIGA]: theme.spacings.tera
   };
   return sizeMap[size];
 };
@@ -84,6 +85,10 @@ const LoadingBar = ({ children, max, value, ...props }) => {
   );
 };
 
+LoadingBar.KILO = KILO;
+LoadingBar.MEGA = MEGA;
+LoadingBar.GIGA = GIGA;
+
 LoadingBar.propTypes = {
   /**
    * A number greater than zero, indicating how much work the task requires.
@@ -97,7 +102,7 @@ LoadingBar.propTypes = {
   /**
    * Size
    */
-  size: PropTypes.oneOf(['kilo', 'mega', 'giga']),
+  size: PropTypes.oneOf([LoadingBar.KILO, LoadingBar.MEGA, LoadingBar.GIGA]),
   /**
    * Child nodes to be rendered as the label.
    */
@@ -105,7 +110,7 @@ LoadingBar.propTypes = {
 };
 
 LoadingBar.defaultProps = {
-  size: 'kilo',
+  size: LoadingBar.KILO,
   max: 1.0,
   value: 0,
   children: null

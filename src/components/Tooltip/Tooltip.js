@@ -4,9 +4,9 @@ import styled, { css } from 'react-emotion';
 
 import { textKilo } from '../../styles/style-helpers';
 
-const ALIGN_CENTER = 'center';
-const ALIGN_RIGHT = 'right';
-const ALIGN_LEFT = 'left';
+const CENTER = 'center';
+const RIGHT = 'right';
+const LEFT = 'left';
 
 const baseStyles = css`
   label: tooltip;
@@ -108,9 +108,9 @@ const Tooltip = ({ children, content, align, ...props }) => (
   </TooltipElement>
 );
 
-Tooltip.Center = ALIGN_CENTER;
-Tooltip.Right = ALIGN_RIGHT;
-Tooltip.Left = ALIGN_LEFT;
+Tooltip.CENTER = CENTER;
+Tooltip.RIGHT = RIGHT;
+Tooltip.LEFT = LEFT;
 
 Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
@@ -123,7 +123,7 @@ Tooltip.propTypes = {
    * The alignment of the tooltip.
    * It can be right, left or centered.
    */
-  align: PropTypes.oneOf([Tooltip.Center, Tooltip.Right, Tooltip.Left])
+  align: PropTypes.oneOf([Tooltip.CENTER, Tooltip.RIGHT, Tooltip.LEFT])
 };
 
 Tooltip.defaultProps = {

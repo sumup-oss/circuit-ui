@@ -11,9 +11,9 @@ storiesOf('LoadingBar', module)
     'LoadingBar',
     withInfo()(() => (
       <div style={{ width: '25vw' }}>
-        <LoadingBar value={3} max={10} size="giga" />
-        <LoadingBar value={5} max={10} size="mega" />
-        <LoadingBar value={8} max={10} size="kilo" />
+        <LoadingBar value={3} max={10} size={LoadingBar.GIGA} />
+        <LoadingBar value={5} max={10} size={LoadingBar.MEGA} />
+        <LoadingBar value={8} max={10} size={LoadingBar.KILO} />
       </div>
     ))
   )
@@ -21,13 +21,13 @@ storiesOf('LoadingBar', module)
     'LoadingBar with label',
     withInfo()(() => (
       <div style={{ width: '25vw' }}>
-        <LoadingBar value={3} max={10} size="giga">
+        <LoadingBar value={3} max={10} size={LoadingBar.GIGA}>
           3/10
         </LoadingBar>
-        <LoadingBar value={5} max={10} size="mega">
+        <LoadingBar value={5} max={10} size={LoadingBar.MEGA}>
           50%
         </LoadingBar>
-        <LoadingBar value={8} max={10} size="kilo">
+        <LoadingBar value={8} max={10} size={LoadingBar.KILO}>
           Loading...
         </LoadingBar>
       </div>
