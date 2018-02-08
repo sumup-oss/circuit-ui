@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
@@ -15,7 +15,22 @@ storiesOf('Card', module)
   .addDecorator(withTests('Card'))
   .add(
     'Card',
-    withInfo()(() => <Card style={{ width: '500px', height: '300px' }} />)
+    withInfo()(() => (
+      <Fragment>
+        <Card
+          shadow={Card.SINGLE}
+          style={{ width: '500px', height: '150px', marginBottom: '15px' }}
+        />
+        <Card
+          shadow={Card.DOUBLE}
+          style={{ width: '500px', height: '150px', marginBottom: '15px' }}
+        />
+        <Card
+          shadow={Card.TRIPLE}
+          style={{ width: '500px', height: '150px', marginBottom: '15px' }}
+        />
+      </Fragment>
+    ))
   )
   .add(
     'Card with Header and body',
