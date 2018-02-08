@@ -9,9 +9,8 @@ import SearchIcon from './search.svg';
 /**
  * SearchInput component for forms.
  */
-const SearchInput = ({ disabled, selector, ...props }) => (
+const SearchInput = ({ disabled, ...props }) => (
   <IconInputWrapper
-    {...{ selector }}
     role="search"
     icon={({ className, disabledClassName }) => (
       <SearchIcon
@@ -24,11 +23,6 @@ const SearchInput = ({ disabled, selector, ...props }) => (
 );
 
 SearchInput.propTypes = {
-  /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired,
   /**
    * Triggers disabled styles on the component. This is also forwarded as
    * attribute to the <input> element.

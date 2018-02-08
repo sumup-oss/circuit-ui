@@ -24,7 +24,6 @@ exports[`IconInputWrapper should allow rendering the icon on the right 1`] = `
 
 <div
   className="circuit-4 circuit-5"
-  data-selector="some-wrapper"
 >
   <div
     className="circuit-0 circuit-1"
@@ -59,7 +58,6 @@ exports[`IconInputWrapper should have it's base styles 1`] = `
 
 <div
   className="circuit-4 circuit-5"
-  data-selector="some-wrapper"
 >
   <div
     className="circuit-0 circuit-1"

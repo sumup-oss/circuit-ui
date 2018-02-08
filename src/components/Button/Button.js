@@ -199,11 +199,6 @@ Button.GIGA = GIGA;
 
 Button.propTypes = {
   /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired,
-  /**
    * URL the Button should lead to. Causes the Button to render an <a> tag.
    */
   href: PropTypes.string,

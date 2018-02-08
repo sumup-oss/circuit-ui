@@ -40,11 +40,6 @@ const Badge = styled('div')(baseStyles, circleStyles);
 
 Badge.propTypes = {
   /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string,
-  /**
    * Callback for the click event.
    */
   onClick: PropTypes.func,
@@ -55,7 +50,6 @@ Badge.propTypes = {
 };
 
 Badge.defaultProps = {
-  selector: null,
   onClick: () => {},
   circle: false
 };

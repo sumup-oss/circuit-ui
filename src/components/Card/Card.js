@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import { childrenPropType } from '../../util/shared-prop-types';
@@ -22,11 +21,6 @@ const baseStyles = ({ theme }) => css`
 const Card = styled('div')(baseStyles);
 
 Card.propTypes = {
-  /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
-   */
-  selector: PropTypes.string.isRequired,
   /**
    * Content to be rendered inside the Card.
    */

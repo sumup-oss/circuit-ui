@@ -42,7 +42,6 @@ exports[`Select should render with default styles 1`] = `
 
 <div
   className="circuit-2 circuit-3"
-  data-selector={undefined}
 >
   <select
     className="circuit-0 circuit-1"
@@ -120,7 +119,6 @@ exports[`Select should render with disabled styles when passed the disabled prop
 
 <div
   className="circuit-2 circuit-3"
-  data-selector={undefined}
 >
   <select
     className="circuit-0 circuit-1"

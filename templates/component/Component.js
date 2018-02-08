@@ -12,10 +12,9 @@ const Component = styled('element')(baseStyles);
 
 Component.propTypes = {
   /**
-   * An ID rendered as data-selector attribute on the
-   * component. Used for tracking and e2e testing.
+   * A consice description of the example prop.
    */
-  selector: PropTypes.string.isRequired
+  example: PropTypes.string
 };
 
 Component.defaultProps = {};
