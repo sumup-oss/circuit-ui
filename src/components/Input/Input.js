@@ -1,54 +1,37 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { textMega } from '../../styles/style-helpers';
+import { standard } from '../../themes';
+import { textMega, disableVisually } from '../../styles/style-helpers';
 
-const invalidStyles = ({ theme, isInvalid }) => {
-  if (!isInvalid) {
-    return '';
-  }
-
-  return css`
+const invalidStyles = ({ theme, invalid }) =>
+  invalid &&
+  css`
     label: input--error;
     &:not(:focus) {
-      background-color: ${theme.colors.r100};
       border-color: ${theme.colors.r300};
-      color: ${theme.colors.r500};
-      box-shadow: none;
 
       &::placeholder {
         color: ${theme.colors.r300};
       }
     }
   `;
-};
 
-const optionalStyles = ({ theme, isOptional }) => {
-  if (!isOptional) {
-    return '';
-  }
-
-  return css`
+const optionalStyles = ({ theme, optional }) =>
+  optional &&
+  css`
     label: input--optional;
     background-color: ${theme.colors.n100};
     border-style: dashed;
     box-shadow: none;
   `;
-};
 
-const disabledStyles = ({ disabled }) => {
-  if (!disabled) {
-    return '';
-  }
-
-  return css`
+const disabledStyles = ({ disabled }) =>
+  disabled &&
+  css`
     label: input--disabled;
-    // TODO: this should really be consistent between different
-    //       components. Buttons use 0.4.
-    opacity: 0.5;
-    pointer-events: none;
+    ${disableVisually()};
   `;
-};
 
 const baseStyles = ({ theme }) => css`
   label: input;
@@ -57,7 +40,7 @@ const baseStyles = ({ theme }) => css`
   border-style: solid;
   border-color: ${theme.colors.n300};
   border-radius: ${theme.borderRadius.mega};
-  box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.21);
+  box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
   color: ${theme.colors.n900};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
   ${textMega({ theme })};
@@ -73,8 +56,7 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-// TODO add support for data-selector attribute.
-// TODO add dynamic invalid aria attribute.
+// TODO: Add dynamic invalid aria attribute.
 /**
  * Input component for forms.
  */
@@ -86,11 +68,11 @@ Input.propTypes = {
   /**
    * Triggers error styles on the component.
    */
-  isInvalid: PropTypes.bool,
+  invalid: PropTypes.bool,
   /**
    * Triggers optional styles on the component.
    */
-  isOptional: PropTypes.bool,
+  optional: PropTypes.bool,
   /**
    * Triggers disabled styles on the component. This is also forwarded as
    * attribute to the <input> element.
@@ -103,8 +85,9 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  isInvalid: false,
-  isOptional: false,
+  theme: standard,
+  invalid: false,
+  optional: false,
   disabled: false,
   autoComplete: 'none'
 };

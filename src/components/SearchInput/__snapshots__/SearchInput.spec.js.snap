@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchInput should render icon with 0.4 opacity when disabled 1`] = `
+exports[`SearchInput should grey out icon when disabled 1`] = `
 .circuit-2 {
   display: inline-block;
   position: relative;
@@ -12,13 +12,14 @@ exports[`SearchInput should render icon with 0.4 opacity when disabled 1`] = `
   border-style: solid;
   border-color: #D8DDE1;
   border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   color: #212933;
   padding: 8px 12px;
   font-size: 15px;
   line-height: 24px;
   opacity: 0.5;
   pointer-events: none;
+  box-shadow: none;
   padding-left: calc( 12px + 16px + 12px );
 }
 
@@ -70,7 +71,7 @@ exports[`SearchInput should render with default styles 1`] = `
   border-style: solid;
   border-color: #D8DDE1;
   border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   color: #212933;
   padding: 8px 12px;
   font-size: 15px;

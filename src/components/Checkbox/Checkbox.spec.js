@@ -13,17 +13,17 @@ describe('Checkbox', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with checked styles', () => {
+  it('should render with checked styles when passed the checked prop', () => {
     const actual = create(<Checkbox checked {...{ selector }} />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with disabled styles', () => {
+  it('should render with disabled styles when passed the disabled prop', () => {
     const actual = create(<Checkbox disabled {...{ selector }} />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with invalid styles', () => {
+  it('should render with invalid styles when passed the invalid prop', () => {
     const actual = create(<Checkbox invalid {...{ selector }} />);
     expect(actual).toMatchSnapshot();
   });

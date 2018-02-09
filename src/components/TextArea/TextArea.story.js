@@ -14,15 +14,12 @@ storiesOf('TextArea', module)
   .add(
     'TextArea invalid',
     withInfo()(() => (
-      <TextArea
-        placeholder="Invalid TextArea, maybe too many chars?"
-        isInvalid
-      />
+      <TextArea placeholder="Invalid TextArea, maybe too many chars?" invalid />
     ))
   )
   .add(
     'TextArea optional',
-    withInfo()(() => <TextArea placeholder="Optional" isOptional />)
+    withInfo()(() => <TextArea placeholder="Optional" optional />)
   )
   .add(
     'TextArea disabled',

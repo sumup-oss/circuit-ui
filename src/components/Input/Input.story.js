@@ -12,12 +12,12 @@ storiesOf('Input', module)
   .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
   .add(
     'Input invalid',
-    withInfo()(() => <Input placeholder="Placeholder" isInvalid />)
+    withInfo()(() => <Input placeholder="Placeholder" invalid />)
   )
   .add(
     'Input optional',
     withInfo()(() => (
-      <Input placeholder="Placeholder" style={styles} isOptional />
+      <Input placeholder="Placeholder" style={styles} optional />
     ))
   )
   .add(

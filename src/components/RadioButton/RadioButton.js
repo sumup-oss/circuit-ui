@@ -2,18 +2,18 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually, size } from 'polished';
-import { shadowSingle, disableVisually } from '../../styles/style-helpers';
+import { disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 
-const baseStyles = ({ theme }) => css`
+const labelBaseStyles = ({ theme }) => css`
   label: radio-button__label;
   color: ${theme.colors.n700};
   padding-left: ${theme.spacings.giga};
   position: relative;
 
   &::before {
-    ${shadowSingle({ theme })};
     ${size(theme.spacings.mega)};
+    box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
     border-radius: 100%;
@@ -41,7 +41,7 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const checkedStyles = ({ theme, checked }) =>
+const labelCheckedStyles = ({ theme, checked }) =>
   checked &&
   css`
     label: radio-button--active;
@@ -56,7 +56,7 @@ const checkedStyles = ({ theme, checked }) =>
     }
   `;
 
-const invalidStyles = ({ theme, invalid }) =>
+const labelInvalidStyles = ({ theme, invalid }) =>
   invalid &&
   css`
     label: radio-button--error;
@@ -69,17 +69,20 @@ const invalidStyles = ({ theme, invalid }) =>
     }
   `;
 
-const disabledStyles = ({ theme, disabled }) =>
+const labelDisabledStyles = ({ theme, disabled }) =>
   disabled &&
   css`
     label: radio-button--disabled;
     ${disableVisually()};
 
     &::before {
+      ${disableVisually()};
       border-color: ${theme.colors.n500};
+      background-color: ${theme.colors.n100};
     }
 
     &::after {
+      ${disableVisually()};
       background-color: ${theme.colors.n500};
     }
   `;
@@ -97,10 +100,10 @@ const inputStyles = ({ theme }) => css`
 const RadioButtonInput = styled('input')(inputStyles);
 
 const RadioButtonLabel = styled('label')(
-  baseStyles,
-  checkedStyles,
-  disabledStyles,
-  invalidStyles
+  labelBaseStyles,
+  labelCheckedStyles,
+  labelDisabledStyles,
+  labelInvalidStyles
 );
 
 /**
