@@ -4,7 +4,6 @@ exports[`FormLabel should have the correct styles 1`] = `
 .circuit-0 {
   font-size: 13px;
   line-height: 20px;
-  font-weight: 700;
   margin-bottom: 4px;
 }
 
