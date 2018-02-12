@@ -7,7 +7,7 @@ exports[`CloseButton should have the correct styles 1`] = `
   display: inline-block;
   background-color: transparent;
   border: none;
-  cursor: default;
+  cursor: pointer;
   height: 16px;
   width: 16px;
 }
