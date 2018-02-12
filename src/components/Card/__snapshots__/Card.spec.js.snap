@@ -15,7 +15,7 @@ exports[`Card should render with shadow styles 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  min-width: 460px;
+  min-width: 400px;
   padding: 16px 24px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
@@ -40,7 +40,7 @@ exports[`Card should render with shadow styles 2`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  min-width: 460px;
+  min-width: 400px;
   padding: 16px 24px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
 }
@@ -65,7 +65,7 @@ exports[`Card should render with shadow styles 3`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  min-width: 460px;
+  min-width: 400px;
   padding: 16px 24px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 4px 4px 0 rgba(12,15,20,0.06), 0 8px 8px 0 rgba(12,15,20,0.06);
 }
@@ -90,8 +90,9 @@ exports[`Card should render with the correct styles 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  min-width: 460px;
+  min-width: 400px;
   padding: 16px 24px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 <div
