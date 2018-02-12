@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlertButton should have the correct styles 1`] = `
+.circuit-0 {
+  display: block;
+  padding-left: 24px;
+  margin-left: auto;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+<span
+  className="circuit-0 circuit-1"
+/>
+`;
