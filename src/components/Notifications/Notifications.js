@@ -59,7 +59,7 @@ const NotificationsWrapper = styled('div')(baseStyles);
 const Notifications = ({ children, ...props }) => (
   <NotificationsWrapper {...props}>
     {Children.map(children, (child, i) => (
-      <Card spacing={Card.KILO} key={i}>
+      <Card spacing={Card.MEGA} key={i}>
         {child}
       </Card>
     ))}

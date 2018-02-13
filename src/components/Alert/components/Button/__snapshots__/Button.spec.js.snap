@@ -12,9 +12,12 @@ exports[`AlertButton should have the correct styles 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
-<span
+<div
   className="circuit-0 circuit-1"
 />
 `;

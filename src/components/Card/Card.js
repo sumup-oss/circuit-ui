@@ -12,8 +12,8 @@ const SINGLE = 'single';
 const DOUBLE = 'double';
 const TRIPLE = 'triple';
 
-const KILO = 'kilo';
 const MEGA = 'mega';
+const GIGA = 'giga';
 
 const baseStyles = ({ theme }) => css`
   label: card;
@@ -39,10 +39,10 @@ const shadowStyles = ({ theme, shadow }) => {
 
 const spacingStyles = ({ theme, spacing }) => {
   const spacings = {
-    [KILO]: `
+    [MEGA]: `
       ${theme.spacings.mega} ${theme.spacings.mega}
     `,
-    [MEGA]: `
+    [GIGA]: `
       ${theme.spacings.mega} ${theme.spacings.giga}
     `
   };
@@ -63,8 +63,8 @@ Card.SINGLE = SINGLE;
 Card.DOUBLE = DOUBLE;
 Card.TRIPLE = TRIPLE;
 
-Card.KILO = KILO;
 Card.MEGA = MEGA;
+Card.GIGA = GIGA;
 
 Card.propTypes = {
   /**
@@ -74,7 +74,7 @@ Card.propTypes = {
   /**
    * Spacing
    */
-  spacing: PropTypes.oneOf([Card.KILO, Card.MEGA]),
+  spacing: PropTypes.oneOf([Card.MEGA, Card.GIGA]),
   /**
    * Content to be rendered inside the Card.
    */
@@ -82,7 +82,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  spacing: Card.MEGA,
+  spacing: Card.GIGA,
   shadow: Card.SINGLE
 };
 
