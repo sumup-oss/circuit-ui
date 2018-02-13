@@ -1,9 +1,9 @@
 import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { stripUnit } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
+import { multiplyUnit } from '../../styles/style-helpers';
 import Card from '../Card';
 
 const TOP_LEFT = 'top-left';
@@ -38,7 +38,7 @@ const baseStyles = ({ theme, position }) => {
     flex-direction: column;
     width: 400px;
     max-width: 90vw; ${'' /* FALLBACK: Old Androids don't support calc()  */}
-    max-width: calc(100vw - ${stripUnit(outerSpacing) * 2}px);
+    max-width: calc(100vw - ${multiplyUnit(outerSpacing, 2)});
     ${corners[position]};
 
     > * {
@@ -52,14 +52,14 @@ const baseStyles = ({ theme, position }) => {
 };
 
 /**
- * Describe your component here.
+ * Notifications positions Messages in one corner of the viewport.
  */
 const NotificationsWrapper = styled('div')(baseStyles);
 
 const Notifications = ({ children, ...props }) => (
-  <NotificationsWrapper {...props}>
+  <NotificationsWrapper {...props} aria-live="polite">
     {Children.map(children, (child, i) => (
-      <Card spacing={Card.MEGA} key={i}>
+      <Card spacing={Card.MEGA} shadow={Card.DOUBLE} key={i}>
         {child}
       </Card>
     ))}
@@ -73,7 +73,7 @@ Notifications.BOTTOM_LEFT = BOTTOM_LEFT;
 
 Notifications.propTypes = {
   /**
-   * Content to be rendered inside the Card.
+   * One or more Messages.
    */
   children: childrenPropType,
   /**

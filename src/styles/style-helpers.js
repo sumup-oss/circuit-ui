@@ -1,4 +1,4 @@
-import { size, transparentize } from 'polished';
+import { size, stripUnit, transparentize } from 'polished';
 
 /**
  * Shadows
@@ -69,3 +69,35 @@ export const disableVisually = () => `
   pointer-events: none;
   box-shadow: none;
 `;
+
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a, b) => a / b;
+
+const transformUnit = (values, transform, allowMultipleUnits = true) => {
+  const checkUnit = (aUnit, bUnit) => {
+    if (!allowMultipleUnits && aUnit && bUnit) {
+      throw Error(`You cannot ${transform.name} multiple values with a unit.`);
+    }
+    if (aUnit && bUnit && aUnit !== bUnit) {
+      throw Error(`You cannot ${transform.name} values with different units.`);
+    }
+  };
+  const transformedValue = values.reduce((result, value) => {
+    const { amount, unit } = result;
+    const newAmount = stripUnit(value);
+    const [newUnit] = String(value).match(/[a-zA-Z]+/) || [];
+    checkUnit(unit, newUnit);
+    return {
+      amount: amount ? transform(amount, newAmount) : newAmount,
+      unit: newUnit || unit
+    };
+  }, {});
+  return `${transformedValue.amount}${transformedValue.unit}`;
+};
+
+export const addUnit = (...args) => transformUnit(args, add);
+export const subtractUnit = (...args) => transformUnit(args, subtract);
+export const multiplyUnit = (...args) => transformUnit(args, multiply, false);
+export const divideUnit = (...args) => transformUnit(args, divide, false);

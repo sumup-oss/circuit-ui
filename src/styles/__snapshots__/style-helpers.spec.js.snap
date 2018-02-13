@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Style helpers should throw an error when multiple values have a unit 1`] = `"You cannot multiply multiple values with a unit."`;
+
+exports[`Style helpers should throw an error when values do not have the same unit 1`] = `"You cannot add values with different units."`;

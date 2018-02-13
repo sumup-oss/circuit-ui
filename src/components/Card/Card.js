@@ -7,13 +7,13 @@ import {
   shadowDouble,
   shadowTriple
 } from '../../styles/style-helpers';
+import * as SIZES from '../../util/sizes';
+
+const { MEGA, GIGA } = SIZES;
 
 const SINGLE = 'single';
 const DOUBLE = 'double';
 const TRIPLE = 'triple';
-
-const MEGA = 'mega';
-const GIGA = 'giga';
 
 const baseStyles = ({ theme }) => css`
   label: card;

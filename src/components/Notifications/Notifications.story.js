@@ -48,9 +48,10 @@ storiesOf('Notifications', module)
               }
             }}
           >
-            {`# New Feature — Intelligent Reporting\nGet automatic insights into your business statistics with one click. [Learn more here](#)`}
+            {`# New Feature — Intelligent Reporting\nGet automatic insights into
+              your business statistics with one click. [Learn more here](#)`}
           </Markdown>
-          <MessageButton alignment={MessageButton.TOP}>
+          <MessageButton align={MessageButton.TOP}>
             <CloseButton
               onClick={e => {
                 action('Close button clicked')(e);

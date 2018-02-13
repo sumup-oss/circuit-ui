@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notifications should render with bottom-left styles 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90vw;
+  max-width: calc(100vw - 48px);
+  bottom: 24px;
+  left: 24px;
+}
+
+.circuit-0 > * {
+  margin-top: 16px;
+}
+
+.circuit-0 > *:first-child {
+  margin-top: 0;
+}
+
+<div
+  aria-live="polite"
+  className="circuit-0 circuit-1"
+/>
+`;
+
+exports[`Notifications should render with bottom-right styles 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90vw;
+  max-width: calc(100vw - 48px);
+  bottom: 24px;
+  right: 24px;
+}
+
+.circuit-0 > * {
+  margin-top: 16px;
+}
+
+.circuit-0 > *:first-child {
+  margin-top: 0;
+}
+
+<div
+  aria-live="polite"
+  className="circuit-0 circuit-1"
+/>
+`;
+
+exports[`Notifications should render with default styles 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90vw;
+  max-width: calc(100vw - 48px);
+  bottom: 24px;
+  right: 24px;
+}
+
+.circuit-2 > * {
+  margin-top: 16px;
+}
+
+.circuit-2 > *:first-child {
+  margin-top: 0;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  min-width: 400px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
+  padding: 16px 16px;
+}
+
+<div
+  aria-live="polite"
+  className="circuit-2 circuit-3"
+>
+  <div
+    className="circuit-0 circuit-1"
+    spacing="mega"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Notifications should render with top-left styles 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90vw;
+  max-width: calc(100vw - 48px);
+  top: 24px;
+  left: 24px;
+}
+
+.circuit-0 > * {
+  margin-top: 16px;
+}
+
+.circuit-0 > *:first-child {
+  margin-top: 0;
+}
+
+<div
+  aria-live="polite"
+  className="circuit-0 circuit-1"
+/>
+`;
+
+exports[`Notifications should render with top-right styles 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90vw;
+  max-width: calc(100vw - 48px);
+  top: 24px;
+  right: 24px;
+}
+
+.circuit-0 > * {
+  margin-top: 16px;
+}
+
+.circuit-0 > *:first-child {
+  margin-top: 0;
+}
+
+<div
+  aria-live="polite"
+  className="circuit-0 circuit-1"
+/>
+`;

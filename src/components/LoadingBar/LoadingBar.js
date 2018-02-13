@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { stripUnit } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import { textKilo } from '../../styles/style-helpers';
+import { textKilo, subtractUnit } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import { KILO, MEGA, GIGA } from '../../util/sizes';
 
@@ -27,8 +26,10 @@ const wrapperStyles = ({ theme }) => css`
 const progressStyles = ({ theme, size, value, max }) => {
   const outerBorderWidth = '1px';
   const outerBorderRadius = theme.borderRadius.mega;
-  const innerBorderRadius = `${stripUnit(outerBorderRadius) -
-    stripUnit(outerBorderWidth)}px`;
+  const innerBorderRadius = `${subtractUnit(
+    outerBorderRadius,
+    outerBorderWidth
+  )}`;
   return css`
     label: loading-bar__progress;
     background-color: ${theme.colors.n100};
