@@ -5,7 +5,7 @@ const CENTER = 'center';
 const TOP = 'top';
 
 const baseStyles = ({ theme }) => css`
-  label: alert__button;
+  label: message__button;
   display: block;
   padding-left: ${theme.spacings.giga};
   margin-left: auto;
@@ -13,20 +13,20 @@ const baseStyles = ({ theme }) => css`
   flex-shrink: 0;
 `;
 
-const alignmentStyles = ({ alignment }) => {
+const alignmentStyles = ({ align }) => {
   const alignments = {
     [CENTER]: 'center',
     [TOP]: 'flex-start'
   };
   return css`
-    label: alert__button--${alignment};
-    align-self: ${alignments[alignment]};
+    label: message__button--${align};
+    align-self: ${alignments[align]};
   `;
 };
 
 /**
  * Button used in the Message component. Used for styling and aligment
- * pruposes only.
+ * purposes only.
  */
 const MessageButton = styled('div')(baseStyles, alignmentStyles);
 
@@ -41,11 +41,11 @@ MessageButton.propTypes = {
   /**
    * Vertical alignment
    */
-  alignment: PropTypes.oneOf([MessageButton.TOP, MessageButton.CENTER])
+  align: PropTypes.oneOf([MessageButton.TOP, MessageButton.CENTER])
 };
 
 MessageButton.defaultProps = {
-  alignment: MessageButton.CENTER
+  align: MessageButton.CENTER
 };
 
 /**
