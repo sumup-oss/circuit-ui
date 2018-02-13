@@ -1,13 +1,13 @@
 import React from 'react';
 import { css } from 'react-emotion';
 
+import { svgKilo } from '../../styles/style-helpers';
 import SvgButton from '../SvgButton';
 import Icon from './close-icon.svg';
 
 const className = css`
   label: close-button;
-  height: 13px;
-  width: 13px;
+  ${svgKilo};
 `;
 
 /**
