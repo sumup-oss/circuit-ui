@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import { ZETTA, EXA, PETA, TERA, GIGA, MEGA, KILO } from '../../util/sizes';
+import { ZETTA, EXA, PETA, TERA, GIGA, MEGA, KILO } from '../../styles/sizes';
 import Heading from '.';
 
 storiesOf('Heading', module)

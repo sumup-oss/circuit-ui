@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import { KILO, MEGA, GIGA } from '../../util/sizes';
+import { KILO, MEGA, GIGA } from '../../styles/sizes';
 import Text from '.';
 
 storiesOf('Text', module)

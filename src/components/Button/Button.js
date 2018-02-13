@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
-import * as SIZES from '../../util/sizes';
+import * as SIZES from '../../styles/sizes';
 import { textMega } from '../../styles/style-helpers';
 
 /**

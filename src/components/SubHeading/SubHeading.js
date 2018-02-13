@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
-import * as SIZES from '../../util/sizes';
+import * as SIZES from '../../styles/sizes';
 
 const { KILO, MEGA } = SIZES;
 
