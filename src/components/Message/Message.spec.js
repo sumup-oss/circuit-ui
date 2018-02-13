@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Alert from '.';
+import Message from '.';
 
-describe('Alert', () => {
+describe('Message', () => {
   it.skip('should', () => {});
 });

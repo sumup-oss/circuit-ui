@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { AlertButton } from '../../';
+import { MessageButton } from '../../';
 
-describe('AlertButton', () => {
+describe('MessageButton', () => {
   it('should have the correct styles', () => {
-    const actual = create(<AlertButton />);
+    const actual = create(<MessageButton />);
     expect(actual).toMatchSnapshot();
   });
 });

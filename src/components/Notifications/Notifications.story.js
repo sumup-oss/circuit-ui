@@ -5,8 +5,8 @@ import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
 import Notifications from './Notifications';
-import Alert, { AlertButton, AlertIcon } from '../Alert';
-import ThumbsUpIcon from '../Alert/thumbs-up.svg';
+import Message, { MessageButton, MessageIcon } from '../Message';
+import ThumbsUpIcon from '../Message/thumbs-up.svg';
 import Markdown from '../Markdown';
 import Heading from '../Heading';
 import Text from '../Text';
@@ -18,18 +18,18 @@ storiesOf('Notifications', module)
     'Default Notifications',
     withInfo()(() => (
       <Notifications>
-        <Alert>
-          <AlertIcon>
+        <Message>
+          <MessageIcon>
             <ThumbsUpIcon />
-          </AlertIcon>
+          </MessageIcon>
           <Heading size={Heading.KILO} element="h4" margin={false}>
             Transaction successfully refunded
           </Heading>
-        </Alert>
-        <Alert>
-          <AlertIcon>
+        </Message>
+        <Message>
+          <MessageIcon>
             <ThumbsUpIcon />
-          </AlertIcon>
+          </MessageIcon>
           <Markdown
             overrides={{
               h1: {
@@ -50,14 +50,14 @@ storiesOf('Notifications', module)
           >
             {`# New Feature — Intelligent Reporting\nGet automatic insights into your business statistics with one click. [Learn more here](#)`}
           </Markdown>
-          <AlertButton alignment={AlertButton.TOP}>
+          <MessageButton alignment={MessageButton.TOP}>
             <CloseButton
               onClick={e => {
                 action('Close button clicked')(e);
               }}
             />
-          </AlertButton>
-        </Alert>
+          </MessageButton>
+        </Message>
       </Notifications>
     ))
   );

@@ -37,7 +37,7 @@ const baseStyles = ({ theme, position }) => {
     position: fixed;
     flex-direction: column;
     width: 400px;
-    max-width: 90vw; ${'' /* FALLBACK: Old Android doesn't support calc()  */}
+    max-width: 90vw; ${'' /* FALLBACK: Old Androids don't support calc()  */}
     max-width: calc(100vw - ${stripUnit(outerSpacing) * 2}px);
     ${corners[position]};
 

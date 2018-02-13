@@ -25,15 +25,15 @@ const alignmentStyles = ({ alignment }) => {
 };
 
 /**
- * Button used in the Alert component. Used for styling and aligment
+ * Button used in the Message component. Used for styling and aligment
  * pruposes only.
  */
-const AlertButton = styled('div')(baseStyles, alignmentStyles);
+const MessageButton = styled('div')(baseStyles, alignmentStyles);
 
-AlertButton.TOP = TOP;
-AlertButton.CENTER = CENTER;
+MessageButton.TOP = TOP;
+MessageButton.CENTER = CENTER;
 
-AlertButton.propTypes = {
+MessageButton.propTypes = {
   /**
    * Button
    */
@@ -41,14 +41,14 @@ AlertButton.propTypes = {
   /**
    * Vertical alignment
    */
-  alignment: PropTypes.oneOf([AlertButton.TOP, AlertButton.CENTER])
+  alignment: PropTypes.oneOf([MessageButton.TOP, MessageButton.CENTER])
 };
 
-AlertButton.defaultProps = {
-  alignment: AlertButton.CENTER
+MessageButton.defaultProps = {
+  alignment: MessageButton.CENTER
 };
 
 /**
  * @component
  */
-export default AlertButton;
+export default MessageButton;

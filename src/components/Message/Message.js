@@ -14,18 +14,18 @@ const baseStyles = () => css`
 /**
  * Describe your component here.
  */
-const Alert = styled('div')(baseStyles);
+const Message = styled('div')(baseStyles);
 
-Alert.propTypes = {
+Message.propTypes = {
   /**
    * Content to be rendered inside the Card.
    */
   children: childrenPropType
 };
 
-Alert.defaultProps = {};
+Message.defaultProps = {};
 
 /**
  * @component
  */
-export default Alert;
+export default Message;

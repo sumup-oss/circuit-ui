@@ -12,16 +12,16 @@ const baseStyles = ({ theme }) => css`
 `;
 
 /**
- * Icon used in the Alert component. Used for styling and alignment
+ * Icon used in the Message component. Used for styling and alignment
  * purposes only.
  */
-const AlertIconContainer = styled('div')(baseStyles);
+const MessageIconContainer = styled('div')(baseStyles);
 
-const AlertIcon = ({ children }) => (
-  <AlertIconContainer>{children}</AlertIconContainer>
+const MessageIcon = ({ children }) => (
+  <MessageIconContainer>{children}</MessageIconContainer>
 );
 
-AlertIcon.propTypes = {
+MessageIcon.propTypes = {
   /**
    * Icon
    */
@@ -31,4 +31,4 @@ AlertIcon.propTypes = {
 /**
  * @component
  */
-export default AlertIcon;
+export default MessageIcon;

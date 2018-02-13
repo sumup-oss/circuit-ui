@@ -4,34 +4,34 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
-import Alert, { AlertIcon, AlertButton } from '.';
+import Message, { MessageIcon, MessageButton } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
 import ThumbsUpIcon from './thumbs-up.svg';
 
-storiesOf('Alert', module)
-  .addDecorator(withTests('Alert'))
+storiesOf('Message', module)
+  .addDecorator(withTests('Message'))
   .add(
-    'Default Alert',
+    'Default Message',
     withInfo()(() => (
-      <Alert>
-        <AlertIcon>
+      <Message>
+        <MessageIcon>
           <ThumbsUpIcon />
-        </AlertIcon>
+        </MessageIcon>
         <Heading size={Heading.KILO} element="h4" margin={false}>
           Transaction successfully refunded
         </Heading>
-      </Alert>
+      </Message>
     ))
   )
   .add(
-    'Alert with button',
+    'Message with button',
     withInfo()(() => (
-      <Alert>
-        <AlertIcon>
+      <Message>
+        <MessageIcon>
           <ThumbsUpIcon />
-        </AlertIcon>
+        </MessageIcon>
         <div>
           <Heading element="h4" size={Heading.KILO} margin={false}>
             New Feature — Intelligent Reporting
@@ -40,7 +40,7 @@ storiesOf('Alert', module)
             Get automatic insights into your business statistics with one click.
           </Text>
         </div>
-        <AlertButton>
+        <MessageButton>
           <Button
             size={Button.KILO}
             onClick={e => {
@@ -49,7 +49,7 @@ storiesOf('Alert', module)
           >
             Read more
           </Button>
-        </AlertButton>
-      </Alert>
+        </MessageButton>
+      </Message>
     ))
   );

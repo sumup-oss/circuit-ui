@@ -1,14 +1,14 @@
 import React from 'react';
 
-import AlertIcon from '../..';
+import MessageIcon from '../..';
 
-describe('AlertIcon', () => {
+describe('MessageIcon', () => {
   /**
    * Style tests.
    */
 
   it('should have the correct styles', () => {
-    const actual = create(<AlertIcon />);
+    const actual = create(<MessageIcon />);
     expect(actual).toMatchSnapshot();
   });
 });
