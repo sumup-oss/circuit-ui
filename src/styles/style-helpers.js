@@ -1,4 +1,4 @@
-import { transparentize } from 'polished';
+import { size, transparentize } from 'polished';
 
 /**
  * Shadows
@@ -52,6 +52,13 @@ export const subHeadingMega = createTypeHelper('subHeadings', 'mega');
 export const textKilo = createTypeHelper('text', 'kilo');
 export const textMega = createTypeHelper('text', 'mega');
 export const textGiga = createTypeHelper('text', 'giga');
+
+/**
+ * SVGs
+ */
+
+export const svgKilo = ({ theme }) => size(theme.iconSizes.kilo);
+export const svgMega = ({ theme }) => size(theme.iconSizes.mega);
 
 /**
  * Utilities

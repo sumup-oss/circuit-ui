@@ -8,8 +8,8 @@ exports[`CloseButton should have the correct styles 1`] = `
   background-color: transparent;
   border: none;
   cursor: default;
-  height: 13px;
-  width: 13px;
+  height: 16px;
+  width: 16px;
 }
 
 .circuit-0:focus,
