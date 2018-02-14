@@ -70,12 +70,14 @@ const iconSelectedStyles = ({ selected, theme }) =>
     }
   `;
 
-const IconContainer = styled('span')(iconStyles, iconSelectedStyles);
-const TagElement = styled('span')(
-  tagStyles,
-  tagSelectedStyles,
-  tagClickableStyles
-);
+const IconContainer = styled('span')`
+  ${iconStyles} ${iconSelectedStyles};
+`;
+const TagElement = styled('span')`
+  ${tagStyles}
+  ${tagSelectedStyles}
+  ${tagClickableStyles}
+`;
 
 /**
  * Tag component
