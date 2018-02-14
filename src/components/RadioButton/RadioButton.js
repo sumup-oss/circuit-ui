@@ -97,14 +97,16 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const RadioButtonInput = styled('input')(inputStyles);
+const RadioButtonInput = styled('input')`
+  ${inputStyles};
+`;
 
-const RadioButtonLabel = styled('label')(
-  labelBaseStyles,
-  labelCheckedStyles,
-  labelDisabledStyles,
-  labelInvalidStyles
-);
+const RadioButtonLabel = styled('label')`
+  ${labelBaseStyles}
+  ${labelCheckedStyles}
+  ${labelDisabledStyles}
+  ${labelInvalidStyles}
+`;
 
 /**
  * RadioButton component for forms.

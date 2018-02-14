@@ -103,14 +103,16 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const CheckboxInput = styled('input')(inputStyles);
+const CheckboxInput = styled('input')`
+  ${inputStyles};
+`;
 
-const CheckboxLabel = styled('label')(
-  labelBaseStyles,
-  labelCheckedStyles,
-  labelDisabledStyles,
-  labelInvalidStyles
-);
+const CheckboxLabel = styled('label')`
+  ${labelBaseStyles}
+  ${labelCheckedStyles}
+  ${labelDisabledStyles}
+  ${labelInvalidStyles}
+`;
 
 /**
  * Checkbox component for forms.

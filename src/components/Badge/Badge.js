@@ -36,7 +36,9 @@ const circleStyles = ({ circle }) =>
 /**
  * A badge for displaying update notifications etc.
  */
-const Badge = styled('div')(baseStyles, circleStyles);
+const Badge = styled('div')`
+  ${baseStyles} ${circleStyles};
+`;
 
 Badge.propTypes = {
   /**
