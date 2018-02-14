@@ -57,6 +57,10 @@ export const themePropType = PropTypes.shape({
     exa: PropTypes.string.isRequired,
     zetta: PropTypes.string.isRequired
   }).isRequired,
+  iconSizes: PropTypes.shape({
+    kilo: PropTypes.string.isRequired,
+    mega: PropTypes.string.isRequired
+  }),
   borderRadius: PropTypes.shape({
     kilo: PropTypes.string,
     mega: PropTypes.string,

@@ -47,6 +47,11 @@ export const spacings = {
   zetta: '56px'
 };
 
+export const iconSizes = {
+  kilo: '16px',
+  mega: '24px'
+};
+
 export const borderRadius = {
   kilo: '1px',
   mega: '4px',

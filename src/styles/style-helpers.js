@@ -57,8 +57,8 @@ export const textGiga = createTypeHelper('text', 'giga');
  * SVGs
  */
 
-export const svgKilo = size('16px');
-export const svgMega = size('24px');
+export const svgKilo = ({ theme }) => size(theme.iconSizes.kilo);
+export const svgMega = ({ theme }) => size(theme.iconSizes.mega);
 
 /**
  * Utilities
