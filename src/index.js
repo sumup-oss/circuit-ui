@@ -7,7 +7,7 @@ export { default as Text } from './components/Text';
 
 // Forms
 export { default as Checkbox } from './components/Checkbox';
-export { default as FormLabel } from './components/FormLabel';
+export { default as Label } from './components/Label';
 export { default as Input } from './components/Input';
 export { default as PasswordInput } from './components/PasswordInput';
 export { default as RadioButton } from './components/RadioButton';
