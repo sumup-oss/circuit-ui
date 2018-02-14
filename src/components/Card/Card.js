@@ -7,11 +7,10 @@ import {
   shadowDouble,
   shadowTriple
 } from '../../styles/style-helpers';
-import * as SIZES from '../../styles/sizes';
-import * as SHADOWS from '../../styles/shadows';
+import { sizes, shadows } from '../../styles/constants';
 
-const { MEGA, GIGA } = SIZES;
-const { SINGLE, DOUBLE, TRIPLE } = SHADOWS;
+const { MEGA, GIGA } = sizes;
+const { SINGLE, DOUBLE, TRIPLE } = shadows;
 
 const baseStyles = ({ theme }) => css`
   label: card;
@@ -24,14 +23,14 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const shadowStyles = ({ theme, shadow }) => {
-  const shadows = {
+  const shadowOptions = {
     [SINGLE]: shadowSingle({ theme }),
     [DOUBLE]: shadowDouble({ theme }),
     [TRIPLE]: shadowTriple({ theme })
   };
   return css`
     label: card--shadow-${shadow};
-    ${shadows[shadow]};
+    ${shadowOptions[shadow]};
   `;
 };
 

@@ -4,9 +4,9 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
-import * as SIZES from '../../styles/sizes';
+import { sizes } from '../../styles/constants';
 
-const { KILO, MEGA } = SIZES;
+const { KILO, MEGA } = sizes;
 
 const baseStyles = ({ theme }) => css`
   label: sub-heading;

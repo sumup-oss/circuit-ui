@@ -4,7 +4,9 @@ import styled, { css } from 'react-emotion';
 import { childrenPropType } from '../../util/shared-prop-types';
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { textMega, textKilo } from '../../styles/style-helpers';
-import { BIT, BYTE, KILO, MEGA } from '../../styles/sizes';
+import { sizes } from '../../styles/constants';
+
+const { BIT, BYTE, KILO, MEGA } = sizes;
 
 const baseStyles = ({ theme }) => css`
   label: list;

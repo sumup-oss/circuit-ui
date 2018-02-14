@@ -1,9 +1,0 @@
-export const BIT = 'bit';
-export const BYTE = 'byte';
-export const KILO = 'kilo';
-export const MEGA = 'mega';
-export const GIGA = 'giga';
-export const TERA = 'tera';
-export const PETA = 'peta';
-export const EXA = 'exa';
-export const ZETTA = 'zetta';

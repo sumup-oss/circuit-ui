@@ -5,7 +5,9 @@ import styled, { css } from 'react-emotion';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { textKilo, subtractUnit } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
-import { KILO, MEGA, GIGA } from '../../styles/sizes';
+import { sizes } from '../../styles/constants';
+
+const { KILO, MEGA, GIGA } = sizes;
 
 const calculateSize = ({ theme, size }) => {
   const sizeMap = {

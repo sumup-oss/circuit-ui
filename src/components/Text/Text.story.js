@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import { KILO, MEGA, GIGA } from '../../styles/sizes';
 import Text from '.';
 
 storiesOf('Text', module)
@@ -11,7 +10,7 @@ storiesOf('Text', module)
   .add(
     'Giga Text with p',
     withInfo()(() => (
-      <Text element="p" size={GIGA}>
+      <Text element="p" size={Text.GIGA}>
         This is a giga Text with a p element
       </Text>
     ))
@@ -19,7 +18,7 @@ storiesOf('Text', module)
   .add(
     'Mega Text with article',
     withInfo()(() => (
-      <Text element="article" size={MEGA}>
+      <Text element="article" size={Text.MEGA}>
         This is an mega Text with an article element
       </Text>
     ))
@@ -27,7 +26,7 @@ storiesOf('Text', module)
   .add(
     'Kilo Text with div',
     withInfo()(() => (
-      <Text element="div" size={KILO}>
+      <Text element="div" size={Text.KILO}>
         This is a kilo Text with a div element
       </Text>
     ))

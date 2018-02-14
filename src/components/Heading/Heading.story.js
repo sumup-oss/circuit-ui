@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import { ZETTA, EXA, PETA, TERA, GIGA, MEGA, KILO } from '../../styles/sizes';
 import Heading from '.';
 
 storiesOf('Heading', module)
@@ -11,7 +10,7 @@ storiesOf('Heading', module)
   .add(
     'Zetta Heading with h1',
     withInfo()(() => (
-      <Heading element="h1" size={ZETTA}>
+      <Heading element="h1" size={Heading.ZETTA}>
         This is a zetta heading with an h1 element
       </Heading>
     ))
@@ -19,7 +18,7 @@ storiesOf('Heading', module)
   .add(
     'Exa Heading with h2',
     withInfo()(() => (
-      <Heading element="h2" size={EXA}>
+      <Heading element="h2" size={Heading.EXA}>
         This is an exa heading with an h2 element
       </Heading>
     ))
@@ -27,7 +26,7 @@ storiesOf('Heading', module)
   .add(
     'Peta Heading with h3',
     withInfo()(() => (
-      <Heading element="h3" size={PETA}>
+      <Heading element="h3" size={Heading.PETA}>
         This is a peta heading with an h3 element
       </Heading>
     ))
@@ -35,7 +34,7 @@ storiesOf('Heading', module)
   .add(
     'Tera Heading with h4',
     withInfo()(() => (
-      <Heading element="h4" size={TERA}>
+      <Heading element="h4" size={Heading.TERA}>
         This is a tera heading with an h4 element
       </Heading>
     ))
@@ -43,7 +42,7 @@ storiesOf('Heading', module)
   .add(
     'Giga Heading with h5',
     withInfo()(() => (
-      <Heading element="h5" size={GIGA}>
+      <Heading element="h5" size={Heading.GIGA}>
         This is a giga heading with an h5 element
       </Heading>
     ))
@@ -51,7 +50,7 @@ storiesOf('Heading', module)
   .add(
     'Meta Heading with h6',
     withInfo()(() => (
-      <Heading element="h6" size={MEGA}>
+      <Heading element="h6" size={Heading.MEGA}>
         This is a mega heading with an h6 element
       </Heading>
     ))
@@ -59,7 +58,7 @@ storiesOf('Heading', module)
   .add(
     'Kilo Heading with h6',
     withInfo()(() => (
-      <Heading element="h6" size={KILO}>
+      <Heading element="h6" size={Heading.KILO}>
         This is a kilo heading with an h6 element
       </Heading>
     ))

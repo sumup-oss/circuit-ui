@@ -4,7 +4,6 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
-import { KILO } from '../../styles/sizes';
 import Card, { CardHeader, CardFooter } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
@@ -37,7 +36,7 @@ storiesOf('Card', module)
     withInfo()(() => (
       <Card>
         <CardHeader>
-          <Heading size={KILO} margin={false}>
+          <Heading size={Heading.KILO} margin={false}>
             Card heading
           </Heading>
         </CardHeader>
@@ -50,7 +49,7 @@ storiesOf('Card', module)
     withInfo()(() => (
       <Card>
         <CardHeader onClose={action('CloseButton clicked')}>
-          <Heading size={KILO} margin={false}>
+          <Heading size={Heading.KILO} margin={false}>
             Card heading
           </Heading>
         </CardHeader>
