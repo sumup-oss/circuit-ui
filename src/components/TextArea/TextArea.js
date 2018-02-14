@@ -11,7 +11,9 @@ const baseStyles = css`
 /**
  * TextArea component for forms.
  */
-const TextArea = styled(Input.withComponent('textarea'))(baseStyles);
+const TextArea = styled(Input.withComponent('textarea'))`
+  ${baseStyles};
+`;
 
 /**
  * @component

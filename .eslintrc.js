@@ -30,6 +30,7 @@ module.exports = {
           '*.js',
           'src/**/*.story.js',
           'src/**/*.spec.js',
+          'build/**/*.js',
           'src/util/withTests.js'
         ]
       }
@@ -90,4 +91,4 @@ module.exports = {
       }
     }
   ]
-};
+}

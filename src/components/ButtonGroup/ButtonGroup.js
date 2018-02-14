@@ -14,7 +14,9 @@ const listStyles = ({ theme }) => css`
   }
 `;
 
-const ButtonGroupList = styled('ul')(listStyles);
+const ButtonGroupList = styled('ul')`
+  ${listStyles};
+`;
 
 /**
  * Groups its Button children into a list and adds margins between.

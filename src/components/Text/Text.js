@@ -4,7 +4,9 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
-import { KILO, MEGA, GIGA } from '../../util/sizes';
+import * as SIZES from '../../util/sizes';
+
+const { KILO, MEGA, GIGA } = SIZES;
 
 const baseStyles = ({ theme }) => css`
   label: text;
@@ -68,4 +70,7 @@ Text.defaultProps = {
   children: null
 };
 
+/**
+ * @component
+ */
 export default Text;

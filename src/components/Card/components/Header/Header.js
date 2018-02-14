@@ -16,9 +16,9 @@ const baseStyles = ({ theme }) => css`
  * Header used in the Card component. Used for styling and alignment
  * purposes only.
  */
-const CardHeaderContainer = styled('header')(
-  baseStyles
-);
+const CardHeaderContainer = styled('header')`
+  ${baseStyles};
+`;
 
 const CardHeader = ({ onClose, children }) => (
   <CardHeaderContainer>

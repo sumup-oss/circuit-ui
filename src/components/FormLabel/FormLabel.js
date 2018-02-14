@@ -13,7 +13,9 @@ const baseStyles = ({ theme }) => css`
 /**
  * FormLabel component for forms.
  */
-const FormLabel = styled('label')(baseStyles);
+const FormLabel = styled('label')`
+  ${baseStyles};
+`;
 
 FormLabel.propTypes = {
   /**

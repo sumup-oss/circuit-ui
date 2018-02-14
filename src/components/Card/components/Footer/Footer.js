@@ -13,7 +13,9 @@ const baseStyles = ({ theme }) => css`
  * Footer used in the Card component. Used for styling and aligment
  * pruposes only.
  */
-const CardFooter = styled('footer')(baseStyles);
+const CardFooter = styled('footer')`
+  ${baseStyles};
+`;
 
 CardFooter.propTypes = {
   /**

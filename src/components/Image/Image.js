@@ -11,7 +11,9 @@ const baseStyles = () => css`
 /**
  * The Image component. Responsive by default.
  */
-const Image = styled('img')(baseStyles);
+const Image = styled('img')`
+  ${baseStyles};
+`;
 
 Image.propTypes = {
   /**

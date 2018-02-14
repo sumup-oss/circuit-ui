@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { standard } from '../../themes';
 import { textMega } from '../../styles/style-helpers';
 
 const invalidStyles = ({ theme, isInvalid }) => {
@@ -79,12 +78,9 @@ const baseStyles = ({ theme }) => css`
 /**
  * Input component for forms.
  */
-const Input = styled('input')(
-  baseStyles,
-  disabledStyles,
-  optionalStyles,
-  invalidStyles
-);
+const Input = styled('input')`
+  ${baseStyles} ${disabledStyles} ${optionalStyles} ${invalidStyles};
+`;
 
 Input.propTypes = {
   /**
@@ -107,7 +103,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  theme: standard,
   isInvalid: false,
   isOptional: false,
   disabled: false,

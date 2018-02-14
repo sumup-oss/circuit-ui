@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, cx } from 'react-emotion';
-import { withTheme } from 'emotion-theming';
 import { size } from 'polished';
 
 import { themePropType } from '../../util/shared-prop-types';
@@ -12,7 +11,9 @@ const containerStyles = css`
   position: relative;
 `;
 
-const IconInputContainer = styled('div')(containerStyles);
+const IconInputContainer = styled('div')`
+  ${containerStyles};
+`;
 
 const iconBaseStyles = ({ theme }) => css`
   label: icon-input__icon;
@@ -120,4 +121,4 @@ IconInputWrapper.defaultProps = {
 /**
  * @component
  */
-export default withTheme(IconInputWrapper);
+export default IconInputWrapper;

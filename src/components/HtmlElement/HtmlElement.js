@@ -24,7 +24,7 @@ HtmlElement.propTypes = {
    * The function is called with all component props except "element" and "children".
    * See the Button component for an example of how to use this.
    */
-  element: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
+  element: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /**
    * A hash of props that should not be forwarded as attributes to the HTML element.
    * Prevents React from complaining about invalid attribute values.
@@ -41,7 +41,11 @@ HtmlElement.propTypes = {
 
 HtmlElement.defaultProps = {
   blacklist: {},
-  children: null
+  children: null,
+  element: 'div'
 };
 
+/**
+ * @component
+ */
 export default HtmlElement;

@@ -53,9 +53,9 @@ exports[`Button should have button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={undefined}
-  onClick={undefined}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Button
 </button>
@@ -114,9 +114,9 @@ exports[`Button should have disabled button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={true}
-  href={undefined}
-  onClick={undefined}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Disabled button
 </button>
@@ -193,9 +193,9 @@ exports[`Button should have flat button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={undefined}
-  onClick={undefined}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Flat button
 </button>
@@ -272,9 +272,9 @@ exports[`Button should have flat disabled button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={true}
-  href={undefined}
-  onClick={undefined}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Flat button
 </button>
@@ -333,9 +333,9 @@ exports[`Button should have giga button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={undefined}
-  onClick={undefined}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Button
 </button>
@@ -394,9 +394,9 @@ exports[`Button should have kilo button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={undefined}
-  onClick={undefined}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Button
 </button>
@@ -455,9 +455,9 @@ exports[`Button should have mega button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={undefined}
-  onClick={undefined}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Button
 </button>
@@ -562,10 +562,9 @@ exports[`Button should have secondary button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={undefined}
-  onClick={undefined}
-  secondary={true}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Secondary button
 </button>
@@ -670,10 +669,9 @@ exports[`Button should have secondary disabled button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={true}
-  href={undefined}
-  onClick={undefined}
-  secondary={true}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Secondary disabled button
 </button>
@@ -778,10 +776,9 @@ exports[`Button should have secondary flat button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={undefined}
-  onClick={undefined}
-  secondary={true}
-  target={undefined}
+  href={null}
+  onClick={null}
+  target={null}
 >
   Secondary flat button
 </button>
