@@ -90,12 +90,14 @@ const tooltipTextStyles = ({ theme }) => css`
   }
 `;
 
-const TooltipContainer = styled('span')(
-  tooltipTextStyles,
-  tooltipTextAlignStyles,
-  arrowAlignsStyles
-);
-const TooltipElement = styled('div')(baseStyles);
+const TooltipContainer = styled('span')`
+  ${tooltipTextStyles}
+  ${tooltipTextAlignStyles}
+  ${arrowAlignsStyles}
+`;
+const TooltipElement = styled('div')`
+  ${baseStyles};
+`;
 
 /**
  * A Tooltip wrapper in order to show tooltips on top of other

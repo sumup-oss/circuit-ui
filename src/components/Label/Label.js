@@ -6,18 +6,17 @@ import { textKilo } from '../../styles/style-helpers';
 const baseStyles = ({ theme }) => css`
   label: form-label;
   ${textKilo({ theme })};
-  font-weight: ${theme.fontWeight.bold};
   margin-bottom: ${theme.spacings.bit};
 `;
 
 /**
- * FormLabel component for forms.
+ * Label component for forms.
  */
-const FormLabel = styled('label')`
+const Label = styled('label')`
   ${baseStyles};
 `;
 
-FormLabel.propTypes = {
+Label.propTypes = {
   /**
    * The identifier of the corresponding form element.
    */
@@ -27,4 +26,4 @@ FormLabel.propTypes = {
 /**
  * @component
  */
-export default FormLabel;
+export default Label;

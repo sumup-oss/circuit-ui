@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually, size } from 'polished';
-import { shadowSingle, disableVisually } from '../../styles/style-helpers';
+import { disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 
 const checkmarkSvg = fill =>
@@ -11,15 +11,15 @@ const checkmarkSvg = fill =>
     `<svg width='10' height='10' xmlns='http://www.w3.org/2000/svg'><path d='M3.438 6.973l5.097-5.694a.858.858 0 0 1 1.175-.086c.349.288.389.793.089 1.128l-5.73 6.4a.856.856 0 0 1-1.264 0L.201 5.812a.778.778 0 0 1 .09-1.128.858.858 0 0 1 1.174.086l1.973 2.203z' fill='${fill}' fill-rule='nonzero'/></svg>`
   )}`;
 
-const baseStyles = ({ theme }) => css`
+const labelBaseStyles = ({ theme }) => css`
   label: checkbox__label;
   color: ${theme.colors.n700};
   padding-left: ${theme.spacings.giga};
   position: relative;
 
   &::before {
-    ${shadowSingle({ theme })};
     ${size(theme.spacings.mega)};
+    box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
     border-radius: 3px;
@@ -47,7 +47,7 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const checkedStyles = ({ theme, checked }) =>
+const labelCheckedStyles = ({ theme, checked }) =>
   checked &&
   css`
     label: checkbox--active;
@@ -62,7 +62,7 @@ const checkedStyles = ({ theme, checked }) =>
     }
   `;
 
-const invalidStyles = ({ theme, invalid }) =>
+const labelInvalidStyles = ({ theme, invalid }) =>
   invalid &&
   css`
     label: checkbox--error;
@@ -75,17 +75,20 @@ const invalidStyles = ({ theme, invalid }) =>
     }
   `;
 
-const disabledStyles = ({ theme, disabled }) =>
+const labelDisabledStyles = ({ theme, disabled }) =>
   disabled &&
   css`
     label: checkbox--disabled;
     ${disableVisually()};
 
     &::before {
+      ${disableVisually()};
       border-color: ${theme.colors.n500};
+      background-color: ${theme.colors.n100};
     }
 
     &::after {
+      ${disableVisually()};
       content: url("${checkmarkSvg(theme.colors.n500)}");
     }
   `;
@@ -100,14 +103,16 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const CheckboxInput = styled('input')(inputStyles);
+const CheckboxInput = styled('input')`
+  ${inputStyles};
+`;
 
-const CheckboxLabel = styled('label')(
-  baseStyles,
-  checkedStyles,
-  disabledStyles,
-  invalidStyles
-);
+const CheckboxLabel = styled('label')`
+  ${labelBaseStyles}
+  ${labelCheckedStyles}
+  ${labelDisabledStyles}
+  ${labelInvalidStyles}
+`;
 
 /**
  * Checkbox component for forms.

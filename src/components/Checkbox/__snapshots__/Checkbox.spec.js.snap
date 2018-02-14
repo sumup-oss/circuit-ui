@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox should render with checked styles 1`] = `
+exports[`Checkbox should render with checked styles when passed the checked prop 1`] = `
 Array [
   .circuit-0 {
   border: 0px;
@@ -37,9 +37,9 @@ Array [
 }
 
 .circuit-0::before {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   height: 16px;
   width: 16px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -131,9 +131,9 @@ Array [
 }
 
 .circuit-0::before {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   height: 16px;
   width: 16px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -177,7 +177,7 @@ Array [
 ]
 `;
 
-exports[`Checkbox should render with disabled styles 1`] = `
+exports[`Checkbox should render with disabled styles when passed the disabled prop 1`] = `
 Array [
   .circuit-0 {
   border: 0px;
@@ -213,12 +213,13 @@ Array [
   position: relative;
   opacity: 0.5;
   pointer-events: none;
+  box-shadow: none;
 }
 
 .circuit-0::before {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   height: 16px;
   width: 16px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -253,10 +254,17 @@ Array [
 }
 
 .circuit-0::before {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
   border-color: #9DA7B1;
+  background-color: #FAFBFC;
 }
 
 .circuit-0::after {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
   content: url("data:image/svg+xml,%3Csvg%20width%3D'10'%20height%3D'10'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M3.438%206.973l5.097-5.694a.858.858%200%200%201%201.175-.086c.349.288.389.793.089%201.128l-5.73%206.4a.856.856%200%200%201-1.264%200L.201%205.812a.778.778%200%200%201%20.09-1.128.858.858%200%200%201%201.174.086l1.973%202.203z'%20fill%3D'%239DA7B1'%20fill-rule%3D'nonzero'%2F%3E%3C%2Fsvg%3E");
 }
 
@@ -270,7 +278,7 @@ Array [
 ]
 `;
 
-exports[`Checkbox should render with invalid styles 1`] = `
+exports[`Checkbox should render with invalid styles when passed the invalid prop 1`] = `
 Array [
   .circuit-0 {
   border: 0px;
@@ -307,9 +315,9 @@ Array [
 }
 
 .circuit-0::before {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   height: 16px;
   width: 16px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;

@@ -15,11 +15,11 @@ import HideIcon from './eye-off.svg';
 const PasswordInput = ({ disabled, ...props }) => (
   <State
     initial={false}
-    name="isVisible"
+    name="visible"
     updaterName="onToggle"
-    updater={isVisible => !isVisible}
+    updater={visible => !visible}
   >
-    {({ isVisible, onToggle }) => (
+    {({ visible, onToggle }) => (
       <IconInputWrapper
         {...{ disabled }}
         iconPosition="right"
@@ -28,13 +28,13 @@ const PasswordInput = ({ disabled, ...props }) => (
             onClick={onToggle}
             className={cx(className, { [disabledClassName]: disabled })}
           >
-            {isVisible ? <HideIcon /> : <RevealIcon />}
+            {visible ? <HideIcon /> : <RevealIcon />}
           </SvgButton>
         )}
         input={({ className }) => (
           <Input
             {...{ ...props, disabled, className }}
-            type={isVisible ? 'text' : 'password'}
+            type={visible ? 'text' : 'password'}
           />
         )}
       />

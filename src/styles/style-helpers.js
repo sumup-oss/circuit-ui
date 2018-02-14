@@ -67,4 +67,5 @@ export const svgMega = ({ theme }) => size(theme.iconSizes.mega);
 export const disableVisually = () => `
   opacity: 0.5;
   pointer-events: none;
+  box-shadow: none;
 `;

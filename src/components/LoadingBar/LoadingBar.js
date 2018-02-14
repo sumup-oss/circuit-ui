@@ -61,9 +61,15 @@ const labelStyles = ({ theme }) => css`
   margin-left: ${theme.spacings.byte};
 `;
 
-const LoadingBarWrapper = styled('div')(wrapperStyles);
-const LoadingBarProgress = styled('span')(progressStyles);
-const LoadingBarLabel = styled('span')(labelStyles);
+const LoadingBarWrapper = styled('div')`
+  ${wrapperStyles};
+`;
+const LoadingBarProgress = styled('span')`
+  ${progressStyles};
+`;
+const LoadingBarLabel = styled('span')`
+  ${labelStyles};
+`;
 
 /**
  * Loading bar component to indicate progress

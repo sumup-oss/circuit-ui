@@ -37,9 +37,9 @@ Array [
 }
 
 .circuit-0::before {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   height: 16px;
   width: 16px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -132,9 +132,9 @@ Array [
 }
 
 .circuit-0::before {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   height: 16px;
   width: 16px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -215,12 +215,13 @@ Array [
   position: relative;
   opacity: 0.5;
   pointer-events: none;
+  box-shadow: none;
 }
 
 .circuit-0::before {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   height: 16px;
   width: 16px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -256,10 +257,17 @@ Array [
 }
 
 .circuit-0::before {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
   border-color: #9DA7B1;
+  background-color: #FAFBFC;
 }
 
 .circuit-0::after {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
   background-color: #9DA7B1;
 }
 
@@ -310,9 +318,9 @@ Array [
 }
 
 .circuit-0::before {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   height: 16px;
   width: 16px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;

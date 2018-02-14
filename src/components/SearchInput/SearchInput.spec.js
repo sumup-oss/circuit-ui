@@ -8,7 +8,7 @@ describe('SearchInput', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render icon with 0.4 opacity when disabled', () => {
+  it('should grey out icon when disabled', () => {
     const actual = create(<SearchInput selector="search" disabled />);
     expect(actual).toMatchSnapshot();
   });
