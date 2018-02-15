@@ -1,22 +1,24 @@
 import React from 'react';
 
 import { PasswordInput } from '.';
-
-const selector = 'pw';
+import Label from '../Label';
 
 describe('PasswordInput', () => {
+  /**
+   * Style tests.
+   */
   it('should render with default styles', () => {
-    const actual = create(<PasswordInput {...{ selector }} />);
+    const actual = create(<PasswordInput />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styles', () => {
-    const actual = create(<PasswordInput disabled {...{ selector }} />);
+    const actual = create(<PasswordInput disabled />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should have type password by default', () => {
-    const wrapper = shallow(<PasswordInput {...{ selector }} />)
+    const wrapper = shallow(<PasswordInput />)
       .dive()
       .dive()
       .dive();
@@ -24,8 +26,24 @@ describe('PasswordInput', () => {
     expect(actual).toBe('password');
   });
 
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <Label htmlFor="id">
+        <PasswordInput id="id" />Password
+      </Label>
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+
+  /**
+   * Logic tests.
+   */
   it('should toggle type between "password" and "text" by clicking the eye icon', () => {
-    const wrapper = mount(<PasswordInput {...{ selector }} />);
+    const wrapper = mount(<PasswordInput />);
     const button = wrapper.find('button');
     button.simulate('click');
     const actualTypeOne = wrapper.find('input').prop('type');

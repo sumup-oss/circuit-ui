@@ -1,9 +1,13 @@
 import React from 'react';
 
 import TextArea from '.';
+import Label from '../Label';
 
 describe('TextArea', () => {
-  it('should have the correct default styles', () => {
+  /**
+   * Style tests.
+   */
+  it('should render with default styles', () => {
     const actual = create(<TextArea />);
     expect(actual).toMatchSnapshot();
   });
@@ -26,5 +30,19 @@ describe('TextArea', () => {
   it('should prioritize error over optional styles', () => {
     const actual = create(<TextArea invalid disabled />);
     expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <Label htmlFor="textarea">
+        <TextArea id="textarea" />
+        Text area
+      </Label>
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

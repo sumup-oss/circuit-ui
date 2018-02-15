@@ -9,6 +9,9 @@ describe('Tooltip', () => {
     </svg>
   );
 
+  /**
+   * Style tests.
+   */
   it('should align to the center', () => {
     const component = create(
       <Tooltip align={Tooltip.CENTER} content="The tooltip content">
@@ -53,5 +56,18 @@ describe('Tooltip', () => {
       </Tooltip>
     );
     expect(component).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <Tooltip align={Tooltip.CENTER} content="Tooltip">
+        Text
+      </Tooltip>
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

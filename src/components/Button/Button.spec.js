@@ -4,8 +4,7 @@ import Button from '.';
 
 describe('Button', () => {
   /**
-   * Style snapshot testing via react test renderer and emotions snapshot
-   * serializer.
+   * Style tests.
    */
   it('should have button styles', () => {
     const actual = create(<Button>Button</Button>);
@@ -70,7 +69,16 @@ describe('Button', () => {
   });
 
   /**
-   * Testing button logic, for using either a <button> or <a> element.
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<Button>Button</Button>);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+
+  /**
+   * Logic tests.
    */
   describe('as anchor element', () => {
     it('should become a link when passed an href prop', () => {

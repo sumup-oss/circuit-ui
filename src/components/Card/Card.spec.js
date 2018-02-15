@@ -3,7 +3,10 @@ import React from 'react';
 import Card from '.';
 
 describe('Card', () => {
-  it('should render with the correct styles', () => {
+  /**
+   * Style tests.
+   */
+  it('should render with default styles', () => {
     const actual = create(<Card />);
     expect(actual).toMatchSnapshot();
   });
@@ -22,5 +25,14 @@ describe('Card', () => {
     expect(actualMega).toMatchSnapshot();
     const actualGiga = create(<Card spacing={Card.GIGA} />);
     expect(actualGiga).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<Card />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

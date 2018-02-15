@@ -2,37 +2,50 @@ import React from 'react';
 
 import Checkbox from '.';
 
-const selector = 'pw';
+const name = 'name';
 
 describe('Checkbox', () => {
   /**
-   * Stylesheet tests.
+   * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Checkbox {...{ selector }} />);
+    const actual = create(<Checkbox {...{ name }} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with checked styles when passed the checked prop', () => {
-    const actual = create(<Checkbox checked {...{ selector }} />);
+    const actual = create(<Checkbox checked {...{ name }} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = create(<Checkbox disabled {...{ selector }} />);
+    const actual = create(<Checkbox disabled {...{ name }} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = create(<Checkbox invalid {...{ selector }} />);
+    const actual = create(<Checkbox invalid {...{ name }} />);
     expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <div>
+        <Checkbox {...{ name }}>Label</Checkbox>
+      </div>
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 
   /**
    * Logic tests.
    */
   it('should be unchecked by default', () => {
-    const wrapper = shallow(<Checkbox {...{ selector }} />);
+    const wrapper = shallow(<Checkbox {...{ name }} />);
     const actual = wrapper.find('CheckboxInput').props().checked;
     expect(actual).toBeFalsy();
   });

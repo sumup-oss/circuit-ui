@@ -44,7 +44,7 @@ exports[`Badge should have the correct circle styles 1`] = `
 />
 `;
 
-exports[`Badge should have the correct styles 1`] = `
+exports[`Badge should render with default styles 1`] = `
 .circuit-0 {
   background-color: #FF7559;
   border-radius: 100px;

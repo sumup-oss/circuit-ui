@@ -1,8 +1,10 @@
 import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import 'jest-enzyme';
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { createSerializer } from 'jest-emotion';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import { create } from 'react-test-renderer';
 import * as emotion from 'emotion';
 import { ThemeProvider } from 'emotion-theming';
@@ -25,9 +27,14 @@ global.shallow = shallowWithTheme;
 global.render = renderWithTheme(render);
 global.create = renderWithTheme(create);
 global.mount = renderWithTheme(mount);
+global.renderToHtml = renderWithTheme(renderToStaticMarkup);
+global.axe = axe;
 
 // This is defined by webpack in storybook builds using the DefinePlugin plugin.
 global.STORYBOOK = false;
+
+// Add custom matchers
+expect.extend(toHaveNoViolations);
 
 // Add a snapshot serializer that removes random hashes
 // from emotion class names.

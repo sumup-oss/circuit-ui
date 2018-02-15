@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CloseButton should have the correct styles 1`] = `
+exports[`CloseButton should render with default styles 1`] = `
 .circuit-0 {
   padding: 0;
   margin: 0;

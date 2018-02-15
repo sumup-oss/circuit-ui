@@ -22,9 +22,11 @@ const baseStyles = ({ theme }) => css`
     }
   `;
 
-const NotificationListWrapper = styled('div')`
+const NotificationListWrapper = styled('ul')`
   ${baseStyles};
 `;
+
+const NotificationListCard = Card.withComponent('li');
 
 /**
  * NotificationList displays Messages as Cards in a corner.
@@ -32,9 +34,9 @@ const NotificationListWrapper = styled('div')`
 const NotificationList = ({ children, ...props }) => (
   <NotificationListWrapper {...props} aria-live="polite" region="log">
     {Children.map(children, (child, i) => (
-      <Card spacing={Card.MEGA} shadow={Card.DOUBLE} key={i}>
+      <NotificationListCard spacing={Card.MEGA} shadow={Card.DOUBLE} key={i}>
         {child}
-      </Card>
+      </NotificationListCard>
     ))}
   </NotificationListWrapper>
 );

@@ -6,16 +6,23 @@ describe('CardHeader', () => {
   /**
    * Style tests.
    */
-
-  it('should have the correct styles', () => {
+  it('should render with default styles', () => {
     const actual = create(<CardHeader />);
     expect(actual).toMatchSnapshot();
   });
 
   /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<CardHeader />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+
+  /**
    * Logic tests.
    */
-
   it('should render a close button when an onClose prop is passed', () => {
     const wrapper = shallow(<CardHeader onClose={() => {}} />)
       .children()

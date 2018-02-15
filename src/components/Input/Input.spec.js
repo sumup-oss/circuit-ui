@@ -1,8 +1,12 @@
 import React from 'react';
 
 import Input from '.';
+import Label from '../Label';
 
 describe('Input', () => {
+  /**
+   * Style tests.
+   */
   it('should render with default styles', () => {
     const actual = create(<Input />);
     expect(actual).toMatchSnapshot();
@@ -26,5 +30,19 @@ describe('Input', () => {
   it('should prioritize error over optional styles', () => {
     const actual = create(<Input invalid disabled />);
     expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <Label htmlFor="id">
+        <Input id="id" />
+        Label
+      </Label>
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

@@ -38,6 +38,8 @@ module.exports = {
   },
   globals: {
     STORYBOOK: true,
+    axe: true,
+    renderToHtml: true,
     describe: true,
     beforeEach: true,
     inject: true,
@@ -91,4 +93,4 @@ module.exports = {
       }
     }
   ]
-}
+};

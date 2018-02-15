@@ -6,7 +6,7 @@ describe('Badge', () => {
   /**
    * Style tests.
    */
-  it('should have the correct styles', () => {
+  it('should render with default styles', () => {
     const actual = create(<Badge />);
     expect(actual).toMatchSnapshot();
   });
@@ -14,6 +14,15 @@ describe('Badge', () => {
   it('should have the correct circle styles', () => {
     const actual = create(<Badge circle />);
     expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<Badge />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 
   /**

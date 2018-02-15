@@ -3,6 +3,9 @@ import React from 'react';
 import List from '.';
 
 describe('List', () => {
+  /**
+   * Style tests.
+   */
   it('should render a default unordered List', () => {
     const list = create(
       <List>
@@ -11,6 +14,7 @@ describe('List', () => {
     );
     expect(list).toMatchSnapshot();
   });
+
   it('should render a kilo unordered List', () => {
     const list = create(
       <List size={List.KILO}>
@@ -19,6 +23,7 @@ describe('List', () => {
     );
     expect(list).toMatchSnapshot();
   });
+
   it('should render a mega unordered List', () => {
     const list = create(
       <List size={List.MEGA}>
@@ -27,6 +32,7 @@ describe('List', () => {
     );
     expect(list).toMatchSnapshot();
   });
+
   it('should render nested unordered lists', () => {
     const list = create(
       <List>
@@ -38,6 +44,7 @@ describe('List', () => {
     );
     expect(list).toMatchSnapshot();
   });
+
   it('should render an ordered list', () => {
     const list = create(
       <List ordered>
@@ -46,5 +53,18 @@ describe('List', () => {
       </List>
     );
     expect(list).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <List>
+        <li>Hi there</li>
+      </List>
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });
