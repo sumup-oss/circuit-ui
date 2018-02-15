@@ -38,16 +38,3 @@ expect.addSnapshotSerializer(
     }
   })
 );
-
-// Wrap console.error so we can filter out all those PropTypes errors.
-const { error } = console;
-// eslint-disable-next-line no-console
-console.error = (arg1, ...rest) => {
-  const isStringMsg = typeof arg1 === 'string';
-  const regex = /.*prop.+as required/;
-  const isPropTypesRequiredError = isStringMsg && regex.test(arg1);
-  if (isPropTypesRequiredError) {
-    return;
-  }
-  error(arg1, ...rest);
-};
