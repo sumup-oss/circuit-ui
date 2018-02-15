@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Setting should have no bottom margin when "margin" is falsy: [object Object] 1`] = `
+exports[`Toggle should have no bottom margin when "margin" is falsy: [object Object] 1`] = `
 .circuit-2 {
   background-color: #D8DDE1;
   border-radius: 24px;
@@ -53,7 +53,7 @@ exports[`Setting should have no bottom margin when "margin" is falsy: [object Ob
 </div>
 `;
 
-exports[`Setting should have the correct default styles 1`] = `
+exports[`Toggle should render with default styles 1`] = `
 .circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;

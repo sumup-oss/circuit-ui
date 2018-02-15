@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Select from '.';
+import Label from '../Label';
 
 describe('Select', () => {
   const options = [
@@ -22,6 +23,9 @@ describe('Select', () => {
     jest.clearAllMocks();
   });
 
+  /**
+   * Style tests.
+   */
   it('should render with default styles', () => {
     const actual = create(<Select {...{ options }} />);
     expect(actual).toMatchSnapshot();
@@ -32,6 +36,22 @@ describe('Select', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <Label htmlFor="select">
+        <Select id="select" {...{ options }} />
+      </Label>
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+
+  /**
+   * Logic tests.
+   */
   it('should be disabled when passed the disabled prop', () => {
     const wrapper = shallow(<Select {...{ options }} disabled />)
       .dive()

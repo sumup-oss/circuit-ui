@@ -3,8 +3,20 @@ import React from 'react';
 import CloseButton from '.';
 
 describe('CloseButton', () => {
-  it('should have the correct styles', () => {
+  /**
+   * Style tests.
+   */
+  it('should render with default styles', () => {
     const actual = create(<CloseButton />);
     expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<CloseButton />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

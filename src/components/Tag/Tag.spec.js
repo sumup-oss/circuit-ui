@@ -9,6 +9,9 @@ describe('Tag', () => {
     </svg>
   );
 
+  /**
+   * Style tests.
+   */
   describe('when is default', () => {
     const props = {};
 
@@ -55,6 +58,18 @@ describe('Tag', () => {
     });
   });
 
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<Tag>Tag</Tag>);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+
+  /**
+   * Logic tests.
+   */
   describe('when is removable', () => {
     const props = {
       onRemove: jest.fn()

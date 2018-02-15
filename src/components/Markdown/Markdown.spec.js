@@ -51,26 +51,42 @@ Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
 cultus coniunx adituque.`;
 
 describe('Markdown', () => {
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<Markdown>{markdown}</Markdown>);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+
+  /**
+   * Logic tests.
+   */
   it('should parse and render Markdown to HTML', () => {
     const actual = create(<Markdown>{markdown}</Markdown>);
     expect(actual).toMatchSnapshot();
   });
+
   it('should transform the Markdown before parsing it', () => {
     const actual = create(
       <Markdown transformer={md => md.replace(/#/g, '##')}>{markdown}</Markdown>
     );
     expect(actual).toMatchSnapshot();
   });
+
   it('should override HTML tags with React components', () => {
     const actual = create(
       <Markdown overrides={{ img: Image, p: Text }}>{markdown}</Markdown>
     );
     expect(actual).toMatchSnapshot();
   });
+
   it('should treat all markdown strings as "block" elements.', () => {
     const actual = create(<Markdown forceBlock>{markdown}</Markdown>);
     expect(actual).toMatchSnapshot();
   });
+
   it('should treat all markdown strings as "inline" elements.', () => {
     const actual = create(<Markdown forceInline>{markdown}</Markdown>);
     expect(actual).toMatchSnapshot();

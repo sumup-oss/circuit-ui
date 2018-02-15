@@ -6,7 +6,10 @@ import IconInputWrapper from '.';
 const RenderDummy = styled('div')();
 
 describe('IconInputWrapper', () => {
-  it("should have it's base styles", () => {
+  /**
+   * Style tests.
+   */
+  it('should render with default styles', () => {
     const actual = create(
       <IconInputWrapper
         selector="some-wrapper"
@@ -27,5 +30,20 @@ describe('IconInputWrapper', () => {
       />
     );
     expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <IconInputWrapper
+        selector="some-wrapper"
+        icon={props => <RenderDummy {...props} />}
+        input={props => <RenderDummy {...props} />}
+      />
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });
