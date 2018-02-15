@@ -38,7 +38,10 @@ module.exports = function(storybookBaseConfig, configType) {
       new webpack.DefinePlugin({
         STORYBOOK: JSON.stringify(true)
       })
-    ]
+    ],
+    resolve: {
+      modules: [path.resolve('./src'), 'node_modules']
+    }
   };
 
   return merge(storybookBaseConfig, ourConfig);
