@@ -1,4 +1,5 @@
 import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import 'jest-enzyme';
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -26,6 +27,7 @@ global.shallow = shallowWithTheme;
 global.render = renderWithTheme(render);
 global.create = renderWithTheme(create);
 global.mount = renderWithTheme(mount);
+global.renderToHtml = renderWithTheme(renderToStaticMarkup);
 global.axe = axe;
 
 // This is defined by webpack in storybook builds using the DefinePlugin plugin.
