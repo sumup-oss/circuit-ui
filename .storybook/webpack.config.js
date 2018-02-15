@@ -4,11 +4,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 
 module.exports = function(storybookBaseConfig, configType) {
-  if (configType === 'PRODUCTION') {
-    storybookBaseConfig.plugins = storybookBaseConfig.plugins.filter(
-      plugin => plugin.constructor.name !== 'UglifyJsPlugin'
-    );
-  }
+  const isProduction = configType === 'PRODUCTION';
 
   const ourConfig = {
     externals: {
@@ -36,10 +32,24 @@ module.exports = function(storybookBaseConfig, configType) {
     },
     plugins: [
       new webpack.DefinePlugin({
-        STORYBOOK: JSON.stringify(true)
+        STORYBOOK: JSON.stringify(true),
+        PRODUCTION: JSON.stringify(isProduction)
       })
     ]
   };
 
-  return merge(storybookBaseConfig, ourConfig);
+  const ourProdSpecificConfig = {
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          loaders: ['style-loader', 'css-loader'],
+          include: path.resolve(__dirname)
+        }
+      ]
+    }
+  };
+
+  const baseConfig = merge(storybookBaseConfig, ourConfig);
+  return isProduction ? merge(baseConfig, ourProdSpecificConfig) : baseConfig;
 };

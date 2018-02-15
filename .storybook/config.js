@@ -7,7 +7,16 @@ import { withSmartKnobs } from 'storybook-addon-smart-knobs';
 import { ThemeProvider } from 'emotion-theming';
 
 import { standard } from '../src/themes';
-import globalStyles from '../src/styles/global-styles';
+import injectGlobalStyles from '../src/styles/global-styles';
+
+// Dynamically decide wich styles to load.
+if (PRODUCTION) {
+  require.resolve('./circuit-ui-global.css');
+}
+
+if (!PRODUCTION) {
+  injectGlobalStyles({ theme: standard });
+}
 
 // Sets the info addon's options.
 setDefaults({
@@ -16,29 +25,32 @@ setDefaults({
 
 const req = require.context('../src/components', true, /\.story\.js$/);
 
-function loadStories() {
-  globalStyles({ theme: standard });
+const withThemeProvider = storyFn => (
+  <ThemeProvider theme={standard}>{storyFn()}</ThemeProvider>
+);
+
+const withStoryStyles = storyFn => {
+  return (
+    <div
+      style={{
+        backgroundColor: standard.colors.n100,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh'
+      }}
+    >
+      {storyFn()}
+    </div>
+  );
+};
+
+const loadStories = () => {
   addDecorator(withSmartKnobs);
   addDecorator(withKnobs);
+  addDecorator(withStoryStyles);
+  addDecorator(withThemeProvider);
   req.keys().forEach(filename => req(filename));
-}
-
-addDecorator(storyFn => (
-  <ThemeProvider theme={standard}>{storyFn()}</ThemeProvider>
-));
-
-addDecorator(storyFn => (
-  <div
-    style={{
-      backgroundColor: standard.colors.n100,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh'
-    }}
-  >
-    {storyFn()}
-  </div>
-));
+};
 
 configure(loadStories, module);

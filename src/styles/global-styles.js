@@ -18,7 +18,7 @@ export const fontSettings = `
   text-rendering: optimizeLegibility;
 `;
 
-export default ({ theme }) => injectGlobal`
+export const resets = `
   /* http://meyerweb.com/eric/tools/css/reset/
    * v2.0 | 20110126
    * License: none (public domain)
@@ -37,33 +37,38 @@ export default ({ theme }) => injectGlobal`
   figure, figcaption, footer, header, hgroup,
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
-  	margin: 0;
-  	padding: 0;
-  	border: 0;
-  	font-size: 100%;
-  	font: inherit;
-  	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
-  	display: block;
+    display: block;
   }
   body {
-  	line-height: 1;
+    line-height: 1;
   }
   blockquote, q {
-  	quotes: none;
+    quotes: none;
   }
   blockquote:before, blockquote:after,
   q:before, q:after {
-  	content: '';
-  	content: none;
+    content: '';
+    content: none;
   }
   table {
-  	border-collapse: collapse;
-  	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
   }
+`;
+
+export const createGlobalStyles = ({ theme }) => `
+  /* Use resets */
+  ${resets}
 
   /* Our globals */
   ${fontFaces}
@@ -101,3 +106,5 @@ export default ({ theme }) => injectGlobal`
     ${fontSettings}
   }
 `;
+
+export default ({ theme }) => injectGlobal(createGlobalStyles({ theme }));

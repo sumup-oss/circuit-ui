@@ -19,8 +19,11 @@
     "prepush": "yarn test",
     "start": "yarn test:unit:output && start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
-    "build": "build-storybook -c .storybook -o .out",
+    "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
+    "build:storybook": "build-storybook -c .storybook -o .out",
     "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
+    "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
+    "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "deploy": "storybook-to-ghpages"
   },
   "lint-staged": {
@@ -87,7 +90,7 @@
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.2.0",
     "storybook-addon-smart-knobs": "^3.2.10",
-    "style-loader": "^0.19.1",
+    "style-loader": "^0.20.1",
     "stylelint": "^8.4.0",
     "stylelint-config-sass-guidelines": "^4.0.1",
     "stylelint-config-standard": "^18.0.0",
@@ -98,6 +101,7 @@
   "dependencies": {
     "babel-plugin-emotion": "^9.0.0-1",
     "babel-plugin-lodash": "^3.3.2",
+    "css-loader": "^0.28.9",
     "emotion": "^9.0.0-1",
     "emotion-theming": "^8.0.12",
     "facepaint": "^1.2.0",
