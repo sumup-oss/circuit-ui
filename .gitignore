@@ -8,6 +8,7 @@ node_modules
 jest-test-results.json
 __coverage__
 dist
+.out
 circuit-ui-global.css
 
 # Packages #

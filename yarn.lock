@@ -4763,8 +4763,8 @@ istanbul-reports@^1.1.4:
     handlebars "^4.0.3"
 
 jest-axe@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/jest-axe/-/jest-axe-2.1.1.tgz#47ee35b0e4178f55245dac1f33c831cb52debdd7"
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/jest-axe/-/jest-axe-2.1.2.tgz#e02eeaccc25ec27a91b734a13b1ff86fc0e8ae7c"
   dependencies:
     axe-core "^2.6.1"
     jest-matcher-utils "^22.2.0"
