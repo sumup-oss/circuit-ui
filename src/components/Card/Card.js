@@ -65,11 +65,11 @@ Card.GIGA = GIGA;
 
 Card.propTypes = {
   /**
-   * Depth
+   * The shadow depth of the Card.
    */
   shadow: PropTypes.oneOf([Card.SINGLE, Card.DOUBLE, Card.TRIPLE]),
   /**
-   * Spacing
+   * The padding of the Card.
    */
   spacing: PropTypes.oneOf([Card.MEGA, Card.GIGA]),
   /**

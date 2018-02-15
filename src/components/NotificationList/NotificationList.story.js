@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
-import NotificationCenter from './NotificationCenter';
+import NotificationList from './NotificationList';
 import Message, { MessageButton, MessageIcon } from '../Message';
 import ThumbsUpIcon from '../Message/thumbs-up.svg';
 import Markdown from '../Markdown';
@@ -12,12 +12,12 @@ import Heading from '../Heading';
 import Text from '../Text';
 import CloseButton from '../CloseButton';
 
-storiesOf('NotificationCenter', module)
-  .addDecorator(withTests('NotificationCenter'))
+storiesOf('NotificationList', module)
+  .addDecorator(withTests('NotificationList'))
   .add(
-    'Default NotificationCenter',
+    'Default NotificationList',
     withInfo()(() => (
-      <NotificationCenter>
+      <NotificationList>
         <Message>
           <MessageIcon>
             <ThumbsUpIcon />
@@ -60,6 +60,6 @@ storiesOf('NotificationCenter', module)
             />
           </MessageButton>
         </Message>
-      </NotificationCenter>
+      </NotificationList>
     ))
   );
