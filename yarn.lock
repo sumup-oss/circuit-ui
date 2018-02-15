@@ -695,7 +695,7 @@ aws4@^1.2.1, aws4@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axe-core@^2.6.0:
+axe-core@^2.6.0, axe-core@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-2.6.1.tgz#28772c4f76966d373acda35b9a409299dc00d1b5"
 
@@ -4762,6 +4762,14 @@ istanbul-reports@^1.1.4:
   dependencies:
     handlebars "^4.0.3"
 
+jest-axe@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/jest-axe/-/jest-axe-2.1.1.tgz#47ee35b0e4178f55245dac1f33c831cb52debdd7"
+  dependencies:
+    axe-core "^2.6.1"
+    jest-matcher-utils "^22.2.0"
+    lodash.merge "^4.6.1"
+
 jest-changed-files@^22.2.0:
   version "22.2.0"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-22.2.0.tgz#517610c4a8ca0925bdc88b0ca53bd678aa8d019e"
@@ -5430,7 +5438,7 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
 
-lodash.merge@^4.6.0:
+lodash.merge@^4.6.0, lodash.merge@^4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
 
