@@ -16,4 +16,11 @@ describe('Card', () => {
     const actualTriple = create(<Card shadow={Card.TRIPLE} />);
     expect(actualTriple).toMatchSnapshot();
   });
+
+  it('should render with spacing styles', () => {
+    const actualMega = create(<Card spacing={Card.MEGA} />);
+    expect(actualMega).toMatchSnapshot();
+    const actualGiga = create(<Card spacing={Card.GIGA} />);
+    expect(actualGiga).toMatchSnapshot();
+  });
 });

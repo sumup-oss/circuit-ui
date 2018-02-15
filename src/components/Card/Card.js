@@ -24,13 +24,13 @@ const baseStyles = ({ theme }) => css`
 
 const shadowStyles = ({ theme, shadow }) => {
   const shadowOptions = {
-    [SINGLE]: shadowSingle({ theme }),
-    [DOUBLE]: shadowDouble({ theme }),
-    [TRIPLE]: shadowTriple({ theme })
+    [SINGLE]: shadowSingle,
+    [DOUBLE]: shadowDouble,
+    [TRIPLE]: shadowTriple
   };
   return css`
     label: card--shadow-${shadow};
-    ${shadowOptions[shadow]};
+    ${shadowOptions[shadow]({ theme })};
   `;
 };
 

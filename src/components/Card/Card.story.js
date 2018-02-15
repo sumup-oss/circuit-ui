@@ -13,7 +13,13 @@ import Button from '../Button';
 storiesOf('Card', module)
   .addDecorator(withTests('Card'))
   .add(
-    'Card',
+    'Default Card',
+    withInfo()(() => (
+      <Card style={{ width: '500px', height: '150px', marginBottom: '15px' }} />
+    ))
+  )
+  .add(
+    'Card with shadows',
     withInfo()(() => (
       <Fragment>
         <Card
@@ -28,6 +34,37 @@ storiesOf('Card', module)
           shadow={Card.TRIPLE}
           style={{ width: '500px', height: '150px', marginBottom: '15px' }}
         />
+      </Fragment>
+    ))
+  )
+  .add(
+    'Card with spacings',
+    withInfo()(() => (
+      <Fragment>
+        <Card
+          spacing={Card.MEGA}
+          style={{ width: '500px', height: '150px', marginBottom: '15px' }}
+        >
+          <div
+            style={{
+              backgroundColor: 'lightgray',
+              width: '100%',
+              height: '100%'
+            }}
+          />
+        </Card>
+        <Card
+          spacing={Card.GIGA}
+          style={{ width: '500px', height: '150px', marginBottom: '15px' }}
+        >
+          <div
+            style={{
+              backgroundColor: 'lightgray',
+              width: '100%',
+              height: '100%'
+            }}
+          />
+        </Card>
       </Fragment>
     ))
   )
