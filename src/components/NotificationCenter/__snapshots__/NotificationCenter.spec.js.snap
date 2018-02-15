@@ -1,19 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Notifications should render with bottom-left styles 1`] = `
+exports[`NotificationCenter should render with corner styles 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
+  position: absolute;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   width: 400px;
   max-width: 90vw;
   max-width: calc(100vw - 48px);
-  bottom: 24px;
+  position: fixed;
+  top: 24px;
   left: 24px;
 }
 
@@ -31,19 +32,52 @@ exports[`Notifications should render with bottom-left styles 1`] = `
 />
 `;
 
-exports[`Notifications should render with bottom-right styles 1`] = `
+exports[`NotificationCenter should render with corner styles 2`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
+  position: absolute;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   width: 400px;
   max-width: 90vw;
   max-width: calc(100vw - 48px);
+  position: fixed;
+  top: 24px;
+  right: 24px;
+}
+
+.circuit-0 > * {
+  margin-top: 16px;
+}
+
+.circuit-0 > *:first-child {
+  margin-top: 0;
+}
+
+<div
+  aria-live="polite"
+  className="circuit-0 circuit-1"
+/>
+`;
+
+exports[`NotificationCenter should render with corner styles 3`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90vw;
+  max-width: calc(100vw - 48px);
+  position: fixed;
   bottom: 24px;
   right: 24px;
 }
@@ -62,19 +96,52 @@ exports[`Notifications should render with bottom-right styles 1`] = `
 />
 `;
 
-exports[`Notifications should render with default styles 1`] = `
-.circuit-2 {
+exports[`NotificationCenter should render with corner styles 4`] = `
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
+  position: absolute;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   width: 400px;
   max-width: 90vw;
   max-width: calc(100vw - 48px);
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+}
+
+.circuit-0 > * {
+  margin-top: 16px;
+}
+
+.circuit-0 > *:first-child {
+  margin-top: 0;
+}
+
+<div
+  aria-live="polite"
+  className="circuit-0 circuit-1"
+/>
+`;
+
+exports[`NotificationCenter should render with default styles 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90vw;
+  max-width: calc(100vw - 48px);
+  position: fixed;
   bottom: 24px;
   right: 24px;
 }
@@ -119,21 +186,22 @@ exports[`Notifications should render with default styles 1`] = `
 </div>
 `;
 
-exports[`Notifications should render with top-left styles 1`] = `
+exports[`NotificationCenter should render with positional styles 1`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
+  position: absolute;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   width: 400px;
   max-width: 90vw;
   max-width: calc(100vw - 48px);
-  top: 24px;
-  left: 24px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
 }
 
 .circuit-0 > * {
@@ -150,20 +218,21 @@ exports[`Notifications should render with top-left styles 1`] = `
 />
 `;
 
-exports[`Notifications should render with top-right styles 1`] = `
+exports[`NotificationCenter should render with positional styles 2`] = `
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
+  position: absolute;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
   width: 400px;
   max-width: 90vw;
   max-width: calc(100vw - 48px);
-  top: 24px;
+  position: absolute;
+  bottom: 24px;
   right: 24px;
 }
 

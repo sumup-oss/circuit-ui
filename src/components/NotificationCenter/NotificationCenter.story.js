@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
-import Notifications from './Notifications';
+import NotificationCenter from './NotificationCenter';
 import Message, { MessageButton, MessageIcon } from '../Message';
 import ThumbsUpIcon from '../Message/thumbs-up.svg';
 import Markdown from '../Markdown';
@@ -12,12 +12,12 @@ import Heading from '../Heading';
 import Text from '../Text';
 import CloseButton from '../CloseButton';
 
-storiesOf('Notifications', module)
-  .addDecorator(withTests('Notifications'))
+storiesOf('NotificationCenter', module)
+  .addDecorator(withTests('NotificationCenter'))
   .add(
-    'Default Notifications',
+    'Default NotificationCenter',
     withInfo()(() => (
-      <Notifications>
+      <NotificationCenter>
         <Message>
           <MessageIcon>
             <ThumbsUpIcon />
@@ -48,8 +48,9 @@ storiesOf('Notifications', module)
               }
             }}
           >
-            {`# New Feature — Intelligent Reporting\nGet automatic insights into
-              your business statistics with one click. [Learn more here](#)`}
+            {`# New Feature — Intelligent Reporting\nGet automatic insights
+                into your business statistics with one click.
+                [Learn more here](#)`}
           </Markdown>
           <MessageButton align={MessageButton.TOP}>
             <CloseButton
@@ -59,6 +60,6 @@ storiesOf('Notifications', module)
             />
           </MessageButton>
         </Message>
-      </Notifications>
+      </NotificationCenter>
     ))
   );
