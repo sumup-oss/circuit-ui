@@ -31,12 +31,14 @@ describe('Style helpers', () => {
     const expected = '35px';
     expect(actual).toBe(expected);
   });
-  it('should throw an error when values do not have the same unit', () => {
-    expect(() => StyleHelpers.addUnit(a, b, d)).toThrowErrorMatchingSnapshot();
+  it('should return undefined when values do not have the same unit', () => {
+    const actual = StyleHelpers.addUnit(a, b, d);
+    const expected = '32undefined';
+    expect(actual).toBe(expected);
   });
-  it('should throw an error when multiple values have a unit', () => {
-    expect(() =>
-      StyleHelpers.multiplyUnit(a, b)
-    ).toThrowErrorMatchingSnapshot();
+  it('should return undefined when multiple values have a unit', () => {
+    const actual = StyleHelpers.multiplyUnit(a, b);
+    const expected = '125undefined';
+    expect(actual).toBe(expected);
   });
 });
