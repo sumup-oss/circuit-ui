@@ -4,9 +4,9 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
-import * as SIZES from '../../util/sizes';
+import { sizes } from '../../styles/constants';
 
-const { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } = SIZES;
+const { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } = sizes;
 
 const baseStyles = ({ theme }) => css`
   label: heading;

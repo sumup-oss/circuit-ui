@@ -9,7 +9,7 @@ const baseStyles = css`
   display: inline-block;
   background-color: transparent;
   border: none;
-  cursor: default;
+  cursor: pointer;
 
   &:focus,
   &:active {

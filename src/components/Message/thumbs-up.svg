@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Message-Banner/Side-Update" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-16.000000, -16.000000)">
+        <g id="Group-4" transform="translate(16.000000, 16.000000)">
+            <rect id="Rectangle-4" fill="#62DE76" x="0" y="0" width="24" height="24" rx="12"></rect>
+            <g id="thumbs-up" transform="translate(6.000000, 5.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <path d="M7.3160836,4.19997277 L7.3160836,1.79998833 C7.3160836,0.805882226 6.49720305,5.32903597e-16 5.4870627,0 L3.04836817,5.39996499 L3.04836817,12 L9.92548675,11.9999222 C10.5335062,12.0066868 11.0536641,11.5715706 11.144834,10.9799288 L11.9861836,5.57996383 C12.0398691,5.23187927 11.935518,4.87815366 11.7007701,4.6124787 C11.4660222,4.34680374 11.1245634,4.19598601 10.7668364,4.19997277 L7.3160836,4.19997277 Z M3.04836817,11.9999222 L1.21934727,11.9999222 C0.545920367,11.9999222 0,11.4626674 0,10.79993 L0,6.59995721 C-1.35374741e-16,5.93721981 0.545920367,5.39996499 1.21934727,5.39996499 L3.04836817,5.39996499 L3.04836817,11.9999222 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

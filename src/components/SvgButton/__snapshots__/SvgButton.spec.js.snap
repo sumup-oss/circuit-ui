@@ -7,7 +7,7 @@ exports[`SvgButton should render with the default styles 1`] = `
   display: inline-block;
   background-color: transparent;
   border: none;
-  cursor: default;
+  cursor: pointer;
 }
 
 .circuit-0:focus,

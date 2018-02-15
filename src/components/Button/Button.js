@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
-import * as SIZES from '../../util/sizes';
+import { sizes } from '../../styles/constants';
 import { textMega } from '../../styles/style-helpers';
 
 /**
  * Doing named imports of constants somehow makes react-docgen cry.
  * https://github.com/reactjs/react-docgen/issues/150
  */
-const { KILO, MEGA, GIGA } = SIZES;
+const { KILO, MEGA, GIGA } = sizes;
 
 const calculatePadding = ({ theme, size }) => (diff = '0px') => {
   const sizeMap = {

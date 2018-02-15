@@ -123,5 +123,5 @@ export const fontWeight = {
 export const breakpoints = {
   medium: 451,
   big: 801,
-  huge: 14001
+  huge: 1401
 };
