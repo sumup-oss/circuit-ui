@@ -49,7 +49,7 @@ export const resets = `
   }
 `;
 
-export const createGlobalStyles = ({ theme }) => `
+export const createGlobalStyles = ({ theme, custom }) => `
   /* Use resets */
   ${resets}
 
@@ -91,6 +91,12 @@ export const createGlobalStyles = ({ theme }) => `
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
   }
+
+  /**
+   * Allow custom styles to override the default styles
+   */
+  ${custom}
 `;
 
-export default ({ theme }) => injectGlobal(createGlobalStyles({ theme }));
+export default ({ theme, custom }) =>
+  injectGlobal(createGlobalStyles({ theme, custom }));
