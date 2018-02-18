@@ -1,23 +1,6 @@
 import { injectGlobal } from 'emotion';
 import { textMega } from './style-helpers';
 
-// TODO: Make this define actual font faces and optimize for size.
-export const fontFaces = `
-  @import url("https://use.typekit.net/dxb5kvg.css");
-`;
-
-export const fontStack = `
-  aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"
-`;
-
-export const fontSettings = `
-  font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
-`;
-
 export const resets = `
   /* http://meyerweb.com/eric/tools/css/reset/
    * v2.0 | 20110126
@@ -71,7 +54,6 @@ export const createGlobalStyles = ({ theme }) => `
   ${resets}
 
   /* Our globals */
-  ${fontFaces}
 
   /**
    * Best practice from http://callmenick.com/post/the-new-box-sizing-reset
@@ -97,13 +79,17 @@ export const createGlobalStyles = ({ theme }) => `
   }
 
   /**
-   * NOTE: Form elements don't inherit font settings.
+   * Form elements don't inherit font settings.
    * https://stackoverflow.com/questions/26140050/why-is-font-family-not-inherited-in-button-tags-automatically
    */
   html, body, input, select, optgroup, textarea, button {
     font-weight: ${theme.fontWeight.regular};
-    font-family: ${fontStack};
-    ${fontSettings}
+    font-family: ${theme.fontStack.regular};
+    font-feature-settings: 'kern';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
   }
 `;
 

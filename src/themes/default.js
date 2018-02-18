@@ -115,6 +115,10 @@ export const typography = {
   }
 };
 
+export const fontStack = {
+  regular: 'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"'
+};
+
 export const fontWeight = {
   regular: '400',
   bold: '700'

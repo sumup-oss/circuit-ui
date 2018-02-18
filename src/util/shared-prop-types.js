@@ -86,6 +86,9 @@ export const themePropType = PropTypes.shape({
       giga: typePropType
     }).isRequired
   }),
+  fontStack: PropTypes.shape({
+    regular: PropTypes.string
+  }),
   fontWeight: PropTypes.shape({
     regular: PropTypes.string.isRequired,
     bold: PropTypes.string.isRequired
