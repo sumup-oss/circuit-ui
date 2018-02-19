@@ -11,7 +11,7 @@ import injectGlobalStyles from '../src/styles/global-styles';
 
 // Dynamically decide wich styles to load.
 if (PRODUCTION) {
-  require.resolve('./circuit-ui-global.css');
+  require('./circuit-ui-global.css');
 }
 
 if (!PRODUCTION) {

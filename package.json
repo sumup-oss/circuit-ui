@@ -24,7 +24,7 @@
     "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
     "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
-    "deploy": "yarn build && storybook-to-ghpages"
+    "deploy": "yarn build && gh-pages -d .out"
   },
   "lint-staged": {
     "*.js": [
@@ -51,7 +51,6 @@
     "@storybook/addon-links": "^3.3.3",
     "@storybook/addon-options": "^3.3.3",
     "@storybook/react": "^3.3.3",
-    "@storybook/storybook-deployer": "^2.2.0",
     "babel-eslint": "^8.1.2",
     "babel-jest": "^22.1.0",
     "babel-loader": "^7.1.2",
@@ -72,6 +71,7 @@
     "eslint-plugin-prettier": "^2.4.0",
     "eslint-plugin-react": "^7.4.0",
     "expect": "^22.0.3",
+    "gh-pages": "^1.1.0",
     "glob": "^7.1.2",
     "husky": "^0.14.3",
     "jest": "^22.0.4",
