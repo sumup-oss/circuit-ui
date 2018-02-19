@@ -49,7 +49,7 @@ export const resets = `
   }
 `;
 
-export const createGlobalStyles = ({ theme, custom }) => `
+export const createGlobalStyles = ({ theme, custom = '' }) => `
   /* Use resets */
   ${resets}
 
