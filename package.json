@@ -16,7 +16,7 @@
     "test:unit:verbose": "jest --coverage --no-cache",
     "test:unit": "yarn test:unit:verbose --silent",
     "test:unit:watch": "yarn test:unit:output -- --watch",
-    "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache",
+    "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
     "prepush": "yarn test",
     "start": "yarn test:unit:output && start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
