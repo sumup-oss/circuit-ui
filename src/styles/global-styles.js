@@ -84,12 +84,16 @@ export const createGlobalStyles = ({ theme, custom }) => `
    */
   html, body, input, select, optgroup, textarea, button {
     font-weight: ${theme.fontWeight.regular};
-    font-family: ${theme.fontStack.regular};
+    font-family: ${theme.fontStack.default};
     font-feature-settings: 'kern';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
+  }
+
+  pre, code {
+    font-family: ${theme.fontStack.mono};
   }
 
   /**

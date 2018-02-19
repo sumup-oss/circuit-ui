@@ -2,20 +2,12 @@
 
 ## Defining the font stack
 
-The font stack can be configured as part of the theme. The default value is:
+The font stack can be configured as part of the theme. The default font stack is applied to the `body` and the mono font stack is applied to `pre` and `code` tags. The default values are:
 
 ```js
 export const fontStack = {
-  regular: 'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"'
-};
-```
-
-The regular font stack is applied to the `body` in the global styles. You can add additional font stacks, for example for monospaced fonts in a code block:
-
-```js
-export const fontStack = {
-  regular: 'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"',
-  mono: '"Courier New", Courier, monospace'
+  default: 'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"',
+  mono: 'Consolas, monaco, monospace'
 };
 ```
 

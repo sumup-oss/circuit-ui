@@ -116,7 +116,8 @@ export const typography = {
 };
 
 export const fontStack = {
-  regular: 'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"'
+  default: 'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"',
+  mono: 'Consolas, monaco, monospace'
 };
 
 export const fontWeight = {

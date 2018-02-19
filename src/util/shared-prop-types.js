@@ -87,7 +87,8 @@ export const themePropType = PropTypes.shape({
     }).isRequired
   }),
   fontStack: PropTypes.shape({
-    regular: PropTypes.string
+    default: PropTypes.string,
+    mono: PropTypes.string
   }),
   fontWeight: PropTypes.shape({
     regular: PropTypes.string.isRequired,
