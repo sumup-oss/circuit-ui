@@ -29,7 +29,7 @@ export { default as NotificationList } from './components/NotificationList';
 
 // Misc
 export { default as Badge } from './components/Badge';
-export { default as Card } from './components/Card';
+export { default as Card, CardHeader, CardFooter } from './components/Card';
 export { default as IconInputWrapper } from './components/IconInputWrapper';
 export { default as Image } from './components/Image';
 export { default as LoadingBar } from './components/LoadingBar';
