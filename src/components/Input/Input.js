@@ -33,11 +33,12 @@ const disabledStyles = ({ disabled }) =>
     ${disableVisually()};
   `;
 
-const inlineStyles = ({ inline }) =>
+const inlineStyles = ({ theme, inline }) =>
   inline &&
   css`
     label: input--inline;
     display: inline-block;
+    margin-right: ${theme.spacings.mega};
   `;
 
 const baseStyles = ({ theme }) => css`
@@ -50,6 +51,7 @@ const baseStyles = ({ theme }) => css`
   box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
   color: ${theme.colors.n900};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
+  margin-bottom: ${theme.spacings.mega};
   display: block;
   ${textMega({ theme })};
 
