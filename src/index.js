@@ -22,6 +22,11 @@ export { default as CloseButton } from './components/CloseButton';
 export { default as SvgButton } from './components/SvgButton';
 export { default as Toggle } from './components/Toggle';
 
+// Notifications
+export { default as Message } from './components/Message';
+export { default as NotificationBanner } from './components/NotificationBanner';
+export { default as NotificationList } from './components/NotificationList';
+
 // Misc
 export { default as Badge } from './components/Badge';
 export { default as Card } from './components/Card';
@@ -29,6 +34,8 @@ export { default as IconInputWrapper } from './components/IconInputWrapper';
 export { default as Image } from './components/Image';
 export { default as LoadingBar } from './components/LoadingBar';
 export { default as Price } from './components/Price';
+export { default as Tag } from './components/Tag';
+export { default as Tooltip } from './components/Tooltip';
 
 // Helpers
 export { default as State } from './components/State';
