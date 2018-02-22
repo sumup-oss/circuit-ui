@@ -22,13 +22,18 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with disabled styled when passed the disabled prop', () => {
+  it('should render with disabled styles when passed the disabled prop', () => {
     const actual = create(<Input disabled />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should prioritize error over optional styles', () => {
     const actual = create(<Input invalid disabled />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with inline styles when passed the inline prop', () => {
+    const actual = create(<Input inline />);
     expect(actual).toMatchSnapshot();
   });
 

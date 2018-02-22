@@ -30,6 +30,7 @@ circuit-ui-global.css
 *.sublime-project
 *.editorconfig
 *.swp
+.idea
 
 # Logs #
 

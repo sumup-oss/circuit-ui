@@ -33,6 +33,14 @@ const disabledStyles = ({ disabled }) =>
     ${disableVisually()};
   `;
 
+const inlineStyles = ({ theme, inline }) =>
+  inline &&
+  css`
+    label: input--inline;
+    display: inline-block;
+    margin-right: ${theme.spacings.mega};
+  `;
+
 const baseStyles = ({ theme }) => css`
   label: input;
   background-color: ${theme.colors.white};
@@ -43,6 +51,8 @@ const baseStyles = ({ theme }) => css`
   box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
   color: ${theme.colors.n900};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
+  margin-bottom: ${theme.spacings.mega};
+  display: block;
   ${textMega({ theme })};
 
   &:focus,
@@ -61,7 +71,11 @@ const baseStyles = ({ theme }) => css`
  * Input component for forms.
  */
 const Input = styled('input')`
-  ${baseStyles} ${disabledStyles} ${optionalStyles} ${invalidStyles};
+  ${baseStyles};
+  ${disabledStyles};
+  ${optionalStyles};
+  ${invalidStyles};
+  ${inlineStyles};
 `;
 
 Input.propTypes = {
