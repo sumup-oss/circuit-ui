@@ -2,8 +2,9 @@
 
 exports[`SearchInput should grey out icon when disabled 1`] = `
 .circuit-2 {
-  display: inline-block;
+  display: block;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -15,10 +16,10 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
   display: block;
   font-size: 15px;
   line-height: 24px;
+  margin-bottom: 16px;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -63,8 +64,9 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 
 exports[`SearchInput should render with default styles 1`] = `
 .circuit-2 {
-  display: inline-block;
+  display: block;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -76,10 +78,10 @@ exports[`SearchInput should render with default styles 1`] = `
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
   display: block;
   font-size: 15px;
   line-height: 24px;
+  margin-bottom: 16px;
   padding-left: calc( 12px + 16px + 12px );
 }
 

@@ -2,8 +2,9 @@
 
 exports[`IconInputWrapper should allow rendering the icon on the right 1`] = `
 .circuit-4 {
-  display: inline-block;
+  display: block;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -36,8 +37,9 @@ exports[`IconInputWrapper should allow rendering the icon on the right 1`] = `
 
 exports[`IconInputWrapper should render with default styles 1`] = `
 .circuit-4 {
-  display: inline-block;
+  display: block;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {
