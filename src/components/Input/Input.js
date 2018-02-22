@@ -48,6 +48,13 @@ const stretchStyles = ({ stretch }) =>
     width: 100%;
   `;
 
+const marginStyles = ({ theme, margin }) =>
+  margin &&
+  css`
+    label: input--margin;
+    margin-bottom: ${theme.spacings.mega};
+  `;
+
 const baseStyles = ({ theme }) => css`
   label: input;
   background-color: ${theme.colors.white};
@@ -58,7 +65,6 @@ const baseStyles = ({ theme }) => css`
   box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
   color: ${theme.colors.n900};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
-  margin-bottom: ${theme.spacings.mega};
   display: block;
   ${textMega({ theme })};
 
@@ -79,6 +85,7 @@ const baseStyles = ({ theme }) => css`
  */
 const Input = styled('input')`
   ${baseStyles};
+  ${marginStyles};
   ${disabledStyles};
   ${optionalStyles};
   ${invalidStyles};
@@ -124,7 +131,11 @@ Input.propTypes = {
       propName,
       componentName
     );
-  }
+  },
+  /**
+   * Adds bottom margin to the input.
+   */
+  margin: PropTypes.bool
 };
 
 Input.defaultProps = {
@@ -134,7 +145,8 @@ Input.defaultProps = {
   disabled: false,
   autoComplete: 'none',
   inline: false,
-  stretch: false
+  stretch: false,
+  margin: true
 };
 
 /**

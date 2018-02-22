@@ -5,14 +5,31 @@ import { size } from 'polished';
 
 import { themePropType } from '../../util/shared-prop-types';
 
-const containerStyles = css`
+const containerBaseStyles = css`
   label: icon-input;
-  display: inline-block;
+  display: block;
   position: relative;
 `;
 
+const containerMarginStyles = ({ theme, margin }) =>
+  margin &&
+  css`
+    label: icon-input--margin;
+    margin-bottom: ${theme.spacings.mega};
+  `;
+
+const containerInlineStyles = ({ theme, inline }) =>
+  inline &&
+  css`
+    label: icon-input--inline;
+    display: inline-block;
+    margin-right: ${theme.spacings.mega};
+  `;
+
 const IconInputContainer = styled('div')`
-  ${containerStyles};
+  ${containerBaseStyles};
+  ${containerMarginStyles};
+  ${containerInlineStyles};
 `;
 
 const iconBaseStyles = ({ theme }) => css`
@@ -67,7 +84,7 @@ const inputRightStyles = ({ theme, iconPosition }) =>
  * Used to wrap inputs or selects that have an icon overlay. Takes two
  * render props (input and icon).
  */
-const IconInputWrapper = ({ iconPosition, theme, input, icon }) => {
+const IconInputWrapper = ({ iconPosition, theme, input, icon, margin }) => {
   const iconClassName = cx(
     iconBaseStyles({ theme }),
     iconLeftStyles({ theme, iconPosition }),
@@ -80,8 +97,8 @@ const IconInputWrapper = ({ iconPosition, theme, input, icon }) => {
   );
 
   return (
-    <IconInputContainer>
-      {input({ className: inputClassName })}
+    <IconInputContainer {...{ margin }}>
+      {input({ className: inputClassName, margin: false, inline: false })}
       {icon({
         className: iconClassName,
         disabledClassName: iconDisabledStyles
@@ -111,11 +128,21 @@ IconInputWrapper.propTypes = {
    * Position the icon render prop should show. Affects the
    * className passed to the render prop.
    */
-  iconPosition: PropTypes.oneOf(['left', 'right'])
+  iconPosition: PropTypes.oneOf(['left', 'right']),
+  /**
+   * Displays input inline.
+   */
+  inline: PropTypes.bool,
+  /**
+   * Adds bottom margin to the input.
+   */
+  margin: PropTypes.bool
 };
 
 IconInputWrapper.defaultProps = {
-  iconPosition: 'left'
+  iconPosition: 'left',
+  inline: false,
+  margin: true
 };
 
 /**
