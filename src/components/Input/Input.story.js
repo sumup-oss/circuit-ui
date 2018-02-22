@@ -7,6 +7,7 @@ import Input from '.';
 import Label from '../Label';
 
 const styles = { display: 'block', marginBottom: '20px' };
+const fluidContainerStyles = { width: '400px' };
 
 storiesOf('Input', module)
   .addDecorator(withTests('Input'))
@@ -42,6 +43,15 @@ storiesOf('Input', module)
         <Input placeholder="First" id="first" />
         <Label htmlFor="second">My second label</Label>
         <Input placeholder="Second" id="second" />
+      </div>
+    ))
+  )
+  .add(
+    'Fluid inputs',
+    withInfo()(() => (
+      <div style={fluidContainerStyles}>
+        <Input placeholder="Without fluid modifier" />
+        <Input placeholder="With fluid modifier" fluid />
       </div>
     ))
   );

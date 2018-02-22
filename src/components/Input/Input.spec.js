@@ -37,6 +37,11 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with fluid styles when passed the fluid prop', () => {
+    const actual = create(<Input fluid />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

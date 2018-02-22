@@ -41,6 +41,13 @@ const inlineStyles = ({ theme, inline }) =>
     margin-right: ${theme.spacings.mega};
   `;
 
+const fluidStyles = ({ fluid }) =>
+  fluid &&
+  css`
+    label: input--fluid;
+    width: 100%;
+  `;
+
 const baseStyles = ({ theme }) => css`
   label: input;
   background-color: ${theme.colors.white};
@@ -76,6 +83,7 @@ const Input = styled('input')`
   ${optionalStyles};
   ${invalidStyles};
   ${inlineStyles};
+  ${fluidStyles};
 `;
 
 Input.propTypes = {
@@ -95,7 +103,15 @@ Input.propTypes = {
   /**
    * Autocomplete attribute to be passed down to the <input> element.
    */
-  autoComplete: PropTypes.string
+  autoComplete: PropTypes.string,
+  /**
+   * Trigger inline styles on the component.
+   */
+  inline: PropTypes.bool,
+  /**
+   * Trigger fluid styles on the component.
+   */
+  fluid: PropTypes.bool
 };
 
 Input.defaultProps = {
@@ -103,7 +119,9 @@ Input.defaultProps = {
   invalid: false,
   optional: false,
   disabled: false,
-  autoComplete: 'none'
+  autoComplete: 'none',
+  inline: false,
+  fluid: false
 };
 
 /**
