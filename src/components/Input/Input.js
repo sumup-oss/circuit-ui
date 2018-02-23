@@ -2,68 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
+import HtmlElement from '../HtmlElement/HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 
-const invalidStyles = ({ theme, invalid }) =>
-  invalid &&
-  css`
-    label: input--error;
-    &:not(:focus) {
-      border-color: ${theme.colors.r300};
-
-      &::placeholder {
-        color: ${theme.colors.r300};
-      }
-    }
-  `;
-
-const optionalStyles = ({ theme, optional }) =>
-  optional &&
-  css`
-    label: input--optional;
-    background-color: ${theme.colors.n100};
-    border-style: dashed;
-    box-shadow: none;
-  `;
-
-const disabledStyles = ({ disabled }) =>
-  disabled &&
-  css`
-    label: input--disabled;
-    ${disableVisually()};
-  `;
-
-const inlineStyles = ({ theme, inline }) =>
-  inline &&
-  css`
-    label: input--inline;
-    display: inline-block;
-    margin-right: ${theme.spacings.mega};
-  `;
-
-const stretchStyles = ({ stretch }) =>
-  stretch &&
-  css`
-    label: input--stretch;
-    width: 100%;
-  `;
-
-const marginStyles = ({ theme, margin }) =>
-  margin &&
-  css`
-    label: input--margin;
-    margin-bottom: ${theme.spacings.mega};
-  `;
-
-const baseInputContainerStyles = ({ theme }) => css`
-  label: input__container;
-  color: ${theme.colors.n900};
-  display: block;
-  position: relative;
-`;
-
-const baseInputElementStyles = ({ theme }) => css`
+const inputBaseStyles = ({ theme }) => css`
   label: input;
   background-color: ${theme.colors.white};
   border-width: 1px;
@@ -85,27 +28,88 @@ const baseInputElementStyles = ({ theme }) => css`
   }
 `;
 
+const inputInvalidStyles = ({ theme, invalid }) =>
+  invalid &&
+  css`
+    label: input--error;
+    &:not(:focus) {
+      border-color: ${theme.colors.r300};
+
+      &::placeholder {
+        color: ${theme.colors.r300};
+      }
+    }
+  `;
+
+const inputOptionalStyles = ({ theme, optional }) =>
+  optional &&
+  css`
+    label: input--optional;
+    background-color: ${theme.colors.n100};
+    border-style: dashed;
+    box-shadow: none;
+  `;
+
+const containerBaseStyles = ({ theme }) => css`
+  label: input__container;
+  color: ${theme.colors.n900};
+  display: block;
+  position: relative;
+`;
+
+const containerDisabledStyles = ({ disabled }) =>
+  disabled &&
+  css`
+    label: input__container--disabled;
+    ${disableVisually()};
+  `;
+
+const containerInlineStyles = ({ theme, inline }) =>
+  inline &&
+  css`
+    label: input__container--inline;
+    display: inline-block;
+    margin-right: ${theme.spacings.mega};
+  `;
+
+const containerStretchStyles = ({ stretch }) =>
+  stretch &&
+  css`
+    label: input__container--stretch;
+    width: 100%;
+  `;
+
+const containerMarginStyles = ({ theme, margin }) =>
+  margin &&
+  css`
+    label: input__container--margin;
+    margin-bottom: ${theme.spacings.mega};
+  `;
+
 // TODO: Add dynamic invalid aria attribute.
 /**
  * Input component for forms.
  */
 const InputContainer = styled('div')`
-  ${baseInputContainerStyles};
-  ${marginStyles};
-  ${disabledStyles};
-  ${inlineStyles};
-  ${stretchStyles};
+  ${containerBaseStyles};
+  ${containerMarginStyles};
+  ${containerDisabledStyles};
+  ${containerInlineStyles};
+  ${containerStretchStyles};
 `;
 
-const InputElement = styled('input')`
-  ${baseInputElementStyles};
-  ${optionalStyles};
-  ${invalidStyles};
+const InputElement = styled(HtmlElement)`
+  ${inputBaseStyles};
+  ${inputOptionalStyles};
+  ${inputInvalidStyles};
 `;
 
 const Input = ({ margin, inline, disabled, stretch, children, ...props }) => (
   <InputContainer {...{ margin, inline, disabled, stretch }}>
-    <InputElement {...{ ...props, disabled }} />
+    <InputElement
+      {...{ ...props, disabled }}
+      blacklist={{ optional: true, invalid: true }}
+    />
     {children}
   </InputContainer>
 );
@@ -153,11 +157,16 @@ Input.propTypes = {
   /**
    * Adds bottom margin to the input.
    */
-  margin: PropTypes.bool
+  margin: PropTypes.bool,
+  /**
+   * The HTML input element to render.
+   */
+  element: PropTypes.oneOf(['input', 'textarea'])
 };
 
 Input.defaultProps = {
   children: null,
+  element: 'input',
   invalid: false,
   optional: false,
   disabled: false,

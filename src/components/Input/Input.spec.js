@@ -48,8 +48,8 @@ describe('Input', () => {
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <Label htmlFor="id">
-        <Input id="id" />
         Label
+        <Input id="id" />
       </Label>
     );
     const actual = await axe(wrapper);
