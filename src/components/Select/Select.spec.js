@@ -36,6 +36,16 @@ describe('Select', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with inline styles when passed the inline prop', () => {
+    const actual = create(<Select {...{ options }} inline />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with stretched styles when passed the stretch prop', () => {
+    const actual = create(<Select {...{ options }} stretch />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

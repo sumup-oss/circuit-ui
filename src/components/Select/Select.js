@@ -31,7 +31,7 @@ const selectBaseStyles = ({ theme }) => css`
   }
 
   &:focus {
-    border: 1px solid ${theme.colors.p500};
+    border-color: ${theme.colors.p500};
   }
 
   &:-moz-focusring {
