@@ -376,6 +376,13 @@ exports[`Input should render with optional styles when passed the optional prop 
 `;
 
 exports[`Input should render with stretched styles when passed the stretch prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -386,6 +393,7 @@ exports[`Input should render with stretched styles when passed the stretch prop 
   padding: 8px 12px;
   font-size: 15px;
   line-height: 24px;
+  width: 100%;
 }
 
 .circuit-0:focus,
@@ -408,14 +416,6 @@ exports[`Input should render with stretched styles when passed the stretch prop 
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  width: 100%;
 }
 
 <div

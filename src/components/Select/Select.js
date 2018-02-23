@@ -40,6 +40,13 @@ const selectBaseStyles = ({ theme }) => css`
   }
 `;
 
+const selectStretchStyles = ({ stretch }) =>
+  stretch &&
+  css`
+    label: select--stretch;
+    width: 100%;
+  `;
+
 const iconBaseStyles = ({ theme }) => css`
   label: select__icon;
   fill: ${theme.colors.n700};
@@ -75,13 +82,6 @@ const containerInlineStyles = ({ theme, inline }) =>
     margin-right: ${theme.spacings.mega};
   `;
 
-const containerStretchStyles = ({ stretch }) =>
-  stretch &&
-  css`
-    label: select__container--stretch;
-    width: 100%;
-  `;
-
 const containerMarginStyles = ({ theme, margin }) =>
   margin &&
   css`
@@ -94,11 +94,11 @@ const SelectContainer = styled('div')`
   ${containerMarginStyles};
   ${containerDisabledStyles};
   ${containerInlineStyles};
-  ${containerStretchStyles};
 `;
 
 const SelectElement = styled('select')`
   ${selectBaseStyles};
+  ${selectStretchStyles};
 `;
 const Icon = styled(DownTriangleIcon)`
   ${iconBaseStyles};
@@ -117,8 +117,8 @@ const Select = ({
   stretch,
   ...props
 }) => (
-  <SelectContainer {...{ margin, inline, disabled, stretch }}>
-    <SelectElement {...{ ...props, disabled }}>
+  <SelectContainer {...{ margin, inline, disabled }}>
+    <SelectElement {...{ ...props, disabled, stretch }}>
       {!value && <option key={0}>{placeholder}</option>}
       {options &&
         options.map(option => (

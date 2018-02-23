@@ -53,6 +53,13 @@ const inputOptionalStyles = ({ theme, optional }) =>
     box-shadow: none;
   `;
 
+const inputStretchStyles = ({ stretch }) =>
+  stretch &&
+  css`
+    label: input--stretch;
+    width: 100%;
+  `;
+
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;
   color: ${theme.colors.n900};
@@ -75,13 +82,6 @@ const containerInlineStyles = ({ theme, inline }) =>
     margin-right: ${theme.spacings.mega};
   `;
 
-const containerStretchStyles = ({ stretch }) =>
-  stretch &&
-  css`
-    label: input__container--stretch;
-    width: 100%;
-  `;
-
 const containerMarginStyles = ({ theme, margin }) =>
   margin &&
   css`
@@ -94,13 +94,13 @@ const InputContainer = styled('div')`
   ${containerMarginStyles};
   ${containerDisabledStyles};
   ${containerInlineStyles};
-  ${containerStretchStyles};
 `;
 
 const InputElement = styled(HtmlElement)`
   ${inputBaseStyles};
   ${inputOptionalStyles};
   ${inputInvalidStyles};
+  ${inputStretchStyles};
 `;
 
 // TODO: Add dynamic invalid aria attribute.
@@ -108,10 +108,10 @@ const InputElement = styled(HtmlElement)`
  * Input component for forms.
  */
 const Input = ({ margin, inline, disabled, stretch, children, ...props }) => (
-  <InputContainer {...{ margin, inline, disabled, stretch }}>
+  <InputContainer {...{ margin, inline, disabled }}>
     <InputElement
-      {...{ ...props, disabled }}
-      blacklist={{ optional: true, invalid: true }}
+      {...{ ...props, disabled, stretch }}
+      blacklist={{ optional: true, invalid: true, stretch: true }}
     />
     {children}
   </InputContainer>
