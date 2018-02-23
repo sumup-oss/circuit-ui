@@ -37,6 +37,11 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with stretched styles when passed the stretch prop', () => {
+    const actual = create(<Input stretch />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

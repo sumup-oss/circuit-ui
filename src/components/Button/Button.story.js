@@ -5,6 +5,9 @@ import { withInfo } from '@storybook/addon-info';
 import withTests from '../../util/withTests';
 import Button from '.';
 
+const stretchedContainerStyles = { width: '400px' };
+const stretchedContainerTopButtonStyles = { marginBottom: '18px' };
+
 storiesOf('Button', module)
   .addDecorator(withTests('Button'))
   .add('Button', withInfo()(() => <Button>Button</Button>))
@@ -57,5 +60,14 @@ storiesOf('Button', module)
       <Button secondary flat disabled>
         Flat Button
       </Button>
+    ))
+  )
+  .add(
+    'Stretched Button',
+    withInfo()(() => (
+      <div style={stretchedContainerStyles}>
+        <Button style={stretchedContainerTopButtonStyles}>Normal button</Button>
+        <Button stretch>Stretched button</Button>
+      </div>
     ))
   );

@@ -7,6 +7,7 @@ import Input from '.';
 import Label from '../Label';
 
 const styles = { display: 'block', marginBottom: '20px' };
+const stretchedContainerStyles = { width: '400px', border: '1px dashed #ccc' };
 
 storiesOf('Input', module)
   .addDecorator(withTests('Input'))
@@ -42,6 +43,15 @@ storiesOf('Input', module)
         <Input placeholder="First" id="first" />
         <Label htmlFor="second">My second label</Label>
         <Input placeholder="Second" id="second" />
+      </div>
+    ))
+  )
+  .add(
+    'Stretched inputs',
+    withInfo()(() => (
+      <div style={stretchedContainerStyles}>
+        <Input placeholder="Without stretch modifier" />
+        <Input placeholder="With stretch modifier" stretch />
       </div>
     ))
   );

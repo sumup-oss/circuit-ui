@@ -41,6 +41,13 @@ const inlineStyles = ({ theme, inline }) =>
     margin-right: ${theme.spacings.mega};
   `;
 
+const stretchStyles = ({ stretch }) =>
+  stretch &&
+  css`
+    label: input--stretch;
+    width: 100%;
+  `;
+
 const baseStyles = ({ theme }) => css`
   label: input;
   background-color: ${theme.colors.white};
@@ -76,6 +83,7 @@ const Input = styled('input')`
   ${optionalStyles};
   ${invalidStyles};
   ${inlineStyles};
+  ${stretchStyles};
 `;
 
 Input.propTypes = {
@@ -95,7 +103,28 @@ Input.propTypes = {
   /**
    * Autocomplete attribute to be passed down to the <input> element.
    */
-  autoComplete: PropTypes.string
+  autoComplete: PropTypes.string,
+  /**
+   * Trigger inline styles on the component.
+   */
+  inline: PropTypes.bool,
+  /**
+   * Trigger stretch (full width) styles on the component.
+   */
+  stretch: (props, propName, componentName) => {
+    if (props.inline && props.stretch) {
+      return new Error(
+        'You cannot use both inline and stretch properties at the same time.'
+      );
+    }
+
+    return PropTypes.checkPropTypes(
+      { propName: PropTypes.bool },
+      props,
+      propName,
+      componentName
+    );
+  }
 };
 
 Input.defaultProps = {
@@ -103,7 +132,9 @@ Input.defaultProps = {
   invalid: false,
   optional: false,
   disabled: false,
-  autoComplete: 'none'
+  autoComplete: 'none',
+  inline: false,
+  stretch: false
 };
 
 /**

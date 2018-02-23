@@ -38,6 +38,14 @@ const disabledStyles = css`
   pointer-events: none;
 `;
 
+const stretchStyles = ({ stretch }) =>
+  stretch &&
+  css`
+    label: button--stretched;
+    width: 100%;
+    display: block;
+  `;
+
 const baseStyles = ({ theme, href, ...otherProps }) => css`
   label: button;
   background-color: ${theme.colors.b500};
@@ -181,7 +189,7 @@ const sizeStyles = props => {
 
 const TextOrButtonElement = props => (
   <HtmlElement
-    blacklist={{ size: true, flat: true, secondary: true }}
+    blacklist={{ size: true, flat: true, secondary: true, stretch: true }}
     element={({ href }) => (href ? 'a' : 'button')}
     {...props}
   />
@@ -192,7 +200,7 @@ const TextOrButtonElement = props => (
  * prop.
  */
 const Button = styled(TextOrButtonElement)`
-  ${baseStyles} ${sizeStyles} ${flatStyles} ${secondaryStyles};
+  ${baseStyles} ${sizeStyles} ${flatStyles} ${secondaryStyles} ${stretchStyles};
 `;
 
 Button.KILO = KILO;
@@ -229,7 +237,11 @@ Button.propTypes = {
    * Standard onClick function. If used on an anchor this can be used to
    * cause additional side-effects like tracking.
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /**
+   * Trigger stretch (full width) styles on the component.
+   */
+  stretch: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -239,7 +251,8 @@ Button.defaultProps = {
   target: null,
   href: null,
   onClick: null,
-  secondary: false
+  secondary: false,
+  stretch: false
 };
 
 /**

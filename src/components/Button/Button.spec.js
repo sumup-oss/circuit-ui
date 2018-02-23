@@ -68,6 +68,11 @@ describe('Button', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should have stretch button styles', () => {
+    const actual = create(<Button stretch>Stretched button</Button>);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
