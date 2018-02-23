@@ -1,7 +1,7 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { standard } from '../../themes';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
 const invalidStyles = ({ theme, invalid }) =>
@@ -55,7 +55,13 @@ const marginStyles = ({ theme, margin }) =>
     margin-bottom: ${theme.spacings.mega};
   `;
 
-const baseStyles = ({ theme }) => css`
+const baseInputContainerStyles = ({ theme }) => css`
+  label: input__container;
+  color: ${theme.colors.n900};
+  display: block;
+`;
+
+const baseInputInputStyles = ({ theme }) => css`
   label: input;
   background-color: ${theme.colors.white};
   border-width: 1px;
@@ -63,9 +69,7 @@ const baseStyles = ({ theme }) => css`
   border-color: ${theme.colors.n300};
   border-radius: ${theme.borderRadius.mega};
   box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
-  color: ${theme.colors.n900};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
-  display: block;
   ${textMega({ theme })};
 
   &:focus,
@@ -83,15 +87,25 @@ const baseStyles = ({ theme }) => css`
 /**
  * Input component for forms.
  */
-const Input = styled('input')`
-  ${baseStyles};
+const InputContainer = styled('div')`
+  ${baseInputContainerStyles};
   ${marginStyles};
   ${disabledStyles};
-  ${optionalStyles};
-  ${invalidStyles};
   ${inlineStyles};
   ${stretchStyles};
 `;
+
+const InputInput = styled('input')`
+  ${baseInputInputStyles};
+  ${optionalStyles};
+  ${invalidStyles};
+`;
+
+const Input = ({ margin, inline, disabled, stretch, ...props }) => (
+  <InputContainer {...{ margin, inline, disabled, stretch }}>
+    <InputInput {...{ ...props, disabled }} />
+  </InputContainer>
+);
 
 Input.propTypes = {
   /**
@@ -139,7 +153,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  theme: standard,
   invalid: false,
   optional: false,
   disabled: false,
