@@ -39,7 +39,7 @@ const tagSelectedStyles = ({ selected, theme }) =>
   selected &&
   css`
     label: tag--selected;
-    background-color: ${theme.colors.b500};
+    background-color: ${theme.colors.p500};
     color: ${theme.colors.white};
   `;
 

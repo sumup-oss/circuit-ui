@@ -7,6 +7,12 @@ export const colors = {
   n500: '#9DA7B1',
   n700: '#5C656F',
   n900: '#212933',
+  // Primary
+  p100: '#DAEAFF',
+  p300: '#7FB5FF',
+  p500: '#3388FF',
+  p700: '#2567D8',
+  p900: '#1641AC',
   // Blues
   b100: '#DAEAFF',
   b300: '#7FB5FF',
@@ -19,13 +25,13 @@ export const colors = {
   g500: '#62DE76',
   g700: '#49B85B',
   g900: '#2F903E',
-  // Greens
+  // Yellows
   y100: '#F2E5CB',
   y300: '#F7DA9F',
   y500: '#FFC859',
   y700: '#D4A546',
   y900: '#AB8433',
-  // Greens
+  // Reds
   r100: '#FFE6E1',
   r300: '#FFAF9F',
   r500: '#FF7559',

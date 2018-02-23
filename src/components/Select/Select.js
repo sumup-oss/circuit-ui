@@ -29,7 +29,7 @@ const baseSelectStyles = ({ theme }) => css`
   }
 
   &:focus {
-    border: 1px solid ${theme.colors.b500};
+    border: 1px solid ${theme.colors.p500};
   }
 
   &::after {

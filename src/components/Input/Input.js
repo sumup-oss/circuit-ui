@@ -64,7 +64,7 @@ const baseStyles = ({ theme }) => css`
 
   &:focus,
   &:active {
-    border: 1px solid ${theme.colors.b500};
+    border: 1px solid ${theme.colors.p500};
     outline: none;
   }
 
