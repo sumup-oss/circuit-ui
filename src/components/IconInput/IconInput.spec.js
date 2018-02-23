@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from 'react-emotion';
 
-import IconInputWrapper from '.';
+import IconInput from '.';
 
 const RenderDummy = styled('div')();
 
-describe('IconInputWrapper', () => {
+describe('IconInput', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
     const actual = create(
-      <IconInputWrapper
+      <IconInput
         selector="some-wrapper"
         icon={props => <RenderDummy {...props} />}
         input={props => <RenderDummy {...props} />}
@@ -22,7 +22,7 @@ describe('IconInputWrapper', () => {
 
   it('should allow rendering the icon on the right', () => {
     const actual = create(
-      <IconInputWrapper
+      <IconInput
         selector="some-wrapper"
         iconPosition="right"
         icon={props => <RenderDummy {...props} />}
@@ -37,7 +37,7 @@ describe('IconInputWrapper', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <IconInputWrapper
+      <IconInput
         selector="some-wrapper"
         icon={props => <RenderDummy {...props} />}
         input={props => <RenderDummy {...props} />}

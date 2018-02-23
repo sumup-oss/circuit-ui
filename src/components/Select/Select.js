@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css, cx } from 'react-emotion';
 
 import { textMega } from '../../styles/style-helpers';
-import IconInputWrapper from '../IconInputWrapper';
+import IconInput from '../IconInput';
 import DownTriangleIcon from './down-triangle.svg';
 
 const baseSelectStyles = ({ theme }) => css`
@@ -68,7 +68,7 @@ const Icon = styled(DownTriangleIcon)`
  * A native select component.
  */
 const Select = ({ options, value, placeholder, disabled, ...props }) => (
-  <IconInputWrapper
+  <IconInput
     iconPosition="right"
     icon={({ className, disabledClassName }) => (
       <Icon className={cx(className, { [disabledClassName]: disabled })} />

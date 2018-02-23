@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { cx } from 'react-emotion';
 
-import IconInputWrapper from '../IconInputWrapper';
-import Input from '../Input';
+import IconInput from '../IconInput';
 import SvgButton from '../SvgButton';
 import State from '../State/State';
 import RevealIcon from './eye.svg';
@@ -12,7 +10,7 @@ import HideIcon from './eye-off.svg';
 /**
  * PasswordInput component for forms.
  */
-const PasswordInput = ({ disabled, ...props }) => (
+const PasswordInput = ({ ...props }) => (
   <State
     initial={false}
     name="visible"
@@ -20,24 +18,17 @@ const PasswordInput = ({ disabled, ...props }) => (
     updater={visible => !visible}
   >
     {({ visible, onToggle }) => (
-      <IconInputWrapper
-        {...{ disabled }}
+      <IconInput
+        {...props}
         iconPosition="right"
-        icon={({ className, disabledClassName }) => (
-          <SvgButton
-            onClick={onToggle}
-            className={cx(className, { [disabledClassName]: disabled })}
-          >
+        type={visible ? 'text' : 'password'}
+      >
+        {({ className }) => (
+          <SvgButton onClick={onToggle} className={className}>
             {visible ? <HideIcon /> : <RevealIcon />}
           </SvgButton>
         )}
-        input={({ className }) => (
-          <Input
-            {...{ ...props, disabled, className }}
-            type={visible ? 'text' : 'password'}
-          />
-        )}
-      />
+      </IconInput>
     )}
   </State>
 );
@@ -46,16 +37,11 @@ PasswordInput.propTypes = {
   /**
    * Placeholder string for this input.
    */
-  placeholder: PropTypes.string,
-  /**
-   * Should the input be rendered as disabled?
-   */
-  disabled: PropTypes.bool
+  placeholder: PropTypes.string
 };
 
 PasswordInput.defaultProps = {
-  placeholder: 'Password',
-  disabled: false
+  placeholder: 'Password'
 };
 
 /**

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import { textMega, disableVisually } from '../../styles/style-helpers';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const invalidStyles = ({ theme, invalid }) =>
   invalid &&
@@ -59,9 +60,10 @@ const baseInputContainerStyles = ({ theme }) => css`
   label: input__container;
   color: ${theme.colors.n900};
   display: block;
+  position: relative;
 `;
 
-const baseInputInputStyles = ({ theme }) => css`
+const baseInputElementStyles = ({ theme }) => css`
   label: input;
   background-color: ${theme.colors.white};
   border-width: 1px;
@@ -95,19 +97,21 @@ const InputContainer = styled('div')`
   ${stretchStyles};
 `;
 
-const InputInput = styled('input')`
-  ${baseInputInputStyles};
+const InputElement = styled('input')`
+  ${baseInputElementStyles};
   ${optionalStyles};
   ${invalidStyles};
 `;
 
-const Input = ({ margin, inline, disabled, stretch, ...props }) => (
+const Input = ({ margin, inline, disabled, stretch, children, ...props }) => (
   <InputContainer {...{ margin, inline, disabled, stretch }}>
-    <InputInput {...{ ...props, disabled }} />
+    <InputElement {...{ ...props, disabled }} />
+    {children}
   </InputContainer>
 );
 
 Input.propTypes = {
+  children: childrenPropType,
   /**
    * Triggers error styles on the component.
    */
@@ -153,6 +157,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  children: null,
   invalid: false,
   optional: false,
   disabled: false,
