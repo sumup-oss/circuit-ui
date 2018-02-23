@@ -26,11 +26,11 @@ const marginStyles = ({ theme, margin }) =>
     margin-bottom: ${theme.spacings.giga};
   `;
 
-const HeadingElement = styled(HtmlElement)(
-  baseStyles,
-  sizeStyles,
-  marginStyles
-);
+const HeadingElement = styled(HtmlElement)`
+  ${baseStyles}
+  ${sizeStyles}
+  ${marginStyles}
+`;
 
 /**
  * A heading flexible heading component capable of rendering using

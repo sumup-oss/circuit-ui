@@ -27,7 +27,6 @@ storiesOf('Checkbox', module)
               onToggle(e);
             }}
             checked={isChecked}
-            selector="ci"
           >
             {isChecked ? 'Checked' : 'Unchecked'}
           </Checkbox>
@@ -53,7 +52,6 @@ storiesOf('Checkbox', module)
               onToggle(e);
             }}
             checked={isChecked}
-            selector="ci"
             invalid
           >
             Error

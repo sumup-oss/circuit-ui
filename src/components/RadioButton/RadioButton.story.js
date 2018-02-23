@@ -27,7 +27,6 @@ storiesOf('RadioButton', module)
               onToggle(e);
             }}
             checked={isChecked}
-            selector="ri"
           >
             {isChecked ? 'Checked' : 'Unchecked'}
           </RadioButton>
@@ -53,7 +52,6 @@ storiesOf('RadioButton', module)
               onToggle(e);
             }}
             checked={isChecked}
-            selector="ci"
             invalid
           >
             Error

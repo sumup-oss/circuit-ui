@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'react-emotion';
 
+import Label from '../Label';
+
 import IconInput from '.';
 
 const RenderDummy = styled('div')();
@@ -11,23 +13,16 @@ describe('IconInput', () => {
    */
   it('should render with default styles', () => {
     const actual = create(
-      <IconInput
-        selector="some-wrapper"
-        icon={props => <RenderDummy {...props} />}
-        input={props => <RenderDummy {...props} />}
-      />
+      <IconInput>{props => <RenderDummy {...props} />}</IconInput>
     );
     expect(actual).toMatchSnapshot();
   });
 
   it('should allow rendering the icon on the right', () => {
     const actual = create(
-      <IconInput
-        selector="some-wrapper"
-        iconPosition="right"
-        icon={props => <RenderDummy {...props} />}
-        input={props => <RenderDummy {...props} />}
-      />
+      <IconInput iconPosition={IconInput.RIGHT}>
+        {props => <RenderDummy {...props} />}
+      </IconInput>
     );
     expect(actual).toMatchSnapshot();
   });
@@ -37,11 +32,14 @@ describe('IconInput', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <IconInput
-        selector="some-wrapper"
-        icon={props => <RenderDummy {...props} />}
-        input={props => <RenderDummy {...props} />}
-      />
+      <Label htmlFor="icon-input">
+        Label
+        <IconInput>
+          {props => (
+            <RenderDummy {...props} id="icon-input" name="icon-input" />
+          )}
+        </IconInput>
+      </Label>
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
