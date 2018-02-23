@@ -20,7 +20,7 @@ const PasswordInput = ({ ...props }) => (
     {({ visible, onToggle }) => (
       <IconInput
         {...props}
-        iconPosition="right"
+        iconPosition={IconInput.RIGHT}
         type={visible ? 'text' : 'password'}
       >
         {({ className }) => (

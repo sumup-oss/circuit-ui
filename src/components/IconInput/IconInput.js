@@ -6,6 +6,9 @@ import Input from '../Input';
 
 import { themePropType } from '../../util/shared-prop-types';
 
+const LEFT = 'left';
+const RIGHT = 'right';
+
 const iconBaseStyles = ({ theme }) => css`
   label: icon-input__icon;
   position: absolute;
@@ -15,7 +18,7 @@ const iconBaseStyles = ({ theme }) => css`
 `;
 
 const iconLeftStyles = ({ theme, iconPosition }) =>
-  iconPosition === 'left' &&
+  iconPosition === LEFT &&
   css`
     label: icon-input__icon--left;
     left: ${theme.spacings.kilo};
@@ -23,7 +26,7 @@ const iconLeftStyles = ({ theme, iconPosition }) =>
   `;
 
 const iconRightStyles = ({ theme, iconPosition }) =>
-  iconPosition === 'right' &&
+  iconPosition === RIGHT &&
   css`
     label: icon-input__icon--right;
     right: ${theme.spacings.kilo};
@@ -31,7 +34,7 @@ const iconRightStyles = ({ theme, iconPosition }) =>
   `;
 
 const inputLeftStyles = ({ theme, iconPosition }) =>
-  iconPosition === 'left' &&
+  iconPosition === LEFT &&
   css`
     label: icon-input__input--left;
     padding-left: calc(
@@ -40,7 +43,7 @@ const inputLeftStyles = ({ theme, iconPosition }) =>
   `;
 
 const inputRightStyles = ({ theme, iconPosition }) =>
-  iconPosition === 'right' &&
+  iconPosition === RIGHT &&
   css`
     label: icon-input__input--right;
     padding-right: calc(
@@ -49,8 +52,8 @@ const inputRightStyles = ({ theme, iconPosition }) =>
   `;
 
 /**
- * Used to wrap inputs or selects that have an icon overlay. Takes two
- * render props (input and icon).
+ * Renders inputs or selects that have an icon overlay. Takes the icon as a
+ * render prop.
  */
 const IconInput = ({ children, iconPosition, theme, ...props }) => {
   const iconClassName = cx(
@@ -71,18 +74,26 @@ const IconInput = ({ children, iconPosition, theme, ...props }) => {
   );
 };
 
+IconInput.LEFT = LEFT;
+IconInput.RIGHT = RIGHT;
+
 IconInput.propTypes = {
-  children: PropTypes.func.isRequired,
   theme: themePropType.isRequired,
+  /**
+-   * Render prop that should render the overlay icon or element.
+-   * Receives a className prop. The className positions the icon according to
+    * the iconPosition prop.
+-   */
+  children: PropTypes.func.isRequired,
   /**
    * Position the icon render prop should show. Affects the
    * className passed to the render prop.
    */
-  iconPosition: PropTypes.oneOf(['left', 'right'])
+  iconPosition: PropTypes.oneOf([IconInput.LEFT, IconInput.RIGHT])
 };
 
 IconInput.defaultProps = {
-  iconPosition: 'left'
+  iconPosition: IconInput.LEFT
 };
 
 /**

@@ -1,8 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { cx } from 'react-emotion';
 
-import Input from '../Input';
 import IconInput from '../IconInput';
 import SearchIcon from './search.svg';
 
