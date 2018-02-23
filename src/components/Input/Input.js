@@ -4,7 +4,10 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
-import { childrenPropType } from '../../util/shared-prop-types';
+import {
+  childrenPropType,
+  stretchPropType
+} from '../../util/shared-prop-types';
 
 const inputBaseStyles = ({ theme }) => css`
   label: input;
@@ -86,10 +89,6 @@ const containerMarginStyles = ({ theme, margin }) =>
     margin-bottom: ${theme.spacings.mega};
   `;
 
-// TODO: Add dynamic invalid aria attribute.
-/**
- * Input component for forms.
- */
 const InputContainer = styled('div')`
   ${containerBaseStyles};
   ${containerMarginStyles};
@@ -104,6 +103,10 @@ const InputElement = styled(HtmlElement)`
   ${inputInvalidStyles};
 `;
 
+// TODO: Add dynamic invalid aria attribute.
+/**
+ * Input component for forms.
+ */
 const Input = ({ margin, inline, disabled, stretch, children, ...props }) => (
   <InputContainer {...{ margin, inline, disabled, stretch }}>
     <InputElement
@@ -140,20 +143,7 @@ Input.propTypes = {
   /**
    * Trigger stretch (full width) styles on the component.
    */
-  stretch: (props, propName, componentName) => {
-    if (props.inline && props.stretch) {
-      return new Error(
-        'You cannot use both inline and stretch properties at the same time.'
-      );
-    }
-
-    return PropTypes.checkPropTypes(
-      { propName: PropTypes.bool },
-      props,
-      propName,
-      componentName
-    );
-  },
+  stretch: stretchPropType,
   /**
    * Adds bottom margin to the input.
    */

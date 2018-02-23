@@ -11,6 +11,21 @@ export const childrenPropType = PropTypes.oneOfType([
 
 export const childrenRenderPropType = PropTypes.func;
 
+export const stretchPropType = (props, propName, componentName) => {
+  if (props.inline && props.stretch) {
+    return new Error(
+      'You cannot use both inline and stretch properties at the same time.'
+    );
+  }
+
+  return PropTypes.checkPropTypes(
+    { propName: PropTypes.bool },
+    props,
+    propName,
+    componentName
+  );
+};
+
 const typePropType = PropTypes.shape({
   fontSize: PropTypes.string,
   lineHeight: PropTypes.string

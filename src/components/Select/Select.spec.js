@@ -53,18 +53,16 @@ describe('Select', () => {
    * Logic tests.
    */
   it('should be disabled when passed the disabled prop', () => {
-    const wrapper = shallow(<Select {...{ options }} disabled />)
-      .dive()
-      .dive();
+    const wrapper = shallow(<Select {...{ options }} disabled />).dive();
     const actual = wrapper.find('SelectElement').prop('disabled');
     expect(actual).toBeTruthy();
   });
 
   it('should show the placeholder when no value is passed', () => {
     const expected = 'Placeholder';
-    const wrapper = shallow(<Select {...{ options, placeholder: expected }} />)
-      .dive()
-      .dive();
+    const wrapper = shallow(
+      <Select {...{ options, placeholder: expected }} />
+    ).dive();
     const actual = wrapper
       .find('option')
       .first()

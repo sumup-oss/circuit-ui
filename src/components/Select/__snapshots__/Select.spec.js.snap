@@ -2,6 +2,7 @@
 
 exports[`Select should render with default styles 1`] = `
 .circuit-2 {
+  color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
@@ -23,7 +24,6 @@ exports[`Select should render with default styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   z-index: 30;
-  padding-right: calc( 12px + 16px + 12px );
 }
 
 .circuit-0:focus,
@@ -43,6 +43,7 @@ exports[`Select should render with default styles 1`] = `
 
 <div
   className="circuit-2 circuit-3"
+  disabled={false}
 >
   <select
     className="circuit-0 circuit-1"
@@ -77,12 +78,6 @@ exports[`Select should render with default styles 1`] = `
 `;
 
 exports[`Select should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-2 {
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -99,9 +94,6 @@ exports[`Select should render with disabled styles when passed the disabled prop
   font-size: 15px;
   line-height: 24px;
   z-index: 30;
-  opacity: 0.4;
-  pointer-events: none;
-  padding-right: calc( 12px + 16px + 12px );
 }
 
 .circuit-0:focus,
@@ -119,8 +111,19 @@ exports[`Select should render with disabled styles when passed the disabled prop
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
 <div
   className="circuit-2 circuit-3"
+  disabled={true}
 >
   <select
     className="circuit-0 circuit-1"
