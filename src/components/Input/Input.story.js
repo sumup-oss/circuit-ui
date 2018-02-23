@@ -7,7 +7,7 @@ import Input from '.';
 import Label from '../Label';
 
 const styles = { display: 'block', marginBottom: '20px' };
-const fluidContainerStyles = { width: '400px' };
+const stretchedContainerStyles = { width: '400px', border: '1px dashed #ccc' };
 
 storiesOf('Input', module)
   .addDecorator(withTests('Input'))
@@ -47,11 +47,11 @@ storiesOf('Input', module)
     ))
   )
   .add(
-    'Fluid inputs',
+    'Stretched inputs',
     withInfo()(() => (
-      <div style={fluidContainerStyles}>
-        <Input placeholder="Without fluid modifier" />
-        <Input placeholder="With fluid modifier" fluid />
+      <div style={stretchedContainerStyles}>
+        <Input placeholder="Without stretch modifier" />
+        <Input placeholder="With stretch modifier" stretch />
       </div>
     ))
   );

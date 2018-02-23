@@ -37,8 +37,8 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with fluid styles when passed the fluid prop', () => {
-    const actual = create(<Input fluid />);
+  it('should render with stretched styles when passed the stretch prop', () => {
+    const actual = create(<Input stretch />);
     expect(actual).toMatchSnapshot();
   });
 

@@ -41,10 +41,10 @@ const inlineStyles = ({ theme, inline }) =>
     margin-right: ${theme.spacings.mega};
   `;
 
-const fluidStyles = ({ fluid }) =>
-  fluid &&
+const stretchStyles = ({ stretch }) =>
+  stretch &&
   css`
-    label: input--fluid;
+    label: input--stretch;
     width: 100%;
   `;
 
@@ -83,7 +83,7 @@ const Input = styled('input')`
   ${optionalStyles};
   ${invalidStyles};
   ${inlineStyles};
-  ${fluidStyles};
+  ${stretchStyles};
 `;
 
 Input.propTypes = {
@@ -109,9 +109,22 @@ Input.propTypes = {
    */
   inline: PropTypes.bool,
   /**
-   * Trigger fluid styles on the component.
+   * Trigger stretch (full width) styles on the component.
    */
-  fluid: PropTypes.bool
+  stretch: (props, propName, componentName) => {
+    if (props.inline && props.stretch) {
+      return new Error(
+        'You cannot use both inline and stretch properties at the same time.'
+      );
+    }
+
+    return PropTypes.checkPropTypes(
+      { propName: PropTypes.bool },
+      props,
+      propName,
+      componentName
+    );
+  }
 };
 
 Input.defaultProps = {
@@ -121,7 +134,7 @@ Input.defaultProps = {
   disabled: false,
   autoComplete: 'none',
   inline: false,
-  fluid: false
+  stretch: false
 };
 
 /**
