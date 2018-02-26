@@ -74,7 +74,8 @@ export const createGlobalStyles = ({ theme, custom = '' }) => `
   }
 
   body {
-    color: ${theme.colors.black};
+    background-color: ${theme.colors.bodyBg};
+    color: ${theme.colors.bodyColor};
     ${textMega({ theme })}
   }
 

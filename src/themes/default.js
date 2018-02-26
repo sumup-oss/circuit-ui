@@ -50,7 +50,9 @@ const primary = {
 };
 
 const misc = {
-  shadow: '#0C0F14'
+  shadow: '#0C0F14',
+  bodyBg: neutrals.n100,
+  bodyColor: black
 };
 
 export const colors = {
