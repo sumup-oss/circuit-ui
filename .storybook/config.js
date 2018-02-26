@@ -46,7 +46,6 @@ const withStoryStyles = storyFn => {
 };
 
 const loadStories = () => {
-  addDecorator(withSmartKnobs);
   addDecorator(withKnobs);
   addDecorator(withStoryStyles);
   addDecorator(withThemeProvider);
