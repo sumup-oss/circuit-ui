@@ -29,10 +29,9 @@ const trackOnStyles = ({ theme, on }) =>
     background-color: ${theme.colors.p500};
   `;
 
-const SwitchTrack = styled('div', { label: 'SwitchTrack' })(
-  trackBaseStyles,
-  trackOnStyles
-);
+const SwitchTrack = styled('div')`
+  ${trackBaseStyles} ${trackOnStyles};
+`;
 
 const knobBaseStyles = ({ theme }) => css`
   label: switch__knob;
@@ -58,10 +57,9 @@ const knobOnStyles = ({ theme, on }) =>
     );
   `;
 
-const SwitchKnob = styled('div', { label: 'SwitchKnob' })(
-  knobBaseStyles,
-  knobOnStyles
-);
+const SwitchKnob = styled('div')`
+  ${knobBaseStyles} ${knobOnStyles};
+`;
 
 /**
  * A simple Switch component.
