@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
-import { stretchPropType } from '../../util/shared-prop-types';
+import {
+  stretchPropType,
+  childrenPropType
+} from '../../util/shared-prop-types';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
 import DownTriangleIcon from './down-triangle.svg';
@@ -108,24 +111,19 @@ const Icon = styled(DownTriangleIcon)`
  * A native select component.
  */
 const Select = ({
-  options,
   value,
   placeholder,
   disabled,
   margin,
   inline,
   stretch,
+  children,
   ...props
 }) => (
   <SelectContainer {...{ margin, inline, disabled }}>
     <SelectElement {...{ ...props, disabled, stretch }}>
-      {!value && <option key={0}>{placeholder}</option>}
-      {options &&
-        options.map(option => (
-          <option key={option.value} {...option}>
-            {option.label}
-          </option>
-        ))}
+      {!value && <option key="placeholder">{placeholder}</option>}
+      {children}
     </SelectElement>
     <Icon />
   </SelectContainer>
@@ -143,14 +141,7 @@ Select.propTypes = {
   /**
    * Options to select from.
    */
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
-      label: PropTypes.string,
-      disabled: PropTypes.bool
-    })
-  ).isRequired,
+  children: childrenPropType.isRequired,
   /**
    * Styles the select as disabled.
    */

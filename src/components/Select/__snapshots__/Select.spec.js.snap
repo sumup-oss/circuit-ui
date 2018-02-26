@@ -53,20 +53,17 @@ exports[`Select should render with default styles 1`] = `
       Select an option
     </option>
     <option
-      label="Option 1"
-      value={1}
+      value="1"
     >
       Option 1
     </option>
     <option
-      label="Option 2"
-      value={2}
+      value="2"
     >
       Option 2
     </option>
     <option
-      label="Option 3"
-      value={3}
+      value="3"
     >
       Option 3
     </option>
@@ -133,20 +130,17 @@ exports[`Select should render with disabled styles when passed the disabled prop
       Select an option
     </option>
     <option
-      label="Option 1"
-      value={1}
+      value="1"
     >
       Option 1
     </option>
     <option
-      label="Option 2"
-      value={2}
+      value="2"
     >
       Option 2
     </option>
     <option
-      label="Option 3"
-      value={3}
+      value="3"
     >
       Option 3
     </option>
@@ -212,20 +206,17 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
       Select an option
     </option>
     <option
-      label="Option 1"
-      value={1}
+      value="1"
     >
       Option 1
     </option>
     <option
-      label="Option 2"
-      value={2}
+      value="2"
     >
       Option 2
     </option>
     <option
-      label="Option 3"
-      value={3}
+      value="3"
     >
       Option 3
     </option>
@@ -290,20 +281,17 @@ exports[`Select should render with stretched styles when passed the stretch prop
       Select an option
     </option>
     <option
-      label="Option 1"
-      value={1}
+      value="1"
     >
       Option 1
     </option>
     <option
-      label="Option 2"
-      value={2}
+      value="2"
     >
       Option 2
     </option>
     <option
-      label="Option 3"
-      value={3}
+      value="3"
     >
       Option 3
     </option>
