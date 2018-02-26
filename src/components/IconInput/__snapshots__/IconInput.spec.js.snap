@@ -60,7 +60,6 @@ exports[`IconInput should allow rendering the icon on the right 1`] = `
   disabled={false}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={false}
   />
@@ -130,7 +129,6 @@ exports[`IconInput should render with default styles 1`] = `
   disabled={false}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={false}
   />

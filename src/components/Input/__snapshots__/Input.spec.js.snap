@@ -70,7 +70,6 @@ exports[`Input should prioritize error over optional styles 1`] = `
   disabled={true}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={true}
   />
@@ -124,7 +123,6 @@ exports[`Input should render with default styles 1`] = `
   disabled={false}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={false}
   />
@@ -181,7 +179,6 @@ exports[`Input should render with disabled styles when passed the disabled prop 
   disabled={true}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={true}
   />
@@ -237,7 +234,6 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   disabled={false}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={false}
   />
@@ -311,7 +307,6 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   disabled={false}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={false}
   />
@@ -368,7 +363,6 @@ exports[`Input should render with optional styles when passed the optional prop 
   disabled={false}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={false}
   />
@@ -423,7 +417,6 @@ exports[`Input should render with stretched styles when passed the stretch prop 
   disabled={false}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={false}
   />

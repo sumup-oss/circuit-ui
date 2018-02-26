@@ -51,7 +51,6 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   disabled={true}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={true}
     role="search"
@@ -110,7 +109,6 @@ exports[`SearchInput should render with default styles 1`] = `
   disabled={false}
 >
   <input
-    autoComplete="none"
     className="circuit-0 circuit-1"
     disabled={false}
     role="search"

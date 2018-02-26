@@ -133,10 +133,6 @@ Input.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * Autocomplete attribute to be passed down to the <input> element.
-   */
-  autoComplete: PropTypes.string,
-  /**
    * Trigger inline styles on the component.
    */
   inline: PropTypes.bool,
@@ -160,7 +156,6 @@ Input.defaultProps = {
   invalid: false,
   optional: false,
   disabled: false,
-  autoComplete: 'none',
   inline: false,
   stretch: false,
   margin: true
