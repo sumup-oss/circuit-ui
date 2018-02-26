@@ -26,6 +26,11 @@ describe('SubHeading', () => {
     });
   });
 
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<SubHeading noMargin />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

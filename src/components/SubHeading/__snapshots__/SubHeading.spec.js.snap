@@ -4,13 +4,14 @@ exports[`SubHeading should render as H2 element, when passed "h2" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 12px;
   font-size: 12px;
   line-height: 20px;
-  margin-bottom: 12px;
 }
 
 <h2
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="kilo"
 >
   H2 heading
@@ -21,13 +22,14 @@ exports[`SubHeading should render as H3 element, when passed "h3" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 12px;
   font-size: 12px;
   line-height: 20px;
-  margin-bottom: 12px;
 }
 
 <h3
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="kilo"
 >
   H3 heading
@@ -38,13 +40,14 @@ exports[`SubHeading should render as H4 element, when passed "h4" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 12px;
   font-size: 12px;
   line-height: 20px;
-  margin-bottom: 12px;
 }
 
 <h4
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="kilo"
 >
   H4 heading
@@ -55,13 +58,14 @@ exports[`SubHeading should render as H5 element, when passed "h5" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 12px;
   font-size: 12px;
   line-height: 20px;
-  margin-bottom: 12px;
 }
 
 <h5
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="kilo"
 >
   H5 heading
@@ -72,30 +76,49 @@ exports[`SubHeading should render as H6 element, when passed "h6" for the elemen
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 12px;
   font-size: 12px;
   line-height: 20px;
-  margin-bottom: 12px;
 }
 
 <h6
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="kilo"
 >
   H6 heading
 </h6>
 `;
 
-exports[`SubHeading should render with size kilo, when passed "kilo" for the size prop 1`] = `
+exports[`SubHeading should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 12px;
   font-size: 12px;
   line-height: 20px;
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
 <h3
   className="circuit-0 circuit-1"
+  noMargin={true}
+  size="kilo"
+/>
+`;
+
+exports[`SubHeading should render with size kilo, when passed "kilo" for the size prop 1`] = `
+.circuit-0 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+<h3
+  className="circuit-0 circuit-1"
+  noMargin={false}
   size="kilo"
 >
   kilo heading
@@ -106,13 +129,14 @@ exports[`SubHeading should render with size mega, when passed "mega" for the siz
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
+  margin-bottom: 12px;
   font-size: 14px;
   line-height: 18px;
-  margin-bottom: 12px;
 }
 
 <h3
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="mega"
 >
   mega heading

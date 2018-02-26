@@ -3,13 +3,14 @@
 exports[`Text should render as article element, when passed "article" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 400;
+  margin-bottom: 16px;
   font-size: 15px;
   line-height: 24px;
-  margin-bottom: 16px;
 }
 
 <article
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="mega"
 >
   ARTICLE heading
@@ -19,13 +20,14 @@ exports[`Text should render as article element, when passed "article" for the el
 exports[`Text should render as div element, when passed "div" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 400;
+  margin-bottom: 16px;
   font-size: 15px;
   line-height: 24px;
-  margin-bottom: 16px;
 }
 
 <div
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="mega"
 >
   DIV heading
@@ -35,29 +37,47 @@ exports[`Text should render as div element, when passed "div" for the element pr
 exports[`Text should render as p element, when passed "p" for the element prop 1`] = `
 .circuit-0 {
   font-weight: 400;
+  margin-bottom: 16px;
   font-size: 15px;
   line-height: 24px;
-  margin-bottom: 16px;
 }
 
 <p
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="mega"
 >
   P heading
 </p>
 `;
 
-exports[`Text should render with size giga, when passed "giga" for the size prop 1`] = `
+exports[`Text should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   font-weight: 400;
-  font-size: 18px;
-  line-height: 28px;
   margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: 0;
 }
 
 <p
   className="circuit-0 circuit-1"
+  noMargin={true}
+  size="mega"
+/>
+`;
+
+exports[`Text should render with size giga, when passed "giga" for the size prop 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+<p
+  className="circuit-0 circuit-1"
+  noMargin={false}
   size="giga"
 >
   giga heading
@@ -67,13 +87,14 @@ exports[`Text should render with size giga, when passed "giga" for the size prop
 exports[`Text should render with size kilo, when passed "kilo" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 400;
+  margin-bottom: 16px;
   font-size: 13px;
   line-height: 20px;
-  margin-bottom: 16px;
 }
 
 <p
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="kilo"
 >
   kilo heading
@@ -83,13 +104,14 @@ exports[`Text should render with size kilo, when passed "kilo" for the size prop
 exports[`Text should render with size mega, when passed "mega" for the size prop 1`] = `
 .circuit-0 {
   font-weight: 400;
+  margin-bottom: 16px;
   font-size: 15px;
   line-height: 24px;
-  margin-bottom: 16px;
 }
 
 <p
   className="circuit-0 circuit-1"
+  noMargin={false}
   size="mega"
 >
   mega heading

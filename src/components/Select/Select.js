@@ -68,6 +68,7 @@ const containerBaseStyles = ({ theme }) => css`
   color: ${theme.colors.n900};
   display: block;
   position: relative;
+  margin-bottom: ${theme.spacings.mega};
 `;
 
 const containerDisabledStyles = ({ disabled }) =>
@@ -85,16 +86,16 @@ const containerInlineStyles = ({ theme, inline }) =>
     margin-right: ${theme.spacings.mega};
   `;
 
-const containerMarginStyles = ({ theme, margin }) =>
+const containerNoMarginStyles = ({ margin }) =>
   margin &&
   css`
-    label: select__container--margin;
-    margin-bottom: ${theme.spacings.mega};
+    label: select__container--no-margin;
+    margin-bottom: 0;
   `;
 
 const SelectContainer = styled('div')`
   ${containerBaseStyles};
-  ${containerMarginStyles};
+  ${containerNoMarginStyles};
   ${containerDisabledStyles};
   ${containerInlineStyles};
 `;
@@ -114,13 +115,13 @@ const Select = ({
   value,
   placeholder,
   disabled,
-  margin,
+  noMargin,
   inline,
   stretch,
   children,
   ...props
 }) => (
-  <SelectContainer {...{ margin, inline, disabled }}>
+  <SelectContainer {...{ noMargin, inline, disabled }}>
     <SelectElement {...{ ...props, disabled, stretch }}>
       {!value && <option key="placeholder">{placeholder}</option>}
       {children}
@@ -165,9 +166,9 @@ Select.propTypes = {
    */
   stretch: stretchPropType,
   /**
-   * Adds bottom margin to the input.
+   * Removes the default bottom margin from the select.
    */
-  margin: PropTypes.bool
+  noMargin: PropTypes.bool
 };
 
 Select.defaultProps = {
@@ -176,7 +177,7 @@ Select.defaultProps = {
   placeholder: 'Select an option',
   inline: false,
   stretch: false,
-  margin: true
+  noMargin: false
 };
 
 /**

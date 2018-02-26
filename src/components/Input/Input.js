@@ -65,6 +65,7 @@ const containerBaseStyles = ({ theme }) => css`
   color: ${theme.colors.n900};
   display: block;
   position: relative;
+  margin-bottom: ${theme.spacings.mega};
 `;
 
 const containerDisabledStyles = ({ disabled }) =>
@@ -82,16 +83,16 @@ const containerInlineStyles = ({ theme, inline }) =>
     margin-right: ${theme.spacings.mega};
   `;
 
-const containerMarginStyles = ({ theme, margin }) =>
-  margin &&
+const containerNoMarginStyles = ({ noMargin }) =>
+  noMargin &&
   css`
-    label: input__container--margin;
-    margin-bottom: ${theme.spacings.mega};
+    label: input__container--no-margin;
+    margin-bottom: 0;
   `;
 
 const InputContainer = styled('div')`
   ${containerBaseStyles};
-  ${containerMarginStyles};
+  ${containerNoMarginStyles};
   ${containerDisabledStyles};
   ${containerInlineStyles};
 `;
@@ -107,8 +108,8 @@ const InputElement = styled(HtmlElement)`
 /**
  * Input component for forms.
  */
-const Input = ({ margin, inline, disabled, stretch, children, ...props }) => (
-  <InputContainer {...{ margin, inline, disabled }}>
+const Input = ({ noMargin, inline, disabled, stretch, children, ...props }) => (
+  <InputContainer {...{ noMargin, inline, disabled }}>
     <InputElement
       {...{ ...props, disabled, stretch }}
       blacklist={{ optional: true, invalid: true, stretch: true }}
@@ -141,9 +142,9 @@ Input.propTypes = {
    */
   stretch: stretchPropType,
   /**
-   * Adds bottom margin to the input.
+   * Removes the default bottom margin from the input.
    */
-  margin: PropTypes.bool,
+  noMargin: PropTypes.bool,
   /**
    * The HTML input element to render.
    */
@@ -158,7 +159,7 @@ Input.defaultProps = {
   disabled: false,
   inline: false,
   stretch: false,
-  margin: true
+  noMargin: false
 };
 
 /**

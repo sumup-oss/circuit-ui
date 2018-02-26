@@ -11,8 +11,8 @@ describe('Toggle', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have no bottom margin when "margin" is falsy', () => {
-    const actual = create(<Toggle margin={false} />);
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<Toggle noMargin />);
     expect(actual).toMatchSnapshot(actual);
   });
 
