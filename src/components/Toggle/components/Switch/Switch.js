@@ -26,13 +26,12 @@ const trackOnStyles = ({ theme, on }) =>
   on &&
   css`
     label: switch--on;
-    background-color: ${theme.colors.b500};
+    background-color: ${theme.colors.p500};
   `;
 
-const SwitchTrack = styled('div', { label: 'SwitchTrack' })(
-  trackBaseStyles,
-  trackOnStyles
-);
+const SwitchTrack = styled('div')`
+  ${trackBaseStyles} ${trackOnStyles};
+`;
 
 const knobBaseStyles = ({ theme }) => css`
   label: switch__knob;
@@ -50,7 +49,7 @@ const knobOnStyles = ({ theme, on }) =>
   on &&
   css`
     label: switch__knob--on;
-    box-shadow: ${knobShadow(theme.colors.b700)};
+    box-shadow: ${knobShadow(theme.colors.p700)};
     transform: translate3d(
       calc(${TRACK_WIDTH - KNOB_SIZE}px - ${theme.spacings.bit}),
       -50%,
@@ -58,10 +57,9 @@ const knobOnStyles = ({ theme, on }) =>
     );
   `;
 
-const SwitchKnob = styled('div', { label: 'SwitchKnob' })(
-  knobBaseStyles,
-  knobOnStyles
-);
+const SwitchKnob = styled('div')`
+  ${knobBaseStyles} ${knobOnStyles};
+`;
 
 /**
  * A simple Switch component.

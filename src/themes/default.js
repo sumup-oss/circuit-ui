@@ -1,38 +1,71 @@
-export const colors = {
-  white: '#FFFFFF',
-  black: '#0F131A',
-  // Neutrals
+const white = '#FFFFFF';
+const black = '#0F131A';
+
+const neutrals = {
   n100: '#FAFBFC',
   n300: '#D8DDE1',
   n500: '#9DA7B1',
   n700: '#5C656F',
-  n900: '#212933',
-  // Blues
+  n900: '#212933'
+};
+
+const blues = {
   b100: '#DAEAFF',
   b300: '#7FB5FF',
   b500: '#3388FF',
   b700: '#2567D8',
-  b900: '#1641AC',
-  // Greens
+  b900: '#1641AC'
+};
+
+const greens = {
   g100: '#C6E5CB',
   g300: '#97E2A3',
   g500: '#62DE76',
   g700: '#49B85B',
-  g900: '#2F903E',
-  // Greens
+  g900: '#2F903E'
+};
+
+const yellows = {
   y100: '#F2E5CB',
   y300: '#F7DA9F',
   y500: '#FFC859',
   y700: '#D4A546',
-  y900: '#AB8433',
-  // Greens
+  y900: '#AB8433'
+};
+
+const reds = {
   r100: '#FFE6E1',
   r300: '#FFAF9F',
   r500: '#FF7559',
   r700: '#D55A41',
-  r900: '#A73D28',
-  // Misc
-  shadow: '#0C0F14'
+  r900: '#A73D28'
+};
+
+const primary = {
+  p100: blues.b100,
+  p300: blues.b300,
+  p500: blues.b500,
+  p700: blues.b700,
+  p900: blues.b900
+};
+
+const misc = {
+  shadow: '#0C0F14',
+  bodyBg: neutrals.n100,
+  bodyColor: black,
+  buttonColor: '#FFFFFF'
+};
+
+export const colors = {
+  white,
+  black,
+  ...neutrals,
+  ...blues,
+  ...greens,
+  ...yellows,
+  ...reds,
+  ...primary,
+  ...misc
 };
 
 export const spacings = {

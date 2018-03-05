@@ -49,9 +49,9 @@ const progressStyles = ({ theme, size, value, max }) => {
       bottom: 0;
       left: 0;
       width: ${value / max * 100}%;
-      background-color: ${theme.colors.b500};
-      border: 1px solid ${theme.colors.b700};
-      box-shadow: inset 0 1px 0 0 ${theme.colors.b300};
+      background-color: ${theme.colors.p500};
+      border: 1px solid ${theme.colors.p700};
+      box-shadow: inset 0 1px 0 0 ${theme.colors.p300};
       border-radius: ${innerBorderRadius} 0 0 ${innerBorderRadius};
       transition: width 0.05s ease-out;
     }

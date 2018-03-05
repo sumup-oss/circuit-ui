@@ -48,14 +48,14 @@ const stretchStyles = ({ stretch }) =>
 
 const baseStyles = ({ theme, href, ...otherProps }) => css`
   label: button;
-  background-color: ${theme.colors.b500};
-  border-color: ${theme.colors.b700};
+  background-color: ${theme.colors.p500};
+  border-color: ${theme.colors.p700};
   border-radius: ${theme.borderRadius.mega};
   border-style: solid;
   border-width: 1px;
   box-shadow: inset 0 1px 0 1px rgba(255, 255, 255, 0.06);
   display: ${href ? 'inline-block' : 'block'};
-  color: ${theme.colors.white};
+  color: ${theme.colors.buttonColor};
   cursor: pointer;
   font-weight: ${theme.fontWeight.bold};
   width: auto;
@@ -64,25 +64,25 @@ const baseStyles = ({ theme, href, ...otherProps }) => css`
   ${textMega({ theme })};
 
   &:active {
-    background-color: ${theme.colors.b700};
-    border-color: ${theme.colors.b900};
+    background-color: ${theme.colors.p700};
+    border-color: ${theme.colors.p900};
     box-shadow: inset 0 4px 8px 0 rgba(12, 15, 20, 0.3);
   }
 
   &:focus {
-    border-color: ${theme.colors.b700};
+    border-color: ${theme.colors.p700};
     border-width: 2px;
     outline: 0;
     padding: ${calculatePadding({ theme, ...otherProps })('1px')};
   }
 
   &:hover {
-    background-color: ${theme.colors.b700};
+    background-color: ${theme.colors.p700};
   }
 
   &:hover,
   &:active {
-    border-color: ${theme.colors.b900};
+    border-color: ${theme.colors.p900};
     border-width: 1px;
     padding: ${calculatePadding({ theme, ...otherProps })()};
   }
@@ -103,7 +103,7 @@ const flatStyles = ({ theme, flat, secondary, ...otherProps }) =>
       0 2px 2px 0 rgba(12, 15, 20, 0.06), 0 4px 4px 0 rgba(12, 15, 20, 0.06);
 
     &:active {
-      background-color: ${theme.colors.b900};
+      background-color: ${theme.colors.p900};
       box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.02),
         0 0 1px 0 rgba(12, 15, 20, 0.06), 0 2px 2px 0 rgba(12, 15, 20, 0.06);
     }

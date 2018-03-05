@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
-const baseStyles = css`
+const baseStyles = ({ theme }) => css`
   label: svg-button;
   padding: 0;
   margin: 0;
@@ -10,6 +10,7 @@ const baseStyles = css`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  fill: ${theme.colors.black};
 
   &:focus,
   &:active {

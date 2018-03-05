@@ -33,7 +33,6 @@ const withStoryStyles = storyFn => {
   return (
     <div
       style={{
-        backgroundColor: standard.colors.n100,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

@@ -36,7 +36,7 @@ const labelBaseStyles = ({ theme }) => css`
     ${size(10)};
 
     line-height: 0;
-    content: url("${checkmarkSvg(theme.colors.b500)}");
+    content: url("${checkmarkSvg(theme.colors.p500)}");
     display: block;
     position: absolute;
     top: 50%;
@@ -53,7 +53,7 @@ const labelCheckedStyles = ({ theme, checked }) =>
     label: checkbox--active;
 
     &::before {
-      border-color: ${theme.colors.b500};
+      border-color: ${theme.colors.p500};
     }
 
     &::after {
@@ -99,7 +99,7 @@ const inputStyles = ({ theme }) => css`
 
   &:focus + label::before {
     border-width: 2px;
-    border-color: ${theme.colors.b500};
+    border-color: ${theme.colors.p500};
   }
 `;
 

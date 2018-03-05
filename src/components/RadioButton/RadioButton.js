@@ -28,7 +28,7 @@ const labelBaseStyles = ({ theme }) => css`
 
   &::after {
     ${size(theme.spacings.byte)};
-    background-color: ${theme.colors.b500};
+    background-color: ${theme.colors.p500};
     border-radius: 100%;
     content: '';
     display: block;
@@ -47,7 +47,7 @@ const labelCheckedStyles = ({ theme, checked }) =>
     label: radio-button--active;
 
     &::before {
-      border-color: ${theme.colors.b500};
+      border-color: ${theme.colors.p500};
     }
 
     &::after {
@@ -93,7 +93,7 @@ const inputStyles = ({ theme }) => css`
 
   &:focus + label::before {
     border-width: 2px;
-    border-color: ${theme.colors.b500};
+    border-color: ${theme.colors.p500};
   }
 `;
 

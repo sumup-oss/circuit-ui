@@ -12,7 +12,7 @@ storiesOf('List', module)
     withInfo()(() => (
       <List>
         <li>This is a list</li>
-        <li>A very find list</li>
+        <li>A very fine list</li>
         <List>
           <li>Sometimes a nested list</li>
         </List>
@@ -25,7 +25,7 @@ storiesOf('List', module)
     withInfo()(() => (
       <List ordered>
         <li>This is a list</li>
-        <li>A very find list</li>
+        <li>A very fine list</li>
         <List>
           <li>Sometimes a nested list</li>
         </List>
@@ -38,7 +38,7 @@ storiesOf('List', module)
     withInfo()(() => (
       <List size={List.KILO}>
         <li>This is a list</li>
-        <li>A very find list</li>
+        <li>A very fine list</li>
         <List size={List.KILO}>
           <li>Sometimes a nested list</li>
         </List>
@@ -51,7 +51,7 @@ storiesOf('List', module)
     withInfo()(() => (
       <List size={List.MEGA}>
         <li>This is a list</li>
-        <li>A very find list</li>
+        <li>A very fine list</li>
         <List size={List.MEGA}>
           <li>Sometimes a nested list</li>
         </List>
