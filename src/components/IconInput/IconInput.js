@@ -48,7 +48,6 @@ const inputRightStyles = ({ theme, iconRight }) =>
  * Renders inputs that have an icon overlay. Takes the icon(s) as a render prop.
  */
 const IconInput = ({ children, iconLeft, iconRight, theme, ...props }) => {
-  console.log('😡', !!iconLeft, !!iconRight);
   const iconLeftClassName = cx(
     iconBaseStyles({ theme }),
     iconLeftStyles({ theme })
