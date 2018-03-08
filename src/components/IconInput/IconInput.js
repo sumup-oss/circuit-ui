@@ -4,95 +4,94 @@ import { css, cx } from 'react-emotion';
 import { size } from 'polished';
 import Input from '../Input';
 
-import { themePropType } from '../../util/shared-prop-types';
-
-const LEFT = 'left';
-const RIGHT = 'right';
+import { themePropType, childrenPropType } from '../../util/shared-prop-types';
 
 const iconBaseStyles = ({ theme }) => css`
-  label: icon-input__icon;
+  label: input__icon;
   position: absolute;
   ${size(theme.spacings.mega)};
   top: 50%;
   transform: translateY(-50%);
 `;
 
-const iconLeftStyles = ({ theme, iconPosition }) =>
-  iconPosition === LEFT &&
-  css`
-    label: icon-input__icon--left;
-    left: ${theme.spacings.kilo};
-    right: auto;
-  `;
+const iconLeftStyles = ({ theme }) => css`
+  label: input__icon--left;
+  left: ${theme.spacings.kilo};
+  right: auto;
+`;
 
-const iconRightStyles = ({ theme, iconPosition }) =>
-  iconPosition === RIGHT &&
-  css`
-    label: icon-input__icon--right;
-    right: ${theme.spacings.kilo};
-    left: auto;
-  `;
+const iconRightStyles = ({ theme }) => css`
+  label: input__icon--right;
+  right: ${theme.spacings.kilo};
+  left: auto;
+`;
 
-const inputLeftStyles = ({ theme, iconPosition }) =>
-  iconPosition === LEFT &&
+const inputLeftStyles = ({ theme, iconLeft }) =>
+  iconLeft &&
   css`
-    label: icon-input__input--left;
+    label: input--icon-left;
     padding-left: calc(
       ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
     );
   `;
 
-const inputRightStyles = ({ theme, iconPosition }) =>
-  iconPosition === RIGHT &&
+const inputRightStyles = ({ theme, iconRight }) =>
+  iconRight &&
   css`
-    label: icon-input__input--right;
+    label: input--icon-right;
     padding-right: calc(
       ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
     );
   `;
 
 /**
- * Renders inputs that have an icon overlay. Takes the icon as a child.
+ * Renders inputs that have an icon overlay. Takes the icon(s) as a render prop.
  */
-const IconInput = ({ children, iconPosition, theme, ...props }) => {
-  const iconClassName = cx(
+const IconInput = ({ children, iconLeft, iconRight, theme, ...props }) => {
+  console.log('😡', !!iconLeft, !!iconRight);
+  const iconLeftClassName = cx(
     iconBaseStyles({ theme }),
-    iconLeftStyles({ theme, iconPosition }),
-    iconRightStyles({ theme, iconPosition })
+    iconLeftStyles({ theme })
+  );
+
+  const iconRightClassName = cx(
+    iconBaseStyles({ theme }),
+    iconRightStyles({ theme })
   );
 
   const inputClassName = cx(
-    inputLeftStyles({ theme, iconPosition }),
-    inputRightStyles({ theme, iconPosition })
+    inputLeftStyles({ theme, iconLeft: !!iconLeft }),
+    inputRightStyles({ theme, iconRight: !!iconRight })
   );
 
   return (
     <Input {...props} className={inputClassName}>
-      {children({ className: iconClassName })}
+      {iconLeft && iconLeft({ className: iconLeftClassName })}
+      {children}
+      {iconRight && iconRight({ className: iconRightClassName })}
     </Input>
   );
 };
 
-IconInput.LEFT = LEFT;
-IconInput.RIGHT = RIGHT;
-
 IconInput.propTypes = {
   theme: themePropType.isRequired,
+  children: childrenPropType,
   /**
--   * Render prop that should render the overlay icon or element.
--   * Receives a className prop. The className positions the icon according to
-    * the iconPosition prop.
--   */
-  children: PropTypes.func.isRequired,
-  /**
-   * Position the icon render prop should show. Affects the
-   * className passed to the render prop.
+   * Render prop that should render a left-aligned overlay icon or element.
+   * Receives a className prop.
    */
-  iconPosition: PropTypes.oneOf([IconInput.LEFT, IconInput.RIGHT])
+  iconLeft: PropTypes.func,
+  /**
+   * Render prop that should render a right-aligned overlay icon or element.
+   * Receives a className prop.
+   */
+  iconRight: PropTypes.func
 };
 
 IconInput.defaultProps = {
-  iconPosition: IconInput.LEFT
+  children: null,
+  iconLeft: null,
+  iconRight: null
 };
 
 /**

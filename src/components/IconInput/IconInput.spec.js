@@ -13,16 +13,14 @@ describe('IconInput', () => {
    */
   it('should render with default styles', () => {
     const actual = create(
-      <IconInput>{props => <RenderDummy {...props} />}</IconInput>
+      <IconInput iconLeft={props => <RenderDummy {...props} />} />
     );
     expect(actual).toMatchSnapshot();
   });
 
   it('should allow rendering the icon on the right', () => {
     const actual = create(
-      <IconInput iconPosition={IconInput.RIGHT}>
-        {props => <RenderDummy {...props} />}
-      </IconInput>
+      <IconInput iconRight={props => <RenderDummy {...props} />} />
     );
     expect(actual).toMatchSnapshot();
   });
@@ -34,11 +32,11 @@ describe('IconInput', () => {
     const wrapper = renderToHtml(
       <Label htmlFor="icon-input">
         Label
-        <IconInput>
-          {props => (
+        <IconInput
+          iconLeft={props => (
             <RenderDummy {...props} id="icon-input" name="icon-input" />
           )}
-        </IconInput>
+        />
       </Label>
     );
     const actual = await axe(wrapper);

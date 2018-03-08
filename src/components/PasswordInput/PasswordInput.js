@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { childrenPropType } from '../../util/shared-prop-types';
+
 import IconInput from '../IconInput';
 import SvgButton from '../SvgButton';
 import State from '../State/State';
@@ -10,7 +12,7 @@ import HideIcon from './eye-off.svg';
 /**
  * PasswordInput component for forms.
  */
-const PasswordInput = ({ ...props }) => (
+const PasswordInput = ({ children, ...props }) => (
   <State
     initial={false}
     name="visible"
@@ -20,20 +22,21 @@ const PasswordInput = ({ ...props }) => (
     {({ visible, onToggle }) => (
       <IconInput
         {...props}
-        iconPosition={IconInput.RIGHT}
         type={visible ? 'text' : 'password'}
-      >
-        {({ className }) => (
+        iconRight={({ className }) => (
           <SvgButton onClick={onToggle} className={className}>
             {visible ? <HideIcon /> : <RevealIcon />}
           </SvgButton>
         )}
+      >
+        {children}
       </IconInput>
     )}
   </State>
 );
 
 PasswordInput.propTypes = {
+  children: childrenPropType,
   /**
    * Placeholder string for this input.
    */
@@ -41,6 +44,7 @@ PasswordInput.propTypes = {
 };
 
 PasswordInput.defaultProps = {
+  children: null,
   placeholder: 'Password'
 };
 
