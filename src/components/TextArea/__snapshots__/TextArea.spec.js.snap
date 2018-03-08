@@ -9,6 +9,7 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  width: 100%;
   font-size: 15px;
   line-height: 24px;
   overflow: auto;
@@ -94,6 +95,7 @@ exports[`TextArea should render with default styles 1`] = `
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  width: 100%;
   font-size: 15px;
   line-height: 24px;
   overflow: auto;
@@ -142,6 +144,7 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  width: 100%;
   font-size: 15px;
   line-height: 24px;
   overflow: auto;
@@ -207,6 +210,7 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  width: 100%;
   font-size: 15px;
   line-height: 24px;
   overflow: auto;
@@ -282,6 +286,7 @@ exports[`TextArea should render with optional styles when passed the optional pr
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  width: 100%;
   font-size: 15px;
   line-height: 24px;
   background-color: #FAFBFC;

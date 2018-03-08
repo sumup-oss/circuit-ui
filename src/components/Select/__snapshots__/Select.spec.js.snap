@@ -21,9 +21,10 @@ exports[`Select should render with default styles 1`] = `
   color: #212933;
   padding: 8px 32px 8px 12px;
   position: relative;
+  width: 100%;
+  z-index: 30;
   font-size: 15px;
   line-height: 24px;
-  z-index: 30;
 }
 
 .circuit-0:focus,
@@ -88,9 +89,10 @@ exports[`Select should render with disabled styles when passed the disabled prop
   color: #212933;
   padding: 8px 32px 8px 12px;
   position: relative;
+  width: 100%;
+  z-index: 30;
   font-size: 15px;
   line-height: 24px;
-  z-index: 30;
 }
 
 .circuit-0:focus,
@@ -165,9 +167,10 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
   color: #212933;
   padding: 8px 32px 8px 12px;
   position: relative;
+  width: 100%;
+  z-index: 30;
   font-size: 15px;
   line-height: 24px;
-  z-index: 30;
 }
 
 .circuit-0:focus,
@@ -248,9 +251,10 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   color: #212933;
   padding: 8px 32px 8px 12px;
   position: relative;
+  width: 100%;
+  z-index: 30;
   font-size: 15px;
   line-height: 24px;
-  z-index: 30;
 }
 
 .circuit-0:focus,
@@ -307,10 +311,10 @@ exports[`Select should render with stretched styles when passed the stretch prop
   color: #212933;
   padding: 8px 32px 8px 12px;
   position: relative;
+  width: 100%;
+  z-index: 30;
   font-size: 15px;
   line-height: 24px;
-  z-index: 30;
-  width: 100%;
 }
 
 .circuit-0:focus,

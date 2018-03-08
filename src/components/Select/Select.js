@@ -24,8 +24,9 @@ const selectBaseStyles = ({ theme }) => css`
   padding: ${theme.spacings.byte} ${theme.spacings.tera} ${theme.spacings.byte}
     ${theme.spacings.kilo};
   position: relative;
-  ${textMega({ theme })};
+  width: 100%;
   z-index: 30;
+  ${textMega({ theme })};
 
   &:focus,
   &:hover,
@@ -42,13 +43,6 @@ const selectBaseStyles = ({ theme }) => css`
     text-shadow: 0 0 0 #000;
   }
 `;
-
-const selectStretchStyles = ({ stretch }) =>
-  stretch &&
-  css`
-    label: select--stretch;
-    width: 100%;
-  `;
 
 const iconBaseStyles = ({ theme }) => css`
   label: select__icon;
@@ -102,8 +96,8 @@ const SelectContainer = styled('div')`
 
 const SelectElement = styled('select')`
   ${selectBaseStyles};
-  ${selectStretchStyles};
 `;
+
 const Icon = styled(DownTriangleIcon)`
   ${iconBaseStyles};
 `;
@@ -117,12 +111,12 @@ const Select = ({
   disabled,
   noMargin,
   inline,
-  stretch,
+
   children,
   ...props
 }) => (
   <SelectContainer {...{ noMargin, inline, disabled }}>
-    <SelectElement {...{ ...props, disabled, stretch }}>
+    <SelectElement {...{ ...props, disabled }}>
       {!value && <option key="placeholder">{placeholder}</option>}
       {children}
     </SelectElement>
@@ -162,10 +156,6 @@ Select.propTypes = {
    */
   inline: PropTypes.bool,
   /**
-   * Trigger stretch (full width) styles on the component.
-   */
-  stretch: stretchPropType,
-  /**
    * Removes the default bottom margin from the select.
    */
   noMargin: PropTypes.bool
@@ -176,7 +166,6 @@ Select.defaultProps = {
   value: null,
   placeholder: 'Select an option',
   inline: false,
-  stretch: false,
   noMargin: false
 };
 
