@@ -26,6 +26,11 @@ describe('Text', () => {
     });
   });
 
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<Text noMargin />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

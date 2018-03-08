@@ -1,8 +1,9 @@
-import styled, { css } from 'react-emotion';
+import React from 'react';
+import { css } from 'react-emotion';
 
 import Input from '../Input';
 
-const baseStyles = css`
+const className = css`
   label: textarea;
   overflow: auto;
   resize: vertical;
@@ -11,9 +12,9 @@ const baseStyles = css`
 /**
  * TextArea component for forms.
  */
-const TextArea = styled(Input.withComponent('textarea'))`
-  ${baseStyles};
-`;
+const TextArea = props => (
+  <Input {...{ ...props, className }} element="textarea" />
+);
 
 /**
  * @component

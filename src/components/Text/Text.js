@@ -11,6 +11,7 @@ const { KILO, MEGA, GIGA } = sizes;
 const baseStyles = ({ theme }) => css`
   label: text;
   font-weight: ${theme.fontWeight.regular};
+  margin-bottom: ${theme.spacings.mega};
 `;
 
 const sizeStyles = ({ theme, size }) => css`
@@ -19,14 +20,16 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.text[size].lineHeight};
 `;
 
-const marginStyles = ({ theme, margin }) =>
-  margin &&
+const marginStyles = ({ noMargin }) =>
+  noMargin &&
   css`
-    label: text--with-margin;
-    margin-bottom: ${theme.spacings.mega};
+    label: text--no-margin;
+    margin-bottom: 0;
   `;
 
-const TextElement = styled(HtmlElement)(baseStyles, sizeStyles, marginStyles);
+const TextElement = styled(
+  HtmlElement
+)`${baseStyles} ${sizeStyles} ${marginStyles}`;
 
 /**
  * The Text component is used for long-form text. Typically with
@@ -53,9 +56,9 @@ Text.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * Adds bottom margin to the text.
+   * Removes the default bottom margin from the text.
    */
-  margin: PropTypes.bool,
+  noMargin: PropTypes.bool,
   /**
    * The HTML element to render.
    */
@@ -66,7 +69,7 @@ Text.defaultProps = {
   element: 'p',
   size: Text.MEGA,
   className: '',
-  margin: true,
+  noMargin: false,
   children: null
 };
 

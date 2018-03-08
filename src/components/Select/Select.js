@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css, cx } from 'react-emotion';
+import styled, { css } from 'react-emotion';
+import { size } from 'polished';
 
-import { textMega } from '../../styles/style-helpers';
-import IconInputWrapper from '../IconInputWrapper';
+import {
+  stretchPropType,
+  childrenPropType
+} from '../../util/shared-prop-types';
+import { textMega, disableVisually } from '../../styles/style-helpers';
+
 import DownTriangleIcon from './down-triangle.svg';
 
-const baseSelectStyles = ({ theme }) => css`
+const selectBaseStyles = ({ theme }) => css`
   label: select;
   appearance: none;
   background-color: ${theme.colors.white};
@@ -29,10 +34,7 @@ const baseSelectStyles = ({ theme }) => css`
   }
 
   &:focus {
-    border: 1px solid ${theme.colors.p500};
-  }
-
-  &::after {
+    border-color: ${theme.colors.p500};
   }
 
   &:-moz-focusring {
@@ -41,50 +43,91 @@ const baseSelectStyles = ({ theme }) => css`
   }
 `;
 
-const disabledSelectStyles = ({ disabled }) =>
-  disabled &&
+const selectStretchStyles = ({ stretch }) =>
+  stretch &&
   css`
-    label: select--disabled;
-    opacity: 0.4;
-    pointer-events: none;
+    label: select--stretch;
+    width: 100%;
   `;
 
-const baseIconStyles = ({ theme }) => css`
+const iconBaseStyles = ({ theme }) => css`
   label: select__icon;
   fill: ${theme.colors.n700};
   display: block;
   z-index: 40;
   pointer-events: none;
+  position: absolute;
+  ${size(theme.spacings.kilo)};
+  top: 50%;
+  right: ${theme.spacings.kilo};
+  transform: translateY(-50%);
+`;
+
+const containerBaseStyles = ({ theme }) => css`
+  label: select__container;
+  color: ${theme.colors.n900};
+  display: block;
+  position: relative;
+  margin-bottom: ${theme.spacings.mega};
+`;
+
+const containerDisabledStyles = ({ disabled }) =>
+  disabled &&
+  css`
+    label: select__container--disabled;
+    ${disableVisually()};
+  `;
+
+const containerInlineStyles = ({ theme, inline }) =>
+  inline &&
+  css`
+    label: select__container--inline;
+    display: inline-block;
+    margin-right: ${theme.spacings.mega};
+  `;
+
+const containerNoMarginStyles = ({ margin }) =>
+  margin &&
+  css`
+    label: select__container--no-margin;
+    margin-bottom: 0;
+  `;
+
+const SelectContainer = styled('div')`
+  ${containerBaseStyles};
+  ${containerNoMarginStyles};
+  ${containerDisabledStyles};
+  ${containerInlineStyles};
 `;
 
 const SelectElement = styled('select')`
-  ${baseSelectStyles} ${disabledSelectStyles};
+  ${selectBaseStyles};
+  ${selectStretchStyles};
 `;
 const Icon = styled(DownTriangleIcon)`
-  ${baseIconStyles};
+  ${iconBaseStyles};
 `;
 
 /**
  * A native select component.
  */
-const Select = ({ options, value, placeholder, disabled, ...props }) => (
-  <IconInputWrapper
-    iconPosition="right"
-    icon={({ className, disabledClassName }) => (
-      <Icon className={cx(className, { [disabledClassName]: disabled })} />
-    )}
-    input={({ className }) => (
-      <SelectElement {...{ ...props, className, disabled }}>
-        {!value && <option key={0}>{placeholder}</option>}
-        {options &&
-          options.map(option => (
-            <option key={option.value} {...option}>
-              {option.label}
-            </option>
-          ))}
-      </SelectElement>
-    )}
-  />
+const Select = ({
+  value,
+  placeholder,
+  disabled,
+  noMargin,
+  inline,
+  stretch,
+  children,
+  ...props
+}) => (
+  <SelectContainer {...{ noMargin, inline, disabled }}>
+    <SelectElement {...{ ...props, disabled, stretch }}>
+      {!value && <option key="placeholder">{placeholder}</option>}
+      {children}
+    </SelectElement>
+    <Icon />
+  </SelectContainer>
 );
 
 Select.propTypes = {
@@ -99,14 +142,7 @@ Select.propTypes = {
   /**
    * Options to select from.
    */
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
-      label: PropTypes.string,
-      disabled: PropTypes.bool
-    })
-  ).isRequired,
+  children: childrenPropType.isRequired,
   /**
    * Styles the select as disabled.
    */
@@ -120,13 +156,28 @@ Select.propTypes = {
   /**
    * String to show when no selection is made.
    */
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  /**
+   * Trigger inline styles on the component.
+   */
+  inline: PropTypes.bool,
+  /**
+   * Trigger stretch (full width) styles on the component.
+   */
+  stretch: stretchPropType,
+  /**
+   * Removes the default bottom margin from the select.
+   */
+  noMargin: PropTypes.bool
 };
 
 Select.defaultProps = {
   disabled: false,
   value: null,
-  placeholder: 'Select an option'
+  placeholder: 'Select an option',
+  inline: false,
+  stretch: false,
+  noMargin: false
 };
 
 /**

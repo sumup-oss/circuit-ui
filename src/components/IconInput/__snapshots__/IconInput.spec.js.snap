@@ -1,6 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PasswordInput should render with default styles 1`] = `
+exports[`IconInput should allow rendering the icon on both sides 1`] = `
+.circuit-6 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-2 {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 12px;
+  right: auto;
+}
+
+.circuit-4 {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 12px;
+  left: auto;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  font-size: 15px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+<div
+  className="circuit-6 circuit-7"
+  disabled={false}
+>
+  <input
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+  <div
+    className="circuit-2 circuit-3"
+  />
+  <div
+    className="circuit-4 circuit-3"
+  />
+</div>
+`;
+
+exports[`IconInput should allow rendering the icon on the right 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -44,13 +129,6 @@ exports[`PasswordInput should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
   position: absolute;
   height: 16px;
   width: 16px;
@@ -60,16 +138,6 @@ exports[`PasswordInput should render with default styles 1`] = `
   transform: translateY(-50%);
   right: 12px;
   left: auto;
-}
-
-.circuit-2:focus,
-.circuit-2:active {
-  outline: none;
-}
-
-.circuit-2 > svg {
-  height: 100%;
-  width: 100%;
 }
 
 <div
@@ -79,21 +147,21 @@ exports[`PasswordInput should render with default styles 1`] = `
   <input
     className="circuit-0 circuit-1"
     disabled={false}
-    placeholder="Password"
-    type="password"
   />
-  <button
+  <div
     className="circuit-2 circuit-3"
-    onClick={[Function]}
-  >
-    <div>
-      eye.svg
-    </div>
-  </button>
+  />
 </div>
 `;
 
-exports[`PasswordInput should render with disabled styles 1`] = `
+exports[`IconInput should render with default styles 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -104,7 +172,7 @@ exports[`PasswordInput should render with disabled styles 1`] = `
   padding: 8px 12px;
   font-size: 15px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: calc( 12px + 16px + 12px );
 }
 
 .circuit-0:focus,
@@ -130,13 +198,6 @@ exports[`PasswordInput should render with disabled styles 1`] = `
 }
 
 .circuit-2 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
   position: absolute;
   height: 16px;
   width: 16px;
@@ -144,47 +205,20 @@ exports[`PasswordInput should render with disabled styles 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  right: 12px;
-  left: auto;
-}
-
-.circuit-2:focus,
-.circuit-2:active {
-  outline: none;
-}
-
-.circuit-2 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
+  left: 12px;
+  right: auto;
 }
 
 <div
   className="circuit-4 circuit-5"
-  disabled={true}
+  disabled={false}
 >
   <input
     className="circuit-0 circuit-1"
-    disabled={true}
-    placeholder="Password"
-    type="password"
+    disabled={false}
   />
-  <button
+  <div
     className="circuit-2 circuit-3"
-    onClick={[Function]}
-  >
-    <div>
-      eye.svg
-    </div>
-  </button>
+  />
 </div>
 `;

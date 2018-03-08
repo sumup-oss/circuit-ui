@@ -12,6 +12,7 @@ const baseStyles = ({ theme }) => css`
   label: sub-heading;
   text-transform: uppercase;
   font-weight: ${theme.fontWeight.bold};
+  margin-bottom: ${theme.spacings.kilo};
 `;
 
 const sizeStyles = ({ theme, size }) => css`
@@ -20,17 +21,17 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.subHeadings[size].lineHeight};
 `;
 
-const marginStyles = ({ theme, margin }) =>
-  margin &&
+const noMarginStyles = ({ noMargin }) =>
+  noMargin &&
   css`
-    label: sub-heading--margin;
-    margin-bottom: ${theme.spacings.kilo};
+    label: sub-heading--no-margin;
+    margin-bottom: 0;
   `;
 
 const SubHeadingElement = styled(HtmlElement)(
   baseStyles,
   sizeStyles,
-  marginStyles
+  noMarginStyles
 );
 
 /**
@@ -59,9 +60,9 @@ SubHeading.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * Adds bottom margin to the sub-heading.
+   * Removes the default bottom margin from the subheading.
    */
-  margin: PropTypes.bool,
+  noMargin: PropTypes.bool,
   /**
    * The HTML heading element to render.
    */
@@ -72,7 +73,7 @@ SubHeading.defaultProps = {
   element: 'h3',
   size: SubHeading.KILO,
   className: '',
-  margin: true,
+  noMargin: false,
   children: null
 };
 

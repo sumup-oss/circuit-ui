@@ -8,12 +8,12 @@ describe('SearchInput', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<SearchInput selector="search" />);
+    const actual = create(<SearchInput />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should grey out icon when disabled', () => {
-    const actual = create(<SearchInput selector="search" disabled />);
+    const actual = create(<SearchInput disabled />);
     expect(actual).toMatchSnapshot();
   });
 

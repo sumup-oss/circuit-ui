@@ -2,8 +2,10 @@
 
 exports[`Select should render with default styles 1`] = `
 .circuit-2 {
-  display: inline-block;
+  color: #212933;
+  display: block;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -22,7 +24,6 @@ exports[`Select should render with default styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   z-index: 30;
-  padding-right: calc( 12px + 16px + 12px );
 }
 
 .circuit-0:focus,
@@ -32,7 +33,7 @@ exports[`Select should render with default styles 1`] = `
 }
 
 .circuit-0:focus {
-  border: 1px solid #3388FF;
+  border-color: #3388FF;
 }
 
 .circuit-0:-moz-focusring {
@@ -42,6 +43,7 @@ exports[`Select should render with default styles 1`] = `
 
 <div
   className="circuit-2 circuit-3"
+  disabled={false}
 >
   <select
     className="circuit-0 circuit-1"
@@ -51,20 +53,17 @@ exports[`Select should render with default styles 1`] = `
       Select an option
     </option>
     <option
-      label="Option 1"
-      value={1}
+      value="1"
     >
       Option 1
     </option>
     <option
-      label="Option 2"
-      value={2}
+      value="2"
     >
       Option 2
     </option>
     <option
-      label="Option 3"
-      value={3}
+      value="3"
     >
       Option 3
     </option>
@@ -76,9 +75,164 @@ exports[`Select should render with default styles 1`] = `
 `;
 
 exports[`Select should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-2 {
-  display: inline-block;
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  color: #212933;
+  padding: 8px 32px 8px 12px;
   position: relative;
+  font-size: 15px;
+  line-height: 24px;
+  z-index: 30;
+}
+
+.circuit-0:focus,
+.circuit-0:hover,
+.circuit-0:active {
+  outline: none;
+}
+
+.circuit-0:focus {
+  border-color: #3388FF;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={true}
+>
+  <select
+    className="circuit-0 circuit-1"
+    disabled={true}
+  >
+    <option>
+      Select an option
+    </option>
+    <option
+      value="1"
+    >
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <div>
+    down-triangle.svg
+  </div>
+</div>
+`;
+
+exports[`Select should render with inline styles when passed the inline prop 1`] = `
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  color: #212933;
+  padding: 8px 32px 8px 12px;
+  position: relative;
+  font-size: 15px;
+  line-height: 24px;
+  z-index: 30;
+}
+
+.circuit-0:focus,
+.circuit-0:hover,
+.circuit-0:active {
+  outline: none;
+}
+
+.circuit-0:focus {
+  border-color: #3388FF;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  display: inline-block;
+  margin-right: 16px;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <select
+    className="circuit-0 circuit-1"
+    disabled={false}
+  >
+    <option>
+      Select an option
+    </option>
+    <option
+      value="1"
+    >
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <div>
+    down-triangle.svg
+  </div>
+</div>
+`;
+
+exports[`Select should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -97,9 +251,6 @@ exports[`Select should render with disabled styles when passed the disabled prop
   font-size: 15px;
   line-height: 24px;
   z-index: 30;
-  opacity: 0.4;
-  pointer-events: none;
-  padding-right: calc( 12px + 16px + 12px );
 }
 
 .circuit-0:focus,
@@ -109,7 +260,7 @@ exports[`Select should render with disabled styles when passed the disabled prop
 }
 
 .circuit-0:focus {
-  border: 1px solid #3388FF;
+  border-color: #3388FF;
 }
 
 .circuit-0:-moz-focusring {
@@ -119,29 +270,87 @@ exports[`Select should render with disabled styles when passed the disabled prop
 
 <div
   className="circuit-2 circuit-3"
+  disabled={false}
 >
   <select
     className="circuit-0 circuit-1"
-    disabled={true}
+    disabled={false}
+  >
+    <option>
+      Select an option
+    </option>
+  </select>
+  <div>
+    down-triangle.svg
+  </div>
+</div>
+`;
+
+exports[`Select should render with stretched styles when passed the stretch prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.21);
+  color: #212933;
+  padding: 8px 32px 8px 12px;
+  position: relative;
+  font-size: 15px;
+  line-height: 24px;
+  z-index: 30;
+  width: 100%;
+}
+
+.circuit-0:focus,
+.circuit-0:hover,
+.circuit-0:active {
+  outline: none;
+}
+
+.circuit-0:focus {
+  border-color: #3388FF;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <select
+    className="circuit-0 circuit-1"
+    disabled={false}
   >
     <option>
       Select an option
     </option>
     <option
-      label="Option 1"
-      value={1}
+      value="1"
     >
       Option 1
     </option>
     <option
-      label="Option 2"
-      value={2}
+      value="2"
     >
       Option 2
     </option>
     <option
-      label="Option 3"
-      value={3}
+      value="3"
     >
       Option 3
     </option>

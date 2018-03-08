@@ -8,15 +8,9 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
   overflow: auto;
   resize: vertical;
 }
@@ -63,13 +57,35 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   color: #FFAF9F;
 }
 
-<textarea
-  className="circuit-0 circuit-1"
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+<div
+  className="circuit-2 circuit-3"
   disabled={true}
-/>
+>
+  <textarea
+    className="circuit-0 circuit-1"
+    disabled={true}
+  />
+</div>
 `;
 
 exports[`TextArea should render with default styles 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -77,10 +93,7 @@ exports[`TextArea should render with default styles 1`] = `
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
   overflow: auto;
@@ -109,9 +122,15 @@ exports[`TextArea should render with default styles 1`] = `
   color: #9DA7B1;
 }
 
-<textarea
-  className="circuit-0 circuit-1"
-/>
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <textarea
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+</div>
 `;
 
 exports[`TextArea should render with disabled styled when passed the disabled prop 1`] = `
@@ -122,15 +141,9 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
   overflow: auto;
   resize: vertical;
 }
@@ -157,13 +170,35 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   color: #9DA7B1;
 }
 
-<textarea
-  className="circuit-0 circuit-1"
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+<div
+  className="circuit-2 circuit-3"
   disabled={true}
-/>
+>
+  <textarea
+    className="circuit-0 circuit-1"
+    disabled={true}
+  />
+</div>
 `;
 
 exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -171,10 +206,7 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
   overflow: auto;
@@ -223,12 +255,25 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   color: #FFAF9F;
 }
 
-<textarea
-  className="circuit-0 circuit-1"
-/>
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <textarea
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+</div>
 `;
 
 exports[`TextArea should render with optional styles when passed the optional prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -236,10 +281,7 @@ exports[`TextArea should render with optional styles when passed the optional pr
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
   background-color: #FAFBFC;
@@ -271,7 +313,13 @@ exports[`TextArea should render with optional styles when passed the optional pr
   color: #9DA7B1;
 }
 
-<textarea
-  className="circuit-0 circuit-1"
-/>
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <textarea
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+</div>
 `;

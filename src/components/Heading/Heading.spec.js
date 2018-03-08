@@ -15,6 +15,7 @@ describe('Heading', () => {
       expect(heading).toMatchSnapshot();
     });
   });
+
   const sizes = ['kilo', 'mega', 'giga', 'tera', 'peta', 'exa', 'zetta'];
   sizes.forEach(size => {
     it(`should render with size ${size}, when passed "${size}" for the size prop`, () => {
@@ -23,6 +24,11 @@ describe('Heading', () => {
       ).toJSON();
       expect(heading).toMatchSnapshot();
     });
+  });
+
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(<Heading noMargin />);
+    expect(actual).toMatchSnapshot();
   });
 
   /**

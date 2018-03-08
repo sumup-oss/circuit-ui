@@ -39,28 +39,29 @@ const ToggleExplanation = styled(Text)`
 ToggleExplanation.propTypes = Text.propTypes;
 ToggleExplanation.defaultProps = Text.defaultProps;
 
-const toggleWrapperStyles = css`
+const toggleWrapperStyles = ({ theme }) => css`
   label: toggle;
   display: flex;
   flex-align: flex-start;
+  margin-bottom: ${theme.spacings.mega};
 `;
 
-const toggleWrapperMarginStyles = ({ theme, margin }) =>
-  margin &&
+const toggleWrapperNoMarginStyles = ({ noMargin }) =>
+  noMargin &&
   css`
-    label: toggle--with-margin;
-    margin-bottom: ${theme.spacings.mega};
+    label: toggle--no-margin;
+    margin-bottom: 0;
   `;
 
 const ToggleWrapper = styled('div')`
-  ${toggleWrapperStyles} ${toggleWrapperMarginStyles};
+  ${toggleWrapperStyles} ${toggleWrapperNoMarginStyles};
 `;
 
 /**
  * A toggle component with support for labels and additional explanations.
  */
-const Toggle = ({ label, explanation, margin, ...props }) => (
-  <ToggleWrapper {...{ margin }}>
+const Toggle = ({ label, explanation, noMargin, ...props }) => (
+  <ToggleWrapper {...{ noMargin }}>
     <Switch {...props} />
     {label &&
       explanation && (
@@ -83,13 +84,13 @@ const Toggle = ({ label, explanation, margin, ...props }) => (
 Toggle.propTypes = {
   label: PropTypes.string,
   explanation: PropTypes.string,
-  margin: PropTypes.bool
+  noMargin: PropTypes.bool
 };
 
 Toggle.defaultProps = {
   label: null,
   explanation: null,
-  margin: true
+  noMargin: false
 };
 
 /**

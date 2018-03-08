@@ -8,15 +8,9 @@ exports[`Input should prioritize error over optional styles 1`] = `
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:focus,
@@ -61,14 +55,35 @@ exports[`Input should prioritize error over optional styles 1`] = `
   color: #FFAF9F;
 }
 
-<input
-  autoComplete="none"
-  className="circuit-0 circuit-1"
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+<div
+  className="circuit-2 circuit-3"
   disabled={true}
-/>
+>
+  <input
+    className="circuit-0 circuit-1"
+    disabled={true}
+  />
+</div>
 `;
 
 exports[`Input should render with default styles 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -76,10 +91,7 @@ exports[`Input should render with default styles 1`] = `
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
 }
@@ -106,11 +118,15 @@ exports[`Input should render with default styles 1`] = `
   color: #9DA7B1;
 }
 
-<input
-  autoComplete="none"
-  className="circuit-0 circuit-1"
+<div
+  className="circuit-2 circuit-3"
   disabled={false}
-/>
+>
+  <input
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+</div>
 `;
 
 exports[`Input should render with disabled styles when passed the disabled prop 1`] = `
@@ -121,15 +137,9 @@ exports[`Input should render with disabled styles when passed the disabled prop 
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
 }
 
 .circuit-0:focus,
@@ -154,11 +164,25 @@ exports[`Input should render with disabled styles when passed the disabled prop 
   color: #9DA7B1;
 }
 
-<input
-  autoComplete="none"
-  className="circuit-0 circuit-1"
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+<div
+  className="circuit-2 circuit-3"
   disabled={true}
-/>
+>
+  <input
+    className="circuit-0 circuit-1"
+    disabled={true}
+  />
+</div>
 `;
 
 exports[`Input should render with inline styles when passed the inline prop 1`] = `
@@ -169,14 +193,9 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
-  display: inline-block;
-  margin-right: 16px;
 }
 
 .circuit-0:focus,
@@ -201,14 +220,34 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   color: #9DA7B1;
 }
 
-<input
-  autoComplete="none"
-  className="circuit-0 circuit-1"
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  display: inline-block;
+  margin-right: 16px;
+}
+
+<div
+  className="circuit-2 circuit-3"
   disabled={false}
-/>
+>
+  <input
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+</div>
 `;
 
 exports[`Input should render with invalid styles when passed the invalid prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -216,10 +255,7 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
 }
@@ -266,14 +302,18 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   color: #FFAF9F;
 }
 
-<input
-  autoComplete="none"
-  className="circuit-0 circuit-1"
+<div
+  className="circuit-2 circuit-3"
   disabled={false}
-/>
+>
+  <input
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+</div>
 `;
 
-exports[`Input should render with optional styles when passed the optional prop 1`] = `
+exports[`Input should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -281,10 +321,68 @@ exports[`Input should render with optional styles when passed the optional prop 
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-2 {
+  color: #212933;
   display: block;
+  position: relative;
+  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <input
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+</div>
+`;
+
+exports[`Input should render with optional styles when passed the optional prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
   font-size: 15px;
   line-height: 24px;
   background-color: #FAFBFC;
@@ -314,14 +412,25 @@ exports[`Input should render with optional styles when passed the optional prop 
   color: #9DA7B1;
 }
 
-<input
-  autoComplete="none"
-  className="circuit-0 circuit-1"
+<div
+  className="circuit-2 circuit-3"
   disabled={false}
-/>
+>
+  <input
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+</div>
 `;
 
 exports[`Input should render with stretched styles when passed the stretch prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -329,10 +438,7 @@ exports[`Input should render with stretched styles when passed the stretch prop 
   border-color: #D8DDE1;
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
   padding: 8px 12px;
-  margin-bottom: 16px;
-  display: block;
   font-size: 15px;
   line-height: 24px;
   width: 100%;
@@ -360,9 +466,13 @@ exports[`Input should render with stretched styles when passed the stretch prop 
   color: #9DA7B1;
 }
 
-<input
-  autoComplete="none"
-  className="circuit-0 circuit-1"
+<div
+  className="circuit-2 circuit-3"
   disabled={false}
-/>
+>
+  <input
+    className="circuit-0 circuit-1"
+    disabled={false}
+  />
+</div>
 `;

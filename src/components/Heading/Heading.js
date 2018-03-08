@@ -11,6 +11,7 @@ const { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } = sizes;
 const baseStyles = ({ theme }) => css`
   label: heading;
   font-weight: ${theme.fontWeight.bold};
+  margin-bottom: ${theme.spacings.giga};
 `;
 
 const sizeStyles = ({ theme, size }) => css`
@@ -19,18 +20,18 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.headings[size].lineHeight};
 `;
 
-const marginStyles = ({ theme, margin }) =>
-  margin &&
+const noMarginStyles = ({ noMargin }) =>
+  noMargin &&
   css`
     label: heading--no-margin;
-    margin-bottom: ${theme.spacings.giga};
+    margin-bottom: 0;
   `;
 
-const HeadingElement = styled(HtmlElement)(
-  baseStyles,
-  sizeStyles,
-  marginStyles
-);
+const HeadingElement = styled(HtmlElement)`
+  ${baseStyles}
+  ${sizeStyles}
+  ${noMarginStyles}
+`;
 
 /**
  * A heading flexible heading component capable of rendering using
@@ -70,9 +71,9 @@ Heading.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * Adds bottom margin to the heading.
+   * Removes the default bottom margin from the heading.
    */
-  margin: PropTypes.bool,
+  noMargin: PropTypes.bool,
   /**
    * The HTML heading element to render.
    */
@@ -83,7 +84,7 @@ Heading.defaultProps = {
   element: 'h2',
   size: Heading.PETA,
   className: '',
-  margin: true,
+  noMargin: false,
   children: null
 };
 
