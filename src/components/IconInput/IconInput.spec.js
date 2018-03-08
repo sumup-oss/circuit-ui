@@ -25,6 +25,16 @@ describe('IconInput', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should allow rendering the icon on both sides', () => {
+    const actual = create(
+      <IconInput
+        iconLeft={props => <RenderDummy {...props} />}
+        iconRight={props => <RenderDummy {...props} />}
+      />
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
