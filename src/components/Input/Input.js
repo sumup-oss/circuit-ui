@@ -4,10 +4,7 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
-import {
-  childrenPropType,
-  stretchPropType
-} from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const inputBaseStyles = ({ theme }) => css`
   label: input;

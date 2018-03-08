@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
-import {
-  stretchPropType,
-  childrenPropType
-} from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
-import DownTriangleIcon from './down-triangle.svg';
+import ArrowsIcon from './arrows.svg';
 
 const selectBaseStyles = ({ theme }) => css`
   label: select;
@@ -19,7 +16,7 @@ const selectBaseStyles = ({ theme }) => css`
   border-style: solid;
   border-color: ${theme.colors.n300};
   border-radius: ${theme.borderRadius.mega};
-  box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.21);
+  box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
   color: ${theme.colors.n900};
   padding: ${theme.spacings.byte} ${theme.spacings.tera} ${theme.spacings.byte}
     ${theme.spacings.kilo};
@@ -98,7 +95,7 @@ const SelectElement = styled('select')`
   ${selectBaseStyles};
 `;
 
-const Icon = styled(DownTriangleIcon)`
+const Icon = styled(ArrowsIcon)`
   ${iconBaseStyles};
 `;
 
