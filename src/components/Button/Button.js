@@ -61,6 +61,7 @@ const baseStyles = ({ theme, href, ...otherProps }) => css`
   width: auto;
   height: auto;
   text-decoration: none;
+  white-space: nowrap;
   ${textMega({ theme })};
 
   &:active {
