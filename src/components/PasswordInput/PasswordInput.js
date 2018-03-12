@@ -24,7 +24,7 @@ const PasswordInput = ({ children, ...props }) => (
         {...props}
         type={visible ? 'text' : 'password'}
         iconRight={({ className }) => (
-          <SvgButton onClick={onToggle} className={className}>
+          <SvgButton type="button" onClick={onToggle} className={className}>
             {visible ? <HideIcon /> : <RevealIcon />}
           </SvgButton>
         )}
