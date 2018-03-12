@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css, cx } from 'react-emotion';
+import { withTheme } from 'emotion-theming';
+
 import { size } from 'polished';
 import Input from '../Input';
 
@@ -96,4 +98,4 @@ IconInput.defaultProps = {
 /**
  * @component
  */
-export default IconInput;
+export default withTheme(IconInput);

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import HtmlElement from '../HtmlElement/HtmlElement';
+import HtmlElement from '../HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { sizes } from '../../styles/constants';
 

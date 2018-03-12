@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+
 import { childrenPropType } from '../../util/shared-prop-types';
-import HtmlElement from '../HtmlElement/HtmlElement';
+import HtmlElement from '../HtmlElement';
 import { textMega, textKilo } from '../../styles/style-helpers';
 import { sizes } from '../../styles/constants';
 
