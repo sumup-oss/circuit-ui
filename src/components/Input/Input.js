@@ -4,10 +4,7 @@ import styled, { css } from 'react-emotion';
 
 import HtmlElement from '../HtmlElement/HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
-import {
-  childrenPropType,
-  stretchPropType
-} from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const inputBaseStyles = ({ theme }) => css`
   label: input;
@@ -18,6 +15,7 @@ const inputBaseStyles = ({ theme }) => css`
   border-radius: ${theme.borderRadius.mega};
   box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
+  width: 100%;
   ${textMega({ theme })};
 
   &:focus,
@@ -51,13 +49,6 @@ const inputOptionalStyles = ({ theme, optional }) =>
     background-color: ${theme.colors.n100};
     border-style: dashed;
     box-shadow: none;
-  `;
-
-const inputStretchStyles = ({ stretch }) =>
-  stretch &&
-  css`
-    label: input--stretch;
-    width: 100%;
   `;
 
 const containerBaseStyles = ({ theme }) => css`
@@ -101,18 +92,17 @@ const InputElement = styled(HtmlElement)`
   ${inputBaseStyles};
   ${inputOptionalStyles};
   ${inputInvalidStyles};
-  ${inputStretchStyles};
 `;
 
 // TODO: Add dynamic invalid aria attribute.
 /**
  * Input component for forms.
  */
-const Input = ({ noMargin, inline, disabled, stretch, children, ...props }) => (
+const Input = ({ noMargin, inline, disabled, children, ...props }) => (
   <InputContainer {...{ noMargin, inline, disabled }}>
     <InputElement
-      {...{ ...props, disabled, stretch }}
-      blacklist={{ optional: true, invalid: true, stretch: true }}
+      {...{ ...props, disabled }}
+      blacklist={{ optional: true, invalid: true }}
     />
     {children}
   </InputContainer>
@@ -138,10 +128,6 @@ Input.propTypes = {
    */
   inline: PropTypes.bool,
   /**
-   * Trigger stretch (full width) styles on the component.
-   */
-  stretch: stretchPropType,
-  /**
    * Removes the default bottom margin from the input.
    */
   noMargin: PropTypes.bool,
@@ -158,7 +144,6 @@ Input.defaultProps = {
   optional: false,
   disabled: false,
   inline: false,
-  stretch: false,
   noMargin: false
 };
 

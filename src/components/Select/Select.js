@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
-import {
-  stretchPropType,
-  childrenPropType
-} from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
-import DownTriangleIcon from './down-triangle.svg';
+import ArrowsIcon from './arrows.svg';
 
 const selectBaseStyles = ({ theme }) => css`
   label: select;
@@ -19,13 +16,14 @@ const selectBaseStyles = ({ theme }) => css`
   border-style: solid;
   border-color: ${theme.colors.n300};
   border-radius: ${theme.borderRadius.mega};
-  box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.21);
+  box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
   color: ${theme.colors.n900};
   padding: ${theme.spacings.byte} ${theme.spacings.tera} ${theme.spacings.byte}
     ${theme.spacings.kilo};
   position: relative;
-  ${textMega({ theme })};
+  width: 100%;
   z-index: 30;
+  ${textMega({ theme })};
 
   &:focus,
   &:hover,
@@ -42,13 +40,6 @@ const selectBaseStyles = ({ theme }) => css`
     text-shadow: 0 0 0 #000;
   }
 `;
-
-const selectStretchStyles = ({ stretch }) =>
-  stretch &&
-  css`
-    label: select--stretch;
-    width: 100%;
-  `;
 
 const iconBaseStyles = ({ theme }) => css`
   label: select__icon;
@@ -102,9 +93,9 @@ const SelectContainer = styled('div')`
 
 const SelectElement = styled('select')`
   ${selectBaseStyles};
-  ${selectStretchStyles};
 `;
-const Icon = styled(DownTriangleIcon)`
+
+const Icon = styled(ArrowsIcon)`
   ${iconBaseStyles};
 `;
 
@@ -117,12 +108,12 @@ const Select = ({
   disabled,
   noMargin,
   inline,
-  stretch,
+
   children,
   ...props
 }) => (
   <SelectContainer {...{ noMargin, inline, disabled }}>
-    <SelectElement {...{ ...props, disabled, stretch }}>
+    <SelectElement {...{ ...props, disabled }}>
       {!value && <option key="placeholder">{placeholder}</option>}
       {children}
     </SelectElement>
@@ -162,10 +153,6 @@ Select.propTypes = {
    */
   inline: PropTypes.bool,
   /**
-   * Trigger stretch (full width) styles on the component.
-   */
-  stretch: stretchPropType,
-  /**
    * Removes the default bottom margin from the select.
    */
   noMargin: PropTypes.bool
@@ -176,7 +163,6 @@ Select.defaultProps = {
   value: null,
   placeholder: 'Select an option',
   inline: false,
-  stretch: false,
   noMargin: false
 };
 
