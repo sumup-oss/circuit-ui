@@ -27,6 +27,10 @@ storiesOf('Input', module)
     withInfo()(() => <Input value="Some value" disabled />)
   )
   .add(
+    'Input right aligned text',
+    withInfo()(() => <Input placeholder="Placeholder" textAlign="right" />)
+  )
+  .add(
     'Inline inputs',
     withInfo()(() => (
       <div>

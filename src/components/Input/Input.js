@@ -81,6 +81,18 @@ const containerNoMarginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
+const textAlignLeftStyles = ({ textAlign }) =>
+  textAlign === 'left' &&
+  css`
+    text-align: left;
+  `;
+
+const textAlignRightStyles = ({ textAlign }) =>
+  textAlign === 'right' &&
+  css`
+    text-align: right;
+  `;
+
 const InputContainer = styled('div')`
   ${containerBaseStyles};
   ${containerNoMarginStyles};
@@ -92,6 +104,8 @@ const InputElement = styled(HtmlElement)`
   ${inputBaseStyles};
   ${inputOptionalStyles};
   ${inputInvalidStyles};
+  ${textAlignLeftStyles};
+  ${textAlignRightStyles};
 `;
 
 // TODO: Add dynamic invalid aria attribute.
@@ -134,7 +148,11 @@ Input.propTypes = {
   /**
    * The HTML input element to render.
    */
-  element: PropTypes.oneOf(['input', 'textarea'])
+  element: PropTypes.oneOf(['input', 'textarea']),
+  /**
+   * Aligns text in the input
+   */
+  textAlign: PropTypes.oneOf(['left', 'right'])
 };
 
 Input.defaultProps = {
@@ -144,7 +162,8 @@ Input.defaultProps = {
   optional: false,
   disabled: false,
   inline: false,
-  noMargin: false
+  noMargin: false,
+  textAlign: 'left'
 };
 
 /**
