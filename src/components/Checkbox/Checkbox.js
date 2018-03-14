@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually, size } from 'polished';
+
 import { disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 
