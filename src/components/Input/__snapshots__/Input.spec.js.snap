@@ -12,7 +12,6 @@ exports[`Input should prioritize error over optional styles 1`] = `
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -74,7 +73,6 @@ exports[`Input should prioritize error over optional styles 1`] = `
   <input
     className="circuit-0 circuit-1"
     disabled={true}
-    textAlign="left"
   />
 </div>
 `;
@@ -98,7 +96,6 @@ exports[`Input should render with default styles 1`] = `
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -130,7 +127,6 @@ exports[`Input should render with default styles 1`] = `
   <input
     className="circuit-0 circuit-1"
     disabled={false}
-    textAlign="left"
   />
 </div>
 `;
@@ -147,7 +143,6 @@ exports[`Input should render with disabled styles when passed the disabled prop 
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -189,7 +184,6 @@ exports[`Input should render with disabled styles when passed the disabled prop 
   <input
     className="circuit-0 circuit-1"
     disabled={true}
-    textAlign="left"
   />
 </div>
 `;
@@ -206,7 +200,6 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -247,7 +240,6 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   <input
     className="circuit-0 circuit-1"
     disabled={false}
-    textAlign="left"
   />
 </div>
 `;
@@ -271,7 +263,6 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -323,7 +314,6 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   <input
     className="circuit-0 circuit-1"
     disabled={false}
-    textAlign="left"
   />
 </div>
 `;
@@ -340,7 +330,6 @@ exports[`Input should render with no margin styles when passed the noMargin prop
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -380,7 +369,6 @@ exports[`Input should render with no margin styles when passed the noMargin prop
   <input
     className="circuit-0 circuit-1"
     disabled={false}
-    textAlign="left"
   />
 </div>
 `;
@@ -407,7 +395,6 @@ exports[`Input should render with optional styles when passed the optional prop 
   background-color: #FAFBFC;
   border-style: dashed;
   box-shadow: none;
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -439,7 +426,6 @@ exports[`Input should render with optional styles when passed the optional prop 
   <input
     className="circuit-0 circuit-1"
     disabled={false}
-    textAlign="left"
   />
 </div>
 `;
@@ -495,7 +481,6 @@ exports[`Input should render with right aligned text 1`] = `
   <input
     className="circuit-0 circuit-1"
     disabled={false}
-    textAlign="right"
   />
 </div>
 `;
@@ -519,7 +504,6 @@ exports[`Input should render with stretched styles when passed the stretch prop 
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -552,7 +536,6 @@ exports[`Input should render with stretched styles when passed the stretch prop 
     className="circuit-0 circuit-1"
     disabled={false}
     stretch={true}
-    textAlign="left"
   />
 </div>
 `;
