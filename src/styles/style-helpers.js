@@ -64,6 +64,24 @@ export const svgMega = ({ theme }) => size(theme.iconSizes.mega);
  * Utilities
  */
 
+export const centerAlign = direction => {
+  if (direction === 'vertical') {
+    return `
+      top: 50%;
+      transform: translateY(-50%);
+    `;
+  }
+  if (direction === 'horizontal') {
+    return `
+      left: 50%;
+      transform: translateX(-50%);
+    `;
+  }
+  // eslint-disable-next-line no-console
+  console.warn(`You passed an invalid direction: ${direction}`);
+  return '';
+};
+
 export const disableVisually = () => `
   opacity: 0.5;
   pointer-events: none;

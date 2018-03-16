@@ -1,318 +1,531 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip should accept icon as content 1`] = `
-.circuit-2 {
-  position: relative;
-  display: inline-block;
-}
-
-.circuit-2:hover > span {
-  visibility: visible;
-  opacity: 1;
-}
-
+exports[`Tooltip should override alignment styles with position styles 1`] = `
 .circuit-0 {
   visibility: hidden;
   opacity: 0;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: 60px;
-  background-color: #0F131A;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
   color: #FFFFFF;
-  text-align: center;
   border-radius: 4px;
-  padding: 8px;
+  padding: 8px 12px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 100%;
+  right: calc(100% + 12px);
 }
 
 .circuit-0::after {
   content: '';
   position: absolute;
-  margin-left: -4px;
-  border-width: 4px;
+  border-width: 8px;
   border-style: solid;
-  border-color: #0F131A transparent transparent transparent;
-  top: 100%;
 }
 
 .circuit-0::after {
-  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.circuit-0::after {
+  left: 100%;
+  border-color: transparent transparent transparent #212933;
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-0 circuit-1"
 >
-  <span
-    className="circuit-0 circuit-1"
-  >
-    <svg
-      fill="#000000"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path />
-    </svg>
-  </span>
-  Some text
+  Tooltip content
 </div>
 `;
 
-exports[`Tooltip should align to the center 1`] = `
-.circuit-2 {
-  position: relative;
-  display: inline-block;
-}
-
-.circuit-2:hover > span {
-  visibility: visible;
-  opacity: 1;
-}
-
+exports[`Tooltip should render with align bottom, when passed "bottom" for the align prop 1`] = `
 .circuit-0 {
   visibility: hidden;
   opacity: 0;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: 60px;
-  background-color: #0F131A;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
   color: #FFFFFF;
-  text-align: center;
   border-radius: 4px;
-  padding: 8px;
+  padding: 8px 12px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  top: 50%;
+  top: calc(50% - (16px + 8px));
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  -webkit-undefined: calc(100% + 12px);
+  -ms-flex-undefined: calc(100% + 12px);
+  undefined: calc(100% + 12px);
 }
 
 .circuit-0::after {
   content: '';
   position: absolute;
-  margin-left: -4px;
-  border-width: 4px;
+  border-width: 8px;
   border-style: solid;
-  border-color: #0F131A transparent transparent transparent;
-  top: 100%;
 }
 
 .circuit-0::after {
-  left: 50%;
+  top: 16px;
+}
+
+.circuit-0::after {
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  border-color: undefined;
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-0 circuit-1"
 >
-  <span
-    className="circuit-0 circuit-1"
-  >
-    The tooltip content
-  </span>
-  Something with tooltip
+  Tooltip content
 </div>
 `;
 
-exports[`Tooltip should align to the left 1`] = `
-.circuit-2 {
-  position: relative;
-  display: inline-block;
-}
-
-.circuit-2:hover > span {
-  visibility: visible;
-  opacity: 1;
-}
-
+exports[`Tooltip should render with align center, when passed "center" for the align prop 1`] = `
 .circuit-0 {
   visibility: hidden;
   opacity: 0;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: 60px;
-  background-color: #0F131A;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
   color: #FFFFFF;
-  text-align: center;
   border-radius: 4px;
-  padding: 8px;
+  padding: 8px 12px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  right: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  -webkit-undefined: calc(100% + 12px);
+  -ms-flex-undefined: calc(100% + 12px);
+  undefined: calc(100% + 12px);
 }
 
 .circuit-0::after {
   content: '';
   position: absolute;
-  margin-left: -4px;
-  border-width: 4px;
+  border-width: 8px;
   border-style: solid;
-  border-color: #0F131A transparent transparent transparent;
-  top: 100%;
 }
 
 .circuit-0::after {
-  right: 16px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.circuit-0::after {
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  border-color: undefined;
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-0 circuit-1"
 >
-  <span
-    className="circuit-0 circuit-1"
-  >
-    The tooltip content
-  </span>
-  Something with tooltip
+  Tooltip content
 </div>
 `;
 
-exports[`Tooltip should align to the right 1`] = `
-.circuit-2 {
-  position: relative;
-  display: inline-block;
-}
-
-.circuit-2:hover > span {
-  visibility: visible;
-  opacity: 1;
-}
-
+exports[`Tooltip should render with align left, when passed "left" for the align prop 1`] = `
 .circuit-0 {
   visibility: hidden;
   opacity: 0;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: 60px;
-  background-color: #0F131A;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
   color: #FFFFFF;
-  text-align: center;
   border-radius: 4px;
-  padding: 8px;
+  padding: 8px 12px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  -webkit-undefined: calc(100% + 12px);
+  -ms-flex-undefined: calc(100% + 12px);
+  undefined: calc(100% + 12px);
+}
+
+.circuit-0::after {
+  content: '';
+  position: absolute;
+  border-width: 8px;
+  border-style: solid;
+}
+
+.circuit-0::after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.circuit-0::after {
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  border-color: undefined;
+}
+
+<div
+  className="circuit-0 circuit-1"
+>
+  Tooltip content
+</div>
+`;
+
+exports[`Tooltip should render with align right, when passed "right" for the align prop 1`] = `
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  -webkit-undefined: calc(100% + 12px);
+  -ms-flex-undefined: calc(100% + 12px);
+  undefined: calc(100% + 12px);
+}
+
+.circuit-0::after {
+  content: '';
+  position: absolute;
+  border-width: 8px;
+  border-style: solid;
+}
+
+.circuit-0::after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.circuit-0::after {
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  border-color: undefined;
+}
+
+<div
+  className="circuit-0 circuit-1"
+>
+  Tooltip content
+</div>
+`;
+
+exports[`Tooltip should render with align top, when passed "top" for the align prop 1`] = `
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  bottom: 50%;
+  bottom: calc(50% - (16px + 8px));
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  -webkit-undefined: calc(100% + 12px);
+  -ms-flex-undefined: calc(100% + 12px);
+  undefined: calc(100% + 12px);
+}
+
+.circuit-0::after {
+  content: '';
+  position: absolute;
+  border-width: 8px;
+  border-style: solid;
+}
+
+.circuit-0::after {
+  bottom: 16px;
+}
+
+.circuit-0::after {
+  -webkit-undefined: 100%;
+  -ms-flex-undefined: 100%;
+  undefined: 100%;
+  border-color: undefined;
+}
+
+<div
+  className="circuit-0 circuit-1"
+>
+  Tooltip content
+</div>
+`;
+
+exports[`Tooltip should render with position bottom, when passed "bottom" for the position prop 1`] = `
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
   left: 50%;
+  left: calc(50% - (16px + 8px));
+  top: 100%;
+  top: calc(100% + 12px);
 }
 
 .circuit-0::after {
   content: '';
   position: absolute;
-  margin-left: -4px;
-  border-width: 4px;
+  border-width: 8px;
   border-style: solid;
-  border-color: #0F131A transparent transparent transparent;
-  top: 100%;
 }
 
 .circuit-0::after {
   left: 16px;
 }
 
+.circuit-0::after {
+  bottom: 100%;
+  border-color: transparent transparent #212933 transparent;
+}
+
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-0 circuit-1"
 >
-  <span
-    className="circuit-0 circuit-1"
-  >
-    The tooltip content
-  </span>
-  Something with tooltip
+  Tooltip content
 </div>
 `;
 
-exports[`Tooltip should render with icon 1`] = `
-.circuit-2 {
-  position: relative;
-  display: inline-block;
-}
-
-.circuit-2:hover > span {
-  visibility: visible;
-  opacity: 1;
-}
-
+exports[`Tooltip should render with position left, when passed "left" for the position prop 1`] = `
 .circuit-0 {
   visibility: hidden;
   opacity: 0;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  min-width: 60px;
-  background-color: #0F131A;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
   color: #FFFFFF;
-  text-align: center;
   border-radius: 4px;
-  padding: 8px;
+  padding: 8px 12px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 100%;
+  right: calc(100% + 12px);
 }
 
 .circuit-0::after {
   content: '';
   position: absolute;
-  margin-left: -4px;
-  border-width: 4px;
+  border-width: 8px;
   border-style: solid;
-  border-color: #0F131A transparent transparent transparent;
-  top: 100%;
 }
 
 .circuit-0::after {
-  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.circuit-0::after {
+  left: 100%;
+  border-color: transparent transparent transparent #212933;
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-0 circuit-1"
 >
-  <span
-    className="circuit-0 circuit-1"
-  >
-    The tooltip content
-  </span>
-  <span>
-    Text and a
-  </span>
-  <svg
-    fill="#000000"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path />
-  </svg>
+  Tooltip content
+</div>
+`;
+
+exports[`Tooltip should render with position right, when passed "right" for the position prop 1`] = `
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 100%;
+  left: calc(100% + 12px);
+}
+
+.circuit-0::after {
+  content: '';
+  position: absolute;
+  border-width: 8px;
+  border-style: solid;
+}
+
+.circuit-0::after {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.circuit-0::after {
+  right: 100%;
+  border-color: transparent #212933 transparent transparent;
+}
+
+<div
+  className="circuit-0 circuit-1"
+>
+  Tooltip content
+</div>
+`;
+
+exports[`Tooltip should render with position top, when passed "top" for the position prop 1`] = `
+.circuit-0 {
+  visibility: hidden;
+  opacity: 0;
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  left: 50%;
+  left: calc(50% - (16px + 8px));
+  bottom: 100%;
+  bottom: calc(100% + 12px);
+}
+
+.circuit-0::after {
+  content: '';
+  position: absolute;
+  border-width: 8px;
+  border-style: solid;
+}
+
+.circuit-0::after {
+  left: 16px;
+}
+
+.circuit-0::after {
+  top: 100%;
+  border-color: #212933 transparent transparent transparent;
+}
+
+<div
+  className="circuit-0 circuit-1"
+>
+  Tooltip content
 </div>
 `;

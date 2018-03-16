@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import styled from 'react-emotion';
 
 import withTests from '../../util/withTests';
 import Tooltip from './Tooltip';
@@ -23,48 +24,59 @@ const DummyIcon = () => (
   </svg>
 );
 
+const TooltipContainer = styled('div')`
+  position: relative;
+  line-height: 0;
+
+  div {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
+
 storiesOf('Tooltip', module)
   .addDecorator(withTests('Tooltip'))
   .add(
-    'Centered ',
+    'Top ',
     withInfo()(() => (
-      <Tooltip align={Tooltip.CENTER} content="The tooltip content">
-        Something with tooltip
-      </Tooltip>
-    ))
-  )
-  .add(
-    'Left ',
-    withInfo()(() => (
-      <Tooltip align={Tooltip.LEFT} content="The tooltip content">
-        Something with tooltip
-      </Tooltip>
+      <TooltipContainer>
+        <Tooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+          I am a teeny, tiny tooltip.
+        </Tooltip>
+        <DummyIcon />
+      </TooltipContainer>
     ))
   )
   .add(
     'Right ',
     withInfo()(() => (
-      <Tooltip align={Tooltip.RIGHT} content="The tooltip content">
-        Something with tooltip
-      </Tooltip>
+      <TooltipContainer>
+        <Tooltip position={Tooltip.RIGHT} align={Tooltip.CENTER}>
+          I am a teeny, tiny tooltip.
+        </Tooltip>
+        <DummyIcon />
+      </TooltipContainer>
     ))
   )
   .add(
-    'Content icon',
+    'Bottom',
     withInfo()(() => (
-      <Tooltip align={Tooltip.Center} content={<DummyIcon fill="#FFFFFF" />}>
-        Something with tooltip
-      </Tooltip>
+      <TooltipContainer>
+        <Tooltip position={Tooltip.BOTTOM} align={Tooltip.RIGHT}>
+          I am a teeny, tiny tooltip.
+        </Tooltip>
+        <DummyIcon />
+      </TooltipContainer>
     ))
   )
   .add(
-    'Children with icon ',
+    'Left ',
     withInfo()(() => (
-      <Tooltip align={Tooltip.Left} content="The tooltip content">
-        <div>This is a icon:</div>
-        <span>
-          <DummyIcon />
-        </span>
-      </Tooltip>
+      <TooltipContainer>
+        <Tooltip position={Tooltip.LEFT} align={Tooltip.CENTER}>
+          I am a teeny, tiny tooltip.
+        </Tooltip>
+        <DummyIcon />
+      </TooltipContainer>
     ))
   );

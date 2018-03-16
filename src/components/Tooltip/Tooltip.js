@@ -1,135 +1,157 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+import { includes } from 'lodash';
 
-import { textKilo } from '../../styles/style-helpers';
+import { textKilo, centerAlign } from '../../styles/style-helpers';
 
 const CENTER = 'center';
+const TOP = 'top';
 const RIGHT = 'right';
+const BOTTOM = 'bottom';
 const LEFT = 'left';
 
-const baseStyles = css`
+const backgroundColor = ({ theme }) => theme.colors.n900;
+const sizeArrow = ({ theme }) => theme.spacings.byte;
+
+const baseStyles = ({ theme }) => css`
   label: tooltip;
-  position: relative;
-  display: inline-block;
-
-  &:hover {
-    > span {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-`;
-
-const arrowAlignsStyles = ({ align, theme }) =>
-  ({
-    center: css`
-      label: tooltip__text-arrow--center;
-      &::after {
-        left: 50%;
-      }
-    `,
-    right: css`
-      label: tooltip__text-arrow--right;
-      &::after {
-        left: ${theme.spacings.mega};
-      }
-    `,
-    left: css`
-      label: tooltip__text-arrow--left;
-      &::after {
-        right: ${theme.spacings.mega};
-      }
-    `
-  }[align]);
-
-const tooltipTextAlignStyles = ({ align }) =>
-  ({
-    center: css`
-      label: tooltip__text--center;
-      left: 0;
-      right: 0;
-      margin-left: auto;
-      margin-right: auto;
-    `,
-    right: css`
-      label: tooltip__text--right;
-      left: 50%;
-    `,
-    left: css`
-      label: tooltip__text--left;
-      right: 50%;
-    `
-  }[align]);
-
-const tooltipTextStyles = ({ theme }) => css`
-  label: tooltip__text;
   visibility: hidden;
   opacity: 0;
-  width: max-content;
-  min-width: 60px;
-  background-color: ${theme.colors.black};
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: ${backgroundColor({ theme })};
   color: ${theme.colors.white};
-  text-align: center;
   border-radius: ${theme.borderRadius.mega};
-  padding: ${theme.spacings.byte};
+  padding: ${theme.spacings.byte} ${theme.spacings.kilo};
   position: absolute;
   z-index: 1;
-  bottom: 125%;
   transition: opacity 0.3s;
   ${textKilo({ theme })};
 
   &::after {
     content: '';
     position: absolute;
-    margin-left: -${theme.spacings.bit};
-    border-width: ${theme.spacings.bit};
+    border-width: ${sizeArrow({ theme })};
     border-style: solid;
-    border-color: ${theme.colors.black} transparent transparent transparent;
-    top: 100%;
   }
 `;
 
-const TooltipContainer = styled('span')`
-  ${tooltipTextStyles}
-  ${tooltipTextAlignStyles}
-  ${arrowAlignsStyles}
-`;
-const TooltipElement = styled('div')`
-  ${baseStyles};
+const oppositeMap = {
+  [TOP]: 'bottom',
+  [RIGHT]: 'left',
+  [BOTTOM]: 'top',
+  [LEFT]: 'right'
+};
+
+const getPositionStyles = ({ theme, position }) => {
+  const arrowMap = {
+    [TOP]: `${backgroundColor({ theme })} transparent transparent transparent`,
+    [RIGHT]: `transparent ${backgroundColor({
+      theme
+    })} transparent transparent`,
+    [BOTTOM]: `transparent transparent ${backgroundColor({
+      theme
+    })} transparent`,
+    [LEFT]: `transparent transparent transparent ${backgroundColor({ theme })}`
+  };
+
+  const opposite = oppositeMap[position];
+  return `
+    ${opposite}: 100%; ${'' /* Fallback  */}
+    ${opposite}: calc(100% + ${theme.spacings.kilo});
+
+    &::after {
+      ${position}: 100%;
+      border-color: ${arrowMap[position]};
+    }
+  `;
+};
+
+const getAlignmentStyles = ({ theme, position, align }) => {
+  const isHorizontal = includes([TOP, BOTTOM], position);
+
+  if (isHorizontal && includes([TOP, BOTTOM, CENTER], align)) {
+    return `
+      ${centerAlign('horizontal')};
+
+      &::after {
+        ${centerAlign('horizontal')};
+      }
+    `;
+  }
+
+  if (!isHorizontal && includes([LEFT, RIGHT, CENTER], align)) {
+    return `
+      ${centerAlign('vertical')};
+
+      &::after {
+        ${centerAlign('vertical')};
+      }
+    `;
+  }
+
+  const opposite = oppositeMap[align];
+
+  return `
+    ${opposite}: 50%; ${'' /* Fallback  */}
+    ${opposite}: calc(50% - (${theme.spacings.mega} + ${sizeArrow({ theme })}));
+
+    &::after {
+      ${opposite}: ${theme.spacings.mega};
+    }
+  `;
+};
+
+const positionAndAlignStyles = ({ theme, position, align }) => css`
+  label: tooltip--${position}-${align};
+  ${getAlignmentStyles({ theme, position, align })};
+  ${getPositionStyles({ theme, position })};
 `;
 
 /**
- * A Tooltip wrapper in order to show tooltips on top of other
- * components.
+ * A Tooltip component
  */
-const Tooltip = ({ children, content, align, ...props }) => (
-  <TooltipElement {...props}>
-    <TooltipContainer {...{ align }}>{content}</TooltipContainer>
-    {children}
-  </TooltipElement>
-);
+const Tooltip = styled('div')`
+  ${baseStyles} ${positionAndAlignStyles};
+`;
 
 Tooltip.CENTER = CENTER;
+Tooltip.TOP = TOP;
 Tooltip.RIGHT = RIGHT;
+Tooltip.BOTTOM = BOTTOM;
 Tooltip.LEFT = LEFT;
 
 Tooltip.propTypes = {
+  /**
+   * The content of the tooltip.
+   */
   children: PropTypes.node.isRequired,
-
   /**
-   * The content inside of the tooltip being shown.
+   * The position of the tooltip in relation to its reference point.
    */
-  content: PropTypes.node.isRequired,
+  position: PropTypes.oneOf([
+    Tooltip.TOP,
+    Tooltip.RIGHT,
+    Tooltip.BOTTOM,
+    Tooltip.LEFT
+  ]),
   /**
-   * The alignment of the tooltip.
-   * It can be right, left or centered.
+   * The alignment of the tooltip relative to its position.
    */
-  align: PropTypes.oneOf([Tooltip.CENTER, Tooltip.RIGHT, Tooltip.LEFT])
+  align: PropTypes.oneOf([
+    Tooltip.TOP,
+    Tooltip.RIGHT,
+    Tooltip.BOTTOM,
+    Tooltip.LEFT,
+    Tooltip.CENTER
+  ])
 };
 
 Tooltip.defaultProps = {
-  align: Tooltip.Center
+  align: Tooltip.RIGHT,
+  alignArrow: Tooltip.CENTER
 };
 
 export default Tooltip;

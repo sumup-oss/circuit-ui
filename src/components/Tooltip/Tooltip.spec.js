@@ -3,56 +3,39 @@ import React from 'react';
 import Tooltip from '.';
 
 describe('Tooltip', () => {
-  const DummyIcon = () => (
-    <svg fill="#000000" xmlns="http://www.w3.org/2000/svg">
-      <path />
-    </svg>
-  );
-
   /**
    * Style tests.
    */
-  it('should align to the center', () => {
-    const component = create(
-      <Tooltip align={Tooltip.CENTER} content="The tooltip content">
-        Something with tooltip
-      </Tooltip>
-    );
-    expect(component).toMatchSnapshot();
+  const positions = [Tooltip.TOP, Tooltip.RIGHT, Tooltip.BOTTOM, Tooltip.LEFT];
+  positions.forEach(position => {
+    it(`should render with position ${position}, when passed "${position}" for the position prop`, () => {
+      const component = create(
+        <Tooltip position={position}>Tooltip content</Tooltip>
+      );
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('should align to the right', () => {
-    const component = create(
-      <Tooltip align={Tooltip.RIGHT} content="The tooltip content">
-        Something with tooltip
-      </Tooltip>
-    );
-    expect(component).toMatchSnapshot();
+  const alignments = [
+    Tooltip.RIGHT,
+    Tooltip.LEFT,
+    Tooltip.TOP,
+    Tooltip.BOTTOM,
+    Tooltip.CENTER
+  ];
+  alignments.forEach(align => {
+    it(`should render with align ${align}, when passed "${align}" for the align prop`, () => {
+      const component = create(
+        <Tooltip align={align}>Tooltip content</Tooltip>
+      );
+      expect(component).toMatchSnapshot();
+    });
   });
 
-  it('should align to the left', () => {
+  it(`should override alignment styles with position styles`, () => {
     const component = create(
-      <Tooltip align={Tooltip.LEFT} content="The tooltip content">
-        Something with tooltip
-      </Tooltip>
-    );
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should render with icon', () => {
-    const component = create(
-      <Tooltip align={Tooltip.CENTER} content="The tooltip content">
-        <span>Text and a</span>
-        <DummyIcon />
-      </Tooltip>
-    );
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should accept icon as content', () => {
-    const component = create(
-      <Tooltip align={Tooltip.CENTER} content={<DummyIcon />}>
-        Some text
+      <Tooltip align={Tooltip.LEFT} position={Tooltip.LEFT}>
+        Tooltip content
       </Tooltip>
     );
     expect(component).toMatchSnapshot();
