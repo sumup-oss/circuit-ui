@@ -51,6 +51,13 @@ const inputOptionalStyles = ({ theme, optional }) =>
     box-shadow: none;
   `;
 
+const inputTextAlignRightStyles = ({ textAlign }) =>
+  textAlign === 'right' &&
+  css`
+    label: input--right;
+    text-align: right;
+  `;
+
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;
   color: ${theme.colors.n900};
@@ -92,6 +99,7 @@ const InputElement = styled(HtmlElement)`
   ${inputBaseStyles};
   ${inputOptionalStyles};
   ${inputInvalidStyles};
+  ${inputTextAlignRightStyles};
 `;
 
 // TODO: Add dynamic invalid aria attribute.
@@ -102,7 +110,7 @@ const Input = ({ noMargin, inline, disabled, children, ...props }) => (
   <InputContainer {...{ noMargin, inline, disabled }}>
     <InputElement
       {...{ ...props, disabled }}
-      blacklist={{ optional: true, invalid: true }}
+      blacklist={{ optional: true, invalid: true, textAlign: true }}
     />
     {children}
   </InputContainer>
@@ -134,7 +142,11 @@ Input.propTypes = {
   /**
    * The HTML input element to render.
    */
-  element: PropTypes.oneOf(['input', 'textarea'])
+  element: PropTypes.oneOf(['input', 'textarea']),
+  /**
+   * Aligns text in the input
+   */
+  textAlign: PropTypes.oneOf(['left', 'right'])
 };
 
 Input.defaultProps = {
@@ -144,7 +156,8 @@ Input.defaultProps = {
   optional: false,
   disabled: false,
   inline: false,
-  noMargin: false
+  noMargin: false,
+  textAlign: 'left'
 };
 
 /**

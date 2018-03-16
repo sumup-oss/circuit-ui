@@ -17,6 +17,11 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with right aligned text', () => {
+    const actual = create(<Input textAlign="right" />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with optional styles when passed the optional prop', () => {
     const actual = create(<Input optional />);
     expect(actual).toMatchSnapshot();
