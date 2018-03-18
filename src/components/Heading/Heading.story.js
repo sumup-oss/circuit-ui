@@ -48,7 +48,7 @@ storiesOf('Heading', module)
     ))
   )
   .add(
-    'Meta Heading with h6',
+    'Mega Heading with h6',
     withInfo()(() => (
       <Heading element="h6" size={Heading.MEGA}>
         This is a mega heading with an h6 element
