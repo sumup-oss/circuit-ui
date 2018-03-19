@@ -51,14 +51,14 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   className="circuit-2 circuit-3"
   disabled={true}
 >
+  <div>
+    search.svg
+  </div>
   <input
     className="circuit-0 circuit-1"
     disabled={true}
     role="search"
   />
-  <div>
-    search.svg
-  </div>
 </div>
 `;
 
@@ -110,13 +110,13 @@ exports[`SearchInput should render with default styles 1`] = `
   className="circuit-2 circuit-3"
   disabled={false}
 >
+  <div>
+    search.svg
+  </div>
   <input
     className="circuit-0 circuit-1"
     disabled={false}
     role="search"
   />
-  <div>
-    search.svg
-  </div>
 </div>
 `;

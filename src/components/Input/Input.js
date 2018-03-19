@@ -1,10 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled, { css, cx } from 'react-emotion';
+import { withTheme } from 'emotion-theming';
+import { size } from 'polished';
 
 import HtmlElement from '../HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
-import { childrenPropType } from '../../util/shared-prop-types';
+import { themePropType, childrenPropType } from '../../util/shared-prop-types';
+
+const containerBaseStyles = ({ theme }) => css`
+  label: input__container;
+  color: ${theme.colors.n900};
+  display: block;
+  position: relative;
+  margin-bottom: ${theme.spacings.mega};
+`;
+
+const containerDisabledStyles = ({ disabled }) =>
+  disabled &&
+  css`
+    label: input__container--disabled;
+    ${disableVisually()};
+  `;
+
+const containerInlineStyles = ({ theme, inline }) =>
+  inline &&
+  css`
+    label: input__container--inline;
+    display: inline-block;
+    margin-right: ${theme.spacings.mega};
+  `;
+
+const containerNoMarginStyles = ({ noMargin }) =>
+  noMargin &&
+  css`
+    label: input__container--no-margin;
+    margin-bottom: 0;
+  `;
 
 const inputBaseStyles = ({ theme }) => css`
   label: input;
@@ -58,35 +90,43 @@ const inputTextAlignRightStyles = ({ textAlign }) =>
     text-align: right;
   `;
 
-const containerBaseStyles = ({ theme }) => css`
-  label: input__container;
-  color: ${theme.colors.n900};
-  display: block;
-  position: relative;
-  margin-bottom: ${theme.spacings.mega};
+const inputPrefixStyles = ({ theme, hasPrefix }) =>
+  hasPrefix &&
+  css`
+    label: input--prefix;
+    padding-left: calc(
+      ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
+    );
+  `;
+
+const inputSuffixStyles = ({ theme, hasSuffix }) =>
+  hasSuffix &&
+  css`
+    label: input--suffix;
+    padding-right: calc(
+      ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
+    );
+  `;
+
+const prefixStyles = ({ theme }) => css`
+  label: input__prefix;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  ${size(theme.spacings.mega)};
+  margin: ${theme.spacings.kilo};
+  pointer-events: none;
 `;
 
-const containerDisabledStyles = ({ disabled }) =>
-  disabled &&
-  css`
-    label: input__container--disabled;
-    ${disableVisually()};
-  `;
-
-const containerInlineStyles = ({ theme, inline }) =>
-  inline &&
-  css`
-    label: input__container--inline;
-    display: inline-block;
-    margin-right: ${theme.spacings.mega};
-  `;
-
-const containerNoMarginStyles = ({ noMargin }) =>
-  noMargin &&
-  css`
-    label: input__container--no-margin;
-    margin-bottom: 0;
-  `;
+const suffixStyles = ({ theme }) => css`
+  label: input__suffix;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  ${size(theme.spacings.mega)};
+  margin: ${theme.spacings.kilo};
+  pointer-events: none;
+`;
 
 const InputContainer = styled('div')`
   ${containerBaseStyles};
@@ -100,24 +140,65 @@ const InputElement = styled(HtmlElement)`
   ${inputOptionalStyles};
   ${inputInvalidStyles};
   ${inputTextAlignRightStyles};
+  ${inputPrefixStyles};
+  ${inputSuffixStyles};
 `;
 
 // TODO: Add dynamic invalid aria attribute.
 /**
- * Input component for forms.
+ * Input component for forms. Takes optional prefix and suffix as render props.
  */
-const Input = ({ noMargin, inline, disabled, children, ...props }) => (
-  <InputContainer {...{ noMargin, inline, disabled }}>
-    <InputElement
-      {...{ ...props, disabled }}
-      blacklist={{ optional: true, invalid: true, textAlign: true }}
-    />
-    {children}
-  </InputContainer>
-);
+const Input = ({
+  suffix,
+  prefix,
+  noMargin,
+  inline,
+  disabled,
+  theme,
+  ...props
+}) => {
+  const prefixClassName = cx(prefixStyles({ theme }));
+
+  const suffixClassName = cx(suffixStyles({ theme }));
+
+  const hasPrefix = !!prefix;
+  const hasSuffix = !!suffix;
+
+  return (
+    <InputContainer {...{ noMargin, inline, disabled }}>
+      {prefix && prefix({ className: prefixClassName })}
+      <InputElement
+        {...{ ...props, disabled, hasPrefix, hasSuffix }}
+        blacklist={{
+          optional: true,
+          invalid: true,
+          textAlign: true,
+          hasPrefix: true,
+          hasSuffix: true
+        }}
+      />
+      {suffix && suffix({ className: suffixClassName })}
+    </InputContainer>
+  );
+};
 
 Input.propTypes = {
+  theme: themePropType.isRequired,
   children: childrenPropType,
+  /**
+   * The HTML input element to render.
+   */
+  element: PropTypes.oneOf(['input', 'textarea']),
+  /**
+   * Render prop that should render a left-aligned overlay icon or element.
+   * Receives a className prop.
+   */
+  prefix: PropTypes.func,
+  /**
+   * Render prop that should render a right-aligned overlay icon or element.
+   * Receives a className prop.
+   */
+  suffix: PropTypes.func,
   /**
    * Triggers error styles on the component.
    */
@@ -140,10 +221,6 @@ Input.propTypes = {
    */
   noMargin: PropTypes.bool,
   /**
-   * The HTML input element to render.
-   */
-  element: PropTypes.oneOf(['input', 'textarea']),
-  /**
    * Aligns text in the input
    */
   textAlign: PropTypes.oneOf(['left', 'right'])
@@ -152,6 +229,8 @@ Input.propTypes = {
 Input.defaultProps = {
   children: null,
   element: 'input',
+  prefix: null,
+  suffix: null,
   invalid: false,
   optional: false,
   disabled: false,
@@ -163,4 +242,4 @@ Input.defaultProps = {
 /**
  * @component
  */
-export default Input;
+export default withTheme(Input);

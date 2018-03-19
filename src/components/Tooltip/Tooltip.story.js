@@ -37,7 +37,7 @@ const TooltipContainer = styled('div')`
 storiesOf('Tooltip', module)
   .addDecorator(withTests('Tooltip'))
   .add(
-    'Top ',
+    'Top left',
     withInfo()(() => (
       <TooltipContainer>
         <Tooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
@@ -48,7 +48,7 @@ storiesOf('Tooltip', module)
     ))
   )
   .add(
-    'Right ',
+    'Right center',
     withInfo()(() => (
       <TooltipContainer>
         <Tooltip position={Tooltip.RIGHT} align={Tooltip.CENTER}>
@@ -59,7 +59,7 @@ storiesOf('Tooltip', module)
     ))
   )
   .add(
-    'Bottom',
+    'Bottom right',
     withInfo()(() => (
       <TooltipContainer>
         <Tooltip position={Tooltip.BOTTOM} align={Tooltip.RIGHT}>
@@ -70,7 +70,7 @@ storiesOf('Tooltip', module)
     ))
   )
   .add(
-    'Left ',
+    'Left center',
     withInfo()(() => (
       <TooltipContainer>
         <Tooltip position={Tooltip.LEFT} align={Tooltip.CENTER}>
