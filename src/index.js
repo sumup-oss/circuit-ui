@@ -9,7 +9,6 @@ export { default as Text } from './components/Text';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Label } from './components/Label';
 export { default as Input } from './components/Input';
-export { default as PasswordInput } from './components/PasswordInput';
 export { default as RadioButton } from './components/RadioButton';
 export { default as SearchInput } from './components/SearchInput';
 export { default as Select } from './components/Select';
@@ -38,7 +37,6 @@ export { default as Card, CardHeader, CardFooter } from './components/Card';
 export { default as IconInput } from './components/IconInput';
 export { default as Image } from './components/Image';
 export { default as LoadingBar } from './components/LoadingBar';
-export { default as Price } from './components/Price';
 export { default as Tag } from './components/Tag';
 export { default as Tooltip } from './components/Tooltip';
 
