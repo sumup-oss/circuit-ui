@@ -53,8 +53,6 @@ might need in order to use the components. Two main ones:
 
 # Creating components
 
-**Requires `rename` to be installed** (i.e. from Homebrew)
-
 The project has a binary `bin/create-component` that you can execute from the
 project root, passing in the name of your new component.
 
