@@ -73,8 +73,10 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   disabled={true}
 >
   <textarea
+    aria-invalid={true}
     className="circuit-0 circuit-1"
     disabled={true}
+    required={false}
   />
 </div>
 `;
@@ -129,8 +131,10 @@ exports[`TextArea should render with default styles 1`] = `
   disabled={false}
 >
   <textarea
+    aria-invalid={false}
     className="circuit-0 circuit-1"
     disabled={false}
+    required={false}
   />
 </div>
 `;
@@ -188,8 +192,10 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   disabled={true}
 >
   <textarea
+    aria-invalid={false}
     className="circuit-0 circuit-1"
     disabled={true}
+    required={false}
   />
 </div>
 `;
@@ -264,8 +270,10 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   disabled={false}
 >
   <textarea
+    aria-invalid={true}
     className="circuit-0 circuit-1"
     disabled={false}
+    required={false}
   />
 </div>
 `;
@@ -323,8 +331,10 @@ exports[`TextArea should render with optional styles when passed the optional pr
   disabled={false}
 >
   <textarea
+    aria-invalid={false}
     className="circuit-0 circuit-1"
     disabled={false}
+    required={false}
   />
 </div>
 `;

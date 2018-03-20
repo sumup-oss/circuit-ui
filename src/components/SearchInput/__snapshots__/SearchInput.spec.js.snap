@@ -55,8 +55,10 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
     search.svg
   </div>
   <input
+    aria-invalid={false}
     className="circuit-0 circuit-1"
     disabled={true}
+    required={false}
     role="search"
   />
 </div>
@@ -114,8 +116,10 @@ exports[`SearchInput should render with default styles 1`] = `
     search.svg
   </div>
   <input
+    aria-invalid={false}
     className="circuit-0 circuit-1"
     disabled={false}
+    required={false}
     role="search"
   />
 </div>

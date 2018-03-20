@@ -144,13 +144,13 @@ const InputElement = styled(HtmlElement)`
   ${inputSuffixStyles};
 `;
 
-// TODO: Add dynamic invalid aria attribute.
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
 const Input = ({
   suffix,
   prefix,
+  invalid,
   noMargin,
   inline,
   disabled,
@@ -168,7 +168,8 @@ const Input = ({
     <InputContainer {...{ noMargin, inline, disabled }}>
       {prefix && prefix({ className: prefixClassName })}
       <InputElement
-        {...{ ...props, disabled, hasPrefix, hasSuffix }}
+        {...{ ...props, invalid, disabled, hasPrefix, hasSuffix }}
+        aria-invalid={invalid}
         blacklist={{
           optional: true,
           invalid: true,
@@ -200,7 +201,11 @@ Input.propTypes = {
    */
   suffix: PropTypes.func,
   /**
-   * Triggers error styles on the component.
+   * Mark input as required. Important for accessibility.
+   */
+  required: PropTypes.bool,
+  /**
+   * Triggers error styles on the component. Important for accessibility.
    */
   invalid: PropTypes.bool,
   /**
@@ -231,6 +236,7 @@ Input.defaultProps = {
   element: 'input',
   prefix: null,
   suffix: null,
+  required: false,
   invalid: false,
   optional: false,
   disabled: false,
