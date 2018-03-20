@@ -17,6 +17,11 @@ describe('TextArea', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with warning styles when passed the hasWarning prop', () => {
+    const actual = create(<TextArea hasWarning />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with optional styles when passed the optional prop', () => {
     const actual = create(<TextArea optional />);
     expect(actual).toMatchSnapshot();

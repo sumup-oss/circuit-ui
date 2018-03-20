@@ -12,8 +12,18 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with warning styles when passed the hasWarning prop', () => {
+    const actual = create(<Input hasWarning />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with invalid styles when passed the invalid prop', () => {
     const actual = create(<Input invalid />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with valid styles when passed the showValid prop', () => {
+    const actual = create(<Input showValid />);
     expect(actual).toMatchSnapshot();
   });
 

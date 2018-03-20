@@ -6,9 +6,6 @@ import withTests from '../../util/withTests';
 import Input from '.';
 import Label from '../Label';
 
-const styles = { display: 'block', marginBottom: '20px' };
-const stretchedContainerStyles = { width: '400px', border: '1px dashed #ccc' };
-
 storiesOf('Input', module)
   .addDecorator(withTests('Input'))
   .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
@@ -17,10 +14,12 @@ storiesOf('Input', module)
     withInfo()(() => <Input placeholder="Placeholder" invalid />)
   )
   .add(
+    'Input warning',
+    withInfo()(() => <Input placeholder="Placeholder" hasWarning />)
+  )
+  .add(
     'Input optional',
-    withInfo()(() => (
-      <Input placeholder="Placeholder" style={styles} optional />
-    ))
+    withInfo()(() => <Input placeholder="Placeholder" optional />)
   )
   .add(
     'Input disabled',
@@ -47,15 +46,6 @@ storiesOf('Input', module)
         <Input placeholder="First" id="first" />
         <Label htmlFor="second">My second label</Label>
         <Input placeholder="Second" id="second" />
-      </div>
-    ))
-  )
-  .add(
-    'Stretched inputs',
-    withInfo()(() => (
-      <div style={stretchedContainerStyles}>
-        <Input placeholder="Without stretch modifier" />
-        <Input placeholder="With stretch modifier" stretch />
       </div>
     ))
   );

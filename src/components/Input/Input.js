@@ -8,6 +8,10 @@ import HtmlElement from '../HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 import { themePropType, childrenPropType } from '../../util/shared-prop-types';
 
+import ErrorIcon from './error.svg';
+import WarningIcon from './warning.svg';
+import ValidIcon from './valid.svg';
+
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;
   color: ${theme.colors.n900};
@@ -60,6 +64,19 @@ const inputBaseStyles = ({ theme }) => css`
     color: ${theme.colors.n500};
   }
 `;
+
+const inputWarningStyles = ({ theme, hasWarning }) =>
+  hasWarning &&
+  css`
+    label: input--warning;
+    &:not(:focus) {
+      border-color: ${theme.colors.y500};
+
+      &::placeholder {
+        color: ${theme.colors.y500};
+      }
+    }
+  `;
 
 const inputInvalidStyles = ({ theme, invalid }) =>
   invalid &&
@@ -138,6 +155,7 @@ const InputContainer = styled('div')`
 const InputElement = styled(HtmlElement)`
   ${inputBaseStyles};
   ${inputOptionalStyles};
+  ${inputWarningStyles};
   ${inputInvalidStyles};
   ${inputTextAlignRightStyles};
   ${inputPrefixStyles};
@@ -151,6 +169,8 @@ const Input = ({
   suffix,
   prefix,
   invalid,
+  hasWarning,
+  showValid,
   noMargin,
   inline,
   disabled,
@@ -161,24 +181,40 @@ const Input = ({
 
   const suffixClassName = cx(suffixStyles({ theme }));
 
+  /* eslint-disable react/prop-types */
+  const newSuffix = (() => {
+    if (invalid) {
+      return ({ className }) => <ErrorIcon {...{ className }} />;
+    }
+    if (hasWarning) {
+      return ({ className }) => <WarningIcon {...{ className }} />;
+    }
+    if (showValid) {
+      return ({ className }) => <ValidIcon {...{ className }} />;
+    }
+    return suffix;
+  })();
+  /* eslint-enable react/prop-types */
+
   const hasPrefix = !!prefix;
-  const hasSuffix = !!suffix;
+  const hasSuffix = !!newSuffix;
 
   return (
     <InputContainer {...{ noMargin, inline, disabled }}>
-      {prefix && prefix({ className: prefixClassName })}
+      {hasPrefix && prefix({ className: prefixClassName })}
       <InputElement
-        {...{ ...props, invalid, disabled, hasPrefix, hasSuffix }}
+        {...{ ...props, invalid, disabled, hasWarning, hasPrefix, hasSuffix }}
         aria-invalid={invalid}
         blacklist={{
           optional: true,
           invalid: true,
           textAlign: true,
+          hasWarning: true,
           hasPrefix: true,
           hasSuffix: true
         }}
       />
-      {suffix && suffix({ className: suffixClassName })}
+      {hasSuffix && newSuffix({ className: suffixClassName })}
     </InputContainer>
   );
 };
@@ -209,6 +245,14 @@ Input.propTypes = {
    */
   invalid: PropTypes.bool,
   /**
+   * Triggers warning styles on the component.
+   */
+  hasWarning: PropTypes.bool,
+  /**
+   * Enables valid styles on the component.
+   */
+  showValid: PropTypes.bool,
+  /**
    * Triggers optional styles on the component.
    */
   optional: PropTypes.bool,
@@ -238,6 +282,8 @@ Input.defaultProps = {
   suffix: null,
   required: false,
   invalid: false,
+  hasWarning: false,
+  showValid: false,
   optional: false,
   disabled: false,
   inline: false,
