@@ -120,8 +120,13 @@ const CheckboxLabel = styled('label')`
  */
 const Checkbox = ({ onToggle, children, name, ...props }) => (
   <Fragment>
-    <CheckboxInput id={name} type="checkbox" {...{ ...props, name }} />
-    <CheckboxLabel htmlFor={name} onClick={onToggle} {...{ ...props }}>
+    <CheckboxInput
+      id={name}
+      onClick={onToggle}
+      type="checkbox"
+      {...{ ...props, name }}
+    />
+    <CheckboxLabel htmlFor={name} {...{ ...props }}>
       {children}
     </CheckboxLabel>
   </Fragment>

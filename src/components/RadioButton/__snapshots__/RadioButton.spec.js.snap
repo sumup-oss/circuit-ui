@@ -28,6 +28,7 @@ Array [
     disabled={false}
     id={undefined}
     name={undefined}
+    onClick={[Function]}
     type="radio"
   />,
   .circuit-0 {
@@ -90,7 +91,6 @@ Array [
     className="circuit-0 circuit-1"
     disabled={false}
     htmlFor={undefined}
-    onClick={[Function]}
   />,
 ]
 `;
@@ -123,6 +123,7 @@ Array [
     disabled={false}
     id={undefined}
     name={undefined}
+    onClick={[Function]}
     type="radio"
   />,
   .circuit-0 {
@@ -174,7 +175,6 @@ Array [
     className="circuit-0 circuit-1"
     disabled={false}
     htmlFor={undefined}
-    onClick={[Function]}
   />,
 ]
 `;
@@ -207,6 +207,7 @@ Array [
     disabled={true}
     id={undefined}
     name={undefined}
+    onClick={[Function]}
     type="radio"
   />,
   .circuit-0 {
@@ -276,7 +277,6 @@ Array [
     className="circuit-0 circuit-1"
     disabled={true}
     htmlFor={undefined}
-    onClick={[Function]}
   />,
 ]
 `;
@@ -309,6 +309,7 @@ Array [
     disabled={false}
     id={undefined}
     name={undefined}
+    onClick={[Function]}
     type="radio"
   />,
   .circuit-0 {
@@ -368,7 +369,6 @@ Array [
     className="circuit-0 circuit-1"
     disabled={false}
     htmlFor={undefined}
-    onClick={[Function]}
   />,
 ]
 `;

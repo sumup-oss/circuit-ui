@@ -49,7 +49,7 @@ describe('RadioButton', () => {
   it('should call onChange when toggled', () => {
     const onToggle = jest.fn();
     const wrapper = shallow(<RadioButton {...{ onToggle }} />);
-    const label = wrapper.find('RadioButtonLabel');
+    const label = wrapper.find('RadioButtonInput');
     label.simulate('click');
     expect(onToggle).toHaveBeenCalledTimes(1);
   });

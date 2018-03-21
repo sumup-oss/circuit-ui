@@ -62,5 +62,9 @@ storiesOf('Checkbox', module)
   )
   .add(
     'Disabled Checkbox',
-    withInfo()(() => <Checkbox disabled>Disabled</Checkbox>)
+    withInfo()(() => (
+      <Checkbox value="checkbox" name="checkbox" disabled>
+        Disabled
+      </Checkbox>
+    ))
   );
