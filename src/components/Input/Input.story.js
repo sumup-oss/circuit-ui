@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import Input from '.';
+import Input, { InputTooltip } from '.';
 import Label from '../Label';
 
 storiesOf('Input', module)
@@ -11,7 +11,11 @@ storiesOf('Input', module)
   .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
   .add(
     'Input invalid',
-    withInfo()(() => <Input placeholder="Placeholder" invalid />)
+    withInfo()(() => (
+      <Input placeholder="Placeholder" invalid>
+        <InputTooltip visible>Hello</InputTooltip>
+      </Input>
+    ))
   )
   .add(
     'Input warning',

@@ -166,6 +166,7 @@ const InputElement = styled(HtmlElement)`
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
 const Input = ({
+  children,
   suffix,
   prefix,
   invalid,
@@ -215,6 +216,7 @@ const Input = ({
         }}
       />
       {hasSuffix && newSuffix({ className: suffixClassName })}
+      {children}
     </InputContainer>
   );
 };
