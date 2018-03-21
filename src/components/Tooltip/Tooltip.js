@@ -2,7 +2,11 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { includes } from 'lodash';
 
-import { textKilo, centerAlign } from '../../styles/style-helpers';
+import {
+  textKilo,
+  centerAlign,
+  shadowSingle
+} from '../../styles/style-helpers';
 
 const CENTER = 'center';
 const TOP = 'top';
@@ -11,12 +15,9 @@ const BOTTOM = 'bottom';
 const LEFT = 'left';
 
 const backgroundColor = ({ theme }) => theme.colors.n900;
-const sizeArrow = ({ theme }) => theme.spacings.byte;
 
 const baseStyles = ({ theme }) => css`
   label: tooltip;
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -29,12 +30,15 @@ const baseStyles = ({ theme }) => css`
   z-index: 1;
   transition: opacity 0.3s;
   ${textKilo({ theme })};
+  ${shadowSingle({ theme })};
 
   &::after {
+    display: block;
     content: '';
+    width: 0;
+    height: 0;
     position: absolute;
-    border-width: ${sizeArrow({ theme })};
-    border-style: solid;
+    border: ${theme.spacings.byte} solid transparent;
   }
 `;
 
@@ -46,16 +50,24 @@ const oppositeMap = {
 };
 
 const getPositionStyles = ({ theme, position }) => {
-  const arrowMap = {
-    [TOP]: `${backgroundColor({ theme })} transparent transparent transparent`,
-    [RIGHT]: `transparent ${backgroundColor({
-      theme
-    })} transparent transparent`,
-    [BOTTOM]: `transparent transparent ${backgroundColor({
-      theme
-    })} transparent`,
-    [LEFT]: `transparent transparent transparent ${backgroundColor({ theme })}`
-  };
+  // const arrowMap = {
+  //   [TOP]: `
+  //     border-bottom-right-radius: 2px;
+  //     transform: translateY(-50%) rotate(45deg);
+  //     `,
+  //   [RIGHT]: `
+  //     border-bottom-left-radius: 2px;
+  //     transform: translateX(50%) rotate(45deg);
+  //   `,
+  //   [BOTTOM]: `
+  //     border-top-left-radius: 2px;
+  //     transform: translateY(50%) rotate(45deg);
+  //   `,
+  //   [LEFT]: `
+  //     border-top-right-radius: 2px;
+  //     transform: translateX(-50%) rotate(45deg);
+  //   `
+  // };
 
   const opposite = oppositeMap[position];
   return `
@@ -64,7 +76,7 @@ const getPositionStyles = ({ theme, position }) => {
 
     &::after {
       ${position}: 100%;
-      border-color: ${arrowMap[position]};
+      border-${position}-color: ${backgroundColor({ theme })};
     }
   `;
 };
@@ -96,10 +108,10 @@ const getAlignmentStyles = ({ theme, position, align }) => {
 
   return `
     ${opposite}: 50%; ${'' /* Fallback  */}
-    ${opposite}: calc(50% - (${theme.spacings.mega} + ${sizeArrow({ theme })}));
+    ${opposite}: calc(50% - (${theme.spacings.mega} + ${theme.spacings.bit}));
 
     &::after {
-      ${opposite}: ${theme.spacings.mega};
+      ${opposite}: ${theme.spacings.kilo};
     }
   `;
 };
@@ -150,8 +162,8 @@ Tooltip.propTypes = {
 };
 
 Tooltip.defaultProps = {
-  align: Tooltip.RIGHT,
-  alignArrow: Tooltip.CENTER
+  position: Tooltip.RIGHT,
+  align: Tooltip.CENTER
 };
 
 export default Tooltip;

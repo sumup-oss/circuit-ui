@@ -2,8 +2,6 @@
 
 exports[`Tooltip should override alignment styles with position styles 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -18,6 +16,7 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -27,10 +26,12 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
@@ -42,7 +43,7 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
 
 .circuit-0::after {
   left: 100%;
-  border-color: transparent transparent transparent #212933;
+  border-left-color: #212933;
 }
 
 <div
@@ -54,8 +55,6 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
 
 exports[`Tooltip should render with align bottom, when passed "bottom" for the align prop 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -70,32 +69,29 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   top: 50%;
-  top: calc(50% - (16px + 8px));
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  -webkit-undefined: calc(100% + 12px);
-  -ms-flex-undefined: calc(100% + 12px);
-  undefined: calc(100% + 12px);
+  top: calc(50% - (16px + 4px));
+  left: 100%;
+  left: calc(100% + 12px);
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
-  top: 16px;
+  top: 12px;
 }
 
 .circuit-0::after {
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  border-color: undefined;
+  right: 100%;
+  border-right-color: #212933;
 }
 
 <div
@@ -107,8 +103,6 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
 
 exports[`Tooltip should render with align center, when passed "center" for the align prop 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -123,23 +117,22 @@ exports[`Tooltip should render with align center, when passed "center" for the a
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  -webkit-undefined: calc(100% + 12px);
-  -ms-flex-undefined: calc(100% + 12px);
-  undefined: calc(100% + 12px);
+  left: 100%;
+  left: calc(100% + 12px);
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
@@ -150,10 +143,8 @@ exports[`Tooltip should render with align center, when passed "center" for the a
 }
 
 .circuit-0::after {
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  border-color: undefined;
+  right: 100%;
+  border-right-color: #212933;
 }
 
 <div
@@ -165,8 +156,6 @@ exports[`Tooltip should render with align center, when passed "center" for the a
 
 exports[`Tooltip should render with align left, when passed "left" for the align prop 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -181,23 +170,22 @@ exports[`Tooltip should render with align left, when passed "left" for the align
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  -webkit-undefined: calc(100% + 12px);
-  -ms-flex-undefined: calc(100% + 12px);
-  undefined: calc(100% + 12px);
+  left: 100%;
+  left: calc(100% + 12px);
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
@@ -208,10 +196,8 @@ exports[`Tooltip should render with align left, when passed "left" for the align
 }
 
 .circuit-0::after {
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  border-color: undefined;
+  right: 100%;
+  border-right-color: #212933;
 }
 
 <div
@@ -223,8 +209,6 @@ exports[`Tooltip should render with align left, when passed "left" for the align
 
 exports[`Tooltip should render with align right, when passed "right" for the align prop 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -239,23 +223,22 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  -webkit-undefined: calc(100% + 12px);
-  -ms-flex-undefined: calc(100% + 12px);
-  undefined: calc(100% + 12px);
+  left: 100%;
+  left: calc(100% + 12px);
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
@@ -266,10 +249,8 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
 }
 
 .circuit-0::after {
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  border-color: undefined;
+  right: 100%;
+  border-right-color: #212933;
 }
 
 <div
@@ -281,8 +262,6 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
 
 exports[`Tooltip should render with align top, when passed "top" for the align prop 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -297,32 +276,29 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   bottom: 50%;
-  bottom: calc(50% - (16px + 8px));
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  -webkit-undefined: calc(100% + 12px);
-  -ms-flex-undefined: calc(100% + 12px);
-  undefined: calc(100% + 12px);
+  bottom: calc(50% - (16px + 4px));
+  left: 100%;
+  left: calc(100% + 12px);
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
-  bottom: 16px;
+  bottom: 12px;
 }
 
 .circuit-0::after {
-  -webkit-undefined: 100%;
-  -ms-flex-undefined: 100%;
-  undefined: 100%;
-  border-color: undefined;
+  right: 100%;
+  border-right-color: #212933;
 }
 
 <div
@@ -334,8 +310,6 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
 
 exports[`Tooltip should render with position bottom, when passed "bottom" for the position prop 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -350,26 +324,34 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   left: 50%;
-  left: calc(50% - (16px + 8px));
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
   top: 100%;
   top: calc(100% + 12px);
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
-  left: 16px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .circuit-0::after {
   bottom: 100%;
-  border-color: transparent transparent #212933 transparent;
+  border-bottom-color: #212933;
 }
 
 <div
@@ -381,8 +363,6 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
 
 exports[`Tooltip should render with position left, when passed "left" for the position prop 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -397,6 +377,7 @@ exports[`Tooltip should render with position left, when passed "left" for the po
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -406,10 +387,12 @@ exports[`Tooltip should render with position left, when passed "left" for the po
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
@@ -421,7 +404,7 @@ exports[`Tooltip should render with position left, when passed "left" for the po
 
 .circuit-0::after {
   left: 100%;
-  border-color: transparent transparent transparent #212933;
+  border-left-color: #212933;
 }
 
 <div
@@ -433,8 +416,6 @@ exports[`Tooltip should render with position left, when passed "left" for the po
 
 exports[`Tooltip should render with position right, when passed "right" for the position prop 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -449,6 +430,7 @@ exports[`Tooltip should render with position right, when passed "right" for the 
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -458,10 +440,12 @@ exports[`Tooltip should render with position right, when passed "right" for the 
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
@@ -473,7 +457,7 @@ exports[`Tooltip should render with position right, when passed "right" for the 
 
 .circuit-0::after {
   right: 100%;
-  border-color: transparent #212933 transparent transparent;
+  border-right-color: #212933;
 }
 
 <div
@@ -485,8 +469,6 @@ exports[`Tooltip should render with position right, when passed "right" for the 
 
 exports[`Tooltip should render with position top, when passed "top" for the position prop 1`] = `
 .circuit-0 {
-  visibility: hidden;
-  opacity: 0;
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -501,26 +483,34 @@ exports[`Tooltip should render with position top, when passed "top" for the posi
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   left: 50%;
-  left: calc(50% - (16px + 8px));
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
   bottom: 100%;
   bottom: calc(100% + 12px);
 }
 
 .circuit-0::after {
+  display: block;
   content: '';
+  width: 0;
+  height: 0;
   position: absolute;
-  border-width: 8px;
-  border-style: solid;
+  border: 8px solid transparent;
 }
 
 .circuit-0::after {
-  left: 16px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .circuit-0::after {
   top: 100%;
-  border-color: #212933 transparent transparent transparent;
+  border-top-color: #212933;
 }
 
 <div
