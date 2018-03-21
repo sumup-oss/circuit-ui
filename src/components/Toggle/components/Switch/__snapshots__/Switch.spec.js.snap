@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Switch should have the correct default styles 1`] = `
-.circuit-2 {
+.circuit-4 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: #D8DDE1;
   border-radius: 24px;
   position: relative;
@@ -11,9 +18,14 @@ exports[`Switch should have the correct default styles 1`] = `
   width: 40px;
 }
 
+.circuit-4::-moz-focus-inner {
+  border-radius: 24px;
+}
+
 .circuit-0 {
+  display: block;
   background-color: #FAFBFC;
-  box-shadow: 0 2px 0 0 #9DA7B1,inset 0 2px #FFF, inset 0 1px 0 1px rgba(255,255,255,6%);
+  box-shadow: 0 2px 0 0 #9DA7B1;
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px,-50%,0);
@@ -27,20 +39,62 @@ exports[`Switch should have the correct default styles 1`] = `
   border-radius: 16px;
 }
 
-<div
+.circuit-2 {
+  border: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<button
   aria-checked={false}
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   onClick={[Function]}
   role="switch"
 >
-  <div
+  <span
     className="circuit-0 circuit-1"
   />
-</div>
+  <span
+    className="circuit-2 circuit-3"
+  >
+    off
+  </span>
+</button>
 `;
 
 exports[`Switch should have the correct on styles 1`] = `
 .circuit-2 {
+  border: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: #D8DDE1;
   border-radius: 24px;
   position: relative;
@@ -51,9 +105,14 @@ exports[`Switch should have the correct on styles 1`] = `
   background-color: #3388FF;
 }
 
+.circuit-4::-moz-focus-inner {
+  border-radius: 24px;
+}
+
 .circuit-0 {
+  display: block;
   background-color: #FAFBFC;
-  box-shadow: 0 2px 0 0 #9DA7B1,inset 0 2px #FFF, inset 0 1px 0 1px rgba(255,255,255,6%);
+  box-shadow: 0 2px 0 0 #9DA7B1;
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px,-50%,0);
@@ -65,20 +124,25 @@ exports[`Switch should have the correct on styles 1`] = `
   height: 16px;
   width: 16px;
   border-radius: 16px;
-  box-shadow: 0 2px 0 0 #2567D8,inset 0 2px #FFF, inset 0 1px 0 1px rgba(255,255,255,6%);
+  box-shadow: 0 2px 0 0 #2567D8;
   -webkit-transform: translate3d( calc(24px - 4px),-50%,0 );
   -ms-transform: translate3d( calc(24px - 4px),-50%,0 );
   transform: translate3d( calc(24px - 4px),-50%,0 );
 }
 
-<div
+<button
   aria-checked={true}
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   onClick={[Function]}
   role="switch"
 >
-  <div
+  <span
     className="circuit-0 circuit-1"
   />
-</div>
+  <span
+    className="circuit-2 circuit-3"
+  >
+    on
+  </span>
+</button>
 `;

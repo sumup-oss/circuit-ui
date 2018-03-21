@@ -71,7 +71,7 @@ storiesOf('Toggle', module)
               onToggle(e);
             }}
             label="Short label"
-            withMargin={false}
+            noMargin
           />
         )}
       </State>
