@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import {
+  eitherOrPropType,
+  childrenPropType
+} from '../../util/shared-prop-types';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
 import ArrowsIcon from './arrows.svg';
@@ -108,14 +111,20 @@ const Select = ({
   disabled,
   noMargin,
   inline,
-
+  options,
   children,
   ...props
 }) => (
   <SelectContainer {...{ noMargin, inline, disabled }}>
     <SelectElement {...{ ...props, disabled }}>
       {!value && <option key="placeholder">{placeholder}</option>}
-      {children}
+      {children ||
+        (options &&
+          options.map(({ label, ...rest }) => (
+            <option key={rest.value} {...rest}>
+              {label}
+            </option>
+          )))}
     </SelectElement>
     <Icon />
   </SelectContainer>
@@ -131,9 +140,25 @@ Select.propTypes = {
    */
   name: PropTypes.string.isRequired,
   /**
-   * Options to select from.
+   * Options to select from. Can also be provided with the options prop.
    */
-  children: childrenPropType.isRequired,
+  children: eitherOrPropType('children', 'options', childrenPropType, true),
+  /**
+   * Options to select from. Can also be provided with the children prop.
+   */
+  options: eitherOrPropType(
+    'children',
+    'options',
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+          .isRequired,
+        label: PropTypes.string.isRequired,
+        disabled: PropTypes.bool
+      })
+    ),
+    true
+  ),
   /**
    * Styles the select as disabled.
    */
@@ -159,6 +184,8 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  children: null,
+  options: null,
   disabled: false,
   value: null,
   placeholder: 'Select an option',
