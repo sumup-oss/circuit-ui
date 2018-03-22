@@ -231,13 +231,6 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
 `;
 
 exports[`Select should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -270,6 +263,14 @@ exports[`Select should render with no margin styles when passed the noMargin pro
 .circuit-0:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 <div

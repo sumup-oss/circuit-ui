@@ -80,8 +80,8 @@ const containerInlineStyles = ({ theme, inline }) =>
     margin-right: ${theme.spacings.mega};
   `;
 
-const containerNoMarginStyles = ({ margin }) =>
-  margin &&
+const containerNoMarginStyles = ({ noMargin }) =>
+  noMargin &&
   css`
     label: select__container--no-margin;
     margin-bottom: 0;
