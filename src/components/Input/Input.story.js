@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
@@ -12,14 +12,24 @@ storiesOf('Input', module)
   .add(
     'Input invalid',
     withInfo()(() => (
-      <Input placeholder="Placeholder" invalid>
-        <InputTooltip visible>Hello</InputTooltip>
-      </Input>
+      <Fragment>
+        <Input placeholder="Placeholder" invalid>
+          <InputTooltip visible>This field is required.</InputTooltip>
+        </Input>
+        <Input placeholder="Placeholder" invalid />
+      </Fragment>
     ))
   )
   .add(
     'Input warning',
-    withInfo()(() => <Input placeholder="Placeholder" hasWarning />)
+    withInfo()(() => (
+      <Fragment>
+        <Input placeholder="Placeholder" hasWarning>
+          <InputTooltip visible>This does not look right.</InputTooltip>
+        </Input>
+        <Input placeholder="Placeholder" hasWarning />
+      </Fragment>
+    ))
   )
   .add(
     'Input optional',

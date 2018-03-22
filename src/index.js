@@ -8,7 +8,7 @@ export { default as Text } from './components/Text';
 // Forms
 export { default as Checkbox } from './components/Checkbox';
 export { default as Label } from './components/Label';
-export { default as Input } from './components/Input';
+export { default as Input, InputTooltip } from './components/Input';
 export { default as RadioButton } from './components/RadioButton';
 export { default as SearchInput } from './components/SearchInput';
 export { default as Select } from './components/Select';
