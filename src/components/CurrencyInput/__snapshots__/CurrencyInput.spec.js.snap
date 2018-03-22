@@ -1,18 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CurrencyInput should render with BGN currency styles 1`] = `
-.circuit-2 {
-  color: #2567D8;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-3 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -57,8 +46,19 @@ exports[`CurrencyInput should render with BGN currency styles 1`] = `
   color: #9DA7B1;
 }
 
+.circuit-2 {
+  color: #2567D8;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
 <div
-  className="circuit-3 circuit-4"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <input
@@ -68,16 +68,16 @@ exports[`CurrencyInput should render with BGN currency styles 1`] = `
     placeholder="123,45"
     required={false}
   />
-  <div
-    className="circuit-2"
+  <span
+    className="circuit-2 circuit-3"
   >
     лв.
-  </div>
+  </span>
 </div>
 `;
 
 exports[`CurrencyInput should render with USD currency styles 1`] = `
-.circuit-3 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -95,7 +95,7 @@ exports[`CurrencyInput should render with USD currency styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-1 {
+.circuit-2 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -110,40 +110,40 @@ exports[`CurrencyInput should render with USD currency styles 1`] = `
   padding-right: calc( 12px + 16px + 12px );
 }
 
-.circuit-1:focus,
-.circuit-1:active {
+.circuit-2:focus,
+.circuit-2:active {
   border: 1px solid #3388FF;
   outline: none;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #9DA7B1;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
 }
 
-.circuit-1::placeholder {
+.circuit-2::placeholder {
   color: #9DA7B1;
 }
 
 <div
-  className="circuit-3 circuit-4"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
-  <div
-    className="circuit-0"
+  <span
+    className="circuit-0 circuit-1"
   >
     $
-  </div>
+  </span>
   <input
     aria-invalid={false}
-    className="circuit-1 circuit-2"
+    className="circuit-2 circuit-3"
     disabled={false}
     placeholder="123.45"
     required={false}
@@ -152,18 +152,7 @@ exports[`CurrencyInput should render with USD currency styles 1`] = `
 `;
 
 exports[`CurrencyInput should render with default styles 1`] = `
-.circuit-2 {
-  color: #2567D8;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-3 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -208,25 +197,6 @@ exports[`CurrencyInput should render with default styles 1`] = `
   color: #9DA7B1;
 }
 
-<div
-  className="circuit-3 circuit-4"
-  disabled={false}
->
-  <input
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
-  />
-  <div
-    className="circuit-2"
-  >
-    €
-  </div>
-</div>
-`;
-
-exports[`CurrencyInput should render with disabled styles when passed the disabled prop 1`] = `
 .circuit-2 {
   color: #2567D8;
   position: absolute;
@@ -238,6 +208,25 @@ exports[`CurrencyInput should render with disabled styles when passed the disabl
   pointer-events: none;
 }
 
+<div
+  className="circuit-4 circuit-5"
+  disabled={false}
+>
+  <input
+    aria-invalid={false}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    required={false}
+  />
+  <span
+    className="circuit-2 circuit-3"
+  >
+    €
+  </span>
+</div>
+`;
+
+exports[`CurrencyInput should render with disabled styles when passed the disabled prop 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -276,7 +265,18 @@ exports[`CurrencyInput should render with disabled styles when passed the disabl
   color: #9DA7B1;
 }
 
-.circuit-3 {
+.circuit-2 {
+  color: #2567D8;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -287,7 +287,7 @@ exports[`CurrencyInput should render with disabled styles when passed the disabl
 }
 
 <div
-  className="circuit-3 circuit-4"
+  className="circuit-4 circuit-5"
   disabled={true}
 >
   <input
@@ -296,15 +296,22 @@ exports[`CurrencyInput should render with disabled styles when passed the disabl
     disabled={true}
     required={false}
   />
-  <div
-    className="circuit-2"
+  <span
+    className="circuit-2 circuit-3"
   >
     €
-  </div>
+  </span>
 </div>
 `;
 
 exports[`CurrencyInput should render with invalid styles when passed the invalid prop 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-2 {
   color: #2567D8;
   position: absolute;
@@ -314,13 +321,6 @@ exports[`CurrencyInput should render with invalid styles when passed the invalid
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -382,7 +382,7 @@ exports[`CurrencyInput should render with invalid styles when passed the invalid
 }
 
 <div
-  className="circuit-3 circuit-4"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <input
@@ -391,15 +391,22 @@ exports[`CurrencyInput should render with invalid styles when passed the invalid
     disabled={false}
     required={false}
   />
-  <div
-    className="circuit-2"
+  <span
+    className="circuit-2 circuit-3"
   >
     €
-  </div>
+  </span>
 </div>
 `;
 
 exports[`CurrencyInput should render with optional styles when passed the optional prop 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-2 {
   color: #2567D8;
   position: absolute;
@@ -409,13 +416,6 @@ exports[`CurrencyInput should render with optional styles when passed the option
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -460,7 +460,7 @@ exports[`CurrencyInput should render with optional styles when passed the option
 }
 
 <div
-  className="circuit-3 circuit-4"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <input
@@ -469,10 +469,10 @@ exports[`CurrencyInput should render with optional styles when passed the option
     disabled={false}
     required={false}
   />
-  <div
-    className="circuit-2"
+  <span
+    className="circuit-2 circuit-3"
   >
     €
-  </div>
+  </span>
 </div>
 `;

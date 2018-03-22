@@ -24,15 +24,26 @@ storiesOf('CurrencyInput', module)
     withInfo()(() => <CurrencyInput placeholder="123.45" disabled />)
   )
   .add(
-    'BGN CurrencyInput',
-    withInfo()(() => <CurrencyInput placeholder="123,45" currency="лв." />)
-  )
-  .add(
     'USD CurrencyInput',
     withInfo()(() => (
       <CurrencyInput
         currency="$"
-        placeholder="123.45"
+        placeholder="1,234.45"
+        currencyPosition="left"
+        textAlign="left"
+      />
+    ))
+  )
+  .add(
+    'BGN CurrencyInput',
+    withInfo()(() => <CurrencyInput currency="лв." placeholder="1 234,56" />)
+  )
+  .add(
+    'CLP CurrencyInput',
+    withInfo()(() => (
+      <CurrencyInput
+        currency="$"
+        placeholder="1.234"
         currencyPosition="left"
         textAlign="left"
       />

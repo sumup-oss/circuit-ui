@@ -1,4 +1,5 @@
 import { get } from 'lodash';
+import {CURRENCY_FORMATS} from "./currency";
 
 export const NUMBER_SEPARATORS = {
   'bg-BG': { decimal: ',', thousand: '\xA0' },
