@@ -8,6 +8,7 @@ import { themePropType } from '../../util/shared-prop-types';
 
 const currencyBaseStyles = ({ theme }) => css`
   color: ${theme.colors.b700};
+  line-height: 16px;
 `;
 
 const CurrencyIcon = styled('span')`
