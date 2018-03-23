@@ -33,7 +33,8 @@ const CheckboxGroup = ({
 
 CheckboxGroup.propTypes = {
   /**
-   * A consice description of the example prop.
+   * A collection of available options. Each option must have at least
+   * a value and label.
    */
   options: PropTypes.arrayOf(
     PropTypes.shape({
