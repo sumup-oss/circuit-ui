@@ -26,9 +26,8 @@ Array [
     checked={true}
     className="circuit-0 circuit-1"
     disabled={false}
-    id={undefined}
-    name={undefined}
-    onClick={[Function]}
+    id="radio-button_2"
+    onClick={undefined}
     type="radio"
   />,
   .circuit-0 {
@@ -90,7 +89,7 @@ Array [
     checked={true}
     className="circuit-0 circuit-1"
     disabled={false}
-    htmlFor={undefined}
+    htmlFor="radio-button_2"
   />,
 ]
 `;
@@ -121,9 +120,8 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={false}
-    id={undefined}
-    name={undefined}
-    onClick={[Function]}
+    id="radio-button_1"
+    onClick={undefined}
     type="radio"
   />,
   .circuit-0 {
@@ -174,7 +172,7 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={false}
-    htmlFor={undefined}
+    htmlFor="radio-button_1"
   />,
 ]
 `;
@@ -205,9 +203,8 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={true}
-    id={undefined}
-    name={undefined}
-    onClick={[Function]}
+    id="radio-button_3"
+    onClick={undefined}
     type="radio"
   />,
   .circuit-0 {
@@ -276,7 +273,7 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={true}
-    htmlFor={undefined}
+    htmlFor="radio-button_3"
   />,
 ]
 `;
@@ -307,9 +304,8 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={false}
-    id={undefined}
-    name={undefined}
-    onClick={[Function]}
+    id="radio-button_4"
+    onClick={undefined}
     type="radio"
   />,
   .circuit-0 {
@@ -368,7 +364,7 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={false}
-    htmlFor={undefined}
+    htmlFor="radio-button_4"
   />,
 ]
 `;

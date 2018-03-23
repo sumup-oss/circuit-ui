@@ -5,6 +5,7 @@ import { hideVisually, size } from 'polished';
 
 import { disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
+import { uniqueId } from '../../util/id';
 
 const labelBaseStyles = ({ theme }) => css`
   label: radio-button__label;
@@ -112,35 +113,42 @@ const RadioButtonLabel = styled('label')`
 /**
  * RadioButton component for forms.
  */
-const RadioButton = ({ onToggle, children, name, ...props }) => (
-  <Fragment>
-    <RadioButtonInput
-      id={name}
-      type="radio"
-      onClick={onToggle}
-      {...{ ...props, name }}
-    />
-    <RadioButtonLabel htmlFor={name} {...props}>
-      {children}
-    </RadioButtonLabel>
-  </Fragment>
-);
+const RadioButton = ({ onToggle, children, id, ...props }) => {
+  const defaultId = uniqueId('radio-button_');
+  return (
+    <Fragment>
+      <RadioButtonInput
+        type="radio"
+        onClick={onToggle}
+        id={id || defaultId}
+        {...props}
+      />
+      <RadioButtonLabel htmlFor={id || defaultId} {...props}>
+        {children}
+      </RadioButtonLabel>
+    </Fragment>
+  );
+};
 
 RadioButton.propTypes = {
   /**
    * Controles/Toggles the checked state.
    */
-  onToggle: PropTypes.func,
-  /**
-   * Child nodes to be rendered as the label.
-   */
-  children: childrenPropType,
+  onToggle: PropTypes.func.isRequired,
   /**
    * Value string for input.
    */
   value: PropTypes.string.isRequired,
   /**
+   * Child nodes to be rendered as the label.
+   */
+  children: childrenPropType,
+  /**
    * A unique ID used to link the input and label.
+   */
+  id: PropTypes.string,
+  /**
+   * The name of the radio group that the radio button belongs to.
    */
   name: PropTypes.string.isRequired,
   /**
@@ -160,11 +168,11 @@ RadioButton.propTypes = {
 };
 
 RadioButton.defaultProps = {
+  id: null,
   checked: false,
   invalid: false,
   disabled: false,
-  children: null,
-  onToggle: () => {}
+  children: null
 };
 
 /**

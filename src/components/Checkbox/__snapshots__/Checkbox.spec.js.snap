@@ -26,9 +26,9 @@ Array [
     checked={true}
     className="circuit-0 circuit-1"
     disabled={false}
-    id="name"
+    id="checkbox_2"
     name="name"
-    onClick={[Function]}
+    onClick={undefined}
     type="checkbox"
   />,
   .circuit-0 {
@@ -89,7 +89,8 @@ Array [
     checked={true}
     className="circuit-0 circuit-1"
     disabled={false}
-    htmlFor="name"
+    htmlFor="checkbox_2"
+    name="name"
   />,
 ]
 `;
@@ -120,9 +121,9 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={false}
-    id="name"
+    id="checkbox_1"
     name="name"
-    onClick={[Function]}
+    onClick={undefined}
     type="checkbox"
   />,
   .circuit-0 {
@@ -172,7 +173,8 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={false}
-    htmlFor="name"
+    htmlFor="checkbox_1"
+    name="name"
   />,
 ]
 `;
@@ -203,9 +205,9 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={true}
-    id="name"
+    id="checkbox_3"
     name="name"
-    onClick={[Function]}
+    onClick={undefined}
     type="checkbox"
   />,
   .circuit-0 {
@@ -273,7 +275,8 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={true}
-    htmlFor="name"
+    htmlFor="checkbox_3"
+    name="name"
   />,
 ]
 `;
@@ -304,9 +307,9 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={false}
-    id="name"
+    id="checkbox_4"
     name="name"
-    onClick={[Function]}
+    onClick={undefined}
     type="checkbox"
   />,
   .circuit-0 {
@@ -364,7 +367,8 @@ Array [
     checked={false}
     className="circuit-0 circuit-1"
     disabled={false}
-    htmlFor="name"
+    htmlFor="checkbox_4"
+    name="name"
   />,
 ]
 `;
