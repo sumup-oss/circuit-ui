@@ -26,9 +26,9 @@ class State extends Component {
 
     const props = {
       [name]: this.state[name],
-      [updaterName]: () => {
+      [updaterName]: data => {
         this.setState(prevState => ({
-          [name]: updater(prevState[name])
+          [name]: updater(prevState[name], data)
         }));
       }
     };
