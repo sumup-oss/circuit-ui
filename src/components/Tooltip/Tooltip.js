@@ -2,11 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { includes } from 'lodash';
 
-import {
-  textKilo,
-  centerAlign,
-  shadowSingle
-} from '../../styles/style-helpers';
+import { textKilo, shadowSingle } from '../../styles/style-helpers';
 
 const CENTER = 'center';
 const TOP = 'top';
@@ -42,7 +38,7 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const oppositeMap = {
+const positionMap = {
   [TOP]: 'bottom',
   [RIGHT]: 'left',
   [BOTTOM]: 'top',
@@ -50,29 +46,10 @@ const oppositeMap = {
 };
 
 const getPositionStyles = ({ theme, position }) => {
-  // const arrowMap = {
-  //   [TOP]: `
-  //     border-bottom-right-radius: 2px;
-  //     transform: translateY(-50%) rotate(45deg);
-  //     `,
-  //   [RIGHT]: `
-  //     border-bottom-left-radius: 2px;
-  //     transform: translateX(50%) rotate(45deg);
-  //   `,
-  //   [BOTTOM]: `
-  //     border-top-left-radius: 2px;
-  //     transform: translateY(50%) rotate(45deg);
-  //   `,
-  //   [LEFT]: `
-  //     border-top-right-radius: 2px;
-  //     transform: translateX(-50%) rotate(45deg);
-  //   `
-  // };
-
-  const opposite = oppositeMap[position];
+  const absolutePosition = positionMap[position];
   return `
-    ${opposite}: 100%; ${'' /* Fallback  */}
-    ${opposite}: calc(100% + ${theme.spacings.kilo});
+    ${absolutePosition}: 100%; ${'' /* Fallback  */}
+    ${absolutePosition}: calc(100% + ${theme.spacings.kilo});
 
     &::after {
       ${position}: 100%;
@@ -86,32 +63,38 @@ const getAlignmentStyles = ({ theme, position, align }) => {
 
   if (isHorizontal && includes([TOP, BOTTOM, CENTER], align)) {
     return `
-      ${centerAlign('horizontal')};
+      left: 50%;
+      transform: translateX(-50%);
 
       &::after {
-        ${centerAlign('horizontal')};
+        left: 50%;
+        transform: translateX(-50%);
       }
     `;
   }
 
   if (!isHorizontal && includes([LEFT, RIGHT, CENTER], align)) {
     return `
-      ${centerAlign('vertical')};
+      top: 50%;
+      transform: translateY(-50%);
 
       &::after {
-        ${centerAlign('vertical')};
+        top: 50%;
+        transform: translateY(-50%);
       }
     `;
   }
 
-  const opposite = oppositeMap[align];
+  const absolutePosition = positionMap[align];
 
   return `
-    ${opposite}: 50%; ${'' /* Fallback  */}
-    ${opposite}: calc(50% - (${theme.spacings.mega} + ${theme.spacings.bit}));
+    ${absolutePosition}: 50%; ${'' /* Fallback  */}
+    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${
+    theme.spacings.bit
+  }));
 
     &::after {
-      ${opposite}: ${theme.spacings.kilo};
+      ${absolutePosition}: ${theme.spacings.kilo};
     }
   `;
 };

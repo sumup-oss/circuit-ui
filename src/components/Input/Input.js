@@ -173,13 +173,28 @@ const InputTooltip = styled(Tooltip)`
   ${tooltipBaseStyles};
 `;
 
+const determineSuffix = ({ invalid, hasWarning, showValid }) => {
+  /* eslint-disable react/prop-types */
+  if (invalid) {
+    return ({ className }) => <ErrorIcon {...{ className }} />;
+  }
+  if (hasWarning) {
+    return ({ className }) => <WarningIcon {...{ className }} />;
+  }
+  if (showValid) {
+    return ({ className }) => <ValidIcon {...{ className }} />;
+  }
+  return null;
+  /* eslint-enable react/prop-types */
+};
+
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
 const Input = ({
   children,
   prefix,
-  suffix,
+  suffix: customSuffix,
   validationHint,
   invalid,
   hasWarning,
@@ -194,23 +209,11 @@ const Input = ({
 
   const suffixClassName = cx(suffixStyles({ theme }));
 
-  /* eslint-disable react/prop-types */
-  const newSuffix = (() => {
-    if (invalid) {
-      return ({ className }) => <ErrorIcon {...{ className }} />;
-    }
-    if (hasWarning) {
-      return ({ className }) => <WarningIcon {...{ className }} />;
-    }
-    if (showValid) {
-      return ({ className }) => <ValidIcon {...{ className }} />;
-    }
-    return suffix;
-  })();
-  /* eslint-enable react/prop-types */
+  const suffix =
+    customSuffix || determineSuffix({ invalid, hasWarning, showValid });
 
   const hasPrefix = !!prefix;
-  const hasSuffix = !!newSuffix;
+  const hasSuffix = !!suffix;
 
   return (
     <InputContainer {...{ noMargin, inline, disabled }}>
@@ -227,7 +230,7 @@ const Input = ({
           hasSuffix: true
         }}
       />
-      {hasSuffix && newSuffix({ className: suffixClassName })}
+      {hasSuffix && suffix({ className: suffixClassName })}
       {validationHint && (
         <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
           {validationHint}
