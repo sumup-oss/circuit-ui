@@ -71,7 +71,7 @@ exports[`Toggle should render with default styles 1`] = `
   <button
     aria-checked={false}
     className="circuit-4 circuit-5"
-    onClick={[Function]}
+    onClick={undefined}
     role="switch"
   >
     <span
@@ -158,7 +158,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   <button
     aria-checked={false}
     className="circuit-4 circuit-5"
-    onClick={[Function]}
+    onClick={undefined}
     role="switch"
   >
     <span

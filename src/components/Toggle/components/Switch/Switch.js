@@ -80,10 +80,10 @@ const SwitchLabel = styled('span')`
 /**
  * A simple Switch component.
  */
-const Switch = ({ on, onToggle }) => (
+const Switch = ({ on, onToggle, labelOn, labelOff }) => (
   <SwitchTrack onClick={onToggle} on={on} role="switch" aria-checked={on}>
     <SwitchKnob {...{ on }} />
-    <SwitchLabel>{on ? 'on' : 'off'}</SwitchLabel>
+    <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
   </SwitchTrack>
 );
 
@@ -95,12 +95,21 @@ Switch.propTypes = {
   /**
    * Toggle callback used as onClick.
    */
-  onToggle: PropTypes.func
+  onToggle: PropTypes.func.isRequired,
+  /**
+   * Label for the 'on' state. Important for accessibility.
+   */
+  labelOn: PropTypes.string,
+  /**
+   * Label for the 'off' state. Important for accessibility.
+   */
+  labelOff: PropTypes.string
 };
 
 Switch.defaultProps = {
   on: false,
-  onToggle: () => {}
+  labelOn: 'on',
+  labelOff: 'off'
 };
 
 /**

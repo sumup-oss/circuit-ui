@@ -126,7 +126,7 @@ const Checkbox = ({ onToggle, children, name, ...props }) => (
       type="checkbox"
       {...{ ...props, name }}
     />
-    <CheckboxLabel htmlFor={name} {...{ ...props }}>
+    <CheckboxLabel htmlFor={name} {...props}>
       {children}
     </CheckboxLabel>
   </Fragment>

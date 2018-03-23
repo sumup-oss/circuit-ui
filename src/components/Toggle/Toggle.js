@@ -85,7 +85,13 @@ const Toggle = ({ label, explanation, noMargin, ...props }) => {
 };
 
 Toggle.propTypes = {
+  /**
+   * Describes the function of the toggle. Should not change depending on the state.
+   */
   label: PropTypes.string,
+  /**
+   * Further explanation of the toggle. Can change depending on the state.
+   */
   explanation: PropTypes.string,
   /**
    * Removes the default bottom margin from the input.

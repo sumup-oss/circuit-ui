@@ -120,7 +120,7 @@ const RadioButton = ({ onToggle, children, name, ...props }) => (
       onClick={onToggle}
       {...{ ...props, name }}
     />
-    <RadioButtonLabel htmlFor={name} {...{ ...props }}>
+    <RadioButtonLabel htmlFor={name} {...props}>
       {children}
     </RadioButtonLabel>
   </Fragment>
