@@ -8,6 +8,8 @@ import HtmlElement from '../HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 import { themePropType, childrenPropType } from '../../util/shared-prop-types';
 
+import Tooltip from '../Tooltip';
+
 import ErrorIcon from './error.svg';
 import WarningIcon from './warning.svg';
 import ValidIcon from './valid.svg';
@@ -145,6 +147,11 @@ const suffixStyles = ({ theme }) => css`
   pointer-events: none;
 `;
 
+const tooltipBaseStyles = () => css`
+  label: input__tooltip;
+  right: 1px;
+`;
+
 const InputContainer = styled('div')`
   ${containerBaseStyles};
   ${containerNoMarginStyles};
@@ -162,13 +169,18 @@ const InputElement = styled(HtmlElement)`
   ${inputSuffixStyles};
 `;
 
+const InputTooltip = styled(Tooltip)`
+  ${tooltipBaseStyles};
+`;
+
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
 const Input = ({
   children,
-  suffix,
   prefix,
+  suffix,
+  validationHint,
   invalid,
   hasWarning,
   showValid,
@@ -216,6 +228,11 @@ const Input = ({
         }}
       />
       {hasSuffix && newSuffix({ className: suffixClassName })}
+      {validationHint && (
+        <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+          {validationHint}
+        </InputTooltip>
+      )}
       {children}
     </InputContainer>
   );
@@ -238,6 +255,10 @@ Input.propTypes = {
    * Receives a className prop.
    */
   suffix: PropTypes.func,
+  /**
+   * Warning or error message, displayed in a tooltip.
+   */
+  validationHint: PropTypes.string,
   /**
    * Mark input as required. Important for accessibility.
    */
@@ -282,6 +303,7 @@ Input.defaultProps = {
   element: 'input',
   prefix: null,
   suffix: null,
+  validationHint: null,
   required: false,
   invalid: false,
   hasWarning: false,

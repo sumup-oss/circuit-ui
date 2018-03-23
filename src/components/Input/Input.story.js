@@ -3,19 +3,25 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import Input, { InputTooltip } from '.';
+import Input from '.';
 import Label from '../Label';
 
 storiesOf('Input', module)
   .addDecorator(withTests('Input'))
   .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
   .add(
+    'Input valid',
+    withInfo()(() => <Input placeholder="Placeholder" showValid />)
+  )
+  .add(
     'Input invalid',
     withInfo()(() => (
       <Fragment>
-        <Input placeholder="Placeholder" invalid>
-          <InputTooltip visible>This field is required.</InputTooltip>
-        </Input>
+        <Input
+          placeholder="Placeholder"
+          validationHint="This field is required."
+          invalid
+        />
         <Input placeholder="Placeholder" invalid />
       </Fragment>
     ))
@@ -24,9 +30,11 @@ storiesOf('Input', module)
     'Input warning',
     withInfo()(() => (
       <Fragment>
-        <Input placeholder="Placeholder" hasWarning>
-          <InputTooltip visible>This does not look right.</InputTooltip>
-        </Input>
+        <Input
+          placeholder="Placeholder"
+          validationHint="This does not look right."
+          hasWarning
+        />
         <Input placeholder="Placeholder" hasWarning />
       </Fragment>
     ))
