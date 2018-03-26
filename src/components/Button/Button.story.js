@@ -23,11 +23,7 @@ storiesOf('Button', module)
   )
   .add(
     'Button secondary',
-    withInfo()(() => (
-      <Button secondary flat>
-        Flat Button
-      </Button>
-    ))
+    withInfo()(() => <Button secondary>Flat Button</Button>)
   )
   .add(
     'Button secondary disabled',
@@ -37,7 +33,6 @@ storiesOf('Button', module)
       </Button>
     ))
   )
-  .add('Link Button', withInfo()(() => <Button href="#">Link</Button>))
   .add('Flat Button', withInfo()(() => <Button flat>Flat</Button>))
   .add(
     'Flat Button disabled',
@@ -50,7 +45,7 @@ storiesOf('Button', module)
   .add(
     'Flat Button primary',
     withInfo()(() => (
-      <Button secondary flat>
+      <Button primary flat>
         Flat Button
       </Button>
     ))
@@ -71,6 +66,7 @@ storiesOf('Button', module)
       </Button>
     ))
   )
+  .add('Link Button', withInfo()(() => <Button href="#">Link</Button>))
   .add(
     'Stretched Button',
     withInfo()(() => (
