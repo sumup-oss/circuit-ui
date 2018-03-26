@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextArea should prioritize error over optional styles 1`] = `
+exports[`TextArea should prioritize disabled over error styles 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -12,6 +12,179 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   width: 100%;
   font-size: 15px;
   line-height: 24px;
+  overflow: auto;
+  resize: vertical;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={true}
+>
+  <textarea
+    aria-invalid={true}
+    className="circuit-0 circuit-1"
+    disabled={true}
+    required={false}
+  />
+</div>
+`;
+
+exports[`TextArea should prioritize disabled over warning styles 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:not(:focus) {
+  border-color: #FFC859;
+}
+
+.circuit-0:not(:focus)::-webkit-input-placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus)::-moz-placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus):-ms-input-placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus)::placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus) {
+  border-color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::-webkit-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::-moz-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus):-ms-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::placeholder {
+  color: #FFAF9F;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <textarea
+    aria-invalid={true}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    required={false}
+  />
+  <div>
+    error.svg
+  </div>
+</div>
+`;
+
+exports[`TextArea should prioritize error over optional styles 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: #FAFBFC;
+  border-style: dashed;
+  box-shadow: none;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -59,29 +232,257 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   color: #FFAF9F;
 }
 
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
 <div
   className="circuit-2 circuit-3"
-  disabled={true}
+  disabled={false}
 >
   <textarea
     aria-invalid={true}
     className="circuit-0 circuit-1"
-    disabled={true}
+    disabled={false}
     required={false}
   />
   <div>
     error.svg
   </div>
+</div>
+`;
+
+exports[`TextArea should render with a Tooltip when passed the validationHint prop 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  overflow: auto;
+  resize: vertical;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-2 {
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  right: 50%;
+  right: calc(50% - (16px + 4px));
+  bottom: 100%;
+  bottom: calc(100% + 12px);
+  right: 1px;
+}
+
+.circuit-2::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
+}
+
+.circuit-2::after {
+  right: 12px;
+}
+
+.circuit-2::after {
+  top: 100%;
+  border-top-color: #212933;
+}
+
+<div
+  className="circuit-4 circuit-5"
+  disabled={false}
+>
+  <textarea
+    aria-invalid={false}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    required={false}
+  />
+  <div
+    className="circuit-2 circuit-3"
+  >
+    Validation hint
+  </div>
+</div>
+`;
+
+exports[`TextArea should render with a prefix when passed the prefix prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <div
+    style={
+      Object {
+        "height": "24px",
+        "width": "24px",
+      }
+    }
+  />
+  <textarea
+    aria-invalid={false}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    required={false}
+  />
+</div>
+`;
+
+exports[`TextArea should render with a suffix when passed the suffix prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <textarea
+    aria-invalid={false}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    required={false}
+  />
+  <div
+    style={
+      Object {
+        "height": "24px",
+        "width": "24px",
+      }
+    }
+  />
 </div>
 `;
 
@@ -204,6 +605,66 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 </div>
 `;
 
+exports[`TextArea should render with inline styles when passed the inline prop 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  overflow: auto;
+  resize: vertical;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  display: inline-block;
+  margin-right: 16px;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <textarea
+    aria-invalid={false}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    required={false}
+  />
+</div>
+`;
+
 exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
 .circuit-2 {
   color: #212933;
@@ -286,6 +747,65 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 </div>
 `;
 
+exports[`TextArea should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  overflow: auto;
+  resize: vertical;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <textarea
+    aria-invalid={false}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    required={false}
+  />
+</div>
+`;
+
 exports[`TextArea should render with optional styles when passed the optional prop 1`] = `
 .circuit-2 {
   color: #212933;
@@ -344,6 +864,68 @@ exports[`TextArea should render with optional styles when passed the optional pr
     disabled={false}
     required={false}
   />
+</div>
+`;
+
+exports[`TextArea should render with valid styles when passed the showValid prop 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  disabled={false}
+>
+  <textarea
+    aria-invalid={false}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    required={false}
+  />
+  <div>
+    valid.svg
+  </div>
 </div>
 `;
 

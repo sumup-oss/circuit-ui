@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { find } from 'lodash';
 import styled, { css, cx } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 import { size } from 'polished';
@@ -13,6 +14,9 @@ import Tooltip from '../Tooltip';
 import ErrorIcon from './error.svg';
 import WarningIcon from './warning.svg';
 import ValidIcon from './valid.svg';
+
+const LEFT = 'left';
+const RIGHT = 'right';
 
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;
@@ -67,7 +71,8 @@ const inputBaseStyles = ({ theme }) => css`
   }
 `;
 
-const inputWarningStyles = ({ theme, hasWarning }) =>
+const inputWarningStyles = ({ theme, hasWarning, disabled }) =>
+  !disabled &&
   hasWarning &&
   css`
     label: input--warning;
@@ -80,7 +85,8 @@ const inputWarningStyles = ({ theme, hasWarning }) =>
     }
   `;
 
-const inputInvalidStyles = ({ theme, invalid }) =>
+const inputInvalidStyles = ({ theme, invalid, disabled }) =>
+  !disabled &&
   invalid &&
   css`
     label: input--error;
@@ -103,7 +109,7 @@ const inputOptionalStyles = ({ theme, optional }) =>
   `;
 
 const inputTextAlignRightStyles = ({ textAlign }) =>
-  textAlign === 'right' &&
+  textAlign === RIGHT &&
   css`
     label: input--right;
     text-align: right;
@@ -173,18 +179,22 @@ const InputTooltip = styled(Tooltip)`
   ${tooltipBaseStyles};
 `;
 
-const determineSuffix = ({ invalid, hasWarning, showValid }) => {
+const getSuffixComponent = ({ invalid, hasWarning, showValid, disabled }) => {
+  if (disabled) {
+    return null;
+  }
+  const components = [
+    invalid && ErrorIcon,
+    hasWarning && WarningIcon,
+    showValid && ValidIcon
+  ];
+
+  const SuffixComponent = find(components);
+
   /* eslint-disable react/prop-types */
-  if (invalid) {
-    return ({ className }) => <ErrorIcon {...{ className }} />;
-  }
-  if (hasWarning) {
-    return ({ className }) => <WarningIcon {...{ className }} />;
-  }
-  if (showValid) {
-    return ({ className }) => <ValidIcon {...{ className }} />;
-  }
-  return null;
+  return SuffixComponent
+    ? ({ className }) => <SuffixComponent className={className} />
+    : null;
   /* eslint-enable react/prop-types */
 };
 
@@ -210,7 +220,8 @@ const Input = ({
   const suffixClassName = cx(suffixStyles({ theme }));
 
   const suffix =
-    customSuffix || determineSuffix({ invalid, hasWarning, showValid });
+    customSuffix ||
+    getSuffixComponent({ disabled, invalid, hasWarning, showValid });
 
   const hasPrefix = !!prefix;
   const hasSuffix = !!suffix;
@@ -231,15 +242,19 @@ const Input = ({
         }}
       />
       {hasSuffix && suffix({ className: suffixClassName })}
-      {validationHint && (
-        <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
-          {validationHint}
-        </InputTooltip>
-      )}
+      {!disabled &&
+        validationHint && (
+          <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+            {validationHint}
+          </InputTooltip>
+        )}
       {children}
     </InputContainer>
   );
 };
+
+Input.LEFT = LEFT;
+Input.RIGHT = RIGHT;
 
 Input.propTypes = {
   theme: themePropType.isRequired,
@@ -298,7 +313,7 @@ Input.propTypes = {
   /**
    * Aligns text in the input
    */
-  textAlign: PropTypes.oneOf(['left', 'right'])
+  textAlign: PropTypes.oneOf([Input.LEFT, Input.RIGHT])
 };
 
 Input.defaultProps = {
@@ -315,7 +330,7 @@ Input.defaultProps = {
   disabled: false,
   inline: false,
   noMargin: false,
-  textAlign: 'left'
+  textAlign: Input.LEFT
 };
 
 /**

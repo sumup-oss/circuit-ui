@@ -16,6 +16,9 @@ const TextArea = props => (
   <Input {...{ ...props, className }} element="textarea" />
 );
 
+TextArea.LEFT = Input.LEFT;
+TextArea.RIGHT = Input.RIGHT;
+
 /**
  * @component
  */

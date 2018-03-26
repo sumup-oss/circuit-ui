@@ -3,23 +3,7 @@ import React from 'react';
 import Input from '.';
 import Label from '../Label';
 
-const DummyIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="feather feather-eye"
-  >
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-    <circle cx="12" cy="12" r="3" />
-  </svg>
-);
+const DummyElement = () => <div style={{ width: '24px', height: '24px' }} />;
 
 describe('Input', () => {
   /**
@@ -32,14 +16,14 @@ describe('Input', () => {
 
   it('should render with a prefix when passed the prefix prop', () => {
     const actual = create(
-      <Input prefix={({ className }) => <DummyIcon {...{ className }} />} />
+      <Input prefix={({ className }) => <DummyElement {...{ className }} />} />
     );
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with a suffix when passed the suffix prop', () => {
     const actual = create(
-      <Input suffix={({ className }) => <DummyIcon {...{ className }} />} />
+      <Input suffix={({ className }) => <DummyElement {...{ className }} />} />
     );
     expect(actual).toMatchSnapshot();
   });
@@ -65,7 +49,7 @@ describe('Input', () => {
   });
 
   it('should render with right aligned text', () => {
-    const actual = create(<Input textAlign="right" />);
+    const actual = create(<Input textAlign={Input.RIGHT} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -84,6 +68,16 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should prioritize disabled over error styles', () => {
+    const actual = create(<Input invalid disabled />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should prioritize disabled over warning styles', () => {
+    const actual = create(<Input invalid hasWarning />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with inline styles when passed the inline prop', () => {
     const actual = create(<Input inline />);
     expect(actual).toMatchSnapshot();
@@ -99,9 +93,9 @@ describe('Input', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <Label htmlFor="id">
+      <Label htmlFor="input">
         Label
-        <Input id="id" />
+        <Input id="input" />
       </Label>
     );
     const actual = await axe(wrapper);
