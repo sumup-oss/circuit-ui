@@ -4,13 +4,11 @@ import Select from '.';
 import Label from '../Label';
 
 describe('Select', () => {
-  const options = (
-    <Fragment>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </Fragment>
-  );
+  const options = [
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' }
+  ];
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -20,27 +18,22 @@ describe('Select', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Select>{options}</Select>);
+    const actual = create(<Select {...{ options }} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = create(<Select disabled>{options}</Select>);
+    const actual = create(<Select {...{ options }} disabled />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with inline styles when passed the inline prop', () => {
-    const actual = create(<Select inline>{options}</Select>);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with stretched styles when passed the stretch prop', () => {
-    const actual = create(<Select stretch>{options}</Select>);
+    const actual = create(<Select {...{ options }} inline />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Select noMargin />);
+    const actual = create(<Select {...{ options }} noMargin />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -50,7 +43,7 @@ describe('Select', () => {
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <Label htmlFor="select">
-        <Select id="select">{options}</Select>
+        <Select {...{ options }} id="select" />
       </Label>
     );
     const actual = await axe(wrapper);
@@ -60,8 +53,23 @@ describe('Select', () => {
   /**
    * Logic tests.
    */
+  it('should accept the options as children', () => {
+    const children = (
+      <Fragment>
+        {options.map(({ label, ...rest }) => (
+          <option key={rest.value} {...rest}>
+            {label}
+          </option>
+        ))}
+      </Fragment>
+    );
+    const wrapper = shallow(<Select disabled>{children}</Select>).dive();
+    const actual = wrapper.find('SelectElement').prop('disabled');
+    expect(actual).toBeTruthy();
+  });
+
   it('should be disabled when passed the disabled prop', () => {
-    const wrapper = shallow(<Select disabled>{options}</Select>).dive();
+    const wrapper = shallow(<Select {...{ options }} disabled />).dive();
     const actual = wrapper.find('SelectElement').prop('disabled');
     expect(actual).toBeTruthy();
   });
@@ -79,7 +87,7 @@ describe('Select', () => {
   });
 
   it('should not show the placeholder when a value is selected', () => {
-    const wrapper = shallow(<Select value={2}>{options}</Select>);
+    const wrapper = shallow(<Select {...{ options }} value={2} />);
     const actual = wrapper.find('option [key=0]').length;
     expect(actual).toBe(0);
   });

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
+import { eitherOrPropType } from '../../util/shared-prop-types';
 import { textMega } from '../../styles/style-helpers';
 import DefaultCloseButton from '../CloseButton';
 
@@ -93,35 +94,20 @@ const Tag = ({ children, icon, onRemove, selected, ...props }) => (
 
 Tag.propTypes = {
   /**
-   * The tag's text.
+   * The content of the tag.
    */
   children: PropTypes.node,
-
   /**
-   * The tag's icon.
-   * *Cannot be used when onRemove is provided. The icon doesn't appear.*
+   * An optional  tag's icon.
    */
-  icon: (props, propName, componentName) => {
-    if (props.onRemove && props.icon) {
-      return new Error("When tag has onRemove prop it doesn't allow icon.");
-    }
-
-    return PropTypes.checkPropTypes(
-      { propName: PropTypes.element },
-      props,
-      propName,
-      componentName
-    );
-  },
-
+  icon: eitherOrPropType('icon', 'onRemove', PropTypes.element),
   /**
-   * onRemove is called when user clicks Close Button.
-   * When providing this function a close button appears inside the tag.
+   * Renders a close button inside the tag and calls the provided function
+   * when the button is clicked.
    */
-  onRemove: PropTypes.func,
-
+  onRemove: eitherOrPropType('icon', 'onRemove', PropTypes.func),
   /**
-   * Makes the tag selected.
+   * Triggers selected styles on the tag.
    */
   selected: PropTypes.bool
 };

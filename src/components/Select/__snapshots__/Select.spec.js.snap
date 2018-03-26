@@ -231,13 +231,6 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
 `;
 
 exports[`Select should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -272,64 +265,12 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   text-shadow: 0 0 0 #000;
 }
 
-<div
-  className="circuit-2 circuit-3"
-  disabled={false}
->
-  <select
-    className="circuit-0 circuit-1"
-    disabled={false}
-  >
-    <option>
-      Select an option
-    </option>
-  </select>
-  <div>
-    arrows.svg
-  </div>
-</div>
-`;
-
-exports[`Select should render with stretched styles when passed the stretch prop 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
-}
-
-.circuit-0 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
-  padding: 8px 32px 8px 12px;
-  position: relative;
-  width: 100%;
-  z-index: 30;
-  font-size: 15px;
-  line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
-}
-
-.circuit-0:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
+  margin-bottom: 0;
 }
 
 <div

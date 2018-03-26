@@ -5,6 +5,7 @@ import { hideVisually, size } from 'polished';
 
 import { disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
+import { uniqueId } from '../../util/id';
 
 const checkmarkSvg = fill =>
   // NOTE: Optimizing SVGs in data URIs, https://codepen.io/tigt/post/optimizing-svgs-in-data-uris
@@ -118,35 +119,37 @@ const CheckboxLabel = styled('label')`
 /**
  * Checkbox component for forms.
  */
-const Checkbox = ({ onToggle, children, name, ...props }) => (
-  <Fragment>
-    <CheckboxInput
-      id={name}
-      onClick={onToggle}
-      type="checkbox"
-      {...{ ...props, name }}
-    />
-    <CheckboxLabel htmlFor={name} {...props}>
-      {children}
-    </CheckboxLabel>
-  </Fragment>
-);
+const Checkbox = ({ onToggle, children, id: customId, ...props }) => {
+  const id = customId || uniqueId('checkbox_');
+  return (
+    <Fragment>
+      <CheckboxInput id={id} onClick={onToggle} type="checkbox" {...props} />
+      <CheckboxLabel htmlFor={id} {...props}>
+        {children}
+      </CheckboxLabel>
+    </Fragment>
+  );
+};
 
 Checkbox.propTypes = {
   /**
    * Controles/Toggles the checked state.
    */
-  onToggle: PropTypes.func,
-  /**
-   * Child nodes to be rendered as the label.
-   */
-  children: childrenPropType,
+  onToggle: PropTypes.func.isRequired,
   /**
    * Value string for input.
    */
   value: PropTypes.string.isRequired,
   /**
+   * Child nodes to be rendered as the label.
+   */
+  children: childrenPropType,
+  /**
    * A unique ID used to link the input and label.
+   */
+  id: PropTypes.string,
+  /**
+   * The name of the radio group that the radio button belongs to.
    */
   name: PropTypes.string.isRequired,
   /**
@@ -166,11 +169,11 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
+  id: null,
   checked: false,
   invalid: false,
   disabled: false,
-  children: null,
-  onToggle: () => {}
+  children: null
 };
 
 /**

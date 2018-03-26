@@ -4,27 +4,41 @@ import PropTypes from 'prop-types';
 //       when they are imported and merged into a component's
 //       propTypes.
 
+export const eitherOrPropType = (
+  firstProp,
+  secondProp,
+  propType,
+  isRequired = false
+) => (props, propName, componentName) => {
+  const hasFirstProp = props[firstProp];
+  const hasSecondProp = props[secondProp];
+  /* eslint-disable max-len */
+  if (hasFirstProp && hasSecondProp) {
+    return new Error(
+      `You can provide either '${firstProp}' or '${secondProp}' to '${componentName}' but not both.`
+    );
+  }
+  if (isRequired && !hasFirstProp && !hasSecondProp) {
+    return new Error(
+      `You must provide either '${firstProp}' or '${secondProp}' to '${componentName}' (but not both).`
+    );
+  }
+  /* eslint-enable max-len */
+
+  return PropTypes.checkPropTypes(
+    { propName: propType },
+    props,
+    propName,
+    componentName
+  );
+};
+
 export const childrenPropType = PropTypes.oneOfType([
   PropTypes.arrayOf(PropTypes.node),
   PropTypes.node
 ]);
 
 export const childrenRenderPropType = PropTypes.func;
-
-export const stretchPropType = (props, propName, componentName) => {
-  if (props.inline && props.stretch) {
-    return new Error(
-      'You cannot use both inline and stretch properties at the same time.'
-    );
-  }
-
-  return PropTypes.checkPropTypes(
-    { propName: PropTypes.bool },
-    props,
-    propName,
-    componentName
-  );
-};
 
 const typePropType = PropTypes.shape({
   fontSize: PropTypes.string,
