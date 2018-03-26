@@ -114,8 +114,13 @@ const RadioButtonLabel = styled('label')`
  */
 const RadioButton = ({ onToggle, children, name, ...props }) => (
   <Fragment>
-    <RadioButtonInput id={name} type="radio" {...{ ...props, name }} />
-    <RadioButtonLabel htmlFor={name} onClick={onToggle} {...{ ...props }}>
+    <RadioButtonInput
+      id={name}
+      type="radio"
+      onClick={onToggle}
+      {...{ ...props, name }}
+    />
+    <RadioButtonLabel htmlFor={name} {...props}>
       {children}
     </RadioButtonLabel>
   </Fragment>

@@ -78,7 +78,7 @@ const LoadingBarLabel = styled('span')`
  * Loading bar component to indicate progress
  */
 const LoadingBar = ({ children, max, value, ...props }) => {
-  const ariaId = uniqueId('loadingBar_');
+  const ariaId = uniqueId('loading-bar_');
   return (
     <LoadingBarWrapper>
       <LoadingBarProgress

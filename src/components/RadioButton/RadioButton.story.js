@@ -62,5 +62,9 @@ storiesOf('RadioButton', module)
   )
   .add(
     'Disabled RadioButton',
-    withInfo()(() => <RadioButton disabled>Disabled</RadioButton>)
+    withInfo()(() => (
+      <RadioButton value="radio" name="radio" disabled>
+        Disabled
+      </RadioButton>
+    ))
   );

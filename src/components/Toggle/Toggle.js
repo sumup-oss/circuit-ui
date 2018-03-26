@@ -2,24 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
+import { uniqueId } from '../../util/id';
+
 import { Switch } from './components';
 import Text from '../Text';
 
 const textWrapperStyles = ({ theme }) => css`
   label: toggle__text-wrapper;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  display: block;
   margin-left: ${theme.spacings.kilo};
 `;
 
-const ToggleTextWrapper = styled('div')`
+const ToggleTextWrapper = styled('label')`
   ${textWrapperStyles};
 `;
 
 const labelStyles = css`
   label: toggle__label;
-  vertical-align: 1px;
+  padding-top: 2px;
 `;
 
 const ToggleLabel = styled(Text)`
@@ -60,30 +60,42 @@ const ToggleWrapper = styled('div')`
 /**
  * A toggle component with support for labels and additional explanations.
  */
-const Toggle = ({ label, explanation, noMargin, ...props }) => (
-  <ToggleWrapper {...{ noMargin }}>
-    <Switch {...props} />
-    {label &&
-      explanation && (
-        <ToggleTextWrapper>
+const Toggle = ({ label, explanation, noMargin, ...props }) => {
+  const switchId = uniqueId('toggle-switch_');
+  const labelId = uniqueId('toggle-label_');
+  return (
+    <ToggleWrapper {...{ noMargin }}>
+      <Switch {...props} aria-labelledby={labelId} id={switchId} />
+      {(label || explanation) && (
+        <ToggleTextWrapper id={labelId} htmlFor={switchId}>
           {label && (
-            <ToggleLabel element="label" size={Text.KILO}>
+            <ToggleLabel size={Text.KILO} noMargin>
               {label}
             </ToggleLabel>
           )}
           {explanation && (
-            <ToggleExplanation size={Text.KILO}>
+            <ToggleExplanation size={Text.KILO} noMargin>
               {explanation}
             </ToggleExplanation>
           )}
         </ToggleTextWrapper>
       )}
-  </ToggleWrapper>
-);
+    </ToggleWrapper>
+  );
+};
 
 Toggle.propTypes = {
+  /**
+   * Describes the function of the toggle. Should not change depending on the state.
+   */
   label: PropTypes.string,
+  /**
+   * Further explanation of the toggle. Can change depending on the state.
+   */
   explanation: PropTypes.string,
+  /**
+   * Removes the default bottom margin from the input.
+   */
   noMargin: PropTypes.bool
 };
 

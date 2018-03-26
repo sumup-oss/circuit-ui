@@ -18,6 +18,7 @@ describe('Toggle', () => {
 
   /**
    * Accessibility tests.
+   * See https://inclusive-components.design/toggle-button/
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(<Toggle />);

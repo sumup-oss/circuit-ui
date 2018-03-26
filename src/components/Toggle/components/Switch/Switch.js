@@ -1,25 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { size } from 'polished';
+import { hideVisually, size } from 'polished';
 
 const TRACK_WIDTH = 40;
 const TRACK_HEIGHT = 24;
 const KNOB_SIZE = 16;
 const ANIMATION_TIMING = '200ms ease-in-out';
 
-const knobShadow = color => `
-  0 2px 0 0 ${color}, inset 0 2px #FFF,
-    inset 0 1px 0 1px rgba(255, 255, 255, 6%)
-`;
+const knobShadow = color => `0 2px 0 0 ${color}`;
 
 const trackBaseStyles = ({ theme }) => css`
   label: switch;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  appearance: none;
   background-color: ${theme.colors.n300};
   border-radius: ${TRACK_HEIGHT}px;
   position: relative;
   transition: background-color ${ANIMATION_TIMING};
   ${size(TRACK_HEIGHT, TRACK_WIDTH)};
+
+  &::-moz-focus-inner {
+    border-radius: ${TRACK_HEIGHT}px;
+  }
 `;
 
 const trackOnStyles = ({ theme, on }) =>
@@ -29,12 +35,13 @@ const trackOnStyles = ({ theme, on }) =>
     background-color: ${theme.colors.p500};
   `;
 
-const SwitchTrack = styled('div')`
+const SwitchTrack = styled('button')`
   ${trackBaseStyles} ${trackOnStyles};
 `;
 
 const knobBaseStyles = ({ theme }) => css`
   label: switch__knob;
+  display: block;
   background-color: ${theme.colors.n100};
   box-shadow: ${knobShadow(theme.colors.n500)};
   position: absolute;
@@ -57,16 +64,26 @@ const knobOnStyles = ({ theme, on }) =>
     );
   `;
 
-const SwitchKnob = styled('div')`
+const labelBaseStyles = () => css`
+  ${hideVisually()};
+`;
+
+const SwitchKnob = styled('span')`
   ${knobBaseStyles} ${knobOnStyles};
+`;
+
+// Important for accessibility
+const SwitchLabel = styled('span')`
+  ${labelBaseStyles};
 `;
 
 /**
  * A simple Switch component.
  */
-const Switch = ({ on, onToggle }) => (
+const Switch = ({ on, onToggle, labelOn, labelOff }) => (
   <SwitchTrack onClick={onToggle} on={on} role="switch" aria-checked={on}>
     <SwitchKnob {...{ on }} />
+    <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
   </SwitchTrack>
 );
 
@@ -78,12 +95,21 @@ Switch.propTypes = {
   /**
    * Toggle callback used as onClick.
    */
-  onToggle: PropTypes.func
+  onToggle: PropTypes.func.isRequired,
+  /**
+   * Label for the 'on' state. Important for accessibility.
+   */
+  labelOn: PropTypes.string,
+  /**
+   * Label for the 'off' state. Important for accessibility.
+   */
+  labelOff: PropTypes.string
 };
 
 Switch.defaultProps = {
   on: false,
-  onToggle: () => {}
+  labelOn: 'on',
+  labelOff: 'off'
 };
 
 /**
