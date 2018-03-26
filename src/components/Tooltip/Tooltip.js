@@ -10,15 +10,13 @@ const RIGHT = 'right';
 const BOTTOM = 'bottom';
 const LEFT = 'left';
 
-const backgroundColor = ({ theme }) => theme.colors.n900;
-
 const baseStyles = ({ theme }) => css`
   label: tooltip;
   display: inline-block;
   width: 100%;
   max-width: 280px;
   min-width: 120px;
-  background-color: ${backgroundColor({ theme })};
+  background-color: ${theme.colors.n900};
   color: ${theme.colors.white};
   border-radius: ${theme.borderRadius.mega};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
@@ -53,7 +51,7 @@ const getPositionStyles = ({ theme, position }) => {
 
     &::after {
       ${position}: 100%;
-      border-${position}-color: ${backgroundColor({ theme })};
+      border-${position}-color: ${theme.colors.n900};
     }
   `;
 };
