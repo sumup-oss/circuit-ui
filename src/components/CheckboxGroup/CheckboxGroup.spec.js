@@ -31,7 +31,11 @@ describe('CheckboxGroup', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CheckboxGroup {...{ options, value }} />);
+    const wrapper = renderToHtml(
+      <div role="group" aria-label="Choose your favourite options">
+        <CheckboxGroup {...{ options, value }} />
+      </div>
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

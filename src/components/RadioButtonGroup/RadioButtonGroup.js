@@ -12,23 +12,25 @@ const RadioButtonGroup = ({
   options,
   onChange: onToggle,
   value: activeValue,
-  name
-}) => (
-  <Fragment>
-    {options &&
-      options.map(({ label, value, className, ...props }) => (
-        <div key={value} className={className}>
-          <RadioButton
-            {...{ ...props, value, onToggle }}
-            checked={value === activeValue}
-            name={name || uniqueId('radio-button-group_')}
-          >
-            {label}
-          </RadioButton>
-        </div>
-      ))}
-  </Fragment>
-);
+  name: customName
+}) => {
+  const name = customName || uniqueId('radio-button-group_');
+  return (
+    <Fragment>
+      {options &&
+        options.map(({ label, value, className, ...props }) => (
+          <div key={value} className={className}>
+            <RadioButton
+              {...{ ...props, value, name, onToggle }}
+              checked={value === activeValue}
+            >
+              {label}
+            </RadioButton>
+          </div>
+        ))}
+    </Fragment>
+  );
+};
 
 RadioButtonGroup.propTypes = {
   /**

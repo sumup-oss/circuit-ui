@@ -72,7 +72,7 @@ Array [
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
-      id="checkbox_4"
+      id="checkbox_2"
       name="checkbox-group_1"
       onClick={undefined}
       type="checkbox"
@@ -82,7 +82,7 @@ Array [
       checked={false}
       className="circuit-2 circuit-3"
       disabled={false}
-      htmlFor="checkbox_4"
+      htmlFor="checkbox_2"
       name="checkbox-group_1"
       value="first"
     >
@@ -159,8 +159,8 @@ Array [
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
-      id="checkbox_5"
-      name="checkbox-group_2"
+      id="checkbox_3"
+      name="checkbox-group_1"
       onClick={undefined}
       type="checkbox"
       value="second"
@@ -169,8 +169,8 @@ Array [
       checked={false}
       className="circuit-2 circuit-3"
       disabled={false}
-      htmlFor="checkbox_5"
-      name="checkbox-group_2"
+      htmlFor="checkbox_3"
+      name="checkbox-group_1"
       value="second"
     >
       Option 2
@@ -246,8 +246,8 @@ Array [
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
-      id="checkbox_6"
-      name="checkbox-group_3"
+      id="checkbox_4"
+      name="checkbox-group_1"
       onClick={undefined}
       type="checkbox"
       value="third"
@@ -256,8 +256,8 @@ Array [
       checked={false}
       className="circuit-2 circuit-3"
       disabled={false}
-      htmlFor="checkbox_6"
-      name="checkbox-group_3"
+      htmlFor="checkbox_4"
+      name="checkbox-group_1"
       value="third"
     >
       Option 3

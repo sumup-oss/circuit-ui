@@ -73,7 +73,7 @@ Array [
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
-      id="radio-button_4"
+      id="radio-button_2"
       name="radio-button-group_1"
       onClick={undefined}
       type="radio"
@@ -83,7 +83,7 @@ Array [
       checked={false}
       className="circuit-2 circuit-3"
       disabled={false}
-      htmlFor="radio-button_4"
+      htmlFor="radio-button_2"
       name="radio-button-group_1"
       value="first"
     >
@@ -161,8 +161,8 @@ Array [
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
-      id="radio-button_5"
-      name="radio-button-group_2"
+      id="radio-button_3"
+      name="radio-button-group_1"
       onClick={undefined}
       type="radio"
       value="second"
@@ -171,8 +171,8 @@ Array [
       checked={false}
       className="circuit-2 circuit-3"
       disabled={false}
-      htmlFor="radio-button_5"
-      name="radio-button-group_2"
+      htmlFor="radio-button_3"
+      name="radio-button-group_1"
       value="second"
     >
       Option 2
@@ -249,8 +249,8 @@ Array [
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
-      id="radio-button_6"
-      name="radio-button-group_3"
+      id="radio-button_4"
+      name="radio-button-group_1"
       onClick={undefined}
       type="radio"
       value="third"
@@ -259,8 +259,8 @@ Array [
       checked={false}
       className="circuit-2 circuit-3"
       disabled={false}
-      htmlFor="radio-button_6"
-      name="radio-button-group_3"
+      htmlFor="radio-button_4"
+      name="radio-button-group_1"
       value="third"
     >
       Option 3

@@ -13,23 +13,25 @@ const CheckboxGroup = ({
   options,
   onChange: onToggle,
   value: activeValue,
-  name
-}) => (
-  <Fragment>
-    {options &&
-      options.map(({ label, value, className, ...props }) => (
-        <div key={value} className={className}>
-          <Checkbox
-            {...{ ...props, value, onToggle }}
-            checked={includes(activeValue, value)}
-            name={name || uniqueId('checkbox-group_')}
-          >
-            {label}
-          </Checkbox>
-        </div>
-      ))}
-  </Fragment>
-);
+  name: customName
+}) => {
+  const name = customName || uniqueId('checkbox-group_');
+  return (
+    <Fragment>
+      {options &&
+        options.map(({ label, value, className, ...props }) => (
+          <div key={value} className={className}>
+            <Checkbox
+              {...{ ...props, value, name, onToggle }}
+              checked={includes(activeValue, value)}
+            >
+              {label}
+            </Checkbox>
+          </div>
+        ))}
+    </Fragment>
+  );
+};
 
 CheckboxGroup.propTypes = {
   /**

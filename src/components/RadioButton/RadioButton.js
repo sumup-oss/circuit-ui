@@ -113,17 +113,12 @@ const RadioButtonLabel = styled('label')`
 /**
  * RadioButton component for forms.
  */
-const RadioButton = ({ onToggle, children, id, ...props }) => {
-  const defaultId = uniqueId('radio-button_');
+const RadioButton = ({ onToggle, children, id: customId, ...props }) => {
+  const id = customId || uniqueId('radio-button_');
   return (
     <Fragment>
-      <RadioButtonInput
-        type="radio"
-        onClick={onToggle}
-        id={id || defaultId}
-        {...props}
-      />
-      <RadioButtonLabel htmlFor={id || defaultId} {...props}>
+      <RadioButtonInput type="radio" onClick={onToggle} id={id} {...props} />
+      <RadioButtonLabel htmlFor={id} {...props}>
         {children}
       </RadioButtonLabel>
     </Fragment>

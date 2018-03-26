@@ -119,17 +119,12 @@ const CheckboxLabel = styled('label')`
 /**
  * Checkbox component for forms.
  */
-const Checkbox = ({ onToggle, children, id, ...props }) => {
-  const defaultId = uniqueId('checkbox_');
+const Checkbox = ({ onToggle, children, id: customId, ...props }) => {
+  const id = customId || uniqueId('checkbox_');
   return (
     <Fragment>
-      <CheckboxInput
-        id={id || defaultId}
-        onClick={onToggle}
-        type="checkbox"
-        {...props}
-      />
-      <CheckboxLabel htmlFor={id || defaultId} {...props}>
+      <CheckboxInput id={id} onClick={onToggle} type="checkbox" {...props} />
+      <CheckboxLabel htmlFor={id} {...props}>
         {children}
       </CheckboxLabel>
     </Fragment>

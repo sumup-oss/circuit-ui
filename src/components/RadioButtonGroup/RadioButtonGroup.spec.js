@@ -31,7 +31,11 @@ describe('RadioButtonGroup', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<RadioButtonGroup {...{ options, value }} />);
+    const wrapper = renderToHtml(
+      <div role="group" aria-label="Choose your favourite option">
+        <RadioButtonGroup {...{ options, value }} />
+      </div>
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
