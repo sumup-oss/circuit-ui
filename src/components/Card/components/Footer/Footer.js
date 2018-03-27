@@ -11,7 +11,7 @@ const baseStyles = ({ theme }) => css`
 
 /**
  * Footer used in the Card component. Used for styling and aligment
- * pruposes only.
+ * purposes only.
  */
 const CardFooter = styled('footer')`
   ${baseStyles};

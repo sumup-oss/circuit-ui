@@ -2,20 +2,20 @@ import React from 'react';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 
-import IconInput from '../IconInput';
+import Input from '../Input';
 import SearchIcon from './search.svg';
 
 /**
  * SearchInput component for forms.
  */
 const SearchInput = ({ children, ...props }) => (
-  <IconInput
+  <Input
     {...props}
     role="search"
-    iconLeft={({ className }) => <SearchIcon {...{ className }} />}
+    prefix={({ className }) => <SearchIcon {...{ className }} />}
   >
     {children}
-  </IconInput>
+  </Input>
 );
 
 SearchInput.propTypes = {

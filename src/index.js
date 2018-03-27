@@ -34,7 +34,6 @@ export { default as NotificationList } from './components/NotificationList';
 // Misc
 export { default as Badge } from './components/Badge';
 export { default as Card, CardHeader, CardFooter } from './components/Card';
-export { default as IconInput } from './components/IconInput';
 export { default as Image } from './components/Image';
 export { default as LoadingBar } from './components/LoadingBar';
 export { default as Tag } from './components/Tag';

@@ -3,6 +3,8 @@ import React from 'react';
 import Input from '.';
 import Label from '../Label';
 
+const DummyElement = () => <div style={{ width: '24px', height: '24px' }} />;
+
 describe('Input', () => {
   /**
    * Style tests.
@@ -12,13 +14,42 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with a prefix when passed the prefix prop', () => {
+    const actual = create(
+      <Input prefix={({ className }) => <DummyElement {...{ className }} />} />
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with a suffix when passed the suffix prop', () => {
+    const actual = create(
+      <Input suffix={({ className }) => <DummyElement {...{ className }} />} />
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with a Tooltip when passed the validationHint prop', () => {
+    const actual = create(<Input validationHint="Validation hint" />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with warning styles when passed the hasWarning prop', () => {
+    const actual = create(<Input hasWarning />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with invalid styles when passed the invalid prop', () => {
     const actual = create(<Input invalid />);
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with valid styles when passed the showValid prop', () => {
+    const actual = create(<Input showValid />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with right aligned text', () => {
-    const actual = create(<Input textAlign="right" />);
+    const actual = create(<Input textAlign={Input.RIGHT} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -33,7 +64,17 @@ describe('Input', () => {
   });
 
   it('should prioritize error over optional styles', () => {
+    const actual = create(<Input invalid optional />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should prioritize disabled over error styles', () => {
     const actual = create(<Input invalid disabled />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should prioritize disabled over warning styles', () => {
+    const actual = create(<Input invalid hasWarning />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -47,19 +88,14 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with stretched styles when passed the stretch prop', () => {
-    const actual = create(<Input stretch />);
-    expect(actual).toMatchSnapshot();
-  });
-
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <Label htmlFor="id">
+      <Label htmlFor="input">
         Label
-        <Input id="id" />
+        <Input id="input" />
       </Label>
     );
     const actual = await axe(wrapper);

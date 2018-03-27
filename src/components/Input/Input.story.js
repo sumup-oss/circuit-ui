@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
@@ -6,21 +6,42 @@ import withTests from '../../util/withTests';
 import Input from '.';
 import Label from '../Label';
 
-const styles = { display: 'block', marginBottom: '20px' };
-const stretchedContainerStyles = { width: '400px', border: '1px dashed #ccc' };
-
 storiesOf('Input', module)
   .addDecorator(withTests('Input'))
   .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
   .add(
+    'Input valid',
+    withInfo()(() => <Input placeholder="Placeholder" showValid />)
+  )
+  .add(
     'Input invalid',
-    withInfo()(() => <Input placeholder="Placeholder" invalid />)
+    withInfo()(() => (
+      <Fragment>
+        <Input
+          placeholder="Placeholder"
+          validationHint="This field is required."
+          invalid
+        />
+        <Input placeholder="Placeholder" invalid />
+      </Fragment>
+    ))
+  )
+  .add(
+    'Input warning',
+    withInfo()(() => (
+      <Fragment>
+        <Input
+          placeholder="Placeholder"
+          validationHint="This does not look right."
+          hasWarning
+        />
+        <Input placeholder="Placeholder" hasWarning />
+      </Fragment>
+    ))
   )
   .add(
     'Input optional',
-    withInfo()(() => (
-      <Input placeholder="Placeholder" style={styles} optional />
-    ))
+    withInfo()(() => <Input placeholder="Placeholder" optional />)
   )
   .add(
     'Input disabled',
@@ -47,15 +68,6 @@ storiesOf('Input', module)
         <Input placeholder="First" id="first" />
         <Label htmlFor="second">My second label</Label>
         <Input placeholder="Second" id="second" />
-      </div>
-    ))
-  )
-  .add(
-    'Stretched inputs',
-    withInfo()(() => (
-      <div style={stretchedContainerStyles}>
-        <Input placeholder="Without stretch modifier" />
-        <Input placeholder="With stretch modifier" stretch />
       </div>
     ))
   );
