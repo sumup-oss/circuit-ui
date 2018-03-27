@@ -16,10 +16,10 @@ const CurrencyIcon = styled('span')`
 `;
 
 /**
- * SearchInput component for forms.
+ * CurrencyInput component for forms.
  */
 
-const CurrencyInput = ({ currencyPosition, currency, theme, ...props }) => (
+const CurrencyInput = ({ currencyPosition, currency, ...props }) => (
   <Input
     prefix={({ className }) =>
       currencyPosition === 'left' && (
@@ -31,7 +31,7 @@ const CurrencyInput = ({ currencyPosition, currency, theme, ...props }) => (
         <CurrencyIcon className={className}>{currency}</CurrencyIcon>
       )
     }
-    {...{ theme, ...props }}
+    {...props}
   />
 );
 
