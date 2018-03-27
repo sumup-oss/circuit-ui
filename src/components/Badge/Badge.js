@@ -8,7 +8,7 @@ const baseStyles = ({ theme }) => css`
   label: badge;
   background-color: ${theme.colors.r500};
   border-radius: 100px;
-  color: ${theme.colors.buttonColor};
+  color: ${theme.colors.white};
   cursor: default;
   padding: 0 ${theme.spacings.byte};
   ${subHeadingKilo({ theme })};

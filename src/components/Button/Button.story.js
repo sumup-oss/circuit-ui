@@ -12,21 +12,18 @@ storiesOf('Button', module)
   .addDecorator(withTests('Button'))
   .add('Button', withInfo()(() => <Button>Button</Button>))
   .add('Button disabled', withInfo()(() => <Button disabled>Disabled</Button>))
+  .add('Button primary', withInfo()(() => <Button primary>Primary</Button>))
+  .add(
+    'Button primary disabled',
+    withInfo()(() => (
+      <Button primary disabled>
+        Primary
+      </Button>
+    ))
+  )
   .add(
     'Button secondary',
-    withInfo()(() => <Button secondary>Secondary</Button>)
-  )
-  .add(
-    'Button kilo',
-    withInfo()(() => <Button size={Button.KILO}>Button</Button>)
-  )
-  .add(
-    'Button mega',
-    withInfo()(() => <Button size={Button.MEGA}>Button</Button>)
-  )
-  .add(
-    'Button giga',
-    withInfo()(() => <Button size={Button.GIGA}>Button</Button>)
+    withInfo()(() => <Button secondary>Flat Button</Button>)
   )
   .add(
     'Button secondary disabled',
@@ -36,13 +33,20 @@ storiesOf('Button', module)
       </Button>
     ))
   )
-  .add('Link Button', withInfo()(() => <Button href="#">Link</Button>))
   .add('Flat Button', withInfo()(() => <Button flat>Flat</Button>))
   .add(
     'Flat Button disabled',
     withInfo()(() => (
       <Button flat disabled>
         Flat
+      </Button>
+    ))
+  )
+  .add(
+    'Flat Button primary',
+    withInfo()(() => (
+      <Button primary flat>
+        Flat Button
       </Button>
     ))
   )
@@ -62,6 +66,7 @@ storiesOf('Button', module)
       </Button>
     ))
   )
+  .add('Link Button', withInfo()(() => <Button href="#">Link</Button>))
   .add(
     'Stretched Button',
     withInfo()(() => (
@@ -70,4 +75,16 @@ storiesOf('Button', module)
         <Button stretch>Stretched button</Button>
       </div>
     ))
+  )
+  .add(
+    'Button kilo',
+    withInfo()(() => <Button size={Button.KILO}>Button</Button>)
+  )
+  .add(
+    'Button mega',
+    withInfo()(() => <Button size={Button.MEGA}>Button</Button>)
+  )
+  .add(
+    'Button giga',
+    withInfo()(() => <Button size={Button.GIGA}>Button</Button>)
   );

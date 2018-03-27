@@ -48,14 +48,14 @@ const stretchStyles = ({ stretch }) =>
 
 const baseStyles = ({ theme, href, ...otherProps }) => css`
   label: button;
-  background-color: ${theme.colors.p500};
-  border-color: ${theme.colors.p700};
+  background-color: ${theme.colors.n100};
+  border-color: ${theme.colors.n300};
   border-radius: ${theme.borderRadius.mega};
   border-style: solid;
   border-width: 1px;
   box-shadow: inset 0 1px 0 1px rgba(255, 255, 255, 0.06);
   display: ${href ? 'inline-block' : 'block'};
-  color: ${theme.colors.buttonColor};
+  color: ${theme.colors.n700};
   cursor: pointer;
   font-weight: ${theme.fontWeight.bold};
   width: auto;
@@ -64,25 +64,25 @@ const baseStyles = ({ theme, href, ...otherProps }) => css`
   ${textMega({ theme })};
 
   &:active {
-    background-color: ${theme.colors.p700};
-    border-color: ${theme.colors.p900};
+    background-color: ${theme.colors.n300};
+    border-color: ${theme.colors.n500};
     box-shadow: inset 0 4px 8px 0 rgba(12, 15, 20, 0.3);
   }
 
   &:focus {
-    border-color: ${theme.colors.p700};
+    border-color: ${theme.colors.n500};
     border-width: 2px;
     outline: 0;
     padding: ${calculatePadding({ theme, ...otherProps })('1px')};
   }
 
   &:hover {
-    background-color: ${theme.colors.p700};
+    background-color: ${theme.colors.n300};
   }
 
   &:hover,
   &:active {
-    border-color: ${theme.colors.p900};
+    border-color: ${theme.colors.n500};
     border-width: 1px;
     padding: ${calculatePadding({ theme, ...otherProps })()};
   }
@@ -92,6 +92,33 @@ const baseStyles = ({ theme, href, ...otherProps }) => css`
     ${disabledStyles};
   }
 `;
+
+const primaryStyles = ({ theme, primary }) =>
+  primary &&
+  css`
+    label: button--primary;
+    background-color: ${theme.colors.p500};
+    border-color: ${theme.colors.p700};
+    color: ${theme.colors.white};
+
+    &:active {
+      background-color: ${theme.colors.p700};
+      border-color: ${theme.colors.p900};
+    }
+
+    &:focus {
+      border-color: ${theme.colors.p700};
+    }
+
+    &:hover {
+      background-color: ${theme.colors.p700};
+    }
+
+    &:hover,
+    &:active {
+      border-color: ${theme.colors.p900};
+    }
+  `;
 
 const flatStyles = ({ theme, flat, secondary, ...otherProps }) =>
   flat &&
@@ -200,7 +227,12 @@ const TextOrButtonElement = props => (
  * prop.
  */
 const Button = styled(TextOrButtonElement)`
-  ${baseStyles} ${sizeStyles} ${flatStyles} ${secondaryStyles} ${stretchStyles};
+  ${baseStyles};
+  ${primaryStyles};
+  ${sizeStyles};
+  ${flatStyles};
+  ${secondaryStyles};
+  ${stretchStyles};
 `;
 
 Button.KILO = KILO;
@@ -225,6 +257,10 @@ Button.propTypes = {
    * primary (default) and flat buttons.
    */
   secondary: PropTypes.bool,
+  /**
+   * Renders a primary button using the brand color.
+   */
+  primary: PropTypes.bool,
   /**
    * Link target. Should only be passed, if href is passed, too.
    */
@@ -251,6 +287,7 @@ Button.defaultProps = {
   target: null,
   href: null,
   onClick: null,
+  primary: false,
   secondary: false,
   stretch: false
 };

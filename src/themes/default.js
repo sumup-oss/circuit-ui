@@ -52,8 +52,7 @@ const primary = {
 const misc = {
   shadow: '#0C0F14',
   bodyBg: neutrals.n100,
-  bodyColor: black,
-  buttonColor: '#FFFFFF'
+  bodyColor: black
 };
 
 export const colors = {
