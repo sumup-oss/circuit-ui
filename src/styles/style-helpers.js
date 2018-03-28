@@ -1,4 +1,5 @@
 import { size, stripUnit, transparentize } from 'polished';
+import { mapValues } from '../util/fp';
 
 /**
  * Shadows
@@ -110,3 +111,12 @@ export const addUnit = (...args) => transformUnit(args, add);
 export const subtractUnit = (...args) => transformUnit(args, subtract);
 export const multiplyUnit = (...args) => transformUnit(args, multiply, false);
 export const divideUnit = (...args) => transformUnit(args, divide, false);
+
+export const createMediaQueries = mapValues(mediaExpression => {
+  const { prefix = '', suffix = '' } =
+    typeof mediaExpression === 'string'
+      ? {}
+      : { prefix: 'min-width: ', suffix: 'px' };
+  const enhancedExpression = prefix + mediaExpression + suffix;
+  return css => `@media (${enhancedExpression}) {${css}}`;
+});
