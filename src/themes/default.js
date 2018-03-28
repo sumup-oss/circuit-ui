@@ -1,3 +1,5 @@
+import { createMediaQueries } from '../styles/style-helpers';
+
 const white = '#FFFFFF';
 const black = '#0F131A';
 
@@ -162,3 +164,5 @@ export const breakpoints = {
   big: 801,
   huge: 1401
 };
+
+export const mq = createMediaQueries(breakpoints);
