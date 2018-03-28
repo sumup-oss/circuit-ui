@@ -51,6 +51,7 @@ describe('Style helpers', () => {
   });
 
   describe('media queries', () => {
+    const CLASS_REGEXP = /css-\w+-createMediaQueries/;
     const queries = {
       breakpoint: 1024,
       mediaExpression: '(max-width: 360px) and (min-height: 740px)'
@@ -62,29 +63,27 @@ describe('Style helpers', () => {
       };
 
       const actual = StyleHelpers.createMediaQueries(input).anExpression;
-      expect(typeof actual).toBe('function');
+      expect(typeof actual).toMatch('function');
     });
 
     it('should create a min-width query with pixels, when provided an integer value', () => {
       const { breakpoint } = queries;
-      const mediaQuery = StyleHelpers.createMediaQueries({ breakpoint })
-        .breakpoint;
-      const actual = mediaQuery(`
+      const mq = StyleHelpers.createMediaQueries({ breakpoint });
+      const actual = mq.breakpoint`
         font-size: 12px;
         line-height: 14px;
-      `);
-      expect(actual).toMatchSnapshot();
+      `;
+      expect(actual).toMatch(CLASS_REGEXP);
     });
 
     it('should take the media expression as is, when provided a string value', () => {
       const { mediaExpression } = queries;
-      const mediaQuery = StyleHelpers.createMediaQueries({ mediaExpression })
-        .mediaExpression;
-      const actual = mediaQuery(`
+      const mq = StyleHelpers.createMediaQueries({ mediaExpression });
+      const actual = mq.mediaExpression`
         font-size: 12px;
         line-height: 14px;
-      `);
-      expect(actual).toMatchSnapshot();
+      `;
+      expect(actual).toMatch(CLASS_REGEXP);
     });
   });
 });

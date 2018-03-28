@@ -1,4 +1,6 @@
+import { css } from 'react-emotion';
 import { size, stripUnit, transparentize } from 'polished';
+
 import { mapValues } from '../util/fp';
 
 /**
@@ -116,7 +118,7 @@ export const createMediaQueries = mapValues(mediaExpression => {
   const { prefix = '', suffix = '' } =
     typeof mediaExpression === 'string'
       ? {}
-      : { prefix: 'min-width: ', suffix: 'px' };
+      : { prefix: '(min-width: ', suffix: 'px)' };
   const enhancedExpression = prefix + mediaExpression + suffix;
-  return css => `@media (${enhancedExpression}) {${css}}`;
+  return (...args) => css`@media ${enhancedExpression} {${css(...args)}}`;
 });
