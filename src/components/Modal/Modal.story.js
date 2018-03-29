@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import styled, { css } from 'react-emotion';
 
 import withTests from '../../util/withTests';
 import Modal, { ModalProvider } from '.';
@@ -146,6 +147,51 @@ storiesOf('Modal', module)
               </ButtonGroup>
             </CardFooter>
           </Fragment>
+        )
+      };
+      return <PageWithModal modal={modalWithTitle} />;
+    })
+  )
+  .add(
+    'Modal with Card styles override',
+    withInfo()(() => {
+      const Container = styled('div')`
+        display: flex;
+        justify-content: stretch;
+        align-items: stretch;
+        flex-wrap: nowrap;
+        height: 100%;
+      `;
+
+      const LeftColumn = styled('div')`
+        display: flex;
+        align-items: center;
+        width: 50%;
+        justify-content: center;
+        padding: 24px 18px;
+      `;
+
+      const RightColumn = styled('div')`
+        height: 100%;
+        width: 50%;
+        background: no-repeat center / cover
+          url('https://source.unsplash.com/random');
+      `;
+
+      const cardClassName = css`
+        padding: 0;
+        height: 50vh;
+      `;
+      const modalWithTitle = {
+        ...defaultModal,
+        className: cardClassName,
+        children: () => (
+          <Container>
+            <LeftColumn>
+              <Text>A nice custom modal for special cases.</Text>
+            </LeftColumn>
+            <RightColumn />
+          </Container>
         )
       };
       return <PageWithModal modal={modalWithTitle} />;
