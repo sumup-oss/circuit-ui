@@ -8,6 +8,7 @@ import { transparentize } from 'polished';
 import Card from '../Card';
 import { childrenPropType, themePropType } from '../../util/shared-prop-types';
 import { mapValues } from '../../util/fp';
+import IS_IOS from '../../util/ios';
 
 export const TRANSITION_DURATION = 200;
 const TOP_MARGIN = '10vh';
@@ -129,26 +130,25 @@ injectGlobal`
     overflow: hidden;
     -webkit-overflow-scrolling: auto;
     width: 100vw;
-  }
-
-  /*
-   * This is a fix for IOS browsers which doesn't respect
-   * 'overflow: hidden' on body it makes the body scrollable.
-   *
-   * Related issue: https://bugs.webkit.org/show_bug.cgi?id=153852
-   */
-  .ReactModal__Body-ios.ReactModal__Body--open {
-    position: fixed;
+    /* Supposed to prevent scrolling and maintaining scroll
+     * position on iOS as per this Issue:
+     * https://github.com/reactjs/react-modal/issues/191
+     * Default solution would be to set position: fixed;
+     * but that still scrolls to the top and requires
+     * scrolling back to the original scroll position
+     * onClose. Nasty hack and we don't want that.
+     */
+    ${IS_IOS ? 'position: absolute;' : ''};
   }
 `;
 /* eslint-enable no-unused-expressions */
 
 /**
  * Circuit UI's wrapper component for ReactModal. Uses the Card component
- * to wrap content passed as the children prop.
+ * to wrap content passed as the children prop. Don't forget to set
+ * the aria prop when using this.
+ * http://reactcommunity.org/react-modal/accessibility/#aria
  */
-// TODO:
-// - implement Safari fix scroll position.
 const Modal = ({
   children,
   className,
