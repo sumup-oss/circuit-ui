@@ -148,14 +148,7 @@ injectGlobal`
  */
 // TODO:
 // - implement Safari fix scroll position.
-const Modal = ({
-  children,
-  title,
-  onClose,
-  contentLabel,
-  theme,
-  ...otherProps
-}) => {
+const Modal = ({ children, onClose, contentLabel, theme, ...otherProps }) => {
   // TODO: can we do this better?
   ReactModal.setAppElement(document.body);
   const getClassValues = mapValues(styleFn => styleFn({ theme }));
@@ -177,9 +170,7 @@ Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   theme: themePropType.isRequired,
-  title: PropTypes.string.isRequired,
-  contentLabel: PropTypes.string,
-  noCloseIcon: PropTypes.bool
+  contentLabel: PropTypes.string
 };
 
 Modal.defaultProps = {
