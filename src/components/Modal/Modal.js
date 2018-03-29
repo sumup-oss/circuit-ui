@@ -5,7 +5,8 @@ import { injectGlobal, css, cx } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 import { transparentize } from 'polished';
 
-import Card from '../Card';
+import Card, { CardHeader, CardFooter } from '../Card';
+import Heading from '../Heading';
 import { childrenPropType, themePropType } from '../../util/shared-prop-types';
 import { mapValues } from '../../util/fp';
 import IS_IOS from '../../util/ios';
@@ -155,6 +156,9 @@ const Modal = ({
   onClose,
   contentLabel,
   theme,
+  title,
+  hasCloseButton,
+  buttons,
   ...otherProps
 }) => {
   // TODO: can we do this better?
@@ -172,7 +176,17 @@ const Modal = ({
         className={cx(cardStyles({ theme }), className)}
         shadow={Card.TRIPLE}
       >
+        {(title.length || hasCloseButton) && (
+          <CardHeader onClose={hasCloseButton ? onClose : null}>
+            {!!title.length && (
+              <Heading size={Heading.KILO} noMargin>
+                {title}
+              </Heading>
+            )}
+          </CardHeader>
+        )}
         {children ? children({ onClose }) : null}
+        {buttons && <CardFooter>{buttons({ onClose })}</CardFooter>}
       </Card>
     )
   };
@@ -198,6 +212,19 @@ Modal.propTypes = {
    * The Circuit UI theme.
    */
   theme: themePropType.isRequired,
+  /*
+   * Heading to be shown at the top of the modal.
+   */
+  title: PropTypes.string,
+  /*
+   * A render prop rendering buttons. If you use multiple buttons,
+   * wrap them in a ButtonGroup.
+   */
+  buttons: PropTypes.func,
+  /*
+   * Whether a close button (x) should be shown in the top right.
+   */
+  hasCloseButton: PropTypes.bool,
   /**
    * Class name string to overwrite the default
    * Card styles. Useful for removing padding from
@@ -212,7 +239,10 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   className: '',
-  contentLabel: 'Modal'
+  contentLabel: 'Modal',
+  title: '',
+  hasCloseButton: true,
+  buttons: null
 };
 
 /**

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
@@ -7,8 +7,6 @@ import styled, { css } from 'react-emotion';
 import withTests from '../../util/withTests';
 import Modal, { ModalProvider } from '.';
 import Button from '../Button';
-import Heading from '../Heading';
-import { CardHeader, CardFooter } from '../Card';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
 
@@ -46,37 +44,20 @@ storiesOf('Modal', module)
     withInfo()(() => {
       const modalWithTitle = {
         ...defaultModal,
-        children: () => (
-          <Fragment>
-            <CardHeader>
-              <Heading size={Heading.KILO} noMargin>
-                Modal title
-              </Heading>
-            </CardHeader>
-            <Text>Some text in the modal body.</Text>
-          </Fragment>
-        )
+        title: 'A modal',
+        children: () => <Text>Some text in the modal body.</Text>
       };
       return <PageWithModal modal={modalWithTitle} />;
     })
   )
   .add(
-    'Modal with close button',
+    'Modal without close button',
     withInfo()(() => {
       const modalWithTitleAndCloser = {
         ...defaultModal,
+        hasCloseButton: false,
         // eslint-disable-next-line react/prop-types
-        children: ({ onClose }) => (
-          <Fragment>
-            <CardHeader
-              onClose={e => {
-                action('Close button pressed')(e);
-                onClose(e);
-              }}
-            />
-            <Text>Some text in the modal body.</Text>
-          </Fragment>
-        )
+        children: () => <Text>Some text in the modal body.</Text>
       };
       return <PageWithModal modal={modalWithTitleAndCloser} />;
     })
@@ -86,22 +67,9 @@ storiesOf('Modal', module)
     withInfo()(() => {
       const modalWithTitle = {
         ...defaultModal,
+        title: 'A modal',
         // eslint-disable-next-line react/prop-types
-        children: ({ onClose }) => (
-          <Fragment>
-            <CardHeader
-              onClose={e => {
-                action('Close button pressed')(e);
-                onClose(e);
-              }}
-            >
-              <Heading size={Heading.KILO} noMargin>
-                Modal title
-              </Heading>
-            </CardHeader>
-            <Text>Some text in the modal body.</Text>
-          </Fragment>
-        )
+        children: () => <Text>Some text in the modal body.</Text>
       };
       return <PageWithModal modal={modalWithTitle} />;
     })
@@ -111,44 +79,31 @@ storiesOf('Modal', module)
     withInfo()(() => {
       const modalWithTitle = {
         ...defaultModal,
+        title: 'A modal',
         // eslint-disable-next-line react/prop-types
-        children: ({ onClose }) => (
-          <Fragment>
-            <CardHeader
-              onClose={e => {
-                action('Close button pressed')(e);
+        buttons: ({ onClose }) => (
+          <ButtonGroup>
+            <Button
+              secondary
+              onClick={e => {
+                action('Cancel button clicked')(e);
                 onClose(e);
               }}
             >
-              <Heading size={Heading.KILO} noMargin>
-                Modal title
-              </Heading>
-            </CardHeader>
-            <Text>Some text in the modal body.</Text>
-            <CardFooter>
-              <ButtonGroup>
-                <Button
-                  secondary
-                  onClick={e => {
-                    action('Cancel button clicked')(e);
-                    onClose(e);
-                  }}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  primary
-                  onClick={e => {
-                    action('Confirm button clicked')(e);
-                    onClose(e);
-                  }}
-                >
-                  Confirm
-                </Button>
-              </ButtonGroup>
-            </CardFooter>
-          </Fragment>
-        )
+              Cancel
+            </Button>
+            <Button
+              primary
+              onClick={e => {
+                action('Confirm button clicked')(e);
+                onClose(e);
+              }}
+            >
+              Confirm
+            </Button>
+          </ButtonGroup>
+        ),
+        children: () => <Text>Some text in the modal body.</Text>
       };
       return <PageWithModal modal={modalWithTitle} />;
     })
@@ -186,6 +141,7 @@ storiesOf('Modal', module)
       const modalWithTitle = {
         ...defaultModal,
         className: cardClassName,
+        hasCloseButton: false,
         children: () => (
           <Container>
             <LeftColumn>
