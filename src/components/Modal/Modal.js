@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import { injectGlobal, css } from 'react-emotion';
+import { injectGlobal, css, cx } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 import { transparentize } from 'polished';
 
@@ -144,11 +144,19 @@ injectGlobal`
 /* eslint-enable no-unused-expressions */
 
 /**
- * Circuit UI's wrapper component for ReactModal.
+ * Circuit UI's wrapper component for ReactModal. Uses the Card component
+ * to wrap content passed as the children prop.
  */
 // TODO:
 // - implement Safari fix scroll position.
-const Modal = ({ children, onClose, contentLabel, theme, ...otherProps }) => {
+const Modal = ({
+  children,
+  className,
+  onClose,
+  contentLabel,
+  theme,
+  ...otherProps
+}) => {
   // TODO: can we do this better?
   ReactModal.setAppElement(document.body);
   const getClassValues = mapValues(styleFn => styleFn({ theme }));
@@ -160,7 +168,12 @@ const Modal = ({ children, onClose, contentLabel, theme, ...otherProps }) => {
     onRequestClose: onClose,
     closeTimeoutMS: TRANSITION_DURATION,
     children: (
-      <Card className={cardStyles({ theme })}>{children({ onClose })}</Card>
+      <Card
+        className={cx(cardStyles({ theme }), className)}
+        shadow={Card.TRIPLE}
+      >
+        {children ? children({ onClose }) : null}
+      </Card>
     )
   };
 
@@ -172,10 +185,12 @@ Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   theme: themePropType.isRequired,
+  className: PropTypes.string,
   contentLabel: PropTypes.string
 };
 
 Modal.defaultProps = {
+  className: '',
   contentLabel: 'Modal'
 };
 
