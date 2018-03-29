@@ -73,7 +73,7 @@ storiesOf('Card', module)
     withInfo()(() => (
       <Card>
         <CardHeader>
-          <Heading size={Heading.KILO} margin={false}>
+          <Heading size={Heading.KILO} noMargin>
             Card heading
           </Heading>
         </CardHeader>
@@ -86,7 +86,7 @@ storiesOf('Card', module)
     withInfo()(() => (
       <Card>
         <CardHeader onClose={action('CloseButton clicked')}>
-          <Heading size={Heading.KILO} margin={false}>
+          <Heading size={Heading.KILO} noMargin>
             Card heading
           </Heading>
         </CardHeader>
