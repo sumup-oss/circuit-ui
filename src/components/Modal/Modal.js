@@ -176,8 +176,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-  contentLabel: 'Modal',
-  noCloseIcon: false
+  contentLabel: 'Modal'
 };
 
 /**
