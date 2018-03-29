@@ -12,12 +12,20 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.giga};
 `;
 
+const noHeadingStyles = ({ children }) =>
+  !children[0] &&
+  css`
+    label: card__header--no-heading;
+    justify-content: flex-end;
+  `;
+
 /**
  * Header used in the Card component. Used for styling and alignment
  * purposes only.
  */
 const CardHeaderContainer = styled('header')`
   ${baseStyles};
+  ${noHeadingStyles};
 `;
 
 const CardHeader = ({ onClose, children }) => (
