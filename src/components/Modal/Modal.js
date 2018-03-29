@@ -159,7 +159,9 @@ const Modal = ({ children, onClose, contentLabel, theme, ...otherProps }) => {
     contentLabel,
     onRequestClose: onClose,
     closeTimeoutMS: TRANSITION_DURATION,
-    children: <Card className={cardStyles({ theme })}>{children()}</Card>
+    children: (
+      <Card className={cardStyles({ theme })}>{children({ onClose })}</Card>
+    )
   };
 
   return <ReactModal {...reactModalProps} />;
