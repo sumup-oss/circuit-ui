@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import { injectGlobal, css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
+import { transparentize } from 'polished';
 
 import Card from '../Card';
 import { childrenPropType, themePropType } from '../../util/shared-prop-types';
@@ -93,7 +94,7 @@ const modalClassName = {
 
 const overlayClassName = {
   base: ({ theme }) => css`
-    background: rgba(61, 66, 76, 0.25);
+    background: ${transparentize(0.5, theme.colors.shadow)};
     bottom: 0;
     left: 0;
     opacity: 0;
