@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
-import ModalConsumer, { ModalProvider } from '.';
+import Modal, { ModalProvider } from '.';
 import Button from '../Button';
 import Heading from '../Heading';
 import { CardHeader, CardFooter } from '../Card';
@@ -13,7 +13,7 @@ import Text from '../Text';
 // eslint-disable-next-line react/prop-types
 const PageWithModal = ({ modal }) => (
   <ModalProvider>
-    <ModalConsumer>
+    <Modal>
       {({ setModal }) => (
         <Button
           type="button"
@@ -24,7 +24,7 @@ const PageWithModal = ({ modal }) => (
           Open modal
         </Button>
       )}
-    </ModalConsumer>
+    </Modal>
   </ModalProvider>
 );
 

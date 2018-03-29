@@ -1,5 +1,5 @@
-import { ModalProvider, ModalConsumer } from './ModalProvider';
+import { ModalProvider, ModalConsumer as Modal } from './ModalProvider';
 
 export { ModalProvider };
 
-export default ModalConsumer;
+export default Modal;
