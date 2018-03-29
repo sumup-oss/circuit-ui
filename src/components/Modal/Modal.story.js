@@ -128,6 +128,7 @@ storiesOf('Modal', module)
             <CardFooter>
               <ButtonGroup>
                 <Button
+                  secondary
                   onClick={e => {
                     action('Cancel button clicked')(e);
                     onClose(e);
