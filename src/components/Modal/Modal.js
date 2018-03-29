@@ -94,7 +94,7 @@ const modalClassName = {
 
 const overlayClassName = {
   base: ({ theme }) => css`
-    background: ${transparentize(0.5, theme.colors.shadow)};
+    background: ${transparentize(0.84, theme.colors.shadow)};
     bottom: 0;
     left: 0;
     opacity: 0;
