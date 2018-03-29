@@ -181,11 +181,32 @@ const Modal = ({
 };
 
 Modal.propTypes = {
+  /**
+   * Render prop for the content of the Modal.
+   */
   children: childrenPropType.isRequired,
+  /**
+   * Determines if the modal is visible or not.
+   */
   isOpen: PropTypes.bool.isRequired,
+  /**
+   * Function to close the modal. Passed down to the children
+   * render prop.
+   */
   onClose: PropTypes.func.isRequired,
+  /**
+   * The Circuit UI theme.
+   */
   theme: themePropType.isRequired,
+  /**
+   * Class name string to overwrite the default
+   * Card styles. Useful for removing padding from
+   * the Card.
+   */
   className: PropTypes.string,
+  /**
+   * React Modal's accessibility string.
+   */
   contentLabel: PropTypes.string
 };
 
