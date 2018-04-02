@@ -6,32 +6,30 @@
   "module": "src/index.js",
   "scripts": {
     "fix:eslint": "eslint --fix --quiet src/**/**/*.js",
-    "fix:stylelint": "stylelint \"src/**/*.scss\" --cache --fix",
     "fix": "yarn fix:eslint",
     "test": "yarn test:lint-js && yarn test:unit",
-    "test:lint-css:watch": "onchange \"src/**/**/*.scss\" \"src/**/**/*.scss\" -- yarn test:lint-css",
-    "test:lint-css": "stylelint \"src/**/*.scss\" --cache",
     "test:lint-js": "eslint --cache --quiet src/**/**/*.js",
     "test:lint-js:watch": "onchange \"src/**/**/*.js\" -- yarn test:lint-js",
     "test:unit:verbose": "jest --coverage --no-cache",
     "test:unit": "yarn test:unit:verbose --silent",
     "test:unit:watch": "yarn test:unit:output -- --watch",
-    "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
+    "test:unit:output":
+      "jest --json --outputFile=jest-test-results.json --no-cache --silent",
     "prepush": "yarn test",
     "start": "yarn test:unit:output && start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
-    "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
+    "build":
+      "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
     "build:storybook": "build-storybook -c .storybook -o .out",
-    "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
-    "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
+    "build:stylesheet":
+      "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
+    "build:global-styles":
+      "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "deploy": "yarn build && gh-pages -d .out"
   },
   "lint-staged": {
-    "*.js": [
-      "yarn fix:prettier",
-      "git add"
-    ]
+    "*.js": ["yarn fix:prettier", "git add"]
   },
   "repository": {
     "type": "git",
@@ -92,11 +90,6 @@
     "react-test-renderer": "^16.2.0",
     "storybook-addon-smart-knobs": "^3.2.10",
     "style-loader": "^0.20.1",
-    "stylelint": "^8.4.0",
-    "stylelint-config-sass-guidelines": "^4.0.1",
-    "stylelint-config-standard": "^18.0.0",
-    "stylelint-order": "^0.8.0",
-    "stylelint-scss": "^2.2.0",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
