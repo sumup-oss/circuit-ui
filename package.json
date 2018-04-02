@@ -28,9 +28,6 @@
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "deploy": "yarn build && gh-pages -d .out"
   },
-  "lint-staged": {
-    "*.js": ["yarn fix:prettier", "git add"]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sumup/circuit-ui.git"
@@ -78,7 +75,6 @@
     "jest-cli": "^22.0.4",
     "jest-emotion": "^9.0.0-0",
     "jest-enzyme": "^4.0.2",
-    "lint-staged": "^6.0.0",
     "onchange": "^3.3.0",
     "postcss-loader": "^2.0.9",
     "postcss-object-fit-images": "^1.1.2",
