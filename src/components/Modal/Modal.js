@@ -7,7 +7,7 @@ import { transparentize } from 'polished';
 
 import Card, { CardHeader, CardFooter } from '../Card';
 import Heading from '../Heading';
-import { childrenPropType, themePropType } from '../../util/shared-prop-types';
+import { themePropType } from '../../util/shared-prop-types';
 import { mapValues } from '../../util/fp';
 import IS_IOS from '../../util/ios';
 
