@@ -36,6 +36,7 @@ const cardStyles = ({ theme }) => css`
 
 const modalClassName = {
   base: ({ theme }) => css`
+    label: modal;
     outline: none;
 
     ${theme.mq.untilMedium`
@@ -71,6 +72,7 @@ const modalClassName = {
     `};
   `,
   afterOpen: ({ theme }) => css`
+    label: modal--after-open;
     ${theme.mq.untilMedium`
       transform: translateY(0);
     `};
@@ -82,6 +84,7 @@ const modalClassName = {
   `,
   /* eslint-disable max-len */
   beforeClose: ({ theme }) => css`
+    label: modal--before-close;
     ${theme.mq.untilMedium`
        transform: translateY(100%);
     `};
@@ -96,6 +99,7 @@ const modalClassName = {
 
 const overlayClassName = {
   base: ({ theme }) => css`
+    label: modal__overlay;
     background: ${transparentize(0.84, theme.colors.shadow)};
     bottom: 0;
     left: 0;
@@ -112,9 +116,11 @@ const overlayClassName = {
     `};
   `,
   afterOpen: () => css`
+    label: modal__overlay--after-open;
     opacity: 1;
   `,
   beforeClose: () => css`
+    label: modal__overlay--before-close;
     opacity: 0;
   `
 };
