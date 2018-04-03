@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import { noop } from 'lodash/fp';
 import createReactContext from 'create-react-context';
 
 import Modal, { TRANSITION_DURATION } from './Modal';
 import { childrenPropType } from '../../util/shared-prop-types';
 
-const { Provider: ContextProvider, Consumer } = createReactContext({
-  setModal: noop,
-  getModal: noop
+const {
+  Provider: ContextProvider,
+  Consumer: ModalConsumer
+} = createReactContext({
+  setModal: () => {},
+  getModal: () => {}
 });
 
-export { Consumer as ModalConsumer };
+export { ModalConsumer };
 
 export class ModalProvider extends Component {
   static propTypes = {
@@ -55,7 +57,7 @@ export class ModalProvider extends Component {
 
   render() {
     const { modal, isOpen } = this.state;
-    const { onClose = noop, children, ...otherProps } = modal || {};
+    const { onClose = () => {}, children, ...otherProps } = modal || {};
     const handleClose = () => {
       onClose();
       this.closeModal();
