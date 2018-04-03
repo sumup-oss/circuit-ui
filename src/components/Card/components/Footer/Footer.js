@@ -21,7 +21,7 @@ CardFooter.propTypes = {
   /**
    * Buttons wrapped in a ButtonGroup.
    */
-  children: PropTypes.arrayOf(PropTypes.element).isRequired
+  children: PropTypes.element
 };
 
 /**

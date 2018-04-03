@@ -1,8 +1,7 @@
 import React, { Children } from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import Button from '../Button';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const listStyles = ({ theme }) => css`
   label: button-group;
@@ -31,7 +30,7 @@ ButtonGroup.propTypes = {
   /**
    * Buttons to group.
    */
-  children: PropTypes.arrayOf(Button).isRequired
+  children: childrenPropType.isRequired
 };
 
 /**
