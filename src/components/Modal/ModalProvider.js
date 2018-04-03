@@ -55,7 +55,7 @@ export class ModalProvider extends Component {
 
   render() {
     const { modal, isOpen } = this.state;
-    const { onClose = noop, children, body, ...otherProps } = modal || {};
+    const { onClose = noop, children, ...otherProps } = modal || {};
     const handleClose = () => {
       onClose();
       this.closeModal();
@@ -67,11 +67,11 @@ export class ModalProvider extends Component {
           children: () => children({ onClose: handleClose }),
           onClose: handleClose
         }
-      : { isOpen, children: () => null };
+      : { isOpen, onClose, children: () => null };
     return (
       <ContextProvider value={this.contextValue}>
         {this.props.children}
-        <Modal {...modalProps} />
+        {modal && <Modal {...modalProps} />}
       </ContextProvider>
     );
   }

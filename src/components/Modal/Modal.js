@@ -165,10 +165,10 @@ const Modal = ({
   title,
   hasCloseButton,
   buttons,
+  appElement,
   ...otherProps
 }) => {
   // TODO: can we do this better?
-  ReactModal.setAppElement(document.body);
   const getClassValues = mapValues(styleFn => styleFn({ theme }));
   const reactModalProps = {
     ...otherProps,
@@ -182,9 +182,9 @@ const Modal = ({
         className={cx(cardStyles({ theme }), className)}
         shadow={Card.TRIPLE}
       >
-        {(title.length || hasCloseButton) && (
+        {(title || hasCloseButton) && (
           <CardHeader onClose={hasCloseButton ? onClose : null}>
-            {!!title.length && (
+            {title && (
               <Heading size={Heading.KILO} noMargin>
                 {title}
               </Heading>
@@ -204,7 +204,7 @@ Modal.propTypes = {
   /**
    * Render prop for the content of the Modal.
    */
-  children: childrenPropType.isRequired,
+  children: PropTypes.func.isRequired,
   /**
    * Determines if the modal is visible or not.
    */
@@ -240,15 +240,17 @@ Modal.propTypes = {
   /**
    * React Modal's accessibility string.
    */
-  contentLabel: PropTypes.string
+  contentLabel: PropTypes.string,
+  appElement: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 };
 
 Modal.defaultProps = {
   className: '',
   contentLabel: 'Modal',
-  title: '',
+  title: null,
   hasCloseButton: true,
-  buttons: null
+  buttons: null,
+  appElement: '#root'
 };
 
 /**
