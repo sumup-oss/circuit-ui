@@ -11,7 +11,6 @@ module.exports = {
       {
         code: 80,
         tabWidth: 2,
-        ignorePattern: '^\\s*it\\(',
         ignoreComments: true,
         ignoreUrls: true
       }
@@ -37,16 +36,7 @@ module.exports = {
     ]
   },
   globals: {
-    STORYBOOK: true,
-    axe: true,
-    renderToHtml: true,
-    describe: true,
-    beforeEach: true,
-    inject: true,
-    it: true,
-    test: true,
-    expect: true,
-    afterEach: true
+    STORYBOOK: true
   },
   parser: 'babel-eslint',
   parserOptions: {
@@ -86,7 +76,16 @@ module.exports = {
         mount: true,
         shallow: true,
         render: true,
-        create: true
+        create: true,
+        axe: true,
+        renderToHtml: true,
+        describe: true,
+        beforeEach: true,
+        inject: true,
+        it: true,
+        test: true,
+        expect: true,
+        afterEach: true
       },
       env: {
         'jest/globals': true
