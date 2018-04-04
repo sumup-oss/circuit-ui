@@ -20,7 +20,10 @@ describe('Modal', () => {
             <Button
               type="button"
               onClick={() => {
-                setModal(modal);
+                setModal({
+                  ...modal,
+                  appElement: document.getElementById('root')
+                });
               }}
             >
               Open modal

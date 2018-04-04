@@ -168,7 +168,7 @@ const Modal = ({
   appElement,
   ...otherProps
 }) => {
-  // TODO: can we do this better?
+  ReactModal.setAppElement(appElement);
   const getClassValues = mapValues(styleFn => styleFn({ theme }));
   const reactModalProps = {
     ...otherProps,
@@ -241,6 +241,11 @@ Modal.propTypes = {
    * React Modal's accessibility string.
    */
   contentLabel: PropTypes.string,
+  /**
+   * The element that should be used as root for the
+   * React portal used to display the modal. See
+   * http://reactcommunity.org/react-modal/accessibility/#app-element
+   */
   appElement: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 };
 
