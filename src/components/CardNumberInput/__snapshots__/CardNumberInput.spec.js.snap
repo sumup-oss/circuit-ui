@@ -66,12 +66,12 @@ exports[`CardNumberInput should render all but the detected card scheme with red
 }
 
 .circuit-4:not(:last-of-type) {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 .circuit-4 > svg {
-  width: auto;
-  height: 23px;
+  width: 24px;
+  height: auto;
 }
 
 .circuit-2 {
@@ -83,12 +83,12 @@ exports[`CardNumberInput should render all but the detected card scheme with red
 }
 
 .circuit-2:not(:last-of-type) {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 .circuit-2 > svg {
-  width: auto;
-  height: 23px;
+  width: 24px;
+  height: auto;
 }
 
 <div
@@ -209,12 +209,12 @@ exports[`CardNumberInput should render with default styles 1`] = `
 }
 
 .circuit-2:not(:last-of-type) {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 .circuit-2 > svg {
-  width: auto;
-  height: 23px;
+  width: 24px;
+  height: auto;
 }
 
 <div
@@ -317,12 +317,12 @@ exports[`CardNumberInput should render with styles for more than 5 card schemes 
 }
 
 .circuit-2:not(:last-of-type) {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 .circuit-2 > svg {
-  width: auto;
-  height: 23px;
+  width: 24px;
+  height: auto;
 }
 
 .circuit-16 {
@@ -333,10 +333,6 @@ exports[`CardNumberInput should render with styles for more than 5 card schemes 
   right: 0;
   text-align: right;
   white-space: nowrap;
-  bottom: -100%;
-  left: 0;
-  width: 100%;
-  text-align: left;
 }
 
 @media (min-width:451px) {
@@ -344,6 +340,15 @@ exports[`CardNumberInput should render with styles for more than 5 card schemes 
     right: 0;
     width: auto;
     text-align: right;
+  }
+}
+
+@media (max-width:450px) {
+  .circuit-16 {
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    text-align: left;
   }
 }
 
