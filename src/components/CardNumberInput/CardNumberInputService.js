@@ -1,7 +1,6 @@
 import { concat, find, flow, includes, keys, reduce } from '../../util/fp';
 
-import { SCHEMES } from './constants/card-schemes';
-import { VALIDATION_REGEXES } from './constants/validation-regexes';
+import { VALIDATION_REGEXES, SCHEMES } from './constants';
 
 export const shouldValidate = cardNumber => {
   if (!cardNumber) {

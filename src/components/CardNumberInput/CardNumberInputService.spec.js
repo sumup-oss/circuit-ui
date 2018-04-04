@@ -1,5 +1,5 @@
 import { shouldValidate, detectCardScheme } from './CardNumberInputService';
-import { SCHEMES } from './constants/card-schemes';
+import { SCHEMES } from './constants';
 import { filter, values } from '../../util/fp';
 
 describe('CardNumberInputService', () => {

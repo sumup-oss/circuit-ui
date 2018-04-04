@@ -26,7 +26,7 @@ const ELO_REGEXES = {
 
 const ELO_REGEX = values(ELO_REGEXES).join('|');
 
-export const VALIDATION_REGEXES = {
+const VALIDATION_REGEXES = {
   /* eslint-disable max-len */
   [SCHEMES.VISA]: /^4\d{12}(?:\d{3})?$/,
   [SCHEMES.MASTERCARD]: /^(?:2(?:2(?:2[1-9]\d{2}|[3-9]\d{3})|[3-6]\d{4}|7(?:[0-1]\d{3}|20\d{2}))|5[1-5]\d{4})\d{10}$/,
@@ -39,3 +39,5 @@ export const VALIDATION_REGEXES = {
   [SCHEMES.HYPERCARD]: /^6((06282)|(37((599)|(095)|(568))))\d{10}$/
   /* eslint-enable max-len */
 };
+
+export default VALIDATION_REGEXES;
