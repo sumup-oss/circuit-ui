@@ -93,3 +93,14 @@ function luhnCheck(value) {
 
   return nCheck % 10 === 0;
 }
+
+export const parseCardNumber = (number = '') => {
+  if (!number) {
+    return '';
+  }
+
+  return number.match(/(\d+)/g).join('');
+};
+
+export const formatCardNumber = (number = '') =>
+  number && number.length ? number.replace(/(.{4})/g, '$& ') : number;

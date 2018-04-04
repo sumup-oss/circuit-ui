@@ -1,4 +1,9 @@
-import { shouldValidate, detectCardScheme } from './CardNumberInputService';
+import {
+  shouldValidate,
+  detectCardScheme,
+  parseCardNumber,
+  formatCardNumber
+} from './CardNumberInputService';
 import { SCHEMES } from './constants';
 import { filter, values } from '../../util/fp';
 
@@ -267,6 +272,34 @@ describe('CardNumberInputService', () => {
     it('should detect a JCB card', () => {
       const expected = SCHEMES.JCB;
       const actual = detectCardScheme(CARD_NUMBERS.JCB_16, schemes);
+      expect(actual).toBe(expected);
+    });
+  });
+
+  describe('parsing and formatting credit card numbers', () => {
+    it('should parse the card number into a string containing only digits', () => {
+      const cardNumber = '  sdjfhksjdf45632shfsdfsdf ----/dfsd42323  ';
+      const expected = '4563242323';
+      const actual = parseCardNumber(cardNumber);
+      expect(actual).toBe(expected);
+    });
+
+    it('should parse into an empty string when passed undefined', () => {
+      const expected = '';
+      const actual = parseCardNumber(null);
+      expect(actual).toBe(expected);
+    });
+
+    it('should format a card number into a string with a space every four digits', () => {
+      const cardNumber = '12345678909876543';
+      const expected = '1234 5678 9098 7654 3';
+      const actual = formatCardNumber(cardNumber);
+      expect(actual).toBe(expected);
+    });
+
+    it('should format into an empty string when passed undefined', () => {
+      const expected = '';
+      const actual = formatCardNumber();
       expect(actual).toBe(expected);
     });
   });
