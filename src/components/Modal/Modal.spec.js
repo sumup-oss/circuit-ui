@@ -68,6 +68,10 @@ describe('Modal', () => {
     const wrapper = openModal(defaultModal);
     const closeButton = wrapper.find('SvgButton').find('button');
     closeButton.simulate('click');
+    /**
+     * Tried using jest's runAllTimers to force the ModalProvider
+     * to update state, but this didn't work. Somehow, this hack does.
+     */
     await new Promise(resolve => {
       setTimeout(() => resolve());
     });
