@@ -213,6 +213,7 @@ const Input = ({
   inline,
   disabled,
   theme,
+  className,
   ...props
 }) => {
   const prefixClassName = cx(prefixStyles({ theme }));
@@ -227,7 +228,7 @@ const Input = ({
   const hasSuffix = !!suffix;
 
   return (
-    <InputContainer {...{ noMargin, inline, disabled }}>
+    <InputContainer {...{ noMargin, inline, disabled, className }}>
       {hasPrefix && prefix({ className: prefixClassName })}
       <InputElement
         {...{ ...props, invalid, disabled, hasWarning, hasPrefix, hasSuffix }}
@@ -313,7 +314,8 @@ Input.propTypes = {
   /**
    * Aligns text in the input
    */
-  textAlign: PropTypes.oneOf([Input.LEFT, Input.RIGHT])
+  textAlign: PropTypes.oneOf([Input.LEFT, Input.RIGHT]),
+  className: PropTypes.string
 };
 
 Input.defaultProps = {
@@ -330,7 +332,8 @@ Input.defaultProps = {
   disabled: false,
   inline: false,
   noMargin: false,
-  textAlign: Input.LEFT
+  textAlign: Input.LEFT,
+  className: ''
 };
 
 /**

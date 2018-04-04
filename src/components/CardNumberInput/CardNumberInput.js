@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+import { withTheme } from 'emotion-theming';
 
 import { flow, toPairs, map, keys } from '../../util/fp';
 import Input from '../Input';
 import { disableVisually } from '../../styles/style-helpers';
 
+const RENDER_BELOW_THRESHOLD = 5;
+
+const shouldRenderIconsBelow = cardSchemes =>
+  keys(cardSchemes).length > RENDER_BELOW_THRESHOLD;
+
 const schemeListStyles = ({ theme }) => css`
   label: card-number-input__scheme-list;
   bottom: 100%;
+  display: block;
   list-style: none;
   position: absolute;
   overflow-x: auto;
@@ -23,38 +30,49 @@ const schemeListStyles = ({ theme }) => css`
   `};
 `;
 
-const schemeListLongStyles = ({ supportedCardSchemes }) => {
-  const numberOfSupportedSchemes = keys(supportedCardSchemes).length;
-
-  if (numberOfSupportedSchemes < 6) {
-    return '';
-  }
-
-  return css`
-    label: card-number-input__scheme-list--long;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    text-align: left;
-  `;
-};
+const schemeListLongStyles = ({ theme, supportedCardSchemes }) =>
+  shouldRenderIconsBelow(supportedCardSchemes)
+    ? css`
+        label: card-number-input__scheme-list--long;
+        ${theme.mq.untilMedium`
+      top: -75%;
+      top: calc(100% + ${theme.spacings.bit});
+      bottom: initial;
+      left: 0;
+      width: 100%;
+      text-align: left;
+    `};
+      `
+    : '';
 
 const SchemeList = styled('ul')`
   ${schemeListStyles};
   ${schemeListLongStyles};
 `;
 
+const inputLongStyles = ({ theme, supportedCardSchemes, className }) =>
+  shouldRenderIconsBelow(supportedCardSchemes)
+    ? css`
+        label: card-number-input__input--long;
+        ${theme.mq.untilMedium`
+          margin-bottom: ${theme.spacings.tera};
+          margin-bottom: calc(${theme.spacings.tera} + ${theme.spacings.bit});
+          ${className};
+        `};
+      `
+    : className;
+
 const schemeIconWrapperStyles = ({ theme }) => css`
   label: card-number-input__scheme-icon-wrapper;
   display: inline-block;
 
   &:not(:last-of-type) {
-    margin-right: ${theme.spacings.byte};
+    margin-right: ${theme.spacings.bit};
   }
 
   & > svg {
     width: auto;
-    height: 23px;
+    height: ${theme.iconSizes.kilo};
   }
 `;
 
@@ -78,9 +96,16 @@ const CardNumberInput = ({
   supportedCardSchemes,
   detectedCardScheme,
   value,
+  className,
+  // eslint-disable-next-line
+  theme,
   ...props
 }) => (
-  <Input value={value} {...props}>
+  <Input
+    value={value}
+    {...props}
+    className={inputLongStyles({ theme, supportedCardSchemes, className })}
+  >
     <SchemeList {...{ supportedCardSchemes }}>
       {flow(
         toPairs,
@@ -113,11 +138,18 @@ CardNumberInput.propTypes = {
   /**
    * The card number.
    */
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  /**
+   * Override styles for the Input component.
+   */
+  className: PropTypes.string
 };
 
-CardNumberInput.defaultProps = {};
+CardNumberInput.defaultProps = {
+  className: ''
+};
+
 /**
  * @component
  */
-export default CardNumberInput;
+export default withTheme(CardNumberInput);
