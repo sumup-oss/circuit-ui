@@ -216,7 +216,13 @@ const sizeStyles = props => {
 
 const TextOrButtonElement = props => (
   <HtmlElement
-    blacklist={{ size: true, flat: true, secondary: true, stretch: true }}
+    blacklist={{
+      size: true,
+      flat: true,
+      primary: true,
+      secondary: true,
+      stretch: true
+    }}
     element={({ href }) => (href ? 'a' : 'button')}
     {...props}
   />

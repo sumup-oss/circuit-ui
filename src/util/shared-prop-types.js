@@ -88,8 +88,7 @@ export const themePropType = PropTypes.shape({
     // Misc
     shadow: PropTypes.string.isRequired,
     bodyBg: PropTypes.string.isRequired,
-    bodyColor: PropTypes.string.isRequired,
-    buttonColor: PropTypes.string.isRequired
+    bodyColor: PropTypes.string.isRequired
   }).isRequired,
   spacings: PropTypes.shape({
     bit: PropTypes.string.isRequired,

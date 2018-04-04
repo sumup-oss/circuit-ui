@@ -20,6 +20,7 @@ const baseStyles = ({ theme }) => css`
   flex-direction: column;
   justify-content: space-between;
   min-width: 400px;
+  overflow: hidden;
 `;
 
 const shadowStyles = ({ theme, shadow }) => {

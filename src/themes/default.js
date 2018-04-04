@@ -1,3 +1,5 @@
+import { createMediaQueries } from '../styles/style-helpers';
+
 const white = '#FFFFFF';
 const black = '#0F131A';
 
@@ -158,7 +160,12 @@ export const fontWeight = {
 };
 
 export const breakpoints = {
+  untilMedium: '(max-width: 450px)',
   medium: 451,
+  mediumToBig: '(min-width: 451px) and (max-width: 450px)',
   big: 801,
+  bigToHuge: '(min-width: 451px) and (max-width: 450px)',
   huge: 1401
 };
+
+export const mq = createMediaQueries(breakpoints);

@@ -55,7 +55,6 @@ exports[`Button should have button styles 1`] = `
   disabled={false}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Button
@@ -117,7 +116,6 @@ exports[`Button should have disabled button styles 1`] = `
   disabled={true}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Disabled button
@@ -197,7 +195,6 @@ exports[`Button should have flat button styles 1`] = `
   disabled={false}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Flat button
@@ -277,7 +274,6 @@ exports[`Button should have flat disabled button styles 1`] = `
   disabled={true}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Flat button
@@ -339,7 +335,6 @@ exports[`Button should have giga button styles 1`] = `
   disabled={false}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Button
@@ -401,7 +396,6 @@ exports[`Button should have kilo button styles 1`] = `
   disabled={false}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Button
@@ -463,7 +457,6 @@ exports[`Button should have mega button styles 1`] = `
   disabled={false}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Button
@@ -571,7 +564,6 @@ exports[`Button should have secondary button styles 1`] = `
   disabled={false}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Secondary button
@@ -679,7 +671,6 @@ exports[`Button should have secondary disabled button styles 1`] = `
   disabled={true}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Secondary disabled button
@@ -787,7 +778,6 @@ exports[`Button should have secondary flat button styles 1`] = `
   disabled={false}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Secondary flat button
@@ -851,7 +841,6 @@ exports[`Button should have stretch button styles 1`] = `
   disabled={false}
   href={null}
   onClick={null}
-  primary={false}
   target={null}
 >
   Stretched button

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import CloseButton from '../../../CloseButton';
+import { childrenPropType } from '../../../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
   label: card__header;
@@ -12,12 +13,20 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.giga};
 `;
 
+const noHeadingStyles = ({ children }) =>
+  !children[0] &&
+  css`
+    label: card__header--no-heading;
+    justify-content: flex-end;
+  `;
+
 /**
  * Header used in the Card component. Used for styling and alignment
  * purposes only.
  */
 const CardHeaderContainer = styled('header')`
   ${baseStyles};
+  ${noHeadingStyles};
 `;
 
 const CardHeader = ({ onClose, children }) => (
@@ -29,9 +38,9 @@ const CardHeader = ({ onClose, children }) => (
 
 CardHeader.propTypes = {
   /**
-   * Heading and/or CloseButton for closing.
+   * Heading to be shown.
    */
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: childrenPropType,
   /**
    * Callback for the close button. If not specified, the button won't
    * be shown.
@@ -40,7 +49,8 @@ CardHeader.propTypes = {
 };
 
 CardHeader.defaultProps = {
-  onClose: null
+  onClose: null,
+  children: null
 };
 
 /**

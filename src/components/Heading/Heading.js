@@ -38,7 +38,7 @@ const HeadingElement = styled(HtmlElement)`
  * different HTML tags.
  */
 const Heading = props => (
-  <HeadingElement {...props} blacklist={{ margin: true }} />
+  <HeadingElement {...props} blacklist={{ noMargin: true }} />
 );
 
 Heading.KILO = KILO;
