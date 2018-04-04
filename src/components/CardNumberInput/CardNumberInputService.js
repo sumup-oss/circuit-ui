@@ -82,9 +82,11 @@ function luhnCheck(value) {
     nDigit = parseInt(cDigit, 10);
 
     if (bEven) {
+      /* eslint-disable */
       if ((nDigit *= 2) > 9) {
         nDigit -= 9;
       }
+      /* eslint-enable */
     }
 
     nCheck += nDigit;
@@ -103,4 +105,4 @@ export const parseCardNumber = (number = '') => {
 };
 
 export const formatCardNumber = (number = '') =>
-  number && number.length ? number.replace(/(.{4})/g, '$& ') : number;
+  number.replace(/(.{4})/g, '$& ');
