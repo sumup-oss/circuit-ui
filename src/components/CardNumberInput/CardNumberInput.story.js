@@ -2,11 +2,14 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { css } from 'react-emotion';
 
 import withTests from '../../util/withTests';
 import { reduce } from '../../util/fp';
 import CardNumberInput, { SCHEMES, cardSchemeIcons } from '.';
 import Text from '../Text';
+import Label from '../Label';
+import { standard } from '../../themes';
 
 const getIconComponents = reduce(
   (acc, scheme) => ({ ...acc, [scheme]: cardSchemeIcons[scheme] }),
@@ -27,29 +30,47 @@ const manySchemes = [
 ];
 const manySchemeIcons = getIconComponents(manySchemes);
 
+const marginTopClassName = css`
+  width: calc(100vw - ${standard.spacings.byte});
+
+  ${standard.mq.medium`
+    width: 75vw;
+    max-width: 400px;
+  `};
+`;
+
 storiesOf('CardNumberInput', module)
   .addDecorator(withTests('CardNumberInput'))
   .add(
     'Empty CardNumberInput',
     withInfo()(() => (
-      <CardNumberInput
-        supportedCardSchemes={schemeIcons}
-        onChange={action('Changed input value')}
-        detectedCardScheme=""
-        name="creditCardInput"
-      />
+      <Fragment>
+        <Label>Card number</Label>
+        <CardNumberInput
+          supportedCardSchemes={schemeIcons}
+          onChange={action('Changed input value')}
+          detectedCardScheme=""
+          name="creditCardInput"
+          className={marginTopClassName}
+        />
+      </Fragment>
     ))
   )
   .add(
     'Empty CardNumberInput with many supported schemes',
     withInfo()(() => (
       <Fragment>
-        <Text>Displays icons below input on mobile.</Text>
+        <Text style={{ width: '95vw' }}>
+          Displays card scheme icons below input on mobile, when there are more
+          than 5 schemes.
+        </Text>
+        <Label>Card number</Label>
         <CardNumberInput
           supportedCardSchemes={manySchemeIcons}
           onChange={action('Changed input value')}
           detectedCardScheme=""
           name="creditCardInput"
+          className={marginTopClassName}
         />
       </Fragment>
     ))
@@ -57,12 +78,16 @@ storiesOf('CardNumberInput', module)
   .add(
     'CardNumberInput with detected card scheme',
     withInfo()(() => (
-      <CardNumberInput
-        supportedCardSchemes={schemeIcons}
-        onChange={action('Changed input value')}
-        detectedCardScheme={SCHEMES.VISA}
-        value="4485 7197 7461 1397"
-        name="creditCardInput"
-      />
+      <Fragment>
+        <Label>Card number</Label>
+        <CardNumberInput
+          supportedCardSchemes={schemeIcons}
+          onChange={action('Changed input value')}
+          detectedCardScheme={SCHEMES.VISA}
+          value="4485 7197 7461 1397"
+          name="creditCardInput"
+          className={marginTopClassName}
+        />
+      </Fragment>
     ))
   );
