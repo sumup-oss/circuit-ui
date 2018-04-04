@@ -77,6 +77,7 @@ describe('CardNumberInput', () => {
   it('should render all but the detected card scheme with reduced opacity', () => {
     const wrapper = shallow(detectedComponent);
     const disabledProps = wrapper
+      .dive()
       .find('SchemeIconWrapper')
       .map(el => el.prop('disabled'));
     const disabledWrappersCount = disabledProps.reduce(
