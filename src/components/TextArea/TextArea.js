@@ -3,7 +3,7 @@ import { css } from 'react-emotion';
 
 import Input from '../Input';
 
-const className = css`
+const inputClassName = css`
   label: textarea;
   overflow: auto;
   resize: vertical;
@@ -13,7 +13,7 @@ const className = css`
  * TextArea component for forms.
  */
 const TextArea = props => (
-  <Input {...{ ...props, className }} element="textarea" />
+  <Input {...{ ...props, inputClassName }} element="textarea" />
 );
 
 TextArea.LEFT = Input.LEFT;

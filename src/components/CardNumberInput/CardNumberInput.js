@@ -131,7 +131,11 @@ const CardNumberInput = ({
         type="tel"
         autoComplete="cc-number"
         {...props}
-        className={inputLongStyles({ theme, supportedCardSchemes, className })}
+        wrapperClassName={inputLongStyles({
+          theme,
+          supportedCardSchemes,
+          className
+        })}
       >
         <SchemeList {...{ supportedCardSchemes }} aria-hidden="true">
           {flow(
