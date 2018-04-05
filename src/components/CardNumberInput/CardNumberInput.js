@@ -8,14 +8,10 @@ import { flow, toPairs, map, keys } from '../../util/fp';
 import Input from '../Input';
 import {
   isDisabledSchemeIcon,
-  hasDetectedScheme
+  hasDetectedScheme,
+  shouldRenderSchemesUnderInput
 } from './CardNumberInputService';
 import { disableVisually } from '../../styles/style-helpers';
-
-const RENDER_BELOW_THRESHOLD = 5;
-
-const shouldRenderIconsBelow = cardSchemes =>
-  keys(cardSchemes).length > RENDER_BELOW_THRESHOLD;
 
 const schemeListStyles = ({ theme }) => css`
   label: card-number-input__scheme-list;
@@ -36,7 +32,7 @@ const schemeListStyles = ({ theme }) => css`
 `;
 
 const schemeListLongStyles = ({ theme, supportedCardSchemes }) =>
-  shouldRenderIconsBelow(supportedCardSchemes)
+  shouldRenderSchemesUnderInput(supportedCardSchemes)
     ? css`
         label: card-number-input__scheme-list--long;
         ${theme.mq.untilMedium`
@@ -60,7 +56,7 @@ const AccessibleCardSchemeInfo = styled('div')`
 `;
 
 const inputLongStyles = ({ theme, supportedCardSchemes, className }) =>
-  shouldRenderIconsBelow(supportedCardSchemes)
+  shouldRenderSchemesUnderInput(supportedCardSchemes)
     ? css`
         label: card-number-input__input--long;
         ${theme.mq.untilMedium`

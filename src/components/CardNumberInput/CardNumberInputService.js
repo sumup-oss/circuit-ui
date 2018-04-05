@@ -103,6 +103,9 @@ export const isDisabledSchemeIcon = (value, detectedScheme, scheme) => {
   return hasValue && hasDetectedScheme && !isDetectedScheme;
 };
 
+export const shouldRenderSchemesUnderInput = schemes =>
+  keys(schemes).length > 5;
+
 export const hasDetectedScheme = detectedScheme =>
   detectedScheme && detectedScheme.length;
 

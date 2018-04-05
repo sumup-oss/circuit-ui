@@ -4,10 +4,11 @@ import {
   parseCardNumber,
   formatCardNumber,
   isDisabledSchemeIcon,
-  hasDetectedScheme
+  hasDetectedScheme,
+  shouldRenderSchemesUnderInput
 } from './CardNumberInputService';
-import { SCHEMES } from './constants';
-import { filter, values } from '../../util/fp';
+import { SCHEMES, cardSchemeIcons } from '.';
+import { concat, filter, pick, values } from '../../util/fp';
 
 describe('CardNumberInputService', () => {
   const CARD_NUMBERS = {
@@ -306,6 +307,39 @@ describe('CardNumberInputService', () => {
       const detectedScheme = SCHEMES.VISA;
       const isDetected = hasDetectedScheme(detectedScheme);
       expect(isDetected).toBeTruthy();
+    });
+
+    it('should render scheme icons above the input on mobile, when up to five schemes are supported', () => {
+      // This is only used and applied on mobile.
+      const fiveSchemes = [
+        SCHEMES.VISA,
+        SCHEMES.MASTERCARD,
+        SCHEMES.JCB,
+        SCHEMES.DINERS,
+        SCHEMES.DISCOVERY
+      ];
+      const fiveSupportedSchemes = pick(fiveSchemes, cardSchemeIcons);
+      const isRenderedAbove = !shouldRenderSchemesUnderInput(
+        fiveSupportedSchemes
+      );
+      expect(isRenderedAbove).toBeTruthy();
+    });
+
+    it('should render scheme icons under the input on mobile, when more than five schemes are supported', () => {
+      // This is only used and applied on mobile.
+      const sixSchemes = [
+        SCHEMES.VISA,
+        SCHEMES.MASTERCARD,
+        SCHEMES.JCB,
+        SCHEMES.DINERS,
+        SCHEMES.DISCOVER,
+        SCHEMES.ELO
+      ];
+      const sixSupportedSchemes = pick(sixSchemes, cardSchemeIcons);
+      const shouldRenderUnder = shouldRenderSchemesUnderInput(
+        sixSupportedSchemes
+      );
+      expect(shouldRenderUnder).toBeTruthy();
     });
   });
 
