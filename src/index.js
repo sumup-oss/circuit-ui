@@ -39,6 +39,7 @@ export { default as LoadingBar } from './components/LoadingBar';
 export { default as Tag } from './components/Tag';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Modal, ModalProvider } from './components/Modal';
+export * as CreditCardDetails from './components/CreditCardDetails';
 
 // Helpers
 export { default as State } from './components/State';
