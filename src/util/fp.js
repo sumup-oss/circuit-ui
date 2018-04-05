@@ -48,4 +48,12 @@ export const concat = curry((first, second) => first.concat(second));
 
 export const slice = curry((start, end, arr) => arr.slice(start, end));
 
+export const pick = curry((picks, obj) =>
+  reduce(
+    (picked, prop) => (obj[prop] ? { ...picked, [prop]: obj[prop] } : picked),
+    {},
+    picks
+  )
+);
+
 export const toBool = val => !!val;
