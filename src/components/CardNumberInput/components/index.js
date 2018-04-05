@@ -1,3 +1,3 @@
-import cardSchemeIcons from './cardSchemeIcons';
+import cardSchemeIcons from './card-scheme-icons';
 
 export { cardSchemeIcons };
