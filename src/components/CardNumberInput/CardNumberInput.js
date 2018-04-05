@@ -120,8 +120,10 @@ const CardNumberInput = ({
     `${detectedSchemeLabel}: ${detectedCardScheme}`;
   return (
     <Fragment>
-      <AccessibleCardSchemeInfo aria-live="polite">
+      <AccessibleCardSchemeInfo>
         {supportedSchemesText}
+      </AccessibleCardSchemeInfo>
+      <AccessibleCardSchemeInfo aria-live="polite">
         {detectedSchemesText}
       </AccessibleCardSchemeInfo>
       <Input
