@@ -44,8 +44,16 @@ export const includes = curry((val, arr) => arr.includes(val));
 
 export const defaultTo = curry((defaultVal, val) => val || defaultVal);
 
-export const concat = curry((first, ...args) => first.concat(...args));
+export const concat = curry((first, second) => first.concat(second));
 
 export const slice = curry((start, end, arr) => arr.slice(start, end));
+
+export const pick = curry((picks, obj) =>
+  reduce(
+    (picked, prop) => (obj[prop] ? { ...picked, [prop]: obj[prop] } : picked),
+    {},
+    picks
+  )
+);
 
 export const toBool = val => !!val;

@@ -213,6 +213,8 @@ const Input = ({
   inline,
   disabled,
   theme,
+  wrapperClassName,
+  inputClassName,
   ...props
 }) => {
   const prefixClassName = cx(prefixStyles({ theme }));
@@ -227,10 +229,20 @@ const Input = ({
   const hasSuffix = !!suffix;
 
   return (
-    <InputContainer {...{ noMargin, inline, disabled }}>
+    <InputContainer
+      {...{ noMargin, inline, disabled, className: wrapperClassName }}
+    >
       {hasPrefix && prefix({ className: prefixClassName })}
       <InputElement
-        {...{ ...props, invalid, disabled, hasWarning, hasPrefix, hasSuffix }}
+        {...{
+          ...props,
+          invalid,
+          disabled,
+          hasWarning,
+          hasPrefix,
+          hasSuffix,
+          className: inputClassName
+        }}
         aria-invalid={invalid}
         blacklist={{
           optional: true,
@@ -313,7 +325,15 @@ Input.propTypes = {
   /**
    * Aligns text in the input
    */
-  textAlign: PropTypes.oneOf([Input.LEFT, Input.RIGHT])
+  textAlign: PropTypes.oneOf([Input.LEFT, Input.RIGHT]),
+  /**
+   * Class name to overwrite the <input> element styles.
+   */
+  inputClassName: PropTypes.string,
+  /**
+   * Class name to overwrite the input wrapper element styles.
+   */
+  wrapperClassName: PropTypes.string
 };
 
 Input.defaultProps = {
@@ -330,7 +350,9 @@ Input.defaultProps = {
   disabled: false,
   inline: false,
   noMargin: false,
-  textAlign: Input.LEFT
+  textAlign: Input.LEFT,
+  inputClassName: '',
+  wrapperClassName: ''
 };
 
 /**
