@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
+import { hideVisually } from 'polished';
 
 import { flow, toPairs, map, keys } from '../../util/fp';
 import Input from '../Input';
@@ -48,6 +49,10 @@ const schemeListLongStyles = ({ theme, supportedCardSchemes }) =>
 const SchemeList = styled('ul')`
   ${schemeListStyles};
   ${schemeListLongStyles};
+`;
+
+const AccessibleCardSchemeInfo = styled('div')`
+  ${hideVisually()};
 `;
 
 const inputLongStyles = ({ theme, supportedCardSchemes, className }) =>
@@ -99,32 +104,52 @@ const CardNumberInput = ({
   className,
   // eslint-disable-next-line
   theme,
+  supportedSchemesLabel,
+  detectedSchemeLabel,
   ...props
-}) => (
-  <Input
-    value={value}
-    {...props}
-    className={inputLongStyles({ theme, supportedCardSchemes, className })}
-  >
-    <SchemeList {...{ supportedCardSchemes }}>
-      {flow(
-        toPairs,
-        map(([cardScheme, IconComponent]) => {
-          const disabled =
-            value &&
-            value.length &&
-            ((!detectedCardScheme && !detectedCardScheme.length) ||
-              detectedCardScheme !== cardScheme);
-          return (
-            <SchemeIconWrapper {...{ disabled, key: cardScheme }}>
-              <IconComponent />
-            </SchemeIconWrapper>
-          );
-        })
-      )(supportedCardSchemes)}
-    </SchemeList>
-  </Input>
-);
+}) => {
+  const supportedSchemesText = `${supportedSchemesLabel}: ${keys(
+    supportedCardSchemes
+  ).join(', ')}.`;
+  const detectedSchemesText =
+    detectedCardScheme &&
+    detectedCardScheme.length &&
+    `${detectedSchemeLabel}: ${detectedCardScheme}`;
+  return (
+    <Fragment>
+      <AccessibleCardSchemeInfo aria-live="polite">
+        {supportedSchemesText}
+        {detectedSchemesText}
+      </AccessibleCardSchemeInfo>
+      <Input
+        value={value}
+        type="tel"
+        autoComplete="cc-number"
+        {...props}
+        className={inputLongStyles({ theme, supportedCardSchemes, className })}
+      >
+        <SchemeList {...{ supportedCardSchemes }} aria-hidden="true">
+          {flow(
+            toPairs,
+            map(([cardScheme, IconComponent]) => {
+              const isSelected = detectedCardScheme === cardScheme;
+              const disabled =
+                value &&
+                value.length &&
+                ((!detectedCardScheme && !detectedCardScheme.length) ||
+                  !isSelected);
+              return (
+                <SchemeIconWrapper {...{ disabled, key: cardScheme }}>
+                  <IconComponent />
+                </SchemeIconWrapper>
+              );
+            })
+          )(supportedCardSchemes)}
+        </SchemeList>
+      </Input>
+    </Fragment>
+  );
+};
 
 CardNumberInput.propTypes = {
   /**
@@ -140,13 +165,25 @@ CardNumberInput.propTypes = {
    */
   value: PropTypes.string.isRequired,
   /**
+   * A label for the supported schemes. Visually hidden, but
+   * accessible to screen readers.
+   */
+  supportedSchemesLabel: PropTypes.string,
+  /**
+   * A label for the detected scheme. Visually hidden,
+   * but accessible to screen readers.
+   */
+  detectedSchemeLabel: PropTypes.string,
+  /**
    * Override styles for the Input component.
    */
   className: PropTypes.string
 };
 
 CardNumberInput.defaultProps = {
-  className: ''
+  className: '',
+  supportedSchemesLabel: 'Supported card schemes',
+  detectedSchemeLabel: 'Detected scheme'
 };
 
 /**
