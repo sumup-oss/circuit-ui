@@ -8,7 +8,7 @@ import {
   shouldRenderSchemesUnderInput
 } from './CardNumberInputService';
 import { SCHEMES, cardSchemeIcons } from '.';
-import { concat, filter, pick, values } from '../../util/fp';
+import { filter, pick, values } from '../../util/fp';
 
 describe('CardNumberInputService', () => {
   const CARD_NUMBERS = {
