@@ -2,7 +2,9 @@ import {
   shouldValidate,
   detectCardScheme,
   parseCardNumber,
-  formatCardNumber
+  formatCardNumber,
+  isDisabledSchemeIcon,
+  hasDetectedScheme
 } from './CardNumberInputService';
 import { SCHEMES } from './constants';
 import { filter, values } from '../../util/fp';
@@ -273,6 +275,37 @@ describe('CardNumberInputService', () => {
       const expected = SCHEMES.JCB;
       const actual = detectCardScheme(CARD_NUMBERS.JCB_16, schemes);
       expect(actual).toBe(expected);
+    });
+  });
+
+  describe('providing helper functions for the UI', () => {
+    it('should determine which schemes are visually disabled', () => {
+      const detectedScheme = SCHEMES.VISA;
+      const disabledScheme = SCHEMES.MASTERCARD;
+      const enabledScheme = SCHEMES.VISA;
+      const value = CARD_NUMBERS.VISA_13;
+
+      const isDisabled = isDisabledSchemeIcon(
+        value,
+        detectedScheme,
+        disabledScheme
+      );
+      expect(isDisabled).toBeTruthy();
+      const isEnabled = !isDisabledSchemeIcon(
+        value,
+        detectedScheme,
+        enabledScheme
+      );
+      expect(isEnabled).toBeTruthy();
+    });
+
+    it('should determine whether to show the detected scheme text', () => {
+      const noScheme = '';
+      const isUndetected = !hasDetectedScheme(noScheme);
+      expect(isUndetected).toBeTruthy();
+      const detectedScheme = SCHEMES.VISA;
+      const isDetected = hasDetectedScheme(detectedScheme);
+      expect(isDetected).toBeTruthy();
     });
   });
 

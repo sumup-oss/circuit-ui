@@ -6,6 +6,10 @@ import { hideVisually } from 'polished';
 
 import { flow, toPairs, map, keys } from '../../util/fp';
 import Input from '../Input';
+import {
+  isDisabledSchemeIcon,
+  hasDetectedScheme
+} from './CardNumberInputService';
 import { disableVisually } from '../../styles/style-helpers';
 
 const RENDER_BELOW_THRESHOLD = 5;
@@ -112,8 +116,7 @@ const CardNumberInput = ({
     supportedCardSchemes
   ).join(', ')}.`;
   const detectedSchemesText =
-    detectedCardScheme &&
-    detectedCardScheme.length &&
+    hasDetectedScheme(detectedCardScheme) &&
     `${detectedSchemeLabel}: ${detectedCardScheme}`;
   return (
     <Fragment>
@@ -131,19 +134,18 @@ const CardNumberInput = ({
         <SchemeList {...{ supportedCardSchemes }} aria-hidden="true">
           {flow(
             toPairs,
-            map(([cardScheme, IconComponent]) => {
-              const isSelected = detectedCardScheme === cardScheme;
-              const disabled =
-                value &&
-                value.length &&
-                ((!detectedCardScheme && !detectedCardScheme.length) ||
-                  !isSelected);
-              return (
-                <SchemeIconWrapper {...{ disabled, key: cardScheme }}>
-                  <IconComponent />
-                </SchemeIconWrapper>
-              );
-            })
+            map(([cardScheme, IconComponent]) => (
+              <SchemeIconWrapper
+                disabled={isDisabledSchemeIcon(
+                  value,
+                  detectedCardScheme,
+                  cardScheme
+                )}
+                key={cardScheme}
+              >
+                <IconComponent />
+              </SchemeIconWrapper>
+            ))
           )(supportedCardSchemes)}
         </SchemeList>
       </Input>

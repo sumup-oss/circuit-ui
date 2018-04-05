@@ -96,6 +96,16 @@ function luhnCheck(value) {
   return nCheck % 10 === 0;
 }
 
+export const isDisabledSchemeIcon = (value, detectedScheme, scheme) => {
+  const hasValue = value && value.length;
+  const hasDetectedScheme = detectedScheme && detectedScheme.length;
+  const isDetectedScheme = detectedScheme === scheme;
+  return hasValue && hasDetectedScheme && !isDetectedScheme;
+};
+
+export const hasDetectedScheme = detectedScheme =>
+  detectedScheme && detectedScheme.length;
+
 export const parseCardNumber = (number = '') => {
   if (!number) {
     return '';
