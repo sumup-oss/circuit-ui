@@ -3,8 +3,15 @@
 components_path=src/components
 template_path=templates/component/*
 
-mkdir -p src/components/$1
-cp $template_path ${components_path}/$1
-for i in ".spec." ".story." "."; do mv ${components_path}/$1/{Component,$1}${i}js; done;
-find ${components_path}/${1} -type f -iname "$1*js" -exec sed -i.bak "s/Component/$1/g" {} \;
-rm ${components_path}/${1}/*.bak
+component_name=$1
+component_sub_path=$2
+component_path="${components_path}${component_sub_path:+/$component_sub_path}/$1"
+
+echo $component_path
+
+mkdir -p $component_path
+cp $template_path $component_path
+for i in ".spec." ".story." "."; do mv $component_path/{Component,$component_name}${i}js; done;
+find ${component_path} -type f -iname "$component_name*js" -exec sed -i.bak "s/Component/$component_name/g" {} \;
+find ${component_path} -type f -iname "index.js" -exec sed -i.bak "s/Component/$component_name/g" {} \;
+rm ${component_path}/*.bak
