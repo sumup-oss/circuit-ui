@@ -1,10 +1,12 @@
 import React from 'react';
-import CardNumberInput, { SCHEMES, cardSchemeIcons } from '.';
-import Label from '../Label';
 
-import { reduce } from '../../util/fp';
+import { CardNumberInput, cardSchemeIcons } from '..';
+import { schemes as cardSchemes } from '../..';
+import Label from '../../../Label';
+import { reduce } from '../../../../util/fp';
 
 describe('CardNumberInput', () => {
+  const { SCHEMES } = cardSchemes;
   const getIconComponents = reduce(
     (acc, scheme) => ({ ...acc, [scheme]: cardSchemeIcons[scheme] }),
     {}

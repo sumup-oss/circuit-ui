@@ -4,12 +4,15 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { css } from 'react-emotion';
 
-import withTests from '../../util/withTests';
-import { reduce } from '../../util/fp';
-import CardNumberInput, { SCHEMES, cardSchemeIcons } from '.';
-import Text from '../Text';
-import Label from '../Label';
-import { standard } from '../../themes';
+import withTests from '../../../../util/withTests';
+import { reduce } from '../../../../util/fp';
+import { CardNumberInput, cardSchemeIcons } from '..';
+import { schemes as cardSchemes } from '../..';
+import Text from '../../../Text';
+import Label from '../../../Label';
+import { standard } from '../../../../themes';
+
+const { SCHEMES } = cardSchemes;
 
 const getIconComponents = reduce(
   (acc, scheme) => ({ ...acc, [scheme]: cardSchemeIcons[scheme] }),

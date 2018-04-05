@@ -4,14 +4,14 @@ import styled, { css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 import { hideVisually } from 'polished';
 
-import { flow, toPairs, map, keys } from '../../util/fp';
-import Input from '../Input';
+import { flow, toPairs, map, keys } from '../../../../util/fp';
+import Input from '../../../Input';
 import {
   isDisabledSchemeIcon,
   hasDetectedScheme,
   shouldRenderSchemesUnderInput
 } from './CardNumberInputService';
-import { disableVisually } from '../../styles/style-helpers';
+import { disableVisually } from '../../../../styles/style-helpers';
 
 const schemeListStyles = ({ theme }) => css`
   label: card-number-input__scheme-list;

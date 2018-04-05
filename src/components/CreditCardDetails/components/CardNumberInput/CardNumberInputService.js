@@ -1,6 +1,16 @@
-import { concat, find, flow, includes, keys, reduce } from '../../util/fp';
+import {
+  concat,
+  find,
+  flow,
+  includes,
+  keys,
+  reduce
+} from '../../../../util/fp';
 
-import { VALIDATION_REGEXES, SCHEMES } from './constants';
+import { VALIDATION_REGEXES } from './constants';
+import { schemes as cardSchemes } from '../..';
+
+const { SCHEMES } = cardSchemes;
 
 export const shouldValidate = cardNumber => {
   if (!cardNumber) {

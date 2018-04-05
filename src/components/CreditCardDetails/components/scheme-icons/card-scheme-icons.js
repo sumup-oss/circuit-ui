@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { flow, toPairs, reduce } from '../../../util/fp';
+import { flow, toPairs, reduce } from '../../../../util/fp';
 
 import Amex from './icons/amex.svg';
 import Card from './icons/card.svg';

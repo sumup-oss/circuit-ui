@@ -7,10 +7,13 @@ import {
   hasDetectedScheme,
   shouldRenderSchemesUnderInput
 } from './CardNumberInputService';
-import { SCHEMES, cardSchemeIcons } from '.';
-import { filter, pick, values } from '../../util/fp';
+import { cardSchemeIcons } from '../';
+import { schemes as cardSchemes } from '../..';
+import { filter, pick, values } from '../../../../util/fp';
 
 describe('CardNumberInputService', () => {
+  const { SCHEMES } = cardSchemes;
+
   const CARD_NUMBERS = {
     VISA_13: '4916721083783',
     VISA_16: '4539590612077349',
