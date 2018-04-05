@@ -1,3 +1,7 @@
+import React from 'react';
+
+import { flow, toPairs, reduce } from '../../../util/fp';
+
 import Amex from './icons/amex.svg';
 import Card from './icons/card.svg';
 import Diners from './icons/diners.svg';
@@ -14,7 +18,7 @@ import VisaElectron from './icons/visa-electron.svg';
 import Visa from './icons/visa.svg';
 import Vpay from './icons/vpay.svg';
 
-export default {
+const iconComponents = {
   amex: Amex,
   diners: Diners,
   discover: Discover,
@@ -31,3 +35,18 @@ export default {
   vpay: Vpay,
   default: Card
 };
+
+const accessibleIconComponents = flow(
+  toPairs,
+  reduce(
+    (acc, [name, IconComponent]) => ({
+      ...acc,
+      [name]: props => (
+        <IconComponent aria-label={`icon ${name}`} role="img" {...props} />
+      )
+    }),
+    {}
+  )
+)(iconComponents);
+
+export default accessibleIconComponents;
