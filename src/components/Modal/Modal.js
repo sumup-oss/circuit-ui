@@ -182,8 +182,11 @@ const Modal = ({
     overlayClassName: getClassValues(overlayClassName),
     contentLabel,
     onRequestClose: onClose,
-    closeTimeoutMS: TRANSITION_DURATION,
-    children: (
+    closeTimeoutMS: TRANSITION_DURATION
+  };
+
+  return (
+    <ReactModal {...reactModalProps}>
       <Card
         className={cx(cardStyles({ theme }), className)}
         shadow={Card.TRIPLE}
@@ -200,10 +203,8 @@ const Modal = ({
         {children ? children({ onClose }) : null}
         {buttons && <CardFooter>{buttons({ onClose })}</CardFooter>}
       </Card>
-    )
-  };
-
-  return <ReactModal {...reactModalProps} />;
+    </ReactModal>
+  );
 };
 
 Modal.propTypes = {
