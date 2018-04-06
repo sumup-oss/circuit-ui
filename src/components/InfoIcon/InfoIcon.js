@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'react-emotion';
 
 import Icon from './info.svg';
@@ -16,7 +17,8 @@ const baseStyles = ({ theme }) => {
  * A small info icon used for triggering tooltips
  * and other informational content.
  */
-const InfoIcon = styled(Icon)(baseStyles);
+const StyledIcon = styled(Icon)(baseStyles);
+const InfoIcon = props => <StyledIcon role="img" {...props} />;
 
 /**
  * @component
