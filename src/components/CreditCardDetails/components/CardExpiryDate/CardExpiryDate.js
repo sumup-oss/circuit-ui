@@ -1,23 +1,39 @@
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
 
-const baseStyles = ({ theme }) => css`
-  label: component;
-`;
+import Input from '../../../Input';
+import Label from '../../../Label';
 
 /**
  * Describe your component here.
  */
-const CardExpiryDate = styled('element')(baseStyles);
+const CardExpiryDate = ({ label, id, ...props }) => (
+  <Fragment>
+    <Label htmlFor={id}>{label}</Label>
+    <Input {...{ ...props, id }} />
+  </Fragment>
+);
 
 CardExpiryDate.propTypes = {
   /**
-   * A consice description of the example prop.
+   * The label to be used (for i18n purposes).
    */
-  example: PropTypes.string
+  label: PropTypes.string,
+  /**
+   * Placeholder for the input.
+   */
+  placeholder: PropTypes.string,
+  /**
+   * Id to be used for the input.
+   */
+  id: PropTypes.string
 };
 
-CardExpiryDate.defaultProps = {};
+CardExpiryDate.defaultProps = {
+  label: 'Expiry date',
+  placeholder: 'MM/YY',
+  id: 'cui-cc-expiry'
+};
 
 /**
  * @component
