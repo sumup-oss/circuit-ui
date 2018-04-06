@@ -12,6 +12,8 @@ import { mapValues } from '../../util/fp';
 import IS_IOS from '../../util/ios';
 
 export const TRANSITION_DURATION = 200;
+export const DEFAULT_APP_ELEMENT = '#root';
+
 const TOP_MARGIN = '10vh';
 const TRANSFORM_Y_FLOATING = '10vh';
 const FLOATING_TRANSITION = `${TRANSITION_DURATION}ms ease-in-out`;
@@ -255,7 +257,7 @@ Modal.defaultProps = {
   title: null,
   hasCloseButton: true,
   buttons: null,
-  appElement: '#root'
+  appElement: DEFAULT_APP_ELEMENT
 };
 
 /**
