@@ -4,9 +4,11 @@
  * - Add polyfills.
  */
 
-import { curry } from 'lodash/fp';
+import { flow, curry } from 'lodash/fp';
 
-export { flow, compose } from 'lodash/fp';
+export { compose } from 'lodash/fp';
+
+export { flow };
 
 // Requires polyfill
 export const values = obj => Object.values(obj);
@@ -48,12 +50,26 @@ export const concat = curry((first, second) => first.concat(second));
 
 export const slice = curry((start, end, arr) => arr.slice(start, end));
 
+export const identity = val => val;
+
+// This wil automatically disregard falsy values.
 export const pick = curry((picks, obj) =>
   reduce(
     (picked, prop) => (obj[prop] ? { ...picked, [prop]: obj[prop] } : picked),
     {},
     picks
   )
+);
+
+export const pickBy = curry((iteratee, obj) =>
+  flow(
+    keys,
+    reduce(
+      (picked, key) =>
+        iteratee(obj[key]) ? { ...picked, [key]: obj[key] } : picked,
+      {}
+    )
+  )(obj)
 );
 
 export const toBool = val => !!val;
