@@ -1,16 +1,46 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import styled, { css } from 'react-emotion';
+import { size } from 'polished';
 
 import Label from '../../../Label';
 import Input from '../../../Input';
 import { getPlaceholder } from './SecurityCodeInputService';
+import InfoIcon from '../../../InfoIcon';
+import SvgButton from '../../../SvgButton/SvgButton';
+
+const baseInfoButtonStyles = ({ theme }) => css`
+  label: security-code-input__info-button;
+  margin-left: ${theme.spacings.bit};
+  align-self: center;
+  ${size(theme.iconSizes.byte)};
+`;
+
+const InfoButton = styled(SvgButton)(baseInfoButtonStyles);
+
+const SecurityCodeLabel = styled(Label)`
+  display: flex;
+`;
 
 /**
- * Describe your component here.
+ * A specialized input for credit card security codes (CVV, etc.).
  */
-const SecurityCodeInput = ({ label, id, cardScheme, ...props }) => (
+const SecurityCodeInput = ({
+  label,
+  id,
+  cardScheme,
+  onToggleModal,
+  ...props
+}) => (
   <Fragment>
-    <Label htmlFor={id}>{label}</Label>
+    <SecurityCodeLabel htmlFor={id}>
+      {label}
+      {onToggleModal && (
+        <InfoButton onClick={onToggleModal}>
+          <InfoIcon />
+        </InfoButton>
+      )}
+    </SecurityCodeLabel>
     <Input {...{ ...props, id }} placeholder={getPlaceholder(cardScheme)} />
   </Fragment>
 );
@@ -30,16 +60,15 @@ SecurityCodeInput.propTypes = {
    * placeholder. The component defaults to a three-digit
    * placeholder.
    */
-  cardScheme: PropTypes.string
+  cardScheme: PropTypes.string,
+  onToggleModal: PropTypes.func
 };
 
 SecurityCodeInput.defaultProps = {
   label: 'Security code',
   id: 'cui-cc-security-code',
-  cardScheme: ''
+  cardScheme: '',
+  onToggleModal: null
 };
 
-/**
- * @component
- */
 export default SecurityCodeInput;
