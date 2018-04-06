@@ -25,18 +25,12 @@ const SecurityCodeLabel = styled(Label)`
 /**
  * A specialized input for credit card security codes (CVV, etc.).
  */
-const SecurityCodeInput = ({
-  label,
-  id,
-  cardScheme,
-  onToggleModal,
-  ...props
-}) => (
+const SecurityCodeInput = ({ label, id, cardScheme, onShowInfo, ...props }) => (
   <Fragment>
     <SecurityCodeLabel htmlFor={id}>
       {label}
-      {onToggleModal && (
-        <InfoButton onClick={onToggleModal}>
+      {onShowInfo && (
+        <InfoButton onClick={onShowInfo}>
           <InfoIcon />
         </InfoButton>
       )}
@@ -61,14 +55,14 @@ SecurityCodeInput.propTypes = {
    * placeholder.
    */
   cardScheme: PropTypes.string,
-  onToggleModal: PropTypes.func
+  onShowInfo: PropTypes.func
 };
 
 SecurityCodeInput.defaultProps = {
   label: 'Security code',
   id: 'cui-cc-security-code',
   cardScheme: '',
-  onToggleModal: null
+  onShowInfo: null
 };
 
 export default SecurityCodeInput;
