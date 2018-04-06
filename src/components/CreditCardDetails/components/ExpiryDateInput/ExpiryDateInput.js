@@ -5,7 +5,8 @@ import Input from '../../../Input';
 import Label from '../../../Label';
 
 /**
- * Describe your component here.
+ * A specialized input for the credit card's expiry
+ * date.
  */
 const ExpiryDateInput = ({ label, id, ...props }) => (
   <Fragment>
