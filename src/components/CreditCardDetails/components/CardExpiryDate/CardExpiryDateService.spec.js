@@ -1,56 +1,63 @@
 import { parseDate, formatDate } from './CardExpiryDateService';
 
 describe('CardExpiryDateService', () => {
-  describe('parsing date inputs', () => {
-    it('should parse an empty input', () => {
-      const input = '';
-      const actual = parseDate(input);
-      const expected = { month: '', year: '' };
-      expect(actual).toEqual(expected);
-    });
-
-    it('should parse a single digit month input', () => {
-      const input = '6';
-      const actual = parseDate(input);
-      const expected = { month: '6', year: '' };
-      expect(actual).toEqual(expected);
-    });
-
-    it('should parse a double digit month input', () => {
-      const input = '10';
-      const actual = parseDate(input);
-      const expected = { month: '10', year: '' };
-      expect(actual).toEqual(expected);
-    });
-
-    it('should parse a single digit month and single digit year input', () => {
-      const input = '1/3';
-      const actual = parseDate(input);
-      const expected = { month: '1', year: '2030' };
-      expect(actual).toEqual(expected);
-    });
-
-    it('should parse a single digit month and double digit year input', () => {
-      const input = '1/23';
-      const actual = parseDate(input);
-      const expected = { month: '1', year: '2023' };
-      expect(actual).toEqual(expected);
-    });
-
-    it('should ignore individual invalid characters', () => {
-      const onlyMonthValues = ['1,', '1-/', '1/-', '-1/-'];
-      onlyMonthValues.forEach(input => {
-        const actual = parseDate(input);
-        const expected = { month: '1', year: '' };
-        expect(actual).toEqual(expected);
+  describe('parsing date input values', () => {
+    it('should ignore any non-digit values', () => {
+      const values = ['-', '1-', '12/', '12/-23'];
+      const expected = [
+        { month: '', year: '' },
+        { month: '1', year: '' },
+        { month: '12', year: '' },
+        { month: '12', year: '2023' }
+      ];
+      values.forEach((value, index) => {
+        const actual = parseDate(value);
+        expect(actual).toEqual(expected[index]);
       });
+    });
 
-      const mixedValues = ['1,123  ', '1-1/23', '11/-23', '-11/-23'];
-      mixedValues.forEach(input => {
-        const actual = parseDate(input);
-        const expected = { month: '11', year: '2023' };
-        expect(actual).toEqual(expected);
+    it('should parse digits into months and years', () => {
+      const values = ['1', '12', '122', '1223'];
+      const expected = [
+        { month: '1', year: '' },
+        { month: '12', year: '' },
+        { month: '12', year: '202' },
+        { month: '12', year: '2023' }
+      ];
+      values.forEach((value, index) => {
+        const actual = parseDate(value);
+        expect(actual).toEqual(expected[index]);
       });
+    });
+  });
+
+  describe('formatting date input values', () => {
+    it('should not add a slash when the year is empty', () => {
+      const models = [
+        {
+          month: '1',
+          year: ''
+        },
+        {
+          month: '12',
+          year: ''
+        }
+      ];
+
+      models.forEach(model => {
+        const actual = formatDate(model);
+        expect(actual).not.toContain('/');
+      });
+    });
+
+    it('should add a slash when the year is not empty', () => {
+      const model = {
+        month: '12',
+        year: '2'
+      };
+      const actual = formatDate(model);
+      const expected = '12/2';
+      expect(actual).toBe(expected);
     });
   });
 });
