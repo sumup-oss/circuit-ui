@@ -13,6 +13,10 @@ import IS_IOS from '../../util/ios';
 
 export const TRANSITION_DURATION = 200;
 export const DEFAULT_APP_ELEMENT = '#root';
+export const APP_ELEMENT_PROP_TYPE = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.node
+]);
 
 const TOP_MARGIN = '10vh';
 const TRANSFORM_Y_FLOATING = '10vh';
@@ -248,7 +252,7 @@ Modal.propTypes = {
    * React portal used to display the modal. See
    * http://reactcommunity.org/react-modal/accessibility/#app-element
    */
-  appElement: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+  appElement: APP_ELEMENT_PROP_TYPE
 };
 
 Modal.defaultProps = {
