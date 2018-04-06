@@ -7,14 +7,14 @@ import Label from '../../../Label';
 /**
  * Describe your component here.
  */
-const CardExpiryDate = ({ label, id, ...props }) => (
+const ExpiryDateInput = ({ label, id, ...props }) => (
   <Fragment>
     <Label htmlFor={id}>{label}</Label>
     <Input {...{ ...props, id }} />
   </Fragment>
 );
 
-CardExpiryDate.propTypes = {
+ExpiryDateInput.propTypes = {
   /**
    * The label to be used (for i18n purposes).
    */
@@ -29,7 +29,7 @@ CardExpiryDate.propTypes = {
   id: PropTypes.string
 };
 
-CardExpiryDate.defaultProps = {
+ExpiryDateInput.defaultProps = {
   label: 'Expiry date',
   placeholder: 'MM/YY',
   id: 'cui-cc-expiry'
@@ -38,4 +38,4 @@ CardExpiryDate.defaultProps = {
 /**
  * @component
  */
-export default CardExpiryDate;
+export default ExpiryDateInput;

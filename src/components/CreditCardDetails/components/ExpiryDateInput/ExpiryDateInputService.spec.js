@@ -1,6 +1,6 @@
-import { parseDate, formatDate, validate } from './CardExpiryDateService';
+import { parseDate, formatDate, validate } from './ExpiryDateInputService';
 
-describe('CardExpiryDateService', () => {
+describe('ExpiryDateInputService', () => {
   describe('parsing date input values', () => {
     it('should ignore any non-digit values', () => {
       const values = ['-', '1-', '12/', '12/-23'];
