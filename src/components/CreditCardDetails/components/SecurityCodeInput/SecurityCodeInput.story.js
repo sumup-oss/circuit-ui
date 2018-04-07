@@ -19,6 +19,6 @@ storiesOf('SecurityCodeInput', module)
   .add(
     'SecurityCodeInput with modal toggle',
     withInfo()(() => (
-      <SecurityCodeInput onToggleModal={action('Security modal toggled')} />
+      <SecurityCodeInput onShowInfo={action('Security modal toggled')} />
     ))
   );
