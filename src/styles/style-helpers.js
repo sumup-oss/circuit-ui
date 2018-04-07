@@ -122,3 +122,16 @@ export const createMediaQueries = mapValues(mediaExpression => {
   const enhancedExpression = prefix + mediaExpression + suffix;
   return (...args) => css`@media ${enhancedExpression} {${css(...args)}}`;
 });
+
+export const clearfix = css`
+  &::before,
+  &::after {
+    content: '.';
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  &::after {
+    clear: both;
+  }
+`;
