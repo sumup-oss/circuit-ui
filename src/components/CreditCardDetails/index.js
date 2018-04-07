@@ -2,3 +2,4 @@
 // will get trapped in a circular dependency.
 export * from './constants';
 export * from './components';
+export { default } from './CreditCardDetails';
