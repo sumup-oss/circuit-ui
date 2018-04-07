@@ -47,7 +47,7 @@ Array [
   font-size: 13px;
   line-height: 20px;
   margin-bottom: 4px;
-  display: inline-block;
+  display: block;
 }
 
 <label
@@ -251,7 +251,7 @@ Array [
   font-size: 13px;
   line-height: 20px;
   margin-bottom: 4px;
-  display: inline-block;
+  display: block;
 }
 
 <label
@@ -438,7 +438,7 @@ Array [
   font-size: 13px;
   line-height: 20px;
   margin-bottom: 4px;
-  display: inline-block;
+  display: block;
 }
 
 <label
