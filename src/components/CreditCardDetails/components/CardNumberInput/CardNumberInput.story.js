@@ -47,16 +47,13 @@ storiesOf('CardNumberInput', module)
   .add(
     'Empty CardNumberInput',
     withInfo()(() => (
-      <Fragment>
-        <Label>Card number</Label>
-        <CardNumberInput
-          supportedCardSchemes={schemeIcons}
-          onChange={action('Changed input value')}
-          detectedCardScheme=""
-          name="creditCardInput"
-          className={marginTopClassName}
-        />
-      </Fragment>
+      <CardNumberInput
+        supportedCardSchemes={schemeIcons}
+        onChange={action('Changed input value')}
+        detectedCardScheme=""
+        name="creditCardInput"
+        className={marginTopClassName}
+      />
     ))
   )
   .add(
@@ -67,7 +64,6 @@ storiesOf('CardNumberInput', module)
           Displays card scheme icons below input on mobile, when there are more
           than 5 schemes.
         </Text>
-        <Label>Card number</Label>
         <CardNumberInput
           supportedCardSchemes={manySchemeIcons}
           onChange={action('Changed input value')}
@@ -81,16 +77,13 @@ storiesOf('CardNumberInput', module)
   .add(
     'CardNumberInput with detected card scheme',
     withInfo()(() => (
-      <Fragment>
-        <Label>Card number</Label>
-        <CardNumberInput
-          supportedCardSchemes={schemeIcons}
-          onChange={action('Changed input value')}
-          detectedCardScheme={SCHEMES.VISA}
-          value="4485 7197 7461 1397"
-          name="creditCardInput"
-          className={marginTopClassName}
-        />
-      </Fragment>
+      <CardNumberInput
+        supportedCardSchemes={schemeIcons}
+        onChange={action('Changed input value')}
+        detectedCardScheme={SCHEMES.VISA}
+        value="4485 7197 7461 1397"
+        name="creditCardInput"
+        className={marginTopClassName}
+      />
     ))
   );
