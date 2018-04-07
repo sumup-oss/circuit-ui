@@ -95,12 +95,7 @@ describe('CardNumberInput', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <Label htmlFor="input">
-        Label
-        {emptyComponent}
-      </Label>
-    );
+    const wrapper = renderToHtml(emptyComponent);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

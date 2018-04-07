@@ -43,6 +43,19 @@ Array [
   >
     Detected scheme: visa
   </div>,
+  .circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+<label
+    className="circuit-0 circuit-1"
+    htmlFor="cui-cc-card-number"
+  >
+    Card number
+  </label>,
   .circuit-12 {
   color: #212933;
   display: block;
@@ -143,6 +156,7 @@ Array [
       autoComplete="cc-number"
       className="circuit-0 circuit-1"
       disabled={false}
+      id="cui-cc-card-number"
       name="creditCardInput"
       onChange={[Function]}
       required={false}
@@ -233,6 +247,19 @@ Array [
   >
     Detected scheme: visa
   </div>,
+  .circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+<label
+    className="circuit-0 circuit-1"
+    htmlFor="cui-cc-card-number"
+  >
+    Card number
+  </label>,
   .circuit-12 {
   color: #212933;
   display: block;
@@ -316,6 +343,7 @@ Array [
       autoComplete="cc-number"
       className="circuit-0 circuit-1"
       disabled={false}
+      id="cui-cc-card-number"
       name="creditCardInput"
       onChange={[Function]}
       required={false}
@@ -406,6 +434,19 @@ Array [
   >
     
   </div>,
+  .circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+<label
+    className="circuit-0 circuit-1"
+    htmlFor="cui-cc-card-number"
+  >
+    Card number
+  </label>,
   .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -507,6 +548,7 @@ Array [
       autoComplete="cc-number"
       className="circuit-0 circuit-1"
       disabled={false}
+      id="cui-cc-card-number"
       name="creditCardInput"
       onChange={[Function]}
       required={false}

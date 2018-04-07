@@ -6,6 +6,7 @@ import { hideVisually } from 'polished';
 
 import { flow, toPairs, map, keys } from '../../../../util/fp';
 import Input from '../../../Input';
+import Label from '../../../Label';
 import {
   isDisabledSchemeIcon,
   hasDetectedScheme,
@@ -102,6 +103,8 @@ const CardNumberInput = ({
   detectedCardScheme,
   value,
   className,
+  id,
+  label,
   // eslint-disable-next-line
   theme,
   supportedSchemesLabel,
@@ -122,9 +125,11 @@ const CardNumberInput = ({
       <AccessibleCardSchemeInfo aria-live="polite">
         {detectedSchemesText}
       </AccessibleCardSchemeInfo>
+      <Label htmlFor={id}>{label}</Label>
       <Input
         value={value}
         type="tel"
+        id={id}
         autoComplete="cc-number"
         {...props}
         wrapperClassName={inputLongStyles({
@@ -163,11 +168,19 @@ CardNumberInput.propTypes = {
   /**
    * The detected card scheme.
    */
-  detectedCardScheme: PropTypes.string.isRequired,
+  detectedCardScheme: PropTypes.string,
+  /**
+   * The label to be used (for i18n purposes).
+   */
+  label: PropTypes.string,
+  /**
+   * Id to be used for the input.
+   */
+  id: PropTypes.string,
   /**
    * The card number.
    */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   /**
    * A label for the supported schemes. Visually hidden, but
    * accessible to screen readers.
@@ -185,9 +198,13 @@ CardNumberInput.propTypes = {
 };
 
 CardNumberInput.defaultProps = {
+  label: 'Card number',
+  id: 'cui-cc-card-number',
   className: '',
+  detectedCardScheme: '',
   supportedSchemesLabel: 'Supported card schemes',
-  detectedSchemeLabel: 'Detected scheme'
+  detectedSchemeLabel: 'Detected scheme',
+  value: ''
 };
 
 /**
