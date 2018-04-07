@@ -11,7 +11,7 @@ import Label from '../../../Label';
 const ExpiryDateInput = ({ label, id, ...props }) => (
   <Fragment>
     <Label htmlFor={id}>{label}</Label>
-    <Input {...{ ...props, id }} />
+    <Input autoComplete="cc-exp" type="tel" {...{ ...props, id }} />
   </Fragment>
 );
 

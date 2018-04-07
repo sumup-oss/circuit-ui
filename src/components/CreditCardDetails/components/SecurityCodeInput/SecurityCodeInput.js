@@ -35,7 +35,12 @@ const SecurityCodeInput = ({ label, id, cardScheme, onShowInfo, ...props }) => (
         </InfoButton>
       )}
     </SecurityCodeLabel>
-    <Input {...{ ...props, id }} placeholder={getPlaceholder(cardScheme)} />
+    <Input
+      autoComplete="cc-csc"
+      type="tel"
+      placeholder={getPlaceholder(cardScheme)}
+      {...{ ...props, id }}
+    />
   </Fragment>
 );
 

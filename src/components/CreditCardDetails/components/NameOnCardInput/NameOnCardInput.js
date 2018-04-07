@@ -10,7 +10,7 @@ import Input from '../../../Input';
 const NameOnCardInput = ({ label, id, ...props }) => (
   <Fragment>
     <Label htmlFor={id}>{label}</Label>
-    <Input {...{ ...props, id }} />
+    <Input autoComplete="cc-name" type="text" {...{ ...props, id }} />
   </Fragment>
 );
 
