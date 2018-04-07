@@ -30,21 +30,35 @@ const fallbackBaseStyles = ({ children, theme }) => {
   `;
 };
 
-const baseStyles = ({ theme }) => css`
-  label: inline-elements;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+const baseStyles = ({ theme, ratios, children }) => {
+  const flexGrows =
+    ratios.length &&
+    Children.map(
+      children,
+      (child, childIndex) => `
+        > :nth-child(${childIndex + 1}) {
+          flex-grow: ${ratios[childIndex] || 1};
+          width: auto;
+        }
+      `
+    ).join('\n');
 
-  > * {
-    &:not(:last-of-type) {
-      margin-bottom: ${theme.spacings.byte};
+  return css`
+    label: inline-elements;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    > * {
+      &:not(:last-of-type) {
+        margin-bottom: ${theme.spacings.byte};
+      }
     }
-  }
 
-  ${theme.mq.medium`
-    align-items: center;
+    ${theme.mq.medium`
+    align-items: stretch;
     flex-direction: row;
+    justify-content: stretch;
 
     > * {
       flex-grow: 1;
@@ -55,8 +69,11 @@ const baseStyles = ({ theme }) => css`
         margin-right: ${theme.spacings.byte};
       }
     }
+
+    ${flexGrows};
   `};
-`;
+  `;
+};
 
 const fallbackInlineMobileStyles = ({ theme, inlineMobile, children }) => {
   if (!inlineMobile) {
@@ -107,10 +124,10 @@ const inlineMobileStyles = ({ theme, inlineMobile }) =>
  * form elements.
  */
 const InlineElements = styled('div')(
-  baseStyles,
   fallbackBaseStyles,
-  inlineMobileStyles,
-  fallbackInlineMobileStyles
+  baseStyles,
+  fallbackInlineMobileStyles,
+  inlineMobileStyles
 );
 
 InlineElements.propTypes = {
@@ -121,11 +138,19 @@ InlineElements.propTypes = {
   /**
    * Forces inline display even on mobile.
    */
-  inlineMobile: PropTypes.bool
+  inlineMobile: PropTypes.bool,
+  /**
+   * Let's children take up widths according to
+   * given ratios. The ratios are equivalent
+   * to the flex-grow parameter, which they are
+   * used with.
+   */
+  ratios: PropTypes.arrayOf(PropTypes.number)
 };
 
 InlineElements.defaultProps = {
-  inlineMobile: false
+  inlineMobile: false,
+  ratios: []
 };
 
 /**

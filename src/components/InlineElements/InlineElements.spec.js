@@ -11,6 +11,16 @@ describe('InlineElements', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with ratio styles', () => {
+    const actual = create(
+      <InlineElements inlineMobile ratios={[2, 1]}>
+        <div />
+        <div />
+      </InlineElements>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with inlineMobile styles', () => {
     const actual = create(<InlineElements inlineMobile />);
     expect(actual).toMatchSnapshot();

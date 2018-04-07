@@ -52,13 +52,35 @@ storiesOf('InlineElements', module)
     ))
   )
   .add(
-    'Three InlineElements stacked on mobile',
+    'Three InlineElements inline on mobile',
     withInfo()(() => (
       <Container>
         <InlineElements inlineMobile>
           <Box />
           <Box />
           <Box />
+        </InlineElements>
+      </Container>
+    ))
+  )
+  .add(
+    'Two InlineElements with ratios',
+    withInfo()(() => (
+      <Container>
+        <InlineElements ratios={[2, 1]}>
+          <Box>2x</Box>
+          <Box>1x</Box>
+        </InlineElements>
+      </Container>
+    ))
+  )
+  .add(
+    'Two InlineElements with ratios inline on mobile',
+    withInfo()(() => (
+      <Container>
+        <InlineElements ratios={[3, 1]} inlineMobile>
+          <Box>2x</Box>
+          <Box>1x</Box>
         </InlineElements>
       </Container>
     ))
