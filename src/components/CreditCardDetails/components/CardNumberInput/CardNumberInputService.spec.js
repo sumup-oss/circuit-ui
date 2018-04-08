@@ -2,7 +2,7 @@ import {
   shouldValidate,
   detectCardScheme,
   parseCardNumber,
-  formatCardNumber,
+  normalizeCardNumber,
   isDisabledSchemeIcon,
   hasDetectedScheme,
   shouldRenderSchemesUnderInput
@@ -346,31 +346,37 @@ describe('CardNumberInputService', () => {
     });
   });
 
-  describe('parsing and formatting credit card numbers', () => {
-    it('should parse the card number into a string containing only digits', () => {
-      const cardNumber = '  sdjfhksjdf45632shfsdfsdf ----/dfsd42323  ';
-      const expected = '4563242323';
+  describe('parsing credit card numbers', () => {
+    it('should chunk the card number into blocks of four digits', () => {
+      const cardNumber = '12345678909876543';
+      const expected = '1234 5678 9098 7654 3';
       const actual = parseCardNumber(cardNumber);
       expect(actual).toBe(expected);
     });
 
-    it('should parse into an empty string when passed undefined', () => {
-      const expected = '';
+    it('should ignore non-numeric values', () => {
+      const cardNumber = '  sdjfhksjdf45632shfsdfsdf ----/dfsd42323  ';
+      const expected = '4563 2423 23';
+      const actual = parseCardNumber(cardNumber);
+      expect(actual).toBe(expected);
+    });
+
+    it('should not do anything when passed a falsy value', () => {
       const actual = parseCardNumber(null);
-      expect(actual).toBe(expected);
+      expect(actual).toBeNull();
     });
 
-    it('should format a card number into a string with a space every four digits', () => {
-      const cardNumber = '12345678909876543';
-      const expected = '1234 5678 9098 7654 3';
-      const actual = formatCardNumber(cardNumber);
-      expect(actual).toBe(expected);
-    });
-
-    it('should format into an empty string when passed undefined', () => {
+    it('should return an empty string when passed an empty string', () => {
       const expected = '';
-      const actual = formatCardNumber();
+      const actual = parseCardNumber('');
       expect(actual).toBe(expected);
     });
+
+    it('should not do anything when editing already parsed chunks', () => {
+      const cardNumber = '1234 568 45'; // Here the user is editing the second chunk.
+      const expected = '1234 568 45';
+      const actual = parseCardNumber(cardNumber);
+      expect(actual).toBe(expected);
+    })
   });
 });

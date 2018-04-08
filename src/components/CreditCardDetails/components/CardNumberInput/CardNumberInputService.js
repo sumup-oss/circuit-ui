@@ -119,13 +119,20 @@ export const shouldRenderSchemesUnderInput = schemes =>
 export const hasDetectedScheme = detectedScheme =>
   detectedScheme && detectedScheme.length;
 
+const getDigits = str => str.replace(/[^\d]/g, '');
+
+// Don't use this in your form, but after submitting the
+// form, to clean up a valid card number for your API.
+export const normalizeCardNumber = (number = '') =>
+  number ? getDigits(number) : number;
+
 export const parseCardNumber = (number = '') => {
-  if (!number) {
-    return '';
+  const isEditingNumber =
+    number && /(^| )(\d{1,3}|\d{5,}) (?=\d{1,})/.test(number);
+
+  if (!number || isEditingNumber) {
+    return number;
   }
 
-  return number.match(/(\d+)/g).join('');
+  return getDigits(number).replace(/(.{4})(?!$)/g, '$& ');
 };
-
-export const formatCardNumber = (number = '') =>
-  number.replace(/(.{4})/g, '$& ');
