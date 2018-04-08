@@ -131,6 +131,7 @@ const CardNumberInput = ({
         type="tel"
         id={id}
         autoComplete="cc-number"
+        placeholder="•••• •••• •••• ••••"
         {...props}
         wrapperClassName={inputLongStyles({
           theme,

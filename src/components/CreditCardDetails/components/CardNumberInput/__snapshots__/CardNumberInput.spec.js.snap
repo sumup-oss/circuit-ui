@@ -159,6 +159,7 @@ Array [
       id="cui-cc-card-number"
       name="creditCardInput"
       onChange={[Function]}
+      placeholder="•••• •••• •••• ••••"
       required={false}
       type="tel"
       value="4485 7197 7461 1397"
@@ -346,6 +347,7 @@ Array [
       id="cui-cc-card-number"
       name="creditCardInput"
       onChange={[Function]}
+      placeholder="•••• •••• •••• ••••"
       required={false}
       type="tel"
       value=""
@@ -551,6 +553,7 @@ Array [
       id="cui-cc-card-number"
       name="creditCardInput"
       onChange={[Function]}
+      placeholder="•••• •••• •••• ••••"
       required={false}
       type="tel"
       value=""
