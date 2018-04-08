@@ -19,7 +19,9 @@ const baseContainerStyles = css`
 const CardDetailsContainer = styled('div')(baseContainerStyles);
 
 /**
- * Describe your component here.
+ * A container for showing card details. Optionally handles
+ * state for showing and hiding info on the security code
+ * input.
  */
 export default class CreditCardDetails extends Component {
   static propTypes = {
