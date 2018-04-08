@@ -1,3 +1,6 @@
+export * from './CardNumberInput';
+export * from './ExpiryDateInput';
+
 export { default as CardNumberInput } from './CardNumberInput';
 export { default as cardSchemeIcons } from './scheme-icons';
 export { default as NameOnCardInput } from './NameOnCardInput';
