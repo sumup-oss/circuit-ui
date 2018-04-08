@@ -1,5 +1,9 @@
 import ExpiryDateInput from './ExpiryDateInput';
 
-export * from './ExpiryDateInputService';
+export {
+  parseExpiryDate,
+  normalizeExpiryDate,
+  validateExpiryDate
+} from './ExpiryDateInputService';
 
 export default ExpiryDateInput;
