@@ -52,6 +52,8 @@ export const slice = curry((start, end, arr) => arr.slice(start, end));
 
 export const identity = val => val;
 
+export const some = curry((predicate, arr) => arr.some(predicate));
+
 // This wil automatically disregard falsy values.
 export const pick = curry((picks, obj) =>
   reduce(
