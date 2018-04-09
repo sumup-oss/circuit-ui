@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
@@ -15,6 +15,8 @@ import CreditCardDetails, {
   parseCardNumber,
   parseSecurityCode
 } from '.';
+import Button from '../Button';
+import Text from '../Text';
 
 const { SCHEMES } = schemes;
 
@@ -89,6 +91,58 @@ storiesOf('CreditCardDetails', module)
                   onChange={handleChange('securityCode', parseSecurityCode(''))}
                 />
               )}
+            />
+          </div>
+        )}
+      </YourFavoriteFormLibrary>
+    ))
+  )
+  .add(
+    'CreditCardDetails with security code info',
+    withInfo()(() => (
+      <YourFavoriteFormLibrary>
+        {({ values, handleChange }) => (
+          <div style={{ width: '95vw', maxWidth: '600px', margin: '0 auto' }}>
+            <CreditCardDetails
+              nameOnCard={
+                <NameOnCardInput
+                  value={values.name}
+                  onChange={handleChange('name')}
+                />
+              }
+              cardNumber={
+                <CardNumberInput
+                  {...{ supportedCardSchemes }}
+                  value={values.cardNumber}
+                  onChange={handleChange('cardNumber', parseCardNumber)}
+                />
+              }
+              expiryDate={
+                <ExpiryDateInput
+                  value={values.expiryDate}
+                  onChange={handleChange('expiryDate', parseExpiryDate)}
+                />
+              }
+              renderSecurityCodeInput={({ onShowInfo }) => (
+                <SecurityCodeInput
+                  value={values.securityCode}
+                  onChange={handleChange('securityCode', parseSecurityCode(''))}
+                  onShowInfo={onShowInfo}
+                />
+              )}
+              renderSecurityCodeInfo={({ isShowingInfo, onHideInfo }) =>
+                isShowingInfo && (
+                  <Fragment>
+                    <Text>
+                      Display some information regarding security codes. We do
+                      this with a Modal.
+                    </Text>
+                    <Button onClick={onHideInfo} type="button">
+                      Hide
+                    </Button>
+                  </Fragment>
+                )
+              }
             />
           </div>
         )}
