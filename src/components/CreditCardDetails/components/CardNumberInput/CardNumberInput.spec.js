@@ -32,7 +32,7 @@ describe('CardNumberInput', () => {
 
   const detectedComponent = (
     <CardNumberInput
-      supportedCardSchemes={schemeIcons}
+      acceptedCardSchemes={schemeIcons}
       onChange={() => {}}
       detectedCardScheme={SCHEMES.VISA}
       name="creditCardInput"
@@ -41,7 +41,7 @@ describe('CardNumberInput', () => {
   );
   const emptyComponent = (
     <CardNumberInput
-      supportedCardSchemes={schemeIcons}
+      acceptedCardSchemes={schemeIcons}
       onChange={() => {}}
       detectedCardScheme={SCHEMES.VISA}
       name="creditCardInput"
@@ -50,7 +50,7 @@ describe('CardNumberInput', () => {
   );
   const manySchemesComponent = (
     <CardNumberInput
-      supportedCardSchemes={manySchemeIcons}
+      acceptedCardSchemes={manySchemeIcons}
       onChange={() => {}}
       detectedCardScheme=""
       name="creditCardInput"

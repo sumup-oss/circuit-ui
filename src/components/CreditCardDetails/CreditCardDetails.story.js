@@ -20,7 +20,7 @@ import Text from '../Text';
 
 const { SCHEMES } = schemes;
 
-const supportedCardSchemes = {
+const acceptedCardSchemes = {
   [SCHEMES.VISA]: cardSchemeIcons[SCHEMES.VISA],
   [SCHEMES.MASTERCARD]: cardSchemeIcons[SCHEMES.MASTERCARD],
   [SCHEMES.JCB]: cardSchemeIcons[SCHEMES.JCB]
@@ -74,7 +74,7 @@ storiesOf('CreditCardDetails', module)
               }
               cardNumber={
                 <CardNumberInput
-                  {...{ supportedCardSchemes }}
+                  {...{ acceptedCardSchemes }}
                   value={values.cardNumber}
                   onChange={handleChange('cardNumber', parseCardNumber)}
                 />
@@ -112,7 +112,7 @@ storiesOf('CreditCardDetails', module)
               }
               cardNumber={
                 <CardNumberInput
-                  {...{ supportedCardSchemes }}
+                  {...{ acceptedCardSchemes }}
                   value={values.cardNumber}
                   onChange={handleChange('cardNumber', parseCardNumber)}
                 />

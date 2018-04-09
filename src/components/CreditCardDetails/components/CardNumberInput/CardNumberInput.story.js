@@ -48,7 +48,7 @@ storiesOf('CardNumberInput', module)
     'Empty CardNumberInput',
     withInfo()(() => (
       <CardNumberInput
-        supportedCardSchemes={schemeIcons}
+        acceptedCardSchemes={schemeIcons}
         onChange={action('Changed input value')}
         detectedCardScheme=""
         name="creditCardInput"
@@ -65,7 +65,7 @@ storiesOf('CardNumberInput', module)
           than 5 schemes.
         </Text>
         <CardNumberInput
-          supportedCardSchemes={manySchemeIcons}
+          acceptedCardSchemes={manySchemeIcons}
           onChange={action('Changed input value')}
           detectedCardScheme=""
           name="creditCardInput"
@@ -78,7 +78,7 @@ storiesOf('CardNumberInput', module)
     'CardNumberInput with detected card scheme',
     withInfo()(() => (
       <CardNumberInput
-        supportedCardSchemes={schemeIcons}
+        acceptedCardSchemes={schemeIcons}
         onChange={action('Changed input value')}
         detectedCardScheme={SCHEMES.VISA}
         value="4485 7197 7461 1397"

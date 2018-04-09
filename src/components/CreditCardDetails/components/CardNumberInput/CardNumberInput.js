@@ -34,15 +34,15 @@ const schemeListStyles = ({ theme }) => css`
   `};
 `;
 
-const schemeListHiddenStyles = ({ supportedCardSchemes }) =>
-  !keys(supportedCardSchemes).length &&
+const schemeListHiddenStyles = ({ acceptedCardSchemes }) =>
+  !keys(acceptedCardSchemes).length &&
   css`
     label: card-number-input__scheme-list--hidden;
     opacity: 0;
   `;
 
-const schemeListLongStyles = ({ theme, supportedCardSchemes }) =>
-  shouldRenderSchemesUnderInput(supportedCardSchemes)
+const schemeListLongStyles = ({ theme, acceptedCardSchemes }) =>
+  shouldRenderSchemesUnderInput(acceptedCardSchemes)
     ? css`
         label: card-number-input__scheme-list--long;
         ${theme.mq.untilMedium`
@@ -66,8 +66,8 @@ const AccessibleCardSchemeInfo = styled('div')`
   ${hideVisually()};
 `;
 
-const inputLongStyles = ({ theme, supportedCardSchemes, className }) =>
-  shouldRenderSchemesUnderInput(supportedCardSchemes)
+const inputLongStyles = ({ theme, acceptedCardSchemes, className }) =>
+  shouldRenderSchemesUnderInput(acceptedCardSchemes)
     ? css`
         label: card-number-input__input--long;
         ${theme.mq.untilMedium`
@@ -109,7 +109,7 @@ const SchemeIconWrapper = styled('li')`
  * Describe your component here.
  */
 const CardNumberInput = ({
-  supportedCardSchemes,
+  acceptedCardSchemes,
   detectedCardScheme,
   value,
   className,
@@ -122,7 +122,7 @@ const CardNumberInput = ({
   ...props
 }) => {
   const supportedSchemesText = `${supportedSchemesLabel}: ${keys(
-    supportedCardSchemes
+    acceptedCardSchemes
   ).join(', ')}.`;
   const detectedSchemesText =
     hasDetectedScheme(detectedCardScheme) &&
@@ -145,11 +145,11 @@ const CardNumberInput = ({
         {...props}
         wrapperClassName={inputLongStyles({
           theme,
-          supportedCardSchemes,
+          acceptedCardSchemes,
           className
         })}
       >
-        <SchemeList {...{ supportedCardSchemes }} aria-hidden="true">
+        <SchemeList {...{ acceptedCardSchemes }} aria-hidden="true">
           {flow(
             toPairs,
             map(([cardScheme, IconComponent]) => (
@@ -164,7 +164,7 @@ const CardNumberInput = ({
                 <IconComponent />
               </SchemeIconWrapper>
             ))
-          )(supportedCardSchemes)}
+          )(acceptedCardSchemes)}
         </SchemeList>
       </Input>
     </Fragment>
@@ -175,7 +175,7 @@ CardNumberInput.propTypes = {
   /**
    * Card scheme icon components.
    */
-  supportedCardSchemes: PropTypes.objectOf(PropTypes.func).isRequired,
+  acceptedCardSchemes: PropTypes.objectOf(PropTypes.func).isRequired,
   /**
    * The detected card scheme.
    */
