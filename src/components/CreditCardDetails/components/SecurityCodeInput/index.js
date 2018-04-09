@@ -2,7 +2,7 @@ import SecurityCodeInput from './SecurityCodeInput';
 
 export {
   parseSecurityCode,
-  validateSecurityCode
+  isValidSecurityCode
 } from './SecurityCodeInputService';
 
 export default SecurityCodeInput;

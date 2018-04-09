@@ -1,5 +1,4 @@
 import { curry } from '../../../../util/fp';
-import getValidationErrors from '../../../../util/get-validation-errors';
 
 import { schemes } from '../..';
 
@@ -21,16 +20,7 @@ export const parseSecurityCode = curry((scheme, value) => {
     : onlyDigits.slice(0, maxLength);
 });
 
-const validatePattern = curry(
+export const isValidSecurityCode = curry(
   (scheme, value) =>
-    scheme === SCHEMES.AMEX ? !/^\d{4}$/.test(value) : !/^\d{3}$/.test(value)
+    scheme === SCHEMES.AMEX ? /^\d{4}$/.test(value) : /^\d{3}$/.test(value)
 );
-
-export const validateSecurityCode = curry((scheme, value) => {
-  const required = !value || !value.length;
-  const pattern = validatePattern(scheme, value);
-  return getValidationErrors({
-    required,
-    pattern
-  });
-});
