@@ -170,3 +170,7 @@ export const breakpoints = {
 };
 
 export const mq = createMediaQueries(breakpoints);
+
+export const transitions = {
+  default: `200ms ease-in-out`
+};

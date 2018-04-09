@@ -107,6 +107,9 @@ Array [
   right: 0;
   text-align: right;
   white-space: nowrap;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 @media (min-width:451px) {
@@ -312,6 +315,9 @@ Array [
   right: 0;
   text-align: right;
   white-space: nowrap;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 @media (min-width:451px) {
@@ -520,6 +526,9 @@ Array [
   right: 0;
   text-align: right;
   white-space: nowrap;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 @media (min-width:451px) {

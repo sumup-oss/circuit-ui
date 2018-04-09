@@ -24,6 +24,8 @@ const schemeListStyles = ({ theme }) => css`
   right: 0;
   text-align: right;
   white-space: nowrap;
+  opacity: 1;
+  transition: opacity ${theme.transitions.default};
 
   ${theme.mq.medium`
     right: 0;
@@ -31,6 +33,13 @@ const schemeListStyles = ({ theme }) => css`
     text-align: right;
   `};
 `;
+
+const schemeListHiddenStyles = ({ supportedCardSchemes }) =>
+  !keys(supportedCardSchemes).length &&
+  css`
+    label: card-number-input__scheme-list--hidden;
+    opacity: 0;
+  `;
 
 const schemeListLongStyles = ({ theme, supportedCardSchemes }) =>
   shouldRenderSchemesUnderInput(supportedCardSchemes)
@@ -50,6 +59,7 @@ const schemeListLongStyles = ({ theme, supportedCardSchemes }) =>
 const SchemeList = styled('ul')`
   ${schemeListStyles};
   ${schemeListLongStyles};
+  ${schemeListHiddenStyles};
 `;
 
 const AccessibleCardSchemeInfo = styled('div')`
