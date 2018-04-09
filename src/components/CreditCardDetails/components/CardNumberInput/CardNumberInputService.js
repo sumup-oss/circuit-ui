@@ -7,7 +7,6 @@ import {
   keys,
   reduce
 } from '../../../../util/fp';
-import getValidationErrors from '../../../../util/get-validation-errors';
 
 import { VALIDATION_REGEXES } from './constants';
 import { schemes as cardSchemes } from '../..';
@@ -65,12 +64,7 @@ const getDigits = str => str.replace(/[^\d]/g, '');
 export const normalizeCardNumber = (number = '') =>
   number ? getDigits(number) : number;
 
-const validateRequired = value => !value || !value.length;
-
-const validateScheme = (schemes, value) => {
-  const detectedScheme = detectCardScheme(schemes, value);
-  return !detectedScheme.length;
-};
+const validateCardScheme = (schemes, value) => {};
 
 const shouldValidate = cardNumber => {
   if (!cardNumber) {
@@ -121,16 +115,14 @@ const runLuhnCheck = value => {
   return nCheck % 10 === 0;
 };
 
-const validateNumber = value => !runLuhnCheck(value);
-
-export const validateCardNumber = curry((enabledSchemes, value) => {
+export const isValidCardNumber = value => {
   const normalizedValue = normalizeCardNumber(value);
-  const required = validateRequired(normalizedValue);
-  const number = shouldValidate(normalizedValue)
-    ? validateNumber(normalizedValue)
-    : true;
-  const scheme = validateScheme(enabledSchemes, value);
-  return getValidationErrors({ required, number, scheme });
+  return shouldValidate(normalizedValue) ? runLuhnCheck(value) : false;
+};
+
+export const isAcceptedCardScheme = curry((acceptedSchemes, value) => {
+  const detectedScheme = detectCardScheme(acceptedSchemes, value);
+  return detectedScheme.length;
 });
 
 export const isDisabledSchemeIcon = (value, detectedScheme, scheme) => {
