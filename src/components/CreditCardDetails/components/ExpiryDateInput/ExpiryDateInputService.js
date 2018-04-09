@@ -1,4 +1,4 @@
-import { pickBy, identity, includes, keys, some } from '../../../../util/fp';
+import { identity, includes, some } from '../../../../util/fp';
 import getValidationErrors from '../../../../util/get-validation-errors';
 
 // The month won't change while this is running, unless you're signing
@@ -43,11 +43,14 @@ const parseFourth = digits => {
   const yearInt = parseInt(year, 10);
   const decadeInt = parseInt(decade, 10);
   const isFutureMonth = monthInt > CURRENT_MONTH;
+  const isCurrentMonth = monthInt === CURRENT_MONTH;
   const isFutureYear = yearInt > YEAR_INT;
   const isCurrentYear = yearInt === YEAR_INT;
   const isFutureDecade = decadeInt > DECADE_INT;
   const isValid =
-    isFutureDecade || isFutureYear || (isCurrentYear && isFutureMonth);
+    isFutureDecade ||
+    isFutureYear ||
+    (isCurrentYear && (isFutureMonth || isCurrentMonth));
 
   return isValid ? `${month}/${decade}${year}` : prevValue;
 };
@@ -95,21 +98,6 @@ export const normalizeExpiryDate = value => {
     month: month || '',
     year: partialYear ? year : ''
   };
-};
-
-const validatePastDate = value => {
-  const { month, year } = normalizeExpiryDate(value);
-  if (!month || !year) {
-    return true;
-  }
-
-  const monthInt = parseInt(month, 10);
-  const yearInt = parseInt(year, 10);
-
-  return (
-    yearInt < CURRENT_YEAR ||
-    (monthInt < CURRENT_MONTH && yearInt === CURRENT_YEAR)
-  );
 };
 
 const validatePastYear = value => {

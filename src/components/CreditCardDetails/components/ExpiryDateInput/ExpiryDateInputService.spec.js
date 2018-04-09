@@ -82,6 +82,15 @@ describe('ExpiryDateInputService', () => {
       const actual = parseExpiryDate(value);
       expect(actual).toBe(expected);
     });
+
+    it('should allow entering current year, when the entered month is the current month', () => {
+      const thisYearVal = getDecadeAndYear(CURRENT_YEAR); // i.e. 18
+      const thisMonthVal = padToTwo(CURRENT_MONTH); // i.e. 03
+      const value = `${thisMonthVal}/${thisYearVal}`; // i.e. 03/18
+      const expected = `${thisMonthVal}/${thisYearVal}`; // i.e. 03/1
+      const actual = parseExpiryDate(value);
+      expect(actual).toBe(expected);
+    });
   });
 
   describe('normalizing date input values', () => {
