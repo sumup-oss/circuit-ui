@@ -1,8 +1,8 @@
 import {
-  shouldValidate,
   detectCardScheme,
   parseCardNumber,
   normalizeCardNumber,
+  validateCardNumber,
   isDisabledSchemeIcon,
   hasDetectedScheme,
   shouldRenderSchemesUnderInput
@@ -13,6 +13,22 @@ import { filter, pick, values } from '../../../../util/fp';
 
 describe('CardNumberInputService', () => {
   const { SCHEMES } = cardSchemes;
+  const SCHEME_NAMES = values(SCHEMES);
+
+  const runNumberValidation = (schemes, value) => {
+    const validValue = value;
+    const invalidValue = `${value.slice(0, -1)}2`;
+    const actualValid = validateCardNumber(schemes, validValue);
+    expect(actualValid).toBeNull();
+    const actualInvalid = validateCardNumber(schemes, invalidValue).number;
+    expect(actualInvalid).toBeTruthy();
+  };
+
+  const runInvalidSchemeLengthValidation = (schemes, value) => {
+    const invalidValue = value.slice(0, -1);
+    const actual = validateCardNumber(schemes, invalidValue).number;
+    expect(actual).toBeTruthy();
+  };
 
   const CARD_NUMBERS = {
     VISA_13: '4916721083783',
@@ -30,201 +46,183 @@ describe('CardNumberInputService', () => {
     MAESTRO_18: '578321853304455503',
     MAESTRO_19: '5021488423877057584',
     JCB_16: '3528775395242898',
+    EN_ROUTE: '214953602300768', // Unknown scheme
     fallback: '0000000000000'
   };
 
-  describe('determine whether a given card number should be validated', () => {
-    describe('Visa', () => {
-      it('should run validations for Visa numbers with 13 digits', () => {
-        const number = CARD_NUMBERS.VISA_13;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should run validations for Visa numbers with 16 digits', () => {
-        const number = CARD_NUMBERS.VISA_16;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should reject Visa numbers with other lengths', () => {
-        const number = CARD_NUMBERS.VISA_16.slice(0, 15);
-        const actual = shouldValidate(number);
-        expect(actual).toBeFalsy();
-      });
-    });
-
-    describe('Mastercard', () => {
-      it('should run validations for Mastercard numbers with 16 digits', () => {
-        const number = CARD_NUMBERS.MASTERCARD;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should not run validations for Mastercard numbers with other lengths', () => {
-        const number = CARD_NUMBERS.MASTERCARD.slice(0, 15);
-        const actual = shouldValidate(number);
-        expect(actual).toBeFalsy();
-      });
-    });
-
-    describe('American Express', () => {
-      it('should run validations for American Express numbers with 15 digits', () => {
-        const number = CARD_NUMBERS.AMEX;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should not run validations for American Express numbers with other lengths', () => {
-        const number = CARD_NUMBERS.AMEX.slice(0, 14);
-        const actual = shouldValidate(number);
-        expect(actual).toBeFalsy();
-      });
-    });
-
-    describe("Diner's Club", () => {
-      it("should run validations for Diner's numbers with 14 digits", () => {
-        const number = CARD_NUMBERS.DINERS;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it("should not run validations for Diner's numbers with other lengths", () => {
-        const number = CARD_NUMBERS.DINERS.slice(0, 13);
-        const actual = shouldValidate(number);
-        expect(actual).toBeFalsy();
-      });
-    });
-
-    describe('Discover', () => {
-      it('should run validations for Discover numbers with 16 digits', () => {
-        const number = CARD_NUMBERS.DISCOVER;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should not run validations for Discover numbers with other lengths', () => {
-        const number = CARD_NUMBERS.DISCOVER.slice(0, 15);
-        const actual = shouldValidate(number);
-        expect(actual).toBeFalsy();
-      });
-    });
-
-    describe('Maestro', () => {
-      it('should run validations for Maestro numbers with 12 digits', () => {
-        const number = CARD_NUMBERS.MAESTRO_12;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should run validations for Maestro numbers with 13 digits', () => {
-        const number = CARD_NUMBERS.MAESTRO_13;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should run validations for Maestro numbers with 14 digits', () => {
-        const number = CARD_NUMBERS.MAESTRO_14;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should run validations for Maestro numbers with 15 digits', () => {
-        const number = CARD_NUMBERS.MAESTRO_15;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should run validations for Maestro numbers with 16 digits', () => {
-        const number = CARD_NUMBERS.MAESTRO_16;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should run validations for Maestro numbers with 17 digits', () => {
-        const number = CARD_NUMBERS.MAESTRO_17;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should run validations for Maestro numbers with 18 digits', () => {
-        const number = CARD_NUMBERS.MAESTRO_18;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should run validations for Maestro numbers with 19 digits', () => {
-        const number = CARD_NUMBERS.MAESTRO_19;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should not run validations for Maestro numbers with other lengths', () => {
-        const number = CARD_NUMBERS.MAESTRO_12.slice(0, 11);
-        const actual = shouldValidate(number);
-        expect(actual).toBeFalsy();
-      });
-    });
-
-    describe('JCB', () => {
-      it('should run validations for JCB numbers with 16 digits', () => {
-        const number = CARD_NUMBERS.JCB_16;
-        const actual = shouldValidate(number);
-        expect(actual).toBeTruthy();
-      });
-
-      it('should not run validations for JCB numbers with other lengths', () => {
-        const number = CARD_NUMBERS.JCB_16.slice(0, 15);
-        const actual = shouldValidate(number);
-        expect(actual).toBeFalsy();
-      });
-    });
-
-    it('should force validations for unrecognized card numbers with at least 13 digits ', () => {
-      const number = CARD_NUMBERS.fallback;
-      const actual = shouldValidate(number);
+  describe('validating card number values', () => {
+    it('should return a required error when passed an empty string', () => {
+      const value = '';
+      const actual = validateCardNumber(SCHEME_NAMES, value).required;
       expect(actual).toBeTruthy();
     });
 
-    it('should never force validations for unrecognized card numbers with less than 13 digits ', () => {
-      const number = CARD_NUMBERS.fallback.slice(0, -1);
-      const actual = shouldValidate(number);
-      expect(actual).toBeFalsy();
+    it('should return a required error, when passed a falsy value', () => {
+      const value = undefined;
+      const actual = validateCardNumber(SCHEME_NAMES, value).required;
+      expect(actual).toBeTruthy();
+    });
+
+    it('should return a scheme error, when no card scheme can be inferred', () => {
+      const value = CARD_NUMBERS.fallback;
+      const actual = validateCardNumber(SCHEME_NAMES, value).scheme;
+      expect(actual).toBeTruthy();
+    });
+
+    describe('validating card number values against a given scheme', () => {
+      it('should always return a number error for unknown schemes, when passing a value with less than 13 digits', () => {
+        const value = CARD_NUMBERS.fallback.slice(0, -1);
+        const actual = validateCardNumber(SCHEME_NAMES, value).number;
+        expect(actual).toBeTruthy();
+      });
+
+      it('should validate unknown card scheme numbers when they are at least 13 digits long', () => {
+        // Here we are using a valid card number of an unknown scheme.
+        const value = CARD_NUMBERS.EN_ROUTE;
+        const actual = validateCardNumber(SCHEME_NAMES, value).number;
+        expect(actual).toBeFalsy();
+      });
+
+      describe('Visa', () => {
+        it('should validate VISA numbers with 13 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.VISA_13);
+        });
+
+        it('should validate VISA numbers with 16 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.VISA_16);
+        });
+
+        it('should reject Visa numbers with other lengths', () => {
+          runInvalidSchemeLengthValidation(SCHEME_NAMES, CARD_NUMBERS.VISA_16);
+        });
+      });
+
+      describe('Mastercard', () => {
+        it('should validate Mastercard numbers 16 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.MASTERCARD);
+        });
+
+        it('should reject Mastercard numbers with other lengths', () => {
+          runInvalidSchemeLengthValidation(
+            SCHEME_NAMES,
+            CARD_NUMBERS.MASTERCARD
+          );
+        });
+      });
+
+      describe('American Express', () => {
+        it('should validate Amex numbers with 15 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.AMEX);
+        });
+
+        it('should reject Amex numbers with other lengths', () => {
+          runInvalidSchemeLengthValidation(SCHEME_NAMES, CARD_NUMBERS.AMEX);
+        });
+      });
+
+      describe("Diner's Club", () => {
+        it("should validate Diner's numbers with 14 digits", () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.DINERS);
+        });
+
+        it("should reject Diner's numbers with other lengths", () => {
+          runInvalidSchemeLengthValidation(SCHEME_NAMES, CARD_NUMBERS.DINERS);
+        });
+      });
+
+      describe('Discover', () => {
+        it('should validate Discover numbers with 16 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.DISCOVER);
+        });
+
+        it('should reject Discover numbers with other lengths', () => {
+          runInvalidSchemeLengthValidation(SCHEME_NAMES, CARD_NUMBERS.DISCOVER);
+        });
+      });
+
+      describe('Maestro', () => {
+        it('should validate Maestro numbers with 12 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.MAESTRO_12);
+        });
+
+        it('should validate Maestro numbers with 13 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.MAESTRO_13);
+        });
+
+        it('should validate Maestro numbers with 14 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.MAESTRO_14);
+        });
+
+        it('should validate Maestro numbers with 15 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.MAESTRO_15);
+        });
+
+        it('should validate Maestro numbers with 16 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.MAESTRO_16);
+        });
+
+        it('should validate Maestro numbers with 17 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.MAESTRO_17);
+        });
+
+        it('should validate Maestro numbers with 18 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.MAESTRO_18);
+        });
+
+        it('should validate Maestro numbers with 19 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.MAESTRO_19);
+        });
+
+        it('should reject Maestro numbers with other lengths', () => {
+          runInvalidSchemeLengthValidation(
+            SCHEME_NAMES,
+            CARD_NUMBERS.MAESTRO_12
+          );
+        });
+      });
+
+      describe('JCB', () => {
+        it('should validate JCB numbers with 16 digits', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.JCB_16);
+        });
+
+        it('should reject JCB numbers with other lengths', () => {
+          runNumberValidation(SCHEME_NAMES, CARD_NUMBERS.JCB_16);
+        });
+      });
     });
   });
 
   describe('Detecting card schemes', () => {
-    const schemes = values(SCHEMES);
-
     it('should detect a VISA card', () => {
       const expected = SCHEMES.VISA;
-      const actual13 = detectCardScheme(CARD_NUMBERS.VISA_13, schemes);
-      const actual16 = detectCardScheme(CARD_NUMBERS.VISA_16, schemes);
+      const actual13 = detectCardScheme(SCHEME_NAMES, CARD_NUMBERS.VISA_13);
+      const actual16 = detectCardScheme(SCHEME_NAMES, CARD_NUMBERS.VISA_16);
       expect(actual13).toBe(expected);
       expect(actual16).toBe(expected);
     });
 
     it('should detect a Mastercard card', () => {
       const expected = SCHEMES.MASTERCARD;
-      const actual = detectCardScheme(CARD_NUMBERS.MASTERCARD, schemes);
+      const actual = detectCardScheme(SCHEME_NAMES, CARD_NUMBERS.MASTERCARD);
       expect(actual).toBe(expected);
     });
 
     it('should detect a Amex card', () => {
       const expected = SCHEMES.AMEX;
-      const actual = detectCardScheme(CARD_NUMBERS.AMEX, schemes);
+      const actual = detectCardScheme(SCHEME_NAMES, CARD_NUMBERS.AMEX);
       expect(actual).toBe(expected);
     });
 
     it('should detect a Diners card', () => {
       const expected = SCHEMES.DINERS;
-      const actual = detectCardScheme(CARD_NUMBERS.DINERS, schemes);
+      const actual = detectCardScheme(SCHEME_NAMES, CARD_NUMBERS.DINERS);
       expect(actual).toBe(expected);
     });
 
     it('should detect a Discover card', () => {
       const expected = SCHEMES.DISCOVER;
-      const actual = detectCardScheme(CARD_NUMBERS.DISCOVER, schemes);
+      const actual = detectCardScheme(SCHEME_NAMES, CARD_NUMBERS.DISCOVER);
       expect(actual).toBe(expected);
     });
 
@@ -235,36 +233,36 @@ describe('CardNumberInputService', () => {
       // online.
       const nonBrazilSchemes = filter(
         scheme => scheme !== SCHEMES.ELO,
-        schemes
+        SCHEME_NAMES
       );
       const expected = SCHEMES.MAESTRO;
       const actual12 = detectCardScheme(
-        CARD_NUMBERS.MAESTRO_12,
-        nonBrazilSchemes
+        nonBrazilSchemes,
+        CARD_NUMBERS.MAESTRO_12
       );
       const actual13 = detectCardScheme(
-        CARD_NUMBERS.MAESTRO_13,
-        nonBrazilSchemes
+        nonBrazilSchemes,
+        CARD_NUMBERS.MAESTRO_13
       );
       const actual15 = detectCardScheme(
-        CARD_NUMBERS.MAESTRO_15,
-        nonBrazilSchemes
+        nonBrazilSchemes,
+        CARD_NUMBERS.MAESTRO_15
       );
       const actual16 = detectCardScheme(
-        CARD_NUMBERS.MAESTRO_16,
-        nonBrazilSchemes
+        nonBrazilSchemes,
+        CARD_NUMBERS.MAESTRO_16
       );
       const actual17 = detectCardScheme(
-        CARD_NUMBERS.MAESTRO_17,
-        nonBrazilSchemes
+        nonBrazilSchemes,
+        CARD_NUMBERS.MAESTRO_17
       );
       const actual18 = detectCardScheme(
-        CARD_NUMBERS.MAESTRO_18,
-        nonBrazilSchemes
+        nonBrazilSchemes,
+        CARD_NUMBERS.MAESTRO_18
       );
       const actual19 = detectCardScheme(
-        CARD_NUMBERS.MAESTRO_19,
-        nonBrazilSchemes
+        nonBrazilSchemes,
+        CARD_NUMBERS.MAESTRO_19
       );
       expect(actual12).toBe(expected);
       expect(actual13).toBe(expected);
@@ -277,7 +275,7 @@ describe('CardNumberInputService', () => {
 
     it('should detect a JCB card', () => {
       const expected = SCHEMES.JCB;
-      const actual = detectCardScheme(CARD_NUMBERS.JCB_16, schemes);
+      const actual = detectCardScheme(SCHEME_NAMES, CARD_NUMBERS.JCB_16);
       expect(actual).toBe(expected);
     });
   });
@@ -377,6 +375,15 @@ describe('CardNumberInputService', () => {
       const expected = '1234 568 45';
       const actual = parseCardNumber(cardNumber);
       expect(actual).toBe(expected);
-    })
+    });
+  });
+
+  describe('normalizing credit card number', () => {
+    it('should remove all non-digit characters', () => {
+      const value = '12f34 5678 9098 7654 3';
+      const expected = '12345678909876543';
+      const actual = normalizeCardNumber(value);
+      expect(actual).toBe(expected);
+    });
   });
 });

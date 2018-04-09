@@ -1,44 +1,30 @@
 import {
   concat,
+  curry,
   find,
   flow,
   includes,
   keys,
   reduce
 } from '../../../../util/fp';
+import getValidationErrors from '../../../../util/get-validation-errors';
 
 import { VALIDATION_REGEXES } from './constants';
 import { schemes as cardSchemes } from '../..';
 
 const { SCHEMES } = cardSchemes;
 
-export const shouldValidate = cardNumber => {
-  if (!cardNumber) {
-    return false;
-  }
-
-  const schemeLengths = {
-    '^4': [13, 16], // Visa
-    '^(?:2(?:2(?:2[1-9]|[3-9])|[3-6]|7(?:[0-1]|20))|5[1-5])': [16], // MasterCard
-    '^3[47]': [15], // American Express
-    '^(?:3(?:0(?:[0-5]|95)|[68-9]))': [14], // Diner's Club
-    '^6(?:011|22(?:1(?:2[6-9]|[3-9])|[2-8]|9(?:[0-1]|2[0-5]))|4[4-9]|5)': [16], // Discover
-    '^(?:5[06-9]|6(?:3(?:04|90)|7))': [12, 13, 14, 15, 16, 17, 18, 19], // Maestro
-    '^35': [16] // Japan Credit Bureau
-  };
-
-  const currentSchemeLengths = flow(
-    keys,
-    find(pattern => new RegExp(pattern).test(cardNumber)),
-    key => schemeLengths[key]
-  )(schemeLengths);
-
-  if (!currentSchemeLengths) {
-    return cardNumber.length >= 13;
-  }
-
-  return includes(cardNumber.length, currentSchemeLengths);
+const SCHEME_LENGTHS = {
+  '^4': [13, 16], // Visa
+  '^(?:2(?:2(?:2[1-9]|[3-9])|[3-6]|7(?:[0-1]|20))|5[1-5])': [16], // MasterCard
+  '^3[47]': [15], // American Express
+  '^(?:3(?:0(?:[0-5]|95)|[68-9]))': [14], // Diner's Club
+  '^6(?:011|22(?:1(?:2[6-9]|[3-9])|[2-8]|9(?:[0-1]|2[0-5]))|4[4-9]|5)': [16], // Discover
+  '^(?:5[06-9]|6(?:3(?:04|90)|7))': [12, 13, 14, 15, 16, 17, 18, 19], // Maestro
+  '^35': [16] // Japan Credit Bureau
 };
+
+const SCHEME_DETECTION_PATTERNS = keys(SCHEME_LENGTHS);
 
 const SCHEME_PRIORITIES = {
   [SCHEMES.AMEX]: 100,
@@ -51,15 +37,15 @@ const SCHEME_PRIORITIES = {
   [SCHEMES.VISA]: 100
 };
 
-export const detectCardScheme = (cardNumber, schemes) => {
-  if (!cardNumber) {
+export const detectCardScheme = curry((schemes, value) => {
+  if (!value || (value && !value.length)) {
     return '';
   }
 
   const matchingSchemes = reduce(
     (acc, scheme) => {
       const regex = VALIDATION_REGEXES[scheme];
-      return regex && regex.test(cardNumber) ? concat(acc, scheme) : acc;
+      return regex && regex.test(value) ? concat(acc, scheme) : acc;
     },
     [],
     schemes
@@ -71,13 +57,42 @@ export const detectCardScheme = (cardNumber, schemes) => {
     matchingSchemes.slice(1)
   );
 
-  return luhnCheck(cardNumber) ? scheme : '';
+  return scheme || '';
+});
+
+const getDigits = str => str.replace(/[^\d]/g, '');
+
+export const normalizeCardNumber = (number = '') =>
+  number ? getDigits(number) : number;
+
+const validateRequired = value => !value || !value.length;
+
+const validateScheme = (schemes, value) => {
+  const detectedScheme = detectCardScheme(schemes, value);
+  return !detectedScheme.length;
+};
+
+const shouldValidate = cardNumber => {
+  if (!cardNumber) {
+    return false;
+  }
+
+  const currentSchemeLengths = flow(
+    find(pattern => new RegExp(pattern).test(cardNumber)),
+    key => SCHEME_LENGTHS[key]
+  )(SCHEME_DETECTION_PATTERNS);
+
+  if (!currentSchemeLengths) {
+    return cardNumber.length >= 13;
+  }
+
+  return includes(cardNumber.length, currentSchemeLengths);
 };
 
 /*
  * https://gist.github.com/DiegoSalazar/4075533
  */
-function luhnCheck(value) {
+const runLuhnCheck = value => {
   if (/[^\d-\s]+/.test(value)) {
     return false;
   }
@@ -104,7 +119,19 @@ function luhnCheck(value) {
   }
 
   return nCheck % 10 === 0;
-}
+};
+
+const validateNumber = value => !runLuhnCheck(value);
+
+export const validateCardNumber = curry((enabledSchemes, value) => {
+  const normalizedValue = normalizeCardNumber(value);
+  const required = validateRequired(normalizedValue);
+  const number = shouldValidate(normalizedValue)
+    ? validateNumber(normalizedValue)
+    : true;
+  const scheme = validateScheme(enabledSchemes, value);
+  return getValidationErrors({ required, number, scheme });
+});
 
 export const isDisabledSchemeIcon = (value, detectedScheme, scheme) => {
   const hasValue = value && value.length;
@@ -118,13 +145,6 @@ export const shouldRenderSchemesUnderInput = schemes =>
 
 export const hasDetectedScheme = detectedScheme =>
   detectedScheme && detectedScheme.length;
-
-const getDigits = str => str.replace(/[^\d]/g, '');
-
-// Don't use this in your form, but after submitting the
-// form, to clean up a valid card number for your API.
-export const normalizeCardNumber = (number = '') =>
-  number ? getDigits(number) : number;
 
 export const parseCardNumber = (number = '') => {
   const isEditingNumber =
