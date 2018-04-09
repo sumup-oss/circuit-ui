@@ -12,7 +12,8 @@ import CreditCardDetails, {
   cardSchemeIcons,
   schemes,
   parseExpiryDate,
-  parseCardNumber
+  parseCardNumber,
+  parseSecurityCode
 } from '.';
 
 const { SCHEMES } = schemes;
@@ -85,7 +86,7 @@ storiesOf('CreditCardDetails', module)
               renderSecurityCodeInput={() => (
                 <SecurityCodeInput
                   value={values.securityCode}
-                  onChange={handleChange('securityCode')}
+                  onChange={handleChange('securityCode', parseSecurityCode(''))}
                 />
               )}
             />
