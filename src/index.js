@@ -1,7 +1,8 @@
 import {
   // Utils for CardNumberInput
   parseCardNumber,
-  validateCardNumber,
+  isValidCardNumber,
+  isAcceptedCardScheme,
   normalizeCardNumber,
   detectCardScheme,
   // Utils for ExpiryDateInput
@@ -16,8 +17,9 @@ import {
 } from './components/CreditCardDetails';
 
 const cardNumberUtils = {
+  isValidCardNumber,
+  isAcceptedCardScheme,
   parseCardNumber,
-  validateCardNumber,
   normalizeCardNumber,
   detectCardScheme
 };

@@ -3,7 +3,8 @@ import CardNumberInput from './CardNumberInput';
 export {
   parseCardNumber,
   normalizeCardNumber,
-  validateCardNumber,
+  isValidCardNumber,
+  isAcceptedCardScheme,
   detectCardScheme
 } from './CardNumberInputService';
 
