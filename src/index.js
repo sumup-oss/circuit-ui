@@ -1,3 +1,40 @@
+import {
+  // Utils for CardNumberInput
+  parseCardNumber,
+  validateCardNumber,
+  normalizeCardNumber,
+  detectCardScheme,
+  // Utils for ExpiryDateInput
+  parseExpiryDate,
+  validateExpiryDate,
+  normalizeExpiryDate,
+  // Utils for SecurityCodeInput
+  parseSecurityCode,
+  validateSecurityCode,
+  // Misc
+  schemes as ALL_CARD_SCHEMES
+} from './components/CreditCardDetails';
+
+const cardNumberUtils = {
+  parseCardNumber,
+  validateCardNumber,
+  normalizeCardNumber,
+  detectCardScheme
+};
+
+const expiryDateUtils = {
+  parseExpiryDate,
+  validateExpiryDate,
+  normalizeExpiryDate,
+  detectCardScheme
+};
+
+const securityCodeUtils = {
+  parseSecurityCode,
+  validateSecurityCode,
+  detectCardScheme
+};
+
 // Typography
 export { default as Heading } from './components/Heading';
 export { default as List } from './components/List';
@@ -39,7 +76,19 @@ export { default as LoadingBar } from './components/LoadingBar';
 export { default as Tag } from './components/Tag';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Modal, ModalProvider } from './components/Modal';
-export * as CreditCardDetails from './components/CreditCardDetails';
-
+export {
+  default as CreditCardDetails,
+  CardNumberInput,
+  cardSchemeIcons,
+  NameOnCardInput,
+  SecurityCodeInput,
+  ExpiryDateInput
+} from './components/CreditCardDetails';
+export {
+  cardNumberUtils,
+  expiryDateUtils,
+  securityCodeUtils,
+  ALL_CARD_SCHEMES
+};
 // Helpers
 export { default as State } from './components/State';
