@@ -1,4 +1,5 @@
 import { pickBy, identity, includes, keys, some } from '../../../../util/fp';
+import getValidationErrors from '../../../../util/get-validation-errors';
 
 // The month won't change while this is running, unless you're signing
 // up the night before your credit card expires, right before mindnight.
@@ -151,7 +152,7 @@ export const validateExpiryDate = expiryDate => {
   const pastYear = validatePastYear(expiryDate);
   const pastMonth = validatePastMonth(expiryDate);
   const past = pastYear || pastMonth;
-  const activeErrors = pickBy(identity, {
+  return getValidationErrors({
     incompleteMonth,
     incompleteYear,
     incomplete,
@@ -159,5 +160,4 @@ export const validateExpiryDate = expiryDate => {
     pastYear,
     past
   });
-  return keys(activeErrors).length === 0 ? null : activeErrors;
 };
