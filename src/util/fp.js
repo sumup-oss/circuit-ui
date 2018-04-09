@@ -8,7 +8,7 @@ import { flow, curry } from 'lodash/fp';
 
 export { compose } from 'lodash/fp';
 
-export { flow };
+export { flow, curry };
 
 // Requires polyfill
 export const values = obj => Object.values(obj);
