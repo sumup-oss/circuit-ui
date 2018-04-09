@@ -46,22 +46,22 @@ export default class CreditCardDetails extends Component {
      * Render prop for the security code modal. Receives
      * an 'onShowInfo' prop.
      */
-    renderSecurityCodeModal: PropTypes.func
+    renderSecurityCodeInfo: PropTypes.func
   };
 
   static defaultProps = {
-    renderSecurityCodeModal: null
+    renderSecurityCodeInfo: null
   };
 
   state = INITIAL_STATE;
 
   getSecurityCodeInputProps = () => {
-    const canShowSecurityCodeInfo = toBool(this.props.renderSecurityCodeModal);
+    const canShowSecurityCodeInfo = toBool(this.props.renderSecurityCodeInfo);
 
-    return canShowSecurityCodeInfo ? { onShowInfo: this.handleShowInfo } : {};
+    return canShowSecurityCodeInfo ? { onShowInfo: this.handleToggleInfo } : {};
   };
 
-  handleShowInfo = () => {
+  handleToggleInfo = () => {
     this.setState(stateReducer(ACTIONS.TOGGLE_INFO));
   };
 
@@ -71,7 +71,7 @@ export default class CreditCardDetails extends Component {
       cardNumber,
       expiryDate,
       renderSecurityCodeInput,
-      renderSecurityCodeModal
+      renderSecurityCodeInfo
     } = this.props;
     const { isShowingInfo } = this.state;
     const securityCodeInputProps = this.getSecurityCodeInputProps();
@@ -84,10 +84,10 @@ export default class CreditCardDetails extends Component {
           <div>{expiryDate}</div>
           <div>{renderSecurityCodeInput(securityCodeInputProps)}</div>
         </InlineInputs>
-        {renderSecurityCodeModal &&
-          renderSecurityCodeModal({
-            isOpen: isShowingInfo,
-            onClose: this.handleToggleModal
+        {renderSecurityCodeInfo &&
+          renderSecurityCodeInfo({
+            isShowingInfo,
+            onHideInfo: this.handleToggleInfo
           })}
       </CardDetailsContainer>
     );

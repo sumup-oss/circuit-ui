@@ -8,7 +8,7 @@ export const INITIAL_STATE = {
 
 export const stateReducer = action => prevState => {
   switch (action) {
-    case ACTIONS.TOGGLE_MODAL:
+    case ACTIONS.TOGGLE_INFO:
       return { isShowingInfo: !prevState.isShowingInfo };
     default:
       return prevState;
