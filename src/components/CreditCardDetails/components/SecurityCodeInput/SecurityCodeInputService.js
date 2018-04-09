@@ -13,9 +13,12 @@ export const parseSecurityCode = curry((scheme, value) => {
     return value;
   }
 
+  const maxLength = scheme === SCHEMES.AMEX ? 4 : 3;
+
   const onlyDigits = value.replace(/[^\d]/g, '');
-  const regex = scheme === SCHEMES.AMEX ? /^\d{4}/ : /^\d{3}/;
-  return (onlyDigits.match(regex) || [])[0];
+  return onlyDigits.length <= maxLength
+    ? onlyDigits
+    : onlyDigits.slice(0, maxLength);
 });
 
 const validatePattern = curry(

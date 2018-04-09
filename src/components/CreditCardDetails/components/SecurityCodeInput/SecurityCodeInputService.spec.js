@@ -29,6 +29,13 @@ describe('SecurityCodeInputService', () => {
       expect(actual).toBe(expected);
     });
 
+    it('should parse partial values', () => {
+      const value = '1';
+      const expected = '1';
+      const actual = parseSecurityCode('', value);
+      expect(actual).toBe(expected);
+    });
+
     it('should limit the value to three digits by default', () => {
       const value = '1234';
       const expected = '123';
