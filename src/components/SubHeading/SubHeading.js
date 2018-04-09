@@ -40,7 +40,7 @@ const SubHeadingElement = styled(HtmlElement)(
  */
 
 const SubHeading = props => (
-  <SubHeadingElement {...props} blacklist={{ margin: true }} />
+  <SubHeadingElement {...props} blacklist={{ noMargin: true }} />
 );
 
 SubHeading.KILO = KILO;
