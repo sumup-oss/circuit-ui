@@ -11,7 +11,7 @@ import {
   normalizeExpiryDate,
   // Utils for SecurityCodeInput
   parseSecurityCode,
-  validateSecurityCode,
+  isValidSecurityCode,
   // Misc
   schemes as ALL_CARD_SCHEMES
 } from './components/CreditCardDetails';
@@ -33,7 +33,7 @@ const expiryDateUtils = {
 
 const securityCodeUtils = {
   parseSecurityCode,
-  validateSecurityCode,
+  isValidSecurityCode,
   detectCardScheme
 };
 

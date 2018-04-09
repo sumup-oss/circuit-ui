@@ -2,7 +2,7 @@ import { schemes } from '../..';
 import {
   getPlaceholder,
   parseSecurityCode,
-  validateSecurityCode
+  isValidSecurityCode
 } from './SecurityCodeInputService';
 
 describe('SecurityCodeInputService', () => {
@@ -52,28 +52,22 @@ describe('SecurityCodeInputService', () => {
   });
 
   describe('validating input values', () => {
-    it('should detect an empty value', () => {
-      const value = '';
-      const actual = validateSecurityCode('', value).required;
-      expect(actual).toBeTruthy();
+    it('should validate three digit security codes', () => {
+      const validValue = '331';
+      const actualValid = isValidSecurityCode(SCHEMES.VISA, validValue);
+      expect(actualValid).toBeTruthy();
+      const invalidValue = 'f31';
+      const actualInvalid = isValidSecurityCode(SCHEMES.VISA, invalidValue);
+      expect(actualInvalid).toBeFalsy();
     });
 
-    it('should detect a falsy value', () => {
-      const value = undefined;
-      const actual = validateSecurityCode('', value).required;
-      expect(actual).toBeTruthy();
-    });
-
-    it('should detect pattern errors', () => {
-      const value = 'f231';
-      const actual = validateSecurityCode('', value).pattern;
-      expect(actual).toBeTruthy();
-    });
-
-    it('should detect pattern errors for AMEX', () => {
-      const value = '231';
-      const actual = validateSecurityCode(SCHEMES.AMEX, value).pattern;
-      expect(actual).toBeTruthy();
+    it('should validate AMEX security codes', () => {
+      const validValue = '1231';
+      const actualValid = isValidSecurityCode(SCHEMES.AMEX, validValue);
+      expect(actualValid).toBeTruthy();
+      const invalidValue = '231';
+      const actualInvalid = isValidSecurityCode(SCHEMES.AMEX, invalidValue);
+      expect(actualInvalid).toBeFalsy();
     });
   });
 });
