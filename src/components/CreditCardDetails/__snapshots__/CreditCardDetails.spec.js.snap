@@ -33,6 +33,7 @@ exports[`CreditCardDetails should render with default styles 1`] = `
     content: '.';
     display: block;
     height: 0;
+    width: 0;
     overflow: hidden;
   }
 
@@ -86,6 +87,7 @@ exports[`CreditCardDetails should render with default styles 1`] = `
     content: '.';
     display: block;
     height: 0;
+    width: 0;
     overflow: hidden;
   }
 
