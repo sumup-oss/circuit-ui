@@ -90,7 +90,7 @@ export const parseExpiryDate = (value = '') => {
   }
 };
 
-export const normalizeExpiryDate = value => {
+export const normalizeExpiryDate = (value = '') => {
   const [, month, partialYear] = value.match(/(\d{2})\/?(\d{2})/) || [];
   const year = `${CENTURY}${partialYear}`;
   return {

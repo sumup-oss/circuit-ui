@@ -20,7 +20,11 @@ export const parseSecurityCode = curry((scheme, value) => {
     : onlyDigits.slice(0, maxLength);
 });
 
-export const isValidSecurityCode = curry(
-  (scheme, value) =>
-    scheme === SCHEMES.AMEX ? /^\d{4}$/.test(value) : /^\d{3}$/.test(value)
-);
+export const isValidSecurityCode = curry((scheme, value) => {
+  if (!value || !value.length) {
+    return false;
+  }
+  return scheme === SCHEMES.AMEX
+    ? /^\d{4}$/.test(value)
+    : /^\d{3}$/.test(value);
+});
