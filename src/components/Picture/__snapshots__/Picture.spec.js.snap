@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Picture should render with default styles 1`] = `
+<picture>
+  <img
+    alt={undefined}
+    src={undefined}
+  />
+</picture>
+`;

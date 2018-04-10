@@ -84,6 +84,7 @@ export { default as LoadingBar } from './components/LoadingBar';
 export { default as Tag } from './components/Tag';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Modal, ModalProvider } from './components/Modal';
+export { default as Picture } from './components/Picture';
 export {
   default as CreditCardDetails,
   CardNumberInput,
