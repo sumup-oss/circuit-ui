@@ -57,6 +57,7 @@ const inputBaseStyles = ({ theme }) => css`
   border-radius: ${theme.borderRadius.mega};
   box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
+  transition: border-color ${theme.transitions.default};
   width: 100%;
   ${textMega({ theme })};
 
@@ -68,6 +69,7 @@ const inputBaseStyles = ({ theme }) => css`
 
   &::placeholder {
     color: ${theme.colors.n500};
+    transition: color ${theme.transitions.default};
   }
 `;
 
@@ -179,24 +181,54 @@ const InputTooltip = styled(Tooltip)`
   ${tooltipBaseStyles};
 `;
 
-const getSuffixComponent = ({ invalid, hasWarning, showValid, disabled }) => {
+const validationIconBaseStyles = ({ theme }) => css`
+  opacity: 0;
+  transition: opacity ${theme.transitions.default};
+`;
+
+const validationIconActiveStyles = ({ invalid, hasWarning }) =>
+  (invalid || hasWarning) &&
+  css`
+    opacity: 1;
+  `;
+
+const ValidationIconWrapper = styled('div')(
+  validationIconBaseStyles,
+  validationIconActiveStyles
+);
+
+const iconStyles = css`
+  width: 100%;
+  height: 100%;
+`;
+
+/* eslint-disable react/prop-types */
+const ValidationIcon = ({
+  invalid,
+  hasWarning,
+  showValid,
+  disabled,
+  className
+}) => {
   if (disabled) {
     return null;
   }
-  const components = [
-    invalid && ErrorIcon,
-    hasWarning && WarningIcon,
-    showValid && ValidIcon
+
+  const icons = [
+    invalid && <ErrorIcon role="img" className={iconStyles} />,
+    hasWarning && <WarningIcon role="img" className={iconStyles} />,
+    showValid && <ValidIcon role="img" className={iconStyles} />
   ];
 
-  const SuffixComponent = find(components);
+  const icon = find(icons);
 
-  /* eslint-disable react/prop-types */
-  return SuffixComponent
-    ? ({ className }) => <SuffixComponent className={className} />
-    : null;
-  /* eslint-enable react/prop-types */
+  return (
+    <ValidationIconWrapper {...{ invalid, hasWarning, className }}>
+      {icon || null}
+    </ValidationIconWrapper>
+  );
 };
+/* eslint-enable react/prop-types */
 
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
@@ -221,9 +253,15 @@ const Input = ({
 
   const suffixClassName = cx(suffixStyles({ theme }));
 
+  /* eslint-disable react/prop-types */
   const suffix =
     customSuffix ||
-    getSuffixComponent({ disabled, invalid, hasWarning, showValid });
+    (({ className }) => (
+      <ValidationIcon
+        {...{ invalid, hasWarning, showValid, disabled, className }}
+      />
+    ));
+  /* eslint-enable react/prop-types */
 
   const hasPrefix = !!prefix;
   const hasSuffix = !!suffix;

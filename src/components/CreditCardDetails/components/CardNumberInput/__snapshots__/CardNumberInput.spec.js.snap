@@ -56,7 +56,7 @@ Array [
   >
     Card number
   </label>,
-  .circuit-12 {
+  .circuit-14 {
   color: #212933;
   display: block;
   position: relative;
@@ -71,9 +71,12 @@ Array [
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
 }
 
 .circuit-0:focus,
@@ -84,21 +87,42 @@ Array [
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
-.circuit-10 {
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-12 {
   bottom: 100%;
   display: block;
   list-style: none;
@@ -113,15 +137,32 @@ Array [
 }
 
 @media (min-width:451px) {
-  .circuit-10 {
+  .circuit-12 {
     right: 0;
     width: auto;
     text-align: right;
   }
 }
 
+.circuit-6 {
+  display: inline-block;
+}
+
+.circuit-6:not(:last-of-type) {
+  margin-right: 4px;
+}
+
+.circuit-6 > svg {
+  width: auto;
+  height: 16px;
+}
+
 .circuit-4 {
   display: inline-block;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  opacity: 0.2;
 }
 
 .circuit-4:not(:last-of-type) {
@@ -133,25 +174,8 @@ Array [
   height: 16px;
 }
 
-.circuit-2 {
-  display: inline-block;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  opacity: 0.2;
-}
-
-.circuit-2:not(:last-of-type) {
-  margin-right: 4px;
-}
-
-.circuit-2 > svg {
-  width: auto;
-  height: 16px;
-}
-
 <div
-    className="circuit-12 circuit-13"
+    className="circuit-14 circuit-15"
     disabled={false}
   >
     <input
@@ -167,12 +191,15 @@ Array [
       type="tel"
       value="4485 7197 7461 1397"
     />
+    <div
+      className="circuit-2 circuit-3"
+    />
     <ul
       aria-hidden="true"
-      className="circuit-10 circuit-11"
+      className="circuit-12 circuit-13"
     >
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled={true}
       >
         <div>
@@ -180,7 +207,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-4 circuit-3"
+        className="circuit-6 circuit-5"
         disabled={false}
       >
         <div>
@@ -188,7 +215,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled={true}
       >
         <div>
@@ -196,7 +223,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled={true}
       >
         <div>
@@ -264,7 +291,7 @@ Array [
   >
     Card number
   </label>,
-  .circuit-12 {
+  .circuit-14 {
   color: #212933;
   display: block;
   position: relative;
@@ -279,9 +306,12 @@ Array [
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
 }
 
 .circuit-0:focus,
@@ -292,21 +322,42 @@ Array [
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
-.circuit-10 {
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-12 {
   bottom: 100%;
   display: block;
   list-style: none;
@@ -321,28 +372,28 @@ Array [
 }
 
 @media (min-width:451px) {
-  .circuit-10 {
+  .circuit-12 {
     right: 0;
     width: auto;
     text-align: right;
   }
 }
 
-.circuit-2 {
+.circuit-4 {
   display: inline-block;
 }
 
-.circuit-2:not(:last-of-type) {
+.circuit-4:not(:last-of-type) {
   margin-right: 4px;
 }
 
-.circuit-2 > svg {
+.circuit-4 > svg {
   width: auto;
   height: 16px;
 }
 
 <div
-    className="circuit-12 circuit-13"
+    className="circuit-14 circuit-15"
     disabled={false}
   >
     <input
@@ -358,12 +409,15 @@ Array [
       type="tel"
       value=""
     />
+    <div
+      className="circuit-2 circuit-3"
+    />
     <ul
       aria-hidden="true"
-      className="circuit-10 circuit-11"
+      className="circuit-12 circuit-13"
     >
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -371,7 +425,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -379,7 +433,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -387,7 +441,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -463,9 +517,12 @@ Array [
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
 }
 
 .circuit-0:focus,
@@ -476,34 +533,55 @@ Array [
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-4 {
   display: inline-block;
 }
 
-.circuit-2:not(:last-of-type) {
+.circuit-4:not(:last-of-type) {
   margin-right: 4px;
 }
 
-.circuit-2 > svg {
+.circuit-4 > svg {
   width: auto;
   height: 16px;
 }
 
-.circuit-18 {
+.circuit-20 {
   color: #212933;
   display: block;
   position: relative;
@@ -511,13 +589,13 @@ Array [
 }
 
 @media (max-width:450px) {
-  .circuit-18 {
+  .circuit-20 {
     margin-bottom: 32px;
     margin-bottom: calc(32px + 4px);
   }
 }
 
-.circuit-16 {
+.circuit-18 {
   bottom: 100%;
   display: block;
   list-style: none;
@@ -532,7 +610,7 @@ Array [
 }
 
 @media (min-width:451px) {
-  .circuit-16 {
+  .circuit-18 {
     right: 0;
     width: auto;
     text-align: right;
@@ -540,7 +618,7 @@ Array [
 }
 
 @media (max-width:450px) {
-  .circuit-16 {
+  .circuit-18 {
     top: -75%;
     top: calc(100% + 4px);
     bottom: initial;
@@ -551,7 +629,7 @@ Array [
 }
 
 <div
-    className="circuit-18 circuit-19"
+    className="circuit-20 circuit-21"
     disabled={false}
   >
     <input
@@ -567,12 +645,15 @@ Array [
       type="tel"
       value=""
     />
+    <div
+      className="circuit-2 circuit-3"
+    />
     <ul
       aria-hidden="true"
-      className="circuit-16 circuit-17"
+      className="circuit-18 circuit-19"
     >
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -580,7 +661,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -588,7 +669,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -596,7 +677,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -604,7 +685,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -612,7 +693,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>
@@ -620,7 +701,7 @@ Array [
         </div>
       </li>
       <li
-        className="circuit-2 circuit-3"
+        className="circuit-4 circuit-5"
         disabled=""
       >
         <div>

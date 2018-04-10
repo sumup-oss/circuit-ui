@@ -9,9 +9,12 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
 }
@@ -24,18 +27,26 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-2 {
@@ -62,11 +73,25 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 `;
 
 exports[`TextArea should prioritize disabled over warning styles 1`] = `
-.circuit-2 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
 }
 
 .circuit-0 {
@@ -77,6 +102,8 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
@@ -93,18 +120,26 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:not(:focus) {
@@ -148,7 +183,7 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <textarea
@@ -157,18 +192,36 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
     disabled={false}
     required={false}
   />
-  <div>
-    error.svg
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      error.svg
+    </div>
   </div>
 </div>
 `;
 
 exports[`TextArea should prioritize error over optional styles 1`] = `
-.circuit-2 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
 }
 
 .circuit-0 {
@@ -179,6 +232,8 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
@@ -198,18 +253,26 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:not(:focus) {
@@ -233,7 +296,7 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <textarea
@@ -242,14 +305,18 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
     disabled={false}
     required={false}
   />
-  <div>
-    error.svg
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      error.svg
+    </div>
   </div>
 </div>
 `;
 
 exports[`TextArea should render with a Tooltip when passed the validationHint prop 1`] = `
-.circuit-4 {
+.circuit-6 {
   color: #212933;
   display: block;
   position: relative;
@@ -264,9 +331,12 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
 }
@@ -279,21 +349,42 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-4 {
   display: inline-block;
   width: 100%;
   max-width: 280px;
@@ -316,7 +407,7 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   right: 1px;
 }
 
-.circuit-2::after {
+.circuit-4::after {
   display: block;
   content: '';
   width: 0;
@@ -325,17 +416,17 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   border: 8px solid transparent;
 }
 
-.circuit-2::after {
+.circuit-4::after {
   right: 12px;
 }
 
-.circuit-2::after {
+.circuit-4::after {
   top: 100%;
   border-top-color: #212933;
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className="circuit-6 circuit-7"
   disabled={false}
 >
   <textarea
@@ -346,6 +437,9 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   />
   <div
     className="circuit-2 circuit-3"
+  />
+  <div
+    className="circuit-4 circuit-5"
   >
     Validation hint
   </div>
@@ -353,11 +447,24 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 `;
 
 exports[`TextArea should render with a prefix when passed the prefix prop 1`] = `
-.circuit-2 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
 }
 
 .circuit-0 {
@@ -368,10 +475,13 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
   padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
 }
@@ -384,22 +494,30 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <div
@@ -415,6 +533,9 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
     className="circuit-0 circuit-1"
     disabled={false}
     required={false}
+  />
+  <div
+    className="circuit-2 circuit-3"
   />
 </div>
 `;
@@ -435,6 +556,8 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
@@ -451,18 +574,26 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <div
@@ -487,7 +618,7 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 `;
 
 exports[`TextArea should render with default styles 1`] = `
-.circuit-2 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -502,9 +633,12 @@ exports[`TextArea should render with default styles 1`] = `
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
 }
@@ -517,22 +651,43 @@ exports[`TextArea should render with default styles 1`] = `
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <textarea
@@ -540,6 +695,9 @@ exports[`TextArea should render with default styles 1`] = `
     className="circuit-0 circuit-1"
     disabled={false}
     required={false}
+  />
+  <div
+    className="circuit-2 circuit-3"
   />
 </div>
 `;
@@ -553,9 +711,12 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
 }
@@ -568,18 +729,26 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-2 {
@@ -614,73 +783,8 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  width: 100%;
-  font-size: 15px;
-  line-height: 24px;
-  overflow: auto;
-  resize: vertical;
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  display: inline-block;
-  margin-right: 16px;
-}
-
-<div
-  className="circuit-2 circuit-3"
-  disabled={false}
->
-  <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
-  />
-</div>
-`;
-
-exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
@@ -697,18 +801,134 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  display: inline-block;
+  margin-right: 16px;
+}
+
+<div
+  className="circuit-4 circuit-5"
+  disabled={false}
+>
+  <textarea
+    aria-invalid={false}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    required={false}
+  />
+  <div
+    className="circuit-2 circuit-3"
+  />
+</div>
+`;
+
+exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:not(:focus) {
@@ -732,7 +952,7 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <textarea
@@ -741,8 +961,12 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
     disabled={false}
     required={false}
   />
-  <div>
-    error.svg
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      error.svg
+    </div>
   </div>
 </div>
 `;
@@ -756,9 +980,12 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
 }
@@ -771,21 +998,42 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -794,7 +1042,7 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <textarea
@@ -803,15 +1051,31 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
     disabled={false}
     required={false}
   />
+  <div
+    className="circuit-2 circuit-3"
+  />
 </div>
 `;
 
 exports[`TextArea should render with optional styles when passed the optional prop 1`] = `
-.circuit-2 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
 }
 
 .circuit-0 {
@@ -822,12 +1086,15 @@ exports[`TextArea should render with optional styles when passed the optional pr
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
   background-color: #FAFBFC;
   border-style: dashed;
   box-shadow: none;
+  padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
 }
@@ -840,22 +1107,30 @@ exports[`TextArea should render with optional styles when passed the optional pr
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <textarea
@@ -863,12 +1138,15 @@ exports[`TextArea should render with optional styles when passed the optional pr
     className="circuit-0 circuit-1"
     disabled={false}
     required={false}
+  />
+  <div
+    className="circuit-2 circuit-3"
   />
 </div>
 `;
 
 exports[`TextArea should render with valid styles when passed the showValid prop 1`] = `
-.circuit-2 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -883,6 +1161,8 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
@@ -899,22 +1179,43 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <textarea
@@ -923,14 +1224,18 @@ exports[`TextArea should render with valid styles when passed the showValid prop
     disabled={false}
     required={false}
   />
-  <div>
-    valid.svg
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      valid.svg
+    </div>
   </div>
 </div>
 `;
 
 exports[`TextArea should render with warning styles when passed the hasWarning prop 1`] = `
-.circuit-2 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -945,6 +1250,8 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
   width: 100%;
   font-size: 15px;
   line-height: 24px;
@@ -961,18 +1268,26 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-0:not(:focus) {
@@ -995,8 +1310,22 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   color: #FFC859;
 }
 
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <textarea
@@ -1005,8 +1334,12 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
     disabled={false}
     required={false}
   />
-  <div>
-    warning.svg
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      warning.svg
+    </div>
   </div>
 </div>
 `;
