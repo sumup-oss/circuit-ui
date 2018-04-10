@@ -64,8 +64,6 @@ const getDigits = str => str.replace(/[^\d]/g, '');
 export const normalizeCardNumber = (number = '') =>
   number ? getDigits(number) : number;
 
-const validateCardScheme = (schemes, value) => {};
-
 const shouldValidate = cardNumber => {
   if (!cardNumber) {
     return false;
