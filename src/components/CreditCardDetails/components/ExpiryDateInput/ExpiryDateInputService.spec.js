@@ -1,4 +1,10 @@
-import { parseExpiryDate, normalizeExpiryDate, validateExpiryDate } from '.';
+import {
+  parseExpiryDate,
+  normalizeExpiryDate,
+  isCompleteMonth,
+  isCompleteYear,
+  isFutureDate
+} from '.';
 
 describe('ExpiryDateInputService', () => {
   const padToTwo = val =>
@@ -116,39 +122,58 @@ describe('ExpiryDateInputService', () => {
   });
 
   describe('validating expiry dates', () => {
-    it('should raise an error for dates with incomplete months', () => {
-      const values = ['', '1', '12', '12/2'];
-      values.forEach(value => {
-        const actualMonth = validateExpiryDate(value).incompleteMonth;
-        const actualDate = validateExpiryDate(value).incompleteMonth;
+    it('should validate completeness of months', () => {
+      const invalidValues = ['', '1', '1/24'];
+      invalidValues.forEach(value => {
+        const actualMonth = isCompleteMonth(value);
+        expect(actualMonth).toBeFalsy();
+      });
+
+      const validValues = ['09', '12', '12/'];
+      validValues.forEach(value => {
+        const actualMonth = isCompleteMonth(value);
         expect(actualMonth).toBeTruthy();
-        expect(actualDate).toBeTruthy();
       });
     });
 
-    it('should raise an error for dates with incomplete years', () => {
-      const date = '12/2';
-      const actual = validateExpiryDate(date);
-      expect(actual.incompleteYear).toBeTruthy();
-      expect(actual.incomplete).toBeTruthy();
+    it('should validate completeness years', () => {
+      const invalidValues = ['1/2', '11', '/23'];
+      invalidValues.forEach(value => {
+        const actualMonth = isCompleteYear(value);
+        expect(actualMonth).toBeFalsy();
+      });
+
+      const validValues = ['09/23', '12/03'];
+      validValues.forEach(value => {
+        const actualMonth = isCompleteYear(value);
+        expect(actualMonth).toBeTruthy();
+      });
     });
 
-    it('should raise an error for dates with past months in the current year', () => {
+    it('should validate the expiry date is in the future', () => {
       const thisYearVal = getDecadeAndYear(CURRENT_YEAR); // i.e. 18
-      const lastMonthVal = padToTwo(LAST_MONTH); // i.e. 03
-      const value = `${lastMonthVal}/${thisYearVal}`;
-      const actual = validateExpiryDate(value);
-      expect(actual.pastMonth).toBeTruthy();
-      expect(actual.past).toBeTruthy();
-    });
-
-    it('should raise an error for dates from previous years', () => {
       const lastYearVal = getDecadeAndYear(CURRENT_YEAR - 1); // i.e. 17
-      const currentMonth = padToTwo(CURRENT_MONTH); // i.e. 04
-      const value = `${currentMonth}/${lastYearVal}`;
-      const actual = validateExpiryDate(value);
-      expect(actual.pastYear).toBeTruthy();
-      expect(actual.past).toBeTruthy();
+      const nextYearVal = getDecadeAndYear(CURRENT_YEAR + 1); // i.e. 19
+      const lastMonthVal = padToTwo(LAST_MONTH); // i.e. 03
+      const thisMonthVal = padToTwo(CURRENT_MONTH); // i.e. 03
+
+      const invalidValues = [
+        `${thisMonthVal}/${lastYearVal}`,
+        `${lastMonthVal}/${thisYearVal}`
+      ];
+      invalidValues.forEach(value => {
+        const actualMonth = isFutureDate(value);
+        expect(actualMonth).toBeFalsy();
+      });
+
+      const validValues = [
+        `${thisMonthVal}/${thisYearVal}`,
+        `${thisMonthVal}/${nextYearVal}`
+      ];
+      validValues.forEach(value => {
+        const actualMonth = isFutureDate(value);
+        expect(actualMonth).toBeTruthy();
+      });
     });
   });
 });

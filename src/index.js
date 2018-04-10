@@ -7,7 +7,9 @@ import {
   detectCardScheme,
   // Utils for ExpiryDateInput
   parseExpiryDate,
-  validateExpiryDate,
+  isFutureDate,
+  isCompleteMonth,
+  isCompleteYear,
   normalizeExpiryDate,
   // Utils for SecurityCodeInput
   parseSecurityCode,
@@ -26,7 +28,9 @@ const cardNumberUtils = {
 
 const expiryDateUtils = {
   parseExpiryDate,
-  validateExpiryDate,
+  isFutureDate,
+  isCompleteMonth,
+  isCompleteYear,
   normalizeExpiryDate,
   detectCardScheme
 };

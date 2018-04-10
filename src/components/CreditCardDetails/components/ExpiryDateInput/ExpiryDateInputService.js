@@ -1,5 +1,4 @@
 import { identity, includes, some } from '../../../../util/fp';
-import getValidationErrors from '../../../../util/get-validation-errors';
 
 // The month won't change while this is running, unless you're signing
 // up the night before your credit card expires, right before mindnight.
@@ -100,52 +99,27 @@ export const normalizeExpiryDate = value => {
   };
 };
 
-const validatePastYear = value => {
-  const { year } = normalizeExpiryDate(value);
-  if (!year) {
-    return true;
-  }
-
-  return year < CURRENT_YEAR;
-};
-
-const validatePastMonth = value => {
+export const isFutureDate = value => {
   const { month, year } = normalizeExpiryDate(value);
   if (!month || !year) {
-    return true;
+    return false;
   }
 
+  const isFutureYear = parseInt(year, 10) > CURRENT_YEAR;
   const isCurrentYear = year === `${CURRENT_YEAR}`;
-  const isPastMonth = parseInt(month, 10) < CURRENT_MONTH;
-  return isPastMonth && isCurrentYear;
+  const hasPassed = parseInt(month, 10) < CURRENT_MONTH;
+  return (isCurrentYear && !hasPassed) || isFutureYear;
 };
 
 const matchDate = value =>
-  (value && value.length && value.match(/(\d{2})\/?(\d{2})/)) || [];
+  (value && value.length && value.match(/(\d{1,2})\/?(\d{1,2})?/)) || [];
 
-const validateCompleteMonth = value => {
+export const isCompleteMonth = value => {
   const [, month] = matchDate(value);
-  return !month || month.length < 2;
+  return month && month.length === 2;
 };
 
-const validateCompleteYear = value => {
+export const isCompleteYear = value => {
   const [, , year] = matchDate(value);
-  return !year || year.length < 2;
-};
-
-export const validateExpiryDate = expiryDate => {
-  const incompleteMonth = validateCompleteMonth(expiryDate);
-  const incompleteYear = validateCompleteYear(expiryDate);
-  const incomplete = incompleteMonth || incompleteYear;
-  const pastYear = validatePastYear(expiryDate);
-  const pastMonth = validatePastMonth(expiryDate);
-  const past = pastYear || pastMonth;
-  return getValidationErrors({
-    incompleteMonth,
-    incompleteYear,
-    incomplete,
-    pastMonth,
-    pastYear,
-    past
-  });
+  return year && year.length === 2;
 };
