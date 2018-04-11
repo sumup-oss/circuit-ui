@@ -5,12 +5,6 @@ import styled, { css } from 'react-emotion';
 import { toBool } from '../../util/fp';
 import InlineInputs from '../InlineElements';
 
-import {
-  ACTIONS,
-  INITIAL_STATE,
-  stateReducer
-} from './CreditCardDetailsService';
-
 const baseContainerStyles = css`
   label: credit-card-details;
   width: 100%;
@@ -53,7 +47,7 @@ export default class CreditCardDetails extends Component {
     renderSecurityCodeInfo: null
   };
 
-  state = INITIAL_STATE;
+  state = { isShowingInfo: false };
 
   getSecurityCodeInputProps = () => {
     const canShowSecurityCodeInfo = toBool(this.props.renderSecurityCodeInfo);
@@ -62,7 +56,9 @@ export default class CreditCardDetails extends Component {
   };
 
   handleToggleInfo = () => {
-    this.setState(stateReducer(ACTIONS.TOGGLE_INFO));
+    this.setState(({ isShowingInfo }) => ({
+      isShowingInfo: !isShowingInfo
+    }));
   };
 
   render() {
