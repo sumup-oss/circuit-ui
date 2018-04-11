@@ -70,11 +70,11 @@ const modalClassName = {
     `};
 
     ${theme.mq.big`
-      max-width: 750px;
+      max-width: 550px;
     `};
 
     ${theme.mq.huge`
-      max-width: 850px;
+      max-width: 650px;
     `};
   `,
   afterOpen: ({ theme }) => css`
