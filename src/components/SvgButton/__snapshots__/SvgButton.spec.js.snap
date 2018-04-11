@@ -23,6 +23,7 @@ exports[`SvgButton should render with the default styles 1`] = `
 
 <button
   className="circuit-0 circuit-1"
+  type="button"
 >
   <div>
     SVG here

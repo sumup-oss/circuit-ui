@@ -89,6 +89,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
     className="circuit-0 circuit-1 circuit-2"
     onClick={[MockFunction]}
     selected={true}
+    type="button"
   >
     <div>
       close-icon.svg
