@@ -13,13 +13,25 @@ const Picture = ({ sources, fallback, alt, ...rest }) => (
 );
 
 Picture.propTypes = {
+  /**
+   * An array of sources to be included in the
+   * picture. `media` and `srcSet` properties
+   * of each source match the respecitve HTML
+   * attributes.
+   */
   sources: PropTypes.arrayOf(
     PropTypes.shape({
       media: PropTypes.string,
       srcSet: PropTypes.string.isRequired
     })
   ),
+  /**
+   * Alt text for the image.
+   */
   alt: PropTypes.string.isRequired,
+  /**
+   * Fallback image URL.
+   */
   fallback: PropTypes.string.isRequired
 };
 
