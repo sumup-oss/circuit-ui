@@ -30,7 +30,7 @@ const SecurityCodeInput = ({ label, id, cardScheme, onShowInfo, ...props }) => (
     <SecurityCodeLabel htmlFor={id}>
       {label}
       {onShowInfo && (
-        <InfoButton onClick={onShowInfo}>
+        <InfoButton type="button" onClick={onShowInfo}>
           <InfoIcon />
         </InfoButton>
       )}

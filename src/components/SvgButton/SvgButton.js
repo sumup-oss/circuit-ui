@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { size } from 'polished';
+import { withProps } from 'recompose';
 
 const baseStyles = ({ theme }) => css`
   label: svg-button;
@@ -36,4 +37,4 @@ SvgButton.propTypes = {
 /**
  * @component
  */
-export default SvgButton;
+export default withProps({ type: 'button' })(SvgButton);
