@@ -14,7 +14,7 @@ exports[`CardFooter should render with default styles 1`] = `
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 <footer
