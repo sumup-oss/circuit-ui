@@ -13,18 +13,14 @@
     "test:unit:verbose": "jest --coverage --no-cache",
     "test:unit": "yarn test:unit:verbose --silent",
     "test:unit:watch": "yarn test:unit:output -- --watch",
-    "test:unit:output":
-      "jest --json --outputFile=jest-test-results.json --no-cache --silent",
+    "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
     "prepush": "yarn test",
     "start": "yarn test:unit:output && start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
-    "build":
-      "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
+    "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
     "build:storybook": "build-storybook -c .storybook -o .out",
-    "build:stylesheet":
-      "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
-    "build:global-styles":
-      "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
+    "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
+    "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "deploy": "yarn build && gh-pages -d .out"
   },
@@ -98,7 +94,7 @@
     "facepaint": "^1.2.0",
     "hoist-non-react-statics": "^2.3.1",
     "lodash": "^4.17.4",
-    "markdown-to-jsx": "^6.4.1",
+    "markdown-to-jsx": "^6.6.1",
     "polished": "^1.9.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
