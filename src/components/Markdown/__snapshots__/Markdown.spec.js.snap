@@ -19,11 +19,13 @@ exports[`Markdown should override HTML tags with React components 1`] = `
 >
   <h1
     className={undefined}
+    id="manu-illa-amorem-committere-exit-membra-minor"
   >
     Manu illa amorem committere exit membra minor
   </h1>
   <h2
     className={undefined}
+    id="utraque-aut-longe-ore-cruentum-est"
   >
     Utraque aut longe ore cruentum est
   </h2>
@@ -43,6 +45,7 @@ et magnis prorumpit flere? Dura quantum.
   </p>
   <h3
     className={undefined}
+    id="indignantia-tamen"
   >
     Indignantia tamen
   </h3>
@@ -106,6 +109,7 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
   </blockquote>
   <h3
     className={undefined}
+    id="dumque-et-membris-minas-deprimeret-phrygiis-sua"
   >
     Dumque et membris minas deprimeret Phrygiis sua
   </h3>
@@ -139,6 +143,7 @@ teneo
   </p>
   <h3
     className={undefined}
+    id="develat-nymphae"
   >
     Develat nymphae
   </h3>
@@ -171,6 +176,7 @@ leni agat pro! Fuit relinque.
   </ol>
   <h2
     className={undefined}
+    id="circumstant-iam-reponere-obibat-indestrictus-sine"
   >
     Circumstant iam reponere obibat indestrictus sine
   </h2>
@@ -201,11 +207,13 @@ exports[`Markdown should parse and render Markdown to HTML 1`] = `
 >
   <h1
     className={undefined}
+    id="manu-illa-amorem-committere-exit-membra-minor"
   >
     Manu illa amorem committere exit membra minor
   </h1>
   <h2
     className={undefined}
+    id="utraque-aut-longe-ore-cruentum-est"
   >
     Utraque aut longe ore cruentum est
   </h2>
@@ -224,6 +232,7 @@ et magnis prorumpit flere? Dura quantum.
   </p>
   <h3
     className={undefined}
+    id="indignantia-tamen"
   >
     Indignantia tamen
   </h3>
@@ -285,6 +294,7 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
   </blockquote>
   <h3
     className={undefined}
+    id="dumque-et-membris-minas-deprimeret-phrygiis-sua"
   >
     Dumque et membris minas deprimeret Phrygiis sua
   </h3>
@@ -317,6 +327,7 @@ teneo
   </p>
   <h3
     className={undefined}
+    id="develat-nymphae"
   >
     Develat nymphae
   </h3>
@@ -348,6 +359,7 @@ leni agat pro! Fuit relinque.
   </ol>
   <h2
     className={undefined}
+    id="circumstant-iam-reponere-obibat-indestrictus-sine"
   >
     Circumstant iam reponere obibat indestrictus sine
   </h2>
@@ -376,11 +388,13 @@ exports[`Markdown should transform the Markdown before parsing it 1`] = `
 >
   <h2
     className={undefined}
+    id="manu-illa-amorem-committere-exit-membra-minor"
   >
     Manu illa amorem committere exit membra minor
   </h2>
   <h4
     className={undefined}
+    id="utraque-aut-longe-ore-cruentum-est"
   >
     Utraque aut longe ore cruentum est
   </h4>
@@ -399,6 +413,7 @@ et magnis prorumpit flere? Dura quantum.
   </p>
   <h6
     className={undefined}
+    id="indignantia-tamen"
   >
     Indignantia tamen
   </h6>
@@ -460,6 +475,7 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
   </blockquote>
   <h6
     className={undefined}
+    id="dumque-et-membris-minas-deprimeret-phrygiis-sua"
   >
     Dumque et membris minas deprimeret Phrygiis sua
   </h6>
@@ -492,6 +508,7 @@ teneo
   </p>
   <h6
     className={undefined}
+    id="develat-nymphae"
   >
     Develat nymphae
   </h6>
@@ -523,6 +540,7 @@ leni agat pro! Fuit relinque.
   </ol>
   <h4
     className={undefined}
+    id="circumstant-iam-reponere-obibat-indestrictus-sine"
   >
     Circumstant iam reponere obibat indestrictus sine
   </h4>
@@ -551,11 +569,13 @@ exports[`Markdown should treat all markdown strings as "block" elements. 1`] = `
 >
   <h1
     className={undefined}
+    id="manu-illa-amorem-committere-exit-membra-minor"
   >
     Manu illa amorem committere exit membra minor
   </h1>
   <h2
     className={undefined}
+    id="utraque-aut-longe-ore-cruentum-est"
   >
     Utraque aut longe ore cruentum est
   </h2>
@@ -574,6 +594,7 @@ et magnis prorumpit flere? Dura quantum.
   </p>
   <h3
     className={undefined}
+    id="indignantia-tamen"
   >
     Indignantia tamen
   </h3>
@@ -635,6 +656,7 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
   </blockquote>
   <h3
     className={undefined}
+    id="dumque-et-membris-minas-deprimeret-phrygiis-sua"
   >
     Dumque et membris minas deprimeret Phrygiis sua
   </h3>
@@ -667,6 +689,7 @@ teneo
   </p>
   <h3
     className={undefined}
+    id="develat-nymphae"
   >
     Develat nymphae
   </h3>
@@ -698,6 +721,7 @@ leni agat pro! Fuit relinque.
   </ol>
   <h2
     className={undefined}
+    id="circumstant-iam-reponere-obibat-indestrictus-sine"
   >
     Circumstant iam reponere obibat indestrictus sine
   </h2>
