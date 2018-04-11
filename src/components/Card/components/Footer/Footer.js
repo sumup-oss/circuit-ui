@@ -6,7 +6,7 @@ const baseStyles = ({ theme }) => css`
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  margin-top: ${theme.spacings.mega};
+  margin-top: ${theme.spacings.giga};
 `;
 
 /**
