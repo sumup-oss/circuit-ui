@@ -9,11 +9,9 @@ import { standard } from '../src/themes';
 import injectGlobalStyles from '../src/styles/global-styles';
 
 // Dynamically decide wich styles to load.
-if (PRODUCTION) {
+if (__PRODUCTION__) {
   require('./circuit-ui-global.css');
-}
-
-if (!PRODUCTION) {
+} else {
   injectGlobalStyles({ theme: standard });
 }
 

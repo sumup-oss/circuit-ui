@@ -42,7 +42,7 @@ global.renderToHtml = renderWithTheme(renderToStaticMarkup);
 global.axe = axe;
 
 // This is defined by webpack in storybook builds using the DefinePlugin plugin.
-global.STORYBOOK = false;
+global.__STORYBOOK__ = false;
 
 // Add custom matchers
 expect.extend(toHaveNoViolations);
