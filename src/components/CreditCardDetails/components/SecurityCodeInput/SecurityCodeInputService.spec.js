@@ -1,4 +1,4 @@
-import { schemes } from '../..';
+import { SCHEMES } from '../../constants/card-schemes';
 import {
   getPlaceholder,
   parseSecurityCode,
@@ -6,8 +6,6 @@ import {
 } from './SecurityCodeInputService';
 
 describe('SecurityCodeInputService', () => {
-  const { SCHEMES } = schemes;
-
   describe('providing placeholders', () => {
     it('should return a 4-digit placeholder for AMEX', () => {
       const actual = getPlaceholder(SCHEMES.AMEX).length;

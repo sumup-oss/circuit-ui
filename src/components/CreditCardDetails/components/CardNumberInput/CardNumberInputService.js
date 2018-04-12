@@ -9,9 +9,7 @@ import {
 } from '../../../../util/fp';
 
 import { VALIDATION_REGEXES } from './constants';
-import { schemes as cardSchemes } from '../..';
-
-const { SCHEMES } = cardSchemes;
+import { SCHEMES } from '../../constants/card-schemes';
 
 const SCHEME_LENGTHS = {
   '^4': [13, 16], // Visa

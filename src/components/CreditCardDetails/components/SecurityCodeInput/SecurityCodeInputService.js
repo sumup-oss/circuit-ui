@@ -1,8 +1,6 @@
 import { curry } from '../../../../util/fp';
 
-import { schemes } from '../..';
-
-const { SCHEMES } = schemes;
+import { SCHEMES } from '../../constants/card-schemes';
 
 export const getPlaceholder = cardScheme =>
   cardScheme === SCHEMES.AMEX ? '1234' : '123';

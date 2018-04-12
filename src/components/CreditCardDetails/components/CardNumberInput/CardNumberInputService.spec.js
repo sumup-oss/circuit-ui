@@ -8,12 +8,11 @@ import {
   hasDetectedScheme,
   shouldRenderSchemesUnderInput
 } from './CardNumberInputService';
-import { cardSchemeIcons } from '../';
-import { schemes as cardSchemes } from '../..';
+import cardSchemeIcons from '../scheme-icons/card-scheme-icons';
+import { SCHEMES } from '../../constants/card-schemes';
 import { filter, pick, values } from '../../../../util/fp';
 
 describe('CardNumberInputService', () => {
-  const { SCHEMES } = cardSchemes;
   const SCHEME_NAMES = values(SCHEMES);
 
   const runNumberValidation = value => {
