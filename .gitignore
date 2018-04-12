@@ -10,6 +10,7 @@ __coverage__
 dist
 .out
 circuit-ui-global.css
+.node-version
 
 # Packages #
 
