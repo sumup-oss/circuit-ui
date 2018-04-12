@@ -1,1 +1,1 @@
-./src/util/index.js
+./dist/util.js

@@ -1,1 +1,1 @@
-./src/themes/index.js
+./dist/themes.js
