@@ -1,1 +1,1 @@
-./src/styles/index.js
+./dist/styles.js
