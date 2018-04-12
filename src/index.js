@@ -84,11 +84,7 @@ export {
 export { currencyAmountUtils };
 
 // Actions
-export {
-  default as Button,
-  MessageIcon,
-  MessageButton
-} from './components/Button';
+export { default as Button } from './components/Button';
 
 export { default as LoadingButton } from './components/LoadingButton';
 
@@ -99,7 +95,11 @@ export { default as Toggle } from './components/Toggle';
 export { default as Selector } from './components/Selector';
 
 // Notifications
-export { default as Message } from './components/Message';
+export {
+  default as Message,
+  MessageIcon,
+  MessageButton
+} from './components/Message';
 export { default as NotificationBanner } from './components/NotificationBanner';
 export { default as NotificationList } from './components/NotificationList';
 export { default as InlineNotification } from './components/InlineNotification';
