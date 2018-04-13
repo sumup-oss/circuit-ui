@@ -289,9 +289,7 @@ const Input = ({
           textAlign: true,
           hasWarning: true,
           hasPrefix: true,
-          hasSuffix: true,
-          renderPrefix: true,
-          renderPostfil: true
+          hasSuffix: true
         }}
       />
       {suffix}
