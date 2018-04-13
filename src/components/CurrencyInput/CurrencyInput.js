@@ -1,51 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 
-import Input from '../Input';
-import { themePropType } from '../../util/shared-prop-types';
-
-const currencyBaseStyles = ({ theme }) => css`
-  color: ${theme.colors.b700};
-  line-height: 16px;
-`;
-
-const CurrencyIcon = styled('span')`
-  ${currencyBaseStyles};
-`;
+import { SimpleCurrencyInput } from './components';
+import { keys } from '../../util/fp';
+import { themePropType, localePropType } from '../../util/shared-prop-types';
+import { shouldPrependSymbol, CURRENCY_SYMBOLS } from '../../util/currency';
 
 /**
- * CurrencyInput component for forms.
+ * CurrencyInput component for forms. Automatically looks up
+ * symbols and places the symbol according to the locale. The corresponding
+ * service exports a parser for formatting values automatically.
  */
 
-const CurrencyInput = ({ currencyPosition, currency, ...props }) => (
-  <Input
-    prefix={({ className }) =>
-      currencyPosition === 'left' && (
-        <CurrencyIcon className={className}>{currency}</CurrencyIcon>
-      )
-    }
-    suffix={({ className }) =>
-      currencyPosition === 'right' && (
-        <CurrencyIcon className={className}>{currency}</CurrencyIcon>
-      )
-    }
-    {...props}
-  />
-);
+const CurrencyInput = ({ locale, currency, ...props }) => {
+  const prependSymbol = shouldPrependSymbol(currency, locale);
+  const symbol = CURRENCY_SYMBOLS[currency] || '';
+
+  return <SimpleCurrencyInput {...{ ...props, prependSymbol, symbol }} />;
+};
 
 CurrencyInput.propTypes = {
   theme: themePropType.isRequired,
-  currencyPosition: PropTypes.oneOf(['left', 'right']),
-  textAlign: PropTypes.oneOf(['left', 'right']),
-  currency: PropTypes.string
-};
-
-CurrencyInput.defaultProps = {
-  currencyPosition: 'right',
-  textAlign: 'right',
-  currency: '€'
+  locale: localePropType.isRequired,
+  currency: PropTypes.oneOf(keys(CURRENCY_SYMBOLS)).isRequired
 };
 
 /**

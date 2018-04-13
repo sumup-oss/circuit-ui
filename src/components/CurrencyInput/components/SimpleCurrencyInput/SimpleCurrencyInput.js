@@ -22,28 +22,50 @@ const CurrencyIcon = styled('span')`
   ${iconBaseStyles};
 `;
 
-const inputOverridePaddingStyles = ({ theme, symbol = '', prependSymbol }) =>
-  prependSymbol
-    ? css`
-        padding-left: calc(${theme.spacings.giga} + ${symbol.length}ch);
-      `
-    : css`
-        padding-right: calc(${theme.spacings.giga} + ${symbol.length}ch);
-      `;
+const inputStyles = ({ theme }) => css`
+  label: currency-input__input;
+  color: transparent;
+  text-shadow: 0 0 0 ${theme.colors.n900};
+`;
+
+const inputPrependStyles = ({ theme, symbol = '', prependSymbol }) =>
+  prependSymbol &&
+  css`
+    label: currency-input__input--prepend-symbol;
+    padding-left: ${theme.spacings.exa};
+    padding-left: calc(${theme.spacings.giga} + ${symbol.length}ch);
+  `;
+
+const inputAppendStyles = ({ theme, symbol = '', prependSymbol }) =>
+  !prependSymbol &&
+  css`
+    label: currency-input__input--prepend-symbol;
+    padding-right: ${theme.spacings.exa};
+    padding-right: calc(${theme.spacings.giga} + ${symbol.length}ch);
+  `;
 
 /**
  * A simple currency input for forms.
  */
 const SimpleCurrencyInput = ({ prependSymbol, theme, symbol, ...props }) => {
   const iconWidthClassName = iconOverrideWidthStyles({ symbol });
-  const inputPaddingClassName = inputOverridePaddingStyles({
-    theme,
-    symbol,
-    prependSymbol
-  });
+  const inputClassName = cx(
+    inputStyles({ theme }),
+    inputPrependStyles({
+      theme,
+      symbol,
+      prependSymbol
+    }),
+    inputAppendStyles({
+      theme,
+      symbol,
+      prependSymbol
+    })
+  );
+
   return (
     <Input
-      className={inputPaddingClassName}
+      inputClassName={inputClassName}
       renderPrefix={({ className }) =>
         prependSymbol && (
           <CurrencyIcon
@@ -64,8 +86,8 @@ const SimpleCurrencyInput = ({ prependSymbol, theme, symbol, ...props }) => {
           </CurrencyIcon>
         )
       }
+      textAlign={Input.RIGHT}
       {...props}
-      textAlign={prependSymbol ? Input.RIGHT : Input.LEFT}
     />
   );
 };

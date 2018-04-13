@@ -258,13 +258,12 @@ const Input = ({
   const suffix = renderFixComponent(
     suffixClassName,
     renderSuffix ||
-      getSuffixComponent({
-        disabled,
-        invalid,
-        hasWarning,
-        showValid,
-        suffixClassName
-      })
+      // eslint-disable-next-line
+      (({ className }) => (
+        <ValidationIcon
+          {...{ invalid, hasWarning, showValid, disabled, className }}
+        />
+      ))
   );
   const prefix = renderFixComponent(prefixClassName, renderPrefix);
 

@@ -18,6 +18,8 @@ import {
   schemes as ALL_CARD_SCHEMES
 } from './components/CreditCardDetails';
 
+import { parseAmount, formatAmount } from './components/CurrencyInput';
+
 const cardNumberUtils = {
   isValidCardNumber,
   isAcceptedCardScheme,
@@ -41,6 +43,11 @@ const securityCodeUtils = {
   detectCardScheme
 };
 
+const currencyAmountUtils = {
+  parseAmount,
+  formatAmount
+};
+
 // Typography
 export { default as Heading } from './components/Heading';
 export { default as List } from './components/List';
@@ -56,9 +63,27 @@ export { default as Input } from './components/Input';
 export { default as RadioButton } from './components/RadioButton';
 export { default as RadioButtonGroup } from './components/RadioButtonGroup';
 export { default as SearchInput } from './components/SearchInput';
-export { default as CurrencyInput } from './components/CurrencyInput';
 export { default as Select } from './components/Select';
 export { default as TextArea } from './components/TextArea';
+export {
+  default as CreditCardDetails,
+  CardNumberInput,
+  cardSchemeIcons,
+  NameOnCardInput,
+  SecurityCodeInput,
+  ExpiryDateInput
+} from './components/CreditCardDetails';
+export {
+  cardNumberUtils,
+  expiryDateUtils,
+  securityCodeUtils,
+  ALL_CARD_SCHEMES
+};
+export {
+  default as CurrencyInput,
+  SimpleCurrencyInput
+} from './components/CurrencyInput';
+export { currencyAmountUtils };
 
 // Actions
 export {
@@ -86,20 +111,7 @@ export { default as Tag } from './components/Tag';
 export { default as Tooltip } from './components/Tooltip';
 export { default as Modal, ModalProvider } from './components/Modal';
 export { default as Picture } from './components/Picture';
-export {
-  default as CreditCardDetails,
-  CardNumberInput,
-  cardSchemeIcons,
-  NameOnCardInput,
-  SecurityCodeInput,
-  ExpiryDateInput
-} from './components/CreditCardDetails';
-export {
-  cardNumberUtils,
-  expiryDateUtils,
-  securityCodeUtils,
-  ALL_CARD_SCHEMES
-};
+
 // Helpers
 export { default as State } from './components/State';
 export { default as InlineElements } from './components/InlineElements';
