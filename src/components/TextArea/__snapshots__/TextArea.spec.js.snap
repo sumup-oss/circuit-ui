@@ -454,19 +454,6 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   margin-bottom: 16px;
 }
 
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -480,7 +467,6 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -516,22 +502,28 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   transition: color 200ms ease-in-out;
 }
 
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
 <div
   className="circuit-4 circuit-5"
   disabled={false}
 >
-  <div
-    style={
-      Object {
-        "height": "24px",
-        "width": "24px",
-      }
-    }
-  />
   <textarea
     aria-invalid={false}
     className="circuit-0 circuit-1"
     disabled={false}
+    prefix={[Function]}
     required={false}
   />
   <div
@@ -541,7 +533,7 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 `;
 
 exports[`TextArea should render with a suffix when passed the suffix prop 1`] = `
-.circuit-2 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -596,8 +588,21 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
   transition: color 200ms ease-in-out;
 }
 
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
 <div
-  className="circuit-2 circuit-3"
+  className="circuit-4 circuit-5"
   disabled={false}
 >
   <textarea
@@ -605,14 +610,10 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
     className="circuit-0 circuit-1"
     disabled={false}
     required={false}
+    suffix={[Function]}
   />
   <div
-    style={
-      Object {
-        "height": "24px",
-        "width": "24px",
-      }
-    }
+    className="circuit-2 circuit-3"
   />
 </div>
 `;
