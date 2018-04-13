@@ -230,13 +230,16 @@ const ValidationIcon = ({
 };
 /* eslint-enable react/prop-types */
 
+const renderFixComponent = (className, renderFn) =>
+  (renderFn && renderFn({ className })) || null;
+
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
 const Input = ({
   children,
-  prefix,
-  suffix: customSuffix,
+  renderPrefix,
+  renderSuffix,
   validationHint,
   invalid,
   hasWarning,
@@ -250,35 +253,34 @@ const Input = ({
   ...props
 }) => {
   const prefixClassName = cx(prefixStyles({ theme }));
-
   const suffixClassName = cx(suffixStyles({ theme }));
 
-  /* eslint-disable react/prop-types */
-  const suffix =
-    customSuffix ||
-    (({ className }) => (
-      <ValidationIcon
-        {...{ invalid, hasWarning, showValid, disabled, className }}
-      />
-    ));
-  /* eslint-enable react/prop-types */
-
-  const hasPrefix = !!prefix;
-  const hasSuffix = !!suffix;
+  const suffix = renderFixComponent(
+    suffixClassName,
+    renderSuffix ||
+      getSuffixComponent({
+        disabled,
+        invalid,
+        hasWarning,
+        showValid,
+        suffixClassName
+      })
+  );
+  const prefix = renderFixComponent(prefixClassName, renderPrefix);
 
   return (
     <InputContainer
       {...{ noMargin, inline, disabled, className: wrapperClassName }}
     >
-      {hasPrefix && prefix({ className: prefixClassName })}
+      {prefix}
       <InputElement
         {...{
           ...props,
           invalid,
           disabled,
           hasWarning,
-          hasPrefix,
-          hasSuffix,
+          hasPrefix: !!prefix,
+          hasSuffix: !!suffix,
           className: inputClassName
         }}
         aria-invalid={invalid}
@@ -288,10 +290,12 @@ const Input = ({
           textAlign: true,
           hasWarning: true,
           hasPrefix: true,
-          hasSuffix: true
+          hasSuffix: true,
+          renderPrefix: true,
+          renderPostfil: true
         }}
       />
-      {hasSuffix && suffix({ className: suffixClassName })}
+      {suffix}
       {!disabled &&
         validationHint && (
           <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
@@ -317,12 +321,12 @@ Input.propTypes = {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  prefix: PropTypes.func,
+  renderPrefix: PropTypes.func,
   /**
    * Render prop that should render a right-aligned overlay icon or element.
    * Receives a className prop.
    */
-  suffix: PropTypes.func,
+  renderSuffix: PropTypes.func,
   /**
    * Warning or error message, displayed in a tooltip.
    */
@@ -377,8 +381,8 @@ Input.propTypes = {
 Input.defaultProps = {
   children: null,
   element: 'input',
-  prefix: null,
-  suffix: null,
+  renderPrefix: null,
+  renderSuffix: null,
   validationHint: null,
   required: false,
   invalid: false,

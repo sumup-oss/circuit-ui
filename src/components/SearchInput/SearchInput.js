@@ -12,7 +12,7 @@ const SearchInput = ({ children, ...props }) => (
   <Input
     {...props}
     role="search"
-    prefix={({ className }) => <SearchIcon {...{ className }} />}
+    renderPrefix={({ className }) => <SearchIcon {...{ className }} />}
   >
     {children}
   </Input>
