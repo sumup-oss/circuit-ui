@@ -4,11 +4,9 @@
  * - Add polyfills.
  */
 
-import { flow, curry } from 'lodash/fp';
+import { flow, curry, compose, includes } from 'lodash/fp';
 
-export { compose } from 'lodash/fp';
-
-export { flow, curry };
+export { flow, curry, compose, includes };
 
 // Requires polyfill
 export const values = obj => Object.values(obj);
@@ -40,9 +38,6 @@ export const find = curry((predicate, arr) => arr.find(predicate));
 export const reduce = curry((iteratee, acc, arr) => arr.reduce(iteratee, acc));
 
 export const filter = curry((predicate, arr) => arr.filter(predicate));
-
-// Requires polyfill
-export const includes = curry((val, arr) => arr.includes(val));
 
 export const defaultTo = curry((defaultVal, val) => val || defaultVal);
 
