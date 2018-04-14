@@ -2,6 +2,7 @@
 
 exports[`Markdown should override HTML tags with React components 1`] = `
 .circuit-0 {
+  margin-top: 0;
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 15px;
@@ -29,7 +30,6 @@ exports[`Markdown should override HTML tags with React components 1`] = `
   </h2>
   <p
     className="circuit-0 circuit-1"
-    noMargin={false}
     size="mega"
   >
     Lorem markdownum vultusque eligit significent sinistro, et virgis, inter!
@@ -49,7 +49,6 @@ et magnis prorumpit flere? Dura quantum.
   </h3>
   <p
     className="circuit-0 circuit-1"
-    noMargin={false}
     size="mega"
   >
     Mediis monstravit inmunis Troes non leonis 
@@ -75,7 +74,6 @@ praecordiaque velut totosque norant alipedi candida electae est vestis, posse.
   >
     <p
       className="circuit-0 circuit-1"
-      noMargin={false}
       size="mega"
     >
       Adstat Procnes et, in tempora Maenalon moles in nocte relicta, membra nec
@@ -114,7 +112,6 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
   </h3>
   <p
     className="circuit-0 circuit-1"
-    noMargin={false}
     size="mega"
   >
     Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
@@ -148,7 +145,6 @@ teneo
   </h3>
   <p
     className="circuit-0 circuit-1"
-    noMargin={false}
     size="mega"
   >
     Conceperat depositae si manibus utiliter resonare vitat ima mortis ecce. Huic
@@ -181,7 +177,6 @@ leni agat pro! Fuit relinque.
   </h2>
   <p
     className="circuit-0 circuit-1"
-    noMargin={false}
     size="mega"
   >
     <img
@@ -193,7 +188,6 @@ leni agat pro! Fuit relinque.
   </p>
   <p
     className="circuit-0 circuit-1"
-    noMargin={false}
     size="mega"
   >
     Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
