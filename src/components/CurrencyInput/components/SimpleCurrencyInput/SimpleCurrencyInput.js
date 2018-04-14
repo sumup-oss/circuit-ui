@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import styled, { css, cx } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 
-import Input from '../../../Input';
 import { themePropType } from '../../../../util/shared-prop-types';
+import RestrictedInput from '../../../RestrictedInput/RestrictedInput';
+import Input from '../../../Input';
 
 const iconBaseStyles = ({ theme }) => css`
   label: simple-currency-input__symbol;
@@ -24,8 +25,6 @@ const CurrencyIcon = styled('span')`
 
 const inputStyles = ({ theme }) => css`
   label: currency-input__input;
-  color: transparent;
-  text-shadow: 0 0 0 ${theme.colors.n900};
 `;
 
 const inputPrependStyles = ({ theme, symbol = '', prependSymbol }) =>
@@ -64,7 +63,7 @@ const SimpleCurrencyInput = ({ prependSymbol, theme, symbol, ...props }) => {
   );
 
   return (
-    <Input
+    <RestrictedInput
       inputClassName={inputClassName}
       renderPrefix={({ className }) =>
         prependSymbol && (
@@ -87,6 +86,8 @@ const SimpleCurrencyInput = ({ prependSymbol, theme, symbol, ...props }) => {
         )
       }
       textAlign={Input.RIGHT}
+      enabledKeys={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']}
+      type="tel"
       {...props}
     />
   );
