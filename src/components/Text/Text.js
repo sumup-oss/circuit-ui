@@ -10,6 +10,7 @@ const { KILO, MEGA, GIGA } = sizes;
 
 const baseStyles = ({ theme }) => css`
   label: text;
+  margin-top: 0;
   font-weight: ${theme.fontWeight.regular};
   margin-bottom: ${theme.spacings.mega};
 `;
@@ -36,7 +37,7 @@ const TextElement = styled(
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
-const Text = props => <TextElement {...props} blacklist={{ margin: true }} />;
+const Text = props => <TextElement {...props} blacklist={{ noMargin: true }} />;
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;
