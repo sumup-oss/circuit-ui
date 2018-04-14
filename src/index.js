@@ -96,6 +96,7 @@ export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as CloseButton } from './components/CloseButton';
 export { default as SvgButton } from './components/SvgButton';
 export { default as Toggle } from './components/Toggle';
+export { default as Selector } from './components/Selector';
 
 // Notifications
 export { default as Message } from './components/Message';
