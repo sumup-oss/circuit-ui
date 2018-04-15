@@ -101,6 +101,7 @@ export { default as Toggle } from './components/Toggle';
 export { default as Message } from './components/Message';
 export { default as NotificationBanner } from './components/NotificationBanner';
 export { default as NotificationList } from './components/NotificationList';
+export { default as InlineNotification } from './components/InlineNotification';
 
 // Misc
 export { default as Badge } from './components/Badge';
