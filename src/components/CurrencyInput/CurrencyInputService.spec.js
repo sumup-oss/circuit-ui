@@ -14,7 +14,7 @@ describe('CurrencyInputService', () => {
 
   it('should parse any non-zero-length string into a positive decimal number', () => {
     const values = ['20', 'abc', '19a', '-2', '   20,00', '0.assd8'];
-    const expected = [0.2, 0, 0.19, 0.02, 20.0, 0.08];
+    const expected = ['0.2', '0.00', '0.19', '0.02', '20', '0.08'];
     values.forEach((val, index) => {
       const actual = parseAmount(val, 10);
       expect(actual).toBe(expected[index]);
