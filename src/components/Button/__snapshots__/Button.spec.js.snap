@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button should have button styles 1`] = `
-.circuit-0 {
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -21,49 +21,70 @@ exports[`Button should have button styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
+.circuit-2 {
+  position: relative;
+}
+
+.circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={false}
   href={null}
   onClick={null}
   target={null}
 >
-  Button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have disabled button styles 1`] = `
-.circuit-0 {
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -83,49 +104,80 @@ exports[`Button should have disabled button styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
+.circuit-2 {
+  position: relative;
+}
+
+.circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={true}
   href={null}
   onClick={null}
   target={null}
 >
-  Disabled button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Disabled button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have flat button styles 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -147,65 +199,86 @@ exports[`Button should have flat button styles 1`] = `
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 2px 2px 0 rgba(12,15,20,0.06),0 4px 4px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #1641AC;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 0 1px 0 rgba(12,15,20,0.06),0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-0:active:focus,
-.circuit-0:hover:focus {
+.circuit-4:active:focus,
+.circuit-4:hover:focus {
   border-width: 0;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-width: 2px;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={false}
   href={null}
   onClick={null}
   target={null}
 >
-  Flat button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Flat button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have flat disabled button styles 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -227,65 +300,86 @@ exports[`Button should have flat disabled button styles 1`] = `
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 2px 2px 0 rgba(12,15,20,0.06),0 4px 4px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #1641AC;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 0 1px 0 rgba(12,15,20,0.06),0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-0:active:focus,
-.circuit-0:hover:focus {
+.circuit-4:active:focus,
+.circuit-4:hover:focus {
   border-width: 0;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-width: 2px;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={true}
   href={null}
   onClick={null}
   target={null}
 >
-  Flat button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Flat button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have giga button styles 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -305,49 +399,70 @@ exports[`Button should have giga button styles 1`] = `
   padding: calc(12px - 0px) calc(32px - 0px);
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(12px - 1px) calc(32px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(12px - 0px) calc(32px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={false}
   href={null}
   onClick={null}
   target={null}
 >
-  Button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have kilo button styles 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -367,49 +482,60 @@ exports[`Button should have kilo button styles 1`] = `
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={false}
   href={null}
   onClick={null}
   target={null}
 >
-  Button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have mega button styles 1`] = `
-.circuit-0 {
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -429,49 +555,80 @@ exports[`Button should have mega button styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
+.circuit-2 {
+  position: relative;
+}
+
+.circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={false}
   href={null}
   onClick={null}
   target={null}
 >
-  Button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have secondary button styles 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -496,71 +653,71 @@ exports[`Button should have secondary button styles 1`] = `
   color: #5C656F;
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: transparent;
   border-color: #212933;
   border-width: 0;
   box-shadow: none;
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: transparent;
   border-width: 0;
   border-color: #212933;
 }
 
-.circuit-0:active,
-.circuit-0:hover,
-.circuit-0:hover:focus,
-.circuit-0:active:focus {
+.circuit-4:active,
+.circuit-4:hover,
+.circuit-4:hover:focus,
+.circuit-4:active:focus {
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:active,
-.circuit-0:hover,
-.circuit-0:focus {
+.circuit-4:active,
+.circuit-4:hover,
+.circuit-4:focus {
   color: #212933;
 }
 
-.circuit-0:active:focus,
-.circuit-0:hover:focus {
+.circuit-4:active:focus,
+.circuit-4:hover:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
@@ -568,18 +725,39 @@ exports[`Button should have secondary button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={false}
   href={null}
   onClick={null}
   target={null}
 >
-  Secondary button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Secondary button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have secondary disabled button styles 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -604,71 +782,71 @@ exports[`Button should have secondary disabled button styles 1`] = `
   color: #5C656F;
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: transparent;
   border-color: #212933;
   border-width: 0;
   box-shadow: none;
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: transparent;
   border-width: 0;
   border-color: #212933;
 }
 
-.circuit-0:active,
-.circuit-0:hover,
-.circuit-0:hover:focus,
-.circuit-0:active:focus {
+.circuit-4:active,
+.circuit-4:hover,
+.circuit-4:hover:focus,
+.circuit-4:active:focus {
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:active,
-.circuit-0:hover,
-.circuit-0:focus {
+.circuit-4:active,
+.circuit-4:hover,
+.circuit-4:focus {
   color: #212933;
 }
 
-.circuit-0:active:focus,
-.circuit-0:hover:focus {
+.circuit-4:active:focus,
+.circuit-4:hover:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
@@ -676,18 +854,39 @@ exports[`Button should have secondary disabled button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={true}
   href={null}
   onClick={null}
   target={null}
 >
-  Secondary disabled button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Secondary disabled button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have secondary flat button styles 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -712,71 +911,71 @@ exports[`Button should have secondary flat button styles 1`] = `
   color: #5C656F;
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: transparent;
   border-color: #212933;
   border-width: 0;
   box-shadow: none;
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: transparent;
   border-width: 0;
   border-color: #212933;
 }
 
-.circuit-0:active,
-.circuit-0:hover,
-.circuit-0:hover:focus,
-.circuit-0:active:focus {
+.circuit-4:active,
+.circuit-4:hover,
+.circuit-4:hover:focus,
+.circuit-4:active:focus {
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0:active,
-.circuit-0:hover,
-.circuit-0:focus {
+.circuit-4:active,
+.circuit-4:hover,
+.circuit-4:focus {
   color: #212933;
 }
 
-.circuit-0:active:focus,
-.circuit-0:hover:focus {
+.circuit-4:active:focus,
+.circuit-4:hover:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
@@ -784,18 +983,39 @@ exports[`Button should have secondary flat button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={false}
   href={null}
   onClick={null}
   target={null}
 >
-  Secondary flat button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Secondary flat button
+    </div>
+  </div>
 </button>
 `;
 
 exports[`Button should have stretch button styles 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-0 {
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -817,43 +1037,54 @@ exports[`Button should have stretch button styles 1`] = `
   display: block;
 }
 
-.circuit-0:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-0:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-0:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
 }
 
 <button
-  className="circuit-0 circuit-1"
+  className="circuit-4 circuit-5"
   disabled={false}
   href={null}
   onClick={null}
   target={null}
 >
-  Stretched button
+  <div
+    className="circuit-2 circuit-3"
+  >
+    <div>
+      loading.svg
+    </div>
+    <div
+      className="circuit-0 circuit-1"
+    >
+      Stretched button
+    </div>
+  </div>
 </button>
 `;

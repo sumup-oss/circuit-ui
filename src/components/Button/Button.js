@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+import { size } from 'polished';
 
 import HtmlElement from '../HtmlElement';
 import { sizes } from '../../styles/constants';
+import LoadingIcon from './loading.svg';
 import { textMega } from '../../styles/style-helpers';
 
 /**
@@ -12,7 +14,7 @@ import { textMega } from '../../styles/style-helpers';
  */
 const { KILO, MEGA, GIGA } = sizes;
 
-const calculatePadding = ({ theme, size }) => (diff = '0px') => {
+const calculatePadding = ({ theme, size: buttonSize }) => (diff = '0px') => {
   const sizeMap = {
     [KILO]: `calc(${theme.spacings.bit} - ${diff}) calc(${
       theme.spacings.mega
@@ -25,11 +27,11 @@ const calculatePadding = ({ theme, size }) => (diff = '0px') => {
     } - ${diff})`
   };
 
-  if (!sizeMap[size] && size) {
+  if (!sizeMap[buttonSize] && buttonSize) {
     return null;
   }
 
-  return sizeMap[size] || sizeMap.mega;
+  return sizeMap[buttonSize] || sizeMap.mega;
 };
 
 const disabledStyles = css`
@@ -206,13 +208,20 @@ const secondaryStyles = ({ theme, secondary, flat, ...otherProps }) =>
   `;
 
 const sizeStyles = props => {
-  const { size } = props;
+  const { size: buttonSize } = props;
   const padding = calculatePadding(props)();
   return css({
-    label: `button--${size}`,
+    label: `button--${buttonSize}`,
     padding
   });
 };
+
+const buttonLoadingStyles = ({ isLoading }) =>
+  isLoading &&
+  css`
+    label: button--loading;
+    ${'' /* pointer-events: none; */};
+  `;
 
 const TextOrButtonElement = props => (
   <HtmlElement
@@ -221,84 +230,191 @@ const TextOrButtonElement = props => (
       flat: true,
       primary: true,
       secondary: true,
-      stretch: true
+      stretch: true,
+      isLoading: true
     }}
     element={({ href }) => (href ? 'a' : 'button')}
     {...props}
   />
 );
 
-/**
- * The Button component. Can also be styled as an anchor by passing an href
- * prop.
- */
-const Button = styled(TextOrButtonElement)`
+const ButtonElement = styled(TextOrButtonElement)`
   ${baseStyles};
   ${primaryStyles};
   ${sizeStyles};
   ${flatStyles};
   ${secondaryStyles};
   ${stretchStyles};
+  ${buttonLoadingStyles};
 `;
 
-Button.KILO = KILO;
-Button.MEGA = MEGA;
-Button.GIGA = GIGA;
+// TODO: use default animation after merging.
+const loadingStyles = () => css`
+  ${size(24)};
+  display: block;
+  opacity: 0;
+  position: absolute;
+  fill: white;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
 
-Button.propTypes = {
-  /**
-   * URL the Button should lead to. Causes the Button to render an <a> tag.
-   */
-  href: PropTypes.string,
-  /**
-   * Should the Button be disabled?
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Button has a 'flat' variation, triggered with this prop.
-   */
-  flat: PropTypes.bool,
-  /**
-   * Renders a secondary button. Secondary buttons look the same for
-   * primary (default) and flat buttons.
-   */
-  secondary: PropTypes.bool,
-  /**
-   * Renders a primary button using the brand color.
-   */
-  primary: PropTypes.bool,
-  /**
-   * Link target. Should only be passed, if href is passed, too.
-   */
-  target: PropTypes.string,
-  /**
-   * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
-   */
-  size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
-  /**
-   * Standard onClick function. If used on an anchor this can be used to
-   * cause additional side-effects like tracking.
-   */
-  onClick: PropTypes.func,
-  /**
-   * Trigger stretch (full width) styles on the component.
-   */
-  stretch: PropTypes.bool
-};
+  transition: opacity 200ms ease-in-out;
+`;
 
-Button.defaultProps = {
-  disabled: false,
-  flat: false,
-  size: MEGA,
-  target: null,
-  href: null,
-  onClick: null,
-  primary: false,
-  secondary: false,
-  stretch: false
-};
+const loadingShowingStyles = ({ showLoading }) =>
+  showLoading &&
+  css`
+    opacity: 1;
+  `;
+
+const Loading = styled(LoadingIcon)`
+  ${loadingStyles};
+  ${loadingShowingStyles};
+`;
+
+const ContentWrapper = styled('div')`
+  position: relative;
+`;
+
+// TODO: use theme animations here.
+const childrenWrapperStyles = () => css`
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+`;
+
+const childrenWrapperLoadingStyles = ({ showLoading }) =>
+  showLoading &&
+  css`
+    opacity: 0;
+  `;
+
+const ChildrenWrapper = styled('div')`
+  ${childrenWrapperStyles};
+  ${childrenWrapperLoadingStyles};
+`;
 
 /**
  * @component
  */
-export default Button;
+export default class Button extends Component {
+  static KILO = KILO;
+  static MEGA = MEGA;
+  static GIGA = GIGA;
+  static propTypes = {
+    /**
+     * URL the Button should lead to. Causes the Button to render an <a> tag.
+     */
+    href: PropTypes.string,
+    /**
+     * Should the Button be disabled?
+     */
+    disabled: PropTypes.bool,
+    /**
+     * Button has a 'flat' variation, triggered with this prop.
+     */
+    flat: PropTypes.bool,
+    /**
+     * Renders a secondary button. Secondary buttons look the same for
+     * primary (default) and flat buttons.
+     */
+    secondary: PropTypes.bool,
+    /**
+     * Renders a primary button using the brand color.
+     */
+    primary: PropTypes.bool,
+    /**
+     * Link target. Should only be passed, if href is passed, too.
+     */
+    target: PropTypes.string,
+    /**
+     * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
+     */
+    size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
+    /**
+     * Standard onClick function. If used on an anchor this can be used to
+     * cause additional side-effects like tracking.
+     */
+    onClick: PropTypes.func,
+    /**
+     * Trigger stretch (full width) styles on the component.
+     */
+    stretch: PropTypes.bool,
+    /**
+     * Delay to wait before showing loading state.
+     */
+    delayMs: PropTypes.number,
+    /**
+     * Children nodes. Automatically wrapped in a div, so you can pass multiple
+     * elements.
+     */
+    children: PropTypes.node.isRequired
+  };
+
+  static defaultProps = {
+    disabled: false,
+    flat: false,
+    size: MEGA,
+    target: null,
+    href: null,
+    onClick: null,
+    primary: false,
+    secondary: false,
+    stretch: false,
+    delayMs: 500
+  };
+
+  state = {
+    showLoading: false,
+    timeoutId: null
+  };
+
+  componentWillUnmount() {
+    const { timeoutId } = this.state;
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
+
+  handleClick = e => {
+    const { onClick, delayMs } = this.props;
+    const { timeoutId: existingTimeoutId } = this.state;
+
+    if (existingTimeoutId) {
+      return null;
+    }
+
+    const timeoutId = setTimeout(() => {
+      this.setState({ showLoading: true });
+    }, delayMs);
+    this.setState({ timeoutId });
+
+    const handlingClick = onClick(e);
+
+    if (!handlingClick || !handlingClick.then) {
+      clearTimeout(timeoutId);
+      this.setState({ timeoutId: null });
+      return null;
+    }
+
+    return handlingClick.finally(() => {
+      this.setState({ showLoading: false, timeoutId: null });
+      clearTimeout(timeoutId);
+    });
+  };
+
+  render() {
+    const { children, delayMs, onClick: outerOnClick, ...rest } = this.props;
+    const { showLoading } = this.state;
+    const onClick = outerOnClick ? this.handleClick : outerOnClick;
+
+    return (
+      <ButtonElement {...{ ...rest, onClick }}>
+        <ContentWrapper>
+          <Loading {...{ showLoading }} />
+          <ChildrenWrapper {...{ showLoading }}>{children}</ChildrenWrapper>
+        </ContentWrapper>
+      </ButtonElement>
+    );
+  }
+}
