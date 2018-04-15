@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CurrencyInput should adjust input padding and postfix width to match currency symbol width 1`] = `
+exports[`SimpleCurrencyInput should adjust input padding and postfix width to match currency symbol width 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -87,13 +87,247 @@ exports[`CurrencyInput should adjust input padding and postfix width to match cu
   />
   <span
     className="circuit-2 circuit-3"
+    disabled={false}
   >
     CHF
   </span>
 </div>
 `;
 
-exports[`CurrencyInput should render with default styles 1`] = `
+exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: right;
+  padding-right: calc( 12px + 16px + 12px );
+  padding-right: 48px;
+  padding-right: calc(24px + 0ch);
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2 {
+  color: #2567D8;
+  line-height: 16px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+  width: 0ch;
+}
+
+<div
+  className="circuit-4 circuit-5"
+  disabled={true}
+>
+  <input
+    aria-invalid={true}
+    className="circuit-0 circuit-1"
+    disabled={true}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseUp={[Function]}
+    required={false}
+    type="tel"
+  />
+  <span
+    className="circuit-2 circuit-3"
+    disabled={true}
+  />
+</div>
+`;
+
+exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: right;
+  padding-right: calc( 12px + 16px + 12px );
+  padding-right: 48px;
+  padding-right: calc(24px + 0ch);
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:not(:focus) {
+  border-color: #FFC859;
+}
+
+.circuit-0:not(:focus)::-webkit-input-placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus)::-moz-placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus):-ms-input-placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus)::placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus) {
+  border-color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::-webkit-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::-moz-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus):-ms-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-2 {
+  color: #2567D8;
+  line-height: 16px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+  width: 0ch;
+}
+
+.circuit-2:not(:focus) {
+  color: #FFC859;
+}
+
+.circuit-2:not(:focus) {
+  color: #FFAF9F;
+}
+
+<div
+  className="circuit-4 circuit-5"
+  disabled={false}
+>
+  <input
+    aria-invalid={true}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseUp={[Function]}
+    required={false}
+    type="tel"
+  />
+  <span
+    className="circuit-2 circuit-3"
+    disabled={false}
+  />
+</div>
+`;
+
+exports[`SimpleCurrencyInput should render with default styles 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -179,13 +413,248 @@ exports[`CurrencyInput should render with default styles 1`] = `
   />
   <span
     className="circuit-2 circuit-3"
+    disabled={false}
   >
     €
   </span>
 </div>
 `;
 
-exports[`CurrencyInput should support rendering symbols on the left 1`] = `
+exports[`SimpleCurrencyInput should render with error styles 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: right;
+  padding-right: calc( 12px + 16px + 12px );
+  padding-right: 48px;
+  padding-right: calc(24px + 1ch);
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:not(:focus) {
+  border-color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::-webkit-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::-moz-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus):-ms-input-placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-0:not(:focus)::placeholder {
+  color: #FFAF9F;
+}
+
+.circuit-2 {
+  color: #2567D8;
+  line-height: 16px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+  width: 1ch;
+}
+
+.circuit-2:not(:focus) {
+  color: #FFAF9F;
+}
+
+<div
+  className="circuit-4 circuit-5"
+  disabled={false}
+>
+  <input
+    aria-invalid={true}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseUp={[Function]}
+    required={false}
+    type="tel"
+  />
+  <span
+    className="circuit-2 circuit-3"
+    disabled={false}
+  >
+    €
+  </span>
+</div>
+`;
+
+exports[`SimpleCurrencyInput should render with warning styles 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: right;
+  padding-right: calc( 12px + 16px + 12px );
+  padding-right: 48px;
+  padding-right: calc(24px + 1ch);
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:not(:focus) {
+  border-color: #FFC859;
+}
+
+.circuit-0:not(:focus)::-webkit-input-placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus)::-moz-placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus):-ms-input-placeholder {
+  color: #FFC859;
+}
+
+.circuit-0:not(:focus)::placeholder {
+  color: #FFC859;
+}
+
+.circuit-2 {
+  color: #2567D8;
+  line-height: 16px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+  width: 1ch;
+}
+
+.circuit-2:not(:focus) {
+  color: #FFC859;
+}
+
+<div
+  className="circuit-4 circuit-5"
+  disabled={false}
+>
+  <input
+    aria-invalid={false}
+    className="circuit-0 circuit-1"
+    disabled={false}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseUp={[Function]}
+    required={false}
+    type="tel"
+  />
+  <span
+    className="circuit-2 circuit-3"
+    disabled={false}
+  >
+    €
+  </span>
+</div>
+`;
+
+exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -261,6 +730,7 @@ exports[`CurrencyInput should support rendering symbols on the left 1`] = `
 >
   <span
     className="circuit-0 circuit-1"
+    disabled={false}
   >
     $
   </span>

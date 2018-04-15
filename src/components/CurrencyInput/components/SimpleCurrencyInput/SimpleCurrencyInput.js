@@ -12,6 +12,25 @@ const iconBaseStyles = ({ theme }) => css`
   color: ${theme.colors.b700};
   line-height: ${theme.spacings.mega};
 `;
+const iconWarningStyles = ({ theme, hasWarning, disabled }) =>
+  !disabled &&
+  hasWarning &&
+  css`
+    label: simple-currency-input__symbol--warning;
+    &:not(:focus) {
+      color: ${theme.colors.y500};
+    }
+  `;
+
+const iconInvalidStyles = ({ theme, invalid, disabled }) =>
+  !disabled &&
+  invalid &&
+  css`
+    label: simple-currency-input__symbol--error;
+    &:not(:focus) {
+      color: ${theme.colors.r300};
+    }
+  `;
 
 // This is dymanic and cannot be done in pure CSS. No need for
 // a label.
@@ -21,6 +40,8 @@ const iconOverrideWidthStyles = ({ symbol = '' }) => css`
 
 const CurrencyIcon = styled('span')`
   ${iconBaseStyles};
+  ${iconWarningStyles};
+  ${iconInvalidStyles};
 `;
 
 const inputStyles = ({ theme }) => css`
@@ -46,7 +67,15 @@ const inputAppendStyles = ({ theme, symbol = '', prependSymbol }) =>
 /**
  * A simple currency input for forms.
  */
-const SimpleCurrencyInput = ({ prependSymbol, theme, symbol, ...props }) => {
+const SimpleCurrencyInput = ({
+  prependSymbol,
+  theme,
+  symbol,
+  hasWarning,
+  invalid,
+  disabled,
+  ...props
+}) => {
   const iconWidthClassName = iconOverrideWidthStyles({ symbol });
   const inputClassName = cx(
     inputStyles({ theme }),
@@ -68,6 +97,7 @@ const SimpleCurrencyInput = ({ prependSymbol, theme, symbol, ...props }) => {
       renderPrefix={({ className }) =>
         prependSymbol && (
           <CurrencyIcon
+            {...{ hasWarning, invalid, disabled }}
             className={cx(className, iconWidthClassName)}
             symbol={symbol}
           >
@@ -78,6 +108,7 @@ const SimpleCurrencyInput = ({ prependSymbol, theme, symbol, ...props }) => {
       renderSuffix={({ className }) =>
         !prependSymbol && (
           <CurrencyIcon
+            {...{ hasWarning, invalid, disabled }}
             className={cx(className, iconWidthClassName)}
             symbol={symbol}
           >
@@ -88,7 +119,7 @@ const SimpleCurrencyInput = ({ prependSymbol, theme, symbol, ...props }) => {
       textAlign={Input.RIGHT}
       enabledKeys={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']}
       type="tel"
-      {...props}
+      {...{ ...props, hasWarning, invalid, disabled }}
     />
   );
 };
@@ -100,6 +131,19 @@ SimpleCurrencyInput.propTypes = {
    */
   symbol: PropTypes.string.isRequired,
   /**
+   * Triggers disabled styles on the component. This is also forwarded as
+   * attribute to the <input> element.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Triggers error styles on the component. Important for accessibility.
+   */
+  invalid: PropTypes.bool,
+  /**
+   * Triggers warning styles on the component.
+   */
+  hasWarning: PropTypes.bool,
+  /**
    * Should the symbol be put on the left side
    * of the input?
    */
@@ -107,7 +151,10 @@ SimpleCurrencyInput.propTypes = {
 };
 
 SimpleCurrencyInput.defaultProps = {
-  prependSymbol: false
+  prependSymbol: false,
+  disabled: false,
+  invalid: false,
+  hasWarning: false
 };
 
 /**

@@ -1,28 +1,54 @@
 import React from 'react';
 
-import CurrencyInput from '.';
+import SimpleCurrencyInput from '.';
 import Label from '../../../Label';
 import { CURRENCY_SYMBOLS } from '../../../../util/currency';
 
-describe('CurrencyInput', () => {
+describe('SimpleCurrencyInput', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CurrencyInput symbol={CURRENCY_SYMBOLS.EUR} />);
+    const actual = create(
+      <SimpleCurrencyInput symbol={CURRENCY_SYMBOLS.EUR} />
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with warning styles', () => {
+    const actual = create(
+      <SimpleCurrencyInput symbol={CURRENCY_SYMBOLS.EUR} hasWarning />
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with error styles', () => {
+    const actual = create(
+      <SimpleCurrencyInput symbol={CURRENCY_SYMBOLS.EUR} invalid />
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should prioritize disabled over error styles', () => {
+    const actual = create(<SimpleCurrencyInput invalid disabled />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should prioritize disabled over warning styles', () => {
+    const actual = create(<SimpleCurrencyInput invalid hasWarning />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should adjust input padding and postfix width to match currency symbol width', () => {
     const actual = create(
-      <CurrencyInput placeholder="123,45" symbol={CURRENCY_SYMBOLS.CHF} />
+      <SimpleCurrencyInput placeholder="123,45" symbol={CURRENCY_SYMBOLS.CHF} />
     );
     expect(actual).toMatchSnapshot();
   });
 
   it('should support rendering symbols on the left', () => {
     const actual = create(
-      <CurrencyInput
+      <SimpleCurrencyInput
         symbol={CURRENCY_SYMBOLS.USD}
         placeholder="123.45"
         prependSymbol
@@ -38,7 +64,7 @@ describe('CurrencyInput', () => {
     const wrapper = renderToHtml(
       <Label htmlFor="id">
         Label
-        <CurrencyInput id="id" symbol={CURRENCY_SYMBOLS.USD} />
+        <SimpleCurrencyInput id="id" symbol={CURRENCY_SYMBOLS.USD} />
       </Label>
     );
     const actual = await axe(wrapper);
