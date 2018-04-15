@@ -15,3 +15,4 @@ for i in ".spec." ".story." "."; do mv $component_path/{Component,$component_nam
 find ${component_path} -type f -iname "$component_name*js" -exec sed -i.bak "s/Component/$component_name/g" {} \;
 find ${component_path} -type f -iname "index.js" -exec sed -i.bak "s/Component/$component_name/g" {} \;
 rm ${component_path}/*.bak
+echo "export { default as $component_name } from './components/$component_name' };" >> ./src/index.js
