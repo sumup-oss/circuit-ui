@@ -123,9 +123,8 @@ export const isAcceptedCardScheme = curry((acceptedSchemes, value) => {
 
 export const isDisabledSchemeIcon = (value, detectedScheme, scheme) => {
   const hasValue = value && value.length;
-  const hasDetectedScheme = detectedScheme && detectedScheme.length;
   const isDetectedScheme = detectedScheme === scheme;
-  return hasValue && hasDetectedScheme && !isDetectedScheme;
+  return hasValue && !isDetectedScheme;
 };
 
 export const shouldRenderSchemesUnderInput = schemes =>
