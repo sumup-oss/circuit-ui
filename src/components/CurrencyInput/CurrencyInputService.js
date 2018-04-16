@@ -6,6 +6,7 @@ export const parseAmount = value => {
   if (!value || !value.length) {
     return value;
   }
+
   const digits = value.replace(/[^\d]/g, '');
 
   if (digits === '') {
@@ -15,6 +16,9 @@ export const parseAmount = value => {
   return `${parseInt(digits, 10) / 100}`;
 };
 
-export const formatAmount = curry((currency, locale, amount) =>
-  formatAmountForLocale(amount, currency, locale)
+export const formatAmount = curry(
+  (currency, locale, amount) =>
+    amount && amount.length
+      ? formatAmountForLocale(amount, currency, locale)
+      : ''
 );
