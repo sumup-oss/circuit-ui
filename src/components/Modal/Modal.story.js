@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import styled, { css } from 'react-emotion';
 
 import withTests from '../../util/withTests';
-import Modal, { ModalProvider } from '.';
+import ModalConsumer, { ModalProvider } from '.';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
@@ -13,7 +13,7 @@ import Text from '../Text';
 // eslint-disable-next-line react/prop-types
 const PageWithModal = ({ modal }) => (
   <ModalProvider>
-    <Modal>
+    <ModalConsumer>
       {({ setModal }) => (
         <Button
           type="button"
@@ -24,7 +24,7 @@ const PageWithModal = ({ modal }) => (
           Open modal
         </Button>
       )}
-    </Modal>
+    </ModalConsumer>
   </ModalProvider>
 );
 

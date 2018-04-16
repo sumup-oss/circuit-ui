@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ModalConsumer as Modal, ModalProvider } from '.';
+import Modal, { ModalProvider } from '.';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 
