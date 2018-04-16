@@ -3,10 +3,16 @@ import styled, { css } from 'react-emotion';
 
 const baseStyles = ({ theme }) => css`
   label: card__footer;
-  align-items: center;
-  display: flex;
-  justify-content: flex-end;
+  display: block;
+  width: 100%;
   margin-top: ${theme.spacings.giga};
+
+  ${theme.mq.medium`
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: ${theme.spacings.mega};
+  `};
 `;
 
 /**
