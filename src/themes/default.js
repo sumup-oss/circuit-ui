@@ -163,9 +163,9 @@ export const fontWeight = {
 export const breakpoints = {
   untilMedium: '(max-width: 450px)',
   medium: 451,
-  mediumToBig: '(min-width: 451px) and (max-width: 450px)',
+  mediumToBig: '(min-width: 451px) and (max-width: 800px)',
   big: 801,
-  bigToHuge: '(min-width: 451px) and (max-width: 450px)',
+  bigToHuge: '(min-width: 801px) and (max-width: 1401px)',
   huge: 1401
 };
 
