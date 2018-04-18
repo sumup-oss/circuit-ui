@@ -96,6 +96,11 @@ export const borderRadius = {
   giga: '5px'
 };
 
+export const borderWidth = {
+  kilo: '1px',
+  mega: '2px'
+};
+
 export const typography = {
   headings: {
     kilo: {
