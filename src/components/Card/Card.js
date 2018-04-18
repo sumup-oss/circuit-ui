@@ -19,8 +19,14 @@ const baseStyles = ({ theme }) => css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 400px;
   overflow: hidden;
+  width: 98%;
+  width: calc(100% - ${theme.spacings.mega});
+
+  ${theme.mq.medium`
+    width: auto;
+    min-width: 400px;
+  `};
 `;
 
 const shadowStyles = ({ theme, shadow }) => {

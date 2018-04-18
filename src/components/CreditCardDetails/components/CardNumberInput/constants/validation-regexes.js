@@ -1,8 +1,6 @@
 import { values } from 'lodash/fp';
 
-import { schemes } from '../../..';
-
-const { SCHEMES } = schemes;
+import { SCHEMES } from '../../../constants/card-schemes';
 
 const ELO_REGEXES = {
   elo_starting_with_4:

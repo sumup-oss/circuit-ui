@@ -7,7 +7,7 @@ const baseStyles = ({ theme }) => css`
   label: form-label;
   ${textKilo({ theme })};
   margin-bottom: ${theme.spacings.bit};
-  display: inline-block;
+  display: block;
 `;
 
 /**

@@ -6,6 +6,7 @@ import { hideVisually } from 'polished';
 
 import { flow, toPairs, map, keys } from '../../../../util/fp';
 import Input from '../../../Input';
+import Label from '../../../Label';
 import {
   isDisabledSchemeIcon,
   hasDetectedScheme,
@@ -23,6 +24,8 @@ const schemeListStyles = ({ theme }) => css`
   right: 0;
   text-align: right;
   white-space: nowrap;
+  opacity: 1;
+  transition: opacity ${theme.transitions.default};
 
   ${theme.mq.medium`
     right: 0;
@@ -31,8 +34,15 @@ const schemeListStyles = ({ theme }) => css`
   `};
 `;
 
-const schemeListLongStyles = ({ theme, supportedCardSchemes }) =>
-  shouldRenderSchemesUnderInput(supportedCardSchemes)
+const schemeListHiddenStyles = ({ acceptedCardSchemes }) =>
+  !keys(acceptedCardSchemes).length &&
+  css`
+    label: card-number-input__scheme-list--hidden;
+    opacity: 0;
+  `;
+
+const schemeListLongStyles = ({ theme, acceptedCardSchemes }) =>
+  shouldRenderSchemesUnderInput(acceptedCardSchemes)
     ? css`
         label: card-number-input__scheme-list--long;
         ${theme.mq.untilMedium`
@@ -49,14 +59,15 @@ const schemeListLongStyles = ({ theme, supportedCardSchemes }) =>
 const SchemeList = styled('ul')`
   ${schemeListStyles};
   ${schemeListLongStyles};
+  ${schemeListHiddenStyles};
 `;
 
 const AccessibleCardSchemeInfo = styled('div')`
   ${hideVisually()};
 `;
 
-const inputLongStyles = ({ theme, supportedCardSchemes, className }) =>
-  shouldRenderSchemesUnderInput(supportedCardSchemes)
+const inputLongStyles = ({ theme, acceptedCardSchemes, className }) =>
+  shouldRenderSchemesUnderInput(acceptedCardSchemes)
     ? css`
         label: card-number-input__input--long;
         ${theme.mq.untilMedium`
@@ -98,10 +109,12 @@ const SchemeIconWrapper = styled('li')`
  * Describe your component here.
  */
 const CardNumberInput = ({
-  supportedCardSchemes,
+  acceptedCardSchemes,
   detectedCardScheme,
   value,
   className,
+  id,
+  label,
   // eslint-disable-next-line
   theme,
   supportedSchemesLabel,
@@ -109,7 +122,7 @@ const CardNumberInput = ({
   ...props
 }) => {
   const supportedSchemesText = `${supportedSchemesLabel}: ${keys(
-    supportedCardSchemes
+    acceptedCardSchemes
   ).join(', ')}.`;
   const detectedSchemesText =
     hasDetectedScheme(detectedCardScheme) &&
@@ -122,18 +135,21 @@ const CardNumberInput = ({
       <AccessibleCardSchemeInfo aria-live="polite">
         {detectedSchemesText}
       </AccessibleCardSchemeInfo>
+      <Label htmlFor={id}>{label}</Label>
       <Input
         value={value}
         type="tel"
+        id={id}
         autoComplete="cc-number"
+        placeholder="•••• •••• •••• ••••"
         {...props}
         wrapperClassName={inputLongStyles({
           theme,
-          supportedCardSchemes,
+          acceptedCardSchemes,
           className
         })}
       >
-        <SchemeList {...{ supportedCardSchemes }} aria-hidden="true">
+        <SchemeList {...{ acceptedCardSchemes }} aria-hidden="true">
           {flow(
             toPairs,
             map(([cardScheme, IconComponent]) => (
@@ -148,7 +164,7 @@ const CardNumberInput = ({
                 <IconComponent />
               </SchemeIconWrapper>
             ))
-          )(supportedCardSchemes)}
+          )(acceptedCardSchemes)}
         </SchemeList>
       </Input>
     </Fragment>
@@ -159,15 +175,23 @@ CardNumberInput.propTypes = {
   /**
    * Card scheme icon components.
    */
-  supportedCardSchemes: PropTypes.objectOf(PropTypes.func).isRequired,
+  acceptedCardSchemes: PropTypes.objectOf(PropTypes.func).isRequired,
   /**
    * The detected card scheme.
    */
-  detectedCardScheme: PropTypes.string.isRequired,
+  detectedCardScheme: PropTypes.string,
+  /**
+   * The label to be used (for i18n purposes).
+   */
+  label: PropTypes.string,
+  /**
+   * Id to be used for the input.
+   */
+  id: PropTypes.string,
   /**
    * The card number.
    */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   /**
    * A label for the supported schemes. Visually hidden, but
    * accessible to screen readers.
@@ -185,9 +209,13 @@ CardNumberInput.propTypes = {
 };
 
 CardNumberInput.defaultProps = {
+  label: 'Card number',
+  id: 'cui-cc-card-number',
   className: '',
+  detectedCardScheme: '',
   supportedSchemesLabel: 'Supported card schemes',
-  detectedSchemeLabel: 'Detected scheme'
+  detectedSchemeLabel: 'Detected scheme',
+  value: ''
 };
 
 /**

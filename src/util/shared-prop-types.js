@@ -139,3 +139,25 @@ export const themePropType = PropTypes.shape({
     bold: PropTypes.string.isRequired
   }).isRequired
 });
+
+export const localePropType = isRequired => (
+  props,
+  propName,
+  componentName
+) => {
+  if (isRequired && (!props[propName] || !props[propName].length)) {
+    return new Error(
+      `Prop \`${propName}\` is marked as required in \`${componentName}\`,` +
+        `but received \`${props[propName]}\`.`
+    );
+  }
+
+  if (!/[a-z]{2}-[A-Z]{2}/.test(props[propName])) {
+    return new Error(
+      `Invalid prop \`${propName}\` supplied to` +
+        ` \`${componentName}\`. Validation failed.`
+    );
+  }
+
+  return null;
+};

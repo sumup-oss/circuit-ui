@@ -25,6 +25,7 @@ exports[`CloseButton should render with default styles 1`] = `
 
 <button
   className="circuit-0 circuit-1"
+  type="button"
 >
   <div>
     close-icon.svg

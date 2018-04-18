@@ -36,7 +36,7 @@ const TextElement = styled(
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
-const Text = props => <TextElement {...props} blacklist={{ margin: true }} />;
+const Text = props => <TextElement {...props} blacklist={{ noMargin: true }} />;
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;

@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`currency currencyRegex() should return a regex for 'BGN' currency and 'bg-BG' locale 1`] = `"^(\\\\d{0,2}(?:(?:,)?\\\\d{3})*)(?:(?:\\\\.)(\\\\d{0,2}))?$"`;
+
+exports[`currency currencyRegex() should return a regex for 'CLP' currency and 'es-CL' locale 1`] = `"^(\\\\d{0,2}(?:(?:\\\\.)?\\\\d{3})*)$"`;
+
+exports[`currency currencyRegex() should return a regex for 'USD' currency and 'en-US' locale 1`] = `"^(\\\\d{0,2}(?:(?:,)?\\\\d{3})*)(?:(?:\\\\.)(\\\\d{0,2}))?$"`;
+
 exports[`currency getCurrencyFormat() should fall back to the default format for a currency, if locale is not found. 1`] = `
 Object {
   "addSpace": true,

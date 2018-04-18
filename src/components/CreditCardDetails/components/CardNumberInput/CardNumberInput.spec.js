@@ -32,7 +32,7 @@ describe('CardNumberInput', () => {
 
   const detectedComponent = (
     <CardNumberInput
-      supportedCardSchemes={schemeIcons}
+      acceptedCardSchemes={schemeIcons}
       onChange={() => {}}
       detectedCardScheme={SCHEMES.VISA}
       name="creditCardInput"
@@ -41,7 +41,7 @@ describe('CardNumberInput', () => {
   );
   const emptyComponent = (
     <CardNumberInput
-      supportedCardSchemes={schemeIcons}
+      acceptedCardSchemes={schemeIcons}
       onChange={() => {}}
       detectedCardScheme={SCHEMES.VISA}
       name="creditCardInput"
@@ -50,7 +50,7 @@ describe('CardNumberInput', () => {
   );
   const manySchemesComponent = (
     <CardNumberInput
-      supportedCardSchemes={manySchemeIcons}
+      acceptedCardSchemes={manySchemeIcons}
       onChange={() => {}}
       detectedCardScheme=""
       name="creditCardInput"
@@ -95,12 +95,7 @@ describe('CardNumberInput', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <Label htmlFor="input">
-        Label
-        {emptyComponent}
-      </Label>
-    );
+    const wrapper = renderToHtml(emptyComponent);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

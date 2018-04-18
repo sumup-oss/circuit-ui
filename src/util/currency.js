@@ -1,7 +1,8 @@
 import { get, isNumber, isString } from 'lodash/fp';
 import { get as _get } from 'lodash';
 
-import { formatNumber, getNumberFormat } from './numbers';
+import { NUMBER_SEPARATORS, formatNumber, getNumberFormat } from './numbers';
+import { currencyToRegex } from './regex';
 
 export const CURRENCY_FORMATS = {
   EUR: {
@@ -176,7 +177,19 @@ function toCurrencyNumberFormat(number, currencyFormat) {
   return formatNumber(number, numberFormat);
 }
 
-export function formatCurrencyForLocale(number, currency, locale) {
+export function formatAmountForLocale(number, currency, locale) {
   const currencyFormat = getCurrencyFormat(currency, locale);
   return toCurrencyNumberFormat(number, currencyFormat);
+}
+
+export function currencyRegex(currency, locale) {
+  const currencyFormat = _get(CURRENCY_FORMATS, currency);
+  const currencyLocaleFormat = _get(currencyFormat, locale);
+  const currencyDefaultFormat = _get(currencyFormat, 'default');
+  const { fractionalPrecision } = currencyLocaleFormat || currencyDefaultFormat;
+
+  const numberFormat = _get(NUMBER_SEPARATORS, locale);
+  const { decimal, thousand } = numberFormat;
+
+  return currencyToRegex([thousand], fractionalPrecision, [decimal]);
 }

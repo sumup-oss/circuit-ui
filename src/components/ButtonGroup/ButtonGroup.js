@@ -1,16 +1,35 @@
 import React, { Children } from 'react';
 import styled, { css } from 'react-emotion';
 
+import Button from '../Button';
 import { childrenPropType } from '../../util/shared-prop-types';
 
 const listStyles = ({ theme }) => css`
   label: button-group;
-  display: flex;
+  display: block;
   list-style-type: none;
+  width: 100%;
 
   li:not(:last-of-type) {
-    margin-right: ${theme.spacings.mega};
+    margin-bottom: ${theme.spacings.mega};
   }
+
+  ${Button} {
+    width: 100%;
+  }
+
+  ${theme.mq.medium`
+    display: flex;
+    justify-content: flex-end;
+
+    li:not(:last-of-type) {
+      margin-right: ${theme.spacings.mega};
+    }
+
+    ${Button} {
+      width: auto;
+    }
+  `};
 `;
 
 const ButtonGroupList = styled('ul')`

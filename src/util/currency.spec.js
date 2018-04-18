@@ -160,4 +160,27 @@ describe('currency', () => {
       testCurrency(inputs, 'HRK', 'hr-HR', outputs);
     });
   });
+
+  describe('currencyRegex()', () => {
+    it("should return a regex for 'USD' currency and 'en-US' locale", () => {
+      const currencyCode = 'USD';
+      const locale = 'en-US';
+      const actual = currency.currencyRegex(currencyCode, locale);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it("should return a regex for 'BGN' currency and 'bg-BG' locale", () => {
+      const currencyCode = 'USD';
+      const locale = 'en-US';
+      const actual = currency.currencyRegex(currencyCode, locale);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it("should return a regex for 'CLP' currency and 'es-CL' locale", () => {
+      const currencyCode = 'CLP';
+      const locale = 'es-CL';
+      const actual = currency.currencyRegex(currencyCode, locale);
+      expect(actual).toMatchSnapshot();
+    });
+  });
 });

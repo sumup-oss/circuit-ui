@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreditCardDetails should render with default styles 1`] = `
+.circuit-2 {
+  width: 100%;
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.circuit-0 > * {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width:451px) {
+  .circuit-0 > * {
+    float: left;
+    width: 47.5%;
+    width: calc( (100% - 1 * 8px) / 2 );
+  }
+
+  .circuit-0::before,
+  .circuit-0::after {
+    content: '.';
+    display: block;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  .circuit-0::after {
+    clear: both;
+  }
+}
+
+.circuit-0 > *:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+@media (min-width:451px) {
+  .circuit-0 {
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: stretch;
+    -webkit-justify-content: stretch;
+    -ms-flex-pack: stretch;
+    justify-content: stretch;
+  }
+
+  .circuit-0 > * {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    width: auto;
+  }
+
+  .circuit-0 > *:not(:last-of-type) {
+    margin-bottom: 0;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width:450px) {
+  .circuit-0 > * {
+    float: left;
+    width: 47.5%;
+    width: calc( (100% - 1 * 8px) / 2 );
+  }
+
+  .circuit-0::before,
+  .circuit-0::after {
+    content: '.';
+    display: block;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  .circuit-0::after {
+    clear: both;
+  }
+}
+
+@media (max-width:450px) {
+  .circuit-0 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    width: auto;
+  }
+
+  .circuit-0 > *:not(:last-of-type) {
+    margin-bottom: 0;
+    margin-right: 8px;
+  }
+}
+
+<div
+  className="circuit-2 circuit-3"
+>
+  <div
+    data-test="name-on-card"
+  />
+  <div
+    data-test="card-number"
+  />
+  <div
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      <div
+        data-test="expiry-date"
+      />
+    </div>
+    <div>
+      <div
+        data-test="security-code"
+      />
+    </div>
+  </div>
+</div>
+`;

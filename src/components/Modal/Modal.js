@@ -12,6 +12,12 @@ import { mapValues } from '../../util/fp';
 import IS_IOS from '../../util/ios';
 
 export const TRANSITION_DURATION = 200;
+export const DEFAULT_APP_ELEMENT = '#root';
+export const APP_ELEMENT_PROP_TYPE = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.node
+]);
+
 const TOP_MARGIN = '10vh';
 const TRANSFORM_Y_FLOATING = '10vh';
 const FLOATING_TRANSITION = `${TRANSITION_DURATION}ms ease-in-out`;
@@ -64,11 +70,11 @@ const modalClassName = {
     `};
 
     ${theme.mq.big`
-      max-width: 750px;
+      max-width: 550px;
     `};
 
     ${theme.mq.huge`
-      max-width: 850px;
+      max-width: 650px;
     `};
   `,
   afterOpen: ({ theme }) => css`
@@ -176,8 +182,11 @@ const Modal = ({
     overlayClassName: getClassValues(overlayClassName),
     contentLabel,
     onRequestClose: onClose,
-    closeTimeoutMS: TRANSITION_DURATION,
-    children: (
+    closeTimeoutMS: TRANSITION_DURATION
+  };
+
+  return (
+    <ReactModal {...reactModalProps}>
       <Card
         className={cx(cardStyles({ theme }), className)}
         shadow={Card.TRIPLE}
@@ -194,10 +203,8 @@ const Modal = ({
         {children ? children({ onClose }) : null}
         {buttons && <CardFooter>{buttons({ onClose })}</CardFooter>}
       </Card>
-    )
-  };
-
-  return <ReactModal {...reactModalProps} />;
+    </ReactModal>
+  );
 };
 
 Modal.propTypes = {
@@ -246,7 +253,7 @@ Modal.propTypes = {
    * React portal used to display the modal. See
    * http://reactcommunity.org/react-modal/accessibility/#app-element
    */
-  appElement: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+  appElement: APP_ELEMENT_PROP_TYPE
 };
 
 Modal.defaultProps = {
@@ -255,7 +262,7 @@ Modal.defaultProps = {
   title: null,
   hasCloseButton: true,
   buttons: null,
-  appElement: '#root'
+  appElement: DEFAULT_APP_ELEMENT
 };
 
 /**

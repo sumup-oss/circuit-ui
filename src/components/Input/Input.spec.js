@@ -16,14 +16,18 @@ describe('Input', () => {
 
   it('should render with a prefix when passed the prefix prop', () => {
     const actual = create(
-      <Input prefix={({ className }) => <DummyElement {...{ className }} />} />
+      <Input
+        renderPrefix={({ className }) => <DummyElement {...{ className }} />}
+      />
     );
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with a suffix when passed the suffix prop', () => {
     const actual = create(
-      <Input suffix={({ className }) => <DummyElement {...{ className }} />} />
+      <Input
+        renderSuffix={({ className }) => <DummyElement {...{ className }} />}
+      />
     );
     expect(actual).toMatchSnapshot();
   });

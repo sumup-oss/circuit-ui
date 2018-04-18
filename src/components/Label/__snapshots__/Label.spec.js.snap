@@ -5,7 +5,7 @@ exports[`Label should render with default styles 1`] = `
   font-size: 13px;
   line-height: 20px;
   margin-bottom: 4px;
-  display: inline-block;
+  display: block;
 }
 
 <label
