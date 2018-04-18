@@ -17,6 +17,7 @@ const trackBaseStyles = ({ theme }) => css`
   border: 0;
   outline: 0;
   appearance: none;
+  flex: 0 0 ${TRACK_WIDTH}px;
   background-color: ${theme.colors.n300};
   border-radius: ${TRACK_HEIGHT}px;
   position: relative;
