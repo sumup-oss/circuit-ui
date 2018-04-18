@@ -1,22 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Selector should render a default selector appropriately 1`] = `
-<Selector
-  disabled={false}
-  selected={false}
-/>
-`;
+exports[`Selector should render a default selector appropriately 1`] = `<withProps(Selector) />`;
 
 exports[`Selector should render a disabled selector appropriately 1`] = `
-<Selector
+<withProps(Selector)
   disabled={true}
-  selected={false}
 />
 `;
 
 exports[`Selector should render a selected selector appropriately 1`] = `
-<Selector
-  disabled={false}
+<withProps(Selector)
   selected={true}
 />
 `;

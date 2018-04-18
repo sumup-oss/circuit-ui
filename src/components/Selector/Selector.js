@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+import withAriaSelected from '../../util/withAriaSelected';
 
 const baseStyles = ({ theme }) => css`
   label: selector;
@@ -52,4 +53,4 @@ Selector.defaultProps = {
 /**
  * @component
  */
-export default Selector;
+export default withAriaSelected(Selector);
