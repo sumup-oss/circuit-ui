@@ -16,48 +16,39 @@ const marginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const createLeftBorder = ({ theme, size, type }) => {
+const createLeftBorderStyles = colorName => ({ theme, size, type }) => {
   const colors = {
-    [DANGER]: theme.colors.r500,
-    [SUCCESS]: theme.colors.g700,
-    [WARNING]: theme.colors.y700
+    [DANGER]: theme.colors.danger,
+    [SUCCESS]: theme.colors.success,
+    [WARNING]: theme.colors.warning
   };
 
-  return `
-    label: inline-notification--${type};
-    color: ${colors[type]};
-    position: relative;
-    margin-bottom: ${theme.spacings.mega};
-    &:before {
-      display: inline-block;
-      border-top-right-radius: ${theme.borderRadius[size]};
-      border-bottom-right-radius: ${theme.borderRadius[size]};
-      content: '';
-      position: absolute;
-      left: -${theme.spacings[size]};
-      top: 0;
-      height: 100%;
-      background-color: ${colors[type]};
-      width: 3px;
-    }
-  `;
+  return (
+    colorName === type &&
+    css`
+      label: inline-notification--${type};
+      color: ${colors[type]};
+      position: relative;
+      margin-bottom: ${theme.spacings.mega};
+      &:before {
+        display: inline-block;
+        border-top-right-radius: ${theme.borderRadius[size]};
+        border-bottom-right-radius: ${theme.borderRadius[size]};
+        content: '';
+        position: absolute;
+        left: -${theme.spacings[size]};
+        top: 0;
+        height: 100%;
+        background-color: ${colors[type]};
+        width: 3px;
+      }
+    `
+  );
 };
 
-const successStyles = ({ theme, size, type }) =>
-  type === SUCCESS &&
-  css`
-    ${createLeftBorder({ theme, size, type })};
-  `;
-const warningStyles = ({ theme, size, type }) =>
-  type === WARNING &&
-  css`
-    ${createLeftBorder({ theme, size, type })};
-  `;
-const dangerStyles = ({ theme, size, type }) =>
-  type === DANGER &&
-  css`
-    ${createLeftBorder({ theme, size, type })};
-  `;
+const successStyles = createLeftBorderStyles(SUCCESS);
+const warningStyles = createLeftBorderStyles(WARNING);
+const dangerStyles = createLeftBorderStyles(DANGER);
 
 /**
  * An inline notification displayed inside a Card.
