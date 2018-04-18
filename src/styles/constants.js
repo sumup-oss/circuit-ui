@@ -23,3 +23,13 @@ export const shadows = {
   DOUBLE: 'double',
   TRIPLE: 'triple'
 };
+
+/**
+ * Colors?
+ */
+
+export const colorNames = {
+  SUCCESS: 'success',
+  DANGER: 'danger',
+  WARNING: 'warning'
+};
