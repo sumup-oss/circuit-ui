@@ -198,8 +198,9 @@ const ValidationIconWrapper = styled('div')(
 );
 
 const iconStyles = css`
-  width: 100%;
+  display: block;
   height: 100%;
+  width: 100%;
 `;
 
 /* eslint-disable react/prop-types */
