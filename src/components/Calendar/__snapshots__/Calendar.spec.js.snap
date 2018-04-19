@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calendar should render with default styles 1`] = `
+.circuit-10 td {
+  vertical-align: middle;
+}
+
+.circuit-9 {
+  position: relative;
+  display: inline-block;
+}
+
+.circuit-3 {
+  vertical-align: middle;
+  fill: #565a5c;
+  height: 24px;
+  width: 24px;
+}
+
+.circuit-8 {
+  background-color: #fff;
+  display: inline-block;
+  border: 1px solid #cacccd;
+}
+
+.circuit-4 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.circuit-2 {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  position: relative;
+  display: inline-block;
+  width: 130px;
+  vertical-align: middle;
+}
+
+.circuit-0 {
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 24px;
+  color: #565a5c;
+  background-color: #fff;
+  width: 100%;
+  padding: undefinedpx undefinedpx;
+  padding-top: 13px;
+  padding-bottom: 11px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 2px solid transparent;
+  border-left: 0;
+}
+
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0,0,0,0);
+  clip: rect(0,0,0,0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+<div
+  className="circuit-10 circuit-11"
+>
+  <div
+    className="circuit-9"
+  >
+    <div>
+      <div
+        className="circuit-8"
+      >
+        <div
+          className="circuit-2"
+        >
+          <input
+            aria-describedby="DateInput__screen-reader-message-your_unique_start_date_id"
+            aria-label="Start Date"
+            autoComplete="off"
+            className="circuit-0"
+            disabled={false}
+            id="your_unique_start_date_id"
+            name="your_unique_start_date_id"
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Start Date"
+            readOnly={false}
+            required={false}
+            type="text"
+            value=""
+          />
+          <p
+            className="circuit-1"
+            id="DateInput__screen-reader-message-your_unique_start_date_id"
+          >
+            Press the down arrow key to interact with the calendar and
+  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+          </p>
+        </div>
+        <div
+          aria-hidden="true"
+          className="circuit-4"
+          role="presentation"
+        >
+          <svg
+            className="circuit-3"
+            viewBox="0 0 1000 1000"
+          >
+            <path
+              d="M694.4 242.4l249.1 249.1c11 11 11 21 0 32L694.4 772.7c-5 5-10 7-16 7s-11-2-16-7c-11-11-11-21 0-32l210.1-210.1H67.1c-13 0-23-10-23-23s10-23 23-23h805.4L662.4 274.5c-21-21.1 11-53.1 32-32.1z"
+            />
+          </svg>
+        </div>
+        <div
+          className="circuit-2"
+        >
+          <input
+            aria-describedby="DateInput__screen-reader-message-your_unique_end_date_id"
+            aria-label="End Date"
+            autoComplete="off"
+            className="circuit-0"
+            disabled={false}
+            id="your_unique_end_date_id"
+            name="your_unique_end_date_id"
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="End Date"
+            readOnly={false}
+            required={false}
+            type="text"
+            value=""
+          />
+          <p
+            className="circuit-1"
+            id="DateInput__screen-reader-message-your_unique_end_date_id"
+          >
+            Press the down arrow key to interact with the calendar and
+  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
