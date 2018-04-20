@@ -6869,7 +6869,7 @@ react-with-styles-interface-css@^4.0.1:
     array.prototype.flatten "^1.2.1"
     global-cache "^1.2.1"
 
-react-with-styles@^3.1.0, react-with-styles@^3.1.1:
+react-with-styles@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/react-with-styles/-/react-with-styles-3.1.1.tgz#a2a86ed04b73fcadcd20cd30bf6a5111b6d852dc"
   dependencies:
@@ -6878,9 +6878,9 @@ react-with-styles@^3.1.0, react-with-styles@^3.1.1:
     prop-types "^15.6.0"
     react-with-direction "^1.1.0"
 
-react@^16.2.0:
-  version "16.3.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.3.2.tgz#fdc8420398533a1e58872f59091b272ce2f91ea9"
+"react@>=16.2.0 <16.3.0":
+  version "16.2.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"

@@ -1,28 +1,12 @@
 import React, { Component } from 'react';
-import ThemedStyleSheet from 'react-with-styles/lib/ThemedStyleSheet';
 import { withTheme } from 'emotion-theming';
 import { DateRangePicker } from 'react-dates';
 
-import { themePropType } from '../../util/shared-prop-types';
-import {
-  mapThemeToReactDates,
-  reactWithStylesEmotionInterface
-} from './CalendarThemeService';
+import 'react-dates/initialize';
 
 import { CalendarWrap } from './components';
 
-ThemedStyleSheet.registerInterface(reactWithStylesEmotionInterface);
-
-class Calendar extends Component {
-  static propTypes = {
-    theme: themePropType.isRequired
-  };
-
-  constructor(props) {
-    super(props);
-
-    ThemedStyleSheet.registerTheme(mapThemeToReactDates(props.theme));
-  }
+export class CalendarRangePicker extends Component {
   state = { startDate: null, endDate: null, focusedInput: null };
   render() {
     return (
@@ -43,10 +27,6 @@ class Calendar extends Component {
   }
 }
 
-// const baseStyles = ({ theme }) => css`
-//   label: calendar;
-// `;
-
 /**
  * Describe your component here.
  */
@@ -64,4 +44,4 @@ class Calendar extends Component {
 /**
  * @component
  */
-export default withTheme(Calendar);
+export default withTheme(CalendarRangePicker);

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import withTests from '../../util/withTests';
-import Calendar from './Calendar';
+import Calendar from '.';
 
 storiesOf('Calendar', module)
   .addDecorator(withTests('Calendar'))
