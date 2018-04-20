@@ -34,15 +34,19 @@ const SCHEME_PRIORITIES = {
   [SCHEMES.VISA]: 100
 };
 
+const getDigits = str => str.replace(/[^\d]/g, '');
+
 export const detectCardScheme = curry((schemes, value) => {
-  if (!value || (value && !value.length)) {
+  const cleanValue = value && getDigits(value);
+
+  if (!cleanValue || (cleanValue && !cleanValue.length)) {
     return '';
   }
 
   const matchingSchemes = reduce(
     (acc, scheme) => {
       const regex = VALIDATION_REGEXES[scheme];
-      return regex && regex.test(value) ? concat(acc, scheme) : acc;
+      return regex && regex.test(cleanValue) ? concat(acc, scheme) : acc;
     },
     [],
     schemes
@@ -56,8 +60,6 @@ export const detectCardScheme = curry((schemes, value) => {
 
   return scheme || '';
 });
-
-const getDigits = str => str.replace(/[^\d]/g, '');
 
 export const normalizeCardNumber = (number = '') =>
   number ? getDigits(number) : number;

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { CardNumberInput, cardSchemeIcons } from '..';
 import { schemes as cardSchemes } from '../..';
-import Label from '../../../Label';
 import { reduce } from '../../../../util/fp';
 
 describe('CardNumberInput', () => {

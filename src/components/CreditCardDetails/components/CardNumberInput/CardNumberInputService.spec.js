@@ -266,6 +266,20 @@ describe('CardNumberInputService', () => {
       const actual = detectCardScheme(SCHEME_NAMES, CARD_NUMBERS.JCB_16);
       expect(actual).toBe(expected);
     });
+
+    it('should ignore non-digits when determining the chard scheme', () => {
+      const expected = SCHEMES.JCB;
+      const nonDigits = [' ', 'a', '-'];
+
+      nonDigits.forEach(nonDigit => {
+        const nonDigitCardNumber = [
+          CARD_NUMBERS.JCB_16.substr(0, 5),
+          CARD_NUMBERS.JCB_16.substr(5)
+        ].join(nonDigit);
+        const actual = detectCardScheme(SCHEME_NAMES, nonDigitCardNumber);
+        expect(actual).toBe(expected);
+      })
+    });
   });
 
   describe('providing helper functions for the UI', () => {
