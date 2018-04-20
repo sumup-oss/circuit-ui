@@ -266,6 +266,16 @@ describe('CardNumberInputService', () => {
       const actual = detectCardScheme(SCHEME_NAMES, CARD_NUMBERS.JCB_16);
       expect(actual).toBe(expected);
     });
+
+    it('should detect card schemes from numbers with invalid characters', () => {
+      const expected = SCHEMES.JCB;
+      const cardNumberWithSpace = [
+        CARD_NUMBERS.JCB_16.substr(0, 5),
+        CARD_NUMBERS.JCB_16.substr(5)
+      ].join(' ');
+      const actual = detectCardScheme(SCHEME_NAMES, cardNumberWithSpace);
+      expect(actual).toBe(expected);
+    });
   });
 
   describe('providing helper functions for the UI', () => {
