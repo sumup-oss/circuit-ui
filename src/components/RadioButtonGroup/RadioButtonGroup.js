@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import styled, { css } from 'react-emotion';
 
 import { uniqueId } from '../../util/id';
 
@@ -14,9 +15,22 @@ const RadioButtonGroup = ({
   value: activeValue,
   name: customName
 }) => {
+  const baseStyles = ({ theme }) => css`
+    label: radio-button-group;
+    margin-bottom: ${theme.spacings.mega};
+  `;
+  const marginStyles = ({ noMargin }) =>
+    noMargin &&
+    css`
+      label: radio-button-group--no-margin;
+      margin-bottom: 0;
+    `;
+  const Wrapper = styled('div')`
+    ${baseStyles} ${marginStyles};
+  `;
   const name = customName || uniqueId('radio-button-group_');
   return (
-    <Fragment>
+    <Wrapper>
       {options &&
         options.map(({ label, value, className, ...props }) => (
           <div key={value} className={className}>
@@ -28,7 +42,7 @@ const RadioButtonGroup = ({
             </RadioButton>
           </div>
         ))}
-    </Fragment>
+    </Wrapper>
   );
 };
 
@@ -56,11 +70,16 @@ RadioButtonGroup.propTypes = {
   /**
    * A unique name for the radio group.
    */
-  name: PropTypes.string
+  name: PropTypes.string,
+  /**
+   * Whether to omit the default margin bottom.
+   */
+  noMargin: PropTypes.bool
 };
 
 RadioButtonGroup.defaultProps = {
-  name: null
+  name: null,
+  noMargin: false
 };
 
 /**

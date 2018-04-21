@@ -1,8 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButtonGroup should render with default styles 1`] = `
-Array [
-  .circuit-0 {
+.circuit-12 {
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
   border: 0px;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -69,6 +72,9 @@ Array [
 }
 
 <div
+  className="circuit-12 circuit-13"
+>
+  <div
     className={undefined}
   >
     <input
@@ -91,74 +97,8 @@ Array [
     >
       Option 1
     </label>
-  </div>,
-  .circuit-0 {
-  border: 0px;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0px;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
-}
-
-.circuit-2 {
-  color: #5C656F;
-  padding-left: 24px;
-  position: relative;
-}
-
-.circuit-2::before {
-  box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
-}
-
-.circuit-2::after {
-  box-sizing: border-box;
-  height: 8px;
-  width: 8px;
-  background-color: #3388FF;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 4px;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-}
-
-<div
+  </div>
+  <div
     className={undefined}
   >
     <input
@@ -181,8 +121,40 @@ Array [
     >
       Option 2
     </label>
-  </div>,
-  .circuit-0 {
+  </div>
+  <div
+    className={undefined}
+  >
+    <input
+      checked={false}
+      className="circuit-0 circuit-1"
+      disabled={false}
+      id="radio-button_4"
+      name="radio-button-group_1"
+      onClick={undefined}
+      type="radio"
+      value="third"
+    />
+    <label
+      checked={false}
+      className="circuit-2 circuit-3"
+      disabled={false}
+      htmlFor="radio-button_4"
+      name="radio-button-group_1"
+      value="third"
+    >
+      Option 3
+    </label>
+  </div>
+</div>
+`;
+
+exports[`RadioButtonGroup should render with no margin styles 1`] = `
+.circuit-12 {
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
   border: 0px;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -249,14 +221,65 @@ Array [
 }
 
 <div
+  className="circuit-12 circuit-13"
+>
+  <div
     className={undefined}
   >
     <input
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
-      id="radio-button_4"
-      name="radio-button-group_1"
+      id="radio-button_6"
+      name="radio-button-group_5"
+      onClick={undefined}
+      type="radio"
+      value="first"
+    />
+    <label
+      checked={false}
+      className="circuit-2 circuit-3"
+      disabled={false}
+      htmlFor="radio-button_6"
+      name="radio-button-group_5"
+      value="first"
+    >
+      Option 1
+    </label>
+  </div>
+  <div
+    className={undefined}
+  >
+    <input
+      checked={false}
+      className="circuit-0 circuit-1"
+      disabled={false}
+      id="radio-button_7"
+      name="radio-button-group_5"
+      onClick={undefined}
+      type="radio"
+      value="second"
+    />
+    <label
+      checked={false}
+      className="circuit-2 circuit-3"
+      disabled={false}
+      htmlFor="radio-button_7"
+      name="radio-button-group_5"
+      value="second"
+    >
+      Option 2
+    </label>
+  </div>
+  <div
+    className={undefined}
+  >
+    <input
+      checked={false}
+      className="circuit-0 circuit-1"
+      disabled={false}
+      id="radio-button_8"
+      name="radio-button-group_5"
       onClick={undefined}
       type="radio"
       value="third"
@@ -265,12 +288,12 @@ Array [
       checked={false}
       className="circuit-2 circuit-3"
       disabled={false}
-      htmlFor="radio-button_4"
-      name="radio-button-group_1"
+      htmlFor="radio-button_8"
+      name="radio-button-group_5"
       value="third"
     >
       Option 3
     </label>
-  </div>,
-]
+  </div>
+</div>
 `;
