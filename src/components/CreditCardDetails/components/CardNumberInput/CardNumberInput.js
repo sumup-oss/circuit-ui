@@ -109,7 +109,7 @@ const SchemeIconWrapper = styled('li')`
 `;
 
 /**
- * Describe your component here.
+ * A credit card number input.
  */
 const CardNumberInput = ({
   acceptedCardSchemes,
