@@ -168,6 +168,39 @@ export const fontWeight = {
   bold: '700'
 };
 
+export const grid = {
+  untilKilo: {
+    cols: 4,
+    maxWidth: '400px',
+    gutter: spacings.byte,
+    padding: spacings.byte
+  },
+  kilo: {
+    cols: 8,
+    maxWidth: '600px',
+    gutter: spacings.mega,
+    padding: spacings.mega
+  },
+  mega: {
+    cols: 12,
+    maxWidth: '760px',
+    gutter: spacings.mega,
+    padding: spacings.giga
+  },
+  giga: {
+    cols: 12,
+    maxWidth: '880px',
+    gutter: spacings.giga,
+    padding: spacings.giga
+  },
+  tera: {
+    cols: 12,
+    maxWidth: '1200px',
+    gutter: spacings.giga,
+    padding: spacings.giga
+  }
+};
+
 export const breakpoints = {
   untilKilo: '(max-width: 479px)',
   kilo: 480,
