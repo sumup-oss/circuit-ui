@@ -28,7 +28,7 @@ Array [
     disabled={false}
     id="checkbox_2"
     name="name"
-    onClick={undefined}
+    onChange={[MockFunction]}
     type="checkbox"
   />,
   .circuit-0 {
@@ -123,7 +123,7 @@ Array [
     disabled={false}
     id="checkbox_1"
     name="name"
-    onClick={undefined}
+    onChange={[MockFunction]}
     type="checkbox"
   />,
   .circuit-0 {
@@ -207,7 +207,7 @@ Array [
     disabled={true}
     id="checkbox_3"
     name="name"
-    onClick={undefined}
+    onChange={[MockFunction]}
     type="checkbox"
   />,
   .circuit-0 {
@@ -309,7 +309,7 @@ Array [
     disabled={false}
     id="checkbox_4"
     name="name"
-    onClick={undefined}
+    onChange={[MockFunction]}
     type="checkbox"
   />,
   .circuit-0 {

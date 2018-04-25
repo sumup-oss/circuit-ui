@@ -74,7 +74,7 @@ Array [
       disabled={false}
       id="checkbox_2"
       name="checkbox-group_1"
-      onClick={undefined}
+      onChange={[MockFunction]}
       type="checkbox"
       value="first"
     />
@@ -161,7 +161,7 @@ Array [
       disabled={false}
       id="checkbox_3"
       name="checkbox-group_1"
-      onClick={undefined}
+      onChange={[MockFunction]}
       type="checkbox"
       value="second"
     />
@@ -248,7 +248,7 @@ Array [
       disabled={false}
       id="checkbox_4"
       name="checkbox-group_1"
-      onClick={undefined}
+      onChange={[MockFunction]}
       type="checkbox"
       value="third"
     />

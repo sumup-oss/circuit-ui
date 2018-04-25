@@ -3,6 +3,7 @@ import React from 'react';
 import CheckboxGroup from '.';
 
 describe('CheckboxGroup', () => {
+  const onChange = jest.fn();
   const options = [
     {
       label: 'Option 1',
@@ -23,7 +24,7 @@ describe('CheckboxGroup', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CheckboxGroup {...{ options }} />);
+    const actual = create(<CheckboxGroup {...{ options, onChange }} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -33,7 +34,7 @@ describe('CheckboxGroup', () => {
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <div role="group" aria-label="Choose your favourite options">
-        <CheckboxGroup {...{ options, value }} />
+        <CheckboxGroup {...{ options, value, onChange }} />
       </div>
     );
     const actual = await axe(wrapper);
@@ -44,7 +45,9 @@ describe('CheckboxGroup', () => {
    * Logic tests.
    */
   it('should check the currently active Checkboxes', () => {
-    const wrapper = shallow(<CheckboxGroup {...{ options, value }} />);
+    const wrapper = shallow(
+      <CheckboxGroup {...{ options, value, onChange }} />
+    );
     const first = wrapper
       .find('Checkbox')
       .at(1)
