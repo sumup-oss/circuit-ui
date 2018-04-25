@@ -11,7 +11,7 @@ import Checkbox from '../Checkbox';
  */
 const CheckboxGroup = ({
   options,
-  onChange: onToggle,
+  onChange,
   value: activeValue,
   name: customName
 }) => {
@@ -22,7 +22,7 @@ const CheckboxGroup = ({
         options.map(({ label, value, className, ...props }) => (
           <div key={value} className={className}>
             <Checkbox
-              {...{ ...props, value, name, onToggle }}
+              {...{ ...props, value, name, onChange }}
               checked={includes(activeValue, value)}
             >
               {label}
