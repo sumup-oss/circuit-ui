@@ -6704,6 +6704,12 @@ react-test-renderer@^16.0.0-0, react-test-renderer@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-text-mask@^5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/react-text-mask/-/react-text-mask-5.3.1.tgz#a8b4202c63ad333ec52149348a35b5186d11db23"
+  dependencies:
+    prop-types "^15.5.6"
+
 react-textarea-autosize@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-5.2.1.tgz#2b78f9067180f41b08ac59f78f1581abadd61e54"
