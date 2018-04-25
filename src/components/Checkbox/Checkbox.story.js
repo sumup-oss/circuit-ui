@@ -15,16 +15,16 @@ storiesOf('Checkbox', module)
       <State
         initial={false}
         name="isChecked"
-        updaterName="onToggle"
+        updaterName="onChange"
         updater={isChecked => !isChecked}
       >
-        {({ isChecked, onToggle }) => (
+        {({ isChecked, onChange }) => (
           <Checkbox
             value="checkbox"
             name="checkbox"
-            onToggle={e => {
+            onChange={e => {
               action('Checkbox clicked')(e);
-              onToggle(e);
+              onChange(e);
             }}
             checked={isChecked}
           >
@@ -40,16 +40,16 @@ storiesOf('Checkbox', module)
       <State
         initial={false}
         name="isChecked"
-        updaterName="onToggle"
+        updaterName="onChange"
         updater={isChecked => !isChecked}
       >
-        {({ isChecked, onToggle }) => (
+        {({ isChecked, onChange }) => (
           <Checkbox
             value="checkbox"
             name="checkbox"
-            onToggle={e => {
+            onChange={e => {
               action('Checkbox clicked')(e);
-              onToggle(e);
+              onChange(e);
             }}
             checked={isChecked}
             invalid

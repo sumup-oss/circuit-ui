@@ -50,11 +50,11 @@ describe('Checkbox', () => {
     expect(actual).toBeFalsy();
   });
 
-  it('should call onToggle when toggled', () => {
-    const onToggle = jest.fn();
-    const wrapper = shallow(<Checkbox {...{ onToggle }} />);
+  it('should call onChange when toggled', () => {
+    const onChange = jest.fn();
+    const wrapper = shallow(<Checkbox {...{ onChange }} />);
     const label = wrapper.find('CheckboxInput');
     label.simulate('click');
-    expect(onToggle).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
