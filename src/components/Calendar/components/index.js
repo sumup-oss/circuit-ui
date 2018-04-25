@@ -1,3 +1,3 @@
-import CalendarWrap from './CalendarWrap/CalendarWrap';
+import CalendarWrap from './CalendarWrap';
 
 export { CalendarWrap };

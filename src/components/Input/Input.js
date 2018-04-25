@@ -167,6 +167,13 @@ const InputContainer = styled('div')`
   ${containerInlineStyles};
 `;
 
+export const inputStyles = [
+  containerBaseStyles,
+  containerNoMarginStyles,
+  containerDisabledStyles,
+  containerInlineStyles
+];
+
 const InputElement = styled(HtmlElement)`
   ${inputBaseStyles};
   ${inputOptionalStyles};

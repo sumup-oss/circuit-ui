@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CalendarWrap should render with default styles 1`] = `
+exports[`RangePicker should render with default styles 1`] = `
 .circuit-0 .PresetDateRangePicker_panel {
   padding: 0 22px 11px;
 }
@@ -1160,5 +1160,81 @@ exports[`CalendarWrap should render with default styles 1`] = `
 
 <div
   className="circuit-0 circuit-1"
-/>
+>
+  <div
+    className="DateRangePicker DateRangePicker_1"
+  >
+    <div>
+      <div
+        className="DateRangePickerInput DateRangePickerInput_1 DateRangePickerInput__withBorder DateRangePickerInput__withBorder_2"
+      >
+        <div
+          className="DateInput DateInput_1"
+        >
+          <input
+            aria-describedby="DateInput__screen-reader-message-startDate"
+            aria-label="Start Date"
+            autoComplete="off"
+            className="DateInput_input DateInput_input_1"
+            disabled={false}
+            id="startDate"
+            name="startDate"
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="Start Date"
+            readOnly={false}
+            required={false}
+            type="text"
+            value=""
+          />
+          <p
+            className="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
+            id="DateInput__screen-reader-message-startDate"
+          >
+            Press the down arrow key to interact with the calendar and
+  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+          </p>
+        </div>
+        <div
+          aria-hidden="true"
+          className="DateRangePickerInput_arrow DateRangePickerInput_arrow_1"
+          role="presentation"
+        >
+          <div>
+            arrow-right.svg
+          </div>
+        </div>
+        <div
+          className="DateInput DateInput_1"
+        >
+          <input
+            aria-describedby="DateInput__screen-reader-message-endDate"
+            aria-label="End Date"
+            autoComplete="off"
+            className="DateInput_input DateInput_input_1"
+            disabled={false}
+            id="endDate"
+            name="endDate"
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder="End Date"
+            readOnly={false}
+            required={false}
+            type="text"
+            value=""
+          />
+          <p
+            className="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
+            id="DateInput__screen-reader-message-endDate"
+          >
+            Press the down arrow key to interact with the calendar and
+  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

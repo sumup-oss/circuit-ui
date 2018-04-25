@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Calendar from '.';
+import { RangePicker } from '.';
 
-describe('Calendar', () => {
+describe('RangePicker', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Calendar />);
+    const actual = create(<RangePicker />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -15,7 +15,7 @@ describe('Calendar', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Calendar />);
+    const wrapper = renderToHtml(<RangePicker />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

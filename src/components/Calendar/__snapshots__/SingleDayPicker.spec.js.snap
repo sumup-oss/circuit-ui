@@ -1,19 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Calendar should render with default styles 1`] = `
-.circuit-0 {
-  border: 1px solid #000;
-  border-radius: 3px;
-}
-
-.circuit-0 td {
-  vertical-align: middle;
-}
-
-.circuit-0 {
-  background: #2567D8;
-}
-
+exports[`SingleDayPicker should render with default styles 1`] = `
 .circuit-0 .PresetDateRangePicker_panel {
   padding: 0 22px 11px;
 }
@@ -1010,75 +997,192 @@ exports[`Calendar should render with default styles 1`] = `
 }
 
 .circuit-0 .CalendarDay__default {
-  border: 1px solid #9DA7B1;
-  color: #565a5c;
+  border: 1px solid #D8DDE1;
+  color: #212933;
   background: #FFFFFF;
+  vertical-align: middle;
 }
 
 .circuit-0 .CalendarDay__default:hover {
-  background: #9DA7B1;
-  border: 1px double #9DA7B1;
+  background: #D8DDE1;
+  border: 1px double #D8DDE1;
   color: inherit;
+}
+
+.circuit-0 .CalendarDay__hovered_span,
+.circuit-0 .CalendarDay__hovered_span:hover {
+  background: #DAEAFF;
+  border: 1px solid #3388FF;
+}
+
+.circuit-0 .CalendarDay__hovered_span:active {
+  background: #DAEAFF;
+  border: 1px solid #3388FF;
+}
+
+.circuit-0 .CalendarDay__selected_span {
+  background: #DAEAFF;
+  border: 1px solid #7FB5FF;
+}
+
+.circuit-0 .CalendarDay__selected_span:hover {
+  background: #7FB5FF;
+  border: 1px solid #7FB5FF;
+}
+
+.circuit-0 .CalendarDay__last_in_range {
+  border-right: #00a699;
 }
 
 .circuit-0 .CalendarDay__selected,
 .circuit-0 .CalendarDay__selected:active,
 .circuit-0 .CalendarDay__selected:hover {
-  background: #2567D8;
-  border: 1px solid #2567D8;
-  color: #fff;
-}
-
-.circuit-0 .CalendarDay__selected_span {
-  background: #7FB5FF;
-  border: 1px solid #3388FF;
-  color: #FFFFFF;
-}
-
-.circuit-0 .CalendarDay__selected_span:hover {
-  color: #FFFFFF;
   background: #3388FF;
-  border: 1px solid #3388FF;
-}
-
-.circuit-0 .CalendarDay__hovered_span,
-.circuit-0 .CalendarDay__hovered_span:hover {
-  background: #7FB5FF;
-  border: 1px solid #3388FF;
+  border: 1px solid #7FB5FF;
   color: #FFFFFF;
 }
 
-.circuit-0 .CalendarDay__hovered_span:active {
-  background: #7FB5FF;
-  border: 1px solid #3388FF;
-  color: #FFFFFF;
+.circuit-0 .CalendarDay__blocked_out_of_range,
+.circuit-0 .CalendarDay__blocked_out_of_range:active,
+.circuit-0 .CalendarDay__blocked_out_of_range:hover {
+  background: #fff;
+  border: 1px solid #D8DDE1;
+  color: #D8DDE1;
+}
+
+.circuit-0 .DateRangePickerInput,
+.circuit-0 .SingleDatePickerInput {
+  background-color: #FFFFFF;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.circuit-0 .DateRangePickerInput.DateRangePickerInput__withBorder,
+.circuit-0 .SingleDatePickerInput.DateRangePickerInput__withBorder,
+.circuit-0 .DateRangePickerInput.SingleDatePickerInput__withBorder,
+.circuit-0 .SingleDatePickerInput.SingleDatePickerInput__withBorder {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+}
+
+.circuit-0 .DateRangePickerInput.DateRangePickerInput__showClearDates,
+.circuit-0 .SingleDatePickerInput.DateRangePickerInput__showClearDates {
+  padding-right: 30px;
+}
+
+.circuit-0 .DateRangePickerInput__disabled {
+  background: #f2f2f2;
+}
+
+.circuit-0 .DateRangePickerInput_arrow {
+  margin: 0 12px;
+  width: 24px;
+  height: 24px;
+}
+
+.circuit-0 .DateInput {
+  width: 85px;
+  vertical-align: inherit;
+}
+
+.circuit-0 .DateInput_input {
+  color: #212933;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 200;
+  background-color: inherit;
+  width: 100%;
+  padding: 0;
+  border: none;
+}
+
+.circuit-0 .DateInput_input::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0 .DateInput_input::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0 .DateInput_input:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0 .DateInput_input::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0 .DateInput_fang {
+  margin-top: -8px;
+}
+
+.circuit-0 .DayPickerNavigation_button__horizontal {
+  padding: 4px 8px;
+  color: #5C656F;
+}
+
+.circuit-0 .DayPickerNavigation_leftButton__horizontal {
+  -webkit-transform: scale(-1,1);
+  -ms-transform: scale(-1,1);
+  transform: scale(-1,1);
+}
+
+.circuit-0 .DateRangePickerInput_clearDates {
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+}
+
+.circuit-0 .CalendarMonth_caption {
+  color: z;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 22px;
+  padding-bottom: 37px;
+  caption-side: initial;
 }
 
 <div
   className="circuit-0 circuit-1"
 >
   <div
-    className="DateRangePicker DateRangePicker_1"
+    className="SingleDatePicker SingleDatePicker_1"
   >
     <div>
       <div
-        className="DateRangePickerInput DateRangePickerInput_1 DateRangePickerInput__withBorder DateRangePickerInput__withBorder_2"
+        className="SingleDatePickerInput SingleDatePickerInput_1 SingleDatePickerInput__withBorder SingleDatePickerInput__withBorder_2"
       >
         <div
           className="DateInput DateInput_1"
         >
           <input
-            aria-describedby="DateInput__screen-reader-message-your_unique_start_date_id"
-            aria-label="Start Date"
+            aria-describedby="DateInput__screen-reader-message-date"
+            aria-label="Date"
             autoComplete="off"
             className="DateInput_input DateInput_input_1"
             disabled={false}
-            id="your_unique_start_date_id"
-            name="your_unique_start_date_id"
+            id="date"
+            name="date"
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
-            placeholder="Start Date"
+            placeholder="Date"
             readOnly={false}
             required={false}
             type="text"
@@ -1086,49 +1190,7 @@ exports[`Calendar should render with default styles 1`] = `
           />
           <p
             className="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
-            id="DateInput__screen-reader-message-your_unique_start_date_id"
-          >
-            Press the down arrow key to interact with the calendar and
-  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
-          </p>
-        </div>
-        <div
-          aria-hidden="true"
-          className="DateRangePickerInput_arrow DateRangePickerInput_arrow_1"
-          role="presentation"
-        >
-          <svg
-            className="DateRangePickerInput_arrow_svg DateRangePickerInput_arrow_svg_1"
-            viewBox="0 0 1000 1000"
-          >
-            <path
-              d="M694.4 242.4l249.1 249.1c11 11 11 21 0 32L694.4 772.7c-5 5-10 7-16 7s-11-2-16-7c-11-11-11-21 0-32l210.1-210.1H67.1c-13 0-23-10-23-23s10-23 23-23h805.4L662.4 274.5c-21-21.1 11-53.1 32-32.1z"
-            />
-          </svg>
-        </div>
-        <div
-          className="DateInput DateInput_1"
-        >
-          <input
-            aria-describedby="DateInput__screen-reader-message-your_unique_end_date_id"
-            aria-label="End Date"
-            autoComplete="off"
-            className="DateInput_input DateInput_input_1"
-            disabled={false}
-            id="your_unique_end_date_id"
-            name="your_unique_end_date_id"
-            onChange={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            placeholder="End Date"
-            readOnly={false}
-            required={false}
-            type="text"
-            value=""
-          />
-          <p
-            className="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
-            id="DateInput__screen-reader-message-your_unique_end_date_id"
+            id="DateInput__screen-reader-message-date"
           >
             Press the down arrow key to interact with the calendar and
   select a date. Press the question mark key to get the keyboard shortcuts for changing dates.

@@ -7,8 +7,6 @@ component_name=$1
 component_sub_path=$2
 component_path="${components_path}${component_sub_path:+/$component_sub_path}/$1"
 
-echo $component_path
-
 mkdir -p $component_path
 cp $template_path $component_path
 for i in ".spec." ".story." "."; do mv $component_path/{Component,$component_name}${i}js; done;
