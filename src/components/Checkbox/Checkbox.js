@@ -139,7 +139,7 @@ Checkbox.propTypes = {
   /**
    * Value string for input.
    */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+  value: PropTypes.oneOf([PropTypes.string, PropTypes.bool, PropTypes.array]),
   /**
    * Child nodes to be rendered as the label.
    */
