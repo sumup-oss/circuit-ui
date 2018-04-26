@@ -170,6 +170,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   id: null,
   checked: false,
+  value: null,
   invalid: false,
   disabled: false,
   children: null
