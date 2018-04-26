@@ -74,7 +74,6 @@ const dateRangePickerInput = ({ theme }) => css`
   .SingleDatePickerInput {
     label: input__calendar;
     background-color: ${theme.colors.white};
-    box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
     padding: ${theme.spacings.byte} ${theme.spacings.kilo};
     transition: border-color ${theme.transitions.default};
     width: 100%;

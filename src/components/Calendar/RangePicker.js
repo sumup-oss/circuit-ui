@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'react-emotion';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 
@@ -10,7 +11,11 @@ import ArrowRightIcon from './arrow-right.svg';
 const RangePicker = props => (
   <CalendarWrap>
     <DateRangePicker
-      customArrowIcon={<ArrowRightIcon />}
+      customArrowIcon={
+        <CustomArrow>
+          <ArrowRightIcon />
+        </CustomArrow>
+      }
       navNext={<ArrowRightIcon />}
       navPrev={<ArrowRightIcon />}
       customCloseIcon={<CloseIcon />}
@@ -20,5 +25,9 @@ const RangePicker = props => (
     />
   </CalendarWrap>
 );
+
+const CustomArrow = styled('div')`
+  color: ${({ theme }) => theme.colors.b500};
+`;
 
 export default RangePicker;
