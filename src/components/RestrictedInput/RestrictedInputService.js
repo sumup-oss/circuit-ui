@@ -8,7 +8,8 @@ const DEFAULT_KEYS = [
   'Meta',
   'Control',
   'Alt',
-  'F5'
+  'F5',
+  'Unidentified' // This is here because legacy Chrome on XP sends it.
 ];
 
 export const handleKeyDown = userEnabledKeys => {
