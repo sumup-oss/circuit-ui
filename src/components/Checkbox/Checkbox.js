@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually, size } from 'polished';
@@ -101,6 +101,13 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
+const checkboxWrapperBaseStyles = ({ theme }) => css`
+  label: checkbox;
+  &:last-of-type {
+    margin-bottom: ${theme.spacings.mega};
+  }
+`;
+
 const CheckboxInput = styled('input')`
   ${inputStyles};
 `;
@@ -111,18 +118,22 @@ const CheckboxLabel = styled('label')`
   ${labelInvalidStyles}
 `;
 
+const CheckboxWrapper = styled('div')`
+  ${checkboxWrapperBaseStyles};
+`;
+
 /**
  * Checkbox component for forms.
  */
 const Checkbox = ({ onChange, children, id: customId, ...props }) => {
   const id = customId || uniqueId('checkbox_');
   return (
-    <Fragment>
+    <CheckboxWrapper>
       <CheckboxInput id={id} onClick={onChange} type="checkbox" {...props} />
       <CheckboxLabel htmlFor={id} {...props}>
         {children}
       </CheckboxLabel>
-    </Fragment>
+    </CheckboxWrapper>
   );
 };
 

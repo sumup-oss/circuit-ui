@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { withState } from 'recompose';
 
 import withTests from '../../util/withTests';
 import State from '../State';
@@ -67,4 +68,40 @@ storiesOf('Checkbox', module)
         Disabled
       </Checkbox>
     ))
+  )
+  .add(
+    'Multiple Checkboxes',
+    withInfo()(() => {
+      const initialValues = { apples: false, bananas: false, oranges: false };
+      const withCheckboxes = withState('values', 'onChange', initialValues);
+      const MultipleCheckboxes = withCheckboxes(({ values, onChange }) => (
+        <div>
+          <Checkbox
+            value="apples"
+            name="checkbox"
+            onChange={() => onChange({ ...values, apples: !values.apples })}
+            checked={values.apples}
+          >
+            Apples
+          </Checkbox>
+          <Checkbox
+            value="bananas"
+            name="checkbox"
+            onChange={() => onChange({ ...values, bananas: !values.bananas })}
+            checked={values.bananas}
+          >
+            Bananas
+          </Checkbox>
+          <Checkbox
+            value="oranges"
+            name="checkbox"
+            onChange={() => onChange({ ...values, oranges: !values.oranges })}
+            checked={values.oranges}
+          >
+            Oranges
+          </Checkbox>
+        </div>
+      ));
+      return <MultipleCheckboxes />;
+    })
   );
