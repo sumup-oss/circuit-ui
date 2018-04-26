@@ -20,7 +20,7 @@ storiesOf('Checkbox', module)
       >
         {({ isChecked, onChange }) => (
           <Checkbox
-            value="checkbox"
+            value={isChecked}
             name="checkbox"
             onChange={e => {
               action('Checkbox clicked')(e);
@@ -45,7 +45,7 @@ storiesOf('Checkbox', module)
       >
         {({ isChecked, onChange }) => (
           <Checkbox
-            value="checkbox"
+            value="true"
             name="checkbox"
             onChange={e => {
               action('Checkbox clicked')(e);

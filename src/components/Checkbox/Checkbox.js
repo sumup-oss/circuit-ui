@@ -47,23 +47,8 @@ const labelBaseStyles = ({ theme }) => css`
     opacity: 0;
     transition: transform 0.05s ease-in, opacity 0.05s ease-in;
   }
+
 `;
-
-const labelCheckedStyles = ({ theme, checked, value }) =>
-  checked ||
-  ((value === true || value === 'true') &&
-    css`
-      label: checkbox--active;
-
-      &::before {
-        border-color: ${theme.colors.p500};
-      }
-
-      &::after {
-        transform: translateY(-50%) scale(1, 1);
-        opacity: 1;
-      }
-    `);
 
 const labelInvalidStyles = ({ theme, invalid }) =>
   invalid &&
@@ -104,6 +89,15 @@ const inputStyles = ({ theme }) => css`
     border-width: 2px;
     border-color: ${theme.colors.p500};
   }
+
+  &:checked + label::after {
+    transform: translateY(-50%) scale(1, 1);
+    opacity: 1;
+  }
+
+  &:checked + label::before {
+    border-color: ${theme.colors.p500};
+  }
 `;
 
 const CheckboxInput = styled('input')`
@@ -112,7 +106,6 @@ const CheckboxInput = styled('input')`
 
 const CheckboxLabel = styled('label')`
   ${labelBaseStyles}
-  ${labelCheckedStyles}
   ${labelDisabledStyles}
   ${labelInvalidStyles}
 `;
@@ -140,7 +133,11 @@ Checkbox.propTypes = {
   /**
    * Value string for input.
    */
-  value: PropTypes.oneOf([PropTypes.string, PropTypes.bool, PropTypes.array]),
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.array
+  ]),
   /**
    * Child nodes to be rendered as the label.
    */

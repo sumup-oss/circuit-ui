@@ -74,15 +74,15 @@ Array [
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-.circuit-0::before {
-  border-color: #3388FF;
-}
-
-.circuit-0::after {
+.circuit-0:checked + label::after {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
   transform: translateY(-50%) scale(1,1);
   opacity: 1;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
 }
 
 <label
@@ -167,6 +167,17 @@ Array [
   -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
   -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
 }
 
 <label
@@ -254,6 +265,17 @@ Array [
   -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
   -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
 }
 
 .circuit-0::before {
@@ -353,6 +375,17 @@ Array [
   -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
   -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
 }
 
 .circuit-0:not(:focus)::before {
