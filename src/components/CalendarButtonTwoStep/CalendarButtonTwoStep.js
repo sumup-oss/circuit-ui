@@ -20,10 +20,6 @@ class CalendarButton extends Component {
     } else {
       this._onFocusChange(START_DATE);
     }
-
-    if (startDate && endDate) {
-      this.props.onDatesRangeChange({ startDate, endDate });
-    }
   };
 
   _onFocusChange = focusedInput => this.setState({ focusedInput });
@@ -64,6 +60,17 @@ class CalendarButton extends Component {
     }
   };
 
+  _onCommit = () => {
+    const { startDate, endDate } = this.state;
+
+    if (!startDate || !endDate) {
+      return;
+    }
+
+    this.props.onDatesRangeChange({ startDate, endDate });
+    this._onFocusChange(null);
+  };
+
   render() {
     const { focusedInput, startDate, endDate } = this.state;
     const isOpen = focusedInput !== null;
@@ -92,7 +99,7 @@ class CalendarButton extends Component {
               renderCalendarInfo={() => (
                 <CalendarInfo>
                   <InfoButton onClick={this._onClear}>Clear</InfoButton>
-                  <InfoButton primary onClick={() => this._onFocusChange(null)}>
+                  <InfoButton primary onClick={this._onCommit}>
                     Apply
                   </InfoButton>
                 </CalendarInfo>
