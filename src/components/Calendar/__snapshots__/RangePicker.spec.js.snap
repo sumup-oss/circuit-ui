@@ -1172,6 +1172,10 @@ exports[`RangePicker should render with default styles 1`] = `
   line-height: 20px;
 }
 
+.circuit-2 .DayPicker {
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 4px 4px 0 rgba(12,15,20,0.06), 0 8px 8px 0 rgba(12,15,20,0.06);
+}
+
 .circuit-0 {
   color: #3388FF;
 }

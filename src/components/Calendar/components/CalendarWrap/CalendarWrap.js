@@ -1,7 +1,11 @@
 import styled, { css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 
-import { textMega, textKilo } from '../../../../styles/style-helpers';
+import {
+  textMega,
+  textKilo,
+  shadowTriple
+} from '../../../../styles/style-helpers';
 import CalendarInheritStyles from './CalendarImportedStyles';
 
 const baseStyles = (/* { theme } */) => css`
@@ -173,6 +177,12 @@ const calendarWeekHeader = ({ theme }) => css`
   }
 `;
 
+const wrapShadow = ({ theme }) => css`
+  .DayPicker {
+    ${shadowTriple({ theme })};
+  }
+`;
+
 /**
  * Describe your component here.
  */
@@ -189,6 +199,7 @@ const CalendarWrap = styled('div')`
     ${closeButton};
     ${calendarCaption};
     ${calendarWeekHeader};
+    ${wrapShadow};
   }
 `;
 
