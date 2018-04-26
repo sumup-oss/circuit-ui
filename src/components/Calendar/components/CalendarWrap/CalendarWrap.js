@@ -1,7 +1,7 @@
 import styled, { css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 
-import { textMega } from '../../../../styles/style-helpers';
+import { textMega, textKilo } from '../../../../styles/style-helpers';
 import CalendarInheritStyles from './CalendarImportedStyles';
 
 const baseStyles = (/* { theme } */) => css`
@@ -42,6 +42,7 @@ const daySelection = ({ theme }) => css`
     border: 1px solid ${theme.colors.b300};
 
     &:hover {
+      color: ${theme.colors.white};
       background: ${theme.colors.b300};
       border: 1px solid ${theme.colors.b300};
     }
@@ -69,7 +70,8 @@ const blockedOutOfRange = ({ theme }) => css`
 `;
 
 const dateRangePickerInput = ({ theme }) => css`
-  .DateRangePickerInput, .SingleDatePickerInput {
+  .DateRangePickerInput,
+  .SingleDatePickerInput {
     label: input__calendar;
     background-color: ${theme.colors.white};
     box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
@@ -78,7 +80,8 @@ const dateRangePickerInput = ({ theme }) => css`
     width: 100%;
     ${textMega({ theme })};
 
-    &.DateRangePickerInput__withBorder, &.SingleDatePickerInput__withBorder {
+    &.DateRangePickerInput__withBorder,
+    &.SingleDatePickerInput__withBorder {
       border-width: 1px;
       border-style: solid;
       border-color: ${theme.colors.n300};
@@ -128,7 +131,7 @@ const dateRangePickerInput = ({ theme }) => css`
 const navButtons = ({ theme }) => css`
   .DayPickerNavigation_button__horizontal {
     padding: ${theme.spacings.bit} ${theme.spacings.byte};
-    color: ${theme.colors.n700};
+    color: ${theme.colors.n900};
   }
 
   .DayPickerNavigation_leftButton__horizontal {
@@ -145,14 +148,29 @@ const closeButton = ({ theme }) => css`
   }
 `;
 
-const calendarCaption = () => css`
+const calendarCaption = ({ theme }) => css`
   .CalendarMonth_caption {
-    color: z;
+    color: ${theme.colors.n900};
     font-size: 18px;
     text-align: center;
     padding-top: 22px;
-    padding-bottom: 37px;
+    padding-bottom: 43px;
     caption-side: initial;
+  }
+`;
+
+const calendarWeekHeader = ({ theme }) => css`
+  .DayPicker_weekHeader {
+    color: ${theme.colors.n900};
+    position: absolute;
+    top: 67px;
+    z-index: 2;
+    padding: 0 13px;
+    text-align: left;
+
+    .DayPicker_weekHeader_ul {
+      ${textKilo({ theme })};
+    }
   }
 `;
 
@@ -171,6 +189,7 @@ const CalendarWrap = styled('div')`
     ${navButtons};
     ${closeButton};
     ${calendarCaption};
+    ${calendarWeekHeader};
   }
 `;
 
