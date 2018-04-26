@@ -14,6 +14,7 @@ const labelBaseStyles = ({ theme }) => css`
   position: relative;
 
   &::before {
+    box-sizing: border-box;
     ${size(theme.spacings.mega)};
     box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
     background-color: ${theme.colors.white};
@@ -29,6 +30,7 @@ const labelBaseStyles = ({ theme }) => css`
   }
 
   &::after {
+    box-sizing: border-box;
     ${size(theme.spacings.byte)};
     background-color: ${theme.colors.p500};
     border-radius: 100%;
