@@ -1,7 +1,6 @@
 import CardNumberInput from './CardNumberInput';
 
 export {
-  parseCardNumber,
   normalizeCardNumber,
   isValidCardNumber,
   isAcceptedCardScheme,

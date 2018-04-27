@@ -1,6 +1,5 @@
 import {
   // Utils for CardNumberInput
-  parseCardNumber,
   isValidCardNumber,
   isAcceptedCardScheme,
   normalizeCardNumber,
@@ -23,7 +22,6 @@ import { parseAmount, formatAmount } from './components/CurrencyInput';
 const cardNumberUtils = {
   isValidCardNumber,
   isAcceptedCardScheme,
-  parseCardNumber,
   normalizeCardNumber,
   detectCardScheme
 };

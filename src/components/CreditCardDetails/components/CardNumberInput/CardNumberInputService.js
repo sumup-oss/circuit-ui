@@ -135,17 +135,6 @@ export const shouldRenderSchemesUnderInput = schemes =>
 export const hasDetectedScheme = detectedScheme =>
   detectedScheme && detectedScheme.length;
 
-export const parseCardNumber = (number = '') => {
-  const isEditingNumber =
-    number && /(^| )(\d{1,3}|\d{5,}) (?=\d{1,})/.test(number);
-
-  if (!number || isEditingNumber) {
-    return number;
-  }
-
-  return getDigits(number).replace(/(.{4})(?!$)/g, '$& ');
-};
-
 // prettier-ignore
 export const CARD_NUMBER_MASK = [
     /\d/, /\d/, /\d/, /\d/, ' ',
