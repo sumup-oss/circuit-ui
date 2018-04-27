@@ -117,7 +117,7 @@ const SimpleCurrencyInput = ({
         )
       }
       textAlign={Input.RIGHT}
-      enabledKeys={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']}
+      filteredKeys={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']}
       type="tel"
       {...{ ...props, hasWarning, invalid, disabled }}
     />
