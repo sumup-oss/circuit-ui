@@ -120,7 +120,6 @@ const CardNumberInput = ({
   theme,
   supportedSchemesLabel,
   detectedSchemeLabel,
-  onChange,
   ...props
 }) => {
   const supportedSchemesText = `${supportedSchemesLabel}: ${keys(
@@ -180,10 +179,6 @@ CardNumberInput.propTypes = {
    * Card scheme icon components.
    */
   acceptedCardSchemes: PropTypes.objectOf(PropTypes.func).isRequired,
-  /**
-   * The change handler.
-   */
-  onChange: PropTypes.func.isRequired,
   /**
    * The detected card scheme.
    */
