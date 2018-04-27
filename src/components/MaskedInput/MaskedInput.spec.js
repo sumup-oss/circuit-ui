@@ -4,19 +4,25 @@ import MaskedInput from '.';
 
 describe('MaskedInput', () => {
   /**
-   * Style tests.
+   * Logic tests.
    */
-  it.skip('should render with default styles', () => {
-    const actual = create(<MaskedInput />);
-    expect(actual).toMatchSnapshot();
+  it('should render an Input', () => {
+    const wrapper = render(<MaskedInput mask={[/\d/]} />);
+    const input = wrapper.find('input');
+    expect(input).toBeTruthy();
   });
 
-  /**
-   * Accessibility tests.
-   */
-  it.skip('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<MaskedInput />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
+  it('should forward props to Input', () => {
+    const wrapper = mount(<MaskedInput mask={[/\d/]} disabled />);
+    const input = wrapper.find('Input');
+    const actual = input.prop('disabled');
+    expect(actual).toBeTruthy();
+  });
+
+  it('should set the deepRef on Input', () => {
+    const wrapper = mount(<MaskedInput mask={[/\d/]} />);
+    const input = wrapper.find('Input');
+    const actual = input.prop('deepRef');
+    expect(actual).toBeTruthy();
   });
 });
