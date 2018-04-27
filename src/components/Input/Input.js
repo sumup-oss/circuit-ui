@@ -251,6 +251,7 @@ const Input = ({
   theme,
   wrapperClassName,
   inputClassName,
+  deepRef,
   ...props
 }) => {
   const prefixClassName = cx(prefixStyles({ theme }));
@@ -279,6 +280,7 @@ const Input = ({
           invalid,
           disabled,
           hasWarning,
+          deepRef,
           hasPrefix: !!prefix,
           hasSuffix: !!suffix,
           className: inputClassName
@@ -373,7 +375,12 @@ Input.propTypes = {
   /**
    * Class name to overwrite the input wrapper element styles.
    */
-  wrapperClassName: PropTypes.string
+  wrapperClassName: PropTypes.string,
+  /**
+   * DOM node to be forwarded to the actual input being rendered by
+   * styled.
+   */
+  deepRef: PropTypes.func
 };
 
 Input.defaultProps = {
@@ -390,6 +397,7 @@ Input.defaultProps = {
   disabled: false,
   inline: false,
   noMargin: false,
+  deepRef: undefined,
   textAlign: Input.LEFT,
   inputClassName: '',
   wrapperClassName: ''
