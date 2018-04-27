@@ -44,7 +44,6 @@ describe('CardNumberInput', () => {
       onChange={() => {}}
       detectedCardScheme={SCHEMES.VISA}
       name="creditCardInput"
-      value=""
     />
   );
   const manySchemesComponent = (
@@ -53,7 +52,6 @@ describe('CardNumberInput', () => {
       onChange={() => {}}
       detectedCardScheme=""
       name="creditCardInput"
-      value=""
     />
   );
 

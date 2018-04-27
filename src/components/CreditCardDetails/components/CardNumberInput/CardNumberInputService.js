@@ -145,3 +145,12 @@ export const parseCardNumber = (number = '') => {
 
   return getDigits(number).replace(/(.{4})(?!$)/g, '$& ');
 };
+
+// prettier-ignore
+export const CARD_NUMBER_MASK = [
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/, ' ',
+    /\d/, /\d/, /\d/, /\d/
+ ];

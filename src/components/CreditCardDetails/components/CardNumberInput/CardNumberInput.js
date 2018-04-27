@@ -5,17 +5,15 @@ import { withTheme } from 'emotion-theming';
 import { hideVisually } from 'polished';
 
 import { flow, toPairs, map, keys } from '../../../../util/fp';
-import Input from '../../../Input';
+import MaskedInput from '../../../MaskedInput';
 import Label from '../../../Label';
 import {
   isDisabledSchemeIcon,
   hasDetectedScheme,
-  shouldRenderSchemesUnderInput
+  shouldRenderSchemesUnderInput,
+  CARD_NUMBER_MASK
 } from './CardNumberInputService';
 import { disableVisually } from '../../../../styles/style-helpers';
-
-// FIXME: remove this once we move to a proper solution.
-const isAndroid = /Android/i.test(navigator && navigator.userAgent);
 
 const schemeListStyles = ({ theme }) => css`
   label: card-number-input__scheme-list;
@@ -140,33 +138,20 @@ const CardNumberInput = ({
         {detectedSchemesText}
       </AccessibleCardSchemeInfo>
       <Label htmlFor={id}>{label}</Label>
-      <Input
+      <MaskedInput
         value={value}
         type="tel"
         id={id}
         autoComplete="cc-number"
         placeholder="•••• •••• •••• ••••"
-        onChange={e => {
-          // FIXME: this is code to prevent an Android bug described
-          //        in this issue for the text-mask library:
-          //        https://github.com/text-mask/text-mask/issues/300
-          //        We should introduce a proper fix for this somewhere else,
-          //        potentially using text-mask for all inputs.
-          const { target } = e;
-          const { selectionEnd } = target;
-
-          if (isAndroid) {
-            target.setSelectionRange(selectionEnd, selectionEnd);
-          }
-
-          onChange(e);
-        }}
         {...props}
         wrapperClassName={inputLongStyles({
           theme,
           acceptedCardSchemes,
           className
         })}
+        guide={false}
+        mask={CARD_NUMBER_MASK}
       >
         <SchemeList {...{ acceptedCardSchemes }} aria-hidden="true">
           {flow(
@@ -185,7 +170,7 @@ const CardNumberInput = ({
             ))
           )(acceptedCardSchemes)}
         </SchemeList>
-      </Input>
+      </MaskedInput>
     </Fragment>
   );
 };
