@@ -8,12 +8,9 @@ import { flow, curry, compose, includes } from 'lodash/fp';
 
 export { flow, curry, compose, includes };
 
-// Requires polyfill
-export const values = obj => Object.values(obj);
+export { toPairs, values, isArray } from 'lodash/fp';
 
 export const keys = obj => Object.keys(obj);
-
-export const toPairs = obj => Object.entries(obj);
 
 // This only works with an array. Might implement iterator
 // approach.
