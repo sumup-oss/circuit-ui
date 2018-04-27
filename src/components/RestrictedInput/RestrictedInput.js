@@ -15,7 +15,7 @@ import { handleKeyDown, handleCarretPosition } from './RestrictedInputService';
  * input at all times.
  */
 const RestrictedInput = ({
-  enabledKeys,
+  filteredKeys,
   onFocus,
   onMouseUp,
   alignCarretLeft,
@@ -23,7 +23,7 @@ const RestrictedInput = ({
 }) => (
   <Input
     {...props}
-    onKeyDown={handleKeyDown(enabledKeys)}
+    onKeyDown={handleKeyDown(filteredKeys)}
     onFocus={handleCarretPosition(onFocus, alignCarretLeft)}
     onMouseUp={handleCarretPosition(onMouseUp, alignCarretLeft)}
   />
@@ -37,7 +37,7 @@ RestrictedInput.propTypes = {
    * An array of keys that shold register with the input. All
    * other keys will be ignored.
    */
-  enabledKeys: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filteredKeys: PropTypes.arrayOf(PropTypes.string),
   /**
    * An array of keys that shold register with the input. All
    * other keys will be ignored.
@@ -58,7 +58,8 @@ RestrictedInput.propTypes = {
 RestrictedInput.defaultProps = {
   alignCarretLeft: false,
   onFocus: null,
-  onMouseUp: null
+  onMouseUp: null,
+  filteredKeys: []
 };
 
 /**

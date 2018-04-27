@@ -1,4 +1,4 @@
-import { includes } from '../../util/fp';
+import { includes, isArray } from '../../util/fp';
 
 const DEFAULT_KEYS = [
   'Tab',
@@ -8,14 +8,18 @@ const DEFAULT_KEYS = [
   'Meta',
   'Control',
   'Alt',
-  'F5'
+  'F5',
+  'Unidentified' // This is here because legacy Chrome on XP sends it.
 ];
 
-export const handleKeyDown = userEnabledKeys => {
-  const enabledKeys = [...DEFAULT_KEYS, ...userEnabledKeys];
+export const handleKeyDown = userFilteredKeys => {
+  if (!isArray(userFilteredKeys) || !userFilteredKeys.length) {
+    return undefined;
+  }
+  const filteredKeys = [...DEFAULT_KEYS, ...userFilteredKeys];
   return e => {
     // TODO: think about replacing this with a regex.
-    if (!includes(e.key, enabledKeys)) {
+    if (e.key !== undefined && !includes(e.key, filteredKeys)) {
       e.preventDefault();
     }
   };
