@@ -30,4 +30,12 @@ storiesOf('Text', module)
         This is a kilo Text with a div element
       </Text>
     ))
+  )
+  .add(
+    'Bold Text',
+    withInfo()(() => (
+      <Text bold size={Text.KILO}>
+        This is bold text
+      </Text>
+    ))
   );

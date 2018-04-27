@@ -20,6 +20,13 @@ const sizeStyles = ({ theme, size }) => css`
   line-height: ${theme.typography.text[size].lineHeight};
 `;
 
+const boldStyles = ({ theme, bold }) =>
+  bold &&
+  css`
+    label: text--bold;
+    font-weight: ${theme.fontWeight.bold};
+  `;
+
 const marginStyles = ({ noMargin }) =>
   noMargin &&
   css`
@@ -29,14 +36,16 @@ const marginStyles = ({ noMargin }) =>
 
 const TextElement = styled(
   HtmlElement
-)`${baseStyles} ${sizeStyles} ${marginStyles}`;
+)`${baseStyles} ${sizeStyles} ${marginStyles} ${boldStyles}`;
 
 /**
  * The Text component is used for long-form text. Typically with
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
-const Text = props => <TextElement {...props} blacklist={{ noMargin: true }} />;
+const Text = props => (
+  <TextElement {...props} blacklist={{ bold: true, noMargin: true }} />
+);
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;
@@ -60,6 +69,10 @@ Text.propTypes = {
    */
   noMargin: PropTypes.bool,
   /**
+   * Bolds the text.
+   */
+  bold: PropTypes.bool,
+  /**
    * The HTML element to render.
    */
   element: PropTypes.string
@@ -70,6 +83,7 @@ Text.defaultProps = {
   size: Text.MEGA,
   className: '',
   noMargin: false,
+  bold: false,
   children: null
 };
 

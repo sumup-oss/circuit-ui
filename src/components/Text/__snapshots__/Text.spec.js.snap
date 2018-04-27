@@ -48,6 +48,21 @@ exports[`Text should render as p element, when passed "p" for the element prop 1
 </p>
 `;
 
+exports[`Text should render bold text when passed the bold prop 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+<p
+  className="circuit-0 circuit-1"
+  size="mega"
+/>
+`;
+
 exports[`Text should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   font-weight: 400;

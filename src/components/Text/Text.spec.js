@@ -31,6 +31,11 @@ describe('Text', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render bold text when passed the bold prop', () => {
+    const actual = create(<Text bold />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
