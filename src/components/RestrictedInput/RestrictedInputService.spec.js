@@ -13,11 +13,10 @@ describe('RestrictedInputService', () => {
   });
 
   describe('filtering key events', () => {
-    it('should only register enabled keys', () => {
-      const userEnabledKeys = [];
-      const keyEvent = { ...baseEvent, key: 'e' };
-      handleKeyDown(userEnabledKeys)(keyEvent);
-      expect(keyEvent.preventDefault).toHaveBeenCalled();
+    it('should not return a handler when passed an empty set of keys', () => {
+      const userFilteredKeys = [];
+      const actual = handleKeyDown(userFilteredKeys);
+      expect(actual).toBeUndefined();
     });
 
     it('should register filtered keys', () => {
@@ -28,7 +27,7 @@ describe('RestrictedInputService', () => {
     });
 
     it('should register keys from the default filter', () => {
-      const userEnabledKeys = [];
+      const userEnabledKeys = ['1'];
       const handler = handleKeyDown(userEnabledKeys);
       const defaultKeys = [
         'Tab',
@@ -50,8 +49,8 @@ describe('RestrictedInputService', () => {
     });
 
     it("should register keys when the event's `key` property is undefined", () => {
-      const userEnabledKeys = [];
-      const handler = handleKeyDown(userEnabledKeys);
+      const userFilteredKeys = ['1'];
+      const handler = handleKeyDown(userFilteredKeys);
       const keyEvent = { ...baseEvent, key: undefined };
 
       handler(keyEvent);

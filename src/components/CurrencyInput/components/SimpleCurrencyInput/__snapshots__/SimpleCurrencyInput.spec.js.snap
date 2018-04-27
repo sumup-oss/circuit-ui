@@ -78,8 +78,22 @@ exports[`SimpleCurrencyInput should adjust input padding and postfix width to ma
     aria-invalid={false}
     className="circuit-0 circuit-1"
     disabled={false}
+    enabledKeys={
+      Array [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+      ]
+    }
     onFocus={[Function]}
-    onKeyDown={[Function]}
+    onKeyDown={undefined}
     onMouseUp={[Function]}
     placeholder="123,45"
     required={false}
@@ -175,8 +189,22 @@ exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = 
     aria-invalid={true}
     className="circuit-0 circuit-1"
     disabled={true}
+    enabledKeys={
+      Array [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+      ]
+    }
     onFocus={[Function]}
-    onKeyDown={[Function]}
+    onKeyDown={undefined}
     onMouseUp={[Function]}
     required={false}
     type="tel"
@@ -314,8 +342,22 @@ exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] 
     aria-invalid={true}
     className="circuit-0 circuit-1"
     disabled={false}
+    enabledKeys={
+      Array [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+      ]
+    }
     onFocus={[Function]}
-    onKeyDown={[Function]}
+    onKeyDown={undefined}
     onMouseUp={[Function]}
     required={false}
     type="tel"
@@ -405,8 +447,22 @@ exports[`SimpleCurrencyInput should render with default styles 1`] = `
     aria-invalid={false}
     className="circuit-0 circuit-1"
     disabled={false}
+    enabledKeys={
+      Array [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+      ]
+    }
     onFocus={[Function]}
-    onKeyDown={[Function]}
+    onKeyDown={undefined}
     onMouseUp={[Function]}
     required={false}
     type="tel"
@@ -522,8 +578,22 @@ exports[`SimpleCurrencyInput should render with error styles 1`] = `
     aria-invalid={true}
     className="circuit-0 circuit-1"
     disabled={false}
+    enabledKeys={
+      Array [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+      ]
+    }
     onFocus={[Function]}
-    onKeyDown={[Function]}
+    onKeyDown={undefined}
     onMouseUp={[Function]}
     required={false}
     type="tel"
@@ -639,8 +709,22 @@ exports[`SimpleCurrencyInput should render with warning styles 1`] = `
     aria-invalid={false}
     className="circuit-0 circuit-1"
     disabled={false}
+    enabledKeys={
+      Array [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+      ]
+    }
     onFocus={[Function]}
-    onKeyDown={[Function]}
+    onKeyDown={undefined}
     onMouseUp={[Function]}
     required={false}
     type="tel"
@@ -738,8 +822,22 @@ exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = 
     aria-invalid={false}
     className="circuit-2 circuit-3"
     disabled={false}
+    enabledKeys={
+      Array [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+      ]
+    }
     onFocus={[Function]}
-    onKeyDown={[Function]}
+    onKeyDown={undefined}
     onMouseUp={[Function]}
     placeholder="123.45"
     required={false}
