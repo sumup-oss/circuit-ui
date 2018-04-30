@@ -1,6 +1,5 @@
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
-import { getNumberFormat } from '../../util/numbers';
 import { getCurrencyFormat } from '../../util/currency';
 import { curry } from '../../util/fp';
 import { currencyToRegex } from '../../util/regex';
@@ -25,17 +24,19 @@ export const normalizeValue = value => {
   return parseFloat(numberString);
 };
 
-export const createCurrencyMask = (locale, options = {}) => {
+export const createCurrencyMask = (currency, locale, options = {}) => {
   const {
     decimal: decimalSymbol = '.',
-    thousand: thousandsSeparatorSymbol = ','
-  } = getNumberFormat(locale);
+    thousand: thousandsSeparatorSymbol = ',',
+    currencyPrecision: decimalLimit
+  } = getCurrencyFormat(currency, locale);
 
   return createNumberMask({
     prefix: '',
     suffix: '',
     thousandsSeparatorSymbol,
-    allowDecimal: true,
+    allowDecimal: decimalLimit > 0,
+    decimalLimit,
     decimalSymbol,
     ...options
   });

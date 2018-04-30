@@ -17,7 +17,7 @@ import { SimpleCurrencyInput } from './components';
 const CurrencyInput = ({ locale, currency, ...props }) => {
   const prependSymbol = shouldPrependSymbol(currency, locale);
   const symbol = CURRENCY_SYMBOLS[currency] || '';
-  const numberMask = createCurrencyMask(locale);
+  const numberMask = createCurrencyMask(currency, locale);
 
   return (
     <SimpleCurrencyInput {...{ ...props, prependSymbol, symbol, numberMask }} />
