@@ -20,7 +20,9 @@ class CalendarButton extends Component {
     }
   };
 
-  handleFocusChange = focusedInput => this.setState({ focusedInput });
+  handleFocusChange = focusedInput => {
+    this.setState({ focusedInput });
+  };
 
   handleButtonClick = () =>
     this.setState(({ focusedInput }) => ({
