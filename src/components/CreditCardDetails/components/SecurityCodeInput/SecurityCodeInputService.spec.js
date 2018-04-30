@@ -1,7 +1,7 @@
 import { SCHEMES } from '../../constants/card-schemes';
 import {
   getPlaceholder,
-  parseSecurityCode,
+  getMask,
   isValidSecurityCode
 } from './SecurityCodeInputService';
 
@@ -19,33 +19,17 @@ describe('SecurityCodeInputService', () => {
     });
   });
 
-  describe('parsing input values', () => {
-    it('should parse only digits', () => {
-      const value = '   324-khsdlkjfhs';
-      const expected = '324';
-      const actual = parseSecurityCode('', value);
-      expect(actual).toBe(expected);
+  describe('providing a text mask', () => {
+    it('should provide a 4 digit mask for AMEX', () => {
+      const expected = [/\d/, /\d/, /\d/, /\d/];
+      const actual = getMask(SCHEMES.AMEX);
+      expect(actual).toEqual(expected);
     });
 
-    it('should parse partial values', () => {
-      const value = '1';
-      const expected = '1';
-      const actual = parseSecurityCode('', value);
-      expect(actual).toBe(expected);
-    });
-
-    it('should limit the value to three digits by default', () => {
-      const value = '1234';
-      const expected = '123';
-      const actual = parseSecurityCode('randomScheme', value);
-      expect(actual).toBe(expected);
-    });
-
-    it('should limit the value to three four digits for AMEX', () => {
-      const value = '12345';
-      const expected = '1234';
-      const actual = parseSecurityCode(SCHEMES.AMEX, value);
-      expect(actual).toBe(expected);
+    it('should provide a 3 digit mask for all schemes but AMEX', () => {
+      const expected = [/\d/, /\d/, /\d/];
+      const actual = getMask(SCHEMES.VISA);
+      expect(actual).toEqual(expected);
     });
   });
 
