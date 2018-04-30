@@ -8,7 +8,7 @@ import { RangePickerController } from '../Calendar';
 import Button from '../Button';
 import { textKilo } from '../../styles/style-helpers';
 
-class CalendarButton extends Component {
+class CalendarButtonTwoStep extends Component {
   state = { startDate: null, endDate: null, focusedInput: null };
   buttonRef = null;
 
@@ -68,6 +68,7 @@ class CalendarButton extends Component {
   };
 
   render() {
+    const { clearText, confirmText } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
     const isOpen = focusedInput !== null;
     const isFilled = !!(startDate && endDate);
@@ -93,9 +94,9 @@ class CalendarButton extends Component {
               calendarInfoPosition="bottom"
               renderCalendarInfo={() => (
                 <CalendarInfo>
-                  <InfoButton onClick={this._onClear}>Clear</InfoButton>
+                  <InfoButton onClick={this._onClear}>{clearText}</InfoButton>
                   <InfoButton primary onClick={this._handleConfirm}>
-                    Apply
+                    {confirmText}
                   </InfoButton>
                 </CalendarInfo>
               )}
@@ -143,16 +144,29 @@ const CalendarButtonWrap = styled('div')`
  * Describe your component here.
  */
 
-CalendarButton.propTypes = {
+CalendarButtonTwoStep.propTypes = {
   /**
-   * Callback to receive the set of dates when the user selects them.
+   * Callback to receive the set of dates when the user confirms them.
    */
-  onDatesRangeChange: PropTypes.func.isRequired
+  onDatesRangeChange: PropTypes.func.isRequired,
+
+  /**
+   * Text for the clear button
+   */
+  clearText: PropTypes.string,
+
+  /**
+   * Text for the confirm button
+   */
+  confirmText: PropTypes.string
 };
 
-CalendarButton.defaultProps = {};
+CalendarButtonTwoStep.defaultProps = {
+  clearText: 'Clear',
+  confirmText: 'Apply'
+};
 
 /**
  * @component
  */
-export default CalendarButton;
+export default CalendarButtonTwoStep;
