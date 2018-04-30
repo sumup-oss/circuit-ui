@@ -102,6 +102,7 @@
     "react-emotion": "^9.0.0-1",
     "react-modal": "^3.3.2",
     "react-text-mask": "^5.3.1",
-    "recompose": "^0.26.0"
+    "recompose": "^0.26.0",
+    "text-mask-addons": "^3.7.2"
   }
 }
