@@ -10,9 +10,9 @@ import Button from '../Button';
 
 class CalendarButton extends Component {
   state = { startDate: null, endDate: null, focusedInput: null };
-  buttonRef = null;
+  buttonRef = null; // eslint-disable-line react/sort-comp
 
-  _onDatesChange = ({ startDate, endDate }) => {
+  handleDatesChange = ({ startDate, endDate }) => {
     this.setState({ startDate, endDate });
 
     if (startDate && endDate) {
@@ -20,14 +20,14 @@ class CalendarButton extends Component {
     }
   };
 
-  _onFocusChange = focusedInput => this.setState({ focusedInput });
+  handleFocusChange = focusedInput => this.setState({ focusedInput });
 
-  _onButtonClick = () =>
+  handleButtonClick = () =>
     this.setState(({ focusedInput }) => ({
       focusedInput: focusedInput !== null ? null : START_DATE
     }));
 
-  _currentSelection = () => {
+  getDateRangePreview = () => {
     const { startDate, endDate } = this.state;
 
     if (!startDate && !endDate) {
@@ -39,18 +39,18 @@ class CalendarButton extends Component {
 
   _toDate = date => (date ? date.format('MMM DD') : '');
 
-  _onButtonRef = ref => {
+  handleButtonRef = ref => {
     this.buttonRef = ref;
   };
 
-  _onOutsideClick = ({ target }) => {
+  handleOutsideClick = ({ target }) => {
     if (this.buttonRef) {
       // TODO: May be implement forwardRef after we upgrade to 16.3 or elementRef
       // eslint-disable-next-line react/no-find-dom-node
       const buttonDomNode = findDOMNode(this.buttonRef);
 
       if (!buttonDomNode.contains(target)) {
-        this._onFocusChange(null);
+        this.handleFocusChange(null);
       }
     }
   };
@@ -63,20 +63,20 @@ class CalendarButton extends Component {
       <CalendarButtonWrap>
         <Button
           primary={isOpen}
-          ref={this._onButtonRef}
-          onClick={this._onButtonClick}
+          ref={this.handleButtonRef}
+          onClick={this.handleButtonClick}
         >
-          {this._currentSelection()}
+          {this.getDateRangePreview()}
         </Button>
         {isOpen && (
           <CalendarWrap>
             <RangePickerController
               startDate={startDate}
               endDate={endDate}
-              onDatesChange={this._onDatesChange}
+              onDatesChange={this.handleDatesChange}
               focusedInput={focusedInput}
-              onFocusChange={this._onFocusChange}
-              onOutsideClick={this._onOutsideClick}
+              onFocusChange={this.handleFocusChange}
+              onOutsideClick={this.handleOutsideClick}
             />
           </CalendarWrap>
         )}

@@ -10,53 +10,53 @@ import { textKilo } from '../../styles/style-helpers';
 
 class CalendarButtonTwoStep extends Component {
   state = { startDate: null, endDate: null, focusedInput: null };
-  buttonRef = null;
+  buttonRef = null; // eslint-disable-line react/sort-comp
 
-  _onDatesChange = ({ startDate, endDate }) => {
+  handleDatesChange = ({ startDate, endDate }) => {
     this.setState({ startDate, endDate });
 
-    this._onFocusChange(endDate ? START_DATE : END_DATE);
+    this.handleFocusChange(endDate ? START_DATE : END_DATE);
   };
 
-  _onFocusChange = focusedInput => this.setState({ focusedInput });
+  handleFocusChange = focusedInput => this.setState({ focusedInput });
 
-  _onClear = () =>
+  handleClear = () =>
     this.setState({ startDate: null, endDate: null, focusedInput: null });
 
-  _onButtonClick = () =>
+  handleButtonClick = () =>
     this.setState(({ focusedInput }) => ({
       focusedInput: focusedInput !== null ? null : START_DATE
     }));
 
-  _currentSelection = () => {
+  getDateRangePreview = () => {
     const { startDate, endDate } = this.state;
 
     if (!startDate && !endDate) {
       return 'Dates';
     }
 
-    return `${this._toDate(startDate)} - ${this._toDate(endDate)}`;
+    return `${this.toPreviewDate(startDate)} - ${this.toPreviewDate(endDate)}`;
   };
 
-  _toDate = date => (date ? date.format('MMM DD') : '');
+  toPreviewDate = date => (date ? date.format('MMM DD') : '');
 
-  _onButtonRef = ref => {
+  handleButtonRef = ref => {
     this.buttonRef = ref;
   };
 
-  _onOutsideClick = ({ target }) => {
+  handleOutsideClick = ({ target }) => {
     if (this.buttonRef) {
       // TODO: May be implement forwardRef after we upgrade to 16.3 or elementRef
       // eslint-disable-next-line react/no-find-dom-node
       const buttonDomNode = findDOMNode(this.buttonRef);
 
       if (!buttonDomNode.contains(target)) {
-        this._onFocusChange(null);
+        this.handleFocusChange(null);
       }
     }
   };
 
-  _handleConfirm = () => {
+  handleConfirm = () => {
     const { startDate, endDate } = this.state;
 
     if (!startDate || !endDate) {
@@ -64,7 +64,7 @@ class CalendarButtonTwoStep extends Component {
     }
 
     this.props.onDatesRangeChange({ startDate, endDate });
-    this._onFocusChange(null);
+    this.handleFocusChange(null);
   };
 
   render() {
@@ -77,25 +77,27 @@ class CalendarButtonTwoStep extends Component {
       <CalendarButtonWrap>
         <Button
           primary={isOpen || isFilled}
-          ref={this._onButtonRef}
-          onClick={this._onButtonClick}
+          ref={this.handleButtonRef}
+          onClick={this.handleButtonClick}
         >
-          {this._currentSelection()}
+          {this.getDateRangePreview()}
         </Button>
         {isOpen && (
           <CalendarWrap>
             <RangePickerController
               startDate={startDate}
               endDate={endDate}
-              onDatesChange={this._onDatesChange}
+              onDatesChange={this.handleDatesChange}
               focusedInput={focusedInput}
-              onOutsideClick={this._onOutsideClick}
+              onOutsideClick={this.handleOutsideClick}
               numberOfMonths={2}
               calendarInfoPosition="bottom"
               renderCalendarInfo={() => (
                 <CalendarInfo>
-                  <InfoButton onClick={this._onClear}>{clearText}</InfoButton>
-                  <InfoButton primary onClick={this._handleConfirm}>
+                  <InfoButton onClick={this.handleClear}>
+                    {clearText}
+                  </InfoButton>
+                  <InfoButton primary onClick={this.handleConfirm}>
                     {confirmText}
                   </InfoButton>
                 </CalendarInfo>
