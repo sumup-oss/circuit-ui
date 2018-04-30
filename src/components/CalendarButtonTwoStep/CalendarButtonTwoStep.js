@@ -15,11 +15,7 @@ class CalendarButton extends Component {
   _onDatesChange = ({ startDate, endDate }) => {
     this.setState({ startDate, endDate });
 
-    if (!endDate) {
-      this._onFocusChange(END_DATE);
-    } else {
-      this._onFocusChange(START_DATE);
-    }
+    this._onFocusChange(endDate ? START_DATE : END_DATE);
   };
 
   _onFocusChange = focusedInput => this.setState({ focusedInput });
@@ -60,7 +56,7 @@ class CalendarButton extends Component {
     }
   };
 
-  _onCommit = () => {
+  _handleConfirm = () => {
     const { startDate, endDate } = this.state;
 
     if (!startDate || !endDate) {
@@ -92,14 +88,13 @@ class CalendarButton extends Component {
               endDate={endDate}
               onDatesChange={this._onDatesChange}
               focusedInput={focusedInput}
-              // onFocusChange={this._onFocusChange}
               onOutsideClick={this._onOutsideClick}
               numberOfMonths={2}
               calendarInfoPosition="bottom"
               renderCalendarInfo={() => (
                 <CalendarInfo>
                   <InfoButton onClick={this._onClear}>Clear</InfoButton>
-                  <InfoButton primary onClick={this._onCommit}>
+                  <InfoButton primary onClick={this._handleConfirm}>
                     Apply
                   </InfoButton>
                 </CalendarInfo>
