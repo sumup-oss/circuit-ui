@@ -5,19 +5,17 @@ import {
   normalizeCardNumber,
   detectCardScheme,
   // Utils for ExpiryDateInput
-  parseExpiryDate,
   isFutureDate,
   isCompleteMonth,
   isCompleteYear,
   normalizeExpiryDate,
   // Utils for SecurityCodeInput
-  parseSecurityCode,
   isValidSecurityCode,
   // Misc
   schemes as ALL_CARD_SCHEMES
 } from './components/CreditCardDetails';
 
-import { parseAmount, formatAmount } from './components/CurrencyInput';
+import { normalizeAmount, isValidAmount } from './components/CurrencyInput';
 
 const cardNumberUtils = {
   isValidCardNumber,
@@ -27,23 +25,19 @@ const cardNumberUtils = {
 };
 
 const expiryDateUtils = {
-  parseExpiryDate,
   isFutureDate,
   isCompleteMonth,
   isCompleteYear,
-  normalizeExpiryDate,
-  detectCardScheme
+  normalizeExpiryDate
 };
 
 const securityCodeUtils = {
-  parseSecurityCode,
-  isValidSecurityCode,
-  detectCardScheme
+  isValidSecurityCode
 };
 
 const currencyAmountUtils = {
-  parseAmount,
-  formatAmount
+  normalizeAmount,
+  isValidAmount
 };
 
 // Typography

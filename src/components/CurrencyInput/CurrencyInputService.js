@@ -4,7 +4,7 @@ import { getCurrencyFormat } from '../../util/currency';
 import { curry } from '../../util/fp';
 import { currencyToRegex } from '../../util/regex';
 
-export const normalizeValue = value => {
+export const normalizeAmount = value => {
   if (!value || !value.length) {
     return value;
   }
