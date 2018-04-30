@@ -8,6 +8,7 @@ import {
 
 import { keys } from '../../util/fp';
 import { NUMBER_SEPARATORS } from '../../util/numbers';
+import { CURRENCY_FORMATS, formatAmountForLocale } from '../../util/currency';
 
 jest.mock('text-mask-addons/dist/createNumberMask', () => jest.fn());
 
@@ -47,6 +48,57 @@ describe('CurrencyInputService', () => {
         const actual = normalizeAmount(value);
         expect(actual).toBe(expected);
       });
+    });
+  });
+
+  describe('validating currency values', () => {
+    // TODO: these tests are too automated and removed
+    //       from the actual function usage.
+    const currencies = keys(CURRENCY_FORMATS);
+    const testValidation = value => {
+      currencies.forEach(currency => {
+        const ccyLocales = keys(CURRENCY_FORMATS[currency]);
+        ccyLocales.forEach(locale => {
+          if (locale === 'default') {
+            return;
+          }
+          const formattedValue = formatAmountForLocale(value, currency, locale);
+          const actual = isValidAmount(currency, locale, formattedValue);
+          expect(actual).toBeTruthy();
+        });
+      });
+    };
+
+    it('should validate an amount smaller than 1.00', () => {
+      const value = 0.5;
+      testValidation(value);
+    });
+
+    it('should validate an integer amount', () => {
+      const value = 5;
+      testValidation(value);
+    });
+
+    it('should validate an amount below 1000', () => {
+      const value = 999.9;
+      testValidation(value);
+    });
+
+    it('should validate an amount above 1000', () => {
+      const value = 100999.9;
+      testValidation(value);
+    });
+
+    it('should detect values with invalid thousand separators', () => {
+      const formattedValue = '123,2323,00';
+      const actual = isValidAmount('EUR', 'de-DE', formattedValue);
+      expect(actual).toBeFalsy();
+    });
+
+    it('should detect values with invalid decimal separators', () => {
+      const formattedValue = '123,2323.00';
+      const actual = isValidAmount('EUR', 'de-DE', formattedValue);
+      expect(actual).toBeFalsy();
     });
   });
 

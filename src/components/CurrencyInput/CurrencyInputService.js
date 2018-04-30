@@ -1,6 +1,9 @@
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 import { getNumberFormat } from '../../util/numbers';
+import { getCurrencyFormat } from '../../util/currency';
+import { curry } from '../../util/fp';
+import { currencyToRegex } from '../../util/regex';
 
 export const normalizeValue = value => {
   if (!value || !value.length) {
@@ -37,3 +40,15 @@ export const createCurrencyMask = (locale, options = {}) => {
     ...options
   });
 };
+
+export const isValidAmount = curry((currency, locale, value) => {
+  const { decimalSep, thousandSep, currencyPrecision } = getCurrencyFormat(
+    currency,
+    locale
+  );
+  const pattern = currencyToRegex([thousandSep], currencyPrecision, [
+    decimalSep
+  ]);
+  const regex = new RegExp(pattern);
+  return regex.test(value);
+});
