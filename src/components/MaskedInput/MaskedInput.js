@@ -11,6 +11,7 @@ import Input from '../Input';
  */
 const MaskedInput = props => (
   <TextMaskInput
+    guide={false}
     {...props}
     render={(ref, renderProps) => <Input {...renderProps} deepRef={ref} />}
   />
