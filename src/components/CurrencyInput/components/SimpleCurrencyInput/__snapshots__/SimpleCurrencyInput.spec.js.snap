@@ -21,10 +21,10 @@ exports[`SimpleCurrencyInput should adjust input padding and postfix width to ma
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: right;
   padding-right: calc( 12px + 16px + 12px );
   padding-right: 48px;
   padding-right: calc(24px + 3ch);
+  text-align: left;
 }
 
 .circuit-0:focus,
@@ -71,23 +71,16 @@ exports[`SimpleCurrencyInput should adjust input padding and postfix width to ma
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <input
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseUp={[Function]}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
     placeholder="123,45"
-    required={false}
     type="tel"
   />
   <span
-    className="circuit-2 circuit-3"
-    disabled={false}
+    class="circuit-2 circuit-3"
   >
     CHF
   </span>
@@ -118,10 +111,10 @@ exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = 
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: right;
   padding-right: calc( 12px + 16px + 12px );
   padding-right: 48px;
   padding-right: calc(24px + 0ch);
+  text-align: left;
 }
 
 .circuit-0:focus,
@@ -168,22 +161,18 @@ exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = 
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={true}
+  class="circuit-4 circuit-5"
+  disabled=""
 >
   <input
-    aria-invalid={true}
-    className="circuit-0 circuit-1"
-    disabled={true}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseUp={[Function]}
-    required={false}
+    aria-invalid="true"
+    class="circuit-0 circuit-1"
+    disabled=""
     type="tel"
   />
   <span
-    className="circuit-2 circuit-3"
-    disabled={true}
+    class="circuit-2 circuit-3"
+    disabled=""
   />
 </div>
 `;
@@ -209,10 +198,10 @@ exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] 
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: right;
   padding-right: calc( 12px + 16px + 12px );
   padding-right: 48px;
   padding-right: calc(24px + 0ch);
+  text-align: left;
 }
 
 .circuit-0:focus,
@@ -307,22 +296,15 @@ exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] 
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <input
-    aria-invalid={true}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseUp={[Function]}
-    required={false}
+    aria-invalid="true"
+    class="circuit-0 circuit-1"
     type="tel"
   />
   <span
-    className="circuit-2 circuit-3"
-    disabled={false}
+    class="circuit-2 circuit-3"
   />
 </div>
 `;
@@ -348,10 +330,10 @@ exports[`SimpleCurrencyInput should render with default styles 1`] = `
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: right;
   padding-right: calc( 12px + 16px + 12px );
   padding-right: 48px;
   padding-right: calc(24px + 1ch);
+  text-align: left;
 }
 
 .circuit-0:focus,
@@ -398,22 +380,15 @@ exports[`SimpleCurrencyInput should render with default styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <input
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseUp={[Function]}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
     type="tel"
   />
   <span
-    className="circuit-2 circuit-3"
-    disabled={false}
+    class="circuit-2 circuit-3"
   >
     €
   </span>
@@ -441,10 +416,10 @@ exports[`SimpleCurrencyInput should render with error styles 1`] = `
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: right;
   padding-right: calc( 12px + 16px + 12px );
   padding-right: 48px;
   padding-right: calc(24px + 1ch);
+  text-align: left;
 }
 
 .circuit-0:focus,
@@ -515,22 +490,15 @@ exports[`SimpleCurrencyInput should render with error styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <input
-    aria-invalid={true}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseUp={[Function]}
-    required={false}
+    aria-invalid="true"
+    class="circuit-0 circuit-1"
     type="tel"
   />
   <span
-    className="circuit-2 circuit-3"
-    disabled={false}
+    class="circuit-2 circuit-3"
   >
     €
   </span>
@@ -558,10 +526,10 @@ exports[`SimpleCurrencyInput should render with warning styles 1`] = `
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: right;
   padding-right: calc( 12px + 16px + 12px );
   padding-right: 48px;
   padding-right: calc(24px + 1ch);
+  text-align: left;
 }
 
 .circuit-0:focus,
@@ -632,22 +600,15 @@ exports[`SimpleCurrencyInput should render with warning styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <input
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseUp={[Function]}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
     type="tel"
   />
   <span
-    className="circuit-2 circuit-3"
-    disabled={false}
+    class="circuit-2 circuit-3"
   >
     €
   </span>
@@ -688,10 +649,10 @@ exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = 
   width: 100%;
   font-size: 15px;
   line-height: 24px;
-  text-align: right;
   padding-left: calc( 12px + 16px + 12px );
   padding-left: 48px;
   padding-left: calc(24px + 1ch);
+  text-align: right;
 }
 
 .circuit-2:focus,
@@ -725,24 +686,17 @@ exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = 
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <span
-    className="circuit-0 circuit-1"
-    disabled={false}
+    class="circuit-0 circuit-1"
   >
     $
   </span>
   <input
-    aria-invalid={false}
-    className="circuit-2 circuit-3"
-    disabled={false}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseUp={[Function]}
+    aria-invalid="false"
+    class="circuit-2 circuit-3"
     placeholder="123.45"
-    required={false}
     type="tel"
   />
 </div>
