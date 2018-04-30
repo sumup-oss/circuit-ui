@@ -67,3 +67,10 @@ export const pickBy = curry((iteratee, obj) =>
 );
 
 export const toBool = val => !!val;
+
+// This is only useful for debugging a pipe set up
+// with flow.
+export const trace = val => {
+  console.log(trace); // eslint-disable-line
+  return val;
+};
