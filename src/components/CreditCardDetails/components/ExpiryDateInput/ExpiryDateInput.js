@@ -1,8 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'; // eslint-disable-line max-len
 
-import Input from '../../../Input';
+import MaskedInput from '../../../MaskedInput';
 import Label from '../../../Label';
+
+const datePipe = createAutoCorrectedDatePipe('mm/yy');
 
 /**
  * A specialized input for the credit card's expiry
@@ -11,7 +14,15 @@ import Label from '../../../Label';
 const ExpiryDateInput = ({ label, id, ...props }) => (
   <Fragment>
     <Label htmlFor={id}>{label}</Label>
-    <Input autoComplete="cc-exp" type="tel" {...{ ...props, id }} />
+    <MaskedInput
+      autoComplete="cc-exp"
+      type="tel"
+      {...{ ...props, id }}
+      mask={[/\d/, /\d/, '/', /\d/, /\d/]}
+      guide={false}
+      keepCharPositions={true}
+      pipe={datePipe}
+    />
   </Fragment>
 );
 

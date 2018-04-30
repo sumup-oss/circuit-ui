@@ -3,7 +3,7 @@ import React from 'react';
 import ExpiryDateInput from '.';
 
 describe('ExpiryDateInput', () => {
-  const inputSelector = 'WithTheme(Input)';
+  const inputSelector = 'MaskedInput';
   it('should render a Label', () => {
     const wrapper = shallow(<ExpiryDateInput />);
     expect(wrapper.find('Label')).toHaveLength(1);
