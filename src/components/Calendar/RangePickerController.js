@@ -2,11 +2,11 @@ import React from 'react';
 import { DayPickerRangeController } from 'react-dates';
 import 'react-dates/initialize';
 
-import { CalendarWrap } from './components';
+import { CalendarWrapper } from './components';
 import ArrowRightIcon from './arrow-right.svg';
 
 const RangePickerController = props => (
-  <CalendarWrap>
+  <CalendarWrapper>
     <DayPickerRangeController
       navNext={<ArrowRightIcon />}
       navPrev={<ArrowRightIcon />}
@@ -14,7 +14,7 @@ const RangePickerController = props => (
       hideKeyboardShortcutsPanel
       {...props}
     />
-  </CalendarWrap>
+  </CalendarWrapper>
 );
 
 export default RangePickerController;

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import CalendarWrap from '.';
+import CalendarWrapper from '.';
 
-describe('CalendarWrap', () => {
+describe('CalendarWrapper', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CalendarWrap />);
+    const actual = create(<CalendarWrapper />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -15,7 +15,7 @@ describe('CalendarWrap', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CalendarWrap />);
+    const wrapper = renderToHtml(<CalendarWrapper />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

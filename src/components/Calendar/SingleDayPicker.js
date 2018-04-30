@@ -2,13 +2,13 @@ import React from 'react';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/initialize';
 
-import { CalendarWrap } from './components';
+import { CalendarWrapper } from './components';
 
 import CloseIcon from './close.svg';
 import ArrowRightIcon from './arrow-right.svg';
 
 const SingleDayPicker = props => (
-  <CalendarWrap>
+  <CalendarWrapper>
     <SingleDatePicker
       navNext={<ArrowRightIcon />}
       navPrev={<ArrowRightIcon />}
@@ -17,7 +17,7 @@ const SingleDayPicker = props => (
       hideKeyboardShortcutsPanel
       {...props}
     />
-  </CalendarWrap>
+  </CalendarWrapper>
 );
 
 export default SingleDayPicker;

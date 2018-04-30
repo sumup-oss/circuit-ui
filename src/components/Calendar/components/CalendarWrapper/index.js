@@ -1,3 +1,3 @@
 import CalendarWrapper from './CalendarWrapper';
 
-export { CalendarWrapper };
+export default CalendarWrapper;

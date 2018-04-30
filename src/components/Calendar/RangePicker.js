@@ -3,13 +3,13 @@ import styled from 'react-emotion';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 
-import { CalendarWrap } from './components';
+import { CalendarWrapper } from './components';
 
 import CloseIcon from './close.svg';
 import ArrowRightIcon from './arrow-right.svg';
 
 const RangePicker = props => (
-  <CalendarWrap>
+  <CalendarWrapper>
     <DateRangePicker
       customArrowIcon={
         <CustomArrow>
@@ -23,7 +23,7 @@ const RangePicker = props => (
       hideKeyboardShortcutsPanel
       {...props}
     />
-  </CalendarWrap>
+  </CalendarWrapper>
 );
 
 const CustomArrow = styled('div')`

@@ -186,7 +186,7 @@ const wrapShadow = ({ theme }) => css`
 /**
  * Describe your component here.
  */
-const CalendarWrap = styled('div')`
+const CalendarWrapper = styled('div')`
   ${baseStyles};
 
   & {
@@ -206,4 +206,4 @@ const CalendarWrap = styled('div')`
 /**
  * @component
  */
-export default withTheme(CalendarWrap);
+export default withTheme(CalendarWrapper);
