@@ -43,13 +43,17 @@ const CurrencyIcon = styled('span')`
   ${iconInvalidStyles};
 `;
 
+const inputStyles = css`
+  label: currency-input__input;
+  text-align: right;
+`;
+
 const inputPrependStyles = ({ theme, symbol = '', prependSymbol }) =>
   prependSymbol &&
   css`
     label: currency-input__input--prepend-symbol;
     padding-left: ${theme.spacings.exa};
     padding-left: calc(${theme.spacings.giga} + ${symbol.length}ch);
-    text-align: right;
   `;
 
 const inputAppendStyles = ({ theme, symbol = '', prependSymbol }) =>
@@ -58,7 +62,6 @@ const inputAppendStyles = ({ theme, symbol = '', prependSymbol }) =>
     label: currency-input__input--prepend-symbol;
     padding-right: ${theme.spacings.exa};
     padding-right: calc(${theme.spacings.giga} + ${symbol.length}ch);
-    text-align: left;
   `;
 
 /**
@@ -76,6 +79,7 @@ const SimpleCurrencyInput = ({
 }) => {
   const iconWidthClassName = iconOverrideWidthStyles({ symbol });
   const inputClassName = cx(
+    inputStyles,
     inputPrependStyles({
       theme,
       symbol,

@@ -22,9 +22,9 @@ exports[`SimpleCurrencyInput should adjust input padding and postfix width to ma
   font-size: 15px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
   padding-right: 48px;
   padding-right: calc(24px + 3ch);
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -112,9 +112,9 @@ exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = 
   font-size: 15px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
   padding-right: 48px;
   padding-right: calc(24px + 0ch);
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -199,9 +199,9 @@ exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] 
   font-size: 15px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
   padding-right: 48px;
   padding-right: calc(24px + 0ch);
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -331,9 +331,9 @@ exports[`SimpleCurrencyInput should render with default styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
   padding-right: 48px;
   padding-right: calc(24px + 1ch);
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -417,9 +417,9 @@ exports[`SimpleCurrencyInput should render with error styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
   padding-right: 48px;
   padding-right: calc(24px + 1ch);
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -527,9 +527,9 @@ exports[`SimpleCurrencyInput should render with warning styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
   padding-right: 48px;
   padding-right: calc(24px + 1ch);
-  text-align: left;
 }
 
 .circuit-0:focus,
@@ -650,9 +650,9 @@ exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = 
   font-size: 15px;
   line-height: 24px;
   padding-left: calc( 12px + 16px + 12px );
+  text-align: right;
   padding-left: 48px;
   padding-left: calc(24px + 1ch);
-  text-align: right;
 }
 
 .circuit-2:focus,
