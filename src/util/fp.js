@@ -8,7 +8,7 @@ import { flow, curry, compose, includes, find } from 'lodash/fp';
 
 export { flow, curry, compose, includes, find };
 
-export { toPairs, values, isArray } from 'lodash/fp';
+export { toPairs, values, isArray, isString, clamp } from 'lodash/fp';
 
 export const keys = obj => Object.keys(obj);
 

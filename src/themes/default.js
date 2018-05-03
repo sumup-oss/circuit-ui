@@ -168,43 +168,38 @@ export const fontWeight = {
   bold: '700'
 };
 
-export const grid = [
-  {
+export const grid = {
+  default: {
+    breakpoint: 'default',
+    cols: 12,
+    maxWidth: '880px',
+    gutter: spacings.giga
+  },
+  untilKilo: {
     breakpoint: 'untilKilo',
     cols: 4,
     maxWidth: '400px',
-    gutter: spacings.byte,
-    padding: spacings.byte
+    gutter: spacings.byte
   },
-  {
+  kilo: {
     breakpoint: 'kilo',
     cols: 8,
     maxWidth: '600px',
-    gutter: spacings.mega,
-    padding: spacings.mega
+    gutter: spacings.mega
   },
-  {
+  mega: {
     breakpoint: 'mega',
     cols: 12,
     maxWidth: '760px',
-    gutter: spacings.mega,
-    padding: spacings.giga
+    gutter: spacings.mega
   },
-  {
+  giga: {
     breakpoint: 'giga',
     cols: 12,
     maxWidth: '880px',
-    gutter: spacings.giga,
-    padding: spacings.giga
-  },
-  {
-    breakpoint: 'tera',
-    cols: 12,
-    maxWidth: '1200px',
-    gutter: spacings.giga,
-    padding: spacings.giga
+    gutter: spacings.giga
   }
-];
+};
 
 const breakpoints = {
   untilKilo: '(max-width: 479px)',

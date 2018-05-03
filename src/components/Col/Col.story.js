@@ -7,4 +7,4 @@ import Col from './Col';
 
 storiesOf('Col', module)
   .addDecorator(withTests('Col'))
-  .add('Default Col', withInfo()(() => <Col />));
+  .add('Default Col', withInfo()(() => <Col span="1" />));
