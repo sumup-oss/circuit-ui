@@ -10,13 +10,4 @@ describe('RangePicker', () => {
     const actual = create(<RangePicker />);
     expect(actual).toMatchSnapshot();
   });
-
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<RangePicker />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
-  });
 });

@@ -12,13 +12,4 @@ describe('SingleDayPicker', () => {
     const actual = create(<SingleDayPicker {...props} />);
     expect(actual).toMatchSnapshot();
   });
-
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<SingleDayPicker {...props} />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
-  });
 });
