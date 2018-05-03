@@ -103,7 +103,7 @@ describe('CurrencyInputService', () => {
       expect(actualDecimalLimit).toEqual(expectedDecimalLimit);
     });
 
-    it('should support decimal period and thousands comma separators', () => {
+    it('should handle currency/locale pairs with decimal period and thousands comma separators', () => {
       const currency = 'USD';
       const locale = 'en-US';
       const expectedDecimalSymbol = '.';
@@ -118,7 +118,7 @@ describe('CurrencyInputService', () => {
       );
     });
 
-    it('should support decimal comma and thousands period separators', () => {
+    it('should handle currency/locale pairs with decimal comma and thousands period separators', () => {
       const currency = 'EUR';
       const locale = 'de-DE';
       const expectedDecimalSymbol = ',';
