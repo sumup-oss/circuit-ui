@@ -9,7 +9,6 @@ import { reduce } from '../../../../util/fp';
 import { CardNumberInput, cardSchemeIcons } from '..';
 import { schemes as cardSchemes } from '../..';
 import Text from '../../../Text';
-import Label from '../../../Label';
 import { standard } from '../../../../themes';
 
 const { SCHEMES } = cardSchemes;
@@ -52,6 +51,7 @@ storiesOf('CardNumberInput', module)
         onChange={action('Changed input value')}
         detectedCardScheme=""
         name="creditCardInput"
+        value=""
         className={marginTopClassName}
       />
     ))

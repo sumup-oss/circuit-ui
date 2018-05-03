@@ -1,4 +1,4 @@
-import React from 'react';
+import { createElement } from 'react';
 import PropTypes from 'prop-types';
 
 const isFunction = val => typeof val === 'function';
@@ -12,9 +12,17 @@ const filterProps = (blacklist, props) =>
     return filteredProps;
   }, {});
 
-const HtmlElement = ({ element, children, blacklist, ...props }) => {
-  const Element = isFunction(element) ? element(props) : element;
-  return <Element {...filterProps(blacklist, props)}>{children}</Element>;
+const HtmlElement = ({
+  element,
+  children,
+  blacklist,
+  deepRef,
+  ...unfilteredProps
+}) => {
+  const type = isFunction(element) ? element(unfilteredProps) : element;
+  const filteredProps = filterProps(blacklist, unfilteredProps);
+  const ref = deepRef || undefined;
+  return createElement(type, { ...filteredProps, ref }, children);
 };
 
 HtmlElement.propTypes = {
@@ -36,13 +44,19 @@ HtmlElement.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ])
+  ]),
+  /**
+   * Same as the React ref. We need to use this because innerRef is already
+   * used by styled.
+   */
+  deepRef: PropTypes.func
 };
 
 HtmlElement.defaultProps = {
   blacklist: {},
   children: null,
-  element: 'div'
+  element: 'div',
+  deepRef: null
 };
 
 /**

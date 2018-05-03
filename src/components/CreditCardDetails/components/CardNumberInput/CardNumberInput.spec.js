@@ -44,7 +44,6 @@ describe('CardNumberInput', () => {
       onChange={() => {}}
       detectedCardScheme={SCHEMES.VISA}
       name="creditCardInput"
-      value=""
     />
   );
   const manySchemesComponent = (
@@ -53,21 +52,24 @@ describe('CardNumberInput', () => {
       onChange={() => {}}
       detectedCardScheme=""
       name="creditCardInput"
-      value=""
     />
   );
 
   /**
    * Style tests.
+   *
+   * Using render in these tests, because text-mask relies
+   * on refs and those are not well supported in react's
+   * test renderer.
    */
 
   it('should render with default styles', () => {
-    const actual = create(emptyComponent);
+    const actual = render(emptyComponent);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with styles for more than 5 card schemes', () => {
-    const actual = create(manySchemesComponent);
+    const actual = render(manySchemesComponent);
     expect(actual).toMatchSnapshot();
   });
 
@@ -86,7 +88,7 @@ describe('CardNumberInput', () => {
       0
     );
     expect(disabledWrappersCount).toBe(3);
-    const actualStyles = create(detectedComponent);
+    const actualStyles = render(detectedComponent);
     expect(actualStyles).toMatchSnapshot();
   });
 

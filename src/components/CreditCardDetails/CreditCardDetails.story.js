@@ -10,10 +10,7 @@ import CreditCardDetails, {
   SecurityCodeInput,
   NameOnCardInput,
   cardSchemeIcons,
-  schemes,
-  parseExpiryDate,
-  parseCardNumber,
-  parseSecurityCode
+  schemes
 } from '.';
 import Button from '../Button';
 import Text from '../Text';
@@ -76,19 +73,19 @@ storiesOf('CreditCardDetails', module)
                 <CardNumberInput
                   {...{ acceptedCardSchemes }}
                   value={values.cardNumber}
-                  onChange={handleChange('cardNumber', parseCardNumber)}
+                  onChange={handleChange('cardNumber')}
                 />
               }
               expiryDate={
                 <ExpiryDateInput
                   value={values.expiryDate}
-                  onChange={handleChange('expiryDate', parseExpiryDate)}
+                  onChange={handleChange('expiryDate')}
                 />
               }
               renderSecurityCodeInput={() => (
                 <SecurityCodeInput
                   value={values.securityCode}
-                  onChange={handleChange('securityCode', parseSecurityCode(''))}
+                  onChange={handleChange('securityCode')}
                 />
               )}
             />
@@ -114,19 +111,19 @@ storiesOf('CreditCardDetails', module)
                 <CardNumberInput
                   {...{ acceptedCardSchemes }}
                   value={values.cardNumber}
-                  onChange={handleChange('cardNumber', parseCardNumber)}
+                  onChange={handleChange('cardNumber')}
                 />
               }
               expiryDate={
                 <ExpiryDateInput
                   value={values.expiryDate}
-                  onChange={handleChange('expiryDate', parseExpiryDate)}
+                  onChange={handleChange('expiryDate')}
                 />
               }
               renderSecurityCodeInput={({ onShowInfo }) => (
                 <SecurityCodeInput
                   value={values.securityCode}
-                  onChange={handleChange('securityCode', parseSecurityCode(''))}
+                  onChange={handleChange('securityCode')}
                   onShowInfo={onShowInfo}
                 />
               )}

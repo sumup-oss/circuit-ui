@@ -1,6 +1,5 @@
 import {
   detectCardScheme,
-  parseCardNumber,
   normalizeCardNumber,
   isValidCardNumber,
   isAcceptedCardScheme,
@@ -278,7 +277,7 @@ describe('CardNumberInputService', () => {
         ].join(nonDigit);
         const actual = detectCardScheme(SCHEME_NAMES, nonDigitCardNumber);
         expect(actual).toBe(expected);
-      })
+      });
     });
   });
 
@@ -343,40 +342,6 @@ describe('CardNumberInputService', () => {
         sixSupportedSchemes
       );
       expect(shouldRenderUnder).toBeTruthy();
-    });
-  });
-
-  describe('parsing credit card numbers', () => {
-    it('should chunk the card number into blocks of four digits', () => {
-      const cardNumber = '12345678909876543';
-      const expected = '1234 5678 9098 7654 3';
-      const actual = parseCardNumber(cardNumber);
-      expect(actual).toBe(expected);
-    });
-
-    it('should ignore non-numeric values', () => {
-      const cardNumber = '  sdjfhksjdf45632shfsdfsdf ----/dfsd42323  ';
-      const expected = '4563 2423 23';
-      const actual = parseCardNumber(cardNumber);
-      expect(actual).toBe(expected);
-    });
-
-    it('should not do anything when passed a falsy value', () => {
-      const actual = parseCardNumber(null);
-      expect(actual).toBeNull();
-    });
-
-    it('should return an empty string when passed an empty string', () => {
-      const expected = '';
-      const actual = parseCardNumber('');
-      expect(actual).toBe(expected);
-    });
-
-    it('should not do anything when editing already parsed chunks', () => {
-      const cardNumber = '1234 568 45'; // Here the user is editing the second chunk.
-      const expected = '1234 568 45';
-      const actual = parseCardNumber(cardNumber);
-      expect(actual).toBe(expected);
     });
   });
 

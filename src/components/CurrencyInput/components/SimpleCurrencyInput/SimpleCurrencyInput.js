@@ -4,8 +4,7 @@ import styled, { css, cx } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 
 import { themePropType } from '../../../../util/shared-prop-types';
-import RestrictedInput from '../../../RestrictedInput/RestrictedInput';
-import Input from '../../../Input';
+import MaskedInput from '../../../MaskedInput';
 
 const iconBaseStyles = ({ theme }) => css`
   label: simple-currency-input__symbol;
@@ -44,8 +43,9 @@ const CurrencyIcon = styled('span')`
   ${iconInvalidStyles};
 `;
 
-const inputStyles = ({ theme }) => css`
+const inputStyles = css`
   label: currency-input__input;
+  text-align: right;
 `;
 
 const inputPrependStyles = ({ theme, symbol = '', prependSymbol }) =>
@@ -74,11 +74,12 @@ const SimpleCurrencyInput = ({
   hasWarning,
   invalid,
   disabled,
+  numberMask,
   ...props
 }) => {
   const iconWidthClassName = iconOverrideWidthStyles({ symbol });
   const inputClassName = cx(
-    inputStyles({ theme }),
+    inputStyles,
     inputPrependStyles({
       theme,
       symbol,
@@ -92,7 +93,7 @@ const SimpleCurrencyInput = ({
   );
 
   return (
-    <RestrictedInput
+    <MaskedInput
       inputClassName={inputClassName}
       renderPrefix={({ className }) =>
         prependSymbol && (
@@ -116,9 +117,8 @@ const SimpleCurrencyInput = ({
           </CurrencyIcon>
         )
       }
-      textAlign={Input.RIGHT}
-      enabledKeys={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']}
       type="tel"
+      mask={numberMask}
       {...{ ...props, hasWarning, invalid, disabled }}
     />
   );
@@ -135,6 +135,11 @@ SimpleCurrencyInput.propTypes = {
    * attribute to the <input> element.
    */
   disabled: PropTypes.bool,
+  /**
+   * A mask function for the MaskedInput. Typically created,
+   * via the CurrencyInputService.
+   */
+  numberMask: PropTypes.func.isRequired,
   /**
    * Triggers error styles on the component. Important for accessibility.
    */

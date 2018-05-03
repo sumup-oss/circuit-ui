@@ -18,7 +18,7 @@ Array [
 }
 
 <div
-    className="circuit-0 circuit-1"
+    class="circuit-0 circuit-1"
   >
     Supported card schemes: mastercard, visa, diners, jcb.
   </div>,
@@ -39,7 +39,7 @@ Array [
 
 <div
     aria-live="polite"
-    className="circuit-0 circuit-1"
+    class="circuit-0 circuit-1"
   >
     Detected scheme: visa
   </div>,
@@ -51,8 +51,8 @@ Array [
 }
 
 <label
-    className="circuit-0 circuit-1"
-    htmlFor="cui-cc-card-number"
+    class="circuit-0 circuit-1"
+    for="cui-cc-card-number"
   >
     Card number
   </label>,
@@ -175,56 +175,51 @@ Array [
 }
 
 <div
-    className="circuit-14 circuit-15"
-    disabled={false}
+    class="circuit-14 circuit-15"
   >
     <input
-      aria-invalid={false}
-      autoComplete="cc-number"
-      className="circuit-0 circuit-1"
-      disabled={false}
+      aria-invalid="false"
+      autocomplete="cc-number"
+      class="circuit-0 circuit-1"
       id="cui-cc-card-number"
       name="creditCardInput"
-      onChange={[Function]}
       placeholder="•••• •••• •••• ••••"
-      required={false}
       type="tel"
       value="4485 7197 7461 1397"
     />
     <div
-      className="circuit-2 circuit-3"
+      class="circuit-2 circuit-3"
     />
     <ul
       aria-hidden="true"
-      className="circuit-12 circuit-13"
+      class="circuit-12 circuit-13"
     >
       <li
-        className="circuit-4 circuit-5"
-        disabled={true}
+        class="circuit-4 circuit-5"
+        disabled=""
       >
         <div>
           mastercard.svg
         </div>
       </li>
       <li
-        className="circuit-6 circuit-5"
-        disabled={false}
+        class="circuit-6 circuit-5"
       >
         <div>
           visa.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled={true}
+        class="circuit-4 circuit-5"
+        disabled=""
       >
         <div>
           diners.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled={true}
+        class="circuit-4 circuit-5"
+        disabled=""
       >
         <div>
           jcb.svg
@@ -253,7 +248,7 @@ Array [
 }
 
 <div
-    className="circuit-0 circuit-1"
+    class="circuit-0 circuit-1"
   >
     Supported card schemes: mastercard, visa, diners, jcb.
   </div>,
@@ -274,7 +269,7 @@ Array [
 
 <div
     aria-live="polite"
-    className="circuit-0 circuit-1"
+    class="circuit-0 circuit-1"
   >
     Detected scheme: visa
   </div>,
@@ -286,8 +281,8 @@ Array [
 }
 
 <label
-    className="circuit-0 circuit-1"
-    htmlFor="cui-cc-card-number"
+    class="circuit-0 circuit-1"
+    for="cui-cc-card-number"
   >
     Card number
   </label>,
@@ -393,56 +388,48 @@ Array [
 }
 
 <div
-    className="circuit-14 circuit-15"
-    disabled={false}
+    class="circuit-14 circuit-15"
   >
     <input
-      aria-invalid={false}
-      autoComplete="cc-number"
-      className="circuit-0 circuit-1"
-      disabled={false}
+      aria-invalid="false"
+      autocomplete="cc-number"
+      class="circuit-0 circuit-1"
       id="cui-cc-card-number"
       name="creditCardInput"
-      onChange={[Function]}
       placeholder="•••• •••• •••• ••••"
-      required={false}
       type="tel"
       value=""
     />
     <div
-      className="circuit-2 circuit-3"
+      class="circuit-2 circuit-3"
     />
     <ul
       aria-hidden="true"
-      className="circuit-12 circuit-13"
+      class="circuit-12 circuit-13"
     >
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           mastercard.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           visa.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           diners.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           jcb.svg
@@ -471,7 +458,7 @@ Array [
 }
 
 <div
-    className="circuit-0 circuit-1"
+    class="circuit-0 circuit-1"
   >
     Supported card schemes: mastercard, visa, diners, discover, jcb, elo, maestro.
   </div>,
@@ -492,10 +479,8 @@ Array [
 
 <div
     aria-live="polite"
-    className="circuit-0 circuit-1"
-  >
-    
-  </div>,
+    class="circuit-0 circuit-1"
+  />,
   .circuit-0 {
   font-size: 13px;
   line-height: 20px;
@@ -504,8 +489,8 @@ Array [
 }
 
 <label
-    className="circuit-0 circuit-1"
-    htmlFor="cui-cc-card-number"
+    class="circuit-0 circuit-1"
+    for="cui-cc-card-number"
   >
     Card number
   </label>,
@@ -629,80 +614,69 @@ Array [
 }
 
 <div
-    className="circuit-20 circuit-21"
-    disabled={false}
+    class="circuit-20 circuit-21"
   >
     <input
-      aria-invalid={false}
-      autoComplete="cc-number"
-      className="circuit-0 circuit-1"
-      disabled={false}
+      aria-invalid="false"
+      autocomplete="cc-number"
+      class="circuit-0 circuit-1"
       id="cui-cc-card-number"
       name="creditCardInput"
-      onChange={[Function]}
       placeholder="•••• •••• •••• ••••"
-      required={false}
       type="tel"
       value=""
     />
     <div
-      className="circuit-2 circuit-3"
+      class="circuit-2 circuit-3"
     />
     <ul
       aria-hidden="true"
-      className="circuit-18 circuit-19"
+      class="circuit-18 circuit-19"
     >
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           mastercard.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           visa.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           diners.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           discover.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           jcb.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           elo.svg
         </div>
       </li>
       <li
-        className="circuit-4 circuit-5"
-        disabled=""
+        class="circuit-4 circuit-5"
       >
         <div>
           maestro.svg

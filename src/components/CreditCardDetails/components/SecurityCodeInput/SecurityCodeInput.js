@@ -4,8 +4,8 @@ import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
 import Label from '../../../Label';
-import Input from '../../../Input';
-import { getPlaceholder } from './SecurityCodeInputService';
+import MaskedInput from '../../../Input';
+import { getPlaceholder, getMask } from './SecurityCodeInputService';
 import InfoIcon from '../../../InfoIcon';
 import SvgButton from '../../../SvgButton/SvgButton';
 
@@ -35,9 +35,10 @@ const SecurityCodeInput = ({ label, id, cardScheme, onShowInfo, ...props }) => (
         </InfoButton>
       )}
     </SecurityCodeLabel>
-    <Input
+    <MaskedInput
       autoComplete="cc-csc"
       type="tel"
+      mask={getMask(cardScheme)}
       placeholder={getPlaceholder(cardScheme)}
       {...{ ...props, id }}
     />
