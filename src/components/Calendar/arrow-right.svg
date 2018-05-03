@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <path id="right-a" d="M16.2928932,11.5 L13.1464466,8.35355339 L13.8535534,7.64644661 L17.8535534,11.6464466 C18.0488155,11.8417088 18.0488155,12.1582912 17.8535534,12.3535534 L13.8535534,16.3535534 L13.1464466,15.6464466 L16.2928932,12.5 L5.5,12.5 L5.5,11.5 L16.2928932,11.5 Z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use fill="currentColor" fill-rule="nonzero" xlink:href="#right-a"/>
+  </g>
+</svg>
