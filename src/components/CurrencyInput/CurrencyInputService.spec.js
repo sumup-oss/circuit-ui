@@ -102,6 +102,36 @@ describe('CurrencyInputService', () => {
       expect(actualAllowDecimal).toEqual(expectedAllowDecimal);
       expect(actualDecimalLimit).toEqual(expectedDecimalLimit);
     });
+
+    it('should handle currency/locale pairs with decimal period and thousands comma separators', () => {
+      const currency = 'USD';
+      const locale = 'en-US';
+      const expectedDecimalSymbol = '.';
+      const expectedThousandsSeparatorSymbol = ',';
+      createCurrencyMask(currency, locale);
+      const options = createNumberMask.mock.calls[0][0];
+      const actualDecimalSymbol = options.decimalSymbol;
+      const actualThousandsSeparatorSymbol = options.thousandsSeparatorSymbol;
+      expect(actualDecimalSymbol).toEqual(expectedDecimalSymbol);
+      expect(actualThousandsSeparatorSymbol).toEqual(
+        expectedThousandsSeparatorSymbol
+      );
+    });
+
+    it('should handle currency/locale pairs with decimal comma and thousands period separators', () => {
+      const currency = 'EUR';
+      const locale = 'de-DE';
+      const expectedDecimalSymbol = ',';
+      const expectedThousandsSeparatorSymbol = '.';
+      createCurrencyMask(currency, locale);
+      const options = createNumberMask.mock.calls[0][0];
+      const actualDecimalSymbol = options.decimalSymbol;
+      const actualThousandsSeparatorSymbol = options.thousandsSeparatorSymbol;
+      expect(actualDecimalSymbol).toEqual(expectedDecimalSymbol);
+      expect(actualThousandsSeparatorSymbol).toEqual(
+        expectedThousandsSeparatorSymbol
+      );
+    });
   });
 
   it('should allow specifying options', () => {
