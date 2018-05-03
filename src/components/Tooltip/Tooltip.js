@@ -3,12 +3,16 @@ import styled, { css } from 'react-emotion';
 import { includes } from 'lodash';
 
 import { textKilo, shadowSingle } from '../../styles/style-helpers';
+import { CENTER, TOP, RIGHT, BOTTOM, LEFT } from '../../util/constants';
+import { positionPropType } from '../../util/shared-prop-types';
 
+/*
 const CENTER = 'center';
 const TOP = 'top';
 const RIGHT = 'right';
 const BOTTOM = 'bottom';
 const LEFT = 'left';
+*/
 
 const baseStyles = ({ theme }) => css`
   label: tooltip;
@@ -124,12 +128,7 @@ Tooltip.propTypes = {
   /**
    * The position of the tooltip in relation to its reference point.
    */
-  position: PropTypes.oneOf([
-    Tooltip.TOP,
-    Tooltip.RIGHT,
-    Tooltip.BOTTOM,
-    Tooltip.LEFT
-  ]),
+  position: positionPropType,
   /**
    * The alignment of the tooltip relative to its position.
    */

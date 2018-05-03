@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { TOP, BOTTOM, LEFT, RIGHT, START, END, CENTER } from './constants';
 
 // TODO: figure out if we can still get these props in react-docgen
 //       when they are imported and merged into a component's
@@ -161,3 +162,6 @@ export const localePropType = isRequired => (
 
   return null;
 };
+
+export const positionPropType = PropTypes.oneOf([TOP, BOTTOM, LEFT, RIGHT]);
+export const alignPropType = PropTypes.oneOf([START, END, CENTER]);

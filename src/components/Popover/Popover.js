@@ -3,12 +3,33 @@ import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 import styled from 'react-emotion';
 
-const modifiers = {
-  offset: { enabled: true, offset: '0,10' },
-  flip: { enabled: true }
-};
+import {
+  TOP,
+  BOTTOM,
+  LEFT,
+  RIGHT,
+  START,
+  END,
+  CENTER
+} from '../../util/constants';
+import { positionPropType, alignPropType } from '../../util/shared-prop-types';
+import { toPopperPlacement, popperModifiers } from './PopoverService';
+
+const ButtonWrapper = styled('div')`
+  label: popover__button-wrapper;
+  display: inline-block;
+`;
 
 class Popover extends Component {
+  static TOP = TOP;
+  static BOTTOM = BOTTOM;
+  static LEFT = LEFT;
+  static RIGHT = RIGHT;
+
+  static START = START;
+  static END = END;
+  static CENTER = CENTER;
+
   static propTypes = {
     /**
      * function rendering the popover
@@ -21,37 +42,35 @@ class Popover extends Component {
     /**
      * placement of the popover relative to the button
      */
-    placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+    position: positionPropType,
     /**
      * alignment of the popover relative to the button
      */
-    align: PropTypes.oneOf(['start', 'end', 'center'])
+    align: alignPropType
   };
 
   static defaultProps = {
-    placement: 'bottom',
-    align: 'start'
+    position: Popover.BOTTOM,
+    align: Popover.START
   };
 
   state = { isOpen: false };
 
   componentDidMount() {
-    document.addEventListener('click', this.onDocumentClick, false);
+    document.addEventListener('click', this.handleDocumentClick, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.onDocumentClick, false);
+    document.removeEventListener('click', this.handleDocumentClick, false);
   }
 
-  onDocumentClick = ({ target }) => {
-    if (this.popoverRef && this.popoverRef.contains(target)) {
-      return;
-    }
-    if (this.buttonRef && this.buttonRef.contains(target)) {
-      return;
-    }
+  handleDocumentClick = ({ target }) => {
+    const isWithinPopover = this.popoverRef && this.popoverRef.contains(target);
+    const isWithinButton = this.buttonRef && this.buttonRef.contains(target);
 
-    this.handleOutsideClick();
+    if (!isWithinButton && !isWithinPopover) {
+      this.handleOutsideClick();
+    }
   };
 
   buttonRef = null;
@@ -66,29 +85,30 @@ class Popover extends Component {
   };
 
   handleClick = () => this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
+
   handleOutsideClick = () => {
     this.setState({ isOpen: false });
   };
 
   render() {
-    const { renderPopover, renderReference, placement, align } = this.props;
+    const { renderPopover, renderReference, position, align } = this.props;
     const { isOpen } = this.state;
 
     return (
       <Manager>
         <Reference>
           {({ ref }) => (
-            <ButtonWrap
+            <ButtonWrapper
               innerRef={this.receiveButtonRef}
               onClick={this.handleClick}
             >
               <div ref={ref}>{renderReference({ isOpen })}</div>
-            </ButtonWrap>
+            </ButtonWrapper>
           )}
         </Reference>
         <Popper
-          placement={toPopperPlacement(placement, align)}
-          modifiers={modifiers}
+          placement={toPopperPlacement(position, align)}
+          modifiers={popperModifiers}
         >
           {({ ref, style }) =>
             isOpen && (
@@ -102,14 +122,6 @@ class Popover extends Component {
     );
   }
 }
-
-function toPopperPlacement(placement, align) {
-  return placement + (align !== 'center' ? `-${align}` : '');
-}
-
-const ButtonWrap = styled('div')`
-  display: inline-block;
-`;
 
 /**
  * @component

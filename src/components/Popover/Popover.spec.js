@@ -2,6 +2,9 @@ import React from 'react';
 
 import Popover from '.';
 
+const positions = [Popover.TOP, Popover.BOTTOM, Popover.LEFT, Popover.RIGHT];
+const alignments = [Popover.START, Popover.END, Popover.CENTER];
+
 // FMI: https://github.com/FezVrasta/popper.js/issues/478
 jest.mock('popper.js', () => {
   const PopperJS = jest.requireActual('popper.js');
@@ -33,6 +36,22 @@ describe('Popover', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  positions.forEach(position => {
+    alignments.forEach(alignment => {
+      it(`should render with position ${position} and alignment ${alignment}`, () => {
+        const actual = create(
+          <Popover
+            position={position}
+            align={alignment}
+            renderReference={() => <span />}
+            renderPopover={() => <span />}
+          />
+        );
+        expect(actual).toMatchSnapshot();
+      });
+    });
+  });
+
   /**
    * Accessibility tests.
    */
@@ -44,25 +63,9 @@ describe('Popover', () => {
     expect(actual).toHaveNoViolations();
   });
 
-  const placements = ['top', 'right', 'bottom', 'left'];
-  const alignments = ['start', 'end', 'center'];
-
-  placements.forEach(placement => {
-    alignments.forEach(alignment => {
-      it(`should render with placement ${placement} and alignment ${alignment}`, () => {
-        const actual = create(
-          <Popover
-            placement={placement}
-            align={alignment}
-            renderReference={() => <span />}
-            renderPopover={() => <span />}
-          />
-        );
-        expect(actual).toMatchSnapshot();
-      });
-    });
-  });
-
+  /**
+   * Logic tests.
+   */
   it('calls renderPopover on button click', () => {
     const renderFn = jest.fn();
     const actual = mount(

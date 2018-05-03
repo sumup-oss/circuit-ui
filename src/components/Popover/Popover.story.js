@@ -7,6 +7,9 @@ import withTests from '../../util/withTests';
 import Popover from './Popover';
 import Button from '../Button';
 
+const positions = [Popover.TOP, Popover.BOTTOM, Popover.LEFT, Popover.RIGHT];
+const alignments = [Popover.START, Popover.END, Popover.CENTER];
+
 storiesOf('Popover', module)
   .addDecorator(withTests('Popover'))
   .add(
@@ -14,12 +17,8 @@ storiesOf('Popover', module)
     withInfo()(() => (
       <div>
         <Popover
-          placement={select(
-            'Placement',
-            ['top', 'right', 'bottom', 'left'],
-            'bottom'
-          )}
-          align={select('Align', ['start', 'end', 'center'], 'start')}
+          position={select('position', positions, Popover.BOTTOM)}
+          align={select('align', alignments, Popover.START)}
           renderPopover={() => (
             <div
               style={{
@@ -28,12 +27,12 @@ storiesOf('Popover', module)
                 width: '200px'
               }}
             >
-              Example text or more
+              Popover Content
             </div>
           )}
           renderReference={({ isOpen }) => (
-            <Button primary={isOpen} size="kilo">
-              Status
+            <Button primary={isOpen} size={Button.KILO}>
+              Button
             </Button>
           )}
         />
