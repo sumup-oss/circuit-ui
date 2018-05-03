@@ -4,11 +4,11 @@
  * - Add polyfills.
  */
 
-import { flow, curry, compose, includes } from 'lodash/fp';
+import { flow, curry, compose, includes, find } from 'lodash/fp';
 
-export { flow, curry, compose, includes };
+export { flow, curry, compose, includes, find };
 
-export { find, toPairs, values, isArray } from 'lodash/fp';
+export { toPairs, values, isArray } from 'lodash/fp';
 
 export const keys = obj => Object.keys(obj);
 
@@ -28,6 +28,12 @@ export const mapKeys = curry((iteratee, obj) =>
     const newKey = iteratee[key];
     return { ...acc, [newKey]: obj[key] };
   })
+);
+
+export const reverse = arr => arr.reverse();
+
+export const findLast = curry((predicate, arr) =>
+  flow(reverse, find(predicate))(arr)
 );
 
 export const reduce = curry((iteratee, acc, arr) => arr.reduce(iteratee, acc));
