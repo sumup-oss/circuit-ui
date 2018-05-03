@@ -26,8 +26,8 @@ export const normalizeAmount = value => {
 
 export const createCurrencyMask = (currency, locale, options = {}) => {
   const {
-    decimal: decimalSymbol = '.',
-    thousand: thousandsSeparatorSymbol = ',',
+    decimalSep: decimalSymbol = '.',
+    thousandSep: thousandsSeparatorSymbol = ',',
     currencyPrecision: decimalLimit
   } = getCurrencyFormat(currency, locale);
 
