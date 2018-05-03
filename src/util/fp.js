@@ -8,7 +8,7 @@ import { flow, curry, compose, includes } from 'lodash/fp';
 
 export { flow, curry, compose, includes };
 
-export { toPairs, values, isArray } from 'lodash/fp';
+export { find, toPairs, values, isArray } from 'lodash/fp';
 
 export const keys = obj => Object.keys(obj);
 
@@ -29,8 +29,6 @@ export const mapKeys = curry((iteratee, obj) =>
     return { ...acc, [newKey]: obj[key] };
   })
 );
-
-export const find = curry((predicate, arr) => arr.find(predicate));
 
 export const reduce = curry((iteratee, acc, arr) => arr.reduce(iteratee, acc));
 
