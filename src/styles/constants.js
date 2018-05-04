@@ -1,35 +1,24 @@
+// prettier-ignore
+import {
+  BIT, BYTE, KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA,
+  SINGLE, DOUBLE, TRIPLE,
+  SUCCESS, DANGER, WARNING
+} from '../util/constants';
+
 /**
  * Sizes
  */
 
-export const sizes = {
-  BIT: 'bit',
-  BYTE: 'byte',
-  KILO: 'kilo',
-  MEGA: 'mega',
-  GIGA: 'giga',
-  TERA: 'tera',
-  PETA: 'peta',
-  EXA: 'exa',
-  ZETTA: 'zetta'
-};
+export const sizes = { BIT, BYTE, KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA };
 
 /**
  * Shadows
  */
 
-export const shadows = {
-  SINGLE: 'single',
-  DOUBLE: 'double',
-  TRIPLE: 'triple'
-};
+export const shadows = { SINGLE, DOUBLE, TRIPLE };
 
 /**
  * Colors?
  */
 
-export const colorNames = {
-  SUCCESS: 'success',
-  DANGER: 'danger',
-  WARNING: 'warning'
-};
+export const colorNames = { SUCCESS, DANGER, WARNING };
