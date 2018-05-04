@@ -133,4 +133,29 @@ storiesOf('Grid', module)
         </Grid>
       </div>
     ))
+  )
+  .add(
+    'Responsive skipping',
+    withInfo()(() => (
+      <div style={{ width: '100vw' }}>
+        <Grid>
+          <StyledRow>
+            <StyledCol span="3">Col 3</StyledCol>
+            <StyledCol span="3">Col 3</StyledCol>
+            <StyledCol span="3" skip={{ default: 0, untilKilo: 3 }}>
+              skip mobile
+            </StyledCol>
+          </StyledRow>
+
+          <StyledRow>
+            <StyledCol span="6" skip={{ default: 6, untilKilo: 0 }}>
+              first column
+            </StyledCol>
+            <StyledCol span="6" skip={{ default: -6, untilKilo: 0 }}>
+              second column
+            </StyledCol>
+          </StyledRow>
+        </Grid>
+      </div>
+    ))
   );
