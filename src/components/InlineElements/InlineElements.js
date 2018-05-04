@@ -15,7 +15,7 @@ const fallbackBaseStyles = ({ children, theme }) => {
       width: 100%;
     }
 
-    ${theme.mq.medium`
+    ${theme.mq.kilo`
       > * {
         float: left;
         width: ${1 / childrenCount * 95}%;
@@ -55,7 +55,7 @@ const baseStyles = ({ theme, ratios, children }) => {
       }
     }
 
-    ${theme.mq.medium`
+    ${theme.mq.kilo`
     align-items: stretch;
     flex-direction: row;
     justify-content: stretch;
@@ -85,7 +85,7 @@ const fallbackInlineMobileStyles = ({ theme, inlineMobile, children }) => {
   return css`
     label: inline-elements--inline-mobile-fallback;
 
-    ${theme.mq.untilMedium`
+    ${theme.mq.untilKilo`
       > * {
         float: left;
         width: ${1 / childrenCount * 95}%;
@@ -105,7 +105,7 @@ const inlineMobileStyles = ({ theme, inlineMobile }) =>
   css`
     label: inline-elements--inline-mobile;
 
-    ${theme.mq.untilMedium`
+    ${theme.mq.untilKilo`
       flex-direction: row;
       flex-grow: 1;
       width: auto;

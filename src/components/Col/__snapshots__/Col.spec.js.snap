@@ -1,7 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Col should render with default styles 1`] = `
-<element
+.circuit-0 {
+  box-sizing: border-box;
+  float: left;
+}
+
+.circuit-0:nth-of-type(n) {
+  background-color: #F7DA9F;
+}
+
+.circuit-0:nth-of-type(2n) {
+  background-color: #F2E5CB;
+}
+
+<div
   className="circuit-0 circuit-1"
+  span={1}
 />
 `;

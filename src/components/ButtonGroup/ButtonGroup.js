@@ -18,7 +18,7 @@ const listStyles = ({ theme }) => css`
     width: 100%;
   }
 
-  ${theme.mq.medium`
+  ${theme.mq.kilo`
     display: flex;
     justify-content: flex-end;
 

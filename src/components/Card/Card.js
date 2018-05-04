@@ -23,7 +23,7 @@ const baseStyles = ({ theme }) => css`
   width: 98%;
   width: calc(100% - ${theme.spacings.mega});
 
-  ${theme.mq.medium`
+  ${theme.mq.kilo`
     width: auto;
     min-width: 400px;
   `};

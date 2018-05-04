@@ -20,6 +20,20 @@ storiesOf('Grid', module)
             <Col span="3">Column 3</Col>
             <Col span="3">Column 4</Col>
           </Row>
+
+          <Row>
+            <Col span="6">Column 1</Col>
+            <Col span="6">Column 2</Col>
+          </Row>
+
+          <Row>
+            <Col span="6" skip="6">
+              Column 1
+            </Col>
+            <Col span="6" skip="-6">
+              Column 2
+            </Col>
+          </Row>
         </Grid>
       </div>
     ))
