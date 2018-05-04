@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually, size } from 'polished';
@@ -21,6 +21,7 @@ const labelBaseStyles = ({ theme }) => css`
 
   &::before {
     ${size(theme.spacings.mega)};
+    box-sizing: border-box;
     box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
@@ -36,33 +37,19 @@ const labelBaseStyles = ({ theme }) => css`
 
   &::after {
     ${size(10)};
-
-    line-height: 0;
+    box-sizing: border-box;
     content: url("${checkmarkSvg(theme.colors.p500)}");
     display: block;
+    left: 3px;
+    line-height: 0;
+    opacity: 0;
     position: absolute;
     top: 50%;
-    left: 3px;
     transform: translateY(-50%) scale(0, 0);
-    opacity: 0;
     transition: transform 0.05s ease-in, opacity 0.05s ease-in;
   }
+
 `;
-
-const labelCheckedStyles = ({ theme, checked }) =>
-  checked &&
-  css`
-    label: checkbox--active;
-
-    &::before {
-      border-color: ${theme.colors.p500};
-    }
-
-    &::after {
-      transform: translateY(-50%) scale(1, 1);
-      opacity: 1;
-    }
-  `;
 
 const labelInvalidStyles = ({ theme, invalid }) =>
   invalid &&
@@ -103,6 +90,22 @@ const inputStyles = ({ theme }) => css`
     border-width: 2px;
     border-color: ${theme.colors.p500};
   }
+
+  &:checked + label::after {
+    transform: translateY(-50%) scale(1, 1);
+    opacity: 1;
+  }
+
+  &:checked + label::before {
+    border-color: ${theme.colors.p500};
+  }
+`;
+
+const checkboxWrapperBaseStyles = ({ theme }) => css`
+  label: checkbox;
+  &:last-of-type {
+    margin-bottom: ${theme.spacings.mega};
+  }
 `;
 
 const CheckboxInput = styled('input')`
@@ -111,23 +114,26 @@ const CheckboxInput = styled('input')`
 
 const CheckboxLabel = styled('label')`
   ${labelBaseStyles}
-  ${labelCheckedStyles}
   ${labelDisabledStyles}
   ${labelInvalidStyles}
+`;
+
+const CheckboxWrapper = styled('div')`
+  ${checkboxWrapperBaseStyles};
 `;
 
 /**
  * Checkbox component for forms.
  */
-const Checkbox = ({ onToggle, children, id: customId, ...props }) => {
+const Checkbox = ({ onChange, children, id: customId, ...props }) => {
   const id = customId || uniqueId('checkbox_');
   return (
-    <Fragment>
-      <CheckboxInput id={id} onClick={onToggle} type="checkbox" {...props} />
+    <CheckboxWrapper>
+      <CheckboxInput id={id} onClick={onChange} type="checkbox" {...props} />
       <CheckboxLabel htmlFor={id} {...props}>
         {children}
       </CheckboxLabel>
-    </Fragment>
+    </CheckboxWrapper>
   );
 };
 
@@ -135,11 +141,15 @@ Checkbox.propTypes = {
   /**
    * Controles/Toggles the checked state.
    */
-  onToggle: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   /**
    * Value string for input.
    */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.array
+  ]),
   /**
    * Child nodes to be rendered as the label.
    */
@@ -149,7 +159,7 @@ Checkbox.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * The name of the radio group that the radio button belongs to.
+   * The name of the checkbox.
    */
   name: PropTypes.string.isRequired,
   /**
@@ -171,6 +181,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   id: null,
   checked: false,
+  value: null,
   invalid: false,
   disabled: false,
   children: null

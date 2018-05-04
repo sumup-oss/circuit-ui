@@ -58,7 +58,6 @@ export {
   default as CalendarButtonTwoStep
 } from './components/CalendarButtonTwoStep';
 export { default as Checkbox } from './components/Checkbox';
-export { default as CheckboxGroup } from './components/CheckboxGroup';
 export { default as Label } from './components/Label';
 export { default as Input } from './components/Input';
 export { default as RadioButton } from './components/RadioButton';
