@@ -78,8 +78,7 @@ RadioButtonGroup.propTypes = {
   /**
    * Whether to omit the default margin bottom.
    */
-  // eslint-disable-next-line react/no-unused-prop-types
-  noMargin: PropTypes.bool
+  noMargin: PropTypes.bool // eslint-disable-line react/no-unused-prop-types
 };
 
 RadioButtonGroup.defaultProps = {
