@@ -3,7 +3,8 @@ import styled, { css } from 'react-emotion';
 import { includes } from 'lodash';
 
 import { textKilo, shadowSingle } from '../../styles/style-helpers';
-import { directions } from '../../styles/constants';
+import { CENTER, TOP, RIGHT, BOTTOM, LEFT } from '../../util/constants';
+import { positionPropType } from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
   label: tooltip;
@@ -32,10 +33,10 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const positionMap = {
-  [directions.TOP]: 'bottom',
-  [directions.RIGHT]: 'left',
-  [directions.BOTTOM]: 'top',
-  [directions.LEFT]: 'right'
+  [TOP]: 'bottom',
+  [RIGHT]: 'left',
+  [BOTTOM]: 'top',
+  [LEFT]: 'right'
 };
 
 const getPositionStyles = ({ theme, position }) => {
@@ -52,12 +53,9 @@ const getPositionStyles = ({ theme, position }) => {
 };
 
 const getAlignmentStyles = ({ theme, position, align }) => {
-  const isHorizontal = includes([directions.TOP, directions.BOTTOM], position);
+  const isHorizontal = includes([TOP, BOTTOM], position);
 
-  if (
-    isHorizontal &&
-    includes([directions.TOP, directions.BOTTOM, directions.CENTER], align)
-  ) {
+  if (isHorizontal && includes([TOP, BOTTOM, CENTER], align)) {
     return `
       left: 50%;
       transform: translateX(-50%);
@@ -69,10 +67,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
     `;
   }
 
-  if (
-    !isHorizontal &&
-    includes([directions.LEFT, directions.RIGHT, directions.CENTER], align)
-  ) {
+  if (!isHorizontal && includes([LEFT, RIGHT, CENTER], align)) {
     return `
       top: 50%;
       transform: translateY(-50%);
@@ -111,11 +106,11 @@ const Tooltip = styled('div')`
   ${baseStyles} ${positionAndAlignStyles};
 `;
 
-Tooltip.CENTER = directions.CENTER;
-Tooltip.TOP = directions.TOP;
-Tooltip.RIGHT = directions.RIGHT;
-Tooltip.BOTTOM = directions.BOTTOM;
-Tooltip.LEFT = directions.LEFT;
+Tooltip.CENTER = CENTER;
+Tooltip.TOP = TOP;
+Tooltip.RIGHT = RIGHT;
+Tooltip.BOTTOM = BOTTOM;
+Tooltip.LEFT = LEFT;
 
 Tooltip.propTypes = {
   /**
@@ -125,12 +120,7 @@ Tooltip.propTypes = {
   /**
    * The position of the tooltip in relation to its reference point.
    */
-  position: PropTypes.oneOf([
-    Tooltip.TOP,
-    Tooltip.RIGHT,
-    Tooltip.BOTTOM,
-    Tooltip.LEFT
-  ]),
+  position: positionPropType,
   /**
    * The alignment of the tooltip relative to its position.
    */

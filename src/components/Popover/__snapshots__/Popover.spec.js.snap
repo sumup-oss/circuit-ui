@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover should render with default styles 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position bottom and alignment center 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position bottom and alignment end 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position bottom and alignment start 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position left and alignment center 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position left and alignment end 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position left and alignment start 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position right and alignment center 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position right and alignment end 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position right and alignment start 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position top and alignment center 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position top and alignment end 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
+
+exports[`Popover should render with position top and alignment start 1`] = `
+.circuit-0 {
+  display: inline-block;
+}
+
+<div
+  className="circuit-0 circuit-1"
+  onClick={[Function]}
+>
+  <div>
+    <span />
+  </div>
+</div>
+`;
