@@ -9,20 +9,13 @@ const baseStyles = ({ theme, skip, span }) => css`
   box-sizing: border-box;
   float: left;
 
-  &:nth-of-type(n) {
-    background-color: ${theme.colors.y300};
-  }
-
-  &:nth-of-type(2n) {
-    background-color: ${theme.colors.y100};
-  }
-
   ${getSpanStyles(theme, span)};
   ${getSkipStyles(theme, skip)};
 `;
 
 /**
- * Describe your component here.
+ * Content wrapping for the Grid component. Allows sizing based on provided
+ * props.
  */
 const Col = styled('div')(baseStyles);
 
@@ -34,15 +27,26 @@ const sizingProp = PropTypes.oneOfType([
 
 Col.propTypes = {
   /**
-   * A consice description of the example prop.
+   * The amount to skip for a column. If the value is a number/string it will
+   * be applied with no media query. If the value is an object it will apply
+   * each value based on the key breakpoint, IE:
+   * { untilKilo: 6 } will create a style for the untilKilo media query with a
+   * skip of 6 columns. Accepts negative values as well.
    */
   skip: sizingProp,
+  /**
+   * The amount to span for a column. If the value is a number/string it will
+   * be applied with no media query. If the value is an object it will apply
+   * each value based on the key breakpoint, IE:
+   * { untilKilo: 6 } will create a style for the untilKilo media query with a
+   * span of 6 columns.
+   */
   span: sizingProp
 };
 
 Col.defaultProps = {
-  skip: 0,
-  span: 1
+  skip: '0',
+  span: '0'
 };
 
 /**

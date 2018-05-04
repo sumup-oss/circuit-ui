@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 const getBreakPointStyles = (breakpoint, theme) => {
@@ -21,8 +20,7 @@ const getBreakPointStyles = (breakpoint, theme) => {
 const baseStyles = ({ theme }) => css`
   label: grid;
 
-  border: 2px solid ${theme.colors.r500};
-  margin: auto;
+  margin: 0 auto;
 
   ${getBreakPointStyles('untilKilo', theme)};
   ${getBreakPointStyles('kilo', theme)};
@@ -35,15 +33,6 @@ const baseStyles = ({ theme }) => css`
  * A basic 12-column grid component.
  */
 const Grid = styled('div')(baseStyles);
-
-Grid.propTypes = {
-  /**
-   * A consice description of the example prop.
-   */
-  example: PropTypes.string
-};
-
-Grid.defaultProps = {};
 
 /**
  * @component
