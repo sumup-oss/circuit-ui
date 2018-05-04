@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { getSpanStyles, getSkipStyles } from './utils';
+import { getSpanStyles, getSkipStyles, getBreakPointStyles } from './utils';
 
 const baseStyles = ({ theme, skip, span }) => css`
   label: col;
@@ -9,6 +9,7 @@ const baseStyles = ({ theme, skip, span }) => css`
   box-sizing: border-box;
   float: left;
 
+  ${getBreakPointStyles(theme)};
   ${getSpanStyles(theme, span)};
   ${getSkipStyles(theme, skip)};
 `;

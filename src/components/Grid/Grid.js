@@ -1,6 +1,6 @@
 import styled, { css } from 'react-emotion';
 
-const getBreakPointStyles = (breakpoint, theme) => {
+const getBreakPointStyles = (theme, breakpoint) => {
   const config = theme.grid[breakpoint];
 
   if (!config) {
@@ -22,11 +22,11 @@ const baseStyles = ({ theme }) => css`
 
   margin: 0 auto;
 
-  ${getBreakPointStyles('untilKilo', theme)};
-  ${getBreakPointStyles('kilo', theme)};
-  ${getBreakPointStyles('mega', theme)};
-  ${getBreakPointStyles('giga', theme)};
-  ${getBreakPointStyles('tera', theme)};
+  ${getBreakPointStyles(theme, 'untilKilo')};
+  ${getBreakPointStyles(theme, 'kilo')};
+  ${getBreakPointStyles(theme, 'mega')};
+  ${getBreakPointStyles(theme, 'giga')};
+  ${getBreakPointStyles(theme, 'tera')};
 `;
 
 /**

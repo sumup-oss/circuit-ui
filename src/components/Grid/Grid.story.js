@@ -86,17 +86,24 @@ storiesOf('Grid', module)
         <Grid>
           <StyledRow>
             <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-              mega 3 / below mega 6 / below kilo 12
+              resize me
             </StyledCol>
             <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-              mega 3 / below mega 6 / below kilo 12
+              resize me
             </StyledCol>
             <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-              mega 3 / below mega 6 / below kilo 12
+              resize me
             </StyledCol>
             <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-              mega 3 / below mega 6 / below kilo 12
+              resize me
             </StyledCol>
+          </StyledRow>
+
+          <StyledRow>
+            <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+              resize me
+            </StyledCol>
+            <StyledCol span="6">half</StyledCol>
           </StyledRow>
         </Grid>
       </div>

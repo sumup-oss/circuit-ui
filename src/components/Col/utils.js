@@ -7,7 +7,9 @@ import {
   head,
   compose,
   curry,
-  map
+  map,
+  mapValues,
+  values
 } from '../../util/fp';
 import { MIN_COL_SPAN, MAX_COL_WIDTH } from './constants';
 
@@ -25,13 +27,10 @@ const createSpanStyles = (grid, theme, span) => {
   const safeSpan = clamp(MIN_COL_SPAN, cols, span);
 
   const styles = `
-    margin-left: calc(${grid.gutter} / 2);
-    margin-right: calc(${grid.gutter} / 2);
     width: ${MAX_COL_WIDTH / cols * safeSpan}%;
-    width: calc(${MAX_COL_WIDTH / cols * safeSpan}% - (${grid.gutter}));
   `;
 
-  return isDefault(breakpoint) ? css(styles) : theme.mq[breakpoint](styles);
+  return wrapStyles(styles, breakpoint, theme);
 };
 
 const createSkipStyles = (grid, theme, skip) => {
@@ -49,6 +48,27 @@ const createSkipStyles = (grid, theme, skip) => {
 
   return wrapStyles(styles, breakpoint, theme);
 };
+
+const createBreakpointStyles = curry((theme, current) => {
+  const config = theme.grid[current.breakpoint];
+
+  if (!config) {
+    return null;
+  }
+
+  const styles = `
+    padding-left: calc(${config.gutter} / 2);
+    padding-right: calc(${config.gutter} / 2);
+  `;
+
+  return wrapStyles(styles, current.breakpoint, theme);
+});
+
+/**
+ * Return the default styles for each breakpoint provided by the config
+ */
+export const getBreakPointStyles = theme =>
+  compose(values, mapValues(createBreakpointStyles(theme)))(theme.grid);
 
 /**
  * Sort the key/value based on the breakpoint priority
@@ -69,9 +89,9 @@ const mapBreakpoint = curry((grid, theme, [key, value]) =>
 /**
  * Compose the breakpoints object into an array of styles.
  */
-const composeBreakpoints = curry((grid, theme, breakpoint) =>
+const composeBreakpoints = curry((grid, theme, breakpoints) =>
   compose(map(mapBreakpoint(grid, theme)), sortByPriority(grid), toPairs)(
-    breakpoint
+    breakpoints
   )
 );
 
