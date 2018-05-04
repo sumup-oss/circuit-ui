@@ -35,7 +35,7 @@ const createSpanStyles = (grid, theme, span) => {
 };
 
 const createSkipStyles = (grid, theme, skip) => {
-  if (!grid || skip === '0') {
+  if (!grid || skip === '0' || skip === 0) {
     return null;
   }
 
