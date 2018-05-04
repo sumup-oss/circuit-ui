@@ -6,6 +6,22 @@ import { uniqueId } from '../../util/id';
 
 import RadioButton from '../RadioButton';
 
+const baseStyles = ({ theme }) => css`
+  label: radio-button-group;
+  margin-bottom: ${theme.spacings.mega};
+`;
+
+const marginStyles = ({ noMargin }) =>
+  noMargin &&
+  css`
+    label: radio-button-group--no-margin;
+    margin-bottom: 0;
+  `;
+
+const Wrapper = styled('div')`
+  ${baseStyles} ${marginStyles};
+`;
+
 /**
  * A group of RadioButtons.
  */
@@ -13,24 +29,12 @@ const RadioButtonGroup = ({
   options,
   onChange: onToggle,
   value: activeValue,
-  name: customName
+  name: customName,
+  ...wrapperProps
 }) => {
-  const baseStyles = ({ theme }) => css`
-    label: radio-button-group;
-    margin-bottom: ${theme.spacings.mega};
-  `;
-  const marginStyles = ({ noMargin }) =>
-    noMargin &&
-    css`
-      label: radio-button-group--no-margin;
-      margin-bottom: 0;
-    `;
-  const Wrapper = styled('div')`
-    ${baseStyles} ${marginStyles};
-  `;
   const name = customName || uniqueId('radio-button-group_');
   return (
-    <Wrapper>
+    <Wrapper {...wrapperProps}>
       {options &&
         options.map(({ label, value, className, ...props }) => (
           <div key={value} className={className}>
