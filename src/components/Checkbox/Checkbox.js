@@ -159,7 +159,7 @@ Checkbox.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * The name of the radio group that the radio button belongs to.
+   * The name of the checkbox.
    */
   name: PropTypes.string.isRequired,
   /**
