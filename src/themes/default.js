@@ -181,7 +181,7 @@ export const grid = {
     breakpoint: 'untilKilo',
     cols: 12,
     maxWidth: '400px',
-    gutter: spacings.mega
+    gutter: spacings.byte
   },
   kilo: {
     priority: 2,
@@ -195,14 +195,14 @@ export const grid = {
     breakpoint: 'mega',
     cols: 12,
     maxWidth: '760px',
-    gutter: spacings.mega
+    gutter: spacings.giga
   },
   giga: {
     priority: 4,
     breakpoint: 'giga',
     cols: 12,
     maxWidth: '880px',
-    gutter: spacings.mega
+    gutter: spacings.giga
   }
 };
 
