@@ -37,30 +37,90 @@ const StyledRow = styled(Row)`
 storiesOf('Grid', module)
   .addDecorator(withTests('Grid'))
   .add(
-    'Default Grid',
+    'Static columns',
     withInfo()(() => (
       <div style={{ width: '100vw' }}>
         <Grid>
           <StyledRow>
-            <StyledCol span={{ default: 6, untilKilo: 4 }}>
-              Col default 6 / Col kilo 4
-            </StyledCol>
-            <StyledCol span={{ default: 6, untilKilo: 4 }}>
-              Col default 6 / Col kilo 4
-            </StyledCol>
+            <StyledCol span="2">Col 2</StyledCol>
+            <StyledCol span="2">Col 2</StyledCol>
+            <StyledCol span="2">Col 2</StyledCol>
+            <StyledCol span="2">Col 2</StyledCol>
+            <StyledCol span="2">Col 2</StyledCol>
+            <StyledCol span="2">Col 2</StyledCol>
           </StyledRow>
 
           <StyledRow>
-            <StyledCol span="6">Col default 6</StyledCol>
-            <StyledCol span="6">Col default 6</StyledCol>
+            <StyledCol span="3">Col 3</StyledCol>
+            <StyledCol span="3">Col 3</StyledCol>
+            <StyledCol span="3">Col 3</StyledCol>
+            <StyledCol span="3">Col 3</StyledCol>
+          </StyledRow>
+
+          <StyledRow>
+            <StyledCol span="4">Col 4</StyledCol>
+            <StyledCol span="4">Col 4</StyledCol>
+            <StyledCol span="4">Col 4</StyledCol>
+          </StyledRow>
+
+          <StyledRow>
+            <StyledCol span="4">Col 4</StyledCol>
+            <StyledCol span="2">Col 2</StyledCol>
+            <StyledCol span="2">Col 2</StyledCol>
+            <StyledCol span="1">1</StyledCol>
+            <StyledCol span="3">Col 4</StyledCol>
+          </StyledRow>
+
+          <StyledRow>
+            <StyledCol span="6">Col 6</StyledCol>
+            <StyledCol span="6">Col 6</StyledCol>
+          </StyledRow>
+        </Grid>
+      </div>
+    ))
+  )
+  .add(
+    'Responsive columns',
+    withInfo()(() => (
+      <div style={{ width: '100vw' }}>
+        <Grid>
+          <StyledRow>
+            <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+              mega 3 / below mega 6 / below kilo 12
+            </StyledCol>
+            <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+              mega 3 / below mega 6 / below kilo 12
+            </StyledCol>
+            <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+              mega 3 / below mega 6 / below kilo 12
+            </StyledCol>
+            <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+              mega 3 / below mega 6 / below kilo 12
+            </StyledCol>
+          </StyledRow>
+        </Grid>
+      </div>
+    ))
+  )
+  .add(
+    'Skipping columns',
+    withInfo()(() => (
+      <div style={{ width: '100vw' }}>
+        <Grid>
+          <StyledRow>
+            <StyledCol span="3">Col 3</StyledCol>
+            <StyledCol span="3">Col 3</StyledCol>
+            <StyledCol span="3" skip="3">
+              Col 3
+            </StyledCol>
           </StyledRow>
 
           <StyledRow>
             <StyledCol span="6" skip="6">
-              Col default 6 with skip
+              First column
             </StyledCol>
             <StyledCol span="6" skip="-6">
-              Col default 6 with negative skip
+              Second Column
             </StyledCol>
           </StyledRow>
         </Grid>

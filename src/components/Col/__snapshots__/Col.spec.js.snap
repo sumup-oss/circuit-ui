@@ -4,12 +4,10 @@ exports[`Col should render with default styles 1`] = `
 .circuit-0 {
   box-sizing: border-box;
   float: left;
-  margin-left: calc(24px / 2);
-  margin-right: calc(24px / 2);
+  margin-left: calc(16px / 2);
+  margin-right: calc(16px / 2);
   width: 8.333333333333334%;
-  width: calc(8.333333333333334% - (24px));
-  left: 0%;
-  position: relative;
+  width: calc(8.333333333333334% - (16px));
 }
 
 <div

@@ -1,6 +1,14 @@
 import { css } from 'react-emotion';
 
-import { isString, keys, clamp } from '../../util/fp';
+import {
+  isString,
+  clamp,
+  toPairs,
+  head,
+  compose,
+  curry,
+  map
+} from '../../util/fp';
 import { MIN_COL_SPAN, MAX_COL_WIDTH } from './constants';
 
 const isDefault = breakpoint => breakpoint === 'default';
@@ -27,7 +35,7 @@ const createSpanStyles = (grid, theme, span) => {
 };
 
 const createSkipStyles = (grid, theme, skip) => {
-  if (!grid) {
+  if (!grid || skip === '0') {
     return null;
   }
 
@@ -42,12 +50,47 @@ const createSkipStyles = (grid, theme, skip) => {
   return wrapStyles(styles, breakpoint, theme);
 };
 
+/**
+ * Sort the key/value based on the breakpoint priority
+ * defined on the grid config.
+ */
+const sortByPriority = curry((grid, iteratee) =>
+  iteratee.sort((a, b) => grid[head(a)].priority >= grid[head(b)].priority)
+);
+
+/**
+ * Map the provided key/value breakpoint into styles based on the grid/theme
+ * config.
+ */
+const mapBreakpoint = curry((grid, theme, [key, value]) =>
+  createSpanStyles(grid[key], theme, value)
+);
+
+/**
+ * Compose the breakpoints object into an array of styles.
+ */
+const composeBreakpoints = curry((grid, theme, breakpoint) =>
+  compose(map(mapBreakpoint(grid, theme)), sortByPriority(grid), toPairs)(
+    breakpoint
+  )
+);
+
+/**
+ * Return the styles of the span based on the provided value. If it is a string
+ * returns a single style, otherwise composes the breakpoints into an array of
+ * styles
+ */
 export const getSpanStyles = ({ grid, ...theme }, span) =>
   isString(span)
     ? createSpanStyles(grid.default, theme, span)
-    : keys(span).map(key => createSpanStyles(grid[key], theme, span[key]));
+    : composeBreakpoints(grid, theme, span);
 
+/**
+ * Return the styles of the skip based on the provided value. If it is a string
+ * returns a single style, otherwise composes the breakpoints into an array of
+ * styles
+ */
 export const getSkipStyles = ({ grid, ...theme }, skip) =>
   isString(skip)
     ? createSkipStyles(grid.default, theme, skip)
-    : keys(skip).map(key => createSkipStyles(grid[key], theme, skip[key]));
+    : composeBreakpoints(grid, theme, skip);

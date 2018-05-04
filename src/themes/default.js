@@ -170,34 +170,39 @@ export const fontWeight = {
 
 export const grid = {
   default: {
+    priority: 0,
     breakpoint: 'default',
     cols: 12,
     maxWidth: '880px',
-    gutter: spacings.giga
+    gutter: spacings.mega
   },
   untilKilo: {
+    priority: 1,
     breakpoint: 'untilKilo',
-    cols: 4,
+    cols: 12,
     maxWidth: '400px',
-    gutter: spacings.byte
+    gutter: spacings.mega
   },
   kilo: {
+    priority: 2,
     breakpoint: 'kilo',
-    cols: 8,
+    cols: 12,
     maxWidth: '600px',
     gutter: spacings.mega
   },
   mega: {
+    priority: 3,
     breakpoint: 'mega',
     cols: 12,
     maxWidth: '760px',
     gutter: spacings.mega
   },
   giga: {
+    priority: 4,
     breakpoint: 'giga',
     cols: 12,
     maxWidth: '880px',
-    gutter: spacings.giga
+    gutter: spacings.mega
   }
 };
 
