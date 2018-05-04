@@ -1,6 +1,7 @@
 import { css } from 'react-emotion';
 
 import {
+  isEqual,
   isString,
   clamp,
   toPairs,
@@ -11,14 +12,14 @@ import {
   mapValues,
   values
 } from '../../util/fp';
-import { MIN_COL_SPAN, MAX_COL_WIDTH } from './constants';
+import { MIN_COL_SPAN, MAX_COL_WIDTH, DEFAULT_BREAKPOINT } from './constants';
 
-const isDefault = breakpoint => breakpoint === 'default';
+export const isDefault = isEqual(DEFAULT_BREAKPOINT);
 
-const wrapStyles = (styles, breakpoint, theme) =>
+export const wrapStyles = (styles, breakpoint, theme) =>
   isDefault(breakpoint) ? css(styles) : theme.mq[breakpoint](styles);
 
-const createSpanStyles = (grid, theme, span) => {
+export const createSpanStyles = (grid, theme, span) => {
   if (!grid) {
     return null;
   }
@@ -33,8 +34,8 @@ const createSpanStyles = (grid, theme, span) => {
   return wrapStyles(styles, breakpoint, theme);
 };
 
-const createSkipStyles = (grid, theme, skip) => {
-  if (!grid || skip === '0' || skip === 0) {
+export const createSkipStyles = (grid, theme, skip) => {
+  if (!grid) {
     return null;
   }
 
@@ -74,7 +75,7 @@ export const getBreakPointStyles = theme =>
  * Sort the key/value based on the breakpoint priority
  * defined on the grid config.
  */
-const sortByPriority = curry((grid, iteratee) =>
+export const sortByPriority = curry((grid, iteratee) =>
   iteratee.sort((a, b) => grid[head(a)].priority >= grid[head(b)].priority)
 );
 
@@ -82,15 +83,15 @@ const sortByPriority = curry((grid, iteratee) =>
  * Map the provided key/value breakpoint into styles based on the grid/theme
  * config.
  */
-const mapBreakpoint = curry((grid, theme, [key, value]) =>
-  createSpanStyles(grid[key], theme, value)
+export const mapBreakpoint = curry((fn, grid, theme, [key, value]) =>
+  fn(grid[key], theme, value)
 );
 
 /**
  * Compose the breakpoints object into an array of styles.
  */
-const composeBreakpoints = curry((grid, theme, breakpoints) =>
-  compose(map(mapBreakpoint(grid, theme)), sortByPriority(grid), toPairs)(
+const composeBreakpoints = curry((fn, grid, theme, breakpoints) =>
+  compose(map(mapBreakpoint(fn, grid, theme)), sortByPriority(grid), toPairs)(
     breakpoints
   )
 );
@@ -103,7 +104,7 @@ const composeBreakpoints = curry((grid, theme, breakpoints) =>
 export const getSpanStyles = ({ grid, ...theme }, span) =>
   isString(span)
     ? createSpanStyles(grid.default, theme, span)
-    : composeBreakpoints(grid, theme, span);
+    : composeBreakpoints(createSpanStyles, grid, theme, span);
 
 /**
  * Return the styles of the skip based on the provided value. If it is a string
@@ -113,4 +114,4 @@ export const getSpanStyles = ({ grid, ...theme }, span) =>
 export const getSkipStyles = ({ grid, ...theme }, skip) =>
   isString(skip)
     ? createSkipStyles(grid.default, theme, skip)
-    : composeBreakpoints(grid, theme, skip);
+    : composeBreakpoints(createSkipStyles, grid, theme, skip);

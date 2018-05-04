@@ -13,6 +13,7 @@ export {
   values,
   isArray,
   isString,
+  isEqual,
   clamp,
   last,
   head
