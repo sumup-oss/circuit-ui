@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import Downshift from 'downshift';
@@ -60,41 +60,68 @@ const Item = styled('div')`
 const filterItems = inputValue => item =>
   !inputValue || item.toLowerCase().includes(inputValue.toLowerCase());
 
-const AutoComplete = ({ handleChange, items, ...inputProps }) => (
-  <Downshift onChange={handleChange}>
-    {({
-      getRootProps,
-      getInputProps,
-      getItemProps,
-      isOpen,
-      inputValue,
-      highlightedIndex
-    }) => (
-      <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
-        <SearchInput
-          {...getInputProps({ ...inputProps })}
-          noMargin
-          renderSuffix={() => null}
-        />
-        {isOpen && (
-          <ItemsWrapper>
-            <Items spacing={KILO}>
-              {items.filter(filterItems(inputValue)).map((item, index) => (
-                <Item
-                  {...getItemProps({ item })}
-                  key={item}
-                  selected={index === highlightedIndex}
-                >
-                  {item}
-                </Item>
-              ))}
-            </Items>
-          </ItemsWrapper>
+// const AutoComplete = () => (
+
+class AutoComplete extends Component {
+  state = { inputValue: '' };
+
+  _handleStateChange = ({ type, inputValue }) => {
+    if (type === '__autocomplete_keydown_escape__') {
+      this.setState({ inputValue: '' });
+    } else {
+      this.setState({ inputValue });
+    }
+  };
+
+  _handleChange = value => {
+    this.props.handleChange(value);
+    this.setState({ inputValue: '' });
+  };
+
+  render() {
+    const { items, ...inputProps } = this.props;
+    const { inputValue } = this.state;
+
+    return (
+      <Downshift
+        onChange={this._handleChange}
+        onStateChange={this._handleStateChange}
+        inputValue={inputValue}
+      >
+        {({
+          getRootProps,
+          getInputProps,
+          getItemProps,
+          isOpen,
+          highlightedIndex
+        }) => (
+          <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
+            <SearchInput
+              {...getInputProps({ ...inputProps })}
+              noMargin
+              renderSuffix={() => null}
+            />
+            {isOpen && (
+              <ItemsWrapper>
+                <Items spacing={KILO}>
+                  {items.filter(filterItems(inputValue)).map((item, index) => (
+                    <Item
+                      {...getItemProps({ item })}
+                      key={item}
+                      selected={index === highlightedIndex}
+                    >
+                      {item}
+                    </Item>
+                  ))}
+                </Items>
+              </ItemsWrapper>
+            )}
+          </AutoCompleteWrapper>
         )}
-      </AutoCompleteWrapper>
-    )}
-  </Downshift>
-);
+      </Downshift>
+    );
+  }
+}
 
 /**
  * Describe your component here.
