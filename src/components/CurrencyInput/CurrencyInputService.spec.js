@@ -48,6 +48,16 @@ describe('CurrencyInputService', () => {
         expect(actual).toBe(expected);
       });
     });
+
+    it('should correctly normalize values ending in "00"', () => {
+      locales.forEach(locale => {
+        const { thousand, decimal } = NUMBER_SEPARATORS[locale];
+        const value = `1${thousand}000${decimal}00`;
+        const expected = 1000.0;
+        const actual = normalizeAmount(value);
+        expect(actual).toBe(expected);
+      });
+    });
   });
 
   describe('validating currency values', () => {
