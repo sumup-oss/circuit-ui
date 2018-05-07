@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CardFooter Left aligment should render with left alignment styles 1`] = `
+.circuit-0 {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 16px;
+  }
+}
+
+<footer
+  className="circuit-0 circuit-1"
+/>
+`;
+
 exports[`CardFooter should render with default styles 1`] = `
 .circuit-0 {
   display: block;

@@ -11,6 +11,13 @@ describe('ButtonGroup', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  describe('Left aligment', () => {
+    it('should render with left alignment styles', () => {
+      const actual = create(<ButtonGroup align="left" />);
+      expect(actual).toMatchSnapshot();
+    });
+  });
+
   /**
    * Accessibility tests.
    */

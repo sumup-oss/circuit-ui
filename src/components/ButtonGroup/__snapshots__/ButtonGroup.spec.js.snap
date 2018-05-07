@@ -1,5 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ButtonGroup Left aligment should render with left alignment styles 1`] = `
+.circuit-0 {
+  display: block;
+  list-style-type: none;
+  width: 100%;
+}
+
+.circuit-0 li:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.circuit-0 .ehkzh5x0 {
+  width: 100%;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .circuit-0 li:not(:last-of-type) {
+    margin-right: 16px;
+  }
+
+  .circuit-0 .ehkzh5x0 {
+    width: auto;
+  }
+}
+
+<ul
+  className="circuit-0 circuit-1"
+/>
+`;
+
 exports[`ButtonGroup should render with default styles 1`] = `
 .circuit-0 {
   display: block;

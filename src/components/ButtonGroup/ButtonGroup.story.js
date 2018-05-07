@@ -16,4 +16,13 @@ storiesOf('ButtonGroup', module)
         <Button>Confirm</Button>
       </ButtonGroup>
     ))
+  )
+  .add(
+    'Left Aligment',
+    withInfo()(() => (
+      <ButtonGroup align="left">
+        <Button secondary>Cancel</Button>
+        <Button>Confirm</Button>
+      </ButtonGroup>
+    ))
   );
