@@ -5,10 +5,10 @@ import styled, { css } from 'react-emotion';
 import { START_DATE, END_DATE } from 'react-dates/constants';
 
 import { RangePickerController } from '../Calendar';
-import Button from '../Button';
+import Tag from '../Tag';
 import { textKilo } from '../../styles/style-helpers';
 
-class CalendarButtonTwoStep extends Component {
+class CalendarTagTwoStep extends Component {
   state = { startDate: null, endDate: null, focusedInput: null };
   buttonRef = null; // eslint-disable-line react/sort-comp
 
@@ -74,16 +74,16 @@ class CalendarButtonTwoStep extends Component {
     const isFilled = !!(startDate && endDate);
 
     return (
-      <CalendarButtonWrap>
-        <Button
-          primary={isOpen || isFilled}
+      <CalendarTagWrapper>
+        <Tag
+          selected={isOpen || isFilled}
           ref={this.handleButtonRef}
           onClick={this.handleButtonClick}
         >
           {this.getDateRangePreview()}
-        </Button>
+        </Tag>
         {isOpen && (
-          <CalendarWrap>
+          <CalendarWrapper>
             <RangePickerController
               startDate={startDate}
               endDate={endDate}
@@ -103,9 +103,9 @@ class CalendarButtonTwoStep extends Component {
                 </CalendarInfo>
               )}
             />
-          </CalendarWrap>
+          </CalendarWrapper>
         )}
-      </CalendarButtonWrap>
+      </CalendarTagWrapper>
     );
   }
 }
@@ -134,11 +134,11 @@ const baseStyles = () => css`
   label: button_calendar;
 `;
 
-const CalendarWrap = styled.div`
+const CalendarWrapper = styled.div`
   margin-top: ${({ theme }) => theme.spacings.byte};
 `;
 
-const CalendarButtonWrap = styled('div')`
+const CalendarTagWrapper = styled('div')`
   ${baseStyles};
 `;
 
@@ -146,7 +146,7 @@ const CalendarButtonWrap = styled('div')`
  * Describe your component here.
  */
 
-CalendarButtonTwoStep.propTypes = {
+CalendarTagTwoStep.propTypes = {
   /**
    * Callback to receive the set of dates when the user confirms them.
    */
@@ -163,7 +163,7 @@ CalendarButtonTwoStep.propTypes = {
   confirmText: PropTypes.string
 };
 
-CalendarButtonTwoStep.defaultProps = {
+CalendarTagTwoStep.defaultProps = {
   clearText: 'Clear',
   confirmText: 'Apply'
 };
@@ -171,4 +171,4 @@ CalendarButtonTwoStep.defaultProps = {
 /**
  * @component
  */
-export default CalendarButtonTwoStep;
+export default CalendarTagTwoStep;

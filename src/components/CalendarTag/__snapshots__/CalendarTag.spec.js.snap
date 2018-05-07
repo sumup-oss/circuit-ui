@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarTag should render with default styles 1`] = `
+.circuit-0 {
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid #D8DDE1;
+  font-size: 15px;
+  line-height: 24px;
+  cursor: default;
+  cursor: pointer;
+}
+
+.circuit-0:hover {
+  background-color: #D8DDE1;
+}
+
+<div
+  className="circuit-2 circuit-3"
+>
+  <span
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+    selected={false}
+  >
+    Dates
+  </span>
+</div>
+`;

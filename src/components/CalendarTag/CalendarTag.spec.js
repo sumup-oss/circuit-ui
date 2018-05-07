@@ -1,13 +1,13 @@
 import React from 'react';
 
-import CalendarButton from '.';
+import CalendarTag from '.';
 
-describe('CalendarButton', () => {
+describe('CalendarTag', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CalendarButton />);
+    const actual = create(<CalendarTag />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -15,7 +15,7 @@ describe('CalendarButton', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CalendarButton />);
+    const wrapper = renderToHtml(<CalendarTag />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

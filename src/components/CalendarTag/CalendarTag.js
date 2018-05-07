@@ -6,9 +6,9 @@ import styled, { css } from 'react-emotion';
 import { START_DATE } from 'react-dates/constants';
 
 import { RangePickerController } from '../Calendar';
-import Button from '../Button';
+import Tag from '../Tag';
 
-class CalendarButton extends Component {
+class CalendarTag extends Component {
   state = { startDate: null, endDate: null, focusedInput: null };
   buttonRef = null; // eslint-disable-line react/sort-comp
 
@@ -63,13 +63,13 @@ class CalendarButton extends Component {
 
     return (
       <CalendarButtonWrap>
-        <Button
-          primary={isOpen}
+        <Tag
+          selected={isOpen}
           ref={this.handleButtonRef}
           onClick={this.handleButtonClick}
         >
           {this.getDateRangePreview()}
-        </Button>
+        </Tag>
         {isOpen && (
           <CalendarWrap>
             <RangePickerController
@@ -103,16 +103,16 @@ const CalendarButtonWrap = styled('div')`
  * Describe your component here.
  */
 
-CalendarButton.propTypes = {
+CalendarTag.propTypes = {
   /**
    * Callback to receive the set of dates when the user selects them.
    */
   onDatesRangeChange: PropTypes.func.isRequired
 };
 
-CalendarButton.defaultProps = {};
+CalendarTag.defaultProps = {};
 
 /**
  * @component
  */
-export default CalendarButton;
+export default CalendarTag;
