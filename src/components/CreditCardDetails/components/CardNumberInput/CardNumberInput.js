@@ -28,7 +28,7 @@ const schemeListStyles = ({ theme }) => css`
   opacity: 1;
   transition: opacity ${theme.transitions.default};
 
-  ${theme.mq.medium`
+  ${theme.mq.kilo`
     right: 0;
     width: auto;
     text-align: right;
@@ -46,7 +46,7 @@ const schemeListLongStyles = ({ theme, acceptedCardSchemes }) =>
   shouldRenderSchemesUnderInput(acceptedCardSchemes)
     ? css`
         label: card-number-input__scheme-list--long;
-        ${theme.mq.untilMedium`
+        ${theme.mq.untilKilo`
       top: -75%;
       top: calc(100% + ${theme.spacings.bit});
       bottom: initial;
@@ -71,7 +71,7 @@ const inputLongStyles = ({ theme, acceptedCardSchemes, className }) =>
   shouldRenderSchemesUnderInput(acceptedCardSchemes)
     ? css`
         label: card-number-input__input--long;
-        ${theme.mq.untilMedium`
+        ${theme.mq.untilKilo`
           margin-bottom: ${theme.spacings.tera};
           margin-bottom: calc(${theme.spacings.tera} + ${theme.spacings.bit});
           ${className};

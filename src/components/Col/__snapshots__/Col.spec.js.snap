@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Col default breakpoint should render with span based styles 1`] = `
+.circuit-0 {
+  box-sizing: border-box;
+  float: left;
+  padding-left: calc(16px / 2);
+  padding-right: calc(16px / 2);
+  width: 50%;
+  left: 0%;
+  position: relative;
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    padding-left: calc(8px / 2);
+    padding-right: calc(8px / 2);
+  }
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    padding-left: calc(16px / 2);
+    padding-right: calc(16px / 2);
+  }
+}
+
+@media (min-width:768px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+<div
+  className="circuit-0 circuit-1"
+  span="6"
+/>
+`;
+
+exports[`Col default breakpoint should render with span/skip based styles 1`] = `
+.circuit-0 {
+  box-sizing: border-box;
+  float: left;
+  padding-left: calc(16px / 2);
+  padding-right: calc(16px / 2);
+  width: 50%;
+  left: 50%;
+  position: relative;
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    padding-left: calc(8px / 2);
+    padding-right: calc(8px / 2);
+  }
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    padding-left: calc(16px / 2);
+    padding-right: calc(16px / 2);
+  }
+}
+
+@media (min-width:768px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+<div
+  className="circuit-0 circuit-1"
+  span="6"
+/>
+`;
+
+exports[`Col mobile breakpoint should render with span based styles 1`] = `
+.circuit-0 {
+  box-sizing: border-box;
+  float: left;
+  padding-left: calc(16px / 2);
+  padding-right: calc(16px / 2);
+  width: 50%;
+  left: 0%;
+  position: relative;
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    padding-left: calc(8px / 2);
+    padding-right: calc(8px / 2);
+  }
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    padding-left: calc(16px / 2);
+    padding-right: calc(16px / 2);
+  }
+}
+
+@media (min-width:768px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    width: 100%;
+  }
+}
+
+<div
+  className="circuit-0 circuit-1"
+  span={
+    Object {
+      "default": 6,
+      "kilo": 12,
+    }
+  }
+/>
+`;
+
+exports[`Col mobile breakpoint should render with span/skip based styles 1`] = `
+.circuit-0 {
+  box-sizing: border-box;
+  float: left;
+  padding-left: calc(16px / 2);
+  padding-right: calc(16px / 2);
+  width: 50%;
+  left: 50%;
+  position: relative;
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    padding-left: calc(8px / 2);
+    padding-right: calc(8px / 2);
+  }
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    padding-left: calc(16px / 2);
+    padding-right: calc(16px / 2);
+  }
+}
+
+@media (min-width:768px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    width: 100%;
+  }
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    left: 25%;
+    position: relative;
+  }
+}
+
+<div
+  className="circuit-0 circuit-1"
+  span={
+    Object {
+      "default": 6,
+      "kilo": 12,
+    }
+  }
+/>
+`;
+
+exports[`Col should render with default styles 1`] = `
+.circuit-0 {
+  box-sizing: border-box;
+  float: left;
+  padding-left: calc(16px / 2);
+  padding-right: calc(16px / 2);
+  width: 8.333333333333334%;
+  left: 0%;
+  position: relative;
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    padding-left: calc(8px / 2);
+    padding-right: calc(8px / 2);
+  }
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    padding-left: calc(16px / 2);
+    padding-right: calc(16px / 2);
+  }
+}
+
+@media (min-width:768px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+@media (min-width:960px) {
+  .circuit-0 {
+    padding-left: calc(24px / 2);
+    padding-right: calc(24px / 2);
+  }
+}
+
+<div
+  className="circuit-0 circuit-1"
+  span="0"
+/>
+`;

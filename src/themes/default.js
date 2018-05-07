@@ -168,13 +168,53 @@ export const fontWeight = {
   bold: '700'
 };
 
-export const breakpoints = {
-  untilMedium: '(max-width: 450px)',
-  medium: 451,
-  mediumToBig: '(min-width: 451px) and (max-width: 800px)',
-  big: 801,
-  bigToHuge: '(min-width: 801px) and (max-width: 1401px)',
-  huge: 1401
+export const grid = {
+  default: {
+    priority: 0,
+    breakpoint: 'default',
+    cols: 12,
+    maxWidth: '880px',
+    gutter: spacings.mega
+  },
+  untilKilo: {
+    priority: 1,
+    breakpoint: 'untilKilo',
+    cols: 12,
+    maxWidth: '400px',
+    gutter: spacings.byte
+  },
+  kilo: {
+    priority: 2,
+    breakpoint: 'kilo',
+    cols: 12,
+    maxWidth: '600px',
+    gutter: spacings.mega
+  },
+  mega: {
+    priority: 3,
+    breakpoint: 'mega',
+    cols: 12,
+    maxWidth: '760px',
+    gutter: spacings.giga
+  },
+  giga: {
+    priority: 4,
+    breakpoint: 'giga',
+    cols: 12,
+    maxWidth: '880px',
+    gutter: spacings.giga
+  }
+};
+
+const breakpoints = {
+  untilKilo: '(max-width: 479px)',
+  kilo: 480,
+  kiloToMega: '(min-width: 480px) and (max-width: 767px)',
+  mega: 768,
+  megaToGiga: '(min-width: 768px) and (max-width: 959px)',
+  giga: 960,
+  gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
+  tera: 1280
 };
 
 export const mq = createMediaQueries(breakpoints);

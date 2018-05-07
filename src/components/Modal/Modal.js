@@ -32,7 +32,7 @@ const FIXED_TRANSITION = `${TRANSITION_DURATION}ms cubic-bezier(0, 0.37, 0.64, 1
 const cardStyles = ({ theme }) => css`
   width: 100%;
 
-  ${theme.mq.untilMedium`
+  ${theme.mq.untilKilo`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
@@ -45,7 +45,7 @@ const modalClassName = {
     label: modal;
     outline: none;
 
-    ${theme.mq.untilMedium`
+    ${theme.mq.untilKilo`
       bottom: 0;
       max-height: 80vh;
       -webkit-overflow-scrolling: touch;
@@ -57,7 +57,7 @@ const modalClassName = {
       width: 100vw;
     `};
 
-    ${theme.mq.medium`
+    ${theme.mq.kilo`
       transition: transform ${FLOATING_TRANSITION},
         opacity ${FLOATING_TRANSITION};
       margin: ${TOP_MARGIN} auto auto;
@@ -69,21 +69,21 @@ const modalClassName = {
       transform: translateY(${TRANSFORM_Y_FLOATING});
     `};
 
-    ${theme.mq.big`
-      max-width: 550px;
+    ${theme.mq.mega`
+      max-width: 750px;
     `};
 
-    ${theme.mq.huge`
-      max-width: 650px;
+    ${theme.mq.giga`
+      max-width: 850px;
     `};
   `,
   afterOpen: ({ theme }) => css`
     label: modal--after-open;
-    ${theme.mq.untilMedium`
+    ${theme.mq.untilKilo`
       transform: translateY(0);
     `};
 
-    ${theme.mq.medium`
+    ${theme.mq.kilo`
       opacity: 1;
       transform: translateY(0);
     `};
@@ -91,11 +91,11 @@ const modalClassName = {
   /* eslint-disable max-len */
   beforeClose: ({ theme }) => css`
     label: modal--before-close;
-    ${theme.mq.untilMedium`
+    ${theme.mq.untilKilo`
        transform: translateY(100%);
     `};
 
-    ${theme.mq.medium`
+    ${theme.mq.kilo`
        opacity: 0;
        transform: translateY(${TRANSFORM_Y_FLOATING});
     `};
@@ -116,7 +116,7 @@ const overlayClassName = {
     transition: opacity 200ms ease-in-out;
     z-index: 1000;
 
-    ${theme.mq.medium`
+    ${theme.mq.kilo`
       -webkit-overflow-scrolling: touch;
       overflow-y: auto;
     `};

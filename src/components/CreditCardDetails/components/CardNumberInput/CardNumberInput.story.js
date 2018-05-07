@@ -35,7 +35,7 @@ const manySchemeIcons = getIconComponents(manySchemes);
 const marginTopClassName = css`
   width: calc(100vw - ${standard.spacings.byte});
 
-  ${standard.mq.medium`
+  ${standard.mq.untilKilo`
     width: 75vw;
     max-width: 400px;
   `};

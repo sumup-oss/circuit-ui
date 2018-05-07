@@ -7,7 +7,7 @@ const baseStyles = ({ theme }) => css`
   width: 100%;
   margin-top: ${theme.spacings.giga};
 
-  ${theme.mq.medium`
+  ${theme.mq.kilo`
     align-items: center;
     display: flex;
     justify-content: flex-end;
