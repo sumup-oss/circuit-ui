@@ -3,7 +3,7 @@ import React from 'react';
 import SecurityCodeInput from '.';
 
 describe('SecurityCodeInput', () => {
-  const inputSelector = 'WithTheme(Input)';
+  const inputSelector = 'MaskedInput';
   it('should render a Label', () => {
     const wrapper = shallow(<SecurityCodeInput />);
     expect(wrapper.find('SecurityCodeLabel')).toHaveLength(1);

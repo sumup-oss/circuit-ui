@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 import { size } from 'polished';
 
 import Label from '../../../Label';
-import MaskedInput from '../../../Input';
+import MaskedInput from '../../../MaskedInput';
 import { getPlaceholder, getMask } from './SecurityCodeInputService';
 import InfoIcon from '../../../InfoIcon';
 import SvgButton from '../../../SvgButton/SvgButton';
