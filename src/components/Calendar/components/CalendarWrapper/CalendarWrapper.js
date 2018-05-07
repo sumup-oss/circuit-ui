@@ -133,8 +133,17 @@ const dateRangePickerInput = ({ theme }) => css`
 
 const navButtons = ({ theme }) => css`
   .DayPickerNavigation_button__horizontal {
-    padding: ${theme.spacings.bit} ${theme.spacings.byte};
+    background: ${theme.colors.white};
+    border: 1px solid ${theme.colors.n300};
     color: ${theme.colors.n900};
+
+    padding: 0;
+    width: ${theme.spacings.peta};
+    height: ${theme.spacings.tera};
+
+    & > svg {
+      vertical-align: middle;
+    }
   }
 
   .DayPickerNavigation_leftButton__horizontal {
@@ -179,7 +188,11 @@ const calendarWeekHeader = ({ theme }) => css`
 
 const wrapShadow = ({ theme }) => css`
   .DayPicker {
-    ${shadowTriple({ theme })};
+    /**
+      * Rollback to using their own shadow
+      * as it looks better with the tip they provide
+      */
+    /* ${shadowTriple({ theme })}; */
   }
 `;
 
