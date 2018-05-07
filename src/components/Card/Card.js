@@ -25,7 +25,6 @@ const baseStyles = ({ theme }) => css`
 
   ${theme.mq.kilo`
     width: auto;
-    min-width: 400px;
   `};
 `;
 

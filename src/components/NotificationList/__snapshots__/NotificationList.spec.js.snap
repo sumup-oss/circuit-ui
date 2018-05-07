@@ -46,7 +46,6 @@ exports[`NotificationList should render with default styles 1`] = `
 @media (min-width:480px) {
   .circuit-0 {
     width: auto;
-    min-width: 400px;
   }
 }
 
