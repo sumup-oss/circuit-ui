@@ -20,11 +20,7 @@ const MaskedInput = props => (
     guide={false}
     {...props}
     render={(ref, { defaultValue, ...renderProps }) => (
-      <Input
-        value={defaultValue}
-        {...renderProps}
-        deepRef={ref}
-      />
+      <Input value={defaultValue} {...renderProps} deepRef={ref} />
     )}
   />
 );
