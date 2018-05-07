@@ -10,7 +10,7 @@ export const normalizeAmount = value => {
   }
 
   const matches = value.match(/[^\d](\d{1,2})$/) || [];
-  const [, decimals = '00'] = matches;
+  const [, decimals] = matches;
 
   const digits = value.replace(/[^\d]/g, '');
 
@@ -19,7 +19,7 @@ export const normalizeAmount = value => {
   }
 
   const integers =
-    decimals === '00' ? digits : digits.slice(0, -decimals.length);
+    decimals === undefined ? digits : digits.slice(0, -decimals.length);
   const numberString = `${integers}.${decimals}`;
   return parseFloat(numberString);
 };
