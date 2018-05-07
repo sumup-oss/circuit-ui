@@ -21,6 +21,7 @@ const baseStyles = ({ theme }) => css`
   label: grid;
 
   margin: 0 auto;
+  width: 100%;
 
   ${getBreakPointStyles(theme, 'untilKilo')};
   ${getBreakPointStyles(theme, 'kilo')};

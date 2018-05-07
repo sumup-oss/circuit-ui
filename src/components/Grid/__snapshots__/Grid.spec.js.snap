@@ -3,6 +3,7 @@
 exports[`Grid should render with default styles 1`] = `
 .circuit-0 {
   margin: 0 auto;
+  width: 100%;
 }
 
 @media (max-width:479px) {
