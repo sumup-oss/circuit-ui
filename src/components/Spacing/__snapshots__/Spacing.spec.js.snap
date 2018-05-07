@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spacing margin bottom should render with margin bottom styles 1`] = `
+.circuit-0 {
+  margin-bottom: 24px;
+}
+
+<div
+  className="circuit-0 circuit-1"
+/>
+`;
+
+exports[`Spacing margin top should render with margin top styles 1`] = `
+.circuit-0 {
+  margin-top: 24px;
+}
+
+<div
+  className="circuit-0 circuit-1"
+/>
+`;
+
+exports[`Spacing should render with default styles 1`] = `
+<div
+  className="circuit-0 circuit-1"
+/>
+`;
