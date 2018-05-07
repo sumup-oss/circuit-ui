@@ -1132,8 +1132,16 @@ exports[`RangePicker should render with default styles 1`] = `
 }
 
 .circuit-2 .DayPickerNavigation_button__horizontal {
-  padding: 4px 8px;
+  background: #FFFFFF;
+  border: 1px solid #D8DDE1;
   color: #212933;
+  padding: 0;
+  width: 40px;
+  height: 32px;
+}
+
+.circuit-2 .DayPickerNavigation_button__horizontal > svg {
+  vertical-align: middle;
 }
 
 .circuit-2 .DayPickerNavigation_leftButton__horizontal {
@@ -1170,10 +1178,6 @@ exports[`RangePicker should render with default styles 1`] = `
 .circuit-2 .DayPicker_weekHeader .DayPicker_weekHeader_ul {
   font-size: 13px;
   line-height: 20px;
-}
-
-.circuit-2 .DayPicker {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 4px 4px 0 rgba(12,15,20,0.06), 0 8px 8px 0 rgba(12,15,20,0.06);
 }
 
 .circuit-0 {
