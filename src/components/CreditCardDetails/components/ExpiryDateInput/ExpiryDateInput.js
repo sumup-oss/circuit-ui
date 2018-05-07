@@ -17,11 +17,11 @@ const ExpiryDateInput = ({ label, id, ...props }) => (
     <MaskedInput
       autoComplete="cc-exp"
       type="tel"
-      {...{ ...props, id }}
       mask={[/\d/, /\d/, '/', /\d/, /\d/]}
       guide={false}
       keepCharPositions={true}
       pipe={datePipe}
+      {...{ ...props, id }}
     />
   </Fragment>
 );

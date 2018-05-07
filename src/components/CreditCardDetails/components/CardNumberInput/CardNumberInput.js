@@ -143,7 +143,6 @@ const CardNumberInput = ({
         id={id}
         autoComplete="cc-number"
         placeholder="•••• •••• •••• ••••"
-        {...props}
         wrapperClassName={inputLongStyles({
           theme,
           acceptedCardSchemes,
@@ -151,6 +150,7 @@ const CardNumberInput = ({
         })}
         guide={false}
         mask={CARD_NUMBER_MASK}
+        {...props}
       >
         <SchemeList {...{ acceptedCardSchemes }} aria-hidden="true">
           {flow(
