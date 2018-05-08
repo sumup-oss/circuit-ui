@@ -66,8 +66,15 @@ class AutoComplete extends Component {
   state = { inputValue: '' };
 
   _handleStateChange = ({ type, inputValue }) => {
-    if (type === '__autocomplete_keydown_escape__') {
+    const resetEvents = [
+      Downshift.stateChangeTypes.blurInput,
+      Downshift.stateChangeTypes.keyDownEscape
+    ];
+
+    if (resetEvents.includes(type)) {
       this.setState({ inputValue: '' });
+    } else if (type === Downshift.stateChangeTypes.mouseUp) {
+      this.setState({ inputValue: inputValue || '' });
     } else {
       this.setState({ inputValue });
     }
@@ -78,14 +85,17 @@ class AutoComplete extends Component {
     this.setState({ inputValue: '' });
   };
 
+  _handleOuterClick = () => this.setState({ inputValue: '' });
+
   render() {
-    const { items, ...inputProps } = this.props;
+    const { items, handleChange, ...inputProps } = this.props;
     const { inputValue } = this.state;
 
     return (
       <Downshift
-        onChange={this._handleChange}
+        onSelect={this._handleChange}
         onStateChange={this._handleStateChange}
+        onOuterClick={this._handleOuterClick}
         inputValue={inputValue}
       >
         {({
@@ -94,30 +104,35 @@ class AutoComplete extends Component {
           getItemProps,
           isOpen,
           highlightedIndex
-        }) => (
-          <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
-            <SearchInput
-              {...getInputProps({ ...inputProps })}
-              noMargin
-              renderSuffix={() => null}
-            />
-            {isOpen && (
-              <ItemsWrapper>
-                <Items spacing={KILO}>
-                  {items.filter(filterItems(inputValue)).map((item, index) => (
-                    <Item
-                      {...getItemProps({ item })}
-                      key={item}
-                      selected={index === highlightedIndex}
-                    >
-                      {item}
-                    </Item>
-                  ))}
-                </Items>
-              </ItemsWrapper>
-            )}
-          </AutoCompleteWrapper>
-        )}
+        }) => {
+          const filteredItems = items.filter(filterItems(inputValue));
+
+          return (
+            <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
+              <SearchInput
+                {...getInputProps({ ...inputProps })}
+                noMargin
+                renderSuffix={() => null}
+              />
+              {isOpen &&
+                !!filteredItems.length && (
+                  <ItemsWrapper>
+                    <Items spacing={KILO}>
+                      {filteredItems.map((item, index) => (
+                        <Item
+                          {...getItemProps({ item })}
+                          key={item}
+                          selected={index === highlightedIndex}
+                        >
+                          {item}
+                        </Item>
+                      ))}
+                    </Items>
+                  </ItemsWrapper>
+                )}
+            </AutoCompleteWrapper>
+          );
+        }}
       </Downshift>
     );
   }

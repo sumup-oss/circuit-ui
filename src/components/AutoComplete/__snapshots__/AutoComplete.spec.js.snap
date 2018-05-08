@@ -78,7 +78,6 @@ exports[`AutoComplete should render with default styles 1`] = `
       autoComplete="off"
       className="circuit-0 circuit-1"
       disabled={false}
-      handleChange={[Function]}
       id="downshift-0-input"
       onBlur={[Function]}
       onChange={[Function]}
