@@ -110,8 +110,6 @@ CalendarTag.propTypes = {
   onDatesRangeChange: PropTypes.func.isRequired
 };
 
-CalendarTag.defaultProps = {};
-
 /**
  * @component
  */
