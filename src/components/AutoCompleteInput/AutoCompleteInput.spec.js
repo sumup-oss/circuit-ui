@@ -1,14 +1,16 @@
 import React from 'react';
 
-import AutoComplete from '.';
+import AutoCompleteInput from '.';
 // import Label from '../Label';
 
-describe('AutoComplete', () => {
+describe('AutoCompleteInput', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<AutoComplete handleChange={() => {}} items={[]} />);
+    const actual = create(
+      <AutoCompleteInput handleChange={() => {}} items={[]} />
+    );
     expect(actual).toMatchSnapshot();
   });
 
@@ -21,7 +23,7 @@ describe('AutoComplete', () => {
     const wrapper = renderToHtml(
       <Label htmlFor="inp">
         Label
-        <AutoComplete id="inp" handleChange={() => {}} items={[]} />
+        <AutoCompleteInput id="inp" handleChange={() => {}} items={[]} />
       </Label>
     );
 

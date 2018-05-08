@@ -77,6 +77,7 @@ exports[`AutoCompleteTags should render with default styles 1`] = `
       aria-invalid={false}
       autoComplete="off"
       className="circuit-0 circuit-1"
+      clearOnSelect={true}
       disabled={false}
       id="downshift-0-input"
       onBlur={[Function]}

@@ -60,48 +60,57 @@ const Item = styled('div')`
 const filterItems = inputValue => item =>
   !inputValue || item.toLowerCase().includes(inputValue.toLowerCase());
 
-// const AutoComplete = () => (
+/**
+ * Basic AutoCompleteInput input with styled suggestions list
+ */
+export default class AutoCompleteInput extends Component {
+  static propTypes = {
+    /**
+     * handleChange function that will receive the input
+     */
+    handleChange: PropTypes.func.isRequired,
 
-class AutoComplete extends Component {
-  state = { inputValue: '' };
+    /**
+     * If true, will clean the input after a value ie selected
+     */
+    clearOnSelect: PropTypes.bool,
 
-  _handleStateChange = ({ type, inputValue }) => {
-    const resetEvents = [
-      Downshift.stateChangeTypes.blurInput,
-      Downshift.stateChangeTypes.keyDownEscape
-    ];
+    /**
+     * Array of items (strings) the can be selected
+     */
+    items: PropTypes.arrayOf(PropTypes.string).isRequired
+  };
 
-    if (resetEvents.includes(type)) {
-      this.setState({ inputValue: '' });
-    } else if (type === Downshift.stateChangeTypes.mouseUp) {
-      this.setState({ inputValue: inputValue || '' });
-    } else {
-      this.setState({ inputValue });
-    }
+  static defaultProps = {
+    clearOnSelect: false
   };
 
   _handleChange = value => {
-    this.props.handleChange(value);
-    this.setState({ inputValue: '' });
+    const { clearOnSelect, handleChange } = this.props;
+
+    if (value) {
+      handleChange(value);
+
+      if (clearOnSelect && this._downshiftRef) {
+        this._downshiftRef.clearSelection();
+      }
+    }
   };
 
-  _handleOuterClick = () => this.setState({ inputValue: '' });
+  _handleDownShiftRef = ref => {
+    this._downshiftRef = ref;
+  };
 
   render() {
     const { items, handleChange, ...inputProps } = this.props;
-    const { inputValue } = this.state;
 
     return (
-      <Downshift
-        onSelect={this._handleChange}
-        onStateChange={this._handleStateChange}
-        onOuterClick={this._handleOuterClick}
-        inputValue={inputValue}
-      >
+      <Downshift ref={this._handleDownShiftRef} onSelect={this._handleChange}>
         {({
           getRootProps,
           getInputProps,
           getItemProps,
+          inputValue,
           isOpen,
           highlightedIndex
         }) => {
@@ -137,28 +146,3 @@ class AutoComplete extends Component {
     );
   }
 }
-
-/**
- * Describe your component here.
- */
-// const Autocomplete = styled('element')(baseStyles);
-
-AutoComplete.propTypes = {
-  /**
-   * handleChange function that will receive the input
-   */
-  handleChange: PropTypes.func.isRequired,
-
-  /**
-   * A
-   */
-  // items: PropTypes.arrayOf(PropTypes.object).isRequired
-  items: PropTypes.arrayOf(PropTypes.string).isRequired
-};
-
-AutoComplete.defaultProps = {};
-
-/**
- * @component
- */
-export default AutoComplete;

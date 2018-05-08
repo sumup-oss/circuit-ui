@@ -2,23 +2,25 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { boolean } from '@storybook/addon-knobs/react';
 
 import withTests from '../../util/withTests';
-import AutoComplete from './AutoComplete';
+import AutoCompleteInput from './AutoCompleteInput';
 
-storiesOf('Autocomplete', module)
-  .addDecorator(withTests('Autocomplete'))
+storiesOf('AutoCompleteInput', module)
+  .addDecorator(withTests('AutoCompleteInput'))
   .add(
-    'Default Autocomplete',
+    'Default AutoCompleteInput',
     withInfo()(() => (
       <div style={{ width: '300px' }}>
-        <AutoComplete
+        <AutoCompleteInput
           items={[
             'liam.murphy@sumup.com',
             'liam.burdock@sumup.com',
             'lilijane.giordano@sumup.com'
           ]}
           handleChange={action('handleChange')}
+          clearOnSelect={boolean('clearOnSelect', false)}
         />
       </div>
     ))

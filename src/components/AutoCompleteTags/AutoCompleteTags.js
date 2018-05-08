@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled /* , { css } */ from 'react-emotion';
 import { remove } from 'lodash/fp';
 
-import AutoComplete from '../AutoComplete';
+import AutoCompleteInput from '../AutoCompleteInput';
 import Tag from '../Tag';
 
 const TagsWrapper = styled('div')`
@@ -46,9 +46,10 @@ class AutoCompleteTags extends Component {
 
     return (
       <Fragment>
-        <AutoComplete
+        <AutoCompleteInput
           handleChange={this.handleAddTag}
           items={autoCompleteItems}
+          clearOnSelect
         />
         {!!tags.length && (
           <TagsWrapper>
