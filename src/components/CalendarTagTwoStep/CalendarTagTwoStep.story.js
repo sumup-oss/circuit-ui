@@ -4,17 +4,15 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
-import CalendarButtonTwoStep from './CalendarButtonTwoStep';
+import CalendarTagTwoStep from './CalendarTagTwoStep';
 
-storiesOf('CalendarButtonTwoStep', module)
-  .addDecorator(withTests('CalendarButtonTwoStep'))
+storiesOf('CalendarTagTwoStep', module)
+  .addDecorator(withTests('CalendarTagTwoStep'))
   .add(
-    'Default CalendarButtonTwoStep',
+    'Default CalendarTagTwoStep',
     withInfo()(() => (
       <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>
-        <CalendarButtonTwoStep
-          onDatesRangeChange={action('onDatesRangeChange')}
-        />
+        <CalendarTagTwoStep onDatesRangeChange={action('onDatesRangeChange')} />
       </div>
     ))
   );

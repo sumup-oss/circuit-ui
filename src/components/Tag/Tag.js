@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import { eitherOrPropType } from '../../util/shared-prop-types';
-import { textMega } from '../../styles/style-helpers';
+import { textMega, shadowBorder } from '../../styles/style-helpers';
 import DefaultCloseButton from '../CloseButton';
 
 const closeButtonStyles = ({ theme }) => css`
   label: tag__close-button;
   margin-left: ${theme.spacings.kilo};
-  vertical-align: -1px;
+  vertical-align: middle;
 `;
 
 const closeButtonSelectedStyles = ({ selected, theme }) =>
@@ -19,6 +19,7 @@ const closeButtonSelectedStyles = ({ selected, theme }) =>
 
     > svg {
       fill: ${theme.colors.white};
+      vertical-align: inherit;
     }
   `;
 
@@ -29,11 +30,13 @@ const CloseButton = styled(DefaultCloseButton)(
 
 const tagStyles = ({ theme }) => css`
   label: tag;
-  padding: ${theme.spacings.bit} ${theme.spacings.kilo};
   border-radius: ${theme.borderRadius.mega};
-  border: 1px solid ${theme.colors.n300};
+
   ${textMega({ theme })};
+  ${shadowBorder(theme.colors.n300)};
+  padding: ${theme.spacings.bit} ${theme.spacings.kilo};
   cursor: default;
+  display: inline-block;
 `;
 
 const tagSelectedStyles = ({ selected, theme }) =>
@@ -41,6 +44,7 @@ const tagSelectedStyles = ({ selected, theme }) =>
   css`
     label: tag--selected;
     background-color: ${theme.colors.p500};
+    ${shadowBorder(theme.colors.p500)};
     color: ${theme.colors.white};
   `;
 
@@ -52,13 +56,21 @@ const tagClickableStyles = ({ onClick, theme }) =>
 
     &:hover {
       background-color: ${theme.colors.n300};
+      ${shadowBorder(theme.colors.n300)};
     }
   `;
 
 const iconStyles = ({ theme }) => css`
   label: tag__icon;
-  vertical-align: -2px;
   margin-right: ${theme.spacings.bit};
+  display: inline-block;
+  width: ${theme.spacings.mega};
+  height: ${theme.spacings.mega};
+  vertical-align: middle;
+
+  > svg {
+    vertical-align: top;
+  }
 `;
 
 const iconSelectedStyles = ({ selected, theme }) =>

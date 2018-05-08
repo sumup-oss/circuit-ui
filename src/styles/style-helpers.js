@@ -7,6 +7,10 @@ import { mapValues } from '../util/fp';
  * Shadows
  */
 
+export const shadowBorder = color => `
+  box-shadow: 0px 0px 0px 1px ${color};
+`;
+
 export const shadowGround = ({ theme }) => `
   box-shadow: 0 0 0 2px ${transparentize(0.97, theme.colors.shadow)};
 `;
@@ -55,6 +59,7 @@ export const subHeadingMega = createTypeHelper('subHeadings', 'mega');
 export const textKilo = createTypeHelper('text', 'kilo');
 export const textMega = createTypeHelper('text', 'mega');
 export const textGiga = createTypeHelper('text', 'giga');
+export const textTera = createTypeHelper('text', 'tera');
 
 /**
  * SVGs

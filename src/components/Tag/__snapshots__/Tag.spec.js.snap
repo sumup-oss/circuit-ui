@@ -2,17 +2,19 @@
 
 exports[`Tag when is clickable should render with clickable styles 1`] = `
 .circuit-0 {
-  padding: 4px 12px;
   border-radius: 4px;
-  border: 1px solid #D8DDE1;
   font-size: 15px;
   line-height: 24px;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  padding: 4px 12px;
   cursor: default;
+  display: inline-block;
   cursor: pointer;
 }
 
 .circuit-0:hover {
   background-color: #D8DDE1;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
 }
 
 <span
@@ -26,12 +28,13 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
 
 exports[`Tag when is default should render with default styles 1`] = `
 .circuit-0 {
-  padding: 4px 12px;
   border-radius: 4px;
-  border: 1px solid #D8DDE1;
   font-size: 15px;
   line-height: 24px;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  padding: 4px 12px;
   cursor: default;
+  display: inline-block;
 }
 
 <span
@@ -44,13 +47,15 @@ exports[`Tag when is default should render with default styles 1`] = `
 
 exports[`Tag when is selected should change the close icon color 1`] = `
 .circuit-3 {
-  padding: 4px 12px;
   border-radius: 4px;
-  border: 1px solid #D8DDE1;
   font-size: 15px;
   line-height: 24px;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  padding: 4px 12px;
   cursor: default;
+  display: inline-block;
   background-color: #3388FF;
+  box-shadow: 0px 0px 0px 1px #3388FF;
   color: #FFFFFF;
 }
 
@@ -63,7 +68,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   cursor: pointer;
   fill: #0F131A;
   margin-left: 12px;
-  vertical-align: -1px;
+  vertical-align: middle;
 }
 
 .circuit-1:focus,
@@ -78,6 +83,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 
 .circuit-1 > svg {
   fill: #FFFFFF;
+  vertical-align: inherit;
 }
 
 <span
@@ -100,19 +106,28 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 
 exports[`Tag when is selected should change the given icon color 1`] = `
 .circuit-2 {
-  padding: 4px 12px;
   border-radius: 4px;
-  border: 1px solid #D8DDE1;
   font-size: 15px;
   line-height: 24px;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  padding: 4px 12px;
   cursor: default;
+  display: inline-block;
   background-color: #3388FF;
+  box-shadow: 0px 0px 0px 1px #3388FF;
   color: #FFFFFF;
 }
 
 .circuit-0 {
-  vertical-align: -2px;
   margin-right: 4px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.circuit-0 > svg {
+  vertical-align: top;
 }
 
 .circuit-0 > svg {
@@ -140,13 +155,15 @@ exports[`Tag when is selected should change the given icon color 1`] = `
 
 exports[`Tag when is selected should render with selected styles 1`] = `
 .circuit-0 {
-  padding: 4px 12px;
   border-radius: 4px;
-  border: 1px solid #D8DDE1;
   font-size: 15px;
   line-height: 24px;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  padding: 4px 12px;
   cursor: default;
+  display: inline-block;
   background-color: #3388FF;
+  box-shadow: 0px 0px 0px 1px #3388FF;
   color: #FFFFFF;
 }
 

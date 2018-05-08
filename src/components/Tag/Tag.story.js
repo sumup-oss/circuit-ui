@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { boolean } from '@storybook/addon-knobs/react';
 
 import withTests from '../../util/withTests';
 import Tag from './Tag';
@@ -21,29 +22,16 @@ const Icon = () => (
 
 storiesOf('Tag', module)
   .addDecorator(withTests('Tag'))
-  .add('Default Tag', withInfo()(() => <Tag>Transactions</Tag>))
   .add(
-    'Removable Tag',
-    withInfo()(() => <Tag onRemove={action('Tag removed')}>Transactions</Tag>)
-  )
-  .add('Iconed Tag', withInfo()(() => <Tag icon={<Icon />}>Transactions</Tag>))
-  .add(
-    'Iconed Selected Tag',
+    'Default Tag',
     withInfo()(() => (
-      <Tag selected icon={<Icon />}>
+      <Tag
+        selected={boolean('Selected', false)}
+        onRemove={boolean('Removable', false) ? action('Tag removed') : null}
+        icon={boolean('With Icon', false) ? <Icon /> : null}
+        onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
+      >
         Transactions
       </Tag>
     ))
-  )
-  .add(
-    'Selected Tag',
-    withInfo()(() => (
-      <Tag selected onRemove={action('Tag removed')} icon={<Icon />}>
-        Transactions
-      </Tag>
-    ))
-  )
-  .add(
-    'Clickable Tag',
-    withInfo()(() => <Tag onClick={action('Tag clicked')}>Transactions</Tag>)
   );

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import CalendarButtonTwoStep from '.';
+import CalendarTagTwoStep from '.';
 
-describe('CalendarButtonTwoStep', () => {
+describe('CalendarTagTwoStep', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CalendarButtonTwoStep />);
+    const actual = create(<CalendarTagTwoStep />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -15,7 +15,7 @@ describe('CalendarButtonTwoStep', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CalendarButtonTwoStep />);
+    const wrapper = renderToHtml(<CalendarTagTwoStep />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

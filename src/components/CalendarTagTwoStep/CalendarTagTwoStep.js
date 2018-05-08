@@ -5,10 +5,68 @@ import styled, { css } from 'react-emotion';
 import { START_DATE, END_DATE } from 'react-dates/constants';
 
 import { RangePickerController } from '../Calendar';
-import Button from '../Button';
+import Tag from '../Tag';
 import { textKilo } from '../../styles/style-helpers';
 
-class CalendarButtonTwoStep extends Component {
+const calendarInfoBase = () => css`
+  text-align: right;
+  margin: 0 23px 0; /* based on react dates */
+  padding: 0 0 10px 0;
+`;
+
+const CalendarInfo = styled('div')(calendarInfoBase);
+
+const buttonBase = ({ theme, primary }) => css`
+  border: none;
+  background: none;
+
+  ${textKilo({ theme })};
+  margin-left: ${theme.spacings.kilo}};
+  cursor: pointer;
+  color: ${primary ? theme.colors.b500 : theme.colors.n900};
+`;
+
+const InfoButton = styled('span')(buttonBase);
+
+const baseStyles = () => css`
+  label: button_calendar;
+`;
+
+const CalendarWrapper = styled.div`
+  margin-top: ${({ theme }) => theme.spacings.byte};
+`;
+
+const CalendarTagWrapper = styled('div')`
+  ${baseStyles};
+`;
+
+/**
+ * Component composed from a <Tag /> and a <RangePickerController /> that has
+ * two step process where the user has to click "Apply" to trigger onChange
+ */
+export default class CalendarTagTwoStep extends Component {
+  static propTypes = {
+    /**
+     * Callback to receive the set of dates when the user confirms them.
+     */
+    onDatesRangeChange: PropTypes.func.isRequired,
+
+    /**
+     * Text for the clear button
+     */
+    clearText: PropTypes.string,
+
+    /**
+     * Text for the confirm button
+     */
+    confirmText: PropTypes.string
+  };
+
+  static defaultProps = {
+    clearText: 'Clear',
+    confirmText: 'Apply'
+  };
+
   state = { startDate: null, endDate: null, focusedInput: null };
   buttonRef = null; // eslint-disable-line react/sort-comp
 
@@ -74,16 +132,16 @@ class CalendarButtonTwoStep extends Component {
     const isFilled = !!(startDate && endDate);
 
     return (
-      <CalendarButtonWrap>
-        <Button
-          primary={isOpen || isFilled}
+      <CalendarTagWrapper>
+        <Tag
+          selected={isOpen || isFilled}
           ref={this.handleButtonRef}
           onClick={this.handleButtonClick}
         >
           {this.getDateRangePreview()}
-        </Button>
+        </Tag>
         {isOpen && (
-          <CalendarWrap>
+          <CalendarWrapper>
             <RangePickerController
               startDate={startDate}
               endDate={endDate}
@@ -103,72 +161,9 @@ class CalendarButtonTwoStep extends Component {
                 </CalendarInfo>
               )}
             />
-          </CalendarWrap>
+          </CalendarWrapper>
         )}
-      </CalendarButtonWrap>
+      </CalendarTagWrapper>
     );
   }
 }
-
-const calendarInfoBase = () => css`
-  text-align: right;
-  margin: 0 23px 0; /* based on react dates */
-  padding: 0 0 10px 0;
-`;
-
-const CalendarInfo = styled('div')(calendarInfoBase);
-
-const buttonBase = ({ theme, primary }) => css`
-  border: none;
-  background: none;
-
-  ${textKilo({ theme })};
-  margin-left: ${theme.spacings.kilo}};
-  cursor: pointer;
-  color: ${primary ? theme.colors.b500 : theme.colors.n900};
-`;
-
-const InfoButton = styled('span')(buttonBase);
-
-const baseStyles = () => css`
-  label: button_calendar;
-`;
-
-const CalendarWrap = styled.div`
-  margin-top: ${({ theme }) => theme.spacings.byte};
-`;
-
-const CalendarButtonWrap = styled('div')`
-  ${baseStyles};
-`;
-
-/**
- * Describe your component here.
- */
-
-CalendarButtonTwoStep.propTypes = {
-  /**
-   * Callback to receive the set of dates when the user confirms them.
-   */
-  onDatesRangeChange: PropTypes.func.isRequired,
-
-  /**
-   * Text for the clear button
-   */
-  clearText: PropTypes.string,
-
-  /**
-   * Text for the confirm button
-   */
-  confirmText: PropTypes.string
-};
-
-CalendarButtonTwoStep.defaultProps = {
-  clearText: 'Clear',
-  confirmText: 'Apply'
-};
-
-/**
- * @component
- */
-export default CalendarButtonTwoStep;
