@@ -9,7 +9,7 @@ import DefaultCloseButton from '../CloseButton';
 const closeButtonStyles = ({ theme }) => css`
   label: tag__close-button;
   margin-left: ${theme.spacings.kilo};
-  vertical-align: -1px;
+  vertical-align: middle;
 `;
 
 const closeButtonSelectedStyles = ({ selected, theme }) =>
@@ -62,11 +62,14 @@ const tagClickableStyles = ({ onClick, theme }) =>
 
 const iconStyles = ({ theme }) => css`
   label: tag__icon;
-  vertical-align: -2px;
   margin-right: ${theme.spacings.bit};
+  display: inline-block;
+  width: ${theme.spacings.mega};
+  height: ${theme.spacings.mega};
+  vertical-align: middle;
 
   > svg {
-    vertical-align: inherit;
+    vertical-align: top;
   }
 `;
 

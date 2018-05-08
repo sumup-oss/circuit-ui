@@ -68,7 +68,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   cursor: pointer;
   fill: #0F131A;
   margin-left: 12px;
-  vertical-align: -1px;
+  vertical-align: middle;
 }
 
 .circuit-1:focus,
@@ -119,12 +119,15 @@ exports[`Tag when is selected should change the given icon color 1`] = `
 }
 
 .circuit-0 {
-  vertical-align: -2px;
   margin-right: 4px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
 }
 
 .circuit-0 > svg {
-  vertical-align: inherit;
+  vertical-align: top;
 }
 
 .circuit-0 > svg {
