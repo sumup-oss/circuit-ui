@@ -11,7 +11,7 @@ import { KILO } from '../../util/constants';
 const AutoCompleteWrapper = styled('div')`
   label: input__container
   position: relative;
-  width: 100%;
+  min-width: 150px;
 `;
 
 const ItemsWrapper = styled('div')`
@@ -21,18 +21,15 @@ const ItemsWrapper = styled('div')`
   margin-top: ${props => props.theme.spacings.bit};
 `;
 
-const cardBaseStyles = ({ theme }) => css`
+const itemsBaseStyles = ({ theme }) => css`
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-`;
-
-const Items = styled(Card)`
   position: absolute;
-  min-width: unset !important;
   top: 0;
   left: 0;
   right: 0;
-  ${cardBaseStyles};
 `;
+
+const Items = styled(Card)(itemsBaseStyles);
 
 Items.defaultProps = Card.defaultProps;
 
@@ -40,10 +37,10 @@ const itemBaseStyles = ({ theme }) => css`
   cursor: pointer;
   padding: 0 0 ${theme.spacings.byte} 0;
   margin: 0;
+  ${textMega({ theme })};
   &:last-of-type {
     padding-bottom: 0;
   }
-  ${textMega({ theme })};
 `;
 
 const itemHighlight = ({ selected, theme }) =>
@@ -52,10 +49,7 @@ const itemHighlight = ({ selected, theme }) =>
     color: ${theme.colors.b500};
   `;
 
-const Item = styled('div')`
-  ${itemBaseStyles};
-  ${itemHighlight};
-`;
+const Item = styled('div')(itemBaseStyles, itemHighlight);
 
 const filterItems = inputValue => item =>
   !inputValue || item.toLowerCase().includes(inputValue.toLowerCase());

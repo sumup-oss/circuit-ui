@@ -3,7 +3,7 @@
 exports[`AutoCompleteInput should render with default styles 1`] = `
 .circuit-4 {
   label: input__container position:relative;
-  width: 100%;
+  min-width: 150px;
 }
 
 .circuit-2 {
