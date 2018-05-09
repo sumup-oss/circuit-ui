@@ -12,6 +12,14 @@ const ALIGMENT_TYPES = [LEFT, RIGHT];
 
 const isRight = isEqual(RIGHT);
 
+const marginStyles = ({ theme, noMargin }) =>
+  !noMargin &&
+  css`
+    li:not(:last-of-type) {
+      margin-bottom: ${theme.spacings.mega};
+    }
+  `;
+
 const alignmentStyles = ({ align }) =>
   isRight(align) &&
   css`
@@ -19,17 +27,13 @@ const alignmentStyles = ({ align }) =>
     justify-content: flex-end;
   `;
 
-const baseStyles = ({ theme }) => css`
+const baseStyles = ({ theme, noMargin }) => css`
   label: button-group;
   display: block;
   list-style-type: none;
   width: 100%;
 
-  li:not(:last-of-type) {
-    margin-bottom: ${theme.spacings.mega};
-  }
-
-  ${Button} {
+  ${marginStyles({ theme, noMargin })} ${Button} {
     width: 100%;
   }
 
@@ -51,8 +55,8 @@ const ButtonGroupList = styled('ul')(baseStyles, alignmentStyles);
 /**
  * Groups its Button children into a list and adds margins between.
  */
-const ButtonGroup = ({ children, align }) => (
-  <ButtonGroupList align={align}>
+const ButtonGroup = ({ children, align, noMargin }) => (
+  <ButtonGroupList align={align} noMargin={noMargin}>
     {Children.map(children, child => <li>{child}</li>)}
   </ButtonGroupList>
 );
@@ -63,13 +67,18 @@ ButtonGroup.propTypes = {
    */
   children: childrenPropType.isRequired,
   /**
+   * Removes the default bottom margin from the heading.
+   */
+  noMargin: PropTypes.bool,
+  /**
    * Direction to align the content. Either left/right
    */
   align: PropTypes.oneOf(ALIGMENT_TYPES)
 };
 
 ButtonGroup.defaultProps = {
-  align: 'right'
+  align: 'right',
+  noMargin: false
 };
 
 /**

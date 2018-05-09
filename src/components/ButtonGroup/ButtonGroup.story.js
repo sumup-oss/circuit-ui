@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { select } from '@storybook/addon-knobs/react';
+import { select, boolean } from '@storybook/addon-knobs/react';
 
 import withTests from '../../util/withTests';
 import ButtonGroup from './';
@@ -13,7 +13,10 @@ storiesOf('ButtonGroup', module)
     'Default ButtonGroup',
     withInfo()(() => (
       <div style={{ width: '500px', border: '1px dotted #000' }}>
-        <ButtonGroup align={select('Align', ['left', 'right'], 'right')}>
+        <ButtonGroup
+          align={select('Align', ['left', 'right'], 'right')}
+          noMargin={boolean('No Margin Bottom', false)}
+        >
           <Button secondary>Cancel</Button>
           <Button>Confirm</Button>
         </ButtonGroup>

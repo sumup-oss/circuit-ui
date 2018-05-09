@@ -18,6 +18,13 @@ describe('ButtonGroup', () => {
     });
   });
 
+  describe('No margin bottom', () => {
+    it('should render without margin bottom styles', () => {
+      const actual = create(<ButtonGroup noMargin />);
+      expect(actual).toMatchSnapshot();
+    });
+  });
+
   /**
    * Accessibility tests.
    */
