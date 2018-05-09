@@ -9,13 +9,16 @@ const ALIGMENT_TYPES = [LEFT, RIGHT];
 
 const isRight = isEqual(RIGHT);
 
-const alignmentStyles = align =>
+const alignmentStyles = ({ theme, align }) =>
   isRight(align) &&
   css`
-    justify-content: flex-end;
+    label: card__footer--right;
+    ${theme.mq.kilo`
+      justify-content: flex-end;
+    `};
   `;
 
-const baseStyles = ({ theme, align }) => css`
+const baseStyles = ({ theme }) => css`
   label: card__footer;
   display: block;
   width: 100%;
@@ -24,7 +27,6 @@ const baseStyles = ({ theme, align }) => css`
   ${theme.mq.kilo`
     align-items: center;
     display: flex;
-    ${alignmentStyles(align)}
     margin-top: ${theme.spacings.mega};
   `};
 `;
@@ -33,9 +35,7 @@ const baseStyles = ({ theme, align }) => css`
  * Footer used in the Card component. Used for styling and aligment
  * purposes only.
  */
-const CardFooter = styled('footer')`
-  ${baseStyles};
-`;
+const CardFooter = styled('footer')(baseStyles, alignmentStyles);
 
 CardFooter.propTypes = {
   /**
