@@ -8,7 +8,7 @@
     "fix:eslint": "eslint --fix --quiet src/**/**/*.js",
     "fix": "yarn fix:eslint",
     "test": "yarn test:lint-js && yarn test:unit",
-    "test-ci": "yarn test:lint-js && yarn test:unit --runInBand",
+    "test:ci": "yarn test:lint-js && yarn test:unit --runInBand",
     "test:lint-js": "eslint --cache --quiet src/**/**/*.js",
     "test:lint-js:watch": "onchange \"src/**/**/*.js\" -- yarn test:lint-js",
     "test:unit:verbose": "jest --coverage --no-cache",

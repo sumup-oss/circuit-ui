@@ -4,4 +4,4 @@ node_js:
 install:
   yarn
 script:
-  yarn test-ci
+  yarn test:ci
