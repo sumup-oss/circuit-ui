@@ -15,7 +15,7 @@ const isRight = isEqual(RIGHT);
 const alignmentStyles = ({ align }) =>
   isRight(align) &&
   css`
-    label: button-group--left;
+    label: button-group--right;
     justify-content: flex-end;
   `;
 
