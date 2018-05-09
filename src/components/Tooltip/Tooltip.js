@@ -21,7 +21,7 @@ const baseStyles = ({ theme }) => css`
   border-radius: ${theme.borderRadius.mega};
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
   position: absolute;
-  z-index: 1;
+  z-index: ${theme.zIndex.tooltip};
   transition: opacity 0.3s;
   ${textKilo({ theme })};
   ${shadowSingle({ theme })};

@@ -386,7 +386,7 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
