@@ -20,12 +20,6 @@ const baseStyles = ({ theme }) => css`
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  width: 98%;
-  width: calc(100% - ${theme.spacings.mega});
-
-  ${theme.mq.kilo`
-    width: auto;
-  `};
 `;
 
 const shadowStyles = ({ theme, shadow }) => {

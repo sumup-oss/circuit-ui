@@ -16,16 +16,8 @@ exports[`Card should render with default styles 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   overflow: hidden;
-  width: 98%;
-  width: calc(100% - 16px);
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    width: auto;
-  }
 }
 
 <div
@@ -50,16 +42,8 @@ exports[`Card should render with shadow styles 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   overflow: hidden;
-  width: 98%;
-  width: calc(100% - 16px);
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    width: auto;
-  }
 }
 
 <div
@@ -84,16 +68,8 @@ exports[`Card should render with shadow styles 2`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   overflow: hidden;
-  width: 98%;
-  width: calc(100% - 16px);
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    width: auto;
-  }
 }
 
 <div
@@ -118,16 +94,8 @@ exports[`Card should render with shadow styles 3`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   overflow: hidden;
-  width: 98%;
-  width: calc(100% - 16px);
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 4px 4px 0 rgba(12,15,20,0.06), 0 8px 8px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    width: auto;
-  }
 }
 
 <div
@@ -152,16 +120,8 @@ exports[`Card should render with spacing styles 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   overflow: hidden;
-  width: 98%;
-  width: calc(100% - 16px);
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   padding: 16px 16px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    width: auto;
-  }
 }
 
 <div
@@ -186,16 +146,8 @@ exports[`Card should render with spacing styles 2`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   overflow: hidden;
-  width: 98%;
-  width: calc(100% - 16px);
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    width: auto;
-  }
 }
 
 <div
