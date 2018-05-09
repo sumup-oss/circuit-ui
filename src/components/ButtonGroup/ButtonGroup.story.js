@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { select } from '@storybook/addon-knobs/react';
 
 import withTests from '../../util/withTests';
 import ButtonGroup from './';
@@ -11,18 +12,11 @@ storiesOf('ButtonGroup', module)
   .add(
     'Default ButtonGroup',
     withInfo()(() => (
-      <ButtonGroup>
-        <Button secondary>Cancel</Button>
-        <Button>Confirm</Button>
-      </ButtonGroup>
-    ))
-  )
-  .add(
-    'Left Aligment',
-    withInfo()(() => (
-      <ButtonGroup align="left">
-        <Button secondary>Cancel</Button>
-        <Button>Confirm</Button>
-      </ButtonGroup>
+      <div style={{ width: '500px', border: '1px dotted #000' }}>
+        <ButtonGroup align={select('Align', ['left', 'right'], 'right')}>
+          <Button secondary>Cancel</Button>
+          <Button>Confirm</Button>
+        </ButtonGroup>
+      </div>
     ))
   );
