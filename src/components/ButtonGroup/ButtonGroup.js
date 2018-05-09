@@ -12,13 +12,14 @@ const ALIGMENT_TYPES = [LEFT, RIGHT];
 
 const isRight = isEqual(RIGHT);
 
-const alignmentStyles = align =>
+const alignmentStyles = ({ align }) =>
   isRight(align) &&
   css`
+    label: button-group--left;
     justify-content: flex-end;
   `;
 
-const baseStyles = ({ theme, align }) => css`
+const baseStyles = ({ theme }) => css`
   label: button-group;
   display: block;
   list-style-type: none;
@@ -35,8 +36,6 @@ const baseStyles = ({ theme, align }) => css`
   ${theme.mq.kilo`
     display: flex;
 
-    ${alignmentStyles(align)};
-
     li:not(:last-of-type) {
       margin-right: ${theme.spacings.mega};
     }
@@ -47,9 +46,7 @@ const baseStyles = ({ theme, align }) => css`
   `};
 `;
 
-const ButtonGroupList = styled('ul')`
-  ${baseStyles};
-`;
+const ButtonGroupList = styled('ul')(baseStyles, alignmentStyles);
 
 /**
  * Groups its Button children into a list and adds margins between.
