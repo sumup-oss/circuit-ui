@@ -20,7 +20,9 @@ const marginTopStyles = ({ theme, top }) =>
   `;
 
 /**
- * Margin helper
+ * Margin helper component for default margin usage. The idea is to wrap your
+ * visual components with this one in order to add top or bottom spacing based
+ * on the theme variables.
  */
 const Spacing = styled('div')`
   ${baseStyles}
