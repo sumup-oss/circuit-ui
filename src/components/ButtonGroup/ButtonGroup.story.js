@@ -14,7 +14,11 @@ storiesOf('ButtonGroup', module)
     withInfo()(() => (
       <div style={{ width: '500px', border: '1px dotted #000' }}>
         <ButtonGroup
-          align={select('Align', ['left', 'right'], 'right')}
+          align={select(
+            'Align',
+            [ButtonGroup.LEFT, ButtonGroup.RIGHT],
+            ButtonGroup.RIGHT
+          )}
           noMargin={boolean('No Margin Bottom', false)}
         >
           <Button secondary>Cancel</Button>

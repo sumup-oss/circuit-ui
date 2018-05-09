@@ -13,7 +13,7 @@ describe('ButtonGroup', () => {
 
   describe('Left aligment', () => {
     it('should render with left alignment styles', () => {
-      const actual = create(<ButtonGroup align="left" />);
+      const actual = create(<ButtonGroup align={ButtonGroup.LEFT} />);
       expect(actual).toMatchSnapshot();
     });
   });

@@ -13,7 +13,7 @@ describe('CardFooter', () => {
 
   describe('Left aligment', () => {
     it('should render with left alignment styles', () => {
-      const actual = create(<CardFooter align="left" />);
+      const actual = create(<CardFooter align={CardFooter.LEFT} />);
       expect(actual).toMatchSnapshot();
     });
   });
