@@ -4,13 +4,9 @@ import styled, { css } from 'react-emotion';
 
 import Button from '../Button';
 import { childrenPropType } from '../../util/shared-prop-types';
-import { isEqual } from '../../util/fp';
+import { directions } from '../../styles/constants';
 
-const LEFT = 'left';
-const RIGHT = 'right';
-const ALIGMENT_TYPES = [LEFT, RIGHT];
-
-const isRight = isEqual(RIGHT);
+const ALIGMENT_TYPES = [directions.LEFT, directions.RIGHT];
 
 const marginStyles = ({ theme, noMargin }) =>
   !noMargin &&
@@ -21,7 +17,7 @@ const marginStyles = ({ theme, noMargin }) =>
   `;
 
 const alignmentStyles = ({ align }) =>
-  isRight(align) &&
+  align === directions.RIGHT &&
   css`
     label: button-group--right;
     justify-content: flex-end;
@@ -61,6 +57,9 @@ const ButtonGroup = ({ children, align, noMargin }) => (
   </ButtonGroupList>
 );
 
+ButtonGroup.LEFT = directions.LEFT;
+ButtonGroup.RIGHT = directions.RIGHT;
+
 ButtonGroup.propTypes = {
   /**
    * Buttons to group.
@@ -77,7 +76,7 @@ ButtonGroup.propTypes = {
 };
 
 ButtonGroup.defaultProps = {
-  align: 'right',
+  align: ButtonGroup.RIGHT,
   noMargin: false
 };
 

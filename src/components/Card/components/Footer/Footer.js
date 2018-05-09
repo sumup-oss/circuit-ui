@@ -1,16 +1,12 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import { isEqual } from '../../../../util/fp';
+import { directions } from '../../../../styles/constants';
 
-const LEFT = 'left';
-const RIGHT = 'right';
-const ALIGMENT_TYPES = [LEFT, RIGHT];
-
-const isRight = isEqual(RIGHT);
+const ALIGMENT_TYPES = [directions.LEFT, directions.RIGHT];
 
 const alignmentStyles = ({ theme, align }) =>
-  isRight(align) &&
+  align === directions.RIGHT &&
   css`
     label: card__footer--right;
     ${theme.mq.kilo`
@@ -37,6 +33,9 @@ const baseStyles = ({ theme }) => css`
  */
 const CardFooter = styled('footer')(baseStyles, alignmentStyles);
 
+CardFooter.LEFT = directions.LEFT;
+CardFooter.RIGHT = directions.RIGHT;
+
 CardFooter.propTypes = {
   /**
    * Buttons wrapped in a ButtonGroup.
@@ -49,7 +48,7 @@ CardFooter.propTypes = {
 };
 
 CardFooter.defaultProps = {
-  align: 'right'
+  align: CardFooter.RIGHT
 };
 
 /**

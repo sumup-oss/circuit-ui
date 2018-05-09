@@ -33,3 +33,14 @@ export const colorNames = {
   DANGER: 'danger',
   WARNING: 'warning'
 };
+
+/**
+ * Directions
+ */
+export const directions = {
+  CENTER: 'center',
+  TOP: 'top',
+  RIGHT: 'right',
+  BOTTOM: 'bottom',
+  LEFT: 'left'
+};

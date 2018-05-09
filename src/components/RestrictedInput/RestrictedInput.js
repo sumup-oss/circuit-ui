@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Input from '../Input';
 import { handleKeyDown, handleCarretPosition } from './RestrictedInputService';
+import { directions } from '../../styles/constants';
 
 // TODO: add state management to enable shortcurts. This
 // will require tracking the previously pressed key and
@@ -29,8 +30,8 @@ const RestrictedInput = ({
   />
 );
 
-RestrictedInput.LEFT = 'left';
-RestrictedInput.RIGHT = 'right';
+RestrictedInput.LEFT = directions.LEFT;
+RestrictedInput.RIGHT = directions.RIGHT;
 
 RestrictedInput.propTypes = {
   /**

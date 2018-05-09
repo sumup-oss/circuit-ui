@@ -7,6 +7,7 @@ import { size } from 'polished';
 
 import HtmlElement from '../HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
+import { directions } from '../../styles/constants';
 import { themePropType, childrenPropType } from '../../util/shared-prop-types';
 
 import Tooltip from '../Tooltip';
@@ -14,9 +15,6 @@ import Tooltip from '../Tooltip';
 import ErrorIcon from './error.svg';
 import WarningIcon from './warning.svg';
 import ValidIcon from './valid.svg';
-
-const LEFT = 'left';
-const RIGHT = 'right';
 
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;
@@ -111,7 +109,7 @@ const inputOptionalStyles = ({ theme, optional }) =>
   `;
 
 const inputTextAlignRightStyles = ({ textAlign }) =>
-  textAlign === RIGHT &&
+  textAlign === directions.RIGHT &&
   css`
     label: input--right;
     text-align: right;
@@ -307,8 +305,8 @@ const Input = ({
   );
 };
 
-Input.LEFT = LEFT;
-Input.RIGHT = RIGHT;
+Input.LEFT = directions.LEFT;
+Input.RIGHT = directions.RIGHT;
 
 Input.propTypes = {
   theme: themePropType.isRequired,
