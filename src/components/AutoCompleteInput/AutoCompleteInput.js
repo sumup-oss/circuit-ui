@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import Downshift from 'downshift';
+import { includes } from 'lodash/fp';
 
 import SearchInput from '../SearchInput';
 import Card from '../Card';
@@ -52,7 +53,7 @@ const itemHighlight = ({ selected, theme }) =>
 const Item = styled('div')(itemBaseStyles, itemHighlight);
 
 const filterItems = inputValue => item =>
-  !inputValue || item.toLowerCase().includes(inputValue.toLowerCase());
+  !inputValue || includes(inputValue.toLowerCase(), item.toLowerCase());
 
 /**
  * Basic AutoCompleteInput input with styled suggestions list

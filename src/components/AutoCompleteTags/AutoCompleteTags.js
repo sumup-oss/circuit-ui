@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
-import styled /* , { css } */ from 'react-emotion';
-import { remove } from 'lodash/fp';
+import styled from 'react-emotion';
+import { remove, includes } from 'lodash/fp';
 
 import AutoCompleteInput from '../AutoCompleteInput';
 import Tag from '../Tag';
@@ -43,7 +43,7 @@ class AutoCompleteTags extends Component {
     const { availableTags } = this.props;
     const { tags } = this.state;
     const autoCompleteItems = availableTags.filter(
-      item => !tags.includes(item)
+      item => !includes(item, tags)
     );
 
     return (
