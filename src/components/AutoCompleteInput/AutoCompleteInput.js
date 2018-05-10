@@ -47,7 +47,7 @@ const itemBaseStyles = ({ theme }) => css`
 const itemHighlight = ({ selected, theme }) =>
   selected &&
   css`
-    color: ${theme.colors.b500};
+    color: ${theme.colors.p500};
   `;
 
 const Item = styled('div')(itemBaseStyles, itemHighlight);
