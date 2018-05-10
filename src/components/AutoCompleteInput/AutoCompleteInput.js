@@ -22,8 +22,7 @@ const ItemsWrapper = styled('div')`
 `;
 
 const itemsBaseStyles = ({ theme }) => css`
-  padding-top: calc(${theme.spacings.mega} - ${theme.spacings.bit});
-  padding-bottom: calc(${theme.spacings.mega} - ${theme.spacings.bit});
+  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   min-width: initial !important;
   position: absolute;
   top: 0;
@@ -37,11 +36,15 @@ Items.defaultProps = Card.defaultProps;
 
 const itemBaseStyles = ({ theme }) => css`
   cursor: pointer;
-  padding: ${theme.spacings.bit} 0 ${theme.spacings.bit} 0;
   margin: 0;
   text-overflow: ellipsis;
   overflow: hidden;
   ${textMega({ theme })};
+  padding: 0 0 ${theme.spacings.byte} 0;
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 `;
 
 const itemHighlight = ({ selected, theme }) =>
