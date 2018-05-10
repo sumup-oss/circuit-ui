@@ -11,6 +11,20 @@ describe('ButtonGroup', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  describe('Left aligment', () => {
+    it('should render with left alignment styles', () => {
+      const actual = create(<ButtonGroup align={ButtonGroup.LEFT} />);
+      expect(actual).toMatchSnapshot();
+    });
+  });
+
+  describe('No margin bottom', () => {
+    it('should render without margin bottom styles', () => {
+      const actual = create(<ButtonGroup noMargin />);
+      expect(actual).toMatchSnapshot();
+    });
+  });
+
   /**
    * Accessibility tests.
    */

@@ -222,3 +222,11 @@ export const mq = createMediaQueries(breakpoints);
 export const transitions = {
   default: `200ms ease-in-out`
 };
+
+// these values need to be properly trimmed/renamed as we go.
+export const zIndex = {
+  default: 0,
+  absolute: 1,
+  select: 30,
+  tooltip: 31
+};

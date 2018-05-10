@@ -99,4 +99,23 @@ storiesOf('Card', module)
         </CardFooter>
       </Card>
     ))
+  )
+  .add(
+    'Card footer with left aligment',
+    withInfo()(() => (
+      <Card>
+        <CardHeader onClose={action('CloseButton clicked')}>
+          <Heading size={Heading.KILO} noMargin>
+            Card heading
+          </Heading>
+        </CardHeader>
+        <Text margin={false}>This is some text showing in my card</Text>
+        <CardFooter align="left">
+          <ButtonGroup align="left">
+            <Button secondary>Cancel</Button>
+            <Button>Confirm</Button>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+    ))
   );

@@ -25,7 +25,7 @@ const selectBaseStyles = ({ theme }) => css`
     ${theme.spacings.kilo};
   position: relative;
   width: 100%;
-  z-index: 30;
+  z-index: ${theme.zIndex.select};
   ${textMega({ theme })};
 
   &:focus,

@@ -11,7 +11,7 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -64,7 +64,7 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -112,7 +112,7 @@ exports[`Tooltip should render with align center, when passed "center" for the a
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -165,7 +165,7 @@ exports[`Tooltip should render with align left, when passed "left" for the align
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -218,7 +218,7 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -271,7 +271,7 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -319,7 +319,7 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -372,7 +372,7 @@ exports[`Tooltip should render with position left, when passed "left" for the po
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -425,7 +425,7 @@ exports[`Tooltip should render with position right, when passed "right" for the 
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -478,7 +478,7 @@ exports[`Tooltip should render with position top, when passed "top" for the posi
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 1;
+  z-index: 31;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
