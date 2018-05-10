@@ -6,7 +6,6 @@ import Downshift from 'downshift';
 import SearchInput from '../SearchInput';
 import Card from '../Card';
 import { textMega } from '../../styles/style-helpers';
-import { KILO } from '../../util/constants';
 
 const AutoCompleteWrapper = styled('div')`
   label: input__container
@@ -22,7 +21,9 @@ const ItemsWrapper = styled('div')`
 `;
 
 const itemsBaseStyles = ({ theme }) => css`
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+  padding-top: calc(${theme.spacings.mega} - ${theme.spacings.bit});
+  padding-bottom: calc(${theme.spacings.mega} - ${theme.spacings.bit});
+  min-width: initial !important;
   position: absolute;
   top: 0;
   left: 0;
@@ -35,12 +36,11 @@ Items.defaultProps = Card.defaultProps;
 
 const itemBaseStyles = ({ theme }) => css`
   cursor: pointer;
-  padding: 0 0 ${theme.spacings.byte} 0;
+  padding: ${theme.spacings.bit} 0 ${theme.spacings.bit} 0;
   margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
   ${textMega({ theme })};
-  &:last-of-type {
-    padding-bottom: 0;
-  }
 `;
 
 const itemHighlight = ({ selected, theme }) =>
@@ -96,7 +96,7 @@ export default class AutoCompleteInput extends Component {
   };
 
   render() {
-    const { items, handleChange, ...inputProps } = this.props;
+    const { items, handleChange, clearOnSelect, ...inputProps } = this.props;
 
     return (
       <Downshift ref={this._handleDownShiftRef} onSelect={this._handleChange}>
@@ -108,7 +108,9 @@ export default class AutoCompleteInput extends Component {
           isOpen,
           highlightedIndex
         }) => {
-          const filteredItems = items.filter(filterItems(inputValue));
+          const filteredItems = items
+            .filter(filterItems(inputValue))
+            .slice(0, 7);
 
           return (
             <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
@@ -120,7 +122,7 @@ export default class AutoCompleteInput extends Component {
               {isOpen &&
                 !!filteredItems.length && (
                   <ItemsWrapper>
-                    <Items spacing={KILO}>
+                    <Items spacing={Card.MEGA}>
                       {filteredItems.map((item, index) => (
                         <Item
                           {...getItemProps({ item })}

@@ -8,6 +8,8 @@ import Tag from '../Tag';
 
 const TagsWrapper = styled('div')`
   margin-top: ${props => props.theme.spacings.kilo};
+  /* this *hack* is to not allow the tags to be visible bellow the overlay */
+  padding: 0 1px 0 1px;
 
   span {
     display: inline-block;
