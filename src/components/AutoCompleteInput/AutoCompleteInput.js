@@ -23,7 +23,6 @@ const ItemsWrapper = styled('div')`
 
 const itemsBaseStyles = ({ theme }) => css`
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
-  min-width: initial !important;
   position: absolute;
   top: 0;
   left: 0;
