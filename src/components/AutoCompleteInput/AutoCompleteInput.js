@@ -8,6 +8,9 @@ import SearchInput from '../SearchInput';
 import Card from '../Card';
 import { textMega } from '../../styles/style-helpers';
 
+const MIN_INPUT_FILTER = 2;
+const SUGGESTIONS_LIMIT = 7;
+
 const AutoCompleteWrapper = styled('div')`
   label: input__container
   position: relative;
@@ -55,7 +58,9 @@ const itemHighlight = ({ selected, theme }) =>
 const Item = styled('div')(itemBaseStyles, itemHighlight);
 
 const filterItems = inputValue => item =>
-  !inputValue || includes(inputValue.toLowerCase(), item.toLowerCase());
+  !inputValue ||
+  inputValue.length < MIN_INPUT_FILTER ||
+  includes(inputValue.toLowerCase(), item.toLowerCase());
 
 /**
  * Basic AutoCompleteInput input with styled suggestions list
@@ -113,7 +118,7 @@ export default class AutoCompleteInput extends Component {
         }) => {
           const filteredItems = items
             .filter(filterItems(inputValue))
-            .slice(0, 7);
+            .slice(0, SUGGESTIONS_LIMIT);
 
           return (
             <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
