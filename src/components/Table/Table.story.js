@@ -8,7 +8,7 @@ import TableHeader from './components/TableHeader';
 import TableCell from './components/TableCell';
 
 const headers = [
-  { children: 'Name', fixed: true },
+  'Name',
   'Created at',
   'Permissions',
   { children: 'Status', align: TableHeader.RIGHT }
@@ -16,19 +16,19 @@ const headers = [
 
 const rows = [
   [
-    'Lorem ipsum dolor sit amet',
+    'Lorem ipsum dolor',
     '12/04/2017',
     '-',
     { children: 'Disabled', align: TableCell.RIGHT }
   ],
   [
-    'Lorem ipsum dolor sit amet, consectetur',
+    'Lorem ipsum dolor sit amet',
     '12/04/2017',
     'Virtual Terminal',
     { children: 'Enabled', align: TableCell.RIGHT }
   ],
   [
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing',
     '12/04/2017',
     '-',
     { children: 'Disabled', align: TableCell.RIGHT }
@@ -36,6 +36,7 @@ const rows = [
 ];
 
 storiesOf('Table', module)
+  .addDecorator(withTests('Table'))
   .add(
     'Default Table',
     withInfo()(() => (

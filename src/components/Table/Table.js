@@ -1,13 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { isString } from 'lodash/fp';
 
-import TableHeader from './components/TableHeader';
-import TableCell from './components/TableCell';
-import TableRow from './components/TableRow';
+import TableHead from './components/TableHead';
+import TableBody from './components/TableBody';
+import {
+  getSortDirection,
+  ascendingSort,
+  descendingSort,
+  RowPropType
+} from './utils';
+import { ASCENDING } from './constants';
 import { shadowSingle } from '../../styles/style-helpers';
-import { childrenPropType } from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
   label: table;
@@ -53,74 +57,52 @@ const containerStyles = ({ theme, rowHeaders }) =>
   `;
 
 const ScrollContainer = styled.div(containerStyles);
-
 const Container = styled.div(shadowSingle);
 
-const mapProps = props => (isString(props) ? { children: props } : props);
-const getChildren = props => (isString(props) ? props : props.children);
+class Table extends Component {
+  state = {
+    rows: this.props.rows,
+    sortedRow: null,
+    sortDirection: null
+  };
 
-const Table = ({ headers, rows, rowHeaders }) => (
-  <Container>
-    <ScrollContainer rowHeaders>
-      <StyledTable rowHeaders>
-        <thead>
-          {!!headers.length && (
-            <TableRow header>
-              {headers.map(
-                (header, i) =>
-                  rowHeaders && i === 0 ? (
-                    <Fragment>
-                      <TableHeader fixed {...mapProps(header)} />
-                      <TableCell role="presentation" aria-hidden="true" header>
-                        {getChildren(header)}
-                      </TableCell>
-                    </Fragment>
-                  ) : (
-                    <TableHeader {...mapProps(header)} />
-                  )
-              )}
-            </TableRow>
-          )}
-        </thead>
-        <tbody>
-          {rows.map(row => (
-            <TableRow>
-              {row.map(
-                (cell, i) =>
-                  rowHeaders && i === 0 ? (
-                    <Fragment>
-                      <TableHeader
-                        fixed
-                        scope={TableHeader.ROW}
-                        {...mapProps(cell)}
-                      />
-                      <TableCell role="presentation" aria-hidden="true">
-                        {getChildren(cell)}
-                      </TableCell>
-                    </Fragment>
-                  ) : (
-                    <TableCell {...mapProps(cell)} />
-                  )
-              )}
-            </TableRow>
-          ))}
-        </tbody>
-      </StyledTable>
-    </ScrollContainer>
-  </Container>
-);
+  defaultSortBy = i => {
+    const { rows, sortedRow, sortDirection } = this.state;
+    const isActive = i === sortedRow;
+    const nextDirection = getSortDirection(isActive, sortDirection);
+    const nextFn = nextDirection === ASCENDING ? descendingSort : ascendingSort;
 
-const ItemPropType = PropTypes.oneOfType([
-  PropTypes.string,
-  PropTypes.shape({
-    children: childrenPropType,
-    align: PropTypes.string
-  })
-]);
+    this.setState({
+      rows: [...rows].sort(nextFn(i)),
+      sortedRow: i,
+      sortDirection: nextDirection
+    });
+  };
+
+  render() {
+    const { rowHeaders, headers } = this.props;
+    const { rows } = this.state;
+
+    return (
+      <Container>
+        <ScrollContainer rowHeaders={rowHeaders}>
+          <StyledTable rowHeaders={rowHeaders}>
+            <TableHead
+              sortBy={this.defaultSortBy}
+              headers={headers}
+              rowHeaders={rowHeaders}
+            />
+            <TableBody rows={rows} rowHeaders={rowHeaders} />
+          </StyledTable>
+        </ScrollContainer>
+      </Container>
+    );
+  }
+}
 
 Table.propTypes = {
-  headers: PropTypes.arrayOf(ItemPropType),
-  rows: PropTypes.arrayOf(PropTypes.arrayOf(ItemPropType)),
+  headers: PropTypes.arrayOf(RowPropType),
+  rows: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
   rowHeaders: PropTypes.bool
 };
 
