@@ -14,19 +14,20 @@ const colStyles = ({ theme, scope }) =>
     font-size: ${theme.typography.text.kilo.fontSize};
     font-weight: ${theme.fontWeight.bold};
     padding: ${theme.spacings.byte} ${theme.spacings.mega};
+    vertical-align: middle;
   `;
 
-const rowStyles = ({ theme, scope }) =>
-  scope === ROW &&
+const rowStyles = ({ theme, fixed }) =>
+  fixed &&
   css`
     label: table-header--row;
     ${theme.mq.untilMega`
       background-color: ${theme.colors.white};
       left: 0;
-      min-width: 145px;
-      position: absolute;
       top: auto;
+      position: absolute;
       width: 145px;
+      white-space: unset;
     `};
   `;
 
@@ -56,12 +57,14 @@ TableHeader.propTypes = {
     TableHeader.RIGHT,
     TableHeader.CENTER
   ]),
-  scope: PropTypes.string
+  scope: PropTypes.string,
+  fixed: PropTypes.bool
 };
 
 TableHeader.defaultProps = {
   align: TableHeader.LEFT,
-  scope: TableHeader.COL
+  scope: TableHeader.COL,
+  fixed: false
 };
 
 export default TableHeader;
