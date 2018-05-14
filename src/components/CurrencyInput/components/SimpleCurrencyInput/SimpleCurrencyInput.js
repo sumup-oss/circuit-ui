@@ -117,7 +117,7 @@ const SimpleCurrencyInput = ({
           </CurrencyIcon>
         )
       }
-      type="tel"
+      type="text"
       mask={numberMask}
       {...{ ...props, hasWarning, invalid, disabled }}
     />
