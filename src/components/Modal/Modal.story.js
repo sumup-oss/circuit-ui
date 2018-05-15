@@ -74,9 +74,10 @@ storiesOf('Modal', module)
     withInfo()(() => {
       const modalWithTitle = {
         ...defaultModal,
-        children: () => (
+        // eslint-disable-next-line react/prop-types
+        children: ({ onClose }) => (
           <ModalWrapper>
-            <ModalHeader title="A modal" />
+            <ModalHeader title="A modal" onClose={onClose} />
             <Text>Some text in the modal body.</Text>
           </ModalWrapper>
         )
