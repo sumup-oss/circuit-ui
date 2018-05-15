@@ -1,0 +1,39 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { css } from 'react-emotion';
+import { withTheme } from 'emotion-theming';
+
+import Card from '../../../Card';
+
+const cardStyles = ({ theme }) => css`
+  width: 100%;
+
+  ${theme.mq.untilKilo`
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    min-width: initial;
+    position: relative;
+  `};
+`;
+
+const Wrapper = styled(Card)`
+  ${cardStyles};
+`;
+
+Wrapper.defaultProps = Card.defaultProps;
+
+const ModalWrapper = ({ ...props }) => (
+  <Wrapper shadow={Card.TRIPLE} {...props} />
+);
+
+ModalWrapper.propTypes = {
+  /*
+   * Modal content
+   */
+  children: PropTypes.node.isRequired
+};
+
+/**
+ * @component
+ */
+export default withTheme(ModalWrapper);

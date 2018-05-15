@@ -2,7 +2,6 @@ import React from 'react';
 
 import Modal, { ModalProvider } from '.';
 import Button from '../Button';
-import ButtonGroup from '../ButtonGroup';
 
 import * as MockedModal from './Modal';
 
@@ -36,7 +35,12 @@ describe('Modal', () => {
 
   const defaultModal = {
     // eslint-disable-next-line react/prop-types, no-unused-vars
-    children: () => <div>Hello World!</div>,
+    children: ({ onClose }) => (
+      <div>
+        <div data-testid="card">Hello World!</div>
+        <button data-testid="close" onClick={onClose} />
+      </div>
+    ),
     // Disables the need for a wrapper. I couldn't get the Modal to work
     // with the wrapper enabled. Here's an issue describing that it
     // should work:
@@ -61,12 +65,12 @@ describe('Modal', () => {
 
   it('should open', () => {
     const wrapper = openModal(defaultModal);
-    expect(wrapper.find('Card')).toHaveLength(1);
+    expect(wrapper.find('[data-testid="card"]')).toHaveLength(1);
   });
 
   it('should close', async () => {
     const wrapper = openModal(defaultModal);
-    const closeButton = wrapper.find('SvgButton').find('button');
+    const closeButton = wrapper.find('[data-testid="close"]').find('button');
     closeButton.simulate('click');
     /**
      * Tried using jest's runAllTimers to force the ModalProvider
@@ -82,40 +86,8 @@ describe('Modal', () => {
 
   it('should render the children render prop', () => {
     const wrapper = openModal(defaultModal);
-    expect(wrapper.find('Card').html()).toContain('Hello World!');
-  });
-
-  it('should have a title, when the title prop is set', () => {
-    const titleModal = { ...defaultModal, title: 'Some title' };
-    const wrapper = openModal(titleModal);
-    expect(wrapper.find('Heading')).toHaveLength(1);
-    expect(
-      wrapper
-        .find('Heading')
-        .first()
-        .text()
-    ).toBe(titleModal.title);
-  });
-
-  it('should show buttons when the buttons render prop is provided', () => {
-    const buttonModal = {
-      ...defaultModal,
-      // eslint-disable-next-line react/prop-types
-      buttons: ({ onClose }) => (
-        <ButtonGroup>
-          <Button key="confirm" onClick={onClose} data-test="confirm-button">
-            Confirm Button
-          </Button>
-          <Button key="cancel" onClick={onClose} data-test="cancel-button">
-            Cancel Button
-          </Button>
-        </ButtonGroup>
-      )
-    };
-    const wrapper = openModal(buttonModal);
-    const closeButton = wrapper.find('button[data-test="cancel-button"]');
-    expect(closeButton).toHaveLength(1);
-    closeButton.simulate('click');
-    expect(buttonModal.onClose).toHaveBeenCalled();
+    expect(wrapper.find('[data-testid="card"]').html()).toContain(
+      'Hello World!'
+    );
   });
 });

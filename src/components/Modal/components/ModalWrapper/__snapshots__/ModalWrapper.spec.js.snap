@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalWrapper should render with default styles 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 4px 4px 0 rgba(12,15,20,0.06), 0 8px 8px 0 rgba(12,15,20,0.06);
+  padding: 16px 24px;
+  width: 100%;
+}
+
+@media (max-width:479px) {
+  .circuit-0 {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    min-width: initial;
+    position: relative;
+  }
+}
+
+<div
+  className="circuit-0 circuit-1"
+  spacing="giga"
+/>
+`;

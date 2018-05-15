@@ -70,6 +70,7 @@ export class ModalProvider extends Component {
           onClose: handleClose
         }
       : { isOpen, onClose, children: () => null };
+
     return (
       <ContextProvider value={this.contextValue}>
         {this.props.children}

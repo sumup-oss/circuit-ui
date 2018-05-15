@@ -1,5 +1,4 @@
 import {
-  parseExpiryDate,
   normalizeExpiryDate,
   isCompleteMonth,
   isCompleteYear,
