@@ -11,8 +11,17 @@ const ModalDefault = ({ title, onClose, children }) => (
 );
 
 ModalDefault.propTypes = {
+  /**
+   * Title ot the modal
+   */
   title: PropTypes.string.isRequired,
+  /**
+   * onClose clalback. When missing modal has no close button
+   */
   onClose: PropTypes.func.isRequired,
+  /**
+   * Modal contents
+   */
   children: PropTypes.node.isRequired
 };
 
