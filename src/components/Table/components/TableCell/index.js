@@ -8,7 +8,7 @@ const PRESENTATION = 'presentation';
 const baseStyles = ({ theme, align }) => css`
   label: table-cell;
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
-  padding: ${theme.spacings.mega};
+  padding: ${theme.spacings.giga};
   text-align: ${align};
   transition: background-color ${theme.transitions.default};
   vertical-align: middle;
@@ -21,7 +21,7 @@ const presentationStyles = ({ theme, role, header }) =>
     label: table-cell--presentation;
     display: none;
 
-    ${header && `padding: ${theme.spacings.byte} ${theme.spacings.mega}`};
+    ${header && `padding: ${theme.spacings.byte} ${theme.spacings.giga}`};
 
     ${theme.mq.untilMega`
       display: table-cell;

@@ -8,7 +8,7 @@ import TableHeader from './components/TableHeader';
 import TableCell from './components/TableCell';
 
 const headers = [
-  'Name',
+  { children: 'Name', sortable: true },
   'Created at',
   'Permissions',
   { children: 'Status', align: TableHeader.RIGHT }

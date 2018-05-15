@@ -10,11 +10,14 @@ import { ASCENDING, DESCENDING } from '../../constants';
 const COL = 'col';
 const ROW = 'row';
 
+const getAriaSort = (sortable, sortDirection) =>
+  sortable ? sortDirection || 'none' : null;
+
 const baseStyles = ({ theme, align }) => css`
   label: table-header;
   background-color: ${theme.colors.white};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
-  padding: ${theme.spacings.mega};
+  padding: ${theme.spacings.giga};
   text-align: ${align};
   transition: background-color ${theme.transitions.default},
     color ${theme.transitions.default};
@@ -28,7 +31,7 @@ const colStyles = ({ theme, scope }) =>
     color: ${theme.colors.n700};
     font-size: ${theme.typography.text.kilo.fontSize};
     font-weight: ${theme.fontWeight.bold};
-    padding: ${theme.spacings.byte} ${theme.spacings.mega};
+    padding: ${theme.spacings.byte} ${theme.spacings.giga};
     vertical-align: middle;
   `;
 
@@ -51,12 +54,13 @@ const sortableStyles = ({ theme, sortable }) =>
     label: table-header--sortable;
     cursor: pointer;
     position: relative;
+    user-select: none;
 
     &:hover {
       background-color: ${theme.colors.n100};
       color: ${theme.colors.b500};
 
-      & > span {
+      & > button {
         opacity: 1;
       }
     }
@@ -66,7 +70,7 @@ const sortableActiveStyles = ({ sortable, isSorted }) =>
   sortable &&
   isSorted &&
   css`
-    & > span {
+    & > button {
       opacity: 1;
     }
   `;
@@ -88,7 +92,11 @@ const StyledHeader = styled.th`
 `;
 
 const TableHeader = ({ sortable, children, sortDirection, ...rest }) => (
-  <StyledHeader sortable {...rest}>
+  <StyledHeader
+    sortable={sortable}
+    aria-sort={getAriaSort(sortable, sortDirection)}
+    {...rest}
+  >
     {sortable && <SortArrow direction={sortDirection} />}
     {children}
   </StyledHeader>

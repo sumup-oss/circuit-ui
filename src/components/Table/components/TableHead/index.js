@@ -11,7 +11,6 @@ import { ASCENDING, DESCENDING } from '../../constants';
 const TableHead = ({
   headers,
   rowHeaders,
-  sortable,
   sortBy,
   sortDirection,
   sortedRow,
@@ -21,26 +20,32 @@ const TableHead = ({
   <thead>
     {!!headers.length && (
       <TableRow header>
-        {headers.map((header, i) => (
-          <Fragment>
-            <TableHeader
-              {...mapProps(header)}
-              sortable={sortable}
-              fixed={rowHeaders && i === 0}
-              onClick={sortable && (() => sortBy(i))}
-              onMouseEnter={onSortEnter && (() => onSortEnter(i))}
-              onMouseLeave={onSortLeave && (() => onSortLeave(i))}
-              sortDirection={sortedRow === i ? sortDirection : null}
-              isSorted={sortedRow === i}
-            />
-            {rowHeaders &&
-              i === 0 && (
-                <TableCell role="presentation" aria-hidden="true" header>
-                  {getChildren(header)}
-                </TableCell>
-              )}
-          </Fragment>
-        ))}
+        {headers.map((header, i) => {
+          const props = mapProps(header);
+          return (
+            <Fragment>
+              <TableHeader
+                {...props}
+                fixed={rowHeaders && i === 0}
+                onClick={props.sortable ? () => sortBy(i) : null}
+                onMouseEnter={
+                  props.sortable ? onSortEnter && (() => onSortEnter(i)) : null
+                }
+                onMouseLeave={
+                  props.sortable ? onSortLeave && (() => onSortLeave(i)) : null
+                }
+                sortDirection={sortedRow === i ? sortDirection : null}
+                isSorted={sortedRow === i}
+              />
+              {rowHeaders &&
+                i === 0 && (
+                  <TableCell role="presentation" aria-hidden="true" header>
+                    {getChildren(header)}
+                  </TableCell>
+                )}
+            </Fragment>
+          );
+        })}
       </TableRow>
     )}
   </thead>
@@ -49,9 +54,9 @@ const TableHead = ({
 TableHead.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
   rowHeaders: PropTypes.bool,
-  sortable: PropTypes.bool,
   sortBy: PropTypes.func,
   sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
+  sortable: PropTypes.bool,
   sortedRow: PropTypes.number,
   onSortEnter: PropTypes.func,
   onSortLeave: PropTypes.func
@@ -60,9 +65,9 @@ TableHead.propTypes = {
 TableHead.defaultProps = {
   headers: [],
   rowHeaders: true,
-  sortable: false,
   sortBy: noop,
   sortDirection: null,
+  sortable: null,
   sortedRow: null,
   onSortEnter: null,
   onSortLeave: null

@@ -64,8 +64,23 @@ class Table extends Component {
     rows: this.props.rows,
     sortedRow: null,
     sortHover: null,
-    sortDirection: null
+    sortDirection: null,
+    tabindex: null
   };
+
+  componentDidMount() {
+    if (!this.scrollRef) {
+      return;
+    }
+
+    const { scrollWidth, clientWidth } = this.scrollRef;
+    const scrollable = scrollWidth > clientWidth;
+
+    // eslint-disable-next-line react/no-did-mount-set-state
+    this.setState({
+      tabindex: scrollable ? '0' : null
+    });
+  }
 
   onSortEnter = i => this.setState({ sortHover: i });
   onSortLeave = () => this.setState({ sortHover: null });
@@ -80,6 +95,10 @@ class Table extends Component {
       : this.defaultSortBy(i, nextDirection, rows);
 
     this.updateRows(i, nextDirection, nextRows);
+  };
+
+  getScrollRef = ref => {
+    this.scrollRef = ref;
   };
 
   updateRows = (i, nextDirection, rows) =>
@@ -97,14 +116,17 @@ class Table extends Component {
 
   render() {
     const { rowHeaders, headers } = this.props;
-    const { rows, sortDirection, sortHover, sortedRow } = this.state;
+    const { rows, sortDirection, sortHover, sortedRow, tabindex } = this.state;
 
     return (
       <Container>
-        <ScrollContainer rowHeaders={rowHeaders}>
+        <ScrollContainer
+          rowHeaders={rowHeaders}
+          innerRef={this.getScrollRef}
+          tabIndex={tabindex}
+        >
           <StyledTable rowHeaders={rowHeaders}>
             <TableHead
-              sortable
               sortBy={this.onSortBy}
               sortDirection={sortDirection}
               sortedRow={sortedRow}
