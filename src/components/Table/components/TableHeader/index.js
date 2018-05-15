@@ -6,6 +6,18 @@ import { directions } from '../../../../styles/constants';
 const COL = 'col';
 const ROW = 'row';
 
+const sortableStyles = ({ theme, sortable }) =>
+  sortable &&
+  css`
+    label: table-header--sortable;
+    cursor: pointer;
+    transition: background-color ${theme.transitions.default};
+
+    &:hover {
+      background-color: ${theme.colors.n100};
+    }
+  `;
+
 const colStyles = ({ theme, scope }) =>
   scope === COL &&
   css`
@@ -43,6 +55,7 @@ const TableHeader = styled.th`
   ${baseStyles};
   ${rowStyles};
   ${colStyles};
+  ${sortableStyles};
 `;
 
 TableHeader.LEFT = directions.LEFT;
@@ -58,13 +71,15 @@ TableHeader.propTypes = {
     TableHeader.CENTER
   ]),
   scope: PropTypes.string,
-  fixed: PropTypes.bool
+  fixed: PropTypes.bool,
+  sortable: PropTypes.bool
 };
 
 TableHeader.defaultProps = {
   align: TableHeader.LEFT,
   scope: TableHeader.COL,
-  fixed: false
+  fixed: false,
+  sortable: false
 };
 
 export default TableHeader;

@@ -15,6 +15,7 @@ const TableHead = ({ headers, rowHeaders, sortBy }) => (
           <Fragment>
             <TableHeader
               {...mapProps(header)}
+              sortable
               fixed={rowHeaders && i === 0}
               onClick={() => sortBy(i)}
             />

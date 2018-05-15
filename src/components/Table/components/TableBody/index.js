@@ -10,21 +10,23 @@ const TableBody = ({ rows, rowHeaders }) => (
   <tbody>
     {rows.map(row => (
       <TableRow>
-        {row.map((cell, i) => (
-          <Fragment>
-            <TableHeader
-              fixed={rowHeaders && i === 0}
-              scope={TableHeader.ROW}
-              {...mapProps(cell)}
-            />
-            {rowHeaders &&
-              i === 0 && (
+        {row.map(
+          (cell, i) =>
+            rowHeaders && i === 0 ? (
+              <Fragment>
+                <TableHeader
+                  fixed
+                  scope={TableHeader.ROW}
+                  {...mapProps(cell)}
+                />
                 <TableCell role="presentation" aria-hidden="true">
                   {getChildren(cell)}
                 </TableCell>
-              )}
-          </Fragment>
-        ))}
+              </Fragment>
+            ) : (
+              <TableCell {...mapProps(cell)} />
+            )
+        )}
       </TableRow>
     ))}
   </tbody>
