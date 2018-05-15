@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'react-emotion';
 import { size as sizeMixin, transparentize } from 'polished';
+import { withProps } from 'recompose';
 
 import { sizes } from '../../styles/constants';
 
@@ -76,4 +77,8 @@ Spinner.defaultProps = {
 /**
  * @component
  */
-export default Spinner;
+export default withProps({
+  role: 'alertdialog',
+  'aria-busy': 'true',
+  'aria-live': 'assertive'
+})(Spinner);
