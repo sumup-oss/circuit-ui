@@ -9,11 +9,8 @@ const getBreakPointStyles = (theme, breakpoint) => {
 
   return theme.mq[breakpoint]`
     max-width: ${config.maxWidth};
-    padding: 0 ${config.padding};
-
-    &:not(:last-of-type) {
-      margin-bottom: ${config.padding};
-    }
+    padding-left: calc(${config.gutter} / 2);
+    padding-right: calc(${config.gutter} / 2);
   `;
 };
 
