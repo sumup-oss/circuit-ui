@@ -6,12 +6,15 @@ import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 import { mapProps, getChildren, RowPropType } from '../../utils';
+import { ASCENDING, DESCENDING } from '../../constants';
 
 const TableHead = ({
   headers,
   rowHeaders,
   sortable,
   sortBy,
+  sortDirection,
+  sortedRow,
   onSortEnter,
   onSortLeave
 }) => (
@@ -27,6 +30,8 @@ const TableHead = ({
               onClick={sortable && (() => sortBy(i))}
               onMouseEnter={onSortEnter && (() => onSortEnter(i))}
               onMouseLeave={onSortLeave && (() => onSortLeave(i))}
+              sortDirection={sortedRow === i ? sortDirection : null}
+              isSorted={sortedRow === i}
             />
             {rowHeaders &&
               i === 0 && (
@@ -46,6 +51,8 @@ TableHead.propTypes = {
   rowHeaders: PropTypes.bool,
   sortable: PropTypes.bool,
   sortBy: PropTypes.func,
+  sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
+  sortedRow: PropTypes.number,
   onSortEnter: PropTypes.func,
   onSortLeave: PropTypes.func
 };
@@ -55,6 +62,8 @@ TableHead.defaultProps = {
   rowHeaders: true,
   sortable: false,
   sortBy: noop,
+  sortDirection: null,
+  sortedRow: null,
   onSortEnter: null,
   onSortLeave: null
 };

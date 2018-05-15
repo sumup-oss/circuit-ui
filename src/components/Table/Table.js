@@ -85,7 +85,7 @@ class Table extends Component {
 
   render() {
     const { rowHeaders, headers } = this.props;
-    const { rows, sortHover } = this.state;
+    const { rows, sortDirection, sortHover, sortedRow } = this.state;
 
     return (
       <Container>
@@ -94,6 +94,8 @@ class Table extends Component {
             <TableHead
               sortable
               sortBy={this.defaultSortBy}
+              sortDirection={sortDirection}
+              sortedRow={sortedRow}
               onSortEnter={this.onSortEnter}
               onSortLeave={this.onSortLeave}
               headers={headers}
