@@ -69,18 +69,30 @@ class Table extends Component {
 
   onSortEnter = i => this.setState({ sortHover: i });
   onSortLeave = () => this.setState({ sortHover: null });
-
-  defaultSortBy = i => {
+  onSortBy = i => {
     const { rows, sortedRow, sortDirection } = this.state;
+    const { onSortBy } = this.props;
     const isActive = i === sortedRow;
     const nextDirection = getSortDirection(isActive, sortDirection);
-    const nextFn = nextDirection === ASCENDING ? descendingSort : ascendingSort;
 
+    const nextRows = onSortBy
+      ? onSortBy(i, nextDirection, rows)
+      : this.defaultSortBy(i, nextDirection, rows);
+
+    this.updateRows(i, nextDirection, nextRows);
+  };
+
+  updateRows = (i, nextDirection, rows) =>
     this.setState({
-      rows: [...rows].sort(nextFn(i)),
+      rows,
       sortedRow: i,
       sortDirection: nextDirection
     });
+
+  defaultSortBy = (i, nextDirection, rows) => {
+    const nextFn = nextDirection === ASCENDING ? descendingSort : ascendingSort;
+
+    return [...rows].sort(nextFn(i));
   };
 
   render() {
@@ -93,7 +105,7 @@ class Table extends Component {
           <StyledTable rowHeaders={rowHeaders}>
             <TableHead
               sortable
-              sortBy={this.defaultSortBy}
+              sortBy={this.onSortBy}
               sortDirection={sortDirection}
               sortedRow={sortedRow}
               onSortEnter={this.onSortEnter}
@@ -116,13 +128,15 @@ class Table extends Component {
 Table.propTypes = {
   headers: PropTypes.arrayOf(RowPropType),
   rows: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
-  rowHeaders: PropTypes.bool
+  rowHeaders: PropTypes.bool,
+  onSortBy: PropTypes.func
 };
 
 Table.defaultProps = {
   headers: [],
   rows: [],
-  rowHeaders: true
+  rowHeaders: true,
+  onSortBy: null
 };
 
 export default Table;
