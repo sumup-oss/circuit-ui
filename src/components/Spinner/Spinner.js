@@ -41,7 +41,7 @@ const darkStyles = ({ theme, dark }) =>
 
 const baseStyles = ({ theme }) => css`
   label: spinner;
-  animation: ${spin} 1s infinite ease;
+  animation: ${spin} 1s infinite linear;
   border-radius: ${theme.spacings.giga};
   border: 2px solid ${theme.colors.white};
   border-top: 2px solid ${transparentize(0.7, theme.colors.white)};
