@@ -11,7 +11,7 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   margin-bottom: 16px;
 }
 
-.circuit-0 .ehkzh5x0 {
+.circuit-0 > * {
   width: 100%;
 }
 
@@ -27,7 +27,7 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
     margin-right: 16px;
   }
 
-  .circuit-0 .ehkzh5x0 {
+  .circuit-0 > * {
     width: auto;
   }
 }
@@ -48,7 +48,7 @@ exports[`ButtonGroup No margin bottom should render without margin bottom styles
   justify-content: flex-end;
 }
 
-.circuit-0 .ehkzh5x0 {
+.circuit-0 > * {
   width: 100%;
 }
 
@@ -64,7 +64,7 @@ exports[`ButtonGroup No margin bottom should render without margin bottom styles
     margin-right: 16px;
   }
 
-  .circuit-0 .ehkzh5x0 {
+  .circuit-0 > * {
     width: auto;
   }
 }
@@ -89,7 +89,7 @@ exports[`ButtonGroup should render with default styles 1`] = `
   margin-bottom: 16px;
 }
 
-.circuit-0 .ehkzh5x0 {
+.circuit-0 > * {
   width: 100%;
 }
 
@@ -105,7 +105,7 @@ exports[`ButtonGroup should render with default styles 1`] = `
     margin-right: 16px;
   }
 
-  .circuit-0 .ehkzh5x0 {
+  .circuit-0 > * {
     width: auto;
   }
 }
