@@ -8,6 +8,8 @@ export const mapProps = props =>
 
 export const getChildren = props => mapProps(props).children;
 
+export const getSortByValue = props => props.sortByValue || getChildren(props);
+
 export const getSortDirection = (isActive, currentSort) => {
   if (!currentSort || !isActive) {
     return ASCENDING;
@@ -17,10 +19,10 @@ export const getSortDirection = (isActive, currentSort) => {
 };
 
 export const ascendingSort = curry(
-  (i, a, b) => getChildren(a[i]) > getChildren(b[i])
+  (i, a, b) => getSortByValue(a[i]) > getSortByValue(b[i])
 );
 export const descendingSort = curry(
-  (i, a, b) => getChildren(a[i]) < getChildren(b[i])
+  (i, a, b) => getSortByValue(a[i]) < getSortByValue(b[i])
 );
 
 export const RowPropType = PropTypes.oneOfType([

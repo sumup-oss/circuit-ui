@@ -17,19 +17,19 @@ const headers = [
 const rows = [
   [
     'Lorem ipsum dolor',
-    '12/04/2017',
+    { children: '12/01/2017', sortByValue: '0' },
     '-',
     { children: 'Disabled', align: TableCell.RIGHT }
   ],
   [
     'Lorem ipsum dolor sit amet',
-    '12/04/2017',
+    { children: '13/01/2017', sortByValue: '1' },
     'Virtual Terminal',
     { children: 'Enabled', align: TableCell.RIGHT }
   ],
   [
     'Lorem ipsum dolor sit amet, consectetur adipiscing',
-    '12/04/2017',
+    { children: '14/01/2017', sortByValue: '2' },
     '-',
     { children: 'Disabled', align: TableCell.RIGHT }
   ]
