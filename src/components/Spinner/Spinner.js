@@ -59,7 +59,7 @@ const baseStyles = ({ theme }) => css`
 /**
  * A loading spinner.
  */
-const Spinner = styled('div')(baseStyles, sizeStyles);
+const Spinner = styled('div')(baseStyles, sizeStyles, darkStyles);
 
 Spinner.KILO = KILO;
 Spinner.MEGA = MEGA;
@@ -69,11 +69,16 @@ Spinner.propTypes = {
    * Size of the Spinner. Usually passed down from parent
    * like a Button.
    */
-  size: PropTypes.oneOf(validModifierSizes)
+  size: PropTypes.oneOf(validModifierSizes),
+  /**
+   * Renders a dark variant of the Spinner.
+   */
+  dark: PropTypes.bool
 };
 
 Spinner.defaultProps = {
-  size: GIGA
+  size: GIGA,
+  dark: false
 };
 
 /**
