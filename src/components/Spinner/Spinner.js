@@ -2,14 +2,9 @@ import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'react-emotion';
 import { size as sizeMixin, transparentize } from 'polished';
 
-import { includes } from '../../util/fp';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
-
-const validModifierSizes = [KILO, MEGA];
-
-const isValidSize = size => includes(size, validModifierSizes);
 
 const spin = keyframes`
   0% {
@@ -21,19 +16,16 @@ const spin = keyframes`
 `;
 
 const sizeStyles = ({ theme, size }) => {
-  if (!isValidSize(size)) {
-    return null;
-  }
-
   const sizeMap = {
-    KILO: theme.spacings.kilo,
-    MEGA: theme.spacings.mega
+    [KILO]: theme.spacings.kilo,
+    [MEGA]: theme.spacings.mega,
+    [GIGA]: theme.spacings.giga
   };
 
-  const sizeValue = sizeMap[size];
+  const sizeValue = sizeMap[size] || sizeMap.GIGA;
 
   return css`
-    label: spinner--${size};
+    label: spinner--${size.toLowerCase()};
     ${sizeMixin(sizeValue)};
     border-radius: ${sizeValue};
   `;
@@ -53,23 +45,23 @@ const baseStyles = ({ theme }) => css`
   border: 2px solid ${theme.colors.white};
   border-top: 2px solid ${transparentize(0.7, theme.colors.white)};
   transform: translateZ(0);
-  ${sizeMixin(theme.spacings.giga)};
 `;
 
 /**
- * A loading spinner.
+ * A loading spinner with ARIA labels support.
  */
 const Spinner = styled('div')(baseStyles, sizeStyles, darkStyles);
 
 Spinner.KILO = KILO;
 Spinner.MEGA = MEGA;
+Spinner.GIGA = GIGA;
 
 Spinner.propTypes = {
   /**
    * Size of the Spinner. Usually passed down from parent
    * like a Button.
    */
-  size: PropTypes.oneOf(validModifierSizes),
+  size: PropTypes.oneOf([Spinner.KILO, Spinner.MEGA, Spinner.GIGA]),
   /**
    * Renders a dark variant of the Spinner.
    */
@@ -77,7 +69,7 @@ Spinner.propTypes = {
 };
 
 Spinner.defaultProps = {
-  size: GIGA,
+  size: Spinner.GIGA,
   dark: false
 };
 
