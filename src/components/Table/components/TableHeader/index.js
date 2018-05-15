@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
@@ -6,17 +7,14 @@ import { directions } from '../../../../styles/constants';
 const COL = 'col';
 const ROW = 'row';
 
-const sortableStyles = ({ theme, sortable }) =>
-  sortable &&
-  css`
-    label: table-header--sortable;
-    cursor: pointer;
-    transition: background-color ${theme.transitions.default};
-
-    &:hover {
-      background-color: ${theme.colors.n100};
-    }
-  `;
+const baseStyles = ({ theme, align }) => css`
+  label: table-header;
+  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  padding: ${theme.spacings.mega};
+  text-align: ${align};
+  transition: background-color ${theme.transitions.default};
+  white-space: nowrap;
+`;
 
 const colStyles = ({ theme, scope }) =>
   scope === COL &&
@@ -43,20 +41,33 @@ const rowStyles = ({ theme, fixed }) =>
     `};
   `;
 
-const baseStyles = ({ theme, align }) => css`
-  label: table-header;
-  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
-  padding: ${theme.spacings.mega};
-  text-align: ${align};
-  white-space: nowrap;
-`;
+const sortableStyles = ({ theme, sortable }) =>
+  sortable &&
+  css`
+    label: table-header--sortable;
+    cursor: pointer;
 
-const TableHeader = styled.th`
+    &:hover {
+      background-color: ${theme.colors.n100};
+    }
+  `;
+
+const activeStyles = ({ theme, active }) =>
+  active &&
+  css`
+    label: table-cell--hover;
+    background-color: ${theme.colors.n100};
+  `;
+
+const StyledHeader = styled.th`
   ${baseStyles};
   ${rowStyles};
   ${colStyles};
   ${sortableStyles};
+  ${activeStyles};
 `;
+
+const TableHeader = props => <StyledHeader {...props} />;
 
 TableHeader.LEFT = directions.LEFT;
 TableHeader.RIGHT = directions.RIGHT;
@@ -72,14 +83,16 @@ TableHeader.propTypes = {
   ]),
   scope: PropTypes.string,
   fixed: PropTypes.bool,
-  sortable: PropTypes.bool
+  sortable: PropTypes.bool,
+  active: PropTypes.bool
 };
 
 TableHeader.defaultProps = {
   align: TableHeader.LEFT,
   scope: TableHeader.COL,
   fixed: false,
-  sortable: false
+  sortable: false,
+  active: false
 };
 
 export default TableHeader;

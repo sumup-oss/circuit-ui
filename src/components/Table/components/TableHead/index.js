@@ -7,7 +7,14 @@ import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 import { mapProps, getChildren, RowPropType } from '../../utils';
 
-const TableHead = ({ headers, rowHeaders, sortBy }) => (
+const TableHead = ({
+  headers,
+  rowHeaders,
+  sortable,
+  sortBy,
+  onSortEnter,
+  onSortLeave
+}) => (
   <thead>
     {!!headers.length && (
       <TableRow header>
@@ -15,9 +22,11 @@ const TableHead = ({ headers, rowHeaders, sortBy }) => (
           <Fragment>
             <TableHeader
               {...mapProps(header)}
-              sortable
+              sortable={sortable}
               fixed={rowHeaders && i === 0}
-              onClick={() => sortBy(i)}
+              onClick={sortable && (() => sortBy(i))}
+              onMouseEnter={onSortEnter && (() => onSortEnter(i))}
+              onMouseLeave={onSortLeave && (() => onSortLeave(i))}
             />
             {rowHeaders &&
               i === 0 && (
@@ -35,13 +44,19 @@ const TableHead = ({ headers, rowHeaders, sortBy }) => (
 TableHead.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
   rowHeaders: PropTypes.bool,
-  sortBy: PropTypes.func
+  sortable: PropTypes.bool,
+  sortBy: PropTypes.func,
+  onSortEnter: PropTypes.func,
+  onSortLeave: PropTypes.func
 };
 
 TableHead.defaultProps = {
   headers: [],
   rowHeaders: true,
-  sortBy: noop
+  sortable: false,
+  sortBy: noop,
+  onSortEnter: null,
+  onSortLeave: null
 };
 
 export default TableHead;

@@ -6,7 +6,7 @@ import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 import { mapProps, getChildren, RowPropType } from '../../utils';
 
-const TableBody = ({ rows, rowHeaders }) => (
+const TableBody = ({ rows, rowHeaders, sortHover }) => (
   <tbody>
     {rows.map(row => (
       <TableRow>
@@ -17,6 +17,7 @@ const TableBody = ({ rows, rowHeaders }) => (
                 <TableHeader
                   fixed
                   scope={TableHeader.ROW}
+                  active={sortHover === i}
                   {...mapProps(cell)}
                 />
                 <TableCell role="presentation" aria-hidden="true">
@@ -24,7 +25,7 @@ const TableBody = ({ rows, rowHeaders }) => (
                 </TableCell>
               </Fragment>
             ) : (
-              <TableCell {...mapProps(cell)} />
+              <TableCell {...mapProps(cell)} active={sortHover === i} />
             )
         )}
       </TableRow>
@@ -34,12 +35,14 @@ const TableBody = ({ rows, rowHeaders }) => (
 
 TableBody.propTypes = {
   rows: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
-  rowHeaders: PropTypes.bool
+  rowHeaders: PropTypes.bool,
+  sortHover: PropTypes.number
 };
 
 TableBody.defaultProps = {
   rows: [],
-  rowHeaders: true
+  rowHeaders: true,
+  sortHover: null
 };
 
 export default TableBody;

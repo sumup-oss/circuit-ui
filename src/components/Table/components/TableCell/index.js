@@ -10,6 +10,7 @@ const baseStyles = ({ theme, align }) => css`
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   padding: ${theme.spacings.mega};
   text-align: ${align};
+  transition: background-color ${theme.transitions.default};
   vertical-align: middle;
   white-space: nowrap;
 `;
@@ -30,9 +31,17 @@ const presentationStyles = ({ theme, role, header }) =>
     `};
   `;
 
+const activeStyles = ({ theme, active }) =>
+  active &&
+  css`
+    label: table-cell--hover;
+    background-color: ${theme.colors.n100};
+  `;
+
 const TableCell = styled.td`
   ${baseStyles};
   ${presentationStyles};
+  ${activeStyles};
 `;
 
 TableCell.LEFT = directions.LEFT;
@@ -41,12 +50,14 @@ TableCell.CENTER = directions.CENTER;
 
 TableCell.propTypes = {
   align: PropTypes.oneOf([TableCell.LEFT, TableCell.RIGHT, TableCell.CENTER]),
-  header: PropTypes.bool
+  header: PropTypes.bool,
+  active: PropTypes.bool
 };
 
 TableCell.defaultProps = {
   align: TableCell.LEFT,
-  header: false
+  header: false,
+  active: false
 };
 
 export default TableCell;

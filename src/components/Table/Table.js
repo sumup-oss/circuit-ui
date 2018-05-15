@@ -63,8 +63,12 @@ class Table extends Component {
   state = {
     rows: this.props.rows,
     sortedRow: null,
+    sortHover: null,
     sortDirection: null
   };
+
+  onSortEnter = i => this.setState({ sortHover: i });
+  onSortLeave = () => this.setState({ sortHover: null });
 
   defaultSortBy = i => {
     const { rows, sortedRow, sortDirection } = this.state;
@@ -81,18 +85,25 @@ class Table extends Component {
 
   render() {
     const { rowHeaders, headers } = this.props;
-    const { rows } = this.state;
+    const { rows, sortHover } = this.state;
 
     return (
       <Container>
         <ScrollContainer rowHeaders={rowHeaders}>
           <StyledTable rowHeaders={rowHeaders}>
             <TableHead
+              sortable
               sortBy={this.defaultSortBy}
+              onSortEnter={this.onSortEnter}
+              onSortLeave={this.onSortLeave}
               headers={headers}
               rowHeaders={rowHeaders}
             />
-            <TableBody rows={rows} rowHeaders={rowHeaders} />
+            <TableBody
+              rows={rows}
+              rowHeaders={rowHeaders}
+              sortHover={sortHover}
+            />
           </StyledTable>
         </ScrollContainer>
       </Container>
