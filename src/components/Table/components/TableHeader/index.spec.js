@@ -9,8 +9,6 @@ describe('TableHeader', () => {
   /**
    * Style tests.
    */
-  beforeEach(jest.clearAllMocks);
-
   it('should render with default styles', () => {
     const actual = create(<TableHeader>{children}</TableHeader>);
     expect(actual).toMatchSnapshot();

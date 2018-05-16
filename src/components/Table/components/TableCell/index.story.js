@@ -4,25 +4,25 @@ import { withInfo } from '@storybook/addon-info';
 import { boolean, text, select } from '@storybook/addon-knobs/react';
 
 import withTests from '../../../../util/withTests';
-import TableHeader from '.';
+import TableCell from '.';
 
 const options = {
-  [TableHeader.LEFT]: TableHeader.LEFT,
-  [TableHeader.RIGHT]: TableHeader.RIGHT,
-  [TableHeader.CENTER]: TableHeader.CENTER
+  [TableCell.LEFT]: TableCell.LEFT,
+  [TableCell.RIGHT]: TableCell.RIGHT,
+  [TableCell.CENTER]: TableCell.CENTER
 };
 
-storiesOf('TableHeader', module)
-  .addDecorator(withTests('TableHeader'))
+storiesOf('TableCell', module)
+  // .addDecorator(withTests('TableCell'))
   .add(
-    'Table Header',
+    'Table Cell',
     withInfo()(() => (
-      <TableHeader
+      <TableCell
         style={{ width: '300px', alignSelf: 'center' }}
         align={select('Align', options)}
-        sortable={boolean('Sortable', false)}
+        isHovered={boolean('Hover styles', false)}
       >
         {text('Content', 'Header')}
-      </TableHeader>
+      </TableCell>
     ))
   );

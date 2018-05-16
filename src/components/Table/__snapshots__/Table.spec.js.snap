@@ -120,6 +120,7 @@ exports[`Table should render with default styles 1`] = `
 }
 
 .circuit-5 {
+  background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
@@ -176,6 +177,7 @@ exports[`Table should render with default styles 1`] = `
 }
 
 .circuit-15 {
+  background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
@@ -196,6 +198,7 @@ exports[`Table should render with default styles 1`] = `
 }
 
 .circuit-17 {
+  background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
@@ -480,6 +483,7 @@ exports[`Table should render with rowHeader styles 1`] = `
 }
 
 .circuit-5 {
+  background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
@@ -536,6 +540,7 @@ exports[`Table should render with rowHeader styles 1`] = `
 }
 
 .circuit-15 {
+  background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
@@ -556,6 +561,7 @@ exports[`Table should render with rowHeader styles 1`] = `
 }
 
 .circuit-17 {
+  background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;

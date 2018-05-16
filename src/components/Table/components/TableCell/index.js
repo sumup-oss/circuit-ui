@@ -7,6 +7,7 @@ const PRESENTATION = 'presentation';
 
 const baseStyles = ({ theme, align }) => css`
   label: table-cell;
+  background-color: ${theme.colors.white};
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   padding: ${theme.spacings.giga};
   text-align: ${align};
@@ -38,6 +39,10 @@ const hoverStyles = ({ theme, isHovered }) =>
     background-color: ${theme.colors.n100};
   `;
 
+/**
+ * TableCell component for the Table. You shouldn't import this component
+ * directly, the Table handles it
+ */
 const TableCell = styled.td`
   ${baseStyles};
   ${presentationStyles};
@@ -49,8 +54,20 @@ TableCell.RIGHT = directions.RIGHT;
 TableCell.CENTER = directions.CENTER;
 
 TableCell.propTypes = {
+  /**
+   * Aligns the content of the Cell with text-align
+   */
   align: PropTypes.oneOf([TableCell.LEFT, TableCell.RIGHT, TableCell.CENTER]),
+  /**
+   * [PRIVATE] Add heading styles to placeholder Cell.
+   * Handled internally
+   */
   header: PropTypes.bool,
+  /**
+   * [PRIVATE] Adds active style to the Cell if it is currently hovered by
+   * sort.
+   * Handled internally
+   */
   isHovered: PropTypes.bool
 };
 
