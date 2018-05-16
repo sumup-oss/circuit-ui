@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { size } from 'polished';
 
 import HtmlElement from '../HtmlElement';
 import { sizes } from '../../styles/constants';
-import LoadingIcon from './loading.svg';
 import { textMega } from '../../styles/style-helpers';
+import Spinner from '../Spinner';
 
 /**
  * Doing named imports of constants somehow makes react-docgen cry.
@@ -250,7 +249,6 @@ const ButtonElement = styled(TextOrButtonElement)`
 
 // TODO: use default animation after merging.
 const loadingStyles = () => css`
-  ${size(24)};
   display: block;
   opacity: 0;
   position: absolute;
@@ -268,7 +266,7 @@ const loadingShowingStyles = ({ showLoading }) =>
     opacity: 1;
   `;
 
-const Loading = styled(LoadingIcon)`
+const Loading = styled(Spinner)`
   ${loadingStyles};
   ${loadingShowingStyles};
 `;
@@ -404,14 +402,20 @@ export default class Button extends Component {
   };
 
   render() {
-    const { children, delayMs, onClick: outerOnClick, ...rest } = this.props;
+    const {
+      children,
+      delayMs,
+      onClick: outerOnClick,
+      size,
+      ...rest
+    } = this.props;
     const { showLoading } = this.state;
     const onClick = outerOnClick ? this.handleClick : outerOnClick;
 
     return (
-      <ButtonElement {...{ ...rest, onClick }}>
+      <ButtonElement {...{ ...rest, onClick, size }}>
         <ContentWrapper>
-          <Loading {...{ showLoading }} />
+          {showLoading && <Loading {...{ showLoading, size }} />}
           <ChildrenWrapper {...{ showLoading }}>{children}</ChildrenWrapper>
         </ContentWrapper>
       </ButtonElement>
