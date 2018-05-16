@@ -54,7 +54,9 @@ describe('ButtonContainer', () => {
 
     describe('returning a resolving promise', () => {
       const animationDelay = 1000;
-      let resolve, reject, wrapper;
+      let resolve;
+      let reject;
+      let wrapper;
       const handleAnimationComplete = jest.fn();
 
       beforeAll(() => {
@@ -122,6 +124,7 @@ describe('ButtonContainer', () => {
         // Possibly related Github issues:
         // - https://github.com/airbnb/enzyme/issues/1153
         // - https://github.com/airbnb/enzyme/issues/1400
+        // eslint-disable-next-line max-len
         it.skip('should show the loading icon with Success, after the Promise resolves', () => {
           wrapper.simulate('click');
           jest.runOnlyPendingTimers();
@@ -133,6 +136,7 @@ describe('ButtonContainer', () => {
         });
 
         // FIXME: also does not work. This whole suite is a mess.
+        // eslint-disable-next-line max-len
         it.skip('should call the onAnimationComplete prop after the Success icon has been visible', () => {
           wrapper.simulate('click');
           jest.runOnlyPendingTimers();
@@ -144,6 +148,7 @@ describe('ButtonContainer', () => {
       });
 
       describe('returning a rejected promise', () => {
+        // eslint-disable-next-line max-len
         it.skip('should hide the loading icon if the Promise is rejected', () => {
           wrapper.simulate('click');
           jest.runOnlyPendingTimers();
