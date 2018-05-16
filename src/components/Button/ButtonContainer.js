@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
+import { omit } from '../../util/fp';
 import { sizes } from '../../styles/constants';
 import { Button, LoadingIcon } from './components';
 import {
@@ -115,18 +116,19 @@ export default class ButtonContainer extends Component {
   handleSuccess = resolved => {
     const { onAnimationComplete } = this.props;
 
-    this.setState({ loadingState: LOADING_STATES.SUCCESS });
-
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       if (onAnimationComplete) {
         onAnimationComplete(resolved);
       }
       this.handleFinally();
     }, EXIT_ANIMATION_DURATION);
+
+    this.setState({ timeoutId, loadingState: LOADING_STATES.SUCCESS });
   };
 
   handleError = () => {
-    this.setState({ loadingState: LOADING_STATES.ERROR });
+    // TODO: we can add this, if we want an error icon to show.
+    // this.setState({ loadingState: LOADING_STATES.ERROR });
     this.handleFinally();
   };
 
@@ -140,26 +142,27 @@ export default class ButtonContainer extends Component {
   };
 
   render() {
-    const {
-      children,
-      delayMs,
-      onClick: outerOnClick,
-      size,
-      ...rest
-    } = this.props;
+    const { children, onClick: outerOnClick, size, ...props } = this.props;
     const { loadingState } = this.state;
     const onClick = outerOnClick ? this.handleClick : outerOnClick;
+    const buttonProps = {
+      ...omit(['onAnimationComplete'], props),
+      size,
+      onClick
+    };
 
     return (
-      <Button {...{ ...rest, onClick, size }}>
+      <Button {...buttonProps}>
         <ContentWrapper>
-          <LoadingIcon
-            {...{
-              loadingState,
-              size,
-              exitAnimationDuration: EXIT_ANIMATION_DURATION
-            }}
-          />
+          {onClick && (
+            <LoadingIcon
+              {...{
+                loadingState,
+                size,
+                exitAnimationDuration: EXIT_ANIMATION_DURATION
+              }}
+            />
+          )}
           <ChildrenWrapper {...{ loadingState }}>{children}</ChildrenWrapper>
         </ContentWrapper>
       </Button>
