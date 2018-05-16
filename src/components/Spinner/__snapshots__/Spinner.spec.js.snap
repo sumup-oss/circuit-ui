@@ -2,14 +2,11 @@
 
 exports[`Spinner should render in size KILO dark styles 1`] = `
 .circuit-0 {
-  -webkit-animation: animation-1f2h0xh-spin 1s infinite linear;
-  animation: animation-1f2h0xh-spin 1s infinite linear;
+  -webkit-animation: animation-1125t4o-spin 1s infinite linear;
+  animation: animation-1125t4o-spin 1s infinite linear;
   border-radius: 24px;
   border: 2px solid #FFFFFF;
   border-top: 2px solid rgba(255,255,255,0.3);
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
   height: 24px;
   width: 24px;
   border-radius: 24px;
@@ -18,22 +15,22 @@ exports[`Spinner should render in size KILO dark styles 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="circuit-0 circuit-1"
   role="alertdialog"
-  size="giga"
-/>
+>
+  <div
+    className="circuit-0 circuit-1"
+    size="giga"
+  />
+</div>
 `;
 
 exports[`Spinner should render in size MEGA dark styles 1`] = `
 .circuit-0 {
-  -webkit-animation: animation-1f2h0xh-spin 1s infinite linear;
-  animation: animation-1f2h0xh-spin 1s infinite linear;
+  -webkit-animation: animation-1125t4o-spin 1s infinite linear;
+  animation: animation-1125t4o-spin 1s infinite linear;
   border-radius: 24px;
   border: 2px solid #FFFFFF;
   border-top: 2px solid rgba(255,255,255,0.3);
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
   height: 24px;
   width: 24px;
   border-radius: 24px;
@@ -42,22 +39,22 @@ exports[`Spinner should render in size MEGA dark styles 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="circuit-0 circuit-1"
   role="alertdialog"
-  size="giga"
-/>
+>
+  <div
+    className="circuit-0 circuit-1"
+    size="giga"
+  />
+</div>
 `;
 
 exports[`Spinner should render with dark styles 1`] = `
 .circuit-0 {
-  -webkit-animation: animation-1f2h0xh-spin 1s infinite linear;
-  animation: animation-1f2h0xh-spin 1s infinite linear;
+  -webkit-animation: animation-1125t4o-spin 1s infinite linear;
+  animation: animation-1125t4o-spin 1s infinite linear;
   border-radius: 24px;
   border: 2px solid #FFFFFF;
   border-top: 2px solid rgba(255,255,255,0.3);
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
   height: 24px;
   width: 24px;
   border-radius: 24px;
@@ -68,22 +65,22 @@ exports[`Spinner should render with dark styles 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="circuit-0 circuit-1"
   role="alertdialog"
-  size="giga"
-/>
+>
+  <div
+    className="circuit-0 circuit-1"
+    size="giga"
+  />
+</div>
 `;
 
 exports[`Spinner should render with default styles 1`] = `
 .circuit-0 {
-  -webkit-animation: animation-1f2h0xh-spin 1s infinite linear;
-  animation: animation-1f2h0xh-spin 1s infinite linear;
+  -webkit-animation: animation-1125t4o-spin 1s infinite linear;
+  animation: animation-1125t4o-spin 1s infinite linear;
   border-radius: 24px;
   border: 2px solid #FFFFFF;
   border-top: 2px solid rgba(255,255,255,0.3);
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
   height: 24px;
   width: 24px;
   border-radius: 24px;
@@ -92,8 +89,11 @@ exports[`Spinner should render with default styles 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="circuit-0 circuit-1"
   role="alertdialog"
-  size="giga"
-/>
+>
+  <div
+    className="circuit-0 circuit-1"
+    size="giga"
+  />
+</div>
 `;

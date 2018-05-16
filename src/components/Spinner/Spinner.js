@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'react-emotion';
 import { size as sizeMixin, transparentize } from 'polished';
@@ -45,13 +46,18 @@ const baseStyles = ({ theme }) => css`
   border-radius: ${theme.spacings.giga};
   border: 2px solid ${theme.colors.white};
   border-top: 2px solid ${transparentize(0.7, theme.colors.white)};
-  transform: translateZ(0);
 `;
+
+const Circle = styled('div')(baseStyles, sizeStyles, darkStyles);
 
 /**
  * A loading spinner with ARIA labels support.
  */
-const Spinner = styled('div')(baseStyles, sizeStyles, darkStyles);
+const Spinner = ({ dark, size, ...props }) => (
+  <div {...props}>
+    <Circle {...{ size, dark }} />
+  </div>
+);
 
 Spinner.KILO = KILO;
 Spinner.MEGA = MEGA;
