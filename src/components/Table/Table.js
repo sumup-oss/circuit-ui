@@ -69,11 +69,13 @@ class Table extends Component {
   };
 
   componentDidMount() {
-    if (!this.scrollRef) {
+    const scrollRef = this.getScrollRef();
+
+    if (!scrollRef) {
       return;
     }
 
-    const { scrollWidth, clientWidth } = this.scrollRef;
+    const { scrollWidth, clientWidth } = scrollRef;
     const scrollable = scrollWidth > clientWidth;
 
     // eslint-disable-next-line react/no-did-mount-set-state
@@ -94,14 +96,16 @@ class Table extends Component {
       ? onSortBy(i, nextDirection, rows)
       : this.defaultSortBy(i, nextDirection, rows);
 
-    this.updateRows(i, nextDirection, nextRows);
+    this.updateSort(i, nextDirection, nextRows);
   };
 
-  getScrollRef = ref => {
+  getScrollRef = () => this.scrollRef;
+
+  setScrollRef = ref => {
     this.scrollRef = ref;
   };
 
-  updateRows = (i, nextDirection, rows) =>
+  updateSort = (i, nextDirection, rows) =>
     this.setState({
       rows,
       sortedRow: i,
@@ -109,7 +113,7 @@ class Table extends Component {
     });
 
   defaultSortBy = (i, nextDirection, rows) => {
-    const nextFn = nextDirection === ASCENDING ? descendingSort : ascendingSort;
+    const nextFn = nextDirection === ASCENDING ? ascendingSort : descendingSort;
 
     return [...rows].sort(nextFn(i));
   };
@@ -122,7 +126,7 @@ class Table extends Component {
       <Container>
         <ScrollContainer
           rowHeaders={rowHeaders}
-          innerRef={this.getScrollRef}
+          innerRef={this.setScrollRef}
           tabIndex={tabindex}
         >
           <StyledTable rowHeaders={rowHeaders}>

@@ -1,13 +1,25 @@
 import React from 'react';
+import { shuffle } from 'lodash/fp';
 
 import Table from '.';
+import { ASCENDING, DESCENDING } from './constants';
+
+const headers = [{ children: 'Foo', sortable: true }, 'Bar', 'Baz'];
+const items = [['1', '2', '3'], ['1', '2', '3'], ['1', '2', '3']];
 
 describe('Table', () => {
   /**
    * Style tests.
    */
+  beforeEach(jest.clearAllMocks);
+
   it('should render with default styles', () => {
-    const actual = create(<Table />);
+    const actual = create(<Table headers={headers} rows={items} />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with rowHeader styles', () => {
+    const actual = create(<Table rowHeaders headers={headers} rows={items} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -15,8 +27,110 @@ describe('Table', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Table />);
+    const wrapper = renderToHtml(
+      <Table rowHeaders headers={headers} rows={items} />
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
+  });
+
+  describe('onSortEnter()', () => {
+    it('should set sortHover to the provided index', () => {
+      const wrapper = shallow(<Table />);
+      const index = 0;
+      const expected = index;
+
+      wrapper.instance().onSortEnter(index);
+
+      const actual = wrapper.state('sortHover');
+
+      expect(actual).toBe(expected);
+    });
+  });
+
+  describe('onSortLeave()', () => {
+    it('should set sortHover to null', () => {
+      const wrapper = shallow(<Table />);
+
+      wrapper.setState({
+        sortHover: 0
+      });
+      wrapper.instance().onSortLeave();
+
+      const actual = wrapper.state('sortHover');
+
+      expect(actual).toBeNull();
+    });
+  });
+
+  describe('onSortBy()', () => {
+    describe('custom onSortBy', () => {
+      it('should call the provided onSortBy instead of defaultSortBy with index, nextDirection and rows', () => {
+        const row = ['a', 'b', 'c', 'd', 'e'];
+        const rows = [row];
+        const shuffledRow = shuffle(row);
+        const expected = [shuffledRow];
+        const mock = jest.fn().mockReturnValue(expected);
+        const index = 0;
+        const nextDirection = ASCENDING;
+        const wrapper = shallow(<Table onSortBy={mock} rows={rows} />);
+
+        wrapper.instance().onSortBy(index);
+
+        expect(mock).toHaveBeenCalledWith(index, nextDirection, rows);
+        expect(wrapper.state('rows')).toEqual(expected);
+      });
+    });
+  });
+
+  describe('updateSort()', () => {
+    it('should update the state with sortedRow, nextDirection and nextDirection', () => {
+      const wrapper = shallow(<Table />);
+      const index = 0;
+      const nextDirection = ASCENDING;
+      const rows = [['a', 'b']];
+
+      wrapper.instance().updateSort(index, nextDirection, rows);
+
+      expect(wrapper.state('rows')).toEqual(rows);
+      expect(wrapper.state('sortedRow')).toBe(index);
+      expect(wrapper.state('sortDirection')).toBe(nextDirection);
+    });
+  });
+
+  describe('defaultSortBy()', () => {
+    describe('next direction ASCENDING', () => {
+      it('should sort the provided row by ascending order', () => {
+        const wrapper = shallow(<Table />);
+        const index = 0;
+        const nextDirection = ASCENDING;
+        const a = ['Foo'];
+        const b = ['Bar'];
+        const rows = [a, b];
+        const expected = [b, a];
+        const actual = wrapper
+          .instance()
+          .defaultSortBy(index, nextDirection, rows);
+
+        expect(actual).toEqual(expected);
+      });
+    });
+
+    describe('next direction DESCENDING', () => {
+      it('should sort the provided row by descending order', () => {
+        const wrapper = shallow(<Table />);
+        const index = 0;
+        const nextDirection = DESCENDING;
+        const a = ['Bar'];
+        const b = ['Foo'];
+        const rows = [a, b];
+        const expected = [b, a];
+        const actual = wrapper
+          .instance()
+          .defaultSortBy(index, nextDirection, rows);
+
+        expect(actual).toEqual(expected);
+      });
+    });
   });
 });
