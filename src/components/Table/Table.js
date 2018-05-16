@@ -59,6 +59,9 @@ const containerStyles = ({ theme, rowHeaders }) =>
 const ScrollContainer = styled.div(containerStyles);
 const Container = styled.div(shadowSingle);
 
+/**
+ * Table interface component. It handles rendering rows/headers properly
+ */
 class Table extends Component {
   state = {
     rows: this.props.rows,
@@ -152,9 +155,25 @@ class Table extends Component {
 }
 
 Table.propTypes = {
+  /**
+   * An array of headers for the table. The Header can be a string or an object
+   * with options described on TableHeader component
+   */
   headers: PropTypes.arrayOf(RowPropType),
+  /**
+   * An array of rows with an array of cells for the table. The Cell can be a
+   * string or an object with options described on TableCell component
+   */
   rows: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
+  /**
+   * Enables/disables sticky columns on mobile
+   */
   rowHeaders: PropTypes.bool,
+  /**
+   * Custom onSortBy function for the onSort handler.
+   * The signature is (index, nextDirection, currentRows) and it should return
+   * an array of rows
+   */
   onSortBy: PropTypes.func
 };
 
