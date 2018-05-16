@@ -5,19 +5,22 @@ import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 import { mapProps, getChildren, RowPropType } from '../../utils';
+import { TR_KEY_PREFIX, TD_KEY_PREFIX } from '../../constants';
 
 const TableBody = ({ rows, rowHeaders, sortHover }) => (
   <tbody>
-    {rows.map(row => (
-      <TableRow>
+    {rows.map((row, i) => (
+      // eslint-disable-next-line react/no-array-index-key
+      <TableRow key={`${TR_KEY_PREFIX}-${i}`}>
         {row.map(
-          (cell, i) =>
-            rowHeaders && i === 0 ? (
-              <Fragment>
+          (cell, j) =>
+            rowHeaders && j === 0 ? (
+              // eslint-disable-next-line react/no-array-index-key
+              <Fragment key={`${TD_KEY_PREFIX}-${i}-${j}`}>
                 <TableHeader
                   fixed
                   scope={TableHeader.ROW}
-                  active={sortHover === i}
+                  isActive={sortHover === j}
                   {...mapProps(cell)}
                 />
                 <TableCell role="presentation" aria-hidden="true">
@@ -25,7 +28,12 @@ const TableBody = ({ rows, rowHeaders, sortHover }) => (
                 </TableCell>
               </Fragment>
             ) : (
-              <TableCell {...mapProps(cell)} active={sortHover === i} />
+              <TableCell
+                // eslint-disable-next-line react/no-array-index-key
+                key={`${TD_KEY_PREFIX}-${i}-${j}`}
+                isActive={sortHover === j}
+                {...mapProps(cell)}
+              />
             )
         )}
       </TableRow>

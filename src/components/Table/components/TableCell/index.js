@@ -31,8 +31,8 @@ const presentationStyles = ({ theme, role, header }) =>
     `};
   `;
 
-const activeStyles = ({ theme, active }) =>
-  active &&
+const activeStyles = ({ theme, isActive }) =>
+  isActive &&
   css`
     label: table-cell--hover;
     background-color: ${theme.colors.n100};
@@ -51,13 +51,13 @@ TableCell.CENTER = directions.CENTER;
 TableCell.propTypes = {
   align: PropTypes.oneOf([TableCell.LEFT, TableCell.RIGHT, TableCell.CENTER]),
   header: PropTypes.bool,
-  active: PropTypes.bool
+  isActive: PropTypes.bool
 };
 
 TableCell.defaultProps = {
   align: TableCell.LEFT,
   header: false,
-  active: false
+  isActive: false
 };
 
 export default TableCell;

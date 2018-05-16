@@ -5,10 +5,7 @@ import styled, { css } from 'react-emotion';
 import SortArrow from '../SortArrow';
 import { directions } from '../../../../styles/constants';
 import { childrenPropType } from '../../../../util/shared-prop-types';
-import { ASCENDING, DESCENDING } from '../../constants';
-
-const COL = 'col';
-const ROW = 'row';
+import { ASCENDING, DESCENDING, COL, ROW } from '../../constants';
 
 const getAriaSort = (sortable, sortDirection) =>
   sortable ? sortDirection || 'none' : null;
@@ -75,8 +72,8 @@ const sortableActiveStyles = ({ sortable, isSorted }) =>
     }
   `;
 
-const activeStyles = ({ theme, active }) =>
-  active &&
+const activeStyles = ({ theme, isActive }) =>
+  isActive &&
   css`
     label: table-cell--hover;
     background-color: ${theme.colors.n100};
@@ -117,7 +114,7 @@ TableHeader.propTypes = {
   scope: PropTypes.string,
   fixed: PropTypes.bool,
   sortable: PropTypes.bool,
-  active: PropTypes.bool,
+  isActive: PropTypes.bool,
   children: childrenPropType,
   sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
   isSorted: PropTypes.bool
@@ -128,7 +125,7 @@ TableHeader.defaultProps = {
   scope: TableHeader.COL,
   fixed: false,
   sortable: false,
-  active: false,
+  isActive: false,
   children: null,
   sortDirection: null,
   isSorted: false

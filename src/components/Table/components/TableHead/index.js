@@ -6,7 +6,7 @@ import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 import { mapProps, getChildren, RowPropType } from '../../utils';
-import { ASCENDING, DESCENDING } from '../../constants';
+import { ASCENDING, DESCENDING, TH_KEY_PREFIX } from '../../constants';
 
 const TableHead = ({
   headers,
@@ -23,7 +23,8 @@ const TableHead = ({
         {headers.map((header, i) => {
           const props = mapProps(header);
           return (
-            <Fragment>
+            // eslint-disable-next-line react/no-array-index-key
+            <Fragment key={`${TH_KEY_PREFIX}-${i}`}>
               <TableHeader
                 {...props}
                 fixed={rowHeaders && i === 0}
@@ -52,7 +53,7 @@ const TableHead = ({
 );
 
 TableHead.propTypes = {
-  headers: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
+  headers: PropTypes.arrayOf(RowPropType),
   rowHeaders: PropTypes.bool,
   sortBy: PropTypes.func,
   sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
