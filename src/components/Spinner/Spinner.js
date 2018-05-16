@@ -19,9 +19,9 @@ const spin = keyframes`
 
 const sizeStyles = ({ theme, size }) => {
   const sizeMap = {
-    [KILO]: theme.spacings.kilo,
-    [MEGA]: theme.spacings.mega,
-    [GIGA]: theme.spacings.giga
+    [KILO]: theme.spacings.mega,
+    [MEGA]: theme.spacings.giga,
+    [GIGA]: theme.spacings.tera
   };
 
   const sizeValue = sizeMap[size] || sizeMap.GIGA;
