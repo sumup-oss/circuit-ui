@@ -6,21 +6,16 @@ import { withProps } from 'recompose';
 
 import { sizes } from '../../styles/constants';
 
-import RailIcon from './icons/rail.svg';
-import SpinIcon from './icons/spinner.svg';
+import SpinnerSvg from './icons/spinner.svg';
 
 const { KILO, MEGA, GIGA } = sizes;
 
-const relativeCenter = `
-  translate3d(-50%, -50%, 0);
-`;
-
 const spin = keyframes`
   0% {
-    transform: rotate3d(0, 0, 1, 0deg) ${relativeCenter};
+    transform: rotate3d(0, 0, 1, 0deg);
   }
   100% {
-    transform: rotate3d(0, 0, 1, 360deg) ${relativeCenter};
+    transform: rotate3d(0, 0, 1, 360deg);
   }
 `;
 
@@ -31,10 +26,6 @@ const spin = keyframes`
 const baseIconStyles = ({ theme }) => css`
   width: 100%;
   height: 100%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: ${relativeCenter};
   & > path {
     fill: ${theme.colors.white};
   }
@@ -50,13 +41,14 @@ const darkIconStyles = ({ theme, dark }) =>
 
 const baseSpinStyles = css`
   label: spinner;
-  transform-origin: top left;
   animation: ${spin} 1s infinite linear;
 `;
 
-const Rail = styled(RailIcon)(baseIconStyles, darkIconStyles);
-
-const Spin = styled(SpinIcon)(baseIconStyles, darkIconStyles, baseSpinStyles);
+const SpinnerIcon = styled(SpinnerSvg)(
+  baseIconStyles,
+  darkIconStyles,
+  baseSpinStyles
+);
 
 /**
  * Container component
@@ -100,8 +92,7 @@ const SpinnerContainer = styled('div')(
  */
 const Spinner = ({ dark, size, active }) => (
   <SpinnerContainer {...{ active, size }}>
-    <Rail dark={dark} />
-    <Spin dark={dark} />
+    <SpinnerIcon dark={dark} />
   </SpinnerContainer>
 );
 
