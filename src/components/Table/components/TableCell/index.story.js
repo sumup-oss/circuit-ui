@@ -13,7 +13,7 @@ const options = {
 };
 
 storiesOf('TableCell', module)
-  // .addDecorator(withTests('TableCell'))
+  .addDecorator(withTests('TableCell'))
   .add(
     'Table Cell',
     withInfo()(() => (

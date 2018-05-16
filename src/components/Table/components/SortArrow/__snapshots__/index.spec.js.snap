@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortArrow should render with ascending arrow styles 1`] = `
+.circuit-1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+<button
+  className="circuit-0 circuit-1 circuit-2"
+  type="button"
+>
+  <div>
+    arrow.svg
+  </div>
+</button>
+`;
+
+exports[`SortArrow should render with both arrows styles 1`] = `
+.circuit-1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+<button
+  className="circuit-0 circuit-1 circuit-2"
+  type="button"
+>
+  <div>
+    arrow.svg
+  </div>
+  <div>
+    arrow.svg
+  </div>
+</button>
+`;
+
+exports[`SortArrow should render with descending arrow styles 1`] = `
+.circuit-1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+<button
+  className="circuit-0 circuit-1 circuit-2"
+  type="button"
+>
+  <div>
+    arrow.svg
+  </div>
+</button>
+`;

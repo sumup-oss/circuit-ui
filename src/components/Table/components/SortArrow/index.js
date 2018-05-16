@@ -26,6 +26,9 @@ const DownArrow = styled(ArrowIcon)`
   transform: rotate(180deg);
 `;
 
+/**
+ * [PRIVATE] Arrow component for TableHeader sorting
+ */
 const SortArrow = ({ direction }) => (
   <StyledWrapper>
     <Fragment>
