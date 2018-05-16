@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TableHeader should render with active styles 1`] = `
+exports[`TableHeader should render with default styles 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -9,7 +9,6 @@ exports[`TableHeader should render with active styles 1`] = `
   -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
   transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
   white-space: nowrap;
-  background-color: #FAFBFC;
   color: #5C656F;
   font-size: 13px;
   font-weight: 700;
@@ -26,7 +25,7 @@ exports[`TableHeader should render with active styles 1`] = `
 </th>
 `;
 
-exports[`TableHeader should render with default styles 1`] = `
+exports[`TableHeader should render with hovered styles 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -35,6 +34,7 @@ exports[`TableHeader should render with default styles 1`] = `
   -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
   transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
   white-space: nowrap;
+  background-color: #FAFBFC;
   color: #5C656F;
   font-size: 13px;
   font-weight: 700;

@@ -21,6 +21,13 @@ const baseStyles = ({ theme, align }) => css`
   white-space: nowrap;
 `;
 
+const hoveredStyles = ({ theme, isHovered }) =>
+  isHovered &&
+  css`
+    label: table-cell--hover;
+    background-color: ${theme.colors.n100};
+  `;
+
 const colStyles = ({ theme, scope }) =>
   scope === COL &&
   css`
@@ -72,22 +79,19 @@ const sortableActiveStyles = ({ sortable, isSorted }) =>
     }
   `;
 
-const activeStyles = ({ theme, isActive }) =>
-  isActive &&
-  css`
-    label: table-cell--hover;
-    background-color: ${theme.colors.n100};
-  `;
-
 const StyledHeader = styled.th`
   ${baseStyles};
-  ${activeStyles};
+  ${hoveredStyles};
   ${rowStyles};
   ${colStyles};
   ${sortableStyles};
   ${sortableActiveStyles};
 `;
 
+/**
+ * TableHeader component for the Table. You shouldn't import this component
+ * directly, the Table handles it
+ */
 const TableHeader = ({ sortable, children, sortDirection, ...rest }) => (
   <StyledHeader
     sortable={sortable}
@@ -106,17 +110,40 @@ TableHeader.COL = COL;
 TableHeader.ROW = ROW;
 
 TableHeader.propTypes = {
+  /**
+   * Aligns the content of the Header with text-align
+   */
   align: PropTypes.oneOf([
     TableHeader.LEFT,
     TableHeader.RIGHT,
     TableHeader.CENTER
   ]),
-  scope: PropTypes.string,
+  /**
+   * [PRIVATE] Adds ROL or COL styles based on the provided Scope.
+   * Handled internally
+   */
+  scope: PropTypes.oneOf([TableHeader.COL, TableHeader.ROW]),
+  /**
+   * [PRIVATE] Adds sticky style to the Header based on rowHeader definition.
+   * Handled internally
+   */
   fixed: PropTypes.bool,
+  /**
+   * Defines whether or not the Header is sortable
+   */
   sortable: PropTypes.bool,
-  isActive: PropTypes.bool,
+  /**
+   * [PRIVATE] Adds active style to the Header if it is currently hovered by
+   * sort.
+   * Handled internally
+   */
+  isHovered: PropTypes.bool,
   children: childrenPropType,
   sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
+  /**
+   * [PRIVATE] Adds sorted style to the Header if it is currently sorted
+   * Handled internally
+   */
   isSorted: PropTypes.bool
 };
 
@@ -125,7 +152,7 @@ TableHeader.defaultProps = {
   scope: TableHeader.COL,
   fixed: false,
   sortable: false,
-  isActive: false,
+  isHovered: false,
   children: null,
   sortDirection: null,
   isSorted: false

@@ -28,8 +28,8 @@ describe('TableHeader', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with active styles', () => {
-    const actual = create(<TableHeader isActive>{children}</TableHeader>);
+  it('should render with hovered styles', () => {
+    const actual = create(<TableHeader isHovered>{children}</TableHeader>);
     expect(actual).toMatchSnapshot();
   });
 

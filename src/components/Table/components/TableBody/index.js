@@ -20,7 +20,7 @@ const TableBody = ({ rows, rowHeaders, sortHover }) => (
                 <TableHeader
                   fixed
                   scope={TableHeader.ROW}
-                  isActive={sortHover === j}
+                  isHovered={sortHover === j}
                   {...mapProps(cell)}
                 />
                 <TableCell role="presentation" aria-hidden="true">
@@ -31,7 +31,7 @@ const TableBody = ({ rows, rowHeaders, sortHover }) => (
               <TableCell
                 // eslint-disable-next-line react/no-array-index-key
                 key={`${TD_KEY_PREFIX}-${i}-${j}`}
-                isActive={sortHover === j}
+                isHovered={sortHover === j}
                 {...mapProps(cell)}
               />
             )
