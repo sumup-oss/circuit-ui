@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import styled, { css } from 'react-emotion';
 
 import withTests from '../../util/withTests';
-import ModalConsumer, { ModalProvider } from '.';
+import { ModalConsumer, ModalProvider } from '.';
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';

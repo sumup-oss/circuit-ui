@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Modal, { ModalProvider } from '.';
+import { ModalConsumer, ModalProvider } from '.';
 import Button from '../Button';
 
 import * as MockedModal from './Modal';
@@ -14,7 +14,7 @@ describe('Modal', () => {
   const PageWithModal = ({ modal }) => (
     <div id="root">
       <ModalProvider>
-        <Modal>
+        <ModalConsumer>
           {({ setModal }) => (
             <Button
               type="button"
@@ -28,7 +28,7 @@ describe('Modal', () => {
               Open modal
             </Button>
           )}
-        </Modal>
+        </ModalConsumer>
       </ModalProvider>
     </div>
   );
