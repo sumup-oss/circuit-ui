@@ -16,7 +16,8 @@ export {
   isEqual,
   clamp,
   last,
-  head
+  head,
+  omit
 } from 'lodash/fp';
 
 export const keys = obj => Object.keys(obj);
@@ -59,7 +60,7 @@ export const identity = val => val;
 
 export const some = curry((predicate, arr) => arr.some(predicate));
 
-// This wil automatically disregard falsy values.
+// This will automatically disregard falsy values.
 export const pick = curry((picks, obj) =>
   reduce(
     (picked, prop) => (obj[prop] ? { ...picked, [prop]: obj[prop] } : picked),
@@ -82,7 +83,7 @@ export const pickBy = curry((iteratee, obj) =>
 export const toBool = val => !!val;
 
 // This is only useful for debugging a pipe set up
-// with flow.
+// with flow or compose.
 export const trace = val => {
   console.log(trace); // eslint-disable-line
   return val;
