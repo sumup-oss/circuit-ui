@@ -1,0 +1,66 @@
+import React from 'react';
+
+import TableHeader from '.';
+import { ASCENDING, DESCENDING } from '../../constants';
+
+const children = 'Foo';
+
+describe('TableHeader', () => {
+  /**
+   * Style tests.
+   */
+  beforeEach(jest.clearAllMocks);
+
+  it('should render with default styles', () => {
+    const actual = create(<TableHeader>{children}</TableHeader>);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with row styles', () => {
+    const actual = create(
+      <TableHeader scope={TableHeader.ROW}>{children}</TableHeader>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with sortable styles', () => {
+    const actual = create(<TableHeader sortable>{children}</TableHeader>);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with active styles', () => {
+    const actual = create(<TableHeader isActive>{children}</TableHeader>);
+    expect(actual).toMatchSnapshot();
+  });
+
+  describe('sortable + sorted', () => {
+    it('should render with sortable + sorted ascending styles', () => {
+      const actual = create(
+        <TableHeader sortable isSorted sortDirection={ASCENDING}>
+          {children}
+        </TableHeader>
+      );
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with sortable + sorted descending styles', () => {
+      const actual = create(
+        <TableHeader sortable isSorted sortDirection={DESCENDING}>
+          {children}
+        </TableHeader>
+      );
+      expect(actual).toMatchSnapshot();
+    });
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(
+      <TableHeader sortable>{children}</TableHeader>
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+});

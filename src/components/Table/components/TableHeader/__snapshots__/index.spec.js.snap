@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableHeader should render with active styles 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  background-color: #FAFBFC;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+<th
+  aria-sort={null}
+  className="circuit-0 circuit-1"
+  scope="col"
+>
+  Foo
+</th>
+`;
+
+exports[`TableHeader should render with default styles 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+<th
+  aria-sort={null}
+  className="circuit-0 circuit-1"
+  scope="col"
+>
+  Foo
+</th>
+`;
+
+exports[`TableHeader should render with row styles 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+<th
+  aria-sort={null}
+  className="circuit-0 circuit-1"
+  scope="row"
+>
+  Foo
+</th>
+`;
+
+exports[`TableHeader should render with sortable styles 1`] = `
+.circuit-3 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-3:hover > button {
+  opacity: 1;
+}
+
+.circuit-1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+<th
+  aria-sort="none"
+  className="circuit-3 circuit-4"
+  scope="col"
+>
+  <button
+    className="circuit-0 circuit-1 circuit-2"
+    type="button"
+  >
+    <div>
+      arrow.svg
+    </div>
+    <div>
+      arrow.svg
+    </div>
+  </button>
+  Foo
+</th>
+`;
+
+exports[`TableHeader sortable + sorted should render with sortable + sorted ascending styles 1`] = `
+.circuit-1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-3:hover > button {
+  opacity: 1;
+}
+
+.circuit-3 > button {
+  opacity: 1;
+}
+
+<th
+  aria-sort="ascending"
+  className="circuit-3 circuit-4"
+  scope="col"
+>
+  <button
+    className="circuit-0 circuit-1 circuit-2"
+    type="button"
+  >
+    <div>
+      arrow.svg
+    </div>
+  </button>
+  Foo
+</th>
+`;
+
+exports[`TableHeader sortable + sorted should render with sortable + sorted descending styles 1`] = `
+.circuit-1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-3:hover > button {
+  opacity: 1;
+}
+
+.circuit-3 > button {
+  opacity: 1;
+}
+
+<th
+  aria-sort="descending"
+  className="circuit-3 circuit-4"
+  scope="col"
+>
+  <button
+    className="circuit-0 circuit-1 circuit-2"
+    type="button"
+  >
+    <div>
+      arrow.svg
+    </div>
+  </button>
+  Foo
+</th>
+`;
