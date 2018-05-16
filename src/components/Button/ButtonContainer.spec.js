@@ -142,6 +142,18 @@ describe('ButtonContainer', () => {
           expect(handleAnimationComplete).toHaveBeenCalled();
         });
       });
+
+      describe('returning a rejected promise', () => {
+        it.skip('should hide the loading icon if the Promise is rejected', () => {
+          wrapper.simulate('click');
+          jest.runOnlyPendingTimers();
+          reject();
+          wrapper.update();
+          jest.runOnlyPendingTimers();
+          wrapper.update();
+          expect(getLoadingState(wrapper)).toBe(LOADING_STATES.INACTIVE);
+        });
+      });
     });
   });
 });
