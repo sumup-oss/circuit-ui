@@ -7,20 +7,24 @@ import TableCell from '../TableCell';
 import { mapProps, getChildren, RowPropType } from '../../utils';
 import { TR_KEY_PREFIX, TD_KEY_PREFIX } from '../../constants';
 
+const getRowKey = index => `${TR_KEY_PREFIX}-${index}`;
+const getCellKey = (rowIndex, cellIndex) =>
+  `${TD_KEY_PREFIX}-${rowIndex}-${cellIndex}`;
+
 const TableBody = ({ rows, rowHeaders, sortHover }) => (
   <tbody>
-    {rows.map((row, i) => (
+    {rows.map((row, rowIndex) => (
       // eslint-disable-next-line react/no-array-index-key
-      <TableRow key={`${TR_KEY_PREFIX}-${i}`}>
+      <TableRow key={getRowKey(rowIndex)}>
         {row.map(
-          (cell, j) =>
-            rowHeaders && j === 0 ? (
+          (cell, cellIndex) =>
+            rowHeaders && cellIndex === 0 ? (
               // eslint-disable-next-line react/no-array-index-key
-              <Fragment key={`${TD_KEY_PREFIX}-${i}-${j}`}>
+              <Fragment key={getCellKey(rowIndex, cellIndex)}>
                 <TableHeader
                   fixed
                   scope={TableHeader.ROW}
-                  isHovered={sortHover === j}
+                  isHovered={sortHover === cellIndex}
                   {...mapProps(cell)}
                 />
                 <TableCell role="presentation" aria-hidden="true">
@@ -30,8 +34,8 @@ const TableBody = ({ rows, rowHeaders, sortHover }) => (
             ) : (
               <TableCell
                 // eslint-disable-next-line react/no-array-index-key
-                key={`${TD_KEY_PREFIX}-${i}-${j}`}
-                isHovered={sortHover === j}
+                key={getCellKey(rowIndex, cellIndex)}
+                isHovered={sortHover === cellIndex}
                 {...mapProps(cell)}
               />
             )
@@ -41,15 +45,29 @@ const TableBody = ({ rows, rowHeaders, sortHover }) => (
   </tbody>
 );
 
+/**
+ * [PRIVATE] TableHead for the Table component. The Table handles rendering it
+ */
 TableBody.propTypes = {
+  /**
+   * An array of rows with cells for the table. The Cell can be a string
+   * or an object with options described on TableHeader component
+   */
   rows: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
+  /**
+   * Enables/disables sticky columns on mobile
+   */
   rowHeaders: PropTypes.bool,
+  /**
+   * [PRIVATE] The current hovered sort cell index
+   * Handled internally
+   */
   sortHover: PropTypes.number
 };
 
 TableBody.defaultProps = {
   rows: [],
-  rowHeaders: true,
+  rowHeaders: false,
   sortHover: null
 };
 
