@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TableHeader should render with default styles 1`] = `
+exports[`TableHeader Style tests should render with default styles 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -25,7 +25,7 @@ exports[`TableHeader should render with default styles 1`] = `
 </th>
 `;
 
-exports[`TableHeader should render with hovered styles 1`] = `
+exports[`TableHeader Style tests should render with hovered styles 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -51,7 +51,7 @@ exports[`TableHeader should render with hovered styles 1`] = `
 </th>
 `;
 
-exports[`TableHeader should render with row styles 1`] = `
+exports[`TableHeader Style tests should render with row styles 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -71,7 +71,7 @@ exports[`TableHeader should render with row styles 1`] = `
 </th>
 `;
 
-exports[`TableHeader should render with sortable styles 1`] = `
+exports[`TableHeader Style tests should render with sortable styles 1`] = `
 .circuit-3 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -158,7 +158,7 @@ exports[`TableHeader should render with sortable styles 1`] = `
 </th>
 `;
 
-exports[`TableHeader sortable + sorted should render with sortable + sorted ascending styles 1`] = `
+exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted ascending styles 1`] = `
 .circuit-1 {
   padding: 0;
   margin: 0;
@@ -246,7 +246,7 @@ exports[`TableHeader sortable + sorted should render with sortable + sorted asce
 </th>
 `;
 
-exports[`TableHeader sortable + sorted should render with sortable + sorted descending styles 1`] = `
+exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted descending styles 1`] = `
 .circuit-1 {
   padding: 0;
   margin: 0;

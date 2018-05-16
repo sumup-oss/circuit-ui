@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table should render with default styles 1`] = `
+exports[`Table Style tests should render with default styles 1`] = `
 .circuit-47 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
@@ -363,7 +363,7 @@ exports[`Table should render with default styles 1`] = `
 </div>
 `;
 
-exports[`Table should render with rowHeader styles 1`] = `
+exports[`Table Style tests should render with rowHeader styles 1`] = `
 .circuit-47 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }

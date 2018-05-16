@@ -11,7 +11,7 @@ import { ASCENDING, DESCENDING, TH_KEY_PREFIX } from '../../constants';
 const TableHead = ({
   headers,
   rowHeaders,
-  sortBy,
+  onSortBy,
   sortDirection,
   sortedRow,
   onSortEnter,
@@ -28,7 +28,8 @@ const TableHead = ({
               <TableHeader
                 {...props}
                 fixed={rowHeaders && i === 0}
-                onClick={props.sortable ? () => sortBy(i) : null}
+                // eslint-disable-next-line react/prop-types
+                onClick={props.sortable ? () => onSortBy(i) : null}
                 onMouseEnter={
                   props.sortable ? onSortEnter && (() => onSortEnter(i)) : null
                 }
@@ -52,23 +53,46 @@ const TableHead = ({
   </thead>
 );
 
+/**
+ * [PRIVATE] TableHead for the Table component. The Table handlers rendering it
+ */
 TableHead.propTypes = {
+  /**
+   * An array of headers for the table. The Header can be a string or an object
+   * with options described on TableHeader component
+   */
   headers: PropTypes.arrayOf(RowPropType),
+  /**
+   * Enables/disables sticky columns on mobile
+   */
   rowHeaders: PropTypes.bool,
-  sortBy: PropTypes.func,
+  /**
+   * [PRIVATE] sortBy handler
+   */
+  onSortBy: PropTypes.func,
+  /**
+   * [PRIVATE] The current sortDirection
+   */
   sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
-  sortable: PropTypes.bool,
+  /**
+   * [PRIVATE] The current sorted row index
+   */
   sortedRow: PropTypes.number,
+  /**
+   * [PRIVATE] sortEnter handler
+   */
   onSortEnter: PropTypes.func,
+  /**
+   * [PRIVATE] sortLeave handler
+   */
   onSortLeave: PropTypes.func
 };
 
 TableHead.defaultProps = {
   headers: [],
-  rowHeaders: true,
-  sortBy: noop,
+  rowHeaders: false,
+  onSortBy: noop,
   sortDirection: null,
-  sortable: null,
   sortedRow: null,
   onSortEnter: null,
   onSortLeave: null

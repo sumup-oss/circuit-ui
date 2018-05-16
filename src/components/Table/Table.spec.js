@@ -8,30 +8,30 @@ const headers = [{ children: 'Foo', sortable: true }, 'Bar', 'Baz'];
 const items = [['1', '2', '3'], ['1', '2', '3'], ['1', '2', '3']];
 
 describe('Table', () => {
-  /**
-   * Style tests.
-   */
   beforeEach(jest.clearAllMocks);
 
-  it('should render with default styles', () => {
-    const actual = create(<Table headers={headers} rows={items} />);
-    expect(actual).toMatchSnapshot();
+  describe('Style tests', () => {
+    it('should render with default styles', () => {
+      const actual = create(<Table headers={headers} rows={items} />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with rowHeader styles', () => {
+      const actual = create(
+        <Table rowHeaders headers={headers} rows={items} />
+      );
+      expect(actual).toMatchSnapshot();
+    });
   });
 
-  it('should render with rowHeader styles', () => {
-    const actual = create(<Table rowHeaders headers={headers} rows={items} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <Table rowHeaders headers={headers} rows={items} />
-    );
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
+  describe('Accessibility tests', () => {
+    it('should meet accessibility guidelines', async () => {
+      const wrapper = renderToHtml(
+        <Table rowHeaders headers={headers} rows={items} />
+      );
+      const actual = await axe(wrapper);
+      expect(actual).toHaveNoViolations();
+    });
   });
 
   describe('onSortEnter()', () => {

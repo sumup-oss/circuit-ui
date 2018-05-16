@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 const baseStyles = () => css`
@@ -14,13 +13,5 @@ const baseStyles = () => css`
 `;
 
 const TableRow = styled.tr(baseStyles);
-
-TableRow.propTypes = {
-  header: PropTypes.bool
-};
-
-TableRow.defaultProps = {
-  header: false
-};
 
 export default TableRow;
