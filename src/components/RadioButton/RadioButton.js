@@ -119,8 +119,8 @@ const RadioButton = ({ onToggle, children, id: customId, ...props }) => {
   const id = customId || uniqueId('radio-button_');
   return (
     <Fragment>
-      <RadioButtonInput type="radio" onClick={onToggle} id={id} {...props} />
-      <RadioButtonLabel htmlFor={id} {...props}>
+      <RadioButtonInput {...props} type="radio" onClick={onToggle} id={id} />
+      <RadioButtonLabel {...props} htmlFor={id}>
         {children}
       </RadioButtonLabel>
     </Fragment>

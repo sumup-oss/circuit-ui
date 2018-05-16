@@ -129,8 +129,8 @@ const Checkbox = ({ onChange, children, id: customId, ...props }) => {
   const id = customId || uniqueId('checkbox_');
   return (
     <CheckboxWrapper>
-      <CheckboxInput id={id} onClick={onChange} type="checkbox" {...props} />
-      <CheckboxLabel htmlFor={id} {...props}>
+      <CheckboxInput {...props} id={id} onClick={onChange} type="checkbox" />
+      <CheckboxLabel {...props} htmlFor={id}>
         {children}
       </CheckboxLabel>
     </CheckboxWrapper>
