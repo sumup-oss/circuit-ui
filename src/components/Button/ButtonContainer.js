@@ -91,22 +91,21 @@ export default class ButtonContainer extends Component {
     const { onClick, delayMs } = this.props;
     const { timeoutId: existingTimeoutId } = this.state;
 
-    if (existingTimeoutId) {
+    if (!onClick || existingTimeoutId) {
+      return;
+    }
+
+    const handlingClick = onClick(e);
+
+    if (!handlingClick || !handlingClick.then) {
       return;
     }
 
     const timeoutId = setTimeout(() => {
       this.setState({ loadingState: LOADING_STATES.ACTIVE });
     }, delayMs);
+
     this.setState({ timeoutId });
-
-    const handlingClick = onClick(e);
-
-    if (!handlingClick || !handlingClick.then) {
-      clearTimeout(timeoutId);
-      this.setState({ timeoutId: null });
-      return;
-    }
 
     handlingClick.then(this.handleSuccess).catch(this.handleSuccess);
   };
