@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { textMega } from '../../../styles/style-helpers';
 import { sizes } from '../../../styles/constants';
+import { SIZE_PROP_TYPE } from '../constants';
 
 const { KILO, MEGA, GIGA } = sizes;
 
@@ -264,7 +265,7 @@ Button.propTypes = {
   /**
    * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
    */
-  size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
+  size: SIZE_PROP_TYPE,
   /**
    * Trigger stretch (full width) styles on the component.
    */
