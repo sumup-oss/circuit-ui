@@ -16,16 +16,6 @@ describe('Spinner', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render in size KILO dark styles', () => {
-    const actual = create(<Spinner size={Spinner.KILO} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render in size MEGA dark styles', () => {
-    const actual = create(<Spinner size={Spinner.MEGA} />);
-    expect(actual).toMatchSnapshot();
-  });
-
   /**
    * Accessibility tests.
    */

@@ -1,61 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Spinner should render in size KILO dark styles 1`] = `
-.circuit-0 {
-  opacity: 0;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  height: 32px;
-  width: 32px;
-  opacity: 1;
-}
-
-<div
-  className="circuit-0 circuit-1"
-  size="giga"
->
-  <div>
-    spinner.svg
-  </div>
-</div>
-`;
-
-exports[`Spinner should render in size MEGA dark styles 1`] = `
-.circuit-0 {
-  opacity: 0;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  height: 32px;
-  width: 32px;
-  opacity: 1;
-}
-
-<div
-  className="circuit-0 circuit-1"
-  size="giga"
->
-  <div>
-    spinner.svg
-  </div>
-</div>
-`;
-
 exports[`Spinner should render with dark styles 1`] = `
 .circuit-0 {
   opacity: 0;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  height: 32px;
-  width: 32px;
   opacity: 1;
 }
 
 <div
+  aria-busy="true"
+  aria-live="assertive"
   className="circuit-0 circuit-1"
-  size="giga"
+  role="alertdialog"
 >
   <div>
     spinner.svg
@@ -69,14 +27,14 @@ exports[`Spinner should render with default styles 1`] = `
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  height: 32px;
-  width: 32px;
   opacity: 1;
 }
 
 <div
+  aria-busy="true"
+  aria-live="assertive"
   className="circuit-0 circuit-1"
-  size="giga"
+  role="alertdialog"
 >
   <div>
     spinner.svg

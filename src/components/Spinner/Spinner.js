@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'react-emotion';
-import { size as sizeMixin } from 'polished';
 import { withProps } from 'recompose';
 
-import { sizes } from '../../styles/constants';
-
 import SpinnerSvg from './icons/spinner.svg';
-
-const { KILO, MEGA, GIGA } = sizes;
 
 const spin = keyframes`
   0% {
@@ -66,46 +61,21 @@ const activeContainerStyles = ({ active }) =>
     opacity: 1;
   `;
 
-const sizeContainerStyles = ({ theme, size }) => {
-  const sizeMap = {
-    [KILO]: theme.spacings.mega,
-    [MEGA]: theme.spacings.giga,
-    [GIGA]: theme.spacings.tera
-  };
-
-  const sizeValue = sizeMap[size] || sizeMap.GIGA;
-
-  return css`
-    label: spinner--${size.toLowerCase()};
-    ${sizeMixin(sizeValue)};
-  `;
-};
-
 const SpinnerContainer = styled('div')(
   baseContainerStyles,
-  sizeContainerStyles,
   activeContainerStyles
 );
 
 /**
  * A loading spinner with ARIA labels support.
  */
-const Spinner = ({ dark, size, active }) => (
-  <SpinnerContainer {...{ active, size }}>
+const Spinner = ({ dark, active, ...props }) => (
+  <SpinnerContainer {...{ active, ...props }}>
     <SpinnerIcon dark={dark} />
   </SpinnerContainer>
 );
 
-Spinner.KILO = KILO;
-Spinner.MEGA = MEGA;
-Spinner.GIGA = GIGA;
-
 Spinner.propTypes = {
-  /**
-   * Size of the Spinner. Usually passed down from parent
-   * like a Button.
-   */
-  size: PropTypes.oneOf([Spinner.KILO, Spinner.MEGA, Spinner.GIGA]),
   /**
    * Renders a dark variant of the Spinner.
    */
@@ -114,7 +84,6 @@ Spinner.propTypes = {
 };
 
 Spinner.defaultProps = {
-  size: Spinner.GIGA,
   dark: false,
   active: true
 };
