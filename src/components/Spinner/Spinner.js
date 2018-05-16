@@ -1,23 +1,80 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'react-emotion';
-import { size as sizeMixin, transparentize } from 'polished';
+import { size as sizeMixin } from 'polished';
 import { withProps } from 'recompose';
 
 import { sizes } from '../../styles/constants';
 
+import RailIcon from './icons/rail.svg';
+import SpinIcon from './icons/spinner.svg';
+
 const { KILO, MEGA, GIGA } = sizes;
+
+const relativeCenter = `
+  translate3d(-50%, -50%, 0);
+`;
 
 const spin = keyframes`
   0% {
-    transform: rotate(0deg);
+    transform: rotate3d(0, 0, 1, 0deg) ${relativeCenter};
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate3d(0, 0, 1, 360deg) ${relativeCenter};
   }
 `;
 
-const sizeStyles = ({ theme, size }) => {
+/**
+ * Icon components
+ */
+
+const baseIconStyles = ({ theme }) => css`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: ${relativeCenter};
+  & > path {
+    fill: ${theme.colors.white};
+  }
+`;
+
+const darkIconStyles = ({ theme, dark }) =>
+  dark &&
+  css`
+    & > path {
+      fill: ${theme.colors.n900};
+    }
+  `;
+
+const baseSpinStyles = css`
+  label: spinner;
+  transform-origin: top left;
+  animation: ${spin} 1s infinite linear;
+`;
+
+const Rail = styled(RailIcon)(baseIconStyles, darkIconStyles);
+
+const Spin = styled(SpinIcon)(baseIconStyles, darkIconStyles, baseSpinStyles);
+
+/**
+ * Container component
+ */
+
+const baseContainerStyles = css`
+  opacity: 0;
+  position: relative;
+  transition: opacity 200ms ease-in-out;
+`;
+
+const activeContainerStyles = ({ active }) =>
+  active &&
+  css`
+    opacity: 1;
+  `;
+
+const sizeContainerStyles = ({ theme, size }) => {
   const sizeMap = {
     [KILO]: theme.spacings.mega,
     [MEGA]: theme.spacings.giga,
@@ -29,34 +86,23 @@ const sizeStyles = ({ theme, size }) => {
   return css`
     label: spinner--${size.toLowerCase()};
     ${sizeMixin(sizeValue)};
-    border-radius: ${sizeValue};
   `;
 };
 
-const darkStyles = ({ theme, dark }) =>
-  dark &&
-  css`
-    border: 2px solid ${theme.colors.n900};
-    border-top: 2px solid ${transparentize(0.7, theme.colors.n900)};
-  `;
-
-const baseStyles = ({ theme }) => css`
-  label: spinner;
-  animation: ${spin} 1s infinite linear;
-  border-radius: ${theme.spacings.giga};
-  border: 2px solid ${theme.colors.white};
-  border-top: 2px solid ${transparentize(0.7, theme.colors.white)};
-`;
-
-const Circle = styled('div')(baseStyles, sizeStyles, darkStyles);
+const SpinnerContainer = styled('div')(
+  baseContainerStyles,
+  sizeContainerStyles,
+  activeContainerStyles
+);
 
 /**
  * A loading spinner with ARIA labels support.
  */
-const Spinner = ({ dark, size, ...props }) => (
-  <div {...props}>
-    <Circle {...{ size, dark }} />
-  </div>
+const Spinner = ({ dark, size, active }) => (
+  <SpinnerContainer {...{ active, size }}>
+    <Rail dark={dark} />
+    <Spin dark={dark} />
+  </SpinnerContainer>
 );
 
 Spinner.KILO = KILO;
@@ -72,12 +118,14 @@ Spinner.propTypes = {
   /**
    * Renders a dark variant of the Spinner.
    */
-  dark: PropTypes.bool
+  dark: PropTypes.bool,
+  active: PropTypes.bool
 };
 
 Spinner.defaultProps = {
   size: Spinner.GIGA,
-  dark: false
+  dark: false,
+  active: true
 };
 
 /**
