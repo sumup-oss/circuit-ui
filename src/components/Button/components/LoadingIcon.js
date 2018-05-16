@@ -12,6 +12,10 @@ import { LOADING_STATES, SIZE_PROP_TYPE } from '../constants';
 
 const { KILO, MEGA, GIGA } = sizes;
 
+/**
+ * Keyframes
+ */
+
 const iconEnter = keyframes`
   0% {
     opacity: 1;
@@ -24,24 +28,10 @@ const iconEnter = keyframes`
   }
 `;
 
-const iconBaseStyles = css`
-  transform: scale3d(0, 0, 0);
-  opacity: 0;
-  transition: opacity 200ms ease-in-out;
-  ${sizeMixin('100%')};
-`;
+/**
+ * General purpose style functions.
+ */
 
-const iconVisibleStyles = ({ visible }) =>
-  visible &&
-  css`
-    animation: ${iconEnter} 200ms ease-in-out;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-  `;
-
-const SuccessIcon = styled(SuccessSvg)(iconBaseStyles, iconVisibleStyles);
-
-// TODO: use default animation after merging.
 const centeredStyles = css`
   display: block;
   position: absolute;
@@ -50,7 +40,7 @@ const centeredStyles = css`
   transform: translate3d(-50%, -50%, 0);
 `;
 
-const sizeStyles = ({ theme, size }) => {
+const sizeStyles = label => ({ theme, size }) => {
   const sizeMap = {
     [KILO]: theme.spacings.mega,
     [MEGA]: theme.spacings.giga,
@@ -60,15 +50,51 @@ const sizeStyles = ({ theme, size }) => {
   const sizeValue = sizeMap[size] || sizeMap.GIGA;
 
   return css`
-    label: spinner--${size.toLowerCase()};
+    label: ${label}--${size.toLowerCase()};
     ${sizeMixin(sizeValue)};
   `;
 };
 
-const SuccessContainer = styled('div')(centeredStyles, sizeStyles);
+/**
+ * Icon styles for success icon
+ */
 
-const Spinner = styled(PureSpinner)(sizeStyles, centeredStyles);
+const successIconBaseStyles = css`
+  label: loading-icon__success;
+  transform: scale3d(0, 0, 0);
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  ${sizeMixin('100%')};
+`;
 
+const successIconVisibleStyles = ({ visible }) =>
+  visible &&
+  css`
+    label: loading-icon__success--visible;
+    animation: ${iconEnter} 200ms ease-in-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+  `;
+
+const SuccessIcon = styled(SuccessSvg)(
+  successIconBaseStyles,
+  successIconVisibleStyles
+);
+const SuccessContainer = styled('div')(
+  centeredStyles,
+  sizeStyles('loading-icon__success')
+);
+
+/**
+ * Direct sub-components
+ */
+
+const Spinner = styled(PureSpinner)(
+  sizeStyles('loading-icon__spinner'),
+  centeredStyles
+);
+
+// TODO: add ARIA labels to icon.
 const Success = ({ size, ...props }) => (
   <SuccessContainer size={size}>
     <SuccessIcon {...props} />
@@ -76,13 +102,20 @@ const Success = ({ size, ...props }) => (
 );
 
 Success.propTypes = {
-  size: PropTypes.oneOf(SIZE_PROP_TYPE)
+  /**
+   * Size prop from the Button.
+   */
+  size: SIZE_PROP_TYPE
 };
 
 Success.defaultProps = {
   size: GIGA
 };
 
+/**
+ * Two components that center themselves in the relatively positioned
+ * parent.
+ */
 const LoadingIcon = ({ loadingState, size }) => (
   <Fragment>
     <Spinner size={size} active={loadingState === LOADING_STATES.ACTIVE} />
@@ -91,7 +124,14 @@ const LoadingIcon = ({ loadingState, size }) => (
 );
 
 LoadingIcon.propTypes = {
+  /**
+   * Current loading state of the button. Determines whether the icon shows
+   * and whether Spinner or Success are shown.
+   */
   loadingState: PropTypes.oneOf(values(LOADING_STATES)).isRequired,
+  /**
+   * Size prop from the Button.
+   */
   size: PropTypes.string.isRequired
 };
 
