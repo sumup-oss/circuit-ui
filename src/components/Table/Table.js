@@ -134,9 +134,9 @@ class Table extends Component {
         >
           <StyledTable rowHeaders={rowHeaders}>
             <TableHead
-              sortBy={this.onSortBy}
               sortDirection={sortDirection}
               sortedRow={sortedRow}
+              onSortBy={this.onSortBy}
               onSortEnter={this.onSortEnter}
               onSortLeave={this.onSortLeave}
               headers={headers}
