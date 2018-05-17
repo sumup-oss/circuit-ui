@@ -110,6 +110,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   border: none;
   cursor: pointer;
   fill: #0F131A;
+  overflow: initial;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -167,6 +168,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   border: none;
   cursor: pointer;
   fill: #0F131A;
+  overflow: initial;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -255,6 +257,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   border: none;
   cursor: pointer;
   fill: #0F131A;
+  overflow: initial;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

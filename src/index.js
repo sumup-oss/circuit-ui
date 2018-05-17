@@ -115,7 +115,15 @@ export { default as Image } from './components/Image';
 export { default as LoadingBar } from './components/LoadingBar';
 export { default as Tag } from './components/Tag';
 export { default as Tooltip } from './components/Tooltip';
-export { default as ModalConsumer, ModalProvider } from './components/Modal';
+export {
+  default as Modal,
+  DEFAULT_APP_ELEMENT,
+  ModalConsumer,
+  ModalProvider,
+  ModalWrapper,
+  ModalHeader,
+  ModalFooter
+} from './components/Modal';
 export { default as Picture } from './components/Picture';
 
 // Helpers

@@ -43,6 +43,7 @@ exports[`TableHead Style tests should render with default styles 1`] = `
   border: none;
   cursor: pointer;
   fill: #0F131A;
+  overflow: initial;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -178,6 +179,7 @@ exports[`TableHead Style tests should render with rowHeader styles 1`] = `
   border: none;
   cursor: pointer;
   fill: #0F131A;
+  overflow: initial;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
