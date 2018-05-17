@@ -5,7 +5,7 @@ import { withTheme } from 'emotion-theming';
 
 import Card from '../../../Card';
 
-const cardStyles = ({ theme }) => css`
+const baseStyles = ({ theme }) => css`
   width: 100%;
 
   ${theme.mq.untilKilo`
@@ -17,7 +17,7 @@ const cardStyles = ({ theme }) => css`
 `;
 
 const Wrapper = styled(Card)`
-  ${cardStyles};
+  ${baseStyles};
 `;
 
 Wrapper.defaultProps = Card.defaultProps;
