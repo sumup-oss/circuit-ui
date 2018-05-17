@@ -211,6 +211,7 @@ const breakpoints = {
   kilo: 480,
   kiloToMega: '(min-width: 480px) and (max-width: 767px)',
   mega: 768,
+  untilMega: '(max-width: 767px)',
   megaToGiga: '(min-width: 768px) and (max-width: 959px)',
   giga: 960,
   gigaToTera: '(min-width: 960px) and (max-width: 1279px)',

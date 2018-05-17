@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableBody Style tests should render with default styles 1`] = `
+.circuit-4 {
+  vertical-align: middle;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+<tbody>
+  <tr
+    className="circuit-4 circuit-5"
+  >
+    <td
+      className="circuit-0 circuit-1"
+    >
+      Foo
+    </td>
+    <td
+      className="circuit-0 circuit-1"
+    >
+      Bar
+    </td>
+  </tr>
+</tbody>
+`;
+
+exports[`TableBody Style tests should render with fixed Header styles 1`] = `
+.circuit-6 {
+  vertical-align: middle;
+}
+
+.circuit-4 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+@media (max-width:767px) {
+  .circuit-0 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-2 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-2 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+<tbody>
+  <tr
+    className="circuit-6 circuit-7"
+  >
+    <th
+      aria-sort={null}
+      className="circuit-0 circuit-1"
+      scope="row"
+    >
+      Foo
+    </th>
+    <td
+      aria-hidden="true"
+      className="circuit-2 circuit-3"
+      role="presentation"
+    >
+      Foo
+    </td>
+    <td
+      className="circuit-4 circuit-3"
+    >
+      Bar
+    </td>
+  </tr>
+</tbody>
+`;
