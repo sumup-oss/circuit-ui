@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import { injectGlobal, css, cx } from 'react-emotion';
+import { injectGlobal, css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
-import { transparentize } from 'polished';
 
-import Card, { CardHeader, CardFooter } from '../Card';
-import Heading from '../Heading';
+import { transparentize } from 'polished';
 import { themePropType } from '../../util/shared-prop-types';
 import { mapValues } from '../../util/fp';
+import { isFunction } from '../../util/type-check';
 import IS_IOS from '../../util/ios';
 
 export const TRANSITION_DURATION = 200;
@@ -28,17 +27,6 @@ const FIXED_TRANSITION = `${TRANSITION_DURATION}ms cubic-bezier(0, 0.37, 0.64, 1
  * React Modal styles.
  * Documentation: http://reactcommunity.org/react-modal/styles/classes.html
  */
-
-const cardStyles = ({ theme }) => css`
-  width: 100%;
-
-  ${theme.mq.untilKilo`
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    min-width: initial;
-    position: relative;
-  `};
-`;
 
 const modalClassName = {
   base: ({ theme }) => css`
@@ -164,13 +152,9 @@ injectGlobal`
  */
 const Modal = ({
   children,
-  className,
   onClose,
   contentLabel,
   theme,
-  title,
-  hasCloseButton,
-  buttons,
   appElement,
   ...otherProps
 }) => {
@@ -187,22 +171,7 @@ const Modal = ({
 
   return (
     <ReactModal {...reactModalProps}>
-      <Card
-        className={cx(cardStyles({ theme }), className)}
-        shadow={Card.TRIPLE}
-      >
-        {(title || hasCloseButton) && (
-          <CardHeader onClose={hasCloseButton ? onClose : null}>
-            {title && (
-              <Heading size={Heading.KILO} noMargin>
-                {title}
-              </Heading>
-            )}
-          </CardHeader>
-        )}
-        {children ? children({ onClose }) : null}
-        {buttons && <CardFooter>{buttons({ onClose })}</CardFooter>}
-      </Card>
+      {isFunction(children) ? children() : children}
     </ReactModal>
   );
 };
@@ -211,7 +180,7 @@ Modal.propTypes = {
   /**
    * Render prop for the content of the Modal.
    */
-  children: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
   /**
    * Determines if the modal is visible or not.
    */
@@ -225,25 +194,6 @@ Modal.propTypes = {
    * The Circuit UI theme.
    */
   theme: themePropType.isRequired,
-  /*
-   * Heading to be shown at the top of the modal.
-   */
-  title: PropTypes.string,
-  /*
-   * A render prop rendering buttons. If you use multiple buttons,
-   * wrap them in a ButtonGroup.
-   */
-  buttons: PropTypes.func,
-  /*
-   * Whether a close button (x) should be shown in the top right.
-   */
-  hasCloseButton: PropTypes.bool,
-  /**
-   * Class name string to overwrite the default
-   * Card styles. Useful for removing padding from
-   * the Card.
-   */
-  className: PropTypes.string,
   /**
    * React Modal's accessibility string.
    */
@@ -257,11 +207,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-  className: '',
   contentLabel: 'Modal',
-  title: null,
-  hasCloseButton: true,
-  buttons: null,
   appElement: DEFAULT_APP_ELEMENT
 };
 

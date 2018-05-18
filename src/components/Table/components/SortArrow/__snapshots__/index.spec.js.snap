@@ -9,6 +9,7 @@ exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
   border: none;
   cursor: pointer;
   fill: #0F131A;
+  overflow: initial;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -56,6 +57,7 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
   border: none;
   cursor: pointer;
   fill: #0F131A;
+  overflow: initial;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -106,6 +108,7 @@ exports[`SortArrow Style tests should render with descending arrow styles 1`] = 
   border: none;
   cursor: pointer;
   fill: #0F131A;
+  overflow: initial;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

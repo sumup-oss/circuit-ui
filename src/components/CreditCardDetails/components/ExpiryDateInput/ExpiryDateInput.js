@@ -19,7 +19,7 @@ const ExpiryDateInput = ({ label, id, ...props }) => (
       type="tel"
       mask={[/\d/, /\d/, '/', /\d/, /\d/]}
       guide={false}
-      keepCharPositions={true}
+      keepCharPositions
       pipe={datePipe}
       {...{ ...props, id }}
     />

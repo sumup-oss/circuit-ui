@@ -5,7 +5,8 @@ import { action } from '@storybook/addon-actions';
 import styled, { css } from 'react-emotion';
 
 import withTests from '../../util/withTests';
-import ModalConsumer, { ModalProvider } from '.';
+import { ModalConsumer, ModalProvider } from '.';
+import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
@@ -30,7 +31,7 @@ const PageWithModal = ({ modal }) => (
 
 const defaultModal = {
   // eslint-disable-next-line react/prop-types, no-unused-vars
-  children: () => <div>Hello World!</div>,
+  children: () => <ModalWrapper>Hello World!</ModalWrapper>,
   onClose: e => {
     action('Modal closed')(e);
   }
@@ -44,8 +45,12 @@ storiesOf('Modal', module)
     withInfo()(() => {
       const modalWithTitle = {
         ...defaultModal,
-        title: 'A modal',
-        children: () => <Text>Some text in the modal body.</Text>
+        children: () => (
+          <ModalWrapper>
+            <ModalHeader title="A modal" />
+            <Text>Some text in the modal body.</Text>
+          </ModalWrapper>
+        )
       };
       return <PageWithModal modal={modalWithTitle} />;
     })
@@ -55,9 +60,11 @@ storiesOf('Modal', module)
     withInfo()(() => {
       const modalWithTitleAndCloser = {
         ...defaultModal,
-        hasCloseButton: false,
-        // eslint-disable-next-line react/prop-types
-        children: () => <Text>Some text in the modal body.</Text>
+        children: () => (
+          <ModalWrapper>
+            <Text>Some text in the modal body.</Text>
+          </ModalWrapper>
+        )
       };
       return <PageWithModal modal={modalWithTitleAndCloser} />;
     })
@@ -67,9 +74,13 @@ storiesOf('Modal', module)
     withInfo()(() => {
       const modalWithTitle = {
         ...defaultModal,
-        title: 'A modal',
         // eslint-disable-next-line react/prop-types
-        children: () => <Text>Some text in the modal body.</Text>
+        children: ({ onClose }) => (
+          <ModalWrapper>
+            <ModalHeader title="A modal" onClose={onClose} />
+            <Text>Some text in the modal body.</Text>
+          </ModalWrapper>
+        )
       };
       return <PageWithModal modal={modalWithTitle} />;
     })
@@ -79,31 +90,35 @@ storiesOf('Modal', module)
     withInfo()(() => {
       const modalWithTitle = {
         ...defaultModal,
-        title: 'A modal',
         // eslint-disable-next-line react/prop-types
-        buttons: ({ onClose }) => (
-          <ButtonGroup>
-            <Button
-              secondary
-              onClick={e => {
-                action('Cancel button clicked')(e);
-                onClose(e);
-              }}
-            >
-              Cancel
-            </Button>
-            <Button
-              primary
-              onClick={e => {
-                action('Confirm button clicked')(e);
-                onClose(e);
-              }}
-            >
-              Confirm
-            </Button>
-          </ButtonGroup>
-        ),
-        children: () => <Text>Some text in the modal body.</Text>
+        children: ({ onClose }) => (
+          <ModalWrapper>
+            <ModalHeader title="A modal" />
+            <Text>Some text in the modal body.</Text>
+            <ModalFooter>
+              <ButtonGroup>
+                <Button
+                  secondary
+                  onClick={e => {
+                    action('Cancel button clicked')(e);
+                    onClose(e);
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  primary
+                  onClick={e => {
+                    action('Confirm button clicked')(e);
+                    onClose(e);
+                  }}
+                >
+                  Confirm
+                </Button>
+              </ButtonGroup>
+            </ModalFooter>
+          </ModalWrapper>
+        )
       };
       return <PageWithModal modal={modalWithTitle} />;
     })
@@ -117,6 +132,7 @@ storiesOf('Modal', module)
         align-items: stretch;
         flex-wrap: nowrap;
         height: 100%;
+        background: #fff;
       `;
 
       const LeftColumn = styled('div')`
@@ -143,12 +159,14 @@ storiesOf('Modal', module)
         className: cardClassName,
         hasCloseButton: false,
         children: () => (
-          <Container>
-            <LeftColumn>
-              <Text>A nice custom modal for special cases.</Text>
-            </LeftColumn>
-            <RightColumn />
-          </Container>
+          <div className={cardClassName}>
+            <Container>
+              <LeftColumn>
+                <Text>A nice custom modal for special cases.</Text>
+              </LeftColumn>
+              <RightColumn />
+            </Container>
+          </div>
         )
       };
       return <PageWithModal modal={modalWithTitle} />;

@@ -12,6 +12,7 @@ const baseStyles = ({ theme }) => css`
   border: none;
   cursor: pointer;
   fill: ${theme.colors.black};
+  overflow: initial;
 
   &:focus,
   &:active {
