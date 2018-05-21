@@ -14,18 +14,14 @@
     "test:unit:verbose": "jest --coverage --no-cache",
     "test:unit": "yarn test:unit:verbose --silent",
     "test:unit:watch": "yarn test:unit:output -- --watch",
-    "test:unit:output":
-      "jest --json --outputFile=jest-test-results.json --no-cache --silent",
+    "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
     "prepush": "yarn test",
     "start": "yarn test:unit:output && start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
-    "build":
-      "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
+    "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
     "build:storybook": "build-storybook -c .storybook -o .out",
-    "build:stylesheet":
-      "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
-    "build:global-styles":
-      "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
+    "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
+    "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "deploy": "yarn build && gh-pages -d .out"
   },
@@ -40,14 +36,16 @@
   },
   "homepage": "https://github.com/sumup/circuit-ui#readme",
   "devDependencies": {
-    "@storybook/addon-a11y": "^3.3.10",
-    "@storybook/addon-actions": "^3.3.3",
-    "@storybook/addon-info": "^3.3.3",
-    "@storybook/addon-jest": "^3.3.3",
-    "@storybook/addon-knobs": "^3.3.3",
-    "@storybook/addon-links": "^3.3.3",
-    "@storybook/addon-options": "^3.3.3",
-    "@storybook/react": "^3.3.3",
+    "@storybook/addons": "^3.4.00",
+    "@storybook/addon-a11y": "^3.4.0",
+    "@storybook/addon-actions": "^3.4.0",
+    "@storybook/addon-info": "^3.4.0",
+    "@storybook/addon-jest": "^3.4.0",
+    "@storybook/addon-knobs": "^3.4.0",
+    "@storybook/addon-links": "^3.4.0",
+    "@storybook/addon-options": "^3.4.0",
+    "@storybook/addon-storysource": "^3.4.0",
+    "@storybook/react": "^3.4.0",
     "babel-eslint": "^8.1.2",
     "babel-jest": "^22.1.0",
     "babel-loader": "^7.1.2",
@@ -109,8 +107,8 @@
     "react-emotion": "^9.0.0-1",
     "react-modal": "^3.3.2",
     "react-text-mask": "^5.3.1",
-    "text-mask-addons": "^3.7.2",
     "react-with-styles": "^3.1.1",
-    "recompose": "^0.26.0"
+    "recompose": "^0.26.0",
+    "text-mask-addons": "^3.7.2"
   }
 }
