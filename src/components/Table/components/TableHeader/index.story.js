@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { boolean, text, select } from '@storybook/addon-knobs/react';
+import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import withTests from '../../../../util/withTests';
 import TableHeader from '.';
@@ -12,7 +13,7 @@ const options = {
   [TableHeader.CENTER]: TableHeader.CENTER
 };
 
-storiesOf('TableHeader', module)
+storiesOf(`${GROUPS.COMPONENTS}|Table/TableHeader`, module)
   .addDecorator(withTests('TableHeader'))
   .add(
     'Table Header',

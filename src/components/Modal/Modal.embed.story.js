@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import styled, { css } from 'react-emotion';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
@@ -15,7 +16,7 @@ const ExampleWrap = ({ children }) => (
   <div style={{ width: '70vw', minWidth: '300px ' }}>{children}</div>
 );
 
-storiesOf('Modal Embed', module)
+storiesOf(`${GROUPS.COMPONENTS}|Modal Embed`, module)
   .addDecorator(withTests('Modal'))
   .add(
     'Modal',

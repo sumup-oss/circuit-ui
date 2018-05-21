@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Tag from './Tag';
@@ -20,7 +21,7 @@ const Icon = () => (
   </svg>
 );
 
-storiesOf('Tag', module)
+storiesOf(`${GROUPS.COMPONENTS}|Tag`, module)
   .addDecorator(withTests('Tag'))
   .add(
     'Default Tag',

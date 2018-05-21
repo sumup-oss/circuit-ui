@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Card, { CardHeader, CardFooter } from '.';
@@ -10,7 +11,7 @@ import Text from '../Text';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 
-storiesOf('Card', module)
+storiesOf(`${GROUPS.COMPONENTS}|Card`, module)
   .addDecorator(withTests('Card'))
   .add(
     'Default Card',

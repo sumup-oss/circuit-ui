@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import styled from 'react-emotion';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import InlineElements from './InlineElements';
@@ -26,7 +27,7 @@ const Container = styled('div')({
   padding: '12px'
 });
 
-storiesOf('InlineElements', module)
+storiesOf(`${GROUPS.LAYOUT}|InlineElements`, module)
   .addDecorator(withTests('InlineElements'))
   .add(
     'Two InlineElements',

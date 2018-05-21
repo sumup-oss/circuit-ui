@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Row from './Row';
@@ -33,7 +34,7 @@ const StyledRow = styled(Row)`
   margin-bottom: 8px;
 `;
 
-storiesOf('Row', module)
+storiesOf(`${GROUPS.GRID}|Row`, module)
   .addDecorator(withTests('Row'))
   .add(
     'Default Row',

@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import State from '../State';
@@ -23,7 +24,7 @@ const options = [
   }
 ];
 
-storiesOf('RadioButtonGroup', module)
+storiesOf(`${GROUPS.FORMS}|RadioButton/RadioButtonGroup`, module)
   .addDecorator(withTests('RadioButtonGroup'))
   .add(
     'RadioButtonGroup',

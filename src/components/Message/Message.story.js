@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Message, { MessageIcon, MessageButton } from '.';
@@ -10,7 +11,7 @@ import Text from '../Text';
 import Button from '../Button';
 import ThumbsUpIcon from './thumbs-up.svg';
 
-storiesOf('Message', module)
+storiesOf(`${GROUPS.COMPONENTS}|Message`, module)
   .addDecorator(withTests('Message'))
   .add(
     'Default Message',

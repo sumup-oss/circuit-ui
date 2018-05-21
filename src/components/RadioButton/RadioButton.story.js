@@ -2,12 +2,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import State from '../State';
 import RadioButton from './RadioButton';
 
-storiesOf('RadioButton', module)
+storiesOf(`${GROUPS.FORMS}|RadioButton`, module)
   .addDecorator(withTests('RadioButton'))
   .add(
     'Default RadioButton',

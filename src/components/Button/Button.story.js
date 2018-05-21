@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Button from '.';
@@ -8,7 +9,7 @@ import Button from '.';
 const stretchedContainerStyles = { width: '400px' };
 const stretchedContainerTopButtonStyles = { marginBottom: '18px' };
 
-storiesOf('Button', module)
+storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
   .addDecorator(withTests('Button'))
   .add('Button', withInfo()(() => <Button>Button</Button>))
   .add('Button disabled', withInfo()(() => <Button disabled>Disabled</Button>))

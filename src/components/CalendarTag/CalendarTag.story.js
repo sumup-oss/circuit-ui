@@ -2,11 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import CalendarTag from './CalendarTag';
 
-storiesOf('CalendarTag', module)
+storiesOf(`${GROUPS.COMPONENTS}|Calendar/CalendarTag`, module)
   .addDecorator(withTests('CalendarTag'))
   .add(
     'Default CalendarTag',

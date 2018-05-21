@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import NotificationBanner from './NotificationBanner';
@@ -12,7 +13,7 @@ import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
 
-storiesOf('NotificationBanner', module)
+storiesOf(`${GROUPS.COMPONENTS}|NotificationBanner`, module)
   .addDecorator(withTests('NotificationBanner'))
   .add(
     'Default NotificationBanner',

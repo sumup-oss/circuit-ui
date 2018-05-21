@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Input from '.';
 import Label from '../Label';
 
-storiesOf('Input', module)
+storiesOf(`${GROUPS.FORMS}|Input`, module)
   .addDecorator(withTests('Input'))
   .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
   .add(

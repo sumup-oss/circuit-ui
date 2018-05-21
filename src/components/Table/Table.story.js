@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { boolean } from '@storybook/addon-knobs/react';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Table from './Table';
@@ -36,7 +37,7 @@ const rows = [
   ]
 ];
 
-storiesOf('Table', module)
+storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .addDecorator(withTests('Table'))
   .add(
     'Table',

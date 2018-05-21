@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Spacing from './Spacing';
 import Button from '../Button';
 
-storiesOf('Spacing', module)
+storiesOf(`${GROUPS.LAYOUT}|Spacing`, module)
   .addDecorator(withTests('Spacing'))
   .add(
     'Bottom Spacing',

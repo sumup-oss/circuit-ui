@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Markdown from './Markdown';
@@ -52,7 +53,7 @@ leni agat pro! Fuit relinque.
 Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
 cultus coniunx adituque.`;
 
-storiesOf('Markdown', module)
+storiesOf(`${GROUPS.COMPONENTS}|Markdown`, module)
   .addDecorator(withTests('Markdown'))
   .add(
     'Default Markdown',

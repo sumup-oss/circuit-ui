@@ -1,11 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import List from './List';
 
-storiesOf('List', module)
+storiesOf(`${GROUPS.COMPONENTS}|List`, module)
   .addDecorator(withTests('List'))
   .add(
     'List default',

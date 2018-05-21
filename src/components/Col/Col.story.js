@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import { standard } from '../../themes';
 
@@ -22,7 +23,7 @@ StyledCol.defaultProps = {
   skip: '0'
 };
 
-storiesOf('Col', module)
+storiesOf(`${GROUPS.GRID}|Col`, module)
   .addDecorator(withTests('Col'))
   .add(
     'Default Col',

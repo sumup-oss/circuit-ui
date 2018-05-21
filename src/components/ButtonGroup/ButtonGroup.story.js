@@ -2,12 +2,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { select, boolean } from '@storybook/addon-knobs/react';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import ButtonGroup from './';
 import Button from '../Button';
 
-storiesOf('ButtonGroup', module)
+storiesOf(`${GROUPS.COMPONENTS}|Button/ButtonGroup`, module)
   .addDecorator(withTests('ButtonGroup'))
   .add(
     'Default ButtonGroup',

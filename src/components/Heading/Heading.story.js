@@ -1,11 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Heading from '.';
 
-storiesOf('Heading', module)
+storiesOf(`${GROUPS.TYPOGRAPHY}|Heading`, module)
   .addDecorator(withTests('Heading'))
   .add(
     'Zetta Heading with h1',
