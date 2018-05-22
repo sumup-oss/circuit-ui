@@ -181,6 +181,7 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 .circuit-0 .SingleDatePicker_closeButton:focus,
 .circuit-0 .SingleDatePicker_closeButton:hover {
   color: darken(#cacccd,10%);
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
@@ -987,6 +988,7 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 .circuit-0 .DateRangePicker_closeButton:focus,
 .circuit-0 .DateRangePicker_closeButton:hover {
   color: darken(#cacccd,10%);
+  -webkit-text-decoration: none;
   text-decoration: none;
 }
 
