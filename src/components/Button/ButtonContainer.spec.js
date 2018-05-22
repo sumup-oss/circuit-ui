@@ -12,7 +12,7 @@ function getLoadingState(wrapper) {
 
 describe('ButtonContainer', () => {
   describe('without a click handler', () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <ButtonContainer href="http://google.com">Click</ButtonContainer>
     );
 
@@ -25,7 +25,7 @@ describe('ButtonContainer', () => {
   describe('with a click handler', () => {
     describe('returning nothing', () => {
       const handleClick = jest.fn();
-      const wrapper = mount(
+      const wrapper = shallow(
         <ButtonContainer onClick={handleClick}>Click</ButtonContainer>
       );
 
@@ -75,10 +75,10 @@ describe('ButtonContainer', () => {
               reject = rej;
             })
         );
-        wrapper = mount(
+        wrapper = shallow(
           <ButtonContainer
             onClick={handleClick}
-            delayMs={animationDelay}
+            loadingDelay={animationDelay}
             onAnimationComplete={handleAnimationComplete}
           >
             Click
@@ -93,10 +93,8 @@ describe('ButtonContainer', () => {
         expect(actualLoadingState).toBe(LOADING_STATES.INACTIVE);
       });
 
-      // TODO: I don't really trust these tests. Not sure exactly how stuff
-      // behaves with mocked timers.
       describe('when handling a click event', () => {
-        it('should not show the loading icon, if the Promise resolves in delayMs', () => {
+        it('should not show the loading icon, if the Promise resolves in loadingDelay', () => {
           wrapper.simulate('click');
           // Sets timeout before
           expect(getLoadingState(wrapper)).toBe(LOADING_STATES.INACTIVE);
@@ -105,42 +103,27 @@ describe('ButtonContainer', () => {
           expect(getLoadingState(wrapper)).toBe(LOADING_STATES.INACTIVE);
         });
 
-        it('should show the loading icon with Spinner, if the Promise takes longer than delayMs to resolve', () => {
+        it('should show the loading icon with Spinner, if the Promise takes longer than loadingDelay to resolve', () => {
           wrapper.simulate('click');
           wrapper.update();
           // Sets timeout before
           expect(getLoadingState(wrapper)).toBe(LOADING_STATES.INACTIVE);
-          wrapper.update();
           jest.runOnlyPendingTimers();
           wrapper.update();
           expect(getLoadingState(wrapper)).toBe(LOADING_STATES.ACTIVE);
         });
 
-        // FIXME: this test does not work because the wrapper does not reflect
-        // the correct component state. Logging from the component shows that
-        // the component state gets updated properly. Enzyme's wrapper
-        // simply does not reflect it.
-        //
-        // Possibly related Github issues:
-        // - https://github.com/airbnb/enzyme/issues/1153
-        // - https://github.com/airbnb/enzyme/issues/1400
-        // eslint-disable-next-line max-len
-        it.skip('should show the loading icon with Success, after the Promise resolves', () => {
+        it('should show the loading icon with Success, after the Promise resolves', async () => {
           wrapper.simulate('click');
           jest.runOnlyPendingTimers();
-          resolve();
-          wrapper.update();
-          jest.runOnlyPendingTimers();
+          await resolve();
           wrapper.update();
           expect(getLoadingState(wrapper)).toBe(LOADING_STATES.SUCCESS);
         });
 
-        // FIXME: also does not work. This whole suite is a mess.
-        // eslint-disable-next-line max-len
-        it.skip('should call the onAnimationComplete prop after the Success icon has been visible', () => {
+        it('should call the onAnimationComplete prop after the Success icon has been visible', async () => {
           wrapper.simulate('click');
-          jest.runOnlyPendingTimers();
-          resolve();
+          await resolve();
           wrapper.update();
           jest.runOnlyPendingTimers();
           expect(handleAnimationComplete).toHaveBeenCalled();
@@ -148,13 +131,9 @@ describe('ButtonContainer', () => {
       });
 
       describe('returning a rejected promise', () => {
-        // eslint-disable-next-line max-len
-        it.skip('should hide the loading icon if the Promise is rejected', () => {
+        it('should hide the loading icon if the Promise is rejected', async () => {
           wrapper.simulate('click');
-          jest.runOnlyPendingTimers();
-          reject();
-          wrapper.update();
-          jest.runOnlyPendingTimers();
+          await reject();
           wrapper.update();
           expect(getLoadingState(wrapper)).toBe(LOADING_STATES.INACTIVE);
         });
