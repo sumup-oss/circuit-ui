@@ -108,7 +108,7 @@ export default class ButtonContainer extends Component {
 
     this.setState({ timeoutId });
 
-    handlingClick.then(this.handleSuccess).catch(this.handleSuccess);
+    handlingClick.then(this.handleSuccess).catch(this.handleError);
   };
 
   // TODO: should these be handlers? They are not handling an
