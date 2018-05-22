@@ -88,7 +88,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
               setTimeout(() => resolve(), 5000);
             })
           }
-          delayMs={500}
+          loadingDelay={500}
           primary
         >
           Click me

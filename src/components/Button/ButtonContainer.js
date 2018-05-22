@@ -17,11 +17,11 @@ const ContentWrapper = styled('div')`
   position: relative;
 `;
 
-// TODO: use theme animations here.
-const childrenWrapperStyles = () => css`
+const childrenWrapperStyles = ({ theme }) => css`
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  transition: opacity ${theme.transitions.default},
+    transform ${theme.transitions.default};
 `;
 
 const childrenWrapperLoadingStyles = ({ loadingState }) =>
@@ -62,7 +62,7 @@ export default class ButtonContainer extends Component {
     /**
      * Delay to wait before showing loading state.
      */
-    delayMs: PropTypes.number,
+    loadingDelay: PropTypes.number,
     /**
      * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
      */
@@ -71,7 +71,7 @@ export default class ButtonContainer extends Component {
 
   static defaultProps = {
     onClick: null,
-    delayMs: 500,
+    loadingDelay: 500,
     size: MEGA,
     onAnimationComplete: null
   };
@@ -89,7 +89,7 @@ export default class ButtonContainer extends Component {
   }
 
   handleClick = e => {
-    const { onClick, delayMs } = this.props;
+    const { onClick, loadingDelay } = this.props;
     const { timeoutId: existingTimeoutId } = this.state;
 
     if (!onClick || existingTimeoutId) {
@@ -104,7 +104,7 @@ export default class ButtonContainer extends Component {
 
     const timeoutId = setTimeout(() => {
       this.setState({ loadingState: LOADING_STATES.ACTIVE });
-    }, delayMs);
+    }, loadingDelay);
 
     this.setState({ timeoutId });
 
