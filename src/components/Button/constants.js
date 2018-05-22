@@ -13,4 +13,6 @@ export const LOADING_STATES = {
 
 export const EXIT_ANIMATION_DURATION = 2000;
 
+export const DEFAULT_LOADING_DELAY = 500;
+
 export const SIZE_PROP_TYPE = PropTypes.oneOf([KILO, MEGA, GIGA]);

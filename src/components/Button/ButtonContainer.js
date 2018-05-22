@@ -8,7 +8,8 @@ import { Button, LoadingIcon } from './components';
 import {
   LOADING_STATES,
   EXIT_ANIMATION_DURATION,
-  SIZE_PROP_TYPE
+  SIZE_PROP_TYPE,
+  DEFAULT_LOADING_DELAY
 } from './constants';
 
 const { KILO, MEGA, GIGA } = sizes;
@@ -71,7 +72,7 @@ export default class ButtonContainer extends Component {
 
   static defaultProps = {
     onClick: null,
-    loadingDelay: 500,
+    loadingDelay: DEFAULT_LOADING_DELAY,
     size: MEGA,
     onAnimationComplete: null
   };
