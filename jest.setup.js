@@ -23,10 +23,21 @@ const shallowWithTheme = tree => {
   return shallow(tree, { context });
 };
 
+const mountWithTheme = tree => {
+  const context = shallow(<ThemeProvider theme={standard} />)
+    .instance()
+    .getChildContext();
+
+  return mount(tree, {
+    context,
+    childContextTypes: ThemeProvider.childContextTypes
+  });
+};
+
 global.shallow = shallowWithTheme;
 global.render = renderWithTheme(render);
 global.create = renderWithTheme(create);
-global.mount = renderWithTheme(mount);
+global.mount = mountWithTheme;
 global.renderToHtml = renderWithTheme(renderToStaticMarkup);
 global.axe = axe;
 

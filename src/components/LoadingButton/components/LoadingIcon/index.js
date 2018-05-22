@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'react-emotion';
 import { size as sizeMixin } from 'polished';
 
-import { sizes } from '../../../styles/constants';
-import { values } from '../../../util/fp';
+import { sizes } from '../../../../styles/constants';
+import { values } from '../../../../util/fp';
 
-import PureSpinner from '../../Spinner';
-import SuccessSvg from './icons/success.svg';
-import { LOADING_STATES, SIZE_PROP_TYPE } from '../constants';
+import PureSpinner from '../../../Spinner';
+import SuccessSvg from '../icons/success.svg';
+import { LOADING_STATES } from '../../constants';
+import { SIZE_PROP_TYPE } from '../../../Button/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
 
@@ -32,12 +33,11 @@ const iconEnter = keyframes`
  * General purpose style functions.
  */
 
-const centeredStyles = css`
-  display: block;
+const centeredStyles = ({ theme }) => css`
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate(-50%, -50%);
 `;
 
 const sizeStyles = label => ({ theme, size }) => {

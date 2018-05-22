@@ -49,6 +49,10 @@ exports[`Button should have button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
@@ -110,6 +114,10 @@ exports[`Button should have disabled button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
@@ -173,6 +181,10 @@ exports[`Button should have flat button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -252,6 +264,10 @@ exports[`Button should have flat disabled button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -329,6 +345,10 @@ exports[`Button should have giga button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
@@ -390,6 +410,10 @@ exports[`Button should have kilo button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
@@ -451,6 +475,10 @@ exports[`Button should have mega button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
@@ -517,6 +545,10 @@ exports[`Button should have secondary button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -624,6 +656,10 @@ exports[`Button should have secondary disabled button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -731,6 +767,10 @@ exports[`Button should have secondary flat button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -835,6 +875,10 @@ exports[`Button should have stretch button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button

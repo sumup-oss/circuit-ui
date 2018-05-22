@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoadingIcon should have active LoadingIcon styles 1`] = `
+exports[`LoadingIcon Style tests should have active LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
@@ -10,13 +10,12 @@ Array [
   opacity: 1;
   height: 16px;
   width: 16px;
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 <div
@@ -31,13 +30,12 @@ Array [
     </div>
   </div>,
   .circuit-0 {
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   height: 16px;
   width: 16px;
 }
@@ -53,7 +51,57 @@ Array [
 ]
 `;
 
-exports[`LoadingIcon should have giga LoadingIcon styles 1`] = `
+exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
+Array [
+  .circuit-1 {
+  opacity: 0;
+  position: relative;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+<div
+    aria-busy="true"
+    aria-live="assertive"
+    className="circuit-0 circuit-1 circuit-2"
+    role="alertdialog"
+    size="kilo"
+  >
+    <div>
+      spinner.svg
+    </div>
+  </div>,
+  .circuit-0 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  height: 16px;
+  width: 16px;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    size="kilo"
+  >
+    <div>
+      success.svg
+    </div>
+  </div>,
+]
+`;
+
+exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
@@ -62,13 +110,12 @@ Array [
   transition: opacity 200ms ease-in-out;
   height: 32px;
   width: 32px;
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 <div
@@ -83,13 +130,12 @@ Array [
     </div>
   </div>,
   .circuit-0 {
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   height: 32px;
   width: 32px;
 }
@@ -105,7 +151,7 @@ Array [
 ]
 `;
 
-exports[`LoadingIcon should have inactive LoadingIcon styles 1`] = `
+exports[`LoadingIcon Style tests should have kilo LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
@@ -114,13 +160,12 @@ Array [
   transition: opacity 200ms ease-in-out;
   height: 16px;
   width: 16px;
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 <div
@@ -135,13 +180,12 @@ Array [
     </div>
   </div>,
   .circuit-0 {
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   height: 16px;
   width: 16px;
 }
@@ -157,59 +201,7 @@ Array [
 ]
 `;
 
-exports[`LoadingIcon should have kilo LoadingIcon styles 1`] = `
-Array [
-  .circuit-1 {
-  opacity: 0;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  height: 16px;
-  width: 16px;
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
-}
-
-<div
-    aria-busy="true"
-    aria-live="assertive"
-    className="circuit-0 circuit-1 circuit-2"
-    role="alertdialog"
-    size="kilo"
-  >
-    <div>
-      spinner.svg
-    </div>
-  </div>,
-  .circuit-0 {
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
-  height: 16px;
-  width: 16px;
-}
-
-<div
-    className="circuit-0 circuit-1"
-    size="kilo"
-  >
-    <div>
-      success.svg
-    </div>
-  </div>,
-]
-`;
-
-exports[`LoadingIcon should have mega LoadingIcon styles 1`] = `
+exports[`LoadingIcon Style tests should have mega LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
@@ -218,13 +210,12 @@ Array [
   transition: opacity 200ms ease-in-out;
   height: 24px;
   width: 24px;
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 <div
@@ -239,13 +230,12 @@ Array [
     </div>
   </div>,
   .circuit-0 {
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   height: 24px;
   width: 24px;
 }
@@ -261,7 +251,7 @@ Array [
 ]
 `;
 
-exports[`LoadingIcon should have success LoadingIcon styles 1`] = `
+exports[`LoadingIcon Style tests should have success LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
@@ -270,13 +260,12 @@ Array [
   transition: opacity 200ms ease-in-out;
   height: 16px;
   width: 16px;
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 <div
@@ -291,13 +280,12 @@ Array [
     </div>
   </div>,
   .circuit-0 {
-  display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate3d(-50%,-50%,0);
-  -ms-transform: translate3d(-50%,-50%,0);
-  transform: translate3d(-50%,-50%,0);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   height: 16px;
   width: 16px;
 }

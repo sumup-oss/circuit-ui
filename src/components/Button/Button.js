@@ -1,10 +1,9 @@
 import React from 'react';
 import styled, { css } from 'react-emotion';
-import PropTypes from 'prop-types';
 
-import { textMega } from '../../../styles/style-helpers';
-import { sizes } from '../../../styles/constants';
-import { SIZE_PROP_TYPE } from '../constants';
+import { textMega } from '../../styles/style-helpers';
+import { sizes } from '../../styles/constants';
+import { BUTTON_PROP_TYPES, BUTTON_DEFAULT_PROPS } from './constants';
 
 const { KILO, MEGA, GIGA } = sizes;
 
@@ -32,6 +31,7 @@ const disabledStyles = css`
   label: button--disabled;
   opacity: 0.4;
   pointer-events: none;
+  user-selectable: none;
 `;
 
 const stretchStyles = ({ stretch }) =>
@@ -214,6 +214,7 @@ const buttonLoadingStyles = ({ isLoading }) =>
   isLoading &&
   css`
     label: button--loading;
+    overflow-y: hidden;
     pointer-events: none;
   `;
 
@@ -236,52 +237,8 @@ const Button = ({ href, ...props }) =>
     <ButtonElement {...props} />
   );
 
-Button.propTypes = {
-  /**
-   * URL the Button should lead to. Causes the Button to render an <a> tag.
-   */
-  href: PropTypes.string,
-  /**
-   * Should the Button be disabled?
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Button has a 'flat' variation, triggered with this prop.
-   */
-  flat: PropTypes.bool,
-  /**
-   * Renders a secondary button. Secondary buttons look the same for
-   * primary (default) and flat buttons.
-   */
-  secondary: PropTypes.bool,
-  /**
-   * Renders a primary button using the brand color.
-   */
-  primary: PropTypes.bool,
-  /**
-   * Link target. Should only be passed, if href is passed, too.
-   */
-  target: PropTypes.string,
-  /**
-   * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
-   */
-  size: SIZE_PROP_TYPE,
-  /**
-   * Trigger stretch (full width) styles on the component.
-   */
-  stretch: PropTypes.bool
-};
-
-Button.defaultProps = {
-  disabled: false,
-  flat: false,
-  size: MEGA,
-  target: null,
-  href: null,
-  primary: false,
-  secondary: false,
-  stretch: false
-};
+Button.propTypes = BUTTON_PROP_TYPES;
+Button.defaultProps = BUTTON_DEFAULT_PROPS;
 
 /**
  * @component
