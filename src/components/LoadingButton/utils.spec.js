@@ -38,4 +38,16 @@ describe('LoadingButton utils', () => {
       expect(utils.isSuccess(LOADING_STATES.SUCCESS)).toBeTruthy();
     });
   });
+
+  describe('isError()', () => {
+    describe('not equal', () => {
+      it('should return false', () => {
+        expect(utils.isError(LOADING_STATES.DISABLED)).toBeFalsy();
+      });
+    });
+
+    it('should return true', () => {
+      expect(utils.isError(LOADING_STATES.ERROR)).toBeTruthy();
+    });
+  });
 });

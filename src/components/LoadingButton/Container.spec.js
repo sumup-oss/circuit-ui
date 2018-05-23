@@ -22,15 +22,47 @@ describe('Container Container', () => {
     });
 
     describe('isLoading false nextProp with LOADING_STATEC.ACTIVE', () => {
-      it('should update the state with LOADING_STATES.SUCCESS', () => {
-        const wrapper = mount(<Container isLoading />);
-        const expected = LOADING_STATES.SUCCESS;
+      describe('no exitAnimation', () => {
+        it('should update the state with LOADING_STATES.DISABLED', () => {
+          const wrapper = mount(<Container isLoading />);
+          const expected = LOADING_STATES.DISABLED;
 
-        wrapper.setProps({
-          isLoading: false
+          wrapper.setProps({
+            isLoading: false
+          });
+
+          expect(wrapper.state('loadingState')).toBe(expected);
         });
+      });
 
-        expect(wrapper.state('loadingState')).toBe(expected);
+      describe('exitAnimation LOADING_STATES.SUCCESS', () => {
+        it('should update the state with LOADING_STATES.SUCCESS', () => {
+          const wrapper = mount(
+            <Container isLoading exitAnimation={Container.SUCCESS} />
+          );
+          const expected = LOADING_STATES.SUCCESS;
+
+          wrapper.setProps({
+            isLoading: false
+          });
+
+          expect(wrapper.state('loadingState')).toBe(expected);
+        });
+      });
+
+      describe('exitAnimation LOADING_STATES.ERROR', () => {
+        it('should update the state with LOADING_STATES.ERROR', () => {
+          const wrapper = mount(
+            <Container isLoading exitAnimation={Container.ERROR} />
+          );
+          const expected = LOADING_STATES.ERROR;
+
+          wrapper.setProps({
+            isLoading: false
+          });
+
+          expect(wrapper.state('loadingState')).toBe(expected);
+        });
       });
     });
   });

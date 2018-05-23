@@ -5,7 +5,9 @@ import { noop, omit } from 'lodash/fp';
 import LoadingButton from './components/LoadingButton';
 import { LOADING_STATES, EXIT_ANIMATION_DURATION } from './constants';
 import { BUTTON_PROP_TYPES, BUTTON_DEFAULT_PROPS } from '../Button/constants';
-import { isActive, isDisabled, isSuccess } from './utils';
+import { isActive, isDisabled, isSuccess, isError } from './utils';
+
+const { DISABLED, ACTIVE, SUCCESS, ERROR } = LOADING_STATES;
 
 class Container extends Component {
   static propTypes = {
@@ -15,6 +17,7 @@ class Container extends Component {
       PropTypes.string,
       PropTypes.number
     ]),
+    exitAnimation: PropTypes.oneOf([SUCCESS, ERROR]),
     onAnimationComplete: PropTypes.func
   };
 
@@ -22,22 +25,33 @@ class Container extends Component {
     ...BUTTON_DEFAULT_PROPS,
     isLoading: false,
     exitAnimationDuration: EXIT_ANIMATION_DURATION,
+    exitAnimation: null,
     onAnimationComplete: noop
   };
 
+  static SUCCESS = SUCCESS;
+  static ERROR = ERROR;
+
   static getDerivedStateFromProps(nextProps, prevState) {
-    const { isLoading } = nextProps;
+    const { isLoading, exitAnimation } = nextProps;
     const { loadingState } = prevState;
 
+    // Component still on exitAnimation status
+    if (isSuccess(loadingState) || isError(loadingState)) {
+      return null;
+    }
+
+    // Component on initial disabled status
     if (isLoading && isDisabled(loadingState)) {
       return {
-        loadingState: LOADING_STATES.ACTIVE
+        loadingState: ACTIVE
       };
     }
 
+    // Component on active status but finished loading
     if (!isLoading && isActive(loadingState)) {
       return {
-        loadingState: LOADING_STATES.SUCCESS
+        loadingState: exitAnimation || DISABLED
       };
     }
 
@@ -45,15 +59,19 @@ class Container extends Component {
   }
 
   state = {
-    loadingState: LOADING_STATES.DISABLED
+    loadingState: DISABLED
   };
 
   componentDidUpdate(prevProps, prevState) {
     const { loadingState } = this.state;
-    const { exitAnimationDuration } = this.props;
+    const { exitAnimationDuration, exitAnimation } = this.props;
 
-    if (isSuccess(loadingState) && prevState.loadingState !== loadingState) {
-      setTimeout(this.onAnimationComplete, exitAnimationDuration);
+    if (!isActive(loadingState) && prevState.loadingState !== loadingState) {
+      if (!exitAnimation) {
+        this.onAnimationComplete();
+      } else {
+        setTimeout(this.onAnimationComplete, exitAnimationDuration);
+      }
     }
   }
 
@@ -65,7 +83,7 @@ class Container extends Component {
     }
 
     this.setState({
-      loadingState: LOADING_STATES.DISABLED
+      loadingState: DISABLED
     });
   };
 
@@ -75,7 +93,10 @@ class Container extends Component {
       ['onAnimationComplete', 'isLoading', 'exitAnimationDuration'],
       this.props
     );
-    const isLoading = isActive(loadingState) || isSuccess(loadingState);
+    const isLoading =
+      isActive(loadingState) ||
+      isSuccess(loadingState) ||
+      isError(loadingState);
 
     return (
       <LoadingButton
