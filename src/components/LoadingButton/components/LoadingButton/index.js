@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
@@ -24,6 +24,10 @@ const childrenWrapperLoadingStyles = ({ loadingState }) =>
     transform: translate(0, 100%);
   `;
 
+const Wrapper = styled.div`
+  position: relative;
+`;
+
 const ChildrenWrapper = styled.div`
   ${childrenWrapperStyles};
   ${childrenWrapperLoadingStyles};
@@ -43,10 +47,10 @@ const LoadingButton = ({
     onClick={isLoading ? null : onClick}
     isLoading={isLoading}
   >
-    <Fragment>
+    <Wrapper>
       <LoadingIcon size={size} loadingState={loadingState} />
       <ChildrenWrapper loadingState={loadingState}>{children}</ChildrenWrapper>
-    </Fragment>
+    </Wrapper>
   </Button>
 );
 
