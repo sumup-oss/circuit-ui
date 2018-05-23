@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoadingButton Style tests should have active loading styles 1`] = `
-.circuit-7 {
+.circuit-9 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -20,38 +20,42 @@ exports[`LoadingButton Style tests should have active loading styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7:active {
+.circuit-9:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-7:focus {
+.circuit-9:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-7:hover {
+.circuit-9:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-7:hover,
-.circuit-7:active {
+.circuit-9:hover,
+.circuit-9:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-9[disabled],
+.circuit-9:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
   -moz-user-selectable: none;
   -ms-user-selectable: none;
   user-selectable: none;
+}
+
+.circuit-7 {
+  position: relative;
 }
 
 .circuit-3 {
@@ -96,39 +100,43 @@ exports[`LoadingButton Style tests should have active loading styles 1`] = `
 }
 
 <button
-  className="circuit-7 circuit-8"
+  className="circuit-9 circuit-10"
   disabled={false}
   onClick={undefined}
   size="mega"
   target={null}
 >
   <div
-    aria-busy="true"
-    aria-live="assertive"
-    className="circuit-0 circuit-1 circuit-2"
-    role="alertdialog"
-    size="mega"
+    className="circuit-7 circuit-8"
   >
-    <div>
-      spinner.svg
+    <div
+      aria-busy="true"
+      aria-live="assertive"
+      className="circuit-0 circuit-1 circuit-2"
+      role="alertdialog"
+      size="mega"
+    >
+      <div>
+        spinner.svg
+      </div>
     </div>
-  </div>
-  <div
-    className="circuit-3 circuit-4"
-    size="mega"
-  >
-    <div>
-      success.svg
+    <div
+      className="circuit-3 circuit-4"
+      size="mega"
+    >
+      <div>
+        success.svg
+      </div>
     </div>
+    <div
+      className="circuit-5 circuit-6"
+    />
   </div>
-  <div
-    className="circuit-5 circuit-6"
-  />
 </button>
 `;
 
 exports[`LoadingButton Style tests should have default styles 1`] = `
-.circuit-7 {
+.circuit-9 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -147,38 +155,42 @@ exports[`LoadingButton Style tests should have default styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7:active {
+.circuit-9:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-7:focus {
+.circuit-9:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-7:hover {
+.circuit-9:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-7:hover,
-.circuit-7:active {
+.circuit-9:hover,
+.circuit-9:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-9[disabled],
+.circuit-9:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
   -moz-user-selectable: none;
   -ms-user-selectable: none;
   user-selectable: none;
+}
+
+.circuit-7 {
+  position: relative;
 }
 
 .circuit-1 {
@@ -218,38 +230,46 @@ exports[`LoadingButton Style tests should have default styles 1`] = `
 }
 
 <button
-  className="circuit-7 circuit-8"
+  className="circuit-9 circuit-10"
   disabled={false}
   onClick={undefined}
   size="mega"
   target={null}
 >
   <div
-    aria-busy="true"
-    aria-live="assertive"
-    className="circuit-0 circuit-1 circuit-2"
-    role="alertdialog"
-    size="mega"
+    className="circuit-7 circuit-8"
   >
-    <div>
-      spinner.svg
+    <div
+      aria-busy="true"
+      aria-live="assertive"
+      className="circuit-0 circuit-1 circuit-2"
+      role="alertdialog"
+      size="mega"
+    >
+      <div>
+        spinner.svg
+      </div>
     </div>
-  </div>
-  <div
-    className="circuit-3 circuit-4"
-    size="mega"
-  >
-    <div>
-      success.svg
+    <div
+      className="circuit-3 circuit-4"
+      size="mega"
+    >
+      <div>
+        success.svg
+      </div>
     </div>
+    <div
+      className="circuit-5 circuit-6"
+    />
   </div>
-  <div
-    className="circuit-5 circuit-6"
-  />
 </button>
 `;
 
 exports[`LoadingButton Style tests should have isLoading styles 1`] = `
+.circuit-7 {
+  position: relative;
+}
+
 .circuit-1 {
   opacity: 0;
   position: relative;
@@ -286,7 +306,7 @@ exports[`LoadingButton Style tests should have isLoading styles 1`] = `
   transition: opacity 200ms ease-in-out,transform 200ms ease-in-out;
 }
 
-.circuit-7 {
+.circuit-9 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -307,32 +327,32 @@ exports[`LoadingButton Style tests should have isLoading styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-7:active {
+.circuit-9:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-7:focus {
+.circuit-9:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-7:hover {
+.circuit-9:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-7:hover,
-.circuit-7:active {
+.circuit-9:hover,
+.circuit-9:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-9[disabled],
+.circuit-9:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -342,33 +362,37 @@ exports[`LoadingButton Style tests should have isLoading styles 1`] = `
 }
 
 <button
-  className="circuit-7 circuit-8"
+  className="circuit-9 circuit-10"
   disabled={false}
   onClick={null}
   size="mega"
   target={null}
 >
   <div
-    aria-busy="true"
-    aria-live="assertive"
-    className="circuit-0 circuit-1 circuit-2"
-    role="alertdialog"
-    size="mega"
+    className="circuit-7 circuit-8"
   >
-    <div>
-      spinner.svg
+    <div
+      aria-busy="true"
+      aria-live="assertive"
+      className="circuit-0 circuit-1 circuit-2"
+      role="alertdialog"
+      size="mega"
+    >
+      <div>
+        spinner.svg
+      </div>
     </div>
-  </div>
-  <div
-    className="circuit-3 circuit-4"
-    size="mega"
-  >
-    <div>
-      success.svg
+    <div
+      className="circuit-3 circuit-4"
+      size="mega"
+    >
+      <div>
+        success.svg
+      </div>
     </div>
+    <div
+      className="circuit-5 circuit-6"
+    />
   </div>
-  <div
-    className="circuit-5 circuit-6"
-  />
 </button>
 `;
