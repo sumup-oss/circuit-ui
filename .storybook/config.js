@@ -1,9 +1,8 @@
 import React from 'react';
-import { configure } from '@storybook/react';
+import { configure, addDecorator } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
-import { addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { withSmartKnobs } from 'storybook-addon-smart-knobs';
+import { setOptions } from '@storybook/addon-options';
 import { ThemeProvider } from 'emotion-theming';
 
 import { standard } from '../src/themes';
@@ -21,6 +20,11 @@ if (!PRODUCTION) {
 // Sets the info addon's options.
 setDefaults({
   header: false
+});
+
+setOptions({
+  hierarchySeparator: /\//,
+  hierarchyRootSeparator: /\|/
 });
 
 const req = require.context('../src/components', true, /\.story\.js$/);

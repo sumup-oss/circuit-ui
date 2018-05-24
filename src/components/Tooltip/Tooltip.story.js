@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import styled from 'react-emotion';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Tooltip from './Tooltip';
@@ -34,7 +35,7 @@ const TooltipContainer = styled('div')`
   }
 `;
 
-storiesOf('Tooltip', module)
+storiesOf(`${GROUPS.COMPONENTS}|Tooltip`, module)
   .addDecorator(withTests('Tooltip'))
   .add(
     'Top left',

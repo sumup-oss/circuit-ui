@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import withTests from '../../../../util/withTests';
 import SimpleCurrencyInput from './SimpleCurrencyInput';
@@ -16,7 +17,7 @@ const numberMask = createNumberMask({
   decimalSymbol: '.'
 });
 
-storiesOf('SimpleCurrencyInput', module)
+storiesOf(`${GROUPS.FORMS}|CurrencyInput/SimpleCurrencyInput`, module)
   .addDecorator(withTests('SimpleCurrencyInput'))
   .add(
     'Default SimpleCurrencyInput',

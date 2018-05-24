@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withStateHandlers } from 'recompose';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import { RangePicker } from '.';
@@ -29,6 +30,6 @@ const CalendarStoryPicker = enhance(
   )
 );
 
-storiesOf('Calendar', module)
+storiesOf(`${GROUPS.COMPONENTS}|Calendar`, module)
   .addDecorator(withTests('Calendar'))
   .add('RangePicker', withInfo()(() => <CalendarStoryPicker />));

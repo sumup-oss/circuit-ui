@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Select from './';
@@ -21,7 +22,7 @@ const options = [
   }
 ];
 
-storiesOf('Select', module)
+storiesOf(`${GROUPS.FORMS}|Select`, module)
   .addDecorator(withTests('Select'))
   .add(
     'Default Select',

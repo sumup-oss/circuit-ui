@@ -17,6 +17,14 @@ module.exports = function(storybookBaseConfig, configType) {
     module: {
       rules: [
         {
+          test: /\.story\.jsx?$/,
+          loaders: [
+            'babel-loader',
+            require.resolve('@storybook/addon-storysource/loader')
+          ],
+          enforce: 'pre'
+        },
+        {
           test: /\.svg$/,
           use: [
             { loader: 'babel-loader' },

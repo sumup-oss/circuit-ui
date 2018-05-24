@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { css } from 'react-emotion';
+import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import withTests from '../../../../util/withTests';
 import { reduce } from '../../../../util/fp';
@@ -41,7 +42,7 @@ const marginTopClassName = css`
   `};
 `;
 
-storiesOf('CardNumberInput', module)
+storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardNumberInput`, module)
   .addDecorator(withTests('CardNumberInput'))
   .add(
     'Empty CardNumberInput',

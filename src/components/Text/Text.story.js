@@ -1,11 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Text from '.';
 
-storiesOf('Text', module)
+storiesOf(`${GROUPS.TYPOGRAPHY}|Text`, module)
   .addDecorator(withTests('Text'))
   .add(
     'Giga Text with p',

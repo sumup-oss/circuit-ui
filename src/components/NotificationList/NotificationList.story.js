@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import NotificationList from './NotificationList';
@@ -12,7 +13,7 @@ import Heading from '../Heading';
 import Text from '../Text';
 import CloseButton from '../CloseButton';
 
-storiesOf('NotificationList', module)
+storiesOf(`${GROUPS.COMPONENTS}|NotificationList`, module)
   .addDecorator(withTests('NotificationList'))
   .add(
     'Default NotificationList',

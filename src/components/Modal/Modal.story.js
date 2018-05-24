@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import styled, { css } from 'react-emotion';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import { ModalConsumer, ModalProvider } from '.';
@@ -37,7 +38,7 @@ const defaultModal = {
   }
 };
 
-storiesOf('Modal', module)
+storiesOf(`${GROUPS.COMPONENTS}|Modal`, module)
   .addDecorator(withTests('Modal'))
   .add('Modal', withInfo()(() => <PageWithModal modal={defaultModal} />))
   .add(

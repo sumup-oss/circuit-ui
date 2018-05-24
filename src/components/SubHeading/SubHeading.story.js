@@ -1,11 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import SubHeading from '.';
 
-storiesOf('SubHeading', module)
+storiesOf(`${GROUPS.TYPOGRAPHY}|SubHeading`, module)
   .addDecorator(withTests('SubHeading'))
   .add(
     'Kilo SubHeading with h2',

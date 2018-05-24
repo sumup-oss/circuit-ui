@@ -3,12 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { withState } from 'recompose';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import State from '../State';
 import Checkbox from './Checkbox';
 
-storiesOf('Checkbox', module)
+storiesOf(`${GROUPS.FORMS}|Checkbox`, module)
   .addDecorator(withTests('Checkbox'))
   .add(
     'Default Checkbox',

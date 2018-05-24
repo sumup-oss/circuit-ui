@@ -1,13 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import InlineNotification from './InlineNotification';
 import Card from '../Card';
 import Text from '../Text';
 
-storiesOf('InlineNotification', module)
+storiesOf(`${GROUPS.COMPONENTS}|InlineNotification`, module)
   .addDecorator(withTests('InlineNotification'))
   .add(
     'Success InlineNotification',

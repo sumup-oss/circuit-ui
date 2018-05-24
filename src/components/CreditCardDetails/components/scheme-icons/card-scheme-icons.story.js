@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled, { css } from 'react-emotion';
+import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import { flow, toPairs, map, pick, values } from '../../../../util/fp';
 import iconComponents from './card-scheme-icons';
@@ -31,7 +32,7 @@ const IconWrapper = styled('li')`
   }
 `;
 
-storiesOf('CardSchemeIcons', module)
+storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardSchemeIcons`, module)
   .add('Debit cards', () => {
     const { DEBIT_SCHEMES } = schemes;
     const debitIcons = pick(values(DEBIT_SCHEMES), iconComponents);

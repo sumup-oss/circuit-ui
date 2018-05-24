@@ -14,6 +14,7 @@ exports[`Button should have button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -75,6 +76,7 @@ exports[`Button should have disabled button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -136,6 +138,7 @@ exports[`Button should have flat button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -215,6 +218,7 @@ exports[`Button should have flat disabled button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -294,6 +298,7 @@ exports[`Button should have giga button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -355,6 +360,7 @@ exports[`Button should have kilo button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -416,6 +422,7 @@ exports[`Button should have mega button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -477,6 +484,7 @@ exports[`Button should have secondary button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -584,6 +592,7 @@ exports[`Button should have secondary disabled button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -691,6 +700,7 @@ exports[`Button should have secondary flat button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
@@ -798,6 +808,7 @@ exports[`Button should have stretch button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;

@@ -1,11 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import TextArea from '.';
 
-storiesOf('TextArea', module)
+storiesOf(`${GROUPS.FORMS}|TextArea`, module)
   .addDecorator(withTests('TextArea'))
   .add(
     'TextArea',

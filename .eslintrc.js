@@ -28,6 +28,7 @@ module.exports = {
         devDependencies: [
           '*.js',
           'src/**/*.story.js',
+          'src/**/*.disabledStory.js',
           'src/**/*.spec.js',
           'build/**/*.js',
           'src/util/withTests.js'

@@ -2,11 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import CalendarTagTwoStep from './CalendarTagTwoStep';
 
-storiesOf('CalendarTagTwoStep', module)
+storiesOf(`${GROUPS.COMPONENTS}|Calendar/CalendarTagTwoStep`, module)
   .addDecorator(withTests('CalendarTagTwoStep'))
   .add(
     'Default CalendarTagTwoStep',

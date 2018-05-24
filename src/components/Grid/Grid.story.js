@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import styled from 'react-emotion';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Grid from './Grid';
@@ -34,7 +35,7 @@ const StyledRow = styled(Row)`
   margin-bottom: 8px;
 `;
 
-storiesOf('Grid', module)
+storiesOf(`${GROUPS.GRID}|Grid`, module)
   .addDecorator(withTests('Grid'))
   .add(
     'Static columns',

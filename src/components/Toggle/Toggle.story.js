@@ -2,12 +2,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import State from '../State/State';
 import withTests from '../../util/withTests';
 import Toggle from './Toggle';
 
-storiesOf('Toggle', module)
+storiesOf(`${GROUPS.FORMS}|Toggle`, module)
   .addDecorator(withTests('Toggle'))
   .add(
     'Default Toggle',
