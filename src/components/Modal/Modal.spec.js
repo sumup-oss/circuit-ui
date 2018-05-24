@@ -37,8 +37,8 @@ describe('Modal', () => {
     // eslint-disable-next-line react/prop-types, no-unused-vars
     children: ({ onClose }) => (
       <div>
-        <div data-testid="card">Hello World!</div>
-        <button data-testid="close" onClick={onClose} />
+        <div data-test="card">Hello World!</div>
+        <button data-test="close" onClick={onClose} />
       </div>
     ),
     // Disables the need for a wrapper. I couldn't get the Modal to work
@@ -65,12 +65,12 @@ describe('Modal', () => {
 
   it('should open', () => {
     const wrapper = openModal(defaultModal);
-    expect(wrapper.find('[data-testid="card"]')).toHaveLength(1);
+    expect(wrapper.find('[data-test="card"]')).toHaveLength(1);
   });
 
   it('should close', async () => {
     const wrapper = openModal(defaultModal);
-    const closeButton = wrapper.find('[data-testid="close"]').find('button');
+    const closeButton = wrapper.find('[data-test="close"]').find('button');
     closeButton.simulate('click');
     /**
      * Tried using jest's runAllTimers to force the ModalProvider
@@ -86,8 +86,6 @@ describe('Modal', () => {
 
   it('should render the children render prop', () => {
     const wrapper = openModal(defaultModal);
-    expect(wrapper.find('[data-testid="card"]').html()).toContain(
-      'Hello World!'
-    );
+    expect(wrapper.find('[data-test="card"]').html()).toContain('Hello World!');
   });
 });

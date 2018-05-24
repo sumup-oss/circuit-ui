@@ -178,7 +178,8 @@ const Modal = ({
 
 Modal.propTypes = {
   /**
-   * Render prop for the content of the Modal.
+   * Render prop for the content of the Modal, can be either function
+   * or a React Node
    */
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
   /**
