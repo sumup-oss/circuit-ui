@@ -39,7 +39,7 @@ export const mapKeys = curry((iteratee, obj) =>
   })
 );
 
-export const reverse = arr => arr.reverse();
+export const reverse = arr => [...arr].reverse();
 
 export const findLast = curry((predicate, arr) =>
   flow(reverse, find(predicate))(arr)
