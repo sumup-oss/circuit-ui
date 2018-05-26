@@ -1,42 +1,33 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { select, boolean } from '@storybook/addon-knobs';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Text from '.';
 
+const elements = ['p', 'article', 'div'];
+const sizes = [Text.GIGA, Text.MEGA, Text.KILO];
+
+// eslint-disable-next-line max-len
+const content = `An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.`;
+
 storiesOf(`${GROUPS.TYPOGRAPHY}|Text`, module)
   .addDecorator(withTests('Text'))
   .add(
-    'Giga Text with p',
+    'Default Text',
     withInfo()(() => (
-      <Text element="p" size={Text.GIGA}>
-        This is a giga Text with a p element
-      </Text>
-    ))
-  )
-  .add(
-    'Mega Text with article',
-    withInfo()(() => (
-      <Text element="article" size={Text.MEGA}>
-        This is an mega Text with an article element
-      </Text>
-    ))
-  )
-  .add(
-    'Kilo Text with div',
-    withInfo()(() => (
-      <Text element="div" size={Text.KILO}>
-        This is a kilo Text with a div element
-      </Text>
-    ))
-  )
-  .add(
-    'Bold Text',
-    withInfo()(() => (
-      <Text bold size={Text.KILO}>
-        This is bold text
-      </Text>
+      <div style={{ width: '66%', margin: '0 auto' }}>
+        <Text
+          element={select('Element', elements, elements.Paragraph)}
+          size={select('Size', sizes, sizes.Kilo)}
+          noMargin={boolean('No margin')}
+          bold={boolean('Bold')}
+          italic={boolean('Italic')}
+        >
+          {content}
+        </Text>
+      </div>
     ))
   );
