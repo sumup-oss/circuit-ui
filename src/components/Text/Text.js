@@ -51,7 +51,10 @@ const TextElement = styled(
  * using different HTML tags.
  */
 const Text = props => (
-  <TextElement {...props} blacklist={{ bold: true, noMargin: true }} />
+  <TextElement
+    {...props}
+    blacklist={{ size: true, bold: true, italic: true, noMargin: true }}
+  />
 );
 
 Text.KILO = KILO;

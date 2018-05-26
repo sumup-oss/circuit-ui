@@ -10,7 +10,6 @@ exports[`Heading should render as h1 element, when passed "h1" for the element p
 
 <h1
   className="circuit-0 circuit-1"
-  size="peta"
 >
   H1 heading
 </h1>
@@ -26,7 +25,6 @@ exports[`Heading should render as h2 element, when passed "h2" for the element p
 
 <h2
   className="circuit-0 circuit-1"
-  size="peta"
 >
   H2 heading
 </h2>
@@ -42,7 +40,6 @@ exports[`Heading should render as h3 element, when passed "h3" for the element p
 
 <h3
   className="circuit-0 circuit-1"
-  size="peta"
 >
   H3 heading
 </h3>
@@ -58,7 +55,6 @@ exports[`Heading should render as h4 element, when passed "h4" for the element p
 
 <h4
   className="circuit-0 circuit-1"
-  size="peta"
 >
   H4 heading
 </h4>
@@ -74,7 +70,6 @@ exports[`Heading should render as h5 element, when passed "h5" for the element p
 
 <h5
   className="circuit-0 circuit-1"
-  size="peta"
 >
   H5 heading
 </h5>
@@ -90,7 +85,6 @@ exports[`Heading should render as h6 element, when passed "h6" for the element p
 
 <h6
   className="circuit-0 circuit-1"
-  size="peta"
 >
   H6 heading
 </h6>
@@ -107,7 +101,6 @@ exports[`Heading should render with no margin styles when passed the noMargin pr
 
 <h2
   className="circuit-0 circuit-1"
-  size="peta"
 />
 `;
 
@@ -121,7 +114,6 @@ exports[`Heading should render with size exa, when passed "exa" for the size pro
 
 <h2
   className="circuit-0 circuit-1"
-  size="exa"
 >
   exa heading
 </h2>
@@ -137,7 +129,6 @@ exports[`Heading should render with size giga, when passed "giga" for the size p
 
 <h2
   className="circuit-0 circuit-1"
-  size="giga"
 >
   giga heading
 </h2>
@@ -153,7 +144,6 @@ exports[`Heading should render with size kilo, when passed "kilo" for the size p
 
 <h2
   className="circuit-0 circuit-1"
-  size="kilo"
 >
   kilo heading
 </h2>
@@ -169,7 +159,6 @@ exports[`Heading should render with size mega, when passed "mega" for the size p
 
 <h2
   className="circuit-0 circuit-1"
-  size="mega"
 >
   mega heading
 </h2>
@@ -185,7 +174,6 @@ exports[`Heading should render with size peta, when passed "peta" for the size p
 
 <h2
   className="circuit-0 circuit-1"
-  size="peta"
 >
   peta heading
 </h2>
@@ -201,7 +189,6 @@ exports[`Heading should render with size tera, when passed "tera" for the size p
 
 <h2
   className="circuit-0 circuit-1"
-  size="tera"
 >
   tera heading
 </h2>
@@ -217,7 +204,6 @@ exports[`Heading should render with size zetta, when passed "zetta" for the size
 
 <h2
   className="circuit-0 circuit-1"
-  size="zetta"
 >
   zetta heading
 </h2>
