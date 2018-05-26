@@ -7,7 +7,7 @@ import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
 import Text from '.';
 
-const elements = ['p', 'article', 'div'];
+const elements = ['p', 'article', 'div', 'span', 'strong', 'em'];
 const sizes = [Text.GIGA, Text.MEGA, Text.KILO];
 
 // eslint-disable-next-line max-len
