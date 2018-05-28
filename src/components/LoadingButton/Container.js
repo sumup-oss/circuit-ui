@@ -70,8 +70,17 @@ class Container extends Component {
       if (!exitAnimation) {
         this.onAnimationComplete();
       } else {
-        setTimeout(this.onAnimationComplete, exitAnimationDuration);
+        this.timeout = setTimeout(
+          this.onAnimationComplete,
+          exitAnimationDuration
+        );
       }
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
     }
   }
 
