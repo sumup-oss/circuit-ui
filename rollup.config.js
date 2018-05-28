@@ -49,42 +49,22 @@ const shared = {
 export default [
   {
     input: 'src/index.js',
-    output: { file: 'dist/index.esm.js', format: 'es' },
-    ...shared
-  },
-  {
-    input: 'src/index.js',
-    output: { file: 'dist/index.cjs.js', format: 'cjs' },
+    output: { file: 'dist/index.js', format: 'es' },
     ...shared
   },
   {
     input: 'src/util/index.js',
-    output: { file: 'dist/utils.esm.js', format: 'es' },
-    ...shared
-  },
-  {
-    input: 'src/util/index.js',
-    output: { file: 'dist/utils.cjs.js', format: 'cjs' },
+    output: { file: 'dist/utils.js', format: 'es' },
     ...shared
   },
   {
     input: 'src/styles/index.js',
-    output: { file: 'dist/styles.esm.js', format: 'es' },
-    ...shared
-  },
-  {
-    input: 'src/styles/index.js',
-    output: { file: 'dist/styles.cjs.js', format: 'cjs' },
+    output: { file: 'dist/styles.js', format: 'es' },
     ...shared
   },
   {
     input: 'src/themes/index.js',
-    output: { file: 'dist/themes.esm.js', format: 'es' },
-    ...shared
-  },
-  {
-    input: 'src/themes/index.js',
-    output: { file: 'dist/themes.cjs.js', format: 'cjs' },
+    output: { file: 'dist/themes.js', format: 'es' },
     ...shared
   }
 ];
