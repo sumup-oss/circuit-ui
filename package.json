@@ -15,7 +15,7 @@
     "test:unit": "yarn test:unit:verbose --silent",
     "test:unit:watch": "yarn test:unit:output -- --watch",
     "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
-    "prepush": "yarn test",
+    "prepush": "yarn test:lint-js",
     "start": "yarn test:unit:output && BABEL_ENV=develop start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
     "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
