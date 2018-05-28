@@ -27,6 +27,11 @@ describe('RadioButtonGroup', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with no margin styles', () => {
+    const actual = create(<RadioButtonGroup noMargin {...{ options }} />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
