@@ -16,6 +16,9 @@
     "test:unit:watch": "yarn test:unit:output -- --watch",
     "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
     "create-component": "foundry run plop component",
+    "prepush": "yarn test:lint-js",
+    "prepublish": "cp dist/*.js .",
+    "postpublish": "rm -rf index.js utils.js themes.js styles.js",
     "start": "yarn test:unit:output && BABEL_ENV=develop start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
     "build":
@@ -34,13 +37,12 @@
     "type": "git",
     "url": "git+https://github.com/sumup/circuit-ui.git"
   },
-  "author": "",
   "license": "MIT",
   "files": [
-    "dist",
-    "utils",
-    "themes",
-    "styles"
+    "index.js",
+    "utils.js",
+    "themes.js",
+    "styles.js"
   ],
   "bugs": {
     "url": "https://github.com/sumup/circuit-ui/issues"
