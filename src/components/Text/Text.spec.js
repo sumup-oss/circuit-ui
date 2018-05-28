@@ -36,6 +36,11 @@ describe('Text', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render italic text when passed the italic prop', () => {
+    const actual = create(<Text italic />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

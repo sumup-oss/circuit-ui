@@ -27,6 +27,13 @@ const boldStyles = ({ theme, bold }) =>
     font-weight: ${theme.fontWeight.bold};
   `;
 
+const italicStyles = ({ italic }) =>
+  italic &&
+  css`
+    label: text--italic;
+    font-style: italic;
+  `;
+
 const marginStyles = ({ noMargin }) =>
   noMargin &&
   css`
@@ -36,7 +43,7 @@ const marginStyles = ({ noMargin }) =>
 
 const TextElement = styled(
   HtmlElement
-)`${baseStyles} ${sizeStyles} ${marginStyles} ${boldStyles}`;
+)`${baseStyles} ${sizeStyles} ${marginStyles} ${boldStyles} ${italicStyles}`;
 
 /**
  * The Text component is used for long-form text. Typically with
@@ -44,7 +51,10 @@ const TextElement = styled(
  * using different HTML tags.
  */
 const Text = props => (
-  <TextElement {...props} blacklist={{ bold: true, noMargin: true }} />
+  <TextElement
+    {...props}
+    blacklist={{ size: true, bold: true, italic: true, noMargin: true }}
+  />
 );
 
 Text.KILO = KILO;
@@ -73,6 +83,10 @@ Text.propTypes = {
    */
   bold: PropTypes.bool,
   /**
+   * Bolds the text.
+   */
+  italic: PropTypes.bool,
+  /**
    * The HTML element to render.
    */
   element: PropTypes.string
@@ -84,6 +98,7 @@ Text.defaultProps = {
   className: '',
   noMargin: false,
   bold: false,
+  italic: false,
   children: null
 };
 
