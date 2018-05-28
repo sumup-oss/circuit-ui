@@ -19,7 +19,7 @@ storiesOf('LoadingButton', module)
         exitAnimation={LoadingButton.SUCCESS}
         primary
       >
-        Touch my knob
+        Click me
       </LoadingButton>
     ))
   )
@@ -32,7 +32,7 @@ storiesOf('LoadingButton', module)
         onAnimationComplete={action('animation completed')}
         primary
       >
-        Touch my knob
+        Click me
       </LoadingButton>
     ))
   );
