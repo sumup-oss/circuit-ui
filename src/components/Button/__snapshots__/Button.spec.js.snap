@@ -49,13 +49,16 @@ exports[`Button should have button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Button
@@ -111,13 +114,16 @@ exports[`Button should have disabled button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
   className="circuit-0 circuit-1"
   disabled={true}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Disabled button
@@ -175,6 +181,10 @@ exports[`Button should have flat button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -196,8 +206,7 @@ exports[`Button should have flat button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Flat button
@@ -255,6 +264,10 @@ exports[`Button should have flat disabled button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -276,8 +289,7 @@ exports[`Button should have flat disabled button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={true}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Flat button
@@ -302,7 +314,7 @@ exports[`Button should have giga button styles 1`] = `
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
-  padding: calc(12px - 0px) calc(32px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0:active {
@@ -315,7 +327,7 @@ exports[`Button should have giga button styles 1`] = `
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
-  padding: calc(12px - 1px) calc(32px - 1px);
+  padding: calc(8px - 1px) calc(24px - 1px);
 }
 
 .circuit-0:hover {
@@ -326,20 +338,23 @@ exports[`Button should have giga button styles 1`] = `
 .circuit-0:active {
   border-color: #9DA7B1;
   border-width: 1px;
-  padding: calc(12px - 0px) calc(32px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0[disabled],
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Button
@@ -364,7 +379,7 @@ exports[`Button should have kilo button styles 1`] = `
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0:active {
@@ -377,7 +392,7 @@ exports[`Button should have kilo button styles 1`] = `
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
+  padding: calc(8px - 1px) calc(24px - 1px);
 }
 
 .circuit-0:hover {
@@ -388,20 +403,23 @@ exports[`Button should have kilo button styles 1`] = `
 .circuit-0:active {
   border-color: #9DA7B1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: calc(8px - 0px) calc(24px - 0px);
 }
 
 .circuit-0[disabled],
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Button
@@ -457,13 +475,16 @@ exports[`Button should have mega button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Button
@@ -524,6 +545,10 @@ exports[`Button should have secondary button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -570,8 +595,7 @@ exports[`Button should have secondary button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Secondary button
@@ -632,6 +656,10 @@ exports[`Button should have secondary disabled button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -678,8 +706,7 @@ exports[`Button should have secondary disabled button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={true}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Secondary disabled button
@@ -740,6 +767,10 @@ exports[`Button should have secondary flat button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 .circuit-0:active {
@@ -786,8 +817,7 @@ exports[`Button should have secondary flat button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Secondary flat button
@@ -845,13 +875,16 @@ exports[`Button should have stretch button styles 1`] = `
 .circuit-0:disabled {
   opacity: 0.4;
   pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
 }
 
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  href={null}
-  onClick={null}
+  size="mega"
   target={null}
 >
   Stretched button

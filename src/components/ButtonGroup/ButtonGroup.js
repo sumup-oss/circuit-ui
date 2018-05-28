@@ -2,7 +2,6 @@ import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import Button from '../Button';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { directions } from '../../styles/constants';
 
@@ -29,7 +28,9 @@ const baseStyles = ({ theme, noMargin }) => css`
   list-style-type: none;
   width: 100%;
 
-  ${marginStyles({ theme, noMargin })} ${Button} {
+  ${marginStyles({ theme, noMargin })};
+
+  > * {
     width: 100%;
   }
 
@@ -40,7 +41,7 @@ const baseStyles = ({ theme, noMargin }) => css`
       margin-right: ${theme.spacings.mega};
     }
 
-    ${Button} {
+    > * {
       width: auto;
     }
   `};

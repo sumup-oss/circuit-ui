@@ -1,18 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import HtmlElement from '../HtmlElement';
-import { sizes } from '../../styles/constants';
 import { textMega } from '../../styles/style-helpers';
+import { sizes } from '../../styles/constants';
+import { BUTTON_PROP_TYPES, BUTTON_DEFAULT_PROPS } from './constants';
 
-/**
- * Doing named imports of constants somehow makes react-docgen cry.
- * https://github.com/reactjs/react-docgen/issues/150
- */
 const { KILO, MEGA, GIGA } = sizes;
 
-const calculatePadding = ({ theme, size }) => (diff = '0px') => {
+const calculatePadding = ({ theme, size: buttonSize }) => (diff = '0px') => {
   const sizeMap = {
     [KILO]: `calc(${theme.spacings.bit} - ${diff}) calc(${
       theme.spacings.mega
@@ -25,17 +20,18 @@ const calculatePadding = ({ theme, size }) => (diff = '0px') => {
     } - ${diff})`
   };
 
-  if (!sizeMap[size] && size) {
+  if (!sizeMap[buttonSize] && buttonSize) {
     return null;
   }
 
-  return sizeMap[size] || sizeMap.mega;
+  return sizeMap[buttonSize] || sizeMap.mega;
 };
 
 const disabledStyles = css`
   label: button--disabled;
   opacity: 0.4;
   pointer-events: none;
+  user-selectable: none;
 `;
 
 const stretchStyles = ({ stretch }) =>
@@ -206,97 +202,43 @@ const secondaryStyles = ({ theme, secondary, flat, ...otherProps }) =>
   `;
 
 const sizeStyles = props => {
-  const { size } = props;
+  const { size: buttonSize } = props;
   const padding = calculatePadding(props)();
   return css({
-    label: `button--${size}`,
+    label: `button--${buttonSize}`,
     padding
   });
 };
 
-const TextOrButtonElement = props => (
-  <HtmlElement
-    blacklist={{
-      size: true,
-      flat: true,
-      primary: true,
-      secondary: true,
-      stretch: true
-    }}
-    element={({ href }) => (href ? 'a' : 'button')}
-    {...props}
-  />
-);
+const buttonLoadingStyles = ({ isLoading }) =>
+  isLoading &&
+  css`
+    label: button--loading;
+    overflow-y: hidden;
+    pointer-events: none;
+  `;
 
-/**
- * The Button component. Can also be styled as an anchor by passing an href
- * prop.
- */
-const Button = styled(TextOrButtonElement)`
+const ButtonElement = styled('button')`
   ${baseStyles};
   ${primaryStyles};
   ${sizeStyles};
   ${flatStyles};
   ${secondaryStyles};
   ${stretchStyles};
+  ${buttonLoadingStyles};
 `;
 
-Button.KILO = KILO;
-Button.MEGA = MEGA;
-Button.GIGA = GIGA;
+const LinkButtonElement = ButtonElement.withComponent('a');
 
-Button.propTypes = {
-  /**
-   * URL the Button should lead to. Causes the Button to render an <a> tag.
-   */
-  href: PropTypes.string,
-  /**
-   * Should the Button be disabled?
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Button has a 'flat' variation, triggered with this prop.
-   */
-  flat: PropTypes.bool,
-  /**
-   * Renders a secondary button. Secondary buttons look the same for
-   * primary (default) and flat buttons.
-   */
-  secondary: PropTypes.bool,
-  /**
-   * Renders a primary button using the brand color.
-   */
-  primary: PropTypes.bool,
-  /**
-   * Link target. Should only be passed, if href is passed, too.
-   */
-  target: PropTypes.string,
-  /**
-   * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
-   */
-  size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
-  /**
-   * Standard onClick function. If used on an anchor this can be used to
-   * cause additional side-effects like tracking.
-   */
-  onClick: PropTypes.func,
-  /**
-   * Trigger stretch (full width) styles on the component.
-   */
-  stretch: PropTypes.bool
-};
+const Button = ({ href, ...props }) =>
+  href ? (
+    <LinkButtonElement {...{ ...props, href }} />
+  ) : (
+    <ButtonElement {...props} />
+  );
 
-Button.defaultProps = {
-  disabled: false,
-  flat: false,
-  size: MEGA,
-  target: null,
-  href: null,
-  onClick: null,
-  primary: false,
-  secondary: false,
-  stretch: false
-};
+Button.propTypes = BUTTON_PROP_TYPES;
+Button.defaultProps = BUTTON_DEFAULT_PROPS;
 
 /**
  * @component

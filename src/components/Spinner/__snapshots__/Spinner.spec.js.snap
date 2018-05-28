@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner should render with dark styles 1`] = `
+.circuit-0 {
+  opacity: 0;
+  position: relative;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
+}
+
+<div
+  aria-busy="true"
+  aria-live="assertive"
+  className="circuit-0 circuit-1"
+  role="alertdialog"
+>
+  <div>
+    spinner.svg
+  </div>
+</div>
+`;
+
+exports[`Spinner should render with default styles 1`] = `
+.circuit-0 {
+  opacity: 0;
+  position: relative;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
+}
+
+<div
+  aria-busy="true"
+  aria-live="assertive"
+  className="circuit-0 circuit-1"
+  role="alertdialog"
+>
+  <div>
+    spinner.svg
+  </div>
+</div>
+`;
