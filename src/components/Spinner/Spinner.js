@@ -71,7 +71,7 @@ const SpinnerContainer = styled('div')(
  */
 const Spinner = ({ dark, active, ...props }) => (
   <SpinnerContainer {...{ active, ...props }}>
-    <SpinnerIcon dark={dark} />
+    <SpinnerIcon dark={dark ? 1 : 0} />
   </SpinnerContainer>
 );
 

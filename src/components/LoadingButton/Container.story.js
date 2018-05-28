@@ -3,11 +3,12 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import LoadingButton from '.';
 
-storiesOf('LoadingButton', module)
+storiesOf(`${GROUPS.COMPONENTS}|Button/LoadingButton`, module)
   .addDecorator(withTests('LoadingButton'))
   .add(
     'LoadingButton with Success animation',

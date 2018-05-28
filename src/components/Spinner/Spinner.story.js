@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import styled, { css } from 'react-emotion';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Spinner from './Spinner';
@@ -18,7 +19,7 @@ const Container = styled('div')(
   `
 );
 
-storiesOf('Spinner', module)
+storiesOf(`${GROUPS.COMPONENTS}|Spinner`, module)
   .addDecorator(withTests('Spinner'))
   .add(
     'Spinner',

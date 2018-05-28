@@ -33,7 +33,7 @@ const iconEnter = keyframes`
  * General purpose style functions.
  */
 
-const centeredStyles = ({ theme }) => css`
+const centeredStyles = () => css`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -95,9 +95,9 @@ const Spinner = styled(PureSpinner)(
 );
 
 // TODO: add ARIA labels to icon.
-const Success = ({ size, ...props }) => (
+const Success = ({ size, visible }) => (
   <SuccessContainer size={size}>
-    <SuccessIcon {...props} />
+    <SuccessIcon visible={visible ? 1 : 0} />
   </SuccessContainer>
 );
 
@@ -105,11 +105,13 @@ Success.propTypes = {
   /**
    * Size prop from the Button.
    */
-  size: SIZE_PROP_TYPE
+  size: SIZE_PROP_TYPE,
+  visible: PropTypes.bool
 };
 
 Success.defaultProps = {
-  size: GIGA
+  size: GIGA,
+  visible: false
 };
 
 /**
