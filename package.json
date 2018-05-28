@@ -36,6 +36,12 @@
   },
   "author": "",
   "license": "MIT",
+  "files": [
+    "dist",
+    "utils",
+    "themes",
+    "styles"
+  ],
   "bugs": {
     "url": "https://github.com/sumup/circuit-ui/issues"
   },
