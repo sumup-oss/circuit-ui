@@ -1,1 +1,1 @@
-./dist/themes.js
+./dist/themes.esm.js

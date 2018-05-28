@@ -1,1 +1,1 @@
-./dist/styles.js
+./dist/styles.esm.js
