@@ -127,6 +127,7 @@ export {
   ModalFooter
 } from './components/Modal';
 export { default as Picture } from './components/Picture';
+export { default as Table } from './components/Table';
 
 // Helpers
 export { default as State } from './components/State';
