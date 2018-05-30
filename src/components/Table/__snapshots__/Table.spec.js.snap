@@ -214,7 +214,6 @@ exports[`Table Style tests should render with default styles 1`] = `
 >
   <div
     className="circuit-45 circuit-46"
-    tabIndex={null}
   >
     <table
       className="circuit-43 circuit-44"
@@ -276,6 +275,7 @@ exports[`Table Style tests should render with default styles 1`] = `
       <tbody>
         <tr
           className="circuit-11 circuit-12"
+          onClick={null}
         >
           <th
             aria-sort={null}
@@ -304,6 +304,7 @@ exports[`Table Style tests should render with default styles 1`] = `
         </tr>
         <tr
           className="circuit-11 circuit-12"
+          onClick={null}
         >
           <th
             aria-sort={null}
@@ -332,6 +333,7 @@ exports[`Table Style tests should render with default styles 1`] = `
         </tr>
         <tr
           className="circuit-11 circuit-12"
+          onClick={null}
         >
           <th
             aria-sort={null}
@@ -578,7 +580,6 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
 >
   <div
     className="circuit-45 circuit-46"
-    tabIndex={null}
   >
     <table
       className="circuit-43 circuit-44"
@@ -640,6 +641,7 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
       <tbody>
         <tr
           className="circuit-11 circuit-12"
+          onClick={null}
         >
           <th
             aria-sort={null}
@@ -668,6 +670,7 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
         </tr>
         <tr
           className="circuit-11 circuit-12"
+          onClick={null}
         >
           <th
             aria-sort={null}
@@ -696,6 +699,7 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
         </tr>
         <tr
           className="circuit-11 circuit-12"
+          onClick={null}
         >
           <th
             aria-sort={null}

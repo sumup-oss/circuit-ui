@@ -11,11 +11,14 @@ const getRowKey = index => `${TR_KEY_PREFIX}-${index}`;
 const getCellKey = (rowIndex, cellIndex) =>
   `${TD_KEY_PREFIX}-${rowIndex}-${cellIndex}`;
 
-const TableBody = ({ rows, rowHeaders, sortHover }) => (
+const TableBody = ({ rows, rowHeaders, sortHover, onRowClick }) => (
   <tbody>
     {rows.map((row, rowIndex) => (
       // eslint-disable-next-line react/no-array-index-key
-      <TableRow key={getRowKey(rowIndex)}>
+      <TableRow
+        key={getRowKey(rowIndex)}
+        onClick={onRowClick && (() => onRowClick(rowIndex))}
+      >
         {row.map(
           (cell, cellIndex) =>
             rowHeaders && cellIndex === 0 ? (
@@ -62,13 +65,18 @@ TableBody.propTypes = {
    * [PRIVATE] The current hovered sort cell index
    * Handled internally
    */
-  sortHover: PropTypes.number
+  sortHover: PropTypes.number,
+  /**
+   * onClick handler
+   */
+  onRowClick: PropTypes.func
 };
 
 TableBody.defaultProps = {
   rows: [],
   rowHeaders: false,
-  sortHover: null
+  sortHover: null,
+  onRowClick: null
 };
 
 export default TableBody;

@@ -19,6 +19,7 @@ exports[`TableBody Style tests should render with default styles 1`] = `
 <tbody>
   <tr
     className="circuit-4 circuit-5"
+    onClick={null}
   >
     <td
       className="circuit-0 circuit-1"
@@ -94,6 +95,7 @@ exports[`TableBody Style tests should render with fixed Header styles 1`] = `
 <tbody>
   <tr
     className="circuit-6 circuit-7"
+    onClick={null}
   >
     <th
       aria-sort={null}

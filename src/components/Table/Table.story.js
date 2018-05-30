@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { boolean } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
@@ -47,6 +48,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
           headers={headers}
           rows={rows}
           rowHeaders={boolean('Mobile rows', false)}
+          onRowClick={action('onRowClick')}
         />
       </div>
     ))

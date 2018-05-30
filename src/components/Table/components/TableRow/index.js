@@ -12,6 +12,16 @@ const baseStyles = () => css`
   }
 `;
 
-const TableRow = styled.tr(baseStyles);
+const clickableStyles = ({ onClick }) =>
+  onClick &&
+  css`
+    label: table-row--clickable;
+    cursor: pointer;
+  `;
+
+const TableRow = styled.tr`
+  ${baseStyles};
+  ${clickableStyles};
+`;
 
 export default TableRow;

@@ -67,25 +67,8 @@ class Table extends Component {
     rows: this.props.rows,
     sortedRow: null,
     sortHover: null,
-    sortDirection: null,
-    tabindex: null
+    sortDirection: null
   };
-
-  componentDidMount() {
-    const scrollRef = this.getScrollRef();
-
-    if (!scrollRef) {
-      return;
-    }
-
-    const { scrollWidth, clientWidth } = scrollRef;
-    const scrollable = scrollWidth > clientWidth;
-
-    // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({
-      tabindex: scrollable ? '0' : null
-    });
-  }
 
   onSortEnter = i => this.setState({ sortHover: i });
   onSortLeave = () => this.setState({ sortHover: null });
@@ -102,12 +85,6 @@ class Table extends Component {
     this.updateSort(i, nextDirection, nextRows);
   };
 
-  getScrollRef = () => this.scrollRef;
-
-  setScrollRef = ref => {
-    this.scrollRef = ref;
-  };
-
   updateSort = (i, nextDirection, rows) =>
     this.setState({
       rows,
@@ -122,16 +99,12 @@ class Table extends Component {
   };
 
   render() {
-    const { rowHeaders, headers } = this.props;
-    const { rows, sortDirection, sortHover, sortedRow, tabindex } = this.state;
+    const { rowHeaders, headers, onRowClick } = this.props;
+    const { rows, sortDirection, sortHover, sortedRow } = this.state;
 
     return (
       <Container>
-        <ScrollContainer
-          rowHeaders={rowHeaders}
-          innerRef={this.setScrollRef}
-          tabIndex={tabindex}
-        >
+        <ScrollContainer rowHeaders={rowHeaders}>
           <StyledTable rowHeaders={rowHeaders}>
             <TableHead
               sortDirection={sortDirection}
@@ -146,6 +119,7 @@ class Table extends Component {
               rows={rows}
               rowHeaders={rowHeaders}
               sortHover={sortHover}
+              onRowClick={onRowClick}
             />
           </StyledTable>
         </ScrollContainer>
@@ -174,14 +148,20 @@ Table.propTypes = {
    * The signature is (index, nextDirection, currentRows) and it should return
    * an array of rows
    */
-  onSortBy: PropTypes.func
+  onSortBy: PropTypes.func,
+  /**
+   * Click handler for the row
+   * The signature is (index)
+   */
+  onRowClick: PropTypes.func
 };
 
 Table.defaultProps = {
   headers: [],
   rows: [],
   rowHeaders: true,
-  onSortBy: null
+  onSortBy: null,
+  onRowClick: null
 };
 
 export default Table;
