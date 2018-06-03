@@ -218,6 +218,24 @@ const buttonLoadingStyles = ({ isLoading }) =>
     pointer-events: none;
   `;
 
+const textButtonStyles = ({ textButton, primary, theme }) =>
+  textButton &&
+  css`
+    &,
+    &:active,
+    &:focus,
+    &:hover,
+    &:hover:focus,
+    &:active:focus {
+      box-shadow: none;
+      border: none;
+      background: none;
+      font-weight: normal;
+      padding: 0;
+      color: ${primary ? theme.colors.p500 : theme.colors.n500};
+    }
+  `;
+
 const ButtonElement = styled('button')`
   ${baseStyles};
   ${primaryStyles};
@@ -226,6 +244,7 @@ const ButtonElement = styled('button')`
   ${secondaryStyles};
   ${stretchStyles};
   ${buttonLoadingStyles};
+  ${textButtonStyles};
 `;
 
 const LinkButtonElement = ButtonElement.withComponent('a');
