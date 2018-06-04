@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'react-emotion';
 
-import { textMega } from '../../styles/style-helpers';
+import { textMega, textKilo } from '../../styles/style-helpers';
 import { sizes } from '../../styles/constants';
 import { BUTTON_PROP_TYPES, BUTTON_DEFAULT_PROPS } from './constants';
 
@@ -233,6 +233,7 @@ const textButtonStyles = ({ textButton, primary, theme }) =>
       font-weight: normal;
       padding: 0;
       color: ${primary ? theme.colors.p500 : theme.colors.n500};
+      ${textKilo({ theme })};
     }
   `;
 
