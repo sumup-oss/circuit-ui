@@ -1,91 +1,41 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { select, boolean, text } from '@storybook/addon-knobs/react';
+
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Button from '.';
 
-const stretchedContainerStyles = { width: '400px' };
-const stretchedContainerTopButtonStyles = { marginBottom: '18px' };
+const containerStyles = {
+  width: '400px',
+  display: 'flex',
+  justifyContent: 'center'
+};
 
 storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
   .addDecorator(withTests('Button'))
-  .add('Button', withInfo()(() => <Button>Button</Button>))
-  .add('Button disabled', withInfo()(() => <Button disabled>Disabled</Button>))
-  .add('Button primary', withInfo()(() => <Button primary>Primary</Button>))
   .add(
-    'Button primary disabled',
+    'Button',
     withInfo()(() => (
-      <Button primary disabled>
-        Primary
-      </Button>
-    ))
-  )
-  .add(
-    'Button secondary',
-    withInfo()(() => <Button secondary>Flat Button</Button>)
-  )
-  .add(
-    'Button secondary disabled',
-    withInfo()(() => (
-      <Button secondary disabled>
-        Secondary disabled
-      </Button>
-    ))
-  )
-  .add('Flat Button', withInfo()(() => <Button flat>Flat</Button>))
-  .add(
-    'Flat Button disabled',
-    withInfo()(() => (
-      <Button flat disabled>
-        Flat
-      </Button>
-    ))
-  )
-  .add(
-    'Flat Button primary',
-    withInfo()(() => (
-      <Button primary flat>
-        Flat Button
-      </Button>
-    ))
-  )
-  .add(
-    'Flat Button secondary',
-    withInfo()(() => (
-      <Button secondary flat>
-        Flat Button
-      </Button>
-    ))
-  )
-  .add(
-    'Flat Button secondary disabled',
-    withInfo()(() => (
-      <Button secondary flat disabled>
-        Flat Button
-      </Button>
-    ))
-  )
-  .add('Link Button', withInfo()(() => <Button href="#">Link</Button>))
-  .add(
-    'Stretched Button',
-    withInfo()(() => (
-      <div style={stretchedContainerStyles}>
-        <Button style={stretchedContainerTopButtonStyles}>Normal button</Button>
-        <Button stretch>Stretched button</Button>
+      <div style={containerStyles}>
+        <Button
+          primary={boolean('Primary', false)}
+          disabled={boolean('Disabled', false)}
+          secondary={boolean('Secondary', false)}
+          flat={boolean('Flat', false)}
+          href={boolean('Link', false) ? '#' : undefined}
+          target={boolean('Link', false) ? '_blank' : undefined}
+          stretch={boolean('Stretched', false)}
+          size={select(
+            'Size',
+            [Button.KILO, Button.MEGA, Button.GIGA],
+            Button.KILO
+          )}
+        >
+          {text('Button Label', 'Button')}
+        </Button>
       </div>
     ))
-  )
-  .add(
-    'Button kilo',
-    withInfo()(() => <Button size={Button.KILO}>Button</Button>)
-  )
-  .add(
-    'Button mega',
-    withInfo()(() => <Button size={Button.MEGA}>Button</Button>)
-  )
-  .add(
-    'Button giga',
-    withInfo()(() => <Button size={Button.GIGA}>Button</Button>)
   );
