@@ -116,7 +116,7 @@ const Select = ({
   ...props
 }) => (
   <SelectContainer {...{ noMargin, inline, disabled }}>
-    <SelectElement {...{ ...props, disabled }}>
+    <SelectElement {...{ ...props, value, disabled }}>
       {!value && <option key="placeholder">{placeholder}</option>}
       {children ||
         (options &&
