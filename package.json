@@ -1,5 +1,5 @@
 {
-  "name": "circuit-ui",
+"name": "circuit-ui",
   "version": "0.0.1",
   "description": "SumUp's React UI component library",
   "main": "src/index.js",
@@ -15,7 +15,6 @@
     "test:unit": "yarn test:unit:verbose --silent",
     "test:unit:watch": "yarn test:unit:output -- --watch",
     "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
-    "prepush": "yarn test",
     "create-component": "foundry run plop component",
     "start": "yarn test:unit:output && start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
