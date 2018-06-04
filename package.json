@@ -23,7 +23,8 @@
     "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
     "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
-    "deploy": "yarn build && gh-pages -d .out"
+    "deploy": "yarn build && gh-pages -d .out",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -99,6 +100,7 @@
     "emotion-theming": "^9.0.0",
     "facepaint": "^1.2.0",
     "hoist-non-react-statics": "^2.3.1",
+    "lint-staged": "^7.1.3",
     "lodash": "^4.17.4",
     "markdown-to-jsx": "^6.6.5",
     "moment": "^2.18.1",
@@ -114,5 +116,10 @@
     "react-with-styles": "^3.1.1",
     "recompose": "^0.26.0",
     "text-mask-addons": "^3.7.2"
+  },
+  "lint-staged": {
+    "*.js": [
+      "test:lint-js"
+    ]
   }
 }
