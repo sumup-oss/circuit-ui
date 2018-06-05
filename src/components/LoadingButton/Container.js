@@ -10,6 +10,9 @@ import { isActive, isDisabled, isSuccess, isError } from './utils';
 const { DISABLED, ACTIVE, SUCCESS, ERROR } = LOADING_STATES;
 
 class Container extends Component {
+  static SUCCESS = SUCCESS;
+  static ERROR = ERROR;
+
   static propTypes = {
     ...BUTTON_PROP_TYPES,
     isLoading: PropTypes.bool,
@@ -29,8 +32,9 @@ class Container extends Component {
     onAnimationComplete: noop
   };
 
-  static SUCCESS = SUCCESS;
-  static ERROR = ERROR;
+  state = {
+    loadingState: DISABLED
+  };
 
   static getDerivedStateFromProps(nextProps, prevState) {
     const { isLoading, exitAnimation } = nextProps;
@@ -57,10 +61,6 @@ class Container extends Component {
 
     return null;
   }
-
-  state = {
-    loadingState: DISABLED
-  };
 
   componentDidUpdate(prevProps, prevState) {
     const { loadingState } = this.state;

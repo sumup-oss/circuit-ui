@@ -25,9 +25,9 @@ const marginTopStyles = ({ theme, top }) =>
  * on the theme variables.
  */
 const Spacing = styled('div')`
-  ${baseStyles}
-  ${marginBottomStyles}
-  ${marginTopStyles}
+  ${baseStyles};
+  ${marginBottomStyles};
+  ${marginTopStyles};
 `;
 
 Spacing.propTypes = {

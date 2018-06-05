@@ -28,9 +28,9 @@ const noMarginStyles = ({ noMargin }) =>
   `;
 
 const HeadingElement = styled(HtmlElement)`
-  ${baseStyles}
-  ${sizeStyles}
-  ${noMarginStyles}
+  ${baseStyles};
+  ${sizeStyles};
+  ${noMarginStyles};
 `;
 
 /**

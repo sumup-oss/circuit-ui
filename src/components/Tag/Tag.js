@@ -87,9 +87,9 @@ const IconContainer = styled('span')`
   ${iconStyles} ${iconSelectedStyles};
 `;
 const TagElement = styled('span')`
-  ${tagStyles}
-  ${tagSelectedStyles}
-  ${tagClickableStyles}
+  ${tagStyles};
+  ${tagSelectedStyles};
+  ${tagClickableStyles};
 `;
 
 /**

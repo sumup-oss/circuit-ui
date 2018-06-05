@@ -63,6 +63,13 @@ const Container = styled.div(shadowSingle);
  * Table interface component. It handles rendering rows/headers properly
  */
 class Table extends Component {
+  state = {
+    rows: this.props.rows,
+    sortedRow: null,
+    sortHover: null,
+    sortDirection: null
+  };
+
   static getDerivedStateFromProps(nextProps, prevState) {
     if (prevState.rows.length !== nextProps.rows.length) {
       return {
@@ -72,13 +79,6 @@ class Table extends Component {
 
     return null;
   }
-
-  state = {
-    rows: this.props.rows,
-    sortedRow: null,
-    sortHover: null,
-    sortDirection: null
-  };
 
   onSortEnter = i => this.setState({ sortHover: i });
   onSortLeave = () => this.setState({ sortHover: null });

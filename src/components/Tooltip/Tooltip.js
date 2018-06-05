@@ -83,9 +83,8 @@ const getAlignmentStyles = ({ theme, position, align }) => {
 
   return `
     ${absolutePosition}: 50%; ${'' /* Fallback  */}
-    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${
-    theme.spacings.bit
-  }));
+    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${theme.spacings
+    .bit}));
 
     &::after {
       ${absolutePosition}: ${theme.spacings.kilo};

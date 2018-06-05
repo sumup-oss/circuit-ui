@@ -22,6 +22,7 @@ exports[`RangePickerController should render with default styles 1`] = `
     navNext={<Unknown />}
     navPrev={<Unknown />}
     noBorder={false}
+    noNavButtons={false}
     numberOfMonths={1}
     onBlur={[Function]}
     onClose={[Function]}

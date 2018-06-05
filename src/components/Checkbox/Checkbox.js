@@ -113,9 +113,9 @@ const CheckboxInput = styled('input')`
 `;
 
 const CheckboxLabel = styled('label')`
-  ${labelBaseStyles}
-  ${labelDisabledStyles}
-  ${labelInvalidStyles}
+  ${labelBaseStyles};
+  ${labelDisabledStyles};
+  ${labelInvalidStyles};
 `;
 
 const CheckboxWrapper = styled('div')`

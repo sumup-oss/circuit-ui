@@ -41,9 +41,13 @@ const marginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const TextElement = styled(
-  HtmlElement
-)`${baseStyles} ${sizeStyles} ${marginStyles} ${boldStyles} ${italicStyles}`;
+const TextElement = styled(HtmlElement)`
+  ${baseStyles};
+  ${sizeStyles};
+  ${marginStyles};
+  ${boldStyles};
+  ${italicStyles};
+`;
 
 /**
  * The Text component is used for long-form text. Typically with
