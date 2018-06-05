@@ -69,7 +69,7 @@ class Popover extends Component {
     const isWithinButton = this.buttonRef && this.buttonRef.contains(target);
 
     if (!isWithinButton && !isWithinPopover) {
-      this.handleOutsideClick();
+      this.closePopover();
     }
   };
 
@@ -86,7 +86,7 @@ class Popover extends Component {
 
   handleClick = () => this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
 
-  handleOutsideClick = () => {
+  closePopover = () => {
     this.setState({ isOpen: false });
   };
 
@@ -113,10 +113,11 @@ class Popover extends Component {
           {({ ref, style }) =>
             isOpen && (
               <div ref={this.receivePopoverRef}>
-                <div {...{ ref, style }}>{renderPopover()}</div>
+                <div {...{ ref, style }}>
+                  {renderPopover({ closePopover: this.closePopover })}
+                </div>
               </div>
-            )
-          }
+            )}
         </Popper>
       </Manager>
     );
