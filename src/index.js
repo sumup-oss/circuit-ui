@@ -51,7 +51,8 @@ export { default as Text } from './components/Text';
 export {
   RangePicker,
   RangePickerController,
-  SingleDayPicker
+  SingleDayPicker,
+  CalendarConstants
 } from './components/Calendar';
 export { default as CalendarTag } from './components/CalendarTag';
 export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep';
