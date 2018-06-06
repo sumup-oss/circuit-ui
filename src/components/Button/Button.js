@@ -240,6 +240,10 @@ const Button = ({ href, ...props }) =>
 Button.propTypes = BUTTON_PROP_TYPES;
 Button.defaultProps = BUTTON_DEFAULT_PROPS;
 
+Button.KILO = KILO;
+Button.MEGA = MEGA;
+Button.GIGA = GIGA;
+
 /**
  * @component
  */
