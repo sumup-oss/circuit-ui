@@ -106,10 +106,10 @@ const RadioButtonInput = styled('input')`
 `;
 
 const RadioButtonLabel = styled('label')`
-  ${labelBaseStyles}
-  ${labelCheckedStyles}
-  ${labelDisabledStyles}
-  ${labelInvalidStyles}
+  ${labelBaseStyles};
+  ${labelCheckedStyles};
+  ${labelDisabledStyles};
+  ${labelInvalidStyles};
 `;
 
 /**
