@@ -138,7 +138,8 @@ storiesOf('CreditCardDetails', module)
                       Hide
                     </Button>
                   </Fragment>
-                )}
+                )
+              }
             />
           </div>
         )}

@@ -117,7 +117,8 @@ class Popover extends Component {
                   {renderPopover({ closePopover: this.closePopover })}
                 </div>
               </div>
-            )}
+            )
+          }
         </Popper>
       </Manager>
     );

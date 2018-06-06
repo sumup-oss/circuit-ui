@@ -78,7 +78,7 @@
     "onchange": "^3.3.0",
     "postcss-loader": "^2.0.9",
     "postcss-object-fit-images": "^1.1.2",
-    "prettier": "^1.13.4",
+    "prettier": "1.10",
     "prettier-eslint": "^8.7.0",
     "react-docgen": "3.0.0-beta10",
     "react-docgen-annotation-resolver": "^1.0.0",
