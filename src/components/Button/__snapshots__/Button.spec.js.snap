@@ -314,7 +314,7 @@ exports[`Button should have giga button styles 1`] = `
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
+  padding: calc(12px - 0px) calc(32px - 0px);
 }
 
 .circuit-0:active {
@@ -327,7 +327,7 @@ exports[`Button should have giga button styles 1`] = `
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
+  padding: calc(12px - 1px) calc(32px - 1px);
 }
 
 .circuit-0:hover {
@@ -338,7 +338,7 @@ exports[`Button should have giga button styles 1`] = `
 .circuit-0:active {
   border-color: #9DA7B1;
   border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
+  padding: calc(12px - 0px) calc(32px - 0px);
 }
 
 .circuit-0[disabled],
@@ -354,7 +354,7 @@ exports[`Button should have giga button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  size="mega"
+  size="giga"
   target={null}
 >
   Button
@@ -379,7 +379,7 @@ exports[`Button should have kilo button styles 1`] = `
   text-decoration: none;
   font-size: 15px;
   line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
+  padding: calc(4px - 0px) calc(16px - 0px);
 }
 
 .circuit-0:active {
@@ -392,7 +392,7 @@ exports[`Button should have kilo button styles 1`] = `
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
+  padding: calc(4px - 1px) calc(16px - 1px);
 }
 
 .circuit-0:hover {
@@ -403,7 +403,7 @@ exports[`Button should have kilo button styles 1`] = `
 .circuit-0:active {
   border-color: #9DA7B1;
   border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
+  padding: calc(4px - 0px) calc(16px - 0px);
 }
 
 .circuit-0[disabled],
@@ -419,7 +419,7 @@ exports[`Button should have kilo button styles 1`] = `
 <button
   className="circuit-0 circuit-1"
   disabled={false}
-  size="mega"
+  size="kilo"
   target={null}
 >
   Button
