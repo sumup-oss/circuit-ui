@@ -9,16 +9,10 @@ import minify from 'rollup-plugin-babel-minify';
 
 // Shared config
 const shared = {
-  external: [
-    'emotion',
-    'emotion-theming',
-    'lodash',
-    'polished',
-    'react',
-    'react-dom',
-    'react-emotion',
-    'react-modal'
-  ],
+  external: id =>
+    /lodash|webpack-merge|emotion|polished|react-dom|react-emotion|react-modal|react|prop-types/.test(
+      id
+    ),
   plugins: [
     babel({
       exclude: 'node_modules/**'
