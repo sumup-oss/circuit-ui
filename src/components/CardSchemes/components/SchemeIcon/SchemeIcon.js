@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import { keys } from 'lodash';
-
+// eslint-disable-next-line max-len
 import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-map';
 
+const SchemeIconWrapBaseStyles = () => css`
+  height: 32px;
+  width: 48px;
+`;
+const SchemeIconWrap = styled('div')(SchemeIconWrapBaseStyles);
 /**
  * A single card scheme icon
  */
@@ -23,7 +28,11 @@ const SchemeIcon = ({ schemeId }) => {
     text-align: center;
   `;
 
-  return <Svg />;
+  return (
+    <SchemeIconWrap>
+      <Svg />
+    </SchemeIconWrap>
+  );
 };
 
 SchemeIcon.propTypes = {

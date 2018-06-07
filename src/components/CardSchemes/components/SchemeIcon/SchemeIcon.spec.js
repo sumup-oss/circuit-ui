@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { keys } from 'lodash';
 import SchemeIcon from './SchemeIcon';
 // eslint-disable-next-line max-len

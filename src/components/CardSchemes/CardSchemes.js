@@ -8,9 +8,7 @@ import SchemeIcon from './components/SchemeIcon';
 const CardSchemeBaseStyles = ({ theme }) => css`
   box-sizing: content-box;
   display: inline-block;
-  height: 32px;
   padding: ${theme.spacings.byte};
-  width: 48px;
 `;
 
 const listWrapperBaseStyles = () => css`
@@ -19,8 +17,8 @@ const listWrapperBaseStyles = () => css`
   text-align: center;
 `;
 
-const CardScheme = styled('li')(CardSchemeBaseStyles);
 const CardSchemeWrapper = styled('ul')(listWrapperBaseStyles);
+const CardScheme = styled('li')(CardSchemeBaseStyles);
 
 /**
  *   Displays a row of available or active card scheme icons
