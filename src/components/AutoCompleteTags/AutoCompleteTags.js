@@ -26,7 +26,7 @@ class AutoCompleteTags extends Component {
   state = { tags: [] };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.tags.length !== this.state.tags) {
+    if (prevState.tags.length !== this.state.tags.length) {
       this.props.handleChange(this.state.tags);
     }
   }
