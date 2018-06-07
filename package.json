@@ -98,6 +98,7 @@
     "react-test-renderer": "^16.2.0",
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-babel-minify": "^5.0.0",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-react-svg": "^2.1.0",
     "rollup-plugin-replace": "^2.0.0",
