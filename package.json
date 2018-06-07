@@ -17,7 +17,6 @@
     "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
     "create-component": "foundry run plop component",
     "prepush": "yarn test:lint-js",
-    "postinstall": "mv dist/*.js .",
     "start": "yarn test:unit:output && BABEL_ENV=develop start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
     "build":
