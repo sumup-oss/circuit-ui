@@ -18,9 +18,8 @@
     "create-component": "foundry run plop component",
     "prepush": "yarn test:lint-js",
     "start": "yarn test:unit:output && BABEL_ENV=develop start-storybook -p 6006",
-    "prebuild": "yarn test:unit:output",
-    "build":
-      "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
+    "prebuild": "yarn test:unit:output && rm -rf dist && mkdir dist",
+    "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
     "build:storybook": "build-storybook -c .storybook -o .out",
     "build:stylesheet":
       "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
