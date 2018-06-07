@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { find } from 'lodash';
+import { find, identity } from 'lodash/fp';
 import styled, { css, cx } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 import { size } from 'polished';
@@ -219,7 +219,7 @@ const ValidationIcon = ({
     showValid && <ValidIcon role="img" className={iconStyles} />
   ];
 
-  const icon = find(icons);
+  const icon = find(identity, icons);
 
   return (
     <ValidationIconWrapper {...{ invalid, hasWarning, className }}>
