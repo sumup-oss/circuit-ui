@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SchemeIcon should render with default styles 1`] = `
+<div>
+  <div>
+    amex.svg
+  </div>
+  <div>
+    diners.svg
+  </div>
+  <div>
+    discover.svg
+  </div>
+  <div>
+    ec.svg
+  </div>
+  <div>
+    elo.svg
+  </div>
+  <div>
+    elv.svg
+  </div>
+  <div>
+    hiper.svg
+  </div>
+  <div>
+    hipercard.svg
+  </div>
+  <div>
+    jcb.svg
+  </div>
+  <div>
+    maestro.svg
+  </div>
+  <div>
+    mastercard.svg
+  </div>
+  <div>
+    visa-electron.svg
+  </div>
+  <div>
+    visa.svg
+  </div>
+  <div>
+    vpay.svg
+  </div>
+  <div>
+    unknown.svg
+  </div>
+</div>
+`;

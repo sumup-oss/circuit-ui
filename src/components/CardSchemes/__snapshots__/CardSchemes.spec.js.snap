@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardSchemes should render with default styles 1`] = `
+.circuit-30 {
+  display: block;
+  line-height: 0;
+  text-align: center;
+}
+
+.circuit-0 {
+  box-sizing: content-box;
+  display: inline-block;
+  height: 32px;
+  padding: 8px;
+  width: 48px;
+}
+
+<ul
+  className="circuit-30 circuit-31"
+>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      amex.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      diners.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      discover.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      ec.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      elo.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      elv.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      hiper.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      hipercard.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      jcb.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      maestro.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      mastercard.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      visa-electron.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      visa.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      vpay.svg
+    </div>
+  </li>
+  <li
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      unknown.svg
+    </div>
+  </li>
+</ul>
+`;
