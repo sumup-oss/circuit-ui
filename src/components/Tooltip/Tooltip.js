@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import { includes } from 'lodash';
+import { includes } from 'lodash/fp';
 
 import { textKilo, shadowSingle } from '../../styles/style-helpers';
 import { CENTER, TOP, RIGHT, BOTTOM, LEFT } from '../../util/constants';
@@ -53,9 +53,9 @@ const getPositionStyles = ({ theme, position }) => {
 };
 
 const getAlignmentStyles = ({ theme, position, align }) => {
-  const isHorizontal = includes([TOP, BOTTOM], position);
+  const isHorizontal = includes(position, [TOP, BOTTOM]);
 
-  if (isHorizontal && includes([TOP, BOTTOM, CENTER], align)) {
+  if (isHorizontal && includes(align, [TOP, BOTTOM, CENTER])) {
     return `
       left: 50%;
       transform: translateX(-50%);
@@ -67,7 +67,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
     `;
   }
 
-  if (!isHorizontal && includes([LEFT, RIGHT, CENTER], align)) {
+  if (!isHorizontal && includes(align, [LEFT, RIGHT, CENTER])) {
     return `
       top: 50%;
       transform: translateY(-50%);
