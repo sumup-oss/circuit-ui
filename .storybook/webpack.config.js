@@ -20,7 +20,14 @@ module.exports = function(storybookBaseConfig, configType) {
           test: /\.story\.jsx?$/,
           loaders: [
             'babel-loader',
-            require.resolve('@storybook/addon-storysource/loader')
+            {
+              loader: require.resolve('@storybook/addon-storysource/loader'),
+              options: {
+                prettierConfig: {
+                  parser: 'babylon'
+                }
+              }
+            }
           ],
           enforce: 'pre'
         },
