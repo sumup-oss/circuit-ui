@@ -1,0 +1,19 @@
+{
+  "name": "create-sumup-next-app",
+  "version": "1.0.0",
+  "description": "Create a fresh NextJS application using common SumUp settings",
+  "keywords": ["react", "next", "circuit-ui", "sumup"],
+  "main": "index.js",
+  "repository": "https://github.com/sumup/create-sumup-next-app",
+  "bugs": {
+    "url": "https://github.com/sumup/create-sumup-next-app/issues"
+  },
+  "author": "Connor Baer <connor.baer@sumup.com>",
+  "license": "MIT",
+  "bin": {
+    "create-sumup-next-app": "./bin/create-sumup-next-app"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}

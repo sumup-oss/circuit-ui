@@ -1,0 +1,16 @@
+{
+  "name": "app-name",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "license": "MIT",
+  "scripts": {
+    "analyze": "ANALYZE=true yarn build",
+    "dev": "nodemon --inspect --watch server server/index.js",
+    "build": "next build src",
+    "start": "NODE_ENV=production node server/index.js",
+    "create:component": "foundry run plop component",
+    "test:ci": "jest --ci --coverage --testResultsProcessor=\"jest-junit\"",
+    "test:unit": "jest --coverage",
+    "test:unit:watch": "jest --watch"
+  }
+}
