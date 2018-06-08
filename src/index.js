@@ -90,9 +90,8 @@ export {
   MessageIcon,
   MessageButton
 } from './components/Button';
-
+export { default as ButtonLink } from './components/ButtonLink';
 export { default as LoadingButton } from './components/LoadingButton';
-
 export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as CloseButton } from './components/CloseButton';
 export { default as SvgButton } from './components/SvgButton';

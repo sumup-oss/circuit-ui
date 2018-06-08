@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonLink should have giga button styles 1`] = `
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 0;
+  box-shadow: none;
+  border: none;
+  background: none;
+  font-weight: normal;
+  padding: 0;
+  color: #9DA7B1;
+  cursor: pointer;
+  outline: none;
+}
+
+.circuit-1:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.circuit-1:active {
+  color: #212933;
+}
+
+<button
+  className="circuit-0 circuit-1 circuit-2"
+  primary={false}
+  target={undefined}
+>
+  ButtonLink
+</button>
+`;
+
+exports[`ButtonLink should have kilo button styles 1`] = `
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 0;
+  box-shadow: none;
+  border: none;
+  background: none;
+  font-weight: normal;
+  padding: 0;
+  color: #9DA7B1;
+  cursor: pointer;
+  outline: none;
+}
+
+.circuit-1:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.circuit-1:active {
+  color: #212933;
+}
+
+<button
+  className="circuit-0 circuit-1 circuit-2"
+  primary={false}
+  target={undefined}
+>
+  ButtonLink
+</button>
+`;
+
+exports[`ButtonLink should have mega button styles 1`] = `
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: 0;
+  box-shadow: none;
+  border: none;
+  background: none;
+  font-weight: normal;
+  padding: 0;
+  color: #9DA7B1;
+  cursor: pointer;
+  outline: none;
+}
+
+.circuit-1:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.circuit-1:active {
+  color: #212933;
+}
+
+<button
+  className="circuit-0 circuit-1 circuit-2"
+  primary={false}
+  target={undefined}
+>
+  ButtonLink
+</button>
+`;
+
+exports[`ButtonLink should have primary styles 1`] = `
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 0;
+  box-shadow: none;
+  border: none;
+  background: none;
+  font-weight: normal;
+  padding: 0;
+  color: #9DA7B1;
+  cursor: pointer;
+  outline: none;
+  color: #3388FF;
+}
+
+.circuit-1:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.circuit-1:active {
+  color: #212933;
+}
+
+.circuit-1:active {
+  color: #1641AC;
+}
+
+<button
+  className="circuit-0 circuit-1 circuit-2"
+  primary={true}
+  target={undefined}
+>
+  ButtonLink
+</button>
+`;
+
+exports[`ButtonLink should render with default styles 1`] = `
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 0;
+  box-shadow: none;
+  border: none;
+  background: none;
+  font-weight: normal;
+  padding: 0;
+  color: #9DA7B1;
+  cursor: pointer;
+  outline: none;
+}
+
+.circuit-1:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.circuit-1:active {
+  color: #212933;
+}
+
+<button
+  className="circuit-0 circuit-1 circuit-2"
+  primary={false}
+  target={undefined}
+>
+  Link
+</button>
+`;
+
+exports[`ButtonLink should render with href 1`] = `
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 0;
+  box-shadow: none;
+  border: none;
+  background: none;
+  font-weight: normal;
+  padding: 0;
+  color: #9DA7B1;
+  cursor: pointer;
+  outline: none;
+}
+
+.circuit-1:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.circuit-1:active {
+  color: #212933;
+}
+
+<a
+  className="circuit-0 circuit-1 circuit-2"
+  primary={false}
+  target={undefined}
+>
+  ButtonLink
+</a>
+`;
