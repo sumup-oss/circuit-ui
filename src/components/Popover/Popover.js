@@ -40,15 +40,15 @@ class Popover extends Component {
      */
     renderReference: PropTypes.func.isRequired,
     /**
-     * placement of the popover relative to the button
+     * placement of the popover relative to the reference
      */
     position: positionPropType,
     /**
-     * alignment of the popover relative to the button
+     * alignment of the popover relative to the reference
      */
     align: alignPropType,
     /**
-     * onClose callback functin
+     * A callback that is called when the Popover closes
      */
     onClose: PropTypes.func
   };
