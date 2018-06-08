@@ -4,10 +4,12 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
+
 import withTests from '../../util/withTests';
 import AutoCompleteInput from './AutoCompleteInput';
 
-storiesOf('AutoCompleteInput', module)
+storiesOf(`${GROUPS.FORMS}|AutoCompleteInput`, module)
   .addDecorator(withTests('AutoCompleteInput'))
   .add(
     'Default AutoCompleteInput',
@@ -19,7 +21,7 @@ storiesOf('AutoCompleteInput', module)
             'liam.burdock@sumup.com',
             'lilijane.giordano@sumup.com'
           ]}
-          handleChange={action('handleChange')}
+          onChange={action('handleChange')}
           clearOnSelect={boolean('clearOnSelect', false)}
         />
       </div>

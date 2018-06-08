@@ -3,6 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
+
 import withTests from '../../util/withTests';
 import AutoCompleteTags from './AutoCompleteTags';
 
@@ -25,7 +27,7 @@ for (let i = 0; i < 10000; i += 1) {
   pushRandom();
 }
 
-storiesOf('AutoCompleteTags', module)
+storiesOf(`${GROUPS.FORMS}|AutoCompleteTags`, module)
   .addDecorator(withTests('AutoCompleteTags'))
   .add(
     'Default AutoCompleteTags',
@@ -33,7 +35,7 @@ storiesOf('AutoCompleteTags', module)
       <div style={{ width: '300px' }}>
         <AutoCompleteTags
           availableTags={randomItems}
-          handleChange={action('handleChange')}
+          onChange={action('handleChange')}
         />
       </div>
     ))

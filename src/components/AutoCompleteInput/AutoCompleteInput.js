@@ -70,7 +70,7 @@ export default class AutoCompleteInput extends Component {
     /**
      * handleChange function that will receive the input
      */
-    handleChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
 
     /**
      * If true, will clean the input after a value ie selected
@@ -88,10 +88,10 @@ export default class AutoCompleteInput extends Component {
   };
 
   _handleChange = value => {
-    const { clearOnSelect, handleChange } = this.props;
+    const { clearOnSelect, onChange } = this.props;
 
     if (value) {
-      handleChange(value);
+      onChange(value);
 
       if (clearOnSelect && this._downshiftRef) {
         this._downshiftRef.clearSelection();
@@ -104,7 +104,7 @@ export default class AutoCompleteInput extends Component {
   };
 
   render() {
-    const { items, handleChange, clearOnSelect, ...inputProps } = this.props;
+    const { items, onChange, clearOnSelect, ...inputProps } = this.props;
 
     return (
       <Downshift ref={this._handleDownShiftRef} onSelect={this._handleChange}>
