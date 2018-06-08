@@ -131,6 +131,7 @@ export {
 export { default as Picture } from './components/Picture';
 export { default as AutoCompleteInput } from './components/AutoCompleteInput';
 export { default as AutoCompleteTags } from './components/AutoCompleteTags';
+export { default as Table } from './components/Table';
 
 // Helpers
 export { default as State } from './components/State';
