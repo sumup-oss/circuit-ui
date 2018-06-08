@@ -19,7 +19,7 @@ const TagsWrapper = styled('div')`
 
 class AutoCompleteTags extends Component {
   static propTypes = {
-    handleChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
     availableTags: PropTypes.arrayOf(PropTypes.string).isRequired
   };
 
@@ -27,7 +27,7 @@ class AutoCompleteTags extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.tags.length !== this.state.tags.length) {
-      this.props.handleChange(this.state.tags);
+      this.props.onChange(this.state.tags);
     }
   }
 
@@ -49,7 +49,7 @@ class AutoCompleteTags extends Component {
     return (
       <Fragment>
         <AutoCompleteInput
-          handleChange={this.handleAddTag}
+          onChange={this.handleAddTag}
           items={autoCompleteItems}
           clearOnSelect
         />
