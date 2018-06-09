@@ -40,24 +40,35 @@ class Popover extends Component {
      */
     renderReference: PropTypes.func.isRequired,
     /**
-     * placement of the popover relative to the button
+     * placement of the popover relative to the reference
      */
     position: positionPropType,
     /**
-     * alignment of the popover relative to the button
+     * alignment of the popover relative to the reference
      */
-    align: alignPropType
+    align: alignPropType,
+    /**
+     * A callback that is called when the Popover closes
+     */
+    onClose: PropTypes.func
   };
 
   static defaultProps = {
     position: Popover.BOTTOM,
-    align: Popover.START
+    align: Popover.START,
+    onClose: () => {}
   };
 
   state = { isOpen: false };
 
   componentDidMount() {
     document.addEventListener('click', this.handleDocumentClick, false);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isOpen && !this.state.isOpen) {
+      this.props.onClose();
+    }
   }
 
   componentWillUnmount() {
@@ -84,11 +95,10 @@ class Popover extends Component {
     this.popoverRef = ref;
   };
 
-  handleClick = () => this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
+  handleReferenceClick = () =>
+    this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
 
-  closePopover = () => {
-    this.setState({ isOpen: false });
-  };
+  closePopover = () => this.setState({ isOpen: false });
 
   render() {
     const { renderPopover, renderReference, position, align } = this.props;
@@ -100,7 +110,7 @@ class Popover extends Component {
           {({ ref }) => (
             <ButtonWrapper
               innerRef={this.receiveButtonRef}
-              onClick={this.handleClick}
+              onClick={this.handleReferenceClick}
             >
               <div ref={ref}>{renderReference({ isOpen })}</div>
             </ButtonWrapper>
