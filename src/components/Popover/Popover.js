@@ -62,7 +62,7 @@ class Popover extends Component {
   state = { isOpen: false };
 
   componentDidMount() {
-    document.addEventListener('click', this.handleDocumentClick, false);
+    document.addEventListener('click', this.handleDocumentClick, true);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -72,7 +72,7 @@ class Popover extends Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleDocumentClick, false);
+    document.removeEventListener('click', this.handleDocumentClick, true);
   }
 
   handleDocumentClick = ({ target }) => {
