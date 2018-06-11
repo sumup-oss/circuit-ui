@@ -19,7 +19,7 @@ const calculateSize = ({ theme, size }) => {
 };
 
 const wrapperStyles = ({ theme }) => css`
-  label: loading-bar;
+  label: progress-bar;
   display: flex;
   align-items: center;
   margin-bottom: ${theme.spacings.mega};
@@ -33,7 +33,7 @@ const progressStyles = ({ theme, size, value, max }) => {
     outerBorderWidth
   )}`;
   return css`
-    label: loading-bar__progress;
+    label: progress-bar__progress;
     background-color: ${theme.colors.n100};
     border: ${outerBorderWidth} solid ${theme.colors.n300};
     border-radius: ${outerBorderRadius};
@@ -59,29 +59,29 @@ const progressStyles = ({ theme, size, value, max }) => {
 };
 
 const labelStyles = ({ theme }) => css`
-  label: loading-bar__label;
+  label: progress-bar__label;
   ${textKilo({ theme })};
   margin-left: ${theme.spacings.byte};
 `;
 
-const LoadingBarWrapper = styled('div')`
+const ProgressBarWrapper = styled('div')`
   ${wrapperStyles};
 `;
-const LoadingBarProgress = styled('span')`
+const ProgressBarProgress = styled('span')`
   ${progressStyles};
 `;
-const LoadingBarLabel = styled('span')`
+const ProgressBarLabel = styled('span')`
   ${labelStyles};
 `;
 
 /**
- * Loading bar component to indicate progress
+ * Progress bar component to indicate progress
  */
-const LoadingBar = ({ children, max, value, ...props }) => {
-  const ariaId = uniqueId('loading-bar_');
+const ProgressBar = ({ children, max, value, ...props }) => {
+  const ariaId = uniqueId('progress-bar_');
   return (
-    <LoadingBarWrapper>
-      <LoadingBarProgress
+    <ProgressBarWrapper>
+      <ProgressBarProgress
         role="progressbar"
         aria-valuenow={value}
         aria-valuemin="0"
@@ -89,16 +89,16 @@ const LoadingBar = ({ children, max, value, ...props }) => {
         aria-labelledby={ariaId}
         {...{ ...props, max, value }}
       />
-      <LoadingBarLabel id={ariaId}>{children}</LoadingBarLabel>
-    </LoadingBarWrapper>
+      <ProgressBarLabel id={ariaId}>{children}</ProgressBarLabel>
+    </ProgressBarWrapper>
   );
 };
 
-LoadingBar.KILO = KILO;
-LoadingBar.MEGA = MEGA;
-LoadingBar.GIGA = GIGA;
+ProgressBar.KILO = KILO;
+ProgressBar.MEGA = MEGA;
+ProgressBar.GIGA = GIGA;
 
-LoadingBar.propTypes = {
+ProgressBar.propTypes = {
   /**
    * A number greater than zero, indicating how much work the task requires.
    */
@@ -111,15 +111,15 @@ LoadingBar.propTypes = {
   /**
    * Size
    */
-  size: PropTypes.oneOf([LoadingBar.KILO, LoadingBar.MEGA, LoadingBar.GIGA]),
+  size: PropTypes.oneOf([ProgressBar.KILO, ProgressBar.MEGA, ProgressBar.GIGA]),
   /**
    * Child nodes to be rendered as the label.
    */
   children: childrenPropType
 };
 
-LoadingBar.defaultProps = {
-  size: LoadingBar.KILO,
+ProgressBar.defaultProps = {
+  size: ProgressBar.KILO,
   max: 1.0,
   value: 0,
   children: null
@@ -128,4 +128,4 @@ LoadingBar.defaultProps = {
 /**
  * @component
  */
-export default LoadingBar;
+export default ProgressBar;
