@@ -53,15 +53,8 @@ might need in order to use the components. Two main ones:
 
 # Creating components
 
-The project has a binary `bin/create-component` that you can execute from the
-project root, passing in the name of your new component.
+This project uses [@sumup/foundry](https://www.npmjs.com/package/@sumup/foundry) and the provided `plop` command to generate new React components. The functionality is exposed as the `create-component` npm script from package.json.
 
-```
-./bin/create-component MyComponent
-```
+To create a new component, run `yarn create-component` inside the project. You'll see a CLI that guides you through the process.
 
-This will
-
-* copy the component template files from `templates/component` to `src/components/MyComponent`,
-* rename all files to `MyComponent{.spec|.story}.js`, and
-* replace all occurrences of `Component` inside MyComponent's files with `MyComponent`.
+After the CLI has finished, all files will have been created in the location you specified.
