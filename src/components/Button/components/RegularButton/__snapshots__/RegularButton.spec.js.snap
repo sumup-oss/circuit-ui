@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should have button styles 1`] = `
+exports[`RegularButton should have button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -65,7 +65,7 @@ exports[`Button should have button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have disabled button styles 1`] = `
+exports[`RegularButton should have disabled button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -130,7 +130,7 @@ exports[`Button should have disabled button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have flat button styles 1`] = `
+exports[`RegularButton should have flat button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -213,7 +213,7 @@ exports[`Button should have flat button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have flat disabled button styles 1`] = `
+exports[`RegularButton should have flat disabled button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -296,7 +296,7 @@ exports[`Button should have flat disabled button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have giga button styles 1`] = `
+exports[`RegularButton should have giga button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -361,7 +361,7 @@ exports[`Button should have giga button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have kilo button styles 1`] = `
+exports[`RegularButton should have kilo button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -426,7 +426,7 @@ exports[`Button should have kilo button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have mega button styles 1`] = `
+exports[`RegularButton should have mega button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -491,7 +491,7 @@ exports[`Button should have mega button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have secondary button styles 1`] = `
+exports[`RegularButton should have secondary button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -602,7 +602,7 @@ exports[`Button should have secondary button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have secondary disabled button styles 1`] = `
+exports[`RegularButton should have secondary disabled button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -713,7 +713,7 @@ exports[`Button should have secondary disabled button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have secondary flat button styles 1`] = `
+exports[`RegularButton should have secondary flat button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -824,7 +824,7 @@ exports[`Button should have secondary flat button styles 1`] = `
 </button>
 `;
 
-exports[`Button should have stretch button styles 1`] = `
+exports[`RegularButton should have stretch button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
