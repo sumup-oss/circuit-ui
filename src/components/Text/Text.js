@@ -41,7 +41,7 @@ const marginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const TextElement = styled(HtmlElement)`
+const StyledText = styled(HtmlElement)`
   ${baseStyles};
   ${sizeStyles};
   ${marginStyles};
@@ -49,13 +49,15 @@ const TextElement = styled(HtmlElement)`
   ${italicStyles};
 `;
 
+export { StyledText };
+
 /**
  * The Text component is used for long-form text. Typically with
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
 const Text = props => (
-  <TextElement
+  <StyledText
     {...props}
     blacklist={{ size: true, bold: true, italic: true, noMargin: true }}
   />

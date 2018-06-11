@@ -2,11 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import { GROUPS } from './../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
-import Button from '.';
+import withTests from './../../util/withTests';
+import Button from './Button';
 
 const containerStyles = {
   width: '400px',
@@ -37,5 +38,23 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
           {text('Button Label', 'Button')}
         </Button>
       </div>
+    ))
+  )
+  .add(
+    'Plain Button',
+    withInfo()(() => (
+      <Button
+        plain
+        primary={boolean('Primary', false)}
+        onClick={action('onClick')}
+        size={select(
+          'Size',
+          [Button.KILO, Button.MEGA, Button.GIGA],
+          Button.MEGA
+        )}
+        href={boolean('href', false) ? 'http://www.google.com' : undefined}
+      >
+        Button Link
+      </Button>
     ))
   );

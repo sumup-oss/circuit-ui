@@ -39,7 +39,9 @@ describe('LoadingButton', () => {
 
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<LoadingButton />);
+      const wrapper = renderToHtml(
+        <LoadingButton>Loading Button</LoadingButton>
+      );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });
