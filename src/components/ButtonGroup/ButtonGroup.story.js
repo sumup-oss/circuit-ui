@@ -23,7 +23,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Button/ButtonGroup`, module)
           noMargin={boolean('No Margin Bottom', false)}
         >
           <Button secondary>Cancel</Button>
-          <Button>Confirm</Button>
+          <Button primary>Confirm</Button>
         </ButtonGroup>
       </div>
     ))

@@ -12,6 +12,10 @@ const marginStyles = ({ theme, noMargin }) =>
   css`
     li:not(:last-of-type) {
       margin-bottom: ${theme.spacings.mega};
+
+      ${theme.mq.kilo`
+        margin-bottom: 0;
+      `};
     }
   `;
 
