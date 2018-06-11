@@ -49,10 +49,6 @@ const StyledText = styled(HtmlElement)`
   ${italicStyles};
 `;
 
-StyledText.KILO = KILO;
-StyledText.MEGA = MEGA;
-StyledText.GIGA = GIGA;
-
 export { StyledText };
 
 /**

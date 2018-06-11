@@ -92,7 +92,9 @@ describe('Container Container', () => {
 
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Container />);
+      const wrapper = renderToHtml(
+        <Container>Loading Button Container</Container>
+      );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });
