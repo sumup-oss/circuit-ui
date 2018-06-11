@@ -50,7 +50,10 @@ module.exports = function(storybookBaseConfig, configType) {
         STORYBOOK: JSON.stringify(true),
         PRODUCTION: JSON.stringify(isProduction)
       })
-    ]
+    ],
+    resolve: {
+      modules: [path.resolve('./src'), 'node_modules']
+    }
   };
 
   const ourProdSpecificConfig = {
