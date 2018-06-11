@@ -21,17 +21,17 @@ describe('TextLink', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have kilo button styles', () => {
+  it('should have kilo link styles', () => {
     const actual = create(<TextLink size={TextLink.KILO}>TextLink</TextLink>);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have mega button styles', () => {
+  it('should have mega link styles', () => {
     const actual = create(<TextLink size={TextLink.MEGA}>TextLink</TextLink>);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have giga button styles', () => {
+  it('should have giga link styles', () => {
     const actual = create(<TextLink size={TextLink.GIGA}>TextLink</TextLink>);
     expect(actual).toMatchSnapshot();
   });
@@ -39,8 +39,14 @@ describe('TextLink', () => {
   /**
    * Accessibility tests.
    */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<TextLink>Link</TextLink>);
+  it('should meet accessibility guidelines when used as anchor', async () => {
+    const wrapper = renderToHtml(<TextLink href="">Link</TextLink>);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+
+  it('should meet accessibility guidelines when used as button', async () => {
+    const wrapper = renderToHtml(<TextLink onClick={() => {}}>Link</TextLink>);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

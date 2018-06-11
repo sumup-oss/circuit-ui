@@ -4,12 +4,13 @@ import { withInfo } from '@storybook/addon-info';
 import { boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
 import TextLink from './TextLink';
 
 const { KILO, MEGA, GIGA } = TextLink;
 
-storiesOf('TextLink', module)
+storiesOf(`${GROUPS.TYPOGRAPHY}|TextLink`, module)
   .addDecorator(withTests('TextLink'))
   .add(
     'Default TextLink',

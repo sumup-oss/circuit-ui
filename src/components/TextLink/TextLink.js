@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
-import Text from '../Text';
+import { StyledText } from '../Text';
 
 const baseStyles = ({ theme }) => css`
   label: button--link;
@@ -33,24 +33,32 @@ const primaryStyles = ({ theme, primary }) =>
     }
   `;
 
-/**
- * Describe your component here.
- */
-const TextLinkWrapper = styled(Text)(baseStyles, primaryStyles);
+const ButtonLinkWrapper = styled(StyledText.withComponent('button'))(
+  baseStyles,
+  primaryStyles
+);
+ButtonLinkWrapper.detaultProps = Text.detaultProps;
 
+const TextLinkWrapper = ButtonLinkWrapper.withComponent('a');
 TextLinkWrapper.detaultProps = Text.detaultProps;
 
-const TextLink = ({ href, ...rest }) => (
-  <TextLinkWrapper {...rest} element={href ? 'a' : 'button'} noMargin />
-);
+/**
+ * A anchor or button component that looks like text.
+ */
+const TextLink = ({ href, ...rest }) =>
+  href ? (
+    <TextLinkWrapper noMargin {...{ ...rest, href }} />
+  ) : (
+    <ButtonLinkWrapper noMargin {...rest} />
+  );
 
-TextLink.KILO = Text.KILO;
-TextLink.MEGA = Text.MEGA;
-TextLink.GIGA = Text.GIGA;
+TextLink.KILO = StyledText.KILO;
+TextLink.MEGA = StyledText.MEGA;
+TextLink.GIGA = StyledText.GIGA;
 
 TextLink.propTypes = {
   /**
-   * Renders a primary button using the brand color.
+   * Renders a primary variant using the brand color.
    */
   primary: PropTypes.bool,
   /**
@@ -70,7 +78,7 @@ TextLink.propTypes = {
 TextLink.defaultProps = {
   primary: false,
   href: undefined,
-  size: Text.KILO,
+  size: TextLink.MEGA,
   target: undefined
 };
 

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextLink should have giga button styles 1`] = `
-.circuit-1 {
+exports[`TextLink should have giga link styles 1`] = `
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 18px;
@@ -17,26 +17,26 @@ exports[`TextLink should have giga button styles 1`] = `
   outline: none;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.circuit-1:active {
+.circuit-0:active {
   color: #212933;
 }
 
 <button
-  className="circuit-0 circuit-1 circuit-2"
-  primary={false}
+  className="circuit-0 circuit-1"
+  size="giga"
   target={undefined}
 >
   TextLink
 </button>
 `;
 
-exports[`TextLink should have kilo button styles 1`] = `
-.circuit-1 {
+exports[`TextLink should have kilo link styles 1`] = `
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 13px;
@@ -52,26 +52,26 @@ exports[`TextLink should have kilo button styles 1`] = `
   outline: none;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.circuit-1:active {
+.circuit-0:active {
   color: #212933;
 }
 
 <button
-  className="circuit-0 circuit-1 circuit-2"
-  primary={false}
+  className="circuit-0 circuit-1"
+  size="kilo"
   target={undefined}
 >
   TextLink
 </button>
 `;
 
-exports[`TextLink should have mega button styles 1`] = `
-.circuit-1 {
+exports[`TextLink should have mega link styles 1`] = `
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 15px;
@@ -87,18 +87,18 @@ exports[`TextLink should have mega button styles 1`] = `
   outline: none;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.circuit-1:active {
+.circuit-0:active {
   color: #212933;
 }
 
 <button
-  className="circuit-0 circuit-1 circuit-2"
-  primary={false}
+  className="circuit-0 circuit-1"
+  size="mega"
   target={undefined}
 >
   TextLink
@@ -106,11 +106,11 @@ exports[`TextLink should have mega button styles 1`] = `
 `;
 
 exports[`TextLink should have primary styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 24px;
   margin-bottom: 0;
   box-shadow: none;
   border: none;
@@ -123,22 +123,22 @@ exports[`TextLink should have primary styles 1`] = `
   color: #3388FF;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.circuit-1:active {
+.circuit-0:active {
   color: #212933;
 }
 
-.circuit-1:active {
+.circuit-0:active {
   color: #1641AC;
 }
 
 <button
-  className="circuit-0 circuit-1 circuit-2"
-  primary={true}
+  className="circuit-0 circuit-1"
+  size="mega"
   target={undefined}
 >
   TextLink
@@ -146,11 +146,11 @@ exports[`TextLink should have primary styles 1`] = `
 `;
 
 exports[`TextLink should render with default styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 24px;
   margin-bottom: 0;
   box-shadow: none;
   border: none;
@@ -162,18 +162,18 @@ exports[`TextLink should render with default styles 1`] = `
   outline: none;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.circuit-1:active {
+.circuit-0:active {
   color: #212933;
 }
 
 <button
-  className="circuit-0 circuit-1 circuit-2"
-  primary={false}
+  className="circuit-0 circuit-1"
+  size="mega"
   target={undefined}
 >
   Link
@@ -181,11 +181,11 @@ exports[`TextLink should render with default styles 1`] = `
 `;
 
 exports[`TextLink should render with href 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 24px;
   margin-bottom: 0;
   box-shadow: none;
   border: none;
@@ -197,18 +197,19 @@ exports[`TextLink should render with href 1`] = `
   outline: none;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.circuit-1:active {
+.circuit-0:active {
   color: #212933;
 }
 
 <a
-  className="circuit-0 circuit-1 circuit-2"
-  primary={false}
+  className="circuit-0 circuit-1"
+  href="example"
+  size="mega"
   target={undefined}
 >
   TextLink
