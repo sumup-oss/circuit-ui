@@ -39,11 +39,11 @@ const baseSpinStyles = css`
   animation: ${spin} 1s infinite linear;
 `;
 
-const SpinnerIcon = styled(SpinnerSvg)(
-  baseIconStyles,
-  darkIconStyles,
-  baseSpinStyles
-);
+const SpinnerIcon = styled(SpinnerSvg)`
+  ${baseIconStyles};
+  ${darkIconStyles};
+  ${baseSpinStyles};
+`;
 
 /**
  * Container component
