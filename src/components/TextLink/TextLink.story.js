@@ -5,22 +5,22 @@ import { boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
-import ButtonLink from './ButtonLink';
+import TextLink from './TextLink';
 
-const { KILO, MEGA, GIGA } = ButtonLink;
+const { KILO, MEGA, GIGA } = TextLink;
 
-storiesOf('ButtonLink', module)
-  .addDecorator(withTests('ButtonLink'))
+storiesOf('TextLink', module)
+  .addDecorator(withTests('TextLink'))
   .add(
-    'Default ButtonLink',
+    'Default TextLink',
     withInfo()(() => (
-      <ButtonLink
+      <TextLink
         primary={boolean('Primary', false)}
         onClick={action('onClick')}
         size={select('Size', [KILO, MEGA, GIGA], KILO)}
         href={boolean('href', false) ? 'http://www.google.com' : undefined}
       >
         Button Link
-      </ButtonLink>
+      </TextLink>
     ))
   );

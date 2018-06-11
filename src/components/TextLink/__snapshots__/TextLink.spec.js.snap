@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonLink should have giga button styles 1`] = `
+exports[`TextLink should have giga button styles 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -31,11 +31,11 @@ exports[`ButtonLink should have giga button styles 1`] = `
   primary={false}
   target={undefined}
 >
-  ButtonLink
+  TextLink
 </button>
 `;
 
-exports[`ButtonLink should have kilo button styles 1`] = `
+exports[`TextLink should have kilo button styles 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -66,11 +66,11 @@ exports[`ButtonLink should have kilo button styles 1`] = `
   primary={false}
   target={undefined}
 >
-  ButtonLink
+  TextLink
 </button>
 `;
 
-exports[`ButtonLink should have mega button styles 1`] = `
+exports[`TextLink should have mega button styles 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -101,11 +101,11 @@ exports[`ButtonLink should have mega button styles 1`] = `
   primary={false}
   target={undefined}
 >
-  ButtonLink
+  TextLink
 </button>
 `;
 
-exports[`ButtonLink should have primary styles 1`] = `
+exports[`TextLink should have primary styles 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -141,11 +141,11 @@ exports[`ButtonLink should have primary styles 1`] = `
   primary={true}
   target={undefined}
 >
-  ButtonLink
+  TextLink
 </button>
 `;
 
-exports[`ButtonLink should render with default styles 1`] = `
+exports[`TextLink should render with default styles 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -180,7 +180,7 @@ exports[`ButtonLink should render with default styles 1`] = `
 </button>
 `;
 
-exports[`ButtonLink should render with href 1`] = `
+exports[`TextLink should render with href 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -211,6 +211,6 @@ exports[`ButtonLink should render with href 1`] = `
   primary={false}
   target={undefined}
 >
-  ButtonLink
+  TextLink
 </a>
 `;

@@ -36,19 +36,19 @@ const primaryStyles = ({ theme, primary }) =>
 /**
  * Describe your component here.
  */
-const ButtonLinkWrapper = styled(Text)(baseStyles, primaryStyles);
+const TextLinkWrapper = styled(Text)(baseStyles, primaryStyles);
 
-ButtonLinkWrapper.detaultProps = Text.detaultProps;
+TextLinkWrapper.detaultProps = Text.detaultProps;
 
-const ButtonLink = ({ href, ...rest }) => (
-  <ButtonLinkWrapper {...rest} element={href ? 'a' : 'button'} noMargin />
+const TextLink = ({ href, ...rest }) => (
+  <TextLinkWrapper {...rest} element={href ? 'a' : 'button'} noMargin />
 );
 
-ButtonLink.KILO = Text.KILO;
-ButtonLink.MEGA = Text.MEGA;
-ButtonLink.GIGA = Text.GIGA;
+TextLink.KILO = Text.KILO;
+TextLink.MEGA = Text.MEGA;
+TextLink.GIGA = Text.GIGA;
 
-ButtonLink.propTypes = {
+TextLink.propTypes = {
   /**
    * Renders a primary button using the brand color.
    */
@@ -64,10 +64,10 @@ ButtonLink.propTypes = {
   /**
    * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
    */
-  size: PropTypes.oneOf([ButtonLink.KILO, ButtonLink.MEGA, ButtonLink.GIGA])
+  size: PropTypes.oneOf([TextLink.KILO, TextLink.MEGA, TextLink.GIGA])
 };
 
-ButtonLink.defaultProps = {
+TextLink.defaultProps = {
   primary: false,
   href: undefined,
   size: Text.KILO,
@@ -77,4 +77,4 @@ ButtonLink.defaultProps = {
 /**
  * @component
  */
-export default ButtonLink;
+export default TextLink;
