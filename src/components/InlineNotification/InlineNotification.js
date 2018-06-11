@@ -23,13 +23,20 @@ const createLeftBorderStyles = colorName => ({ theme, size, type }) => {
     [WARNING]: theme.colors.warning
   };
 
+  const textColors = {
+    [DANGER]: theme.colors.danger,
+    [SUCCESS]: theme.colors.black,
+    [WARNING]: theme.colors.black
+  };
+
   return (
     colorName === type &&
     css`
       label: inline-notification--${type};
-      color: ${colors[type]};
+      color: ${textColors[type]};
       position: relative;
       margin-bottom: ${theme.spacings.mega};
+
       &:before {
         display: inline-block;
         border-top-right-radius: ${theme.borderRadius[size]};
