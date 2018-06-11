@@ -49,6 +49,7 @@ exports[`Select should render with default styles 1`] = `
   <select
     className="circuit-0 circuit-1"
     disabled={false}
+    value={null}
   >
     <option>
       Select an option
@@ -127,6 +128,7 @@ exports[`Select should render with disabled styles when passed the disabled prop
   <select
     className="circuit-0 circuit-1"
     disabled={true}
+    value={null}
   >
     <option>
       Select an option
@@ -204,6 +206,7 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
   <select
     className="circuit-0 circuit-1"
     disabled={false}
+    value={null}
   >
     <option>
       Select an option
@@ -280,6 +283,7 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   <select
     className="circuit-0 circuit-1"
     disabled={false}
+    value={null}
   >
     <option>
       Select an option
