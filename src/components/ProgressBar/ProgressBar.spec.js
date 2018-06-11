@@ -1,18 +1,18 @@
 import React from 'react';
 
-import LoadingBar from '.';
+import ProgressBar from '.';
 
-describe('LoadingBar', () => {
+describe('ProgressBar', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<LoadingBar />);
+    const actual = create(<ProgressBar />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with loading styles', () => {
-    const actual = create(<LoadingBar value={0.5} />);
+  it('should render with progress styles', () => {
+    const actual = create(<ProgressBar value={0.5} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -20,7 +20,7 @@ describe('LoadingBar', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<LoadingBar />);
+    const wrapper = renderToHtml(<ProgressBar />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
