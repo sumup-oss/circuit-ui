@@ -18,7 +18,7 @@ const Page = () => (
       </Text>
       <List size={List.MEGA}>
         <li>Circuit UI integration</li>
-        <li>Emotion support (excl. babel plugin)</li>
+        <li>Emotion support (incl. babel plugin)</li>
         <li>Lodash support (incl. babel plugin)</li>
         <li>
           SumUp ESLint and Prettier configuration provided by{' '}

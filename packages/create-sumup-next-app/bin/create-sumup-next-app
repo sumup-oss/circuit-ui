@@ -14,11 +14,11 @@ sed -i '' -e "s/app-name/$app_name/g" package.json
 # Install dependencies
 yarn add next express react react-dom emotion react-emotion \
   emotion-theming emotion-server lodash @sumup/circuit-ui esm
-yarn add --dev @sumup/foundry babel-plugin-lodash prettier eslint \
-  eslint-config-airbnb eslint-config-prettier eslint-plugin-import \
-  eslint-plugin-jest eslint-plugin-jsx-a11y eslint-plugin-prettier \
-  eslint-plugin-react jest jest-axe jest-emotion jest-enzyme \
-  enzyme enzyme-adapter-react-16 react-test-renderer prop-types \
+yarn add --dev @sumup/foundry babel-plugin-lodash babel-plugin-emotion \
+  prettier eslint eslint-config-airbnb eslint-config-prettier \
+  eslint-plugin-import eslint-plugin-jest eslint-plugin-jsx-a11y \
+  eslint-plugin-prettier eslint-plugin-react jest jest-axe jest-emotion \
+  jest-enzyme enzyme enzyme-adapter-react-16 react-test-renderer prop-types \
   react-with-direction react-svg-loader webpack-bundle-analyzer \
   @weco/next-plugin-transpile-modules nodemon
 
