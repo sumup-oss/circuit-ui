@@ -4,6 +4,13 @@ import SchemeIcon from './SchemeIcon';
 // eslint-disable-next-line max-len
 import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-map';
 
+const iconSizes = [
+  SchemeIcon.BYTE,
+  SchemeIcon.KILO,
+  SchemeIcon.MEGA,
+  SchemeIcon.GIGA
+];
+
 describe('SchemeIcon', () => {
   /**
    * Style tests.
@@ -12,7 +19,7 @@ describe('SchemeIcon', () => {
     const actual = create(
       <div>
         {keys(schemeMap).map(schemeId => (
-          <SchemeIcon key={schemeId} schemeId={schemeId} />
+          <SchemeIcon size={iconSizes} key={schemeId} schemeId={schemeId} />
         ))}
       </div>
     );
@@ -26,7 +33,7 @@ describe('SchemeIcon', () => {
     const wrapper = renderToHtml(
       <div>
         {keys(schemeMap).map(schemeId => (
-          <SchemeIcon key={schemeId} schemeId={schemeId} />
+          <SchemeIcon size={iconSizes} key={schemeId} schemeId={schemeId} />
         ))}
       </div>
     );

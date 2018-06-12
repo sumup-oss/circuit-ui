@@ -14,8 +14,7 @@ exports[`CardSchemes should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  height: 32px;
-  width: 48px;
+  width: auto;
 }
 
 <ul
@@ -26,6 +25,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         amex.svg
@@ -37,6 +44,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         diners.svg
@@ -48,6 +63,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         discover.svg
@@ -59,6 +82,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         ec.svg
@@ -70,6 +101,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         elo.svg
@@ -81,6 +120,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         elv.svg
@@ -92,6 +139,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         hiper.svg
@@ -103,6 +158,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         hipercard.svg
@@ -114,6 +177,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         jcb.svg
@@ -125,6 +196,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         maestro.svg
@@ -136,6 +215,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         mastercard.svg
@@ -147,6 +234,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         visa-electron.svg
@@ -158,6 +253,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         visa.svg
@@ -169,6 +272,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         vpay.svg
@@ -180,6 +291,14 @@ exports[`CardSchemes should render with default styles 1`] = `
   >
     <div
       className="circuit-0 circuit-1"
+      size={
+        Array [
+          "byte",
+          "kilo",
+          "mega",
+          "giga",
+        ]
+      }
     >
       <div>
         unknown.svg
