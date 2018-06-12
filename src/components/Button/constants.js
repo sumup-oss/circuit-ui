@@ -62,6 +62,7 @@ export const BUTTON_DEFAULT_PROPS = {
 
 const SHARED_PROPS = [
   'children',
+  'className',
   'data-selector',
   'disabled',
   'href',
