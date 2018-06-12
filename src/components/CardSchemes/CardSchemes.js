@@ -4,6 +4,9 @@ import { isEmpty } from 'lodash';
 
 import styled, { css } from 'react-emotion';
 import SchemeIcon from './components/SchemeIcon';
+import { sizes } from '../../styles/constants';
+
+const { BYTE, KILO, MEGA, GIGA } = sizes;
 
 const CardSchemeBaseStyles = ({ theme }) => css`
   box-sizing: content-box;
@@ -23,7 +26,7 @@ const CardScheme = styled('li')(CardSchemeBaseStyles);
 /**
  *   Displays a row of available or active card scheme icons
  */
-const CardSchemes = ({ schemeIds }) => {
+const CardSchemes = ({ schemeIds, size }) => {
   if (isEmpty(schemeIds)) {
     return null;
   }
@@ -32,18 +35,28 @@ const CardSchemes = ({ schemeIds }) => {
     <CardSchemeWrapper>
       {schemeIds.map(schemeId => (
         <CardScheme key={schemeId}>
-          <SchemeIcon schemeId={schemeId} />
+          <SchemeIcon size={size} schemeId={schemeId} />
         </CardScheme>
       ))}
     </CardSchemeWrapper>
   );
 };
 
+CardSchemes.BYTE = BYTE;
+CardSchemes.KILO = KILO;
+CardSchemes.MEGA = MEGA;
+CardSchemes.GIGA = GIGA;
+
 CardSchemes.propTypes = {
   /**
    * An array of scheme ids corresponding to the names of the scheme icons.
    */
-  schemeIds: PropTypes.arrayOf(PropTypes.string).isRequired
+  schemeIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  size: PropTypes.oneOf([BYTE, KILO, MEGA, GIGA])
+};
+
+CardSchemes.defaultProps = {
+  size: GIGA
 };
 
 /**

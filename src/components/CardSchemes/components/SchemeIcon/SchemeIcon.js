@@ -2,18 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { keys } from 'lodash';
+
+import { sizes } from '../../../../styles/constants';
+
 // eslint-disable-next-line max-len
 import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-map';
 
-const SchemeIconWrapBaseStyles = () => css`
-  height: 32px;
-  width: 48px;
+const { BYTE, KILO, MEGA, GIGA } = sizes;
+
+const SchemeIconWrapBaseStyles = ({ theme, size }) => css`
+  height: ${theme.iconSizes[size]};
+  width: auto;
 `;
 const SchemeIconWrap = styled('div')(SchemeIconWrapBaseStyles);
 /**
  * A single card scheme icon
  */
-const SchemeIcon = ({ schemeId }) => {
+const SchemeIcon = ({ schemeId, size }) => {
   const IconSvg = schemeMap[schemeId];
 
   if (!IconSvg) {
@@ -21,29 +26,40 @@ const SchemeIcon = ({ schemeId }) => {
   }
 
   const Svg = styled(IconSvg)`
-    width: 100%;
+    width: auto;
     height: 100%;
-    display: block;
+    display: inline-block;
     line-height: 0;
-    text-align: center;
   `;
 
   return (
-    <SchemeIconWrap>
+    <SchemeIconWrap size={size}>
       <Svg />
     </SchemeIconWrap>
   );
 };
 
+SchemeIcon.BYTE = BYTE;
+SchemeIcon.KILO = KILO;
+SchemeIcon.MEGA = MEGA;
+SchemeIcon.GIGA = GIGA;
+
 SchemeIcon.propTypes = {
   /**
    * The id of the card scheme icon.
    */
-  schemeId: PropTypes.oneOf(keys(schemeMap))
+  schemeId: PropTypes.oneOf(keys(schemeMap)),
+  size: PropTypes.oneOf([
+    SchemeIcon.BYTE,
+    SchemeIcon.KILO,
+    SchemeIcon.MEGA,
+    SchemeIcon.GIGA
+  ])
 };
 
 SchemeIcon.defaultProps = {
-  schemeId: ''
+  schemeId: '',
+  size: SchemeIcon.GIGA
 };
 
 /**
