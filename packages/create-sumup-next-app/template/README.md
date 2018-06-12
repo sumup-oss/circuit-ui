@@ -206,7 +206,7 @@ Read more about [fetching data and the component lifecycle](https://github.com/z
 
 The project uses [Emotion](https://emotion.sh/), a CSS-in-JS library, to style the components.
 
-Check out the sample components, read our [developer guidelines](https://sumupteam.atlassian.net/wiki/spaces/DEV/pages/223871058/Circuit+UI+Developer+guide) or have a look at the [Emotion docs(https://emotion.sh/docs/introduction) for more information.
+Check out the sample components, read our [developer guidelines](https://sumupteam.atlassian.net/wiki/spaces/DEV/pages/223871058/Circuit+UI+Developer+guide) or have a look at the [Emotion docs](https://emotion.sh/docs/introduction) for more information.
 
 ## Syntax Highlighting
 
