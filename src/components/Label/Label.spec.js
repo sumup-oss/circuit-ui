@@ -11,6 +11,15 @@ describe('Label', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should be visually hidden when used as accessible only label', () => {
+    const actual = create(
+      <Label accessibleOnly htmlFor="some-id">
+        Label
+      </Label>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

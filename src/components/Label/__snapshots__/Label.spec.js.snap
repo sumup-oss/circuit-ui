@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Label should be visually hidden when used as accessible only label 1`] = `
+.circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 4px;
+  display: block;
+  border: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<label
+  className="circuit-0 circuit-1"
+  htmlFor="some-id"
+>
+  Label
+</label>
+`;
+
 exports[`Label should render with default styles 1`] = `
 .circuit-0 {
   font-size: 13px;
