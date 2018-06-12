@@ -16,6 +16,11 @@ describe('Table', () => {
       expect(actual).toMatchSnapshot();
     });
 
+    it('should render without the table shadow', () => {
+      const actual = create(<Table headers={headers} rows={items} noShadow />);
+      expect(actual).toMatchSnapshot();
+    });
+
     it('should render with rowHeader styles', () => {
       const actual = create(
         <Table rowHeaders headers={headers} rows={items} />

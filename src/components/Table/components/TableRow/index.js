@@ -4,10 +4,12 @@ const baseStyles = () => css`
   label: table-row;
   vertical-align: middle;
 
-  tbody & &:last-child {
-    th,
-    td {
-      border-bottom: none;
+  tbody & {
+    &:last-child {
+      th,
+      td {
+        border-bottom: none;
+      }
     }
   }
 `;
