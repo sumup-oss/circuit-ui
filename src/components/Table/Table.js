@@ -56,8 +56,18 @@ const containerStyles = ({ theme, rowHeaders }) =>
     `};
   `;
 
+const noShadowStyles = ({ noShadow }) =>
+  noShadow &&
+  css`
+    label: table-container--no-shadow;
+    box-shadow: none;
+  `;
+
 const ScrollContainer = styled.div(containerStyles);
-const Container = styled.div(shadowSingle);
+const Container = styled.div`
+  ${shadowSingle};
+  ${noShadowStyles};
+`;
 
 /**
  * Table interface component. It handles rendering rows/headers properly
@@ -109,11 +119,11 @@ class Table extends Component {
   };
 
   render() {
-    const { rowHeaders, headers, onRowClick } = this.props;
+    const { rowHeaders, headers, onRowClick, noShadow } = this.props;
     const { rows, sortDirection, sortHover, sortedRow } = this.state;
 
     return (
-      <Container>
+      <Container noShadow={noShadow}>
         <ScrollContainer rowHeaders={rowHeaders}>
           <StyledTable rowHeaders={rowHeaders}>
             <TableHead
@@ -154,6 +164,10 @@ Table.propTypes = {
    */
   rowHeaders: PropTypes.bool,
   /**
+   * Removes the default box-shadow from the table.
+   */
+  noShadow: PropTypes.bool,
+  /**
    * Custom onSortBy function for the onSort handler.
    * The signature is (index, nextDirection, currentRows) and it should return
    * an array of rows
@@ -170,6 +184,7 @@ Table.defaultProps = {
   headers: [],
   rows: [],
   rowHeaders: true,
+  noShadow: false,
   onSortBy: null,
   onRowClick: null
 };

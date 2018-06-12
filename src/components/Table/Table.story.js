@@ -48,6 +48,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
           headers={headers}
           rows={rows}
           rowHeaders={boolean('Mobile rows', false)}
+          noShadow={boolean('Without Shadow', false)}
           onRowClick={action('onRowClick')}
         />
       </div>
