@@ -8,21 +8,21 @@ A [Next.js](https://github.com/zeit/next.js/) starter app, preconfigured with Su
 
 ## Table of Contents
 
-* [Installation](#installation)
-* [Folder Structure](#folder-structure)
-* [Available Commands](#available-scripts)
-  * [yarn dev](#yarn-dev)
-  * [yarn build](#yarn-build)
-  * [yarn start](#yarn-start)
-  * [yarn analyze](#yarn-analyze)
-  * [yarn test:\*](#yarn-test)
-  * [yarn create:\*](#yarn-create)
-* [Custom Server](#custom-server)
-* [Fetching Data](#fetching-data)
-* [Styling with Emotion](#styling-with-emotion)
-* [Contributing](#contributing)
-* [Questions? Feedback?](#questions-feedback)
-* [About SumUp](#about-sumup)
+- [Installation](#installation)
+- [Folder Structure](#folder-structure)
+- [Available Commands](#available-scripts)
+  - [yarn dev](#yarn-dev)
+  - [yarn build](#yarn-build)
+  - [yarn start](#yarn-start)
+  - [yarn analyze](#yarn-analyze)
+  - [yarn test:\*](#yarn-test)
+  - [yarn create:\*](#yarn-create)
+- [Custom Server](#custom-server)
+- [Fetching Data](#fetching-data)
+- [Styling with Emotion](#styling-with-emotion)
+- [Contributing](#contributing)
+- [Questions? Feedback?](#questions-feedback)
+- [About SumUp](#about-sumup)
 
 ## Installation
 
@@ -52,6 +52,7 @@ project-name/
 │  │  │  ├─ Logo.spec.js
 │  │  │  └─ logo.svg
 │  ├─ pages/
+│  │  ├─ _app.js
 │  │  ├─ _document.js
 │  │  └─ index.js
 │  └─ static/
@@ -81,10 +82,10 @@ other static resources like images or fonts in there.
 
 Out of the box, we get:
 
-* Automatic transpilation and bundling (with webpack and babel)
-* Hot code reloading
-* Server rendering and indexing of `./src/pages`
-* Static file serving. `./src/static/` is mapped to `/static/`
+- Automatic transpilation and bundling (with webpack and babel)
+- Hot code reloading
+- Server rendering and indexing of `./src/pages`
+- Static file serving. `./src/static/` is mapped to `/static/`
 
 Read more about [Next's Routing](https://github.com/zeit/next.js#routing).
 
