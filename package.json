@@ -122,7 +122,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn test:lint-js"
+      "eslint --cache"
     ]
   }
 }
