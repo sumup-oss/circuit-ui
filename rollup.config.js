@@ -20,6 +20,7 @@ const shared = {
     reactSvg({
       jsx: false
     }),
+    // Replace delimited values
     replace({
       delimiters: ['__', '__'],
       values: {
