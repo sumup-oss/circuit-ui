@@ -13,7 +13,7 @@ describe('Label', () => {
 
   it('should be visually hidden when used as accessible only label', () => {
     const actual = create(
-      <Label accessibleOnly htmlFor="some-id">
+      <Label visuallyHidden htmlFor="some-id">
         Label
       </Label>
     );

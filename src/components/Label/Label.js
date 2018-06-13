@@ -4,8 +4,8 @@ import { hideVisually } from 'polished';
 
 import { textKilo } from '../../styles/style-helpers';
 
-const accessibleOnlyStyles = ({ accessibleOnly }) =>
-  accessibleOnly &&
+const visuallyHiddenStyles = ({ visuallyHidden }) =>
+  visuallyHidden &&
   css`
     ${hideVisually()};
   `;
@@ -22,7 +22,7 @@ const baseStyles = ({ theme }) => css`
  */
 const Label = styled('label')`
   ${baseStyles};
-  ${accessibleOnlyStyles};
+  ${visuallyHiddenStyles};
 `;
 
 Label.propTypes = {
@@ -30,11 +30,11 @@ Label.propTypes = {
    * The identifier of the corresponding form element.
    */
   htmlFor: PropTypes.string.isRequired,
-  accessibleOnly: PropTypes.bool
+  visuallyHidden: PropTypes.bool
 };
 
 Label.defaultProps = {
-  accessibleOnly: false
+  visuallyHidden: false
 };
 
 /**
