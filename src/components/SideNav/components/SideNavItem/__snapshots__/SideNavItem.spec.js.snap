@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNavItem logic tests should not render an icon when no icon is passed 1`] = `
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: 0;
+  color: #FFFFFF;
+  margin-left: 8px;
+  padding: 12px 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-3 {
+  border: 2px solid transparent;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  background-color: #0F131A;
+}
+
+<div
+  className="circuit-3 circuit-4"
+>
+  <p
+    className="circuit-0 circuit-1 circuit-2"
+  >
+    Label
+  </p>
+</div>
+`;
+
+exports[`SideNavItem style tests should render with active styles 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: 0;
+  color: #FFFFFF;
+  margin-left: 8px;
+  padding: 12px 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-5 {
+  border: 2px solid transparent;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  background-color: #0F131A;
+}
+
+<div
+  className="circuit-5 circuit-6"
+>
+  <div
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      favorite.svg
+    </div>
+  </div>
+  <p
+    className="circuit-2 circuit-3 circuit-4"
+  >
+    Label
+  </p>
+</div>
+`;
+
+exports[`SideNavItem style tests should render with default styles 1`] = `
+.circuit-5 {
+  border: 2px solid transparent;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 24px;
+  margin-bottom: 0;
+  color: #FFFFFF;
+  margin-left: 8px;
+  padding: 12px 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+<div
+  className="circuit-5 circuit-6"
+>
+  <div
+    className="circuit-0 circuit-1"
+  >
+    <div>
+      favorite.svg
+    </div>
+  </div>
+  <p
+    className="circuit-2 circuit-3 circuit-4"
+  >
+    Label
+  </p>
+</div>
+`;

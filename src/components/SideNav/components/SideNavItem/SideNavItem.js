@@ -57,14 +57,17 @@ const ItemLabel = styled(Text)(
  */
 const SideNavItem = ({ icon: Icon, children, theme, isActive }) => (
   <ItemContainer isActive={isActive}>
-    <IconWrapper>
-      <Icon
-        css={`
-          ${size(theme.iconSizes.mega)};
-          display: block;
-        `}
-      />
-    </IconWrapper>
+    {Icon && (
+      <IconWrapper>
+        <Icon
+          // TODO: make sure the icon is rendered properly for accessibility
+          css={`
+            ${size(theme.iconSizes.mega)};
+            display: block;
+          `}
+        />
+      </IconWrapper>
+    )}
     <ItemLabel size={Text.MEGA} noMargin>
       {children}
     </ItemLabel>
@@ -77,15 +80,19 @@ SideNavItem.propTypes = {
    */
   children: PropTypes.string.isRequired,
   /**
-   * An icon to show for this navigation item.
+   * An icon component to show for this navigation item.
    */
-  icon: PropTypes.element.isRequired,
+  icon: PropTypes.func,
   theme: themePropType.isRequired,
+  /**
+   * Whether to render the item with active styles.
+   */
   isActive: PropTypes.bool
 };
 
 SideNavItem.defaultProps = {
-  isActive: false
+  isActive: false,
+  icon: null
 };
 
 /**
