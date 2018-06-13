@@ -4,7 +4,8 @@ export const GROUPS = {
   FORMS: 'Forms',
   LAYOUT: 'Layout',
   TYPOGRAPHY: 'Typography',
-  ICONS: 'Icons'
+  ICONS: 'Icons',
+  NAVIGATION: 'Navigation'
 };
 
 export const OPTIONS = {
