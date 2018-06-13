@@ -1,6 +1,6 @@
 {
   "name": "@sumup/circuit-ui",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "SumUp's React UI component library",
   "main": "index.js",
   "module": "index.js",
@@ -21,10 +21,8 @@
     "prebuild": "yarn test:unit:output && rm -rf dist && mkdir dist",
     "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
     "build:storybook": "build-storybook -c .storybook -o .out",
-    "build:stylesheet":
-      "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
-    "build:global-styles":
-      "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
+    "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
+    "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "rollup": "BABEL_ENV=build NODE_ENV=production rollup --config",
     "deploy:storybook": "build-storybook -c .storybook -o .out && gh-pages -d .out",
