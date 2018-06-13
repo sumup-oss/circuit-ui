@@ -21,7 +21,7 @@ const itemContainerBaseStyles = ({ theme }) => css`
   border-radius: ${theme.borderRadius.mega};
   cursor: pointer;
   display: flex;
-  transition: background-color ${theme.transitions.default};
+  transition: background-color ${theme.transitions.easing.default};
 `;
 
 const ItemContainer = styled('div')(
