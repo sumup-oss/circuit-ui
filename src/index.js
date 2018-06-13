@@ -85,11 +85,7 @@ export {
 export { currencyAmountUtils };
 
 // Actions
-export {
-  default as Button,
-  MessageIcon,
-  MessageButton
-} from './components/Button';
+export { default as Button } from './components/Button';
 export { default as LoadingButton } from './components/LoadingButton';
 export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as CloseButton } from './components/CloseButton';

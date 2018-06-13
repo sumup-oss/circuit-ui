@@ -6,13 +6,18 @@ import replace from 'rollup-plugin-replace';
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import minify from 'rollup-plugin-babel-minify';
+import copy from 'rollup-plugin-copy';
 
 // Shared config
 const shared = {
-  external: id =>
-    /lodash|webpack-merge|emotion|polished|react-dom|react-emotion|react-modal|react|prop-types/.test(
+  external: id => {
+    if (/shared-prop-types/.test(id)) {
+      return false;
+    }
+    return /lodash|webpack-merge|emotion|polished|react-dom|react-emotion|react-modal|react|prop-types/.test(
       id
-    ),
+    );
+  },
   plugins: [
     babel({
       exclude: 'node_modules/**'
@@ -47,7 +52,16 @@ export default [
   {
     input: 'src/index.js',
     output: { file: 'dist/index.js', format: 'es' },
-    ...shared
+    ...shared,
+    plugins: [
+      ...shared.plugins,
+      copy({
+        'package.json': 'dist/package.json',
+        LICENSE: 'dist/LICENSE',
+        'README.md': 'dist/README.md',
+        verbose: true
+      })
+    ]
   },
   {
     input: 'src/util/index.js',

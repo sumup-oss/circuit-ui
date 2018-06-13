@@ -1,6 +1,6 @@
 {
   "name": "@sumup/circuit-ui",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "SumUp's React UI component library",
   "main": "index.js",
   "module": "index.js",
@@ -36,7 +36,10 @@
   },
   "license": "MIT",
   "files": [
-    "dist"
+    "index.js",
+    "utils.js",
+    "styles.js",
+    "themes.js"
   ],
   "bugs": {
     "url": "https://github.com/sumup/circuit-ui/issues"
@@ -98,6 +101,7 @@
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-babel-minify": "^5.0.0",
+    "rollup-plugin-copy": "^0.2.3",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-react-svg": "^2.1.0",
     "rollup-plugin-replace": "^2.0.0",
