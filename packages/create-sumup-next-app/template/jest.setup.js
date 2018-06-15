@@ -8,8 +8,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import { create } from 'react-test-renderer';
 import * as emotion from 'emotion';
 import { ThemeProvider } from 'emotion-theming';
-
-import { standard } from './src/themes';
+import { standard } from '@sumup/circuit-ui/themes';
 
 Enzyme.configure({ adapter: new Adapter() });
 
