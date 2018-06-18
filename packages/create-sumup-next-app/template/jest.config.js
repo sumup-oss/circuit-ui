@@ -1,6 +1,8 @@
 module.exports = {
   rootDir: '.',
   roots: ['src', 'server'],
+  testPathIgnorePatterns: ['<rootDir>/src/.next/'],
+  watchPathIgnorePatterns: ['<rootDir>/src/.next/'],
   transform: {
     '^.+\\.js$': '<rootDir>/jest.transform.js',
     '^.+\\.svg$': '<rootDir>/jest.fileTransform.js'
@@ -16,5 +18,5 @@ module.exports = {
   },
   coverageDirectory: './__coverage__',
   coverageReporters: ['cobertura', 'text-summary', 'html'],
-  collectCoverageFrom: ['src/**/**/*.js', 'server/**/**/*.js']
+  collectCoverageFrom: ['src/**/**/*.js', 'server/**/**/*.js', '!**/.next/**']
 };
