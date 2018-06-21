@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hamburger should render with active styles when passed the isActive prop 1`] = `
+.circuit-4 {
+  box-sizing: content-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: 16px 8px;
+  width: 16px;
+  background: none;
+  border: 0;
+}
+
+.circuit-2 {
+  border: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0 {
+  margin-top: calc(2px / -2);
+  top: 50%;
+  width: calc(16px * 0.77);
+  -webkit-transition: 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+.circuit-0,
+.circuit-0::after,
+.circuit-0::before {
+  background-color: #212933;
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  position: absolute;
+  -webkit-transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+}
+
+.circuit-0::before,
+.circuit-0::after {
+  content: '';
+}
+
+.circuit-0::before {
+  top: calc((4px + 2px) * -1);
+  width: 16px;
+}
+
+.circuit-0::after {
+  bottom: calc((4px + 2px) * -1);
+  width: calc(16px * 0.88);
+}
+
+.circuit-0,
+.circuit-0::before,
+.circuit-0::after {
+  -webkit-transition: width 0.2s ease-out,top 0.1s ease-out,opacity 0.1s 0.14s ease-out,bottom 0.1s ease-out,-webkit-transform 0.3s 0.14s cubic-bezier(0.215,0.61,0.355,1);
+  -webkit-transition: width 0.2s ease-out,top 0.1s ease-out,opacity 0.1s 0.14s ease-out,bottom 0.1s ease-out,transform 0.3s 0.14s cubic-bezier(0.215,0.61,0.355,1);
+  transition: width 0.2s ease-out,top 0.1s ease-out,opacity 0.1s 0.14s ease-out,bottom 0.1s ease-out,transform 0.3s 0.14s cubic-bezier(0.215,0.61,0.355,1);
+  width: 16px;
+}
+
+.circuit-0::before {
+  opacity: 0;
+  top: 0;
+}
+
+.circuit-0::after {
+  bottom: 0;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+<button
+  className="circuit-4 circuit-5"
+  onClick={[Function]}
+>
+  <span
+    className="circuit-0 circuit-1"
+  />
+  <span
+    className="circuit-2 circuit-3"
+  >
+    Close menu
+  </span>
+</button>
+`;
+
+exports[`Hamburger should render with default styles 1`] = `
+.circuit-4 {
+  box-sizing: content-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: 16px 8px;
+  width: 16px;
+  background: none;
+  border: 0;
+}
+
+.circuit-0 {
+  margin-top: calc(2px / -2);
+  top: 50%;
+  width: calc(16px * 0.77);
+  -webkit-transition: 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+}
+
+.circuit-0,
+.circuit-0::after,
+.circuit-0::before {
+  background-color: #212933;
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  position: absolute;
+  -webkit-transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+}
+
+.circuit-0::before,
+.circuit-0::after {
+  content: '';
+}
+
+.circuit-0::before {
+  top: calc((4px + 2px) * -1);
+  width: 16px;
+}
+
+.circuit-0::after {
+  bottom: calc((4px + 2px) * -1);
+  width: calc(16px * 0.88);
+}
+
+.circuit-2 {
+  border: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<button
+  className="circuit-4 circuit-5"
+  onClick={[Function]}
+>
+  <span
+    className="circuit-0 circuit-1"
+  />
+  <span
+    className="circuit-2 circuit-3"
+  >
+    Open menu
+  </span>
+</button>
+`;
