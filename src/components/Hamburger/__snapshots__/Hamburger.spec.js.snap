@@ -9,6 +9,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   width: 16px;
   background: none;
   border: 0;
+  position: relative;
 }
 
 .circuit-2 {
@@ -110,6 +111,7 @@ exports[`Hamburger should render with default styles 1`] = `
   width: 16px;
   background: none;
   border: 0;
+  position: relative;
 }
 
 .circuit-0 {

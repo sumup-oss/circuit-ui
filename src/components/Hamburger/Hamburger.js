@@ -15,6 +15,7 @@ const buttonBaseStyles = ({ theme }) => css`
   width: ${HAMBURGER_WIDTH};
   background: none;
   border: 0;
+  position: relative;
 `;
 
 const layersBaseStyles = ({ theme }) => css`
@@ -95,7 +96,7 @@ const HamburgerLabel = styled('span')`
 `;
 
 /**
- * A hamburger button for menus. Morphes into a close icon when active.
+ * A hamburger button for menus. Morphs into a close icon when active.
  */
 const Hamburger = ({
   onClick,
