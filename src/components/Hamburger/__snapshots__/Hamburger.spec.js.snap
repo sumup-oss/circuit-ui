@@ -31,8 +31,6 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   margin-top: calc(2px / -2);
   top: 50%;
   width: calc(16px * 0.77);
-  -webkit-transition: 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
   -webkit-transform: rotate(225deg);
   -ms-transform: rotate(225deg);
   transform: rotate(225deg);
@@ -46,45 +44,51 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   display: block;
   height: 2px;
   position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
 }
 
 .circuit-0::before,
 .circuit-0::after {
+  top: 0;
   content: '';
 }
 
 .circuit-0::before {
-  top: calc((4px + 2px) * -1);
+  -webkit-transform: translateY(calc((4px + 2px) * -1));
+  -ms-transform: translateY(calc((4px + 2px) * -1));
+  transform: translateY(calc((4px + 2px) * -1));
   width: 16px;
 }
 
 .circuit-0::after {
-  bottom: calc((4px + 2px) * -1);
+  -webkit-transform: translateY(calc((4px + 2px)));
+  -ms-transform: translateY(calc((4px + 2px)));
+  transform: translateY(calc((4px + 2px)));
   width: calc(16px * 0.88);
 }
 
 .circuit-0,
 .circuit-0::before,
 .circuit-0::after {
-  -webkit-transition: width 0.2s ease-out,top 0.1s ease-out,opacity 0.1s 0.14s ease-out,bottom 0.1s ease-out,-webkit-transform 0.3s 0.14s cubic-bezier(0.215,0.61,0.355,1);
-  -webkit-transition: width 0.2s ease-out,top 0.1s ease-out,opacity 0.1s 0.14s ease-out,bottom 0.1s ease-out,transform 0.3s 0.14s cubic-bezier(0.215,0.61,0.355,1);
-  transition: width 0.2s ease-out,top 0.1s ease-out,opacity 0.1s 0.14s ease-out,bottom 0.1s ease-out,transform 0.3s 0.14s cubic-bezier(0.215,0.61,0.355,1);
+  -webkit-transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s,-webkit-transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
+  -webkit-transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
+  transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
   width: 16px;
 }
 
 .circuit-0::before {
   opacity: 0;
-  top: 0;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
 }
 
 .circuit-0::after {
-  bottom: 0;
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+  -webkit-transform: translateY(0) rotate(-90deg);
+  -ms-transform: translateY(0) rotate(-90deg);
+  transform: translateY(0) rotate(-90deg);
 }
 
 <button
@@ -118,8 +122,6 @@ exports[`Hamburger should render with default styles 1`] = `
   margin-top: calc(2px / -2);
   top: 50%;
   width: calc(16px * 0.77);
-  -webkit-transition: 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
 }
 
 .circuit-0,
@@ -130,23 +132,28 @@ exports[`Hamburger should render with default styles 1`] = `
   display: block;
   height: 2px;
   position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.14s,top 0.1s 0.34s ease-in,opacity 0.1s ease-in,bottom 0.1s 0.34s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
 }
 
 .circuit-0::before,
 .circuit-0::after {
+  top: 0;
   content: '';
 }
 
 .circuit-0::before {
-  top: calc((4px + 2px) * -1);
+  -webkit-transform: translateY(calc((4px + 2px) * -1));
+  -ms-transform: translateY(calc((4px + 2px) * -1));
+  transform: translateY(calc((4px + 2px) * -1));
   width: 16px;
 }
 
 .circuit-0::after {
-  bottom: calc((4px + 2px) * -1);
+  -webkit-transform: translateY(calc((4px + 2px)));
+  -ms-transform: translateY(calc((4px + 2px)));
+  transform: translateY(calc((4px + 2px)));
   width: calc(16px * 0.88);
 }
 

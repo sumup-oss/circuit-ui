@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually } from 'polished';
 
-const HAMBURGER_WIDTH = '16px';
-const LINE_HEIGHT = '2px';
+const LAYER_HEIGHT = '2px';
 
 const buttonBaseStyles = ({ theme }) => css`
   label: hamburger-button;
@@ -12,7 +11,7 @@ const buttonBaseStyles = ({ theme }) => css`
   cursor: pointer;
   display: inline-block;
   padding: ${theme.spacings.mega} ${theme.spacings.byte};
-  width: ${HAMBURGER_WIDTH};
+  width: ${theme.iconSizes.kilo};
   background: none;
   border: 0;
   position: relative;
@@ -20,41 +19,40 @@ const buttonBaseStyles = ({ theme }) => css`
 
 const layersBaseStyles = ({ theme }) => css`
   label: hamburger-layers;
-  margin-top: calc(${LINE_HEIGHT} / -2);
+  margin-top: calc(${LAYER_HEIGHT} / -2);
   top: 50%;
-  width: calc(${HAMBURGER_WIDTH} * 0.77);
-  transition: 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  width: calc(${theme.iconSizes.kilo} * 0.77);
 
   &,
   &::after,
   &::before {
     background-color: ${theme.colors.n900};
-    border-radius: 1px;
+    border-radius: ${theme.borderRadius.kilo};
     display: block;
-    height: ${LINE_HEIGHT};
+    height: ${LAYER_HEIGHT};
     position: absolute;
-    transition: width 0.2s ease-out 0.14s, top 0.1s 0.34s ease-in,
-      opacity 0.1s ease-in, bottom 0.1s 0.34s ease-in,
+    transition: width 0.2s ease-out 0.15s, opacity 0.1s ease-in,
       transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
   &::before,
   &::after {
+    top: 0;
     content: '';
   }
 
   &::before {
-    top: calc((${theme.spacings.bit} + ${LINE_HEIGHT}) * -1);
-    width: ${HAMBURGER_WIDTH};
+    transform: translateY(calc((${theme.spacings.bit} + ${LAYER_HEIGHT}) * -1));
+    width: ${theme.iconSizes.kilo};
   }
 
   &::after {
-    bottom: calc((${theme.spacings.bit} + ${LINE_HEIGHT}) * -1);
-    width: calc(${HAMBURGER_WIDTH} * 0.88);
+    transform: translateY(calc((${theme.spacings.bit} + ${LAYER_HEIGHT})));
+    width: calc(${theme.iconSizes.kilo} * 0.88);
   }
 `;
 
-const layersActiveStyles = ({ isActive }) =>
+const layersActiveStyles = ({ theme, isActive }) =>
   isActive &&
   css`
     label: hamburger-layers--active;
@@ -63,20 +61,18 @@ const layersActiveStyles = ({ isActive }) =>
     &,
     &::before,
     &::after {
-      transition: width 0.2s ease-out, top 0.1s ease-out,
-        opacity 0.1s 0.14s ease-out, bottom 0.1s ease-out,
-        transform 0.3s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
-      width: ${HAMBURGER_WIDTH};
+      transition: width 0.2s ease-out, opacity 0.1s ease-out 0.15s,
+        transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
+      width: ${theme.iconSizes.kilo};
     }
 
     &::before {
       opacity: 0;
-      top: 0;
+      transform: translateY(0);
     }
 
     &::after {
-      bottom: 0;
-      transform: rotate(-90deg);
+      transform: translateY(0) rotate(-90deg);
     }
   `;
 
