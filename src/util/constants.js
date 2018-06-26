@@ -1,7 +1,6 @@
 /**
  * Position
  */
-
 export const TOP = 'top';
 export const BOTTOM = 'bottom';
 export const LEFT = 'left';
@@ -10,7 +9,6 @@ export const RIGHT = 'right';
 /**
  * Alignment
  */
-
 export const START = 'start';
 export const END = 'end';
 export const CENTER = 'center';
@@ -18,7 +16,6 @@ export const CENTER = 'center';
 /**
  * Sizes
  */
-
 export const BIT = 'bit';
 export const BYTE = 'byte';
 export const KILO = 'kilo';
@@ -32,15 +29,13 @@ export const ZETTA = 'zetta';
 /**
  * Shadows
  */
-
 export const SINGLE = 'single';
 export const DOUBLE = 'double';
 export const TRIPLE = 'triple';
 
 /**
- * Colors?
+ * Colors
  */
-
 export const SUCCESS = 'success';
 export const DANGER = 'danger';
 export const WARNING = 'warning';
