@@ -30,7 +30,7 @@ const labelBaseStyles = ({ theme }) => css`
     content: '';
     display: block;
     position: absolute;
-    top: 12px;
+    top: ${theme.spacings.kilo};
     left: 0;
     transform: translateY(-50%);
     transition: border 0.05s ease-in;
@@ -45,7 +45,7 @@ const labelBaseStyles = ({ theme }) => css`
     line-height: 0;
     opacity: 0;
     position: absolute;
-    top: 12px;
+    top: ${theme.spacings.kilo};
     transform: translateY(-50%) scale(0, 0);
     transition: transform 0.05s ease-in, opacity 0.05s ease-in;
   }
