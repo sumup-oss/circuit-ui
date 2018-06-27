@@ -16,6 +16,7 @@ const checkmarkSvg = fill =>
 const labelBaseStyles = ({ theme }) => css`
   label: checkbox__label;
   color: ${theme.colors.n700};
+  display: inline-block;
   padding-left: ${theme.spacings.giga};
   position: relative;
 
@@ -29,7 +30,7 @@ const labelBaseStyles = ({ theme }) => css`
     content: '';
     display: block;
     position: absolute;
-    top: 50%;
+    top: ${theme.spacings.kilo};
     left: 0;
     transform: translateY(-50%);
     transition: border 0.05s ease-in;
@@ -44,7 +45,7 @@ const labelBaseStyles = ({ theme }) => css`
     line-height: 0;
     opacity: 0;
     position: absolute;
-    top: 50%;
+    top: ${theme.spacings.kilo};
     transform: translateY(-50%) scale(0, 0);
     transition: transform 0.05s ease-in, opacity 0.05s ease-in;
   }
@@ -125,10 +126,16 @@ const CheckboxWrapper = styled('div')`
 /**
  * Checkbox component for forms.
  */
-const Checkbox = ({ onChange, children, id: customId, ...props }) => {
+const Checkbox = ({
+  onChange,
+  children,
+  id: customId,
+  className,
+  ...props
+}) => {
   const id = customId || uniqueId('checkbox_');
   return (
-    <CheckboxWrapper>
+    <CheckboxWrapper className={className}>
       <CheckboxInput {...props} id={id} onClick={onChange} type="checkbox" />
       <CheckboxLabel {...props} htmlFor={id}>
         {children}
@@ -175,7 +182,11 @@ Checkbox.propTypes = {
    * Triggers disabled styles on the component. This is also forwarded as
    * attribute to the <input> element.
    */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /**
+   * Override styles for the Checkbox component.
+   */
+  className: PropTypes.string
 };
 
 Checkbox.defaultProps = {
@@ -184,7 +195,8 @@ Checkbox.defaultProps = {
   value: null,
   invalid: false,
   disabled: false,
-  children: null
+  children: null,
+  className: ''
 };
 
 /**
