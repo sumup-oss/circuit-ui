@@ -33,6 +33,15 @@ describe('List', () => {
     expect(list).toMatchSnapshot();
   });
 
+  it('should render a giga unordered List', () => {
+    const list = create(
+      <List size={List.GIGA}>
+        <li>Hi there</li>
+      </List>
+    );
+    expect(list).toMatchSnapshot();
+  });
+
   it('should render nested unordered lists', () => {
     const list = create(
       <List>

@@ -4,10 +4,10 @@ import styled, { css } from 'react-emotion';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import HtmlElement from '../HtmlElement';
-import { textMega, textKilo } from '../../styles/style-helpers';
+import { textMega, textKilo, textGiga } from '../../styles/style-helpers';
 import { sizes } from '../../styles/constants';
 
-const { BIT, BYTE, KILO, MEGA } = sizes;
+const { BIT, BYTE, KILO, MEGA, GIGA } = sizes;
 
 const baseStyles = ({ theme }) => css`
   label: list;
@@ -18,37 +18,47 @@ const sizeStyles = ({ theme, size }) => {
   const settings = {
     [KILO]: {
       marginBottom: theme.spacings[KILO],
+      paddingLeft: theme.spacings[KILO],
       marginLeft: theme.spacings[BIT],
-      nestedLeft: theme.spacings[KILO],
       type: textKilo({ theme })
     },
     [MEGA]: {
       marginBottom: theme.spacings[BYTE],
-      marginLeft: theme.spacings[BIT],
-      nestedLeft: theme.spacings[KILO],
+      paddingLeft: theme.spacings[KILO],
+      marginLeft: theme.spacings[KILO],
       type: textMega({ theme })
+    },
+    [GIGA]: {
+      marginBottom: theme.spacings[KILO],
+      paddingLeft: theme.spacings[MEGA],
+      marginLeft: theme.spacings[KILO],
+      type: textGiga({ theme })
     }
   };
-  const { nestedLeft, marginBottom, marginLeft, type } = settings[size];
+  const { marginBottom, paddingLeft, marginLeft, type } = settings[size];
   return css`
     label: list--${size};
-    margin-left: ${marginLeft};
-    ${type} li {
+    padding-left: ${paddingLeft};
+    ${type};
+
+    li {
       margin-bottom: ${marginBottom};
       margin-left: ${marginLeft};
     }
+
     ul,
     ol {
-      margin-left: ${nestedLeft};
+      margin-left: ${marginLeft};
     }
   `;
 };
 
-const ListElement = props => (
+// eslint-disable-next-line react/prop-types
+const ListElement = ({ ordered, ...otherProps }) => (
   <HtmlElement
-    blacklist={{ size: true, ordered: true }}
-    element={({ ordered }) => (ordered ? 'ol' : 'ul')}
-    {...props}
+    blacklist={{ size: true }}
+    element={ordered ? 'ol' : 'ul'}
+    {...otherProps}
   />
 );
 
@@ -59,6 +69,7 @@ const List = styled(ListElement)(baseStyles, sizeStyles);
 
 List.KILO = KILO;
 List.MEGA = MEGA;
+List.GIGA = GIGA;
 
 List.propTypes = {
   /**
@@ -68,7 +79,7 @@ List.propTypes = {
   /**
    * A Circuit UI body text size.
    */
-  size: PropTypes.oneOf([List.KILO, List.MEGA]),
+  size: PropTypes.oneOf([List.KILO, List.MEGA, List.GIGA]),
   /**
    * Whether the list should be presented as an <ol>
    */
