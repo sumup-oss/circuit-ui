@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 
 import styled, { css } from 'react-emotion';
-import SchemeIcon from './components/SchemeIcon';
+import PaymentMethodIcon from './components/PaymentMethodIcon';
 import { sizes } from '../../styles/constants';
 
 const { BYTE, KILO, MEGA, GIGA } = sizes;
@@ -35,7 +35,7 @@ const CardSchemes = ({ schemeIds, size }) => {
     <CardSchemeWrapper>
       {schemeIds.map(schemeId => (
         <CardScheme key={schemeId}>
-          <SchemeIcon size={size} schemeId={schemeId} />
+          <PaymentMethodIcon size={size} schemeId={schemeId} />
         </CardScheme>
       ))}
     </CardSchemeWrapper>
@@ -52,6 +52,10 @@ CardSchemes.propTypes = {
    * An array of scheme ids corresponding to the names of the scheme icons.
    */
   schemeIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+
+  /**
+   * The optional sizes of the icons of the card scheme
+   */
   size: PropTypes.oneOf([BYTE, KILO, MEGA, GIGA])
 };
 

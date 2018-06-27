@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 // eslint-disable-next-line max-len
-import schemeMap from '../CreditCardDetails/components/scheme-icons/card-scheme-map';
+import schemeMap from '../CreditCardDetails/components/scheme-icons/card-scheme-icons';
 
 import CardSchemes from './CardSchemes';
 
