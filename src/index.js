@@ -112,6 +112,7 @@ export { default as Spacing } from './components/Spacing';
 // Misc
 export { default as Badge } from './components/Badge';
 export { default as Card, CardHeader, CardFooter } from './components/Card';
+export { default as Hamburger } from './components/Hamburger';
 export { default as Image } from './components/Image';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as Tag } from './components/Tag';
