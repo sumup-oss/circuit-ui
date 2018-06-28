@@ -64,7 +64,7 @@ const marginStyles = ({ noMargin }) =>
 // eslint-disable-next-line react/prop-types
 const ListElement = ({ ordered, ...otherProps }) => (
   <HtmlElement
-    blacklist={{ size: true }}
+    blacklist={{ size: true, noMargin: true }}
     element={ordered ? 'ol' : 'ul'}
     {...otherProps}
   />

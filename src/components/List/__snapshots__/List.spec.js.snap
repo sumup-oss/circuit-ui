@@ -21,7 +21,6 @@ exports[`List should render a default unordered List 1`] = `
 
 <ul
   className="circuit-0 circuit-1"
-  noMargin={false}
 >
   <li>
     Hi there
@@ -50,7 +49,6 @@ exports[`List should render a giga unordered List 1`] = `
 
 <ul
   className="circuit-0 circuit-1"
-  noMargin={false}
 >
   <li>
     Hi there
@@ -79,7 +77,6 @@ exports[`List should render a kilo unordered List 1`] = `
 
 <ul
   className="circuit-0 circuit-1"
-  noMargin={false}
 >
   <li>
     Hi there
@@ -108,7 +105,6 @@ exports[`List should render a mega unordered List 1`] = `
 
 <ul
   className="circuit-0 circuit-1"
-  noMargin={false}
 >
   <li>
     Hi there
@@ -137,7 +133,6 @@ exports[`List should render an ordered list 1`] = `
 
 <ol
   className="circuit-0 circuit-1"
-  noMargin={false}
 >
   <li>
     Hi
@@ -169,14 +164,12 @@ exports[`List should render nested unordered lists 1`] = `
 
 <ul
   className="circuit-0 circuit-1"
-  noMargin={false}
 >
   <li>
     Hi there
   </li>
   <ul
     className="circuit-0 circuit-1"
-    noMargin={false}
   >
     <li>
       Hi there
@@ -207,7 +200,6 @@ exports[`List should render with no margin styles when passed the noMargin prop 
 
 <ul
   className="circuit-0 circuit-1"
-  noMargin={true}
 >
   <li>
     Hi
