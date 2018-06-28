@@ -12,6 +12,7 @@ const { BIT, BYTE, KILO, MEGA, GIGA } = sizes;
 const baseStyles = ({ theme }) => css`
   label: list;
   font-weight: ${theme.fontWeight.regular};
+  margin-bottom: ${theme.spacings.mega};
 `;
 
 const sizeStyles = ({ theme, size }) => {
@@ -53,6 +54,13 @@ const sizeStyles = ({ theme, size }) => {
   `;
 };
 
+const marginStyles = ({ noMargin }) =>
+  noMargin &&
+  css`
+    label: text--no-margin;
+    margin-bottom: 0;
+  `;
+
 // eslint-disable-next-line react/prop-types
 const ListElement = ({ ordered, ...otherProps }) => (
   <HtmlElement
@@ -65,7 +73,11 @@ const ListElement = ({ ordered, ...otherProps }) => (
 /**
  * A list, which can be ordered or unordered
  */
-const List = styled(ListElement)(baseStyles, sizeStyles);
+const List = styled(ListElement)`
+  ${baseStyles};
+  ${sizeStyles};
+  ${marginStyles};
+`;
 
 List.KILO = KILO;
 List.MEGA = MEGA;
@@ -83,12 +95,17 @@ List.propTypes = {
   /**
    * Whether the list should be presented as an <ol>
    */
-  ordered: PropTypes.bool
+  ordered: PropTypes.bool,
+  /**
+   * Removes the default bottom margin from the text.
+   */
+  noMargin: PropTypes.bool
 };
 
 List.defaultProps = {
   size: List.KILO,
-  ordered: false
+  ordered: false,
+  noMargin: false
 };
 
 /**
