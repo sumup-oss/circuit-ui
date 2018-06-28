@@ -1,10 +1,10 @@
 import React from 'react';
-import { keys } from 'lodash';
+import { keys, values } from 'lodash/fp';
 import PaymentMethodIcon from './PaymentMethodIcon';
 // eslint-disable-next-line max-len
-import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
-// eslint-disable-next-line max-len
-import Mastercard from '../../../CreditCardDetails/components/scheme-icons/icons/mastercard.svg';
+import schemeMap, {
+  iconComponents
+} from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
 
 describe('PaymentMethodIcon', () => {
   /**
@@ -27,10 +27,20 @@ describe('PaymentMethodIcon', () => {
 
   it('should render svg icon', () => {
     const actual = mount(
-      <PaymentMethodIcon size={PaymentMethodIcon.BYTE} schemeId="mastercard" />
+      <div>
+        {keys(schemeMap).map(schemeId => (
+          <PaymentMethodIcon
+            key={schemeId}
+            size={PaymentMethodIcon.BYTE}
+            schemeId={schemeId}
+          />
+        ))}
+      </div>
     );
 
-    expect(actual.find(Mastercard)).toHaveLength(1);
+    values(iconComponents).forEach(icon => {
+      expect(actual.find(icon)).toHaveLength(1);
+    });
   });
 
   /**

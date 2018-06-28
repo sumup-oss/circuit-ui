@@ -18,7 +18,7 @@ import Visa from './icons/visa.svg';
 import Vpay from './icons/vpay.svg';
 import Cash from './icons/cash.svg';
 
-const iconComponents = {
+export const iconComponents = {
   amex: Amex,
   diners: Diners,
   discover: Discover,
