@@ -46,6 +46,7 @@ export { default as List } from './components/List';
 export { default as Markdown } from './components/Markdown';
 export { default as SubHeading } from './components/SubHeading';
 export { default as Text } from './components/Text';
+export { default as Blockquote } from './components/Blockquote';
 
 // Forms
 export {
