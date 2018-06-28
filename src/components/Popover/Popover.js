@@ -122,7 +122,10 @@ class Popover extends Component {
         >
           {({ ref, style }) =>
             isOpen && (
-              <div style={style} ref={this.receivePopoverRef}>
+              <div
+                style={{ ...style, zIndex: '10' }}
+                ref={this.receivePopoverRef}
+              >
                 <div ref={ref}>
                   {renderPopover({ closePopover: this.closePopover })}
                 </div>
