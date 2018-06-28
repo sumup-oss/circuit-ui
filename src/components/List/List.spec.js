@@ -64,6 +64,15 @@ describe('List', () => {
     expect(list).toMatchSnapshot();
   });
 
+  it('should render with no margin styles when passed the noMargin prop', () => {
+    const actual = create(
+      <List noMargin>
+        <li>Hi</li>
+      </List>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
