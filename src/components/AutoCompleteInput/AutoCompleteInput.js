@@ -22,6 +22,7 @@ const ItemsWrapper = styled('div')`
   height: 0px;
   overflow: visible;
   margin-top: ${props => props.theme.spacings.bit};
+  z-index: 20;
 `;
 
 const itemsBaseStyles = ({ theme }) => css`
