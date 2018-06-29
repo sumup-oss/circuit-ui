@@ -1,14 +1,23 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { select } from '@storybook/addon-knobs/react';
+import { values } from 'lodash/fp';
+
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import { colorNames } from '../../styles/constants';
 
 import withTests from '../../util/withTests';
 import Badge from './Badge';
 
 storiesOf(`${GROUPS.COMPONENTS}|Badge`, module)
   .addDecorator(withTests('Badge'))
-  .add('Default Badge', withInfo()(() => <Badge>Update</Badge>))
+  .add(
+    'Default Badge',
+    withInfo()(() => (
+      <Badge color={select('Color', values(colorNames))}>Update</Badge>
+    ))
+  )
   .add(
     'Circular Badge',
     withInfo()(() => (

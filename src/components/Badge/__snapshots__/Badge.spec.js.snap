@@ -2,7 +2,7 @@
 
 exports[`Badge should have the correct circle styles 1`] = `
 .circuit-0 {
-  background-color: #FF7559;
+  background-color: #62DE76;
   border-radius: 100px;
   color: #FFFFFF;
   cursor: default;
@@ -40,13 +40,14 @@ exports[`Badge should have the correct circle styles 1`] = `
 
 <div
   className="circuit-0 circuit-1"
+  color="neutral"
   onClick={[Function]}
 />
 `;
 
 exports[`Badge should render with default styles 1`] = `
 .circuit-0 {
-  background-color: #FF7559;
+  background-color: #62DE76;
   border-radius: 100px;
   color: #FFFFFF;
   cursor: default;
@@ -70,6 +71,7 @@ exports[`Badge should render with default styles 1`] = `
 
 <div
   className="circuit-0 circuit-1"
+  color="neutral"
   onClick={[Function]}
 />
 `;
