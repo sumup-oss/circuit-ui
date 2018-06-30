@@ -2,7 +2,7 @@
 
 # Variables
 app_name=$1
-gist_url=https://gist.github.com/felixjung/fe7d05033c53e9f6f77e3dba1be8f85a
+git_url=https://raw.githubusercontent.com/sumup/create-sumup-react-app/master
 files=( ".eslintrc.js" "prettier.config.js" "config-overrides.js" "App.js" "index.js" "logo.svg" "setupTests.js" )
 
 # Set up project using create-react-app
@@ -21,7 +21,7 @@ yarn add --dev react-app-rewired react-app-rewire-react-svg-loader babel-plugin-
 # Download config files
 for file in "${files[@]}"
 do
-  curl --location --remote-name "$gist_url/raw/$file"
+  curl --location --remote-name "$git_url/$file"
 done
 
 # Replace npm scripts to use react-app-rewired
