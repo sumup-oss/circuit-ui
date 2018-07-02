@@ -21,22 +21,22 @@ const listWrapperBaseStyles = () => css`
 `;
 
 const CardSchemeWrapper = styled('ul')(listWrapperBaseStyles);
-const CardScheme = styled('li')(CardSchemeBaseStyles);
+const PaymentMethodIconWrap = styled('li')(CardSchemeBaseStyles);
 
 /**
  *   Displays a row of available or active card scheme icons
  */
-const CardSchemes = ({ schemeIds, size }) => {
-  if (isEmpty(schemeIds)) {
+const CardSchemes = ({ iconIds, size }) => {
+  if (isEmpty(iconIds)) {
     return null;
   }
 
   return (
     <CardSchemeWrapper>
-      {schemeIds.map(schemeId => (
-        <CardScheme key={schemeId}>
-          <PaymentMethodIcon size={size} schemeId={schemeId} />
-        </CardScheme>
+      {iconIds.map(iconId => (
+        <PaymentMethodIconWrap key={iconId}>
+          <PaymentMethodIcon size={size} iconId={iconId} />
+        </PaymentMethodIconWrap>
       ))}
     </CardSchemeWrapper>
   );
@@ -51,8 +51,7 @@ CardSchemes.propTypes = {
   /**
    * An array of scheme ids corresponding to the names of the scheme icons.
    */
-  schemeIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-
+  iconIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   /**
    * The optional sizes of the icons of the card scheme
    */

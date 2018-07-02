@@ -1,10 +1,10 @@
 import React from 'react';
-import { keys, values } from 'lodash/fp';
+import { keys } from 'lodash/fp';
 import PaymentMethodIcon from './PaymentMethodIcon';
 // eslint-disable-next-line max-len
-import schemeMap, {
-  iconComponents
-} from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
+import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
+// eslint-disable-next-line max-len
+import Mastercard from '../../../CreditCardDetails/components/scheme-icons/icons/mastercard.svg';
 
 describe('PaymentMethodIcon', () => {
   /**
@@ -13,11 +13,11 @@ describe('PaymentMethodIcon', () => {
   it('should render with default styles', () => {
     const actual = create(
       <div>
-        {keys(schemeMap).map(schemeId => (
+        {keys(schemeMap).map(iconId => (
           <PaymentMethodIcon
             size={PaymentMethodIcon.KILO}
-            key={schemeId}
-            schemeId={schemeId}
+            key={iconId}
+            iconId={iconId}
           />
         ))}
       </div>
@@ -25,22 +25,12 @@ describe('PaymentMethodIcon', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render svg icon', () => {
+  it('should render Mastercard svg icon', () => {
     const actual = mount(
-      <div>
-        {keys(schemeMap).map(schemeId => (
-          <PaymentMethodIcon
-            key={schemeId}
-            size={PaymentMethodIcon.BYTE}
-            schemeId={schemeId}
-          />
-        ))}
-      </div>
+      <PaymentMethodIcon size={PaymentMethodIcon.BYTE} iconId="mastercard" />
     );
 
-    values(iconComponents).forEach(icon => {
-      expect(actual.find(icon)).toHaveLength(1);
-    });
+    expect(actual.find(Mastercard)).toHaveLength(1);
   });
 
   /**
@@ -49,11 +39,11 @@ describe('PaymentMethodIcon', () => {
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <div>
-        {keys(schemeMap).map(schemeId => (
+        {keys(schemeMap).map(iconId => (
           <PaymentMethodIcon
-            size={PaymentMethodIcon.GIGAƒ}
-            key={schemeId}
-            schemeId={schemeId}
+            size={PaymentMethodIcon.GIGA}
+            key={iconId}
+            iconId={iconId}
           />
         ))}
       </div>

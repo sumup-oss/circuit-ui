@@ -22,7 +22,7 @@ storiesOf(`${GROUPS.ICONS}|CardSchemes`, module).add(
   withInfo()(() => (
     <CardSchemes
       size={select('Schemes Size', iconSizes, iconSizes[CardSchemes.GIGA])}
-      schemeIds={array('Card schemes', iconIds)}
+      iconIds={array('Card schemes', iconIds)}
     />
   ))
 );

@@ -24,7 +24,7 @@ storiesOf(`${GROUPS.ICONS}|PaymentMethodIcon`, module).add(
         iconSizes,
         iconSizes[PaymentMethodIcon.GIGA]
       )}
-      schemeId={select('Schemes Icon', keys(schemeMap), 'visa')}
+      iconId={select('Schemes Icon', keys(schemeMap), 'visa')}
     />
   ))
 );

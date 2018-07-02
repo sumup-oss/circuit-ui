@@ -13,12 +13,14 @@ const PaymentMethodIconWrapBaseStyles = ({ theme, size }) => css`
   height: ${theme.iconSizes[size]};
   width: auto;
 `;
+
 const PaymentMethodIconWrap = styled('div')(PaymentMethodIconWrapBaseStyles);
+
 /**
  * A single card scheme icon
  */
-const PaymentMethodIcon = ({ schemeId, size }) => {
-  const IconSvg = schemeMap[schemeId];
+const PaymentMethodIcon = ({ iconId, size }) => {
+  const IconSvg = schemeMap[iconId];
 
   if (!IconSvg) {
     return null;
@@ -26,14 +28,12 @@ const PaymentMethodIcon = ({ schemeId, size }) => {
 
   return (
     <PaymentMethodIconWrap size={size}>
-      <IconSvg
-        className={css`
+      <IconSvg css="
           width: auto;
           height: 100%;
           display: inline-block;
           line-height: 0;
-        `}
-      />
+        " />
     </PaymentMethodIconWrap>
   );
 };
@@ -47,8 +47,7 @@ PaymentMethodIcon.propTypes = {
   /**
    * The id of the card scheme icon.
    */
-  schemeId: PropTypes.oneOf(keys(schemeMap)),
-
+  iconId: PropTypes.oneOf(keys(schemeMap)),
   /**
    * The optional sizes of the scheme icon
    */
@@ -61,7 +60,7 @@ PaymentMethodIcon.propTypes = {
 };
 
 PaymentMethodIcon.defaultProps = {
-  schemeId: '',
+  iconId: '',
   size: PaymentMethodIcon.GIGA
 };
 
