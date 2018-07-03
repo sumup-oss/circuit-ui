@@ -56,10 +56,16 @@ export { StyledText };
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
-const Text = props => (
+const Text = ({ blacklist, ...restProps }) => (
   <StyledText
-    {...props}
-    blacklist={{ size: true, bold: true, italic: true, noMargin: true }}
+    {...restProps}
+    blacklist={{
+      ...blacklist,
+      size: true,
+      bold: true,
+      italic: true,
+      noMargin: true
+    }}
   />
 );
 
@@ -95,11 +101,17 @@ Text.propTypes = {
   /**
    * The HTML element to render.
    */
-  element: PropTypes.string
+  element: PropTypes.string,
+  /**
+   * A hash of props that should not be forwarded as attributes to the HTML element.
+   * Prevents React from complaining about invalid attribute values.
+   */
+  blacklist: PropTypes.objectOf(PropTypes.bool)
 };
 
 Text.defaultProps = {
   element: 'p',
+  blacklist: {},
   size: Text.MEGA,
   className: '',
   noMargin: false,
