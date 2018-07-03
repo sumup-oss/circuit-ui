@@ -44,7 +44,7 @@ const PlainButton = ({ href, ...rest }) =>
   href ? (
     <PlainButtonWrapper noMargin {...{ ...rest, href }} />
   ) : (
-    <ButtonLinkWrapper noMargin {...rest} />
+    <ButtonLinkWrapper type="button" noMargin {...rest} />
   );
 
 export default PlainButton;
