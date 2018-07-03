@@ -4,6 +4,7 @@ import styled, { css } from 'react-emotion';
 import Downshift from 'downshift';
 import { includes } from 'lodash/fp';
 
+import { zIndex } from '../../themes/default';
 import SearchInput from '../SearchInput';
 import Card from '../Card';
 import { textMega } from '../../styles/style-helpers';
@@ -22,7 +23,7 @@ const ItemsWrapper = styled('div')`
   height: 0px;
   overflow: visible;
   margin-top: ${props => props.theme.spacings.bit};
-  z-index: 20;
+  z-index: ${zIndex.popover};
 `;
 
 const itemsBaseStyles = ({ theme }) => css`
