@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardSchemes should render with default styles 1`] = `
+.circuit-64 {
+  display: block;
+  line-height: 0;
+  text-align: center;
+}
+
+.circuit-2 {
+  box-sizing: content-box;
+  display: inline-block;
+  padding: 8px;
+}
+
+.circuit-0 {
+  height: 32px;
+  width: auto;
+}
+
+<ul
+  className="circuit-64 circuit-65"
+>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        amex.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        diners.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        discover.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        ec.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        elo.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        elv.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        hiper.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        hipercard.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        jcb.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        maestro.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        mastercard.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        visa-electron.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        visa.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        vpay.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        unknown.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        cash.svg
+      </div>
+    </div>
+  </li>
+</ul>
+`;

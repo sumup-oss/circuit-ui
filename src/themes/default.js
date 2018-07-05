@@ -87,7 +87,8 @@ export const spacings = {
 export const iconSizes = {
   byte: '14px',
   kilo: '16px',
-  mega: '24px'
+  mega: '24px',
+  giga: '32px'
 };
 
 export const borderRadius = {

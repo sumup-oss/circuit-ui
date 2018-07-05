@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { flow, toPairs, reduce } from '../../../../util/fp';
-
 import Amex from './icons/amex.svg';
 import Unknown from './icons/unknown.svg';
 import Diners from './icons/diners.svg';
@@ -17,8 +16,9 @@ import Mastercard from './icons/mastercard.svg';
 import VisaElectron from './icons/visa-electron.svg';
 import Visa from './icons/visa.svg';
 import Vpay from './icons/vpay.svg';
+import Cash from './icons/cash.svg';
 
-const iconComponents = {
+export const iconComponents = {
   amex: Amex,
   diners: Diners,
   discover: Discover,
@@ -33,7 +33,8 @@ const iconComponents = {
   visaElectron: VisaElectron,
   visa: Visa,
   vpay: Vpay,
-  default: Unknown
+  default: Unknown,
+  cash: Cash
 };
 
 const accessibleIconComponents = flow(
