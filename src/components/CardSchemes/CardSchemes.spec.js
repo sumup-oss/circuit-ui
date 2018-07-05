@@ -1,12 +1,9 @@
 import React from 'react';
-import { keys, values } from 'lodash/fp';
+import { keys } from 'lodash/fp';
 
 import CardSchemes from './CardSchemes';
-import PaymentMethodIcon from './components/PaymentMethodIcon';
 // eslint-disable-next-line max-len
-import schemeMap, {
-  iconComponents
-} from '../CreditCardDetails/components/scheme-icons/card-scheme-icons';
+import schemeMap from '../CreditCardDetails/components/scheme-icons/card-scheme-icons';
 
 describe('CardSchemes', () => {
   /**
@@ -20,20 +17,13 @@ describe('CardSchemes', () => {
   });
 
   it('should render each icon specified in the "iconsIds" prop', () => {
-    const actual = mount(
-      <div>
-        {keys(schemeMap).map(iconId => (
-          <PaymentMethodIcon
-            key={iconId}
-            size={PaymentMethodIcon.BYTE}
-            iconId={iconId}
-          />
-        ))}
-      </div>
-    );
+    const iconIds = ['visa', 'mastercard'];
+    const wrapper = mount(<CardSchemes iconIds={iconIds} />);
 
-    values(iconComponents).forEach(icon => {
-      expect(actual.find(icon)).toHaveLength(1);
+    iconIds.forEach(iconId => {
+      const iconNodes = wrapper.find(`[aria-label="icon ${iconId}"]`);
+      expect(iconNodes).toHaveLength(1);
+      expect(iconNodes).toIncludeText(`${iconId}.svg`);
     });
   });
 
