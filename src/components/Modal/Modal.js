@@ -102,7 +102,7 @@ const overlayClassName = {
     right: 0;
     top: 0;
     transition: opacity 200ms ease-in-out;
-    z-index: 1000;
+    z-index: ${theme.zIndex.modal};
 
     ${theme.mq.kilo`
       -webkit-overflow-scrolling: touch;
