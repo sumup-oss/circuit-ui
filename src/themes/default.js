@@ -230,5 +230,6 @@ export const zIndex = {
   default: 0,
   absolute: 1,
   select: 30,
-  tooltip: 31
+  tooltip: 31,
+  modal: 1000
 };
