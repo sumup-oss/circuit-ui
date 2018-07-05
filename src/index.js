@@ -132,6 +132,8 @@ export { default as Picture } from './components/Picture';
 export { default as AutoCompleteInput } from './components/AutoCompleteInput';
 export { default as AutoCompleteTags } from './components/AutoCompleteTags';
 export { default as Table } from './components/Table';
+export { default as CardSchemes } from './components/CardSchemes';
+export { default as PaymentMethodIcon } from './components/CardSchemes/components/PaymentMethodIcon';
 
 // Helpers
 export { default as State } from './components/State';
