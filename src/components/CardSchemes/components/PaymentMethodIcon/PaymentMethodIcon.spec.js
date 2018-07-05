@@ -1,36 +1,29 @@
 import React from 'react';
-import { keys } from 'lodash/fp';
 import PaymentMethodIcon from './PaymentMethodIcon';
-// eslint-disable-next-line max-len
-import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
-// eslint-disable-next-line max-len
-import Mastercard from '../../../CreditCardDetails/components/scheme-icons/icons/mastercard.svg';
 
 describe('PaymentMethodIcon', () => {
+  const iconId = 'visa';
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
     const actual = create(
-      <div>
-        {keys(schemeMap).map(iconId => (
-          <PaymentMethodIcon
-            size={PaymentMethodIcon.KILO}
-            key={iconId}
-            iconId={iconId}
-          />
-        ))}
-      </div>
+      <PaymentMethodIcon size={PaymentMethodIcon.KILO} iconId={iconId} />
     );
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render Mastercard svg icon', () => {
-    const actual = mount(
-      <PaymentMethodIcon size={PaymentMethodIcon.BYTE} iconId="mastercard" />
+  /**
+   * Logic tests
+   */
+  it('should render the specified icon', () => {
+    const wrapper = mount(
+      <PaymentMethodIcon size={PaymentMethodIcon.BYTE} iconId={iconId} />
     );
 
-    expect(actual.find(Mastercard)).toHaveLength(1);
+    const iconComponent = wrapper.find(`[aria-label="icon ${iconId}"]`);
+    expect(iconComponent).toHaveLength(1);
+    expect(iconComponent).toIncludeText(`${iconId}.svg`);
   });
 
   /**
@@ -38,15 +31,7 @@ describe('PaymentMethodIcon', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <div>
-        {keys(schemeMap).map(iconId => (
-          <PaymentMethodIcon
-            size={PaymentMethodIcon.GIGA}
-            key={iconId}
-            iconId={iconId}
-          />
-        ))}
-      </div>
+      <PaymentMethodIcon size={PaymentMethodIcon.GIGA} iconId={iconId} />
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
