@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 import styled from 'react-emotion';
 
+import { zIndex } from '../../themes/default';
+
 import {
   TOP,
   BOTTOM,
@@ -18,6 +20,10 @@ import { toPopperPlacement, popperModifiers } from './PopoverService';
 const ButtonWrapper = styled('div')`
   label: popover__button-wrapper;
   display: inline-block;
+`;
+
+const PopoverWrapper = styled('div')`
+  z-index: ${zIndex.popover};
 `;
 
 class Popover extends Component {
@@ -122,11 +128,11 @@ class Popover extends Component {
         >
           {({ ref, style }) =>
             isOpen && (
-              <div style={style} ref={this.receivePopoverRef}>
+              <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
                 <div ref={ref}>
                   {renderPopover({ closePopover: this.closePopover })}
                 </div>
-              </div>
+              </PopoverWrapper>
             )
           }
         </Popper>

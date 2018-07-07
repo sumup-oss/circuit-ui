@@ -229,6 +229,7 @@ export const transitions = {
 export const zIndex = {
   default: 0,
   absolute: 1,
+  popover: 20,
   select: 30,
   tooltip: 31,
   modal: 1000
