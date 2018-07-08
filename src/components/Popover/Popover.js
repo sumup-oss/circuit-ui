@@ -38,6 +38,10 @@ class Popover extends Component {
 
   static propTypes = {
     /**
+     * isOpen controlled prop
+     */
+    isOpen: PropTypes.bool.isRequired,
+    /**
      * function rendering the popover
      */
     renderPopover: PropTypes.func.isRequired,
@@ -54,27 +58,22 @@ class Popover extends Component {
      */
     align: alignPropType,
     /**
-     * A callback that is called when the Popover closes
+     * A callback that is called when the Popover should close
      */
-    onClose: PropTypes.func
+    onButtonClose: PropTypes.func.isRequired,
+    /**
+     * A callback that is called on outside click
+     */
+    onOutsideClickClose: PropTypes.func.isRequired
   };
 
   static defaultProps = {
     position: Popover.BOTTOM,
-    align: Popover.START,
-    onClose: () => {}
+    align: Popover.START
   };
-
-  state = { isOpen: false };
 
   componentDidMount() {
     document.addEventListener('click', this.handleDocumentClick, true);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.isOpen && !this.state.isOpen) {
-      this.props.onClose();
-    }
   }
 
   componentWillUnmount() {
@@ -86,7 +85,7 @@ class Popover extends Component {
     const isWithinButton = this.buttonRef && this.buttonRef.contains(target);
 
     if (!isWithinButton && !isWithinPopover) {
-      this.closePopover();
+      this.props.onOutsideClickClose();
     }
   };
 
@@ -101,14 +100,21 @@ class Popover extends Component {
     this.popoverRef = ref;
   };
 
-  handleReferenceClick = () =>
-    this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
-
-  closePopover = () => this.setState({ isOpen: false });
+  handleReferenceClick = () => {
+    const { isOpen } = this.props;
+    if (isOpen) {
+      this.props.onButtonClose();
+    }
+  };
 
   render() {
-    const { renderPopover, renderReference, position, align } = this.props;
-    const { isOpen } = this.state;
+    const {
+      renderPopover,
+      renderReference,
+      position,
+      align,
+      isOpen
+    } = this.props;
 
     return (
       <Manager>
@@ -129,9 +135,7 @@ class Popover extends Component {
           {({ ref, style }) =>
             isOpen && (
               <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
-                <div ref={ref}>
-                  {renderPopover({ closePopover: this.closePopover })}
-                </div>
+                <div ref={ref}>{renderPopover()}</div>
               </PopoverWrapper>
             )
           }
