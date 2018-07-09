@@ -33,7 +33,7 @@ describe('Badge', () => {
     });
   });
 
-  it('should have hover/active styles only the onClick handler is provided', () => {
+  it('should have hover/active styles only when the onClick handler is provided', () => {
     const actual = create(<Badge onClick={() => {}} />);
     expect(actual).toMatchSnapshot();
   });
