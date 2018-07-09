@@ -1,100 +1,71 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { size } from 'polished';
+import { values } from 'lodash/fp';
 
-import { values } from '../../util/fp';
 import { subHeadingKilo } from '../../styles/style-helpers';
 import { colorNames } from '../../styles/constants';
 
-const getColorStyles = (theme, colorName) => {
-  const colorMap = {
-    [colorNames.SUCCESS]: `
-      background-color: ${theme.colors.g500};
-      color: ${theme.colors.white};
-
-      &:hover {
-        background-color: ${theme.colors.g700};
-      }
-
-      &:active {
-        background-color: ${theme.colors.y900};
-      }
-    `,
-    [colorNames.WARNING]: `
-      background-color: ${theme.colors.y500};
-      color: ${theme.colors.dark};
-
-      &:hover {
-        background-color: ${theme.colors.y700};
-      }
-
-      &:active {
-        background-color: ${theme.colors.y900};
-      }
-    `,
-    [colorNames.DANGER]: `
-      background-color: ${theme.colors.r500};
-      color: ${theme.colors.white};
-
-      &:hover {
-        background-color: ${theme.colors.r700};
-      }
-
-      &:active {
-        background-color: ${theme.colors.y900};
-      }
-    `,
-    [colorNames.PRIMARY]: `
-      background-color: ${theme.colors.b500};
-      color: ${theme.colors.white};
-
-      &:hover {
-        background-color: ${theme.colors.b700};
-      }
-
-      &:active {
-        background-color: ${theme.colors.y900};
-      }
-    `,
-    [colorNames.NEUTRAL]: `
-      background-color: ${theme.colors.n300};
-      color: ${theme.colors.dark};
-
-      &:hover {
-        background-color: ${theme.colors.n500};
-      }
-
-      &:active {
-        background-color: ${theme.colors.n700};
-      }
-  `
-  };
-
-  const colorStyles = colorMap[colorName] || colorMap[colorNames.NEUTRAL];
-
-  return css(colorStyles);
+const COLOR_MAP = {
+  [colorNames.SUCCESS]: {
+    default: 'g500',
+    hover: 'g700',
+    active: 'g900'
+  },
+  [colorNames.WARNING]: {
+    default: 'y500',
+    hover: 'y700',
+    active: 'y900'
+  },
+  [colorNames.DANGER]: {
+    default: 'r500',
+    hover: 'r700',
+    active: 'r900'
+  },
+  [colorNames.PRIMARY]: {
+    default: 'b500',
+    hover: 'b700',
+    active: 'b900'
+  },
+  [colorNames.NEUTRAL]: {
+    default: 'n500',
+    hover: 'n700',
+    active: 'n900'
+  }
 };
 
-const colorStyles = ({ theme, color }) => {
-  if (color === colorNames.NEUTRAL) {
+const colorStyles = ({ theme, color, onClick }) => {
+  const currentColor = COLOR_MAP[color];
+
+  if (!currentColor) {
     return null;
   }
 
   return css`
     label: badge--${color};
-    ${getColorStyles(theme, color)};
+    background-color: ${theme.colors[currentColor.default]};
+    ${onClick &&
+      `
+      &:hover {
+        background-color: ${theme.colors[currentColor.hover]};
+      }
+
+      &:active {
+        background-color: ${theme.colors[currentColor.active]};
+      }
+    `};
   `;
 };
 
-const baseStyles = ({ theme }) => css`
+const baseStyles = ({ theme, onClick }) => css`
   label: badge;
   border-radius: 100px;
-  cursor: default;
+  color: ${theme.colors.white};
+  cursor: ${onClick ? 'pointer' : 'default'};
   padding: 0 ${theme.spacings.byte};
   ${subHeadingKilo({ theme })};
   text-transform: uppercase;
   user-select: none;
-  ${getColorStyles(theme, colorNames.NEUTRAL)};
 `;
 
 const circleStyles = ({ circle }) =>
@@ -134,7 +105,7 @@ Badge.WARNING = colorNames.WARNING;
 Badge.DANGER = colorNames.DANGER;
 
 Badge.defaultProps = {
-  onClick: () => {},
+  onClick: null,
   circle: false,
   color: Badge.NEUTRAL
 };
