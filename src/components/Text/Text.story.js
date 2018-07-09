@@ -16,7 +16,7 @@ const content = `An electronic circuit is composed of individual electronic comp
 storiesOf(`${GROUPS.TYPOGRAPHY}|Text`, module)
   .addDecorator(withTests('Text'))
   .add(
-    'Default Text',
+    'Text',
     withInfo()(() => (
       <div style={{ width: '66%', margin: '0 auto' }}>
         <Text

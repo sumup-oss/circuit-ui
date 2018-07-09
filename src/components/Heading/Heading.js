@@ -34,8 +34,7 @@ const HeadingElement = styled(HtmlElement)`
 `;
 
 /**
- * A heading flexible heading component capable of rendering using
- * different HTML tags.
+ * A flexible heading component capable of rendering using any HTML heading tag.
  */
 const Heading = props => (
   <HeadingElement {...props} blacklist={{ size: true, noMargin: true }} />

@@ -35,8 +35,8 @@ const SubHeadingElement = styled(HtmlElement)(
 );
 
 /**
- * A flexible component for subheadings. Capable of rendering using
- * different any of the heading HTML tags.
+ * A flexible subheading component capable of rendering using any HTML heading
+ * tag, except h1.
  */
 
 const SubHeading = props => (

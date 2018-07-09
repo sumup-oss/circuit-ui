@@ -1,66 +1,35 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { select, boolean, text } from '@storybook/addon-knobs/react';
+
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import Heading from '.';
 
+const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+const sizes = [
+  Heading.ZETTA,
+  Heading.EXA,
+  Heading.PETA,
+  Heading.TERA,
+  Heading.GIGA,
+  Heading.MEGA,
+  Heading.KILO
+];
+
 storiesOf(`${GROUPS.TYPOGRAPHY}|Heading`, module)
   .addDecorator(withTests('Heading'))
   .add(
-    'Zetta Heading with h1',
+    'Heading',
     withInfo()(() => (
-      <Heading element="h1" size={Heading.ZETTA}>
-        This is a zetta heading with an h1 element
-      </Heading>
-    ))
-  )
-  .add(
-    'Exa Heading with h2',
-    withInfo()(() => (
-      <Heading element="h2" size={Heading.EXA}>
-        This is an exa heading with an h2 element
-      </Heading>
-    ))
-  )
-  .add(
-    'Peta Heading with h3',
-    withInfo()(() => (
-      <Heading element="h3" size={Heading.PETA}>
-        This is a peta heading with an h3 element
-      </Heading>
-    ))
-  )
-  .add(
-    'Tera Heading with h4',
-    withInfo()(() => (
-      <Heading element="h4" size={Heading.TERA}>
-        This is a tera heading with an h4 element
-      </Heading>
-    ))
-  )
-  .add(
-    'Giga Heading with h5',
-    withInfo()(() => (
-      <Heading element="h5" size={Heading.GIGA}>
-        This is a giga heading with an h5 element
-      </Heading>
-    ))
-  )
-  .add(
-    'Mega Heading with h6',
-    withInfo()(() => (
-      <Heading element="h6" size={Heading.MEGA}>
-        This is a mega heading with an h6 element
-      </Heading>
-    ))
-  )
-  .add(
-    'Kilo Heading with h6',
-    withInfo()(() => (
-      <Heading element="h6" size={Heading.KILO}>
-        This is a kilo heading with an h6 element
+      <Heading
+        element={select('Element', elements, elements[0])}
+        size={select('Size', sizes, sizes[0])}
+        noMargin={boolean('No margin', false)}
+      >
+        {text('Text', 'This is a heading')}
       </Heading>
     ))
   );
