@@ -1,27 +1,71 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { size } from 'polished';
+import { values } from 'lodash/fp';
 
 import { subHeadingKilo } from '../../styles/style-helpers';
+import { colorNames } from '../../styles/constants';
 
-const baseStyles = ({ theme }) => css`
+const COLOR_MAP = {
+  [colorNames.SUCCESS]: {
+    default: 'g500',
+    hover: 'g700',
+    active: 'g900'
+  },
+  [colorNames.WARNING]: {
+    default: 'y500',
+    hover: 'y700',
+    active: 'y900'
+  },
+  [colorNames.DANGER]: {
+    default: 'r500',
+    hover: 'r700',
+    active: 'r900'
+  },
+  [colorNames.PRIMARY]: {
+    default: 'b500',
+    hover: 'b700',
+    active: 'b900'
+  },
+  [colorNames.NEUTRAL]: {
+    default: 'n500',
+    hover: 'n700',
+    active: 'n900'
+  }
+};
+
+const colorStyles = ({ theme, color, onClick }) => {
+  const currentColor = COLOR_MAP[color];
+
+  if (!currentColor) {
+    return null;
+  }
+
+  return css`
+    label: badge--${color};
+    background-color: ${theme.colors[currentColor.default]};
+    ${onClick &&
+      `
+      &:hover {
+        background-color: ${theme.colors[currentColor.hover]};
+      }
+
+      &:active {
+        background-color: ${theme.colors[currentColor.active]};
+      }
+    `};
+  `;
+};
+
+const baseStyles = ({ theme, onClick }) => css`
   label: badge;
-  background-color: ${theme.colors.r500};
   border-radius: 100px;
   color: ${theme.colors.white};
-  cursor: default;
+  cursor: ${onClick ? 'pointer' : 'default'};
   padding: 0 ${theme.spacings.byte};
   ${subHeadingKilo({ theme })};
   text-transform: uppercase;
   user-select: none;
-
-  &:hover {
-    background-color: ${theme.colors.r700};
-  }
-
-  &:active {
-    background-color: ${theme.colors.r900};
-  }
 `;
 
 const circleStyles = ({ circle }) =>
@@ -37,7 +81,9 @@ const circleStyles = ({ circle }) =>
  * A badge for displaying update notifications etc.
  */
 const Badge = styled('div')`
-  ${baseStyles} ${circleStyles};
+  ${baseStyles};
+  ${colorStyles};
+  ${circleStyles};
 `;
 
 Badge.propTypes = {
@@ -48,12 +94,19 @@ Badge.propTypes = {
   /**
    * Ensures text is centered and the badge looks like a circle.
    */
-  circle: PropTypes.bool
+  circle: PropTypes.bool,
+  color: PropTypes.oneOf(values(colorNames))
 };
 
+Badge.NEUTRAL = colorNames.NEUTRAL;
+Badge.PRIMARY = colorNames.PRIMARY;
+Badge.SUCCESS = colorNames.SUCCESS;
+Badge.WARNING = colorNames.WARNING;
+Badge.DANGER = colorNames.DANGER;
+
 Badge.defaultProps = {
-  onClick: () => {},
-  circle: false
+  circle: false,
+  color: Badge.NEUTRAL
 };
 
 /**

@@ -2,7 +2,7 @@
 import {
   BIT, BYTE, KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA,
   SINGLE, DOUBLE, TRIPLE,
-  SUCCESS, DANGER, WARNING
+  SUCCESS, DANGER, WARNING, PRIMARY, NEUTRAL
 } from '../util/constants';
 
 /**
@@ -21,7 +21,7 @@ export const shadows = { SINGLE, DOUBLE, TRIPLE };
  * Colors?
  */
 
-export const colorNames = { SUCCESS, DANGER, WARNING };
+export const colorNames = { SUCCESS, DANGER, WARNING, PRIMARY, NEUTRAL };
 
 /**
  * Directions

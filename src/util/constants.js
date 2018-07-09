@@ -44,3 +44,5 @@ export const TRIPLE = 'triple';
 export const SUCCESS = 'success';
 export const DANGER = 'danger';
 export const WARNING = 'warning';
+export const NEUTRAL = 'neutral';
+export const PRIMARY = 'primary';
