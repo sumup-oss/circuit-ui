@@ -14,11 +14,34 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const sizeStyles = ({ theme, size }) => css`
-  label: text--${size};
-  font-size: ${theme.typography.text[size].fontSize};
-  line-height: ${theme.typography.text[size].lineHeight};
-`;
+const kiloStyles = ({ theme, size }) =>
+  size === KILO &&
+  css`
+    label: text--${KILO};
+    font-size: ${theme.typography.text[KILO].fontSize};
+    line-height: ${theme.typography.text[KILO].lineHeight};
+  `;
+
+const megaStyles = ({ theme, size }) =>
+  size === MEGA &&
+  css`
+    label: text--${MEGA};
+    font-size: ${theme.typography.text[MEGA].fontSize};
+    line-height: ${theme.typography.text[MEGA].lineHeight};
+  `;
+
+const gigaStyles = ({ theme, size }) =>
+  size === GIGA &&
+  css`
+    label: text--${GIGA};
+    font-size: ${theme.typography.text[MEGA].fontSize};
+    line-height: ${theme.typography.text[MEGA].lineHeight};
+
+    ${theme.mq.kilo`
+      font-size: ${theme.typography.text[GIGA].fontSize};
+      line-height: ${theme.typography.text[GIGA].lineHeight};
+    `};
+  `;
 
 const boldStyles = ({ theme, bold }) =>
   bold &&
@@ -43,7 +66,9 @@ const marginStyles = ({ noMargin }) =>
 
 const StyledText = styled(HtmlElement)`
   ${baseStyles};
-  ${sizeStyles};
+  ${kiloStyles};
+  ${megaStyles};
+  ${gigaStyles};
   ${marginStyles};
   ${boldStyles};
   ${italicStyles};

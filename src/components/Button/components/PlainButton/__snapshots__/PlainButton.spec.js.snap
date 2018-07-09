@@ -4,8 +4,8 @@ exports[`PlainButton should have giga link styles 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 15px;
+  line-height: 24px;
   margin-bottom: 0;
   box-shadow: none;
   border: none;
@@ -15,6 +15,13 @@ exports[`PlainButton should have giga link styles 1`] = `
   color: #9DA7B1;
   cursor: pointer;
   outline: none;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 .circuit-0:hover {
