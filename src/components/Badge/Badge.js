@@ -105,7 +105,6 @@ Badge.WARNING = colorNames.WARNING;
 Badge.DANGER = colorNames.DANGER;
 
 Badge.defaultProps = {
-  onClick: null,
   circle: false,
   color: Badge.NEUTRAL
 };
