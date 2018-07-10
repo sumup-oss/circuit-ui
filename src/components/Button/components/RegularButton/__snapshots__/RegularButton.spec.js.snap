@@ -60,7 +60,6 @@ exports[`RegularButton should have button styles 1`] = `
   disabled={false}
   size="mega"
   target={null}
-  type="button"
 >
   Button
 </button>
@@ -126,7 +125,6 @@ exports[`RegularButton should have disabled button styles 1`] = `
   disabled={true}
   size="mega"
   target={null}
-  type="button"
 >
   Disabled button
 </button>
@@ -210,7 +208,6 @@ exports[`RegularButton should have flat button styles 1`] = `
   disabled={false}
   size="mega"
   target={null}
-  type="button"
 >
   Flat button
 </button>
@@ -294,7 +291,6 @@ exports[`RegularButton should have flat disabled button styles 1`] = `
   disabled={true}
   size="mega"
   target={null}
-  type="button"
 >
   Flat button
 </button>
@@ -360,7 +356,6 @@ exports[`RegularButton should have giga button styles 1`] = `
   disabled={false}
   size="giga"
   target={null}
-  type="button"
 >
   Button
 </button>
@@ -426,7 +421,6 @@ exports[`RegularButton should have kilo button styles 1`] = `
   disabled={false}
   size="kilo"
   target={null}
-  type="button"
 >
   Button
 </button>
@@ -492,7 +486,6 @@ exports[`RegularButton should have mega button styles 1`] = `
   disabled={false}
   size="mega"
   target={null}
-  type="button"
 >
   Button
 </button>
@@ -604,7 +597,6 @@ exports[`RegularButton should have secondary button styles 1`] = `
   disabled={false}
   size="mega"
   target={null}
-  type="button"
 >
   Secondary button
 </button>
@@ -716,7 +708,6 @@ exports[`RegularButton should have secondary disabled button styles 1`] = `
   disabled={true}
   size="mega"
   target={null}
-  type="button"
 >
   Secondary disabled button
 </button>
@@ -828,7 +819,6 @@ exports[`RegularButton should have secondary flat button styles 1`] = `
   disabled={false}
   size="mega"
   target={null}
-  type="button"
 >
   Secondary flat button
 </button>
@@ -896,7 +886,6 @@ exports[`RegularButton should have stretch button styles 1`] = `
   disabled={false}
   size="mega"
   target={null}
-  type="button"
 >
   Stretched button
 </button>

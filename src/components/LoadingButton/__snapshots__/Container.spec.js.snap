@@ -101,7 +101,6 @@ exports[`Container Container Style tests should have default styles 1`] = `
   onClick={undefined}
   size="mega"
   target={null}
-  type="button"
 >
   <div
     className="circuit-7 circuit-8"

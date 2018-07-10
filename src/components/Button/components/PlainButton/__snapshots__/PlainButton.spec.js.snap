@@ -31,7 +31,6 @@ exports[`PlainButton should have giga link styles 1`] = `
   disabled={false}
   size="giga"
   target={null}
-  type="button"
 >
   Button
 </button>
@@ -68,7 +67,6 @@ exports[`PlainButton should have kilo link styles 1`] = `
   disabled={false}
   size="kilo"
   target={null}
-  type="button"
 >
   Button
 </button>
@@ -105,7 +103,6 @@ exports[`PlainButton should have mega link styles 1`] = `
   disabled={false}
   size="mega"
   target={null}
-  type="button"
 >
   Button
 </button>
@@ -147,7 +144,6 @@ exports[`PlainButton should have primary styles 1`] = `
   disabled={false}
   size="mega"
   target={null}
-  type="button"
 >
   Button
 </button>
@@ -184,7 +180,6 @@ exports[`PlainButton should render with default styles 1`] = `
   disabled={false}
   size="mega"
   target={null}
-  type="button"
 >
   Link
 </button>

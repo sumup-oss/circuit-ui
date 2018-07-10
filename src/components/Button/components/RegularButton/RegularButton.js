@@ -234,7 +234,7 @@ const RegularButton = ({ href, ...props }) =>
   href ? (
     <LinkButtonElement {...{ ...props, href }} />
   ) : (
-    <ButtonElement type="button" {...props} />
+    <ButtonElement {...props} />
   );
 
 export default RegularButton;

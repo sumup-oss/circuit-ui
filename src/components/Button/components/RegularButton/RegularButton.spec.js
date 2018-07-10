@@ -107,10 +107,5 @@ describe('RegularButton', () => {
       expect(wrapper.find('a')).toBePresent();
       expect(wrapper.find('a')).toHaveProp('target', '_blank');
     });
-
-    it('should accept a type prop', () => {
-      const wrapper = shallow(<Button type="submit">Button</Button>);
-      expect(wrapper.prop('type')).toEqual('submit');
-    });
   });
 });
