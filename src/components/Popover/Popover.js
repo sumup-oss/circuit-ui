@@ -17,7 +17,7 @@ import {
 import { positionPropType, alignPropType } from '../../util/shared-prop-types';
 import { toPopperPlacement, popperModifiers } from './PopoverService';
 
-const ButtonWrapper = styled('div')`
+const ReferenceWrapper = styled('div')`
   label: popover__button-wrapper;
   display: inline-block;
 `;
@@ -121,12 +121,12 @@ class Popover extends Component {
       <Manager>
         <Reference>
           {({ ref }) => (
-            <ButtonWrapper
+            <ReferenceWrapper
               innerRef={this.receiveButtonRef}
               onClick={this.handleReferenceClick}
             >
               <div ref={ref}>{renderReference()}</div>
-            </ButtonWrapper>
+            </ReferenceWrapper>
           )}
         </Reference>
         {isOpen && (

@@ -18,6 +18,7 @@ class PopoverContainer extends Component {
 
   render() {
     const { closeOnButtonClick, ...restProps } = this.props;
+    const { isOpen } = this.state;
 
     return (
       <Popover
@@ -31,10 +32,10 @@ class PopoverContainer extends Component {
               width: '200px'
             }}
           >
-            Popover Content
+            Popover Content {typeof closeOnButtonClick}
           </div>
         )}
-        renderReference={({ isOpen }) => (
+        renderReference={() => (
           <Button
             primary={isOpen}
             size={Button.KILO}
@@ -43,7 +44,7 @@ class PopoverContainer extends Component {
             Button
           </Button>
         )}
-        onButtonClose={() =>
+        onReferenceClickClose={() =>
           closeOnButtonClick && this.setState({ isOpen: false })
         }
         onOutsideClickClose={() => this.setState({ isOpen: false })}

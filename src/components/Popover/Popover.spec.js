@@ -71,7 +71,7 @@ describe('Popover', () => {
         onReferenceClickClose={onReferenceClickClose}
       />
     );
-    actual.find('ButtonWrapper').simulate('click');
+    actual.find('ReferenceWrapper').simulate('click');
     expect(onReferenceClickClose).toHaveBeenCalledTimes(1);
   });
 
