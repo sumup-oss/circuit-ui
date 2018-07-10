@@ -106,7 +106,6 @@ exports[`LoadingButton Style tests should have active loading styles 1`] = `
   onClick={undefined}
   size="mega"
   target={null}
-  type="button"
 >
   <div
     className="circuit-7 circuit-8"
@@ -238,7 +237,6 @@ exports[`LoadingButton Style tests should have default styles 1`] = `
   onClick={undefined}
   size="mega"
   target={null}
-  type="button"
 >
   <div
     className="circuit-7 circuit-8"
@@ -370,7 +368,6 @@ exports[`LoadingButton Style tests should have isLoading styles 1`] = `
   onClick={null}
   size="mega"
   target={null}
-  type="button"
 >
   <div
     className="circuit-7 circuit-8"

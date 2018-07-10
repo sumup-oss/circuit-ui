@@ -78,16 +78,4 @@ describe('PlainButton', () => {
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
-
-  /**
-   * Logic tests.
-   */
-  it('should accept a type prop', () => {
-    const wrapper = shallow(
-      <Button plain type="submit">
-        Button
-      </Button>
-    );
-    expect(wrapper.prop('type')).toEqual('submit');
-  });
 });
