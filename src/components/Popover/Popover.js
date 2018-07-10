@@ -58,11 +58,11 @@ class Popover extends Component {
      */
     align: alignPropType,
     /**
-     * A callback that is called when the Popover should close
+     * A callback that is called when the popover should be closed when reference is clicked in an open state
      */
-    onButtonClose: PropTypes.func.isRequired,
+    onReferenceClickClose: PropTypes.func.isRequired,
     /**
-     * A callback that is called on outside click
+     * A callback that is called on click outside the popover wrapper or the reference
      */
     onOutsideClickClose: PropTypes.func.isRequired
   };
@@ -103,7 +103,7 @@ class Popover extends Component {
   handleReferenceClick = () => {
     const { isOpen } = this.props;
     if (isOpen) {
-      this.props.onButtonClose();
+      this.props.onReferenceClickClose();
     }
   };
 
