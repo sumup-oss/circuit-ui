@@ -5,6 +5,13 @@ import Popover from '.';
 const positions = [Popover.TOP, Popover.BOTTOM, Popover.LEFT, Popover.RIGHT];
 const alignments = [Popover.START, Popover.END, Popover.CENTER];
 
+const defaultProps = {
+  renderReference: () => <span />,
+  renderPopover: () => <div />,
+  onReferenceClickClose: () => {},
+  onOutsideClickClose: () => {}
+};
+
 // FMI: https://github.com/FezVrasta/popper.js/issues/478
 jest.mock('popper.js', () => {
   const PopperJS = jest.requireActual('popper.js');
@@ -30,9 +37,7 @@ describe('Popover', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(
-      <Popover renderReference={() => <span />} renderPopover={() => <div />} />
-    );
+    const actual = create(<Popover isOpen {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -41,10 +46,10 @@ describe('Popover', () => {
       it(`should render with position ${position} and alignment ${alignment}`, () => {
         const actual = create(
           <Popover
+            isOpen
             position={position}
             align={alignment}
-            renderReference={() => <span />}
-            renderPopover={() => <span />}
+            {...defaultProps}
           />
         );
         expect(actual).toMatchSnapshot();
@@ -52,43 +57,30 @@ describe('Popover', () => {
     });
   });
 
+  it('should render nothing without isOpen=false', () => {
+    const actual = mount(<Popover isOpen={false} {...defaultProps} />);
+    expect(actual.find('Popper')).toHaveLength(0);
+  });
+
+  it('it should call onReferenceClickClose on clicked reference when isOpen=true', () => {
+    const onReferenceClickClose = jest.fn();
+    const actual = mount(
+      <Popover
+        isOpen
+        {...defaultProps}
+        onReferenceClickClose={onReferenceClickClose}
+      />
+    );
+    actual.find('ButtonWrapper').simulate('click');
+    expect(onReferenceClickClose).toHaveBeenCalledTimes(1);
+  });
+
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <Popover renderReference={() => <span />} renderPopover={() => <div />} />
-    );
+    const wrapper = renderToHtml(<Popover isOpen {...defaultProps} />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
-  });
-
-  /**
-   * Logic tests.
-   */
-  it('calls renderPopover on button click', () => {
-    const renderFn = jest.fn();
-    const actual = mount(
-      <Popover
-        renderReference={() => <button>Button</button>}
-        renderPopover={renderFn}
-      />
-    );
-    const button = actual.find('button');
-
-    expect(renderFn).toHaveBeenCalledTimes(0);
-    button.simulate('click');
-    expect(renderFn).toHaveBeenCalled();
-  });
-
-  it('calls renderReference with isOpen', () => {
-    const renderFn = jest.fn(() => <button>button</button>);
-    const actual = mount(
-      <Popover renderReference={renderFn} renderPopover={() => <span />} />
-    );
-    const button = actual.find('button');
-    button.simulate('click');
-
-    expect(renderFn).toHaveBeenCalledWith({ isOpen: true });
   });
 });

@@ -1,196 +1,482 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Popover should render with default styles 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position bottom and alignment center 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position bottom and alignment end 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position bottom and alignment start 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position left and alignment center 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position left and alignment end 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position left and alignment start 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position right and alignment center 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position right and alignment end 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position right and alignment start 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position top and alignment center 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position top and alignment end 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;
 
 exports[`Popover should render with position top and alignment start 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: inline-block;
 }
 
 <div
-  className="circuit-0 circuit-1"
-  onClick={[Function]}
->
-  <div>
-    <span />
-  </div>
-</div>
+    className="circuit-0 circuit-1"
+    onClick={[Function]}
+  >
+    <div>
+      <span />
+    </div>
+  </div>,
+  .circuit-0 {
+  z-index: 20;
+}
+
+<div
+    className="circuit-0 circuit-1"
+    style={
+      Object {
+        "left": 0,
+        "opacity": 0,
+        "pointerEvents": "none",
+        "position": "absolute",
+        "top": 0,
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>,
+]
 `;

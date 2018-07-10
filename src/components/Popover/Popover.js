@@ -40,7 +40,7 @@ class Popover extends Component {
     /**
      * isOpen controlled prop
      */
-    isOpen: PropTypes.bool.isRequired,
+    isOpen: PropTypes.bool,
     /**
      * function rendering the popover
      */
@@ -68,6 +68,7 @@ class Popover extends Component {
   };
 
   static defaultProps = {
+    isOpen: false,
     position: Popover.BOTTOM,
     align: Popover.START
   };
@@ -124,22 +125,22 @@ class Popover extends Component {
               innerRef={this.receiveButtonRef}
               onClick={this.handleReferenceClick}
             >
-              <div ref={ref}>{renderReference({ isOpen })}</div>
+              <div ref={ref}>{renderReference()}</div>
             </ButtonWrapper>
           )}
         </Reference>
-        <Popper
-          placement={toPopperPlacement(position, align)}
-          modifiers={popperModifiers}
-        >
-          {({ ref, style }) =>
-            isOpen && (
+        {isOpen && (
+          <Popper
+            placement={toPopperPlacement(position, align)}
+            modifiers={popperModifiers}
+          >
+            {({ ref, style }) => (
               <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
                 <div ref={ref}>{renderPopover()}</div>
               </PopoverWrapper>
-            )
-          }
-        </Popper>
+            )}
+          </Popper>
+        )}
       </Manager>
     );
   }
