@@ -8162,9 +8162,9 @@ react-test-renderer@^16.0.0-0, react-test-renderer@^16.2.0:
     prop-types "^15.6.0"
     react-is "^16.4.0"
 
-react-text-mask@^5.3.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/react-text-mask/-/react-text-mask-5.4.1.tgz#c3dd3e550e31d38b7c9da0178a2725960770e443"
+react-text-mask@5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/react-text-mask/-/react-text-mask-5.4.0.tgz#4472eb2f0b9d8916017a2532c864707d51b98cf1"
   dependencies:
     prop-types "^15.5.6"
 
