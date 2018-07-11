@@ -56,8 +56,8 @@ const ButtonGroupList = styled('ul')(baseStyles, alignmentStyles);
 /**
  * Groups its Button children into a list and adds margins between.
  */
-const ButtonGroup = ({ children, align, noMargin }) => (
-  <ButtonGroupList align={align} noMargin={noMargin}>
+const ButtonGroup = ({ children, align, noMargin, className }) => (
+  <ButtonGroupList className={className} align={align} noMargin={noMargin}>
     {Children.map(children, child => <li>{child}</li>)}
   </ButtonGroupList>
 );
@@ -77,12 +77,17 @@ ButtonGroup.propTypes = {
   /**
    * Direction to align the content. Either left/right
    */
-  align: PropTypes.oneOf(ALIGMENT_TYPES)
+  align: PropTypes.oneOf(ALIGMENT_TYPES),
+  /**
+   * Override styles for the ButtonGroup component.
+   */
+  className: PropTypes.string
 };
 
 ButtonGroup.defaultProps = {
   align: ButtonGroup.RIGHT,
-  noMargin: false
+  noMargin: false,
+  className: ''
 };
 
 /**
