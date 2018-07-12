@@ -60,28 +60,11 @@ export const BUTTON_DEFAULT_PROPS = {
   target: null
 };
 
-const SHARED_PROPS = [
-  'children',
-  'className',
-  'data-selector',
-  'disabled',
-  'href',
-  'onClick',
-  'primary',
-  'size',
-  'type'
-];
-
-export const BUTTON_PROPS = [
-  ...SHARED_PROPS,
+export const REGULAR_BUTTON_ONLY_PROPS = [
   'blacklist',
   'deepRef',
   'element',
   'flat',
   'secondary',
-  'size',
-  'stretch',
-  'target'
+  'stretch'
 ];
-
-export const PLAIN_BUTTON_PROPS = [...SHARED_PROPS, 'size', 'target'];
