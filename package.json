@@ -24,7 +24,9 @@
     "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "deploy": "yarn build && gh-pages -d .out",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "repository": {
     "type": "git",
@@ -92,8 +94,10 @@
   "dependencies": {
     "babel-plugin-emotion": "^9.2.6",
     "babel-plugin-lodash": "^3.3.2",
+    "component-playground": "^3.2.0",
     "create-react-context": "^0.2.1",
     "css-loader": "^0.28.9",
+    "docz-plugin-babel6": "^0.5.7",
     "downshift": "^1.31.14",
     "emotion": "^9.2.6",
     "emotion-theming": "^9.2.6",
