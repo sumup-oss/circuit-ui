@@ -1,0 +1,28 @@
+---
+name: Button
+---
+
+import Button from './Button';
+import { ThemeProvider } from 'emotion-theming';
+import { standard } from '../../../src/themes/index';
+import { Playground, PropsTable } from 'docz'
+
+# Button
+
+<div>
+	{console.log(<Button />)}
+</div>
+
+<PropsTable of={Button} />
+
+
+I'm a markdown document that can have components!
+
+<Playground>
+  <ThemeProvider theme={standard}>
+		<Button primary> Button </Button>
+  </ThemeProvider>
+</Playground>
+
+
+
