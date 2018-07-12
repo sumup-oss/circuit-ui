@@ -1,5 +1,5 @@
 import React from 'react';
-import { pick } from 'lodash/fp';
+import { omit } from 'lodash/fp';
 
 import { sizes } from '../../styles/constants';
 
@@ -8,8 +8,7 @@ import RegularButton from './components/RegularButton';
 import {
   BUTTON_PROP_TYPES,
   BUTTON_DEFAULT_PROPS,
-  PLAIN_BUTTON_PROPS,
-  BUTTON_PROPS
+  REGULAR_BUTTON_ONLY_PROPS
 } from './constants';
 
 const { KILO, MEGA, GIGA } = sizes;
@@ -20,9 +19,9 @@ const { KILO, MEGA, GIGA } = sizes;
  */
 const Button = ({ plain, ...props }) =>
   plain ? (
-    <PlainButton {...pick(PLAIN_BUTTON_PROPS, props)} />
+    <PlainButton {...omit(REGULAR_BUTTON_ONLY_PROPS, props)} />
   ) : (
-    <RegularButton {...pick(BUTTON_PROPS, props)} />
+    <RegularButton {...props} />
   );
 
 Button.propTypes = BUTTON_PROP_TYPES;
