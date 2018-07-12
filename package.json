@@ -1,5 +1,5 @@
 {
-"name": "circuit-ui",
+  "name": "circuit-ui",
   "version": "0.0.1",
   "description": "SumUp's React UI component library",
   "main": "src/index.js",
@@ -18,16 +18,15 @@
     "create-component": "foundry run plop component",
     "start": "yarn test:unit:output && start-storybook -p 6006",
     "prebuild": "yarn test:unit:output",
-    "build":
-      "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
+    "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
     "build:storybook": "build-storybook -c .storybook -o .out",
-    "build:stylesheet":
-      "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
-    "build:global-styles":
-      "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
+    "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
+    "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "deploy": "yarn build && gh-pages -d .out",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "repository": {
     "type": "git",
@@ -58,6 +57,7 @@
     "babel-plugin-module-resolver": "^3.0.0",
     "babel-register": "^6.26.0",
     "create-emotion-styled": "^9.0.0",
+    "docz": "^0.5.8",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "npm:enzyme-react-adapter-future",
     "eslint-config-airbnb": "16.1.0",
@@ -95,8 +95,10 @@
   "dependencies": {
     "babel-plugin-emotion": "^9.0.0-1",
     "babel-plugin-lodash": "^3.3.2",
+    "component-playground": "^3.2.0",
     "create-react-context": "^0.2.1",
     "css-loader": "^0.28.9",
+    "docz-plugin-babel6": "^0.5.7",
     "downshift": "^1.31.14",
     "emotion": "^9.1.1",
     "emotion-theming": "^9.0.0",
