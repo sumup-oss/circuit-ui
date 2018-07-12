@@ -17,6 +17,11 @@ import VisaElectron from './icons/visa-electron.svg';
 import Visa from './icons/visa.svg';
 import Vpay from './icons/vpay.svg';
 import Cash from './icons/cash.svg';
+import AndroidPay from './icons/android-pay.svg';
+import ApplePay from './icons/apple-pay.svg';
+import BancoEstado from './icons/banco-estado.svg';
+import Dankort from './icons/dankort.svg';
+import Nfc from './icons/nfc.svg';
 
 export const iconComponents = {
   amex: Amex,
@@ -33,8 +38,13 @@ export const iconComponents = {
   visaElectron: VisaElectron,
   visa: Visa,
   vpay: Vpay,
-  default: Unknown,
-  cash: Cash
+  cash: Cash,
+  androidPay: AndroidPay,
+  applePay: ApplePay,
+  bancoEstado: BancoEstado,
+  dankort: Dankort,
+  nfc: Nfc,
+  default: Unknown
 };
 
 const accessibleIconComponents = flow(
