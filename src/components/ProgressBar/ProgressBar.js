@@ -28,10 +28,12 @@ const wrapperStyles = ({ theme }) => css`
 const progressStyles = ({ theme, size, value, max }) => {
   const outerBorderWidth = '1px';
   const outerBorderRadius = theme.borderRadius.mega;
-  const innerBorderRadius = `${subtractUnit(
+  const innerBorderRadiusLeft = `${subtractUnit(
     outerBorderRadius,
     outerBorderWidth
   )}`;
+  const innerBorderRadiusRight =
+    value / max * 100 === 100 ? innerBorderRadiusLeft : 0;
   return css`
     label: progress-bar__progress;
     background-color: ${theme.colors.n100};
@@ -40,6 +42,7 @@ const progressStyles = ({ theme, size, value, max }) => {
     position: relative;
     width: 100%;
     height: ${calculateSize({ theme, size })};
+    overflow: hidden;
 
     &::after {
       content: '';
@@ -52,7 +55,8 @@ const progressStyles = ({ theme, size, value, max }) => {
       background-color: ${theme.colors.p500};
       border: 1px solid ${theme.colors.p700};
       box-shadow: inset 0 1px 0 0 ${theme.colors.p300};
-      border-radius: ${innerBorderRadius} 0 0 ${innerBorderRadius};
+      border-radius: ${innerBorderRadiusLeft} ${innerBorderRadiusRight}
+        ${innerBorderRadiusRight} ${innerBorderRadiusLeft};
       transition: width 0.05s ease-out;
     }
   `;

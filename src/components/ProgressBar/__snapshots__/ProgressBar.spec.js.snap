@@ -20,6 +20,7 @@ exports[`ProgressBar should render with default styles 1`] = `
   position: relative;
   width: 100%;
   height: 8px;
+  overflow: hidden;
 }
 
 .circuit-0::after {
@@ -91,6 +92,7 @@ exports[`ProgressBar should render with progress styles 1`] = `
   position: relative;
   width: 100%;
   height: 8px;
+  overflow: hidden;
 }
 
 .circuit-0::after {
