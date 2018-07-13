@@ -24,7 +24,9 @@ setDefaults({
 
 setOptions({
   hierarchySeparator: /\//,
-  hierarchyRootSeparator: /\|/
+  hierarchyRootSeparator: /\|/,
+  name: "CIRCUIT-UI",
+  url: "https://github.com/sumup/circuit-ui",
 });
 
 const req = require.context('../src/components', true, /\.story\.js$/);
