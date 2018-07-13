@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CardSchemes should render with default styles 1`] = `
-.circuit-64 {
+.circuit-84 {
   display: block;
   line-height: 0;
   text-align: center;
@@ -19,7 +19,7 @@ exports[`CardSchemes should render with default styles 1`] = `
 }
 
 <ul
-  className="circuit-64 circuit-65"
+  className="circuit-84 circuit-85"
 >
   <li
     className="circuit-2 circuit-3"
@@ -197,7 +197,7 @@ exports[`CardSchemes should render with default styles 1`] = `
       size="giga"
     >
       <div>
-        unknown.svg
+        cash.svg
       </div>
     </div>
   </li>
@@ -209,7 +209,67 @@ exports[`CardSchemes should render with default styles 1`] = `
       size="giga"
     >
       <div>
-        cash.svg
+        android-pay.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        apple-pay.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        banco-estado.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        dankort.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        nfc.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        unknown.svg
       </div>
     </div>
   </li>
