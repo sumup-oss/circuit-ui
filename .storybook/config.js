@@ -25,7 +25,7 @@ setDefaults({
 setOptions({
   hierarchySeparator: /\//,
   hierarchyRootSeparator: /\|/,
-  name: "CIRCUIT-UI",
+  name: "Circuit UI",
   url: "https://github.com/sumup/circuit-ui",
 });
 
