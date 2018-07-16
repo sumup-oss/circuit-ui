@@ -7,8 +7,33 @@ import RegularButton from './components/RegularButton';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
-
 export const SIZE_PROP_TYPE = PropTypes.oneOf([KILO, MEGA, GIGA]);
+
+const SHARED_PROPS = [
+  'children',
+  'className',
+  'data-selector',
+  'disabled',
+  'href',
+  'onClick',
+  'primary',
+  'size',
+  'type'
+];
+
+export const BUTTON_PROPS = [
+  ...SHARED_PROPS,
+  'blacklist',
+  'deepRef',
+  'element',
+  'flat',
+  'secondary',
+  'size',
+  'stretch',
+  'target'
+];
+
+export const PLAIN_BUTTON_PROPS = [...SHARED_PROPS, 'size', 'target'];
 
 const REGULAR_BUTTON_ONLY_PROPS = [
   'blacklist',
