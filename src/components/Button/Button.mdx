@@ -2,27 +2,34 @@
 name: Button
 ---
 
-import Button from './Button';
+import Button from './DocButton';
+import RawButton from '!raw-loader!./Button';
 import { ThemeProvider } from 'emotion-theming';
 import { standard } from '../../../src/themes/index';
 import { Playground, PropsTable } from 'docz'
+import PropTable from '../../../docs/PropTable';
+import {parse} from 'react-docgen';
 
 # Button
 
 <div>
-	{console.log(<Button />)}
+	{`${parse(RawButton).description}`}
 </div>
 
-<PropsTable of={Button} />
-
-
-I'm a markdown document that can have components!
+<br />
 
 <Playground>
-  <ThemeProvider theme={standard}>
 		<Button primary> Button </Button>
-  </ThemeProvider>
 </Playground>
 
+<br />
 
+## PropsTable 
+
+<div>
+	<PropTable rawComponent={RawButton} />
+</div>
+
+
+<PropsTable of={Button} />
 
