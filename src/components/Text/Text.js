@@ -8,38 +8,27 @@ import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
 
+const responsiveMap = {
+  [KILO]: KILO,
+  [MEGA]: MEGA,
+  [GIGA]: MEGA
+};
+
 const baseStyles = ({ theme }) => css`
   label: text;
   font-weight: ${theme.fontWeight.regular};
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const kiloStyles = ({ theme, size }) =>
-  size === KILO &&
+const sizeStyles = ({ theme, size }) =>
   css`
-    label: text--${KILO};
-    font-size: ${theme.typography.text[KILO].fontSize};
-    line-height: ${theme.typography.text[KILO].lineHeight};
-  `;
-
-const megaStyles = ({ theme, size }) =>
-  size === MEGA &&
-  css`
-    label: text--${MEGA};
-    font-size: ${theme.typography.text[MEGA].fontSize};
-    line-height: ${theme.typography.text[MEGA].lineHeight};
-  `;
-
-const gigaStyles = ({ theme, size }) =>
-  size === GIGA &&
-  css`
-    label: text--${GIGA};
-    font-size: ${theme.typography.text[MEGA].fontSize};
-    line-height: ${theme.typography.text[MEGA].lineHeight};
+    label: text--${size};
+    font-size: ${theme.typography.text[responsiveMap[size]].fontSize};
+    line-height: ${theme.typography.text[responsiveMap[size]].lineHeight};
 
     ${theme.mq.kilo`
-      font-size: ${theme.typography.text[GIGA].fontSize};
-      line-height: ${theme.typography.text[GIGA].lineHeight};
+      font-size: ${theme.typography.text[size].fontSize};
+      line-height: ${theme.typography.text[size].lineHeight};
     `};
   `;
 
@@ -66,9 +55,7 @@ const marginStyles = ({ noMargin }) =>
 
 const StyledText = styled(HtmlElement)`
   ${baseStyles};
-  ${kiloStyles};
-  ${megaStyles};
-  ${gigaStyles};
+  ${sizeStyles};
   ${marginStyles};
   ${boldStyles};
   ${italicStyles};
