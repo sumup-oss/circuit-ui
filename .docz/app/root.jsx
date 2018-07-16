@@ -1,7 +1,6 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
 import Theme from 'docz-theme-default'
-import Wrapper from 'docs/wrapper'
 
 const socket = new WebSocket(`ws://127.0.0.1:8089`)
 
@@ -28,14 +27,7 @@ class Root extends React.Component {
   render() {
     const { imports } = this.props
 
-    return (
-      <Theme
-        {...this.state}
-        imports={imports}
-        hashRouter={false}
-        wrapper={Wrapper}
-      />
-    )
+    return <Theme {...this.state} imports={imports} hashRouter={false} />
   }
 }
 
