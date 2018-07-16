@@ -17,7 +17,7 @@ import {
 import { positionPropType, alignPropType } from '../../util/shared-prop-types';
 import { toPopperPlacement, popperModifiers } from './PopoverService';
 
-const ButtonWrapper = styled('div')`
+const ReferenceWrapper = styled('div')`
   label: popover__button-wrapper;
   display: inline-block;
 `;
@@ -38,6 +38,10 @@ class Popover extends Component {
 
   static propTypes = {
     /**
+     * isOpen controlled prop
+     */
+    isOpen: PropTypes.bool,
+    /**
      * function rendering the popover
      */
     renderPopover: PropTypes.func.isRequired,
@@ -54,27 +58,23 @@ class Popover extends Component {
      */
     align: alignPropType,
     /**
-     * A callback that is called when the Popover closes
+     * A callback that is called when the popover should be closed when reference is clicked in an open state
      */
-    onClose: PropTypes.func
+    onReferenceClickClose: PropTypes.func.isRequired,
+    /**
+     * A callback that is called on click outside the popover wrapper or the reference
+     */
+    onOutsideClickClose: PropTypes.func.isRequired
   };
 
   static defaultProps = {
+    isOpen: false,
     position: Popover.BOTTOM,
-    align: Popover.START,
-    onClose: () => {}
+    align: Popover.START
   };
-
-  state = { isOpen: false };
 
   componentDidMount() {
     document.addEventListener('click', this.handleDocumentClick, true);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.isOpen && !this.state.isOpen) {
-      this.props.onClose();
-    }
   }
 
   componentWillUnmount() {
@@ -86,7 +86,7 @@ class Popover extends Component {
     const isWithinButton = this.buttonRef && this.buttonRef.contains(target);
 
     if (!isWithinButton && !isWithinPopover) {
-      this.closePopover();
+      this.props.onOutsideClickClose();
     }
   };
 
@@ -101,41 +101,46 @@ class Popover extends Component {
     this.popoverRef = ref;
   };
 
-  handleReferenceClick = () =>
-    this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
-
-  closePopover = () => this.setState({ isOpen: false });
+  handleReferenceClick = () => {
+    const { isOpen } = this.props;
+    if (isOpen) {
+      this.props.onReferenceClickClose();
+    }
+  };
 
   render() {
-    const { renderPopover, renderReference, position, align } = this.props;
-    const { isOpen } = this.state;
+    const {
+      renderPopover,
+      renderReference,
+      position,
+      align,
+      isOpen
+    } = this.props;
 
     return (
       <Manager>
         <Reference>
           {({ ref }) => (
-            <ButtonWrapper
+            <ReferenceWrapper
               innerRef={this.receiveButtonRef}
               onClick={this.handleReferenceClick}
             >
-              <div ref={ref}>{renderReference({ isOpen })}</div>
-            </ButtonWrapper>
+              <div ref={ref}>{renderReference()}</div>
+            </ReferenceWrapper>
           )}
         </Reference>
-        <Popper
-          placement={toPopperPlacement(position, align)}
-          modifiers={popperModifiers}
-        >
-          {({ ref, style }) =>
-            isOpen && (
+        {isOpen && (
+          <Popper
+            placement={toPopperPlacement(position, align)}
+            modifiers={popperModifiers}
+          >
+            {({ ref, style }) => (
               <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
-                <div ref={ref}>
-                  {renderPopover({ closePopover: this.closePopover })}
-                </div>
+                <div ref={ref}>{renderPopover()}</div>
               </PopoverWrapper>
-            )
-          }
-        </Popper>
+            )}
+          </Popper>
+        )}
       </Manager>
     );
   }
