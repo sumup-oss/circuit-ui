@@ -8,7 +8,7 @@ import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
 
-const responsiveMap = {
+const mobileSizeMap = {
   [KILO]: KILO,
   [MEGA]: MEGA,
   [GIGA]: MEGA
@@ -23,8 +23,8 @@ const baseStyles = ({ theme }) => css`
 const sizeStyles = ({ theme, size }) =>
   css`
     label: text--${size};
-    font-size: ${theme.typography.text[responsiveMap[size]].fontSize};
-    line-height: ${theme.typography.text[responsiveMap[size]].lineHeight};
+    font-size: ${theme.typography.text[mobileSizeMap[size]].fontSize};
+    line-height: ${theme.typography.text[mobileSizeMap[size]].lineHeight};
 
     ${theme.mq.kilo`
       font-size: ${theme.typography.text[size].fontSize};

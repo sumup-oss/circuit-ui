@@ -8,7 +8,7 @@ import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } = sizes;
 
-const responsiveMap = {
+const mobileSizeMap = {
   [KILO]: KILO,
   [MEGA]: MEGA,
   [GIGA]: MEGA,
@@ -27,8 +27,8 @@ const baseStyles = ({ theme }) => css`
 const sizeStyles = ({ theme, size }) =>
   css`
     label: heading--${size};
-    font-size: ${theme.typography.headings[responsiveMap[size]].fontSize};
-    line-height: ${theme.typography.headings[responsiveMap[size]].lineHeight};
+    font-size: ${theme.typography.headings[mobileSizeMap[size]].fontSize};
+    line-height: ${theme.typography.headings[mobileSizeMap[size]].lineHeight};
 
     ${theme.mq.kilo`
       font-size: ${theme.typography.headings[size].fontSize};
