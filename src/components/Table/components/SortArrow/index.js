@@ -14,7 +14,7 @@ const baseStyles = ({ theme }) => css`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  transition: opacity ${theme.transitions.default};
+  transition: opacity ${theme.transitions.easing.default};
 `;
 
 const StyledWrapper = styled(SvgButton)`
