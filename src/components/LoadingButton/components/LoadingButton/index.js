@@ -13,8 +13,8 @@ import {
 const childrenWrapperStyles = ({ theme }) => css`
   opacity: 1;
   transform: translate(0, 0);
-  transition: opacity ${theme.transitions.default},
-    transform ${theme.transitions.default};
+  transition: opacity ${theme.transitions.easing.default},
+    transform ${theme.transitions.easing.default};
 `;
 
 const childrenWrapperLoadingStyles = ({ loadingState }) =>

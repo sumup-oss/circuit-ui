@@ -138,6 +138,7 @@ export {
   default as PaymentMethodIcon
 } from './components/CardSchemes/components/PaymentMethodIcon';
 export { default as SideNav, SideNavItem } from './components/SideNav';
+export { default as Drawer } from './components/Drawer';
 
 // Helpers
 export { default as State } from './components/State';

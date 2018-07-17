@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 import styled, { css } from 'react-emotion';
+import Portal from '../Portal';
 
 import {
   TOP,
@@ -61,17 +62,18 @@ class Popover extends Component {
     /**
      * A callback that is called when the popover should be closed when reference is clicked in an open state
      */
-    onReferenceClickClose: PropTypes.func.isRequired,
-    /**
-     * A callback that is called on click outside the popover wrapper or the reference
-     */
-    onOutsideClickClose: PropTypes.func.isRequired
+    onClose: PropTypes.func,
+    usePortal: PropTypes.bool,
+    modifiers: PropTypes.shape()
   };
 
   static defaultProps = {
     isOpen: false,
     position: Popover.BOTTOM,
-    align: Popover.START
+    align: Popover.START,
+    onClose: () => {},
+    usePortal: false,
+    modifiers: {}
   };
 
   componentDidMount() {
@@ -115,8 +117,29 @@ class Popover extends Component {
       renderReference,
       position,
       align,
-      isOpen
+      isOpen,
+      modifiers,
+      usePortal,
+      ...others
     } = this.props;
+
+    const popper = (
+      <Popper
+        {...others}
+        placement={toPopperPlacement(position, align)}
+        modifiers={{ ...modifiers, popperModifiers }}
+      >
+        {({ ref, style }) =>
+          isOpen && (
+            <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
+              <div ref={ref}>
+                {renderPopover({ closePopover: this.closePopover })}
+              </div>
+            </PopoverWrapper>
+          )
+        }
+      </Popper>
+    );
 
     return (
       <Manager>
@@ -130,18 +153,7 @@ class Popover extends Component {
             </ReferenceWrapper>
           )}
         </Reference>
-        {isOpen && (
-          <Popper
-            placement={toPopperPlacement(position, align)}
-            modifiers={popperModifiers}
-          >
-            {({ ref, style }) => (
-              <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
-                <div ref={ref}>{renderPopover()}</div>
-              </PopoverWrapper>
-            )}
-          </Popper>
-        )}
+        {usePortal ? <Portal>{popper}</Portal> : popper}
       </Manager>
     );
   }
