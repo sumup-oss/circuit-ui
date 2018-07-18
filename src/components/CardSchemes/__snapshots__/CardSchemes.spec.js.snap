@@ -209,7 +209,7 @@ exports[`CardSchemes should render with default styles 1`] = `
       size="giga"
     >
       <div>
-        android-pay.svg
+        google-pay.svg
       </div>
     </div>
   </li>

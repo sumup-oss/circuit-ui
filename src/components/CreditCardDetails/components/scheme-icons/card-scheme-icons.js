@@ -17,7 +17,7 @@ import VisaElectron from './icons/visa-electron.svg';
 import Visa from './icons/visa.svg';
 import Vpay from './icons/vpay.svg';
 import Cash from './icons/cash.svg';
-import AndroidPay from './icons/android-pay.svg';
+import GooglePay from './icons/google-pay.svg';
 import ApplePay from './icons/apple-pay.svg';
 import BancoEstado from './icons/banco-estado.svg';
 import Dankort from './icons/dankort.svg';
@@ -39,7 +39,7 @@ export const iconComponents = {
   visa: Visa,
   vpay: Vpay,
   cash: Cash,
-  androidPay: AndroidPay,
+  googlePay: GooglePay,
   applePay: ApplePay,
   bancoEstado: BancoEstado,
   dankort: Dankort,
