@@ -45,13 +45,13 @@ const createTypeHelper = (type, name) => ({ theme }) => {
   `;
 };
 
-export const headingKilo = createTypeHelper('heading', 'kilo');
-export const headingMega = createTypeHelper('heading', 'mega');
-export const headingGiga = createTypeHelper('heading', 'giga');
-export const headingTera = createTypeHelper('heading', 'tera');
-export const headingPeta = createTypeHelper('heading', 'peta');
-export const headingExa = createTypeHelper('heading', 'exa');
-export const headingZetta = createTypeHelper('heading', 'zetta');
+export const headingKilo = createTypeHelper('headings', 'kilo');
+export const headingMega = createTypeHelper('headings', 'mega');
+export const headingGiga = createTypeHelper('headings', 'giga');
+export const headingTera = createTypeHelper('headings', 'tera');
+export const headingPeta = createTypeHelper('headings', 'peta');
+export const headingExa = createTypeHelper('headings', 'exa');
+export const headingZetta = createTypeHelper('headings', 'zetta');
 
 export const subHeadingKilo = createTypeHelper('subHeadings', 'kilo');
 export const subHeadingMega = createTypeHelper('subHeadings', 'mega');
