@@ -1,0 +1,33 @@
+---
+name: Button
+route: /components/Button
+menu: Components
+---
+
+import { Playground } from 'docz'
+
+import Button from './DocButton';
+import OriginalButton from '../../../src/components/Button/Button';
+
+import PropTable from '../../utils/PropTable';
+import {getDescription} from '../../utils/service';
+
+# Button
+
+<div>
+	{getDescription(OriginalButton)}
+</div>
+
+<br />
+
+<Playground>
+  	<Button primary> Button </Button>
+</Playground>
+
+<br />
+
+## PropsTable
+
+<div>
+	<PropTable component={OriginalButton} />
+</div>

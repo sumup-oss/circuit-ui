@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from './Button';
 import { ThemeProvider } from 'emotion-theming';
-import { standard } from '../../themes/index';
+import OriginalButton from '../../../src/components/Button/Button';
+import { standard } from '../../../src/themes/index';
 
 const DocButton = () => (
   <ThemeProvider theme={standard}>
-    <Button primary>Button</Button>
+    <OriginalButton primary>Button</OriginalButton>
   </ThemeProvider>
 );
 
