@@ -6,13 +6,11 @@ export default {
   plugins: [babel()]
 =======
   plugins: [babel()],
-  modifyBundlerConfig: config => {
-    let newConfig = config;
-    newConfig.module.rules.push({
-      test: /\.txt/,
-      use: 'raw-loader'
-    });
-    return newConfig;
+  modifyBabelRc: config => {
+    config.plugins.push('react-docgen');
+    console.log(config);
+
+    return config;
   }
 >>>>>>> 5726436... adding a proptable component
 };
