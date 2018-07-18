@@ -5,7 +5,7 @@ import styled, { css } from 'react-emotion';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { directions } from '../../styles/constants';
 
-const ALIGMENT_TYPES = [directions.LEFT, directions.RIGHT];
+const ALIGMENT_TYPES = [directions.LEFT, directions.CENTER, directions.RIGHT];
 
 const marginStyles = ({ theme, noMargin }) =>
   !noMargin &&
@@ -19,20 +19,24 @@ const marginStyles = ({ theme, noMargin }) =>
     }
   `;
 
-const alignmentStyles = ({ align }) =>
-  align === directions.RIGHT &&
-  css`
-    label: button-group--right;
-    justify-content: flex-end;
-  `;
+const alignmentStyles = ({ align }) => {
+  const alignmentMap = {
+    [directions.LEFT]: 'flex-start',
+    [directions.CENTER]: 'center',
+    [directions.RIGHT]: 'flex-end'
+  };
 
-const baseStyles = ({ theme, noMargin }) => css`
+  return css`
+    label: button-group--${align};
+    justify-content: ${alignmentMap[align]};
+  `;
+};
+
+const baseStyles = ({ theme }) => css`
   label: button-group;
   display: block;
   list-style-type: none;
   width: 100%;
-
-  ${marginStyles({ theme, noMargin })};
 
   > * {
     width: 100%;
@@ -51,7 +55,7 @@ const baseStyles = ({ theme, noMargin }) => css`
   `};
 `;
 
-const ButtonGroupList = styled('ul')(baseStyles, alignmentStyles);
+const ButtonGroupList = styled('ul')(baseStyles, marginStyles, alignmentStyles);
 
 /**
  * Groups its Button children into a list and adds margins between.
@@ -63,6 +67,7 @@ const ButtonGroup = ({ children, align, noMargin, ...rest }) => (
 );
 
 ButtonGroup.LEFT = directions.LEFT;
+ButtonGroup.CENTER = directions.CENTER;
 ButtonGroup.RIGHT = directions.RIGHT;
 
 ButtonGroup.propTypes = {
