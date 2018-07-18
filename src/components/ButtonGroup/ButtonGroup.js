@@ -32,13 +32,11 @@ const alignmentStyles = ({ align }) => {
   `;
 };
 
-const baseStyles = ({ theme, noMargin }) => css`
+const baseStyles = ({ theme }) => css`
   label: button-group;
   display: block;
   list-style-type: none;
   width: 100%;
-
-  ${marginStyles({ theme, noMargin })};
 
   > * {
     width: 100%;
@@ -57,7 +55,7 @@ const baseStyles = ({ theme, noMargin }) => css`
   `};
 `;
 
-const ButtonGroupList = styled('ul')(baseStyles, alignmentStyles);
+const ButtonGroupList = styled('ul')(baseStyles, marginStyles, alignmentStyles);
 
 /**
  * Groups its Button children into a list and adds margins between.
