@@ -68,20 +68,54 @@ describe('Modal', () => {
     expect(wrapper.find('[data-test="card"]')).toHaveLength(1);
   });
 
-  it('should close', async () => {
-    const wrapper = openModal(defaultModal);
-    const closeButton = wrapper.find('[data-test="close"]').find('button');
-    closeButton.simulate('click');
-    /**
-     * Tried using jest's runAllTimers to force the ModalProvider
-     * to update state, but this didn't work. Somehow, this hack does.
-     */
-    await new Promise(resolve => {
-      setTimeout(() => resolve());
+  describe('closing the modal', () => {
+    it('should be closeable by pressing a close button', async () => {
+      const wrapper = openModal(defaultModal);
+      const closeButton = wrapper.find('[data-test="close"]').find('button');
+      closeButton.simulate('click');
+      /**
+       * Tried using jest's runAllTimers to force the ModalProvider
+       * to update state, but this didn't work. Somehow, this hack does.
+       */
+      await new Promise(resolve => {
+        setTimeout(() => resolve());
+      });
+      wrapper.update();
+      expect(defaultModal.onClose).toHaveBeenCalled();
+      expect(wrapper.find('[data-test="card"]')).toHaveLength(0);
     });
-    wrapper.update();
-    expect(defaultModal.onClose).toHaveBeenCalled();
-    expect(wrapper.find('Card')).toHaveLength(0);
+
+    it('should close by clicking the overlay by default', async () => {
+      const wrapper = openModal({ ...defaultModal });
+      const overlay = wrapper
+        .find('ModalPortal')
+        .children()
+        .first();
+      overlay.simulate('click');
+      await new Promise(resolve => {
+        setTimeout(() => resolve());
+      });
+      wrapper.update();
+      expect(defaultModal.onClose).toHaveBeenCalled();
+      expect(wrapper.find('[data-test="card"]')).toHaveLength(0);
+    });
+
+    it("should not close by clicking the overlay when 'shouldCloseOnOverlayClick' is 'false'", async () => {
+      const wrapper = openModal({
+        ...defaultModal,
+        shouldCloseOnOverlayClick: false
+      });
+      const overlay = wrapper
+        .find('ModalPortal')
+        .children()
+        .first();
+      overlay.simulate('click');
+      await new Promise(resolve => {
+        setTimeout(() => resolve());
+      });
+      wrapper.update();
+      expect(wrapper.find('[data-test="card"]')).toHaveLength(1);
+    });
   });
 
   it('should render the children render prop', () => {

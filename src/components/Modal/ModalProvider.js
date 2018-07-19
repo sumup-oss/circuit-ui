@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { noop } from 'lodash/fp';
 import createReactContext from 'create-react-context';
 
 import Modal, { TRANSITION_DURATION } from './Modal';
@@ -57,7 +58,7 @@ export class ModalProvider extends Component {
 
   render() {
     const { modal, isOpen } = this.state;
-    const { onClose = () => {}, children, ...otherProps } = modal || {};
+    const { onClose = noop, children, ...otherProps } = modal || {};
     const handleClose = () => {
       onClose();
       this.closeModal();
