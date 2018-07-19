@@ -58,6 +58,7 @@
     "babel-register": "^6.26.0",
     "create-emotion-styled": "^9.2.6",
     "docz": "latest",
+    "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "npm:enzyme-react-adapter-future",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-prettier": "^2.9.0",
