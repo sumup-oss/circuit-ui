@@ -8,6 +8,13 @@ exports[`Text should render as article element, when passed "article" for the el
   line-height: 24px;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
 <article
   className="circuit-0 circuit-1"
 >
@@ -23,6 +30,13 @@ exports[`Text should render as div element, when passed "div" for the element pr
   line-height: 24px;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
 <div
   className="circuit-0 circuit-1"
 >
@@ -36,6 +50,13 @@ exports[`Text should render as p element, when passed "p" for the element prop 1
   margin-bottom: 16px;
   font-size: 15px;
   line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }
 
 <p
@@ -54,6 +75,13 @@ exports[`Text should render bold text when passed the bold prop 1`] = `
   font-weight: 700;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
 <p
   className="circuit-0 circuit-1"
 />
@@ -66,6 +94,13 @@ exports[`Text should render italic text when passed the italic prop 1`] = `
   font-size: 15px;
   line-height: 24px;
   font-style: italic;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }
 
 <p
@@ -82,6 +117,13 @@ exports[`Text should render with no margin styles when passed the noMargin prop 
   margin-bottom: 0;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
 <p
   className="circuit-0 circuit-1"
 />
@@ -91,8 +133,15 @@ exports[`Text should render with size giga, when passed "giga" for the size prop
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 <p
@@ -110,6 +159,13 @@ exports[`Text should render with size kilo, when passed "kilo" for the size prop
   line-height: 20px;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
 <p
   className="circuit-0 circuit-1"
 >
@@ -123,6 +179,13 @@ exports[`Text should render with size mega, when passed "mega" for the size prop
   margin-bottom: 16px;
   font-size: 15px;
   line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }
 
 <p

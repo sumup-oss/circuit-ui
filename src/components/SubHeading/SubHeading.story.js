@@ -1,26 +1,27 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { select, boolean, text } from '@storybook/addon-knobs/react';
+
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
 import SubHeading from '.';
 
+const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
+const sizes = [SubHeading.MEGA, SubHeading.KILO];
+
 storiesOf(`${GROUPS.TYPOGRAPHY}|SubHeading`, module)
   .addDecorator(withTests('SubHeading'))
   .add(
-    'Kilo SubHeading with h2',
+    'SubHeading',
     withInfo()(() => (
-      <SubHeading element="h2" size={SubHeading.KILO}>
-        This is an kilo SubHeading with an h2 element
-      </SubHeading>
-    ))
-  )
-  .add(
-    'Mega SubHeading with h3',
-    withInfo()(() => (
-      <SubHeading element="h3" size={SubHeading.MEGA}>
-        This is a mega SubHeading with an h3 element
+      <SubHeading
+        element={select('Element', elements, elements[0])}
+        size={select('Size', sizes, sizes[0])}
+        noMargin={boolean('No margin', false)}
+      >
+        {text('Text', 'This is a subheading')}
       </SubHeading>
     ))
   );

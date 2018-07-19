@@ -11,6 +11,13 @@ exports[`Blockquote should render with default styles 1`] = `
   border-left: 2px solid #3388FF;
 }
 
+@media (min-width:480px) {
+  .circuit-1 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
 <blockquote
   className="circuit-0 circuit-1 circuit-2"
 >
@@ -26,13 +33,20 @@ exports[`Blockquote should render with giga styles 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 15px;
+  line-height: 24px;
   font-style: italic;
   padding-left: 12px;
   border-left: 2px solid #3388FF;
   padding-left: 16px;
   border-left: 3px solid #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-1 {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 <blockquote
@@ -55,6 +69,13 @@ exports[`Blockquote should render with mega styles 1`] = `
   font-style: italic;
   padding-left: 12px;
   border-left: 2px solid #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-1 {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }
 
 <blockquote

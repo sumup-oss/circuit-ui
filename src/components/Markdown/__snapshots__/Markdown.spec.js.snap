@@ -8,6 +8,13 @@ exports[`Markdown should override HTML tags with React components 1`] = `
   line-height: 24px;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
 .circuit-10 {
   display: block;
   height: auto;

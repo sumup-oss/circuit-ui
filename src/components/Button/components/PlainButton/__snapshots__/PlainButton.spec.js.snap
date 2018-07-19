@@ -4,8 +4,8 @@ exports[`PlainButton should have giga link styles 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 15px;
+  line-height: 24px;
   margin-bottom: 0;
   box-shadow: none;
   border: none;
@@ -15,6 +15,13 @@ exports[`PlainButton should have giga link styles 1`] = `
   color: #9DA7B1;
   cursor: pointer;
   outline: none;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 .circuit-0:hover {
@@ -53,6 +60,13 @@ exports[`PlainButton should have kilo link styles 1`] = `
   outline: none;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
 .circuit-0:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -87,6 +101,13 @@ exports[`PlainButton should have mega link styles 1`] = `
   color: #9DA7B1;
   cursor: pointer;
   outline: none;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }
 
 .circuit-0:hover {
@@ -124,6 +145,13 @@ exports[`PlainButton should have primary styles 1`] = `
   cursor: pointer;
   outline: none;
   color: #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }
 
 .circuit-0:hover {
@@ -166,6 +194,13 @@ exports[`PlainButton should render with default styles 1`] = `
   outline: none;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
 .circuit-0:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -200,6 +235,13 @@ exports[`PlainButton should render with href 1`] = `
   color: #9DA7B1;
   cursor: pointer;
   outline: none;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
 }
 
 .circuit-0:hover {

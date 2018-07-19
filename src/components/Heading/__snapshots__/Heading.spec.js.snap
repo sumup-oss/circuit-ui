@@ -4,8 +4,15 @@ exports[`Heading should render as h1 element, when passed "h1" for the element p
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 <h1
@@ -19,8 +26,15 @@ exports[`Heading should render as h2 element, when passed "h2" for the element p
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 <h2
@@ -34,8 +48,15 @@ exports[`Heading should render as h3 element, when passed "h3" for the element p
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 <h3
@@ -49,8 +70,15 @@ exports[`Heading should render as h4 element, when passed "h4" for the element p
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 <h4
@@ -64,8 +92,15 @@ exports[`Heading should render as h5 element, when passed "h5" for the element p
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 <h5
@@ -79,8 +114,15 @@ exports[`Heading should render as h6 element, when passed "h6" for the element p
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 <h6
@@ -94,9 +136,16 @@ exports[`Heading should render with no margin styles when passed the noMargin pr
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 32px;
   margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 <h2
@@ -108,8 +157,15 @@ exports[`Heading should render with size exa, when passed "exa" for the size pro
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 36px;
-  line-height: 44px;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 36px;
+    line-height: 44px;
+  }
 }
 
 <h2
@@ -123,8 +179,15 @@ exports[`Heading should render with size giga, when passed "giga" for the size p
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 22px;
+  font-size: 19px;
   line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 22px;
+    line-height: 24px;
+  }
 }
 
 <h2
@@ -142,6 +205,13 @@ exports[`Heading should render with size kilo, when passed "kilo" for the size p
   line-height: 24px;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
 <h2
   className="circuit-0 circuit-1"
 >
@@ -157,6 +227,13 @@ exports[`Heading should render with size mega, when passed "mega" for the size p
   line-height: 24px;
 }
 
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 19px;
+    line-height: 24px;
+  }
+}
+
 <h2
   className="circuit-0 circuit-1"
 >
@@ -168,8 +245,15 @@ exports[`Heading should render with size peta, when passed "peta" for the size p
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 <h2
@@ -183,8 +267,15 @@ exports[`Heading should render with size tera, when passed "tera" for the size p
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 22px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 24px;
+    line-height: 32px;
+  }
 }
 
 <h2
@@ -198,8 +289,15 @@ exports[`Heading should render with size zetta, when passed "zetta" for the size
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
-  font-size: 42px;
-  line-height: 48px;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 42px;
+    line-height: 48px;
+  }
 }
 
 <h2

@@ -8,17 +8,33 @@ import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } = sizes;
 
+const mobileSizeMap = {
+  [KILO]: KILO,
+  [MEGA]: MEGA,
+  [GIGA]: MEGA,
+  [TERA]: GIGA,
+  [PETA]: TERA,
+  [EXA]: PETA,
+  [ZETTA]: PETA
+};
+
 const baseStyles = ({ theme }) => css`
   label: heading;
   font-weight: ${theme.fontWeight.bold};
   margin-bottom: ${theme.spacings.giga};
 `;
 
-const sizeStyles = ({ theme, size }) => css`
-  label: heading--${size};
-  font-size: ${theme.typography.headings[size].fontSize};
-  line-height: ${theme.typography.headings[size].lineHeight};
-`;
+const sizeStyles = ({ theme, size }) =>
+  css`
+    label: heading--${size};
+    font-size: ${theme.typography.headings[mobileSizeMap[size]].fontSize};
+    line-height: ${theme.typography.headings[mobileSizeMap[size]].lineHeight};
+
+    ${theme.mq.kilo`
+      font-size: ${theme.typography.headings[size].fontSize};
+      line-height: ${theme.typography.headings[size].lineHeight};
+    `};
+  `;
 
 const noMarginStyles = ({ noMargin }) =>
   noMargin &&
@@ -34,8 +50,7 @@ const HeadingElement = styled(HtmlElement)`
 `;
 
 /**
- * A heading flexible heading component capable of rendering using
- * different HTML tags.
+ * A flexible heading component capable of rendering using any HTML heading tag.
  */
 const Heading = props => (
   <HeadingElement {...props} blacklist={{ size: true, noMargin: true }} />
