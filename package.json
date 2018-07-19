@@ -56,8 +56,13 @@
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-module-resolver": "^3.0.0",
     "babel-register": "^6.26.0",
+<<<<<<< HEAD
     "create-emotion-styled": "^9.2.6",
     "docz": "^0.9.2",
+=======
+    "create-emotion-styled": "^9.0.0",
+    "docz": "latest",
+>>>>>>> 91b096a... adding new build procedure including docz
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "npm:enzyme-react-adapter-future",
     "eslint-config-airbnb": "16.1.0",
