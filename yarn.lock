@@ -3431,8 +3431,8 @@ cache-base@^1.0.1:
     unset-value "^1.0.0"
 
 cache-content-type@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/cache-content-type/-/cache-content-type-1.0.0.tgz#6ee4210bc51693af0736e8d41416c1eb771c3ffb"
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/cache-content-type/-/cache-content-type-1.0.1.tgz#035cde2b08ee2129f4a8315ea8f00a00dba1453c"
   dependencies:
     mime-types "^2.1.18"
     ylru "^1.2.0"
@@ -3507,8 +3507,8 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000867"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000867.tgz#b55a6ecfac3107988940c9c7dfe1866315312c97"
+  version "1.0.30000869"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000869.tgz#c3da59fa8d9456df88a24bb292ede0e3798798cb"
 
 caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805, caniuse-lite@^1.0.30000844:
   version "1.0.30000865"
@@ -4732,9 +4732,88 @@ docz-core@^0.9.2:
     ws "^6.0.0"
     yargs "^12.0.1"
 
+<<<<<<< HEAD
 docz-plugin-babel6@^0.9.2:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/docz-plugin-babel6/-/docz-plugin-babel6-0.9.2.tgz#96dc9ef840049c33741e92da00a2172cc916e407"
+=======
+docz-core@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-0.6.0.tgz#3221615216e85fc61a7f8d0892d5572f36f8c579"
+  dependencies:
+    "@babel/core" "7.0.0-beta.54"
+    "@babel/preset-typescript" "^7.0.0-beta.54"
+    "@babel/runtime" "^7.0.0-beta.54"
+    "@mdx-js/loader" "^0.14.0"
+    "@mdx-js/mdx" "^0.14.0"
+    "@mdx-js/mdxast" "^0.10.0"
+    "@sindresorhus/slugify" "^0.3.0"
+    art-template "^4.12.2"
+    babel-loader "^8.0.0-beta.4"
+    babel-plugin-react-docgen "^2.0.0-rc.1"
+    babel-polyfill "^7.0.0-beta.3"
+    babel-preset-react-app "^4.0.0-next.b2fd8db8"
+    babel-traverse "^6.26.0"
+    babylon "^6.18.0"
+    chalk "^2.4.1"
+    chokidar "^2.0.4"
+    connect-history-api-fallback "^1.5.0"
+    cpy "^7.0.1"
+    deepmerge "^2.1.1"
+    detect-port "^1.2.3"
+    express "^4.16.3"
+    fast-glob "^2.2.2"
+    file-loader "^1.1.11"
+    friendly-errors-webpack-plugin "^1.7.0"
+    fs-extra "^6.0.1"
+    happypack "^5.0.0"
+    hast-util-to-string "^1.0.1"
+    html-webpack-plugin "^3.2.0"
+    humanize-string "^1.0.2"
+    koa "^2.5.2"
+    koa-connect "^2.0.1"
+    koa-mount "^3.0.0"
+    koa-range "^0.3.0"
+    koa-static "^5.0.0"
+    load-cfg "^0.6.0"
+    lodash.get "^4.4.2"
+    prettier "^1.13.7"
+    react-dev-utils "^5.0.1"
+    react-docgen-typescript-loader "^2.1.1"
+    react-hot-loader "4.3.3"
+    rehype-autolink-headings "^2.0.2"
+    rehype-slug "^2.0.1"
+    remark-frontmatter "^1.2.0"
+    remark-parse "^5.0.0"
+    remark-parse-yaml "^0.0.1"
+    remark-slug "^5.0.0"
+    resolve "^1.8.1"
+    signale "^1.2.1"
+    strip-indent "^2.0.0"
+    titleize "^1.0.1"
+    to-vfile "^5.0.0"
+    uglifyjs-webpack-plugin "^1.2.7"
+    ulid "^2.3.0"
+    unified "^7.0.0"
+    unist-util-find "^1.0.1"
+    unist-util-is "^2.1.2"
+    unist-util-remove "^1.0.1"
+    unist-util-visit "^1.3.1"
+    url-loader "^1.0.1"
+    webpack "^4.16.1"
+    webpack-chain "^4.8.0"
+    webpack-hot-client "^4.1.1"
+    webpack-manifest-plugin "^2.0.3"
+    webpack-serve "^2.0.2"
+    webpack-serve-waitpage "^1.0.0"
+    webpackbar "^2.6.1"
+    ws "^5.2.2"
+    yargs "^12.0.1"
+
+docz-plugin-babel6@^0.5.7:
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/docz-plugin-babel6/-/docz-plugin-babel6-0.5.9.tgz#a9a428f0a6859f6bc3a8edc7d56eebc5f727d8df"
+>>>>>>> 91b096a... adding new build procedure including docz
   dependencies:
     babel-core "^6.26.3"
     babel-loader "^7.1.5"
@@ -4746,12 +4825,20 @@ docz-plugin-babel6@^0.9.2:
     react-docgen-typescript-loader "^2.1.1"
     ts-loader "^4.4.2"
 
+<<<<<<< HEAD
 docz-theme-default@^0.9.2:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/docz-theme-default/-/docz-theme-default-0.9.2.tgz#ac8b17fbfc3f8ae22bc2fa1df6cd366b06292012"
   dependencies:
     copy-text-to-clipboard "^1.0.4"
     docz "^0.9.2"
+=======
+docz-theme-default@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/docz-theme-default/-/docz-theme-default-0.6.1.tgz#662a2feb4c4f533e9e8fbb0027f9af021d635f67"
+  dependencies:
+    docz "^0.6.1"
+>>>>>>> 91b096a... adding new build procedure including docz
     emotion "^9.2.6"
     emotion-theming "^9.2.6"
     facepaint "^1.2.1"
@@ -4773,9 +4860,15 @@ docz-theme-default@^0.9.2:
     react-syntax-highlighter "^8.0.1"
     webfontloader "^1.6.28"
 
+<<<<<<< HEAD
 docz@^0.9.2:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/docz/-/docz-0.9.2.tgz#91e7608e93f67381cd5e161b2ba0a1a3e6293f7a"
+=======
+docz@^0.6.1, docz@latest:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/docz/-/docz-0.6.1.tgz#4ccdc7248bdbf283f64736fa19596876d7d539ef"
+>>>>>>> 91b096a... adding new build procedure including docz
   dependencies:
     "@mdx-js/tag" "^0.15.0-2"
     "@sindresorhus/slugify" "^0.3.0"
@@ -4783,6 +4876,7 @@ docz@^0.9.2:
     capitalize "^1.0.0"
     create-react-context "^0.2.2"
     deepmerge "^2.1.1"
+<<<<<<< HEAD
     docz-core "^0.9.2"
     docz-theme-default "^0.9.2"
     prop-types "^15.6.2"
@@ -4791,6 +4885,15 @@ docz@^0.9.2:
     react-dom "^16.4.2"
     react-imported-component "^4.6.2"
     react-router "^4.3.1"
+=======
+    docz-core "^0.6.0"
+    docz-theme-default "^0.6.1"
+    invariant "^2.2.4"
+    loadable-components "^2.2.2"
+    pascalcase "^0.1.1"
+    react "^16.2.0"
+    react-dom "^16.2.0"
+>>>>>>> 91b096a... adding new build procedure including docz
     react-router-dom "^4.3.1"
     react-router-hash-link "^1.2.0"
     yargs "^12.0.1"
@@ -5307,8 +5410,8 @@ eslint-plugin-import@^2.7.0:
     resolve "^1.6.0"
 
 eslint-plugin-jest@^21.7.0:
-  version "21.17.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.17.0.tgz#fdb00e2f9ff16987d6ebcf2c75c7add105760bbb"
+  version "21.18.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.18.0.tgz#d7305969a9c1902f895468791d968fcf08b5c0b7"
 
 eslint-plugin-jsx-a11y@^6.0.2:
   version "6.1.1"
@@ -7687,8 +7790,8 @@ jest@^22.0.4:
     jest-cli "^22.4.4"
 
 js-base64@^2.1.9:
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.6.tgz#1d49f618bef43630cd191f4e122447acfdb947d8"
+  version "2.4.8"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.8.tgz#57a9b130888f956834aa40c5b165ba59c758f033"
 
 js-beautify@^1.6.12:
   version "1.7.5"
@@ -8099,6 +8202,14 @@ load-cfg@^0.9.0:
   dependencies:
     deepmerge "^2.1.1"
     esm "^3.0.72"
+    find-up "^3.0.0"
+
+load-cfg@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/load-cfg/-/load-cfg-0.6.0.tgz#7a5bae5e2dcfedd54fc547ce001ef527856d7698"
+  dependencies:
+    deepmerge "^2.1.1"
+    esm "^3.0.71"
     find-up "^3.0.0"
 
 load-json-file@^1.0.0:
@@ -8684,10 +8795,11 @@ miller-rabin@^4.0.0:
     bn.js "^4.0.0"
     brorand "^1.0.1"
 
-mime-db@~1.33.0:
-  version "1.33.0"
-  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.33.0.tgz#a3492050a5cb9b63450541e39d9788d2272783db"
+mime-db@~1.35.0:
+  version "1.35.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.35.0.tgz#0569d657466491283709663ad379a99b90d9ab47"
 
+<<<<<<< HEAD
 mime-db@~1.35.0:
   version "1.35.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.35.0.tgz#0569d657466491283709663ad379a99b90d9ab47"
@@ -8695,8 +8807,13 @@ mime-db@~1.35.0:
 mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.18:
   version "2.1.18"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.18.tgz#6f323f60a83d11146f831ff11fd66e2fe5503bb8"
+=======
+mime-types@^2.1.12, mime-types@^2.1.18, mime-types@~2.1.17, mime-types@~2.1.18:
+  version "2.1.19"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.19.tgz#71e464537a7ef81c15f2db9d97e913fc0ff606f0"
+>>>>>>> 91b096a... adding new build procedure including docz
   dependencies:
-    mime-db "~1.33.0"
+    mime-db "~1.35.0"
 
 mime-types@^2.1.18:
   version "2.1.19"
@@ -9140,8 +9257,8 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
 nwsapi@^2.0.0:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.0.5.tgz#3998cfe7a014600e5e30dedb1fef2a4404b2871f"
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.0.6.tgz#5fb7f5b828b97fe1de47eb2a6f8703036b6cb71a"
 
 oauth-sign@~0.8.2:
   version "0.8.2"
