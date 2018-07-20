@@ -38,19 +38,22 @@ const baseStyles = ({ theme }) => css`
   list-style-type: none;
   width: 100%;
 
-  > * {
+  > li {
     width: 100%;
+    > button {
+      width: 100%;
+    }
   }
 
   ${theme.mq.kilo`
     display: flex;
 
-    li:not(:last-of-type) {
-      margin-right: ${theme.spacings.mega};
+    > li {
+      width: auto;
     }
 
-    > * {
-      width: auto;
+    > li:not(:last-of-type) {
+      margin-right: ${theme.spacings.mega};
     }
   `};
 `;
