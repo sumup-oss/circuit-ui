@@ -13,17 +13,39 @@ storiesOf(`${GROUPS.COMPONENTS}|Button/ButtonGroup`, module)
   .add(
     'Default ButtonGroup',
     withInfo()(() => (
-      <div style={{ width: '500px', border: '1px dotted #000' }}>
+      <div
+        style={{ maxWidth: '500px', width: '100vw', border: '1px dotted #000' }}
+      >
         <ButtonGroup
           align={select(
             'Align',
             [ButtonGroup.LEFT, ButtonGroup.RIGHT],
             ButtonGroup.RIGHT
           )}
-          noMargin={boolean('No Margin Bottom', false)}
+          stackedMobile={boolean('Stacked on mobile', true)}
         >
           <Button secondary>Cancel</Button>
           <Button primary>Confirm</Button>
+        </ButtonGroup>
+      </div>
+    ))
+  )
+  .add(
+    'ButtonGroup with long button text',
+    withInfo()(() => (
+      <div
+        style={{ maxWidth: '500px', width: '100vw', border: '1px dotted #000' }}
+      >
+        <ButtonGroup
+          align={select(
+            'Align',
+            [ButtonGroup.LEFT, ButtonGroup.RIGHT],
+            ButtonGroup.RIGHT
+          )}
+          stackedMobile={boolean('Stacked on mobile', true)}
+        >
+          <Button secondary>This is some really long button text</Button>
+          <Button primary>This is also really long</Button>
         </ButtonGroup>
       </div>
     ))

@@ -7,17 +7,18 @@ import { directions } from '../../styles/constants';
 
 const ALIGMENT_TYPES = [directions.LEFT, directions.CENTER, directions.RIGHT];
 
-const marginStyles = ({ theme, noMargin }) =>
-  !noMargin &&
-  css`
-    li:not(:last-of-type) {
-      margin-bottom: ${theme.spacings.mega};
+const baseStyles = ({ theme }) => css`
+  label: button-group;
+  display: flex;
+  list-style-type: none;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 100%;
 
-      ${theme.mq.kilo`
-        margin-bottom: 0;
-      `};
-    }
-  `;
+  > li:not(:last-of-type) {
+    margin-right: ${theme.spacings.mega};
+  }
+`;
 
 const alignmentStyles = ({ align }) => {
   const alignmentMap = {
@@ -32,39 +33,39 @@ const alignmentStyles = ({ align }) => {
   `;
 };
 
-const baseStyles = ({ theme }) => css`
-  label: button-group;
-  display: block;
-  list-style-type: none;
-  width: 100%;
+const stackedMobileStyles = ({ theme, stackedMobile }) =>
+  stackedMobile &&
+  css`
+    label: button-group--stacked-mobile;
 
-  > li {
-    width: 100%;
-    > button {
-      width: 100%;
-    }
-  }
+    ${theme.mq.untilKilo`
+      display: block;
 
-  ${theme.mq.kilo`
-    display: flex;
+      > li {
+        width: 100%;
 
-    > li {
-      width: auto;
-    }
+        &:not(:last-of-type) {
+          margin-bottom: ${theme.spacings.mega};
+        }
 
-    > li:not(:last-of-type) {
-      margin-right: ${theme.spacings.mega};
-    }
-  `};
-`;
+        > * {
+          width: 100%;
+        }
+      }
+    `};
+  `;
 
-const ButtonGroupList = styled('ul')(baseStyles, marginStyles, alignmentStyles);
+const ButtonGroupList = styled('ul')(
+  baseStyles,
+  alignmentStyles,
+  stackedMobileStyles
+);
 
 /**
  * Groups its Button children into a list and adds margins between.
  */
-const ButtonGroup = ({ children, align, noMargin, ...rest }) => (
-  <ButtonGroupList {...rest} align={align} noMargin={noMargin}>
+const ButtonGroup = ({ children, align, ...rest }) => (
+  <ButtonGroupList {...rest} align={align}>
     {Children.map(children, child => <li>{child}</li>)}
   </ButtonGroupList>
 );
@@ -79,18 +80,18 @@ ButtonGroup.propTypes = {
    */
   children: childrenPropType.isRequired,
   /**
-   * Removes the default bottom margin from the heading.
-   */
-  noMargin: PropTypes.bool,
-  /**
    * Direction to align the content. Either left/right
    */
-  align: PropTypes.oneOf(ALIGMENT_TYPES)
+  align: PropTypes.oneOf(ALIGMENT_TYPES),
+  /**
+   * Whether to stack the buttons on mobile.
+   */
+  stackedMobile: PropTypes.bool
 };
 
 ButtonGroup.defaultProps = {
   align: ButtonGroup.RIGHT,
-  noMargin: false
+  stackedMobile: true
 };
 
 /**
