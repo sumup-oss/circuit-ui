@@ -41,19 +41,34 @@ describe('currency', () => {
       testCurrency(inputs, 'EUR', 'nl-BE', outputsNl);
     });
 
-    it('should localize EUR for Germany', () => {
-      const outputs = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
-      testCurrency(inputs, 'EUR', 'de-DE', outputs);
+    it('should localize EUR for Cyprus', () => {
+      const outputsFr = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'el-CY', outputsFr);
     });
 
-    it('should localize EUR for Spain', () => {
-      const outputs = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
-      testCurrency(inputs, 'EUR', 'es-ES', outputs);
+    it('should localize EUR for Estonia', () => {
+      const outputsFr = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'et-EE', outputsFr);
+    });
+
+    it('should localize EUR for Finland', () => {
+      const outputsFr = ['11,23\xA0€', '1\x00000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'fi-FI', outputsFr);
     });
 
     it('should localize EUR for France', () => {
       const outputs = ['11,23\xA0€', '1\xA0000,00\xA0€', '0,98\xA0€'];
       testCurrency(inputs, 'EUR', 'fr-FR', outputs);
+    });
+
+    it('should localize EUR for Germany', () => {
+      const outputs = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'de-DE', outputs);
+    });
+
+    it('should localize EUR for Greece', () => {
+      const outputsFr = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'el-CY', outputsFr);
     });
 
     it('should localize EUR for Ireland', () => {
@@ -66,6 +81,26 @@ describe('currency', () => {
       testCurrency(inputs, 'EUR', 'it-IT', outputs);
     });
 
+    it('should localize EUR for Latvia', () => {
+      const outputs = ['11,23\xA0€', '1\x00000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'lv-LV', outputs);
+    });
+
+    it('should localize EUR for Lithuania', () => {
+      const outputs = ['11,23\xA0€', '1\x00000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'lv-LV', outputs);
+    });
+
+    it('should localize EUR for Luxembourg', () => {
+      const outputs = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'fr-LU', outputs);
+    });
+
+    it('should localize EUR for Malta', () => {
+      const outputs = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'en-MT', outputs);
+    });
+
     it('should localize EUR for Netherlands', () => {
       const outputs = ['€\xA011,23', '€\xA01.000,00', '€\xA00,98'];
       testCurrency(inputs, 'EUR', 'nl-NL', outputs);
@@ -74,6 +109,21 @@ describe('currency', () => {
     it('should localize EUR for Portugal', () => {
       const outputs = ['11,23\xA0€', '1\xA0000,00\xA0€', '0,98\xA0€'];
       testCurrency(inputs, 'EUR', 'pt-PT', outputs);
+    });
+
+    it('should localize EUR for Spain', () => {
+      const outputs = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'es-ES', outputs);
+    });
+
+    it('should localize EUR for Slovakia', () => {
+      const outputs = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'sk-SK', outputs);
+    });
+
+    it('should localize EUR for Slovenia', () => {
+      const outputs = ['11,23\xA0€', '1.000,00\xA0€', '0,98\xA0€'];
+      testCurrency(inputs, 'EUR', 'sl-SI', outputs);
     });
 
     it('should localize CHF', () => {
@@ -133,7 +183,7 @@ describe('currency', () => {
     });
 
     it('should localize DKK', () => {
-      const outputs = ['11,23\xA0kr.', '1.000,00\xA0kr.', '0,98\xA0kr.'];
+      const outputs = ['11,23\xA0kr.', '1\xA0000,00\xA0kr.', '0,98\xA0kr.'];
       testCurrency(inputs, 'DKK', 'da-DK', outputs);
     });
 
