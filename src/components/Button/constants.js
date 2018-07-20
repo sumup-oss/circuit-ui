@@ -10,6 +10,10 @@ export const SIZE_PROP_TYPE = PropTypes.oneOf([KILO, MEGA, GIGA]);
 //       sub-component.
 export const BUTTON_PROP_TYPES = {
   /**
+   * Whether to allow line wrapping in the button.
+   */
+  allowOverflow: PropTypes.bool,
+  /**
    * Should the Button be disabled?
    */
   disabled: PropTypes.bool,
@@ -57,7 +61,8 @@ export const BUTTON_DEFAULT_PROPS = {
   secondary: false,
   size: MEGA,
   stretch: false,
-  target: null
+  target: null,
+  allowOverflow: false
 };
 
 export const REGULAR_BUTTON_ONLY_PROPS = [
@@ -66,5 +71,6 @@ export const REGULAR_BUTTON_ONLY_PROPS = [
   'element',
   'flat',
   'secondary',
-  'stretch'
+  'stretch',
+  'allowOverflow'
 ];

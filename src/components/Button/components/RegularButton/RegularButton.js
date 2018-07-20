@@ -56,6 +56,9 @@ const baseStyles = ({ theme, href, ...otherProps }) => css`
   width: auto;
   height: auto;
   text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   ${textMega({ theme })};
 
   &:active {
@@ -217,6 +220,13 @@ const buttonLoadingStyles = ({ isLoading }) =>
     pointer-events: none;
   `;
 
+const allowOverflowStyles = ({ allowOverflow }) =>
+  allowOverflow &&
+  css`
+    overflow: visible;
+    white-space: normal;
+  `;
+
 const ButtonElement = styled('button')`
   ${baseStyles};
   ${primaryStyles};
@@ -225,6 +235,7 @@ const ButtonElement = styled('button')`
   ${secondaryStyles};
   ${stretchStyles};
   ${buttonLoadingStyles};
+  ${allowOverflowStyles};
 `;
 
 const LinkButtonElement = ButtonElement.withComponent('a');
