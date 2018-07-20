@@ -11,7 +11,7 @@ export const NUMBER_SEPARATORS = {
   'el-GR': { decimal: ',', thousand: '.' },
   'en-GB': { decimal: '.', thousand: ',' },
   'en-IE': { decimal: '.', thousand: ',' },
-  'en-MT': { decimal: '.', thousand: ',' },
+  'en-MT': { decimal: ',', thousand: '.' },
   'en-US': { decimal: '.', thousand: ',' },
   'es-CL': { decimal: ',', thousand: '.' },
   'es-ES': { decimal: ',', thousand: '.' },
