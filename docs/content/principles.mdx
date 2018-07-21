@@ -1,0 +1,38 @@
+---
+name: Principles
+route: /principles
+---
+
+# Principles
+
+## Obvious and transparent naming
+
+Our components should use names that are as standard as possible.  Opt for a
+more verbose name rather than a creative or clever one. When in doubt, look to
+several other component libraries for inspiration.
+
+### Component and prop-naming guidelines
+
+- Try for one- or two-word component names.
+- Try for one-word props if possible.
+- Similarly, use onVerb handlers (e.g. "onClick") and stick to the DOM names when possible.
+- Labels in English should accept translated values, with default props in English.
+- Keep it concise without being clever.
+
+```
+// Do
+<DatePicker onClick={fn} nextButton="Next" prevButton="Previous" />
+
+// Don't
+<CustomDatePicker selectDate={fn} />
+```
+
+## Keep the API small
+
+- Don't expose underlying utilies or internals unless necessary.
+
+## Label elements with BEM
+
+## Ensure accessibility and autocompletion
+
+## TBD
