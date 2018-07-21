@@ -5,3 +5,70 @@ menu: Getting Started
 ---
 
 # Developers
+
+## Install
+
+You can install Circuit via npm or yarn. Today we do not have a functioning
+build for distribution, so you should install the latest release
+from github by tag.
+
+[See all releases on Github](https://github.com/sumup/circuit-ui/releases)
+
+Circuit also uses [emotion](https://github.com/emotion-js/emotion) and [emotion-theming](https://github.com/emotion-js/emotion-theming).
+
+```
+npm install git+https://github.com/sumup/circuit-ui.git#development-0.0.4 emotion react-emotion emotion-theming
+```
+
+```
+yarn add git+https://github.com/sumup/circuit-ui.git#development-0.0.4 emotion react-emotion emotion-theming
+```
+
+## Configuring the theme
+
+At the root of your application, you should tell your app which theme to use.
+In most cases, you will want to use the SumUp default theme.
+
+```
+import { ThemeProvider } from 'emotion-theming';
+import { standard } from 'circuit-ui/themes';
+import { Button } from 'circuit-ui';
+
+const App = () => (
+  <ThemeProvider theme={standard}>
+    <Button primary>Click me</Button>
+  </ThemeProvider>
+);
+
+export default App;
+```
+
+## Using components
+
+Simply import components by name from the `circuit-ui` package, as demonstrated
+above.
+
+## Using helpers
+
+There are a few helpers you may want to use within Circuit.
+
+## Injecting global styles
+
+Sometimes you may need to apply global styles to your page. Here is how you can do this with the utilities provided by Circuit UI.
+
+```
+import { standard } from 'circuit-ui/themes';
+import { globalStyles } from 'circuit-ui/styles';
+
+const customStyles = `
+  body {
+    color: red;
+  }
+`;
+
+globalStyles({ theme: standard, custom: customStyles });
+```
+
+## Contributing
+
+You can open a pull request on Github.

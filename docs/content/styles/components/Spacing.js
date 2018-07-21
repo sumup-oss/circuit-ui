@@ -12,7 +12,7 @@ const Box = styled('div')`
     background-color: ${theme.colors.r300};
     display: block;
     margin-right: ${theme.spacings.mega};
-    margin-bottom: ${theme.spacings.giga};
+    margin-bottom: ${theme.spacings.tera};
     position: relative;
 
     &:before {
