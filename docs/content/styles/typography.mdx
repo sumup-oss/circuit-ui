@@ -16,10 +16,6 @@ component guidelines section.
 
 ## Headings
 
-Our headings range in size from `kilo` to `zetta`. Sizes above `giga` should
-only be used on marketing websites, whereas `kilo` headings should only appear
-inside web apps.
-
 <Type size={Heading.ZETTA} component={Heading}/>
 <Type size={Heading.EXA} component={Heading}/>
 <Type size={Heading.PETA} component={Heading}/>
@@ -41,12 +37,13 @@ inside web apps.
 
 ## Font weights
 
-Circuit has two font weights, regular and bold.
+Circuit has two font weights, regular and bold. You can only toggle the
+boldness of `Text`, but not `Heading` or `Subheading`.
 
-<Type size={Text.KILO} bold component={Text}>Bold text</Type>
-<Type size={Text.KILO} component={Text}>Regular text</Type>
+<Type size={Text.MEGA} bold component={Text}>She give me money</Type>
+<Type size={Text.MEGA} component={Text}>When I'm in need</Type>
 
 ## Best practices
 
 - Do not directly use `theme.typography` settings, but rather use the
-  specialized components `<Heading>`, `<Subheading>`, and `<Text>`.
+  specialized components `Heading`, `Subheading`, and `Text`.
