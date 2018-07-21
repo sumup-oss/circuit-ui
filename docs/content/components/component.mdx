@@ -7,7 +7,8 @@ order: 1
 
 import { Playground } from 'docz'
 
-import Button from '../../../src/components/Button/Button';
+import Button from './DocButton';
+import OriginalButton from '../../../src/components/Button/Button';
 
 import PropTable from '../../utils/PropTable';
 import {getDescription} from '../../utils/service';
@@ -17,13 +18,13 @@ import {getDescription} from '../../utils/service';
 Use the component when you have a specific use case that shall be described here.
 
 <Playground>
-  	<div>Component here</div>
+  	<Button primary>Button</Button>
 </Playground>
 
 ## Props
 
 <div>
-	<PropTable component={Button} />
+	<PropTable component={OriginalButton} />
 </div>
 
 ## Best practices
@@ -34,18 +35,23 @@ Use the component when you have a specific use case that shall be described here
 
 ### Usage guidelines
 
-### Components in a group
+### Buttons in a group
 - The primary action belongs on the right.
+  - And this is it.
 
 ## Content guidelines
 - Start with a verb.
 
-## Component variations
+## Button variations
 
-### Primary components
+### Primary buttons
 A button should be primary if it's the thing you want people to click.
+
+<Button primary>Disabled button</Button>
 
 ## Related components
 - Use the X component when there is only one action.
+
+<div style={{ 'float': 'right' }}>Lalalala</div>
 
 ## Examples
