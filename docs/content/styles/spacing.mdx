@@ -3,3 +3,31 @@ name: Spacing
 route: /styles/spacing
 menu: Styles
 ---
+
+import Spacing from './components/Spacing';
+
+# Spacing 
+
+You can refer to a spacing from the theme using `theme.spacings.<COLOR_NAME>`.
+
+<Spacing spacingName="byte"/>
+<Spacing spacingName="kilo"/>
+<Spacing spacingName="mega"/>
+<Spacing spacingName="giga"/>
+<Spacing spacingName="tera"/>
+<Spacing spacingName="peta"/>
+<Spacing spacingName="exa"/>
+<Spacing spacingName="zetta"/>
+
+## Spacing best practices
+
+**Do use spacings for:**
+
+- Margins and paddings
+
+**Don't use spacings for:**
+
+- Border width. Instead use `theme.borderWidth.<size>`.
+- Border radius. Instead use `theme.borderRadius.<size>`.
+- Icon size. Instead use `theme.iconSizes.<size>`.
+- Font size or line height. Instead, see [Typography](/styles/typography).
