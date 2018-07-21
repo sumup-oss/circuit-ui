@@ -3,3 +3,50 @@ name: Typography
 route: /styles/typography
 menu: Styles
 ---
+
+import Text from '../../../src/components/Text';
+import Heading from '../../../src/components/Heading';
+import Subheading from '../../../src/components/Subheading';
+import Type from './components/Type';
+
+# Typography
+
+For usage in React, see the [typography](/components/typography) in the
+component guidelines section.
+
+## Headings
+
+Our headings range in size from `kilo` to `zetta`. Sizes above `giga` should
+only be used on marketing websites, whereas `kilo` headings should only appear
+inside web apps.
+
+<Type size={Heading.ZETTA} component={Heading}/>
+<Type size={Heading.EXA} component={Heading}/>
+<Type size={Heading.PETA} component={Heading}/>
+<Type size={Heading.TERA} component={Heading}/>
+<Type size={Heading.GIGA} component={Heading}/>
+<Type size={Heading.MEGA} component={Heading}/>
+<Type size={Heading.KILO} component={Heading}/>
+
+## Subheading
+
+<Type size="mega" component={Subheading}/>
+<Type size="kilo" component={Subheading}/>
+
+## Copy
+
+<Type size={Text.GIGA} component={Text}/>
+<Type size={Text.MEGA} component={Text}/>
+<Type size={Text.KILO} component={Text}/>
+
+## Font weights
+
+Circuit has two font weights, regular and bold.
+
+<Type size={Text.KILO} bold component={Text}>Bold text</Type>
+<Type size={Text.KILO} component={Text}>Regular text</Type>
+
+## Best practices
+
+- Do not directly use `theme.typography` settings, but rather use the
+  specialized components `<Heading>`, `<Subheading>`, and `<Text>`.
