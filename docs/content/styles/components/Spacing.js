@@ -18,7 +18,7 @@ const Box = styled('div')`
     &:before {
       content: '${spacingName}';
       pointer-events: all;
-      position: absolute;
+      position: absoute;
       color: ${theme.colors.black};
       bottom: -${theme.spacings.giga};
     }
