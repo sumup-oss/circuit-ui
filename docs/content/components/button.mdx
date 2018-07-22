@@ -1,12 +1,12 @@
 ---
 name: Button
-route: /components/Button
+route: /components/button
 menu: Components
 ---
 
 import { Playground } from 'docz'
 
-import Button from './DocButton';
+import Button from './components/Button';
 import OriginalButton from '../../../src/components/Button/Button';
 
 import PropTable from '../../utils/PropTable';
@@ -14,12 +14,8 @@ import {getDescription} from '../../utils/service';
 
 # Button
 
-<div>
-	{getDescription(OriginalButton)}
-</div>
-
 <Playground>
-  	<Button primary> Button </Button>
+  	<Button primary>Button</Button>
 </Playground>
 
 ## PropsTable
