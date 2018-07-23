@@ -66,8 +66,8 @@ const ButtonGroupList = styled('ul')(
 /**
  * Groups its Button children into a list and adds margins between.
  */
-const ButtonGroup = ({ children, align, ...rest }) => (
-  <ButtonGroupList {...rest} align={align}>
+const ButtonGroup = ({ children, ...props }) => (
+  <ButtonGroupList {...props}>
     {Children.map(children, child => (child ? <li>{child}</li> : null))}
   </ButtonGroupList>
 );
