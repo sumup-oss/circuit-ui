@@ -7,17 +7,33 @@ import { directions } from '../../styles/constants';
 
 const ALIGMENT_TYPES = [directions.LEFT, directions.CENTER, directions.RIGHT];
 
+const getInlineStyles = theme => css`
+  display: flex;
+  flex-wrap: nowrap;
+
+  > li:not(:last-of-type) {
+    margin-bottom: 0;
+    margin-right: ${theme.spacings.mega};
+  }
+`;
+
 const baseStyles = ({ theme }) => css`
   label: button-group;
-  display: flex;
   list-style-type: none;
-  flex-wrap: nowrap;
   overflow: hidden;
   width: 100%;
 
-  > li:not(:last-of-type) {
-    margin-right: ${theme.spacings.mega};
+  > li {
+    &:not(:last-of-type) {
+      margin-bottom: ${theme.spacings.mega};
+    }
+
+    > * {
+      width: 100%;
+    }
   }
+
+  ${theme.mq.kilo(getInlineStyles(theme))};
 `;
 
 const alignmentStyles = ({ align }) => {
@@ -33,32 +49,18 @@ const alignmentStyles = ({ align }) => {
   `;
 };
 
-const stackedMobileStyles = ({ theme, stackedMobile }) =>
-  stackedMobile &&
+const inlineMobileStyles = ({ theme, inlineMobile }) =>
+  inlineMobile &&
   css`
-    label: button-group--stacked-mobile;
+    label: button-group--inline-mobile;
 
-    ${theme.mq.untilKilo`
-      display: block;
-
-      > li {
-        width: 100%;
-
-        &:not(:last-of-type) {
-          margin-bottom: ${theme.spacings.mega};
-        }
-
-        > * {
-          width: 100%;
-        }
-      }
-    `};
+    ${theme.mq.untilKilo(getInlineStyles(theme))};
   `;
 
 const ButtonGroupList = styled('ul')(
   baseStyles,
   alignmentStyles,
-  stackedMobileStyles
+  inlineMobileStyles
 );
 
 /**
@@ -84,14 +86,14 @@ ButtonGroup.propTypes = {
    */
   align: PropTypes.oneOf(ALIGMENT_TYPES),
   /**
-   * Whether to stack the buttons on mobile.
+   * Whether to display buttons inline on mobile.
    */
-  stackedMobile: PropTypes.bool
+  inlineMobile: PropTypes.bool
 };
 
 ButtonGroup.defaultProps = {
   align: ButtonGroup.RIGHT,
-  stackedMobile: true
+  inlineMobile: false
 };
 
 /**

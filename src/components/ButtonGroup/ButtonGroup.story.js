@@ -19,10 +19,10 @@ storiesOf(`${GROUPS.COMPONENTS}|Button/ButtonGroup`, module)
         <ButtonGroup
           align={select(
             'Align',
-            [ButtonGroup.LEFT, ButtonGroup.RIGHT],
+            [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT],
             ButtonGroup.RIGHT
           )}
-          stackedMobile={boolean('Stacked on mobile', true)}
+          inlineMobile={boolean('Display inline on mobile', false)}
         >
           <Button secondary>Cancel</Button>
           <Button primary>Confirm</Button>
