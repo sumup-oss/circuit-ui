@@ -62,7 +62,7 @@ export const BUTTON_DEFAULT_PROPS = {
   size: MEGA,
   stretch: false,
   target: null,
-  allowOverflow: false
+  allowOverflow: true
 };
 
 export const REGULAR_BUTTON_ONLY_PROPS = [
