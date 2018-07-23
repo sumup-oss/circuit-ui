@@ -1,5 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RegularButton should allow hiding overflow with ellipsis 1`] = `
+.circuit-0 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.circuit-0:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-0:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-0:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-0:hover,
+.circuit-0:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-0[disabled],
+.circuit-0:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<button
+  className="circuit-0 circuit-1"
+  disabled={false}
+  size="mega"
+  target={null}
+>
+  No overflow button
+</button>
+`;
+
 exports[`RegularButton should have button styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
@@ -16,14 +86,9 @@ exports[`RegularButton should have button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -86,14 +151,9 @@ exports[`RegularButton should have disabled button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -156,16 +216,11 @@ exports[`RegularButton should have flat button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   border-width: 0px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 2px 2px 0 rgba(12,15,20,0.06),0 4px 4px 0 rgba(12,15,20,0.06);
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -244,16 +299,11 @@ exports[`RegularButton should have flat disabled button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   border-width: 0px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 2px 2px 0 rgba(12,15,20,0.06),0 4px 4px 0 rgba(12,15,20,0.06);
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -332,14 +382,9 @@ exports[`RegularButton should have giga button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(12px - 0px) calc(32px - 0px);
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -402,14 +447,9 @@ exports[`RegularButton should have kilo button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -472,14 +512,9 @@ exports[`RegularButton should have mega button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -542,9 +577,6 @@ exports[`RegularButton should have secondary button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
@@ -553,8 +585,6 @@ exports[`RegularButton should have secondary button styles 1`] = `
   border-width: 0;
   box-shadow: none;
   color: #5C656F;
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -658,9 +688,6 @@ exports[`RegularButton should have secondary disabled button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
@@ -669,8 +696,6 @@ exports[`RegularButton should have secondary disabled button styles 1`] = `
   border-width: 0;
   box-shadow: none;
   color: #5C656F;
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -774,9 +799,6 @@ exports[`RegularButton should have secondary flat button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
@@ -785,8 +807,6 @@ exports[`RegularButton should have secondary flat button styles 1`] = `
   border-width: 0;
   box-shadow: none;
   color: #5C656F;
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {
@@ -890,16 +910,11 @@ exports[`RegularButton should have stretch button styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   width: 100%;
   display: block;
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-0:active {

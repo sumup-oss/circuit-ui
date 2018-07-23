@@ -73,6 +73,15 @@ describe('RegularButton', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should allow hiding overflow with ellipsis', () => {
+    const actual = create(
+      <Button stretch noOverflow>
+        No overflow button
+      </Button>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
