@@ -1,3 +1,3 @@
-import * as standard from './default';
+import * as standard from './standard';
 
 export { standard };
