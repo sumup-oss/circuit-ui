@@ -68,7 +68,7 @@ const ButtonGroupList = styled('ul')(
  */
 const ButtonGroup = ({ children, align, ...rest }) => (
   <ButtonGroupList {...rest} align={align}>
-    {Children.map(children, child => <li>{child}</li>)}
+    {Children.map(children, child => (child ? <li>{child}</li> : null))}
   </ButtonGroupList>
 );
 
