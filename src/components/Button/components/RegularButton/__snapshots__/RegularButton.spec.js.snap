@@ -22,6 +22,8 @@ exports[`RegularButton should have button styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -90,6 +92,8 @@ exports[`RegularButton should have disabled button styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -160,6 +164,8 @@ exports[`RegularButton should have flat button styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
   border-width: 0px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 2px 2px 0 rgba(12,15,20,0.06),0 4px 4px 0 rgba(12,15,20,0.06);
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -246,6 +252,8 @@ exports[`RegularButton should have flat disabled button styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
   border-width: 0px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 2px 2px 0 rgba(12,15,20,0.06),0 4px 4px 0 rgba(12,15,20,0.06);
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -330,6 +338,8 @@ exports[`RegularButton should have giga button styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   padding: calc(12px - 0px) calc(32px - 0px);
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -398,6 +408,8 @@ exports[`RegularButton should have kilo button styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -466,6 +478,8 @@ exports[`RegularButton should have mega button styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -539,6 +553,8 @@ exports[`RegularButton should have secondary button styles 1`] = `
   border-width: 0;
   box-shadow: none;
   color: #5C656F;
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -653,6 +669,8 @@ exports[`RegularButton should have secondary disabled button styles 1`] = `
   border-width: 0;
   box-shadow: none;
   color: #5C656F;
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -767,6 +785,8 @@ exports[`RegularButton should have secondary flat button styles 1`] = `
   border-width: 0;
   box-shadow: none;
   color: #5C656F;
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
@@ -878,6 +898,8 @@ exports[`RegularButton should have stretch button styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
   width: 100%;
   display: block;
+  overflow: visible;
+  white-space: normal;
 }
 
 .circuit-0:active {
