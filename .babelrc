@@ -1,31 +1,56 @@
 {
-  "plugins": [
-    "lodash",
-    "transform-es2015-modules-commonjs",
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    [
-      "emotion",
-      {
-        "autoLabel": true,
-        "hoist": true,
-        "sourceMap": true
-      }
-    ]
-  ],
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "node": "current"
-        }
-      }
-    ],
-    "react",
-    "stage-3"
-  ],
   "env": {
+    "develop": {
+      "plugins": [
+        "syntax-dynamic-import",
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "hoist": true,
+            "sourceMap": true
+          }
+        ]
+      ],
+      "presets": ["env", "react", "stage-3"]
+    },
+    "build": {
+      "plugins": [
+        "external-helpers",
+        "lodash",
+        "syntax-dynamic-import",
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "hoist": true,
+            "sourceMap": true
+          }
+        ]
+      ],
+      "presets": [["env", { "modules": false }], "react", "stage-3"]
+    },
+    "test": {
+      "plugins": [
+        "lodash",
+        "syntax-dynamic-import",
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "hoist": true,
+            "sourceMap": true
+          }
+        ]
+      ],
+      "presets": ["env", "react", "stage-3"]
+    },
     "static": {
       "plugins": [
         [

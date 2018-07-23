@@ -37,7 +37,7 @@ module.exports = {
     ]
   },
   globals: {
-    STORYBOOK: true
+    __STORYBOOK__: true
   },
   parser: 'babel-eslint',
   parserOptions: {

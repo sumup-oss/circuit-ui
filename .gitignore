@@ -10,6 +10,11 @@ __coverage__
 dist
 .out
 circuit-ui-global.css
+.node-version
+/index.js
+/utils.js
+/styles.js
+/themes.js
 
 # Packages #
 

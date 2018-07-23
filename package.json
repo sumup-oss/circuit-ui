@@ -1,9 +1,9 @@
 {
-"name": "circuit-ui",
-  "version": "0.0.1",
+  "name": "@sumup/circuit-ui",
+  "version": "0.0.11",
   "description": "SumUp's React UI component library",
-  "main": "src/index.js",
-  "module": "src/index.js",
+  "main": "index.js",
+  "module": "index.js",
   "scripts": {
     "fix:eslint": "eslint --fix --quiet src/**/**/*.js",
     "fix": "yarn fix:eslint",
@@ -16,25 +16,29 @@
     "test:unit:watch": "yarn test:unit:output -- --watch",
     "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
     "create-component": "foundry run plop component",
-    "start": "yarn test:unit:output && start-storybook -p 6006",
-    "prebuild": "yarn test:unit:output",
-    "build":
-      "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
+    "prepush": "yarn test:lint-js",
+    "start": "yarn test:unit:output && BABEL_ENV=develop start-storybook -p 6006",
+    "prebuild": "yarn test:unit:output && rm -rf dist && mkdir dist",
+    "build": "yarn build:stylesheet && yarn build:global-styles && yarn build:copy-global-styles && yarn build:storybook",
     "build:storybook": "build-storybook -c .storybook -o .out",
-    "build:stylesheet":
-      "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
-    "build:global-styles":
-      "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
+    "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
+    "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
-    "deploy": "yarn build && gh-pages -d .out",
-    "precommit": "lint-staged"
+    "rollup": "BABEL_ENV=build NODE_ENV=production rollup --config",
+    "deploy:storybook": "build-storybook -c .storybook -o .out && gh-pages -d .out",
+    "deploy": "yarn build:global-styles && yarn build:copy-global-styles && yarn deploy:storybook "
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sumup/circuit-ui.git"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "utils.js",
+    "styles.js",
+    "themes.js"
+  ],
   "bugs": {
     "url": "https://github.com/sumup/circuit-ui/issues"
   },
@@ -55,6 +59,9 @@
     "babel-jest": "^22.1.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-emotion": "^9.0.0-1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-module-resolver": "^3.0.0",
     "babel-register": "^6.26.0",
     "create-emotion-styled": "^9.0.0",
@@ -88,13 +95,18 @@
     "react-docgen-annotation-resolver": "^1.0.0",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.2.0",
+    "rollup": "^0.57.1",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-babel-minify": "^5.0.0",
+    "rollup-plugin-copy": "^0.2.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-react-svg": "^2.1.0",
+    "rollup-plugin-replace": "^2.0.0",
     "storybook-addon-smart-knobs": "^3.2.10",
     "style-loader": "^0.20.1",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "babel-plugin-emotion": "^9.0.0-1",
-    "babel-plugin-lodash": "^3.3.2",
     "create-react-context": "^0.2.1",
     "css-loader": "^0.28.9",
     "downshift": "^1.31.14",

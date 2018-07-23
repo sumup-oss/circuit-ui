@@ -47,8 +47,8 @@ module.exports = function(storybookBaseConfig, configType) {
     },
     plugins: [
       new webpack.DefinePlugin({
-        STORYBOOK: JSON.stringify(true),
-        PRODUCTION: JSON.stringify(isProduction)
+        __STORYBOOK__: JSON.stringify(true),
+        __PRODUCTION__: JSON.stringify(isProduction)
       })
     ]
   };
