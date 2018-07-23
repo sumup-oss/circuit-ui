@@ -4,7 +4,6 @@ import styled, { css } from 'react-emotion';
 import Downshift from 'downshift';
 import { includes } from 'lodash/fp';
 
-import { zIndex } from '../../themes/default';
 import SearchInput from '../SearchInput';
 import Card from '../Card';
 import { textMega } from '../../styles/style-helpers';
@@ -18,13 +17,15 @@ const AutoCompleteWrapper = styled('div')`
   min-width: 150px;
 `;
 
-const ItemsWrapper = styled('div')`
+const baseItemsWrapperStyles = ({ theme }) => css`
   position: relative;
   height: 0px;
   overflow: visible;
   margin-top: ${props => props.theme.spacings.bit};
-  z-index: ${zIndex.popover};
+  z-index: ${theme.zIndex.popover};
 `;
+
+const ItemsWrapper = styled('div')(baseItemsWrapperStyles);
 
 const itemsBaseStyles = ({ theme }) => css`
   padding: ${theme.spacings.kilo} ${theme.spacings.mega};
