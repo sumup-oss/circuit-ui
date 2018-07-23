@@ -10,7 +10,8 @@ import withTests from './../../util/withTests';
 import Button from './Button';
 
 const containerStyles = {
-  width: '400px',
+  width: '100vw',
+  maxWidth: '400px',
   display: 'flex',
   justifyContent: 'center'
 };
@@ -29,6 +30,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
           href={boolean('Link', false) ? '#' : undefined}
           target={boolean('Link', false) ? '_blank' : undefined}
           stretch={boolean('Stretched', false)}
+          noOverflow={boolean('Hide overflow', false)}
           size={select(
             'Size',
             [Button.KILO, Button.MEGA, Button.GIGA],
