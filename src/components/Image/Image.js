@@ -5,6 +5,7 @@ const baseStyles = () => css`
   label: image;
   display: block;
   height: auto;
+  max-height: 100%;
   width: 100%;
 `;
 

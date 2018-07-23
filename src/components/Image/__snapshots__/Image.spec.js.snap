@@ -4,6 +4,7 @@ exports[`Image should have responsive styles 1`] = `
 .circuit-0 {
   display: block;
   height: auto;
+  max-height: 100%;
   width: 100%;
 }
 
