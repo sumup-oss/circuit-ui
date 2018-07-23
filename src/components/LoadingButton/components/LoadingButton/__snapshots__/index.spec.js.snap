@@ -16,14 +16,9 @@ exports[`LoadingButton Style tests should have active loading styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-9:active {
@@ -157,14 +152,9 @@ exports[`LoadingButton Style tests should have default styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-9:active {
@@ -333,16 +323,11 @@ exports[`LoadingButton Style tests should have isLoading styles 1`] = `
   height: auto;
   -webkit-text-decoration: none;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   font-size: 15px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   overflow-y: hidden;
   pointer-events: none;
-  overflow: visible;
-  white-space: normal;
 }
 
 .circuit-9:active {
