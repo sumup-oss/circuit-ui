@@ -12,7 +12,7 @@ export const BUTTON_PROP_TYPES = {
   /**
    * Whether to allow line wrapping in the button.
    */
-  allowOverflow: PropTypes.bool,
+  noOverflow: PropTypes.bool,
   /**
    * Should the Button be disabled?
    */
@@ -62,7 +62,7 @@ export const BUTTON_DEFAULT_PROPS = {
   size: MEGA,
   stretch: false,
   target: null,
-  allowOverflow: true
+  noOverflow: false
 };
 
 export const REGULAR_BUTTON_ONLY_PROPS = [
