@@ -14,6 +14,7 @@ exports[`RegularButton should have button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -79,6 +80,7 @@ exports[`RegularButton should have disabled button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -144,6 +146,7 @@ exports[`RegularButton should have flat button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -227,6 +230,7 @@ exports[`RegularButton should have flat disabled button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -310,6 +314,7 @@ exports[`RegularButton should have giga button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -375,6 +380,7 @@ exports[`RegularButton should have kilo button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -440,6 +446,7 @@ exports[`RegularButton should have mega button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -505,6 +512,7 @@ exports[`RegularButton should have secondary button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -616,6 +624,7 @@ exports[`RegularButton should have secondary disabled button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -727,6 +736,7 @@ exports[`RegularButton should have secondary flat button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -838,6 +848,7 @@ exports[`RegularButton should have stretch button styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;

@@ -14,6 +14,7 @@ exports[`LoadingButton Style tests should have active loading styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -150,6 +151,7 @@ exports[`LoadingButton Style tests should have default styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;
@@ -321,6 +323,7 @@ exports[`LoadingButton Style tests should have isLoading styles 1`] = `
   font-weight: 700;
   width: auto;
   height: auto;
+  text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-size: 15px;

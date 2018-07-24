@@ -55,6 +55,7 @@ const baseStyles = ({ theme, href, ...otherProps }) => css`
   font-weight: ${theme.fontWeight.bold};
   width: auto;
   height: auto;
+  text-align: center;
   text-decoration: none;
   ${textMega({ theme })};
 
