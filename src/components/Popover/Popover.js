@@ -19,6 +19,9 @@ import { toPopperPlacement, popperModifiers } from './PopoverService';
 const ReferenceWrapper = styled('div')`
   label: popover__button-wrapper;
   display: inline-block;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const basePopoverWrapperStyles = ({ theme }) => css`
@@ -36,6 +39,48 @@ const PopoverWrapper = styled('div')(
   basePopoverWrapperStyles,
   customZIndexWrapperStyles
 );
+
+const arrowUpStyles = css`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+`;
+
+const arrowDownStyles = css`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+`;
+
+const arrowLeftStyles = css`
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-100%, -50%);
+`;
+
+const arrowRightStyles = css`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(100%, -50%);
+`;
+
+const oppositeDirection = {
+  left: 'right',
+  right: 'left',
+  top: 'down',
+  bottom: 'up'
+};
+
+const arrowStyles = {
+  up: arrowUpStyles,
+  down: arrowDownStyles,
+  left: arrowLeftStyles,
+  right: arrowRightStyles
+};
 
 class Popover extends Component {
   static TOP = TOP;
@@ -82,7 +127,8 @@ class Popover extends Component {
     zIndex: PropTypes.number,
     onClose: PropTypes.func,
     usePortal: PropTypes.bool,
-    modifiers: PropTypes.shape()
+    modifiers: PropTypes.shape(),
+    arrowRenderer: PropTypes.func
   };
 
   static defaultProps = {
@@ -92,7 +138,8 @@ class Popover extends Component {
     zIndex: false,
     onClose: () => {},
     usePortal: false,
-    modifiers: {}
+    modifiers: {},
+    arrowRenderer: () => null
   };
 
   componentDidMount() {
@@ -132,6 +179,7 @@ class Popover extends Component {
 
   render() {
     const {
+      arrowRenderer,
       renderPopover,
       renderReference,
       position,
@@ -149,7 +197,7 @@ class Popover extends Component {
         placement={toPopperPlacement(position, align)}
         modifiers={{ ...modifiers, popperModifiers }}
       >
-        {({ ref, style }) =>
+        {({ ref, style, placement }) =>
           isOpen && (
             <PopoverWrapper
               style={style}
@@ -158,6 +206,8 @@ class Popover extends Component {
             >
               <div ref={ref}>
                 {renderPopover({ closePopover: this.closePopover })}
+                {!!arrowRenderer &&
+                  arrowRenderer(arrowStyles[oppositeDirection[placement]])}
               </div>
             </PopoverWrapper>
           )
