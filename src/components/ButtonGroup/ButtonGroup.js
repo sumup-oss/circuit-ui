@@ -20,7 +20,6 @@ const getInlineStyles = theme => css`
 const baseStyles = ({ theme }) => css`
   label: button-group;
   list-style-type: none;
-  overflow: hidden;
   width: 100%;
 
   > li {

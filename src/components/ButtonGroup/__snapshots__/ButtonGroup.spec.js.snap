@@ -3,7 +3,6 @@
 exports[`ButtonGroup Center aligment should render with center alignment styles 1`] = `
 .circuit-0 {
   list-style-type: none;
-  overflow: hidden;
   width: 100%;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -44,7 +43,6 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
 exports[`ButtonGroup Left aligment should render with left alignment styles 1`] = `
 .circuit-0 {
   list-style-type: none;
-  overflow: hidden;
   width: 100%;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
@@ -85,7 +83,6 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
 exports[`ButtonGroup No margin bottom should render without margin bottom styles 1`] = `
 .circuit-0 {
   list-style-type: none;
-  overflow: hidden;
   width: 100%;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
@@ -126,7 +123,6 @@ exports[`ButtonGroup No margin bottom should render without margin bottom styles
 exports[`ButtonGroup should render with default styles 1`] = `
 .circuit-0 {
   list-style-type: none;
-  overflow: hidden;
   width: 100%;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
