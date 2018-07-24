@@ -16,6 +16,7 @@ exports[`CardSchemes should render with default styles 1`] = `
 .circuit-0 {
   height: 32px;
   width: auto;
+  max-width: 56px;
 }
 
 <ul
