@@ -126,17 +126,11 @@ const CheckboxWrapper = styled('div')`
 /**
  * Checkbox component for forms.
  */
-const Checkbox = ({
-  onChange,
-  children,
-  id: customId,
-  className,
-  ...props
-}) => {
+const Checkbox = ({ children, id: customId, className, ...props }) => {
   const id = customId || uniqueId('checkbox_');
   return (
     <CheckboxWrapper className={className}>
-      <CheckboxInput {...props} id={id} onClick={onChange} type="checkbox" />
+      <CheckboxInput {...props} id={id} type="checkbox" />
       <CheckboxLabel {...props} htmlFor={id}>
         {children}
       </CheckboxLabel>
@@ -146,17 +140,9 @@ const Checkbox = ({
 
 Checkbox.propTypes = {
   /**
-   * Controles/Toggles the checked state.
-   */
-  onChange: PropTypes.func.isRequired,
-  /**
    * Value string for input.
    */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.bool,
-    PropTypes.array
-  ]),
+  value: PropTypes.string,
   /**
    * Child nodes to be rendered as the label.
    */
@@ -192,7 +178,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   id: null,
   checked: false,
-  value: null,
+  value: '',
   invalid: false,
   disabled: false,
   children: null,
