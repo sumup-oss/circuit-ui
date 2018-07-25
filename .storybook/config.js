@@ -5,7 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
 import { ThemeProvider } from 'emotion-theming';
 
-import { standard } from '../src/themes';
+import { circuit } from '../src/themes';
 import injectGlobalStyles from '../src/styles/global-styles';
 
 // Dynamically decide wich styles to load.
@@ -14,7 +14,7 @@ if (PRODUCTION) {
 }
 
 if (!PRODUCTION) {
-  injectGlobalStyles({ theme: standard });
+  injectGlobalStyles({ theme: circuit });
 }
 
 // Sets the info addon's options.
@@ -32,7 +32,7 @@ setOptions({
 const req = require.context('../src/components', true, /\.story\.js$/);
 
 const withThemeProvider = storyFn => (
-  <ThemeProvider theme={standard}>{storyFn()}</ThemeProvider>
+  <ThemeProvider theme={circuit}>{storyFn()}</ThemeProvider>
 );
 
 const withStoryStyles = storyFn => {

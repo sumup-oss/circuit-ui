@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
-import styled from 'react-emotion';
-
-import { zIndex } from '../../themes/default';
+import styled, { css } from 'react-emotion';
 
 import {
   TOP,
@@ -22,9 +20,12 @@ const ReferenceWrapper = styled('div')`
   display: inline-block;
 `;
 
-const PopoverWrapper = styled('div')`
-  z-index: ${zIndex.popover};
+const basePopoverWrapperStyles = ({ theme }) => css`
+  label: popover;
+  z-index: ${theme.zIndex.popover};
 `;
+
+const PopoverWrapper = styled('div')(basePopoverWrapperStyles);
 
 class Popover extends Component {
   static TOP = TOP;

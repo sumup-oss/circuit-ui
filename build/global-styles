@@ -3,8 +3,8 @@ require('babel-register');
 
 const { format } = require('prettier');
 
-const { standard } = require('../src/themes');
+const { circuit } = require('../src/themes');
 const { createGlobalStyles } = require('../src/styles/global-styles');
 
-const globalStyles = createGlobalStyles({ theme: standard });
+const globalStyles = createGlobalStyles({ theme: circuit });
 console.log(format(globalStyles, { parser: 'css' }));
