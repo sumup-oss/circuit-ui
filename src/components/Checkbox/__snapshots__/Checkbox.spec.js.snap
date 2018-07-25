@@ -91,9 +91,9 @@ exports[`Checkbox should render with checked styles when passed the checked prop
     disabled={false}
     id="checkbox_2"
     name="name"
-    onClick={[MockFunction]}
+    onChange={[MockFunction]}
     type="checkbox"
-    value={null}
+    value=""
   />
   <label
     checked={true}
@@ -101,7 +101,8 @@ exports[`Checkbox should render with checked styles when passed the checked prop
     disabled={false}
     htmlFor="checkbox_2"
     name="name"
-    value={null}
+    onChange={[MockFunction]}
+    value=""
   />
 </div>
 `;
@@ -197,9 +198,9 @@ exports[`Checkbox should render with default styles 1`] = `
     disabled={false}
     id="checkbox_1"
     name="name"
-    onClick={[MockFunction]}
+    onChange={[MockFunction]}
     type="checkbox"
-    value={null}
+    value=""
   />
   <label
     checked={false}
@@ -207,7 +208,8 @@ exports[`Checkbox should render with default styles 1`] = `
     disabled={false}
     htmlFor="checkbox_1"
     name="name"
-    value={null}
+    onChange={[MockFunction]}
+    value=""
   />
 </div>
 `;
@@ -321,9 +323,9 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
     disabled={true}
     id="checkbox_3"
     name="name"
-    onClick={[MockFunction]}
+    onChange={[MockFunction]}
     type="checkbox"
-    value={null}
+    value=""
   />
   <label
     checked={false}
@@ -331,7 +333,8 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
     disabled={true}
     htmlFor="checkbox_3"
     name="name"
-    value={null}
+    onChange={[MockFunction]}
+    value=""
   />
 </div>
 `;
@@ -435,9 +438,9 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
     disabled={false}
     id="checkbox_4"
     name="name"
-    onClick={[MockFunction]}
+    onChange={[MockFunction]}
     type="checkbox"
-    value={null}
+    value=""
   />
   <label
     checked={false}
@@ -445,7 +448,8 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
     disabled={false}
     htmlFor="checkbox_4"
     name="name"
-    value={null}
+    onChange={[MockFunction]}
+    value=""
   />
 </div>
 `;
