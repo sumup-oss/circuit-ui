@@ -18,6 +18,7 @@ exports[`Markdown should override HTML tags with React components 1`] = `
 .circuit-10 {
   display: block;
   height: auto;
+  max-height: 100%;
   width: 100%;
 }
 
