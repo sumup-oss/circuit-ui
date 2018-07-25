@@ -5,6 +5,11 @@ exports[`TableHead Style tests should render with default styles 1`] = `
   vertical-align: middle;
 }
 
+tbody .circuit-9:last-child th,
+tbody .circuit-9:last-child td {
+  border-bottom: none;
+}
+
 .circuit-3 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -139,6 +144,11 @@ exports[`TableHead Style tests should render with default styles 1`] = `
 exports[`TableHead Style tests should render with rowHeader styles 1`] = `
 .circuit-9 {
   vertical-align: middle;
+}
+
+tbody .circuit-9:last-child th,
+tbody .circuit-9:last-child td {
+  border-bottom: none;
 }
 
 .circuit-3 {
