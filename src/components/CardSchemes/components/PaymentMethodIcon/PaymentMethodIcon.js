@@ -12,6 +12,7 @@ const { BYTE, KILO, MEGA, GIGA } = sizes;
 const PaymentMethodIconWrapBaseStyles = ({ theme, size }) => css`
   height: ${theme.iconSizes[size]};
   width: auto;
+  max-width: ${theme.spacings.zetta};
 `;
 
 const PaymentMethodIconWrap = styled('div')(PaymentMethodIconWrapBaseStyles);
@@ -30,6 +31,7 @@ const PaymentMethodIcon = ({ iconId, size }) => {
     <PaymentMethodIconWrap size={size}>
       <IconSvg css="
           width: auto;
+          max-width: 100%;
           height: 100%;
           display: inline-block;
           line-height: 0;
