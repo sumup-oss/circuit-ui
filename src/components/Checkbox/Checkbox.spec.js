@@ -52,9 +52,9 @@ describe('Checkbox', () => {
   });
 
   it('should call onChange when toggled', () => {
-    const wrapper = shallow(<Checkbox {...{ onChange }} />);
+    const wrapper = shallow(<Checkbox {...{ name, onChange }} />);
     const label = wrapper.find('CheckboxInput');
-    label.simulate('click');
+    label.simulate('change');
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
