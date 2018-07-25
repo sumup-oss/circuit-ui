@@ -140,6 +140,10 @@ const Checkbox = ({ children, id: customId, className, ...props }) => {
 
 Checkbox.propTypes = {
   /**
+   * Controles/Toggles the checked state.
+   */
+  onChange: PropTypes.func,
+  /**
    * Value string for input.
    */
   value: PropTypes.string,
@@ -176,6 +180,7 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
+  onChange: undefined,
   id: null,
   checked: false,
   value: '',
