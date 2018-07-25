@@ -8,21 +8,21 @@ import withTests from '../../util/withTests';
 import Grid from './Grid';
 import Col from '../Col';
 import Row from '../Row';
-import { standard } from '../../themes';
+import { circuit } from '../../themes';
 
 const StyledCol = styled(Col)`
-  color: ${standard.colors.white};
+  color: ${circuit.colors.white};
   font-size: 14px;
   font-weight: bold;
   line-height: 20px;
   height: 40px;
   padding: 10px;
   &:nth-of-type(n) {
-    background-color: ${standard.colors.b500};
+    background-color: ${circuit.colors.b500};
   }
 
   &:nth-of-type(2n) {
-    background-color: ${standard.colors.b300};
+    background-color: ${circuit.colors.b300};
   }
 `;
 
@@ -31,7 +31,7 @@ StyledCol.defaultProps = {
 };
 
 const StyledRow = styled(Row)`
-  border: 2px solid ${standard.colors.y100};
+  border: 2px solid ${circuit.colors.y100};
   margin-bottom: 8px;
 `;
 

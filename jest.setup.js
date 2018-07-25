@@ -9,22 +9,22 @@ import { create } from 'react-test-renderer';
 import * as emotion from 'emotion';
 import { ThemeProvider } from 'emotion-theming';
 
-import { standard } from './src/themes';
+import { circuit } from './src/themes';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const renderWithTheme = renderFn => (component, ...rest) =>
-  renderFn(<ThemeProvider theme={standard}>{component}</ThemeProvider>, rest);
+  renderFn(<ThemeProvider theme={circuit}>{component}</ThemeProvider>, rest);
 
 const shallowWithTheme = tree => {
-  const context = shallow(<ThemeProvider theme={standard} />)
+  const context = shallow(<ThemeProvider theme={circuit} />)
     .instance()
     .getChildContext();
   return shallow(tree, { context });
 };
 
 const mountWithTheme = tree => {
-  const context = shallow(<ThemeProvider theme={standard} />)
+  const context = shallow(<ThemeProvider theme={circuit} />)
     .instance()
     .getChildContext();
 

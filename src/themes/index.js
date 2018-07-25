@@ -1,3 +1,4 @@
-import * as standard from './standard';
+import * as circuit from './circuit';
 
-export { standard };
+export { circuit };
+export { circuit as standard };

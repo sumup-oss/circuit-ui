@@ -3,17 +3,18 @@ import * as emotion from 'react-emotion';
 import * as ReactTestRenderer from 'react-test-renderer';
 import { ThemeProvider } from 'emotion-theming';
 
-import { standard } from '../../../src/themes';
+import { circuit } from '../../../src/themes';
 
 const adjustPath = path => `../../../${path}`;
 
 const renderComponent = async (Component, theme, props) => {
   try {
     ReactTestRenderer.create(
-      <ThemeProvider theme={standard}>
+      <ThemeProvider theme={circuit}>
         <Component {...{ theme, ...props }} />
       </ThemeProvider>
     );
+    // eslint-disable-next-line no-empty
   } catch (e) {}
 };
 
@@ -75,7 +76,7 @@ const extractStyles = async ({ path, propTypes }) => {
   const relativePath = adjustPath(path);
   const { default: Component } = await import(relativePath);
   const propGroups = createPropGroups(propTypes);
-  propGroups.forEach(props => renderComponent(Component, standard, props));
+  propGroups.forEach(props => renderComponent(Component, circuit, props));
   const { inserted } = emotion.caches;
   const regex = /-/;
   const filteredStyles = Object.entries(inserted).reduce(

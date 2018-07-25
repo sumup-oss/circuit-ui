@@ -10,7 +10,7 @@ import { reduce } from '../../../../util/fp';
 import { CardNumberInput, cardSchemeIcons } from '..';
 import { schemes as cardSchemes } from '../..';
 import Text from '../../../Text';
-import { standard } from '../../../../themes';
+import { circuit } from '../../../../themes';
 
 const { SCHEMES } = cardSchemes;
 
@@ -34,9 +34,9 @@ const manySchemes = [
 const manySchemeIcons = getIconComponents(manySchemes);
 
 const marginTopClassName = css`
-  width: calc(100vw - ${standard.spacings.byte});
+  width: calc(100vw - ${circuit.spacings.byte});
 
-  ${standard.mq.untilKilo`
+  ${circuit.mq.untilKilo`
     width: 75vw;
     max-width: 400px;
   `};
