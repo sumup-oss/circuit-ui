@@ -2,7 +2,6 @@
 
 exports[`ButtonGroup Center aligment should render with center alignment styles 1`] = `
 .circuit-0 {
-  display: block;
   list-style-type: none;
   width: 100%;
   -webkit-box-pack: center;
@@ -11,7 +10,11 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
   justify-content: center;
 }
 
-.circuit-0 > * {
+.circuit-0 > li:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.circuit-0 > li > * {
   width: 100%;
 }
 
@@ -21,24 +24,14 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 
-  .circuit-0 li:not(:last-of-type) {
-    margin-right: 16px;
-  }
-
-  .circuit-0 > * {
-    width: auto;
-  }
-}
-
-.circuit-0 li:not(:last-of-type) {
-  margin-bottom: 16px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 li:not(:last-of-type) {
+  .circuit-0 > li:not(:last-of-type) {
     margin-bottom: 0;
+    margin-right: 16px;
   }
 }
 
@@ -49,7 +42,6 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
 
 exports[`ButtonGroup Left aligment should render with left alignment styles 1`] = `
 .circuit-0 {
-  display: block;
   list-style-type: none;
   width: 100%;
   -webkit-box-pack: start;
@@ -58,7 +50,11 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
   justify-content: flex-start;
 }
 
-.circuit-0 > * {
+.circuit-0 > li:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.circuit-0 > li > * {
   width: 100%;
 }
 
@@ -68,24 +64,14 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 
-  .circuit-0 li:not(:last-of-type) {
-    margin-right: 16px;
-  }
-
-  .circuit-0 > * {
-    width: auto;
-  }
-}
-
-.circuit-0 li:not(:last-of-type) {
-  margin-bottom: 16px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 li:not(:last-of-type) {
+  .circuit-0 > li:not(:last-of-type) {
     margin-bottom: 0;
+    margin-right: 16px;
   }
 }
 
@@ -96,7 +82,6 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
 
 exports[`ButtonGroup No margin bottom should render without margin bottom styles 1`] = `
 .circuit-0 {
-  display: block;
   list-style-type: none;
   width: 100%;
   -webkit-box-pack: end;
@@ -105,7 +90,11 @@ exports[`ButtonGroup No margin bottom should render without margin bottom styles
   justify-content: flex-end;
 }
 
-.circuit-0 > * {
+.circuit-0 > li:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.circuit-0 > li > * {
   width: 100%;
 }
 
@@ -115,14 +104,14 @@ exports[`ButtonGroup No margin bottom should render without margin bottom styles
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 
-  .circuit-0 li:not(:last-of-type) {
+  .circuit-0 > li:not(:last-of-type) {
+    margin-bottom: 0;
     margin-right: 16px;
-  }
-
-  .circuit-0 > * {
-    width: auto;
   }
 }
 
@@ -133,7 +122,6 @@ exports[`ButtonGroup No margin bottom should render without margin bottom styles
 
 exports[`ButtonGroup should render with default styles 1`] = `
 .circuit-0 {
-  display: block;
   list-style-type: none;
   width: 100%;
   -webkit-box-pack: end;
@@ -142,7 +130,11 @@ exports[`ButtonGroup should render with default styles 1`] = `
   justify-content: flex-end;
 }
 
-.circuit-0 > * {
+.circuit-0 > li:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.circuit-0 > li > * {
   width: 100%;
 }
 
@@ -152,24 +144,14 @@ exports[`ButtonGroup should render with default styles 1`] = `
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 
-  .circuit-0 li:not(:last-of-type) {
-    margin-right: 16px;
-  }
-
-  .circuit-0 > * {
-    width: auto;
-  }
-}
-
-.circuit-0 li:not(:last-of-type) {
-  margin-bottom: 16px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 li:not(:last-of-type) {
+  .circuit-0 > li:not(:last-of-type) {
     margin-bottom: 0;
+    margin-right: 16px;
   }
 }
 
