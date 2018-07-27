@@ -21,7 +21,7 @@ const baseItemsWrapperStyles = ({ theme }) => css`
   position: relative;
   height: 0px;
   overflow: visible;
-  margin-top: ${props => props.theme.spacings.bit};
+  margin-top: ${theme.spacings.bit};
   z-index: ${theme.zIndex.popover};
 `;
 
