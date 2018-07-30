@@ -57,7 +57,7 @@ describe('Popover', () => {
     });
   });
 
-  it('should render nothing without isOpen=false', () => {
+  it('should render nothing when isOpen=false', () => {
     const actual = mount(<Popover isOpen={false} {...defaultProps} />);
     expect(actual.find('Popper')).toHaveLength(0);
   });

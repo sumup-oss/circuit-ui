@@ -176,23 +176,21 @@ class Popover extends Component {
       ...others
     } = this.props;
 
-    const popper = (
+    const popper = isOpen && (
       <Popper
         {...others}
         placement={toPopperPlacement(position, align)}
         modifiers={{ ...modifiers, popperModifiers }}
       >
-        {({ ref, style, placement }) =>
-          isOpen && (
-            <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
-              <div ref={ref}>
-                {renderPopover({ closePopover: this.closePopover })}
-                {!!arrowRenderer &&
-                  arrowRenderer(arrowStyles[oppositeDirection[placement]])}
-              </div>
-            </PopoverWrapper>
-          )
-        }
+        {({ ref, style, placement }) => (
+          <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
+            <div ref={ref}>
+              {renderPopover({ closePopover: this.closePopover })}
+              {!!arrowRenderer &&
+                arrowRenderer(arrowStyles[oppositeDirection[placement]])}
+            </div>
+          </PopoverWrapper>
+        )}
       </Popper>
     );
 
