@@ -25,7 +25,16 @@ const basePopoverWrapperStyles = ({ theme }) => css`
   z-index: ${theme.zIndex.popover};
 `;
 
-const PopoverWrapper = styled('div')(basePopoverWrapperStyles);
+const customZIndexWrapperStyles = ({ zIndex }) =>
+  zIndex &&
+  css`
+    z-index: ${zIndex};
+  `;
+
+const PopoverWrapper = styled('div')(
+  basePopoverWrapperStyles,
+  customZIndexWrapperStyles
+);
 
 class Popover extends Component {
   static TOP = TOP;
@@ -65,13 +74,18 @@ class Popover extends Component {
     /**
      * A callback that is called on click outside the popover wrapper or the reference
      */
-    onOutsideClickClose: PropTypes.func.isRequired
+    onOutsideClickClose: PropTypes.func.isRequired,
+    /**
+     * A custom z-index for the popover
+     */
+    zIndex: PropTypes.number
   };
 
   static defaultProps = {
     isOpen: false,
     position: Popover.BOTTOM,
-    align: Popover.START
+    align: Popover.START,
+    zIndex: false
   };
 
   componentDidMount() {
@@ -115,7 +129,8 @@ class Popover extends Component {
       renderReference,
       position,
       align,
-      isOpen
+      isOpen,
+      zIndex
     } = this.props;
 
     return (
@@ -136,7 +151,11 @@ class Popover extends Component {
             modifiers={popperModifiers}
           >
             {({ ref, style }) => (
-              <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
+              <PopoverWrapper
+                zIndex={zIndex}
+                style={style}
+                innerRef={this.receivePopoverRef}
+              >
                 <div ref={ref}>{renderPopover()}</div>
               </PopoverWrapper>
             )}
