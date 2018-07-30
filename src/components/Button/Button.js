@@ -1,24 +1,14 @@
 import React from 'react';
-import {
-  omit
-} from 'lodash/fp';
-
-import {
-  sizes
-} from '../../styles/constants';
+import { omit } from 'lodash/fp';
 import PropTypes from 'prop-types';
-
-const {
-  KILO,
-  MEGA,
-  GIGA
-} = sizes;
-
-export const SIZE_PROP_TYPE = PropTypes.oneOf([KILO, MEGA, GIGA]);
 
 import PlainButton from './components/PlainButton';
 import RegularButton from './components/RegularButton';
+import { sizes } from '../../styles/constants';
 
+const { KILO, MEGA, GIGA } = sizes;
+
+export const SIZE_PROP_TYPE = PropTypes.oneOf([KILO, MEGA, GIGA]);
 
 const REGULAR_BUTTON_ONLY_PROPS = [
   'blacklist',
@@ -33,18 +23,11 @@ const REGULAR_BUTTON_ONLY_PROPS = [
  * A button component with support for the anchor and button
  * element as well as a button-looking button and a text link.
  */
-const Button = ({
-    plain,
-    ...props
-  }) =>
-  plain ? ( <
-    PlainButton { ...omit(REGULAR_BUTTON_ONLY_PROPS, props)
-    }
-    />
-  ) : ( <
-    RegularButton { ...props
-    }
-    />
+const Button = ({ plain, ...props }) =>
+  plain ? (
+    <PlainButton {...omit(REGULAR_BUTTON_ONLY_PROPS, props)} />
+  ) : (
+    <RegularButton {...props} />
   );
 
 Button.propTypes = {
