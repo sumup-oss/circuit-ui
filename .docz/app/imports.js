@@ -1,10 +1,18 @@
 export const imports = {
-  'docs/content/resources.mdx': () =>
-    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-resources" */ 'docs/content/resources.mdx'),
-  'docs/content/whats-new.mdx': () =>
-    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-whats-new" */ 'docs/content/whats-new.mdx'),
-  'docs/content/components/Button.mdx': () =>
-    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-components-button" */ 'docs/content/components/Button.mdx'),
+  'docs/content/changelog.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-changelog" */ 'docs/content/changelog.mdx'),
+  'docs/content/index.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-index" */ 'docs/content/index.mdx'),
+  'docs/content/principles.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-principles" */ 'docs/content/principles.mdx'),
+  'docs/content/component-status/index.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-component-status-index" */ 'docs/content/component-status/index.mdx'),
+  'docs/content/components/button.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-components-button" */ 'docs/content/components/button.mdx'),
+  'docs/content/components/component.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-components-component" */ 'docs/content/components/component.mdx'),
+  'docs/content/getting-started/designers.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "docs-content-getting-started-designers" */ 'docs/content/getting-started/designers.mdx'),
   'docs/content/getting-started/developers.mdx': () =>
     import(/* webpackPrefetch: true, webpackChunkName: "docs-content-getting-started-developers" */ 'docs/content/getting-started/developers.mdx'),
   'docs/content/getting-started/faq.mdx': () =>
