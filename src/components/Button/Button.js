@@ -1,12 +1,47 @@
 import React from 'react';
-import { omit } from 'lodash/fp';
+import {
+  omit
+} from 'lodash/fp';
 import PropTypes from 'prop-types';
 
 import PlainButton from './components/PlainButton';
 import RegularButton from './components/RegularButton';
-import { sizes } from '../../styles/constants';
+import {
+  sizes
+} from '../../styles/constants';
 
-const { KILO, MEGA, GIGA } = sizes;
+const {
+  KILO,
+  MEGA,
+  GIGA
+} = sizes;
+export const SIZE_PROP_TYPE = PropTypes.oneOf([KILO, MEGA, GIGA]);
+
+const SHARED_PROPS = [
+  'children',
+  'className',
+  'data-selector',
+  'disabled',
+  'href',
+  'onClick',
+  'primary',
+  'size',
+  'type'
+];
+
+export const BUTTON_PROPS = [
+  ...SHARED_PROPS,
+  'blacklist',
+  'deepRef',
+  'element',
+  'flat',
+  'secondary',
+  'size',
+  'stretch',
+  'target'
+];
+
+export const PLAIN_BUTTON_PROPS = [...SHARED_PROPS, 'size', 'target'];
 
 export const SIZE_PROP_TYPE = PropTypes.oneOf([KILO, MEGA, GIGA]);
 
@@ -23,11 +58,18 @@ const REGULAR_BUTTON_ONLY_PROPS = [
  * A button component with support for the anchor and button
  * element as well as a button-looking button and a text link.
  */
-const Button = ({ plain, ...props }) =>
-  plain ? (
-    <PlainButton {...omit(REGULAR_BUTTON_ONLY_PROPS, props)} />
-  ) : (
-    <RegularButton {...props} />
+const Button = ({
+    plain,
+    ...props
+  }) =>
+  plain ? ( <
+    PlainButton { ...omit(REGULAR_BUTTON_ONLY_PROPS, props)
+    }
+    />
+  ) : ( <
+    RegularButton { ...props
+    }
+    />
   );
 
 Button.propTypes = {
@@ -85,6 +127,7 @@ Button.defaultProps = {
 Button.KILO = KILO;
 Button.MEGA = MEGA;
 Button.GIGA = GIGA;
+
 
 /**
  * @component
