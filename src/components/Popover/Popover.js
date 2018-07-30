@@ -154,7 +154,7 @@ class Popover extends Component {
     const isWithinPopover = this.popoverRef && this.popoverRef.contains(target);
     const isWithinButton = this.buttonRef && this.buttonRef.contains(target);
 
-    if (!isWithinButton && !isWithinPopover) {
+    if (this.props.isOpen && !isWithinButton && !isWithinPopover) {
       this.props.onOutsideClickClose();
     }
   };
@@ -205,7 +205,7 @@ class Popover extends Component {
               zIndex={zIndex}
             >
               <div ref={ref}>
-                {renderPopover({ closePopover: this.closePopover })}
+                {renderPopover()}
                 {!!arrowRenderer &&
                   arrowRenderer(arrowStyles[oppositeDirection[placement]])}
               </div>
