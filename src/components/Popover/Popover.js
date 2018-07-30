@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 import styled, { css } from 'react-emotion';
+import Portal from '../Portal';
 
 import {
   TOP,
@@ -18,6 +19,9 @@ import { toPopperPlacement, popperModifiers } from './PopoverService';
 const ReferenceWrapper = styled('div')`
   label: popover__button-wrapper;
   display: inline-block;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const basePopoverWrapperStyles = ({ theme }) => css`
@@ -26,6 +30,48 @@ const basePopoverWrapperStyles = ({ theme }) => css`
 `;
 
 const PopoverWrapper = styled('div')(basePopoverWrapperStyles);
+
+const arrowUpStyles = css`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+`;
+
+const arrowDownStyles = css`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+`;
+
+const arrowLeftStyles = css`
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-100%, -50%);
+`;
+
+const arrowRightStyles = css`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(100%, -50%);
+`;
+
+const oppositeDirection = {
+  left: 'right',
+  right: 'left',
+  top: 'down',
+  bottom: 'up'
+};
+
+const arrowStyles = {
+  up: arrowUpStyles,
+  down: arrowDownStyles,
+  left: arrowLeftStyles,
+  right: arrowRightStyles
+};
 
 class Popover extends Component {
   static TOP = TOP;
@@ -65,13 +111,21 @@ class Popover extends Component {
     /**
      * A callback that is called on click outside the popover wrapper or the reference
      */
-    onOutsideClickClose: PropTypes.func.isRequired
+    onOutsideClickClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
+    usePortal: PropTypes.bool,
+    modifiers: PropTypes.shape(),
+    arrowRenderer: PropTypes.func
   };
 
   static defaultProps = {
     isOpen: false,
     position: Popover.BOTTOM,
-    align: Popover.START
+    align: Popover.START,
+    onClose: () => {},
+    usePortal: false,
+    modifiers: {},
+    arrowRenderer: () => null
   };
 
   componentDidMount() {
@@ -86,7 +140,7 @@ class Popover extends Component {
     const isWithinPopover = this.popoverRef && this.popoverRef.contains(target);
     const isWithinButton = this.buttonRef && this.buttonRef.contains(target);
 
-    if (!isWithinButton && !isWithinPopover) {
+    if (this.props.isOpen && !isWithinButton && !isWithinPopover) {
       this.props.onOutsideClickClose();
     }
   };
@@ -111,12 +165,34 @@ class Popover extends Component {
 
   render() {
     const {
+      arrowRenderer,
       renderPopover,
       renderReference,
       position,
       align,
-      isOpen
+      isOpen,
+      modifiers,
+      usePortal,
+      ...others
     } = this.props;
+
+    const popper = isOpen && (
+      <Popper
+        {...others}
+        placement={toPopperPlacement(position, align)}
+        modifiers={{ ...modifiers, popperModifiers }}
+      >
+        {({ ref, style, placement }) => (
+          <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
+            <div ref={ref}>
+              {renderPopover()}
+              {!!arrowRenderer &&
+                arrowRenderer(arrowStyles[oppositeDirection[placement]])}
+            </div>
+          </PopoverWrapper>
+        )}
+      </Popper>
+    );
 
     return (
       <Manager>
@@ -130,18 +206,7 @@ class Popover extends Component {
             </ReferenceWrapper>
           )}
         </Reference>
-        {isOpen && (
-          <Popper
-            placement={toPopperPlacement(position, align)}
-            modifiers={popperModifiers}
-          >
-            {({ ref, style }) => (
-              <PopoverWrapper style={style} innerRef={this.receivePopoverRef}>
-                <div ref={ref}>{renderPopover()}</div>
-              </PopoverWrapper>
-            )}
-          </Popper>
-        )}
+        {usePortal ? <Portal>{popper}</Portal> : popper}
       </Manager>
     );
   }
