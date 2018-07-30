@@ -137,7 +137,6 @@ export { default as CardSchemes } from './components/CardSchemes';
 export {
   default as PaymentMethodIcon
 } from './components/CardSchemes/components/PaymentMethodIcon';
-export { default as SideNav, SideNavItem } from './components/SideNav';
 export { default as Drawer } from './components/Drawer';
 export { default as NewList } from './components/NewList';
 export { default as ListItem } from './components/ListItem';

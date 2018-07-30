@@ -191,7 +191,7 @@ class Popover extends Component {
       ...others
     } = this.props;
 
-    const popper = (
+    const popper = isOpen && (
       <Popper
         {...others}
         placement={toPopperPlacement(position, align)}
