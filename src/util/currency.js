@@ -6,16 +6,26 @@ import { currencyToRegex } from './regex';
 
 export const CURRENCY_FORMATS = {
   EUR: {
+    'el-CY': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'el-GR': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'et-EE': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'de-AT': { prependSymbol: true, fractionalPrecision: 2, addSpace: true },
     'de-DE': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'en-IE': { prependSymbol: true, fractionalPrecision: 2, addSpace: false },
+    'en-MT': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'es-ES': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'fi-FI': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'fr-BE': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'fr-FR': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'fr-LU': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'it-IT': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'lt-LT': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'lv-LV': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'nl-BE': { prependSymbol: true, fractionalPrecision: 2, addSpace: true },
     'nl-NL': { prependSymbol: true, fractionalPrecision: 2, addSpace: true },
     'pt-PT': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'sk-SK': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'sl-SI': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     default: { prependSymbol: false, fractionalPrecision: 2, addSpace: true }
   },
   CHF: {
