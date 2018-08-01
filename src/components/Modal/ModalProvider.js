@@ -57,6 +57,8 @@ export class ModalProvider extends Component {
 
   render() {
     const { modal, isOpen } = this.state;
+    // Cannot use noop from lodash here. Breaks tests on node 8 for
+    // some reason.
     const { onClose = () => {}, children, ...otherProps } = modal || {};
     const handleClose = () => {
       onClose();

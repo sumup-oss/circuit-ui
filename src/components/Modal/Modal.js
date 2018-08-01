@@ -161,12 +161,12 @@ const Modal = ({
   ReactModal.setAppElement(appElement);
   const getClassValues = mapValues(styleFn => styleFn({ theme }));
   const reactModalProps = {
-    ...otherProps,
     className: getClassValues(modalClassName),
     overlayClassName: getClassValues(overlayClassName),
     contentLabel,
     onRequestClose: onClose,
-    closeTimeoutMS: TRANSITION_DURATION
+    closeTimeoutMS: TRANSITION_DURATION,
+    ...otherProps
   };
 
   return (
