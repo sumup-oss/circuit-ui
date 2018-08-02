@@ -2,7 +2,7 @@
 
 # Create SumUp Next App
 
-A [Next.js](https://github.com/zeit/next.js/) starter app, preconfigured with SumUp's [Circuit UI](https://github.com/sumup/circuit-ui/) component library, SumUp's [Foundry](https://github.com/sumup/foundry/) CLI toolkit for writing JavaScript, and a minimal custom server.
+A [Next.js](https://github.com/zeit/next.js/) starter app, preconfigured with SumUp's [Circuit UI](https://www.npmjs.com/package/@sumup/circuit-ui) component library, SumUp's [Foundry](https://www.npmjs.com/package/@sumup/foundry) CLI toolkit for writing JavaScript, and a minimal custom server.
 
 </div>
 
@@ -32,7 +32,7 @@ The easiest way to bootstrap a new SumUp Next.js app is by running the following
 curl -L https://raw.githubusercontent.com/sumup/create-sumup-next-app/master/bin/create-sumup-next-app | bash -s -- <PROJECT_NAME>
 ```
 
-The command will download the app template to a folder with your project name, install the latest dependencies and configure [eslint](https://eslint.org/), [prettier](https://prettier.io/), [Jest](https://facebook.github.io/jest/), and [plop](https://github.com/amwmedia/plop). The configurations are kept up to date with [@sumup/foundry](https://github.com/sumup/foundry).
+The command will download the app template to a folder with your project name, install the latest dependencies and configure [eslint](https://eslint.org/), [prettier](https://prettier.io/), [Jest](https://facebook.github.io/jest/), and [plop](https://github.com/amwmedia/plop). The configurations are kept up to date with [@sumup/foundry](https://www.npmjs.com/package/@sumup/foundry).
 
 ## Folder Structure
 
@@ -129,7 +129,7 @@ See the [Jest docs](https://facebook.github.io/jest/docs/en/tutorial-react.html)
 
 ### `yarn create:*`
 
-This project uses [@sumup/foundry](https://github.com/sumup/foundry) and the provided `plop` command to generate new React components. To create a new component, run `yarn create:component` inside the project. You'll see a CLI that guides you through the process.
+This project uses [@sumup/foundry](https://www.npmjs.com/package/@sumup/foundry) and the provided `plop` command to generate new React components. To create a new component, run `yarn create:component` inside the project. You'll see a CLI that guides you through the process.
 
 After the CLI has finished, all files will have been created in the location you specified.
 
