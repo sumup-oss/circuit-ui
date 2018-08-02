@@ -1,18 +1,10 @@
 import React from 'react';
 import { omit } from 'lodash/fp';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
 
 import PlainButton from './components/PlainButton';
 import RegularButton from './components/RegularButton';
 import { sizes } from '../../styles/constants';
-=======
-
-import { sizes } from '../../styles/constants';
-
-import PlainButton from './components/PlainButton';
-import RegularButton from './components/RegularButton';
->>>>>>> 5726436... adding a proptable component
 
 const { KILO, MEGA, GIGA } = sizes;
 export const SIZE_PROP_TYPE = PropTypes.oneOf([KILO, MEGA, GIGA]);
@@ -42,7 +34,6 @@ export const BUTTON_PROPS = [
 ];
 
 export const PLAIN_BUTTON_PROPS = [...SHARED_PROPS, 'size', 'target'];
-<<<<<<< HEAD
 
 const REGULAR_BUTTON_ONLY_PROPS = [
   'blacklist',
@@ -52,8 +43,6 @@ const REGULAR_BUTTON_ONLY_PROPS = [
   'secondary',
   'stretch'
 ];
-=======
->>>>>>> 5726436... adding a proptable component
 
 /**
  * A button component with support for the anchor and button
@@ -118,16 +107,9 @@ Button.defaultProps = {
   target: null
 };
 
-<<<<<<< HEAD
-=======
-/*
-
-
->>>>>>> 5726436... adding a proptable component
 Button.KILO = KILO;
 Button.MEGA = MEGA;
 Button.GIGA = GIGA;
-*/
 
 /**
  * @component
