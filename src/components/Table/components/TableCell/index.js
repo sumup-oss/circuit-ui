@@ -11,7 +11,7 @@ const baseStyles = ({ theme, align }) => css`
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   padding: ${theme.spacings.giga};
   text-align: ${align};
-  transition: background-color ${theme.transitions.default};
+  transition: background-color ${theme.transitions.easing.default};
   vertical-align: middle;
   white-space: nowrap;
 `;

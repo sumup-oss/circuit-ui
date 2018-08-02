@@ -221,16 +221,19 @@ const breakpoints = {
 
 export const mq = createMediaQueries(breakpoints);
 
-export const transitions = {
-  default: `200ms ease-in-out`
-};
+export { default as transitions } from '../styles/transitions';
 
 // these values need to be properly trimmed/renamed as we go.
 export const zIndex = {
   default: 0,
   absolute: 1,
+  drawer: 10,
   popover: 20,
   select: 30,
   tooltip: 31,
   modal: 1000
+};
+
+export const palette = {
+  divider: 'rgba(0, 0, 0, 0.12)'
 };
