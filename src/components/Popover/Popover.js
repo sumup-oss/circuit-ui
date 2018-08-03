@@ -195,7 +195,7 @@ class Popover extends Component {
       <Popper
         {...others}
         placement={toPopperPlacement(position, align)}
-        modifiers={{ ...modifiers, popperModifiers }}
+        modifiers={{ ...modifiers, ...popperModifiers }}
       >
         {({ ref, style, placement }) =>
           isOpen && (
