@@ -1,6 +1,6 @@
 ---
 name: Button
-route: /components/button
+route: /components/Button
 menu: Components
 ---
 
@@ -9,12 +9,17 @@ import { Playground } from 'docz'
 import Button from '../../../src/components/Button/Button';
 
 import PropTable from '../../utils/PropTable';
+import {getDescription} from '../../utils/service';
 import {Wrapper} from '../../utils/Wrapper';
 
 # Button
 
+<div>
+	{getDescription(Button)}
+</div>
+
 <Playground wrapper={Wrapper}>
-  	<Button primary>Button</Button>
+  	<Button primary> Button </Button>
 </Playground>
 
 ## PropsTable
