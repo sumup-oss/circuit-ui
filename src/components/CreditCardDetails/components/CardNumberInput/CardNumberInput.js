@@ -26,7 +26,7 @@ const schemeListStyles = ({ theme }) => css`
   text-align: right;
   white-space: nowrap;
   opacity: 1;
-  transition: opacity ${theme.transitions.default};
+  transition: opacity ${theme.transitions.easing.default};
 
   ${theme.mq.kilo`
     right: 0;

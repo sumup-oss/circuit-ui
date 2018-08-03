@@ -6,6 +6,10 @@ Array [
   display: inline-block;
 }
 
+.circuit-0:focus {
+  outline: none;
+}
+
 <div
     className="circuit-0 circuit-1"
     onClick={[Function]}
@@ -41,6 +45,10 @@ exports[`Popover should render with position bottom and alignment center 1`] = `
 Array [
   .circuit-0 {
   display: inline-block;
+}
+
+.circuit-0:focus {
+  outline: none;
 }
 
 <div
@@ -80,6 +88,10 @@ Array [
   display: inline-block;
 }
 
+.circuit-0:focus {
+  outline: none;
+}
+
 <div
     className="circuit-0 circuit-1"
     onClick={[Function]}
@@ -115,6 +127,10 @@ exports[`Popover should render with position bottom and alignment start 1`] = `
 Array [
   .circuit-0 {
   display: inline-block;
+}
+
+.circuit-0:focus {
+  outline: none;
 }
 
 <div
@@ -154,6 +170,10 @@ Array [
   display: inline-block;
 }
 
+.circuit-0:focus {
+  outline: none;
+}
+
 <div
     className="circuit-0 circuit-1"
     onClick={[Function]}
@@ -189,6 +209,10 @@ exports[`Popover should render with position left and alignment end 1`] = `
 Array [
   .circuit-0 {
   display: inline-block;
+}
+
+.circuit-0:focus {
+  outline: none;
 }
 
 <div
@@ -228,6 +252,10 @@ Array [
   display: inline-block;
 }
 
+.circuit-0:focus {
+  outline: none;
+}
+
 <div
     className="circuit-0 circuit-1"
     onClick={[Function]}
@@ -263,6 +291,10 @@ exports[`Popover should render with position right and alignment center 1`] = `
 Array [
   .circuit-0 {
   display: inline-block;
+}
+
+.circuit-0:focus {
+  outline: none;
 }
 
 <div
@@ -302,6 +334,10 @@ Array [
   display: inline-block;
 }
 
+.circuit-0:focus {
+  outline: none;
+}
+
 <div
     className="circuit-0 circuit-1"
     onClick={[Function]}
@@ -337,6 +373,10 @@ exports[`Popover should render with position right and alignment start 1`] = `
 Array [
   .circuit-0 {
   display: inline-block;
+}
+
+.circuit-0:focus {
+  outline: none;
 }
 
 <div
@@ -376,6 +416,10 @@ Array [
   display: inline-block;
 }
 
+.circuit-0:focus {
+  outline: none;
+}
+
 <div
     className="circuit-0 circuit-1"
     onClick={[Function]}
@@ -413,6 +457,10 @@ Array [
   display: inline-block;
 }
 
+.circuit-0:focus {
+  outline: none;
+}
+
 <div
     className="circuit-0 circuit-1"
     onClick={[Function]}
@@ -448,6 +496,10 @@ exports[`Popover should render with position top and alignment start 1`] = `
 Array [
   .circuit-0 {
   display: inline-block;
+}
+
+.circuit-0:focus {
+  outline: none;
 }
 
 <div
