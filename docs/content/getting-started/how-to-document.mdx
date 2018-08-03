@@ -17,7 +17,7 @@ A component needs to have a basic description, prop table, and playground to sho
 ## How To: Description
 You can extract component description by using a utility function `getDescription` in `utils/service`. It requires a default exported component.
 
-```
+```js
 <div>
 	{getDescription(Button)}
 </div>
@@ -25,7 +25,7 @@ You can extract component description by using a utility function `getDescriptio
 
 ## How To: PropTable
 We have created a custom prop table component, which you can find in `docs/utils` folder. It requires a default exported component, so that `react-docgen` dependency can properly parse the PropTypes.
-```
+```js
  import OriginalButton from '../../../src/components/Button/Button';
  import PropTable from '../../utils/PropTable';
 
@@ -43,7 +43,7 @@ the result looks like this:
 
  The Playground component requires the button to be wrapped in ThemeProvider (this will change in the future). Therefore we create a `DocButton.js` file, where the component is wrapped in a ThemeProvider.
 
- ```
+ ```js
 import {Wrapper} from '../../utils/Wrapper';
 
 # Button
