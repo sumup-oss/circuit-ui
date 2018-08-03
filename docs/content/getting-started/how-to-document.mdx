@@ -6,10 +6,10 @@ menu: Getting Started
 
 import { Playground } from 'docz'
 
-import OriginalButton from '../../../src/components/Button/Button';
-import PropTable from '../../utils/PropTable';
+import Button from '../../../src/components/Button/Button';
 
-import Button from '../components/components/Button';
+import PropTable from '../../utils/PropTable';
+import {Wrapper} from '../../utils/Wrapper';
 
 # Documenting a component
 A component needs to have a basic description, prop table, and playground to showcase behavior. It's also a good idea to provide usage scenarios and include multiple playgrounds with different props.
@@ -19,7 +19,7 @@ You can extract component description by using a utility function `getDescriptio
 
 ```
 <div>
-	{getDescription(OriginalButton)}
+	{getDescription(Button)}
 </div>
 ```
 
@@ -30,13 +30,13 @@ We have created a custom prop table component, which you can find in `docs/utils
  import PropTable from '../../utils/PropTable';
 
  <div>
- 	<PropTable component={OriginalButton} />
+ 	<PropTable component={Button} />
  </div>
 ```
 the result looks like this:
 
  <div>
- 	<PropTable component={OriginalButton} />
+ 	<PropTable component={Button} />
  </div>
 
  ## How To: Playground
@@ -44,30 +44,24 @@ the result looks like this:
  The Playground component requires the button to be wrapped in ThemeProvider (this will change in the future). Therefore we create a `DocButton.js` file, where the component is wrapped in a ThemeProvider.
 
  ```
-import { Playground } from 'docz'
+import {Wrapper} from '../../utils/Wrapper';
 
-import Button from './DocButton';
+# Button
 
-<Playground>
-  	<Button primary> Button </Button>
+<Playground wrapper={Wrapper}>
+  	<Button primary>Button</Button>
 </Playground>
 
  ```
 the end result will look like:
 
-<Playground>
-  	<Button primary> Button </Button>
+<Playground wrapper={Wrapper}>
+  	<Button primary>Button</Button>
 </Playground>
+
 
 ## Known Issues with Docz
 Docz is still relatively unstable (current version is 0.59), and there are some bugs that are getting fixed. Here is a list of bugs and workarounds we found for them.
-
-### Custom Wrappers
- As of version 0.59, there is a bug that does not allow to create custom wrappers (like Redux store or theme providers) for Playground components.
-This forces us to create a separate component and wrap it with `<ThemeProvider>` for use in Playground. See `docs/components/DocButton.js`
-
-### PropsTable
-There is an issue with Docz's PropsTable component, which forced us to create our own. We might get rid of it in the future.
 
 ### Document Order
 The document ordering is complicated, and being currently worked on. See [this issue](https://github.com/pedronauck/docz/issues/143).
