@@ -1,0 +1,54 @@
+---
+name: Badge
+route: /components/badge
+menu: Components
+---
+
+import { Playground } from 'docz'
+
+import { Fragment } from 'react';
+import Badge from '../../../src/components/Badge/Badge';
+
+import PropTable from '../../utils/PropTable';
+import {Wrapper} from '../../utils/Wrapper';
+
+# Badge
+
+<Playground wrapper={Wrapper}>
+  <Badge>Badge</Badge>
+</Playground>
+
+## Props
+(Cannot be rendered because it's a styled component)
+
+## Best practices
+- Only use one badge at a time.
+
+## Usage guidelines
+
+- Use to indicate statuses of a process, for instance, "Pending payment" or
+  "Successful transaction".
+- Only use semantic badges in cases where their colors can be mapped to a
+  meaning.
+
+## Component variations
+
+### Semantic badges
+The badges come in a number of colors based on their semantic meaning.
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Badge color={Badge.NEUTRAL}>Badge</Badge>
+    <Badge color={Badge.PRIMARY}>Badge</Badge>
+    <Badge color={Badge.SUCCESS}>Badge</Badge>
+    <Badge color={Badge.WARNING}>Badge</Badge>
+    <Badge color={Badge.DANGER}>Badge</Badge>
+  </Fragment>
+</Playground>
+
+### Circular badges
+Badges that receive the `circle` prop can be used to indicate notifications.
+
+<Playground wrapper={Wrapper}>
+  <Badge circle color={Badge.DANGER}>5</Badge>
+</Playground>
