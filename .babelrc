@@ -1,54 +1,56 @@
 {
-  "plugins": [
-    "lodash",
-    "transform-es2015-modules-commonjs",
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    [
-      "emotion",
-      {
-        "autoLabel": true,
-        "hoist": true,
-        "sourceMap": true
-      }
-    ]
-  ],
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "node": "current"
-        }
-      }
-    ],
-    "react",
-    "stage-3"
-  ],
   "env": {
-    "static": {
+    "cjs": {
       "plugins": [
+        "transform-class-properties",
+        "lodash",
+        "transform-object-rest-spread",
         [
           "emotion",
           {
-            "autoLabel": false,
-            "hoist": false,
-            "sourceMap": false
-          }
-        ],
-        "dynamic-import-node",
-        [
-          "module-resolver",
-          {
-            "root": ".",
-            "alias": {
-              "react-emotion": "./build/stylesheet/lib/custom-styled",
-              "^.+svg$": "./build/stylesheet/SvgMock"
-            },
-            "extensions": [".svg", ".js"]
+            "autoLabel": true,
+            "hoist": true,
+            "sourceMap": true
           }
         ]
+      ],
+      "presets": [["es2015", { "loose": true }], "react", "stage-3"]
+    },
+    "es": {
+      "plugins": [
+        "transform-class-properties",
+        "lodash",
+        "transform-object-rest-spread",
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "hoist": true,
+            "sourceMap": true
+          }
+        ]
+      ],
+      "presets": [
+        ["es2015", { "loose": true, "modules": false }],
+        "react",
+        "stage-3"
       ]
+    },
+    "test": {
+      "plugins": [
+        "transform-class-properties",
+        "lodash",
+        "transform-object-rest-spread",
+        [
+          "emotion",
+          {
+            "autoLabel": true,
+            "hoist": true,
+            "sourceMap": true
+          }
+        ]
+      ],
+      "presets": ["es2015", "react", "stage-3"]
     }
   }
 }
