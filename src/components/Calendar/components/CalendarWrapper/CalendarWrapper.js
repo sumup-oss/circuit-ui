@@ -79,7 +79,7 @@ const dateRangePickerInput = ({ theme }) => css`
     label: input__calendar;
     background-color: ${theme.colors.white};
     padding: ${theme.spacings.byte} ${theme.spacings.kilo};
-    transition: border-color ${theme.transitions.default};
+    transition: border-color ${theme.transitions.easing.default};
     width: 100%;
     ${textMega({ theme })};
 
@@ -122,7 +122,7 @@ const dateRangePickerInput = ({ theme }) => css`
 
     &::placeholder {
       color: ${theme.colors.n500};
-      transition: color ${theme.transitions.default};
+      transition: color ${theme.transitions.easing.default};
     }
   }
 
