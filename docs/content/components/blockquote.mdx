@@ -1,0 +1,39 @@
+---
+name: Blockquote
+route: /components/blockquote
+menu: Components
+---
+
+import { Playground } from 'docz'
+
+import { Fragment } from 'react';
+import Blockquote from '../../../src/components/Blockquote/Blockquote';
+
+import PropTable from '../../utils/PropTable';
+import {Wrapper} from '../../utils/Wrapper';
+
+# Blockquote
+
+<Playground wrapper={Wrapper}>
+  <Blockquote>Blockquote</Blockquote>
+</Playground>
+
+## Props
+(Cannot be rendered because it's a styled component)
+
+## Best practices
+
+## Usage guidelines
+
+## Component variations
+
+### Sizes blockquotes
+The blockquotes come in a number of colors based on their semantic meaning.
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Blockquote size={Blockquote.KILO}>Blockquote</Blockquote>
+    <Blockquote size={Blockquote.MEGA}>Blockquote</Blockquote>
+    <Blockquote size={Blockquote.GIGA}>Blockquote</Blockquote>
+  </Fragment>
+</Playground>
