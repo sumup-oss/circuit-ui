@@ -1,9 +1,14 @@
 import React from 'react';
+import { css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
-import { duration, reflow, getTransitionProps } from '../../styles/transitions';
-import { themePropType } from '../../util/shared-prop-types';
+import {
+  duration,
+  reflow,
+  getTransitionProps
+} from '../../../../styles/transitions';
+import { themePropType } from '../../../../util/shared-prop-types';
 
 const styles = {
   entering: {
@@ -82,15 +87,18 @@ class Fade extends React.Component {
         {...other}
       >
         {(state, childProps) =>
-          React.cloneElement(children, {
-            style: {
-              opacity: 0,
-              willChange: 'opacity',
-              ...styles[state],
-              ...style
+          React.cloneElement(
+            children,
+            {
+              className: css`
+                opacity: 0;
+                will-change: opacity;
+                ${styles[state]};
+              `,
+              style
             },
             ...childProps
-          })
+          )
         }
       </Transition>
     );

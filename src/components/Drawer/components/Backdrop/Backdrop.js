@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 import Fade from '../Fade';
-import { duration } from '../../styles/transitions';
+import { duration } from '../../../../styles/transitions';
 
 const baseStyles = css`
   z-index: -1;
@@ -15,9 +15,11 @@ const baseStyles = css`
   background-color: rgba(0, 0, 0, 0.5);
 `;
 
-const visibilityStyles = ({ invisible }) => css`
-  ${invisible && 'background-color: transparent'};
-`;
+const visibilityStyles = ({ invisible }) =>
+  invisible &&
+  css`
+    background-color: transparent;
+  `;
 
 const Shadow = styled.div`
   ${baseStyles} ${visibilityStyles};
