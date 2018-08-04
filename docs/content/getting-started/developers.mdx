@@ -16,11 +16,11 @@ from github by tag.
 
 Circuit also uses [emotion](https://github.com/emotion-js/emotion) and [emotion-theming](https://github.com/emotion-js/emotion-theming).
 
-```
+```bash
 npm install git+https://github.com/sumup/circuit-ui.git#development-0.0.4 emotion react-emotion emotion-theming
 ```
 
-```
+```bash
 yarn add git+https://github.com/sumup/circuit-ui.git#development-0.0.4 emotion react-emotion emotion-theming
 ```
 
@@ -29,7 +29,7 @@ yarn add git+https://github.com/sumup/circuit-ui.git#development-0.0.4 emotion r
 At the root of your application, you should tell your app which theme to use.
 In most cases, you will want to use the SumUp default theme.
 
-```
+```javascript
 import { ThemeProvider } from 'emotion-theming';
 import { standard } from 'circuit-ui/themes';
 import { Button } from 'circuit-ui';
@@ -56,7 +56,7 @@ There are a few helpers you may want to use within Circuit.
 
 Sometimes you may need to apply global styles to your page. Here is how you can do this with the utilities provided by Circuit UI.
 
-```
+```javascript
 import { standard } from 'circuit-ui/themes';
 import { globalStyles } from 'circuit-ui/styles';
 
@@ -68,9 +68,12 @@ const customStyles = `
 
 globalStyles({ theme: standard, custom: customStyles });
 ```
+<<<<<<< HEAD
 
 ## Contributing
 
 You can open a pull request on Github.
 
 # Developers
+=======
+>>>>>>> f0c2e14... Work on button documentation, upgrade code fences missing language specification.

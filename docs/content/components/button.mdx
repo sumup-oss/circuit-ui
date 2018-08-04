@@ -6,6 +6,7 @@ menu: Components
 
 import { Playground } from 'docz'
 
+import { Fragment } from 'react';
 import Button from '../../../src/components/Button/Button';
 
 import PropTable from '../../utils/PropTable';
@@ -17,8 +18,79 @@ import {Wrapper} from '../../utils/Wrapper';
   	<Button primary>Button</Button>
 </Playground>
 
-## PropsTable
+## Props
 
 <div>
 	<PropTable component={Button} />
 </div>
+
+## Best practices
+- Be clearly and accurately labeled.
+- Lead with strong actionable words.
+- Use established button colors appropriately.
+- Prioritize the most important actions.
+
+## Usage guidelines
+
+### Components in a group
+- The primary action belongs on the right.
+
+### Content guidelines
+- Start with a verb.
+
+## Component variations
+
+### Default buttons
+The default button can be used as a primary button if it's being displayed
+on a dark background.
+
+<Playground wrapper={Wrapper}>
+  <Button>Button</Button>
+</Playground>
+
+### Primary buttons
+A button should be primary if it's the primary action that a user should take
+on the page. In most cases, there should be only one primary button visible
+at a time.
+
+<Playground wrapper={Wrapper}>
+  <Button primary>Button</Button>
+</Playground>
+
+### Secondary buttons
+A secondary button offers an alternative action to the primary button.
+Usually the secondary button signals actions such as "Cancel".
+
+<Playground wrapper={Wrapper}>
+  <Button secondary>Button</Button>
+</Playground>
+
+### Flat buttons
+A secondary button offers an alternative action to the primary button.
+Usually the secondary button signals actions such as "Cancel".
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Button flat primary>Button</Button>
+    <Button flat secondary>Button</Button>
+  </Fragment>
+</Playground>
+
+### Plain buttons
+Plain buttons are meant to look like links. Whether they render with an
+`<a>` tag or a `<button>` tag depends on whether you pass an `href`
+property to the component.
+
+<Playground wrapper={Wrapper}>
+  <Button plain primary href="#">I look like a link</Button>
+</Playground>
+
+### Sized buttons
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Button size={Button.KILO}>Button</Button>
+    <Button size={Button.MEGA}>Button</Button>
+    <Button size={Button.GIGA}>Button</Button>
+  </Fragment>
+</Playground>
