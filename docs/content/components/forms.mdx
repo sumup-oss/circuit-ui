@@ -1,0 +1,136 @@
+---
+name: Forms
+route: /components/forms
+menu: Components
+---
+
+import { Fragment } from 'react';
+import Input from '../../../src/components/Input/Input';
+import Label from '../../../src/components/Label/Label';
+import Checkbox from '../../../src/components/Checkbox/Checkbox';
+import RadioButton from '../../../src/components/RadioButton/RadioButton';
+import PropTable from '../../utils/PropTable';
+import Playground from '../../utils/Playground';
+
+# Forms
+
+## Input
+
+<Playground>
+  <Fragment>
+    <Label htmlFor="name">Label</Label>
+    <Input name="input" id="input" placeholder="Placeholder" />
+  </Fragment>
+</Playground>
+
+### Best practices
+- Use different shadows.
+
+### Usage guidelines
+- Every card should be a logical combination of its contents.
+
+### Component variations
+
+#### Validations
+(Cannot show validations because SVGs are not parsed)
+
+#### Disabled input
+<Playground>
+  <Input name="input" id="input" disabled placeholder="You cannot type"/>
+</Playground>
+
+#### Optional input
+<Playground>
+  <Input name="input" id="input" optional />
+</Playground>
+
+## Label
+
+<Playground>
+  <Label htmlFor="name">Label</Label>
+</Playground>
+
+## Checkbox
+
+<Playground>
+  <Fragment>
+    <Checkbox name="fruit" value="apples" id="apples" checked>
+      <Label htmlFor="apples">Apples</Label>
+    </Checkbox>
+    <Checkbox name="fruit" value="bananas" id="bananas">
+      <Label htmlFor="bananas">Bananas</Label>
+    </Checkbox>
+  </Fragment>
+</Playground>
+
+### Best practices
+- Use different shadows.
+
+### Usage guidelines
+- Every card should be a logical combination of its contents.
+
+### Component variations
+
+#### Invalid
+<Playground>
+  <Fragment>
+    <Checkbox name="fruit" value="apples" id="apples" invalid checked>
+      <Label htmlFor="apples">Apples</Label>
+    </Checkbox>
+    <Checkbox name="fruit" value="bananas" id="bananas" invalid>
+      <Label htmlFor="bananas">Bananas</Label>
+    </Checkbox>
+  </Fragment>
+</Playground>
+
+#### Disabled
+<Playground>
+  <Fragment>
+    <Checkbox name="fruit" value="apples" id="apples" disabled checked>
+      <Label htmlFor="apples">Apples</Label>
+    </Checkbox>
+    <Checkbox name="fruit" value="bananas" id="bananas" disabled>
+      <Label htmlFor="bananas">Bananas</Label>
+    </Checkbox>
+  </Fragment>
+</Playground>
+
+## Radio button
+<Playground>
+  <Fragment>
+    <RadioButton name="fruit" value="true" id="pineapples" checked>
+      <Label htmlFor="pineapples">Pineapples</Label>
+    </RadioButton>
+    <RadioButton name="fruit" value="bananas" id="bananas">
+      <Label htmlFor="bananas">Bananas</Label>
+    </RadioButton>
+  </Fragment>
+</Playground>
+
+### Best practices
+- Use different shadows.
+
+### Usage guidelines
+- Every card should be a logical combination of its contents.
+
+### Component variations
+
+## Select
+
+### Best practices
+- Use different shadows.
+
+### Usage guidelines
+- Every card should be a logical combination of its contents.
+
+### Component variations
+
+## Textarea
+
+### Best practices
+- Use different shadows.
+
+### Usage guidelines
+- Every card should be a logical combination of its contents.
+
+### Component variations
