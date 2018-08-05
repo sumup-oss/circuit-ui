@@ -5,6 +5,7 @@
   "description": "SumUp's React UI component library",
   "main": "lib/index.js",
   "module": "lib/es/index.js",
+  "files": ["lib"],
   "scripts": {
     "coverage:upload": "codecov",
     "fix:eslint": "eslint --fix --quiet src/**/**/*.js",
@@ -28,8 +29,8 @@
     "build:js": "yarn clean:js && yarn build:js:cjs && yarn build:js:es && yarn build:svg:cjs &&  yarn build:svg:es",
     "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js",
     "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js",
-    "build:svg:cjs": "cd src && find . -name *.svg -print | xargs -I@ cp --parents @ ../lib && cd ..",
-    "build:svg:es": "cd src && find . -name *.svg -print | xargs -I@ cp --parents @ ../lib/es && cd ..",
+    "build:svg:cjs": "cd src && find . -name *.svg -print | xargs -I@ gcp --parents @ ../lib && cd ..",
+    "build:svg:es": "cd src && find . -name *.svg -print | xargs -I@ gcp --parents @ ../lib/es && cd ..",
     "clean:js": "rimraf lib",
     "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
     "docz:dev": "docz dev",
