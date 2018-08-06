@@ -4,6 +4,7 @@ import { circuit as theme } from './themes';
 export default {
   plugins: [babel()],
   modifyBabelRc: config => config,
+  hashRouter: true,
   themeConfig: {
     colors: {
       white: theme.colors.white,
