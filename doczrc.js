@@ -5,6 +5,7 @@ export default {
   dest: './dist',
   plugins: [babel()],
   modifyBabelRc: config => config,
+  hashRouter: true,
   themeConfig: {
     colors: {
       white: theme.colors.white,
