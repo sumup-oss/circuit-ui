@@ -1,42 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
-import { withTheme } from 'emotion-theming';
+import styled, { css } from 'react-emotion';
 import { sizes } from '../../../../styles/constants';
-import { themePropType } from '../../../../util/shared-prop-types';
 
 const { BYTE, KILO, MEGA, GIGA } = sizes;
 
-const getListStyles = ({ theme, gutter }) => css`
-  /* display: flex;
-flex-direction: column;
-position: relative;
-list-style: none; */
+const listStyles = ({ theme, gutter }) => css`
   margin: 0;
   padding: 0;
   padding-left: ${theme.spacings[gutter]};
   padding-right: ${theme.spacings[gutter]};
 `;
 
-const List = props => {
-  const {
-    children,
-    component: Component,
-    subheader,
-    gutter,
-    theme,
-    ...other
-  } = props;
-
-  const listStyles = getListStyles(props);
+const List = styled(props => {
+  const { children, component: Component, subheader, gutter, ...other } = props;
 
   return (
-    <Component {...other} css={listStyles}>
+    <Component {...other}>
       {subheader}
       {children}
     </Component>
   );
-};
+})`
+  ${listStyles};
+`;
 
 List.BYTE = BYTE;
 List.KILO = KILO;
@@ -68,8 +55,7 @@ List.propTypes = {
   /**
    * The content of the subheader, normally `ListSubheader`.
    */
-  subheader: PropTypes.node,
-  theme: themePropType.isRequired
+  subheader: PropTypes.node
 };
 
 List.defaultProps = {
@@ -80,4 +66,4 @@ List.defaultProps = {
   gutter: List.KILO
 };
 
-export default withTheme(List);
+export default List;

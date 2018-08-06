@@ -443,7 +443,7 @@ Modal.defaultProps = {
   onClose: () => {},
   onEscapeKeyDown: () => {},
   onRendered: () => {},
-  BackdropProps: {},
+  BackdropProps: { open: false },
   className: null,
   container: null,
   children: null

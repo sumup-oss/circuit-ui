@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'react-emotion';
+import styled, { css } from 'react-emotion';
+import { withTheme } from 'emotion-theming';
 import { sizes } from '../../../../styles/constants';
-import { childrenPropType } from '../../../../util/shared-prop-types';
+import {
+  childrenPropType,
+  themePropType
+} from '../../../../util/shared-prop-types';
 
 const { BYTE, KILO, MEGA, GIGA } = sizes;
 
@@ -26,24 +30,24 @@ const itemContainerBaseStyles = ({ theme, gutter }) => css`
   border-radius: 4px;
 `;
 
-const getListItemStyles = props => css`
-  ${itemContainerBaseStyles(props)};
-  ${itemContainerActiveStyles(props)};
-`;
-
 /**
  * Describe ListItem here.
  */
-const ListItem = props => {
-  const { component: Component, children, isActive, ...rest } = props;
-  const listItemStyles = getListItemStyles(props);
+const ListItem = styled(props => {
+  const {
+    component: Component,
+    children,
+    isActive,
+    theme,
+    gutter,
+    ...rest
+  } = props;
 
-  return (
-    <Component css={listItemStyles} {...rest}>
-      {children}
-    </Component>
-  );
-};
+  return <Component {...rest}>{children}</Component>;
+})`
+  ${itemContainerBaseStyles};
+  ${itemContainerActiveStyles};
+`;
 
 ListItem.BYTE = BYTE;
 ListItem.KILO = KILO;
@@ -69,7 +73,8 @@ ListItem.propTypes = {
     ListItem.KILO,
     ListItem.MEGA,
     ListItem.GIGA
-  ])
+  ]),
+  theme: themePropType.isRequired
 };
 
 ListItem.defaultProps = {
@@ -82,4 +87,4 @@ ListItem.defaultProps = {
 /**
  * @component
  */
-export default ListItem;
+export default withTheme(ListItem);
