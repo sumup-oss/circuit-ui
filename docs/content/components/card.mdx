@@ -1,0 +1,49 @@
+---
+name: Card
+route: /components/card
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import Card from '../../../src/components/Card/Card';
+import PropTable from '../../utils/PropTable';
+import {Wrapper} from '../../utils/Wrapper';
+
+# Card
+
+<Playground wrapper={Wrapper}>
+  <Card>Card</Card>
+</Playground>
+
+## Props
+(Cannot be rendered because it's a styled component)
+
+## Best practices
+- Use different shadows.
+
+## Usage guidelines
+- Every card should be a logical combination of its contents.
+
+## Component variations
+
+### Spacings
+Cards come in two spacing variations, mega and giga. Giga
+is the default spacing.
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Card spacing={Card.MEGA}>Card with mega spacing</Card><br/>
+    <Card spacing={Card.GIGA}>Card with giga spacing</Card>
+  </Fragment>
+</Playground>
+
+### Shadows
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Card shadow={Card.SINGLE}>Card with single shadow</Card><br/>
+    <Card shadow={Card.DOUBLE}>Card with double shadow</Card><br/>
+    <Card shadow={Card.TRIPLE}>Card with triple shadow</Card><br/>
+  </Fragment>
+</Playground>
