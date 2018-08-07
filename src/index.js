@@ -134,7 +134,12 @@ export { default as AutoCompleteInput } from './components/AutoCompleteInput';
 export { default as AutoCompleteTags } from './components/AutoCompleteTags';
 export { default as Table } from './components/Table';
 export { default as CardSchemes } from './components/CardSchemes';
-export { default as PaymentMethodIcon } from './components/CardSchemes/components/PaymentMethodIcon';
+export {
+  default as PaymentMethodIcon
+} from './components/CardSchemes/components/PaymentMethodIcon';
+export { default as SideNav } from './components/SideNav';
+export { Menu } from './components/SideNav/components';
+export { Drawer } from './components/SideNav/components';
 
 // Helpers
 export { default as State } from './components/State';
