@@ -306,9 +306,9 @@ class Modal extends React.Component {
         >
           {hideBackdrop ? null : (
             <BackdropComponent
+              {...BackdropProps}
               open={open}
               onClick={this.handleBackdropClick}
-              {...BackdropProps}
             />
           )}
           <RootRef

@@ -155,10 +155,10 @@ class Drawer extends React.Component {
           ...BackdropPropsProp,
           transitionDuration
         }}
+        {...ModalProps}
         open={open}
         onClose={onClose}
         {...other}
-        {...ModalProps}
       >
         {slidingDrawer}
       </Modal>
