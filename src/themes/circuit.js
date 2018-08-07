@@ -229,8 +229,13 @@ export const transitions = {
 export const zIndex = {
   default: 0,
   absolute: 1,
+  drawer: 10,
   popover: 20,
   select: 30,
   tooltip: 31,
   modal: 1000
+};
+
+export const palette = {
+  divider: 'rgba(0, 0, 0, 0.12)'
 };
