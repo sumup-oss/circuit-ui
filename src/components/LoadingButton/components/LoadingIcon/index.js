@@ -63,7 +63,7 @@ const successIconBaseStyles = ({ theme }) => css`
   label: loading-icon__success;
   transform: scale3d(0, 0, 0);
   opacity: 0;
-  transition: opacity ${theme.transitions.easing.default};
+  transition: opacity ${theme.transitions.default};
   ${sizeMixin('100%')};
 `;
 
@@ -71,7 +71,7 @@ const successIconVisibleStyles = ({ theme, visible }) =>
   visible &&
   css`
     label: loading-icon__success--visible;
-    animation: ${iconEnter} ${theme.transitions.easing.default};
+    animation: ${iconEnter} ${theme.transitions.default};
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
   `;

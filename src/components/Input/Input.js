@@ -55,7 +55,7 @@ const inputBaseStyles = ({ theme }) => css`
   border-radius: ${theme.borderRadius.mega};
   box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
   padding: ${theme.spacings.byte} ${theme.spacings.kilo};
-  transition: border-color ${theme.transitions.easing.default};
+  transition: border-color ${theme.transitions.default};
   width: 100%;
   ${textMega({ theme })};
 
@@ -67,7 +67,7 @@ const inputBaseStyles = ({ theme }) => css`
 
   &::placeholder {
     color: ${theme.colors.n500};
-    transition: color ${theme.transitions.easing.default};
+    transition: color ${theme.transitions.default};
   }
 `;
 
@@ -181,7 +181,7 @@ const InputTooltip = styled(Tooltip)`
 
 const validationIconBaseStyles = ({ theme }) => css`
   opacity: 0;
-  transition: opacity ${theme.transitions.easing.default};
+  transition: opacity ${theme.transitions.default};
 `;
 
 const validationIconActiveStyles = ({ invalid, hasWarning }) =>

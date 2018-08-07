@@ -3,11 +3,7 @@ import { css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
-import {
-  duration,
-  reflow,
-  getTransitionProps
-} from '../../../../styles/transitions';
+import { duration, reflow, getTransitionProps } from '../../transitions';
 import { themePropType } from '../../../../util/shared-prop-types';
 
 const styles = {

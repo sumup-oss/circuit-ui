@@ -221,7 +221,9 @@ const breakpoints = {
 
 export const mq = createMediaQueries(breakpoints);
 
-export { default as transitions } from '../styles/transitions';
+export const transitions = {
+  default: `200ms ease-in-out`
+};
 
 // these values need to be properly trimmed/renamed as we go.
 export const zIndex = {
