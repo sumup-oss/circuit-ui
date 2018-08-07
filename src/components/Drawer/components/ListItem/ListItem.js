@@ -22,7 +22,7 @@ const itemContainerBaseStyles = ({ theme, gutter }) => css`
   margin-top: ${theme.spacings.bit};
   margin-bottom: ${theme.spacings.bit};
   padding: ${theme.spacings[gutter]};
-  transition: background-color ${theme.transitions.easing.default};
+  transition: background-color ${theme.transitions.default};
   border-radius: 4px;
 `;
 
