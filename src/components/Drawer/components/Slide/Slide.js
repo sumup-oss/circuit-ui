@@ -6,11 +6,7 @@ import { withTheme } from 'emotion-theming';
 import Transition from 'react-transition-group/Transition';
 
 import ownerWindow from '../../../../util/ownerWindow';
-import {
-  duration,
-  reflow,
-  getTransitionProps
-} from '../../../../styles/transitions';
+import { duration, reflow, getTransitionProps } from '../../transitions';
 import { themePropType } from '../../../../util/shared-prop-types';
 
 const GUTTER = 24;
