@@ -110,6 +110,7 @@
     "react-dates": "^16.6.1",
     "react-dom": "^16.3.1",
     "react-emotion": "^9.2.6",
+    "react-event-listener": "^0.6.2",
     "react-modal": "^3.3.2",
     "react-popper": "^1.0.0-beta.6",
     "react-text-mask": "5.4.0",
