@@ -5,7 +5,7 @@ import { withTheme } from 'emotion-theming';
 import Modal from '../Modal';
 import Slide from '../Slide';
 import Card from '../../../Card';
-import { duration } from '../../../../styles/transitions';
+import { duration } from '../../transitions';
 import { themePropType } from '../../../../util/shared-prop-types';
 
 const anchorLeftStyles = ({ theme, anchor, docked }) =>
