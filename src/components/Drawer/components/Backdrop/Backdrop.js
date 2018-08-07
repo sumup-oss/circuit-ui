@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 import Fade from '../Fade';
-import { duration } from '../../transitions';
+import transitions from '../../transitions';
 
 const baseStyles = css`
   z-index: -1;
@@ -63,8 +63,8 @@ Backdrop.defaultProps = {
   className: null,
   invisible: false,
   transitionDuration: {
-    enter: duration.enteringScreen,
-    exit: duration.leavingScreen
+    enter: transitions.duration.enteringScreen,
+    exit: transitions.duration.leavingScreen
   }
 };
 
