@@ -5,7 +5,7 @@ import { withTheme } from 'emotion-theming';
 import Modal from '../Modal';
 import Slide from '../Slide';
 import Card from '../../../Card';
-import { duration } from '../../transitions';
+import transitions from '../../transitions';
 import { themePropType } from '../../../../util/shared-prop-types';
 
 const anchorLeftStyles = ({ theme, anchor, docked }) =>
@@ -228,8 +228,8 @@ Drawer.defaultProps = {
   shadow: 'single',
   open: false,
   transitionDuration: {
-    enter: duration.enteringScreen,
-    exit: duration.leavingScreen
+    enter: transitions.duration.enteringScreen,
+    exit: transitions.duration.leavingScreen
   },
   variant: 'temporary', // Mobile first.
   SlideProps: {},
