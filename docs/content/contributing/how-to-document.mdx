@@ -1,0 +1,66 @@
+---
+name: Writing documentation
+route: /contributing/how-to-document
+menu: Contributing
+---
+
+import { Playground } from 'docz'
+
+import Button from '../../../src/components/Button/Button';
+
+import PropTable from '../../utils/PropTable';
+import {Wrapper} from '../../utils/Wrapper';
+
+# Documenting a component
+A component needs to have a basic description, prop table, and playground to showcase behavior. It's also a good idea to provide usage scenarios and include multiple playgrounds with different props.
+
+## How To: PropTable
+We have created a custom prop table component, which you can find in `docs/utils` folder. It requires a default exported component, so that `react-docgen` dependency can properly parse the PropTypes.
+
+```javascript
+ import OriginalButton from '../../../src/components/Button/Button';
+ import PropTable from '../../utils/PropTable';
+
+ <div>
+ 	<PropTable component={Button} />
+ </div>
+```
+the result looks like this:
+
+ <div>
+ 	<PropTable component={Button} />
+ </div>
+
+ ## How To: Playground
+
+ The Playground component requires the button to be wrapped in ThemeProvider (this will change in the future). Therefore we create a `DocButton.js` file, where the component is wrapped in a ThemeProvider.
+
+ ```javascript
+import {Wrapper} from '../../utils/Wrapper';
+
+# Button
+
+<Playground wrapper={Wrapper}>
+  	<Button primary>Button</Button>
+</Playground>
+
+ ```
+the end result will look like:
+
+<Playground wrapper={Wrapper}>
+  	<Button primary>Button</Button>
+</Playground>
+
+
+## Known Issues with Docz
+Docz is still relatively unstable (current version is 0.59), and there are some bugs that are getting fixed. Here is a list of bugs and workarounds we found for them.
+
+### Document Order
+The document ordering is complicated, and being currently worked on. See [this issue](https://github.com/pedronauck/docz/issues/143).
+It's possible to achieve proper ordering with numbers, although we have not tested it yet.
+
+### Slow Scrolling
+In Safari there might be slower scrolling. Try using another browser or wait for a fix. See [this issue](https://github.com/pedronauck/docz/issues/122).
+
+## Learn More
+Docz is an awesome documenting tool You can create custom React components and use them with Markdown! For further questions refer to official Docz [documentation](https://www.docz.site/introduction "documentation").

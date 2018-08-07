@@ -1,0 +1,49 @@
+---
+name: Typography
+route: /styles/typography
+menu: Styles
+---
+
+import Text from '../../../src/components/Text';
+import Heading from '../../../src/components/Heading';
+import Subheading from '../../../src/components/Subheading';
+import Type from './components/Type';
+
+# Typography
+
+For usage in React, see the [typography](/components/typography) in the
+component guidelines section.
+
+## Headings
+
+<Type size={Heading.ZETTA} component={Heading}/>
+<Type size={Heading.EXA} component={Heading}/>
+<Type size={Heading.PETA} component={Heading}/>
+<Type size={Heading.TERA} component={Heading}/>
+<Type size={Heading.GIGA} component={Heading}/>
+<Type size={Heading.MEGA} component={Heading}/>
+<Type size={Heading.KILO} component={Heading}/>
+
+## Subheading
+
+<Type size="mega" component={Subheading}/>
+<Type size="kilo" component={Subheading}/>
+
+## Text
+
+<Type size={Text.GIGA} component={Text}/>
+<Type size={Text.MEGA} component={Text}/>
+<Type size={Text.KILO} component={Text}/>
+
+## Font weights
+
+Circuit has two font weights, regular and bold. You can only toggle the
+boldness of `Text`, but not `Heading` or `Subheading`.
+
+<Type size={Text.MEGA} bold component={Text}>She give me money</Type>
+<Type size={Text.MEGA} component={Text}>When I'm in need</Type>
+
+## Best practices
+
+- Do not directly use `theme.typography` settings, but rather use the
+  specialized components `Heading`, `Subheading`, and `Text`.

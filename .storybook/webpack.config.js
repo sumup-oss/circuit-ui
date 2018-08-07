@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack = require('webpack');
+const webpack = require('@storybook/react/node_modules/webpack');
 
 const merge = require('webpack-merge');
 
