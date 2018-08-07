@@ -52,7 +52,7 @@
     "@sumup/foundry": "^0.0.8",
     "babel-eslint": "^8.1.2",
     "babel-jest": "^22.1.0",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.5",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-module-resolver": "^3.0.0",
     "babel-register": "^6.26.0",
@@ -93,6 +93,7 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
+    "@svgr/webpack": "^2.1.1",
     "babel-plugin-emotion": "^9.2.6",
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-react-docgen": "^2.0.0-rc.1",
@@ -117,6 +118,7 @@
     "react-dom": "^16.3.1",
     "react-emotion": "^9.2.6",
     "react-modal": "^3.3.2",
+    "react-native-svg": "^6.5.2",
     "react-popper": "^1.0.0-beta.6",
     "react-text-mask": "5.4.0",
     "react-with-styles": "^3.1.1",
