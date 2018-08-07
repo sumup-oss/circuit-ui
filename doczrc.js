@@ -35,5 +35,24 @@ export default {
       codeColor: theme.colors.n700,
       preBg: theme.colors.n100
     }
+  },
+  modifyBundlerConfig: config => {
+    const idx = config.module.rules.findIndex(
+      r => r.test.toString() === '/\\.(svg)(\\?.*)?$/'
+    );
+
+    config.module.rules[idx] = {
+      test: /\.svg$/,
+      use: [
+        {
+          loader: 'react-svg-loader',
+          options: {
+            es5: true
+          }
+        }
+      ]
+    };
+
+    return config;
   }
 };
