@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import EventListener from 'react-event-listener';
-import { withTheme } from 'emotion-theming';
 import Transition from 'react-transition-group/Transition';
 
 import ownerWindow from '../../../../util/ownerWindow';
-import { duration, reflow, getTransitionProps } from '../../transitions';
-import { themePropType } from '../../../../util/shared-prop-types';
+import * as transitions from '../../transitions';
 
 const GUTTER = 24;
 
@@ -124,7 +122,7 @@ class Slide extends React.Component {
 
   handleEnter = node => {
     setTranslateValue(this.props, node);
-    reflow(node);
+    transitions.reflow(node);
 
     if (this.props.onEnter) {
       this.props.onEnter(node);
@@ -136,21 +134,16 @@ class Slide extends React.Component {
   transition = null;
 
   handleEntering = node => {
-    const { theme } = this.props;
-
-    const transitionProps = getTransitionProps(this.props, {
+    const transitionProps = transitions.getTransitionProps(this.props, {
       mode: 'enter'
     });
-    node.style.webkitTransition = theme.transitions.create(
-      '-webkit-transform',
-      {
-        ...transitionProps,
-        easing: theme.transitions.easing.easeOut
-      }
-    );
-    node.style.transition = theme.transitions.create('transform', {
+    node.style.webkitTransition = transitions.create('-webkit-transform', {
       ...transitionProps,
-      easing: theme.transitions.easing.easeOut
+      easing: transitions.easing.easeOut
+    });
+    node.style.transition = transitions.create('transform', {
+      ...transitionProps,
+      easing: transitions.easing.easeOut
     });
     node.style.webkitTransform = 'translate(0, 0)';
     node.style.transform = 'translate(0, 0)';
@@ -160,21 +153,16 @@ class Slide extends React.Component {
   };
 
   handleExit = node => {
-    const { theme } = this.props;
-
-    const transitionProps = getTransitionProps(this.props, {
+    const transitionProps = transitions.getTransitionProps(this.props, {
       mode: 'exit'
     });
-    node.style.webkitTransition = theme.transitions.create(
-      '-webkit-transform',
-      {
-        ...transitionProps,
-        easing: theme.transitions.easing.sharp
-      }
-    );
-    node.style.transition = theme.transitions.create('transform', {
+    node.style.webkitTransition = transitions.create('-webkit-transform', {
       ...transitionProps,
-      easing: theme.transitions.easing.sharp
+      easing: transitions.easing.sharp
+    });
+    node.style.transition = transitions.create('transform', {
+      ...transitionProps,
+      easing: transitions.easing.sharp
     });
     setTranslateValue(this.props, node);
 
@@ -209,7 +197,6 @@ class Slide extends React.Component {
       onEntering,
       onExit,
       onExited,
-      theme,
       ...other
     } = this.props;
 
@@ -278,10 +265,6 @@ Slide.propTypes = {
    */
   onExited: PropTypes.func,
   /**
-   * @ignore
-   */
-  theme: themePropType.isRequired,
-  /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
    */
@@ -300,9 +283,9 @@ Slide.defaultProps = {
   onExited: () => {},
   direction: 'down',
   timeout: {
-    enter: duration.enteringScreen,
-    exit: duration.leavingScreen
+    enter: transitions.duration.enteringScreen,
+    exit: transitions.duration.leavingScreen
   }
 };
 
-export default withTheme(Slide);
+export default Slide;
