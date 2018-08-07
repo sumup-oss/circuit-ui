@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import transitions, { reflow, getTransitionProps } from '../../transitions';
@@ -72,18 +71,15 @@ class Fade extends React.Component {
         {...other}
       >
         {(state, childProps) =>
-          React.cloneElement(
-            children,
-            {
-              className: css`
-                opacity: 0;
-                will-change: opacity;
-                ${styles[state]};
-              `,
-              style
+          React.cloneElement(children, {
+            style: {
+              opacity: 0,
+              willChange: 'opacity',
+              ...styles[state],
+              ...style
             },
             ...childProps
-          )
+          })
         }
       </Transition>
     );
