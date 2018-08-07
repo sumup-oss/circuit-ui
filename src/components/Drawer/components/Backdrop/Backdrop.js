@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 import Fade from '../Fade';
-import { duration } from '../../../../styles/transitions';
+import { duration } from '../../transitions';
 
 const baseStyles = css`
   z-index: -1;
