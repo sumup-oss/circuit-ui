@@ -5,7 +5,7 @@ import EventListener from 'react-event-listener';
 import Transition from 'react-transition-group/Transition';
 
 import ownerWindow from '../../../../util/ownerWindow';
-import * as transitions from '../../transitions';
+import transitions, { reflow, getTransitionProps } from '../../transitions';
 
 const GUTTER = 24;
 
@@ -122,7 +122,7 @@ class Slide extends React.Component {
 
   handleEnter = node => {
     setTranslateValue(this.props, node);
-    transitions.reflow(node);
+    reflow(node);
 
     if (this.props.onEnter) {
       this.props.onEnter(node);
@@ -134,7 +134,7 @@ class Slide extends React.Component {
   transition = null;
 
   handleEntering = node => {
-    const transitionProps = transitions.getTransitionProps(this.props, {
+    const transitionProps = getTransitionProps(this.props, {
       mode: 'enter'
     });
     node.style.webkitTransition = transitions.create('-webkit-transform', {
@@ -153,7 +153,7 @@ class Slide extends React.Component {
   };
 
   handleExit = node => {
-    const transitionProps = transitions.getTransitionProps(this.props, {
+    const transitionProps = getTransitionProps(this.props, {
       mode: 'exit'
     });
     node.style.webkitTransition = transitions.create('-webkit-transform', {
