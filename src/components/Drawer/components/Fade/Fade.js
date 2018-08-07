@@ -1,10 +1,8 @@
 import React from 'react';
 import { css } from 'react-emotion';
-import { withTheme } from 'emotion-theming';
 import PropTypes from 'prop-types';
 import Transition from 'react-transition-group/Transition';
-import { duration, reflow, getTransitionProps } from '../../transitions';
-import { themePropType } from '../../../../util/shared-prop-types';
+import transitions, { reflow, getTransitionProps } from '../../transitions';
 
 const styles = {
   entering: {
@@ -21,20 +19,16 @@ const styles = {
  */
 class Fade extends React.Component {
   handleEnter = node => {
-    const { theme } = this.props;
     reflow(node); // So the animation always start from the start.
 
     const transitionProps = getTransitionProps(this.props, {
       mode: 'enter'
     });
-    node.style.webkitTransition = theme.transitions.create(
+    node.style.webkitTransition = transitions.create(
       'opacity',
       transitionProps
     );
-    node.style.transition = theme.transitions.create(
-      'opacity',
-      transitionProps
-    );
+    node.style.transition = transitions.create('opacity', transitionProps);
 
     if (this.props.onEnter) {
       this.props.onEnter(node);
@@ -42,18 +36,14 @@ class Fade extends React.Component {
   };
 
   handleExit = node => {
-    const { theme } = this.props;
     const transitionProps = getTransitionProps(this.props, {
       mode: 'exit'
     });
-    node.style.webkitTransition = theme.transitions.create(
+    node.style.webkitTransition = transitions.create(
       'opacity',
       transitionProps
     );
-    node.style.transition = theme.transitions.create(
-      'opacity',
-      transitionProps
-    );
+    node.style.transition = transitions.create('opacity', transitionProps);
 
     if (this.props.onExit) {
       this.props.onExit(node);
@@ -66,7 +56,6 @@ class Fade extends React.Component {
       onEnter,
       onExit,
       style: styleProp,
-      theme,
       ...other
     } = this.props;
 
@@ -123,10 +112,6 @@ Fade.propTypes = {
    */
   style: PropTypes.shape({}),
   /**
-   * @ignore
-   */
-  theme: themePropType.isRequired,
-  /**
    * The duration for the transition, in milliseconds.
    * You may specify a single timeout for all transitions, or individually with an object.
    */
@@ -143,9 +128,9 @@ Fade.defaultProps = {
   onExit: () => {},
   style: {},
   timeout: {
-    enter: duration.enteringScreen,
-    exit: duration.leavingScreen
+    enter: transitions.duration.enteringScreen,
+    exit: transitions.duration.leavingScreen
   }
 };
 
-export default withTheme(Fade);
+export default Fade;
