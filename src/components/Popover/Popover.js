@@ -104,7 +104,7 @@ class Popover extends Component {
     /**
      * function rendering the reference (button or something clickable)
      */
-    renderReference: PropTypes.func.isRequired,
+    renderReference: PropTypes.func,
     /**
      * placement of the popover relative to the reference
      */
@@ -128,18 +128,21 @@ class Popover extends Component {
     onClose: PropTypes.func,
     usePortal: PropTypes.bool,
     modifiers: PropTypes.shape(),
-    arrowRenderer: PropTypes.func
+    arrowRenderer: PropTypes.func,
+    referenceElement: PropTypes.instanceOf(HTMLElement)
   };
 
   static defaultProps = {
     isOpen: false,
     position: Popover.BOTTOM,
     align: Popover.START,
-    zIndex: false,
+    zIndex: null,
     onClose: () => {},
     usePortal: false,
     modifiers: {},
-    arrowRenderer: () => null
+    arrowRenderer: () => null,
+    renderReference: () => null,
+    referenceElement: null
   };
 
   componentDidMount() {
@@ -155,7 +158,7 @@ class Popover extends Component {
     const isWithinButton = this.buttonRef && this.buttonRef.contains(target);
 
     if (this.props.isOpen && !isWithinButton && !isWithinPopover) {
-      this.props.onOutsideClickClose();
+      this.props.onOutsideClickClose(target);
     }
   };
 
@@ -182,6 +185,7 @@ class Popover extends Component {
       arrowRenderer,
       renderPopover,
       renderReference,
+      referenceElement,
       position,
       align,
       isOpen,
@@ -191,9 +195,23 @@ class Popover extends Component {
       ...others
     } = this.props;
 
+    const reference = !referenceElement && (
+      <Reference>
+        {({ ref }) => (
+          <ReferenceWrapper
+            innerRef={this.receiveButtonRef}
+            onClick={this.handleReferenceClick}
+          >
+            <div ref={ref}>{renderReference()}</div>
+          </ReferenceWrapper>
+        )}
+      </Reference>
+    );
+
     const popper = isOpen && (
       <Popper
         {...others}
+        referenceElement={referenceElement}
         placement={toPopperPlacement(position, align)}
         modifiers={{ ...modifiers, ...popperModifiers }}
       >
@@ -217,16 +235,7 @@ class Popover extends Component {
 
     return (
       <Manager>
-        <Reference>
-          {({ ref }) => (
-            <ReferenceWrapper
-              innerRef={this.receiveButtonRef}
-              onClick={this.handleReferenceClick}
-            >
-              <div ref={ref}>{renderReference()}</div>
-            </ReferenceWrapper>
-          )}
-        </Reference>
+        {reference}
         {usePortal ? <Portal>{popper}</Portal> : popper}
       </Manager>
     );
