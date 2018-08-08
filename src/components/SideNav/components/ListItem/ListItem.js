@@ -28,6 +28,12 @@ const itemContainerBaseStyles = ({ theme, gutter }) => css`
   padding: ${theme.spacings[gutter]};
   transition: background-color ${theme.transitions.default};
   border-radius: 4px;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 /**
