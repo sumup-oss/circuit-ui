@@ -5,3 +5,14 @@ install:
   yarn
 script:
   yarn test:ci
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
+  local-dir: dist
+  target_branch: gh-pages # default
+before_deploy:
+ - yarn run docz build
