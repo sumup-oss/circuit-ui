@@ -1,5 +1,5 @@
 {
-  "name": "circuit-ui",
+  "name": "@sumup/circuit-ui",
   "sideEffects": false,
   "version": "0.0.1",
   "description": "SumUp's React UI component library",
