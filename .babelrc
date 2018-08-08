@@ -14,7 +14,7 @@
           }
         ]
       ],
-      "presets": [["es2015", { "loose": true }], "react", "stage-3"]
+      "presets": [["env", { "loose": true }], "react", "stage-3"]
     },
     "es": {
       "plugins": [
@@ -31,7 +31,7 @@
         ]
       ],
       "presets": [
-        ["es2015", { "loose": true, "modules": false }],
+        ["env", { "loose": true, "modules": false }],
         "react",
         "stage-3"
       ]
@@ -50,7 +50,7 @@
           }
         ]
       ],
-      "presets": ["es2015", "react", "stage-3"]
+      "presets": ["env", "react", "stage-3"]
     },
     "static": {
       "plugins": [
