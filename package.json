@@ -1,7 +1,7 @@
 {
   "name": "@sumup/circuit-ui",
   "sideEffects": false,
-  "version": "0.0.2-canary",
+  "version": "0.0.3-canary",
   "description": "SumUp's React UI component library",
   "main": "lib/index.js",
   "module": "lib/es/index.js",
@@ -38,7 +38,7 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "precommit": "lint-staged",
-    "prepublish": "yarn build:js"
+    "prepublishOnly": "yarn build:js"
   },
   "repository": {
     "type": "git",
