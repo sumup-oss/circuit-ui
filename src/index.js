@@ -165,3 +165,9 @@ const theme = {
 };
 
 export { theme };
+
+export {
+  globalStyles as injectGlobalStyles,
+  styleHelpers,
+  constants as styleConstants
+} from './styles';
