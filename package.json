@@ -1,7 +1,7 @@
 {
   "name": "@sumup/circuit-ui",
   "sideEffects": false,
-  "version": "0.0.1",
+  "version": "0.0.2-canary",
   "description": "SumUp's React UI component library",
   "main": "lib/index.js",
   "module": "lib/es/index.js",
@@ -37,7 +37,8 @@
     "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepublish": "yarn build:js"
   },
   "repository": {
     "type": "git",
