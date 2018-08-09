@@ -19,6 +19,13 @@ import { normalizeAmount, isValidAmount } from './components/CurrencyInput';
 
 import { circuit } from './themes';
 
+export {
+  id as uniqueId,
+  numbers as numbersUtils,
+  currency as currencyUtils,
+  sharedPropTypes
+} from './util';
+
 const cardNumberUtils = {
   isValidCardNumber,
   isAcceptedCardScheme,
