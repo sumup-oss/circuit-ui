@@ -75,6 +75,15 @@ describe('Popover', () => {
     expect(onReferenceClickClose).toHaveBeenCalledTimes(1);
   });
 
+  it('should not render <Reference> component when referenceElement is passed', () => {
+    const dummyElement = document.createElement('div');
+    const actual = shallow(
+      <Popover isOpen {...defaultProps} referenceElement={dummyElement} />
+    );
+    expect(actual.find('Reference')).toHaveLength(0);
+    expect(actual.find('Popper').prop('referenceElement')).toBe(dummyElement);
+  });
+
   /**
    * Accessibility tests.
    */
