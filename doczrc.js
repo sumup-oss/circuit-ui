@@ -3,7 +3,6 @@ import { circuit as theme } from './themes';
 
 export default {
   dest: './dist',
-  base: '/circuit-ui/',
   plugins: [babel()],
   modifyBabelRc: config => config,
   hashRouter: true,
