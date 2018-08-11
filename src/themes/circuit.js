@@ -207,7 +207,7 @@ export const grid = {
   }
 };
 
-const breakpoints = {
+export const breakpoints = {
   untilKilo: '(max-width: 479px)',
   kilo: 480,
   kiloToMega: '(min-width: 480px) and (max-width: 767px)',
