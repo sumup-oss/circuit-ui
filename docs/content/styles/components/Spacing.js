@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
+import Text from '../../../../src/components/Text';
 import { standard } from '../../../../src/themes';
 
 const Box = styled('div')`
@@ -10,10 +11,23 @@ const Box = styled('div')`
     height: ${theme.spacings[spacingName]};
     border-radius: ${theme.borderRadius.kilo};
     background-color: ${theme.colors.r300};
-    display: block;
     margin-right: ${theme.spacings.mega};
-    margin-bottom: ${theme.spacings.tera};
-    position: relative;
+  `};
+`;
+
+const Wrapper = styled('div')`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    margin-bottom: ${theme.spacings.mega};
+  `};
+`;
+
+const SpacingSize = styled('span')`
+  ${({ theme }) => css`
+    color: ${theme.colors.n500};
+  `};
+`;
 
     &:before {
       content: '${spacingName}';
@@ -27,7 +41,17 @@ const Box = styled('div')`
 
 const Spacing = ({ spacingName }) => (
   <ThemeProvider theme={standard}>
-    <Box spacingName={spacingName} />
+    <Wrapper>
+      <Box spacingName={spacingName} />
+      <div>
+        <Text element="span">{spacingName}</Text>
+        <SpacingSize>
+          <SpacingName size={Text.KILO} element="span">
+            {standard.spacings[spacingName]}
+          </SpacingName>
+        </SpacingSize>
+      </div>
+    </Wrapper>
   </ThemeProvider>
 );
 

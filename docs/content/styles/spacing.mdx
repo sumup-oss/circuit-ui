@@ -19,6 +19,24 @@ You can refer to a spacing from the theme using `theme.spacings.<COLOR_NAME>`.
 <Spacing spacingName="exa"/>
 <Spacing spacingName="zetta"/>
 
+## Usage in code
+
+```javascript
+import styled, { css } from 'react-emotion';
+
+const Box = styled('div')`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.kilo};
+    margin-bottom: ${theme.spacings.mega};
+  `};
+`;
+```
+
+**Tip:** If you get an error like "Cannot read property
+"spacings" of undefined", be sure you have correctly
+configured your theme at the root. Read the
+[Getting started](/getting-started/developers#configuring-the-theme) guide for more.
+
 ## Best practices
 
 **Do use spacings for:**
