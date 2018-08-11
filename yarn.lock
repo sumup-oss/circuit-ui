@@ -5470,83 +5470,6 @@ docz-core@^0.9.2:
     ws "^6.0.0"
     yargs "^12.0.1"
 
-docz-core@^0.9.6:
-  version "0.9.6"
-  resolved "https://registry.yarnpkg.com/docz-core/-/docz-core-0.9.6.tgz#4b5b6914f500c00f72a03cb8d078e45e31bea304"
-  dependencies:
-    "@babel/core" "7.0.0-beta.55"
-    "@babel/plugin-syntax-dynamic-import" "^7.0.0-beta.55"
-    "@babel/preset-typescript" "^7.0.0-beta.55"
-    "@babel/runtime" "^7.0.0-beta.55"
-    "@mdx-js/loader" "^0.15.0-2"
-    "@mdx-js/mdx" "^0.15.0-2"
-    "@mdx-js/mdxast" "^0.15.0-2"
-    "@sindresorhus/slugify" "^0.3.0"
-    art-template "^4.12.2"
-    babel-loader "^8.0.0-beta.4"
-    babel-plugin-react-docgen "^2.0.0-rc.1"
-    babel-polyfill "^7.0.0-beta.3"
-    babel-preset-react-app "^4.0.0-next.b2fd8db8"
-    babylon "^6.18.0"
-    chalk "^2.4.1"
-    chokidar "^2.0.4"
-    connect-history-api-fallback "^1.5.0"
-    cpy "^7.0.1"
-    deepmerge "^2.1.1"
-    detect-port "^1.2.3"
-    dotenv "^6.0.0"
-    env-dot-prop "^1.0.2"
-    express "^4.16.3"
-    fast-glob "^2.2.2"
-    file-loader "^1.1.11"
-    find-up "^3.0.0"
-    friendly-errors-webpack-plugin "^1.7.0"
-    fs-extra "^7.0.0"
-    get-pkg-repo "^2.0.0"
-    happypack "^5.0.0"
-    html-webpack-plugin "^3.2.0"
-    humanize-string "^1.0.2"
-    koa "^2.5.2"
-    koa-connect "^2.0.1"
-    koa-mount "^3.0.0"
-    koa-range "^0.3.0"
-    koa-static "^5.0.0"
-    load-cfg "^0.9.4"
-    lodash.get "^4.4.2"
-    prettier "^1.14.0"
-    react-dev-utils "^5.0.1"
-    react-docgen-typescript-loader "^2.1.1"
-    react-hot-loader "4.3.4"
-    rehype-autolink-headings "^2.0.3"
-    rehype-docz "^0.9.4"
-    rehype-slug "^2.0.1"
-    remark-docz "^0.9.4"
-    remark-frontmatter "^1.2.0"
-    remark-parse "^5.0.0"
-    remark-parse-yaml "^0.0.1"
-    remark-slug "^5.0.0"
-    resolve "^1.8.1"
-    signale "^1.2.1"
-    titleize "^1.0.1"
-    to-vfile "^5.0.0"
-    uglifyjs-webpack-plugin "^1.2.7"
-    ulid "^2.3.0"
-    unified "^7.0.0"
-    unist-util-find "^1.0.1"
-    unist-util-is "^2.1.2"
-    unist-util-visit "^1.4.0"
-    url-loader "^1.0.1"
-    webpack "^4.16.3"
-    webpack-chain "^4.8.0"
-    webpack-hot-client "^4.1.1"
-    webpack-manifest-plugin "^2.0.3"
-    webpack-serve "^2.0.2"
-    webpack-serve-overlay "^0.3.0"
-    webpack-serve-waitpage "^1.0.1"
-    webpackbar "^2.6.1"
-    ws "^6.0.0"
-    yargs "^12.0.1"
-
 docz-plugin-babel6@^0.9.2:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/docz-plugin-babel6/-/docz-plugin-babel6-0.9.2.tgz#96dc9ef840049c33741e92da00a2172cc916e407"
@@ -5560,13 +5483,6 @@ docz-plugin-babel6@^0.9.2:
     happypack "^5.0.0"
     react-docgen-typescript-loader "^2.1.1"
     ts-loader "^4.4.2"
-
-docz-plugin-svgr@^0.9.6:
-  version "0.9.6"
-  resolved "https://registry.yarnpkg.com/docz-plugin-svgr/-/docz-plugin-svgr-0.9.6.tgz#5830c6b2db1a0d339e25dd49d4ba2ee60f8b811c"
-  dependencies:
-    "@svgr/webpack" "^2.1.1"
-    docz-core "^0.9.6"
 
 docz-theme-default@^0.9.2:
   version "0.9.2"
@@ -9020,14 +8936,6 @@ load-cfg@^0.9.0:
     esm "^3.0.72"
     find-up "^3.0.0"
 
-load-cfg@^0.9.4:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/load-cfg/-/load-cfg-0.9.4.tgz#f3b481074a6b80a1a8a3aef9de2edf327579449a"
-  dependencies:
-    deepmerge "^2.1.1"
-    esm "^3.0.72"
-    find-up "^3.0.0"
-
 load-json-file@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"
@@ -12118,18 +12026,6 @@ rehype-docz@^0.9.0:
     strip-indent "^2.0.0"
     unist-util-is "^2.1.2"
 
-rehype-docz@^0.9.4:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/rehype-docz/-/rehype-docz-0.9.4.tgz#a66421d98da91d6244f086a1be13dd991b1e3d92"
-  dependencies:
-    babel-traverse "^6.26.0"
-    babylon "^6.18.0"
-    hast-util-to-string "^1.0.1"
-    prettier "^1.14.0"
-    signale "^1.2.1"
-    strip-indent "^2.0.0"
-    unist-util-is "^2.1.2"
-
 rehype-slug@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/rehype-slug/-/rehype-slug-2.0.1.tgz#8c1809ea1eb513b231f721cae17bd1ce9329e373"
@@ -12147,13 +12043,6 @@ relateurl@0.2.x:
 remark-docz@^0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/remark-docz/-/remark-docz-0.9.0.tgz#8a4b89e92cce24c897b9e0065d02e86f767deeeb"
-  dependencies:
-    unist-util-remove "^1.0.1"
-    unist-util-visit "^1.4.0"
-
-remark-docz@^0.9.4:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/remark-docz/-/remark-docz-0.9.4.tgz#1290f07c7202a250ce0c3ae2b3f4fc7286b7a21e"
   dependencies:
     unist-util-remove "^1.0.1"
     unist-util-visit "^1.4.0"
