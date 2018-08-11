@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually } from 'polished';
@@ -20,10 +21,12 @@ const baseStyles = ({ theme }) => css`
 /**
  * Label component for forms.
  */
-const Label = styled('label')`
+const StyledLabel = styled('label')`
   ${baseStyles};
   ${visuallyHiddenStyles};
 `;
+
+const Label = props => <StyledLabel {...props} />;
 
 Label.propTypes = {
   /**
@@ -32,6 +35,8 @@ Label.propTypes = {
   htmlFor: PropTypes.string.isRequired,
   visuallyHidden: PropTypes.bool
 };
+
+StyledLabel.propTypes = Label.propTypes;
 
 Label.defaultProps = {
   visuallyHidden: false

@@ -25,6 +25,10 @@ import Playground from '../../utils/Playground';
   </Fragment>
 </Playground>
 
+### Props
+
+> Can't render prop tables for this component because it's exported with `withTheme`.
+
 ### Best practices
 - Use different shadows.
 
@@ -62,6 +66,8 @@ import Playground from '../../utils/Playground';
   <Label htmlFor="name">Label</Label>
 </Playground>
 
+<PropTable component={Label}/>
+
 ## Checkbox
 
 <Playground>
@@ -98,10 +104,10 @@ import Playground from '../../utils/Playground';
 #### Disabled
 <Playground>
   <Fragment>
-    <Checkbox name="fruit" value="apples" id="apples" disabled checked>
+    <Checkbox name="fruit" value="apples" id="apples" disabled checked onToggle={() => {}}>
       <Label htmlFor="apples">Apples</Label>
     </Checkbox>
-    <Checkbox name="fruit" value="bananas" id="bananas" disabled>
+    <Checkbox name="fruit" value="bananas" id="bananas" disabled onToggle={() => {}}>
       <Label htmlFor="bananas">Bananas</Label>
     </Checkbox>
   </Fragment>
@@ -113,10 +119,10 @@ in the context of a form.
 
 <Playground>
   <Fragment>
-    <RadioButton name="fruit" value="true" id="pineapples" checked>
+    <RadioButton name="fruit" value="true" id="pineapples" checked onToggle={() => {}}>
       <Label htmlFor="pineapples">Pineapples</Label>
     </RadioButton>
-    <RadioButton name="fruit" value="bananas" id="bananas">
+    <RadioButton name="fruit" value="bananas" id="bananas" onToggle={() => {}}>
       <Label htmlFor="bananas">Bananas</Label>
     </RadioButton>
   </Fragment>
@@ -132,7 +138,7 @@ in the context of a form.
 ## Select
 
 <Playground>
-  <Select options = {[
+  <Select onChange={() => {}} options={[
     {
       label: "Option 1",
       value: 1
