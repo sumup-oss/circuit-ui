@@ -6,10 +6,11 @@ menu: Components
 
 import { Fragment } from 'react';
 import Input from '../../../src/components/Input/Input';
-import Select from '../../../src/components/Select/Select';
 import Label from '../../../src/components/Label/Label';
 import Checkbox from '../../../src/components/Checkbox/Checkbox';
 import RadioButton from '../../../src/components/RadioButton/RadioButton';
+import Select from '../../../src/components/Select/Select';
+import TextArea from '../../../src/components/TextArea/TextArea';
 import PropTable from '../../utils/PropTable';
 import Playground from '../../utils/Playground';
 
@@ -43,6 +44,16 @@ import Playground from '../../utils/Playground';
 #### Optional input
 <Playground>
   <Input name="input" id="input" optional />
+</Playground>
+
+#### Invalid input
+<Playground>
+  <Input name="input" id="input" invalid placeholder="I am not valid!" />
+</Playground>
+
+#### Warning input
+<Playground>
+  <Input name="input" id="input" hasWarning placeholder="I am warning you." />
 </Playground>
 
 ## Label
@@ -97,6 +108,9 @@ import Playground from '../../utils/Playground';
 </Playground>
 
 ## Radio button
+Radio buttons are used to distinguish between mutually exlusive choices
+in the context of a form.
+
 <Playground>
   <Fragment>
     <RadioButton name="fruit" value="true" id="pineapples" checked>
@@ -109,34 +123,29 @@ import Playground from '../../utils/Playground';
 </Playground>
 
 ### Best practices
-- Use different shadows.
+- Radio button choices should represent mutually exclusive options.
 
 ### Usage guidelines
-- Every card should be a logical combination of its contents.
-
-### Component variations
+- Do not use radio butons for "yes/no" or "on/off" decisions. Instead use
+  the [Toggle](/components/toggle).
 
 ## Select
 
 <Playground>
-  <Fragment>
-<Select options = {
-	[
-  {
-    label: "Option 1",
-    value: 1
-  },
-  {
-    label: "Option 2",
-    value: 2
-  },
-  {
-    label: "Option 3",
-    value: 3
-  }
-]
-} />
-  </Fragment>
+  <Select options = {[
+    {
+      label: "Option 1",
+      value: 1
+    },
+    {
+      label: "Option 2",
+      value: 2
+    },
+    {
+      label: "Option 3",
+      value: 3
+    }
+  ]} />
 </Playground>
 
 ### Best practices
@@ -149,10 +158,15 @@ import Playground from '../../utils/Playground';
 
 ## Textarea
 
+<Playground>
+  <TextArea value="Howdy from the textarea"/>
+</Playground>
+
 ### Best practices
-- Use different shadows.
 
 ### Usage guidelines
-- Every card should be a logical combination of its contents.
 
 ### Component variations
+
+The textarea component can take all the same variations as the Input component,
+namely being `optional`, `disabled`, `invalid`, or `showWarning`.
