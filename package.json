@@ -23,7 +23,7 @@
     "build:stylesheet": "mkdir -p dist && BABEL_ENV=static node build/stylesheet > dist/circuit-ui.css",
     "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
-    "deploy": "rm -rf ./dist && mkdir dist && cp ./src/CNAME ./dist/CNAME && yarn run docz:build && yarn build && gh-pages -d dist",
+    "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && gh-pages -d dist",
     "precommit": "lint-staged",
     "docz:dev": "docz dev",
     "docz:build": "docz build"
