@@ -11,19 +11,19 @@ Please find below a proposal for the Circuit UI v1.0 roadmap.
 
 ### Component APIs
 
-- **`<Input>` and related components props.** Today we have a number
-  of props like `invalid`, `valid`, `showValid`, and `hasWarning`. Let's normalize
-  them, perhaps as such:
-    - valid
+- **[Input](/components/forms#input), [TextArea](/components/forms#textarea).**
+  Today we have a number of props like `invalid`, `valid`, `showValid`, and
+  `hasWarning`. Let's normalize them, perhaps as such:
+    - valid (how to handle making "validness" visible?)
     - invalid
     - warning
-- **`<Toggle>` API.** It currently accepts an `onToggle` prop and
+- **Toggle.** It currently accepts an `onToggle` prop and
   then passes it on as an `onClick` prop to the underlying element. Let's
   make these the same and standardize on `onClick`.
 
 ### Conventions
 
-- Always use the same name for the components props as the underlying values.
-  For example, always use `onClick` when that's what's getting passed to
-  underlying components, rather than specialized names like `onSelect` or
-  `onToggle`.
+- **Always use the same name for the components props as the standard React props
+  or DOM props.** For example, always use `onClick` when that's what's getting
+  passed to underlying components, rather than specialized names like
+  `onSelect` or `onToggle`.
