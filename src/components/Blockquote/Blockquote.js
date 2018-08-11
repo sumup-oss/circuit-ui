@@ -27,11 +27,14 @@ const StyledText = styled(Text)`
 /**
  * Indented and italicised text to denote a quotation.
  */
-const Blockquote = ({ children, ...props }) => (
+const Quote = ({ children, ...props }) => (
   <StyledText {...props} element="blockquote" italic>
     {children}
   </StyledText>
 );
+
+// Satisfy react docgen
+const Blockquote = props => <Quote {...props} />;
 
 Blockquote.KILO = Text.KILO;
 Blockquote.MEGA = Text.MEGA;
@@ -47,6 +50,8 @@ Blockquote.propTypes = {
    */
   size: PropTypes.oneOf([Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA])
 };
+
+Quote.propTypes = Blockquote.propTypes;
 
 Blockquote.defaultProps = {
   size: Blockquote.KILO
