@@ -11,15 +11,69 @@ Please find below a proposal for the Circuit UI v1.0 roadmap.
 
 ### Component APIs
 
-- **[Input](/components/forms#input), [TextArea](/components/forms#textarea).**
-  Today we have a number of props like `invalid`, `valid`, `showValid`, and
-  `hasWarning`. Let's normalize them, perhaps as such:
-    - valid (how to handle making "validness" visible?)
-    - invalid
-    - warning
-- **Toggle.** It currently accepts an `onToggle` prop and
-  then passes it on as an `onClick` prop to the underlying element. Let's
-  make these the same and standardize on `onClick`.
+- **[Input](/components/forms#input), [TextArea](/components/forms#textarea)**
+  - Rename props:
+    - `valid`
+    - showValid -> nothing (how to handle making "validness" visible?)
+    - `invalid`
+    - hasWarning -> `warning`
+- **Toggle**
+  - Rename `onToggle` prop to `onClick` to be consistent with underlying React API.
+- **Calendar, RangePicker, SingleDayPicker, CalendarTag, CalendarTagTwoStep**
+  - Rename component to `DatePicker` and expose it as a single component from Circuit.
+  - Change API to allow consumer to specify an `inputMode` ("range" or "single") and
+    an `inputElement` ("input" or "tag").
+  - Rename `onDatesChange` to `onChangeDates`.
+  - Example:
+
+```javascript
+<DatePicker
+  startDate={startDate}
+  startDateId="your_unique_start_date_id"
+  endDate={endDate}
+  endDateId="your_unique_end_date_id"
+  onDatesChange={fn}
+  focusedInput={fn}
+  onFocusChange={fn}
+  showClearDates
+  inputMode={DatePicker.RANGE || DatePicker.SINGLE}
+  inputElement={DatePicker.INPUT || DatePicker.TAG}
+/>
+```
+- **InlineNotification**
+  - Rename to `Note`? Much shorter and seems more accurate.
+- **Spacing**
+  - Enable used to specify the location _and_ size of the spacing.
+
+### Components to remove
+
+- **Picture**
+  - Appears to duplicate `Image`.
+- **SvgButton**
+  - Any special behavior needed to show SVGs should be handled as part of the
+    [Button](/components/button').
+- **InfoIcon**
+  - Remove this one icon in favor of using icons from the React wrapper of
+    feathericons?
+- **InlineElements**
+  - Doesn't work correctly. If it did, could belong in a separate
+    `circuit-ui-layout` project for consumer apps? Or we go in the opposite
+    direction and even expose _templates_ in Circuit.
+- **NotificationBanner, NotificationList**
+  - Take the current `Message` component and rename it to `Notification`
+    and allow the consumer to specify whether it should be full-width or not?
+- **CardSchemes, PaymentMethodIcon**
+  - What about in a separate `cardschemes-svgs` package?
+
+### Components to make private
+- **MaskedInput**
+  - Doesn't seem to belong in a design system, at least not exposed.
+- **Spinner**
+  - Should this be exposed? Or is it just used inside the Button and has no
+    other place in the UI?
+
+### Components to add
+- **Add feathericons as dependency?**
 
 ### Conventions
 
@@ -27,3 +81,5 @@ Please find below a proposal for the Circuit UI v1.0 roadmap.
   or DOM props.** For example, always use `onClick` when that's what's getting
   passed to underlying components, rather than specialized names like
   `onSelect` or `onToggle`.
+- **Always use `onVerbNoun` instead of `onNounVerb` when defining callbacks.**
+  For example, do not use `onDatesChange` but rather `onChangeDates`.
