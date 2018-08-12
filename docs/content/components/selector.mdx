@@ -1,0 +1,28 @@
+---
+name: Selector
+route: /components/selector
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import Selector from '../../../src/components/Selector/Selector';
+import PropTable from '../../utils/PropTable';
+import { Wrapper } from '../../utils/Wrapper';
+
+# Selector
+
+<Playground wrapper={Wrapper}>
+  <div style={{ display: 'flex' }}>
+    <Selector selected style={{ width: 'calc(50% - 4px)', marginRight: '12px' }}>
+      Hey
+    </Selector>
+    <Selector style={{ width: 'calc(50% - 4px)' }}>
+      Hey
+    </Selector>
+  </div>
+</Playground>
+
+## Best practices
+
+## Usage guidelines
