@@ -10,54 +10,77 @@ import Swatch from './components/Swatch';
 
 You can refer to a color from the theme using `theme.colors.<COLOR_NAME>`.
 
-## Primary colors
+## Colors
+
+### Primary colors
 <Swatch colorName="p100"/>
 <Swatch colorName="p300"/>
 <Swatch colorName="p500"/>
 <Swatch colorName="p700"/>
 <Swatch colorName="p900"/>
 
-## Neutrals
+### Neutrals
 <Swatch colorName="n100"/>
 <Swatch colorName="n300"/>
 <Swatch colorName="n500"/>
 <Swatch colorName="n700"/>
 <Swatch colorName="n900"/>
 
-## Blues
+### Blues
 <Swatch colorName="b100"/>
 <Swatch colorName="b300"/>
 <Swatch colorName="b500"/>
 <Swatch colorName="b700"/>
 <Swatch colorName="b900"/>
 
-## Greens
+### Greens
 <Swatch colorName="g100"/>
 <Swatch colorName="g300"/>
 <Swatch colorName="g500"/>
 <Swatch colorName="g700"/>
 <Swatch colorName="g900"/>
 
-## Yellows
+### Yellows
 <Swatch colorName="y100"/>
 <Swatch colorName="y300"/>
 <Swatch colorName="y500"/>
 <Swatch colorName="y700"/>
 <Swatch colorName="y900"/>
 
-## Reds
+### Reds
 <Swatch colorName="r100"/>
 <Swatch colorName="r300"/>
 <Swatch colorName="r500"/>
 <Swatch colorName="r700"/>
 <Swatch colorName="r900"/>
 
-## Application colors
+### Application colors
 <Swatch colorName="bodyBg"/>
 <Swatch colorName="bodyColor"/>
 <Swatch colorName="shadow"/>
 
-## Semantic colors
+### Semantic colors
 <Swatch colorName="danger"/>
 <Swatch colorName="success"/>
 <Swatch colorName="warning"/>
+
+## Usage in code
+
+```javascript
+import styled, { css } from 'react-emotion';
+
+const Box = styled('div')`
+  ${({ theme }) => css`
+    background-color: ${theme.colors.n100};
+    color: ${theme.colors.success};
+  `};
+`;
+```
+
+## Best practices for using color
+
+* Don't refer to hex values in your code (e.g. `#DAEAFF`) but rather use the
+  colors via the theme (e.g. `theme.colors.p100).
+* When referring to a color that should be treated as _primary_ (such as a
+  button or a link), be sure to use the p-family of colors rather than
+  the b-family of colors.
