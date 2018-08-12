@@ -25,7 +25,6 @@ const Col = styled(OriginalCol)`
 
 const Row = styled(OriginalRow)`
   ${({ theme }) => css`
-    background-color: ${theme.colors.b500};
     color: ${theme.colors.white};
   `};
 `;
