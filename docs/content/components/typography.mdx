@@ -1,0 +1,65 @@
+---
+name: Typography
+route: /components/typography
+menu: Components
+---
+
+import { Playground } from 'docz'
+
+import { Fragment } from 'react';
+import Text from '../../../src/components/Text/Text';
+import Heading from '../../../src/components/Heading/Heading';
+import Subheading from '../../../src/components/Subheading/SubHeading';
+
+import PropTable from '../../utils/PropTable';
+import {Wrapper} from '../../utils/Wrapper';
+
+# Typography
+
+## Components
+
+### Headings
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Heading element="h3" size={Heading.KILO}>Heading</Heading>
+    <Heading element="h3" size={Heading.MEGA}>Heading</Heading>
+    <Heading element="h3" size={Heading.GIGA}>Heading</Heading>
+    <Heading element="h3" size={Heading.TERA}>Heading</Heading>
+    <Heading element="h3" size={Heading.PETA}>Heading</Heading>
+    <Heading element="h3" size={Heading.EXA}>Heading</Heading>
+    <Heading element="h3" size={Heading.ZETTA}>Heading</Heading>
+  </Fragment>
+</Playground>
+
+<PropTable component={Heading}/>
+
+### Subheadings
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Subheading element="h3" size={Subheading.KILO}>Subheading</Subheading>
+    <Subheading element="h3" size={Subheading.MEGA}>Subheading</Subheading>
+  </Fragment>
+</Playground>
+
+<PropTable component={Subheading}/>
+
+
+### Text
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Text>Text</Text>
+    <Text bold size={Text.KILO}>Text</Text>
+    <Text italic size={Text.KILO}>Text</Text>
+    <Text element="span" size={Text.MEGA}>Text</Text>
+  </Fragment>
+</Playground>
+
+<PropTable component={Text}/>
+
+
+## Best practices
+
+## Usage guidelines
