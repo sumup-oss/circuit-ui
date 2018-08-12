@@ -1,26 +1,84 @@
 ---
-name: Theming
-route: /styles/theming
+name: Theme reference
+route: /styles/theme-reference
 menu: Styles
 ---
 
-# Theming
+import IconSize from './components/IconSize';
+import BorderRadius from './components/BorderRadius';
 
-A theme is comprised of the following elements:
-
-- Colors
-- Spacings
-- Icon sizes
-- Border radius
-- Border width
-- Typography (font size and line height pairings)
-- Font stack
-- Font weight
-- Grid settings
-- Breakpoints
-- Transitions
-- Z-indicies
+# Theme reference
 
 In order to define a new theme, you should make a copy of the [default theme](https://github.com/sumup/circuit-ui/blob/master/src/themes/default.js).
 
 Wondering how to access the theme from your components? Read [Getting started for Developers](/getting-started/developers).
+
+## Colors
+
+`theme.colors.<COLOR_NAME>`
+
+Refer to the [Colors](/styles/colors) documentation.
+
+## Spacings
+
+`theme.spacings.<SIZE_NAME>`
+
+Refer to the [Spacing](/styles/spacing) documentation.
+
+## Icon sizes
+
+`theme.iconSizes.<SIZE_NAME>`
+
+Our icon sizes come in `byte`, `kilo`, `mega`, and `giga`.
+
+<IconSize size="byte"/>
+<IconSize size="kilo"/>
+<IconSize size="mega"/>
+<IconSize size="giga"/>
+
+## Border radius
+
+`theme.borderRadius.<SIZE_NAME>`
+
+Our border radii come in `kilo`, `mega`, and `giga`.
+
+<BorderRadius size="kilo"/>
+<BorderRadius size="mega"/>
+<BorderRadius size="giga"/>
+
+## Border width
+
+`theme.borderWidth.<SIZE_NAME>`
+
+## Typography
+
+`theme.typography.<TYPE_ELEMENT>.<SIZE_NAME>.[fontSize|lineHeight]`
+
+## Font stack
+
+`theme.fontStack`
+
+## Font weight
+
+`theme.fontWeight`
+
+## Grid
+
+`theme.grid.<BREAKPOINT>.[priority|breakpoint|cols|maxWidth|gutter]`
+
+## Breakpoints
+
+`theme.breakpoints`
+
+## Media queries
+
+`theme.mq.<BREAKPOINT>`
+
+## Transitions
+
+`theme.transitions.[default]`
+
+## Z-index
+
+`theme.zIndex.[default|absolute|popover|select|tooltip|modal]`
+
