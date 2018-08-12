@@ -16,32 +16,32 @@ component guidelines section.
 
 ## Headings
 
-<Type size={Heading.ZETTA} component={Heading}/>
-<Type size={Heading.EXA} component={Heading}/>
-<Type size={Heading.PETA} component={Heading}/>
-<Type size={Heading.TERA} component={Heading}/>
-<Type size={Heading.GIGA} component={Heading}/>
-<Type size={Heading.MEGA} component={Heading}/>
-<Type size={Heading.KILO} component={Heading}/>
+<Type size={Heading.ZETTA} component={Heading} name="headings"/>
+<Type size={Heading.EXA} component={Heading} name="headings"/>
+<Type size={Heading.PETA} component={Heading} name="headings"/>
+<Type size={Heading.TERA} component={Heading} name="headings"/>
+<Type size={Heading.GIGA} component={Heading} name="headings"/>
+<Type size={Heading.MEGA} component={Heading} name="headings"/>
+<Type size={Heading.KILO} component={Heading} name="headings"/>
 
 ## Subheading
 
-<Type size="mega" component={Subheading}/>
-<Type size="kilo" component={Subheading}/>
+<Type size="mega" component={Subheading} name="subHeadings"/>
+<Type size="kilo" component={Subheading} name="subHeadings"/>
 
 ## Text
 
-<Type size={Text.GIGA} component={Text}/>
-<Type size={Text.MEGA} component={Text}/>
-<Type size={Text.KILO} component={Text}/>
+<Type size={Text.GIGA} component={Text} name="text"/>
+<Type size={Text.MEGA} component={Text} name="text"/>
+<Type size={Text.KILO} component={Text} name="text"/>
 
 ## Font weights
 
 Circuit has two font weights, regular and bold. You can only toggle the
 boldness of `Text`, but not `Heading` or `Subheading`.
 
-<Type size={Text.MEGA} bold component={Text}>She give me money</Type>
-<Type size={Text.MEGA} component={Text}>When I'm in need</Type>
+<Type size={Text.MEGA} bold component={Text} fontWeight="bold" name="text"/>
+<Type size={Text.MEGA} component={Text} name="text" fontWeight="regular"/>
 
 ## Best practices
 
