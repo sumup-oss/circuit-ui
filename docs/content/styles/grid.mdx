@@ -5,3 +5,33 @@ menu: Styles
 ---
 
 # Grid
+
+import { Playground } from 'docz'
+import { Wrapper } from '../../utils/Wrapper';
+import { Grid, Col, Row } from './components/Grid';
+
+## Static columns
+
+<Playground wrapper={Wrapper}>
+  <Grid>
+    <Row>
+      <Col span="2">Col 2</Col> 
+      <Col span="2">Col 2</Col> 
+      <Col span="2">Col 2</Col> 
+      <Col span="2">Col 2</Col> 
+      <Col span="2">Col 2</Col> 
+      <Col span="2">Col 2</Col> 
+    </Row> 
+    <Row>
+      <Col span="4">Col 4</Col> 
+      <Col span="4">Col 4</Col> 
+      <Col span="4">Col 4</Col> 
+    </Row> 
+  </Grid>  
+</Playground>
+
+## Responsive columns
+
+## Skipping columns
+
+## Responsive skipping
