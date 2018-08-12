@@ -1,0 +1,33 @@
+---
+name: Message
+route: /components/Message
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import Message from '../../../src/components/Message/Message';
+import Heading from '../../../src/components/Heading/Heading';
+import MessageIcon from '../../../src/components/Message/components/Icon/Icon';
+import HelpIcon from '../../../src/components/Message/thumbs-up.svg';
+import PropTable from '../../utils/PropTable';
+import { Wrapper } from '../../utils/Wrapper';
+
+# Message
+
+<Playground wrapper={Wrapper}>
+  <Message>
+    <MessageIcon>
+      <HelpIcon/> 
+    </MessageIcon>
+    <Heading size={Heading.KILO} element="h4" margin={false}>
+      Transaction successfully refunded
+    </Heading>
+  </Message>
+</Playground>
+
+## Best practices
+
+- Always specify the `alt` attribute.
+
+## Usage guidelines
