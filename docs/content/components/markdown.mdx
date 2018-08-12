@@ -1,0 +1,25 @@
+---
+name: Markdown
+route: /components/markdown
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import Markdown from '../../../src/components/Markdown/Markdown';
+import PropTable from '../../utils/PropTable';
+import { Wrapper } from '../../utils/Wrapper';
+
+# Markdown
+
+<Playground wrapper={Wrapper}>
+  <Markdown>
+    **I am bold!**
+  </Markdown>
+</Playground>
+
+<PropTable component={Markdown}/>
+
+## Best practices
+
+## Usage guidelines
