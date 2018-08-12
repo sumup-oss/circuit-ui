@@ -6,12 +6,15 @@ menu: Styles
 
 import IconSize from './components/IconSize';
 import BorderRadius from './components/BorderRadius';
+import BorderWidth from './components/BorderWidth';
 
 # Theme reference
 
-In order to define a new theme, you should make a copy of the [default theme](https://github.com/sumup/circuit-ui/blob/master/src/themes/default.js).
+In order to define a new theme, you should make a copy of the
+[default theme](https://github.com/sumup/circuit-ui/blob/master/src/themes/default.js).
 
-Wondering how to access the theme from your components? Read [Getting started for Developers](/getting-started/developers).
+Wondering how to make the theme accessible to your components? Read
+[Getting started for Developers](/getting-started/developers).
 
 ## Colors
 
@@ -50,35 +53,50 @@ Our border radii come in `kilo`, `mega`, and `giga`.
 
 `theme.borderWidth.<SIZE_NAME>`
 
+<BorderWidth size="kilo"/>
+<BorderWidth size="mega"/>
+
 ## Typography
 
 `theme.typography.<TYPE_ELEMENT>.<SIZE_NAME>.[fontSize|lineHeight]`
+
+Refer to the [Typography](/styles/typography) documentation.
 
 ## Font stack
 
 `theme.fontStack`
 
+Refer to the [Fonts](/styles/fonts) documentation.
+
 ## Font weight
 
 `theme.fontWeight`
+
+Refer to the [Typography](/styles/typography) documentation.
 
 ## Grid
 
 `theme.grid.<BREAKPOINT>.[priority|breakpoint|cols|maxWidth|gutter]`
 
-## Breakpoints
+Refer to the [Grid](/styles/grid) documentation.
 
-`theme.breakpoints`
+## Breakpoints and media queries
 
-## Media queries
+`theme.breakpoints.<BREAKPOINT>`
 
 `theme.mq.<BREAKPOINT>`
+
+Refer to the [Breakpoints and media queries](/styles/media-queries) documentation.
 
 ## Transitions
 
 `theme.transitions.[default]`
 
+For now there is just one transition. In the future when we
+have animations, there may be more :)
+
 ## Z-index
 
 `theme.zIndex.[default|absolute|popover|select|tooltip|modal]`
 
+Z-indices for various components to ensure they stack properly.
