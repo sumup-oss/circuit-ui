@@ -69,10 +69,10 @@ const arrowRightStyles = css`
 `;
 
 const oppositeDirection = {
-  left: 'right',
-  right: 'left',
-  top: 'down',
-  bottom: 'up'
+  [LEFT]: 'right',
+  [RIGHT]: 'left',
+  [TOP]: 'down',
+  [BOTTOM]: 'up'
 };
 
 const arrowStyles = {
@@ -210,12 +210,15 @@ class Popover extends Component {
 
     const popper = isOpen && (
       <Popper
-        {...others}
-        referenceElement={referenceElement}
+        {...{
+          ...others,
+          // Only pass referenceElement if it's truthy
+          ...(referenceElement && { referenceElement })
+        }}
         placement={toPopperPlacement(position, align)}
         modifiers={{ ...popperModifiers, ...modifiers }}
       >
-        {({ ref, style, placement }) =>
+        {({ ref, style }) =>
           isOpen && (
             <PopoverWrapper
               style={style}
@@ -225,7 +228,10 @@ class Popover extends Component {
               <div ref={ref}>
                 {renderPopover()}
                 {!!arrowRenderer &&
-                  arrowRenderer(arrowStyles[oppositeDirection[placement]])}
+                  arrowRenderer(
+                    arrowStyles[oppositeDirection[position]],
+                    oppositeDirection[position]
+                  )}
               </div>
             </PopoverWrapper>
           )
