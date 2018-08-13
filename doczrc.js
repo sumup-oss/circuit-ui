@@ -7,6 +7,7 @@ export default {
   plugins: [babel()],
   modifyBabelRc: config => config,
   indexHtml: 'docs/index.html',
+  hashRouter: true,
   themeConfig: {
     colors: {
       white: theme.colors.white,
