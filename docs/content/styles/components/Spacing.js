@@ -29,13 +29,10 @@ const SpacingSize = styled('span')`
   `};
 `;
 
-    &:before {
-      content: '${spacingName}';
-      pointer-events: all;
-      position: absoute;
-      color: ${theme.colors.black};
-      bottom: -${theme.spacings.giga};
-    }
+const SpacingName = styled(Text)`
+  ${({ theme }) => css`
+    margin-left: ${theme.spacings.kilo};
+    color: ${theme.colors.n500};
   `};
 `;
 
