@@ -1,7 +1,6 @@
 import ExpiryDateInput from './ExpiryDateInput';
 
 export {
-  parseExpiryDate,
   normalizeExpiryDate,
   isCompleteMonth,
   isCompleteYear,
