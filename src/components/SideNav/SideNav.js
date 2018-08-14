@@ -19,13 +19,6 @@ export const MODE = {
   HIDDEN: 'hidden'
 };
 
-const Container = styled(Drawer)`
-  width: 0;
-  width: ${({ condensed }) =>
-    condensed ? COLLAPSED_NAV_WIDTH : FULL_NAV_WIDTH}px;
-  transition: width 0.3s ease-out;
-`;
-
 const getDrawerContentStyles = ({ mode }) => css`
   width: ${mode === MODE.CONDENSED ? COLLAPSED_NAV_WIDTH : FULL_NAV_WIDTH}px;
   overflow: hidden;
@@ -49,6 +42,17 @@ const NavListItem = styled(({ icon, children, ...rest }) => (
     pointer-events: none;
     color: ${({ theme }) => theme.colors.n700};
   }
+`;
+
+const Container = styled(Drawer)`
+  ${({ condensed }) => css`
+    width: 0;
+    width: ${condensed ? COLLAPSED_NAV_WIDTH : FULL_NAV_WIDTH}px;
+    transition: width 0.3s ease-out;
+    ${ListItemText} {
+      ${condensed && 'display: none'};
+    }
+  `};
 `;
 
 const NavList = styled(List)`
