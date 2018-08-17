@@ -35,9 +35,11 @@ const NavListItem = styled(({ icon, children, ...rest }) => (
   </ListItem>
 ))`
   color: white;
+
   &:hover:not([disabled]) {
     background-color: rgba(15, 19, 26, 0.5);
   }
+
   &[disabled] {
     pointer-events: none;
     color: ${({ theme }) => theme.colors.n700};

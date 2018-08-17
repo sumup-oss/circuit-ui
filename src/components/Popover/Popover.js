@@ -19,9 +19,12 @@ import { toPopperPlacement, popperModifiers } from './PopoverService';
 const ReferenceWrapper = styled('div')`
   label: popover__button-wrapper;
   display: inline-block;
+
   &:focus {
     outline: none;
   }
+
+  ${({ referenceWrapperStyles, ...rest }) => referenceWrapperStyles(rest)};
 `;
 
 const basePopoverWrapperStyles = ({ theme }) => css`
@@ -129,8 +132,12 @@ class Popover extends Component {
     usePortal: PropTypes.bool,
     modifiers: PropTypes.shape(),
     arrowRenderer: PropTypes.func,
-    referenceElement: PropTypes.element
-  };
+    referenceWrapperStyles: PropTypes.func,
+    referenceElement: PropTypes.oneOfType([
+      PropTypes.instanceOf(HTMLElement),
+      PropTypes.element
+    ])
+  };)
 
   static defaultProps = {
     isOpen: false,
@@ -142,7 +149,8 @@ class Popover extends Component {
     modifiers: {},
     arrowRenderer: () => null,
     renderReference: () => null,
-    referenceElement: null
+    referenceElement: null,
+    referenceWrapperStyles: () => null
   };
 
   componentDidMount() {
@@ -186,6 +194,7 @@ class Popover extends Component {
       renderPopover,
       renderReference,
       referenceElement,
+      referenceWrapperStyles,
       position,
       align,
       isOpen,
@@ -199,6 +208,7 @@ class Popover extends Component {
       <Reference>
         {({ ref }) => (
           <ReferenceWrapper
+            referenceWrapperStyles={referenceWrapperStyles}
             innerRef={this.receiveButtonRef}
             onClick={this.handleReferenceClick}
           >
