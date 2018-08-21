@@ -129,7 +129,7 @@ class Popover extends Component {
     usePortal: PropTypes.bool,
     modifiers: PropTypes.shape(),
     arrowRenderer: PropTypes.func,
-    referenceElement: PropTypes.instanceOf(HTMLElement)
+    referenceElement: PropTypes.element
   };
 
   static defaultProps = {
