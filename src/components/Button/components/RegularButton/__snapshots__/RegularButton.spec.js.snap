@@ -195,6 +195,10 @@ exports[`RegularButton should have flat button styles 1`] = `
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 0 1px 0 rgba(12,15,20,0.06),0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
+.circuit-0:hover {
+  border-width: 0;
+}
+
 .circuit-0:active:focus,
 .circuit-0:hover:focus {
   border-width: 0;
@@ -277,6 +281,10 @@ exports[`RegularButton should have flat disabled button styles 1`] = `
 .circuit-0:active {
   background-color: #1641AC;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02),0 0 1px 0 rgba(12,15,20,0.06),0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-0:hover {
+  border-width: 0;
 }
 
 .circuit-0:active:focus,

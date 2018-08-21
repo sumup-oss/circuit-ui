@@ -131,6 +131,10 @@ const flatStyles = ({ theme, flat, secondary, ...otherProps }) =>
         0 0 1px 0 rgba(12, 15, 20, 0.06), 0 2px 2px 0 rgba(12, 15, 20, 0.06);
     }
 
+    &:hover {
+      border-width: 0;
+    }
+
     &:active:focus,
     &:hover:focus {
       border-width: 0;
