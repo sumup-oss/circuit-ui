@@ -2,6 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
+import MessageSuccess from '../../message-success.svg';
+import MessageError from '../../message-error.svg';
+import MessageWarning from '../MessageWarning';
+
+const ICON_TYPES = {
+  SUCCESS: 'success',
+  ERROR: 'error',
+  WARNING: 'warning'
+};
+
+const ICON_MAP = {
+  [ICON_TYPES.SUCCESS]: MessageSuccess,
+  [ICON_TYPES.ERROR]: MessageError,
+  [ICON_TYPES.WARNING]: MessageWarning
+};
+
 const baseStyles = ({ theme }) => css`
   label: message__icon;
   display: block;
@@ -17,15 +33,33 @@ const baseStyles = ({ theme }) => css`
  */
 const MessageIconContainer = styled('div')(baseStyles);
 
-const MessageIcon = ({ children }) => (
-  <MessageIconContainer>{children}</MessageIconContainer>
-);
+const MessageIcon = ({ type, children }) => {
+  const Icon = ICON_MAP[type];
+
+  return (
+    <MessageIconContainer>{Icon ? <Icon /> : children}</MessageIconContainer>
+  );
+};
+
+MessageIcon.SUCCESS = ICON_TYPES.SUCCESS;
+MessageIcon.ERROR = ICON_TYPES.ERROR;
+MessageIcon.WARNING = ICON_TYPES.WARNING;
 
 MessageIcon.propTypes = {
   /**
    * Icon
    */
-  children: PropTypes.element.isRequired
+  children: PropTypes.element,
+  type: PropTypes.oneOf([
+    ICON_TYPES.SUCCESS,
+    ICON_TYPES.ERROR,
+    ICON_TYPES.WARNING
+  ])
+};
+
+MessageIcon.defaultProps = {
+  type: null,
+  children: null
 };
 
 /**

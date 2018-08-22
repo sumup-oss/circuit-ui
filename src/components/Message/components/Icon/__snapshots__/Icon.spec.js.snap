@@ -1,5 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MessageIcon should render with custom icon content 1`] = `
+.circuit-0 {
+  display: block;
+  margin-right: 16px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+<div
+  className="circuit-0 circuit-1"
+>
+  <div>
+    Custom content
+  </div>
+</div>
+`;
+
 exports[`MessageIcon should render with default styles 1`] = `
 .circuit-0 {
   display: block;
@@ -17,4 +40,50 @@ exports[`MessageIcon should render with default styles 1`] = `
 <div
   className="circuit-0 circuit-1"
 />
+`;
+
+exports[`MessageIcon should render with error icon 1`] = `
+.circuit-0 {
+  display: block;
+  margin-right: 16px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+<div
+  className="circuit-0 circuit-1"
+>
+  <div>
+    message-error.svg
+  </div>
+</div>
+`;
+
+exports[`MessageIcon should render with warning icon 1`] = `
+.circuit-0 {
+  display: block;
+  margin-right: 16px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+<div
+  className="circuit-0 circuit-1"
+>
+  <div>
+    message-success.svg
+  </div>
+</div>
 `;
