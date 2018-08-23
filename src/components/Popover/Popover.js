@@ -137,7 +137,7 @@ class Popover extends Component {
       PropTypes.instanceOf(HTMLElement),
       PropTypes.element
     ])
-  };)
+  };
 
   static defaultProps = {
     isOpen: false,
