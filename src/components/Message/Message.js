@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const baseStyles = () => css`
   label: message;
@@ -21,7 +22,7 @@ Message.propTypes = {
    * Content to be rendered inside the Message.
    * Supports a special MessageIcon and MessageButton.
    */
-  children: PropTypes.element.isRequired
+  children: childrenPropType
 };
 
 /**

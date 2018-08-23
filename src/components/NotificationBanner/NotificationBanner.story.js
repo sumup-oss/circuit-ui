@@ -7,7 +7,6 @@ import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
 import NotificationBanner from './NotificationBanner';
 import Message, { MessageButton, MessageIcon } from '../Message';
-import ThumbsUpIcon from '../Message/thumbs-up.svg';
 import Markdown from '../Markdown';
 import Heading from '../Heading';
 import Text from '../Text';
@@ -21,9 +20,7 @@ storiesOf(`${GROUPS.COMPONENTS}|NotificationBanner`, module)
       <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}>
         <NotificationBanner>
           <Message>
-            <MessageIcon>
-              <ThumbsUpIcon />
-            </MessageIcon>
+            <MessageIcon type={MessageIcon.SUCCESS} />
             <Markdown
               overrides={{
                 h1: {
@@ -31,13 +28,13 @@ storiesOf(`${GROUPS.COMPONENTS}|NotificationBanner`, module)
                   props: {
                     element: 'h4',
                     size: Heading.KILO,
-                    margin: false
+                    noMargin: true
                   }
                 },
                 p: {
                   component: Text,
                   props: {
-                    margin: false
+                    noMargin: true
                   }
                 }
               }}

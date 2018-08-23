@@ -7,7 +7,6 @@ import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
 import NotificationList from './NotificationList';
 import Message, { MessageButton, MessageIcon } from '../Message';
-import ThumbsUpIcon from '../Message/thumbs-up.svg';
 import Markdown from '../Markdown';
 import Heading from '../Heading';
 import Text from '../Text';
@@ -20,17 +19,13 @@ storiesOf(`${GROUPS.COMPONENTS}|NotificationList`, module)
     withInfo()(() => (
       <NotificationList>
         <Message>
-          <MessageIcon>
-            <ThumbsUpIcon />
-          </MessageIcon>
-          <Heading size={Heading.KILO} element="h4" margin={false}>
+          <MessageIcon type={MessageIcon.SUCCESS} />
+          <Heading size={Heading.KILO} element="h4" noMargin>
             Transaction successfully refunded
           </Heading>
         </Message>
         <Message>
-          <MessageIcon>
-            <ThumbsUpIcon />
-          </MessageIcon>
+          <MessageIcon type={MessageIcon.SUCCESS} />
           <Markdown
             overrides={{
               h1: {
@@ -38,13 +33,13 @@ storiesOf(`${GROUPS.COMPONENTS}|NotificationList`, module)
                 props: {
                   element: 'h4',
                   size: Heading.KILO,
-                  margin: false
+                  noMargin: true
                 }
               },
               p: {
                 component: Text,
                 props: {
-                  margin: false
+                  noMargin: true
                 }
               }
             }}
