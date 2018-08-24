@@ -6,7 +6,8 @@
   "main": "lib/index.js",
   "module": "lib/es/index.js",
   "files": [
-    "lib"
+    "lib",
+    "README.md"
   ],
   "scripts": {
     "coverage:upload": "codecov",
