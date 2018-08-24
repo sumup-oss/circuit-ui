@@ -7,7 +7,7 @@ const { BYTE, KILO, MEGA, GIGA } = sizes;
 
 const listStyles = ({ theme, gutter }) => css`
   margin: 0;
-  padding: ${theme.spacings[gutter]} ${theme.spacings[gutter]} 0;
+  padding: ${theme.spacings[gutter]};
 `;
 
 const List = styled(props => {

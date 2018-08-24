@@ -10,6 +10,8 @@ import {
 } from './components';
 import { childrenPropType } from '../../util/shared-prop-types';
 
+import { disableVisually } from '../../styles/style-helpers';
+
 export const COLLAPSED_NAV_WIDTH = 64;
 export const FULL_NAV_WIDTH = 270;
 
@@ -35,12 +37,13 @@ const NavListItem = styled(({ icon, children, ...rest }) => (
   </ListItem>
 ))`
   color: white;
+
   &:hover:not([disabled]) {
     background-color: rgba(15, 19, 26, 0.5);
   }
+
   &[disabled] {
-    pointer-events: none;
-    color: ${({ theme }) => theme.colors.n700};
+    ${disableVisually()};
   }
 `;
 
