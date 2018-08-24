@@ -22,6 +22,13 @@ exports[`NotificationList should render with default styles 1`] = `
   margin-top: 0;
 }
 
+@media (max-width:767px) {
+  .circuit-2 {
+    max-width: none;
+    width: 100%;
+  }
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-radius: 4px;
