@@ -5,7 +5,6 @@ exports[`Badge rendering color variations should render with danger colors 1`] =
   border-radius: 100px;
   color: #FFFFFF;
   cursor: default;
-  display: inline-block;
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
@@ -28,7 +27,6 @@ exports[`Badge rendering color variations should render with primary colors 1`] 
   border-radius: 100px;
   color: #FFFFFF;
   cursor: default;
-  display: inline-block;
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
@@ -51,7 +49,6 @@ exports[`Badge rendering color variations should render with success colors 1`] 
   border-radius: 100px;
   color: #FFFFFF;
   cursor: default;
-  display: inline-block;
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
@@ -74,7 +71,6 @@ exports[`Badge rendering color variations should render with warning colors 1`] 
   border-radius: 100px;
   color: #FFFFFF;
   cursor: default;
-  display: inline-block;
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
@@ -97,7 +93,6 @@ exports[`Badge should have hover/active styles only when the onClick handler is 
   border-radius: 100px;
   color: #FFFFFF;
   cursor: pointer;
-  display: inline-block;
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
@@ -129,7 +124,6 @@ exports[`Badge should have the correct circle styles 1`] = `
   border-radius: 100px;
   color: #FFFFFF;
   cursor: default;
-  display: inline-block;
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
@@ -166,7 +160,6 @@ exports[`Badge should render with default styles 1`] = `
   border-radius: 100px;
   color: #FFFFFF;
   cursor: default;
-  display: inline-block;
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;

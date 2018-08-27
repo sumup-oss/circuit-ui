@@ -62,7 +62,6 @@ const baseStyles = ({ theme, onClick }) => css`
   border-radius: 100px;
   color: ${theme.colors.white};
   cursor: ${onClick ? 'pointer' : 'default'};
-  display: inline-block;
   padding: 0 ${theme.spacings.byte};
   ${subHeadingKilo({ theme })};
   text-transform: uppercase;
