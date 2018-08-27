@@ -15,5 +15,5 @@ deploy:
   local-dir: dist
   target_branch: gh-pages # default
 before_deploy:
- - yarn 
+ - yarn install
  - yarn run docz:build
