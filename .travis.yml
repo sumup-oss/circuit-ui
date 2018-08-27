@@ -11,8 +11,8 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
-    branch: master
+    branch: bugfix/travis-docz-build
   local-dir: dist
   target_branch: gh-pages # default
 before_deploy:
- - yarn run docz build
+ - yarn run docz:build
