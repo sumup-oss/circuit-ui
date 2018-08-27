@@ -1,9 +1,3 @@
----
-name: Fonts
-route: /styles/fonts
-menu: Styles
----
-
 # Fonts
 
 ## Defining the font stack

@@ -1,5 +1,4 @@
 module.exports = {
-  testURL: 'http://localhost',
   coverageDirectory: './__coverage__',
   rootDir: '.',
   roots: ['src'],
