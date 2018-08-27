@@ -1,0 +1,75 @@
+---
+name: Inline notification
+route: /components/inline-notification
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import Card from '../../../src/components/Card/Card';
+import InlineNotification from '../../../src/components/InlineNotification/InlineNotification';
+import PropTable from '../../utils/PropTable';
+import { Wrapper } from '../../utils/Wrapper';
+
+# Inline notification
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Card>
+      <InlineNotification type={InlineNotification.SUCCESS}>
+        Lookin' good
+      </InlineNotification>
+    </Card>
+  </Fragment>
+</Playground>
+
+## Variations
+
+### Color variants
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Card>
+      <InlineNotification type={InlineNotification.SUCCESS}>
+        Lookin' good
+      </InlineNotification>
+    </Card>
+  </Fragment>
+</Playground>
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Card>
+      <InlineNotification type={InlineNotification.WARNING}>
+        Lookin' good
+      </InlineNotification>
+    </Card>
+  </Fragment>
+</Playground>
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Card>
+      <InlineNotification type={InlineNotification.DANGER}>
+        Lookin' good
+      </InlineNotification>
+    </Card>
+  </Fragment>
+</Playground>
+
+### Size variants
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Card size={Card.GIGA}>
+      <InlineNotification size={Card.GIGA} type={InlineNotification.DANGER}>
+        Lookin' good
+      </InlineNotification>
+    </Card>
+  </Fragment>
+</Playground>
+
+## Best practices
+
+## Usage guidelines
+

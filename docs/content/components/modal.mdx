@@ -1,0 +1,112 @@
+---
+name: Modal
+route: /components/modal
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import { ModalWrapper, ModalHeader, ModalFooter } from '../../../src/components/Modal';
+import Text from '../../../src/components/Text';
+import Button from '../../../src/components/Button';
+import PropTable from '../../utils/PropTable';
+import { Wrapper } from '../../utils/Wrapper';
+
+# Message
+
+<Playground wrapper={Wrapper}>
+  <ModalWrapper>
+    <ModalHeader onClose={() => {}} title="Export transactions"/>
+    <Text>Are you sure you want to export your transactions?</Text>
+    <ModalFooter><Button primary>Export</Button></ModalFooter>
+  </ModalWrapper>
+</Playground>
+
+`ModalWrapper` This is the wrapper for the body of a modal.
+
+`ModalHeader` This contains the title and the `X` close button.
+
+`ModalFooter` This component right-aligns its content.
+
+## Usage in code
+
+There are a number of ways to use a modal in code. In some codebases, you
+may opt to create a helper higher-order component that complements the
+`ModalConsumer`.
+
+### Using the modal provider and consumer
+
+The benefit of using the modal provider and consumer is that the modal provider
+can be delcared once at the application root, and you do not need to manage
+to open/closed state of the modal yourself.
+
+```javascript
+import React, { Component } from 'react';
+import { ModalProvider, ModalConsumer, ModalWrapper } from '@sumup/circuit-ui';
+
+class MyComponent extends Component {
+  trigger(setModal) {
+    setModal({
+      children: ({ onClose }) => (
+        <ModalWrapper>
+          I am in a modal! 
+        </ModalWrapper> 
+      ) 
+    });
+  }
+
+  render() {
+    return (
+      <ModalProvider>
+        <ModalConsumer>
+          {({ setModal }) => (
+            <Button onClick={() => this.trigger(setModal)}>Trigger modal</Button>
+          )}
+        </ModalConsumer>
+      </ModalProvider>
+    );
+  }
+}
+```
+
+### Embedding the modal in code
+
+If you prefer to embed the code declaratively inside the component, you can
+do it as such:
+
+```javascript
+import React, { Component } from 'react';
+import { Modal } from '@sumup/circuit-ui';
+
+class Page extends Component {
+  constructor() {
+    this.state = { isModalOpen: false };
+  }
+
+  toggleModal = () => {
+    this.setState(state => ({ isModalOpen: !state.isModalOpen }));
+  }
+
+  render() {
+    return (
+      <div>
+        <a href="#" onClick={() => this.toggleModal()}/>
+        {this.state.isModalOpen && (
+          <Modal>
+            <ModalHeader onClose={() => this.toggleModal()} title="Hello"/>
+            The modal is open!
+          </Modal>
+        )}
+      </div>
+    );
+  }
+}
+```
+
+## Best practices
+
+- Be sure to use the `ModalHeader` and `ModalFooter` components to correctly
+  align items inside the modal.
+- All buttons inside a modal should be right-aligned.
+
+## Usage guidelines

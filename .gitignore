@@ -9,6 +9,7 @@ jest-test-results.json
 __coverage__
 dist
 .out
+.docz
 circuit-ui-global.css
 
 # Packages #

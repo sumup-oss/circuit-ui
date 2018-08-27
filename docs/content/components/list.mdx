@@ -1,0 +1,66 @@
+---
+name: List
+route: /components/list
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import List from '../../../src/components/List/List';
+import PropTable from '../../utils/PropTable';
+import { Wrapper } from '../../utils/Wrapper';
+
+# List
+
+<Playground wrapper={Wrapper}>
+  <List ordered size={List.MEGA}>
+    <li> A list</li>
+    <li> A list</li>
+    <li> A list</li>
+  </List>
+</Playground>
+
+## Variants
+
+### Ordered and unordered
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <List unordered>
+      <li> A list</li>
+      <li> A list</li>
+      <li> A list</li>
+    </List>
+    <List ordered>
+      <li> A list</li>
+      <li> A list</li>
+      <li> A list</li>
+    </List>
+  </Fragment>
+</Playground>
+
+### Size
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <List size={List.KILO}>
+      <li> Kilo list</li>
+      <li> Kilo list</li>
+      <li> Kilo list</li>
+    </List>
+    <List size={List.MEGA}>
+      <li> Mega list</li>
+      <li> Mega list</li>
+      <li> Mega list</li>
+    </List>
+    <List size={List.GIGA}>
+      <li> Giga list</li>
+      <li> Giga list</li>
+      <li> Giga list</li>
+    </List>
+  </Fragment>
+</Playground>
+
+## Best practices
+
+## Usage guidelines

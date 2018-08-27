@@ -1,0 +1,52 @@
+---
+name: Tag
+route: /components/tag
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import Tag from '../../../src/components/Tag/Tag';
+import PropTable from '../../utils/PropTable';
+import {Wrapper} from '../../utils/Wrapper';
+
+# Badge
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Tag onRemove={() => {}}>Refunded</Tag>{' '}
+    <Tag onRemove={() => {}} selected>Successful</Tag>
+  </Fragment>
+</Playground>
+
+<PropTable component={Tag} />
+
+## Best practices
+
+## Usage guidelines
+
+## Component variations
+
+### Selected tags
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Tag selected>Successful</Tag>
+  </Fragment>
+</Playground>
+
+### Icon tags
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Tag>Successful</Tag>
+  </Fragment>
+</Playground>
+
+### Removable tags
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <Tag onRemove={() => {}} selected>Successful</Tag>
+  </Fragment>
+</Playground>

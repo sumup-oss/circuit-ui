@@ -1,0 +1,114 @@
+---
+name: Table
+route: /components/table
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import Table from '../../../src/components/Table/Table';
+import PropTable from '../../utils/PropTable';
+import Badge from '../../../src/components/Badge/Badge';
+import { Wrapper } from '../../utils/Wrapper';
+
+# Table
+
+<Playground wrapper={Wrapper}>
+  <Table
+    headers={[
+      { children: 'Name', sortable: true },
+      'Type'
+    ]}
+    rows={[
+      ['Apple', 'Fruit'],
+      ['Broccoli', 'Vegetable'],
+      ['Chickpeas', 'Legume']
+  ]}/>
+</Playground>
+
+<PropTable component={Table}/>
+
+## Usage in code
+
+### Components as rows
+
+While headers and rows can accept strings as children,
+they can also accept objects.
+
+<Playground wrapper={Wrapper}>
+  <Table
+    headers={[
+      'Name',
+      'Type'
+    ]}
+    rows={[
+      ['Apple', { children: <Badge color={Badge.DANGER}>Fruit</Badge> }],
+      ['Broccoli', { children: <Badge color={Badge.SUCCESS}>Vegetable</Badge> }],
+      ['Chickpeas', { children: <Badge color={Badge.WARNING}>Legume</Badge> }]
+  ]}/>
+</Playground>
+
+### Handling row clicks
+
+<Playground wrapper={Wrapper}>
+  <Table
+    onRowClick={i => { console.log('Clicked on row', i) }}
+    headers={[
+      'Name',
+      'Type'
+    ]}
+    rows={[
+      ['Apple', 'Fruit'],
+      ['Broccoli', 'Vegetable'],
+      ['Chickpeas', 'Legume']
+  ]}/>
+</Playground>
+
+### Sorting
+
+#### Default sorting
+
+If the value that you want to sort by can be handled by Javascript's built-in
+sorting function (such as strings, numbers, and dates), you can simply
+provide a machine-readable `sortByValue` for each row that has a corresponding
+`sortable: true` property in the header.
+
+<Playground wrapper={Wrapper}>
+  <Table
+    headers={[
+      { children: 'Name', sortable: true },
+      { children: 'Date added', sortable: true }
+    ]}
+    rows={[
+      [{ children: 'Apple' }, { children: '12/12/18', sortByValue: new Date('12/12/18') }],
+      [{ children: 'Broccoli' }, { children: '12/13/18', sortByValue: new Date('12/13/18') }],
+      [{ children: 'Chickpeas' }, { children: '12/14/18', sortByValue: new Date('12/14/18') }]
+  ]}/>
+</Playground>
+
+#### Custom sorting
+
+To do custom sorting, for instance, locale-sensitive sort, you could
+implement that like this:
+
+<Playground wrapper={Wrapper}>
+  <Table
+    headers={[
+      { children: 'Country', sortable: true }
+    ]}
+    onSortBy={(i, direction, rows) => 'ascending'
+      ? rows.sort((a, b) => a[0].localeCompare(b[0]))
+      : rows.sort((a, b) => b[0].localeCompare(a[0]))
+    }
+    rows={[
+      ['Deutschland'],
+      ['Italien'],
+      ['Liechtenstein'],
+      ['Österreich'],
+      ['Schweiz']
+  ]}/>
+</Playground>
+
+## Best practices
+
+## Usage guidelines
