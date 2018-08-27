@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
-import { standard } from '../../../../src/themes';
+import { circuit } from '../../../../src/themes';
 import { shadowSingle } from '../../../../src/styles/style-helpers';
 import Text from '../../../../src/components/Text';
 
@@ -47,12 +47,12 @@ const ColorWrapper = styled('div')`
 `;
 
 const Swatch = ({ colorName }) => (
-  <ThemeProvider theme={standard}>
+  <ThemeProvider theme={circuit}>
     <ColorWrapper>
       <Color colorName={colorName} />
       <ColorName>
         <ColorHex element="span" size="kilo" noMargin>
-          {standard.colors[colorName]}
+          {circuit.colors[colorName]}
         </ColorHex>
         <Text bold element="span" size="kilo" noMargin>
           {colorName}
