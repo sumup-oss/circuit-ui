@@ -17,5 +17,6 @@ deploy:
   local-dir: dist
   target_branch: gh-pages # default
 before_deploy:
+ - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
  - yarn install
  - yarn run docz:build
