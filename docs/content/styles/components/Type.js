@@ -2,7 +2,7 @@ import React, { Fragment, createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
-import { standard as theme } from '../../../../src/themes';
+import { circuit as theme } from '../../../../src/themes';
 import Text from '../../../../src/components/Text';
 
 const TypePx = styled(Text)`

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withTheme, ThemeProvider } from 'emotion-theming';
-import { standard } from '../../../../src/themes';
+import { circuit } from '../../../../src/themes';
 import Table from '../../../../src/components/Table';
 
 const HEADERS = ['Breakpoint name', 'Query'];
@@ -24,7 +24,7 @@ const TableWrapper = withTheme(({ theme }) => (
 ));
 
 const MediaQueriesTable = () => (
-  <ThemeProvider theme={standard}>
+  <ThemeProvider theme={circuit}>
     <TableWrapper />
   </ThemeProvider>
 );
