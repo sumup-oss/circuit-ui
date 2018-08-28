@@ -27,6 +27,7 @@ const itemContainerBaseStyles = ({ theme, gutter }) => css`
   margin-bottom: ${theme.spacings.bit};
   padding: ${theme.spacings[gutter]};
   transition: background-color ${theme.transitions.default};
+  text-decoration: none;
   border-radius: 4px;
   &:first-child {
     margin-top: 0;
