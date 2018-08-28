@@ -235,7 +235,7 @@ const renderFixComponent = (className, renderFn) =>
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
-const Input = ({
+const StyledInput = ({
   children,
   renderPrefix,
   renderSuffix,
@@ -304,6 +304,8 @@ const Input = ({
     </InputContainer>
   );
 };
+
+const Input = props => <StyledInput {...props} />;
 
 Input.LEFT = directions.LEFT;
 Input.RIGHT = directions.RIGHT;
@@ -380,6 +382,8 @@ Input.propTypes = {
    */
   deepRef: PropTypes.func
 };
+
+StyledInput.propTypes = Input.propTypes;
 
 Input.defaultProps = {
   children: null,

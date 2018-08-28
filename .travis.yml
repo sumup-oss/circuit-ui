@@ -1,7 +1,21 @@
 language: node_js
+sudo: required
+dist: trusty
 node_js:
   "8"
 install:
   yarn
 script:
   yarn test:ci
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
+  local-dir: dist
+  target_branch: gh-pages # default
+before_deploy:
+ - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+ - yarn run docz:build

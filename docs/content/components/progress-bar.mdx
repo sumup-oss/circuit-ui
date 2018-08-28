@@ -1,0 +1,49 @@
+---
+name: Progress bar
+route: /components/progress-bar
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import ProgressBar from '../../../src/components/ProgressBar/ProgressBar';
+import PropTable from '../../utils/PropTable';
+import { Wrapper } from '../../utils/Wrapper';
+
+# Progress bar
+
+<Playground wrapper={Wrapper}>
+  <ProgressBar max={100} value={30} size={ProgressBar.KILO}>
+    30%
+  </ProgressBar>
+</Playground>
+
+## Props
+
+<PropTable component={ProgressBar}/>
+
+## Best practices
+- Use different shadows.
+
+## Usage guidelines
+- Every card should be a logical combination of its contents.
+
+## Component variations
+
+### Sizes
+
+You can use the progress bar in a variety of sizes.
+
+<Playground wrapper={Wrapper}>
+  <Fragment>
+    <ProgressBar max={3} value={1} size={ProgressBar.KILO}>
+      1/3
+    </ProgressBar>
+    <ProgressBar max={3} value={2} size={ProgressBar.MEGA}>
+      2/3
+    </ProgressBar>
+    <ProgressBar max={3} value={3} size={ProgressBar.GIGA}>
+      3/3
+    </ProgressBar>
+  </Fragment>
+</Playground>
