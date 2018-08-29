@@ -13,7 +13,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
-    branch: bugfix/travis-docz-deploy
+    branch: master 
   local-dir: dist
   target_branch: gh-pages # default
 before_deploy:
