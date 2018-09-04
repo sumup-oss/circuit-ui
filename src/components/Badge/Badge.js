@@ -65,7 +65,7 @@ const baseStyles = ({ theme, onClick }) => css`
   display: inline-block;
   padding: 0 ${theme.spacings.byte};
   ${subHeadingKilo({ theme })};
-  font-weight: bold;
+  font-weight: ${theme.fontWeight.bold};
   text-transform: uppercase;
   user-select: none;
 `;
