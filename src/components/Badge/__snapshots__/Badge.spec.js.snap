@@ -9,6 +9,7 @@ exports[`Badge rendering color variations should render with danger colors 1`] =
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
+  font-weight: 700;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -32,6 +33,7 @@ exports[`Badge rendering color variations should render with primary colors 1`] 
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
+  font-weight: 700;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -55,6 +57,7 @@ exports[`Badge rendering color variations should render with success colors 1`] 
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
+  font-weight: 700;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -78,6 +81,7 @@ exports[`Badge rendering color variations should render with warning colors 1`] 
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
+  font-weight: 700;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -101,6 +105,7 @@ exports[`Badge should have hover/active styles only when the onClick handler is 
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
+  font-weight: 700;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -133,6 +138,7 @@ exports[`Badge should have the correct circle styles 1`] = `
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
+  font-weight: 700;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -170,6 +176,7 @@ exports[`Badge should render with default styles 1`] = `
   padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
+  font-weight: 700;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
