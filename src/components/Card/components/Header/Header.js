@@ -29,8 +29,8 @@ const CardHeaderContainer = styled('header')`
   ${noHeadingStyles};
 `;
 
-const CardHeader = ({ onClose, children }) => (
-  <CardHeaderContainer>
+const CardHeader = ({ onClose, children, ...props }) => (
+  <CardHeaderContainer {...props}>
     {children}
     {onClose && <CloseButton onClick={onClose} />}
   </CardHeaderContainer>
