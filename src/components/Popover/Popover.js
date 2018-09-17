@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 import styled, { css } from 'react-emotion';
 import Portal from '../Portal';
+import HTMLElement from '../HtmlElement';
 
 import {
   TOP,
