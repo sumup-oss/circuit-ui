@@ -2,6 +2,7 @@ import { babel } from 'docz-plugin-babel6';
 import { circuit as theme } from './themes';
 
 export default {
+  title: 'Circuit UI',
   dest: './dist',
   base: '/',
   plugins: [babel()],
