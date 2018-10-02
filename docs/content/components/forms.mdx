@@ -136,9 +136,27 @@ in the context of a form.
   the [Toggle](/components/toggle).
 
 ## Select
-
 <Playground>
   <Select onChange={() => {}} options={[
+    {
+      label: "Option 1",
+      value: 1
+    },
+    {
+      label: "Option 2",
+      value: 2
+    },
+    {
+      label: "Option 3",
+      value: 3
+    }
+  ]} />
+</Playground>
+
+### Component variations
+#### Invalid Select
+<Playground>
+  <Select invalid onChange={() => {}} options={[
     {
       label: "Option 1",
       value: 1

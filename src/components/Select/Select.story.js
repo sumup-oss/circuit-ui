@@ -40,4 +40,15 @@ storiesOf(`${GROUPS.FORMS}|Select`, module)
         disabled
       />
     ))
+  )
+  .add(
+    'Invalid Select',
+    withInfo()(() => (
+      <Select
+        options={options}
+        value={2}
+        onChange={action('Option selected')}
+        invalid
+      />
+    ))
   );
