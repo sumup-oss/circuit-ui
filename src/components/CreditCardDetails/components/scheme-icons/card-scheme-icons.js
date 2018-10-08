@@ -22,6 +22,7 @@ import ApplePay from './icons/apple-pay.svg';
 import BancoEstado from './icons/banco-estado.svg';
 import Dankort from './icons/dankort.svg';
 import Nfc from './icons/nfc.svg';
+import UnionPay from './icons/union-pay.svg';
 
 export const iconComponents = {
   amex: Amex,
@@ -44,6 +45,7 @@ export const iconComponents = {
   bancoEstado: BancoEstado,
   dankort: Dankort,
   nfc: Nfc,
+  unionPay: UnionPay,
   default: Unknown
 };
 
