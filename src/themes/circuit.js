@@ -5,6 +5,7 @@ const black = '#0F131A';
 
 const neutrals = {
   n100: '#FAFBFC',
+  n200: '#EEF0F2',
   n300: '#D8DDE1',
   n500: '#9DA7B1',
   n700: '#5C656F',
