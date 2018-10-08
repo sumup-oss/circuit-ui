@@ -44,6 +44,14 @@ const selectBaseStyles = ({ theme }) => css`
   }
 `;
 
+const selectInvalidStyles = ({ theme, invalid, disabled }) =>
+  invalid &&
+  !disabled &&
+  css`
+    label: select--invalid;
+    border-color: ${theme.colors.r300};
+  `;
+
 const iconBaseStyles = ({ theme }) => css`
   label: select__icon;
   fill: ${theme.colors.n700};
@@ -96,6 +104,7 @@ const SelectContainer = styled('div')`
 
 const SelectElement = styled('select')`
   ${selectBaseStyles};
+  ${selectInvalidStyles};
 `;
 
 const Icon = styled(ArrowsIcon)`
@@ -164,6 +173,10 @@ Select.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
+   * Triggers error styles on the component. Important for accessibility.
+   */
+  invalid: PropTypes.bool,
+  /**
    * Currently selected value. Matches the "value" property of
    * the options objects. If value is falsy, Select will render
    * the "placeholder" prop as currently selected.
@@ -187,6 +200,7 @@ Select.defaultProps = {
   children: null,
   options: null,
   disabled: false,
+  invalid: false,
   value: null,
   placeholder: 'Select an option',
   inline: false,

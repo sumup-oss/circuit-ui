@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { boolean } from '@storybook/addon-knobs/react';
+
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
@@ -25,19 +27,13 @@ const options = [
 storiesOf(`${GROUPS.FORMS}|Select`, module)
   .addDecorator(withTests('Select'))
   .add(
-    'Default Select',
-    withInfo()(() => (
-      <Select options={options} onChange={action('Option selected')} />
-    ))
-  )
-  .add(
-    'Disabled Select',
+    'Select',
     withInfo()(() => (
       <Select
         options={options}
-        value={2}
         onChange={action('Option selected')}
-        disabled
+        disabled={boolean('Disabled', false)}
+        invalid={boolean('Invalid', false)}
       />
     ))
   );

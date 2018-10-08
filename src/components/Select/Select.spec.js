@@ -27,6 +27,16 @@ describe('Select', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with invalid styles when passed the invalid prop', () => {
+    const actual = create(<Select {...{ options }} invalid />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should not render with invalid styles when also passed the disabled prop', () => {
+    const actual = create(<Select {...{ options }} invalid disabled />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with inline styles when passed the inline prop', () => {
     const actual = create(<Select {...{ options }} inline />);
     expect(actual).toMatchSnapshot();
