@@ -101,7 +101,7 @@ exports[`Select should render with default styles 1`] = `
   padding: 8px 32px 8px 12px;
   position: relative;
   width: 100%;
-  z-index: 30;
+  z-index: 20;
   font-size: 15px;
   line-height: 24px;
 }
@@ -170,7 +170,7 @@ exports[`Select should render with disabled styles when passed the disabled prop
   padding: 8px 32px 8px 12px;
   position: relative;
   width: 100%;
-  z-index: 30;
+  z-index: 20;
   font-size: 15px;
   line-height: 24px;
 }
@@ -249,7 +249,7 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
   padding: 8px 32px 8px 12px;
   position: relative;
   width: 100%;
-  z-index: 30;
+  z-index: 20;
   font-size: 15px;
   line-height: 24px;
 }
@@ -404,7 +404,7 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   padding: 8px 32px 8px 12px;
   position: relative;
   width: 100%;
-  z-index: 30;
+  z-index: 20;
   font-size: 15px;
   line-height: 24px;
 }

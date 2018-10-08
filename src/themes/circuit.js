@@ -231,8 +231,8 @@ export const zIndex = {
   default: 0,
   absolute: 1,
   drawer: 10,
-  popover: 20,
-  select: 30,
+  select: 20,
+  popover: 30,
   tooltip: 31,
   modal: 1000
 };
