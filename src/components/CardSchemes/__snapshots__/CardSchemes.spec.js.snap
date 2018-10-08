@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CardSchemes should render with default styles 1`] = `
-.circuit-84 {
+.circuit-88 {
   display: block;
   line-height: 0;
   text-align: center;
@@ -20,7 +20,7 @@ exports[`CardSchemes should render with default styles 1`] = `
 }
 
 <ul
-  className="circuit-84 circuit-85"
+  className="circuit-88 circuit-89"
 >
   <li
     className="circuit-2 circuit-3"
@@ -259,6 +259,18 @@ exports[`CardSchemes should render with default styles 1`] = `
     >
       <div>
         nfc.svg
+      </div>
+    </div>
+  </li>
+  <li
+    className="circuit-2 circuit-3"
+  >
+    <div
+      className="circuit-0 circuit-1"
+      size="giga"
+    >
+      <div>
+        union-pay.svg
       </div>
     </div>
   </li>
