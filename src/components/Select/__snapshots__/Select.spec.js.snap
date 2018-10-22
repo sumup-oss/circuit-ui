@@ -15,7 +15,7 @@ exports[`Select should not render with invalid styles when also passed the disab
   padding: 8px 32px 8px 12px;
   position: relative;
   width: 100%;
-  z-index: 30;
+  z-index: 20;
   font-size: 15px;
   line-height: 24px;
 }
@@ -334,7 +334,7 @@ exports[`Select should render with invalid styles when passed the invalid prop 1
   padding: 8px 32px 8px 12px;
   position: relative;
   width: 100%;
-  z-index: 30;
+  z-index: 20;
   font-size: 15px;
   line-height: 24px;
   border-color: #FFAF9F;
