@@ -205,6 +205,13 @@ export const grid = {
     cols: 12,
     maxWidth: '880px',
     gutter: spacings.giga
+  },
+  afterTera: {
+    priority: 5,
+    breakpoint: 'tera',
+    cols: 12,
+    maxWidth: '1200px',
+    gutter: spacings.giga
   }
 };
 
@@ -217,7 +224,8 @@ export const breakpoints = {
   megaToGiga: '(min-width: 768px) and (max-width: 959px)',
   giga: 960,
   gigaToTera: '(min-width: 960px) and (max-width: 1279px)',
-  tera: 1280
+  tera: 1280,
+  afterTera: '(min-width: 1280px)'
 };
 
 export const mq = createMediaQueries(breakpoints);
