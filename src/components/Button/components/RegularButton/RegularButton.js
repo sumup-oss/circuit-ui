@@ -126,9 +126,7 @@ const flatStyles = ({ theme, flat, secondary, ...otherProps }) =>
       0 2px 2px 0 rgba(12, 15, 20, 0.06), 0 4px 4px 0 rgba(12, 15, 20, 0.06);
 
     &:active {
-      background-color: ${theme.colors.p900};
-      box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.02),
-        0 0 1px 0 rgba(12, 15, 20, 0.06), 0 2px 2px 0 rgba(12, 15, 20, 0.06);
+      box-shadow: inset 0 4px 8px 0 rgba(12, 15, 20, 0.3);
     }
 
     &:hover {

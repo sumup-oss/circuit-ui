@@ -111,6 +111,7 @@ export { default as Col } from './components/Col';
 export { default as Spacing } from './components/Spacing';
 
 // Misc
+export { default as Spinner } from './components/Spinner';
 export { default as Badge } from './components/Badge';
 export { default as Card, CardHeader, CardFooter } from './components/Card';
 export { default as Hamburger } from './components/Hamburger';

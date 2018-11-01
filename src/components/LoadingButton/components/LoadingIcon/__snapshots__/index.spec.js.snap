@@ -4,6 +4,9 @@ exports[`LoadingIcon Style tests should have active LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -55,6 +58,9 @@ exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -105,6 +111,9 @@ exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -155,6 +164,9 @@ exports[`LoadingIcon Style tests should have kilo LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -205,6 +217,9 @@ exports[`LoadingIcon Style tests should have mega LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -255,6 +270,9 @@ exports[`LoadingIcon Style tests should have success LoadingIcon styles 1`] = `
 Array [
   .circuit-1 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;

@@ -36,7 +36,10 @@ const darkIconStyles = ({ theme, dark }) =>
 
 const baseSpinStyles = css`
   label: spinner;
-  animation: ${spin} 1s infinite linear;
+  & > path {
+    animation: ${spin} 1s infinite linear;
+    transform-origin: 50% 50%;
+  }
 `;
 
 const SpinnerIcon = styled(SpinnerSvg)`
@@ -51,6 +54,7 @@ const SpinnerIcon = styled(SpinnerSvg)`
 
 const baseContainerStyles = css`
   opacity: 0;
+  max-width: fit-content;
   position: relative;
   transition: opacity 200ms ease-in-out;
 `;

@@ -3,6 +3,9 @@
 exports[`Spinner should render with dark styles 1`] = `
 .circuit-0 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -24,6 +27,9 @@ exports[`Spinner should render with dark styles 1`] = `
 exports[`Spinner should render with default styles 1`] = `
 .circuit-0 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
