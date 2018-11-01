@@ -73,6 +73,9 @@ exports[`LoadingButton Style tests should have active loading styles 1`] = `
 
 .circuit-1 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -199,6 +202,9 @@ exports[`LoadingButton Style tests should have default styles 1`] = `
 
 .circuit-1 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -276,6 +282,9 @@ exports[`LoadingButton Style tests should have isLoading styles 1`] = `
 
 .circuit-1 {
   opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
