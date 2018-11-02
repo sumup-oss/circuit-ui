@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "module": "src/index.js",
   "scripts": {
+    "coverage:upload": "codecov",
     "fix:eslint": "eslint --fix --quiet src/**/**/*.js",
     "fix": "yarn fix:eslint",
     "test": "yarn test:lint-js && yarn test:unit",
@@ -57,6 +58,7 @@
     "babel-plugin-module-resolver": "^3.0.0",
     "babel-plugin-react-docgen": "^2.0.0-rc.1",
     "babel-register": "^6.26.0",
+    "codecov": "^3.1.0",
     "component-playground": "^3.2.0",
     "create-emotion-styled": "^9.2.6",
     "docz": "^0.9.2",

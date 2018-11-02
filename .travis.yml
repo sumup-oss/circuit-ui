@@ -19,3 +19,5 @@ deploy:
 before_deploy:
  - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
  - rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME
+after_success:
+  yarn coverage:upload -t ${CODECOV_TOKEN}
