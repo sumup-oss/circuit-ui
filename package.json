@@ -25,6 +25,7 @@
     "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
+    "release": "release pre development",
     "precommit": "lint-staged",
     "docz:dev": "docz dev",
     "docz:build": "docz build"
@@ -94,6 +95,7 @@
     "react-docgen-annotation-resolver": "^1.0.0",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.2.0",
+    "release": "^4.0.2",
     "storybook-addon-smart-knobs": "^3.2.10",
     "style-loader": "^0.20.1",
     "webpack-merge": "^4.1.1"
