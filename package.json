@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "module": "src/index.js",
   "scripts": {
+    "coverage:upload": "codecov",
     "fix:eslint": "eslint --fix --quiet src/**/**/*.js",
     "fix": "yarn fix:eslint",
     "test": "yarn test:lint-js && yarn test:unit",
