@@ -36,6 +36,12 @@ export default {
       codeBg: theme.colors.n100,
       codeColor: theme.colors.n700,
       preBg: theme.colors.n100
+    },
+    styles: {
+      body: {
+        fontFamily:
+          'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"'
+      }
     }
   },
   modifyBundlerConfig: config => {
