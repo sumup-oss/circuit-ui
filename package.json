@@ -25,7 +25,8 @@
     "build:global-styles": "mkdir -p dist && ./build/global-styles > dist/circuit-ui-global.css",
     "build:copy-global-styles": "cp -f dist/circuit-ui-global.css .storybook",
     "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
-    "release": "release pre development",
+    "release": "release",
+    "release:pre": "release pre development",
     "precommit": "lint-staged",
     "docz:dev": "docz dev",
     "docz:build": "docz build"

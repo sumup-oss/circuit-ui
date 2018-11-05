@@ -10,6 +10,7 @@
 
 - [Getting started](#getting-started)
 - [Installation](#installation)
+- [Releasing](#releasing)
 - [Deployment](#deployment)
 - [Linting and formatting](#linting-and-formatting)
 - [Testing](#testing)
@@ -31,6 +32,14 @@ Here are a few helpful links for getting started with Circuit UI:
 
 ```
 yarn && yarn start
+```
+
+## Releasing
+
+Right now, we are issuing pre-releases.
+
+```
+yarn release
 ```
 
 ## Deployment
