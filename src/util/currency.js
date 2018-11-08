@@ -11,6 +11,7 @@ export const CURRENCY_FORMATS = {
     'et-EE': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'de-AT': { prependSymbol: true, fractionalPrecision: 2, addSpace: true },
     'de-DE': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'de-LU': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'en-IE': { prependSymbol: true, fractionalPrecision: 2, addSpace: false },
     'en-MT': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'es-ES': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
