@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item should render with all paddings 1`] = `
+.circuit-0 {
+  display: none;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.circuit-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  padding: 12px;
+}
+
+.circuit-2:hover .circuit-1 {
+  display: block;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  selected={false}
+>
+  List item
+  <div
+    className="circuit-0 circuit-1"
+  />
+</div>
+`;
+
+exports[`Item should render with all paddings 2`] = `
+.circuit-0 {
+  display: none;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.circuit-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.circuit-2:hover .circuit-1 {
+  display: block;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  selected={false}
+>
+  List item
+  <div
+    className="circuit-0 circuit-1"
+  />
+</div>
+`;
+
+exports[`Item should render with all paddings 3`] = `
+.circuit-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  padding: 24px;
+}
+
+.circuit-2:hover .circuit-1 {
+  display: block;
+}
+
+.circuit-0 {
+  display: none;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  selected={false}
+>
+  List item
+  <div
+    className="circuit-0 circuit-1"
+  />
+</div>
+`;
+
+exports[`Item should render with default styles 1`] = `
+.circuit-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  padding: 24px;
+}
+
+.circuit-2:hover .circuit-1 {
+  display: block;
+}
+
+.circuit-0 {
+  display: none;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+<div
+  className="circuit-2 circuit-3"
+  selected={false}
+>
+  List item
+  <div
+    className="circuit-0 circuit-1"
+  />
+</div>
+`;
+
+exports[`Item should render with selected styles 1`] = `
+.circuit-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  padding: 24px;
+}
+
+.circuit-2:hover .circuit-1 {
+  display: block;
+}
+
+.circuit-0 {
+  display: none;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+<div
+  class="circuit-2 circuit-3"
+>
+  List item
+  <div
+    class="circuit-0 circuit-1"
+  />
+</div>
+`;
