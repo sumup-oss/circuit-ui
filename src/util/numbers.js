@@ -7,6 +7,7 @@ export const NUMBER_SEPARATORS = {
   'de-AT': { decimal: ',', thousand: '.' },
   'de-CH': { decimal: '.', thousand: "'" },
   'de-DE': { decimal: ',', thousand: '.' },
+  'de-LU': { decimal: ',', thousand: '.' },
   'el-CY': { decimal: ',', thousand: '.' },
   'el-GR': { decimal: ',', thousand: '.' },
   'en-GB': { decimal: '.', thousand: ',' },
