@@ -73,6 +73,7 @@ describe('numbers', () => {
       'de-AT': '1.000,00',
       'de-CH': "1'000.00",
       'de-DE': '1.000,00',
+      'de-LU': '1.000,00',
       'el-CY': '1.000,00',
       'el-GR': '1.000,00',
       'en-GB': '1,000.00',
@@ -152,7 +153,7 @@ describe('numbers', () => {
       const { fractional: actual } = numbers.formatNumberParts(number, {
         precision: expected
       });
-      expect(actual.length).toBe(expected);
+      expect(actual).toHaveLength(expected);
     });
 
     it('should format the fractional part according to the precision parameter.', () => {
@@ -160,7 +161,7 @@ describe('numbers', () => {
       const { fractional: actual } = numbers.formatNumberParts(number, {
         precision: expected
       });
-      expect(actual.length).toBe(expected);
+      expect(actual).toHaveLength(expected);
     });
   });
 });
