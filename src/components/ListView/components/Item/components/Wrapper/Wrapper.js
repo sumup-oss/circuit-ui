@@ -15,13 +15,24 @@ const baseStyles = ({ theme }) => css`
   label: wrapper__item;
 
   align-items: center;
-  border-radius: ${theme.borderRadius.mega};
   position: relative;
   cursor: pointer;
+  border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+
   &:hover {
     ${Hover} {
       display: block;
     }
+  }
+
+  &:first-child {
+    border-top-left-radius: ${theme.borderRadius.mega};
+    border-top-right-radius: ${theme.borderRadius.mega};
+  }
+
+  &:last-child {
+    border-bottom-left-radius: ${theme.borderRadius.mega};
+    border-bottom-right-radius: ${theme.borderRadius.mega};
   }
 `;
 

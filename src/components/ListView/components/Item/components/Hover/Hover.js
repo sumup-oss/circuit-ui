@@ -1,10 +1,11 @@
 import styled, { css } from 'react-emotion';
+import { shadowBorder } from '../../../../../../styles/style-helpers';
 
 const baseStyles = ({ theme }) => css`
   label: wrapper__item__hover;
 
   display: none;
-  box-shadow: 0px 0px 0px 2px ${theme.colors.b500};
+  ${shadowBorder(theme.colors.b500, theme.borderWidth.mega)};
   border-radius: ${theme.borderRadius.mega};
   position: absolute;
   width: 100%;
