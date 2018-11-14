@@ -7,8 +7,8 @@ import { mapValues } from '../util/fp';
  * Shadows
  */
 
-export const shadowBorder = color => `
-  box-shadow: 0px 0px 0px 1px ${color};
+export const shadowBorder = (color, borderSize = '1px') => `
+  box-shadow: 0px 0px 0px ${borderSize} ${color};
 `;
 
 export const shadowGround = ({ theme }) => `
