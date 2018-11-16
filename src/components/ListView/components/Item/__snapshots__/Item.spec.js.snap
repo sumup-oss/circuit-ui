@@ -1,18 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Item should render with all paddings 1`] = `
-.circuit-0 {
-  display: none;
-  box-shadow: 0px 0px 0px 2px #3388FF;
-  border-radius: 4px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
-
 .circuit-2 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -21,10 +9,16 @@ exports[`Item should render with all paddings 1`] = `
   position: relative;
   cursor: pointer;
   border-bottom: 1px solid #D8DDE1;
-  padding: 12px;
+  padding: 24px;
 }
 
-.circuit-2:hover .circuit-1 {
+.circuit-2:hover,
+.circuit-2:focus {
+  outline: none;
+}
+
+.circuit-2:hover .circuit-1,
+.circuit-2:focus .circuit-1 {
   display: block;
 }
 
@@ -38,9 +32,25 @@ exports[`Item should render with all paddings 1`] = `
   border-bottom-right-radius: 4px;
 }
 
+.circuit-0 {
+  display: none;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
 <div
+  aria-selected={undefined}
   className="circuit-2 circuit-3"
+  onClick={undefined}
+  onKeyDown={[Function]}
   selected={false}
+  tabIndex={0}
 >
   List item
   <div
@@ -50,18 +60,6 @@ exports[`Item should render with all paddings 1`] = `
 `;
 
 exports[`Item should render with all paddings 2`] = `
-.circuit-0 {
-  display: none;
-  box-shadow: 0px 0px 0px 2px #3388FF;
-  border-radius: 4px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
-
 .circuit-2 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -70,10 +68,16 @@ exports[`Item should render with all paddings 2`] = `
   position: relative;
   cursor: pointer;
   border-bottom: 1px solid #D8DDE1;
-  padding: 16px;
+  padding: 24px;
 }
 
-.circuit-2:hover .circuit-1 {
+.circuit-2:hover,
+.circuit-2:focus {
+  outline: none;
+}
+
+.circuit-2:hover .circuit-1,
+.circuit-2:focus .circuit-1 {
   display: block;
 }
 
@@ -87,9 +91,25 @@ exports[`Item should render with all paddings 2`] = `
   border-bottom-right-radius: 4px;
 }
 
+.circuit-0 {
+  display: none;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
 <div
+  aria-selected={undefined}
   className="circuit-2 circuit-3"
+  onClick={undefined}
+  onKeyDown={[Function]}
   selected={false}
+  tabIndex={0}
 >
   List item
   <div
@@ -110,7 +130,13 @@ exports[`Item should render with all paddings 3`] = `
   padding: 24px;
 }
 
-.circuit-2:hover .circuit-1 {
+.circuit-2:hover,
+.circuit-2:focus {
+  outline: none;
+}
+
+.circuit-2:hover .circuit-1,
+.circuit-2:focus .circuit-1 {
   display: block;
 }
 
@@ -137,8 +163,12 @@ exports[`Item should render with all paddings 3`] = `
 }
 
 <div
+  aria-selected={undefined}
   className="circuit-2 circuit-3"
+  onClick={undefined}
+  onKeyDown={[Function]}
   selected={false}
+  tabIndex={0}
 >
   List item
   <div
@@ -159,7 +189,13 @@ exports[`Item should render with default styles 1`] = `
   padding: 24px;
 }
 
-.circuit-2:hover .circuit-1 {
+.circuit-2:hover,
+.circuit-2:focus {
+  outline: none;
+}
+
+.circuit-2:hover .circuit-1,
+.circuit-2:focus .circuit-1 {
   display: block;
 }
 
@@ -186,8 +222,12 @@ exports[`Item should render with default styles 1`] = `
 }
 
 <div
+  aria-selected={undefined}
   className="circuit-2 circuit-3"
+  onClick={undefined}
+  onKeyDown={[Function]}
   selected={false}
+  tabIndex={0}
 >
   List item
   <div
@@ -208,7 +248,13 @@ exports[`Item should render with selected styles 1`] = `
   padding: 24px;
 }
 
-.circuit-2:hover .circuit-1 {
+.circuit-2:hover,
+.circuit-2:focus {
+  outline: none;
+}
+
+.circuit-2:hover .circuit-1,
+.circuit-2:focus .circuit-1 {
   display: block;
 }
 
@@ -236,6 +282,7 @@ exports[`Item should render with selected styles 1`] = `
 
 <div
   class="circuit-2 circuit-3"
+  tabindex="0"
 >
   List item
   <div
