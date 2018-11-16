@@ -1,15 +1,15 @@
 <div align="center">
-<h1>:atom_symbol: create-sumup-react-app :atom_symbol:</h1> 
+<h1>⚛️ create-sumup-react-app ⚛️</h1>
 
 The easiest way to get started writing a React app with SumUp's standard frontend toolchain.
 </div>
 
-## :computer: Prerequisites
+## 💻 Prerequisites
 
 - You should have Node.js installed at a version equal or above  **`v9.10.0`**. If you cannot do that, see the Troubleshooting section for ways around this requirement.
 - At the moment this project reqires `yarn` to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://yarnpkg.com/en/docs/install).
 
-## :sparkles: Setting up a new SumUp React project
+## ✨ Setting up a new SumUp React project
 
 1. Open your terminal.
 2. Navigate to the directory you would like to place your project in.
@@ -17,7 +17,7 @@ The easiest way to get started writing a React app with SumUp's standard fronten
 
 This will create the folder `my-app` and initialize a new project inside. The project will be based on [`create-react-app`](https://github.com/facebook/create-react-app) and will use the SumUp's [`Circuit UI`](https://circuit.sumup.com/#/) component library and [Foundry](https://github.com/sumup/foundry) toolkit.
 
-## :hammer_and_wrench: Development workflow
+## 🛠 Development workflow
 
 ### Firing up the tools
 
@@ -31,7 +31,7 @@ We try making adding new components as easy as possible. Run `yarn create-compon
 
 <div align="center">
 
-![A GIF of how to use the create-component script.](assets/create-component.gif "Using create-component")
+![A GIF of how to use the create-component script.](https://github.com/sumup/create-sumup-react-app/blob/master/assets/create-component.gif?raw=true "Using create-component")
 
 </div>
 
@@ -48,14 +48,14 @@ Linting serves as a first line of defence against evil bugs on production.​ Yo
 
 Writing tests is great. Tests are the second line of defence against bugs ending up on production. By covering your application in unit and integration tests, you can be sure you did not break anything when, for example, shipping refactored code to production. Your new React project comes with testing built in. By running `yarn test` you will start the test runner, [Jest](https://jestjs.io/en/). As you add tests or make changes to your code, Jest will re-run tests and show you the results. The app will come with `react-testing-library` set up for writing UI tests for your React components. Check out `src/App.spec.js` for examples.
 
-## :blue_book: Useful resources
+## 📖 Useful resources
 
 - The [docs](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents) for `create-react-app` contain a lot of solutions for common problems when writing a React application.
 - Foundry [docs](https://github.com/sumup/foundry#table-of-contents).
 - Circuit UI [docs](https://circuit.sumup.com/#/) and [storybook](https://circuit.sumup.com/storybook/).
 - The [README](https://github.com/kentcdodds/react-testing-library/blob/master/README.md#what-is-react-testing-library) for`react-testing-library`.
 
-## :tipping_hand_woman: Tips
+## 💁‍♀ Tips
 
 ### Setting up Foundry's ESLint in your editor
 
@@ -67,13 +67,13 @@ Your mileage may vary depending on your text editor, but we try to keep a list o
 
 The ESLint extension for VSCode has a `nodePath` setting. It allows you to add additional paths where the plugin should look when resolving dependencies. By setting it to the default path of Foundry in a project's `node_modules`, you will make VSCode work with Foundry's version of ESLint. Put the following line in your `settings.json`.
 
-```:tipping_hand_man:
+``` json
 "eslint.nodePath": "node_modules/@sumup/foundry/node_modules",
 ```
 
 Don't worry, this won't break ESLint for other projects. It just gives VSCode another relative path where it can look for ESLint.
 
-## :warning: Troubleshooting
+## ⚠️ Troubleshooting
 
 ### Engine node is incompatible
 ```
@@ -100,6 +100,6 @@ error Command failed with exit code 1.
 
 Make sure you have watchman installed. On macOS and Homebrew as your package manager, you can install it with the following line.
 
-```
+``` bash
 brew install watchman
 ```
