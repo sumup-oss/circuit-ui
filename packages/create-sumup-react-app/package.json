@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "foundry run eslint ./**/*.js"
   },
+  "bin": "bin",
   "main": "index.js",
   "author": "Felix Jung <felix.jung@sumup.com>",
   "license": "MIT",
