@@ -1,5 +1,5 @@
 {
-  "name": "create-sumup-react-app",
+  "name": "@sumup/create-sumup-react-app",
   "version": "1.0.0-beta.0",
   "description": "Creates a ready for development React app using create-react-app.",
   "scripts": {
