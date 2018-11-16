@@ -48,7 +48,7 @@ exports[`Item should render with all paddings 1`] = `
   aria-selected={undefined}
   className="circuit-2 circuit-3"
   onClick={undefined}
-  onKeyDown={[Function]}
+  onKeyDown={null}
   selected={false}
   tabIndex={0}
 >
@@ -107,7 +107,7 @@ exports[`Item should render with all paddings 2`] = `
   aria-selected={undefined}
   className="circuit-2 circuit-3"
   onClick={undefined}
-  onKeyDown={[Function]}
+  onKeyDown={null}
   selected={false}
   tabIndex={0}
 >
@@ -166,7 +166,7 @@ exports[`Item should render with all paddings 3`] = `
   aria-selected={undefined}
   className="circuit-2 circuit-3"
   onClick={undefined}
-  onKeyDown={[Function]}
+  onKeyDown={null}
   selected={false}
   tabIndex={0}
 >
@@ -225,7 +225,7 @@ exports[`Item should render with default styles 1`] = `
   aria-selected={undefined}
   className="circuit-2 circuit-3"
   onClick={undefined}
-  onKeyDown={[Function]}
+  onKeyDown={null}
   selected={false}
   tabIndex={0}
 >
