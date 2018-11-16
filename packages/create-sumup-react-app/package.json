@@ -1,6 +1,6 @@
 {
   "name": "@sumup/create-sumup-react-app",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Creates a ready for development React app using create-react-app.",
   "repository": "github:sumup/create-sumup-react-app",
   "scripts": {
