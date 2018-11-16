@@ -1,7 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// eslint-disable-next-line no-global-assign
+require = require('esm')(module);
+module.exports = require('./main.js');
