@@ -2,6 +2,7 @@
   "name": "@sumup/create-sumup-react-app",
   "version": "1.0.0-beta.1",
   "description": "Creates a ready for development React app using create-react-app.",
+  "repository": "github:sumup/create-sumup-react-app",
   "scripts": {
     "lint": "foundry run eslint ./**/*.js"
   },
