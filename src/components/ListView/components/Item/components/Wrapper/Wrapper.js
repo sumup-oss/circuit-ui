@@ -19,7 +19,10 @@ const baseStyles = ({ theme }) => css`
   cursor: pointer;
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 
-  &:hover {
+  &:hover,
+  &:focus {
+    outline: none;
+
     ${Hover} {
       display: block;
     }
@@ -52,7 +55,7 @@ const Wrapper = styled('div')(baseStyles, paddingStyles, selectedStyles);
 
 Wrapper.propTypes = {
   /**
-   * When true, shows the item with selected styles
+   * When true, shows the item with selected styles.
    */
   selected: PropTypes.bool,
   /**

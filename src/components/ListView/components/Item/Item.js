@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { flow } from 'lodash/fp';
 
-import { Hover, Wrapper } from './components';
+import withKeyboardEvents from '../../../../util/withKeyboardEvents';
 import { sizes } from '../../../../styles/constants';
+import { Hover, Wrapper } from './components';
+import withAriaSelected from '../../../../util/withAriaSelected';
 
 const { KILO, MEGA, GIGA } = sizes;
 
 const Item = ({ children, ...props }) => (
-  <Wrapper {...props}>
+  <Wrapper tabIndex={0} {...props}>
     {children}
     <Hover />
   </Wrapper>
@@ -19,7 +22,7 @@ Item.GIGA = GIGA;
 
 Item.propTypes = {
   /**
-   * When true, shows the item with selected styles
+   * When true, shows the item with selected styles.
    */
   selected: PropTypes.bool,
   /**
@@ -40,4 +43,4 @@ Item.defaultProps = {
 /**
  * @component
  */
-export default Item;
+export default flow(withKeyboardEvents, withAriaSelected)(Item);
