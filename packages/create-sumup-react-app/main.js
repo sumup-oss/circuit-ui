@@ -126,7 +126,7 @@ function setUpFoundry(appPath, childProcessOptions = {}) {
     '--babel',
     'react',
     '--prettier',
-    'react',
+    'base',
     '--plop',
     'react'
   ];
