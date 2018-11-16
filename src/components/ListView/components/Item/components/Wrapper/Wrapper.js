@@ -59,11 +59,6 @@ Wrapper.propTypes = {
    */
   selected: PropTypes.bool,
   /**
-   * Makes the item focusable to enable keyboard navigation. Careful!
-   * Do NOT use positive numbers as this messes up the document's source order.
-   */
-  tabIndex: PropTypes.number,
-  /**
    * Circuit UI spacing size.
    */
   padding: PropTypes.oneOf([Text.KILO, Text.MEGA, Text.GIGA])
@@ -71,8 +66,7 @@ Wrapper.propTypes = {
 
 Wrapper.defaultProps = {
   selected: false,
-  padding: GIGA,
-  tabIndex: 0
+  padding: GIGA
 };
 
 export default Wrapper;

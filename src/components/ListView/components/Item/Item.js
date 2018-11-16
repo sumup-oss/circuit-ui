@@ -10,7 +10,7 @@ import withAriaSelected from '../../../../util/withAriaSelected';
 const { KILO, MEGA, GIGA } = sizes;
 
 const Item = ({ children, ...props }) => (
-  <Wrapper {...props}>
+  <Wrapper tabIndex={0} {...props}>
     {children}
     <Hover />
   </Wrapper>
@@ -30,11 +30,6 @@ Item.propTypes = {
    */
   padding: PropTypes.oneOf([KILO, MEGA, GIGA]),
   /**
-   * Makes the item focusable to enable keyboard navigation. Careful!
-   * Do NOT use positive numbers as this messes up the document's source order.
-   */
-  tabIndex: PropTypes.number,
-  /**
    * Content of the list item.
    */
   children: PropTypes.node.isRequired
@@ -42,8 +37,7 @@ Item.propTypes = {
 
 Item.defaultProps = {
   padding: Item.GIGA,
-  selected: false,
-  tabIndex: 0
+  selected: false
 };
 
 /**
