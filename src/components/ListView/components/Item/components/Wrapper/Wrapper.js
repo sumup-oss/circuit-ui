@@ -19,7 +19,10 @@ const baseStyles = ({ theme }) => css`
   cursor: pointer;
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 
-  &:hover {
+  &:hover,
+  &:focus {
+    outline: none;
+
     ${Hover} {
       display: block;
     }
@@ -52,9 +55,14 @@ const Wrapper = styled('div')(baseStyles, paddingStyles, selectedStyles);
 
 Wrapper.propTypes = {
   /**
-   * When true, shows the item with selected styles
+   * When true, shows the item with selected styles.
    */
   selected: PropTypes.bool,
+  /**
+   * Makes the item focusable to enable keyboard navigation. Careful!
+   * Do NOT use positive numbers as this messes up the document's source order.
+   */
+  tabIndex: PropTypes.number,
   /**
    * Circuit UI spacing size.
    */
@@ -63,7 +71,8 @@ Wrapper.propTypes = {
 
 Wrapper.defaultProps = {
   selected: false,
-  padding: GIGA
+  padding: GIGA,
+  tabIndex: 0
 };
 
 export default Wrapper;
