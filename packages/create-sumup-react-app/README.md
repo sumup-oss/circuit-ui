@@ -76,7 +76,16 @@ Don't worry, this won't break ESLint for other projects. It just gives VSCode an
 
 ## ⚠️ Troubleshooting
 
+### Debug mode
+
+`create-sumup-react-app` has a debug mode. To output verbose logging to your console, add the `--debug` flag when creating your app. For example:
+
+```
+yarn create @sumup/sumup-react-app my-debugging-app --debug
+```
+
 ### Engine node is incompatible
+
 ```
 error eslint@5.0.1: The engine "node" is incompatible with this module. Expected version "^6.14.0 || ^8.10.0 || >=9.10.0".
 error Found incompatible module
