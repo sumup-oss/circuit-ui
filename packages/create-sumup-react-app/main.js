@@ -4,9 +4,11 @@ import { promisify } from 'util';
 
 import chalk from 'chalk';
 import Listr from 'listr';
+import VerboseRenderer from 'listr-verbose-renderer';
 
 import spawn from './lib/spawn';
 import logger from './lib/logger';
+import * as util from './lib/util';
 
 const asyncWriteFile = promisify(writeFile);
 
@@ -31,36 +33,45 @@ const DEV_DEPENDENCIES = [
   'jest-dom'
 ];
 
-const tasks = new Listr([
-  {
-    title: 'Running Create React App',
-    // task: () => runCreateReactApp(APP_NAME)
-    task: () => runCreateReactApp(APP_NAME)
-  },
-  {
-    title: 'Install additional dependencies',
-    task: () => addDependencies()
-  },
-  {
-    title: 'Customize experience',
-    task: () =>
-      new Listr([
-        {
-          title: 'Set up SumUp Foundry',
-          task: () => setUpFoundry(APP_PATH)
-        },
-        {
-          title: 'Replace Create React App files',
-          task: () =>
-            Promise.all([deleteCraFiles(APP_PATH), copyReactFiles(APP_PATH)])
-        },
-        {
-          title: 'Customize package.json',
-          task: () => updatePackageJson(APP_PATH)
-        }
-      ])
-  }
-]);
+const options = util.isDebugging()
+  ? {
+      renderer: VerboseRenderer
+    }
+  : {};
+
+const tasks = new Listr(
+  [
+    {
+      title: 'Running Create React App',
+      // task: () => runCreateReactApp(APP_NAME)
+      task: () => runCreateReactApp(APP_NAME)
+    },
+    {
+      title: 'Install additional dependencies',
+      task: () => addDependencies()
+    },
+    {
+      title: 'Customize experience',
+      task: () =>
+        new Listr([
+          {
+            title: 'Set up SumUp Foundry',
+            task: () => setUpFoundry(APP_PATH)
+          },
+          {
+            title: 'Replace Create React App files',
+            task: () =>
+              Promise.all([deleteCraFiles(APP_PATH), copyReactFiles(APP_PATH)])
+          },
+          {
+            title: 'Customize package.json',
+            task: () => updatePackageJson(APP_PATH)
+          }
+        ])
+    }
+  ],
+  options
+);
 
 run();
 
@@ -161,7 +172,7 @@ function copyReactFiles(appPath, sourcePath = FILES_PATH) {
     ...filesToCopy.map(file => resolve(sourcePath, file)),
     `${appPath}/src`
   ];
-  return spawn(cmd, args, { cwd: undefined });
+  return spawn(cmd, args, { cwd: appPath });
 }
 
 async function updatePackageJson(appPath) {
