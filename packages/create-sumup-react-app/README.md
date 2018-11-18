@@ -6,8 +6,9 @@ The easiest way to get started writing a React app with SumUp's standard fronten
 
 ## 💻 Prerequisites
 
-- You should have Node.js installed at a version equal or above  **`v9.10.0`**. If you cannot do that, see the Troubleshooting section for ways around this requirement.
-- At the moment this project reqires `yarn` to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://yarnpkg.com/en/docs/install).
+- You should have **Node.js** installed at a version equal or above  **`v9.10.0`**. If you cannot do that, see the Troubleshooting section for ways around this requirement.
+- At the moment this project reqires **`yarn`** to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://yarnpkg.com/en/docs/install).
+- You will need **`npx`** installed. You can run `yarn global add npx` or `npm install -g npx` to make that happen.
 
 ## ✨ Setting up a new SumUp React project
 
