@@ -1,4 +1,4 @@
-assets
+/assets
 .babelrc.js
 .eslintignore
 .eslintrc.js
