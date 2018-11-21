@@ -20,7 +20,7 @@ export default class CustomDocument extends Document {
 
   render() {
     return (
-      <html>
+      <html lang="en">
         <Head>
           <link
             rel="shortcut icon"

@@ -1,50 +1,44 @@
 <div align="center">
 
-# Create SumUp Next App
+# Welcome to SumUp Next.js <!-- omit in toc -->
 
 A [Next.js](https://github.com/zeit/next.js/) starter app, preconfigured with SumUp's [Circuit UI](https://www.npmjs.com/package/@sumup/circuit-ui) component library, SumUp's [Foundry](https://www.npmjs.com/package/@sumup/foundry) CLI toolkit for writing JavaScript, and a minimal custom server.
 
 </div>
 
-## Table of Contents
+## Table of Contents <!-- omit in toc -->
 
-- [Installation](#installation)
 - [Folder Structure](#folder-structure)
-- [Available Commands](#available-scripts)
-  - [yarn dev](#yarn-dev)
-  - [yarn build](#yarn-build)
-  - [yarn start](#yarn-start)
-  - [yarn analyze](#yarn-analyze)
-  - [yarn test:\*](#yarn-test)
-  - [yarn create:\*](#yarn-create)
+- [Available Scripts](#available-scripts)
+  - [`yarn dev`](#yarn-dev)
+  - [`yarn build`](#yarn-build)
+  - [`yarn start`](#yarn-start)
+  - [`yarn analyze`](#yarn-analyze)
+  - [`yarn test:*`](#yarn-test)
+  - [`yarn create:*`](#yarn-create)
 - [Custom Server](#custom-server)
 - [Fetching Data](#fetching-data)
+  - [`./src/pages/stars.js`](#srcpagesstarsjs)
 - [Styling with Emotion](#styling-with-emotion)
+- [Syntax Highlighting](#syntax-highlighting)
 - [Contributing](#contributing)
 - [Questions? Feedback?](#questions-feedback)
 - [About SumUp](#about-sumup)
 
-## Installation
-
-The easiest way to bootstrap a new SumUp Next.js app is by running the following script from your terminal:
-
-```bash
-curl -L https://raw.githubusercontent.com/sumup/create-sumup-next-app/master/bin/create-sumup-next-app | bash -s -- <PROJECT_NAME>
-```
-
-The command will download the app template to a folder with your project name, install the latest dependencies and configure [eslint](https://eslint.org/), [prettier](https://prettier.io/), [Jest](https://facebook.github.io/jest/), and [plop](https://github.com/amwmedia/plop). The configurations are kept up to date with [@sumup/foundry](https://www.npmjs.com/package/@sumup/foundry).
-
 ## Folder Structure
 
-After creating an app, it should look something like:
+Your app should look something like:
 
 ```
 project-name/
 ├─ src/
 │  ├─ components/
+│  │  ├─ Logo/
+│  │  │  ├─ Logo.js
+│  │  │  ├─ Logo.spec.js
+│  │  │  └─ index.js
 │  │  ├─ Container/
 │  │  │  ├─ Container.js
-│  │  │  ├─ Container.spec.js
 │  │  │  └─ index.js
 │  │  └─ Logo/
 │  │  │  ├─ index.js
@@ -55,18 +49,18 @@ project-name/
 │  │  ├─ _app.js
 │  │  ├─ _document.js
 │  │  └─ index.js
-│  └─ static/
+│  ├─ static/
 │  │  └─ favicon.ico
+│  └─ .babelrc
 ├─ server/
 │  ├─ app.js
 │  └─ index.js
-├─ .babelrc
 ├─ .eslintrc.js
 ├─ .gitignore
-├─ .prettierignore
 ├─ jest.config.js
 ├─ jest.fileTransform.js
 ├─ jest.setup.js
+├─ jest.transform.js
 ├─ next.config.js
 ├─ package.json
 ├─ plopfile.js
@@ -74,13 +68,12 @@ project-name/
 └─ yarn.lock
 ```
 
-Routing in Next.js is based on the file system, so `./src/pages/index.js` maps to the `/` route and
-`./src/pages/about.js` would map to `/about`.
+Routing in Next.js is based on the file system, so `./src/pages/index.js` maps to the `/` route and `./src/pages/about.js` would map to `/about`.
 
 The `./static` directory maps to `/static` in the `next` server, so you can put all your
 other static resources like images or fonts in there.
 
-Out of the box, we get:
+Out of the box, you get:
 
 - Automatic transpilation and bundling (with webpack and babel)
 - Hot code reloading

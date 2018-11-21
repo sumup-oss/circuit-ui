@@ -1,6 +1,8 @@
-const { createTransformer } = require('babel-jest'); // eslint-disable-line import/no-extraneous-dependencies
+const { createTransformer } = require('babel-jest');
+const baseConfig = require('./src/.babelrc');
 
 const babelConfig = {
+  ...baseConfig,
   presets: [
     [
       'next/babel',

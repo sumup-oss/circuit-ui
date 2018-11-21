@@ -1,9 +1,10 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import { hydrate, css } from 'react-emotion';
-import { standard } from '@sumup/circuit-ui/themes';
-import { globalStyles } from '@sumup/circuit-ui/styles';
+import { injectGlobalStyles, theme } from '@sumup/circuit-ui';
 import { ThemeProvider } from 'emotion-theming';
+
+const { standard } = theme;
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
@@ -18,7 +19,7 @@ body {
 }
 `;
 
-globalStyles({ theme: standard, custom: customGlobalStyles });
+injectGlobalStyles({ theme: standard, custom: customGlobalStyles });
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {

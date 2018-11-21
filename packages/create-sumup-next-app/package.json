@@ -1,19 +1,34 @@
 {
-  "name": "create-sumup-next-app",
+  "name": "@sumup/create-sumup-next-app",
   "version": "1.0.0",
-  "description": "Create a fresh NextJS application using common SumUp settings",
-  "keywords": ["react", "next", "circuit-ui", "sumup"],
+  "description": "Creates a fresh NextJS application preconfigured with SumUp's Circuit UI and Foundry",
+  "keywords": [
+    "react",
+    "next",
+    "circuit-ui",
+    "sumup"
+  ],
+  "scripts": {
+    "lint": "foundry run eslint ./**/*.js"
+  },
+  "bin": "bin",
   "main": "index.js",
+  "author": "Connor Baer <connor.baer@sumup.com>",
+  "license": "MIT",
   "repository": "https://github.com/sumup/create-sumup-next-app",
   "bugs": {
     "url": "https://github.com/sumup/create-sumup-next-app/issues"
   },
-  "author": "Connor Baer <connor.baer@sumup.com>",
-  "license": "MIT",
-  "bin": {
-    "create-sumup-next-app": "./bin/create-sumup-next-app"
-  },
   "engines": {
     "node": ">=8"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "esm": "^3.0.84",
+    "listr": "^0.14.2",
+    "listr-verbose-renderer": "^0.5.0"
+  },
+  "devDependencies": {
+    "@sumup/foundry": "^0.0.13"
   }
 }

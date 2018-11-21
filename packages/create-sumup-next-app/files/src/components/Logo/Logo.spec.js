@@ -1,18 +1,11 @@
 import React from 'react';
 
-import Logo from '.';
+import Logo from './Logo';
 
 describe('Logo', () => {
   /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<Logo />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Accessibility tests.
+   * An automatic accessibility test only covers basic best practices.
+   * You will still need to test manually to ensure full accessibility.
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(<Logo />);
