@@ -116,6 +116,12 @@ Make sure you have watchman installed. On macOS and Homebrew as your package man
 brew install watchman
 ```
 
-## About SumUp
+## 🔗 Related
+
+- [create-sumup-react-app](https://github.com/sumup/create-sumup-react-app) - Create new React apps with CRA, Circuit, and Foundry.
+- [create-react-app](https://github.com/facebook/create-react-app) - Create new React apps with no build configuration.
+- [create-next-app](https://github.com/segmentio/create-next-app) - Create Next.js apps in one command.
+
+## 💙 About SumUp
 
 [SumUp](https://sumup.com) is a mobile-point of sale provider. It is our mission to make easy and fast card payments a reality across the _entire_ world. You can pay with SumUp in more than 30 countries, already. Our engineers work in Berlin, Cologne, Sofia, and Sāo Paulo. They write code in JavaScript, Swift, Ruby, Elixir, Erlang, and much more. Want to come work and with us? [Head to our careers page](https://sumup.com/careers) to find out more.
