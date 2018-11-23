@@ -7,6 +7,7 @@ module.exports = function(storybookBaseConfig, configType) {
   const isProduction = configType === 'PRODUCTION';
 
   const ourConfig = {
+    devtool: 'eval-source-map',
     externals: {
       jsdom: 'window',
       cheerio: 'window',
