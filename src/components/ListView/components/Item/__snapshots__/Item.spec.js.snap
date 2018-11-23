@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Item should render with all paddings 1`] = `
-.circuit-2 {
+.circuit-0 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -12,55 +12,47 @@ exports[`Item should render with all paddings 1`] = `
   padding: 24px;
 }
 
-.circuit-2:hover,
-.circuit-2:focus {
+.circuit-0:hover,
+.circuit-0:focus {
   outline: none;
 }
 
-.circuit-2:hover .circuit-1,
-.circuit-2:focus .circuit-1 {
-  display: block;
-}
-
-.circuit-2:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.circuit-2:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.circuit-0 {
-  display: none;
-  box-shadow: 0px 0px 0px 2px #3388FF;
-  border-radius: 4px;
+.circuit-0:hover::after,
+.circuit-0:focus::after {
+  content: ' ';
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 1;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+}
+
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 <div
   aria-selected={undefined}
-  className="circuit-2 circuit-3"
+  className="circuit-0 circuit-1"
   onClick={undefined}
   onKeyDown={null}
   selected={false}
   tabIndex={0}
 >
   List item
-  <div
-    className="circuit-0 circuit-1"
-  />
 </div>
 `;
 
 exports[`Item should render with all paddings 2`] = `
-.circuit-2 {
+.circuit-0 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -71,55 +63,47 @@ exports[`Item should render with all paddings 2`] = `
   padding: 24px;
 }
 
-.circuit-2:hover,
-.circuit-2:focus {
+.circuit-0:hover,
+.circuit-0:focus {
   outline: none;
 }
 
-.circuit-2:hover .circuit-1,
-.circuit-2:focus .circuit-1 {
-  display: block;
-}
-
-.circuit-2:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.circuit-2:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.circuit-0 {
-  display: none;
-  box-shadow: 0px 0px 0px 2px #3388FF;
-  border-radius: 4px;
+.circuit-0:hover::after,
+.circuit-0:focus::after {
+  content: ' ';
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 1;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+}
+
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 <div
   aria-selected={undefined}
-  className="circuit-2 circuit-3"
+  className="circuit-0 circuit-1"
   onClick={undefined}
   onKeyDown={null}
   selected={false}
   tabIndex={0}
 >
   List item
-  <div
-    className="circuit-0 circuit-1"
-  />
 </div>
 `;
 
 exports[`Item should render with all paddings 3`] = `
-.circuit-2 {
+.circuit-0 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -130,55 +114,47 @@ exports[`Item should render with all paddings 3`] = `
   padding: 24px;
 }
 
-.circuit-2:hover,
-.circuit-2:focus {
+.circuit-0:hover,
+.circuit-0:focus {
   outline: none;
 }
 
-.circuit-2:hover .circuit-1,
-.circuit-2:focus .circuit-1 {
-  display: block;
-}
-
-.circuit-2:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.circuit-2:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.circuit-0 {
-  display: none;
-  box-shadow: 0px 0px 0px 2px #3388FF;
-  border-radius: 4px;
+.circuit-0:hover::after,
+.circuit-0:focus::after {
+  content: ' ';
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 1;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+}
+
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 <div
   aria-selected={undefined}
-  className="circuit-2 circuit-3"
+  className="circuit-0 circuit-1"
   onClick={undefined}
   onKeyDown={null}
   selected={false}
   tabIndex={0}
 >
   List item
-  <div
-    className="circuit-0 circuit-1"
-  />
 </div>
 `;
 
 exports[`Item should render with default styles 1`] = `
-.circuit-2 {
+.circuit-0 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -189,55 +165,47 @@ exports[`Item should render with default styles 1`] = `
   padding: 24px;
 }
 
-.circuit-2:hover,
-.circuit-2:focus {
+.circuit-0:hover,
+.circuit-0:focus {
   outline: none;
 }
 
-.circuit-2:hover .circuit-1,
-.circuit-2:focus .circuit-1 {
-  display: block;
-}
-
-.circuit-2:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.circuit-2:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.circuit-0 {
-  display: none;
-  box-shadow: 0px 0px 0px 2px #3388FF;
-  border-radius: 4px;
+.circuit-0:hover::after,
+.circuit-0:focus::after {
+  content: ' ';
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 1;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+}
+
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 <div
   aria-selected={undefined}
-  className="circuit-2 circuit-3"
+  className="circuit-0 circuit-1"
   onClick={undefined}
   onKeyDown={null}
   selected={false}
   tabIndex={0}
 >
   List item
-  <div
-    className="circuit-0 circuit-1"
-  />
 </div>
 `;
 
 exports[`Item should render with selected styles 1`] = `
-.circuit-2 {
+.circuit-0 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -248,45 +216,37 @@ exports[`Item should render with selected styles 1`] = `
   padding: 24px;
 }
 
-.circuit-2:hover,
-.circuit-2:focus {
+.circuit-0:hover,
+.circuit-0:focus {
   outline: none;
 }
 
-.circuit-2:hover .circuit-1,
-.circuit-2:focus .circuit-1 {
-  display: block;
-}
-
-.circuit-2:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.circuit-2:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.circuit-0 {
-  display: none;
-  box-shadow: 0px 0px 0px 2px #3388FF;
-  border-radius: 4px;
+.circuit-0:hover::after,
+.circuit-0:focus::after {
+  content: ' ';
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 1;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+}
+
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-0 circuit-1"
   tabindex="0"
 >
   List item
-  <div
-    class="circuit-0 circuit-1"
-  />
 </div>
 `;

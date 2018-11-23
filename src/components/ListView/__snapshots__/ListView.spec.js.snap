@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ListView should render with default styles 1`] = `
-.circuit-16 {
+.circuit-8 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -20,7 +20,7 @@ exports[`ListView should render with default styles 1`] = `
   padding: 0;
 }
 
-.circuit-2 {
+.circuit-0 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -31,14 +31,60 @@ exports[`ListView should render with default styles 1`] = `
   padding: 24px;
 }
 
+.circuit-0:hover,
+.circuit-0:focus {
+  outline: none;
+}
+
+.circuit-0:hover::after,
+.circuit-0:focus::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
+}
+
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.circuit-2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  background: #DAEAFF;
+}
+
 .circuit-2:hover,
 .circuit-2:focus {
   outline: none;
 }
 
-.circuit-2:hover .circuit-1,
-.circuit-2:focus .circuit-1 {
-  display: block;
+.circuit-2:hover::after,
+.circuit-2:focus::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
 }
 
 .circuit-2:first-child {
@@ -51,105 +97,49 @@ exports[`ListView should render with default styles 1`] = `
   border-bottom-right-radius: 4px;
 }
 
-.circuit-0 {
-  display: none;
-  box-shadow: 0px 0px 0px 2px #3388FF;
-  border-radius: 4px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
-
-.circuit-6 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  background: #DAEAFF;
-}
-
-.circuit-6:hover,
-.circuit-6:focus {
-  outline: none;
-}
-
-.circuit-6:hover .circuit-1,
-.circuit-6:focus .circuit-1 {
-  display: block;
-}
-
-.circuit-6:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.circuit-6:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
 <div
-  className="circuit-16 circuit-17"
+  className="circuit-8 circuit-9"
   spacing="giga"
 >
   <div
     aria-selected={undefined}
-    className="circuit-2 circuit-3"
+    className="circuit-0 circuit-1"
     onClick={undefined}
     onKeyDown={null}
     selected={false}
     tabIndex={0}
   >
     List item 1
-    <div
-      className="circuit-0 circuit-1"
-    />
   </div>
   <div
     aria-selected={true}
-    className="circuit-6 circuit-3"
+    className="circuit-2 circuit-1"
     onClick={undefined}
     onKeyDown={null}
     selected={true}
     tabIndex={0}
   >
     List item 2
-    <div
-      className="circuit-0 circuit-1"
-    />
   </div>
   <div
     aria-selected={undefined}
-    className="circuit-2 circuit-3"
+    className="circuit-0 circuit-1"
     onClick={undefined}
     onKeyDown={null}
     selected={false}
     tabIndex={0}
   >
     List item 3
-    <div
-      className="circuit-0 circuit-1"
-    />
   </div>
   <div
     aria-selected={undefined}
-    className="circuit-2 circuit-3"
+    className="circuit-0 circuit-1"
     onClick={undefined}
     onKeyDown={null}
     selected={false}
     tabIndex={0}
   >
     List item 4
-    <div
-      className="circuit-0 circuit-1"
-    />
   </div>
 </div>
 `;

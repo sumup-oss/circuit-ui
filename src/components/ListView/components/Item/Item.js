@@ -4,7 +4,7 @@ import { flow } from 'lodash/fp';
 
 import withKeyboardEvents from '../../../../util/withKeyboardEvents';
 import { sizes } from '../../../../styles/constants';
-import { Hover, Wrapper } from './components';
+import { Wrapper } from './components';
 import withAriaSelected from '../../../../util/withAriaSelected';
 
 const { KILO, MEGA, GIGA } = sizes;
@@ -12,7 +12,6 @@ const { KILO, MEGA, GIGA } = sizes;
 const Item = ({ children, ...props }) => (
   <Wrapper tabIndex={0} {...props}>
     {children}
-    <Hover />
   </Wrapper>
 );
 
