@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import styled from 'react-emotion';
 import { range } from 'lodash/fp';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-// import { action } from '@storybook/addon-actions';
 import * as knobs from '@storybook/addon-knobs/react';
 
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
 import List from '.';
-
-const Item = styled(List.Item)`
-  min-width: 320px;
-`;
 
 class ListContainer extends Component {
   state = { selected: 0 };
@@ -27,22 +22,24 @@ class ListContainer extends Component {
     );
 
     return (
-      <List>
-        {range(1, 6).map(i => (
-          <Item
-            key={i}
-            selected={selected === i}
-            onClick={this.handleClick(i)}
-            padding={padding}
-          >
-            Item #{i}
-          </Item>
-        ))}
-      </List>
+      <div style={{ width: '320px' }}>
+        <List>
+          {range(1, 6).map(i => (
+            <List.Item
+              key={i}
+              selected={selected === i}
+              onClick={this.handleClick(i)}
+              padding={padding}
+            >
+              Item #{i}
+            </List.Item>
+          ))}
+        </List>
+      </div>
     );
   }
 }
 
-storiesOf('ListView', module)
+storiesOf(`${GROUPS.COMPONENTS}|ListView`, module)
   .addDecorator(withTests('ListView'))
   .add('ListView', withInfo()(() => <ListContainer />));

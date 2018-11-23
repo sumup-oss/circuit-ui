@@ -12,6 +12,7 @@ const Wrapper = styled(Card)`
 `;
 
 Wrapper.defaultProps = Card.defaultProps;
+Wrapper.displayName = 'List';
 
 /**
  * @component

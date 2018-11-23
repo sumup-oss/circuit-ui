@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
+import { shadowBorder } from '../../../../../../styles/style-helpers';
 import { sizes } from '../../../../../../styles/constants';
-import Hover from '../Hover';
 
 const { KILO, MEGA, GIGA } = sizes;
 const sizeMap = {
@@ -23,8 +23,15 @@ const baseStyles = ({ theme }) => css`
   &:focus {
     outline: none;
 
-    ${Hover} {
-      display: block;
+    &::after {
+      content: ' ';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      ${shadowBorder(theme.colors.b500, theme.borderWidth.mega)};
+      border-radius: ${theme.borderRadius.mega};
     }
   }
 
