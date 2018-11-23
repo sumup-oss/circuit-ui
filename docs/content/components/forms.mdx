@@ -25,22 +25,47 @@ import Playground from '../../utils/Playground';
   </Fragment>
 </Playground>
 
+#### Definition
+A text field is an input field for inserting short text & numbers. It has multiple functions and supports multiple character types/formats.
+
+#### When to use it
+- When you need short textual information from the user such as: email address, first name, phone number, street name, etc.
+
+#### Do's
+
+INPUT FIELD
+- The input field must always be accompanied by a label
+- Normally, a row should contain only one text input unless they're up to two contextual information that make sense togeter (such as first and last name)
+
+PLACEHOLDER
+- A input field must always have a placeholder, which is a short example of the information required that helps the user to understand what kind of information is needed. (For instance an Address Field could have as placeholder: Grunerstrasse 13)
+- The placeholder must be succint (up to 3-4 words)
+- The placeholder should also be contextual to the language and market
+
+#### Dont's
+
+INPUT FIELD
+- Don't use input fields for requiring longer textual information from the user
+- Don't communicate that a input field is required
+- Don't mark required fields with asterisks 
+
+PLACEHOLDER
+- The placeholder should not be the exactly same information as the label
+- Don't communicate that a input field is optional in the placeholder, you should do it in the label
+
+
 ### Props
-
 > Can't render prop tables for this component because it's exported with `withTheme`.
-
-### Best practices
-- Use different shadows.
-
-### Usage guidelines
-- Every card should be a logical combination of its contents.
 
 ### Component variations
 
 #### Validations
-(Cannot show validations because SVGs are not parsed)
 
 #### Disabled input
+
+##### When to use it
+You should use only when its an critical information from the user that we already have or need and we don't want the user to edit it easily. A disabled field should only be open for editing again if a CTA is clicked.
+
 <Playground>
   <Input name="input" id="input" disabled placeholder="You cannot type"/>
 </Playground>
