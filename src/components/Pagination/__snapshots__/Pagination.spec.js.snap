@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<PaginationContainer
+  nextLabel="Next"
+  onChange={[Function]}
+  page={1}
+  previousLabel="Previous"
+  totalPages={5}
+>
+  <PageButton
+    key="0"
+    value={1}
+  />
+  <PageButton
+    key="1"
+    value={2}
+  />
+  <PageButton
+    key="2"
+    value={3}
+  />
+  <PageButton
+    key="3"
+    value={4}
+  />
+  <PageButton
+    key="4"
+    value={5}
+  />
+</PaginationContainer>
+`;
+
+exports[` 2`] = `
+<PaginationContainer
+  nextLabel="Next"
+  onChange={[Function]}
+  page={1}
+  previousLabel="Previous"
+  totalPages={10}
+>
+  <PageButton
+    value={1}
+  />
+  <PageButton
+    key="2"
+    value={2}
+  />
+  <PageButton
+    key="3"
+    value={3}
+  />
+  <PageButton
+    key="4"
+    value={4}
+  />
+  ...
+  <PageButton
+    value={10}
+  />
+</PaginationContainer>
+`;
+
+exports[` 3`] = `
+<PaginationContainer
+  nextLabel="Next"
+  onChange={[Function]}
+  page={2}
+  previousLabel="Previous"
+  totalPages={10}
+>
+  <PageButton
+    value={1}
+  />
+  <PageButton
+    key="2"
+    value={2}
+  />
+  <PageButton
+    key="3"
+    value={3}
+  />
+  <PageButton
+    key="4"
+    value={4}
+  />
+  ...
+  <PageButton
+    value={10}
+  />
+</PaginationContainer>
+`;
+
+exports[` 4`] = `
+<PaginationContainer
+  nextLabel="Next"
+  onChange={[Function]}
+  page={10}
+  previousLabel="Previous"
+  totalPages={10}
+>
+  <PageButton
+    value={1}
+  />
+  ...
+  <PageButton
+    key="7"
+    value={7}
+  />
+  <PageButton
+    key="8"
+    value={8}
+  />
+  <PageButton
+    key="9"
+    value={9}
+  />
+  <PageButton
+    value={10}
+  />
+</PaginationContainer>
+`;
+
+exports[` 5`] = `
+<PaginationContainer
+  nextLabel="Next"
+  onChange={[Function]}
+  page={9}
+  previousLabel="Previous"
+  totalPages={10}
+>
+  <PageButton
+    value={1}
+  />
+  ...
+  <PageButton
+    key="7"
+    value={7}
+  />
+  <PageButton
+    key="8"
+    value={8}
+  />
+  <PageButton
+    key="9"
+    value={9}
+  />
+  <PageButton
+    value={10}
+  />
+</PaginationContainer>
+`;
+
+exports[` 6`] = `
+<PaginationContainer
+  nextLabel="Next"
+  onChange={[Function]}
+  page={5}
+  previousLabel="Previous"
+  totalPages={10}
+>
+  <PageButton
+    value={1}
+  />
+  ...
+  <PageButton
+    key="4"
+    value={4}
+  />
+  <PageButton
+    key="5"
+    value={5}
+  />
+  <PageButton
+    key="6"
+    value={6}
+  />
+  ...
+  <PageButton
+    value={10}
+  />
+</PaginationContainer>
+`;
