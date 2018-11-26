@@ -83,6 +83,11 @@ describe('Table', () => {
 
   describe('onSortBy()', () => {
     describe('custom onSortBy', () => {
+      /**
+       * I'm skipping the next two failing tests since refactoring the component to make everything work as intended
+       * will require a lot of work. Me and @fernandofleury decided to take this course and unblock dependant releases,
+       * and decide how to refactor the code in the next few days.
+       */
       // eslint-disable-next-line max-len
       it.skip('should call the provided onSortBy instead of defaultSortBy with index, nextDirection and rows', () => {
         const row = ['a', 'b', 'c', 'd', 'e'];
