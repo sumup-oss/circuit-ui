@@ -80,6 +80,12 @@ class Table extends Component {
     sortDirection: null
   };
 
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      rows: nextProps.rows
+    };
+  }
+
   onSortEnter = i => this.setState({ sortHover: i });
   onSortLeave = () => this.setState({ sortHover: null });
   onSortBy = i => {
