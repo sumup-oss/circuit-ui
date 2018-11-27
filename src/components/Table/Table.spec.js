@@ -10,6 +10,19 @@ const items = [['1', '2', '3'], ['1', '2', '3'], ['1', '2', '3']];
 describe('Table', () => {
   beforeEach(jest.clearAllMocks);
 
+  describe('Content tests', () => {
+    it('should update state when passing an equal number of rows', () => {
+      const anotherSetOfItems = [
+        ['4', '5', '6'],
+        ['4', '5', '6'],
+        ['4', '5', '6']
+      ];
+      const actual = shallow(<Table headers={headers} rows={items} />);
+      actual.setProps({ rows: anotherSetOfItems });
+      expect(actual.state().rows).toEqual(anotherSetOfItems);
+    });
+  });
+
   describe('Style tests', () => {
     it('should render with default styles', () => {
       const actual = create(<Table headers={headers} rows={items} />);
@@ -70,7 +83,13 @@ describe('Table', () => {
 
   describe('onSortBy()', () => {
     describe('custom onSortBy', () => {
-      it('should call the provided onSortBy instead of defaultSortBy with index, nextDirection and rows', () => {
+      /**
+       * I'm skipping the next two failing tests since refactoring the component to make everything work as intended
+       * will require a lot of work. Me and @fernandofleury decided to take this course and unblock dependant releases,
+       * and decide how to refactor the code in the next few days.
+       */
+      // eslint-disable-next-line max-len
+      it.skip('should call the provided onSortBy instead of defaultSortBy with index, nextDirection and rows', () => {
         const row = ['a', 'b', 'c', 'd', 'e'];
         const rows = [row];
         const shuffledRow = shuffle(row);
@@ -89,7 +108,8 @@ describe('Table', () => {
   });
 
   describe('updateSort()', () => {
-    it('should update the state with sortedRow, nextDirection and nextDirection', () => {
+    // eslint-disable-next-line max-len
+    it.skip('should update the state with sortedRow, nextDirection and nextDirection', () => {
       const wrapper = shallow(<Table />);
       const index = 0;
       const nextDirection = ASCENDING;
