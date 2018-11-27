@@ -16,7 +16,13 @@ import Playground from '../../utils/Playground';
 
 # Forms
 
-## Input
+## Text Input
+
+#### Definition
+A text field is an input field for inserting short text & numbers. It has multiple functions and supports multiple character types/formats.
+
+#### When to use it
+When you need short textual information from the user such as: email address, first name, phone number, street name, etc.
 
 <Playground>
   <Fragment>
@@ -25,37 +31,32 @@ import Playground from '../../utils/Playground';
   </Fragment>
 </Playground>
 
-#### Definition
-A text field is an input field for inserting short text & numbers. It has multiple functions and supports multiple character types/formats.
+| Do's                                                                                                                                                     |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ✔ The input field must always be accompanied by a label                                                                                                    |
+| ✔ Normally, a row should contain only one text input unless they're up to two contextual information that make sense togeter (such as first and last name) |
 
-#### When to use it
-- When you need short textual information from the user such as: email address, first name, phone number, street name, etc.
+| Donts's                                                                          |
+|-------------------------------------------------------------------------------|
+| ✗ Don't use input fields for requiring longer textual information from the user |
+| ✗ Don't communicate that a input field is required                              |
+| ✗ Don't mark required fields with asterisks                                     |
 
-#### Do's
+### Placeholder
+A input field must always have a placeholder, which is a short example of the information required that helps the user to understand what kind of information is needed. (For instance an Address Field could have as placeholder: Grunerstrasse 13)
 
-INPUT FIELD
-- The input field must always be accompanied by a label
-- Normally, a row should contain only one text input unless they're up to two contextual information that make sense togeter (such as first and last name)
+| Do's                                                                                                                                                     |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ✔ The placeholder must be succint (up to 3-4 words)                                                                                                 |
+| ✔ The placeholder should also be contextual to the language and market |
 
-PLACEHOLDER
-- A input field must always have a placeholder, which is a short example of the information required that helps the user to understand what kind of information is needed. (For instance an Address Field could have as placeholder: Grunerstrasse 13)
-- The placeholder must be succint (up to 3-4 words)
-- The placeholder should also be contextual to the language and market
-
-#### Dont's
-
-INPUT FIELD
-- Don't use input fields for requiring longer textual information from the user
-- Don't communicate that a input field is required
-- Don't mark required fields with asterisks 
-
-PLACEHOLDER
-- The placeholder should not be the exactly same information as the label
-- Don't communicate that a input field is optional in the placeholder, you should do it in the label
-
+| Donts's                                                                          |
+|-------------------------------------------------------------------------------|
+| ✗ The placeholder should not be the exactly same information as the label |
+| ✗ Don't communicate that a field is optional in the placeholder, you should do it in the label                              |
 
 ### Props
-> Can't render prop tables for this component because it's exported with `withTheme`.
+Can't render prop tables for this component because it's exported with `withTheme`.
 
 ### Component variations
 
@@ -71,21 +72,50 @@ You should use only when its an critical information from the user that we alrea
 </Playground>
 
 #### Optional input
+
+##### When to use it
+We should always strive for not asking optional information to our users. We reccomend using optional inputs only if you feel that a information is not critical and the user could benefit for having it inputed (such as `cellphone` in the context of a delivery address).
+Remember to always mark the input as optional on the label and never on the placeholder.
+
 <Playground>
   <Input name="input" id="input" optional />
 </Playground>
 
 #### Invalid input
+
+##### When to use it
+When you have a validation logic behind an information that is required in order to continue the form flow.
+
+Do's
+- We should always try to tell that a text input is not valid as soon as we realize it. 
+- The error message should be displayed above the form
+- We should use passive voice in the error message to avoid giving direct blame to our users, eg "Password is required" instead of "You didn't set a password" 
+
+Dont's
+- Do not use long sentences to describe why something is invalide, be direct and tell the user how to fix it
+- Do not place validation description for formatting such as "Use only numbers". We should always try take care of this automatically for or users (such as eliminating space in credit card inputs) 
+
 <Playground>
   <Input name="input" id="input" invalid placeholder="I am not valid!" />
 </Playground>
 
 #### Warning input
+
+##### When to use it
+When the information that the user inserted, due to our automatic validations, can affect another setting or attribute of the user's account we should warn him on the spot (without having to submit before) 
+
 <Playground>
   <Input name="input" id="input" hasWarning placeholder="I am warning you." />
 </Playground>
 
 ## Label
+
+#### Definition
+A label is a short text that explains what information we need from the text field. 
+
+Do's
+- Always use short labels, maximum 3-4 words
+- If a text input is optional, you should tell it in the label as: "(optional)"
 
 <Playground>
   <Label htmlFor="name">Label</Label>
@@ -139,8 +169,17 @@ You should use only when its an critical information from the user that we alrea
 </Playground>
 
 ## Radio button
-Radio buttons are used to distinguish between mutually exlusive choices
-in the context of a form.
+
+#### Definition
+Radio buttons are used to distinguish between mutually exclusive choices in the context of a form.
+
+#### When to use it
+When you need the user to select only one option possible within a contextual pre-defined list of options.
+
+Do's 
+- Always have at least 2-5 options maximum
+- Always use a label to help the user understand the context of the options
+
 
 <Playground>
   <Fragment>
