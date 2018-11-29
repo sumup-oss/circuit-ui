@@ -30,8 +30,15 @@ Here are a few helpful links for getting started with Circuit UI:
 ## Installation
 
 ```
+yarn add @sumup/circuit-ui
+```
+
+## Development
+
+```
 yarn && yarn start
 ```
+
 
 ## Deployment
 
@@ -76,9 +83,9 @@ describe('Button', () => {
 Besides the component library, we also export some utilities which you
 might need in order to use the components. Two main ones:
 
-* `numbers` - a module for dealing with number localization.
-* `currency` - a module for formatting currency amounts.
-* `style-helpers` - a module containing helpers for writing styles.
+* `numbersUtils` - a module for dealing with number localization.
+* `currencyUtils` - a module for formatting currency amounts.
+* `styleHelpers` - a module containing helpers for writing styles.
 
 ## Creating components
 
