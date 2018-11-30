@@ -62,7 +62,7 @@
     "@storybook/addon-storysource": "^3.4.0",
     "@storybook/addons": "^3.4.0",
     "@storybook/react": "^3.4.0",
-    "@sumup/foundry": "^0.0.8",
+    "@sumup/foundry": "^0.0.16",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.1.2",
     "babel-jest": "^22.1.0",
