@@ -46,9 +46,11 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const paddingStyles = ({ theme, padding }) => css`
-  padding: ${theme.spacings[sizeMap[padding]]};
-`;
+const paddingStyles = ({ theme, padding }) =>
+  padding &&
+  css`
+    padding: ${theme.spacings[sizeMap[padding]]};
+  `;
 
 const selectedStyles = ({ theme, selected }) =>
   selected &&
