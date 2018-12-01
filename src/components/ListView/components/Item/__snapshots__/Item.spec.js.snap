@@ -9,7 +9,7 @@ exports[`Item should render with all paddings 1`] = `
   position: relative;
   cursor: pointer;
   border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
+  padding: 12px;
 }
 
 .circuit-0:hover,
@@ -60,7 +60,7 @@ exports[`Item should render with all paddings 2`] = `
   position: relative;
   cursor: pointer;
   border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
+  padding: 16px;
 }
 
 .circuit-0:hover,
