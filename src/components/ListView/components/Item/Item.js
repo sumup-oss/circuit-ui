@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { flow } from 'lodash/fp';
+import { setStatic } from 'recompose';
 
 import withKeyboardEvents from '../../../../util/withKeyboardEvents';
 import { sizes } from '../../../../styles/constants';
@@ -14,10 +15,6 @@ const Item = ({ children, ...props }) => (
     {children}
   </Wrapper>
 );
-
-Item.KILO = KILO;
-Item.MEGA = MEGA;
-Item.GIGA = GIGA;
 
 Item.propTypes = {
   /**
@@ -42,4 +39,10 @@ Item.defaultProps = {
 /**
  * @component
  */
-export default flow(withKeyboardEvents, withAriaSelected)(Item);
+export default flow(
+  withKeyboardEvents,
+  withAriaSelected,
+  setStatic('KILO', KILO),
+  setStatic('MEGA', MEGA),
+  setStatic('GIGA', GIGA)
+)(Item);
