@@ -68,7 +68,7 @@ Wrapper.propTypes = {
   /**
    * Circuit UI spacing size.
    */
-  padding: PropTypes.oneOf([Text.KILO, Text.MEGA, Text.GIGA])
+  padding: PropTypes.oneOf([KILO, MEGA, GIGA])
 };
 
 Wrapper.defaultProps = {
