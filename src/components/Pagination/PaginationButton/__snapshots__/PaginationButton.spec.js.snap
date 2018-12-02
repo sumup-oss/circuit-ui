@@ -1,37 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaginationButton styles should render with default styles 1`] = `
-<PageButtons
-  disabled={false}
-  flat={false}
-  href={null}
+<PageButton
   name={1}
   onClick={[Function]}
-  plain={false}
   primary={false}
-  secondary={false}
   size="kilo"
-  stretch={false}
-  target={null}
 >
   1
-</PageButtons>
+</PageButton>
 `;
 
 exports[`PaginationButton styles should render with default styles when have plain false 1`] = `
-<PageButtons
-  disabled={false}
-  flat={false}
-  href={null}
+<PageButton
   name={1}
   onClick={[Function]}
-  plain={true}
   primary={false}
-  secondary={false}
-  size="mega"
-  stretch={false}
-  target={null}
+  size="kilo"
 >
   1
-</PageButtons>
+</PageButton>
 `;

@@ -69,7 +69,7 @@ describe('PaginationContainer', () => {
           </PaginationContainer>
         );
         component
-          .find('NavigationButton')
+          .find('NavigationButtonPrevious')
           .at(0)
           .simulate('click');
         expect(onChange).toHaveBeenCalledWith(9);
@@ -91,8 +91,8 @@ describe('PaginationContainer', () => {
           </PaginationContainer>
         );
         component
-          .find('NavigationButton')
-          .at(1)
+          .find('NavigationButtonNext')
+          .at(0)
           .simulate('click');
         expect(onChange).toHaveBeenCalledWith(11);
       });

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import * as PaginationService from './PaginationService';
 import PaginationContainer from './PaginationContainer';
 import PaginationButton from './PaginationButton';
+import PageButton from './PageButton';
 
 /**
  * Pagination is a component to show pages numbers calculate dinamically.
@@ -12,16 +13,19 @@ const Pagination = ({
   page,
   perPage,
   total,
+  pagesToShow,
   onChange,
   nextLabel,
   previousLabel
 }) => {
-  const PageButton = ({ value }) => {
-    const plain = page !== value;
-    return <PaginationButton plain={plain} value={value} onClick={onChange} />;
+  const PaginationButtonContainer = ({ value }) => {
+    const active = page === value;
+    return (
+      <PaginationButton active={active} value={value} onClick={onChange} />
+    );
   };
 
-  PageButton.propTypes = {
+  PaginationButtonContainer.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
   };
 
@@ -31,7 +35,7 @@ const Pagination = ({
     return null;
   }
 
-  if (totalPages <= 5) {
+  if (totalPages <= pagesToShow) {
     return (
       <PaginationContainer
         page={page}
@@ -41,7 +45,9 @@ const Pagination = ({
         previousLabel={previousLabel}
       >
         {PaginationService.createEmptyArrayFromNumber(totalPages).map(
-          (item, index) => <PageButton key={item} value={index + 1} />
+          (item, index) => (
+            <PaginationButtonContainer key={item} value={index + 1} />
+          )
         )}
       </PaginationContainer>
     );
@@ -70,13 +76,19 @@ const Pagination = ({
       nextLabel={nextLabel}
       previousLabel={previousLabel}
     >
-      <PageButton value={1} />
-      {shouldHavePreviousDots && '...'}
-      {previousValues.map(item => <PageButton key={item} value={item} />)}
-      {isNotFirstOrLastPage && <PageButton key={page} value={page} />}
-      {nextValues.map(item => <PageButton key={item} value={item} />)}
-      {shouldHaveNextDots && '...'}
-      <PageButton value={totalPages} />
+      <PaginationButtonContainer value={1} />
+      {shouldHavePreviousDots && <PageButton>...</PageButton>}
+      {previousValues.map(item => (
+        <PaginationButtonContainer key={item} value={item} />
+      ))}
+      {isNotFirstOrLastPage && (
+        <PaginationButtonContainer key={page} value={page} />
+      )}
+      {nextValues.map(item => (
+        <PaginationButtonContainer key={item} value={item} />
+      ))}
+      {shouldHaveNextDots && <PageButton>...</PageButton>}
+      <PaginationButtonContainer value={totalPages} />
     </PaginationContainer>
   );
 };
@@ -99,6 +111,10 @@ Pagination.propTypes = {
    */
   onChange: PropTypes.func.isRequired,
   /**
+   * Number of buttons/pages is gonna show on pagination
+   */
+  pagesToShow: PropTypes.number,
+  /**
    * Label to be used on buttomn of next
    */
   nextLabel: PropTypes.string,
@@ -111,8 +127,9 @@ Pagination.propTypes = {
 Pagination.defaultProps = {
   page: 1,
   perPage: 50,
-  nextLabel: 'Next',
-  previousLabel: 'Previous'
+  pagesToShow: 5,
+  nextLabel: '>',
+  previousLabel: '<'
 };
 
 /**

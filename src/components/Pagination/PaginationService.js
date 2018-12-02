@@ -17,16 +17,13 @@ import {
   reverse
 } from 'lodash/fp';
 
-export const calculatePages = (totalItems: number, perPage: number): number =>
+export const calculatePages = (totalItems, perPage) =>
   compose(ceil, divide(totalItems))(perPage);
 
-export const createEmptyArrayFromNumber = (length: number): Array<any> =>
+export const createEmptyArrayFromNumber = (length): Array<any> =>
   Array.from({ length });
 
-const availableSortsForPrevious = (
-  page: number,
-  totalPages: number
-): number => {
+const availableSortsForPrevious = (page, totalPages) => {
   if (page === totalPages) {
     return 3;
   }
@@ -34,7 +31,7 @@ const availableSortsForPrevious = (
   return page + 1 === totalPages ? 2 : 1;
 };
 
-const availableSortsForNext = (page: number): number => {
+const availableSortsForNext = page => {
   if (page === 1) {
     return 3;
   }
@@ -42,10 +39,7 @@ const availableSortsForNext = (page: number): number => {
   return page === 2 ? 2 : 1;
 };
 
-export const arrayOfPreviousValues = (
-  page: number,
-  totalPages: number
-): Array<number> => {
+export const arrayOfPreviousValues = (page, totalPages): Array<number> => {
   if (page < 3) return [];
 
   const availableSorts = availableSortsForPrevious(page, totalPages);
@@ -57,10 +51,7 @@ export const arrayOfPreviousValues = (
   return reverse(pages);
 };
 
-export const arrayOfNextValues = (
-  page: number,
-  totalPages: number
-): Array<number> => {
+export const arrayOfNextValues = (page, totalPages): Array<number> => {
   if (page > totalPages - 2) return [];
 
   const availableSorts = availableSortsForNext(page);
@@ -84,7 +75,7 @@ export const shouldHavePreviousDots = (
 
 export const shouldHaveNextDots = (
   nextValues: Array<number>,
-  totalPages: number
+  totalPages
 ): boolean => {
   if (isEmpty(nextValues)) {
     return false;

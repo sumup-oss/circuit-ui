@@ -1,37 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+import PageButton from '../PageButton';
 
-import Button from '../../Button';
-
-const PageButtons = styled(Button)`
-  ${({ theme }) => `
-    margin: ${theme.spacings.kilo};
-  `};
-`;
-
-const PaginationButton = ({ value, onClick, plain }) => {
-  const size = plain ? Button.MEGA : Button.KILO;
-  return (
-    <PageButtons
-      name={value}
-      size={size}
-      plain={plain}
-      onClick={() => onClick(value)}
-    >
-      {value}
-    </PageButtons>
-  );
-};
+const PaginationButton = ({ value, onClick, active }) => (
+  <PageButton primary={active} name={value} onClick={() => onClick(value)}>
+    {value}
+  </PageButton>
+);
 
 PaginationButton.propTypes = {
   value: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
-  plain: PropTypes.bool
+  active: PropTypes.bool
 };
 
 PaginationButton.defaultProps = {
-  plain: false
+  active: false
 };
 
 export default PaginationButton;

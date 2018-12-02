@@ -15,13 +15,19 @@ const Container = styled('div')`
 
 Container.displayName = 'Container';
 
-const NavigationButton = styled(Button)`
-  ${({ theme }) => `
-    margin: ${theme.spacings.giga};
-  `};
+const NavigationButtonPrevious = styled(Button)`
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+`;
+NavigationButtonPrevious.displayName = 'NavigationButtonPrevious';
+
+const NavigationButtonNext = styled(Button)`
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 `;
 
-NavigationButton.displayName = 'NavigationButton';
+NavigationButtonNext.displayName = 'NavigationButtonNext';
 
 const PaginationContainer = ({
   children,
@@ -32,25 +38,23 @@ const PaginationContainer = ({
   previousLabel
 }) => (
   <Container>
-    {page !== 1 && (
-      <NavigationButton
-        size={Button.MEGA}
-        plain
-        onClick={() => onChange(page - 1)}
-      >
-        {previousLabel}
-      </NavigationButton>
-    )}
+    <NavigationButtonPrevious
+      size={Button.KILO}
+      onClick={() => onChange(page - 1)}
+      disabled={page === 1}
+    >
+      {previousLabel}
+    </NavigationButtonPrevious>
     {children}
-    {page !== totalPages && (
-      <NavigationButton
-        size={Button.MEGA}
-        plain
-        onClick={() => onChange(page + 1)}
-      >
-        {nextLabel}
-      </NavigationButton>
-    )}
+    <NavigationButtonNext
+      size={Button.KILO}
+      onClick={() => onChange(page + 1)}
+      disabled={page === totalPages}
+      isLast
+      isFirst={false}
+    >
+      {nextLabel}
+    </NavigationButtonNext>
   </Container>
 );
 
