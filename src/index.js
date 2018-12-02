@@ -17,6 +17,15 @@ import {
 
 import { normalizeAmount, isValidAmount } from './components/CurrencyInput';
 
+import { circuit } from './themes';
+
+export {
+  id as uniqueId,
+  numbers as numbersUtils,
+  currency as currencyUtils,
+  sharedPropTypes
+} from './util';
+
 const cardNumberUtils = {
   isValidCardNumber,
   isAcceptedCardScheme,
@@ -141,6 +150,7 @@ export { default as CardSchemes } from './components/CardSchemes';
 export {
   default as PaymentMethodIcon
 } from './components/CardSchemes/components/PaymentMethodIcon';
+
 export { default as SideNav } from './components/SideNav';
 export { Menu } from './components/SideNav/components';
 export { Drawer } from './components/SideNav/components';
@@ -148,3 +158,18 @@ export { Drawer } from './components/SideNav/components';
 // Helpers
 export { default as State } from './components/State';
 export { default as InlineElements } from './components/InlineElements';
+
+// Theme
+const standard = { ...circuit }; // otherwise this get exported as a `Module`
+const theme = {
+  standard,
+  circuit: standard
+};
+
+export { theme };
+
+export {
+  globalStyles as injectGlobalStyles,
+  styleHelpers,
+  constants as styleConstants
+} from './styles';
