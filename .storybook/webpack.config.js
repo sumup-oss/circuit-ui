@@ -6,10 +6,14 @@ const merge = require('webpack-merge');
 module.exports = function(storybookBaseConfig, configType) {
   const isProduction = configType === 'PRODUCTION';
 
-  const babelLoader = { ...storybookBaseConfig.module.rules[0] };
   const babelOptions = {
-    plugins: babelLoader.query.plugins,
-    presets: babelLoader.query.presets,
+    plugins: [
+      'transform-class-properties',
+      'lodash',
+      'transform-object-rest-spread',
+      ['emotion', { autoLabel: true, hoist: true, sourceMap: true }]
+    ],
+    presets: [['env', { loose: true, modules: false }], 'react', 'stage-3'],
     babelrc: false
   };
 
