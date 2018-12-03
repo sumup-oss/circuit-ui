@@ -6,6 +6,17 @@ const merge = require('webpack-merge');
 module.exports = function(storybookBaseConfig, configType) {
   const isProduction = configType === 'PRODUCTION';
 
+  const babelOptions = {
+    plugins: [
+      'transform-class-properties',
+      'lodash',
+      'transform-object-rest-spread',
+      ['emotion', { autoLabel: true, hoist: true, sourceMap: true }]
+    ],
+    presets: [['env', { loose: true, modules: false }], 'react', 'stage-3'],
+    babelrc: false
+  };
+
   const ourConfig = {
     devtool: 'eval-source-map',
     externals: {
@@ -20,7 +31,7 @@ module.exports = function(storybookBaseConfig, configType) {
         {
           test: /\.story\.jsx?$/,
           loaders: [
-            'babel-loader',
+            { loader: 'babel-loader', options: babelOptions },
             {
               loader: require.resolve('@storybook/addon-storysource/loader'),
               options: {
@@ -67,5 +78,6 @@ module.exports = function(storybookBaseConfig, configType) {
   };
 
   const baseConfig = merge(storybookBaseConfig, ourConfig);
+
   return isProduction ? merge(baseConfig, ourProdSpecificConfig) : baseConfig;
 };

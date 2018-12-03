@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    "transform-class-properties",
+    "lodash",
+    "transform-object-rest-spread",
+    [
+      "emotion",
+      {
+        "autoLabel": true,
+        "hoist": true,
+        "sourceMap": true
+      }
+    ]
+  ],
+  "presets": [
+    ["env", { "loose": true, "modules": false }],
+    "react",
+    "stage-3"
+  ]
+}
