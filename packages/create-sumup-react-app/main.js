@@ -20,16 +20,16 @@ const DEPENDENCIES = [
   // Our beautiful component library 💄
   '@sumup/circuit-ui',
   // CSS-in-JS 🚀
-  'react-emotion',
-  'emotion',
-  'emotion-theming'
+  'react-emotion@^9.0.0',
+  'emotion@^9.0.0',
+  'emotion-theming@^9.0.0'
 ];
 const DEV_DEPENDENCIES = [
   // The toolkit 🛠
   '@sumup/foundry',
   // Testing 📏
-  'react-testing-library',
-  'jest-emotion',
+  'react-testing-library@^5.3.1',
+  'jest-emotion@9.0.0',
   'jest-dom'
 ];
 
