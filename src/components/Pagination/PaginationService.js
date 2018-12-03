@@ -18,8 +18,7 @@ import {
 export const calculatePages = (totalItems, perPage) =>
   compose(ceil, divide(totalItems))(perPage);
 
-export const createEmptyArrayFromNumber = (length): Array<any> =>
-  Array.from({ length });
+export const createEmptyArrayFromNumber = length => Array.from({ length });
 
 const availableSortsForPrevious = (page, totalPages) => {
   if (page === totalPages) {
@@ -37,7 +36,7 @@ const availableSortsForNext = page => {
   return page === 2 ? 2 : 1;
 };
 
-export const arrayOfPreviousValues = (page, totalPages): Array<number> => {
+export const arrayOfPreviousValues = (page, totalPages) => {
   if (page < 3) return [];
 
   const availableSorts = availableSortsForPrevious(page, totalPages);
@@ -49,7 +48,7 @@ export const arrayOfPreviousValues = (page, totalPages): Array<number> => {
   return reverse(pages);
 };
 
-export const arrayOfNextValues = (page, totalPages): Array<number> => {
+export const arrayOfNextValues = (page, totalPages) => {
   if (page > totalPages - 2) return [];
 
   const availableSorts = availableSortsForNext(page);
@@ -59,9 +58,7 @@ export const arrayOfNextValues = (page, totalPages): Array<number> => {
   );
 };
 
-export const hasOmittedPreviousPages = (
-  previousValues: Array<number>
-): boolean => {
+export const hasOmittedPreviousPages = previousValues => {
   if (isEmpty(previousValues)) {
     return false;
   }
@@ -71,10 +68,7 @@ export const hasOmittedPreviousPages = (
   );
 };
 
-export const hasOmittedNextPages = (
-  nextValues: Array<number>,
-  totalPages
-): boolean => {
+export const hasOmittedNextPages = (nextValues, totalPages) => {
   if (isEmpty(nextValues)) {
     return false;
   }
