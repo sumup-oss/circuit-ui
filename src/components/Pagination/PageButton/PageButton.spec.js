@@ -3,7 +3,6 @@ import React from 'react';
 import PageButton from './PageButton';
 
 describe('PageButton', () => {
-  // !TODO: write your tests.
   describe('styles', () => {
     it('should render with default styles', () => {
       const actual = create(<PageButton />);

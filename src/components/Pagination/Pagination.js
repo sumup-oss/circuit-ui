@@ -9,6 +9,14 @@ import PageButton from './PageButton';
  * Pagination is a component to show pages numbers calculate dinamically.
  */
 
+const PAGINATION = {
+  INITIAL_PAGE: 1,
+  ITEMS_PER_PAGE: 50,
+  PAGES_TO_SHOW: 5,
+  LABEL_NEXT: '>',
+  LABEL_PREVIOUS: '<'
+};
+
 const Pagination = ({
   page,
   perPage,
@@ -58,15 +66,15 @@ const Pagination = ({
   );
   const nextValues = PaginationService.arrayOfNextValues(page, totalPages);
 
-  const shouldHavePreviousDots = PaginationService.shouldHavePreviousDots(
+  const hasOmittedPreviousPages = PaginationService.hasOmittedPreviousPages(
     previousValues
   );
-  const shouldHaveNextDots = PaginationService.shouldHaveNextDots(
+  const hasOmittedNextPages = PaginationService.hasOmittedNextPages(
     nextValues,
     totalPages
   );
 
-  const isNotFirstOrLastPage = page !== totalPages && page !== 1;
+  const isFirstOrLastPage = page === totalPages || page === 1;
 
   return (
     <PaginationContainer
@@ -77,17 +85,17 @@ const Pagination = ({
       previousLabel={previousLabel}
     >
       <PaginationButtonContainer value={1} />
-      {shouldHavePreviousDots && <PageButton>...</PageButton>}
+      {hasOmittedPreviousPages && <PageButton>...</PageButton>}
       {previousValues.map(item => (
         <PaginationButtonContainer key={item} value={item} />
       ))}
-      {isNotFirstOrLastPage && (
+      {!isFirstOrLastPage && (
         <PaginationButtonContainer key={page} value={page} />
       )}
       {nextValues.map(item => (
         <PaginationButtonContainer key={item} value={item} />
       ))}
-      {shouldHaveNextDots && <PageButton>...</PageButton>}
+      {hasOmittedNextPages && <PageButton>...</PageButton>}
       <PaginationButtonContainer value={totalPages} />
     </PaginationContainer>
   );
@@ -125,13 +133,12 @@ Pagination.propTypes = {
 };
 
 Pagination.defaultProps = {
-  page: 1,
-  perPage: 50,
-  pagesToShow: 5,
-  nextLabel: '>',
-  previousLabel: '<'
+  page: PAGINATION.INITIAL_PAGE,
+  perPage: PAGINATION.ITEMS_PER_PAGE,
+  pagesToShow: PAGINATION.PAGES_TO_SHOW,
+  nextLabel: PAGINATION.LABEL_NEXT,
+  previousLabel: PAGINATION.LABEL_PREVIOUS
 };
-
 /**
  * @component Pagination
  */

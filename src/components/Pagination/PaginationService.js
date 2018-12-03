@@ -1,5 +1,3 @@
-// @flow
-
 import {
   ceil,
   compose,
@@ -61,7 +59,7 @@ export const arrayOfNextValues = (page, totalPages): Array<number> => {
   );
 };
 
-export const shouldHavePreviousDots = (
+export const hasOmittedPreviousPages = (
   previousValues: Array<number>
 ): boolean => {
   if (isEmpty(previousValues)) {
@@ -73,7 +71,7 @@ export const shouldHavePreviousDots = (
   );
 };
 
-export const shouldHaveNextDots = (
+export const hasOmittedNextPages = (
   nextValues: Array<number>,
   totalPages
 ): boolean => {

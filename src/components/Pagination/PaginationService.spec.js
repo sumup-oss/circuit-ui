@@ -68,7 +68,7 @@ describe('PaginationService', () => {
     describe('when page is 1', () => {
       it('should return false', () => {
         const previousValues = [2];
-        const shouldHaveDots = PaginationService.shouldHavePreviousDots(
+        const shouldHaveDots = PaginationService.hasOmittedPreviousPages(
           previousValues
         );
         expect(shouldHaveDots).toBeFalsy();
@@ -78,7 +78,7 @@ describe('PaginationService', () => {
     describe('when have dots and page is 1', () => {
       it('should return false', () => {
         const previousValues = [2];
-        const shouldHaveDots = PaginationService.shouldHavePreviousDots(
+        const shouldHaveDots = PaginationService.hasOmittedPreviousPages(
           previousValues
         );
         expect(shouldHaveDots).toBeFalsy();
@@ -88,7 +88,7 @@ describe('PaginationService', () => {
     describe('when page is greater than 2 and smaller than total pages', () => {
       it('should return true', () => {
         const previousValues = [4];
-        const shouldHaveDots = PaginationService.shouldHavePreviousDots(
+        const shouldHaveDots = PaginationService.hasOmittedPreviousPages(
           previousValues
         );
         expect(shouldHaveDots).toBeTruthy();
@@ -98,7 +98,7 @@ describe('PaginationService', () => {
     describe('when page is 49 and total pages is 50', () => {
       it('should return true', () => {
         const previousValues = [48, 47];
-        const shouldHaveDots = PaginationService.shouldHavePreviousDots(
+        const shouldHaveDots = PaginationService.hasOmittedPreviousPages(
           previousValues
         );
         expect(shouldHaveDots).toBeTruthy();
@@ -108,7 +108,7 @@ describe('PaginationService', () => {
     describe('when page is equals to total pages', () => {
       it('should return true', () => {
         const previousValues = [47, 48, 49];
-        const shouldHaveDots = PaginationService.shouldHavePreviousDots(
+        const shouldHaveDots = PaginationService.hasOmittedPreviousPages(
           previousValues
         );
         expect(shouldHaveDots).toBeTruthy();
@@ -157,7 +157,7 @@ describe('PaginationService', () => {
     describe('when page is 1', () => {
       it('should return false', () => {
         const nextValues = [];
-        const shouldHaveDots = PaginationService.shouldHaveNextDots(
+        const shouldHaveDots = PaginationService.hasOmittedNextPages(
           nextValues,
           50
         );
@@ -168,7 +168,7 @@ describe('PaginationService', () => {
     describe('when have dots after and page is 1', () => {
       it('should return false', () => {
         const nextValues = [2];
-        const shouldHaveDots = PaginationService.shouldHaveNextDots(
+        const shouldHaveDots = PaginationService.hasOmittedNextPages(
           nextValues,
           50
         );
@@ -179,7 +179,7 @@ describe('PaginationService', () => {
     describe('when page is greater than 2 and smaller than total pages', () => {
       it('should return true', () => {
         const nextValues = [7];
-        const shouldHaveDots = PaginationService.shouldHaveNextDots(
+        const shouldHaveDots = PaginationService.hasOmittedNextPages(
           nextValues,
           10
         );
@@ -190,7 +190,7 @@ describe('PaginationService', () => {
     describe('when page is equals to total pages', () => {
       it('should return true', () => {
         const nextValues = [47, 48, 49];
-        const shouldHaveDots = PaginationService.shouldHaveNextDots(
+        const shouldHaveDots = PaginationService.hasOmittedNextPages(
           nextValues,
           50
         );
@@ -201,7 +201,7 @@ describe('PaginationService', () => {
     describe('when page is equals to total pages and array is messy', () => {
       it('should return true', () => {
         const nextValues = [47, 48, 49];
-        const shouldHaveDots = PaginationService.shouldHaveNextDots(
+        const shouldHaveDots = PaginationService.hasOmittedNextPages(
           nextValues,
           50
         );
