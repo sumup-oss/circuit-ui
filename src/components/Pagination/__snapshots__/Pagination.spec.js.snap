@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `
+exports[`Pagination styles With 5 or less pages should render only the number of pages passed and the next and previous buttons 1`] = `
 <PaginationContainer
   nextLabel=">"
   onChange={[Function]}
@@ -9,126 +9,24 @@ exports[` 1`] = `
   totalPages={5}
 >
   <PaginationButtonContainer
-    value={1}
+    currentPage={1}
   />
   <PaginationButtonContainer
-    value={2}
+    currentPage={2}
   />
   <PaginationButtonContainer
-    value={3}
+    currentPage={3}
   />
   <PaginationButtonContainer
-    value={4}
+    currentPage={4}
   />
   <PaginationButtonContainer
-    value={5}
+    currentPage={5}
   />
 </PaginationContainer>
 `;
 
-exports[` 2`] = `
-<PaginationContainer
-  nextLabel=">"
-  onChange={[Function]}
-  page={1}
-  previousLabel="<"
-  totalPages={10}
->
-  <PaginationButtonContainer
-    value={1}
-  />
-  <PaginationButtonContainer
-    key="2"
-    value={2}
-  />
-  <PaginationButtonContainer
-    key="3"
-    value={3}
-  />
-  <PaginationButtonContainer
-    key="4"
-    value={4}
-  />
-  <PageButton
-    size="kilo"
-  >
-    ...
-  </PageButton>
-  <PaginationButtonContainer
-    value={10}
-  />
-</PaginationContainer>
-`;
-
-exports[` 3`] = `
-<PaginationContainer
-  nextLabel=">"
-  onChange={[Function]}
-  page={2}
-  previousLabel="<"
-  totalPages={10}
->
-  <PaginationButtonContainer
-    value={1}
-  />
-  <PaginationButtonContainer
-    key="2"
-    value={2}
-  />
-  <PaginationButtonContainer
-    key="3"
-    value={3}
-  />
-  <PaginationButtonContainer
-    key="4"
-    value={4}
-  />
-  <PageButton
-    size="kilo"
-  >
-    ...
-  </PageButton>
-  <PaginationButtonContainer
-    value={10}
-  />
-</PaginationContainer>
-`;
-
-exports[` 4`] = `
-<PaginationContainer
-  nextLabel=">"
-  onChange={[Function]}
-  page={10}
-  previousLabel="<"
-  totalPages={10}
->
-  <PaginationButtonContainer
-    value={1}
-  />
-  <PageButton
-    size="kilo"
-  >
-    ...
-  </PageButton>
-  <PaginationButtonContainer
-    key="7"
-    value={7}
-  />
-  <PaginationButtonContainer
-    key="8"
-    value={8}
-  />
-  <PaginationButtonContainer
-    key="9"
-    value={9}
-  />
-  <PaginationButtonContainer
-    value={10}
-  />
-</PaginationContainer>
-`;
-
-exports[` 5`] = `
+exports[`Pagination styles With more than 5 pages when user is last but one page should render with default styles and match snapshot 1`] = `
 <PaginationContainer
   nextLabel=">"
   onChange={[Function]}
@@ -137,7 +35,7 @@ exports[` 5`] = `
   totalPages={10}
 >
   <PaginationButtonContainer
-    value={1}
+    currentPage={1}
   />
   <PageButton
     size="kilo"
@@ -145,24 +43,92 @@ exports[` 5`] = `
     ...
   </PageButton>
   <PaginationButtonContainer
+    currentPage={7}
     key="7"
-    value={7}
   />
   <PaginationButtonContainer
+    currentPage={8}
     key="8"
-    value={8}
   />
   <PaginationButtonContainer
+    currentPage={9}
     key="9"
-    value={9}
   />
   <PaginationButtonContainer
-    value={10}
+    currentPage={10}
   />
 </PaginationContainer>
 `;
 
-exports[` 6`] = `
+exports[`Pagination styles With more than 5 pages when user is on last page should render with default styles and match snapshot 1`] = `
+<PaginationContainer
+  nextLabel=">"
+  onChange={[Function]}
+  page={10}
+  previousLabel="<"
+  totalPages={10}
+>
+  <PaginationButtonContainer
+    currentPage={1}
+  />
+  <PageButton
+    size="kilo"
+  >
+    ...
+  </PageButton>
+  <PaginationButtonContainer
+    currentPage={7}
+    key="7"
+  />
+  <PaginationButtonContainer
+    currentPage={8}
+    key="8"
+  />
+  <PaginationButtonContainer
+    currentPage={9}
+    key="9"
+  />
+  <PaginationButtonContainer
+    currentPage={10}
+  />
+</PaginationContainer>
+`;
+
+exports[`Pagination styles With more than 5 pages when user is on page 2 should render with default styles and match snapshot 1`] = `
+<PaginationContainer
+  nextLabel=">"
+  onChange={[Function]}
+  page={2}
+  previousLabel="<"
+  totalPages={10}
+>
+  <PaginationButtonContainer
+    currentPage={1}
+  />
+  <PaginationButtonContainer
+    currentPage={2}
+    key="2"
+  />
+  <PaginationButtonContainer
+    currentPage={3}
+    key="3"
+  />
+  <PaginationButtonContainer
+    currentPage={4}
+    key="4"
+  />
+  <PageButton
+    size="kilo"
+  >
+    ...
+  </PageButton>
+  <PaginationButtonContainer
+    currentPage={10}
+  />
+</PaginationContainer>
+`;
+
+exports[`Pagination styles With more than 5 pages when user is on page in the middle should render with default styles and match snapshot 1`] = `
 <PaginationContainer
   nextLabel=">"
   onChange={[Function]}
@@ -171,7 +137,7 @@ exports[` 6`] = `
   totalPages={10}
 >
   <PaginationButtonContainer
-    value={1}
+    currentPage={1}
   />
   <PageButton
     size="kilo"
@@ -179,16 +145,16 @@ exports[` 6`] = `
     ...
   </PageButton>
   <PaginationButtonContainer
+    currentPage={4}
     key="4"
-    value={4}
   />
   <PaginationButtonContainer
+    currentPage={5}
     key="5"
-    value={5}
   />
   <PaginationButtonContainer
+    currentPage={6}
     key="6"
-    value={6}
   />
   <PageButton
     size="kilo"
@@ -196,7 +162,41 @@ exports[` 6`] = `
     ...
   </PageButton>
   <PaginationButtonContainer
-    value={10}
+    currentPage={10}
+  />
+</PaginationContainer>
+`;
+
+exports[`Pagination styles With more than 5 pages when user is on page one should render with default styles and match snapshot 1`] = `
+<PaginationContainer
+  nextLabel=">"
+  onChange={[Function]}
+  page={1}
+  previousLabel="<"
+  totalPages={10}
+>
+  <PaginationButtonContainer
+    currentPage={1}
+  />
+  <PaginationButtonContainer
+    currentPage={2}
+    key="2"
+  />
+  <PaginationButtonContainer
+    currentPage={3}
+    key="3"
+  />
+  <PaginationButtonContainer
+    currentPage={4}
+    key="4"
+  />
+  <PageButton
+    size="kilo"
+  >
+    ...
+  </PageButton>
+  <PaginationButtonContainer
+    currentPage={10}
   />
 </PaginationContainer>
 `;

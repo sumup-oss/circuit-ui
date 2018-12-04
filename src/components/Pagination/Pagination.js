@@ -26,15 +26,20 @@ const Pagination = ({
   nextLabel,
   previousLabel
 }) => {
-  const PaginationButtonContainer = ({ value }) => {
-    const active = page === value;
+  const PaginationButtonContainer = ({ currentPage }) => {
+    const active = page === currentPage;
     return (
-      <PaginationButton active={active} value={value} onClick={onChange} />
+      <PaginationButton
+        active={active}
+        currentPage={currentPage}
+        onClick={onChange}
+      />
     );
   };
 
   PaginationButtonContainer.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+    currentPage: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired
   };
 
   const totalPages = PaginationService.calculatePages(total, perPage);
@@ -52,11 +57,9 @@ const Pagination = ({
         nextLabel={nextLabel}
         previousLabel={previousLabel}
       >
-        {PaginationService.createEmptyArrayFromNumber(totalPages).map(
-          (item, index) => (
-            <PaginationButtonContainer key={item} value={index + 1} />
-          )
-        )}
+        {Array.from({ length: totalPages }).map((item, index) => (
+          <PaginationButtonContainer key={item} currentPage={index + 1} />
+        ))}
       </PaginationContainer>
     );
   }
@@ -84,19 +87,19 @@ const Pagination = ({
       nextLabel={nextLabel}
       previousLabel={previousLabel}
     >
-      <PaginationButtonContainer value={1} />
+      <PaginationButtonContainer currentPage={1} />
       {hasOmittedPreviousPages && <PageButton>...</PageButton>}
       {previousValues.map(item => (
-        <PaginationButtonContainer key={item} value={item} />
+        <PaginationButtonContainer key={item} currentPage={item} />
       ))}
       {!isFirstOrLastPage && (
-        <PaginationButtonContainer key={page} value={page} />
+        <PaginationButtonContainer key={page} currentPage={page} />
       )}
       {nextValues.map(item => (
-        <PaginationButtonContainer key={item} value={item} />
+        <PaginationButtonContainer key={item} currentPage={item} />
       ))}
       {hasOmittedNextPages && <PageButton>...</PageButton>}
-      <PaginationButtonContainer value={totalPages} />
+      <PaginationButtonContainer currentPage={totalPages} />
     </PaginationContainer>
   );
 };

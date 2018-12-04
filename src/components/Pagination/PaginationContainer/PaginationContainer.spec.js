@@ -53,7 +53,7 @@ describe('PaginationContainer', () => {
     });
   });
 
-  describe('business', () => {
+  describe('interactions', () => {
     describe('click on the first page', () => {
       it('should call function with parameter page less 1', () => {
         const onChange = jest.fn();

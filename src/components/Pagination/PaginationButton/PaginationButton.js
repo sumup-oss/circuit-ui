@@ -2,14 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PageButton from '../PageButton';
 
-const PaginationButton = ({ value, onClick, active }) => (
-  <PageButton primary={active} name={value} onClick={() => onClick(value)}>
-    {value}
+const PaginationButton = ({ currentPage, onClick, active }) => (
+  <PageButton
+    primary={active}
+    name={currentPage}
+    onClick={() => onClick(currentPage)}
+  >
+    {currentPage}
   </PageButton>
 );
 
 PaginationButton.propTypes = {
-  value: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
   active: PropTypes.bool
 };

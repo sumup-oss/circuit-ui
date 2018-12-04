@@ -18,9 +18,7 @@ import {
 export const calculatePages = (totalItems, perPage) =>
   compose(ceil, divide(totalItems))(perPage);
 
-export const createEmptyArrayFromNumber = length => Array.from({ length });
-
-const availableSortsForPrevious = (page, totalPages) => {
+const availablePreviousPages = (page, totalPages) => {
   if (page === totalPages) {
     return 3;
   }
@@ -28,7 +26,7 @@ const availableSortsForPrevious = (page, totalPages) => {
   return page + 1 === totalPages ? 2 : 1;
 };
 
-const availableSortsForNext = page => {
+const availableNextPages = page => {
   if (page === 1) {
     return 3;
   }
@@ -39,9 +37,9 @@ const availableSortsForNext = page => {
 export const arrayOfPreviousValues = (page, totalPages) => {
   if (page < 3) return [];
 
-  const availableSorts = availableSortsForPrevious(page, totalPages);
+  const availablePages = availablePreviousPages(page, totalPages);
 
-  const pages = createEmptyArrayFromNumber(availableSorts).map(
+  const pages = Array.from({ length: availablePages }).map(
     (item, index) => page - (index + 1)
   );
 
@@ -51,9 +49,9 @@ export const arrayOfPreviousValues = (page, totalPages) => {
 export const arrayOfNextValues = (page, totalPages) => {
   if (page > totalPages - 2) return [];
 
-  const availableSorts = availableSortsForNext(page);
+  const availablePages = availableNextPages(page);
 
-  return createEmptyArrayFromNumber(availableSorts).map(
+  return Array.from({ length: availablePages }).map(
     (item, index) => page + (index + 1)
   );
 };
