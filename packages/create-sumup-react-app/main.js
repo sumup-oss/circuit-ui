@@ -33,7 +33,7 @@ const DEV_DEPENDENCIES = [
   'jest-dom'
 ];
 
-const options = util.isDebugging()
+const listrOptions = util.isDebugging()
   ? {
       renderer: VerboseRenderer
     }
@@ -66,11 +66,15 @@ const tasks = new Listr(
           {
             title: 'Customize package.json',
             task: () => updatePackageJson(APP_PATH)
+          },
+          {
+            title: 'Update initial commit',
+            task: () => updateInitialCommit(APP_PATH)
           }
         ])
     }
   ],
-  options
+  listrOptions
 );
 
 run();
@@ -193,6 +197,14 @@ async function updatePackageJson(appPath) {
   const fileContent = JSON.stringify(updatedPackageJson, null, 2);
 
   return asyncWriteFile(filepath, fileContent);
+}
+
+async function updateInitialCommit(appPath) {
+  const options = { cwd: appPath };
+  const commitMsg = '"Initial commit from create-sumup-react-app"';
+
+  await spawn('git', ['add', '-A'], options);
+  return spawn('git', ['commit', '--amend', '-m', commitMsg], options);
 }
 
 function handleErrors(err) {
