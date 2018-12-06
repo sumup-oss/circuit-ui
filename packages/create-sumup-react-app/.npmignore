@@ -4,3 +4,5 @@
 .eslintrc.js
 .gitignore
 prettier.config.js
+lint-staged.config.js
+.huskyrc.js
