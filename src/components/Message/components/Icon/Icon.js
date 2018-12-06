@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 
 import MessageSuccess from '../../message-success.svg';
 import MessageError from '../../message-error.svg';
-import MessageWarning from '../MessageWarning';
+import MessageWarning from '../../message-warning.svg';
 
 const ICON_TYPES = {
   SUCCESS: 'success',

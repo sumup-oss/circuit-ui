@@ -83,7 +83,7 @@ exports[`MessageIcon should render with warning icon 1`] = `
   className="circuit-0 circuit-1"
 >
   <div>
-    message-success.svg
+    message-warning.svg
   </div>
 </div>
 `;
