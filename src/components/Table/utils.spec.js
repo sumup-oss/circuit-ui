@@ -120,10 +120,8 @@ describe('Table utils', () => {
   describe('ascendingSort', () => {
     it('should sort the array by sortByValue/children on ascending order', () => {
       const index = 0;
-      const a = ['Foo'];
-      const b = ['Bar'];
-      const arr = [a, b];
-      const expected = [b, a];
+      const arr = [[10], [7], [2]];
+      const expected = [[2], [7], [10]];
       const actual = [...arr].sort(utils.ascendingSort(index));
 
       expect(actual).toEqual(expected);
@@ -133,10 +131,8 @@ describe('Table utils', () => {
   describe('descendingSort', () => {
     it('should sort the array by sortByValue/children on descending order', () => {
       const index = 0;
-      const a = ['Bar'];
-      const b = ['Foo'];
-      const arr = [a, b];
-      const expected = [b, a];
+      const arr = [[2], [7], [10]];
+      const expected = [[10], [7], [2]];
       const actual = [...arr].sort(utils.descendingSort(index));
 
       expect(actual).toEqual(expected);
