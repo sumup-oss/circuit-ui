@@ -3,4 +3,4 @@
 .eslintignore
 .eslintrc.js
 .gitignore
-.prettier.config.js
+prettier.config.js
