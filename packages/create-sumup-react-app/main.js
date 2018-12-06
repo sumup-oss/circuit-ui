@@ -28,7 +28,7 @@ const DEV_DEPENDENCIES = [
   // React ⚛️
   'prop-types',
   // The toolkit 🛠
-  '@sumup/foundry@canary',
+  '@sumup/foundry',
   // Testing 📏
   'react-testing-library@^5.3.1',
   'jest-emotion@^9.0.0',
