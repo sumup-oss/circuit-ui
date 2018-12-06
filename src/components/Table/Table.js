@@ -74,49 +74,49 @@ const Container = styled.div`
  */
 class Table extends Component {
   state = {
-    rows: this.props.rows,
     sortedRow: null,
     sortHover: null,
     sortDirection: null
   };
 
-  static getDerivedStateFromProps(nextProps) {
-    return {
-      rows: nextProps.rows
-    };
-  }
-
   onSortEnter = i => this.setState({ sortHover: i });
   onSortLeave = () => this.setState({ sortHover: null });
   onSortBy = i => {
-    const { rows, sortedRow, sortDirection } = this.state;
-    const { onSortBy } = this.props;
+    const { sortedRow, sortDirection } = this.state;
     const isActive = i === sortedRow;
     const nextDirection = getSortDirection(isActive, sortDirection);
 
-    const nextRows = onSortBy
-      ? onSortBy(i, nextDirection, rows)
-      : this.defaultSortBy(i, nextDirection, rows);
-
-    this.updateSort(i, nextDirection, nextRows);
+    this.updateSort(i, nextDirection);
   };
 
-  updateSort = (i, nextDirection, rows) =>
+  getSortedRows = () => {
+    const { rows, onSortBy } = this.props;
+    const { sortDirection, sortedRow } = this.state;
+
+    if (sortedRow === null) {
+      return rows;
+    }
+
+    return onSortBy
+      ? onSortBy(sortedRow, sortDirection, rows)
+      : this.defaultSortBy(sortedRow, sortDirection, rows);
+  };
+
+  updateSort = (i, nextDirection) =>
     this.setState({
-      rows,
       sortedRow: i,
       sortDirection: nextDirection
     });
 
-  defaultSortBy = (i, nextDirection, rows) => {
-    const nextFn = nextDirection === ASCENDING ? ascendingSort : descendingSort;
+  defaultSortBy = (i, direction, rows) => {
+    const sortFn = direction === ASCENDING ? ascendingSort : descendingSort;
 
-    return [...rows].sort(nextFn(i));
+    return [...rows].sort(sortFn(i), rows);
   };
 
   render() {
     const { rowHeaders, headers, onRowClick, noShadow } = this.props;
-    const { rows, sortDirection, sortHover, sortedRow } = this.state;
+    const { sortDirection, sortHover, sortedRow } = this.state;
 
     return (
       <Container noShadow={noShadow}>
@@ -132,7 +132,7 @@ class Table extends Component {
               rowHeaders={rowHeaders}
             />
             <TableBody
-              rows={rows}
+              rows={this.getSortedRows()}
               rowHeaders={rowHeaders}
               sortHover={sortHover}
               onRowClick={onRowClick}
