@@ -26,7 +26,7 @@ const DEPENDENCIES = [
 ];
 const DEV_DEPENDENCIES = [
   // The toolkit 🛠
-  '@sumup/foundry',
+  '@sumup/foundry@canary',
   // Testing 📏
   'react-testing-library@^5.3.1',
   'jest-emotion@^9.0.0',
@@ -143,7 +143,9 @@ function setUpFoundry(appPath, childProcessOptions = {}) {
     '--prettier',
     'base',
     '--plop',
-    'react'
+    'react',
+    '--lint-staged',
+    '--husky'
   ];
   return spawn(cmd, args, { cwd: appPath, ...childProcessOptions });
 }
@@ -204,7 +206,11 @@ async function updateInitialCommit(appPath) {
   const commitMsg = '"Initial commit from create-sumup-react-app"';
 
   await spawn('git', ['add', '-A'], options);
-  return spawn('git', ['commit', '--amend', '-m', commitMsg], options);
+  return spawn(
+    'git',
+    ['commit', '--amend', '--no-verify', '-m', commitMsg],
+    options
+  );
 }
 
 function handleErrors(err) {
