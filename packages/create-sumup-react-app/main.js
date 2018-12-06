@@ -29,7 +29,7 @@ const DEV_DEPENDENCIES = [
   '@sumup/foundry',
   // Testing 📏
   'react-testing-library@^5.3.1',
-  'jest-emotion@9.0.0',
+  'jest-emotion@^9.0.0',
   'jest-dom'
 ];
 
