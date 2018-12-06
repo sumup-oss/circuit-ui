@@ -25,6 +25,8 @@ const DEPENDENCIES = [
   'emotion-theming@^9.0.0'
 ];
 const DEV_DEPENDENCIES = [
+  // React ⚛️
+  'prop-types',
   // The toolkit 🛠
   '@sumup/foundry@canary',
   // Testing 📏
