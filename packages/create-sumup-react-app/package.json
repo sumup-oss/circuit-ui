@@ -13,10 +13,10 @@
   "dependencies": {
     "chalk": "^2.4.1",
     "esm": "^3.0.84",
-    "listr": "^0.14.2",
+    "listr": "^0.14.3",
     "listr-verbose-renderer": "^0.5.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "^0.0.13"
+    "@sumup/foundry": "canary"
   }
 }
