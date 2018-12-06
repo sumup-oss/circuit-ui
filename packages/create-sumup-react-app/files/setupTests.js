@@ -13,6 +13,7 @@ import * as emotion from 'emotion';
  *
  * https://github.com/emotion-js/emotion/tree/master/packages/jest-emotion#tohavestylerule
  * */
+// eslint-disable-next-line no-undef
 expect.extend(createMatchers(emotion));
 
 /**
@@ -21,4 +22,5 @@ expect.extend(createMatchers(emotion));
  *
  * https://github.com/emotion-js/emotion/tree/master/packages/jest-emotion#snapshot-serializer
  * */
+// eslint-disable-next-line no-undef
 expect.addSnapshotSerializer(createSerializer(emotion));
