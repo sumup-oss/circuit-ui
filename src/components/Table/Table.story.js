@@ -12,7 +12,7 @@ import TableCell from './components/TableCell';
 
 const headers = [
   { children: 'Name', sortable: true },
-  'Created at',
+  { children: 'Created at', sortable: true },
   'Permissions',
   { children: 'Status', align: TableHeader.RIGHT }
 ];
@@ -20,19 +20,19 @@ const headers = [
 const rows = [
   [
     'Lorem ipsum dolor',
-    { children: '12/01/2017', sortByValue: '0' },
+    { children: '12/01/2017', sortByValue: 0 },
     '-',
     { children: 'Disabled', align: TableCell.RIGHT }
   ],
   [
-    'Lorem ipsum dolor sit amet',
-    { children: '13/01/2017', sortByValue: '1' },
+    'Ipsum dolor sit amet',
+    { children: '13/01/2017', sortByValue: 1 },
     'Virtual Terminal',
     { children: 'Enabled', align: TableCell.RIGHT }
   ],
   [
-    'Lorem ipsum dolor sit amet, consectetur adipiscing',
-    { children: '14/01/2017', sortByValue: '2' },
+    'Dolor sit amet, consectetur adipiscing',
+    { children: '14/01/2017', sortByValue: 2 },
     '-',
     { children: 'Disabled', align: TableCell.RIGHT }
   ]
