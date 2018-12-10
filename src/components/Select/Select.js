@@ -126,7 +126,11 @@ const Select = ({
 }) => (
   <SelectContainer {...{ noMargin, inline, disabled }}>
     <SelectElement {...{ ...props, value, disabled }}>
-      {!value && <option key="placeholder">{placeholder}</option>}
+      {!value && (
+        <option key="placeholder" value="">
+          {placeholder}
+        </option>
+      )}
       {children ||
         (options &&
           options.map(({ label, ...rest }) => (
