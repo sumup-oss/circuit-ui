@@ -26,6 +26,7 @@ const selectBaseStyles = ({ theme }) => css`
   position: relative;
   width: 100%;
   z-index: ${theme.zIndex.select};
+  text-overflow: ellipsis;
   ${textMega({ theme })};
 
   &:focus,
