@@ -13,10 +13,10 @@ import {
 import { ASCENDING } from './constants';
 import { shadowSingle } from '../../styles/style-helpers';
 
-const baseStyles = ({ theme }) => css`
+const baseStyles = ({ theme, collapsed }) => css`
   label: table;
   background-color: ${theme.colors.white};
-  border-collapse: separate;
+  border-collapse: ${collapsed ? 'collapse' : 'separate'};
   width: 100%;
 `;
 
@@ -115,13 +115,13 @@ class Table extends Component {
   };
 
   render() {
-    const { rowHeaders, headers, onRowClick, noShadow } = this.props;
+    const { rowHeaders, headers, onRowClick, noShadow, collapsed } = this.props;
     const { sortDirection, sortHover, sortedRow } = this.state;
 
     return (
       <Container noShadow={noShadow}>
         <ScrollContainer rowHeaders={rowHeaders}>
-          <StyledTable rowHeaders={rowHeaders}>
+          <StyledTable rowHeaders={rowHeaders} collapsed={collapsed}>
             <TableHead
               sortDirection={sortDirection}
               sortedRow={sortedRow}
@@ -173,7 +173,11 @@ Table.propTypes = {
    * Click handler for the row
    * The signature is (index)
    */
-  onRowClick: PropTypes.func
+  onRowClick: PropTypes.func,
+  /**
+   * Collapses the table cells.
+   */
+  collapsed: PropTypes.bool
 };
 
 Table.defaultProps = {
@@ -182,7 +186,8 @@ Table.defaultProps = {
   rowHeaders: true,
   noShadow: false,
   onSortBy: null,
-  onRowClick: null
+  onRowClick: null,
+  collapsed: false
 };
 
 export default Table;

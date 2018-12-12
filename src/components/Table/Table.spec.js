@@ -27,6 +27,11 @@ describe('Table', () => {
       );
       expect(actual).toMatchSnapshot();
     });
+
+    it('should render a collapsed table', () => {
+      const actual = create(<Table headers={headers} rows={items} collapsed />);
+      expect(actual).toMatchSnapshot();
+    });
   });
 
   describe('Accessibility tests', () => {
