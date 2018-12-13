@@ -19,19 +19,21 @@ const baseStyles = ({ theme }) => css`
   cursor: pointer;
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 
-  &:hover,
-  &:focus {
-    outline: none;
+  @media (hover: hover) {
+    &:hover,
+    &:focus {
+      outline: none;
 
-    &::after {
-      content: ' ';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      ${shadowBorder(theme.colors.b500, theme.borderWidth.mega)};
-      border-radius: ${theme.borderRadius.mega};
+      &::after {
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        ${shadowBorder(theme.colors.b500, theme.borderWidth.mega)};
+        border-radius: ${theme.borderRadius.mega};
+      }
     }
   }
 
