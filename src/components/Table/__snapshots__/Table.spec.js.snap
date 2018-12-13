@@ -1,5 +1,377 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table Style tests should render a collapsed table 1`] = `
+.circuit-47 {
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-45 {
+  border-radius: 4px;
+}
+
+@media (max-width:767px) {
+  .circuit-45 {
+    margin-left: 145px;
+    overflow-x: auto;
+  }
+}
+
+.circuit-11 {
+  vertical-align: middle;
+}
+
+tbody .circuit-11:last-child th,
+tbody .circuit-11:last-child td {
+  border-bottom: none;
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (max-width:767px) {
+  .circuit-3 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-3:hover > button {
+  opacity: 1;
+}
+
+.circuit-1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  overflow: initial;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.circuit-5 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+  padding: 8px 24px;
+}
+
+@media (max-width:767px) {
+  .circuit-5 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-7 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+.circuit-13 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+@media (max-width:767px) {
+  .circuit-13 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-15 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-15 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-17 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-43 {
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+@media (max-width:767px) {
+  .circuit-43 {
+    margin-left: -145px;
+    width: calc(100% + 145px);
+  }
+
+  .circuit-43:after {
+    content: '';
+    background-image: linear-gradient(90deg,rgba(0,0,0,.12),transparent);
+    height: 100%;
+    left: 145px;
+    position: absolute;
+    top: 0;
+    width: 6px;
+  }
+}
+
+<div
+  className="circuit-47 circuit-48"
+>
+  <div
+    className="circuit-45 circuit-46"
+  >
+    <table
+      className="circuit-43 circuit-44"
+    >
+      <thead>
+        <tr
+          className="circuit-11 circuit-12"
+        >
+          <th
+            aria-sort="none"
+            className="circuit-3 circuit-4"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            scope="col"
+          >
+            <button
+              className="circuit-0 circuit-1 circuit-2"
+              type="button"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Foo
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-5 circuit-6"
+            role="presentation"
+          >
+            Foo
+          </td>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
+            onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
+          >
+            Bar
+          </th>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
+            onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
+          >
+            Baz
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-13 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-15 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-17 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-17 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-13 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-15 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-17 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-17 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-13 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-15 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-17 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-17 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
 exports[`Table Style tests should render with default styles 1`] = `
 .circuit-47 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
