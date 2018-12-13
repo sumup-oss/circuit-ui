@@ -29,7 +29,9 @@ describe('Table', () => {
     });
 
     it('should render a collapsed table', () => {
-      const actual = create(<Table headers={headers} rows={items} collapsed />);
+      const actual = create(
+        <Table headers={headers} rows={items} borderCollapsed />
+      );
       expect(actual).toMatchSnapshot();
     });
   });

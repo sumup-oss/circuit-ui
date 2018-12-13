@@ -50,7 +50,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
           rowHeaders={boolean('Mobile rows', false)}
           noShadow={boolean('Without Shadow', false)}
           onRowClick={action('onRowClick')}
-          collapsed={boolean('Collapsed', false)}
+          borderCollapsed={boolean('Border collapsed', false)}
         />
       </div>
     ))

@@ -13,10 +13,10 @@ import {
 import { ASCENDING } from './constants';
 import { shadowSingle } from '../../styles/style-helpers';
 
-const baseStyles = ({ theme, collapsed }) => css`
+const baseStyles = ({ theme }) => css`
   label: table;
   background-color: ${theme.colors.white};
-  border-collapse: ${collapsed ? 'collapse' : 'separate'};
+  border-collapse: separate;
   width: 100%;
 `;
 
@@ -40,9 +40,16 @@ const responsiveStyles = ({ theme, rowHeaders }) =>
     `};
   `;
 
+const borderCollapsedStyles = ({ borderCollapsed }) =>
+  borderCollapsed &&
+  css`
+    border-collapse: collapse;
+  `;
+
 const StyledTable = styled.table`
   ${baseStyles};
   ${responsiveStyles};
+  ${borderCollapsedStyles};
 `;
 
 const containerStyles = ({ theme, rowHeaders }) =>
@@ -115,13 +122,22 @@ class Table extends Component {
   };
 
   render() {
-    const { rowHeaders, headers, onRowClick, noShadow, collapsed } = this.props;
+    const {
+      rowHeaders,
+      headers,
+      onRowClick,
+      noShadow,
+      borderCollapsed
+    } = this.props;
     const { sortDirection, sortHover, sortedRow } = this.state;
 
     return (
       <Container noShadow={noShadow}>
         <ScrollContainer rowHeaders={rowHeaders}>
-          <StyledTable rowHeaders={rowHeaders} collapsed={collapsed}>
+          <StyledTable
+            rowHeaders={rowHeaders}
+            borderCollapsed={borderCollapsed}
+          >
             <TableHead
               sortDirection={sortDirection}
               sortedRow={sortedRow}
@@ -177,7 +193,7 @@ Table.propTypes = {
   /**
    * Collapses the table cells.
    */
-  collapsed: PropTypes.bool
+  borderCollapsed: PropTypes.bool
 };
 
 Table.defaultProps = {
@@ -187,7 +203,7 @@ Table.defaultProps = {
   noShadow: false,
   onSortBy: null,
   onRowClick: null,
-  collapsed: false
+  borderCollapsed: false
 };
 
 export default Table;

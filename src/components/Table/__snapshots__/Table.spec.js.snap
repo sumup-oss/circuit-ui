@@ -193,8 +193,9 @@ tbody .circuit-11:last-child td {
 
 .circuit-43 {
   background-color: #FFFFFF;
-  border-collapse: collapse;
+  border-collapse: separate;
   width: 100%;
+  border-collapse: collapse;
 }
 
 @media (max-width:767px) {
