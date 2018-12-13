@@ -19,7 +19,7 @@
     "test:lint-js:watch": "onchange \"src/**/**/*.js\" -- yarn test:lint-js",
     "test:unit:verbose": "jest --coverage --no-cache",
     "test:unit": "yarn test:unit:verbose --silent",
-    "test:unit:watch": "yarn test:unit:output -- --watch",
+    "test:unit:watch": "yarn test:unit:output --watch",
     "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
     "create-component": "foundry run plop component",
     "start": "yarn test:unit:output && start-storybook -p 6006",
