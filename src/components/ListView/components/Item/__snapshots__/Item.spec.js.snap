@@ -12,14 +12,22 @@ exports[`Item should render with all paddings 1`] = `
   padding: 12px;
 }
 
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
 @media (hover:hover) {
-  .circuit-0:hover,
-  .circuit-0:focus {
+  .circuit-0:hover {
     outline: none;
   }
 
-  .circuit-0:hover::after,
-  .circuit-0:focus::after {
+  .circuit-0:hover::after {
     content: ' ';
     position: absolute;
     width: 100%;
@@ -31,14 +39,19 @@ exports[`Item should render with all paddings 1`] = `
   }
 }
 
-.circuit-0:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+.circuit-0:focus {
+  outline: none;
 }
 
-.circuit-0:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+.circuit-0:focus::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
 }
 
 <div
@@ -65,14 +78,22 @@ exports[`Item should render with all paddings 2`] = `
   padding: 16px;
 }
 
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
 @media (hover:hover) {
-  .circuit-0:hover,
-  .circuit-0:focus {
+  .circuit-0:hover {
     outline: none;
   }
 
-  .circuit-0:hover::after,
-  .circuit-0:focus::after {
+  .circuit-0:hover::after {
     content: ' ';
     position: absolute;
     width: 100%;
@@ -84,14 +105,19 @@ exports[`Item should render with all paddings 2`] = `
   }
 }
 
-.circuit-0:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+.circuit-0:focus {
+  outline: none;
 }
 
-.circuit-0:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+.circuit-0:focus::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
 }
 
 <div
@@ -118,14 +144,22 @@ exports[`Item should render with all paddings 3`] = `
   padding: 24px;
 }
 
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
 @media (hover:hover) {
-  .circuit-0:hover,
-  .circuit-0:focus {
+  .circuit-0:hover {
     outline: none;
   }
 
-  .circuit-0:hover::after,
-  .circuit-0:focus::after {
+  .circuit-0:hover::after {
     content: ' ';
     position: absolute;
     width: 100%;
@@ -137,14 +171,19 @@ exports[`Item should render with all paddings 3`] = `
   }
 }
 
-.circuit-0:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+.circuit-0:focus {
+  outline: none;
 }
 
-.circuit-0:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+.circuit-0:focus::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
 }
 
 <div
@@ -171,14 +210,22 @@ exports[`Item should render with default styles 1`] = `
   padding: 24px;
 }
 
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
 @media (hover:hover) {
-  .circuit-0:hover,
-  .circuit-0:focus {
+  .circuit-0:hover {
     outline: none;
   }
 
-  .circuit-0:hover::after,
-  .circuit-0:focus::after {
+  .circuit-0:hover::after {
     content: ' ';
     position: absolute;
     width: 100%;
@@ -190,14 +237,19 @@ exports[`Item should render with default styles 1`] = `
   }
 }
 
-.circuit-0:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+.circuit-0:focus {
+  outline: none;
 }
 
-.circuit-0:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+.circuit-0:focus::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
 }
 
 <div
@@ -224,14 +276,22 @@ exports[`Item should render with selected styles 1`] = `
   padding: 24px;
 }
 
+.circuit-0:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.circuit-0:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
 @media (hover:hover) {
-  .circuit-0:hover,
-  .circuit-0:focus {
+  .circuit-0:hover {
     outline: none;
   }
 
-  .circuit-0:hover::after,
-  .circuit-0:focus::after {
+  .circuit-0:hover::after {
     content: ' ';
     position: absolute;
     width: 100%;
@@ -243,14 +303,19 @@ exports[`Item should render with selected styles 1`] = `
   }
 }
 
-.circuit-0:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+.circuit-0:focus {
+  outline: none;
 }
 
-.circuit-0:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+.circuit-0:focus::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  box-shadow: 0px 0px 0px 2px #3388FF;
+  border-radius: 4px;
 }
 
 <div
