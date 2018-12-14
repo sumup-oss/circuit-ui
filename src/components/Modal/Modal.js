@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import { injectGlobal, css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
+import noScroll from 'no-scroll';
 
 import { transparentize } from 'polished';
 import { themePropType } from '../../util/shared-prop-types';
@@ -153,6 +154,7 @@ const Modal = ({
     className: getClassValues(modalClassName),
     overlayClassName: getClassValues(overlayClassName),
     contentLabel,
+    onAfterOpen: () => IS_IOS && noScroll.on(),
     onRequestClose: onClose,
     htmlOpenClassName: 'ReactModal__Html--open',
     closeTimeoutMS: TRANSITION_DURATION,
