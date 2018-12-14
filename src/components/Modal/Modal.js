@@ -123,26 +123,15 @@ const overlayClassName = {
  * Global body styles
  */
 
-/* eslint-disable no-unused-expressions */
+/* eslint-disable-next-line no-unused-expressions */
 injectGlobal`
    /* Remove scroll on the body when react-modal is open */
-  .ReactModal__Body--open {
+  .ReactModal__Html--open {
     height: 100%;
-    overflow: hidden;
+    overflow-y: hidden;
     -webkit-overflow-scrolling: auto;
-    width: 100vw;
-    /* Supposed to prevent scrolling and maintaining scroll
-     * position on iOS as per this Issue:
-     * https://github.com/reactjs/react-modal/issues/191
-     * Default solution would be to set position: fixed;
-     * but that still scrolls to the top and requires
-     * scrolling back to the original scroll position
-     * onClose. Nasty hack and we don't want that.
-     */
-    ${IS_IOS ? 'position: absolute;' : ''};
   }
 `;
-/* eslint-enable no-unused-expressions */
 
 /**
  * Circuit UI's wrapper component for ReactModal. Uses the Card component
@@ -165,6 +154,7 @@ const Modal = ({
     overlayClassName: getClassValues(overlayClassName),
     contentLabel,
     onRequestClose: onClose,
+    htmlOpenClassName: 'ReactModal__Html--open',
     closeTimeoutMS: TRANSITION_DURATION,
     ...otherProps
   };
