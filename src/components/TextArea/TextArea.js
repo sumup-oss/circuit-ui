@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from 'react-emotion';
+import { css } from 'emotion';
 
 import Input from '../Input';
 
