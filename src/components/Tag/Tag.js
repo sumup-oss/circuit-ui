@@ -1,7 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 import { eitherOrPropType } from '../../util/shared-prop-types';
 import { textMega, shadowBorder } from '../../styles/style-helpers';
@@ -85,7 +86,8 @@ const iconSelectedStyles = ({ selected, theme }) =>
   `;
 
 const IconContainer = styled('span')`
-  ${iconStyles} ${iconSelectedStyles};
+  ${iconStyles};
+  ${iconSelectedStyles};
 `;
 const TagElement = styled('span')`
   ${tagStyles};
