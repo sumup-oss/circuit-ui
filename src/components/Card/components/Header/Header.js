@@ -1,6 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/core';
 
 import CloseButton from '../../../CloseButton';
 import { childrenPropType } from '../../../../util/shared-prop-types';

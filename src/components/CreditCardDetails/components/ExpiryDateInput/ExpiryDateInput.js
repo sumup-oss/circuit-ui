@@ -1,5 +1,8 @@
-import React, { Fragment } from 'react';
+/** @jsx jsx */
+
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { jsx } from '@emotion/core';
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'; // eslint-disable-line max-len
 
 import MaskedInput from '../../../MaskedInput';
