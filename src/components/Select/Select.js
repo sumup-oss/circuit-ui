@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css, cx } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { size } from 'polished';
 import { withTheme } from 'emotion-theming';
 
@@ -153,11 +154,10 @@ const Select = ({
   options,
   children,
   theme,
-  renderPrefix,
+  renderPrefix: RenderPrefix,
   ...props
 }) => {
-  const prefixClassName = cx(prefixStyles({ theme }));
-  const prefix = renderFixComponent(prefixClassName, renderPrefix);
+  const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
 
   return (
     <SelectContainer {...{ noMargin, inline, disabled }}>

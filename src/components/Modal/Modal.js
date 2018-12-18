@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import { injectGlobal, css } from 'react-emotion';
+import { injectGlobal, css } from 'emotion';
 import { withTheme } from 'emotion-theming';
 import noScroll from 'no-scroll';
 

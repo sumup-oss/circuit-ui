@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { find } from 'lodash';
-import styled, { css, cx } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css, cx } from 'emotion';
 import { withTheme } from 'emotion-theming';
 import { size } from 'polished';
 
