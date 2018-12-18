@@ -1,9 +1,10 @@
-import React from 'react';
+/** @jsx jsx */
+
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
