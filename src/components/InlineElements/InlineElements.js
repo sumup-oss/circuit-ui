@@ -1,7 +1,7 @@
 import { Children } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import { clearfix } from '../../styles/style-helpers';
 
