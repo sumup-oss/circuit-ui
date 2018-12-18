@@ -1,6 +1,8 @@
-import React, { Children } from 'react';
+/** @jsx jsx */
+
+import { Children } from 'react';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import { multiplyUnit } from '../../styles/style-helpers';
