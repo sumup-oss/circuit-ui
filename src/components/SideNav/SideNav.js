@@ -1,8 +1,6 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
-import React from 'react';
+import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
 import PropTypes from 'prop-types';
 import {
   Drawer,
@@ -89,7 +87,13 @@ const SideNav = props => {
       anchor="left"
       CardProps={{ className: drawerContentStyles }}
     >
-      <div css="flex-shrink: 0">{header}</div>
+      <div
+        css={css`
+          flex-shrink: 0;
+        `}
+      >
+        {header}
+      </div>
       <NavList gutter={mode === MODE.FULL ? List.KILO : List.BYTE}>
         {children}
       </NavList>
