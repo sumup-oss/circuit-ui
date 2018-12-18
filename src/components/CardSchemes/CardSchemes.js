@@ -1,9 +1,10 @@
-import React from 'react';
+/** @jsx jsx */
+
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/core';
 import { isEmpty } from 'lodash';
 
-import styled from '@emotion/styled';
-import { css } from 'emotion';
 import PaymentMethodIcon from './components/PaymentMethodIcon';
 import { sizes } from '../../styles/constants';
 
