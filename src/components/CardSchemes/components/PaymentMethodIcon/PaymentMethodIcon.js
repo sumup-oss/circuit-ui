@@ -1,6 +1,7 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
 import { keys } from 'lodash';
 
 import { sizes } from '../../../../styles/constants';
@@ -29,13 +30,15 @@ const PaymentMethodIcon = ({ iconId, size }) => {
 
   return (
     <PaymentMethodIconWrap size={size}>
-      <IconSvg css="
+      <IconSvg
+        css={css`
           width: auto;
           max-width: 100%;
           height: 100%;
           display: inline-block;
           line-height: 0;
-        " />
+        `}
+      />
     </PaymentMethodIconWrap>
   );
 };
