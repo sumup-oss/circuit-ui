@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { sizes, colorNames } from '../../styles/constants';
 
 const { SUCCESS, DANGER, WARNING } = colorNames;
