@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+/** @jsx jsx */
+
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 import { toBool } from '../../util/fp';
 import InlineInputs from '../InlineElements';
