@@ -1,6 +1,9 @@
-import React, { Fragment, Component } from 'react';
+/** @jsx jsx */
+
+import { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { jsx } from '@emotion/core';
 import { remove, includes } from 'lodash/fp';
 
 import AutoCompleteInput from '../AutoCompleteInput';

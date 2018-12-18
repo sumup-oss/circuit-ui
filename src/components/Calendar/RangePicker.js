@@ -1,5 +1,7 @@
-import React from 'react';
+/** @jsx jsx */
+
 import styled from '@emotion/styled';
+import { jsx } from '@emotion/core';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 
@@ -7,6 +9,10 @@ import { CalendarWrapper } from './components';
 
 import CloseIcon from './close.svg';
 import ArrowRightIcon from './arrow-right.svg';
+
+const CustomArrow = styled('div')`
+  color: ${({ theme }) => theme.colors.b500};
+`;
 
 const RangePicker = props => (
   <CalendarWrapper>
@@ -25,9 +31,5 @@ const RangePicker = props => (
     />
   </CalendarWrapper>
 );
-
-const CustomArrow = styled('div')`
-  color: ${({ theme }) => theme.colors.b500};
-`;
 
 export default RangePicker;
