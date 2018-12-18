@@ -1,8 +1,10 @@
-import React, { Fragment } from 'react';
+/** @jsx jsx */
+
+import { Fragment } from 'react';
+import { css, jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { css } from 'react-emotion';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import withTests from '../../../../util/withTests';
@@ -53,7 +55,7 @@ storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardNumberInput`, module)
         detectedCardScheme=""
         name="creditCardInput"
         value=""
-        className={marginTopClassName}
+        css={marginTopClassName}
       />
     ))
   )
@@ -70,7 +72,7 @@ storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardNumberInput`, module)
           onChange={action('Changed input value')}
           detectedCardScheme=""
           name="creditCardInput"
-          className={marginTopClassName}
+          css={marginTopClassName}
         />
       </Fragment>
     ))
@@ -84,7 +86,7 @@ storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardNumberInput`, module)
         detectedCardScheme={SCHEMES.VISA}
         value="4485 7197 7461 1397"
         name="creditCardInput"
-        className={marginTopClassName}
+        css={marginTopClassName}
       />
     ))
   );
