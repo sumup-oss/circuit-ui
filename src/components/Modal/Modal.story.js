@@ -1,9 +1,10 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { jsx, css } from '@emotion/core';
+import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import styled from '@emotion/styled';
-import { css } from 'emotion';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
@@ -159,7 +160,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Modal`, module)
         className: cardClassName,
         hasCloseButton: false,
         children: () => (
-          <div className={cardClassName}>
+          <div css={cardClassName}>
             <Container>
               <LeftColumn>
                 <Text>A nice custom modal for special cases.</Text>
