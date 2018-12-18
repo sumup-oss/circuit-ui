@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+/** @jsx jsx */
+
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 import Portal from '../Portal';
 import HTMLElement from '../HtmlElement';
 
