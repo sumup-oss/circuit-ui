@@ -1,7 +1,7 @@
-import React from 'react';
+/** @jsx jsx */
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 import HtmlElement from '../HtmlElement';
 import { childrenPropType } from '../../util/shared-prop-types';
@@ -50,6 +50,7 @@ const HeadingElement = styled(HtmlElement)`
   ${noMarginStyles};
 `;
 
+// TODO: refactor this with Emotion 10 as prop
 /**
  * A flexible heading component capable of rendering using any HTML heading tag.
  */
