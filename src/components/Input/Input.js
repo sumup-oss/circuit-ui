@@ -1,15 +1,15 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { find } from 'lodash';
-import styled from '@emotion/styled';
-import { css, cx } from 'emotion';
-import { withTheme } from 'emotion-theming';
 import { size } from 'polished';
 
 import HtmlElement from '../HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 import { directions } from '../../styles/constants';
-import { themePropType, childrenPropType } from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 import Tooltip from '../Tooltip';
 
@@ -134,7 +134,11 @@ const inputSuffixStyles = ({ theme, hasSuffix }) =>
     );
   `;
 
-const prefixStyles = ({ theme }) => css`
+/**
+ * Used with css prop directly, so it does not require prop
+ * destructuring.
+ */
+const prefixStyles = theme => css`
   label: input__prefix;
   position: absolute;
   top: 1px;
@@ -144,7 +148,11 @@ const prefixStyles = ({ theme }) => css`
   pointer-events: none;
 `;
 
-const suffixStyles = ({ theme }) => css`
+/**
+ * Used with css prop directly, so it does not require prop
+ * destructuring.
+ */
+const suffixStyles = theme => css`
   label: input__suffix;
   position: absolute;
   top: 1px;
@@ -154,7 +162,7 @@ const suffixStyles = ({ theme }) => css`
   pointer-events: none;
 `;
 
-const tooltipBaseStyles = () => css`
+const tooltipBaseStyles = css`
   label: input__tooltip;
   right: 1px;
 `;
@@ -215,9 +223,9 @@ const ValidationIcon = ({
   }
 
   const icons = [
-    invalid && <ErrorIcon role="img" className={iconStyles} />,
-    hasWarning && <WarningIcon role="img" className={iconStyles} />,
-    showValid && <ValidIcon role="img" className={iconStyles} />
+    invalid && <ErrorIcon role="img" css={iconStyles} />,
+    hasWarning && <WarningIcon role="img" css={iconStyles} />,
+    showValid && <ValidIcon role="img" css={iconStyles} />
   ];
 
   const icon = find(icons);
@@ -230,16 +238,13 @@ const ValidationIcon = ({
 };
 /* eslint-enable react/prop-types */
 
-const renderFixComponent = (className, renderFn) =>
-  (renderFn && renderFn({ className })) || null;
-
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
 const StyledInput = ({
   children,
-  renderPrefix,
-  renderSuffix,
+  renderPrefix: RenderPrefix,
+  renderSuffix: RenderSuffix,
   validationHint,
   invalid,
   hasWarning,
@@ -247,26 +252,20 @@ const StyledInput = ({
   noMargin,
   inline,
   disabled,
-  theme,
   wrapperClassName,
   inputClassName,
   deepRef,
   ...props
 }) => {
-  const prefixClassName = cx(prefixStyles({ theme }));
-  const suffixClassName = cx(suffixStyles({ theme }));
-
-  const suffix = renderFixComponent(
-    suffixClassName,
-    renderSuffix ||
-      // eslint-disable-next-line
-      (({ className }) => (
-        <ValidationIcon
-          {...{ invalid, hasWarning, showValid, disabled, className }}
-        />
-      ))
+  const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
+  const suffix = RenderSuffix ? (
+    <RenderSuffix css={suffixStyles} />
+  ) : (
+    <ValidationIcon
+      css={suffixStyles}
+      {...{ invalid, hasWarning, showValid, disabled }}
+    />
   );
-  const prefix = renderFixComponent(prefixClassName, renderPrefix);
 
   return (
     <InputContainer
@@ -311,7 +310,6 @@ Input.LEFT = directions.LEFT;
 Input.RIGHT = directions.RIGHT;
 
 Input.propTypes = {
-  theme: themePropType.isRequired,
   children: childrenPropType,
   /**
    * The HTML input element to render.
@@ -408,4 +406,4 @@ Input.defaultProps = {
 /**
  * @component
  */
-export default withTheme(Input);
+export default Input;
