@@ -1,4 +1,5 @@
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from 'emotion';
 
 const getBreakPointStyles = (theme, breakpoint) => {
   const config = theme.grid[breakpoint];
