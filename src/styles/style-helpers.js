@@ -1,4 +1,4 @@
-import { css } from 'react-emotion';
+import { css } from '@emotion/core';
 import { size, stripUnit, transparentize } from 'polished';
 
 import { mapValues } from '../util/fp';
