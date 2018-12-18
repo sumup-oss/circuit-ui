@@ -1,18 +1,16 @@
-import React from 'react';
+/** @jsx jsx */
+
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 import Icon from './info.svg';
 
-const baseStyles = ({ theme }) => {
-  const color = theme.colors.n500;
-  return css`
-    label: info-icon;
-    border: 1px solid ${color};
-    border-radius: 100%;
-    fill: ${color};
-  `;
-};
+const baseStyles = ({ theme }) => css`
+  label: info-icon;
+  border: 1px solid ${theme.colors.n500};
+  border-radius: 100%;
+  fill: ${theme.colors.n500};
+`;
 
 /**
  * A small info icon used for triggering tooltips
