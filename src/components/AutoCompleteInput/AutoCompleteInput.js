@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+/** @jsx jsx */
+
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import Downshift from 'downshift';
 import { includes } from 'lodash/fp';
 
