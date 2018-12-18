@@ -1,9 +1,11 @@
-import React from 'react';
+/** @jsx jsx */
+
+import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import styled from '@emotion/styled';
-import { css } from 'emotion';
+
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
@@ -107,14 +109,14 @@ storiesOf(`${GROUPS.COMPONENTS}|Modal Embed`, module)
           url('https://source.unsplash.com/random');
       `;
 
-      const cardClassName = css`
-        padding: 0;
-        height: 50vh;
-      `;
-
       return (
         <ExampleWrap>
-          <div className={cardClassName}>
+          <div
+            css={css`
+              padding: 0;
+              height: 50vh;
+            `}
+          >
             <Container>
               <LeftColumn>
                 <Text>A nice custom modal for special cases.</Text>
