@@ -1,7 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css, keyframes } from 'emotion';
+import { css, jsx, keyframes } from '@emotion/core';
 import { withProps } from 'recompose';
 
 import SpinnerSvg from './icons/spinner.svg';
