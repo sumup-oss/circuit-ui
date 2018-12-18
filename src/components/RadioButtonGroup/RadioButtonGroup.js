@@ -1,5 +1,8 @@
-import React, { Fragment } from 'react';
+/** @jsx jsx */
+
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { jsx } from '@emotion/core';
 
 import { uniqueId } from '../../util/id';
 
