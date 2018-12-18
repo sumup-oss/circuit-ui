@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { includes } from 'lodash';
 
 import { textKilo, shadowSingle } from '../../styles/style-helpers';
@@ -83,7 +83,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
   const absolutePosition = positionMap[align];
 
   return `
-    ${absolutePosition}: 50%; ${'' /* Fallback  */}
+    ${absolutePosition}: 50%;
     ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${
     theme.spacings.bit
   }));
@@ -104,7 +104,8 @@ const positionAndAlignStyles = ({ theme, position, align }) => css`
  * A Tooltip component
  */
 const Tooltip = styled('div')`
-  ${baseStyles} ${positionAndAlignStyles};
+  ${baseStyles};
+  ${positionAndAlignStyles};
 `;
 
 Tooltip.CENTER = CENTER;
