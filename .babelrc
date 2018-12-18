@@ -1,92 +1,61 @@
 {
+  "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
+  "presets": [
+    ["@babel/preset-env", { "loose": true }],
+    "@babel/preset-react",
+    [
+      "@emotion/babel-preset-css-prop",
+      {
+        "autoLabel": false,
+        "labelFormat": "[filename]--[local]"
+      }
+    ]
+  ],
   "env": {
     "cjs": {
-      "plugins": [
-        "transform-class-properties",
-        "lodash",
-        "transform-object-rest-spread",
+      "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
+      "presets": [
+        ["@babel/preset-env", { "loose": true }],
+        "@babel/preset-react",
         [
-          "emotion",
+          "@emotion/babel-preset-css-prop",
           {
-            "autoLabel": true,
-            "hoist": true
+            "autoLabel": false,
+            "labelFormat": "[filename]--[local]"
           }
-        ],
-        "inline-react-svg"
-      ],
-      "presets": [["env", { "loose": true }], "react", "stage-3"]
+        ]
+      ]
     },
     "es": {
-      "plugins": [
-        "transform-class-properties",
-        "lodash",
-        "transform-object-rest-spread",
-        [
-          "emotion",
-          {
-            "autoLabel": true,
-            "hoist": true
-          }
-        ],
-        "inline-react-svg"
-      ],
+      "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
       "presets": [
-        ["env", { "loose": true, "modules": false }],
-        "react",
-        "stage-3"
+        ["@babel/preset-env", { "loose": true, "modules": false }],
+        "@babel/preset-react",
+        [
+          "@emotion/babel-preset-css-prop",
+          {
+            "autoLabel": false,
+            "labelFormat": "[filename]--[local]"
+          }
+        ]
       ]
     },
     "test": {
-      "plugins": [
-        "transform-class-properties",
-        "lodash",
-        "transform-object-rest-spread",
-        [
-          "emotion",
-          {
-            "autoLabel": true,
-            "hoist": true
-          }
-        ]
-      ],
-      "presets": ["env", "react", "stage-3"]
-    },
-    "static": {
+      "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": "current"
             }
           }
         ],
-        "react",
-        "stage-3"
-      ],
-      "plugins": [
-        "lodash",
-        "transform-es2015-modules-commonjs",
-        "transform-object-rest-spread",
-        "transform-class-properties",
+        "@babel/preset-react",
         [
-          "emotion",
+          "@emotion/babel-preset-css-prop",
           {
-            "autoLabel": false,
-            "hoist": false,
-            "sourceMap": false
-          }
-        ],
-        "dynamic-import-node",
-        [
-          "module-resolver",
-          {
-            "root": ".",
-            "alias": {
-              "react-emotion": "./build/stylesheet/lib/custom-styled",
-              "^.+svg$": "./build/stylesheet/SvgMock"
-            },
-            "extensions": [".svg", ".js"]
+            "autoLabel": false
           }
         ]
       ]
