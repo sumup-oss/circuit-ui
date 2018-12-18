@@ -1,6 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+
 import { storiesOf } from '@storybook/react';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/core';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import { flow, toPairs, map, pick, values } from '../../../../util/fp';
@@ -42,7 +44,7 @@ storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardSchemeIcons`, module)
           toPairs,
           map(([name, Icon]) => (
             <IconWrapper key={name}>
-              <Icon className={iconStyles} />
+              <Icon css={iconStyles} />
             </IconWrapper>
           ))
         )(debitIcons)}
@@ -58,7 +60,7 @@ storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardSchemeIcons`, module)
           toPairs,
           map(([name, Icon]) => (
             <IconWrapper key={name}>
-              <Icon className={iconStyles} />
+              <Icon css={iconStyles} />
             </IconWrapper>
           ))
         )(debitIcons)}
