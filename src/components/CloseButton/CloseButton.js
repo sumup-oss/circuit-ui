@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { hideVisually } from 'polished';
 
-import { themePropType } from '../../util/shared-prop-types';
 import { svgKilo } from '../../styles/style-helpers';
 import SvgButton from '../SvgButton';
 import Icon from './close-icon.svg';
@@ -28,7 +27,7 @@ const ButtonLabel = styled('span')`
 /**
  * A generic close button.
  */
-const CloseButton = ({ theme, label, ...props }) => (
+const CloseButton = ({ label, ...props }) => (
   <SvgCloseButton {...props}>
     <Icon />
     <ButtonLabel>{label}</ButtonLabel>
@@ -39,8 +38,7 @@ CloseButton.propTypes = {
   /**
    * Text label for screen readers. Important for accessibility.
    */
-  label: PropTypes.string,
-  theme: themePropType.isRequired
+  label: PropTypes.string
 };
 
 CloseButton.defaultProps = {
@@ -50,4 +48,4 @@ CloseButton.defaultProps = {
 /**
  * @component
  */
-export default withTheme(CloseButton);
+export default CloseButton;
