@@ -1,7 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import { injectGlobal, css } from 'emotion';
+import { Global, css, jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import noScroll from 'no-scroll';
 
@@ -121,20 +122,6 @@ const overlayClassName = {
 };
 
 /**
- * Global body styles
- */
-
-/* eslint-disable-next-line no-unused-expressions */
-injectGlobal`
-   /* Remove scroll on the body when react-modal is open */
-  .ReactModal__Html--open {
-    height: 100%;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: auto;
-  }
-`;
-
-/**
  * Circuit UI's wrapper component for ReactModal. Uses the Card component
  * to wrap content passed as the children prop. Don't forget to set
  * the aria prop when using this.
@@ -164,6 +151,16 @@ const Modal = ({
 
   return (
     <ReactModal {...reactModalProps}>
+      <Global
+        styles={css`
+          /* Remove scroll on the body when react-modal is open */
+          .ReactModal__Html--open {
+            height: 100%;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: auto;
+          }
+        `}
+      />
       {isFunction(children) ? children() : children}
     </ReactModal>
   );
