@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
-import { withTheme } from 'emotion-theming';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { hideVisually } from 'polished';
 
 import { themePropType } from '../../util/shared-prop-types';
@@ -9,10 +9,12 @@ import { svgKilo } from '../../styles/style-helpers';
 import SvgButton from '../SvgButton';
 import Icon from './close-icon.svg';
 
-const className = ({ theme }) => css`
-  label: close-button;
-  ${svgKilo({ theme })};
-`;
+const SvgCloseButton = styled(SvgButton)(
+  ({ theme }) => css`
+    label: close-button;
+    ${svgKilo({ theme })};
+  `
+);
 
 const labelBaseStyles = () => css`
   ${hideVisually()};
@@ -27,10 +29,10 @@ const ButtonLabel = styled('span')`
  * A generic close button.
  */
 const CloseButton = ({ theme, label, ...props }) => (
-  <SvgButton className={className({ theme })} {...props}>
+  <SvgCloseButton {...props}>
     <Icon />
     <ButtonLabel>{label}</ButtonLabel>
-  </SvgButton>
+  </SvgCloseButton>
 );
 
 CloseButton.propTypes = {
