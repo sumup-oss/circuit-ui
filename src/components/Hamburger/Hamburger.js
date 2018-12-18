@@ -1,7 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+
 import PropTypes from 'prop-types';
+import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
 import { hideVisually } from 'polished';
 
 const LAYER_HEIGHT = '1px';
