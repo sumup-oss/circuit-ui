@@ -1,7 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import HtmlElement from '../HtmlElement';
@@ -62,6 +63,7 @@ const marginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
+// TODO: refactor with Emotion 10 as prop
 // eslint-disable-next-line react/prop-types
 const ListElement = ({ ordered, ...otherProps }) => (
   <HtmlElement
