@@ -1,6 +1,9 @@
-import React, { Fragment } from 'react';
+/** @jsx jsx */
+
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import { css, jsx, ClassName } from '@emotion/core';
+import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 import { hideVisually } from 'polished';
 
@@ -43,10 +46,10 @@ const schemeListHiddenStyles = ({ acceptedCardSchemes }) =>
   `;
 
 const schemeListLongStyles = ({ theme, acceptedCardSchemes }) =>
-  shouldRenderSchemesUnderInput(acceptedCardSchemes)
-    ? css`
-        label: card-number-input__scheme-list--long;
-        ${theme.mq.untilKilo`
+  shouldRenderSchemesUnderInput(acceptedCardSchemes) &&
+  css`
+    label: card-number-input__scheme-list--long;
+    ${theme.mq.untilKilo`
       top: -75%;
       top: calc(100% + ${theme.spacings.bit});
       bottom: initial;
@@ -54,8 +57,7 @@ const schemeListLongStyles = ({ theme, acceptedCardSchemes }) =>
       width: 100%;
       text-align: left;
     `};
-      `
-    : '';
+  `;
 
 const SchemeList = styled('ul')`
   ${schemeListStyles};
@@ -67,15 +69,20 @@ const AccessibleCardSchemeInfo = styled('div')`
   ${hideVisually()};
 `;
 
-const inputLongStyles = ({ theme, acceptedCardSchemes, className }) =>
+const inputLongStyles = ({
+  theme,
+  acceptedCardSchemes,
+  className,
+  stringCss
+}) =>
   shouldRenderSchemesUnderInput(acceptedCardSchemes)
-    ? css`
+    ? stringCss`
         label: card-number-input__input--long;
         ${theme.mq.untilKilo`
           margin-bottom: ${theme.spacings.tera};
           margin-bottom: calc(${theme.spacings.tera} + ${theme.spacings.bit});
-          ${className};
         `};
+        ${className};
       `
     : className;
 
@@ -128,49 +135,55 @@ const CardNumberInput = ({
   const detectedSchemesText =
     hasDetectedScheme(detectedCardScheme) &&
     `${detectedSchemeLabel}: ${detectedCardScheme}`;
+
   return (
-    <Fragment>
-      <AccessibleCardSchemeInfo>
-        {supportedSchemesText}
-      </AccessibleCardSchemeInfo>
-      <AccessibleCardSchemeInfo aria-live="polite">
-        {detectedSchemesText}
-      </AccessibleCardSchemeInfo>
-      <Label htmlFor={id}>{label}</Label>
-      <MaskedInput
-        value={value}
-        type="tel"
-        id={id}
-        autoComplete="cc-number"
-        placeholder="•••• •••• •••• ••••"
-        wrapperClassName={inputLongStyles({
-          theme,
-          acceptedCardSchemes,
-          className
-        })}
-        guide={false}
-        mask={CARD_NUMBER_MASK}
-        {...props}
-      >
-        <SchemeList {...{ acceptedCardSchemes }} aria-hidden="true">
-          {flow(
-            toPairs,
-            map(([cardScheme, IconComponent]) => (
-              <SchemeIconWrapper
-                disabled={isDisabledSchemeIcon(
-                  value,
-                  detectedCardScheme,
-                  cardScheme
-                )}
-                key={cardScheme}
-              >
-                <IconComponent />
-              </SchemeIconWrapper>
-            ))
-          )(acceptedCardSchemes)}
-        </SchemeList>
-      </MaskedInput>
-    </Fragment>
+    <ClassName>
+      {({ css: stringCss }) => (
+        <Fragment>
+          <AccessibleCardSchemeInfo>
+            {supportedSchemesText}
+          </AccessibleCardSchemeInfo>
+          <AccessibleCardSchemeInfo aria-live="polite">
+            {detectedSchemesText}
+          </AccessibleCardSchemeInfo>
+          <Label htmlFor={id}>{label}</Label>
+          <MaskedInput
+            value={value}
+            type="tel"
+            id={id}
+            autoComplete="cc-number"
+            placeholder="•••• •••• •••• ••••"
+            wrapperClassName={inputLongStyles({
+              stringCss,
+              theme,
+              acceptedCardSchemes,
+              className
+            })}
+            guide={false}
+            mask={CARD_NUMBER_MASK}
+            {...props}
+          >
+            <SchemeList {...{ acceptedCardSchemes }} aria-hidden="true">
+              {flow(
+                toPairs,
+                map(([cardScheme, IconComponent]) => (
+                  <SchemeIconWrapper
+                    disabled={isDisabledSchemeIcon(
+                      value,
+                      detectedCardScheme,
+                      cardScheme
+                    )}
+                    key={cardScheme}
+                  >
+                    <IconComponent />
+                  </SchemeIconWrapper>
+                ))
+              )(acceptedCardSchemes)}
+            </SchemeList>
+          </MaskedInput>
+        </Fragment>
+      )}
+    </ClassName>
   );
 };
 
