@@ -115,7 +115,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.5",
     "@emotion/styled": "^10.0.5",
-    "create-react-context": "^0.2.1",
     "css-loader": "^2.0.1",
     "dom-helpers": "^3.3.1",
     "downshift": "^1.31.14",
