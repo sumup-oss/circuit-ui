@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Global from './Global';
+import Global from './GlobalStyles';
 
-import { createGlobalStyles } from './GlobalService';
+import { createGlobalStyles } from './GlobalStylesService';
 
 jest.mock('./GlobalService', () => ({
   createGlobalStyles: jest.fn()
