@@ -1,7 +1,5 @@
-/** @jsx jsx */
-
+import React from 'react';
 import { DayPickerRangeController } from 'react-dates';
-import { jsx } from '@emotion/core';
 import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';

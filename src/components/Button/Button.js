@@ -1,8 +1,6 @@
-/** @jsx jsx */
-
+import React from 'react';
 import { omit } from 'lodash/fp';
 import PropTypes from 'prop-types';
-import { jsx } from '@emotion/core';
 
 import PlainButton from './components/PlainButton';
 import RegularButton from './components/RegularButton';

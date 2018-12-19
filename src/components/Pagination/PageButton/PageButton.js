@@ -1,4 +1,5 @@
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 import Button from '../../Button';
 import { calculatePadding } from '../../../styles/style-helpers'; // eslint-disable-line max-len
