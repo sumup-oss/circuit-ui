@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-import createReactContext from 'create-react-context';
+import React, { Component, createContext } from 'react';
 
 import Modal, { TRANSITION_DURATION } from './Modal';
 import { childrenPropType } from '../../util/shared-prop-types';
 
-const {
-  Provider: ContextProvider,
-  Consumer: ModalConsumer
-} = createReactContext({
+const { Provider: ContextProvider, Consumer: ModalConsumer } = createContext({
   setModal: () => {},
   getModal: () => {}
 });
