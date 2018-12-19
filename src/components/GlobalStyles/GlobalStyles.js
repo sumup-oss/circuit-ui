@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Global as EmotionGlobal, css } from '@emotion/core';
 
-import { createGlobalStyles } from './GlobalService';
+import { createGlobalStyles } from './GlobalStylesService';
 
 const Global = ({ custom }) => (
   <EmotionGlobal styles={theme => css(createGlobalStyles(theme, custom))} />

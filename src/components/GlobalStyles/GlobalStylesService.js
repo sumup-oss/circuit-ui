@@ -2,7 +2,7 @@ import { css } from '@emotion/core';
 
 import { textMega } from '../../styles/style-helpers';
 
-import { RESETS } from './GlobalConstants';
+import { RESETS } from './GlobalStylesConstants';
 
 export const createGlobalStyles = (theme, custom) => css`
   /* Use resets */
