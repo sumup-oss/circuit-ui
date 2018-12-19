@@ -51,6 +51,7 @@
   "homepage": "https://github.com/sumup/circuit-ui#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@emotion/babel-preset-css-prop": "^10.0.5",
