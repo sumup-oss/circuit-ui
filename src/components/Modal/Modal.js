@@ -1,8 +1,7 @@
-/** @jsx jsx */
-
+import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import { Global, css, jsx } from '@emotion/core';
+import { Global, css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import noScroll from 'no-scroll';
 

@@ -1,8 +1,6 @@
-/** @jsx jsx */
-
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { css, jsx, ClassName } from '@emotion/core';
+import { css, ClassName } from '@emotion/core';
 import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 import { hideVisually } from 'polished';

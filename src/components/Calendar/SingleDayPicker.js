@@ -1,6 +1,4 @@
-/** @jsx jsx */
-
-import { jsx } from '@emotion/core';
+import React from 'react';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/initialize';
 
