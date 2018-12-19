@@ -1,5 +1,5 @@
 import { withProps } from 'recompose';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import Text from '../../../Text';
 
 const ListItemText = styled(
