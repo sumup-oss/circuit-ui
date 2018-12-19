@@ -1,7 +1,5 @@
-/** @jsx jsx */
-
+import React from 'react';
 import styled from '@emotion/styled';
-import { jsx } from '@emotion/core';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 
