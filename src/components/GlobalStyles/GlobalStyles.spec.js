@@ -4,7 +4,7 @@ import Global from './GlobalStyles';
 
 import { createGlobalStyles } from './GlobalStylesService';
 
-jest.mock('./GlobalService', () => ({
+jest.mock('./GlobalStylesService', () => ({
   createGlobalStyles: jest.fn()
 }));
 
