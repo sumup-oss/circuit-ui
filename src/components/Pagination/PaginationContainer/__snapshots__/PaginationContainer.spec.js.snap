@@ -1,19 +1,1522 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaginationContainer styles When actual page is diferrent that first and last page should render with default styles 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+.circuit-18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-3 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-1:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-1:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-1:hover,
+.circuit-1:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-1[disabled],
+.circuit-1:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-12 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-10 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-10:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-10:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-10:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-10[disabled],
+.circuit-10:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "borderRadius": Object {
+        "giga": "5px",
+        "kilo": "1px",
+        "mega": "4px",
+      },
+      "borderWidth": Object {
+        "kilo": "1px",
+        "mega": "2px",
+      },
+      "breakpoints": Object {
+        "afterTera": "(min-width: 1280px)",
+        "giga": 960,
+        "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
+        "kilo": 480,
+        "kiloToMega": "(min-width: 480px) and (max-width: 767px)",
+        "mega": 768,
+        "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
+        "tera": 1280,
+        "untilKilo": "(max-width: 479px)",
+        "untilMega": "(max-width: 767px)",
+      },
+      "colors": Object {
+        "b100": "#DAEAFF",
+        "b300": "#7FB5FF",
+        "b500": "#3388FF",
+        "b700": "#2567D8",
+        "b900": "#1641AC",
+        "black": "#0F131A",
+        "bodyBg": "#FAFBFC",
+        "bodyColor": "#0F131A",
+        "danger": "#FF7559",
+        "g100": "#C6E5CB",
+        "g300": "#97E2A3",
+        "g500": "#62DE76",
+        "g700": "#49B85B",
+        "g900": "#2F903E",
+        "n100": "#FAFBFC",
+        "n200": "#EEF0F2",
+        "n300": "#D8DDE1",
+        "n500": "#9DA7B1",
+        "n700": "#5C656F",
+        "n900": "#212933",
+        "p100": "#DAEAFF",
+        "p300": "#7FB5FF",
+        "p500": "#3388FF",
+        "p700": "#2567D8",
+        "p900": "#1641AC",
+        "r100": "#FFE6E1",
+        "r300": "#FFAF9F",
+        "r500": "#FF7559",
+        "r700": "#D55A41",
+        "r900": "#A73D28",
+        "shadow": "#0C0F14",
+        "success": "#49B85B",
+        "warning": "#D4A546",
+        "white": "#FFFFFF",
+        "y100": "#F2E5CB",
+        "y300": "#F7DA9F",
+        "y500": "#FFC859",
+        "y700": "#D4A546",
+        "y900": "#AB8433",
+      },
+      "fontStack": Object {
+        "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\"",
+        "mono": "Consolas, monaco, monospace",
+      },
+      "fontWeight": Object {
+        "bold": "700",
+        "regular": "400",
+      },
+      "grid": Object {
+        "afterTera": Object {
+          "breakpoint": "tera",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "1200px",
+          "priority": 5,
+        },
+        "default": Object {
+          "breakpoint": "default",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "880px",
+          "priority": 0,
+        },
+        "giga": Object {
+          "breakpoint": "giga",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "880px",
+          "priority": 4,
+        },
+        "kilo": Object {
+          "breakpoint": "kilo",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "600px",
+          "priority": 2,
+        },
+        "mega": Object {
+          "breakpoint": "mega",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "760px",
+          "priority": 3,
+        },
+        "untilKilo": Object {
+          "breakpoint": "untilKilo",
+          "cols": 12,
+          "gutter": "8px",
+          "maxWidth": "400px",
+          "priority": 1,
+        },
+      },
+      "iconSizes": Object {
+        "byte": "14px",
+        "giga": "32px",
+        "kilo": "16px",
+        "mega": "24px",
+      },
+      "mq": Object {
+        "afterTera": "@media (min-width: 1280px)",
+        "giga": "@media (min-width: 960px)",
+        "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
+        "kilo": "@media (min-width: 480px)",
+        "kiloToMega": "@media (min-width: 480px) and (max-width: 767px)",
+        "mega": "@media (min-width: 768px)",
+        "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
+        "tera": "@media (min-width: 1280px)",
+        "untilKilo": "@media (max-width: 479px)",
+        "untilMega": "@media (max-width: 767px)",
+      },
+      "palette": Object {
+        "divider": "rgba(0, 0, 0, 0.12)",
+      },
+      "spacings": Object {
+        "bit": "4px",
+        "byte": "8px",
+        "exa": "48px",
+        "giga": "24px",
+        "kilo": "12px",
+        "mega": "16px",
+        "peta": "40px",
+        "tera": "32px",
+        "zetta": "56px",
+      },
+      "transitions": Object {
+        "default": "200ms ease-in-out",
+      },
+      "typography": Object {
+        "headings": Object {
+          "exa": Object {
+            "fontSize": "36px",
+            "lineHeight": "44px",
+          },
+          "giga": Object {
+            "fontSize": "22px",
+            "lineHeight": "24px",
+          },
+          "kilo": Object {
+            "fontSize": "17px",
+            "lineHeight": "24px",
+          },
+          "mega": Object {
+            "fontSize": "19px",
+            "lineHeight": "24px",
+          },
+          "peta": Object {
+            "fontSize": "28px",
+            "lineHeight": "32px",
+          },
+          "tera": Object {
+            "fontSize": "24px",
+            "lineHeight": "32px",
+          },
+          "zetta": Object {
+            "fontSize": "42px",
+            "lineHeight": "48px",
+          },
+        },
+        "subHeadings": Object {
+          "kilo": Object {
+            "fontSize": "12px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "14px",
+            "lineHeight": "18px",
+          },
+        },
+        "text": Object {
+          "giga": Object {
+            "fontSize": "18px",
+            "lineHeight": "28px",
+          },
+          "kilo": Object {
+            "fontSize": "13px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "15px",
+            "lineHeight": "24px",
+          },
+        },
+      },
+      "zIndex": Object {
+        "absolute": 1,
+        "default": 0,
+        "drawer": 10,
+        "modal": 1000,
+        "popover": 30,
+        "select": 20,
+        "tooltip": 31,
+      },
+    }
+  }
+>
+  <PaginationContainer
+    onChange={[Function]}
+    page={10}
+    totalPages={50}
+    translate={[Function]}
+  >
+    <Container>
+      <div
+        className="circuit-18 circuit-19"
+      >
+        <NavigationButtonPrevious
+          disabled={false}
+          flat={false}
+          href={null}
+          onClick={[Function]}
+          plain={false}
+          primary={false}
+          secondary={false}
+          size="kilo"
+          stretch={false}
+          target={null}
+        >
+          <Button
+            className="circuit-3 circuit-0"
+            disabled={false}
+            flat={false}
+            href={null}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <RegularButton
+              className="circuit-3 circuit-0"
+              disabled={false}
+              flat={false}
+              href={null}
+              onClick={[Function]}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <ButtonElement
+                className="circuit-3 circuit-0"
+                disabled={false}
+                flat={false}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <button
+                  className="circuit-0 circuit-1 circuit-2"
+                  disabled={false}
+                  onClick={[Function]}
+                  size="kilo"
+                  target={null}
+                />
+              </ButtonElement>
+            </RegularButton>
+          </Button>
+        </NavigationButtonPrevious>
+        Children Element
+        <NavigationButtonNext
+          disabled={false}
+          flat={false}
+          href={null}
+          isFirst={false}
+          isLast={true}
+          onClick={[Function]}
+          plain={false}
+          primary={false}
+          secondary={false}
+          size="kilo"
+          stretch={false}
+          target={null}
+        >
+          <Button
+            className="circuit-12 circuit-9"
+            disabled={false}
+            flat={false}
+            href={null}
+            isFirst={false}
+            isLast={true}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <RegularButton
+              className="circuit-12 circuit-9"
+              disabled={false}
+              flat={false}
+              href={null}
+              isFirst={false}
+              isLast={true}
+              onClick={[Function]}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <ButtonElement
+                className="circuit-12 circuit-9"
+                disabled={false}
+                flat={false}
+                isFirst={false}
+                isLast={true}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <button
+                  className="circuit-9 circuit-10 circuit-2"
+                  disabled={false}
+                  onClick={[Function]}
+                  size="kilo"
+                  target={null}
+                />
+              </ButtonElement>
+            </RegularButton>
+          </Button>
+        </NavigationButtonNext>
+      </div>
+    </Container>
+  </PaginationContainer>
+</ThemeProvider>
 `;
 
 exports[`PaginationContainer styles When the actual page is 1 should render with default styles 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+.circuit-18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-3 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-1:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-1:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-1:hover,
+.circuit-1:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-1[disabled],
+.circuit-1:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-12 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-10 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-10:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-10:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-10:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-10[disabled],
+.circuit-10:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "borderRadius": Object {
+        "giga": "5px",
+        "kilo": "1px",
+        "mega": "4px",
+      },
+      "borderWidth": Object {
+        "kilo": "1px",
+        "mega": "2px",
+      },
+      "breakpoints": Object {
+        "afterTera": "(min-width: 1280px)",
+        "giga": 960,
+        "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
+        "kilo": 480,
+        "kiloToMega": "(min-width: 480px) and (max-width: 767px)",
+        "mega": 768,
+        "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
+        "tera": 1280,
+        "untilKilo": "(max-width: 479px)",
+        "untilMega": "(max-width: 767px)",
+      },
+      "colors": Object {
+        "b100": "#DAEAFF",
+        "b300": "#7FB5FF",
+        "b500": "#3388FF",
+        "b700": "#2567D8",
+        "b900": "#1641AC",
+        "black": "#0F131A",
+        "bodyBg": "#FAFBFC",
+        "bodyColor": "#0F131A",
+        "danger": "#FF7559",
+        "g100": "#C6E5CB",
+        "g300": "#97E2A3",
+        "g500": "#62DE76",
+        "g700": "#49B85B",
+        "g900": "#2F903E",
+        "n100": "#FAFBFC",
+        "n200": "#EEF0F2",
+        "n300": "#D8DDE1",
+        "n500": "#9DA7B1",
+        "n700": "#5C656F",
+        "n900": "#212933",
+        "p100": "#DAEAFF",
+        "p300": "#7FB5FF",
+        "p500": "#3388FF",
+        "p700": "#2567D8",
+        "p900": "#1641AC",
+        "r100": "#FFE6E1",
+        "r300": "#FFAF9F",
+        "r500": "#FF7559",
+        "r700": "#D55A41",
+        "r900": "#A73D28",
+        "shadow": "#0C0F14",
+        "success": "#49B85B",
+        "warning": "#D4A546",
+        "white": "#FFFFFF",
+        "y100": "#F2E5CB",
+        "y300": "#F7DA9F",
+        "y500": "#FFC859",
+        "y700": "#D4A546",
+        "y900": "#AB8433",
+      },
+      "fontStack": Object {
+        "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\"",
+        "mono": "Consolas, monaco, monospace",
+      },
+      "fontWeight": Object {
+        "bold": "700",
+        "regular": "400",
+      },
+      "grid": Object {
+        "afterTera": Object {
+          "breakpoint": "tera",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "1200px",
+          "priority": 5,
+        },
+        "default": Object {
+          "breakpoint": "default",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "880px",
+          "priority": 0,
+        },
+        "giga": Object {
+          "breakpoint": "giga",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "880px",
+          "priority": 4,
+        },
+        "kilo": Object {
+          "breakpoint": "kilo",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "600px",
+          "priority": 2,
+        },
+        "mega": Object {
+          "breakpoint": "mega",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "760px",
+          "priority": 3,
+        },
+        "untilKilo": Object {
+          "breakpoint": "untilKilo",
+          "cols": 12,
+          "gutter": "8px",
+          "maxWidth": "400px",
+          "priority": 1,
+        },
+      },
+      "iconSizes": Object {
+        "byte": "14px",
+        "giga": "32px",
+        "kilo": "16px",
+        "mega": "24px",
+      },
+      "mq": Object {
+        "afterTera": "@media (min-width: 1280px)",
+        "giga": "@media (min-width: 960px)",
+        "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
+        "kilo": "@media (min-width: 480px)",
+        "kiloToMega": "@media (min-width: 480px) and (max-width: 767px)",
+        "mega": "@media (min-width: 768px)",
+        "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
+        "tera": "@media (min-width: 1280px)",
+        "untilKilo": "@media (max-width: 479px)",
+        "untilMega": "@media (max-width: 767px)",
+      },
+      "palette": Object {
+        "divider": "rgba(0, 0, 0, 0.12)",
+      },
+      "spacings": Object {
+        "bit": "4px",
+        "byte": "8px",
+        "exa": "48px",
+        "giga": "24px",
+        "kilo": "12px",
+        "mega": "16px",
+        "peta": "40px",
+        "tera": "32px",
+        "zetta": "56px",
+      },
+      "transitions": Object {
+        "default": "200ms ease-in-out",
+      },
+      "typography": Object {
+        "headings": Object {
+          "exa": Object {
+            "fontSize": "36px",
+            "lineHeight": "44px",
+          },
+          "giga": Object {
+            "fontSize": "22px",
+            "lineHeight": "24px",
+          },
+          "kilo": Object {
+            "fontSize": "17px",
+            "lineHeight": "24px",
+          },
+          "mega": Object {
+            "fontSize": "19px",
+            "lineHeight": "24px",
+          },
+          "peta": Object {
+            "fontSize": "28px",
+            "lineHeight": "32px",
+          },
+          "tera": Object {
+            "fontSize": "24px",
+            "lineHeight": "32px",
+          },
+          "zetta": Object {
+            "fontSize": "42px",
+            "lineHeight": "48px",
+          },
+        },
+        "subHeadings": Object {
+          "kilo": Object {
+            "fontSize": "12px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "14px",
+            "lineHeight": "18px",
+          },
+        },
+        "text": Object {
+          "giga": Object {
+            "fontSize": "18px",
+            "lineHeight": "28px",
+          },
+          "kilo": Object {
+            "fontSize": "13px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "15px",
+            "lineHeight": "24px",
+          },
+        },
+      },
+      "zIndex": Object {
+        "absolute": 1,
+        "default": 0,
+        "drawer": 10,
+        "modal": 1000,
+        "popover": 30,
+        "select": 20,
+        "tooltip": 31,
+      },
+    }
+  }
+>
+  <PaginationContainer
+    onChange={[Function]}
+    page={1}
+    totalPages={50}
+    translate={[Function]}
+  >
+    <Container>
+      <div
+        className="circuit-18 circuit-19"
+      >
+        <NavigationButtonPrevious
+          disabled={true}
+          flat={false}
+          href={null}
+          onClick={[Function]}
+          plain={false}
+          primary={false}
+          secondary={false}
+          size="kilo"
+          stretch={false}
+          target={null}
+        >
+          <Button
+            className="circuit-3 circuit-0"
+            disabled={true}
+            flat={false}
+            href={null}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <RegularButton
+              className="circuit-3 circuit-0"
+              disabled={true}
+              flat={false}
+              href={null}
+              onClick={[Function]}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <ButtonElement
+                className="circuit-3 circuit-0"
+                disabled={true}
+                flat={false}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <button
+                  className="circuit-0 circuit-1 circuit-2"
+                  disabled={true}
+                  onClick={[Function]}
+                  size="kilo"
+                  target={null}
+                />
+              </ButtonElement>
+            </RegularButton>
+          </Button>
+        </NavigationButtonPrevious>
+        Children Element
+        <NavigationButtonNext
+          disabled={false}
+          flat={false}
+          href={null}
+          isFirst={false}
+          isLast={true}
+          onClick={[Function]}
+          plain={false}
+          primary={false}
+          secondary={false}
+          size="kilo"
+          stretch={false}
+          target={null}
+        >
+          <Button
+            className="circuit-12 circuit-9"
+            disabled={false}
+            flat={false}
+            href={null}
+            isFirst={false}
+            isLast={true}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <RegularButton
+              className="circuit-12 circuit-9"
+              disabled={false}
+              flat={false}
+              href={null}
+              isFirst={false}
+              isLast={true}
+              onClick={[Function]}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <ButtonElement
+                className="circuit-12 circuit-9"
+                disabled={false}
+                flat={false}
+                isFirst={false}
+                isLast={true}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <button
+                  className="circuit-9 circuit-10 circuit-2"
+                  disabled={false}
+                  onClick={[Function]}
+                  size="kilo"
+                  target={null}
+                />
+              </ButtonElement>
+            </RegularButton>
+          </Button>
+        </NavigationButtonNext>
+      </div>
+    </Container>
+  </PaginationContainer>
+</ThemeProvider>
 `;
 
 exports[`PaginationContainer styles When the actual page is equal the last page should render with default styles 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+.circuit-18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-3 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-1:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-1:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-1:hover,
+.circuit-1:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-1[disabled],
+.circuit-1:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-12 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-10 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-10:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-10:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-10:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-10[disabled],
+.circuit-10:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "borderRadius": Object {
+        "giga": "5px",
+        "kilo": "1px",
+        "mega": "4px",
+      },
+      "borderWidth": Object {
+        "kilo": "1px",
+        "mega": "2px",
+      },
+      "breakpoints": Object {
+        "afterTera": "(min-width: 1280px)",
+        "giga": 960,
+        "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
+        "kilo": 480,
+        "kiloToMega": "(min-width: 480px) and (max-width: 767px)",
+        "mega": 768,
+        "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
+        "tera": 1280,
+        "untilKilo": "(max-width: 479px)",
+        "untilMega": "(max-width: 767px)",
+      },
+      "colors": Object {
+        "b100": "#DAEAFF",
+        "b300": "#7FB5FF",
+        "b500": "#3388FF",
+        "b700": "#2567D8",
+        "b900": "#1641AC",
+        "black": "#0F131A",
+        "bodyBg": "#FAFBFC",
+        "bodyColor": "#0F131A",
+        "danger": "#FF7559",
+        "g100": "#C6E5CB",
+        "g300": "#97E2A3",
+        "g500": "#62DE76",
+        "g700": "#49B85B",
+        "g900": "#2F903E",
+        "n100": "#FAFBFC",
+        "n200": "#EEF0F2",
+        "n300": "#D8DDE1",
+        "n500": "#9DA7B1",
+        "n700": "#5C656F",
+        "n900": "#212933",
+        "p100": "#DAEAFF",
+        "p300": "#7FB5FF",
+        "p500": "#3388FF",
+        "p700": "#2567D8",
+        "p900": "#1641AC",
+        "r100": "#FFE6E1",
+        "r300": "#FFAF9F",
+        "r500": "#FF7559",
+        "r700": "#D55A41",
+        "r900": "#A73D28",
+        "shadow": "#0C0F14",
+        "success": "#49B85B",
+        "warning": "#D4A546",
+        "white": "#FFFFFF",
+        "y100": "#F2E5CB",
+        "y300": "#F7DA9F",
+        "y500": "#FFC859",
+        "y700": "#D4A546",
+        "y900": "#AB8433",
+      },
+      "fontStack": Object {
+        "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\"",
+        "mono": "Consolas, monaco, monospace",
+      },
+      "fontWeight": Object {
+        "bold": "700",
+        "regular": "400",
+      },
+      "grid": Object {
+        "afterTera": Object {
+          "breakpoint": "tera",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "1200px",
+          "priority": 5,
+        },
+        "default": Object {
+          "breakpoint": "default",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "880px",
+          "priority": 0,
+        },
+        "giga": Object {
+          "breakpoint": "giga",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "880px",
+          "priority": 4,
+        },
+        "kilo": Object {
+          "breakpoint": "kilo",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "600px",
+          "priority": 2,
+        },
+        "mega": Object {
+          "breakpoint": "mega",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "760px",
+          "priority": 3,
+        },
+        "untilKilo": Object {
+          "breakpoint": "untilKilo",
+          "cols": 12,
+          "gutter": "8px",
+          "maxWidth": "400px",
+          "priority": 1,
+        },
+      },
+      "iconSizes": Object {
+        "byte": "14px",
+        "giga": "32px",
+        "kilo": "16px",
+        "mega": "24px",
+      },
+      "mq": Object {
+        "afterTera": "@media (min-width: 1280px)",
+        "giga": "@media (min-width: 960px)",
+        "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
+        "kilo": "@media (min-width: 480px)",
+        "kiloToMega": "@media (min-width: 480px) and (max-width: 767px)",
+        "mega": "@media (min-width: 768px)",
+        "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
+        "tera": "@media (min-width: 1280px)",
+        "untilKilo": "@media (max-width: 479px)",
+        "untilMega": "@media (max-width: 767px)",
+      },
+      "palette": Object {
+        "divider": "rgba(0, 0, 0, 0.12)",
+      },
+      "spacings": Object {
+        "bit": "4px",
+        "byte": "8px",
+        "exa": "48px",
+        "giga": "24px",
+        "kilo": "12px",
+        "mega": "16px",
+        "peta": "40px",
+        "tera": "32px",
+        "zetta": "56px",
+      },
+      "transitions": Object {
+        "default": "200ms ease-in-out",
+      },
+      "typography": Object {
+        "headings": Object {
+          "exa": Object {
+            "fontSize": "36px",
+            "lineHeight": "44px",
+          },
+          "giga": Object {
+            "fontSize": "22px",
+            "lineHeight": "24px",
+          },
+          "kilo": Object {
+            "fontSize": "17px",
+            "lineHeight": "24px",
+          },
+          "mega": Object {
+            "fontSize": "19px",
+            "lineHeight": "24px",
+          },
+          "peta": Object {
+            "fontSize": "28px",
+            "lineHeight": "32px",
+          },
+          "tera": Object {
+            "fontSize": "24px",
+            "lineHeight": "32px",
+          },
+          "zetta": Object {
+            "fontSize": "42px",
+            "lineHeight": "48px",
+          },
+        },
+        "subHeadings": Object {
+          "kilo": Object {
+            "fontSize": "12px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "14px",
+            "lineHeight": "18px",
+          },
+        },
+        "text": Object {
+          "giga": Object {
+            "fontSize": "18px",
+            "lineHeight": "28px",
+          },
+          "kilo": Object {
+            "fontSize": "13px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "15px",
+            "lineHeight": "24px",
+          },
+        },
+      },
+      "zIndex": Object {
+        "absolute": 1,
+        "default": 0,
+        "drawer": 10,
+        "modal": 1000,
+        "popover": 30,
+        "select": 20,
+        "tooltip": 31,
+      },
+    }
+  }
+>
+  <PaginationContainer
+    onChange={[Function]}
+    page={50}
+    totalPages={50}
+    translate={[Function]}
+  >
+    <Container>
+      <div
+        className="circuit-18 circuit-19"
+      >
+        <NavigationButtonPrevious
+          disabled={false}
+          flat={false}
+          href={null}
+          onClick={[Function]}
+          plain={false}
+          primary={false}
+          secondary={false}
+          size="kilo"
+          stretch={false}
+          target={null}
+        >
+          <Button
+            className="circuit-3 circuit-0"
+            disabled={false}
+            flat={false}
+            href={null}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <RegularButton
+              className="circuit-3 circuit-0"
+              disabled={false}
+              flat={false}
+              href={null}
+              onClick={[Function]}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <ButtonElement
+                className="circuit-3 circuit-0"
+                disabled={false}
+                flat={false}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <button
+                  className="circuit-0 circuit-1 circuit-2"
+                  disabled={false}
+                  onClick={[Function]}
+                  size="kilo"
+                  target={null}
+                />
+              </ButtonElement>
+            </RegularButton>
+          </Button>
+        </NavigationButtonPrevious>
+        Children Element
+        <NavigationButtonNext
+          disabled={true}
+          flat={false}
+          href={null}
+          isFirst={false}
+          isLast={true}
+          onClick={[Function]}
+          plain={false}
+          primary={false}
+          secondary={false}
+          size="kilo"
+          stretch={false}
+          target={null}
+        >
+          <Button
+            className="circuit-12 circuit-9"
+            disabled={true}
+            flat={false}
+            href={null}
+            isFirst={false}
+            isLast={true}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <RegularButton
+              className="circuit-12 circuit-9"
+              disabled={true}
+              flat={false}
+              href={null}
+              isFirst={false}
+              isLast={true}
+              onClick={[Function]}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <ButtonElement
+                className="circuit-12 circuit-9"
+                disabled={true}
+                flat={false}
+                isFirst={false}
+                isLast={true}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <button
+                  className="circuit-9 circuit-10 circuit-2"
+                  disabled={true}
+                  onClick={[Function]}
+                  size="kilo"
+                  target={null}
+                />
+              </ButtonElement>
+            </RegularButton>
+          </Button>
+        </NavigationButtonNext>
+      </div>
+    </Container>
+  </PaginationContainer>
+</ThemeProvider>
 `;
