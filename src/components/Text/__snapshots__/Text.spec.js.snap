@@ -105,6 +105,7 @@ exports[`Text should render italic text when passed the italic prop 1`] = `
 
 <p
   className=" circuit-0 circuit-1"
+<<<<<<< HEAD
 />
 `;
 
@@ -128,6 +129,8 @@ exports[`Text should render struck through text when passed the strike prop 1`] 
 <p
   className=" circuit-0 circuit-1"
   strike={true}
+=======
+>>>>>>> 67e1663... Update snapshots are move to mount
 />
 `;
 
