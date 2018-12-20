@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { css, ClassName } from '@emotion/core';
+import { css, ClassNames } from '@emotion/core';
 import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 import { hideVisually } from 'polished';
@@ -136,7 +136,7 @@ const CardNumberInput = ({
     `${detectedSchemeLabel}: ${detectedCardScheme}`;
 
   return (
-    <ClassName>
+    <ClassNames>
       {({ css: stringCss }) => (
         <Fragment>
           <AccessibleCardSchemeInfo>
@@ -182,7 +182,7 @@ const CardNumberInput = ({
           </MaskedInput>
         </Fragment>
       )}
-    </ClassName>
+    </ClassNames>
   );
 };
 
