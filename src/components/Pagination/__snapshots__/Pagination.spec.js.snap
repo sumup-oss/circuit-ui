@@ -1,37 +1,6508 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination styles With 5 or less pages should render only the number of pages passed and the next and previous buttons 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+.circuit-63 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-3 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-1:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-1:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-1:hover,
+.circuit-1:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-1[disabled],
+.circuit-1:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-12 {
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-12:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-12:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-10 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: #3388FF;
+  border-color: #2567D8;
+  color: #FFFFFF;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-10:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-10:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-10:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-10[disabled],
+.circuit-10:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-10:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+}
+
+.circuit-10:focus {
+  border-color: #2567D8;
+}
+
+.circuit-10:hover {
+  background-color: #2567D8;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #1641AC;
+}
+
+.circuit-10:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-10:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-19 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-19:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-19:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-19:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-19:hover,
+.circuit-19:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-19[disabled],
+.circuit-19:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-19:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-19:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-57 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-55 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-55:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-55:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-55:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-55:hover,
+.circuit-55:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-55[disabled],
+.circuit-55:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "borderRadius": Object {
+        "giga": "5px",
+        "kilo": "1px",
+        "mega": "4px",
+      },
+      "borderWidth": Object {
+        "kilo": "1px",
+        "mega": "2px",
+      },
+      "breakpoints": Object {
+        "afterTera": "(min-width: 1280px)",
+        "giga": 960,
+        "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
+        "kilo": 480,
+        "kiloToMega": "(min-width: 480px) and (max-width: 767px)",
+        "mega": 768,
+        "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
+        "tera": 1280,
+        "untilKilo": "(max-width: 479px)",
+        "untilMega": "(max-width: 767px)",
+      },
+      "colors": Object {
+        "b100": "#DAEAFF",
+        "b300": "#7FB5FF",
+        "b500": "#3388FF",
+        "b700": "#2567D8",
+        "b900": "#1641AC",
+        "black": "#0F131A",
+        "bodyBg": "#FAFBFC",
+        "bodyColor": "#0F131A",
+        "danger": "#FF7559",
+        "g100": "#C6E5CB",
+        "g300": "#97E2A3",
+        "g500": "#62DE76",
+        "g700": "#49B85B",
+        "g900": "#2F903E",
+        "n100": "#FAFBFC",
+        "n200": "#EEF0F2",
+        "n300": "#D8DDE1",
+        "n500": "#9DA7B1",
+        "n700": "#5C656F",
+        "n900": "#212933",
+        "p100": "#DAEAFF",
+        "p300": "#7FB5FF",
+        "p500": "#3388FF",
+        "p700": "#2567D8",
+        "p900": "#1641AC",
+        "r100": "#FFE6E1",
+        "r300": "#FFAF9F",
+        "r500": "#FF7559",
+        "r700": "#D55A41",
+        "r900": "#A73D28",
+        "shadow": "#0C0F14",
+        "success": "#49B85B",
+        "warning": "#D4A546",
+        "white": "#FFFFFF",
+        "y100": "#F2E5CB",
+        "y300": "#F7DA9F",
+        "y500": "#FFC859",
+        "y700": "#D4A546",
+        "y900": "#AB8433",
+      },
+      "fontStack": Object {
+        "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\"",
+        "mono": "Consolas, monaco, monospace",
+      },
+      "fontWeight": Object {
+        "bold": "700",
+        "regular": "400",
+      },
+      "grid": Object {
+        "afterTera": Object {
+          "breakpoint": "tera",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "1200px",
+          "priority": 5,
+        },
+        "default": Object {
+          "breakpoint": "default",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "880px",
+          "priority": 0,
+        },
+        "giga": Object {
+          "breakpoint": "giga",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "880px",
+          "priority": 4,
+        },
+        "kilo": Object {
+          "breakpoint": "kilo",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "600px",
+          "priority": 2,
+        },
+        "mega": Object {
+          "breakpoint": "mega",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "760px",
+          "priority": 3,
+        },
+        "untilKilo": Object {
+          "breakpoint": "untilKilo",
+          "cols": 12,
+          "gutter": "8px",
+          "maxWidth": "400px",
+          "priority": 1,
+        },
+      },
+      "iconSizes": Object {
+        "byte": "14px",
+        "giga": "32px",
+        "kilo": "16px",
+        "mega": "24px",
+      },
+      "mq": Object {
+        "afterTera": "@media (min-width: 1280px)",
+        "giga": "@media (min-width: 960px)",
+        "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
+        "kilo": "@media (min-width: 480px)",
+        "kiloToMega": "@media (min-width: 480px) and (max-width: 767px)",
+        "mega": "@media (min-width: 768px)",
+        "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
+        "tera": "@media (min-width: 1280px)",
+        "untilKilo": "@media (max-width: 479px)",
+        "untilMega": "@media (max-width: 767px)",
+      },
+      "palette": Object {
+        "divider": "rgba(0, 0, 0, 0.12)",
+      },
+      "spacings": Object {
+        "bit": "4px",
+        "byte": "8px",
+        "exa": "48px",
+        "giga": "24px",
+        "kilo": "12px",
+        "mega": "16px",
+        "peta": "40px",
+        "tera": "32px",
+        "zetta": "56px",
+      },
+      "transitions": Object {
+        "default": "200ms ease-in-out",
+      },
+      "typography": Object {
+        "headings": Object {
+          "exa": Object {
+            "fontSize": "36px",
+            "lineHeight": "44px",
+          },
+          "giga": Object {
+            "fontSize": "22px",
+            "lineHeight": "24px",
+          },
+          "kilo": Object {
+            "fontSize": "17px",
+            "lineHeight": "24px",
+          },
+          "mega": Object {
+            "fontSize": "19px",
+            "lineHeight": "24px",
+          },
+          "peta": Object {
+            "fontSize": "28px",
+            "lineHeight": "32px",
+          },
+          "tera": Object {
+            "fontSize": "24px",
+            "lineHeight": "32px",
+          },
+          "zetta": Object {
+            "fontSize": "42px",
+            "lineHeight": "48px",
+          },
+        },
+        "subHeadings": Object {
+          "kilo": Object {
+            "fontSize": "12px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "14px",
+            "lineHeight": "18px",
+          },
+        },
+        "text": Object {
+          "giga": Object {
+            "fontSize": "18px",
+            "lineHeight": "28px",
+          },
+          "kilo": Object {
+            "fontSize": "13px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "15px",
+            "lineHeight": "24px",
+          },
+        },
+      },
+      "zIndex": Object {
+        "absolute": 1,
+        "default": 0,
+        "drawer": 10,
+        "modal": 1000,
+        "popover": 30,
+        "select": 20,
+        "tooltip": 31,
+      },
+    }
+  }
+>
+  <Pagination
+    nextLabel=">"
+    onChange={[Function]}
+    page={1}
+    pagesToShow={5}
+    perPage={50}
+    previousLabel="<"
+    total={250}
+    translate={[Function]}
+  >
+    <PaginationContainer
+      nextLabel=">"
+      onChange={[Function]}
+      page={1}
+      previousLabel="<"
+      totalPages={5}
+    >
+      <Container>
+        <div
+          className="circuit-63 circuit-64"
+        >
+          <NavigationButtonPrevious
+            disabled={true}
+            flat={false}
+            href={null}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-3 circuit-0"
+              disabled={true}
+              flat={false}
+              href={null}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-3 circuit-0"
+                disabled={true}
+                flat={false}
+                href={null}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-3 circuit-0"
+                  disabled={true}
+                  flat={false}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-0 circuit-1 circuit-2"
+                    disabled={true}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &lt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonPrevious>
+          <PaginationButtonContainer
+            currentPage={1}
+          >
+            <PaginationButton
+              active={true}
+              currentPage={1}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={1}
+                onClick={[Function]}
+                primary={true}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={1}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={true}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={1}
+                    onClick={[Function]}
+                    primary={true}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={1}
+                      onClick={[Function]}
+                      primary={true}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={1}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        1
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={2}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={2}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={2}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={2}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={2}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={2}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-19 circuit-2"
+                        disabled={false}
+                        name={2}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        2
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={3}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={3}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={3}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={3}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={3}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={3}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-19 circuit-2"
+                        disabled={false}
+                        name={3}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        3
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={4}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={4}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={4}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={4}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={4}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={4}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-19 circuit-2"
+                        disabled={false}
+                        name={4}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        4
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={5}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={5}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={5}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={5}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={5}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={5}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-19 circuit-2"
+                        disabled={false}
+                        name={5}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        5
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <NavigationButtonNext
+            disabled={false}
+            flat={false}
+            href={null}
+            isFirst={false}
+            isLast={true}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-57 circuit-54"
+              disabled={false}
+              flat={false}
+              href={null}
+              isFirst={false}
+              isLast={true}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-57 circuit-54"
+                disabled={false}
+                flat={false}
+                href={null}
+                isFirst={false}
+                isLast={true}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-57 circuit-54"
+                  disabled={false}
+                  flat={false}
+                  isFirst={false}
+                  isLast={true}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-54 circuit-55 circuit-2"
+                    disabled={false}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &gt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonNext>
+        </div>
+      </Container>
+    </PaginationContainer>
+  </Pagination>
+</ThemeProvider>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is last but one page should render with default styles and match snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+.circuit-72 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-3 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-1:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-1:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-1:hover,
+.circuit-1:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-1[disabled],
+.circuit-1:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-12 {
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-12:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-12:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-46 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: #3388FF;
+  border-color: #2567D8;
+  color: #FFFFFF;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-46:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-46:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-46:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-46:hover,
+.circuit-46:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-46[disabled],
+.circuit-46:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-46:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+}
+
+.circuit-46:focus {
+  border-color: #2567D8;
+}
+
+.circuit-46:hover {
+  background-color: #2567D8;
+}
+
+.circuit-46:hover,
+.circuit-46:active {
+  border-color: #1641AC;
+}
+
+.circuit-46:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-46:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-10 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-10:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-10:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-10:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-10[disabled],
+.circuit-10:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-10:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-10:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-66 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-64 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-64:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-64:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-64:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-64:hover,
+.circuit-64:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-64[disabled],
+.circuit-64:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "borderRadius": Object {
+        "giga": "5px",
+        "kilo": "1px",
+        "mega": "4px",
+      },
+      "borderWidth": Object {
+        "kilo": "1px",
+        "mega": "2px",
+      },
+      "breakpoints": Object {
+        "afterTera": "(min-width: 1280px)",
+        "giga": 960,
+        "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
+        "kilo": 480,
+        "kiloToMega": "(min-width: 480px) and (max-width: 767px)",
+        "mega": 768,
+        "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
+        "tera": 1280,
+        "untilKilo": "(max-width: 479px)",
+        "untilMega": "(max-width: 767px)",
+      },
+      "colors": Object {
+        "b100": "#DAEAFF",
+        "b300": "#7FB5FF",
+        "b500": "#3388FF",
+        "b700": "#2567D8",
+        "b900": "#1641AC",
+        "black": "#0F131A",
+        "bodyBg": "#FAFBFC",
+        "bodyColor": "#0F131A",
+        "danger": "#FF7559",
+        "g100": "#C6E5CB",
+        "g300": "#97E2A3",
+        "g500": "#62DE76",
+        "g700": "#49B85B",
+        "g900": "#2F903E",
+        "n100": "#FAFBFC",
+        "n200": "#EEF0F2",
+        "n300": "#D8DDE1",
+        "n500": "#9DA7B1",
+        "n700": "#5C656F",
+        "n900": "#212933",
+        "p100": "#DAEAFF",
+        "p300": "#7FB5FF",
+        "p500": "#3388FF",
+        "p700": "#2567D8",
+        "p900": "#1641AC",
+        "r100": "#FFE6E1",
+        "r300": "#FFAF9F",
+        "r500": "#FF7559",
+        "r700": "#D55A41",
+        "r900": "#A73D28",
+        "shadow": "#0C0F14",
+        "success": "#49B85B",
+        "warning": "#D4A546",
+        "white": "#FFFFFF",
+        "y100": "#F2E5CB",
+        "y300": "#F7DA9F",
+        "y500": "#FFC859",
+        "y700": "#D4A546",
+        "y900": "#AB8433",
+      },
+      "fontStack": Object {
+        "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\"",
+        "mono": "Consolas, monaco, monospace",
+      },
+      "fontWeight": Object {
+        "bold": "700",
+        "regular": "400",
+      },
+      "grid": Object {
+        "afterTera": Object {
+          "breakpoint": "tera",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "1200px",
+          "priority": 5,
+        },
+        "default": Object {
+          "breakpoint": "default",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "880px",
+          "priority": 0,
+        },
+        "giga": Object {
+          "breakpoint": "giga",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "880px",
+          "priority": 4,
+        },
+        "kilo": Object {
+          "breakpoint": "kilo",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "600px",
+          "priority": 2,
+        },
+        "mega": Object {
+          "breakpoint": "mega",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "760px",
+          "priority": 3,
+        },
+        "untilKilo": Object {
+          "breakpoint": "untilKilo",
+          "cols": 12,
+          "gutter": "8px",
+          "maxWidth": "400px",
+          "priority": 1,
+        },
+      },
+      "iconSizes": Object {
+        "byte": "14px",
+        "giga": "32px",
+        "kilo": "16px",
+        "mega": "24px",
+      },
+      "mq": Object {
+        "afterTera": "@media (min-width: 1280px)",
+        "giga": "@media (min-width: 960px)",
+        "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
+        "kilo": "@media (min-width: 480px)",
+        "kiloToMega": "@media (min-width: 480px) and (max-width: 767px)",
+        "mega": "@media (min-width: 768px)",
+        "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
+        "tera": "@media (min-width: 1280px)",
+        "untilKilo": "@media (max-width: 479px)",
+        "untilMega": "@media (max-width: 767px)",
+      },
+      "palette": Object {
+        "divider": "rgba(0, 0, 0, 0.12)",
+      },
+      "spacings": Object {
+        "bit": "4px",
+        "byte": "8px",
+        "exa": "48px",
+        "giga": "24px",
+        "kilo": "12px",
+        "mega": "16px",
+        "peta": "40px",
+        "tera": "32px",
+        "zetta": "56px",
+      },
+      "transitions": Object {
+        "default": "200ms ease-in-out",
+      },
+      "typography": Object {
+        "headings": Object {
+          "exa": Object {
+            "fontSize": "36px",
+            "lineHeight": "44px",
+          },
+          "giga": Object {
+            "fontSize": "22px",
+            "lineHeight": "24px",
+          },
+          "kilo": Object {
+            "fontSize": "17px",
+            "lineHeight": "24px",
+          },
+          "mega": Object {
+            "fontSize": "19px",
+            "lineHeight": "24px",
+          },
+          "peta": Object {
+            "fontSize": "28px",
+            "lineHeight": "32px",
+          },
+          "tera": Object {
+            "fontSize": "24px",
+            "lineHeight": "32px",
+          },
+          "zetta": Object {
+            "fontSize": "42px",
+            "lineHeight": "48px",
+          },
+        },
+        "subHeadings": Object {
+          "kilo": Object {
+            "fontSize": "12px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "14px",
+            "lineHeight": "18px",
+          },
+        },
+        "text": Object {
+          "giga": Object {
+            "fontSize": "18px",
+            "lineHeight": "28px",
+          },
+          "kilo": Object {
+            "fontSize": "13px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "15px",
+            "lineHeight": "24px",
+          },
+        },
+      },
+      "zIndex": Object {
+        "absolute": 1,
+        "default": 0,
+        "drawer": 10,
+        "modal": 1000,
+        "popover": 30,
+        "select": 20,
+        "tooltip": 31,
+      },
+    }
+  }
+>
+  <Pagination
+    nextLabel=">"
+    onChange={[Function]}
+    page={9}
+    pagesToShow={5}
+    perPage={50}
+    previousLabel="<"
+    total={500}
+    translate={[Function]}
+  >
+    <PaginationContainer
+      nextLabel=">"
+      onChange={[Function]}
+      page={9}
+      previousLabel="<"
+      totalPages={10}
+    >
+      <Container>
+        <div
+          className="circuit-72 circuit-73"
+        >
+          <NavigationButtonPrevious
+            disabled={false}
+            flat={false}
+            href={null}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-3 circuit-0"
+              disabled={false}
+              flat={false}
+              href={null}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-3 circuit-0"
+                disabled={false}
+                flat={false}
+                href={null}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-3 circuit-0"
+                  disabled={false}
+                  flat={false}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-0 circuit-1 circuit-2"
+                    disabled={false}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &lt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonPrevious>
+          <PaginationButtonContainer
+            currentPage={1}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={1}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={1}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={1}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={1}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={1}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={1}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        1
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PageButton
+            size="kilo"
+          >
+            <Button
+              className="circuit-12 circuit-9"
+              disabled={false}
+              flat={false}
+              href={null}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-12 circuit-9"
+                disabled={false}
+                flat={false}
+                href={null}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-9 circuit-10 circuit-2"
+                    disabled={false}
+                    size="kilo"
+                    target={null}
+                  >
+                    ...
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </PageButton>
+          <PaginationButtonContainer
+            currentPage={7}
+            key="7"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={7}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={7}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={7}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={7}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={7}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={7}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        7
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={8}
+            key="8"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={8}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={8}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={8}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={8}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={8}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={8}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        8
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={9}
+            key="9"
+          >
+            <PaginationButton
+              active={true}
+              currentPage={9}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={9}
+                onClick={[Function]}
+                primary={true}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={9}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={true}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={9}
+                    onClick={[Function]}
+                    primary={true}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={9}
+                      onClick={[Function]}
+                      primary={true}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-46 circuit-2"
+                        disabled={false}
+                        name={9}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        9
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={10}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={10}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={10}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={10}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={10}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={10}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={10}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        10
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <NavigationButtonNext
+            disabled={false}
+            flat={false}
+            href={null}
+            isFirst={false}
+            isLast={true}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-66 circuit-63"
+              disabled={false}
+              flat={false}
+              href={null}
+              isFirst={false}
+              isLast={true}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-66 circuit-63"
+                disabled={false}
+                flat={false}
+                href={null}
+                isFirst={false}
+                isLast={true}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-66 circuit-63"
+                  disabled={false}
+                  flat={false}
+                  isFirst={false}
+                  isLast={true}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-63 circuit-64 circuit-2"
+                    disabled={false}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &gt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonNext>
+        </div>
+      </Container>
+    </PaginationContainer>
+  </Pagination>
+</ThemeProvider>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on last page should render with default styles and match snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+.circuit-72 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-3 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-1:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-1:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-1:hover,
+.circuit-1:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-1[disabled],
+.circuit-1:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-12 {
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-12:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-12:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-55 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: #3388FF;
+  border-color: #2567D8;
+  color: #FFFFFF;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-55:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-55:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-55:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-55:hover,
+.circuit-55:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-55[disabled],
+.circuit-55:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-55:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+}
+
+.circuit-55:focus {
+  border-color: #2567D8;
+}
+
+.circuit-55:hover {
+  background-color: #2567D8;
+}
+
+.circuit-55:hover,
+.circuit-55:active {
+  border-color: #1641AC;
+}
+
+.circuit-55:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-55:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-10 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-10:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-10:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-10:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-10[disabled],
+.circuit-10:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-10:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-10:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-66 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-64 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-64:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-64:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-64:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-64:hover,
+.circuit-64:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-64[disabled],
+.circuit-64:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "borderRadius": Object {
+        "giga": "5px",
+        "kilo": "1px",
+        "mega": "4px",
+      },
+      "borderWidth": Object {
+        "kilo": "1px",
+        "mega": "2px",
+      },
+      "breakpoints": Object {
+        "afterTera": "(min-width: 1280px)",
+        "giga": 960,
+        "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
+        "kilo": 480,
+        "kiloToMega": "(min-width: 480px) and (max-width: 767px)",
+        "mega": 768,
+        "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
+        "tera": 1280,
+        "untilKilo": "(max-width: 479px)",
+        "untilMega": "(max-width: 767px)",
+      },
+      "colors": Object {
+        "b100": "#DAEAFF",
+        "b300": "#7FB5FF",
+        "b500": "#3388FF",
+        "b700": "#2567D8",
+        "b900": "#1641AC",
+        "black": "#0F131A",
+        "bodyBg": "#FAFBFC",
+        "bodyColor": "#0F131A",
+        "danger": "#FF7559",
+        "g100": "#C6E5CB",
+        "g300": "#97E2A3",
+        "g500": "#62DE76",
+        "g700": "#49B85B",
+        "g900": "#2F903E",
+        "n100": "#FAFBFC",
+        "n200": "#EEF0F2",
+        "n300": "#D8DDE1",
+        "n500": "#9DA7B1",
+        "n700": "#5C656F",
+        "n900": "#212933",
+        "p100": "#DAEAFF",
+        "p300": "#7FB5FF",
+        "p500": "#3388FF",
+        "p700": "#2567D8",
+        "p900": "#1641AC",
+        "r100": "#FFE6E1",
+        "r300": "#FFAF9F",
+        "r500": "#FF7559",
+        "r700": "#D55A41",
+        "r900": "#A73D28",
+        "shadow": "#0C0F14",
+        "success": "#49B85B",
+        "warning": "#D4A546",
+        "white": "#FFFFFF",
+        "y100": "#F2E5CB",
+        "y300": "#F7DA9F",
+        "y500": "#FFC859",
+        "y700": "#D4A546",
+        "y900": "#AB8433",
+      },
+      "fontStack": Object {
+        "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\"",
+        "mono": "Consolas, monaco, monospace",
+      },
+      "fontWeight": Object {
+        "bold": "700",
+        "regular": "400",
+      },
+      "grid": Object {
+        "afterTera": Object {
+          "breakpoint": "tera",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "1200px",
+          "priority": 5,
+        },
+        "default": Object {
+          "breakpoint": "default",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "880px",
+          "priority": 0,
+        },
+        "giga": Object {
+          "breakpoint": "giga",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "880px",
+          "priority": 4,
+        },
+        "kilo": Object {
+          "breakpoint": "kilo",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "600px",
+          "priority": 2,
+        },
+        "mega": Object {
+          "breakpoint": "mega",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "760px",
+          "priority": 3,
+        },
+        "untilKilo": Object {
+          "breakpoint": "untilKilo",
+          "cols": 12,
+          "gutter": "8px",
+          "maxWidth": "400px",
+          "priority": 1,
+        },
+      },
+      "iconSizes": Object {
+        "byte": "14px",
+        "giga": "32px",
+        "kilo": "16px",
+        "mega": "24px",
+      },
+      "mq": Object {
+        "afterTera": "@media (min-width: 1280px)",
+        "giga": "@media (min-width: 960px)",
+        "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
+        "kilo": "@media (min-width: 480px)",
+        "kiloToMega": "@media (min-width: 480px) and (max-width: 767px)",
+        "mega": "@media (min-width: 768px)",
+        "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
+        "tera": "@media (min-width: 1280px)",
+        "untilKilo": "@media (max-width: 479px)",
+        "untilMega": "@media (max-width: 767px)",
+      },
+      "palette": Object {
+        "divider": "rgba(0, 0, 0, 0.12)",
+      },
+      "spacings": Object {
+        "bit": "4px",
+        "byte": "8px",
+        "exa": "48px",
+        "giga": "24px",
+        "kilo": "12px",
+        "mega": "16px",
+        "peta": "40px",
+        "tera": "32px",
+        "zetta": "56px",
+      },
+      "transitions": Object {
+        "default": "200ms ease-in-out",
+      },
+      "typography": Object {
+        "headings": Object {
+          "exa": Object {
+            "fontSize": "36px",
+            "lineHeight": "44px",
+          },
+          "giga": Object {
+            "fontSize": "22px",
+            "lineHeight": "24px",
+          },
+          "kilo": Object {
+            "fontSize": "17px",
+            "lineHeight": "24px",
+          },
+          "mega": Object {
+            "fontSize": "19px",
+            "lineHeight": "24px",
+          },
+          "peta": Object {
+            "fontSize": "28px",
+            "lineHeight": "32px",
+          },
+          "tera": Object {
+            "fontSize": "24px",
+            "lineHeight": "32px",
+          },
+          "zetta": Object {
+            "fontSize": "42px",
+            "lineHeight": "48px",
+          },
+        },
+        "subHeadings": Object {
+          "kilo": Object {
+            "fontSize": "12px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "14px",
+            "lineHeight": "18px",
+          },
+        },
+        "text": Object {
+          "giga": Object {
+            "fontSize": "18px",
+            "lineHeight": "28px",
+          },
+          "kilo": Object {
+            "fontSize": "13px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "15px",
+            "lineHeight": "24px",
+          },
+        },
+      },
+      "zIndex": Object {
+        "absolute": 1,
+        "default": 0,
+        "drawer": 10,
+        "modal": 1000,
+        "popover": 30,
+        "select": 20,
+        "tooltip": 31,
+      },
+    }
+  }
+>
+  <Pagination
+    nextLabel=">"
+    onChange={[Function]}
+    page={10}
+    pagesToShow={5}
+    perPage={50}
+    previousLabel="<"
+    total={500}
+    translate={[Function]}
+  >
+    <PaginationContainer
+      nextLabel=">"
+      onChange={[Function]}
+      page={10}
+      previousLabel="<"
+      totalPages={10}
+    >
+      <Container>
+        <div
+          className="circuit-72 circuit-73"
+        >
+          <NavigationButtonPrevious
+            disabled={false}
+            flat={false}
+            href={null}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-3 circuit-0"
+              disabled={false}
+              flat={false}
+              href={null}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-3 circuit-0"
+                disabled={false}
+                flat={false}
+                href={null}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-3 circuit-0"
+                  disabled={false}
+                  flat={false}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-0 circuit-1 circuit-2"
+                    disabled={false}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &lt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonPrevious>
+          <PaginationButtonContainer
+            currentPage={1}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={1}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={1}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={1}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={1}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={1}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={1}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        1
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PageButton
+            size="kilo"
+          >
+            <Button
+              className="circuit-12 circuit-9"
+              disabled={false}
+              flat={false}
+              href={null}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-12 circuit-9"
+                disabled={false}
+                flat={false}
+                href={null}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-9 circuit-10 circuit-2"
+                    disabled={false}
+                    size="kilo"
+                    target={null}
+                  >
+                    ...
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </PageButton>
+          <PaginationButtonContainer
+            currentPage={7}
+            key="7"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={7}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={7}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={7}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={7}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={7}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={7}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        7
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={8}
+            key="8"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={8}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={8}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={8}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={8}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={8}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={8}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        8
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={9}
+            key="9"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={9}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={9}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={9}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={9}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={9}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={9}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        9
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={10}
+          >
+            <PaginationButton
+              active={true}
+              currentPage={10}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={10}
+                onClick={[Function]}
+                primary={true}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={10}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={true}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={10}
+                    onClick={[Function]}
+                    primary={true}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={10}
+                      onClick={[Function]}
+                      primary={true}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-55 circuit-2"
+                        disabled={false}
+                        name={10}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        10
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <NavigationButtonNext
+            disabled={true}
+            flat={false}
+            href={null}
+            isFirst={false}
+            isLast={true}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-66 circuit-63"
+              disabled={true}
+              flat={false}
+              href={null}
+              isFirst={false}
+              isLast={true}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-66 circuit-63"
+                disabled={true}
+                flat={false}
+                href={null}
+                isFirst={false}
+                isLast={true}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-66 circuit-63"
+                  disabled={true}
+                  flat={false}
+                  isFirst={false}
+                  isLast={true}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-63 circuit-64 circuit-2"
+                    disabled={true}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &gt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonNext>
+        </div>
+      </Container>
+    </PaginationContainer>
+  </Pagination>
+</ThemeProvider>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on page 2 should render with default styles and match snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+.circuit-72 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-3 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-1:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-1:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-1:hover,
+.circuit-1:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-1[disabled],
+.circuit-1:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-12 {
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-12:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-12:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-19 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: #3388FF;
+  border-color: #2567D8;
+  color: #FFFFFF;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-19:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-19:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-19:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-19:hover,
+.circuit-19:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-19[disabled],
+.circuit-19:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-19:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+}
+
+.circuit-19:focus {
+  border-color: #2567D8;
+}
+
+.circuit-19:hover {
+  background-color: #2567D8;
+}
+
+.circuit-19:hover,
+.circuit-19:active {
+  border-color: #1641AC;
+}
+
+.circuit-19:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-19:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-10 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-10:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-10:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-10:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-10[disabled],
+.circuit-10:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-10:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-10:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-66 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-64 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-64:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-64:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-64:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-64:hover,
+.circuit-64:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-64[disabled],
+.circuit-64:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "borderRadius": Object {
+        "giga": "5px",
+        "kilo": "1px",
+        "mega": "4px",
+      },
+      "borderWidth": Object {
+        "kilo": "1px",
+        "mega": "2px",
+      },
+      "breakpoints": Object {
+        "afterTera": "(min-width: 1280px)",
+        "giga": 960,
+        "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
+        "kilo": 480,
+        "kiloToMega": "(min-width: 480px) and (max-width: 767px)",
+        "mega": 768,
+        "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
+        "tera": 1280,
+        "untilKilo": "(max-width: 479px)",
+        "untilMega": "(max-width: 767px)",
+      },
+      "colors": Object {
+        "b100": "#DAEAFF",
+        "b300": "#7FB5FF",
+        "b500": "#3388FF",
+        "b700": "#2567D8",
+        "b900": "#1641AC",
+        "black": "#0F131A",
+        "bodyBg": "#FAFBFC",
+        "bodyColor": "#0F131A",
+        "danger": "#FF7559",
+        "g100": "#C6E5CB",
+        "g300": "#97E2A3",
+        "g500": "#62DE76",
+        "g700": "#49B85B",
+        "g900": "#2F903E",
+        "n100": "#FAFBFC",
+        "n200": "#EEF0F2",
+        "n300": "#D8DDE1",
+        "n500": "#9DA7B1",
+        "n700": "#5C656F",
+        "n900": "#212933",
+        "p100": "#DAEAFF",
+        "p300": "#7FB5FF",
+        "p500": "#3388FF",
+        "p700": "#2567D8",
+        "p900": "#1641AC",
+        "r100": "#FFE6E1",
+        "r300": "#FFAF9F",
+        "r500": "#FF7559",
+        "r700": "#D55A41",
+        "r900": "#A73D28",
+        "shadow": "#0C0F14",
+        "success": "#49B85B",
+        "warning": "#D4A546",
+        "white": "#FFFFFF",
+        "y100": "#F2E5CB",
+        "y300": "#F7DA9F",
+        "y500": "#FFC859",
+        "y700": "#D4A546",
+        "y900": "#AB8433",
+      },
+      "fontStack": Object {
+        "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\"",
+        "mono": "Consolas, monaco, monospace",
+      },
+      "fontWeight": Object {
+        "bold": "700",
+        "regular": "400",
+      },
+      "grid": Object {
+        "afterTera": Object {
+          "breakpoint": "tera",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "1200px",
+          "priority": 5,
+        },
+        "default": Object {
+          "breakpoint": "default",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "880px",
+          "priority": 0,
+        },
+        "giga": Object {
+          "breakpoint": "giga",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "880px",
+          "priority": 4,
+        },
+        "kilo": Object {
+          "breakpoint": "kilo",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "600px",
+          "priority": 2,
+        },
+        "mega": Object {
+          "breakpoint": "mega",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "760px",
+          "priority": 3,
+        },
+        "untilKilo": Object {
+          "breakpoint": "untilKilo",
+          "cols": 12,
+          "gutter": "8px",
+          "maxWidth": "400px",
+          "priority": 1,
+        },
+      },
+      "iconSizes": Object {
+        "byte": "14px",
+        "giga": "32px",
+        "kilo": "16px",
+        "mega": "24px",
+      },
+      "mq": Object {
+        "afterTera": "@media (min-width: 1280px)",
+        "giga": "@media (min-width: 960px)",
+        "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
+        "kilo": "@media (min-width: 480px)",
+        "kiloToMega": "@media (min-width: 480px) and (max-width: 767px)",
+        "mega": "@media (min-width: 768px)",
+        "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
+        "tera": "@media (min-width: 1280px)",
+        "untilKilo": "@media (max-width: 479px)",
+        "untilMega": "@media (max-width: 767px)",
+      },
+      "palette": Object {
+        "divider": "rgba(0, 0, 0, 0.12)",
+      },
+      "spacings": Object {
+        "bit": "4px",
+        "byte": "8px",
+        "exa": "48px",
+        "giga": "24px",
+        "kilo": "12px",
+        "mega": "16px",
+        "peta": "40px",
+        "tera": "32px",
+        "zetta": "56px",
+      },
+      "transitions": Object {
+        "default": "200ms ease-in-out",
+      },
+      "typography": Object {
+        "headings": Object {
+          "exa": Object {
+            "fontSize": "36px",
+            "lineHeight": "44px",
+          },
+          "giga": Object {
+            "fontSize": "22px",
+            "lineHeight": "24px",
+          },
+          "kilo": Object {
+            "fontSize": "17px",
+            "lineHeight": "24px",
+          },
+          "mega": Object {
+            "fontSize": "19px",
+            "lineHeight": "24px",
+          },
+          "peta": Object {
+            "fontSize": "28px",
+            "lineHeight": "32px",
+          },
+          "tera": Object {
+            "fontSize": "24px",
+            "lineHeight": "32px",
+          },
+          "zetta": Object {
+            "fontSize": "42px",
+            "lineHeight": "48px",
+          },
+        },
+        "subHeadings": Object {
+          "kilo": Object {
+            "fontSize": "12px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "14px",
+            "lineHeight": "18px",
+          },
+        },
+        "text": Object {
+          "giga": Object {
+            "fontSize": "18px",
+            "lineHeight": "28px",
+          },
+          "kilo": Object {
+            "fontSize": "13px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "15px",
+            "lineHeight": "24px",
+          },
+        },
+      },
+      "zIndex": Object {
+        "absolute": 1,
+        "default": 0,
+        "drawer": 10,
+        "modal": 1000,
+        "popover": 30,
+        "select": 20,
+        "tooltip": 31,
+      },
+    }
+  }
+>
+  <Pagination
+    nextLabel=">"
+    onChange={[Function]}
+    page={2}
+    pagesToShow={5}
+    perPage={50}
+    previousLabel="<"
+    total={500}
+    translate={[Function]}
+  >
+    <PaginationContainer
+      nextLabel=">"
+      onChange={[Function]}
+      page={2}
+      previousLabel="<"
+      totalPages={10}
+    >
+      <Container>
+        <div
+          className="circuit-72 circuit-73"
+        >
+          <NavigationButtonPrevious
+            disabled={false}
+            flat={false}
+            href={null}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-3 circuit-0"
+              disabled={false}
+              flat={false}
+              href={null}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-3 circuit-0"
+                disabled={false}
+                flat={false}
+                href={null}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-3 circuit-0"
+                  disabled={false}
+                  flat={false}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-0 circuit-1 circuit-2"
+                    disabled={false}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &lt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonPrevious>
+          <PaginationButtonContainer
+            currentPage={1}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={1}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={1}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={1}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={1}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={1}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={1}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        1
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={2}
+            key="2"
+          >
+            <PaginationButton
+              active={true}
+              currentPage={2}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={2}
+                onClick={[Function]}
+                primary={true}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={2}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={true}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={2}
+                    onClick={[Function]}
+                    primary={true}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={2}
+                      onClick={[Function]}
+                      primary={true}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-19 circuit-2"
+                        disabled={false}
+                        name={2}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        2
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={3}
+            key="3"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={3}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={3}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={3}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={3}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={3}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={3}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        3
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={4}
+            key="4"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={4}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={4}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={4}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={4}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={4}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={4}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        4
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PageButton
+            size="kilo"
+          >
+            <Button
+              className="circuit-12 circuit-9"
+              disabled={false}
+              flat={false}
+              href={null}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-12 circuit-9"
+                disabled={false}
+                flat={false}
+                href={null}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-9 circuit-10 circuit-2"
+                    disabled={false}
+                    size="kilo"
+                    target={null}
+                  >
+                    ...
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </PageButton>
+          <PaginationButtonContainer
+            currentPage={10}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={10}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={10}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={10}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={10}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={10}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={10}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        10
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <NavigationButtonNext
+            disabled={false}
+            flat={false}
+            href={null}
+            isFirst={false}
+            isLast={true}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-66 circuit-63"
+              disabled={false}
+              flat={false}
+              href={null}
+              isFirst={false}
+              isLast={true}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-66 circuit-63"
+                disabled={false}
+                flat={false}
+                href={null}
+                isFirst={false}
+                isLast={true}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-66 circuit-63"
+                  disabled={false}
+                  flat={false}
+                  isFirst={false}
+                  isLast={true}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-63 circuit-64 circuit-2"
+                    disabled={false}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &gt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonNext>
+        </div>
+      </Container>
+    </PaginationContainer>
+  </Pagination>
+</ThemeProvider>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on page in the middle should render with default styles and match snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+.circuit-81 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-3 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-1:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-1:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-1:hover,
+.circuit-1:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-1[disabled],
+.circuit-1:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-12 {
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-12:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-12:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-37 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: #3388FF;
+  border-color: #2567D8;
+  color: #FFFFFF;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-37:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-37:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-37:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-37:hover,
+.circuit-37:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-37[disabled],
+.circuit-37:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-37:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+}
+
+.circuit-37:focus {
+  border-color: #2567D8;
+}
+
+.circuit-37:hover {
+  background-color: #2567D8;
+}
+
+.circuit-37:hover,
+.circuit-37:active {
+  border-color: #1641AC;
+}
+
+.circuit-37:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-37:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-10 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-10:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-10:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-10:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-10[disabled],
+.circuit-10:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-10:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-10:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-75 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-73 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-73:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-73:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-73:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-73:hover,
+.circuit-73:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-73[disabled],
+.circuit-73:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "borderRadius": Object {
+        "giga": "5px",
+        "kilo": "1px",
+        "mega": "4px",
+      },
+      "borderWidth": Object {
+        "kilo": "1px",
+        "mega": "2px",
+      },
+      "breakpoints": Object {
+        "afterTera": "(min-width: 1280px)",
+        "giga": 960,
+        "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
+        "kilo": 480,
+        "kiloToMega": "(min-width: 480px) and (max-width: 767px)",
+        "mega": 768,
+        "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
+        "tera": 1280,
+        "untilKilo": "(max-width: 479px)",
+        "untilMega": "(max-width: 767px)",
+      },
+      "colors": Object {
+        "b100": "#DAEAFF",
+        "b300": "#7FB5FF",
+        "b500": "#3388FF",
+        "b700": "#2567D8",
+        "b900": "#1641AC",
+        "black": "#0F131A",
+        "bodyBg": "#FAFBFC",
+        "bodyColor": "#0F131A",
+        "danger": "#FF7559",
+        "g100": "#C6E5CB",
+        "g300": "#97E2A3",
+        "g500": "#62DE76",
+        "g700": "#49B85B",
+        "g900": "#2F903E",
+        "n100": "#FAFBFC",
+        "n200": "#EEF0F2",
+        "n300": "#D8DDE1",
+        "n500": "#9DA7B1",
+        "n700": "#5C656F",
+        "n900": "#212933",
+        "p100": "#DAEAFF",
+        "p300": "#7FB5FF",
+        "p500": "#3388FF",
+        "p700": "#2567D8",
+        "p900": "#1641AC",
+        "r100": "#FFE6E1",
+        "r300": "#FFAF9F",
+        "r500": "#FF7559",
+        "r700": "#D55A41",
+        "r900": "#A73D28",
+        "shadow": "#0C0F14",
+        "success": "#49B85B",
+        "warning": "#D4A546",
+        "white": "#FFFFFF",
+        "y100": "#F2E5CB",
+        "y300": "#F7DA9F",
+        "y500": "#FFC859",
+        "y700": "#D4A546",
+        "y900": "#AB8433",
+      },
+      "fontStack": Object {
+        "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\"",
+        "mono": "Consolas, monaco, monospace",
+      },
+      "fontWeight": Object {
+        "bold": "700",
+        "regular": "400",
+      },
+      "grid": Object {
+        "afterTera": Object {
+          "breakpoint": "tera",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "1200px",
+          "priority": 5,
+        },
+        "default": Object {
+          "breakpoint": "default",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "880px",
+          "priority": 0,
+        },
+        "giga": Object {
+          "breakpoint": "giga",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "880px",
+          "priority": 4,
+        },
+        "kilo": Object {
+          "breakpoint": "kilo",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "600px",
+          "priority": 2,
+        },
+        "mega": Object {
+          "breakpoint": "mega",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "760px",
+          "priority": 3,
+        },
+        "untilKilo": Object {
+          "breakpoint": "untilKilo",
+          "cols": 12,
+          "gutter": "8px",
+          "maxWidth": "400px",
+          "priority": 1,
+        },
+      },
+      "iconSizes": Object {
+        "byte": "14px",
+        "giga": "32px",
+        "kilo": "16px",
+        "mega": "24px",
+      },
+      "mq": Object {
+        "afterTera": "@media (min-width: 1280px)",
+        "giga": "@media (min-width: 960px)",
+        "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
+        "kilo": "@media (min-width: 480px)",
+        "kiloToMega": "@media (min-width: 480px) and (max-width: 767px)",
+        "mega": "@media (min-width: 768px)",
+        "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
+        "tera": "@media (min-width: 1280px)",
+        "untilKilo": "@media (max-width: 479px)",
+        "untilMega": "@media (max-width: 767px)",
+      },
+      "palette": Object {
+        "divider": "rgba(0, 0, 0, 0.12)",
+      },
+      "spacings": Object {
+        "bit": "4px",
+        "byte": "8px",
+        "exa": "48px",
+        "giga": "24px",
+        "kilo": "12px",
+        "mega": "16px",
+        "peta": "40px",
+        "tera": "32px",
+        "zetta": "56px",
+      },
+      "transitions": Object {
+        "default": "200ms ease-in-out",
+      },
+      "typography": Object {
+        "headings": Object {
+          "exa": Object {
+            "fontSize": "36px",
+            "lineHeight": "44px",
+          },
+          "giga": Object {
+            "fontSize": "22px",
+            "lineHeight": "24px",
+          },
+          "kilo": Object {
+            "fontSize": "17px",
+            "lineHeight": "24px",
+          },
+          "mega": Object {
+            "fontSize": "19px",
+            "lineHeight": "24px",
+          },
+          "peta": Object {
+            "fontSize": "28px",
+            "lineHeight": "32px",
+          },
+          "tera": Object {
+            "fontSize": "24px",
+            "lineHeight": "32px",
+          },
+          "zetta": Object {
+            "fontSize": "42px",
+            "lineHeight": "48px",
+          },
+        },
+        "subHeadings": Object {
+          "kilo": Object {
+            "fontSize": "12px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "14px",
+            "lineHeight": "18px",
+          },
+        },
+        "text": Object {
+          "giga": Object {
+            "fontSize": "18px",
+            "lineHeight": "28px",
+          },
+          "kilo": Object {
+            "fontSize": "13px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "15px",
+            "lineHeight": "24px",
+          },
+        },
+      },
+      "zIndex": Object {
+        "absolute": 1,
+        "default": 0,
+        "drawer": 10,
+        "modal": 1000,
+        "popover": 30,
+        "select": 20,
+        "tooltip": 31,
+      },
+    }
+  }
+>
+  <Pagination
+    nextLabel=">"
+    onChange={[Function]}
+    page={5}
+    pagesToShow={5}
+    perPage={50}
+    previousLabel="<"
+    total={500}
+    translate={[Function]}
+  >
+    <PaginationContainer
+      nextLabel=">"
+      onChange={[Function]}
+      page={5}
+      previousLabel="<"
+      totalPages={10}
+    >
+      <Container>
+        <div
+          className="circuit-81 circuit-82"
+        >
+          <NavigationButtonPrevious
+            disabled={false}
+            flat={false}
+            href={null}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-3 circuit-0"
+              disabled={false}
+              flat={false}
+              href={null}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-3 circuit-0"
+                disabled={false}
+                flat={false}
+                href={null}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-3 circuit-0"
+                  disabled={false}
+                  flat={false}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-0 circuit-1 circuit-2"
+                    disabled={false}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &lt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonPrevious>
+          <PaginationButtonContainer
+            currentPage={1}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={1}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={1}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={1}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={1}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={1}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={1}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        1
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PageButton
+            size="kilo"
+          >
+            <Button
+              className="circuit-12 circuit-9"
+              disabled={false}
+              flat={false}
+              href={null}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-12 circuit-9"
+                disabled={false}
+                flat={false}
+                href={null}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-9 circuit-10 circuit-2"
+                    disabled={false}
+                    size="kilo"
+                    target={null}
+                  >
+                    ...
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </PageButton>
+          <PaginationButtonContainer
+            currentPage={4}
+            key="4"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={4}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={4}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={4}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={4}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={4}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={4}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        4
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={5}
+            key="5"
+          >
+            <PaginationButton
+              active={true}
+              currentPage={5}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={5}
+                onClick={[Function]}
+                primary={true}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={5}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={true}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={5}
+                    onClick={[Function]}
+                    primary={true}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={5}
+                      onClick={[Function]}
+                      primary={true}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-37 circuit-2"
+                        disabled={false}
+                        name={5}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        5
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={6}
+            key="6"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={6}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={6}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={6}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={6}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={6}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={6}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        6
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PageButton
+            size="kilo"
+          >
+            <Button
+              className="circuit-12 circuit-9"
+              disabled={false}
+              flat={false}
+              href={null}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-12 circuit-9"
+                disabled={false}
+                flat={false}
+                href={null}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-9 circuit-10 circuit-2"
+                    disabled={false}
+                    size="kilo"
+                    target={null}
+                  >
+                    ...
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </PageButton>
+          <PaginationButtonContainer
+            currentPage={10}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={10}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={10}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={10}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={10}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={10}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={10}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        10
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <NavigationButtonNext
+            disabled={false}
+            flat={false}
+            href={null}
+            isFirst={false}
+            isLast={true}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-75 circuit-72"
+              disabled={false}
+              flat={false}
+              href={null}
+              isFirst={false}
+              isLast={true}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-75 circuit-72"
+                disabled={false}
+                flat={false}
+                href={null}
+                isFirst={false}
+                isLast={true}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-75 circuit-72"
+                  disabled={false}
+                  flat={false}
+                  isFirst={false}
+                  isLast={true}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-72 circuit-73 circuit-2"
+                    disabled={false}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &gt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonNext>
+        </div>
+      </Container>
+    </PaginationContainer>
+  </Pagination>
+</ThemeProvider>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on page one should render with default styles and match snapshot 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+.circuit-72 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-3 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+.circuit-1:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-1:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-1:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-1:hover,
+.circuit-1:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-1[disabled],
+.circuit-1:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-12 {
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-12:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-12:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-10 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  background-color: #3388FF;
+  border-color: #2567D8;
+  color: #FFFFFF;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-10:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-10:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-10:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-10[disabled],
+.circuit-10:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-10:active {
+  background-color: #2567D8;
+  border-color: #1641AC;
+}
+
+.circuit-10:focus {
+  border-color: #2567D8;
+}
+
+.circuit-10:hover {
+  background-color: #2567D8;
+}
+
+.circuit-10:hover,
+.circuit-10:active {
+  border-color: #1641AC;
+}
+
+.circuit-10:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-10:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-19 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  border-color: #D8DDE1;
+}
+
+.circuit-19:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-19:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-19:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-19:hover,
+.circuit-19:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-19[disabled],
+.circuit-19:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-19:focus {
+  border-right: 2px solid #9DA7B1;
+}
+
+.circuit-19:hover {
+  border-right: 1px solid #9DA7B1;
+}
+
+.circuit-66 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-64 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-64:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-64:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-64:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-64:hover,
+.circuit-64:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-64[disabled],
+.circuit-64:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+<ThemeProvider
+  theme={
+    Object {
+      "borderRadius": Object {
+        "giga": "5px",
+        "kilo": "1px",
+        "mega": "4px",
+      },
+      "borderWidth": Object {
+        "kilo": "1px",
+        "mega": "2px",
+      },
+      "breakpoints": Object {
+        "afterTera": "(min-width: 1280px)",
+        "giga": 960,
+        "gigaToTera": "(min-width: 960px) and (max-width: 1279px)",
+        "kilo": 480,
+        "kiloToMega": "(min-width: 480px) and (max-width: 767px)",
+        "mega": 768,
+        "megaToGiga": "(min-width: 768px) and (max-width: 959px)",
+        "tera": 1280,
+        "untilKilo": "(max-width: 479px)",
+        "untilMega": "(max-width: 767px)",
+      },
+      "colors": Object {
+        "b100": "#DAEAFF",
+        "b300": "#7FB5FF",
+        "b500": "#3388FF",
+        "b700": "#2567D8",
+        "b900": "#1641AC",
+        "black": "#0F131A",
+        "bodyBg": "#FAFBFC",
+        "bodyColor": "#0F131A",
+        "danger": "#FF7559",
+        "g100": "#C6E5CB",
+        "g300": "#97E2A3",
+        "g500": "#62DE76",
+        "g700": "#49B85B",
+        "g900": "#2F903E",
+        "n100": "#FAFBFC",
+        "n200": "#EEF0F2",
+        "n300": "#D8DDE1",
+        "n500": "#9DA7B1",
+        "n700": "#5C656F",
+        "n900": "#212933",
+        "p100": "#DAEAFF",
+        "p300": "#7FB5FF",
+        "p500": "#3388FF",
+        "p700": "#2567D8",
+        "p900": "#1641AC",
+        "r100": "#FFE6E1",
+        "r300": "#FFAF9F",
+        "r500": "#FF7559",
+        "r700": "#D55A41",
+        "r900": "#A73D28",
+        "shadow": "#0C0F14",
+        "success": "#49B85B",
+        "warning": "#D4A546",
+        "white": "#FFFFFF",
+        "y100": "#F2E5CB",
+        "y300": "#F7DA9F",
+        "y500": "#FFC859",
+        "y700": "#D4A546",
+        "y900": "#AB8433",
+      },
+      "fontStack": Object {
+        "default": "aktiv-grotesk, -apple-system, BlinkMacSystemFont, \\"Segoe UI\\"",
+        "mono": "Consolas, monaco, monospace",
+      },
+      "fontWeight": Object {
+        "bold": "700",
+        "regular": "400",
+      },
+      "grid": Object {
+        "afterTera": Object {
+          "breakpoint": "tera",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "1200px",
+          "priority": 5,
+        },
+        "default": Object {
+          "breakpoint": "default",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "880px",
+          "priority": 0,
+        },
+        "giga": Object {
+          "breakpoint": "giga",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "880px",
+          "priority": 4,
+        },
+        "kilo": Object {
+          "breakpoint": "kilo",
+          "cols": 12,
+          "gutter": "16px",
+          "maxWidth": "600px",
+          "priority": 2,
+        },
+        "mega": Object {
+          "breakpoint": "mega",
+          "cols": 12,
+          "gutter": "24px",
+          "maxWidth": "760px",
+          "priority": 3,
+        },
+        "untilKilo": Object {
+          "breakpoint": "untilKilo",
+          "cols": 12,
+          "gutter": "8px",
+          "maxWidth": "400px",
+          "priority": 1,
+        },
+      },
+      "iconSizes": Object {
+        "byte": "14px",
+        "giga": "32px",
+        "kilo": "16px",
+        "mega": "24px",
+      },
+      "mq": Object {
+        "afterTera": "@media (min-width: 1280px)",
+        "giga": "@media (min-width: 960px)",
+        "gigaToTera": "@media (min-width: 960px) and (max-width: 1279px)",
+        "kilo": "@media (min-width: 480px)",
+        "kiloToMega": "@media (min-width: 480px) and (max-width: 767px)",
+        "mega": "@media (min-width: 768px)",
+        "megaToGiga": "@media (min-width: 768px) and (max-width: 959px)",
+        "tera": "@media (min-width: 1280px)",
+        "untilKilo": "@media (max-width: 479px)",
+        "untilMega": "@media (max-width: 767px)",
+      },
+      "palette": Object {
+        "divider": "rgba(0, 0, 0, 0.12)",
+      },
+      "spacings": Object {
+        "bit": "4px",
+        "byte": "8px",
+        "exa": "48px",
+        "giga": "24px",
+        "kilo": "12px",
+        "mega": "16px",
+        "peta": "40px",
+        "tera": "32px",
+        "zetta": "56px",
+      },
+      "transitions": Object {
+        "default": "200ms ease-in-out",
+      },
+      "typography": Object {
+        "headings": Object {
+          "exa": Object {
+            "fontSize": "36px",
+            "lineHeight": "44px",
+          },
+          "giga": Object {
+            "fontSize": "22px",
+            "lineHeight": "24px",
+          },
+          "kilo": Object {
+            "fontSize": "17px",
+            "lineHeight": "24px",
+          },
+          "mega": Object {
+            "fontSize": "19px",
+            "lineHeight": "24px",
+          },
+          "peta": Object {
+            "fontSize": "28px",
+            "lineHeight": "32px",
+          },
+          "tera": Object {
+            "fontSize": "24px",
+            "lineHeight": "32px",
+          },
+          "zetta": Object {
+            "fontSize": "42px",
+            "lineHeight": "48px",
+          },
+        },
+        "subHeadings": Object {
+          "kilo": Object {
+            "fontSize": "12px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "14px",
+            "lineHeight": "18px",
+          },
+        },
+        "text": Object {
+          "giga": Object {
+            "fontSize": "18px",
+            "lineHeight": "28px",
+          },
+          "kilo": Object {
+            "fontSize": "13px",
+            "lineHeight": "20px",
+          },
+          "mega": Object {
+            "fontSize": "15px",
+            "lineHeight": "24px",
+          },
+        },
+      },
+      "zIndex": Object {
+        "absolute": 1,
+        "default": 0,
+        "drawer": 10,
+        "modal": 1000,
+        "popover": 30,
+        "select": 20,
+        "tooltip": 31,
+      },
+    }
+  }
+>
+  <Pagination
+    nextLabel=">"
+    onChange={[Function]}
+    page={1}
+    pagesToShow={5}
+    perPage={50}
+    previousLabel="<"
+    total={500}
+    translate={[Function]}
+  >
+    <PaginationContainer
+      nextLabel=">"
+      onChange={[Function]}
+      page={1}
+      previousLabel="<"
+      totalPages={10}
+    >
+      <Container>
+        <div
+          className="circuit-72 circuit-73"
+        >
+          <NavigationButtonPrevious
+            disabled={true}
+            flat={false}
+            href={null}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-3 circuit-0"
+              disabled={true}
+              flat={false}
+              href={null}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-3 circuit-0"
+                disabled={true}
+                flat={false}
+                href={null}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-3 circuit-0"
+                  disabled={true}
+                  flat={false}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-0 circuit-1 circuit-2"
+                    disabled={true}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &lt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonPrevious>
+          <PaginationButtonContainer
+            currentPage={1}
+          >
+            <PaginationButton
+              active={true}
+              currentPage={1}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={1}
+                onClick={[Function]}
+                primary={true}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={1}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={true}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={1}
+                    onClick={[Function]}
+                    primary={true}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={1}
+                      onClick={[Function]}
+                      primary={true}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-10 circuit-2"
+                        disabled={false}
+                        name={1}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        1
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={2}
+            key="2"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={2}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={2}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={2}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={2}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={2}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-19 circuit-2"
+                        disabled={false}
+                        name={2}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        2
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={3}
+            key="3"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={3}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={3}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={3}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={3}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={3}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-19 circuit-2"
+                        disabled={false}
+                        name={3}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        3
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PaginationButtonContainer
+            currentPage={4}
+            key="4"
+          >
+            <PaginationButton
+              active={false}
+              currentPage={4}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={4}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={4}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={4}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={4}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-19 circuit-2"
+                        disabled={false}
+                        name={4}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        4
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <PageButton
+            size="kilo"
+          >
+            <Button
+              className="circuit-12 circuit-9"
+              disabled={false}
+              flat={false}
+              href={null}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-12 circuit-9"
+                disabled={false}
+                flat={false}
+                href={null}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-9 circuit-19 circuit-2"
+                    disabled={false}
+                    size="kilo"
+                    target={null}
+                  >
+                    ...
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </PageButton>
+          <PaginationButtonContainer
+            currentPage={10}
+          >
+            <PaginationButton
+              active={false}
+              currentPage={10}
+              onClick={[Function]}
+            >
+              <PageButton
+                name={10}
+                onClick={[Function]}
+                primary={false}
+                size="kilo"
+              >
+                <Button
+                  className="circuit-12 circuit-9"
+                  disabled={false}
+                  flat={false}
+                  href={null}
+                  name={10}
+                  onClick={[Function]}
+                  plain={false}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <RegularButton
+                    className="circuit-12 circuit-9"
+                    disabled={false}
+                    flat={false}
+                    href={null}
+                    name={10}
+                    onClick={[Function]}
+                    primary={false}
+                    secondary={false}
+                    size="kilo"
+                    stretch={false}
+                    target={null}
+                  >
+                    <ButtonElement
+                      className="circuit-12 circuit-9"
+                      disabled={false}
+                      flat={false}
+                      name={10}
+                      onClick={[Function]}
+                      primary={false}
+                      secondary={false}
+                      size="kilo"
+                      stretch={false}
+                      target={null}
+                    >
+                      <button
+                        className="circuit-9 circuit-19 circuit-2"
+                        disabled={false}
+                        name={10}
+                        onClick={[Function]}
+                        size="kilo"
+                        target={null}
+                      >
+                        10
+                      </button>
+                    </ButtonElement>
+                  </RegularButton>
+                </Button>
+              </PageButton>
+            </PaginationButton>
+          </PaginationButtonContainer>
+          <NavigationButtonNext
+            disabled={false}
+            flat={false}
+            href={null}
+            isFirst={false}
+            isLast={true}
+            onClick={[Function]}
+            plain={false}
+            primary={false}
+            secondary={false}
+            size="kilo"
+            stretch={false}
+            target={null}
+          >
+            <Button
+              className="circuit-66 circuit-63"
+              disabled={false}
+              flat={false}
+              href={null}
+              isFirst={false}
+              isLast={true}
+              onClick={[Function]}
+              plain={false}
+              primary={false}
+              secondary={false}
+              size="kilo"
+              stretch={false}
+              target={null}
+            >
+              <RegularButton
+                className="circuit-66 circuit-63"
+                disabled={false}
+                flat={false}
+                href={null}
+                isFirst={false}
+                isLast={true}
+                onClick={[Function]}
+                primary={false}
+                secondary={false}
+                size="kilo"
+                stretch={false}
+                target={null}
+              >
+                <ButtonElement
+                  className="circuit-66 circuit-63"
+                  disabled={false}
+                  flat={false}
+                  isFirst={false}
+                  isLast={true}
+                  onClick={[Function]}
+                  primary={false}
+                  secondary={false}
+                  size="kilo"
+                  stretch={false}
+                  target={null}
+                >
+                  <button
+                    className="circuit-63 circuit-64 circuit-2"
+                    disabled={false}
+                    onClick={[Function]}
+                    size="kilo"
+                    target={null}
+                  >
+                    &gt;
+                  </button>
+                </ButtonElement>
+              </RegularButton>
+            </Button>
+          </NavigationButtonNext>
+        </div>
+      </Container>
+    </PaginationContainer>
+  </Pagination>
+</ThemeProvider>
 `;
