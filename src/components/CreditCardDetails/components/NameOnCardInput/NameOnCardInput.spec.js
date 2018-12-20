@@ -3,7 +3,7 @@ import React from 'react';
 import NameOnCardInput from '.';
 
 describe('NameOnCardInput', () => {
-  const inputSelector = 'WithTheme(Input)';
+  const inputSelector = 'input';
   it('should render a Label', () => {
     const wrapper = shallow(<NameOnCardInput />);
     expect(wrapper.find('Label')).toHaveLength(1);

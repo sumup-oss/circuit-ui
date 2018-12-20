@@ -49,7 +49,7 @@ describe('Pagination', () => {
           );
           expect(component).toMatchSnapshot();
         });
-        it('should render five pages and one for showing that are hidden pages', () => {
+        it.only('should render five pages and one for showing that are hidden pages', () => {
           const component = shallow(
             <Pagination
               page={1}
@@ -58,6 +58,7 @@ describe('Pagination', () => {
               onChange={identity}
             />
           );
+          console.log(component.debug());
           expect(component.find('PaginationButtonContainer')).toHaveLength(5);
           expect(component.find('PageButton')).toHaveLength(1);
         });
