@@ -22,10 +22,10 @@ const baseStyles = ({ theme }) => css`
     margin-top: 0;
   }
 
-  ${theme.mq.untilMega`
+  ${theme.mq.untilMega} {
     max-width: none;
     width: 100%;
-  `};
+  }
 `;
 
 const NotificationListWrapper = styled('ul')`

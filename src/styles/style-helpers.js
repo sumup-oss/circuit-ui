@@ -127,12 +127,10 @@ export const createMediaQueries = mapValues(mediaExpression => {
     typeof mediaExpression === 'string'
       ? {}
       : { prefix: '(min-width: ', suffix: 'px)' };
+
   const enhancedExpression = prefix + mediaExpression + suffix;
-  return (...args) => css`
-    @media ${enhancedExpression} {
-      ${css(...args)};
-    }
-  `;
+
+  return `@media ${enhancedExpression}`;
 });
 
 export const clearfix = css`

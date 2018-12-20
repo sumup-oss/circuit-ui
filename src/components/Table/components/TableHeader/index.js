@@ -44,13 +44,13 @@ const rowStyles = ({ theme, fixed }) =>
   fixed &&
   css`
     label: table-header--row;
-    ${theme.mq.untilMega`
+    ${theme.mq.untilMega} {
       left: 0;
       top: auto;
       position: absolute;
       width: 145px;
       white-space: unset;
-    `};
+    }
   `;
 
 const sortableStyles = ({ theme, sortable }) =>

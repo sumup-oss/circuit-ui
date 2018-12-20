@@ -8,11 +8,11 @@ const getBreakPointStyles = (theme, breakpoint) => {
     return null;
   }
 
-  return theme.mq[breakpoint]`
+  return `${theme.mq[breakpoint]} {
     max-width: ${config.maxWidth};
     padding-left: calc(${config.gutter} / 2);
     padding-right: calc(${config.gutter} / 2);
-  `;
+  }`;
 };
 
 const baseStyles = ({ theme }) => css`

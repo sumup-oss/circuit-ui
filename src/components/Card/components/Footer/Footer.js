@@ -10,9 +10,9 @@ const alignmentStyles = ({ theme, align }) =>
   align === directions.RIGHT &&
   css`
     label: card__footer--right;
-    ${theme.mq.kilo`
+    ${theme.mq.kilo} {
       justify-content: flex-end;
-    `};
+    }
   `;
 
 const baseStyles = ({ theme }) => css`
@@ -21,11 +21,11 @@ const baseStyles = ({ theme }) => css`
   width: 100%;
   margin-top: ${theme.spacings.giga};
 
-  ${theme.mq.kilo`
+  ${theme.mq.kilo} {
     align-items: center;
     display: flex;
     margin-top: ${theme.spacings.mega};
-  `};
+  }
 `;
 
 /**

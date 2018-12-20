@@ -10,9 +10,11 @@ const getBreakPointStyles = (theme, breakpoint) => {
     return null;
   }
 
-  return theme.mq[breakpoint]`
-    margin-left: calc(-${config.gutter} / 2);
-    margin-right: calc(-${config.gutter} / 2);
+  return css`
+    ${theme.mq[breakpoint]} {
+      margin-left: calc(-${config.gutter} / 2);
+      margin-right: calc(-${config.gutter} / 2);
+    }
   `;
 };
 
