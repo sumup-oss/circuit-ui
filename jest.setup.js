@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import 'jest-enzyme';
-import Enzyme, { shallow, render, mount } from 'enzyme';
+import Enzyme, { render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { createSerializer } from 'jest-emotion';
 import { axe, toHaveNoViolations } from 'jest-axe';
@@ -15,7 +15,12 @@ Enzyme.configure({ adapter: new Adapter() });
 const renderWithTheme = renderFn => (component, ...rest) =>
   renderFn(<ThemeProvider theme={circuit}>{component}</ThemeProvider>, rest);
 
-global.shallow = renderWithTheme(shallow);
+global.shallow = (...args) => {
+  console.error(
+    'We do not use Shallow anymore. Automatically switching to mount.'
+  );
+  return renderWithTheme(mount)(...args);
+};
 global.render = renderWithTheme(render);
 global.create = renderWithTheme(create);
 global.mount = renderWithTheme(mount);
