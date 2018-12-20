@@ -16,7 +16,7 @@ exports[`Text should render as article element, when passed "article" for the el
 }
 
 <article
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
 >
   ARTICLE heading
 </article>
@@ -38,7 +38,7 @@ exports[`Text should render as div element, when passed "div" for the element pr
 }
 
 <div
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
 >
   DIV heading
 </div>
@@ -60,7 +60,7 @@ exports[`Text should render as p element, when passed "p" for the element prop 1
 }
 
 <p
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
 >
   P heading
 </p>
@@ -83,7 +83,7 @@ exports[`Text should render bold text when passed the bold prop 1`] = `
 }
 
 <p
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
 />
 `;
 
@@ -104,7 +104,7 @@ exports[`Text should render italic text when passed the italic prop 1`] = `
 }
 
 <p
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
 />
 `;
 
@@ -126,7 +126,7 @@ exports[`Text should render struck through text when passed the strike prop 1`] 
 }
 
 <p
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
   strike={true}
 />
 `;
@@ -148,7 +148,7 @@ exports[`Text should render with no margin styles when passed the noMargin prop 
 }
 
 <p
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
 />
 `;
 
@@ -168,7 +168,7 @@ exports[`Text should render with size giga, when passed "giga" for the size prop
 }
 
 <p
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
 >
   giga heading
 </p>
@@ -190,7 +190,7 @@ exports[`Text should render with size kilo, when passed "kilo" for the size prop
 }
 
 <p
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
 >
   kilo heading
 </p>
@@ -212,7 +212,7 @@ exports[`Text should render with size mega, when passed "mega" for the size prop
 }
 
 <p
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
 >
   mega heading
 </p>

@@ -102,7 +102,6 @@ exports[`Container Container Style tests should have default styles 1`] = `
 <button
   className="circuit-9 circuit-10"
   disabled={false}
-  onClick={undefined}
   size="mega"
   target={null}
 >

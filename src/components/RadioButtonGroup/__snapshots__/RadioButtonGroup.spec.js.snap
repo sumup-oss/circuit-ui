@@ -3,7 +3,7 @@
 exports[`RadioButtonGroup should render with default styles 1`] = `
 Array [
   .circuit-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -11,7 +11,7 @@ Array [
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -68,16 +68,13 @@ Array [
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-<div
-    className={undefined}
-  >
+<div>
     <input
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
       id="radio-button_2"
       name="radio-button-group_1"
-      onClick={undefined}
       type="radio"
       value="first"
     />
@@ -93,7 +90,7 @@ Array [
     </label>
   </div>,
   .circuit-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -101,7 +98,7 @@ Array [
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -158,16 +155,13 @@ Array [
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-<div
-    className={undefined}
-  >
+<div>
     <input
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
       id="radio-button_3"
       name="radio-button-group_1"
-      onClick={undefined}
       type="radio"
       value="second"
     />
@@ -183,7 +177,7 @@ Array [
     </label>
   </div>,
   .circuit-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -191,7 +185,7 @@ Array [
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -248,16 +242,13 @@ Array [
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-<div
-    className={undefined}
-  >
+<div>
     <input
       checked={false}
       className="circuit-0 circuit-1"
       disabled={false}
       id="radio-button_4"
       name="radio-button-group_1"
-      onClick={undefined}
       type="radio"
       value="third"
     />

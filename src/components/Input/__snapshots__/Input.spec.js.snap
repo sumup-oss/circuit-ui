@@ -58,12 +58,12 @@ exports[`Input should prioritize disabled over error styles 1`] = `
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className=" circuit-2 circuit-3"
   disabled={true}
 >
   <input
     aria-invalid={true}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={true}
     required={false}
   />
@@ -179,12 +179,12 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={true}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -290,12 +290,12 @@ exports[`Input should prioritize error over optional styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={true}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -418,12 +418,12 @@ exports[`Input should render with a Tooltip when passed the validationHint prop 
 }
 
 <div
-  className="circuit-6 circuit-7"
+  className=" circuit-6 circuit-7"
   disabled={false}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -507,7 +507,7 @@ exports[`Input should render with a prefix when passed the prefix prop 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <div
@@ -520,7 +520,7 @@ exports[`Input should render with a prefix when passed the prefix prop 1`] = `
   />
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -585,12 +585,12 @@ exports[`Input should render with a suffix when passed the suffix prop 1`] = `
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className=" circuit-2 circuit-3"
   disabled={false}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -673,12 +673,12 @@ exports[`Input should render with default styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -746,12 +746,12 @@ exports[`Input should render with disabled styles when passed the disabled prop 
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className=" circuit-2 circuit-3"
   disabled={true}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={true}
     required={false}
   />
@@ -828,12 +828,12 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -932,12 +932,12 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={true}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -1020,12 +1020,12 @@ exports[`Input should render with no margin styles when passed the noMargin prop
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -1106,12 +1106,12 @@ exports[`Input should render with optional styles when passed the optional prop 
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -1190,12 +1190,12 @@ exports[`Input should render with right aligned text 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -1273,12 +1273,12 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />
@@ -1381,12 +1381,12 @@ exports[`Input should render with warning styles when passed the hasWarning prop
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
   />

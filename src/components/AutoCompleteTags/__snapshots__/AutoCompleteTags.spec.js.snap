@@ -2,7 +2,6 @@
 
 exports[`AutoCompleteTags should render with default styles 1`] = `
 .circuit-4 {
-  label: input__container position:relative;
   min-width: 150px;
 }
 
@@ -28,6 +27,7 @@ exports[`AutoCompleteTags should render with default styles 1`] = `
   font-size: 15px;
   line-height: 24px;
   padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
 }
 
 .circuit-0:focus,
@@ -64,7 +64,7 @@ exports[`AutoCompleteTags should render with default styles 1`] = `
   className="circuit-4 circuit-5"
 >
   <div
-    className="circuit-2 circuit-3"
+    className=" circuit-2 circuit-3"
     disabled={false}
   >
     <div>
@@ -76,7 +76,7 @@ exports[`AutoCompleteTags should render with default styles 1`] = `
       aria-expanded={false}
       aria-invalid={false}
       autoComplete="off"
-      className="circuit-0 circuit-1"
+      className=" circuit-0 circuit-1"
       disabled={false}
       id="downshift-0-input"
       onBlur={[Function]}
