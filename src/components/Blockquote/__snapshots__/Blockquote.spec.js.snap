@@ -19,7 +19,7 @@ exports[`Blockquote should render with default styles 1`] = `
 }
 
 <blockquote
-  className="circuit-0 circuit-1 circuit-2"
+  className=" circuit-0 circuit-1 circuit-2"
 >
   
   Lorem ipsum dolor amet echo park activated charcoal banjo deep
@@ -50,7 +50,7 @@ exports[`Blockquote should render with giga styles 1`] = `
 }
 
 <blockquote
-  className="circuit-0 circuit-1 circuit-2"
+  className=" circuit-0 circuit-1 circuit-2"
 >
   
   Lorem ipsum dolor amet echo park activated charcoal banjo deep
@@ -79,7 +79,7 @@ exports[`Blockquote should render with mega styles 1`] = `
 }
 
 <blockquote
-  className="circuit-0 circuit-1 circuit-2"
+  className=" circuit-0 circuit-1 circuit-2"
 >
   
   Lorem ipsum dolor amet echo park activated charcoal banjo deep

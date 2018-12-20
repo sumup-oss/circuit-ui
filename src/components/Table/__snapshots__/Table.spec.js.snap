@@ -208,7 +208,7 @@ tbody .circuit-11:last-child td {
 
   .circuit-43:after {
     content: '';
-    background-image: linear-gradient(90deg,rgba(0,0,0,.12),transparent);
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -404,7 +404,7 @@ exports[`Table Style tests should render with default styles 1`] = `
 
   .circuit-43:after {
     content: '';
-    background-image: linear-gradient(90deg,rgba(0,0,0,.12),transparent);
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -777,7 +777,7 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
 
   .circuit-43:after {
     content: '';
-    background-image: linear-gradient(90deg,rgba(0,0,0,.12),transparent);
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;
@@ -1146,7 +1146,7 @@ exports[`Table Style tests should render without the table shadow 1`] = `
 
   .circuit-43:after {
     content: '';
-    background-image: linear-gradient(90deg,rgba(0,0,0,.12),transparent);
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
     left: 145px;
     position: absolute;

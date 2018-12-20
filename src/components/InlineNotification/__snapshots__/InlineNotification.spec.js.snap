@@ -29,7 +29,7 @@ exports[`InlineNotification should render with danger styles 1`] = `
 
 exports[`InlineNotification should render with default styles 1`] = `
 <p
-  className="circuit-0 circuit-1"
+  className="css-11d4unl-InlineNotification-inline-notification-baseStyles circuit-0"
   size="giga"
 />
 `;

@@ -1,232 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination styles With 5 or less pages should render only the number of pages passed and the next and previous buttons 1`] = `
-<PaginationContainer
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={1}
-  previousLabel="<"
-  totalPages={5}
-  translate={[Function]}
->
-  <PaginationButtonContainer
-    currentPage={1}
-  />
-  <PaginationButtonContainer
-    currentPage={2}
-  />
-  <PaginationButtonContainer
-    currentPage={3}
-  />
-  <PaginationButtonContainer
-    currentPage={4}
-  />
-  <PaginationButtonContainer
-    currentPage={5}
-  />
-</PaginationContainer>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is last but one page should render with default styles and match snapshot 1`] = `
-<PaginationContainer
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={9}
-  previousLabel="<"
-  totalPages={10}
-  translate={[Function]}
->
-  <PaginationButtonContainer
-    currentPage={1}
-  />
-  <PageButton
-    disabled={true}
-    size="kilo"
-  >
-    <React.Fragment>
-      …
-    </React.Fragment>
-  </PageButton>
-  <PaginationButtonContainer
-    currentPage={7}
-    key="7"
-  />
-  <PaginationButtonContainer
-    currentPage={8}
-    key="8"
-  />
-  <PaginationButtonContainer
-    currentPage={9}
-    key="9"
-  />
-  <PaginationButtonContainer
-    currentPage={10}
-  />
-</PaginationContainer>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on last page should render with default styles and match snapshot 1`] = `
-<PaginationContainer
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={10}
-  previousLabel="<"
-  totalPages={10}
-  translate={[Function]}
->
-  <PaginationButtonContainer
-    currentPage={1}
-  />
-  <PageButton
-    disabled={true}
-    size="kilo"
-  >
-    <React.Fragment>
-      …
-    </React.Fragment>
-  </PageButton>
-  <PaginationButtonContainer
-    currentPage={7}
-    key="7"
-  />
-  <PaginationButtonContainer
-    currentPage={8}
-    key="8"
-  />
-  <PaginationButtonContainer
-    currentPage={9}
-    key="9"
-  />
-  <PaginationButtonContainer
-    currentPage={10}
-  />
-</PaginationContainer>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on page 2 should render with default styles and match snapshot 1`] = `
-<PaginationContainer
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={2}
-  previousLabel="<"
-  totalPages={10}
-  translate={[Function]}
->
-  <PaginationButtonContainer
-    currentPage={1}
-  />
-  <PaginationButtonContainer
-    currentPage={2}
-    key="2"
-  />
-  <PaginationButtonContainer
-    currentPage={3}
-    key="3"
-  />
-  <PaginationButtonContainer
-    currentPage={4}
-    key="4"
-  />
-  <PageButton
-    disabled={true}
-    size="kilo"
-  >
-    <React.Fragment>
-      …
-    </React.Fragment>
-  </PageButton>
-  <PaginationButtonContainer
-    currentPage={10}
-  />
-</PaginationContainer>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on page in the middle should render with default styles and match snapshot 1`] = `
-<PaginationContainer
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={5}
-  previousLabel="<"
-  totalPages={10}
-  translate={[Function]}
->
-  <PaginationButtonContainer
-    currentPage={1}
-  />
-  <PageButton
-    disabled={true}
-    size="kilo"
-  >
-    <React.Fragment>
-      …
-    </React.Fragment>
-  </PageButton>
-  <PaginationButtonContainer
-    currentPage={4}
-    key="4"
-  />
-  <PaginationButtonContainer
-    currentPage={5}
-    key="5"
-  />
-  <PaginationButtonContainer
-    currentPage={6}
-    key="6"
-  />
-  <PageButton
-    disabled={true}
-    size="kilo"
-  >
-    <React.Fragment>
-      …
-    </React.Fragment>
-  </PageButton>
-  <PaginationButtonContainer
-    currentPage={10}
-  />
-</PaginationContainer>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on page one should render with default styles and match snapshot 1`] = `
-<PaginationContainer
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={1}
-  previousLabel="<"
-  totalPages={10}
-  translate={[Function]}
->
-  <PaginationButtonContainer
-    currentPage={1}
-  />
-  <PaginationButtonContainer
-    currentPage={2}
-    key="2"
-  />
-  <PaginationButtonContainer
-    currentPage={3}
-    key="3"
-  />
-  <PaginationButtonContainer
-    currentPage={4}
-    key="4"
-  />
-  <PageButton
-    disabled={true}
-    size="kilo"
-  >
-    <React.Fragment>
-      …
-    </React.Fragment>
-  </PageButton>
-  <PaginationButtonContainer
-    currentPage={10}
-  />
-</PaginationContainer>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;

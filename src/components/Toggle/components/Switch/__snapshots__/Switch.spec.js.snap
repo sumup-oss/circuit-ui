@@ -44,7 +44,7 @@ exports[`Switch should have the correct default styles 1`] = `
 }
 
 .circuit-2 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -52,7 +52,7 @@ exports[`Switch should have the correct default styles 1`] = `
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -61,7 +61,6 @@ exports[`Switch should have the correct default styles 1`] = `
 <button
   aria-checked={false}
   className="circuit-4 circuit-5"
-  onClick={undefined}
   role="switch"
   type="button"
 >
@@ -78,7 +77,7 @@ exports[`Switch should have the correct default styles 1`] = `
 
 exports[`Switch should have the correct on styles 1`] = `
 .circuit-2 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -86,7 +85,7 @@ exports[`Switch should have the correct on styles 1`] = `
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -142,7 +141,6 @@ exports[`Switch should have the correct on styles 1`] = `
 <button
   aria-checked={true}
   className="circuit-4 circuit-5"
-  onClick={undefined}
   role="switch"
   type="button"
 >
