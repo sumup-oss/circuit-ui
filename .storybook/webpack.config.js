@@ -8,12 +8,11 @@ module.exports = function(storybookBaseConfig, configType) {
 
   const babelOptions = {
     plugins: [
-      ['emotion', { autoLabel: true, hoist: true, sourceMap: true }],
-      'transform-class-properties',
+      ['emotion', { autoLabel: true, sourceMap: true }],
+      '@babel/plugin-proposal-class-properties',
       'lodash',
-      'transform-object-rest-spread',
     ],
-    presets: [['env', { loose: true, modules: false }], 'react', 'stage-3'],
+    presets: [['@babel/preset-env', { loose: true, modules: false }], '@babel/preset-react'],
     babelrc: false
   };
 
