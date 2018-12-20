@@ -33,18 +33,22 @@ const baseStyles = ({ theme }) => css`
     }
   }
 
-  ${theme.mq.kilo(getInlineStyles(theme))};
+  ${theme.mq.kilo} {
+    ${getInlineStyles(theme)}
+  }
 `;
 
+const alignmentMap = {
+  [directions.LEFT]: 'flex-start',
+  [directions.CENTER]: 'center',
+  [directions.RIGHT]: 'flex-end'
+};
+
 const alignmentStyles = ({ align }) => {
-  const alignmentMap = {
-    [directions.LEFT]: 'flex-start',
-    [directions.CENTER]: 'center',
-    [directions.RIGHT]: 'flex-end'
-  };
+  const label = `button-group--${align}`;
 
   return css`
-    label: ${`button-group--${align}`};
+    label: ${label};
     justify-content: ${alignmentMap[align]};
   `;
 };
@@ -54,7 +58,9 @@ const inlineMobileStyles = ({ theme, inlineMobile }) =>
   css`
     label: button-group--inline-mobile;
 
-    ${theme.mq.untilKilo(getInlineStyles(theme))};
+    ${theme.mq.untilKilo} {
+      ${getInlineStyles(theme)};
+    }
   `;
 
 const ButtonGroupList = styled('ul')(

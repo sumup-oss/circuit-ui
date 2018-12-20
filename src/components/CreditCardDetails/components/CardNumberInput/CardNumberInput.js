@@ -29,11 +29,11 @@ const schemeListStyles = ({ theme }) => css`
   opacity: 1;
   transition: opacity ${theme.transitions.default};
 
-  ${theme.mq.kilo`
+  ${theme.mq.kilo} {
     right: 0;
     width: auto;
     text-align: right;
-  `};
+  }
 `;
 
 const schemeListHiddenStyles = ({ acceptedCardSchemes }) =>
@@ -47,14 +47,14 @@ const schemeListLongStyles = ({ theme, acceptedCardSchemes }) =>
   shouldRenderSchemesUnderInput(acceptedCardSchemes) &&
   css`
     label: card-number-input__scheme-list--long;
-    ${theme.mq.untilKilo`
+    ${theme.mq.untilKilo} {
       top: -75%;
       top: calc(100% + ${theme.spacings.bit});
       bottom: initial;
       left: 0;
       width: 100%;
       text-align: left;
-    `};
+    }
   `;
 
 const SchemeList = styled('ul')`
@@ -76,10 +76,11 @@ const inputLongStyles = ({
   shouldRenderSchemesUnderInput(acceptedCardSchemes)
     ? stringCss`
         label: card-number-input__input--long;
-        ${theme.mq.untilKilo`
+        ${theme.mq.untilKilo} {
           margin-bottom: ${theme.spacings.tera};
           margin-bottom: calc(${theme.spacings.tera} + ${theme.spacings.bit});
-        `};
+        }
+
         ${className};
       `
     : className;
