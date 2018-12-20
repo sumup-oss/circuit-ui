@@ -55,9 +55,7 @@ exports[`Item should render with all paddings 1`] = `
 }
 
 <div
-  aria-selected={undefined}
   className="circuit-0 circuit-1"
-  onClick={undefined}
   onKeyDown={null}
   selected={false}
   tabIndex={0}
@@ -121,9 +119,7 @@ exports[`Item should render with all paddings 2`] = `
 }
 
 <div
-  aria-selected={undefined}
   className="circuit-0 circuit-1"
-  onClick={undefined}
   onKeyDown={null}
   selected={false}
   tabIndex={0}
@@ -187,9 +183,7 @@ exports[`Item should render with all paddings 3`] = `
 }
 
 <div
-  aria-selected={undefined}
   className="circuit-0 circuit-1"
-  onClick={undefined}
   onKeyDown={null}
   selected={false}
   tabIndex={0}
@@ -253,9 +247,7 @@ exports[`Item should render with default styles 1`] = `
 }
 
 <div
-  aria-selected={undefined}
   className="circuit-0 circuit-1"
-  onClick={undefined}
   onKeyDown={null}
   selected={false}
   tabIndex={0}

@@ -22,6 +22,6 @@ exports[`Spacing margin top should render with margin top styles 1`] = `
 
 exports[`Spacing should render with default styles 1`] = `
 <div
-  className="circuit-0 circuit-1"
+  className="css-pdopx1-Spacing-spacing-baseStyles circuit-0"
 />
 `;

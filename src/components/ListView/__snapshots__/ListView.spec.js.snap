@@ -132,9 +132,7 @@ exports[`ListView should render with default styles 1`] = `
   spacing="giga"
 >
   <div
-    aria-selected={undefined}
     className="circuit-0 circuit-1"
-    onClick={undefined}
     onKeyDown={null}
     selected={false}
     tabIndex={0}
@@ -144,7 +142,6 @@ exports[`ListView should render with default styles 1`] = `
   <div
     aria-selected={true}
     className="circuit-2 circuit-1"
-    onClick={undefined}
     onKeyDown={null}
     selected={true}
     tabIndex={0}
@@ -152,9 +149,7 @@ exports[`ListView should render with default styles 1`] = `
     List item 2
   </div>
   <div
-    aria-selected={undefined}
     className="circuit-0 circuit-1"
-    onClick={undefined}
     onKeyDown={null}
     selected={false}
     tabIndex={0}
@@ -162,9 +157,7 @@ exports[`ListView should render with default styles 1`] = `
     List item 3
   </div>
   <div
-    aria-selected={undefined}
     className="circuit-0 circuit-1"
-    onClick={undefined}
     onKeyDown={null}
     selected={false}
     tabIndex={0}

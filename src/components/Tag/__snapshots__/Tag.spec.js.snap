@@ -46,7 +46,7 @@ exports[`Tag when is default should render with default styles 1`] = `
 `;
 
 exports[`Tag when is selected should change the close icon color 1`] = `
-.circuit-5 {
+.circuit-6 {
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
@@ -59,7 +59,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   color: #FFFFFF;
 }
 
-.circuit-3 {
+.circuit-4 {
   padding: 0;
   margin: 0;
   display: inline-block;
@@ -68,27 +68,29 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   cursor: pointer;
   fill: #0F131A;
   overflow: initial;
+  height: 16px;
+  width: 16px;
   margin-left: 12px;
   vertical-align: middle;
 }
 
-.circuit-3:focus,
-.circuit-3:active {
+.circuit-4:focus,
+.circuit-4:active {
   outline: none;
 }
 
-.circuit-3 > svg {
+.circuit-4 > svg {
   height: 100%;
   width: 100%;
 }
 
-.circuit-3 > svg {
+.circuit-4 > svg {
   fill: #FFFFFF;
   vertical-align: inherit;
 }
 
 .circuit-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -96,19 +98,19 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
 }
 
 <span
-  className="circuit-5 circuit-6"
+  className="circuit-6 circuit-7"
   selected={true}
 >
   SomeTest
   <button
-    className="circuit-2 circuit-3 circuit-4"
+    className="circuit-2 circuit-3 circuit-4 circuit-5"
     onClick={[MockFunction]}
     selected={true}
     type="button"

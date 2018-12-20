@@ -1,23 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaginationButton styles should render with default styles 1`] = `
-<PageButton
-  name={1}
-  onClick={[Function]}
-  primary={false}
-  size="kilo"
->
-  1
-</PageButton>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
 
 exports[`PaginationButton styles should render with default styles when have plain false 1`] = `
-<PageButton
-  name={1}
-  onClick={[Function]}
-  primary={false}
-  size="kilo"
->
-  1
-</PageButton>
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
 `;
