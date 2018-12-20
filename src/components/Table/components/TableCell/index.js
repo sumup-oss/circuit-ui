@@ -25,12 +25,12 @@ const presentationStyles = ({ theme, role, header }) =>
 
     ${header && `padding: ${theme.spacings.byte} ${theme.spacings.giga}`};
 
-    ${theme.mq.untilMega`
+    ${theme.mq.untilMega} {
       display: table-cell;
       min-width: 145px;
       white-space: unset;
       width: 145px;
-    `};
+    }
   `;
 
 const hoverStyles = ({ theme, isHovered }) =>

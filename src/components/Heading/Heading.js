@@ -25,17 +25,20 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.giga};
 `;
 
-const sizeStyles = ({ theme, size }) =>
-  css`
-    label: ${`heading--${size}`};
+const sizeStyles = ({ theme, size }) => {
+  const label = `heading--${size}`;
+
+  return css`
+    label: ${label};
     font-size: ${theme.typography.headings[mobileSizeMap[size]].fontSize};
     line-height: ${theme.typography.headings[mobileSizeMap[size]].lineHeight};
 
-    ${theme.mq.kilo`
+    ${theme.mq.kilo} {
       font-size: ${theme.typography.headings[size].fontSize};
       line-height: ${theme.typography.headings[size].lineHeight};
-    `};
+    }
   `;
+};
 
 const noMarginStyles = ({ noMargin }) =>
   noMargin &&

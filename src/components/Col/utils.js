@@ -17,7 +17,7 @@ import { MIN_COL_SPAN, MAX_COL_WIDTH, DEFAULT_BREAKPOINT } from './constants';
 export const isDefault = isEqual(DEFAULT_BREAKPOINT);
 
 export const wrapStyles = (styles, breakpoint, theme) =>
-  isDefault(breakpoint) ? css(styles) : theme.mq[breakpoint](styles);
+  isDefault(breakpoint) ? css(styles) : `${theme.mq[breakpoint]} { ${styles} }`;
 
 export const createSpanStyles = (grid, theme, span) => {
   if (!grid) {
