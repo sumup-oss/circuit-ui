@@ -25,6 +25,8 @@ describe('AutoCompleteInput', () => {
 
     wrapper.find('input').simulate('change', { target: { value: '222' } });
 
+    console.log(wrapper.debug());
+
     const item = wrapper.find('Items Item');
 
     expect(item).toHaveLength(1);

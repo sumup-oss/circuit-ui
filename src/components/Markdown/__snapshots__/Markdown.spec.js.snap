@@ -15,6 +15,13 @@ exports[`Markdown should override HTML tags with React components 1`] = `
   }
 }
 
+.circuit-10 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+}
+
 <div>
   <h1
     id="manu-illa-amorem-committere-exit-membra-minor"
@@ -100,16 +107,14 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
       Signans Trinacris errat
     </strong>
      attonitoque spicis magistra odioque, aera palus
-altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia 
-    <em>
-      qua
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia *qua
 quosque
+    <em>
+      , adde alma. Ait dixit suas gnatis ab facies altera nova *
     </em>
-    , adde alma. Ait dixit suas gnatis ab facies altera nova 
-    <strong>
-      flentemque
+    flentemque
 teneo
-    </strong>
+    <em />
     : quoque profusis consequitur delusa et. Consistere adeunt.
   </p>
   <h3
@@ -146,6 +151,7 @@ leni agat pro! Fuit relinque.
   >
     <img
       alt="A random cute puppy"
+      className="circuit-10 circuit-11"
       src="http://www.placepuppy.net/800/500"
     />
   </p>
@@ -236,16 +242,14 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
       Signans Trinacris errat
     </strong>
      attonitoque spicis magistra odioque, aera palus
-altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia 
-    <em>
-      qua
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia *qua
 quosque
+    <em>
+      , adde alma. Ait dixit suas gnatis ab facies altera nova *
     </em>
-    , adde alma. Ait dixit suas gnatis ab facies altera nova 
-    <strong>
-      flentemque
+    flentemque
 teneo
-    </strong>
+    <em />
     : quoque profusis consequitur delusa et. Consistere adeunt.
   </p>
   <h3
@@ -366,16 +370,14 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
       Signans Trinacris errat
     </strong>
      attonitoque spicis magistra odioque, aera palus
-altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia 
-    <em>
-      qua
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia *qua
 quosque
+    <em>
+      , adde alma. Ait dixit suas gnatis ab facies altera nova *
     </em>
-    , adde alma. Ait dixit suas gnatis ab facies altera nova 
-    <strong>
-      flentemque
+    flentemque
 teneo
-    </strong>
+    <em />
     : quoque profusis consequitur delusa et. Consistere adeunt.
   </p>
   <h6
@@ -496,16 +498,14 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
       Signans Trinacris errat
     </strong>
      attonitoque spicis magistra odioque, aera palus
-altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia 
-    <em>
-      qua
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia *qua
 quosque
+    <em>
+      , adde alma. Ait dixit suas gnatis ab facies altera nova *
     </em>
-    , adde alma. Ait dixit suas gnatis ab facies altera nova 
-    <strong>
-      flentemque
+    flentemque
 teneo
-    </strong>
+    <em />
     : quoque profusis consequitur delusa et. Consistere adeunt.
   </p>
   <h3
@@ -608,16 +608,14 @@ Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
     Signans Trinacris errat
   </strong>
    attonitoque spicis magistra odioque, aera palus
-altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia 
-  <em>
-    qua
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia *qua
 quosque
+  <em>
+    , adde alma. Ait dixit suas gnatis ab facies altera nova *
   </em>
-  , adde alma. Ait dixit suas gnatis ab facies altera nova 
-  <strong>
-    flentemque
+  flentemque
 teneo
-  </strong>
+  <em />
   : quoque profusis consequitur delusa et. Consistere adeunt.
 
 ### Develat nymphae

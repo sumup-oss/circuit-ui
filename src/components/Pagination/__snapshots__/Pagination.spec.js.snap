@@ -589,7 +589,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-3 circuit-0"
                   disabled={true}
                   flat={false}
@@ -609,7 +609,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                   >
                     &lt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonPrevious>
@@ -621,7 +621,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
               currentPage={1}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={1}
                 onClick={[Function]}
                 primary={true}
@@ -654,7 +654,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -676,10 +676,10 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                       >
                         1
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -690,7 +690,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
               currentPage={2}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={2}
                 onClick={[Function]}
                 primary={false}
@@ -723,7 +723,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -745,10 +745,10 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                       >
                         2
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -759,7 +759,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
               currentPage={3}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={3}
                 onClick={[Function]}
                 primary={false}
@@ -792,7 +792,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -814,10 +814,10 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                       >
                         3
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -828,7 +828,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
               currentPage={4}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={4}
                 onClick={[Function]}
                 primary={false}
@@ -861,7 +861,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -883,10 +883,10 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                       >
                         4
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -897,7 +897,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
               currentPage={5}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={5}
                 onClick={[Function]}
                 primary={false}
@@ -930,7 +930,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -952,10 +952,10 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                       >
                         5
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <NavigationButtonNext
@@ -1001,7 +1001,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-57 circuit-54"
                   disabled={false}
                   flat={false}
@@ -1023,7 +1023,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
                   >
                     &gt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonNext>
@@ -1623,7 +1623,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-3 circuit-0"
                   disabled={false}
                   flat={false}
@@ -1643,7 +1643,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                   >
                     &lt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonPrevious>
@@ -1655,7 +1655,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
               currentPage={1}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={1}
                 onClick={[Function]}
                 primary={false}
@@ -1688,7 +1688,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -1710,13 +1710,13 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                       >
                         1
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
-          <PageButton
+          <Styled(Button)
             size="kilo"
           >
             <Button
@@ -1742,7 +1742,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-12 circuit-9"
                   disabled={false}
                   flat={false}
@@ -1760,10 +1760,10 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                   >
                     ...
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
-          </PageButton>
+          </Styled(Button)>
           <PaginationButtonContainer
             currentPage={7}
             key="7"
@@ -1773,7 +1773,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
               currentPage={7}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={7}
                 onClick={[Function]}
                 primary={false}
@@ -1806,7 +1806,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -1828,10 +1828,10 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                       >
                         7
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -1843,7 +1843,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
               currentPage={8}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={8}
                 onClick={[Function]}
                 primary={false}
@@ -1876,7 +1876,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -1898,10 +1898,10 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                       >
                         8
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -1913,7 +1913,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
               currentPage={9}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={9}
                 onClick={[Function]}
                 primary={true}
@@ -1946,7 +1946,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -1968,10 +1968,10 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                       >
                         9
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -1982,7 +1982,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
               currentPage={10}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={10}
                 onClick={[Function]}
                 primary={false}
@@ -2015,7 +2015,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -2037,10 +2037,10 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                       >
                         10
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <NavigationButtonNext
@@ -2086,7 +2086,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-66 circuit-63"
                   disabled={false}
                   flat={false}
@@ -2108,7 +2108,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
                   >
                     &gt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonNext>
@@ -2708,7 +2708,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-3 circuit-0"
                   disabled={false}
                   flat={false}
@@ -2728,7 +2728,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                   >
                     &lt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonPrevious>
@@ -2740,7 +2740,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
               currentPage={1}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={1}
                 onClick={[Function]}
                 primary={false}
@@ -2773,7 +2773,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -2795,13 +2795,13 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                       >
                         1
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
-          <PageButton
+          <Styled(Button)
             size="kilo"
           >
             <Button
@@ -2827,7 +2827,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-12 circuit-9"
                   disabled={false}
                   flat={false}
@@ -2845,10 +2845,10 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                   >
                     ...
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
-          </PageButton>
+          </Styled(Button)>
           <PaginationButtonContainer
             currentPage={7}
             key="7"
@@ -2858,7 +2858,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
               currentPage={7}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={7}
                 onClick={[Function]}
                 primary={false}
@@ -2891,7 +2891,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -2913,10 +2913,10 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                       >
                         7
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -2928,7 +2928,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
               currentPage={8}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={8}
                 onClick={[Function]}
                 primary={false}
@@ -2961,7 +2961,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -2983,10 +2983,10 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                       >
                         8
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -2998,7 +2998,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
               currentPage={9}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={9}
                 onClick={[Function]}
                 primary={false}
@@ -3031,7 +3031,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -3053,10 +3053,10 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                       >
                         9
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -3067,7 +3067,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
               currentPage={10}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={10}
                 onClick={[Function]}
                 primary={true}
@@ -3100,7 +3100,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -3122,10 +3122,10 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                       >
                         10
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <NavigationButtonNext
@@ -3171,7 +3171,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-66 circuit-63"
                   disabled={true}
                   flat={false}
@@ -3193,7 +3193,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
                   >
                     &gt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonNext>
@@ -3793,7 +3793,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-3 circuit-0"
                   disabled={false}
                   flat={false}
@@ -3813,7 +3813,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                   >
                     &lt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonPrevious>
@@ -3825,7 +3825,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
               currentPage={1}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={1}
                 onClick={[Function]}
                 primary={false}
@@ -3858,7 +3858,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -3880,10 +3880,10 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                       >
                         1
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -3895,7 +3895,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
               currentPage={2}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={2}
                 onClick={[Function]}
                 primary={true}
@@ -3928,7 +3928,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -3950,10 +3950,10 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                       >
                         2
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -3965,7 +3965,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
               currentPage={3}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={3}
                 onClick={[Function]}
                 primary={false}
@@ -3998,7 +3998,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -4020,10 +4020,10 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                       >
                         3
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -4035,7 +4035,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
               currentPage={4}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={4}
                 onClick={[Function]}
                 primary={false}
@@ -4068,7 +4068,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -4090,13 +4090,13 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                       >
                         4
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
-          <PageButton
+          <Styled(Button)
             size="kilo"
           >
             <Button
@@ -4122,7 +4122,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-12 circuit-9"
                   disabled={false}
                   flat={false}
@@ -4140,10 +4140,10 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                   >
                     ...
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
-          </PageButton>
+          </Styled(Button)>
           <PaginationButtonContainer
             currentPage={10}
           >
@@ -4152,7 +4152,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
               currentPage={10}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={10}
                 onClick={[Function]}
                 primary={false}
@@ -4185,7 +4185,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -4207,10 +4207,10 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                       >
                         10
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <NavigationButtonNext
@@ -4256,7 +4256,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-66 circuit-63"
                   disabled={false}
                   flat={false}
@@ -4278,7 +4278,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
                   >
                     &gt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonNext>
@@ -4878,7 +4878,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-3 circuit-0"
                   disabled={false}
                   flat={false}
@@ -4898,7 +4898,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                   >
                     &lt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonPrevious>
@@ -4910,7 +4910,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
               currentPage={1}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={1}
                 onClick={[Function]}
                 primary={false}
@@ -4943,7 +4943,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -4965,13 +4965,13 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                       >
                         1
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
-          <PageButton
+          <Styled(Button)
             size="kilo"
           >
             <Button
@@ -4997,7 +4997,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-12 circuit-9"
                   disabled={false}
                   flat={false}
@@ -5015,10 +5015,10 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                   >
                     ...
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
-          </PageButton>
+          </Styled(Button)>
           <PaginationButtonContainer
             currentPage={4}
             key="4"
@@ -5028,7 +5028,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
               currentPage={4}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={4}
                 onClick={[Function]}
                 primary={false}
@@ -5061,7 +5061,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -5083,10 +5083,10 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                       >
                         4
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -5098,7 +5098,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
               currentPage={5}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={5}
                 onClick={[Function]}
                 primary={true}
@@ -5131,7 +5131,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -5153,10 +5153,10 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                       >
                         5
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -5168,7 +5168,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
               currentPage={6}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={6}
                 onClick={[Function]}
                 primary={false}
@@ -5201,7 +5201,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -5223,13 +5223,13 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                       >
                         6
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
-          <PageButton
+          <Styled(Button)
             size="kilo"
           >
             <Button
@@ -5255,7 +5255,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-12 circuit-9"
                   disabled={false}
                   flat={false}
@@ -5273,10 +5273,10 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                   >
                     ...
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
-          </PageButton>
+          </Styled(Button)>
           <PaginationButtonContainer
             currentPage={10}
           >
@@ -5285,7 +5285,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
               currentPage={10}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={10}
                 onClick={[Function]}
                 primary={false}
@@ -5318,7 +5318,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -5340,10 +5340,10 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                       >
                         10
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <NavigationButtonNext
@@ -5389,7 +5389,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-75 circuit-72"
                   disabled={false}
                   flat={false}
@@ -5411,7 +5411,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
                   >
                     &gt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonNext>
@@ -6011,7 +6011,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-3 circuit-0"
                   disabled={true}
                   flat={false}
@@ -6031,7 +6031,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                   >
                     &lt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonPrevious>
@@ -6043,7 +6043,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
               currentPage={1}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={1}
                 onClick={[Function]}
                 primary={true}
@@ -6076,7 +6076,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -6098,10 +6098,10 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                       >
                         1
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -6113,7 +6113,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
               currentPage={2}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={2}
                 onClick={[Function]}
                 primary={false}
@@ -6146,7 +6146,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -6168,10 +6168,10 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                       >
                         2
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -6183,7 +6183,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
               currentPage={3}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={3}
                 onClick={[Function]}
                 primary={false}
@@ -6216,7 +6216,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -6238,10 +6238,10 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                       >
                         3
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <PaginationButtonContainer
@@ -6253,7 +6253,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
               currentPage={4}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={4}
                 onClick={[Function]}
                 primary={false}
@@ -6286,7 +6286,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -6308,13 +6308,13 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                       >
                         4
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
-          <PageButton
+          <Styled(Button)
             size="kilo"
           >
             <Button
@@ -6340,7 +6340,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-12 circuit-9"
                   disabled={false}
                   flat={false}
@@ -6358,10 +6358,10 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                   >
                     ...
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
-          </PageButton>
+          </Styled(Button)>
           <PaginationButtonContainer
             currentPage={10}
           >
@@ -6370,7 +6370,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
               currentPage={10}
               onClick={[Function]}
             >
-              <PageButton
+              <Styled(Button)
                 name={10}
                 onClick={[Function]}
                 primary={false}
@@ -6403,7 +6403,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                     stretch={false}
                     target={null}
                   >
-                    <ButtonElement
+                    <Styled(button)
                       className="circuit-12 circuit-9"
                       disabled={false}
                       flat={false}
@@ -6425,10 +6425,10 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                       >
                         10
                       </button>
-                    </ButtonElement>
+                    </Styled(button)>
                   </RegularButton>
                 </Button>
-              </PageButton>
+              </Styled(Button)>
             </PaginationButton>
           </PaginationButtonContainer>
           <NavigationButtonNext
@@ -6474,7 +6474,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                 stretch={false}
                 target={null}
               >
-                <ButtonElement
+                <Styled(button)
                   className="circuit-66 circuit-63"
                   disabled={false}
                   flat={false}
@@ -6496,7 +6496,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
                   >
                     &gt;
                   </button>
-                </ButtonElement>
+                </Styled(button)>
               </RegularButton>
             </Button>
           </NavigationButtonNext>
