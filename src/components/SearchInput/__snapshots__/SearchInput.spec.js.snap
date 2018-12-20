@@ -59,7 +59,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 }
 
 <div
-  className="circuit-2 circuit-3"
+  className=" circuit-2 circuit-3"
   disabled={true}
 >
   <div>
@@ -67,7 +67,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   </div>
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={true}
     required={false}
     role="search"
@@ -144,7 +144,7 @@ exports[`SearchInput should render with default styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
+  className=" circuit-4 circuit-5"
   disabled={false}
 >
   <div>
@@ -152,7 +152,7 @@ exports[`SearchInput should render with default styles 1`] = `
   </div>
   <input
     aria-invalid={false}
-    className="circuit-0 circuit-1"
+    className=" circuit-0 circuit-1"
     disabled={false}
     required={false}
     role="search"

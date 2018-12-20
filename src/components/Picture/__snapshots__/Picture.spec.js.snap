@@ -2,9 +2,6 @@
 
 exports[`Picture should render with default styles 1`] = `
 <picture>
-  <img
-    alt={undefined}
-    src={undefined}
-  />
+  <img />
 </picture>
 `;

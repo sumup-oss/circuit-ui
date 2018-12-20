@@ -10,7 +10,7 @@ exports[`SubHeading should render as H2 element, when passed "h2" for the elemen
 }
 
 <h2
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
   size="kilo"
 >
   H2 heading
@@ -27,7 +27,7 @@ exports[`SubHeading should render as H3 element, when passed "h3" for the elemen
 }
 
 <h3
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
   size="kilo"
 >
   H3 heading
@@ -44,7 +44,7 @@ exports[`SubHeading should render as H4 element, when passed "h4" for the elemen
 }
 
 <h4
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
   size="kilo"
 >
   H4 heading
@@ -61,7 +61,7 @@ exports[`SubHeading should render as H5 element, when passed "h5" for the elemen
 }
 
 <h5
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
   size="kilo"
 >
   H5 heading
@@ -78,7 +78,7 @@ exports[`SubHeading should render as H6 element, when passed "h6" for the elemen
 }
 
 <h6
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
   size="kilo"
 >
   H6 heading
@@ -96,7 +96,7 @@ exports[`SubHeading should render with no margin styles when passed the noMargin
 }
 
 <h3
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
   size="kilo"
 />
 `;
@@ -111,7 +111,7 @@ exports[`SubHeading should render with size kilo, when passed "kilo" for the siz
 }
 
 <h3
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
   size="kilo"
 >
   kilo heading
@@ -128,7 +128,7 @@ exports[`SubHeading should render with size mega, when passed "mega" for the siz
 }
 
 <h3
-  className="circuit-0 circuit-1"
+  className=" circuit-0 circuit-1"
   size="mega"
 >
   mega heading
