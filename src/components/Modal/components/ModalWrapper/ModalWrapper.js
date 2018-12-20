@@ -9,12 +9,12 @@ import Card from '../../../Card';
 const baseStyles = ({ theme }) => css`
   width: 100%;
 
-  ${theme.mq.untilKilo`
+  ${theme.mq.untilKilo} {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
     position: relative;
-  `};
+  }
 `;
 
 const Wrapper = styled(Card)`

@@ -34,7 +34,7 @@ const modalClassName = {
     label: modal;
     outline: none;
 
-    ${theme.mq.untilKilo`
+    ${theme.mq.untilKilo} {
       bottom: 0;
       max-height: 80vh;
       -webkit-overflow-scrolling: touch;
@@ -44,9 +44,9 @@ const modalClassName = {
       transition: transform ${FIXED_TRANSITION};
       width: 100%;
       width: 100vw;
-    `};
+    }
 
-    ${theme.mq.kilo`
+    ${theme.mq.kilo} {
       transition: transform ${FLOATING_TRANSITION},
         opacity ${FLOATING_TRANSITION};
       margin: ${TOP_MARGIN} auto auto;
@@ -56,38 +56,38 @@ const modalClassName = {
       opacity: 0;
       position: relative;
       transform: translateY(${TRANSFORM_Y_FLOATING});
-    `};
+    }
 
-    ${theme.mq.mega`
+    ${theme.mq.mega} {
       max-width: 750px;
-    `};
+    }
 
-    ${theme.mq.giga`
+    ${theme.mq.giga} {
       max-width: 850px;
-    `};
+    }
   `,
   afterOpen: ({ theme }) => css`
     label: modal--after-open;
-    ${theme.mq.untilKilo`
+    ${theme.mq.untilKilo} {
       transform: translateY(0);
-    `};
+    }
 
-    ${theme.mq.kilo`
+    ${theme.mq.kilo} {
       opacity: 1;
       transform: translateY(0);
-    `};
+    }
   `,
   /* eslint-disable max-len */
   beforeClose: ({ theme }) => css`
     label: modal--before-close;
-    ${theme.mq.untilKilo`
-       transform: translateY(100%);
-    `};
+    ${theme.mq.untilKilo} {
+      transform: translateY(100%);
+    }
 
-    ${theme.mq.kilo`
-       opacity: 0;
-       transform: translateY(${TRANSFORM_Y_FLOATING});
-    `};
+    ${theme.mq.kilo} {
+      opacity: 0;
+      transform: translateY(${TRANSFORM_Y_FLOATING});
+    }
   `
   /* eslint-enable max-len */
 };
@@ -105,10 +105,10 @@ const overlayClassName = {
     transition: opacity 200ms ease-in-out;
     z-index: ${theme.zIndex.modal};
 
-    ${theme.mq.kilo`
+    ${theme.mq.kilo} {
       -webkit-overflow-scrolling: touch;
       overflow-y: auto;
-    `};
+    }
   `,
   afterOpen: () => css`
     label: modal__overlay--after-open;

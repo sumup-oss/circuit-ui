@@ -21,17 +21,20 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const sizeStyles = ({ theme, size }) =>
-  css`
-    label: ${`text--${size}`};
+const sizeStyles = ({ theme, size }) => {
+  const label = `text--${size}`;
+
+  return css`
+    label: ${label};
     font-size: ${theme.typography.text[mobileSizeMap[size]].fontSize};
     line-height: ${theme.typography.text[mobileSizeMap[size]].lineHeight};
 
-    ${theme.mq.kilo`
+    ${theme.mq.kilo} {
       font-size: ${theme.typography.text[size].fontSize};
       line-height: ${theme.typography.text[size].lineHeight};
-    `};
+    }
   `;
+};
 
 const boldStyles = ({ theme, bold }) =>
   bold &&
@@ -62,7 +65,7 @@ const marginStyles = ({ noMargin }) =>
   `;
 
 // TODO: Rewrite this whole thing using the as prop.
-const StyledText = styled(HtmlElement)`
+export const StyledText = styled(HtmlElement)`
   ${baseStyles};
   ${sizeStyles};
   ${marginStyles};
@@ -70,8 +73,6 @@ const StyledText = styled(HtmlElement)`
   ${italicStyles};
   ${strikeThroughStyles};
 `;
-
-export { StyledText };
 
 /**
  * The Text component is used for long-form text. Typically with

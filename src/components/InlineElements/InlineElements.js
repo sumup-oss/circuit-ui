@@ -16,18 +16,18 @@ const fallbackBaseStyles = ({ children, theme }) => {
       width: 100%;
     }
 
-    ${theme.mq.kilo`
+    ${theme.mq.kilo} {
       > * {
         float: left;
         width: ${(1 / childrenCount) * 95}%;
         width: calc(
-           (100% - ${childrenCount - 1} * ${theme.spacings.byte}) /
+          (100% - ${childrenCount - 1} * ${theme.spacings.byte}) /
             ${childrenCount}
         );
       }
 
       ${clearfix};
-    `};
+    }
   `;
 };
 
@@ -56,23 +56,23 @@ const baseStyles = ({ theme, ratios, children }) => {
       }
     }
 
-    ${theme.mq.kilo`
-    align-items: stretch;
-    flex-direction: row;
-    justify-content: stretch;
+    ${theme.mq.kilo} {
+      align-items: stretch;
+      flex-direction: row;
+      justify-content: stretch;
 
-    > * {
-      flex-grow: 1;
-      width: auto;
+      > * {
+        flex-grow: 1;
+        width: auto;
 
-      &:not(:last-of-type) {
-        margin-bottom: 0;
-        margin-right: ${theme.spacings.byte};
+        &:not(:last-of-type) {
+          margin-bottom: 0;
+          margin-right: ${theme.spacings.byte};
+        }
       }
-    }
 
-    ${flexGrows};
-  `};
+      ${flexGrows};
+    }
   `;
 };
 
@@ -86,18 +86,18 @@ const fallbackInlineMobileStyles = ({ theme, inlineMobile, children }) => {
   return css`
     label: inline-elements--inline-mobile-fallback;
 
-    ${theme.mq.untilKilo`
+    ${theme.mq.untilKilo} {
       > * {
         float: left;
         width: ${(1 / childrenCount) * 95}%;
         width: calc(
-           (100% - ${childrenCount - 1} * ${theme.spacings.byte}) /
+          (100% - ${childrenCount - 1} * ${theme.spacings.byte}) /
             ${childrenCount}
         );
       }
 
       ${clearfix};
-    `};
+    }
   `;
 };
 
@@ -106,7 +106,7 @@ const inlineMobileStyles = ({ theme, inlineMobile }) =>
   css`
     label: inline-elements--inline-mobile;
 
-    ${theme.mq.untilKilo`
+    ${theme.mq.untilKilo} {
       flex-direction: row;
       flex-grow: 1;
       width: auto;
@@ -117,7 +117,7 @@ const inlineMobileStyles = ({ theme, inlineMobile }) =>
           margin-right: ${theme.spacings.byte};
         }
       }
-    `};
+    }
   `;
 
 /**
