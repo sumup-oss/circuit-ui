@@ -15,5 +15,5 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     '^.+\\.svg$': '<rootDir>/jest.fileTransformer.js'
   },
-  setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js'
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
 };

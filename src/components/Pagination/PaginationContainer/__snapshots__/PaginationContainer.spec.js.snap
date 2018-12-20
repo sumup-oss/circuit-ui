@@ -411,7 +411,7 @@ exports[`PaginationContainer styles When actual page is diferrent that first and
               stretch={false}
               target={null}
             >
-              <ButtonElement
+              <Styled(button)
                 className="circuit-3 circuit-0"
                 disabled={false}
                 flat={false}
@@ -429,7 +429,7 @@ exports[`PaginationContainer styles When actual page is diferrent that first and
                   size="kilo"
                   target={null}
                 />
-              </ButtonElement>
+              </Styled(button)>
             </RegularButton>
           </Button>
         </NavigationButtonPrevious>
@@ -477,7 +477,7 @@ exports[`PaginationContainer styles When actual page is diferrent that first and
               stretch={false}
               target={null}
             >
-              <ButtonElement
+              <Styled(button)
                 className="circuit-12 circuit-9"
                 disabled={false}
                 flat={false}
@@ -497,7 +497,7 @@ exports[`PaginationContainer styles When actual page is diferrent that first and
                   size="kilo"
                   target={null}
                 />
-              </ButtonElement>
+              </Styled(button)>
             </RegularButton>
           </Button>
         </NavigationButtonNext>
@@ -918,7 +918,7 @@ exports[`PaginationContainer styles When the actual page is 1 should render with
               stretch={false}
               target={null}
             >
-              <ButtonElement
+              <Styled(button)
                 className="circuit-3 circuit-0"
                 disabled={true}
                 flat={false}
@@ -936,7 +936,7 @@ exports[`PaginationContainer styles When the actual page is 1 should render with
                   size="kilo"
                   target={null}
                 />
-              </ButtonElement>
+              </Styled(button)>
             </RegularButton>
           </Button>
         </NavigationButtonPrevious>
@@ -984,7 +984,7 @@ exports[`PaginationContainer styles When the actual page is 1 should render with
               stretch={false}
               target={null}
             >
-              <ButtonElement
+              <Styled(button)
                 className="circuit-12 circuit-9"
                 disabled={false}
                 flat={false}
@@ -1004,7 +1004,7 @@ exports[`PaginationContainer styles When the actual page is 1 should render with
                   size="kilo"
                   target={null}
                 />
-              </ButtonElement>
+              </Styled(button)>
             </RegularButton>
           </Button>
         </NavigationButtonNext>
@@ -1425,7 +1425,7 @@ exports[`PaginationContainer styles When the actual page is equal the last page 
               stretch={false}
               target={null}
             >
-              <ButtonElement
+              <Styled(button)
                 className="circuit-3 circuit-0"
                 disabled={false}
                 flat={false}
@@ -1443,7 +1443,7 @@ exports[`PaginationContainer styles When the actual page is equal the last page 
                   size="kilo"
                   target={null}
                 />
-              </ButtonElement>
+              </Styled(button)>
             </RegularButton>
           </Button>
         </NavigationButtonPrevious>
@@ -1491,7 +1491,7 @@ exports[`PaginationContainer styles When the actual page is equal the last page 
               stretch={false}
               target={null}
             >
-              <ButtonElement
+              <Styled(button)
                 className="circuit-12 circuit-9"
                 disabled={true}
                 flat={false}
@@ -1511,7 +1511,7 @@ exports[`PaginationContainer styles When the actual page is equal the last page 
                   size="kilo"
                   target={null}
                 />
-              </ButtonElement>
+              </Styled(button)>
             </RegularButton>
           </Button>
         </NavigationButtonNext>

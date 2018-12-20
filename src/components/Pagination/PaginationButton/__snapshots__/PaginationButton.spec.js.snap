@@ -306,7 +306,7 @@ exports[`PaginationButton styles should render with default styles 1`] = `
     currentPage={1}
     onClick={[MockFunction]}
   >
-    <PageButton
+    <Styled(Button)
       name={1}
       onClick={[Function]}
       primary={false}
@@ -339,7 +339,7 @@ exports[`PaginationButton styles should render with default styles 1`] = `
           stretch={false}
           target={null}
         >
-          <ButtonElement
+          <Styled(button)
             className="circuit-3 circuit-0"
             disabled={false}
             flat={false}
@@ -361,10 +361,10 @@ exports[`PaginationButton styles should render with default styles 1`] = `
             >
               1
             </button>
-          </ButtonElement>
+          </Styled(button)>
         </RegularButton>
       </Button>
-    </PageButton>
+    </Styled(Button)>
   </PaginationButton>
 </ThemeProvider>
 `;
@@ -676,7 +676,7 @@ exports[`PaginationButton styles should render with default styles when have pla
     onClick={[MockFunction]}
     plain={true}
   >
-    <PageButton
+    <Styled(Button)
       name={1}
       onClick={[Function]}
       primary={false}
@@ -709,7 +709,7 @@ exports[`PaginationButton styles should render with default styles when have pla
           stretch={false}
           target={null}
         >
-          <ButtonElement
+          <Styled(button)
             className="circuit-3 circuit-0"
             disabled={false}
             flat={false}
@@ -731,10 +731,10 @@ exports[`PaginationButton styles should render with default styles when have pla
             >
               1
             </button>
-          </ButtonElement>
+          </Styled(button)>
         </RegularButton>
       </Button>
-    </PageButton>
+    </Styled(Button)>
   </PaginationButton>
 </ThemeProvider>
 `;
