@@ -155,6 +155,7 @@ const Modal = ({
     overlayClassName: getClassValues(overlayClassName),
     contentLabel,
     onAfterOpen: () => IS_IOS && noScroll.on(),
+    onAfterClose: () => IS_IOS && noScroll.off(),
     onRequestClose: onClose,
     htmlOpenClassName: 'ReactModal__Html--open',
     closeTimeoutMS: TRANSITION_DURATION,

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import createReactContext from 'create-react-context';
-import noScroll from 'no-scroll';
 
 import Modal, { TRANSITION_DURATION } from './Modal';
 import { childrenPropType } from '../../util/shared-prop-types';
@@ -62,7 +61,6 @@ export class ModalProvider extends Component {
     // some reason.
     const { onClose = () => {}, children, ...otherProps } = modal || {};
     const handleClose = () => {
-      noScroll.off();
       onClose();
       this.closeModal();
     };
