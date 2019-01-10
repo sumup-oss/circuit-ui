@@ -12,7 +12,6 @@ describe('ExpiryDateInputService', () => {
   const CURRENT_DATE = new Date();
   const CURRENT_MONTH = CURRENT_DATE.getMonth() + 1;
   const CURRENT_YEAR = CURRENT_DATE.getFullYear();
-  const LAST_MONTH = CURRENT_MONTH === 1 ? 12 : CURRENT_MONTH - 1;
 
   describe('normalizing date input values', () => {
     it('should convert a valid input value into the current month and year', () => {
@@ -69,17 +68,11 @@ describe('ExpiryDateInputService', () => {
       const thisYearVal = getDecadeAndYear(CURRENT_YEAR); // i.e. 18
       const lastYearVal = getDecadeAndYear(CURRENT_YEAR - 1); // i.e. 17
       const nextYearVal = getDecadeAndYear(CURRENT_YEAR + 1); // i.e. 19
-      const lastMonthVal = padToTwo(LAST_MONTH); // i.e. 03
       const thisMonthVal = padToTwo(CURRENT_MONTH); // i.e. 03
 
-      const invalidValues = [
-        `${thisMonthVal}/${lastYearVal}`,
-        `${lastMonthVal}/${thisYearVal}`
-      ];
-      invalidValues.forEach(value => {
-        const actualMonth = isFutureDate(value);
-        expect(actualMonth).toBeFalsy();
-      });
+      const invalidValue = `${thisMonthVal}/${lastYearVal}`;
+
+      expect(isFutureDate(invalidValue)).toBeFalsy();
 
       const validValues = [
         `${thisMonthVal}/${thisYearVal}`,
