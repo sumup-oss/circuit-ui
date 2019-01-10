@@ -12,6 +12,12 @@ import { Wrapper } from '../../utils/Wrapper';
 
 # List
 
+- At its core, the `List` component allows you to easily display a related
+  content grouped together and organized vertically.
+- Generally, every `List` should be used to present simple pieces of
+  information. For more complex sets of data, consider using a Data Table.
+- A `List` can be Ordered and Unordered. See Variants.
+
 <Playground wrapper={Wrapper}>
   <List ordered size={List.MEGA}>
     <li> A list</li>
@@ -20,26 +26,39 @@ import { Wrapper } from '../../utils/Wrapper';
   </List>
 </Playground>
 
+## Props
+
+<PropTable component={List} />
+
 ## Variants
 
-### Ordered and unordered
+### Ordered
+
+To present content of equal status or value.
 
 <Playground wrapper={Wrapper}>
-  <Fragment>
-    <List unordered>
-      <li> A list</li>
-      <li> A list</li>
-      <li> A list</li>
-    </List>
-    <List ordered>
-      <li> A list</li>
-      <li> A list</li>
-      <li> A list</li>
-    </List>
-  </Fragment>
+  <List ordered>
+    <li> A list</li>
+    <li> A list</li>
+    <li> A list</li>
+  </List>
+</Playground>
+
+### Unordered
+
+Imply sequence and order, and are commonly used when giving a set of instructions.
+
+<Playground wrapper={Wrapper}>
+  <List unordered>
+    <li> A list</li>
+    <li> A list</li>
+    <li> A list</li>
+  </List>
 </Playground>
 
 ### Size
+
+The size of the list should be the same as the surrounding content.
 
 <Playground wrapper={Wrapper}>
   <Fragment>
@@ -61,6 +80,20 @@ import { Wrapper } from '../../utils/Wrapper';
   </Fragment>
 </Playground>
 
-## Best practices
+## When to use it
+
+- You want to display content related to a single subject. 
+- You need to display a big set of data use "Load More" list. This invites the
+  user to browse more, shorter load times, combines the advantages of infinite
+  scrolling and pagination.
 
 ## Usage guidelines
+
+| Do's                                                                         |
+|------------------------------------------------------------------------------|
+| ✔ Format lists |
+
+| Dont's                                                                      |
+|-----------------------------------------------------------------------------|
+| ✗ Replace bullet points with graphics                                       |
+| ✗ Make the the bullet points blue                                           |
