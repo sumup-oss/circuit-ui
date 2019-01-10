@@ -3,14 +3,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
-import { circuit } from '../../src/themes';
-
-/**
- * Current emotion version doesn't allow [object Module] as theme,
- * only [object Object]
- */
-const theme = { ...circuit };
+import { theme } from '../../src/index';
 
 export const Wrapper = props => (
-  <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+  <ThemeProvider theme={theme.standard}>{props.children}</ThemeProvider>
 );
