@@ -6,7 +6,10 @@ export default {
   dest: './dist',
   base: '/',
   plugins: [babel()],
-  modifyBabelRc: config => config,
+  modifyBabelRc: config => ({
+    ...config,
+    plugins: ['emotion']
+  }),
   indexHtml: 'docs/index.html',
   hashRouter: true,
   themeConfig: {
