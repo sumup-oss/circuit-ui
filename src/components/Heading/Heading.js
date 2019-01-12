@@ -26,7 +26,7 @@ const baseStyles = ({ theme }) => css`
 
 const sizeStyles = ({ theme, size }) =>
   css`
-    label: heading--${size};
+    label: ${`heading--${size}`};
     font-size: ${theme.typography.headings[mobileSizeMap[size]].fontSize};
     line-height: ${theme.typography.headings[mobileSizeMap[size]].lineHeight};
 

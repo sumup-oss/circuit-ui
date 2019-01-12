@@ -34,7 +34,7 @@ describe('Modal', () => {
   );
 
   const defaultModal = {
-    // eslint-disable-next-line react/prop-types, no-unused-vars
+    // eslint-disable-next-line react/prop-types, react/display-name
     children: ({ onClose }) => (
       <div>
         <div data-test="card">Hello World!</div>

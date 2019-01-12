@@ -25,7 +25,7 @@ storiesOf(`${GROUPS.COMPONENTS}|ProgressBar`, module)
       const value = number('Value', 5);
       const percentage = boolean('Label in percentage', false);
       const defaultLabel = percentage
-        ? `${value / max * 100}%`
+        ? `${(value / max) * 100}%`
         : `${value}/${max}`;
       const children = text('Label', defaultLabel);
       return (

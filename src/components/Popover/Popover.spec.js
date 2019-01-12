@@ -6,7 +6,9 @@ const positions = [Popover.TOP, Popover.BOTTOM, Popover.LEFT, Popover.RIGHT];
 const alignments = [Popover.START, Popover.END, Popover.CENTER];
 
 const defaultProps = {
+  // eslint-disable-next-line react/display-name
   renderReference: () => <span />,
+  // eslint-disable-next-line react/display-name
   renderPopover: () => <div />,
   onReferenceClickClose: () => {},
   onOutsideClickClose: () => {}

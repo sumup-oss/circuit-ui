@@ -43,7 +43,7 @@ const alignmentStyles = ({ align }) => {
   };
 
   return css`
-    label: button-group--${align};
+    label: ${`button-group--${align}`};
     justify-content: ${alignmentMap[align]};
   `;
 };

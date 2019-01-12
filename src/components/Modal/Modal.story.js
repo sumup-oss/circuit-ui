@@ -12,7 +12,8 @@ import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
 
-// eslint-disable-next-line react/prop-types
+/* eslint-disable react/display-name, react/prop-types */
+
 const PageWithModal = ({ modal }) => (
   <ModalProvider>
     <ModalConsumer>
@@ -31,7 +32,6 @@ const PageWithModal = ({ modal }) => (
 );
 
 const defaultModal = {
-  // eslint-disable-next-line react/prop-types, no-unused-vars
   children: () => <ModalWrapper>Hello World!</ModalWrapper>,
   onClose: e => {
     action('Modal closed')(e);
@@ -75,7 +75,6 @@ storiesOf(`${GROUPS.COMPONENTS}|Modal`, module)
     withInfo()(() => {
       const modalWithTitle = {
         ...defaultModal,
-        // eslint-disable-next-line react/prop-types
         children: ({ onClose }) => (
           <ModalWrapper>
             <ModalHeader title="A modal" onClose={onClose} />
@@ -91,7 +90,6 @@ storiesOf(`${GROUPS.COMPONENTS}|Modal`, module)
     withInfo()(() => {
       const modalWithTitle = {
         ...defaultModal,
-        // eslint-disable-next-line react/prop-types
         children: ({ onClose }) => (
           <ModalWrapper>
             <ModalHeader title="A modal" />

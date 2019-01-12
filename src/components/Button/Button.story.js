@@ -4,9 +4,9 @@ import { withInfo } from '@storybook/addon-info';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from './../../../.storybook/hierarchySeparators';
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from './../../util/withTests';
+import withTests from '../../util/withTests';
 import Button from './Button';
 
 const containerStyles = {

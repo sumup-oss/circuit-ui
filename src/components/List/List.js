@@ -38,7 +38,7 @@ const sizeStyles = ({ theme, size }) => {
   };
   const { marginBottom, paddingLeft, marginLeft, type } = settings[size];
   return css`
-    label: list--${size};
+    label: ${`list--${size}`};
     padding-left: ${paddingLeft};
     ${type};
 

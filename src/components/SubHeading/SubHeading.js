@@ -16,7 +16,7 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const sizeStyles = ({ theme, size }) => css`
-  label: sub-heading--${size};
+  label: ${`sub-heading--${size}`};
   font-size: ${theme.typography.subHeadings[size].fontSize};
   line-height: ${theme.typography.subHeadings[size].lineHeight};
 `;

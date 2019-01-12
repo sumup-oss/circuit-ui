@@ -12,6 +12,7 @@ class State extends Component {
     updater: PropTypes.func.isRequired,
     children: PropTypes.func.isRequired
   };
+
   constructor(props) {
     super(props);
     const { initial, name } = props;

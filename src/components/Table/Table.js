@@ -87,7 +87,9 @@ class Table extends Component {
   };
 
   onSortEnter = i => this.setState({ sortHover: i });
+
   onSortLeave = () => this.setState({ sortHover: null });
+
   onSortBy = i => {
     const { sortedRow, sortDirection } = this.state;
     const isActive = i === sortedRow;

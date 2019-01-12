@@ -11,6 +11,7 @@ const { DISABLED, ACTIVE, SUCCESS, ERROR } = LOADING_STATES;
 
 class Container extends Component {
   static SUCCESS = SUCCESS;
+
   static ERROR = ERROR;
 
   static propTypes = {

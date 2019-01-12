@@ -18,7 +18,7 @@ const fallbackBaseStyles = ({ children, theme }) => {
     ${theme.mq.kilo`
       > * {
         float: left;
-        width: ${1 / childrenCount * 95}%;
+        width: ${(1 / childrenCount) * 95}%;
         width: calc(
            (100% - ${childrenCount - 1} * ${theme.spacings.byte}) /
             ${childrenCount}
@@ -88,7 +88,7 @@ const fallbackInlineMobileStyles = ({ theme, inlineMobile, children }) => {
     ${theme.mq.untilKilo`
       > * {
         float: left;
-        width: ${1 / childrenCount * 95}%;
+        width: ${(1 / childrenCount) * 95}%;
         width: calc(
            (100% - ${childrenCount - 1} * ${theme.spacings.byte}) /
             ${childrenCount}
