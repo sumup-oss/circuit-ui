@@ -10,6 +10,7 @@
 
 - [Getting started](#getting-started)
 - [Installation](#installation)
+- [Development](#development)
 - [Deployment](#deployment)
 - [Linting and formatting](#linting-and-formatting)
 - [Testing](#testing)
@@ -38,7 +39,6 @@ yarn add @sumup/circuit-ui
 ```
 yarn && yarn start
 ```
-
 
 ## Deployment
 
