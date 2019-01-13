@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { number } from '@storybook/addon-knobs/react';
+import { number, text } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
@@ -17,6 +17,9 @@ storiesOf(`${GROUPS.COMPONENTS}|Pagination`, module)
         page={number('page', 1)}
         perPage={number('perPage', 10)}
         total={number('total', 50)}
+        pagesToShow={number('pagesToShow', 1)}
+        onChange={() => {}}
+        footer={text('footer', 'Showing 1 - 10 of 50 items')}
       />
     ))
   );

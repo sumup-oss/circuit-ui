@@ -241,3 +241,4 @@ const RegularButton = ({ href, ...props }) =>
   );
 
 export default RegularButton;
+export { calculatePadding };
