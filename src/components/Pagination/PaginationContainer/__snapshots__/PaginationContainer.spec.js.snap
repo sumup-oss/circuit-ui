@@ -1,97 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaginationContainer styles When actual page is diferrent that first and last page should render with default styles 1`] = `
-<Container>
-  <NavigationButtonPrevious
-    disabled={false}
-    flat={false}
-    href={null}
-    onClick={[Function]}
-    plain={false}
-    primary={false}
-    secondary={false}
-    size="kilo"
-    stretch={false}
-    target={null}
-  />
-  Children Element
-  <NavigationButtonNext
-    disabled={false}
-    flat={false}
-    href={null}
-    isFirst={false}
-    isLast={true}
-    onClick={[Function]}
-    plain={false}
-    primary={false}
-    secondary={false}
-    size="kilo"
-    stretch={false}
-    target={null}
-  />
-</Container>
+<React.Fragment>
+  <Container>
+    <NavigationButtonPrevious
+      disabled={false}
+      flat={false}
+      href={null}
+      onClick={[Function]}
+      plain={false}
+      primary={false}
+      secondary={false}
+      size="kilo"
+      stretch={false}
+      target={null}
+    />
+    Children Element
+    <NavigationButtonNext
+      disabled={false}
+      flat={false}
+      href={null}
+      isFirst={false}
+      isLast={true}
+      onClick={[Function]}
+      plain={false}
+      primary={false}
+      secondary={false}
+      size="kilo"
+      stretch={false}
+      target={null}
+    />
+  </Container>
+</React.Fragment>
 `;
 
 exports[`PaginationContainer styles When the actual page is 1 should render with default styles 1`] = `
-<Container>
-  <NavigationButtonPrevious
-    disabled={true}
-    flat={false}
-    href={null}
-    onClick={[Function]}
-    plain={false}
-    primary={false}
-    secondary={false}
-    size="kilo"
-    stretch={false}
-    target={null}
-  />
-  Children Element
-  <NavigationButtonNext
-    disabled={false}
-    flat={false}
-    href={null}
-    isFirst={false}
-    isLast={true}
-    onClick={[Function]}
-    plain={false}
-    primary={false}
-    secondary={false}
-    size="kilo"
-    stretch={false}
-    target={null}
-  />
-</Container>
+<React.Fragment>
+  <Container>
+    <NavigationButtonPrevious
+      disabled={true}
+      flat={false}
+      href={null}
+      onClick={[Function]}
+      plain={false}
+      primary={false}
+      secondary={false}
+      size="kilo"
+      stretch={false}
+      target={null}
+    />
+    Children Element
+    <NavigationButtonNext
+      disabled={false}
+      flat={false}
+      href={null}
+      isFirst={false}
+      isLast={true}
+      onClick={[Function]}
+      plain={false}
+      primary={false}
+      secondary={false}
+      size="kilo"
+      stretch={false}
+      target={null}
+    />
+  </Container>
+</React.Fragment>
 `;
 
 exports[`PaginationContainer styles When the actual page is equal the last page should render with default styles 1`] = `
-<Container>
-  <NavigationButtonPrevious
-    disabled={false}
-    flat={false}
-    href={null}
-    onClick={[Function]}
-    plain={false}
-    primary={false}
-    secondary={false}
-    size="kilo"
-    stretch={false}
-    target={null}
-  />
-  Children Element
-  <NavigationButtonNext
-    disabled={true}
-    flat={false}
-    href={null}
-    isFirst={false}
-    isLast={true}
-    onClick={[Function]}
-    plain={false}
-    primary={false}
-    secondary={false}
-    size="kilo"
-    stretch={false}
-    target={null}
-  />
-</Container>
+<React.Fragment>
+  <Container>
+    <NavigationButtonPrevious
+      disabled={false}
+      flat={false}
+      href={null}
+      onClick={[Function]}
+      plain={false}
+      primary={false}
+      secondary={false}
+      size="kilo"
+      stretch={false}
+      target={null}
+    />
+    Children Element
+    <NavigationButtonNext
+      disabled={true}
+      flat={false}
+      href={null}
+      isFirst={false}
+      isLast={true}
+      onClick={[Function]}
+      plain={false}
+      primary={false}
+      secondary={false}
+      size="kilo"
+      stretch={false}
+      target={null}
+    />
+  </Container>
+</React.Fragment>
 `;
