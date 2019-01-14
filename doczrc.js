@@ -1,5 +1,5 @@
 import { babel } from 'docz-plugin-babel6';
-import { circuit as theme } from './themes';
+import { circuit as theme } from './src/themes';
 
 export default {
   title: 'Circuit UI',
