@@ -130,22 +130,21 @@ export default class AutoCompleteInput extends Component {
                 noMargin
                 renderSuffix={() => null}
               />
-              {isOpen &&
-                !!filteredItems.length && (
-                  <ItemsWrapper>
-                    <Items spacing={Card.MEGA}>
-                      {filteredItems.map((item, index) => (
-                        <Item
-                          {...getItemProps({ item })}
-                          key={item}
-                          selected={index === highlightedIndex}
-                        >
-                          {item}
-                        </Item>
-                      ))}
-                    </Items>
-                  </ItemsWrapper>
-                )}
+              {isOpen && !!filteredItems.length && (
+                <ItemsWrapper>
+                  <Items spacing={Card.MEGA}>
+                    {filteredItems.map((item, index) => (
+                      <Item
+                        {...getItemProps({ item })}
+                        key={item}
+                        selected={index === highlightedIndex}
+                      >
+                        {item}
+                      </Item>
+                    ))}
+                  </Items>
+                </ItemsWrapper>
+              )}
             </AutoCompleteWrapper>
           );
         }}
