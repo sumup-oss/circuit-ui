@@ -25,7 +25,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   border-color: #3388FF;
 }
 
-.circuit-0:checked + label::after {
+.circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
   transform: translateY(-50%) scale(1,1);
@@ -63,11 +63,11 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   transition: border 0.05s ease-in;
 }
 
-.circuit-2::after {
+.circuit-2 svg {
   height: 10px;
   width: 10px;
   box-sizing: border-box;
-  content: url("data:image/svg+xml,%3Csvg%20width%3D'10'%20height%3D'10'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M3.438%206.973l5.097-5.694a.858.858%200%200%201%201.175-.086c.349.288.389.793.089%201.128l-5.73%206.4a.856.856%200%200%201-1.264%200L.201%205.812a.778.778%200%200%201%20.09-1.128.858.858%200%200%201%201.174.086l1.973%202.203z'%20fill%3D'%233388FF'%20fill-rule%3D'nonzero'%2F%3E%3C%2Fsvg%3E");
+  fill: #3388FF;
   display: block;
   left: 3px;
   line-height: 0;
@@ -103,7 +103,11 @@ exports[`Checkbox should render with checked styles when passed the checked prop
     name="name"
     onChange={[MockFunction]}
     value=""
-  />
+  >
+    <div>
+      checked-icon.svg
+    </div>
+  </label>
 </div>
 `;
 
@@ -132,7 +136,7 @@ exports[`Checkbox should render with default styles 1`] = `
   border-color: #3388FF;
 }
 
-.circuit-0:checked + label::after {
+.circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
   transform: translateY(-50%) scale(1,1);
@@ -170,11 +174,11 @@ exports[`Checkbox should render with default styles 1`] = `
   transition: border 0.05s ease-in;
 }
 
-.circuit-2::after {
+.circuit-2 svg {
   height: 10px;
   width: 10px;
   box-sizing: border-box;
-  content: url("data:image/svg+xml,%3Csvg%20width%3D'10'%20height%3D'10'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M3.438%206.973l5.097-5.694a.858.858%200%200%201%201.175-.086c.349.288.389.793.089%201.128l-5.73%206.4a.856.856%200%200%201-1.264%200L.201%205.812a.778.778%200%200%201%20.09-1.128.858.858%200%200%201%201.174.086l1.973%202.203z'%20fill%3D'%233388FF'%20fill-rule%3D'nonzero'%2F%3E%3C%2Fsvg%3E");
+  fill: #3388FF;
   display: block;
   left: 3px;
   line-height: 0;
@@ -210,7 +214,11 @@ exports[`Checkbox should render with default styles 1`] = `
     name="name"
     onChange={[MockFunction]}
     value=""
-  />
+  >
+    <div>
+      checked-icon.svg
+    </div>
+  </label>
 </div>
 `;
 
@@ -239,7 +247,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   border-color: #3388FF;
 }
 
-.circuit-0:checked + label::after {
+.circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
   transform: translateY(-50%) scale(1,1);
@@ -280,11 +288,11 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   transition: border 0.05s ease-in;
 }
 
-.circuit-2::after {
+.circuit-2 svg {
   height: 10px;
   width: 10px;
   box-sizing: border-box;
-  content: url("data:image/svg+xml,%3Csvg%20width%3D'10'%20height%3D'10'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M3.438%206.973l5.097-5.694a.858.858%200%200%201%201.175-.086c.349.288.389.793.089%201.128l-5.73%206.4a.856.856%200%200%201-1.264%200L.201%205.812a.778.778%200%200%201%20.09-1.128.858.858%200%200%201%201.174.086l1.973%202.203z'%20fill%3D'%233388FF'%20fill-rule%3D'nonzero'%2F%3E%3C%2Fsvg%3E");
+  fill: #3388FF;
   display: block;
   left: 3px;
   line-height: 0;
@@ -307,11 +315,11 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   background-color: #FAFBFC;
 }
 
-.circuit-2::after {
+.circuit-2 svg {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  content: url("data:image/svg+xml,%3Csvg%20width%3D'10'%20height%3D'10'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M3.438%206.973l5.097-5.694a.858.858%200%200%201%201.175-.086c.349.288.389.793.089%201.128l-5.73%206.4a.856.856%200%200%201-1.264%200L.201%205.812a.778.778%200%200%201%20.09-1.128.858.858%200%200%201%201.174.086l1.973%202.203z'%20fill%3D'%239DA7B1'%20fill-rule%3D'nonzero'%2F%3E%3C%2Fsvg%3E");
+  fill: #9DA7B1;
 }
 
 <div
@@ -335,7 +343,11 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
     name="name"
     onChange={[MockFunction]}
     value=""
-  />
+  >
+    <div>
+      checked-icon.svg
+    </div>
+  </label>
 </div>
 `;
 
@@ -364,7 +376,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   border-color: #3388FF;
 }
 
-.circuit-0:checked + label::after {
+.circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
   transform: translateY(-50%) scale(1,1);
@@ -402,11 +414,11 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   transition: border 0.05s ease-in;
 }
 
-.circuit-2::after {
+.circuit-2 svg {
   height: 10px;
   width: 10px;
   box-sizing: border-box;
-  content: url("data:image/svg+xml,%3Csvg%20width%3D'10'%20height%3D'10'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M3.438%206.973l5.097-5.694a.858.858%200%200%201%201.175-.086c.349.288.389.793.089%201.128l-5.73%206.4a.856.856%200%200%201-1.264%200L.201%205.812a.778.778%200%200%201%20.09-1.128.858.858%200%200%201%201.174.086l1.973%202.203z'%20fill%3D'%233388FF'%20fill-rule%3D'nonzero'%2F%3E%3C%2Fsvg%3E");
+  fill: #3388FF;
   display: block;
   left: 3px;
   line-height: 0;
@@ -425,8 +437,8 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   border-color: #FF7559;
 }
 
-.circuit-2:not(:focus)::after {
-  content: url("data:image/svg+xml,%3Csvg%20width%3D'10'%20height%3D'10'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M3.438%206.973l5.097-5.694a.858.858%200%200%201%201.175-.086c.349.288.389.793.089%201.128l-5.73%206.4a.856.856%200%200%201-1.264%200L.201%205.812a.778.778%200%200%201%20.09-1.128.858.858%200%200%201%201.174.086l1.973%202.203z'%20fill%3D'%23FF7559'%20fill-rule%3D'nonzero'%2F%3E%3C%2Fsvg%3E");
+.circuit-2:not(:focus) svg {
+  fill: #FF7559;
 }
 
 <div
@@ -450,6 +462,10 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
     name="name"
     onChange={[MockFunction]}
     value=""
-  />
+  >
+    <div>
+      checked-icon.svg
+    </div>
+  </label>
 </div>
 `;

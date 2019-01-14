@@ -3,15 +3,10 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually, size } from 'polished';
 
+import CheckedIcon from './checked-icon.svg';
 import { disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
-
-const checkmarkSvg = fill =>
-  // NOTE: Optimizing SVGs in data URIs, https://codepen.io/tigt/post/optimizing-svgs-in-data-uris
-  `data:image/svg+xml,${encodeURIComponent(
-    `<svg width='10' height='10' xmlns='http://www.w3.org/2000/svg'><path d='M3.438 6.973l5.097-5.694a.858.858 0 0 1 1.175-.086c.349.288.389.793.089 1.128l-5.73 6.4a.856.856 0 0 1-1.264 0L.201 5.812a.778.778 0 0 1 .09-1.128.858.858 0 0 1 1.174.086l1.973 2.203z' fill='${fill}' fill-rule='nonzero'/></svg>`
-  )}`;
 
 const labelBaseStyles = ({ theme }) => css`
   label: checkbox__label;
@@ -36,10 +31,10 @@ const labelBaseStyles = ({ theme }) => css`
     transition: border 0.05s ease-in;
   }
 
-  &::after {
+  svg {
     ${size(10)};
     box-sizing: border-box;
-    content: url("${checkmarkSvg(theme.colors.p500)}");
+    fill: ${theme.colors.p500};
     display: block;
     left: 3px;
     line-height: 0;
@@ -49,7 +44,6 @@ const labelBaseStyles = ({ theme }) => css`
     transform: translateY(-50%) scale(0, 0);
     transition: transform 0.05s ease-in, opacity 0.05s ease-in;
   }
-
 `;
 
 const labelInvalidStyles = ({ theme, invalid }) =>
@@ -60,8 +54,8 @@ const labelInvalidStyles = ({ theme, invalid }) =>
       border-color: ${theme.colors.r500};
     }
 
-    &:not(:focus)::after {
-      content: url("${checkmarkSvg(theme.colors.r500)}");
+    &:not(:focus) svg {
+      fill: ${theme.colors.r500};
     }
   `;
 
@@ -77,9 +71,9 @@ const labelDisabledStyles = ({ theme, disabled }) =>
       background-color: ${theme.colors.n100};
     }
 
-    &::after {
+    & svg {
       ${disableVisually()};
-      content: url("${checkmarkSvg(theme.colors.n500)}");
+      fill: ${theme.colors.n500};
     }
   `;
 
@@ -92,7 +86,7 @@ const inputStyles = ({ theme }) => css`
     border-color: ${theme.colors.p500};
   }
 
-  &:checked + label::after {
+  &:checked + label > svg {
     transform: translateY(-50%) scale(1, 1);
     opacity: 1;
   }
@@ -133,6 +127,7 @@ const Checkbox = ({ children, id: customId, className, ...props }) => {
       <CheckboxInput {...props} id={id} type="checkbox" />
       <CheckboxLabel {...props} htmlFor={id}>
         {children}
+        <CheckedIcon aria-hidden="true" />
       </CheckboxLabel>
     </CheckboxWrapper>
   );
