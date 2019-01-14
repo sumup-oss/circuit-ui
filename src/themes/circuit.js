@@ -9,44 +9,71 @@ const neutrals = {
   n300: '#D8DDE1',
   n500: '#9DA7B1',
   n700: '#5C656F',
+  n800: '#323E49',
   n900: '#212933'
 };
 
 const blues = {
-  b100: '#DAEAFF',
-  b300: '#7FB5FF',
+  b100: '#EDF4FC',
+  b200: '#DAEAFF',
+  b300: '#AFD0FE',
+  b400: '#7FB5FF',
   b500: '#3388FF',
-  b700: '#2567D8',
-  b900: '#1641AC'
+  b700: '#1760CE',
+  b900: '#003C8B'
 };
 
 const greens = {
-  g100: '#C6E5CB',
-  g300: '#97E2A3',
-  g500: '#62DE76',
-  g700: '#49B85B',
-  g900: '#2F903E'
+  g100: '#E4EABB',
+  g200: '#D4DB8F',
+  g300: '#BED630',
+  g500: '#8CC13F',
+  g700: '#47995A',
+  g900: '#356560'
 };
 
+const purples = {
+  p100: '#E9CFF2',
+  p200: '#D2A9D3',
+  p300: '#C781C9',
+  p500: '#B54DB3',
+  p700: '#8928A2',
+  p900: '#5F1D6B'
+};
+
+const oranges = {
+  o100: '#EFD0BB',
+  o200: '#F7B97C',
+  o300: '#F7941D',
+  o500: '#CE6C0B',
+  o700: '#8E4503',
+  o900: '#66391B'
+};
+
+
 const yellows = {
-  y100: '#F2E5CB',
-  y300: '#F7DA9F',
-  y500: '#FFC859',
-  y700: '#D4A546',
-  y900: '#AB8433'
+  y100: '#F2E9C7',
+  y200: '#EDDD8E',
+  y300: '#F6CC1B',
+  y500: '#D8A413',
+  y700: '#AD7A14',
+  y900: '#725514'
 };
 
 const reds = {
-  r100: '#FFE6E1',
-  r300: '#FFAF9F',
-  r500: '#FF7559',
-  r700: '#D55A41',
-  r900: '#A73D28'
+  r100: '#F4CBCB',
+  r200: '#EDA2A2',
+  r300: '#EA7A7A',
+  r500: '#DB4D4D',
+  r700: '#A42D22',
+  r900: '#7F1818'
 };
 
 const primary = {
   p100: blues.b100,
+  p200: blues.b200,
   p300: blues.b300,
+  p400: blues.b400,
   p500: blues.b500,
   p700: blues.b700,
   p900: blues.b900
@@ -58,7 +85,7 @@ const misc = {
   bodyColor: black,
   danger: reds.r500,
   success: greens.g700,
-  warning: yellows.y700
+  warning: yellows.y500
 };
 
 export const colors = {
