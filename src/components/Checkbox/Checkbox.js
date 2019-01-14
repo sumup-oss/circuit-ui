@@ -127,7 +127,7 @@ const Checkbox = ({ children, id: customId, className, ...props }) => {
       <CheckboxInput {...props} id={id} type="checkbox" />
       <CheckboxLabel {...props} htmlFor={id}>
         {children}
-        <CheckedIcon />
+        <CheckedIcon aria-hidden="true" />
       </CheckboxLabel>
     </CheckboxWrapper>
   );
