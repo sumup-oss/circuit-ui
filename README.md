@@ -10,6 +10,7 @@
 
 - [Getting started](#getting-started)
 - [Installation](#installation)
+- [Development](#development)
 - [Deployment](#deployment)
 - [Linting and formatting](#linting-and-formatting)
 - [Testing](#testing)
@@ -22,10 +23,10 @@
 
 Here are a few helpful links for getting started with Circuit UI:
 
-* [Getting started](http://circuit.sumup.com/#/getting-started/developers) - Install and configure Circuit for your React app
-* [Styles](http://circuit.sumup.com/#/styles/colors) - Learn about our foundations such as colors, spacing, and typography.
-* [Guidelines](http://circuit.sumup.com/#/guidelines/content) - Use the design system in a compliant way.
-* [Components](http://circuit.sumup.com/#/components/badge) - Explore the available UI components.
+- [Getting started](http://circuit.sumup.com/#/getting-started/developers) - Install and configure Circuit for your React app
+- [Styles](http://circuit.sumup.com/#/styles/colors) - Learn about our foundations such as colors, spacing, and typography.
+- [Guidelines](http://circuit.sumup.com/#/guidelines/content) - Use the design system in a compliant way.
+- [Components](http://circuit.sumup.com/#/components/badge) - Explore the available UI components.
 
 ## Installation
 
@@ -39,7 +40,6 @@ yarn add @sumup/circuit-ui
 yarn && yarn start
 ```
 
-
 ## Deployment
 
 ```
@@ -49,11 +49,9 @@ yarn deploy
 ## Linting and formatting
 
 ```
-yarn fix:prettier
-yarn fix:estlint
-yarn fix:stylelint
+yarn unit:lint-js
 
-yarn fix # Run all autofixing
+yarn fix
 ```
 
 ## Testing
@@ -81,11 +79,11 @@ describe('Button', () => {
 ## Utils
 
 Besides the component library, we also export some utilities which you
-might need in order to use the components. Two main ones:
+might need in order to use the components. The three main ones:
 
-* `numbersUtils` - a module for dealing with number localization.
-* `currencyUtils` - a module for formatting currency amounts.
-* `styleHelpers` - a module containing helpers for writing styles.
+- `numbersUtils` - a module for dealing with number localization.
+- `currencyUtils` - a module for formatting currency amounts.
+- `styleHelpers` - a module containing helpers for writing styles.
 
 ## Creating components
 
