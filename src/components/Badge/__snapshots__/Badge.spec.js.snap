@@ -15,7 +15,7 @@ exports[`Badge rendering color variations should render with danger colors 1`] =
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #FF7559;
+  background-color: #DB4D4D;
 }
 
 <div
@@ -63,7 +63,7 @@ exports[`Badge rendering color variations should render with success colors 1`] 
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #62DE76;
+  background-color: #8CC13F;
 }
 
 <div
@@ -87,7 +87,7 @@ exports[`Badge rendering color variations should render with warning colors 1`] 
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #FFC859;
+  background-color: #D8A413;
 }
 
 <div

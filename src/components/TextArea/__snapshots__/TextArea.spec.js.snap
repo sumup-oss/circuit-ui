@@ -143,43 +143,43 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 }
 
 .circuit-0:not(:focus) {
-  border-color: #FFC859;
+  border-color: #D8A413;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus) {
-  border-color: #FFAF9F;
+  border-color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 <div
@@ -276,23 +276,23 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
 }
 
 .circuit-0:not(:focus) {
-  border-color: #FFAF9F;
+  border-color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 <div
@@ -933,23 +933,23 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 }
 
 .circuit-0:not(:focus) {
-  border-color: #FFAF9F;
+  border-color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 <div
@@ -1292,23 +1292,23 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 }
 
 .circuit-0:not(:focus) {
-  border-color: #FFC859;
+  border-color: #D8A413;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-2 {

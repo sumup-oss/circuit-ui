@@ -164,7 +164,7 @@ exports[`PlainButton should have primary styles 1`] = `
 }
 
 .circuit-0:active {
-  color: #1641AC;
+  color: #003C8B;
 }
 
 <button

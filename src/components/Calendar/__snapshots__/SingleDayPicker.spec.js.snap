@@ -1013,24 +1013,24 @@ exports[`SingleDayPicker should render with default styles 1`] = `
 
 .circuit-0 .CalendarDay__hovered_span,
 .circuit-0 .CalendarDay__hovered_span:hover {
-  background: #DAEAFF;
+  background: #EDF4FC;
   border: 1px solid #3388FF;
 }
 
 .circuit-0 .CalendarDay__hovered_span:active {
-  background: #DAEAFF;
+  background: #EDF4FC;
   border: 1px solid #3388FF;
 }
 
 .circuit-0 .CalendarDay__selected_span {
-  background: #DAEAFF;
-  border: 1px solid #7FB5FF;
+  background: #EDF4FC;
+  border: 1px solid #AFD0FE;
 }
 
 .circuit-0 .CalendarDay__selected_span:hover {
   color: #FFFFFF;
-  background: #7FB5FF;
-  border: 1px solid #7FB5FF;
+  background: #AFD0FE;
+  border: 1px solid #AFD0FE;
 }
 
 .circuit-0 .CalendarDay__last_in_range {
@@ -1041,7 +1041,7 @@ exports[`SingleDayPicker should render with default styles 1`] = `
 .circuit-0 .CalendarDay__selected:active,
 .circuit-0 .CalendarDay__selected:hover {
   background: #3388FF;
-  border: 1px solid #7FB5FF;
+  border: 1px solid #AFD0FE;
   color: #FFFFFF;
 }
 
