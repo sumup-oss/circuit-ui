@@ -32,13 +32,13 @@ const greens = {
   g900: '#356560'
 };
 
-const purples = {
-  p100: '#E9CFF2',
-  p200: '#D2A9D3',
-  p300: '#C781C9',
-  p500: '#B54DB3',
-  p700: '#8928A2',
-  p900: '#5F1D6B'
+const violets = {
+  v100: '#E9CFF2',
+  v200: '#D2A9D3',
+  v300: '#C781C9',
+  v500: '#B54DB3',
+  v700: '#8928A2',
+  v900: '#5F1D6B'
 };
 
 const oranges = {
@@ -96,6 +96,8 @@ export const colors = {
   ...greens,
   ...yellows,
   ...reds,
+  ...oranges,
+  ...violets,
   ...primary,
   ...misc
 };
