@@ -23,6 +23,7 @@ const trackBaseStyles = ({ theme }) => css`
   position: relative;
   transition: background-color ${ANIMATION_TIMING};
   ${size(TRACK_HEIGHT, TRACK_WIDTH)};
+  overflow: visible;
 
   &::-moz-focus-inner {
     border-radius: ${TRACK_HEIGHT}px;
