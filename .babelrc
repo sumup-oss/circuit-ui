@@ -53,7 +53,23 @@
       "presets": ["env", "react", "stage-3"]
     },
     "static": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ],
+        "react",
+        "stage-3"
+      ],
       "plugins": [
+        "lodash",
+        "transform-es2015-modules-commonjs",
+        "transform-object-rest-spread",
+        "transform-class-properties",
         [
           "emotion",
           {
