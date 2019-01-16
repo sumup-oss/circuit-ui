@@ -67,10 +67,10 @@ export const createGlobalStyles = ({ theme, custom = '' }) => `
 
   html {
     box-sizing: border-box;
+  }
 
-    [type='button'] {
-      appearance: none;
-    }
+  html [type='button'] {
+    appearance: none;
   }
 
   body {
