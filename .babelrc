@@ -12,7 +12,8 @@
             "hoist": true,
             "sourceMap": true
           }
-        ]
+        ],
+        "inline-react-svg"
       ],
       "presets": [["env", { "loose": true }], "react", "stage-3"]
     },
@@ -28,7 +29,8 @@
             "hoist": true,
             "sourceMap": true
           }
-        ]
+        ],
+        "inline-react-svg"
       ],
       "presets": [
         ["env", { "loose": true, "modules": false }],
