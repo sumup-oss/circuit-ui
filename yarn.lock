@@ -2418,6 +2418,18 @@ babel-plugin-emotion@^9.2.6:
     source-map "^0.5.7"
     touch "^1.0.0"
 
+babel-plugin-inline-react-svg@0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/babel-plugin-inline-react-svg/-/babel-plugin-inline-react-svg-0.5.4.tgz#bc818f351cd9d78f5b3bfa7cc1da5f83e7b4010a"
+  integrity sha512-Pr/J5kicFEpIvwooR3mytJWXfyGXoP4gp4QzTdN0jLoa7lU2OJVyhHMm17ekA3okxwbLaQehSc0kV/UVrj343w==
+  dependencies:
+    babel-template "^6.26.0"
+    babel-traverse "^6.26.0"
+    babylon "^6.18.0"
+    lodash.isplainobject "^4.0.6"
+    resolve "^1.8.1"
+    svgo "^0.7.2"
+
 babel-plugin-istanbul@^4.1.5, babel-plugin-istanbul@^4.1.6:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/babel-plugin-istanbul/-/babel-plugin-istanbul-4.1.6.tgz#36c59b2192efce81c5b378321b74175add1c9a45"
