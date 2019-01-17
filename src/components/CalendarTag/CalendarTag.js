@@ -10,6 +10,7 @@ import Tag from '../Tag';
 
 class CalendarTag extends Component {
   state = { startDate: null, endDate: null, focusedInput: null };
+
   buttonRef = null; // eslint-disable-line react/sort-comp
 
   handleDatesChange = ({ startDate, endDate }) => {
@@ -36,10 +37,10 @@ class CalendarTag extends Component {
       return 'Dates';
     }
 
-    return `${this._toDate(startDate)} - ${this._toDate(endDate)}`;
+    return `${this.toDate(startDate)} - ${this.toDate(endDate)}`;
   };
 
-  _toDate = date => (date ? date.format('MMM DD') : '');
+  toDate = date => (date ? date.format('MMM DD') : '');
 
   handleButtonRef = ref => {
     this.buttonRef = ref;

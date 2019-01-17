@@ -16,7 +16,10 @@ import {
 } from 'lodash/fp';
 
 export const calculatePages = (totalItems, perPage) =>
-  compose(ceil, divide(totalItems))(perPage);
+  compose(
+    ceil,
+    divide(totalItems)
+  )(perPage);
 
 const availablePreviousPages = (page, totalPages) => {
   if (page === totalPages) {
@@ -35,7 +38,9 @@ const availableNextPages = page => {
 };
 
 export const arrayOfPreviousValues = (page, totalPages) => {
-  if (page < 3) return [];
+  if (page < 3) {
+    return [];
+  }
 
   const availablePages = availablePreviousPages(page, totalPages);
 
@@ -47,7 +52,9 @@ export const arrayOfPreviousValues = (page, totalPages) => {
 };
 
 export const arrayOfNextValues = (page, totalPages) => {
-  if (page > totalPages - 2) return [];
+  if (page > totalPages - 2) {
+    return [];
+  }
 
   const availablePages = availableNextPages(page);
 
@@ -61,9 +68,12 @@ export const hasOmittedPreviousPages = previousValues => {
     return false;
   }
 
-  return compose(gt(__, 1), subtract(__, 1), first, sortBy(identity))(
-    previousValues
-  );
+  return compose(
+    gt(__, 1),
+    subtract(__, 1),
+    first,
+    sortBy(identity)
+  )(previousValues);
 };
 
 export const hasOmittedNextPages = (nextValues, totalPages) => {
@@ -71,7 +81,10 @@ export const hasOmittedNextPages = (nextValues, totalPages) => {
     return false;
   }
 
-  return compose(lt(__, totalPages), add(1), last, sortBy(identity))(
-    nextValues
-  );
+  return compose(
+    lt(__, totalPages),
+    add(1),
+    last,
+    sortBy(identity)
+  )(nextValues);
 };

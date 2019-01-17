@@ -22,7 +22,7 @@ const baseStyles = ({ theme }) => css`
 
 const sizeStyles = ({ theme, size }) =>
   css`
-    label: text--${size};
+    label: ${`text--${size}`};
     font-size: ${theme.typography.text[mobileSizeMap[size]].fontSize};
     line-height: ${theme.typography.text[mobileSizeMap[size]].lineHeight};
 

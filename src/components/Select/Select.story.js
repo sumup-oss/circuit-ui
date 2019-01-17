@@ -7,7 +7,7 @@ import { boolean } from '@storybook/addon-knobs/react';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
-import Select from './';
+import Select from '.';
 
 const options = [
   {

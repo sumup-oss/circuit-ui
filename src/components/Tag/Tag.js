@@ -97,8 +97,9 @@ const TagElement = styled('span')`
  */
 const Tag = ({ children, icon, onRemove, selected, ...props }) => (
   <TagElement {...{ selected, ...props }}>
-    {!onRemove &&
-      icon && <IconContainer {...{ selected }}>{icon}</IconContainer>}
+    {!onRemove && icon && (
+      <IconContainer {...{ selected }}>{icon}</IconContainer>
+    )}
     {children}
     {onRemove && <CloseButton {...{ onClick: onRemove, selected }} />}
   </TagElement>

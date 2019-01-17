@@ -28,7 +28,7 @@ const shadowStyles = ({ theme, shadow }) => {
     [TRIPLE]: shadowTriple
   };
   return css`
-    label: card--shadow-${shadow};
+    label: ${`card--shadow-${shadow}`};
     ${shadowOptions[shadow]({ theme })};
   `;
 };
@@ -43,7 +43,7 @@ const spacingStyles = ({ theme, spacing }) => {
     `
   };
   return css`
-    label: card--spacing-${spacing};
+    label: ${`card--spacing-${spacing}`};
     padding: ${spacings[spacing]};
   `;
 };

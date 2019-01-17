@@ -5,7 +5,7 @@ import { select, boolean } from '@storybook/addon-knobs/react';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
-import ButtonGroup from './';
+import ButtonGroup from '.';
 import Button from '../Button';
 
 storiesOf(`${GROUPS.COMPONENTS}|Button/ButtonGroup`, module)

@@ -42,7 +42,7 @@ const colorStyles = ({ theme, color, onClick }) => {
   }
 
   return css`
-    label: badge--${color};
+    label: ${`badge--${color}`};
     background-color: ${theme.colors[currentColor.default]};
     ${onClick &&
       `

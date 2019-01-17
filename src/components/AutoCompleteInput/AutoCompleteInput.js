@@ -90,27 +90,27 @@ export default class AutoCompleteInput extends Component {
     clearOnSelect: false
   };
 
-  _handleChange = value => {
+  handleChange = value => {
     const { clearOnSelect, onChange } = this.props;
 
     if (value) {
       onChange(value);
 
-      if (clearOnSelect && this._downshiftRef) {
-        this._downshiftRef.clearSelection();
+      if (clearOnSelect && this.downshiftRef) {
+        this.downshiftRef.clearSelection();
       }
     }
   };
 
-  _handleDownShiftRef = ref => {
-    this._downshiftRef = ref;
+  handleDownShiftRef = ref => {
+    this.downshiftRef = ref;
   };
 
   render() {
     const { items, onChange, clearOnSelect, ...inputProps } = this.props;
 
     return (
-      <Downshift ref={this._handleDownShiftRef} onSelect={this._handleChange}>
+      <Downshift ref={this.handleDownShiftRef} onSelect={this.handleChange}>
         {({
           getRootProps,
           getInputProps,
@@ -130,22 +130,21 @@ export default class AutoCompleteInput extends Component {
                 noMargin
                 renderSuffix={() => null}
               />
-              {isOpen &&
-                !!filteredItems.length && (
-                  <ItemsWrapper>
-                    <Items spacing={Card.MEGA}>
-                      {filteredItems.map((item, index) => (
-                        <Item
-                          {...getItemProps({ item })}
-                          key={item}
-                          selected={index === highlightedIndex}
-                        >
-                          {item}
-                        </Item>
-                      ))}
-                    </Items>
-                  </ItemsWrapper>
-                )}
+              {isOpen && !!filteredItems.length && (
+                <ItemsWrapper>
+                  <Items spacing={Card.MEGA}>
+                    {filteredItems.map((item, index) => (
+                      <Item
+                        {...getItemProps({ item })}
+                        key={item}
+                        selected={index === highlightedIndex}
+                      >
+                        {item}
+                      </Item>
+                    ))}
+                  </Items>
+                </ItemsWrapper>
+              )}
             </AutoCompleteWrapper>
           );
         }}

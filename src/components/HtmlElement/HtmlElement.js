@@ -8,6 +8,7 @@ const filterProps = (blacklist, props) =>
     if (blacklist[prop]) {
       return filteredProps;
     }
+    // eslint-disable-next-line no-param-reassign
     filteredProps[prop] = props[prop];
     return filteredProps;
   }, {});

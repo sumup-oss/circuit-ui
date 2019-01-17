@@ -32,7 +32,7 @@ const createLeftBorderStyles = colorName => ({ theme, size, type }) => {
   return (
     colorName === type &&
     css`
-      label: inline-notification--${type};
+      label: ${`inline-notification--${type}`};
       color: ${textColors[type]};
       position: relative;
       margin-bottom: ${theme.spacings.mega};

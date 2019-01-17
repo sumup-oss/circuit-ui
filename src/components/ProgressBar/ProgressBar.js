@@ -33,7 +33,7 @@ const progressStyles = ({ theme, size, value, max }) => {
     outerBorderWidth
   )}`;
   const innerBorderRadiusRight =
-    value / max * 100 === 100 ? innerBorderRadiusLeft : 0;
+    (value / max) * 100 === 100 ? innerBorderRadiusLeft : 0;
   return css`
     label: progress-bar__progress;
     background-color: ${theme.colors.n100};
@@ -51,7 +51,7 @@ const progressStyles = ({ theme, size, value, max }) => {
       top: 0;
       bottom: 0;
       left: 0;
-      width: ${value / max * 100}%;
+      width: ${(value / max) * 100}%;
       background-color: ${theme.colors.p500};
       border: 1px solid ${theme.colors.p700};
       box-shadow: inset 0 1px 0 0 ${theme.colors.p300};

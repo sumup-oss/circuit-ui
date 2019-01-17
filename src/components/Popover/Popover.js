@@ -88,12 +88,17 @@ const arrowStyles = {
 
 class Popover extends Component {
   static TOP = TOP;
+
   static BOTTOM = BOTTOM;
+
   static LEFT = LEFT;
+
   static RIGHT = RIGHT;
 
   static START = START;
+
   static END = END;
+
   static CENTER = CENTER;
 
   static propTypes = {
@@ -172,6 +177,7 @@ class Popover extends Component {
   };
 
   buttonRef = null;
+
   popoverRef = null;
 
   receiveButtonRef = ref => {

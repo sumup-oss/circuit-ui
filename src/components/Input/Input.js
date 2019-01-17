@@ -294,12 +294,11 @@ const StyledInput = ({
         }}
       />
       {suffix}
-      {!disabled &&
-        validationHint && (
-          <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
-            {validationHint}
-          </InputTooltip>
-        )}
+      {!disabled && validationHint && (
+        <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+          {validationHint}
+        </InputTooltip>
+      )}
       {children}
     </InputContainer>
   );

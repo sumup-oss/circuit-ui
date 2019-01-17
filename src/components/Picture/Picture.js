@@ -7,7 +7,12 @@ import { map } from 'lodash/fp';
  */
 const Picture = ({ sources, fallback, alt, ...rest }) => (
   <picture {...rest}>
-    {map(s => <source key={s.srcSet} {...s} />, sources)}
+    {map(
+      s => (
+        <source key={s.srcSet} {...s} />
+      ),
+      sources
+    )}
     <img src={fallback} alt={alt} />
   </picture>
 );

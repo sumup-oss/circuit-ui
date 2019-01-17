@@ -68,6 +68,7 @@ export default class CalendarTagTwoStep extends Component {
   };
 
   state = { startDate: null, endDate: null, focusedInput: null };
+
   buttonRef = null; // eslint-disable-line react/sort-comp
 
   handleDatesChange = ({ startDate, endDate }) => {

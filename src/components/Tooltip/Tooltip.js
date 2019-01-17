@@ -94,7 +94,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
 };
 
 const positionAndAlignStyles = ({ theme, position, align }) => css`
-  label: tooltip--${position}-${align};
+  label: ${`tooltip--${position}-${align}`};
   ${getAlignmentStyles({ theme, position, align })};
   ${getPositionStyles({ theme, position })};
 `;

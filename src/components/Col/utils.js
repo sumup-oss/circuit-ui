@@ -28,7 +28,7 @@ export const createSpanStyles = (grid, theme, span) => {
   const safeSpan = clamp(MIN_COL_SPAN, cols, span);
 
   const styles = `
-    width: ${MAX_COL_WIDTH / cols * safeSpan}%;
+    width: ${(MAX_COL_WIDTH / cols) * safeSpan}%;
   `;
 
   return wrapStyles(styles, breakpoint, theme);
@@ -43,7 +43,7 @@ export const createSkipStyles = (grid, theme, skip) => {
   const safeSkip = clamp(cols * -1, cols - 1, skip);
 
   const styles = `
-    left: ${MAX_COL_WIDTH / cols * safeSkip}%;
+    left: ${(MAX_COL_WIDTH / cols) * safeSkip}%;
     position: relative;
   `;
 
@@ -69,7 +69,10 @@ const createBreakpointStyles = curry((theme, current) => {
  * Return the default styles for each breakpoint provided by the config
  */
 export const getBreakPointStyles = theme =>
-  compose(values, mapValues(createBreakpointStyles(theme)))(theme.grid);
+  compose(
+    values,
+    mapValues(createBreakpointStyles(theme))
+  )(theme.grid);
 
 /**
  * Sort the key/value based on the breakpoint priority
@@ -91,9 +94,11 @@ export const mapBreakpoint = curry((fn, grid, theme, [key, value]) =>
  * Compose the breakpoints object into an array of styles.
  */
 const composeBreakpoints = curry((fn, grid, theme, breakpoints) =>
-  compose(map(mapBreakpoint(fn, grid, theme)), sortByPriority(grid), toPairs)(
-    breakpoints
-  )
+  compose(
+    map(mapBreakpoint(fn, grid, theme)),
+    sortByPriority(grid),
+    toPairs
+  )(breakpoints)
 );
 
 /**

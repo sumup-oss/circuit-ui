@@ -1,1 +1,1 @@
-module.exports = require('@sumup/foundry/plop').react
+module.exports = require('@sumup/foundry/plop').react;
