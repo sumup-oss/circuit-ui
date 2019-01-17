@@ -32,8 +32,8 @@ exports[`ProgressBar should render with default styles 1`] = `
   left: 0;
   width: 0%;
   background-color: #3388FF;
-  border: 1px solid #2567D8;
-  box-shadow: inset 0 1px 0 0 #7FB5FF;
+  border: 1px solid #1760CE;
+  box-shadow: inset 0 1px 0 0 #AFD0FE;
   border-radius: 3px 0 0 3px;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
@@ -104,8 +104,8 @@ exports[`ProgressBar should render with progress styles 1`] = `
   left: 0;
   width: 50%;
   background-color: #3388FF;
-  border: 1px solid #2567D8;
-  box-shadow: inset 0 1px 0 0 #7FB5FF;
+  border: 1px solid #1760CE;
+  box-shadow: inset 0 1px 0 0 #AFD0FE;
   border-radius: 3px 0 0 3px;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;

@@ -434,11 +434,11 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 }
 
 .circuit-2:not(:focus)::before {
-  border-color: #FF7559;
+  border-color: #DB4D4D;
 }
 
 .circuit-2:not(:focus) svg {
-  fill: #FF7559;
+  fill: #DB4D4D;
 }
 
 <div

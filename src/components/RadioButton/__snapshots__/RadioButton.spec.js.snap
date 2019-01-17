@@ -361,11 +361,11 @@ Array [
 }
 
 .circuit-0:not(:focus)::before {
-  border-color: #FF7559;
+  border-color: #DB4D4D;
 }
 
 .circuit-0:not(:focus)::after {
-  background-color: #FF7559;
+  background-color: #DB4D4D;
 }
 
 <label

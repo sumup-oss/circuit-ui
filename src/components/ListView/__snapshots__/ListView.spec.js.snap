@@ -82,7 +82,7 @@ exports[`ListView should render with default styles 1`] = `
   cursor: pointer;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
-  background: #DAEAFF;
+  background: #EDF4FC;
 }
 
 .circuit-2:first-child {

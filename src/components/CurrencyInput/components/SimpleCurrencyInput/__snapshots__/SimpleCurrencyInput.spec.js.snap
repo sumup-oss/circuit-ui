@@ -58,7 +58,7 @@ exports[`SimpleCurrencyInput should adjust input padding and postfix width to ma
 }
 
 .circuit-2 {
-  color: #2567D8;
+  color: #1760CE;
   line-height: 16px;
   position: absolute;
   top: 1px;
@@ -148,7 +148,7 @@ exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = 
 }
 
 .circuit-2 {
-  color: #2567D8;
+  color: #1760CE;
   line-height: 16px;
   position: absolute;
   top: 1px;
@@ -235,47 +235,47 @@ exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] 
 }
 
 .circuit-0:not(:focus) {
-  border-color: #FFC859;
+  border-color: #D8A413;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus) {
-  border-color: #FFAF9F;
+  border-color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-2 {
-  color: #2567D8;
+  color: #1760CE;
   line-height: 16px;
   position: absolute;
   top: 1px;
@@ -288,11 +288,11 @@ exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] 
 }
 
 .circuit-2:not(:focus) {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-2:not(:focus) {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 <div
@@ -367,7 +367,7 @@ exports[`SimpleCurrencyInput should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  color: #2567D8;
+  color: #1760CE;
   line-height: 16px;
   position: absolute;
   top: 1px;
@@ -453,27 +453,27 @@ exports[`SimpleCurrencyInput should render with error styles 1`] = `
 }
 
 .circuit-0:not(:focus) {
-  border-color: #FFAF9F;
+  border-color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 .circuit-2 {
-  color: #2567D8;
+  color: #1760CE;
   line-height: 16px;
   position: absolute;
   top: 1px;
@@ -486,7 +486,7 @@ exports[`SimpleCurrencyInput should render with error styles 1`] = `
 }
 
 .circuit-2:not(:focus) {
-  color: #FFAF9F;
+  color: #EA7A7A;
 }
 
 <div
@@ -563,27 +563,27 @@ exports[`SimpleCurrencyInput should render with warning styles 1`] = `
 }
 
 .circuit-0:not(:focus) {
-  border-color: #FFC859;
+  border-color: #D8A413;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 .circuit-2 {
-  color: #2567D8;
+  color: #1760CE;
   line-height: 16px;
   position: absolute;
   top: 1px;
@@ -596,7 +596,7 @@ exports[`SimpleCurrencyInput should render with warning styles 1`] = `
 }
 
 .circuit-2:not(:focus) {
-  color: #FFC859;
+  color: #D8A413;
 }
 
 <div
@@ -624,7 +624,7 @@ exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = 
 }
 
 .circuit-0 {
-  color: #2567D8;
+  color: #1760CE;
   line-height: 16px;
   position: absolute;
   top: 1px;
