@@ -2,7 +2,7 @@ import React, { Fragment, createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
-import { circuit as theme } from '../../../../src/themes';
+import { theme as themes } from '../../../../src';
 import Text from '../../../../src/components/Text';
 
 const TypePx = styled(Text)`
@@ -14,12 +14,12 @@ const TypePx = styled(Text)`
 `;
 
 const Type = ({ size, component, name, fontWeight, ...props }) => {
-  const typeSetting = theme.typography[name][size];
+  const typeSetting = themes.circuit.typography[name][size];
   const { fontSize, lineHeight } = typeSetting;
-  const weight = theme.fontWeight[fontWeight];
+  const weight = themes.circuit.fontWeight[fontWeight];
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themes.circuit}>
       {createElement(component, {
         children: (
           <Fragment>

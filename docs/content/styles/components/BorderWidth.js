@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
 import Text from '../../../../src/components/Text';
-import { circuit } from '../../../../src/themes';
+import { theme as themes } from '../../../../src';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -38,14 +38,14 @@ const BorderWidthName = styled(Text)`
 `;
 
 const BorderWidth = ({ size }) => (
-  <ThemeProvider theme={circuit}>
+  <ThemeProvider theme={themes.circuit}>
     <Wrapper>
       <Box size={size} />
       <div>
         <Text element="span">{size}</Text>
         <BorderWidthSize>
           <BorderWidthName size={Text.KILO} element="span">
-            {circuit.borderWidth[size]}
+            {themes.circuit.borderWidth[size]}
           </BorderWidthName>
         </BorderWidthSize>
       </div>

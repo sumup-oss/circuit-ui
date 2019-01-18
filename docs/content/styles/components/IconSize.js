@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
 import Text from '../../../../src/components/Text';
-import { circuit } from '../../../../src/themes';
+import { theme as themes } from '../../../../src';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -37,14 +37,14 @@ const IconSizeName = styled(Text)`
 `;
 
 const IconSize = ({ size }) => (
-  <ThemeProvider theme={circuit}>
+  <ThemeProvider theme={themes.circuit}>
     <Wrapper>
       <Box size={size} />
       <div>
         <Text element="span">{size}</Text>
         <IconSizeSize>
           <IconSizeName size={Text.KILO} element="span">
-            {circuit.iconSizes[size]}
+            {themes.circuit.iconSizes[size]}
           </IconSizeName>
         </IconSizeSize>
       </div>
