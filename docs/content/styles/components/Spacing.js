@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { ThemeProvider } from 'emotion-theming';
 import Text from '../../../../src/components/Text';
-import { circuit } from '../../../../src/themes';
+import { theme as themes } from '../../../../src';
 
 const Box = styled('div')`
   ${({ theme, spacingName }) => css`
@@ -37,14 +37,14 @@ const SpacingName = styled(Text)`
 `;
 
 const Spacing = ({ spacingName }) => (
-  <ThemeProvider theme={circuit}>
+  <ThemeProvider theme={themes.circuit}>
     <Wrapper>
       <Box spacingName={spacingName} />
       <div>
         <Text element="span">{spacingName}</Text>
         <SpacingSize>
           <SpacingName size={Text.KILO} element="span">
-            {circuit.spacings[spacingName]}
+            {themes.circuit.spacings[spacingName]}
           </SpacingName>
         </SpacingSize>
       </div>

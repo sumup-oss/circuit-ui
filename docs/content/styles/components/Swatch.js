@@ -47,12 +47,12 @@ const ColorWrapper = styled('div')`
 `;
 
 const Swatch = ({ colorName }) => (
-  <ThemeProvider theme={themes.standard}>
+  <ThemeProvider theme={themes.circuit}>
     <ColorWrapper>
       <Color colorName={colorName} />
       <ColorName>
         <ColorHex element="span" size="kilo" noMargin>
-          {themes.standard.colors[colorName]}
+          {themes.circuit.colors[colorName]}
         </ColorHex>
         <Text bold element="span" size="kilo" noMargin>
           {colorName}

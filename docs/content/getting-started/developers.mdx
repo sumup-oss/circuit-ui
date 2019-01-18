@@ -31,11 +31,10 @@ In most cases, you will want to use the SumUp default theme.
 
 ```javascript
 import { ThemeProvider } from 'emotion-theming';
-import { standard } from 'circuit-ui/themes';
-import { Button } from 'circuit-ui';
+import { Button, theme } from '@sumup/circuit-ui';
 
 const App = () => (
-  <ThemeProvider theme={standard}>
+  <ThemeProvider theme={theme.standard}>
     <Button primary>Click me</Button>
   </ThemeProvider>
 );
@@ -45,7 +44,7 @@ export default App;
 
 ## Using components
 
-Simply import components by name from the `circuit-ui` package, as demonstrated
+Simply import components by name from the `@sumup/circuit-ui` package, as demonstrated
 above.
 
 ## Using helpers
@@ -57,8 +56,7 @@ There are a few helpers you may want to use within Circuit.
 Sometimes you may need to apply global styles to your page. Here is how you can do this with the utilities provided by Circuit UI.
 
 ```javascript
-import { standard } from 'circuit-ui/themes';
-import { globalStyles } from 'circuit-ui/styles';
+import { theme, injectGlobalStyles } from '@sumup/circuit-ui';
 
 const customStyles = `
   body {
@@ -66,7 +64,7 @@ const customStyles = `
   }
 `;
 
-globalStyles({ theme: standard, custom: customStyles });
+globalStyles({ theme: theme.standard, custom: customStyles });
 ```
 
 ## Contributing
@@ -74,5 +72,3 @@ globalStyles({ theme: standard, custom: customStyles });
 You can open a pull request on Github.
 
 # Developers
-=======
->>>>>>> f0c2e14... Work on button documentation, upgrade code fences missing language specification.
