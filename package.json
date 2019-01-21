@@ -34,6 +34,7 @@
     "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js",
     "clean:js": "rimraf lib",
     "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
+    "release": "semantic-release",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "prepublishOnly": "yarn build:js",
