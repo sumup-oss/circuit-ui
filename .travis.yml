@@ -1,21 +1,44 @@
-language: node_js
 sudo: required
+
 dist: trusty
+
+language: node_js
+
 node_js: '10.15.0'
+
+cache: yarn
+
 before_install:
   - npm install -g yarn
 install: yarn install --frozen-lockfile
-script: yarn check:security && yarn check:licenses && yarn test:ci
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master
-  local-dir: dist
-  target_branch: gh-pages # default
+jobs:
+  include:
+    # Run tests in parallel
+    - stage: test
+      script: yarn test:lint-js
+    - script: yarn test:unit --runInBand
+    - script: yarn check:security && yarn check:licenses
+    - stage: publish
+      script: yarn predeploy
+      deploy:
+        # Publish package to NPM
+        - provider: script
+          skip_cleanup: true
+          script:
+            - yarn release
+        # Deploy docz and Storybook to GitHub Pages
+        - provider: pages
+          skip_cleanup: true
+          github_token: $GITHUB_TOKEN
+          on:
+            branch: master
+          local-dir: dist
+          target_branch: gh-pages
+
 before_deploy:
+  # Increase number of watchers
   - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-  - rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME
+
+# Upload coverage reports to Codecov
 after_success: yarn coverage:upload -t ${CODECOV_TOKEN}
