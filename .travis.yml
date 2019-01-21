@@ -25,21 +25,22 @@ jobs:
       # Upload coverage reports to Codecov
       after_success: yarn coverage:upload -t ${CODECOV_TOKEN}
     - stage: publish
-      script:
-        # Increase number of watchers
-        - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-        - yarn predeploy
+      script: skip
+      # Publish package to NPM
       deploy:
-        # Publish package to NPM
-        - provider: script
-          skip_cleanup: true
-          script:
-            - yarn release
-        # Deploy docz and Storybook to GitHub Pages
-        - provider: pages
-          skip_cleanup: true
-          github_token: $GITHUB_TOKEN
-          on:
-            branch: master
-          local-dir: dist
-          target_branch: gh-pages
+        provider: script
+        skip_cleanup: true
+        script: yarn release
+      # Increase number of watchers
+    - script: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+      if: branch = master
+      # Deploy docz and Storybook to GitHub Pages
+      before_deploy: yarn predeploy
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        on:
+          branch: master
+        local-dir: dist
+        target_branch: gh-pages
