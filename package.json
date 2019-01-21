@@ -10,6 +10,7 @@
     "README.md"
   ],
   "scripts": {
+    "commit": "git-cz",
     "fix": "yarn fix:eslint",
     "fix:eslint": "foundry run eslint --fix --quiet src/**/**/*.js",
     "test": "yarn test:lint-js && yarn test:unit",
@@ -40,6 +41,14 @@
     "prepublishOnly": "yarn build:js",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.js"
+    }
   },
   "repository": {
     "type": "git",
@@ -114,6 +123,10 @@
     "@svgr/webpack": "^4.1.0",
     "babel-plugin-inline-react-svg": "^1.1.0",
     "css-loader": "^2.1.1",
+    "commitizen": "^3.0.5",
+    "create-react-context": "^0.2.1",
+    "cz-customizable": "^5.3.0",
+    "cz-customizable-ghooks": "^1.5.0",
     "dom-helpers": "^3.4.0",
     "downshift": "^1.31.14",
     "emotion": "^10.0.9",
