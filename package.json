@@ -34,7 +34,7 @@
     "clean:js": "rimraf lib",
     "predeploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME",
     "deploy": "gh-pages -d dist",
-    "prerelease": "build:js",
+    "prerelease": "yarn build:js",
     "release": "semantic-release",
     "coverage:upload": "codecov",
     "docz:dev": "docz dev",
