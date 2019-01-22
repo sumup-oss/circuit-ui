@@ -31,10 +31,7 @@ jobs:
         provider: script
         skip_cleanup: true
         on:
-          branches:
-            - master
-            - next
-            - beta
+          all_branches: true
         script: yarn release
       # Increase number of watchers
     - script: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
