@@ -1,7 +1,10 @@
+const { merge } = require('lodash/fp');
 const { base: baseConfig } = require('@sumup/foundry/husky');
 
 const customConfig = {
-  'commit-msg': 'cz-customizable-ghooks'
+  hooks: {
+    'commit-msg': 'cz-customizable-ghooks ${HUSKY_GIT_PARAMS}'
+  }
 };
 
-module.exports = { ...baseConfig, ...customConfig };
+module.exports = merge(baseConfig, customConfig);
