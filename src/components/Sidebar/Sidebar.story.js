@@ -1,41 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { range } from 'lodash/fp';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { boolean, select } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
 import Sidebar from '.';
 
-class SidebarContainer extends Component {
-  state = { selectedItem: 0 };
-
-  handleNavItemClick = index => {
-    this.setState({ selectedItem: index });
-  };
-
-  render() {
-    return (
-      <div style={{ height: '600px' }}>
-        <Sidebar>
-          <Sidebar.Header>Header</Sidebar.Header>
-          <Sidebar.NavList>
-            {range(1, 5).map((value, i) => (
-              <Sidebar.NavItem
-                key={i}
-                selected={this.state.selectedItem === i}
-                onClick={() => this.handleNavItemClick(i)}
-              >
-                Item #{i}
-              </Sidebar.NavItem>
-            ))}
-          </Sidebar.NavList>
-        </Sidebar>
-      </div>
-    );
-  }
-}
-
 storiesOf(`${GROUPS.COMPONENTS}|Sidebar`, module)
   .addDecorator(withTests('Sidebar'))
-  .add('Sidebar', withInfo()(() => <SidebarContainer />));
+  .add(
+    'Sidebar',
+    withInfo()(() => {
+      const open = boolean('open', false);
+      const selected = select('selected', range(0, 4), 0);
+      return (
+        <div
+          style={{
+            height: '600px',
+            width: '400px',
+            backgroundColor: '#FFFFFF'
+          }}
+        >
+          <Sidebar open={open} onClose={() => null}>
+            <Sidebar.Header>Header</Sidebar.Header>
+            <Sidebar.NavList>
+              {range(0, 4).map(i => (
+                <Sidebar.NavItem
+                  key={i}
+                  selected={i === Number(selected)}
+                  onClick={() => null}
+                >
+                  Item #{i}
+                </Sidebar.NavItem>
+              ))}
+            </Sidebar.NavList>
+          </Sidebar>
+        </div>
+      );
+    })
+  );
