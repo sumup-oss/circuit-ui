@@ -9,6 +9,7 @@ import Backdrop from './components/Backdrop';
 import CloseButton from './components/CloseButton';
 
 const baseStyles = ({ theme, open }) => css`
+  label: sidebar;
   display: flex;
   flex-direction: column;
   height: 100%;

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 const baseStyles = ({ theme, visible }) => css`
+  label: backdrop;
   width: 100%;
   height: 100%;
   position: absolute;

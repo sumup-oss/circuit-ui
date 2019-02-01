@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 const baseStyles = () => css`
+  label: nav-list;
   height: auto;
   justify-self: flex-start;
   overflow-y: auto;

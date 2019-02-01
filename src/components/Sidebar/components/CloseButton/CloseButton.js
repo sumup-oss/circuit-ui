@@ -1,8 +1,15 @@
+import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 
+import CloseIcon from './closeIcon.svg';
+
 const baseStyles = ({ theme, visible }) => css`
+  label: close-button;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -19,13 +26,23 @@ const baseStyles = ({ theme, visible }) => css`
   `};
 `;
 
-const CloseButton = styled('button')(baseStyles);
+const FloatingButton = styled('button')(baseStyles);
+
+const CloseButton = ({ visible, onClick }) => (
+  <FloatingButton visible={visible} onClick={onClick}>
+    <CloseIcon />
+  </FloatingButton>
+);
 
 CloseButton.propTypes = {
   /**
    * Tells if the CloseButton is visible
    */
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
+  /**
+   * A function to handle the the click on the CloseButton
+   */
+  onClick: PropTypes.func
 };
 
 export default CloseButton;
