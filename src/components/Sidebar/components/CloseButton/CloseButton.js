@@ -8,8 +8,8 @@ const baseStyles = ({ theme, visible }) => css`
   border-radius: 50%;
   background-color: ${theme.colors.n100};
   position: absolute;
-  bottom: 16px;
-  right: 16px;
+  bottom: ${theme.spacings.mega};
+  right: ${theme.spacings.mega};
   transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out;
   visibility: ${visible ? 'visible' : 'hidden'};
   opacity: ${visible ? 1 : 0};

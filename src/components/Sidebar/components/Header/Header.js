@@ -8,7 +8,7 @@ const baseStyles = ({ theme }) => css`
   justify-content: flex-start;
   height: 64px;
   width: 100%;
-  padding: 20px;
+  padding: ${theme.spacings.giga};
   background-color: ${theme.colors.bodyColor};
   color: ${theme.colors.n100};
 `;
