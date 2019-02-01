@@ -34,6 +34,17 @@ describe('NavItem', () => {
       expect(actual).toHaveLength(1);
       expect(actual.text()).toEqual('text node');
     });
+
+    it('should render an icon', () => {
+      const wrapper = shallow(
+        <NavItem icon={<div />}>
+          <span data-selector="child">text node</span>
+        </NavItem>
+      );
+      const actual = wrapper.find('IconWrapper');
+
+      expect(actual).toHaveLength(1);
+    });
   });
 
   describe('accessibility', () => {

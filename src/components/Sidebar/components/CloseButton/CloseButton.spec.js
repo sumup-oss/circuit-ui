@@ -2,18 +2,19 @@ import React from 'react';
 
 import CloseButton from './CloseButton';
 
-describe.skip('CloseButton', () => {
-  // !TODO: write your tests.
+describe('CloseButton', () => {
   describe('styles', () => {
-    it('should render with default styles', () => {
-      const actual = create(<CloseButton />);
+    it('should render and match snapshot when not visible', () => {
+      const actual = create(<CloseButton visible={false} />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render and match snapshot when visible', () => {
+      const actual = create(<CloseButton visible={true} />);
       expect(actual).toMatchSnapshot();
     });
   });
 
-  describe('business logic', () => {
-    it('should have tests');
-  });
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(<CloseButton />);

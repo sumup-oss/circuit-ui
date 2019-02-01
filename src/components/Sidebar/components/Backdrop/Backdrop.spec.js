@@ -2,18 +2,19 @@ import React from 'react';
 
 import Backdrop from './Backdrop';
 
-describe.skip('Backdrop', () => {
-  // !TODO: write your tests.
+describe('Backdrop', () => {
   describe('styles', () => {
-    it('should render with default styles', () => {
-      const actual = create(<Backdrop />);
+    it('should render with default styles when not visible', () => {
+      const actual = create(<Backdrop visible={false} />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with default styles when visible', () => {
+      const actual = create(<Backdrop visible={true} />);
       expect(actual).toMatchSnapshot();
     });
   });
 
-  describe('business logic', () => {
-    it('should have tests');
-  });
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(<Backdrop />);

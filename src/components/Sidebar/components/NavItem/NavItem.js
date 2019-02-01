@@ -7,8 +7,8 @@ const baseStyles = ({ theme }) => css`
   align-items: center;
   justify-content: flex-start;
   height: auto;
-  margin: 16px;
-  padding: 4px;
+  margin: ${theme.spacings.mega};
+  padding: ${theme.spacings.bit};
   cursor: pointer;
   color: ${theme.colors.n500};
 `;
@@ -23,15 +23,15 @@ const hoverStyles = ({ theme, selected }) => css`
 
 const activeStyles = ({ theme, selected }) => css`
   color: ${selected && theme.colors.n100};
-  font-weight: ${selected && 'bold'};
+  font-weight: ${selected && theme.fontWeight.bold};
   &:active {
     color: ${theme.colors.n100};
-    font-weight: bold;
+    font-weight: ${theme.fontWeight.bold};
   }
 `;
 
-const iconWrapperStyles = () => css`
-  margin-right: 12px;
+const iconWrapperStyles = ({ theme }) => css`
+  margin-right: ${theme.spacings.kilo};
 `;
 
 const ListItem = styled('li')(baseStyles, hoverStyles, activeStyles);

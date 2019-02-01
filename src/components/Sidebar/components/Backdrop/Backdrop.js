@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 const baseStyles = ({ theme, visible }) => css`
   width: 100%;
   height: 100%;
-  position: relative;
+  position: absolute;
   background-color: black;
   transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out;
   visibility: ${visible ? 'visible' : 'hidden'};

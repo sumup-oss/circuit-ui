@@ -1,4 +1,5 @@
 import styled, { css } from 'react-emotion';
+import PropTypes from 'prop-types';
 
 const baseStyles = ({ theme, visible }) => css`
   outline: none;
@@ -19,5 +20,12 @@ const baseStyles = ({ theme, visible }) => css`
 `;
 
 const CloseButton = styled('button')(baseStyles);
+
+CloseButton.propTypes = {
+  /**
+   * Tells if the CloseButton is visible
+   */
+  visible: PropTypes.bool
+};
 
 export default CloseButton;

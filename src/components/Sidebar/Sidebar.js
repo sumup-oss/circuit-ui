@@ -14,12 +14,12 @@ const baseStyles = ({ theme, open }) => css`
   height: 100%;
   width: 256px;
   background-color: ${theme.colors.n900};
-  transition: left 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
   position: absolute;
-  left: ${open ? 0 : '-256px'};
+  transform: translateX(${open ? 0 : '-256px'});
   z-index: 1;
   ${theme.mq.mega`
-    left: 0;
+    transform: translateX(0);
     position: relative;
   `};
 `;
