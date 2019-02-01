@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavItem styles should render with default styles and match the snapshot 1`] = `
-.circuit-0 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -19,28 +19,42 @@ exports[`NavItem styles should render with default styles and match the snapshot
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
+  fill: #9DA7B1;
 }
 
 @media (hover:hover) {
-  .circuit-0:hover {
+  .circuit-2:hover {
     color: #D8DDE1;
+    fill: #D8DDE1;
   }
 }
 
-.circuit-0:active {
+.circuit-2:active {
   color: #FAFBFC;
-  font-weight: bold;
+  font-weight: 700;
+}
+
+.circuit-0 {
+  margin-left: 12px;
 }
 
 <li
-  className="circuit-0 circuit-1"
+  className="circuit-2 circuit-3"
   onClick={[MockFunction]}
   selected={false}
-/>
+>
+  <div
+    className="circuit-0 circuit-1"
+  />
+</li>
 `;
 
 exports[`NavItem styles should render with selected state styles and match the snapshot 1`] = `
 .circuit-0 {
+  margin-left: 12px;
+}
+
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -58,22 +72,27 @@ exports[`NavItem styles should render with selected state styles and match the s
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
+  fill: #9DA7B1;
   color: #FAFBFC;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 @media (hover:hover) {
 
 }
 
-.circuit-0:active {
+.circuit-2:active {
   color: #FAFBFC;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 <li
-  className="circuit-0 circuit-1"
+  className="circuit-2 circuit-3"
   onClick={[MockFunction]}
   selected={true}
-/>
+>
+  <div
+    className="circuit-0 circuit-1"
+  />
+</li>
 `;

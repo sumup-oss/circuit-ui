@@ -51,6 +51,18 @@ exports[`<Sidebar /> should render and match snapshot when open 1`] = `
 
 .circuit-4 {
   outline: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -94,10 +106,21 @@ exports[`<Sidebar /> should render and match snapshot when open 1`] = `
     onClick={[MockFunction]}
     visible={true}
   >
-    <button
-      className="circuit-4 circuit-5"
+    <FloatingButton
       onClick={[MockFunction]}
-    />
+      visible={true}
+    >
+      <button
+        className="circuit-4 circuit-5"
+        onClick={[MockFunction]}
+      >
+        <Component>
+          <div>
+            closeIcon.svg
+          </div>
+        </Component>
+      </button>
+    </FloatingButton>
   </CloseButton>
 </Sidebar>
 `;
@@ -153,6 +176,18 @@ exports[`<Sidebar /> should render and match the snapshot when closed 1`] = `
 
 .circuit-4 {
   outline: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -196,10 +231,21 @@ exports[`<Sidebar /> should render and match the snapshot when closed 1`] = `
     onClick={[MockFunction]}
     visible={false}
   >
-    <button
-      className="circuit-4 circuit-5"
+    <FloatingButton
       onClick={[MockFunction]}
-    />
+      visible={false}
+    >
+      <button
+        className="circuit-4 circuit-5"
+        onClick={[MockFunction]}
+      >
+        <Component>
+          <div>
+            closeIcon.svg
+          </div>
+        </Component>
+      </button>
+    </FloatingButton>
   </CloseButton>
 </Sidebar>
 `;

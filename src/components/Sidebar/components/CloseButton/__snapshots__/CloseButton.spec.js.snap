@@ -3,6 +3,18 @@
 exports[`CloseButton styles should render and match snapshot when not visible 1`] = `
 .circuit-0 {
   outline: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -25,12 +37,29 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
 
 <button
   className="circuit-0 circuit-1"
-/>
+  onClick={undefined}
+>
+  <div>
+    closeIcon.svg
+  </div>
+</button>
 `;
 
 exports[`CloseButton styles should render and match snapshot when visible 1`] = `
 .circuit-0 {
   outline: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -53,5 +82,10 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
 
 <button
   className="circuit-0 circuit-1"
-/>
+  onClick={undefined}
+>
+  <div>
+    closeIcon.svg
+  </div>
+</button>
 `;
