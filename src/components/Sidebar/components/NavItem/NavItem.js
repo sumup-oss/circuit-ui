@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 const baseStyles = ({ theme }) => css`
+  label: nav-item;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -11,17 +12,21 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacings.bit};
   cursor: pointer;
   color: ${theme.colors.n500};
+  fill: ${theme.colors.n500};
 `;
 
 const hoverStyles = ({ theme, selected }) => css`
+  label: nav-item__hover;
   @media (hover: hover) {
     &:hover {
       color: ${!selected && theme.colors.n300};
+      fill: ${!selected && theme.colors.n300};
     }
   }
 `;
 
 const activeStyles = ({ theme, selected }) => css`
+  label: nav-item__active;
   color: ${selected && theme.colors.n100};
   font-weight: ${selected && theme.fontWeight.bold};
   &:active {
@@ -30,17 +35,24 @@ const activeStyles = ({ theme, selected }) => css`
   }
 `;
 
-const iconWrapperStyles = ({ theme }) => css`
-  margin-right: ${theme.spacings.kilo};
+const ListItem = styled('li')(baseStyles, hoverStyles, activeStyles);
+
+const labelWrapperStyles = ({ theme }) => css`
+  margin-left: ${theme.spacings.kilo};
 `;
 
-const ListItem = styled('li')(baseStyles, hoverStyles, activeStyles);
-const IconWrapper = styled('div')(iconWrapperStyles);
+const LabelWrapper = styled('div')(labelWrapperStyles);
 
-const NavItem = ({ children, icon, selected, onClick }) => (
+const NavItem = ({
+  children,
+  defaultIcon,
+  selectedIcon,
+  selected,
+  onClick
+}) => (
   <ListItem selected={selected} onClick={onClick}>
-    {icon && <IconWrapper>{icon}</IconWrapper>}
-    {children}
+    {defaultIcon && selectedIcon && selected ? selectedIcon : defaultIcon}
+    <LabelWrapper>{children}</LabelWrapper>
   </ListItem>
 );
 
@@ -50,9 +62,13 @@ NavItem.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * The icon to be shown befor the Item title
+   * The icon to be shown when the NavItem is not selected
    */
-  icon: PropTypes.node,
+  defaultIcon: PropTypes.node,
+  /**
+   * The icon to be shown when the NavItem is selected
+   */
+  selectedIcon: PropTypes.node,
   /**
    * Tells if the item is selected
    */
