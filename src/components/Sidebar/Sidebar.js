@@ -17,7 +17,7 @@ const baseStyles = ({ theme, open }) => css`
   height: 100%;
   width: ${SIDEBAR_WIDTH}px;
   background-color: ${theme.colors.n900};
-  transition: transform 150ms ease-in-out;
+  transition: transform ${theme.transitions.default};
   position: absolute;
   transform: translateX(${open ? 0 : `-${SIDEBAR_WIDTH}px`});
   z-index: 1;
