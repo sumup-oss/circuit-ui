@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 
+import { hideVisually } from 'polished';
 import CloseIcon from './closeIcon.svg';
 
 const baseStyles = ({ theme, visible }) => css`
@@ -26,11 +27,16 @@ const baseStyles = ({ theme, visible }) => css`
   `};
 `;
 
+const AccessibilityLabel = styled.span`
+  ${hideVisually()};
+`;
+
 const FloatingButton = styled('button')(baseStyles);
 
-const CloseButton = ({ visible, onClick }) => (
+const CloseButton = ({ visible, closeButtonLabel, onClick }) => (
   <FloatingButton visible={visible} onClick={onClick}>
-    <CloseIcon />
+    <AccessibilityLabel>{closeButtonLabel}</AccessibilityLabel>
+    <CloseIcon aria-hidden="true" />
   </FloatingButton>
 );
 
@@ -39,6 +45,10 @@ CloseButton.propTypes = {
    * Tells if the CloseButton is visible
    */
   visible: PropTypes.bool,
+  /**
+   * Accessibility label for the CloseButton
+   */
+  closeButtonLabel: PropTypes.string.isRequired,
   /**
    * A function to handle the the click on the CloseButton
    */

@@ -58,6 +58,21 @@ Array [
     className="circuit-0 circuit-1"
   />,
   .circuit-0 {
+  border: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
   outline: none;
   display: -webkit-box;
   display: -webkit-flex;
@@ -86,15 +101,18 @@ Array [
 }
 
 @media (min-width:768px) {
-  .circuit-0 {
+  .circuit-2 {
     visibility: hidden;
   }
 }
 
 <button
-    className="circuit-0 circuit-1"
+    className="circuit-2 circuit-3"
     onClick={[MockFunction]}
   >
+    <span
+      className="circuit-0 circuit-1"
+    />
     <div>
       closeIcon.svg
     </div>
@@ -159,7 +177,7 @@ Array [
 <div
     className="circuit-0 circuit-1"
   />,
-  .circuit-0 {
+  .circuit-2 {
   outline: none;
   display: -webkit-box;
   display: -webkit-flex;
@@ -188,15 +206,33 @@ Array [
 }
 
 @media (min-width:768px) {
-  .circuit-0 {
+  .circuit-2 {
     visibility: hidden;
   }
 }
 
+.circuit-0 {
+  border: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 <button
-    className="circuit-0 circuit-1"
+    className="circuit-2 circuit-3"
     onClick={[MockFunction]}
   >
+    <span
+      className="circuit-0 circuit-1"
+    />
     <div>
       closeIcon.svg
     </div>

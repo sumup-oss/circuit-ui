@@ -26,7 +26,11 @@ storiesOf(`${GROUPS.COMPONENTS}|Sidebar`, module)
       const selected = select('selected', range(0, 4), 0);
       return (
         <SidebarContainer>
-          <Sidebar open={open} onClose={() => null}>
+          <Sidebar
+            open={open}
+            onClose={() => null}
+            closeButtonLabel="close-button"
+          >
             <Sidebar.Header>Header</Sidebar.Header>
             <Sidebar.NavList>
               {range(0, 4).map(i => (

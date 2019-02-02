@@ -29,11 +29,15 @@ const baseStyles = ({ theme, open }) => css`
 
 const Drawer = styled('div')(baseStyles);
 
-const Sidebar = ({ children, open, onClose }) => (
+const Sidebar = ({ children, open, closeButtonLabel, onClose }) => (
   <Fragment>
     <Drawer open={open}>{children}</Drawer>
     <Backdrop visible={open} />
-    <CloseButton visible={open} onClick={onClose} />
+    <CloseButton
+      visible={open}
+      closeButtonLabel={closeButtonLabel}
+      onClick={onClose}
+    />
   </Fragment>
 );
 
@@ -46,6 +50,10 @@ Sidebar.propTypes = {
    * Tells if the Sidebar is open
    */
   open: PropTypes.bool,
+  /**
+   * Accessibility label for the CloseButton
+   */
+  closeButtonLabel: PropTypes.string.isRequired,
   /**
    * A function to handle the sidebar close
    */

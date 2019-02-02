@@ -29,11 +29,6 @@ exports[`NavItem styles should render with default styles and match the snapshot
   }
 }
 
-.circuit-2:active {
-  color: #FAFBFC;
-  font-weight: 700;
-}
-
 .circuit-0 {
   margin-left: 12px;
 }
@@ -73,15 +68,6 @@ exports[`NavItem styles should render with selected state styles and match the s
   cursor: pointer;
   color: #9DA7B1;
   fill: #9DA7B1;
-  color: #FAFBFC;
-  font-weight: 700;
-}
-
-@media (hover:hover) {
-
-}
-
-.circuit-2:active {
   color: #FAFBFC;
   font-weight: 700;
 }
