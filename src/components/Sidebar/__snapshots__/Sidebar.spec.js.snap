@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Sidebar /> should render and match snapshot when open 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12,9 +13,9 @@ exports[`<Sidebar /> should render and match snapshot when open 1`] = `
   height: 100%;
   width: 256px;
   background-color: #212933;
-  -webkit-transition: -webkit-transform 150ms ease-in-out;
-  -webkit-transition: transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out;
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  -webkit-transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
   position: absolute;
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -31,25 +32,32 @@ exports[`<Sidebar /> should render and match snapshot when open 1`] = `
   }
 }
 
-.circuit-2 {
+<div
+    className="circuit-0 circuit-1"
+    open={true}
+  />,
+  .circuit-0 {
   width: 100%;
   height: 100%;
   position: absolute;
   background-color: black;
-  -webkit-transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
-  transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,visibility 200ms ease-in-out;
   visibility: visible;
   opacity: 0.56;
   z-index: 0;
 }
 
 @media (min-width:768px) {
-  .circuit-2 {
+  .circuit-0 {
     visibility: hidden;
   }
 }
 
-.circuit-4 {
+<div
+    className="circuit-0 circuit-1"
+  />,
+  .circuit-0 {
   outline: none;
   display: -webkit-box;
   display: -webkit-flex;
@@ -78,55 +86,25 @@ exports[`<Sidebar /> should render and match snapshot when open 1`] = `
 }
 
 @media (min-width:768px) {
-  .circuit-4 {
+  .circuit-0 {
     visibility: hidden;
   }
 }
 
-<Sidebar
-  onClose={[MockFunction]}
-  open={true}
->
-  <Drawer
-    open={true}
-  >
-    <div
-      className="circuit-0 circuit-1"
-      open={true}
-    />
-  </Drawer>
-  <Backdrop
-    visible={true}
-  >
-    <div
-      className="circuit-2 circuit-3"
-    />
-  </Backdrop>
-  <CloseButton
+<button
+    className="circuit-0 circuit-1"
     onClick={[MockFunction]}
-    visible={true}
   >
-    <FloatingButton
-      onClick={[MockFunction]}
-      visible={true}
-    >
-      <button
-        className="circuit-4 circuit-5"
-        onClick={[MockFunction]}
-      >
-        <Component>
-          <div>
-            closeIcon.svg
-          </div>
-        </Component>
-      </button>
-    </FloatingButton>
-  </CloseButton>
-</Sidebar>
+    <div>
+      closeIcon.svg
+    </div>
+  </button>,
+]
 `;
 
 exports[`<Sidebar /> should render and match the snapshot when closed 1`] = `
-.circuit-0 {
+Array [
+  .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -137,9 +115,9 @@ exports[`<Sidebar /> should render and match the snapshot when closed 1`] = `
   height: 100%;
   width: 256px;
   background-color: #212933;
-  -webkit-transition: -webkit-transform 150ms ease-in-out;
-  -webkit-transition: transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out;
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  -webkit-transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
   position: absolute;
   -webkit-transform: translateX(-256px);
   -ms-transform: translateX(-256px);
@@ -156,25 +134,32 @@ exports[`<Sidebar /> should render and match the snapshot when closed 1`] = `
   }
 }
 
-.circuit-2 {
+<div
+    className="circuit-0 circuit-1"
+    open={false}
+  />,
+  .circuit-0 {
   width: 100%;
   height: 100%;
   position: absolute;
   background-color: black;
-  -webkit-transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
-  transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out,visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out,visibility 200ms ease-in-out;
   visibility: hidden;
   opacity: 0;
   z-index: 0;
 }
 
 @media (min-width:768px) {
-  .circuit-2 {
+  .circuit-0 {
     visibility: hidden;
   }
 }
 
-.circuit-4 {
+<div
+    className="circuit-0 circuit-1"
+  />,
+  .circuit-0 {
   outline: none;
   display: -webkit-box;
   display: -webkit-flex;
@@ -203,49 +188,18 @@ exports[`<Sidebar /> should render and match the snapshot when closed 1`] = `
 }
 
 @media (min-width:768px) {
-  .circuit-4 {
+  .circuit-0 {
     visibility: hidden;
   }
 }
 
-<Sidebar
-  onClose={[MockFunction]}
-  open={false}
->
-  <Drawer
-    open={false}
-  >
-    <div
-      className="circuit-0 circuit-1"
-      open={false}
-    />
-  </Drawer>
-  <Backdrop
-    visible={false}
-  >
-    <div
-      className="circuit-2 circuit-3"
-    />
-  </Backdrop>
-  <CloseButton
+<button
+    className="circuit-0 circuit-1"
     onClick={[MockFunction]}
-    visible={false}
   >
-    <FloatingButton
-      onClick={[MockFunction]}
-      visible={false}
-    >
-      <button
-        className="circuit-4 circuit-5"
-        onClick={[MockFunction]}
-      >
-        <Component>
-          <div>
-            closeIcon.svg
-          </div>
-        </Component>
-      </button>
-    </FloatingButton>
-  </CloseButton>
-</Sidebar>
+    <div>
+      closeIcon.svg
+    </div>
+  </button>,
+]
 `;
