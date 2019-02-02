@@ -7,7 +7,7 @@ describe('<Sidebar />', () => {
       open: false,
       onClose: jest.fn()
     };
-    const actual = mount(<Sidebar {...props} />);
+    const actual = create(<Sidebar {...props} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -16,7 +16,7 @@ describe('<Sidebar />', () => {
       open: true,
       onClose: jest.fn()
     };
-    const actual = mount(<Sidebar {...props} />);
+    const actual = create(<Sidebar {...props} />);
     expect(actual).toMatchSnapshot();
   });
 
