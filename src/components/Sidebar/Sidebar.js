@@ -8,16 +8,18 @@ import NavItem from './components/NavItem';
 import Backdrop from './components/Backdrop';
 import CloseButton from './components/CloseButton';
 
+const SIDEBAR_WIDTH = 256;
+
 const baseStyles = ({ theme, open }) => css`
   label: sidebar;
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 256px;
+  width: ${SIDEBAR_WIDTH}px;
   background-color: ${theme.colors.n900};
   transition: transform 150ms ease-in-out;
   position: absolute;
-  transform: translateX(${open ? 0 : '-256px'});
+  transform: translateX(${open ? 0 : `-${SIDEBAR_WIDTH}px`});
   z-index: 1;
   ${theme.mq.mega`
     transform: translateX(0);
