@@ -22,11 +22,9 @@ exports[`NavItem styles should render with default styles and match the snapshot
   fill: #9DA7B1;
 }
 
-@media (hover:hover) {
-  .circuit-2:hover {
-    color: #D8DDE1;
-    fill: #D8DDE1;
-  }
+.circuit-2:hover {
+  color: #D8DDE1;
+  fill: #D8DDE1;
 }
 
 .circuit-0 {
