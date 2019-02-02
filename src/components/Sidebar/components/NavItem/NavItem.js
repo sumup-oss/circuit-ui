@@ -15,25 +15,25 @@ const baseStyles = ({ theme }) => css`
   fill: ${theme.colors.n500};
 `;
 
-const hoverStyles = ({ theme, selected }) => css`
-  label: nav-item__hover;
-  @media (hover: hover) {
-    &:hover {
-      color: ${!selected && theme.colors.n300};
-      fill: ${!selected && theme.colors.n300};
+const hoverStyles = ({ theme, selected }) =>
+  !selected &&
+  css`
+    label: nav-item__hover;
+    @media (hover: hover) {
+      &:hover {
+        color: ${theme.colors.n300};
+        fill: ${theme.colors.n300};
+      }
     }
-  }
-`;
+  `;
 
-const activeStyles = ({ theme, selected }) => css`
-  label: nav-item__active;
-  color: ${selected && theme.colors.n100};
-  font-weight: ${selected && theme.fontWeight.bold};
-  &:active {
+const activeStyles = ({ theme, selected }) =>
+  selected &&
+  css`
+    label: nav-item__active;
     color: ${theme.colors.n100};
     font-weight: ${theme.fontWeight.bold};
-  }
-`;
+  `;
 
 const ListItem = styled('li')(baseStyles, hoverStyles, activeStyles);
 
