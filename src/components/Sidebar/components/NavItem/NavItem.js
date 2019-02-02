@@ -19,11 +19,9 @@ const hoverStyles = ({ theme, selected }) =>
   !selected &&
   css`
     label: nav-item__hover;
-    @media (hover: hover) {
-      &:hover {
-        color: ${theme.colors.n300};
-        fill: ${theme.colors.n300};
-      }
+    &:hover {
+      color: ${theme.colors.n300};
+      fill: ${theme.colors.n300};
     }
   `;
 
