@@ -15,7 +15,7 @@ const baseStyles = ({ theme, open }) => css`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: ${SIDEBAR_WIDTH}px;
+  min-width: ${SIDEBAR_WIDTH}px;
   background-color: ${theme.colors.n900};
   transition: transform ${theme.transitions.default};
   position: absolute;
