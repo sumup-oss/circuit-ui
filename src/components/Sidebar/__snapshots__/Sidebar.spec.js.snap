@@ -11,7 +11,7 @@ Array [
   -ms-flex-direction: column;
   flex-direction: column;
   height: 100%;
-  width: 256px;
+  min-width: 256px;
   background-color: #212933;
   -webkit-transition: -webkit-transform 200ms ease-in-out;
   -webkit-transition: transform 200ms ease-in-out;
@@ -20,7 +20,7 @@ Array [
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0);
-  z-index: 1;
+  z-index: 1000;
 }
 
 @media (min-width:768px) {
@@ -45,7 +45,7 @@ Array [
   transition: opacity 200ms ease-in-out,visibility 200ms ease-in-out;
   visibility: visible;
   opacity: 0.56;
-  z-index: 0;
+  z-index: 900;
 }
 
 @media (min-width:768px) {
@@ -73,6 +73,7 @@ Array [
 }
 
 .circuit-2 {
+  cursor: pointer;
   outline: none;
   display: -webkit-box;
   display: -webkit-flex;
@@ -97,7 +98,7 @@ Array [
   transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
   visibility: visible;
   opacity: 1;
-  z-index: 1;
+  z-index: 1000;
 }
 
 @media (min-width:768px) {
@@ -131,7 +132,7 @@ Array [
   -ms-flex-direction: column;
   flex-direction: column;
   height: 100%;
-  width: 256px;
+  min-width: 256px;
   background-color: #212933;
   -webkit-transition: -webkit-transform 200ms ease-in-out;
   -webkit-transition: transform 200ms ease-in-out;
@@ -140,7 +141,7 @@ Array [
   -webkit-transform: translateX(-256px);
   -ms-transform: translateX(-256px);
   transform: translateX(-256px);
-  z-index: 1;
+  z-index: 1000;
 }
 
 @media (min-width:768px) {
@@ -165,7 +166,7 @@ Array [
   transition: opacity 200ms ease-in-out,visibility 200ms ease-in-out;
   visibility: hidden;
   opacity: 0;
-  z-index: 0;
+  z-index: 900;
 }
 
 @media (min-width:768px) {
@@ -178,6 +179,7 @@ Array [
     className="circuit-0 circuit-1"
   />,
   .circuit-2 {
+  cursor: pointer;
   outline: none;
   display: -webkit-box;
   display: -webkit-flex;
@@ -202,7 +204,7 @@ Array [
   transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
   visibility: hidden;
   opacity: 0;
-  z-index: 1;
+  z-index: 1000;
 }
 
 @media (min-width:768px) {
