@@ -11,7 +11,7 @@ const baseStyles = ({ theme, visible }) => css`
     visibility ${theme.transitions.default};
   visibility: ${visible ? 'visible' : 'hidden'};
   opacity: ${visible ? 0.56 : 0};
-  z-index: 0;
+  z-index: ${theme.zIndex.backdrop};
   ${theme.mq.mega`
     visibility: hidden;  
   `};

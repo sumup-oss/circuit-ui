@@ -20,7 +20,7 @@ const baseStyles = ({ theme, open }) => css`
   transition: transform ${theme.transitions.default};
   position: absolute;
   transform: translateX(${open ? 0 : `-${SIDEBAR_WIDTH}px`});
-  z-index: 1;
+  z-index: ${theme.zIndex.modal};
   ${theme.mq.mega`
     transform: translateX(0);
     position: relative;

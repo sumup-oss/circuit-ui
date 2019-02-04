@@ -7,6 +7,7 @@ import CloseIcon from './closeIcon.svg';
 
 const baseStyles = ({ theme, visible }) => css`
   label: close-button;
+  cursor: pointer;
   outline: none;
   display: flex;
   align-items: center;
@@ -21,7 +22,7 @@ const baseStyles = ({ theme, visible }) => css`
   transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out;
   visibility: ${visible ? 'visible' : 'hidden'};
   opacity: ${visible ? 1 : 0};
-  z-index: 1;
+  z-index: ${theme.zIndex.modal};
   ${theme.mq.mega`
     visibility: hidden;  
   `};
