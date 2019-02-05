@@ -270,7 +270,8 @@ export const zIndex = {
   select: 20,
   popover: 30,
   tooltip: 31,
-  backdrop: 900,
+  backdrop: 700,
+  sidebar: 800,
   modal: 1000
 };
 
