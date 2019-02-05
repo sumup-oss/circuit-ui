@@ -10,24 +10,32 @@ import CloseButton from './components/CloseButton';
 
 const SIDEBAR_WIDTH = 256;
 
-const baseStyles = ({ theme, open }) => css`
+const baseStyles = ({ theme }) => css`
   label: sidebar;
-  display: flex;
-  flex-direction: column;
   height: 100%;
   min-width: ${SIDEBAR_WIDTH}px;
   background-color: ${theme.colors.n900};
   transition: transform ${theme.transitions.default};
   position: absolute;
-  transform: translateX(${open ? 0 : `-${SIDEBAR_WIDTH}px`});
-  z-index: ${theme.zIndex.modal};
+  transform: translateX(-100%);
+  z-index: ${theme.zIndex.sidebar};
   ${theme.mq.mega`
     transform: translateX(0);
     position: relative;
   `};
 `;
 
-const Drawer = styled('div')(baseStyles);
+const openStyles = ({ theme, open }) =>
+  open &&
+  css`
+    label: sidebar--open;
+    transform: translateX(0);
+    ${theme.mq.mega`
+      transform: translateX(0);
+    `};
+  `;
+
+const Drawer = styled('div')(baseStyles, openStyles);
 
 const Sidebar = ({ children, open, closeButtonLabel, onClose }) => (
   <Fragment>
