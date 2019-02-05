@@ -18,7 +18,7 @@ const baseStyles = ({ theme }) => css`
 const hoverStyles = ({ theme, selected }) =>
   !selected &&
   css`
-    label: nav-item__hover;
+    label: nav-item--hover;
     &:hover {
       color: ${theme.colors.n300};
       fill: ${theme.colors.n300};
@@ -28,7 +28,7 @@ const hoverStyles = ({ theme, selected }) =>
 const activeStyles = ({ theme, selected }) =>
   selected &&
   css`
-    label: nav-item__active;
+    label: nav-item--active;
     color: ${theme.colors.n100};
     font-weight: ${theme.fontWeight.bold};
   `;
@@ -36,6 +36,7 @@ const activeStyles = ({ theme, selected }) =>
 const ListItem = styled('li')(baseStyles, hoverStyles, activeStyles);
 
 const labelWrapperStyles = ({ theme }) => css`
+  label: nav-item__label-wrapper;
   margin-left: ${theme.spacings.kilo};
 `;
 
