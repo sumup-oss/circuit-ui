@@ -27,7 +27,7 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
   visibility: hidden;
   opacity: 0;
-  z-index: 1000;
+  z-index: 800;
 }
 
 @media (min-width:768px) {
@@ -104,9 +104,11 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   right: 16px;
   -webkit-transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
   transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 800;
   visibility: visible;
   opacity: 1;
-  z-index: 1000;
 }
 
 @media (min-width:768px) {

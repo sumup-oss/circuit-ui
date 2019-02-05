@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { hideVisually } from 'polished';
 import CloseIcon from './closeIcon.svg';
 
-const baseStyles = ({ theme, visible }) => css`
+const baseStyles = ({ theme }) => css`
   label: close-button;
   cursor: pointer;
   outline: none;
@@ -20,19 +20,27 @@ const baseStyles = ({ theme, visible }) => css`
   bottom: ${theme.spacings.mega};
   right: ${theme.spacings.mega};
   transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out;
-  visibility: ${visible ? 'visible' : 'hidden'};
-  opacity: ${visible ? 1 : 0};
-  z-index: ${theme.zIndex.modal};
+  visibility: hidden;
+  opacity: 0;
+  z-index: ${theme.zIndex.sidebar};
   ${theme.mq.mega`
     visibility: hidden;  
   `};
 `;
 
+const visibleStyles = ({ visible }) =>
+  visible &&
+  css`
+    label: close-button--visible;
+    visibility: visible;
+    opacity: 1;
+  `;
+
 const AccessibilityLabel = styled.span`
   ${hideVisually()};
 `;
 
-const FloatingButton = styled('button')(baseStyles);
+const FloatingButton = styled('button')(baseStyles, visibleStyles);
 
 const CloseButton = ({ visible, closeButtonLabel, onClick }) => (
   <FloatingButton visible={visible} onClick={onClick}>
