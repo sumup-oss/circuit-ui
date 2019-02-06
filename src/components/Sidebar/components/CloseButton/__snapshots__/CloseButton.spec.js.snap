@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CloseButton styles should render and match snapshot when not visible 1`] = `
+.circuit-2 {
+  cursor: pointer;
+  outline: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #FAFBFC;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  -webkit-transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 800;
+}
+
+@media (min-width:768px) {
+  .circuit-2 {
+    visibility: hidden;
+  }
+}
+
+.circuit-0 {
+  border: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<button
+  className="circuit-2 circuit-3"
+  onClick={undefined}
+>
+  <span
+    className="circuit-0 circuit-1"
+  />
+  <div>
+    closeIcon.svg
+  </div>
+</button>
+`;
+
+exports[`CloseButton styles should render and match snapshot when visible 1`] = `
+.circuit-0 {
+  border: 0px;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0px;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
+  cursor: pointer;
+  outline: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #FAFBFC;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  -webkit-transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out,visibility 150ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 800;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (min-width:768px) {
+  .circuit-2 {
+    visibility: hidden;
+  }
+}
+
+<button
+  className="circuit-2 circuit-3"
+  onClick={undefined}
+>
+  <span
+    className="circuit-0 circuit-1"
+  />
+  <div>
+    closeIcon.svg
+  </div>
+</button>
+`;

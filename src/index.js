@@ -155,6 +155,7 @@ export {
 export { default as SideNav } from './components/SideNav';
 export { Menu } from './components/SideNav/components';
 export { Drawer } from './components/SideNav/components';
+export { default as Sidebar } from './components/Sidebar';
 
 // Helpers
 export { default as State } from './components/State';

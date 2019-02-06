@@ -50,7 +50,6 @@ const oranges = {
   o900: '#66391B'
 };
 
-
 const yellows = {
   y100: '#F2E9C7',
   y200: '#EDDD8E',
@@ -271,6 +270,8 @@ export const zIndex = {
   select: 20,
   popover: 30,
   tooltip: 31,
+  backdrop: 700,
+  sidebar: 800,
   modal: 1000
 };
 

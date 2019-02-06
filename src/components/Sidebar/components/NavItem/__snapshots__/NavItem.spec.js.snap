@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavItem styles should render with default styles and match the snapshot 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #9DA7B1;
+  fill: #9DA7B1;
+}
+
+.circuit-2:hover {
+  color: #D8DDE1;
+  fill: #D8DDE1;
+}
+
+.circuit-0 {
+  margin-left: 12px;
+}
+
+<li
+  className="circuit-2 circuit-3"
+  onClick={[MockFunction]}
+  selected={false}
+>
+  <div
+    className="circuit-0 circuit-1"
+  />
+</li>
+`;
+
+exports[`NavItem styles should render with selected state styles and match the snapshot 1`] = `
+.circuit-0 {
+  margin-left: 12px;
+}
+
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #9DA7B1;
+  fill: #9DA7B1;
+  color: #FAFBFC;
+  font-weight: 700;
+}
+
+<li
+  className="circuit-2 circuit-3"
+  onClick={[MockFunction]}
+  selected={true}
+>
+  <div
+    className="circuit-0 circuit-1"
+  />
+</li>
+`;
