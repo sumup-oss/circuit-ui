@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 const baseStyles = ({ theme }) => css`
+  label: appbar__title;
   font-size: ${theme.typography.headings.kilo.fontSize};
   line-height: ${theme.typography.headings.kilo.lineHeight};
   font-weight: ${theme.fontWeight.bold};

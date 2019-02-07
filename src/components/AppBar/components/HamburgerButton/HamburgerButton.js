@@ -5,6 +5,7 @@ import { hideVisually } from 'polished';
 import HamburgerIcon from './hamburger.svg';
 
 const baseStyles = ({ theme }) => css`
+  label: appbar__hamburguer-button;
   outline: none;
   display: flex;
   justify-content: center;

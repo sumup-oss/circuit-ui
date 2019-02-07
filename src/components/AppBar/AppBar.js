@@ -5,6 +5,7 @@ import Title from './components/Title';
 import HamburgerButton from './components/HamburgerButton';
 
 const baseStyles = ({ theme }) => css`
+  label: appbar;
   width: 100%;
   display: flex;
   align-items: center;
