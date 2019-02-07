@@ -156,6 +156,11 @@ export { default as SideNav } from './components/SideNav';
 export { Menu } from './components/SideNav/components';
 export { Drawer } from './components/SideNav/components';
 export { default as Sidebar } from './components/Sidebar';
+export {
+  SidebarContextProvider,
+  SidebarContextConsumer
+} from './components/Sidebar';
+export { default as AppBar } from './components/AppBar';
 
 // Helpers
 export { default as State } from './components/State';
