@@ -160,7 +160,7 @@ export {
   SidebarContextProvider,
   SidebarContextConsumer
 } from './components/Sidebar';
-export { default as AppBar } from './components/AppBar';
+export { default as Header } from './components/Header';
 
 // Helpers
 export { default as State } from './components/State';

@@ -5,20 +5,23 @@ import { withInfo } from '@storybook/addon-info';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
-import AppBar from '.';
+import Header from '.';
+import Hamburguer from '../Hamburger';
 
-const AppBarContainer = styled('div')`
+const HeaderContainer = styled('div')`
   width: 375px;
   height: auto;
 `;
 
-storiesOf(`${GROUPS.COMPONENTS}|AppBar`, module)
-  .addDecorator(withTests('AppBar'))
+storiesOf(`${GROUPS.COMPONENTS}|Header`, module)
+  .addDecorator(withTests('Header'))
   .add(
-    'AppBar',
+    'Header',
     withInfo()(() => (
-      <AppBarContainer>
-        <AppBar title="Title" />
-      </AppBarContainer>
+      <HeaderContainer>
+        <Header title="Title">
+          <Hamburguer light />
+        </Header>
+      </HeaderContainer>
     ))
   );

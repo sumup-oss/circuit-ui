@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import Title from './components/Title';
-import HamburgerButton from './components/HamburgerButton';
 
 const baseStyles = ({ theme }) => css`
-  label: appbar;
+  label: header;
   width: 100%;
   display: flex;
   align-items: center;
@@ -19,32 +18,25 @@ const baseStyles = ({ theme }) => css`
 
 const Container = styled('div')(baseStyles);
 
-const AppBar = ({ title, hamburgerButtonLabel, onHamburgerClick }) => (
+const Header = ({ title, children }) => (
   <Container>
-    <HamburgerButton
-      hamburgerButtonLabel={hamburgerButtonLabel}
-      onClick={onHamburgerClick}
-    />
+    {children}
     <Title>{title}</Title>
   </Container>
 );
 
-AppBar.propTypes = {
+Header.propTypes = {
   /**
-   * The page title for the AppBar
+   * The page title for the Header.
    */
   title: PropTypes.string,
   /**
-   * The accessibility label for the HamburguerButton
+   * The child component of Header.
    */
-  hamburgerButtonLabel: PropTypes.string,
-  /**
-   * Handler function for HamburgerButton click events
-   */
-  onHamburgerClick: PropTypes.func
+  children: PropTypes.node
 };
 
 /**
  * @component
  */
-export default AppBar;
+export default Header;
