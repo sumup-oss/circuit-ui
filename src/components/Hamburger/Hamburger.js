@@ -3,25 +3,34 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import { hideVisually } from 'polished';
 
-const LAYER_HEIGHT = '2px';
+const LAYER_HEIGHT = '1px';
+const HAMBURGUER_WIDTH = '12px';
 
 const buttonBaseStyles = ({ theme }) => css`
   label: hamburger-button;
-  box-sizing: content-box;
+  outline: none;
   cursor: pointer;
-  display: inline-block;
-  padding: ${theme.spacings.mega} ${theme.spacings.byte};
-  width: ${theme.iconSizes.kilo};
+  width: ${theme.iconSizes.giga};
+  height: ${theme.iconSizes.giga};
   background: none;
-  border: 0;
+  border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+  border-radius: 50%;
   position: relative;
 `;
+
+const lightButtonStyles = ({ theme, light }) =>
+  light &&
+  css`
+    label: hamburger-button--light;
+    border: ${theme.borderWidth.kilo} solid ${theme.colors.n700};
+  `;
 
 const layersBaseStyles = ({ theme }) => css`
   label: hamburger-layers;
   margin-top: calc(${LAYER_HEIGHT} / -2);
   top: 50%;
-  width: calc(${theme.iconSizes.kilo} * 0.77);
+  left: 30%;
+  width: ${HAMBURGUER_WIDTH};
 
   &,
   &::after,
@@ -42,17 +51,28 @@ const layersBaseStyles = ({ theme }) => css`
   }
 
   &::before {
-    transform: translateY(calc((${theme.spacings.bit} + ${LAYER_HEIGHT}) * -1));
-    width: ${theme.iconSizes.kilo};
+    transform: translateY(calc((${theme.spacings.bit}) * -1));
+    width: ${HAMBURGUER_WIDTH};
   }
 
   &::after {
-    transform: translateY(calc((${theme.spacings.bit} + ${LAYER_HEIGHT})));
-    width: calc(${theme.iconSizes.kilo} * 0.88);
+    transform: translateY(calc(${theme.spacings.bit}));
+    width: ${HAMBURGUER_WIDTH};
   }
 `;
 
-const layersActiveStyles = ({ theme, isActive }) =>
+const layersBaseLightStyles = ({ theme, light }) =>
+  light &&
+  css`
+    label: hamburger-layer--light;
+    &,
+    &::after,
+    &::before {
+      background-color: ${theme.colors.n100};
+    }
+  `;
+
+const layersActiveStyles = ({ isActive }) =>
   isActive &&
   css`
     label: hamburger-layers--active;
@@ -63,7 +83,7 @@ const layersActiveStyles = ({ theme, isActive }) =>
     &::after {
       transition: width 0.2s ease-out, opacity 0.1s ease-out 0.15s,
         transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
-      width: ${theme.iconSizes.kilo};
+      width: ${HAMBURGUER_WIDTH};
     }
 
     &::before {
@@ -82,10 +102,14 @@ const labelBaseStyles = () => css`
 `;
 
 const HamburgerButton = styled('button')`
-  ${buttonBaseStyles};
+  ${buttonBaseStyles}
+  ${lightButtonStyles};
 `;
+
 const HamburgerLayers = styled('span')`
-  ${layersBaseStyles} ${layersActiveStyles};
+  ${layersBaseStyles}
+  ${layersActiveStyles}
+  ${layersBaseLightStyles};
 `;
 const HamburgerLabel = styled('span')`
   ${labelBaseStyles};
@@ -99,10 +123,11 @@ const Hamburger = ({
   isActive,
   labelActive,
   labelInActive,
+  light,
   className
 }) => (
-  <HamburgerButton className={className} onClick={onClick}>
-    <HamburgerLayers isActive={isActive} />
+  <HamburgerButton className={className} onClick={onClick} light={light}>
+    <HamburgerLayers isActive={isActive} light={light} />
     <HamburgerLabel>{isActive ? labelActive : labelInActive}</HamburgerLabel>
   </HamburgerButton>
 );
@@ -124,6 +149,10 @@ Hamburger.propTypes = {
    * Label for the 'inactive' state. Important for accessibility.
    */
   labelInActive: PropTypes.string,
+  /**
+   * A Boolean to select the Light or Dark (default) version of the Hamburger.
+   */
+  light: PropTypes.bool,
   className: PropTypes.string
 };
 
