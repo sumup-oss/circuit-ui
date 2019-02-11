@@ -12,6 +12,7 @@ exports[`Header styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   height: 64px;
+  min-height: 64px;
   background-color: #212933;
   padding: 16px;
 }
