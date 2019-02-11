@@ -8,7 +8,6 @@ const HAMBURGUER_WIDTH = '12px';
 
 const buttonBaseStyles = ({ theme }) => css`
   label: hamburger-button;
-  outline: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
