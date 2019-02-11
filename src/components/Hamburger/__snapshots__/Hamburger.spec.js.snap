@@ -2,13 +2,20 @@
 
 exports[`Hamburger should render with active styles when passed the isActive prop 1`] = `
 .circuit-4 {
-  box-sizing: content-box;
   cursor: pointer;
-  display: inline-block;
-  padding: 16px 8px;
-  width: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   background: none;
-  border: 0;
+  border: 1px solid #D8DDE1;
+  border-radius: 50%;
   position: relative;
 }
 
@@ -28,9 +35,8 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 .circuit-0 {
-  margin-top: calc(2px / -2);
   top: 50%;
-  width: calc(16px * 0.77);
+  width: 12px;
   -webkit-transform: rotate(225deg);
   -ms-transform: rotate(225deg);
   transform: rotate(225deg);
@@ -42,7 +48,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   background-color: #212933;
   border-radius: 1px;
   display: block;
-  height: 2px;
+  height: 1px;
   position: absolute;
   -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
   -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
@@ -56,17 +62,17 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 .circuit-0::before {
-  -webkit-transform: translateY(calc((4px + 2px) * -1));
-  -ms-transform: translateY(calc((4px + 2px) * -1));
-  transform: translateY(calc((4px + 2px) * -1));
-  width: 16px;
+  -webkit-transform: translateY(calc((4px) * -1));
+  -ms-transform: translateY(calc((4px) * -1));
+  transform: translateY(calc((4px) * -1));
+  width: 12px;
 }
 
 .circuit-0::after {
-  -webkit-transform: translateY(calc((4px + 2px)));
-  -ms-transform: translateY(calc((4px + 2px)));
-  transform: translateY(calc((4px + 2px)));
-  width: calc(16px * 0.88);
+  -webkit-transform: translateY(calc(4px));
+  -ms-transform: translateY(calc(4px));
+  transform: translateY(calc(4px));
+  width: 12px;
 }
 
 .circuit-0,
@@ -75,7 +81,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   -webkit-transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s,-webkit-transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
   -webkit-transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
   transition: width 0.2s ease-out,opacity 0.1s ease-out 0.15s,transform 0.3s cubic-bezier(0.215,0.61,0.355,1) 0.15s;
-  width: 16px;
+  width: 12px;
 }
 
 .circuit-0::before {
@@ -108,20 +114,26 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 
 exports[`Hamburger should render with default styles 1`] = `
 .circuit-4 {
-  box-sizing: content-box;
   cursor: pointer;
-  display: inline-block;
-  padding: 16px 8px;
-  width: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   background: none;
-  border: 0;
+  border: 1px solid #D8DDE1;
+  border-radius: 50%;
   position: relative;
 }
 
 .circuit-0 {
-  margin-top: calc(2px / -2);
   top: 50%;
-  width: calc(16px * 0.77);
+  width: 12px;
 }
 
 .circuit-0,
@@ -130,7 +142,7 @@ exports[`Hamburger should render with default styles 1`] = `
   background-color: #212933;
   border-radius: 1px;
   display: block;
-  height: 2px;
+  height: 1px;
   position: absolute;
   -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
   -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
@@ -144,17 +156,17 @@ exports[`Hamburger should render with default styles 1`] = `
 }
 
 .circuit-0::before {
-  -webkit-transform: translateY(calc((4px + 2px) * -1));
-  -ms-transform: translateY(calc((4px + 2px) * -1));
-  transform: translateY(calc((4px + 2px) * -1));
-  width: 16px;
+  -webkit-transform: translateY(calc((4px) * -1));
+  -ms-transform: translateY(calc((4px) * -1));
+  transform: translateY(calc((4px) * -1));
+  width: 12px;
 }
 
 .circuit-0::after {
-  -webkit-transform: translateY(calc((4px + 2px)));
-  -ms-transform: translateY(calc((4px + 2px)));
-  transform: translateY(calc((4px + 2px)));
-  width: calc(16px * 0.88);
+  -webkit-transform: translateY(calc(4px));
+  -ms-transform: translateY(calc(4px));
+  transform: translateY(calc(4px));
+  width: 12px;
 }
 
 .circuit-2 {
