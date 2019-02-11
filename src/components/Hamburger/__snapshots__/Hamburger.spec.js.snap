@@ -4,6 +4,10 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 .circuit-4 {
   outline: none;
   cursor: pointer;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
   background: none;
@@ -28,9 +32,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 .circuit-0 {
-  margin-top: calc(1px / -2);
   top: 50%;
-  left: 30%;
   width: 12px;
   -webkit-transform: rotate(225deg);
   -ms-transform: rotate(225deg);
@@ -111,6 +113,10 @@ exports[`Hamburger should render with default styles 1`] = `
 .circuit-4 {
   outline: none;
   cursor: pointer;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 32px;
   height: 32px;
   background: none;
@@ -120,9 +126,7 @@ exports[`Hamburger should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  margin-top: calc(1px / -2);
   top: 50%;
-  left: 30%;
   width: 12px;
 }
 

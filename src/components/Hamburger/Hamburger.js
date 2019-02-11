@@ -10,6 +10,7 @@ const buttonBaseStyles = ({ theme }) => css`
   label: hamburger-button;
   outline: none;
   cursor: pointer;
+  justify-content: center;
   width: ${theme.iconSizes.giga};
   height: ${theme.iconSizes.giga};
   background: none;
@@ -27,9 +28,7 @@ const lightButtonStyles = ({ theme, light }) =>
 
 const layersBaseStyles = ({ theme }) => css`
   label: hamburger-layers;
-  margin-top: calc(${LAYER_HEIGHT} / -2);
   top: 50%;
-  left: 30%;
   width: ${HAMBURGUER_WIDTH};
 
   &,
