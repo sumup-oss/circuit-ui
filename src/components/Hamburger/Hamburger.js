@@ -10,6 +10,7 @@ const buttonBaseStyles = ({ theme }) => css`
   label: hamburger-button;
   outline: none;
   cursor: pointer;
+  display: flex;
   justify-content: center;
   width: ${theme.iconSizes.giga};
   height: ${theme.iconSizes.giga};

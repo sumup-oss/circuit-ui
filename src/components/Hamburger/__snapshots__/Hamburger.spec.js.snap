@@ -4,6 +4,10 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 .circuit-4 {
   outline: none;
   cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -113,6 +117,10 @@ exports[`Hamburger should render with default styles 1`] = `
 .circuit-4 {
   outline: none;
   cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
