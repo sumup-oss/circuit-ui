@@ -8,7 +8,6 @@ const baseStyles = ({ theme }) => css`
   width: 100%;
   display: flex;
   align-items: center;
-  height: 64px;
   min-height: 64px;
   background-color: ${theme.colors.n900};
   padding: ${theme.spacings.mega};
