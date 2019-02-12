@@ -108,6 +108,29 @@ exports[`Text should render italic text when passed the italic prop 1`] = `
 />
 `;
 
+exports[`Text should render struck through text when passed the strike prop 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 24px;
+  -webkit-text-decoration: line-through;
+  text-decoration: line-through;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 15px;
+    line-height: 24px;
+  }
+}
+
+<p
+  className="circuit-0 circuit-1"
+  strike={true}
+/>
+`;
+
 exports[`Text should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   font-weight: 400;

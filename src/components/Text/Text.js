@@ -46,6 +46,13 @@ const italicStyles = ({ italic }) =>
     font-style: italic;
   `;
 
+const strikeThroughStyles = ({ strike }) =>
+  strike &&
+  css`
+    label: text--strike-through;
+    text-decoration: line-through;
+  `;
+
 const marginStyles = ({ noMargin }) =>
   noMargin &&
   css`
@@ -59,6 +66,7 @@ const StyledText = styled(HtmlElement)`
   ${marginStyles};
   ${boldStyles};
   ${italicStyles};
+  ${strikeThroughStyles};
 `;
 
 export { StyledText };
@@ -110,6 +118,10 @@ Text.propTypes = {
    * Bolds the text.
    */
   italic: PropTypes.bool,
+  /**
+   * Strikes through the text.
+   */
+  strike: PropTypes.bool,
   /**
    * The HTML element to render.
    */
