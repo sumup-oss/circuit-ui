@@ -13,7 +13,7 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacings.mega};
   position: sticky;
   top: 0;
-  ${theme.mq.mega`
+  ${theme.mq.giga`
     display: none;
   `}
 `;

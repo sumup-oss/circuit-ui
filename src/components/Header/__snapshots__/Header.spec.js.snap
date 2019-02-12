@@ -14,9 +14,12 @@ exports[`Header styles should render with default styles 1`] = `
   min-height: 64px;
   background-color: #212933;
   padding: 16px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-2 {
     display: none;
   }

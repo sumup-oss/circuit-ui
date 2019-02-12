@@ -12,7 +12,7 @@ const baseStyles = ({ theme }) => css`
   visibility: hidden;
   opacity: 0;
   z-index: ${theme.zIndex.backdrop};
-  ${theme.mq.mega`
+  ${theme.mq.giga`
     visibility: hidden;  
   `};
 `;

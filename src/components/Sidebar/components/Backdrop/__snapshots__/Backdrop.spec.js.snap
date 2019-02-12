@@ -13,7 +13,7 @@ exports[`Backdrop styles should render with default styles when not visible 1`] 
   z-index: 700;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-0 {
     visibility: hidden;
   }
@@ -39,7 +39,7 @@ exports[`Backdrop styles should render with default styles when visible 1`] = `
   opacity: 0.56;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-0 {
     visibility: hidden;
   }
