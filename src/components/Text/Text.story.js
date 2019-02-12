@@ -25,6 +25,7 @@ storiesOf(`${GROUPS.TYPOGRAPHY}|Text`, module)
           noMargin={boolean('No margin')}
           bold={boolean('Bold')}
           italic={boolean('Italic')}
+          strike={boolean('Strike through')}
         >
           {content}
         </Text>
