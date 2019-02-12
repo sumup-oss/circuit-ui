@@ -11,6 +11,8 @@ const baseStyles = ({ theme }) => css`
   min-height: 64px;
   background-color: ${theme.colors.n900};
   padding: ${theme.spacings.mega};
+  position: sticky;
+  top: 0;
   ${theme.mq.mega`
     display: none;
   `}
