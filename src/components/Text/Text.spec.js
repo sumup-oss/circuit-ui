@@ -41,6 +41,11 @@ describe('Text', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render struck through text when passed the strike prop', () => {
+    const actual = create(<Text strike />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
