@@ -14,6 +14,7 @@ exports[`Header styles should render with default styles 1`] = `
   min-height: 64px;
   background-color: #212933;
   padding: 16px;
+  z-index: 600;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
