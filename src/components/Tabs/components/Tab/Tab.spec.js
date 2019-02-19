@@ -2,11 +2,15 @@ import React from 'react';
 
 import Tab from './Tab';
 
-describe.skip('Tab', () => {
-  // !TODO: write your tests.
+describe('Tab', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = create(<Tab />);
+      const actual = create(<Tab>content</Tab>);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with selected styles', () => {
+      const actual = create(<Tab selected>content</Tab>);
       expect(actual).toMatchSnapshot();
     });
   });

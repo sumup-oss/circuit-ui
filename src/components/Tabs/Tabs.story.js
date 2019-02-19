@@ -4,12 +4,10 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import * as knobs from '@storybook/addon-knobs/react';
 import { range } from '../../util/fp';
-// import { action } from '@storybook/addon-actions';
 
 import withTests from '../../util/withTests';
 import Tabs from '.';
 import Tab from './components/Tab';
-// import Text from '../Text';
 
 const sizeMap = {
   desktop: '80px',
