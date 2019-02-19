@@ -1,25 +1,62 @@
-import PropTypes from 'prop-types';
+import React from 'react';
 import styled, { css } from 'react-emotion';
+import { styleHelpers } from '../../styles';
 
-const baseStyles = ({ theme }) => css`
-  label: tabs;
+import Tab from './components/Tab';
 
-  padding: ${theme.spacings.mega};
+const DEFAULT_HEIGHT = '80px';
+
+const Wrapper = styled.div(
+  ({ theme }) => css`
+    background: ${theme.colors.white};
+    ${styleHelpers.shadowDouble({ theme })};
+    height: ${DEFAULT_HEIGHT};
+    display: flex;
+    overflow-x: auto;
+  `
+);
+
+const containerBaseStyles = css`
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
 `;
 
+const stretchedStyles = ({ children, theme }) => css`
+  & ${Tab} {
+    flex: 1 1 auto;
+    padding: 0 ${theme.spacings.kilo};
+    width: ${Math.floor(100 / children.length)}%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+`;
+
+const containerChildrenStyles = ({ stretched, ...props }) =>
+  stretched && stretchedStyles(props);
+
+const containerResponsiveChildrenStyles = props =>
+  props.children.length < 5 &&
+  css`
+    ${props.theme.mq.untilKilo`
+      ${stretchedStyles(props)};
+    `}
+  `;
+
+const Container = styled.div(
+  containerBaseStyles,
+  containerChildrenStyles,
+  containerResponsiveChildrenStyles
+);
+
 /**
- * Describe Tabs here.
+ * Tabs component that wraps list of tabs
  */
-const Tabs = styled('element')(baseStyles);
-
-Tabs.propTypes = {
-  /**
-   * A consice description of the example prop.
-   */
-  example: PropTypes.string
-};
-
-Tabs.defaultProps = {};
+const Tabs = ({ children, ...props }) => (
+  <Wrapper {...props}>
+    <Container {...props}>{children}</Container>
+  </Wrapper>
+);
 
 /**
  * @component
