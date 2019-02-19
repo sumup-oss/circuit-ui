@@ -30,7 +30,7 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   z-index: 800;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-2 {
     visibility: hidden;
   }
@@ -111,7 +111,7 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   opacity: 1;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .circuit-2 {
     visibility: hidden;
   }

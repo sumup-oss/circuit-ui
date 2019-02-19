@@ -19,7 +19,7 @@ const baseStyles = ({ theme }) => css`
   position: absolute;
   transform: translateX(-100%);
   z-index: ${theme.zIndex.sidebar};
-  ${theme.mq.mega`
+  ${theme.mq.giga`
     transform: translateX(0);
     position: relative;
   `};
@@ -30,7 +30,7 @@ const openStyles = ({ theme, open }) =>
   css`
     label: sidebar--open;
     transform: translateX(0);
-    ${theme.mq.mega`
+    ${theme.mq.giga`
       transform: translateX(0);
     `};
   `;

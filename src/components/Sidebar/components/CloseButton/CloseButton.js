@@ -23,7 +23,7 @@ const baseStyles = ({ theme }) => css`
   visibility: hidden;
   opacity: 0;
   z-index: ${theme.zIndex.sidebar};
-  ${theme.mq.mega`
+  ${theme.mq.giga`
     visibility: hidden;  
   `};
 `;
