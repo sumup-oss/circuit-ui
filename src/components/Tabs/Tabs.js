@@ -5,6 +5,7 @@ import { styleHelpers } from '../../styles';
 import Tab from './components/Tab';
 
 const DEFAULT_HEIGHT = '80px';
+const MOBILE_AUTOSTRETCH_ITEMS_LIMIT = 4;
 
 const Wrapper = styled.div(
   ({ theme }) => css`
@@ -36,7 +37,7 @@ const containerChildrenStyles = ({ stretched, ...props }) =>
   stretched && stretchedStyles(props);
 
 const containerResponsiveChildrenStyles = props =>
-  props.children.length < 5 &&
+  props.children.length < MOBILE_AUTOSTRETCH_ITEMS_LIMIT &&
   css`
     ${props.theme.mq.untilKilo`
       ${stretchedStyles(props)};
