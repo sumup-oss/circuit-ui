@@ -9,8 +9,7 @@
           "emotion",
           {
             "autoLabel": true,
-            "hoist": true,
-            "sourceMap": true
+            "hoist": true
           }
         ],
         "inline-react-svg"
@@ -26,8 +25,7 @@
           "emotion",
           {
             "autoLabel": true,
-            "hoist": true,
-            "sourceMap": true
+            "hoist": true
           }
         ],
         "inline-react-svg"
@@ -47,8 +45,7 @@
           "emotion",
           {
             "autoLabel": true,
-            "hoist": true,
-            "sourceMap": true
+            "hoist": true
           }
         ]
       ],
