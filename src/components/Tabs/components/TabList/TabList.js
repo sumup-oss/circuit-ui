@@ -1,11 +1,11 @@
 import React from 'react';
 import styled, { css } from 'react-emotion';
-import { styleHelpers } from '../../styles';
+import { styleHelpers } from '../../../../styles';
 
-import Tab from './components/Tab';
+import Tab from '../Tab';
 
-const DEFAULT_HEIGHT = '80px';
 const MOBILE_AUTOSTRETCH_ITEMS_LIMIT = 4;
+const DEFAULT_HEIGHT = '80px';
 
 const Wrapper = styled.div(
   ({ theme }) => css`
@@ -17,7 +17,8 @@ const Wrapper = styled.div(
   `
 );
 
-const containerBaseStyles = css`
+const navigationBaseStyles = css`
+  label: tablist;
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
@@ -33,10 +34,10 @@ const stretchedStyles = ({ children, theme }) => css`
   }
 `;
 
-const containerChildrenStyles = ({ stretched, ...props }) =>
+const navigationChildrenStyles = ({ stretched, ...props }) =>
   stretched && stretchedStyles(props);
 
-const containerResponsiveChildrenStyles = props =>
+const navigationResponsiveChildrenStyles = props =>
   props.children.length < MOBILE_AUTOSTRETCH_ITEMS_LIMIT &&
   css`
     ${props.theme.mq.untilKilo`
@@ -44,22 +45,24 @@ const containerResponsiveChildrenStyles = props =>
     `}
   `;
 
-const Container = styled.div(
-  containerBaseStyles,
-  containerChildrenStyles,
-  containerResponsiveChildrenStyles
+const Navigation = styled.div(
+  navigationBaseStyles,
+  navigationChildrenStyles,
+  navigationResponsiveChildrenStyles
 );
 
 /**
- * Tabs component that wraps list of tabs
+ * TabList component that wrap Tab components
  */
-const Tabs = ({ children, ...props }) => (
-  <Wrapper {...props}>
-    <Container>{children}</Container>
+const TabList = ({ className, ...props }) => (
+  <Wrapper className={className}>
+    <Navigation {...props} role="tablist" />
   </Wrapper>
 );
+
+TabList.defaultProps = {};
 
 /**
  * @component
  */
-export default Tabs;
+export default TabList;

@@ -12,7 +12,7 @@ Element.propTypes = {
    * Element that needs to be returned.
    * Must be either html element or react component.
    */
-  as: PropTypes.oneOf([PropTypes.string, PropTypes.func]),
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /**
    * Ref to be passed to the underlying element.
    */

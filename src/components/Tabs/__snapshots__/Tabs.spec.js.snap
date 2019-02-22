@@ -36,15 +36,19 @@ exports[`Tabs styles should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  display: inline-block;
-  text-align: center;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
   white-space: nowrap;
   height: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   float: left;
   display: -webkit-box;
   display: -webkit-flex;
@@ -61,15 +65,19 @@ exports[`Tabs styles should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  display: inline-block;
-  text-align: center;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
   white-space: nowrap;
   height: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   float: left;
   display: -webkit-box;
   display: -webkit-flex;
@@ -103,18 +111,22 @@ exports[`Tabs styles should render with default styles 1`] = `
 >
   <div
     className="circuit-4 circuit-5"
+    role="tablist"
   >
-    <div
+    <button
+      aria-selected={false}
       className="circuit-0 circuit-1"
+      role="tab"
     >
       tab #1
-    </div>
-    <div
+    </button>
+    <button
+      aria-selected={true}
       className="circuit-2 circuit-1"
-      selected={true}
+      role="tab"
     >
       tab #2
-    </div>
+    </button>
   </div>
 </div>
 `;
@@ -131,39 +143,20 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   overflow-x: auto;
 }
 
-.circuit-4 {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-}
-
-@media (max-width:479px) {
-  .circuit-4 > .circuit-1 {
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 0 12px;
-    width: 50%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-}
-
 .circuit-0 {
-  display: inline-block;
-  text-align: center;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
   white-space: nowrap;
   height: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   float: left;
   display: -webkit-box;
   display: -webkit-flex;
@@ -180,15 +173,19 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 }
 
 .circuit-2 {
-  display: inline-block;
-  text-align: center;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
   white-space: nowrap;
   height: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   float: left;
   display: -webkit-box;
   display: -webkit-flex;
@@ -217,23 +214,60 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   background: #3388FF;
 }
 
+.circuit-4 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+
+.circuit-4 > .circuit-1 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 0 12px;
+  width: 50%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media (max-width:479px) {
+  .circuit-4 > .circuit-1 {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0 12px;
+    width: 50%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
 <div
   className="circuit-6 circuit-7"
 >
   <div
     className="circuit-4 circuit-5"
+    role="tablist"
   >
-    <div
+    <button
+      aria-selected={false}
       className="circuit-0 circuit-1"
+      role="tab"
     >
       tab #1
-    </div>
-    <div
+    </button>
+    <button
+      aria-selected={true}
       className="circuit-2 circuit-1"
-      selected={true}
+      role="tab"
     >
       tab #2
-    </div>
+    </button>
   </div>
 </div>
 `;

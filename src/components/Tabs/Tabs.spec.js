@@ -1,38 +1,53 @@
 import React from 'react';
 
-import Tabs from './Tabs';
+import TabPanel from './components/TabPanel';
+import TabList from './components/TabList';
 import Tab from './components/Tab';
 
 describe('Tabs', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
       const actual = create(
-        <Tabs>
+        <TabList>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
-        </Tabs>
+        </TabList>
       );
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with stretched styles', () => {
       const actual = create(
-        <Tabs stretched>
+        <TabList stretched>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
-        </Tabs>
+        </TabList>
       );
       expect(actual).toMatchSnapshot();
     });
   });
 
   describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
+    it('should meet accessibility guidelines for tablist only', async () => {
       const wrapper = renderToHtml(
-        <Tabs>
+        <TabList>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
-        </Tabs>
+        </TabList>
+      );
+      const actual = await axe(wrapper);
+      expect(actual).toHaveNoViolations();
+    });
+
+    it('should meet accessibility guidelines for full usage', async () => {
+      const wrapper = renderToHtml(
+        <div>
+          <TabList>
+            <Tab>tab #1</Tab>
+            <Tab selected>tab #2</Tab>
+          </TabList>
+          <TabPanel>Tab content</TabPanel>
+        </div>
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

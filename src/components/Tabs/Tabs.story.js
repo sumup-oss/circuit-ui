@@ -1,24 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import * as knobs from '@storybook/addon-knobs/react';
-import { range } from '../../util/fp';
 
 import withTests from '../../util/withTests';
-import Tabs from '.';
+
+/*
+import TabList from './components/TabList';
+import TabPanel from './components/TabPanel';
 import Tab from './components/Tab';
+*/
+
+import { TabList, TabPanel, Tab } from '../..';
 
 const sizeMap = {
   desktop: '80px',
   mobile: '64px'
 };
 
-const StyledTabs = styled(Tabs)`
+const StyledTabList = styled(TabList)`
   height: ${props => sizeMap[props.size]};
   padding: 0 ${props => (props.extraPadding ? '16px' : 0)};
   color: #090909;
+`;
+
+const StyledTabPanel = styled(TabPanel)`
+  padding: 12px;
 `;
 
 class TabsStory extends Component {
@@ -29,19 +38,31 @@ class TabsStory extends Component {
     const { selected } = this.state;
 
     return (
-      <StyledTabs stretched={stretched} size={size} extraPadding={extraPadding}>
-        {[
-          ...range(0, 3).map(i => (
-            <Tab
-              key={i}
-              selected={i === selected}
-              onClick={() => this.setState({ selected: i })}
-            >
-              Tab #{i + 1}
-            </Tab>
-          )),
+      <Fragment>
+        <StyledTabList
+          stretched={stretched}
+          size={size}
+          extraPadding={extraPadding}
+        >
           <Tab
-            key={3}
+            selected={selected === 0}
+            onClick={() => this.setState({ selected: 0 })}
+          >
+            Tab #1
+          </Tab>
+          <Tab
+            selected={selected === 1}
+            onClick={() => this.setState({ selected: 1 })}
+          >
+            Tab #2
+          </Tab>
+          <Tab
+            selected={selected === 2}
+            onClick={() => this.setState({ selected: 2 })}
+          >
+            Tab #3
+          </Tab>
+          <Tab
             as="a"
             href="https://www.google.com"
             target="_blank"
@@ -49,8 +70,9 @@ class TabsStory extends Component {
           >
             Tab Link
           </Tab>
-        ]}
-      </StyledTabs>
+        </StyledTabList>
+        <StyledTabPanel>TabPanel content</StyledTabPanel>
+      </Fragment>
     );
   }
 }

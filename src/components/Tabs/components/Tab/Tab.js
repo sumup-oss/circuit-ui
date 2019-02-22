@@ -1,18 +1,21 @@
+import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 
 import Element from '../../../Element';
 
 const defaultTabStyles = ({ theme }) => css`
-  display: inline-block;
-  text-align: center;
+  label: tab;
   padding: ${theme.spacings.kilo} ${theme.spacings.tera};
   color: ${theme.colors.n500};
   text-decoration: none;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 
   white-space: nowrap;
   height: 100%;
+  align-items: center;
   float: left;
   display: flex;
   flex-direction: column;
@@ -23,6 +26,7 @@ const defaultTabStyles = ({ theme }) => css`
 const selectedTabStyles = ({ theme, selected }) =>
   selected &&
   css`
+    label: tab--selected;
     color: initial !important;
     position: relative;
 
@@ -33,7 +37,7 @@ const selectedTabStyles = ({ theme, selected }) =>
       left: 0;
       right: 0;
       width: 100%;
-      height: 4px;
+      height: ${theme.spacings.bit};
       background: ${theme.colors.p500};
     }
   `;
@@ -41,7 +45,9 @@ const selectedTabStyles = ({ theme, selected }) =>
 /**
  * Tab component that represents a single tab inside a Tabs wrapper
  */
-const Tab = styled(Element)(defaultTabStyles, selectedTabStyles);
+const Tab = styled(({ selected, ...props }) => (
+  <Element {...props} aria-selected={selected} role="tab" />
+))(defaultTabStyles, selectedTabStyles);
 
 Tab.propTypes = {
   /**
@@ -55,11 +61,13 @@ Tab.propTypes = {
   /**
    * The HTML element or React component to render.
    */
-  as: PropTypes.oneOf([PropTypes.string, PropTypes.func])
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 Tab.defaultProps = {
-  as: 'div'
+  as: 'button',
+  role: 'tab',
+  selected: false
 };
 
 /**
