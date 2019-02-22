@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
+import PropTypes from 'prop-types';
 
-import HtmlElement from '../../../HtmlElement';
+import Element from '../../../Element';
 
 const defaultTabStyles = ({ theme }) => css`
   display: inline-block;
@@ -38,19 +38,23 @@ const selectedTabStyles = ({ theme, selected }) =>
   `;
 
 /**
- * Describe Tab here.
+ * Tab component that represents a single tab inside a Tabs wrapper
  */
-const Tab = styled(HtmlElement)(defaultTabStyles, selectedTabStyles);
+const Tab = styled(Element)(defaultTabStyles, selectedTabStyles);
 
 Tab.propTypes = {
+  /**
+   * className prop passed
+   */
+  className: PropTypes.string,
   /**
    * Triggers selected styles of the component
    */
   selected: PropTypes.bool,
   /**
-   * The HTML element to render. In case for a React component, use element={() => Element}
+   * The HTML element or React component to render.
    */
-  element: PropTypes.string
+  as: PropTypes.string
 };
 
 Tab.defaultProps = {};

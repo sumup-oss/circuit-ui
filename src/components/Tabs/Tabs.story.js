@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'react-emotion';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import * as knobs from '@storybook/addon-knobs/react';
@@ -14,6 +15,12 @@ const sizeMap = {
   mobile: '64px'
 };
 
+const StyledTabs = styled(Tabs)`
+  height: ${props => console.log(props) || sizeMap[props.size]};
+  padding: 0 ${props => (props.extraPadding ? '16px' : 0)};
+  color: #090909;
+`;
+
 class TabsStory extends Component {
   state = { selected: 0 };
 
@@ -22,13 +29,7 @@ class TabsStory extends Component {
     const { selected } = this.state;
 
     return (
-      <Tabs
-        stretched={stretched}
-        css={`
-          height: ${sizeMap[size]};
-          padding: 0 ${extraPadding ? '16px' : 0};
-        `}
-      >
+      <StyledTabs stretched={stretched} size={size} extraPadding={extraPadding}>
         {[
           ...range(0, 3).map(i => (
             <Tab
@@ -41,7 +42,7 @@ class TabsStory extends Component {
           )),
           <Tab
             key={3}
-            element="a"
+            as="a"
             href="https://www.google.com"
             target="_blank"
             onClick={() => {}}
@@ -49,7 +50,7 @@ class TabsStory extends Component {
             Tab Link
           </Tab>
         ]}
-      </Tabs>
+      </StyledTabs>
     );
   }
 }
@@ -67,8 +68,15 @@ storiesOf('Tabs', module)
     withInfo()(() => (
       <div style={{ width: '600px' }}>
         <TabsStory
-          size={knobs.select('size', ['desktop', 'mobile'], 'desktop')}
-          extraPadding={knobs.boolean('extra padding', false)}
+          size={knobs.select(
+            'with external CSS: size',
+            ['desktop', 'mobile'],
+            'desktop'
+          )}
+          extraPadding={knobs.boolean(
+            'with external CSS: extra padding',
+            false
+          )}
           stretched={knobs.boolean('stretched', false)}
         />
       </div>
