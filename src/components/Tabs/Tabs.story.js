@@ -16,7 +16,7 @@ const sizeMap = {
 };
 
 const StyledTabs = styled(Tabs)`
-  height: ${props => console.log(props) || sizeMap[props.size]};
+  height: ${props => sizeMap[props.size]};
   padding: 0 ${props => (props.extraPadding ? '16px' : 0)};
   color: #090909;
 `;
