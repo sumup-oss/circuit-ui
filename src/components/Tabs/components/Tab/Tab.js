@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 
@@ -17,6 +18,7 @@ const defaultTabStyles = ({ theme }) => css`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  outline: none;
 `;
 
 const selectedTabStyles = ({ theme, selected }) =>
@@ -40,7 +42,11 @@ const selectedTabStyles = ({ theme, selected }) =>
 /**
  * Tab component that represents a single tab inside a Tabs wrapper
  */
-const Tab = styled(Element)(defaultTabStyles, selectedTabStyles);
+const TabWrapper = styled(Element)(defaultTabStyles, selectedTabStyles);
+
+const Tab = props => (
+  <TabWrapper role="tab" ariaSelected={props.selected} {...props} />
+);
 
 Tab.propTypes = {
   /**

@@ -55,7 +55,9 @@ const Container = styled.div(
  */
 const Tabs = ({ children, ...props }) => (
   <Wrapper {...props}>
-    <Container {...props}>{children}</Container>
+    <Container {...props} role="tablist">
+      {children}
+    </Container>
   </Wrapper>
 );
 
