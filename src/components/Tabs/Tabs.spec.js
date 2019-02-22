@@ -29,7 +29,7 @@ describe('Tabs', () => {
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
-        <Tabs stretched>
+        <Tabs>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
         </Tabs>

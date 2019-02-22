@@ -24,7 +24,7 @@ const containerBaseStyles = css`
 `;
 
 const stretchedStyles = ({ children, theme }) => css`
-  & ${Tab} {
+  & > ${Tab} {
     flex: 1 1 auto;
     padding: 0 ${theme.spacings.kilo};
     width: ${Math.floor(100 / children.length)}%;
@@ -55,9 +55,7 @@ const Container = styled.div(
  */
 const Tabs = ({ children, ...props }) => (
   <Wrapper {...props}>
-    <Container {...props} role="tablist">
-      {children}
-    </Container>
+    <Container>{children}</Container>
   </Wrapper>
 );
 

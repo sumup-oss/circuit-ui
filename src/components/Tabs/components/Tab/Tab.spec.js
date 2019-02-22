@@ -14,12 +14,4 @@ describe('Tab', () => {
       expect(actual).toMatchSnapshot();
     });
   });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Tab />);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
-  });
 });

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 
@@ -42,11 +41,7 @@ const selectedTabStyles = ({ theme, selected }) =>
 /**
  * Tab component that represents a single tab inside a Tabs wrapper
  */
-const TabWrapper = styled(Element)(defaultTabStyles, selectedTabStyles);
-
-const Tab = props => (
-  <TabWrapper role="tab" ariaSelected={props.selected} {...props} />
-);
+const Tab = styled(Element)(defaultTabStyles, selectedTabStyles);
 
 Tab.propTypes = {
   /**
@@ -60,10 +55,12 @@ Tab.propTypes = {
   /**
    * The HTML element or React component to render.
    */
-  as: PropTypes.string
+  as: PropTypes.oneOf([PropTypes.string, PropTypes.func])
 };
 
-Tab.defaultProps = {};
+Tab.defaultProps = {
+  as: 'div'
+};
 
 /**
  * @component
