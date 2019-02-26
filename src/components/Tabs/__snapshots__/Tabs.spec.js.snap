@@ -36,6 +36,8 @@ exports[`Tabs styles should render with default styles 1`] = `
 }
 
 .circuit-0 {
+  font-size: 15px;
+  line-height: 24px;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
@@ -65,6 +67,8 @@ exports[`Tabs styles should render with default styles 1`] = `
 }
 
 .circuit-2 {
+  font-size: 15px;
+  line-height: 24px;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
@@ -117,6 +121,7 @@ exports[`Tabs styles should render with default styles 1`] = `
       aria-selected={false}
       className="circuit-0 circuit-1"
       role="tab"
+      tabIndex="-1"
     >
       tab #1
     </button>
@@ -124,6 +129,7 @@ exports[`Tabs styles should render with default styles 1`] = `
       aria-selected={true}
       className="circuit-2 circuit-1"
       role="tab"
+      tabIndex={undefined}
     >
       tab #2
     </button>
@@ -144,6 +150,8 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 }
 
 .circuit-0 {
+  font-size: 15px;
+  line-height: 24px;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
@@ -173,6 +181,8 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 }
 
 .circuit-2 {
+  font-size: 15px;
+  line-height: 24px;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
@@ -258,6 +268,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
       aria-selected={false}
       className="circuit-0 circuit-1"
       role="tab"
+      tabIndex="-1"
     >
       tab #1
     </button>
@@ -265,6 +276,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
       aria-selected={true}
       className="circuit-2 circuit-1"
       role="tab"
+      tabIndex={undefined}
     >
       tab #2
     </button>

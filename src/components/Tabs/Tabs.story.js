@@ -7,13 +7,7 @@ import * as knobs from '@storybook/addon-knobs/react';
 
 import withTests from '../../util/withTests';
 
-/*
-import TabList from './components/TabList';
-import TabPanel from './components/TabPanel';
-import Tab from './components/Tab';
-*/
-
-import { TabList, TabPanel, Tab } from '../..';
+import { Tabs, TabList, TabPanel, Tab } from '../..';
 
 const sizeMap = {
   desktop: '80px',
@@ -30,12 +24,19 @@ const StyledTabPanel = styled(TabPanel)`
   padding: 12px;
 `;
 
-class TabsStory extends Component {
-  state = { selected: 0 };
+const tabsExample = [
+  { tab: 'Tab 1', content: 'Content 1' },
+  { tab: 'Tab 2', content: 'Content 2' },
+  { tab: 'Tab 3', content: 'Content 3' },
+  { tab: 'Tab 4', content: 'Content 4' }
+];
+
+class TabsComposed extends Component {
+  state = { selectedIndex: 0 };
 
   render() {
     const { size, extraPadding, stretched } = this.props;
-    const { selected } = this.state;
+    const { selectedIndex } = this.state;
 
     return (
       <Fragment>
@@ -44,40 +45,23 @@ class TabsStory extends Component {
           size={size}
           extraPadding={extraPadding}
         >
-          <Tab
-            selected={selected === 0}
-            onClick={() => this.setState({ selected: 0 })}
-          >
-            Tab #1
-          </Tab>
-          <Tab
-            selected={selected === 1}
-            onClick={() => this.setState({ selected: 1 })}
-          >
-            Tab #2
-          </Tab>
-          <Tab
-            selected={selected === 2}
-            onClick={() => this.setState({ selected: 2 })}
-          >
-            Tab #3
-          </Tab>
-          <Tab
-            as="a"
-            href="https://www.google.com"
-            target="_blank"
-            onClick={() => {}}
-          >
-            Tab Link
-          </Tab>
+          {tabsExample.map(({ tab }, index) => (
+            <Tab
+              key={index}
+              selected={index === selectedIndex}
+              onClick={() => this.setState({ selectedIndex: index })}
+            >
+              {tab}
+            </Tab>
+          ))}
         </StyledTabList>
-        <StyledTabPanel>TabPanel content</StyledTabPanel>
+        <StyledTabPanel>{tabsExample[selectedIndex].content}</StyledTabPanel>
       </Fragment>
     );
   }
 }
 
-TabsStory.propTypes = {
+TabsComposed.propTypes = {
   size: PropTypes.string.isRequired,
   extraPadding: PropTypes.bool.isRequired,
   stretched: PropTypes.bool.isRequired
@@ -89,7 +73,7 @@ storiesOf('Tabs', module)
     'Tabs',
     withInfo()(() => (
       <div style={{ width: '600px' }}>
-        <TabsStory
+        <TabsComposed
           size={knobs.select(
             'with external CSS: size',
             ['desktop', 'mobile'],
@@ -100,6 +84,39 @@ storiesOf('Tabs', module)
             false
           )}
           stretched={knobs.boolean('stretched', false)}
+        />
+      </div>
+    ))
+  )
+  .add(
+    'Tabs: Links',
+    withInfo()(() => (
+      <div style={{ width: '600px' }}>
+        <Fragment>
+          <TabList>
+            <Tab selected>Home</Tab>
+            <Tab as="a" href="https://www.google.com" target="_blank">
+              Page #1
+            </Tab>
+            <Tab as="a" href="https://www.google.com" target="_blank">
+              Page #2
+            </Tab>
+          </TabList>
+        </Fragment>
+      </div>
+    ))
+  )
+  .add(
+    'Tabs: Stateful',
+    withInfo()(() => (
+      <div style={{ width: '600px' }}>
+        <Tabs
+          items={[
+            { id: 'one', tab: 'Tab 1', panel: 'Content 1' },
+            { id: 'two', tab: 'Tab 2', panel: 'Content 2' },
+            { id: 'three', tab: 'Tab 3', panel: 'Content 3' },
+            { id: 'four', tab: 'Tab 4', panel: 'Content 4' }
+          ]}
         />
       </div>
     ))

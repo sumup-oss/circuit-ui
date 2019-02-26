@@ -2,6 +2,8 @@
 
 exports[`Tab styles should render with default styles 1`] = `
 .circuit-0 {
+  font-size: 15px;
+  line-height: 24px;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
@@ -34,6 +36,7 @@ exports[`Tab styles should render with default styles 1`] = `
   aria-selected={false}
   className="circuit-0 circuit-1"
   role="tab"
+  tabIndex="-1"
 >
   content
 </button>
@@ -41,6 +44,8 @@ exports[`Tab styles should render with default styles 1`] = `
 
 exports[`Tab styles should render with selected styles 1`] = `
 .circuit-0 {
+  font-size: 15px;
+  line-height: 24px;
   padding: 12px 32px;
   color: #9DA7B1;
   -webkit-text-decoration: none;
@@ -86,6 +91,7 @@ exports[`Tab styles should render with selected styles 1`] = `
   aria-selected={true}
   className="circuit-0 circuit-1"
   role="tab"
+  tabIndex={undefined}
 >
   content
 </button>

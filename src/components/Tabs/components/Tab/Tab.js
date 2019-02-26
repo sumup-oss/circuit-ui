@@ -4,8 +4,11 @@ import PropTypes from 'prop-types';
 
 import Element from '../../../Element';
 
+import { textMega } from '../../../../styles/style-helpers';
+
 const defaultTabStyles = ({ theme }) => css`
   label: tab;
+  ${textMega({ theme })};
   padding: ${theme.spacings.kilo} ${theme.spacings.tera};
   color: ${theme.colors.n500};
   text-decoration: none;
@@ -42,11 +45,18 @@ const selectedTabStyles = ({ theme, selected }) =>
     }
   `;
 
+const tabIndex = selected => (selected ? undefined : '-1');
+
 /**
  * Tab component that represents a single tab inside a Tabs wrapper
  */
 const Tab = styled(({ selected, ...props }) => (
-  <Element {...props} aria-selected={selected} role="tab" />
+  <Element
+    {...props}
+    aria-selected={selected}
+    tabIndex={tabIndex(selected)}
+    role="tab"
+  />
 ))(defaultTabStyles, selectedTabStyles);
 
 Tab.propTypes = {
