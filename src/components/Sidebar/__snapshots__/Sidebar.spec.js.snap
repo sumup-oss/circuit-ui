@@ -62,6 +62,7 @@ Array [
 
 <div
     className="circuit-0 circuit-1"
+    onClick={[MockFunction]}
   />,
   .circuit-0 {
   border: 0px;
@@ -178,6 +179,7 @@ Array [
 
 <div
     className="circuit-0 circuit-1"
+    onClick={[MockFunction]}
   />,
   .circuit-2 {
   cursor: pointer;

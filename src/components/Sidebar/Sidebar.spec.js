@@ -30,6 +30,16 @@ describe('<Sidebar />', () => {
     expect(props.onClose).toHaveBeenCalled();
   });
 
+  it('should dispatch onClose when the Backdrop is clicked', () => {
+    const props = {
+      open: true,
+      onClose: jest.fn()
+    };
+    const actual = mount(<Sidebar {...props} />);
+    actual.find('Backdrop').simulate('click');
+    expect(props.onClose).toHaveBeenCalled();
+  });
+
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(<Sidebar />);
