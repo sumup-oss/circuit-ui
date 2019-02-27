@@ -40,7 +40,7 @@ const Drawer = styled('div')(baseStyles, openStyles);
 const Sidebar = ({ children, open, closeButtonLabel, onClose }) => (
   <Fragment>
     <Drawer open={open}>{children}</Drawer>
-    <Backdrop visible={open} />
+    <Backdrop visible={open} onClick={onClose} />
     <CloseButton
       visible={open}
       closeButtonLabel={closeButtonLabel}
