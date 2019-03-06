@@ -17,20 +17,13 @@ class Tabs extends Component {
     ).isRequired
   };
 
-  state = { selectedIndex: 0 };
+  static defaultProps = {
+    initialSelectedIndex: 0
+  };
+
+  state = { selectedIndex: this.props.initialSelectedIndex };
 
   handleChange = selectedIndex => this.setState({ selectedIndex });
-
-  static getDerivedStateFromProps(props, state) {
-    if (
-      props.initialSelectedIndex &&
-      state.selectedIndex !== props.initialSelectedIndex
-    ) {
-      return { selectedIndex: props.initialSelectedIndex };
-    }
-
-    return null;
-  }
 
   render() {
     const { items } = this.props;
