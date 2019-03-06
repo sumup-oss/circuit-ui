@@ -4,7 +4,7 @@ import { styleHelpers } from '../../../../styles';
 
 import Tab from '../Tab';
 
-const MOBILE_AUTOSTRETCH_ITEMS_LIMIT = 4;
+const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 const DEFAULT_HEIGHT = '80px';
 
 const Wrapper = styled.div(
@@ -38,7 +38,7 @@ const navigationChildrenStyles = ({ stretched, ...props }) =>
   stretched && stretchedStyles(props);
 
 const navigationResponsiveChildrenStyles = props =>
-  props.children.length < MOBILE_AUTOSTRETCH_ITEMS_LIMIT &&
+  props.children.length <= MOBILE_AUTOSTRETCH_ITEMS_MAX &&
   css`
     ${props.theme.mq.untilKilo`
       ${stretchedStyles(props)};
