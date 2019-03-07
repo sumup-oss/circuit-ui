@@ -4,10 +4,10 @@ import styled from 'react-emotion';
 import Button from '../../Button';
 
 const Container = styled('div')`
-  ${({ theme }) => `
+  ${({ theme, align, justify }) => `
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: ${align};
+    justify-content: ${justify};
     width: 100%;
     padding: ${theme.spacings.kilo};
   `};
@@ -50,10 +50,12 @@ const PaginationContainer = ({
   onChange,
   nextLabel,
   previousLabel,
-  footer
+  footer,
+  align,
+  justify
 }) => (
   <Fragment>
-    <Container>
+    <Container align={align} justify={justify}>
       <NavigationButtonPrevious
         size={Button.KILO}
         onClick={() => onChange(page - 1)}
@@ -85,11 +87,15 @@ PaginationContainer.propTypes = {
   onChange: PropTypes.func.isRequired,
   nextLabel: PropTypes.string.isRequired,
   previousLabel: PropTypes.string.isRequired,
-  footer: PropTypes.string
+  footer: PropTypes.string,
+  align: PropTypes.string,
+  justify: PropTypes.string
 };
 
 PaginationContainer.defaultProps = {
-  footer: null
+  footer: null,
+  align: 'center',
+  justify: 'center'
 };
 
 export default PaginationContainer;

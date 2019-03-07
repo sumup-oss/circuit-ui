@@ -20,6 +20,8 @@ storiesOf(`${GROUPS.COMPONENTS}|Pagination`, module)
         pagesToShow={number('pagesToShow', 1)}
         onChange={() => {}}
         footer={text('footer', 'Showing 1 - 10 of 50 items')}
+        align={text('align', 'center')}
+        justify={text('justify', 'center')}
       />
     ))
   );
