@@ -12,11 +12,10 @@ import { Wrapper } from '../../utils/Wrapper';
 
 # List
 
-- At its core, the `List` component allows you to easily display a related
-  content grouped together and organized vertically.
-- Generally, every `List` should be used to present simple pieces of
-  information. For more complex sets of data, consider using a Data Table.
-- A `List` can be Ordered and Unordered. See Variants.
+At its core, the list component allows you to easily display a related content grouped together and 
+organized vertically. They should be used to present simple pieces of information. For more complex sets of data,
+consider using a Data Table.  
+
 
 <Playground wrapper={Wrapper}>
   <List ordered size={List.MEGA}>
@@ -26,15 +25,27 @@ import { Wrapper } from '../../utils/Wrapper';
   </List>
 </Playground>
 
-## Props
+## When to use it
 
-<PropTable component={List} />
+Use it when you want to display content related to a single subject. 
+When you need to display a big set of data use "Load More" list. This invites the user to browse more, 
+shorter load times, combines the advantages of infinite scrolling and pagination.
 
-## Variants
+## Usage guidelines
 
-### Ordered
+- **Do** break up chunks of related content and make the information easier for merchants to scan
+- **Do** use sentence casing
+- **Do** arrange List items in a logical way. Try to sort items into smaller meaningful categories. 
+Specific lists might be more useful in some contexts. If sorting is not possible, organize in alphabetical 
+or numerical order
+- **Do not** show more than 2 columns on mobile view
 
-To present content of equal status or value.
+
+## Component Variants
+
+### Ordered list
+
+Use ordered lists to imply sequence and order. They are commonly used when giving a set of instructions.
 
 <Playground wrapper={Wrapper}>
   <List ordered>
@@ -44,9 +55,9 @@ To present content of equal status or value.
   </List>
 </Playground>
 
-### Unordered
+### Unordered list
 
-Imply sequence and order, and are commonly used when giving a set of instructions.
+ Use a unordered list to present content of equal status or value.
 
 <Playground wrapper={Wrapper}>
   <List unordered>
@@ -79,15 +90,3 @@ The size of the list should be the same as the surrounding content.
     </List>
   </Fragment>
 </Playground>
-
-## When to use it
-
-- You want to display content related to a single subject. 
-- You need to display a big set of data use "Load More" list. This invites the
-  user to browse more, shorter load times, combines the advantages of infinite
-  scrolling and pagination.
-
-## Usage guidelines
-
-- **Do** something.
-- **Do not** something.

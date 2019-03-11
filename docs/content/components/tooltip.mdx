@@ -1,0 +1,58 @@
+---
+name: Tooltip
+route: /components/tooltip
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Fragment } from 'react';
+import Tooltip from '../../../src/components/Tooltip';
+import PropTable from '../../utils/PropTable';
+import {Wrapper} from '../../utils/Wrapper';
+import TooltipContainer from "./TooltipContainer";
+import styled from 'react-emotion';
+
+
+# Tooltip
+Tooltips display additional information on floating labels. 
+They can be activated when users hover, focus, tap, or click.
+
+<Playground wrapper={Wrapper}>
+    <TooltipContainer>
+        <Tooltip>
+            I am a teeny, tiny tooltip.
+        </Tooltip>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-eye"
+        >
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
+        </svg>
+    </TooltipContainer>
+</Playground>
+
+## When to use it
+
+You can use it as primary label, to associate one element with another (Icon→Action), or 
+as an auxiliary description to provide a supplementary or clarifying description.
+
+## Usage guidelines
+- **Do** use delay before the tooltip is hidden on mouse leave.
+- **Do** provide useful, additional information or clarification.
+- **Do** use sentence case.
+- **Do** be brief.
+- **Do** use it to describe an action/icon.
+- **Do not** use delay when the tooltip is shown on mouse enter
+- **Do not** use it to communicate important information (form title attributes or notifications)
+- **Do not** put links or buttons inside of a tooltip
+- **Do not** use it too often. If you are building not self-explanatory software, try different approaches.
+
