@@ -119,7 +119,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
     <span
       className="circuit-0 circuit-1"
     >
-      close
+      remove
     </span>
   </button>
 </span>
