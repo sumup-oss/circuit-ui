@@ -1,6 +1,8 @@
 import React from 'react';
-import { css } from 'react-emotion';
+import PropTypes from 'prop-types';
+import styled, { css } from 'react-emotion';
 import { withTheme } from 'emotion-theming';
+import { hideVisually } from 'polished';
 
 import { themePropType } from '../../util/shared-prop-types';
 import { svgKilo } from '../../styles/style-helpers';
@@ -12,17 +14,35 @@ const className = ({ theme }) => css`
   ${svgKilo({ theme })};
 `;
 
+const labelBaseStyles = () => css`
+  ${hideVisually()};
+`;
+
+// Important for accessibility
+const ButtonLabel = styled('span')`
+  ${labelBaseStyles};
+`;
+
 /**
  * A generic close button.
  */
-const CloseButton = ({ theme, ...props }) => (
+const CloseButton = ({ theme, label, ...props }) => (
   <SvgButton className={className({ theme })} {...props}>
     <Icon />
+    <ButtonLabel>{label}</ButtonLabel>
   </SvgButton>
 );
 
 CloseButton.propTypes = {
+  /**
+   * Text label for screen readers. Important for accessibility.
+   */
+  label: PropTypes.string,
   theme: themePropType.isRequired
+};
+
+CloseButton.defaultProps = {
+  label: 'close'
 };
 
 /**
