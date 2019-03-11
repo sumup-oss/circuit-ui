@@ -29,10 +29,10 @@ const CardHeaderContainer = styled('header')`
   ${noHeadingStyles};
 `;
 
-const CardHeader = ({ onClose, children, ...props }) => (
+const CardHeader = ({ onClose, children, labelCloseButton, ...props }) => (
   <CardHeaderContainer {...props}>
     {children}
-    {onClose && <CloseButton onClick={onClose} />}
+    {onClose && <CloseButton onClick={onClose} label={labelCloseButton} />}
   </CardHeaderContainer>
 );
 
@@ -45,7 +45,12 @@ CardHeader.propTypes = {
    * Callback for the close button. If not specified, the button won't
    * be shown.
    */
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  /**
+   * Text label for the close button for screen readers.
+   * Important for accessibility.
+   */
+  labelCloseButton: PropTypes.string
 };
 
 CardHeader.defaultProps = {

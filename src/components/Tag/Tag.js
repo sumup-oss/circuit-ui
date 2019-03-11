@@ -95,13 +95,26 @@ const TagElement = styled('span')`
 /**
  * Tag component
  */
-const Tag = ({ children, icon, onRemove, selected, ...props }) => (
+const Tag = ({
+  children,
+  icon,
+  onRemove,
+  labelRemoveButton,
+  selected,
+  ...props
+}) => (
   <TagElement {...{ selected, ...props }}>
     {!onRemove && icon && (
       <IconContainer {...{ selected }}>{icon}</IconContainer>
     )}
     {children}
-    {onRemove && <CloseButton {...{ onClick: onRemove, selected }} />}
+    {onRemove && (
+      <CloseButton
+        onClick={onRemove}
+        selected={selected}
+        label={labelRemoveButton}
+      />
+    )}
   </TagElement>
 );
 
@@ -120,6 +133,11 @@ Tag.propTypes = {
    */
   onRemove: eitherOrPropType('icon', 'onRemove', PropTypes.func),
   /**
+   * Text label for the remove icon for screen readers.
+   * Important for accessibility.
+   */
+  labelRemoveButton: PropTypes.string,
+  /**
    * Triggers selected styles on the tag.
    */
   selected: PropTypes.bool
@@ -129,7 +147,8 @@ Tag.defaultProps = {
   children: null,
   icon: null,
   onRemove: null,
-  selected: false
+  selected: false,
+  labelRemoveButton: 'remove'
 };
 
 /**

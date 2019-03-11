@@ -5,8 +5,8 @@ import { withTheme } from 'emotion-theming';
 import { CardHeader } from '../../../Card';
 import Heading from '../../../Heading';
 
-const ModalHeader = ({ title, onClose }) => (
-  <CardHeader onClose={onClose}>
+const ModalHeader = ({ title, onClose, labelCloseButton }) => (
+  <CardHeader onClose={onClose} labelCloseButton={labelCloseButton}>
     {title && (
       <Heading size={Heading.KILO} noMargin>
         {title}
@@ -17,7 +17,12 @@ const ModalHeader = ({ title, onClose }) => (
 
 ModalHeader.propTypes = {
   onClose: PropTypes.func,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  /**
+   * Text label for the close button for screen readers.
+   * Important for accessibility.
+   */
+  labelCloseButton: PropTypes.string
 };
 
 ModalHeader.defaultProps = {
