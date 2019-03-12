@@ -1,9 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import { range } from '../../util/fp';
+
 import TabList from './components/TabList';
 import Tab from './components/Tab';
 import TabPanel from './components/TabPanel';
+
+const KEY_LEFT_ARROW = 37;
+const KEY_RIGHT_ARROW = 39;
+const KEY_DOWN_ARROW = 40;
 
 class Tabs extends Component {
   static propTypes = {
@@ -23,7 +29,26 @@ class Tabs extends Component {
 
   state = { selectedIndex: this.props.initialSelectedIndex };
 
+  tabPanelsRefs = createRefs(this.props.items.length);
+
   handleChange = selectedIndex => this.setState({ selectedIndex });
+
+  handleTabKeyDown = e => {
+    const { selectedIndex } = this.state;
+    const nextTab = Math.min(this.props.items.length - 1, selectedIndex + 1);
+    const previousTab = Math.max(0, selectedIndex - 1);
+    const panelRef = this.tabPanelsRefs[selectedIndex].current;
+
+    if (e.which === KEY_LEFT_ARROW) {
+      this.setState({ selectedIndex: previousTab });
+    } else if (e.which === KEY_RIGHT_ARROW) {
+      this.setState({ selectedIndex: nextTab });
+    } else if (e.which === KEY_DOWN_ARROW) {
+      if (panelRef) {
+        panelRef.focus();
+      }
+    }
+  };
 
   render() {
     const { items } = this.props;
@@ -39,6 +64,7 @@ class Tabs extends Component {
             onClick={() => this.handleChange(index)}
             id={tabId}
             aria-controls={panelId}
+            onKeyDown={this.handleTabKeyDown}
           >
             {tab}
           </Tab>
@@ -49,6 +75,7 @@ class Tabs extends Component {
             id={panelId}
             aria-labelledby={tabId}
             hidden={selectedIndex === index ? undefined : 'hidden'}
+            ref={this.tabPanelsRefs[index]}
           >
             {panel}
           </TabPanel>
@@ -76,6 +103,10 @@ function getIds(id) {
     tabId: `tab-${id}`,
     panelId: `panel-${id}`
   };
+}
+
+function createRefs(length) {
+  return range(0, length).map(React.createRef);
 }
 
 export default Tabs;
