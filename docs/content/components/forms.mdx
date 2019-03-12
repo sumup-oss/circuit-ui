@@ -40,7 +40,8 @@ first name, phone number, street name, etc.
   (e.g. first and last name).
 - **Do not** use input fields for requiring longer textual information from the
   user.
-- **Do not** communicate that an input field is required.
+- **Do not** communicate that an input field is required on the label or the placeholder. 
+We assume that everything is required for the user unless explicitly said so.
 - **Do not** mark required fields with asterisks.
 
 ### Component variations
@@ -286,8 +287,7 @@ merchant to find the option as easy as possible)
 
 ## Textarea
 
-A text area input is a type of input that has more than one line of text. Such
-types of input are used when the expected text is more than one line.
+It is a type of input that allow mutiple lines of text.
 
 <Playground>
   <TextArea value="Howdy from the text area"/>
