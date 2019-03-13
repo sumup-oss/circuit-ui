@@ -14,6 +14,10 @@ import { Wrapper } from '../../utils/Wrapper';
 
 # Modal
 
+Modals are floating cards which overlay the primary UI. All content in a single
+modal should be related to completing one single task. Modals are heavy UI
+elements which obscure the primary user interface — avoid them where possible.
+
 <Playground wrapper={Wrapper}>
   <ModalWrapper>
     <ModalHeader onClose={() => {}} title="Export transactions"/>
@@ -22,11 +26,36 @@ import { Wrapper } from '../../utils/Wrapper';
   </ModalWrapper>
 </Playground>
 
-`ModalWrapper` This is the wrapper for the body of a modal.
+## When to use it
 
-`ModalHeader` This contains the title and the `X` close button.
+Use it when you want the user to focus on a single and perhaps more complex task
 
-`ModalFooter` This component right-aligns its content.
+## Usage guidelines
+
+#### General guidelines
+
+- **Do** use modals sparingly.
+- **Do** use modals when you want to isolate an action from the primary UI.
+- **Do not** draw a modal over another modal.
+- **Do not** fill a modal with content which has multiple end results.
+- **Do not** present a modal without a user prompting a modal (e.g. as a popup).
+
+#### Header guidelines
+
+- **Do** use concise yet descriptive headings that label the function of the specific modal.
+- **Do not** exclude headings from modals.
+
+#### Content guidelines
+
+- **Do** align text content to the left.
+- **Do not** have more than two columns of content.
+
+#### Footer guidelines
+
+The modal footer contains CTA's which carry out an action on the entire modal.
+
+- **Do** align modal CTA's to the right side of the footer.
+- **Do not** have more than one "Primary - Major" CTA.
 
 ## Usage in code
 
@@ -69,6 +98,11 @@ class MyComponent extends Component {
 }
 ```
 
+- `ModalWrapper` This is the wrapper for the body of a modal.
+- `ModalHeader` This contains the title and the `X` close button.
+- `ModalFooter` This component right-aligns its content.
+
+
 ### Embedding the modal in code
 
 If you prefer to embed the code declaratively inside the component, you can
@@ -103,10 +137,3 @@ class Page extends Component {
 }
 ```
 
-## Best practices
-
-- Be sure to use the `ModalHeader` and `ModalFooter` components to correctly
-  align items inside the modal.
-- All buttons inside a modal should be right-aligned.
-
-## Usage guidelines
