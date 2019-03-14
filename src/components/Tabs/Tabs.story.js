@@ -5,6 +5,8 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import * as knobs from '@storybook/addon-knobs/react';
 
+import { GROUPS } from '../../../.storybook/hierarchySeparators';
+
 import withTests from '../../util/withTests';
 
 import { Tabs, TabList, TabPanel, Tab } from '../..';
@@ -67,7 +69,7 @@ TabsComposed.propTypes = {
   stretched: PropTypes.bool.isRequired
 };
 
-storiesOf('Tabs', module)
+storiesOf(`${GROUPS.COMPONENTS}|Tabs`, module)
   .addDecorator(withTests('Tabs'))
   .add(
     'Tabs',
