@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'react-emotion';
 import PropTypes from 'prop-types';
 
-import Element from '../../../Element';
+import Element from '../Element';
 
 import { textMega } from '../../../../styles/style-helpers';
 
@@ -30,7 +30,6 @@ const selectedTabStyles = ({ theme, selected }) =>
   selected &&
   css`
     label: tab--selected;
-    color: initial !important;
     position: relative;
 
     ::after {

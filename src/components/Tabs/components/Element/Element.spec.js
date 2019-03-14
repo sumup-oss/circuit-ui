@@ -13,4 +13,20 @@ describe('Element', () => {
     const wrapper = shallow(<Custom />);
     expect(wrapper.text()).toEqual('custom');
   });
+
+  it('should assign refs by using deepRef prop', () => {
+    class TestRef extends React.Component {
+      ref = React.createRef();
+
+      render() {
+        return <Element as="div" deepRef={this.ref} />;
+      }
+    }
+
+    const wrapper = mount(<TestRef />);
+    const refElement = wrapper.instance().ref.current;
+    const childElement = wrapper.find('div').getDOMNode();
+
+    expect(refElement).toBe(childElement);
+  });
 });

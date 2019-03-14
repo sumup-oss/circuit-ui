@@ -72,7 +72,6 @@ exports[`Tab styles should render with selected styles 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   outline: none;
-  color: initial !important;
   position: relative;
 }
 

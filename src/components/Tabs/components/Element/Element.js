@@ -16,7 +16,10 @@ Element.propTypes = {
   /**
    * Ref to be passed to the underlying element.
    */
-  deepRef: PropTypes.func
+  deepRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ])
 };
 
 Element.defaultProps = {
