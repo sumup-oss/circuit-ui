@@ -39,7 +39,7 @@ const PaginationFooter = styled('div')`
     text-align: right;
     color: ${theme.colors.n500};
     font-size: ${theme.typography.text.kilo.fontSize};
-    padding-right: 12px;
+    padding-right: ${theme.spacings.kilo};
   `};
 `;
 
