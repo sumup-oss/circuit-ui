@@ -123,6 +123,7 @@ export { default as Col } from './components/Col';
 export { default as Spacing } from './components/Spacing';
 
 // Misc
+export { Tabs, TabList, TabPanel, Tab } from './components/Tabs';
 export { default as Pagination } from './components/Pagination';
 export { default as Spinner } from './components/Spinner';
 export { default as Badge } from './components/Badge';

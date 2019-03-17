@@ -17,7 +17,8 @@ export {
   clamp,
   last,
   head,
-  omit
+  omit,
+  range
 } from 'lodash/fp';
 
 export const keys = obj => Object.keys(obj);
@@ -43,7 +44,10 @@ export const mapKeys = curry((iteratee, obj) =>
 export const reverse = arr => [...arr].reverse();
 
 export const findLast = curry((predicate, arr) =>
-  flow(reverse, find(predicate))(arr)
+  flow(
+    reverse,
+    find(predicate)
+  )(arr)
 );
 
 export const reduce = curry((iteratee, acc, arr) => arr.reduce(iteratee, acc));

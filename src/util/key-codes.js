@@ -6,3 +6,12 @@ export const isEnter = event =>
 
 export const isSpacebar = event =>
   'key' in event ? event.key === ' ' : event.keyCode === 32;
+
+export const isArrowLeft = event =>
+  'key' in event ? event.key === 'ArrowLeft' : event.keyCode === 37;
+
+export const isArrowRight = event =>
+  'key' in event ? event.key === 'ArrowRight' : event.keyCode === 39;
+
+export const isArrowDown = event =>
+  'key' in event ? event.key === 'ArrowDown' : event.keyCode === 40;

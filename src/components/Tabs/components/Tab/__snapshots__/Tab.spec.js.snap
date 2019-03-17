@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab styles should render with default styles 1`] = `
+.circuit-0 {
+  font-size: 15px;
+  line-height: 24px;
+  padding: 12px 32px;
+  color: #9DA7B1;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  white-space: nowrap;
+  height: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  float: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  outline: none;
+}
+
+<button
+  aria-selected={false}
+  className="circuit-0 circuit-1"
+  role="tab"
+  tabIndex="-1"
+>
+  content
+</button>
+`;
+
+exports[`Tab styles should render with selected styles 1`] = `
+.circuit-0 {
+  font-size: 15px;
+  line-height: 24px;
+  padding: 12px 32px;
+  color: #9DA7B1;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  white-space: nowrap;
+  height: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  float: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  outline: none;
+  position: relative;
+}
+
+.circuit-0::after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background: #3388FF;
+}
+
+<button
+  aria-selected={true}
+  className="circuit-0 circuit-1"
+  role="tab"
+  tabIndex={undefined}
+>
+  content
+</button>
+`;
