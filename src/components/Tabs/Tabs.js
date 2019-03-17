@@ -2,14 +2,11 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import { range } from '../../util/fp';
+import { isArrowLeft, isArrowRight, isArrowDown } from '../../util/key-codes';
 
 import TabList from './components/TabList';
 import Tab from './components/Tab';
 import TabPanel from './components/TabPanel';
-
-const KEY_LEFT_ARROW = 37;
-const KEY_RIGHT_ARROW = 39;
-const KEY_DOWN_ARROW = 40;
 
 class Tabs extends Component {
   static propTypes = {
@@ -39,11 +36,11 @@ class Tabs extends Component {
     const previousTab = Math.max(0, selectedIndex - 1);
     const panelRef = this.tabPanelsRefs[selectedIndex].current;
 
-    if (e.which === KEY_LEFT_ARROW) {
+    if (isArrowLeft(e)) {
       this.setState({ selectedIndex: previousTab });
-    } else if (e.which === KEY_RIGHT_ARROW) {
+    } else if (isArrowRight(e)) {
       this.setState({ selectedIndex: nextTab });
-    } else if (e.which === KEY_DOWN_ARROW) {
+    } else if (isArrowDown(e)) {
       if (panelRef) {
         panelRef.focus();
       }
@@ -53,10 +50,10 @@ class Tabs extends Component {
   render() {
     const { items } = this.props;
     const { selectedIndex } = this.state;
-
     const { tabs, panels } = items.reduce(
       (aggr, { id, tab, panel }, index) => {
         const { tabId, panelId } = getIds(id);
+
         const tabElement = (
           <Tab
             key={index}
@@ -74,7 +71,7 @@ class Tabs extends Component {
             key={index}
             id={panelId}
             aria-labelledby={tabId}
-            hidden={selectedIndex === index ? undefined : 'hidden'}
+            hidden={selectedIndex !== index}
             ref={this.tabPanelsRefs[index]}
           >
             {panel}

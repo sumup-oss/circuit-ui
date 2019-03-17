@@ -28,6 +28,73 @@ describe('Tabs', () => {
     });
   });
 
+  describe('logic', () => {
+    it('should switch panels on  tab click', () => {
+      const wrapper = shallow(
+        <Tabs
+          items={[
+            { id: 'a', tab: 'tab-a', panel: 'panel-a' },
+            { id: 'b', tab: 'tab-b', panel: 'panel-b' },
+            { id: 'c', tab: 'tab-c', panel: 'panel-c' }
+          ]}
+        />
+      );
+
+      wrapper
+        .find('Tab[id="tab-b"]')
+        .last()
+        .simulate('click');
+
+      expect(
+        wrapper
+          .find('[panel-b]')
+          .last()
+          .prop('hidden')
+      ).toBeFalsy();
+    });
+
+    it('should go to the next tab on right press', () => {
+      const keyCodeRight = 39;
+      const wrapper = shallow(
+        <Tabs
+          items={[
+            { id: 'a', tab: 'tab-a', panel: 'panel-a' },
+            { id: 'b', tab: 'tab-b', panel: 'panel-b' },
+            { id: 'c', tab: 'tab-c', panel: 'panel-c' }
+          ]}
+        />
+      );
+
+      wrapper
+        .find('Tab[id="tab-a"]')
+        .last()
+        .simulate('keyDown', { keyCode: keyCodeRight });
+
+      expect(wrapper.find('[id="panel-b"]').prop('hidden')).toBeFalsy();
+    });
+
+    it('should go to the next tab on right press', () => {
+      const keyCodeLeft = 37;
+      const wrapper = shallow(
+        <Tabs
+          initialSelectedIndex={1}
+          items={[
+            { id: 'a', tab: 'tab-a', panel: 'panel-a' },
+            { id: 'b', tab: 'tab-b', panel: 'panel-b' },
+            { id: 'c', tab: 'tab-c', panel: 'panel-c' }
+          ]}
+        />
+      );
+
+      wrapper
+        .find('Tab[id="tab-b"]')
+        .last()
+        .simulate('keyDown', { keyCode: keyCodeLeft });
+
+      expect(wrapper.find('[id="panel-a"]').prop('hidden')).toBeFalsy();
+    });
+  });
+
   describe('accessibility', () => {
     it('should meet accessibility guidelines for tablist only', async () => {
       const wrapper = renderToHtml(
