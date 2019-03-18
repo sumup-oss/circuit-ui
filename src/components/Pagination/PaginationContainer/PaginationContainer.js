@@ -52,10 +52,11 @@ const PaginationContainer = ({
   previousLabel,
   footer,
   align,
-  justify
+  justify,
+  ...rest
 }) => (
   <Fragment>
-    <Container align={align} justify={justify}>
+    <Container align={align} justify={justify} {...rest}>
       <NavigationButtonPrevious
         size={Button.KILO}
         onClick={() => onChange(page - 1)}
@@ -85,8 +86,10 @@ PaginationContainer.propTypes = {
   page: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
-  nextLabel: PropTypes.string.isRequired,
-  previousLabel: PropTypes.string.isRequired,
+  nextLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+    .isRequired,
+  previousLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+    .isRequired,
   footer: PropTypes.string,
   align: PropTypes.string,
   justify: PropTypes.string

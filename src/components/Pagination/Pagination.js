@@ -31,7 +31,8 @@ const Pagination = ({
   previousLabel,
   footer,
   align,
-  justify
+  justify,
+  ...rest
 }) => {
   const PaginationButtonContainer = ({ currentPage }) => {
     const active = page === currentPage;
@@ -67,6 +68,7 @@ const Pagination = ({
         footer={footer}
         align={align}
         justify={justify}
+        {...rest}
       >
         {Array.from({ length: totalPages }).map((item, index) => (
           <PaginationButtonContainer key={item} currentPage={index + 1} />
@@ -100,6 +102,7 @@ const Pagination = ({
       footer={footer}
       align={align}
       justify={justify}
+      {...rest}
     >
       <PaginationButtonContainer currentPage={1} />
       {hasOmittedPreviousPages && (
@@ -144,11 +147,11 @@ Pagination.propTypes = {
   /**
    * Label to be used on button of next
    */
-  nextLabel: PropTypes.string,
+  nextLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
    * Label to be used on button of previous
    */
-  previousLabel: PropTypes.string,
+  previousLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
    * Text to be shown on the pagination footer
    */
