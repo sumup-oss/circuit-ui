@@ -3,6 +3,13 @@
 exports[`<Sidebar /> should render and match snapshot when open 1`] = `
 Array [
   .circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   height: 100%;
   min-width: 256px;
   background-color: #212933;
@@ -133,6 +140,13 @@ Array [
 exports[`<Sidebar /> should render and match the snapshot when closed 1`] = `
 Array [
   .circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   height: 100%;
   min-width: 256px;
   background-color: #212933;

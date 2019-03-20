@@ -43,6 +43,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Sidebar`, module)
                 </Sidebar.NavItem>
               ))}
             </Sidebar.NavList>
+            <Sidebar.Footer>Footer</Sidebar.Footer>
           </Sidebar>
         </SidebarContainer>
       );
