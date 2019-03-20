@@ -6,7 +6,6 @@ const baseStyles = ({ theme }) => css`
   display: flex;
   flex: 1;
   align-items: flex-end;
-  width: 100%;
   padding: ${theme.spacings.giga};
   background-color: ${theme.colors.n900};
   color: ${theme.colors.n100};

@@ -13,7 +13,6 @@ exports[`Footer styles should render with default styles 1`] = `
   -webkit-box-align: flex-end;
   -ms-flex-align: flex-end;
   align-items: flex-end;
-  width: 100%;
   padding: 24px;
   background-color: #212933;
   color: #FAFBFC;
