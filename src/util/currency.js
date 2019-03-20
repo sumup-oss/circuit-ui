@@ -1,4 +1,4 @@
-import { get, isNumber, isString } from 'lodash/fp';
+import { getOr, isNumber, isString } from 'lodash/fp';
 import { get as _get } from 'lodash';
 
 import { NUMBER_SEPARATORS, formatNumber, getNumberFormat } from './numbers';
@@ -127,18 +127,18 @@ function addSymbol(amount, symbol, { addSpace = true, prepend = false } = {}) {
 }
 
 export function getCurrencyFormat(currency, locale) {
-  const symbol = _get(CURRENCY_SYMBOLS, currency, '');
+  const symbol = _get(CURRENCY_SYMBOLS, currency, currency);
   const { decimal: decimalSep, thousand: thousandSep } = getNumberFormat(
     locale
   );
+
   if (!decimalSep || !thousandSep) {
     throw new TypeError(`No number format available for ${locale}`);
   }
-  const currencyFormats = _get(CURRENCY_FORMATS, currency.toUpperCase());
 
-  if (!currencyFormats) {
-    throw new TypeError(`Currency ${currency} is invalid.`);
-  }
+  const currencyFormats =
+    _get(CURRENCY_FORMATS, currency.toUpperCase()) ||
+    _get(CURRENCY_FORMATS, 'EUR');
 
   const {
     prependSymbol: prepend,
@@ -162,7 +162,7 @@ export function shouldPrependSymbol(currency, locale) {
 }
 
 export function formatCurrency(amount, currency, locale) {
-  const currencySymbol = get(currency, CURRENCY_SYMBOLS);
+  const currencySymbol = getOr(currency, currency, CURRENCY_SYMBOLS);
   const currencyFormat = getCurrencyFormat(currency, locale);
   const formattedAmount = toCurrencyNumberFormat(amount, currencyFormat);
   const currencyString = addSymbol(

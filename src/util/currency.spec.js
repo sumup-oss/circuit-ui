@@ -15,14 +15,8 @@ describe('currency', () => {
       const actual = currency.getCurrencyFormat(ccy, locale);
       expect(actual).toMatchSnapshot();
     });
-
-    it('should throw a TypeError if currency is not supported.', () => {
-      const ccy = 'BITCOIN';
-      const locale = 'de-DE';
-      const actual = () => currency.getCurrencyFormat(ccy, locale);
-      expect(actual).toThrow();
-    });
   });
+
   describe('formatCurrency()', () => {
     const inputs = ['11.23', 1000, 0.98];
 
@@ -208,6 +202,26 @@ describe('currency', () => {
     it('should localize HRK', () => {
       const outputs = ['11,23\xA0kn', '1.000,00\xA0kn', '0,98\xA0kn'];
       testCurrency(inputs, 'HRK', 'hr-HR', outputs);
+    });
+
+    describe('handling non-configured currencies', () => {
+      it('should not throw an error', () => {
+        const amount = 10;
+        const ccy = 'UYU';
+        expect(() => {
+          currency.formatCurrency(amount, ccy, 'en-GB');
+        }).not.toThrow();
+      });
+
+      it('should fall back to the default EUR format', () => {
+        const ccy = 'UYU';
+        const outputs = [
+          `11,23\xA0${ccy}`,
+          `1.000,00\xA0${ccy}`,
+          `0,98\xA0${ccy}`
+        ];
+        testCurrency(inputs, ccy, 'de-DE', outputs);
+      });
     });
   });
 
