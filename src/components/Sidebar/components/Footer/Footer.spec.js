@@ -2,7 +2,7 @@ import React from 'react';
 
 import Footer from './Footer';
 
-describe('Header', () => {
+describe('Footer', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
       const actual = create(<Footer />);
