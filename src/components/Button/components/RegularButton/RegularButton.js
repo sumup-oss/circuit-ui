@@ -1,30 +1,7 @@
 import React from 'react';
 import styled, { css } from 'react-emotion';
 
-import { textMega } from '../../../../styles/style-helpers';
-import { sizes } from '../../../../styles/constants';
-
-const { KILO, MEGA, GIGA } = sizes;
-
-const calculatePadding = ({ theme, size: buttonSize }) => (diff = '0px') => {
-  const sizeMap = {
-    [KILO]: `calc(${theme.spacings.bit} - ${diff}) calc(${
-      theme.spacings.mega
-    } - ${diff})`,
-    [MEGA]: `calc(${theme.spacings.byte} - ${diff}) calc(${
-      theme.spacings.giga
-    } - ${diff})`,
-    [GIGA]: `calc(${theme.spacings.kilo} - ${diff}) calc(${
-      theme.spacings.tera
-    } - ${diff})`
-  };
-
-  if (!sizeMap[buttonSize] && buttonSize) {
-    return null;
-  }
-
-  return sizeMap[buttonSize] || sizeMap.mega;
-};
+import { textMega, calculatePadding } from '../../../../styles/style-helpers';
 
 const disabledStyles = css`
   label: button--disabled;

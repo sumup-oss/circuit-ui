@@ -5,6 +5,7 @@ exports[`PaginationContainer styles When actual page is diferrent that first and
   <Container
     align="center"
     justify="center"
+    translate={[Function]}
   >
     <NavigationButtonPrevious
       disabled={false}
@@ -42,6 +43,7 @@ exports[`PaginationContainer styles When the actual page is 1 should render with
   <Container
     align="center"
     justify="center"
+    translate={[Function]}
   >
     <NavigationButtonPrevious
       disabled={true}
@@ -79,6 +81,7 @@ exports[`PaginationContainer styles When the actual page is equal the last page 
   <Container
     align="center"
     justify="center"
+    translate={[Function]}
   >
     <NavigationButtonPrevious
       disabled={false}

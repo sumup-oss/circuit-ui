@@ -30,8 +30,6 @@ const Pagination = ({
   nextLabel,
   previousLabel,
   footer,
-  align,
-  justify,
   ...rest
 }) => {
   const PaginationButtonContainer = ({ currentPage }) => {
@@ -66,8 +64,6 @@ const Pagination = ({
         nextLabel={nextLabel}
         previousLabel={previousLabel}
         footer={footer}
-        align={align}
-        justify={justify}
         {...rest}
       >
         {Array.from({ length: totalPages }).map((item, index) => (
@@ -100,8 +96,6 @@ const Pagination = ({
       nextLabel={nextLabel}
       previousLabel={previousLabel}
       footer={footer}
-      align={align}
-      justify={justify}
       {...rest}
     >
       <PaginationButtonContainer currentPage={1} />
@@ -155,15 +149,7 @@ Pagination.propTypes = {
   /**
    * Text to be shown on the pagination footer
    */
-  footer: PropTypes.string,
-  /**
-   * Align the pagination.
-   */
-  align: PropTypes.string,
-  /**
-   * Justify the pagination.
-   */
-  justify: PropTypes.string
+  footer: PropTypes.string
 };
 
 Pagination.defaultProps = {
@@ -172,9 +158,7 @@ Pagination.defaultProps = {
   pagesToShow: PAGINATION.PAGES_TO_SHOW,
   nextLabel: PAGINATION.LABEL_NEXT,
   previousLabel: PAGINATION.LABEL_PREVIOUS,
-  footer: PAGINATION.FOOTER,
-  align: PAGINATION.ALIGN,
-  justify: PAGINATION.JUSTIFY
+  footer: PAGINATION.FOOTER
 };
 
 /**

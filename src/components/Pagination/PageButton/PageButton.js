@@ -1,13 +1,13 @@
 import styled, { css } from 'react-emotion';
 
 import Button from '../../Button';
-import { calculatePadding } from '../../Button/components/RegularButton/RegularButton'; // eslint-disable-line max-len
+import { calculatePadding } from '../../../styles/style-helpers'; // eslint-disable-line max-len
 
 const baseStyles = ({ theme }) => css`
-  label: pagination__buttom;
+  label: pagination__button;
   border-radius: 0;
   border-right: 0;
-  font-weight: normal;
+  font-weight: ${theme.fontWeight.regular};
   border-color: ${theme.colors.n300};
 
   &:focus {
@@ -35,7 +35,7 @@ const primaryStyles = ({ theme, primary }) =>
       box-shadow: none;
   `;
 
-const inactiveStyles = ({ theme, disabled }) =>
+const disabledStyles = ({ theme, disabled }) =>
   disabled &&
   css`
     opacity: 1 !important;
@@ -47,7 +47,7 @@ const inactiveStyles = ({ theme, disabled }) =>
 /**
  * Styled Component for the button page in pagination
  */
-const PageButton = styled(Button)(baseStyles, primaryStyles, inactiveStyles);
+const PageButton = styled(Button)(baseStyles, primaryStyles, disabledStyles);
 
 PageButton.defaultProps = {
   size: Button.KILO

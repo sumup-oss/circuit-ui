@@ -10,6 +10,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   page={1}
   previousLabel="<"
   totalPages={5}
+  translate={[Function]}
 >
   <PaginationButtonContainer
     currentPage={1}
@@ -39,6 +40,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   page={9}
   previousLabel="<"
   totalPages={10}
+  translate={[Function]}
 >
   <PaginationButtonContainer
     currentPage={1}
@@ -79,6 +81,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   page={10}
   previousLabel="<"
   totalPages={10}
+  translate={[Function]}
 >
   <PaginationButtonContainer
     currentPage={1}
@@ -119,6 +122,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   page={2}
   previousLabel="<"
   totalPages={10}
+  translate={[Function]}
 >
   <PaginationButtonContainer
     currentPage={1}
@@ -159,6 +163,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   page={5}
   previousLabel="<"
   totalPages={10}
+  translate={[Function]}
 >
   <PaginationButtonContainer
     currentPage={1}
@@ -207,6 +212,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   page={1}
   previousLabel="<"
   totalPages={10}
+  translate={[Function]}
 >
   <PaginationButtonContainer
     currentPage={1}
