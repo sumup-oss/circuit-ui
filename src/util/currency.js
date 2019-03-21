@@ -130,13 +130,10 @@ export function getCurrencyFormat(currency, locale) {
     defaultTo(currency),
     get(currency)
   )(CURRENCY_SYMBOLS);
+
   const { decimal: decimalSep, thousand: thousandSep } = getNumberFormat(
     locale
   );
-
-  if (!decimalSep || !thousandSep) {
-    throw new TypeError(`No number format available for ${locale}`);
-  }
 
   const currencyFormats =
     get(currency.toUpperCase(), CURRENCY_FORMATS) ||

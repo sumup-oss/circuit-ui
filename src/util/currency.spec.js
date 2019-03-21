@@ -9,11 +9,41 @@ describe('currency', () => {
       expect(actual).toMatchSnapshot();
     });
 
-    it('should fall back to the default format for a currency, if locale is not found.', () => {
-      const ccy = 'EUR';
-      const locale = 'en-GB';
-      const actual = currency.getCurrencyFormat(ccy, locale);
-      expect(actual).toMatchSnapshot();
+    describe('when a currency is not supported', () => {
+      it('should use the currency code as symbol', () => {
+        const ccy = 'UYU';
+        const locale = 'en-GB';
+        const actual = currency.getCurrencyFormat(ccy, locale);
+        expect(actual).toEqual(
+          expect.objectContaining({
+            symbol: 'UYU'
+          })
+        );
+      });
+
+      it('should fall back to EUR currency formatting', () => {
+        const ccy = 'UYU';
+        const locale = 'en-GB';
+        const actual = currency.getCurrencyFormat(ccy, locale);
+        expect(actual).toEqual(
+          expect.objectContaining({
+            addSpace: true,
+            currencyPrecision: 2,
+            decimalSep: '.',
+            prepend: false,
+            thousandSep: ','
+          })
+        );
+      });
+    });
+
+    describe('when no locale-specific format exists for a currency', () => {
+      it('should fall back to the default format', () => {
+        const ccy = 'EUR';
+        const locale = 'en-GB';
+        const actual = currency.getCurrencyFormat(ccy, locale);
+        expect(actual).toMatchSnapshot();
+      });
     });
   });
 
@@ -221,6 +251,31 @@ describe('currency', () => {
           `0,98\xA0${ccy}`
         ];
         testCurrency(inputs, ccy, 'de-DE', outputs);
+      });
+    });
+  });
+
+  describe('formatAmountForLocale()', () => {
+    describe('when passed a non-string or non-number input', () => {
+      it('should return the input as is', () => {
+        const notANumber = {};
+        const ccy = 'EUR';
+        const locale = 'de-DE';
+        const actual = currency.formatAmountForLocale(notANumber, ccy, locale);
+        expect(actual).toBe(notANumber);
+      });
+    });
+
+    describe('when given a currency and locale', () => {
+      const inputs = [11.23, 1000, 0.98];
+      const ccy = 'CHF';
+      const locale = 'de-CH';
+      const expected = ['11.23', "1'000.00", '0.98'];
+
+      inputs.forEach((number, i) => {
+        expect(currency.formatAmountForLocale(number, ccy, locale)).toBe(
+          expected[i]
+        );
       });
     });
   });
