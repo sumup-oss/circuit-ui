@@ -22,7 +22,7 @@ exports[`PageButton styles should render with default styles 1`] = `
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
   border-right: 0;
-  font-weight: normal;
+  font-weight: 400;
   border-color: #D8DDE1;
 }
 

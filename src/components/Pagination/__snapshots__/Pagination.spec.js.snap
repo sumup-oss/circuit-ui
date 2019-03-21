@@ -2,9 +2,7 @@
 
 exports[`Pagination styles With 5 or less pages should render only the number of pages passed and the next and previous buttons 1`] = `
 <PaginationContainer
-  align="center"
   footer={null}
-  justify="center"
   nextLabel=">"
   onChange={[Function]}
   page={1}
@@ -32,9 +30,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
 
 exports[`Pagination styles With more than 5 pages when user is last but one page should render with default styles and match snapshot 1`] = `
 <PaginationContainer
-  align="center"
   footer={null}
-  justify="center"
   nextLabel=">"
   onChange={[Function]}
   page={9}
@@ -73,9 +69,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
 
 exports[`Pagination styles With more than 5 pages when user is on last page should render with default styles and match snapshot 1`] = `
 <PaginationContainer
-  align="center"
   footer={null}
-  justify="center"
   nextLabel=">"
   onChange={[Function]}
   page={10}
@@ -114,9 +108,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 
 exports[`Pagination styles With more than 5 pages when user is on page 2 should render with default styles and match snapshot 1`] = `
 <PaginationContainer
-  align="center"
   footer={null}
-  justify="center"
   nextLabel=">"
   onChange={[Function]}
   page={2}
@@ -155,9 +147,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
 
 exports[`Pagination styles With more than 5 pages when user is on page in the middle should render with default styles and match snapshot 1`] = `
 <PaginationContainer
-  align="center"
   footer={null}
-  justify="center"
   nextLabel=">"
   onChange={[Function]}
   page={5}
@@ -204,9 +194,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
 
 exports[`Pagination styles With more than 5 pages when user is on page one should render with default styles and match snapshot 1`] = `
 <PaginationContainer
-  align="center"
   footer={null}
-  justify="center"
   nextLabel=">"
   onChange={[Function]}
   page={1}
