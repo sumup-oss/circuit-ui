@@ -1,5 +1,4 @@
-import { get, isNumber, isString } from 'lodash/fp';
-import { get as _get } from 'lodash';
+import { compose, defaultTo, get, isNumber, isString } from 'lodash/fp';
 
 import { NUMBER_SEPARATORS, formatNumber, getNumberFormat } from './numbers';
 import { currencyToRegex } from './regex';
@@ -127,24 +126,24 @@ function addSymbol(amount, symbol, { addSpace = true, prepend = false } = {}) {
 }
 
 export function getCurrencyFormat(currency, locale) {
-  const symbol = _get(CURRENCY_SYMBOLS, currency, '');
+  const symbol = compose(
+    defaultTo(currency),
+    get(currency)
+  )(CURRENCY_SYMBOLS);
+
   const { decimal: decimalSep, thousand: thousandSep } = getNumberFormat(
     locale
   );
-  if (!decimalSep || !thousandSep) {
-    throw new TypeError(`No number format available for ${locale}`);
-  }
-  const currencyFormats = _get(CURRENCY_FORMATS, currency.toUpperCase());
 
-  if (!currencyFormats) {
-    throw new TypeError(`Currency ${currency} is invalid.`);
-  }
+  const currencyFormats =
+    get(currency.toUpperCase(), CURRENCY_FORMATS) ||
+    get('EUR', CURRENCY_FORMATS);
 
   const {
     prependSymbol: prepend,
     fractionalPrecision: currencyPrecision,
     addSpace
-  } = _get(currencyFormats, locale, currencyFormats.default);
+  } = get(locale, currencyFormats) || currencyFormats.default;
 
   return {
     decimalSep,
@@ -162,7 +161,10 @@ export function shouldPrependSymbol(currency, locale) {
 }
 
 export function formatCurrency(amount, currency, locale) {
-  const currencySymbol = get(currency, CURRENCY_SYMBOLS);
+  const currencySymbol = compose(
+    defaultTo(currency),
+    get(currency)
+  )(CURRENCY_SYMBOLS);
   const currencyFormat = getCurrencyFormat(currency, locale);
   const formattedAmount = toCurrencyNumberFormat(amount, currencyFormat);
   const currencyString = addSymbol(
@@ -194,12 +196,12 @@ export function formatAmountForLocale(number, currency, locale) {
 }
 
 export function currencyRegex(currency, locale) {
-  const currencyFormat = _get(CURRENCY_FORMATS, currency);
-  const currencyLocaleFormat = _get(currencyFormat, locale);
-  const currencyDefaultFormat = _get(currencyFormat, 'default');
-  const { fractionalPrecision } = currencyLocaleFormat || currencyDefaultFormat;
+  const currencyFormat = get(currency, CURRENCY_FORMATS);
+  const currencyLocaleFormat = get(locale, currencyFormat);
+  const { fractionalPrecision } =
+    currencyLocaleFormat || currencyFormat.default;
 
-  const numberFormat = _get(NUMBER_SEPARATORS, locale);
+  const numberFormat = get(locale, NUMBER_SEPARATORS);
   const { decimal, thousand } = numberFormat;
 
   return currencyToRegex([thousand], fractionalPrecision, [decimal]);
