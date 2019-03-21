@@ -2,6 +2,9 @@ import { css } from 'react-emotion';
 import { size, stripUnit, transparentize } from 'polished';
 
 import { mapValues } from '../util/fp';
+import { sizes } from './constants';
+
+const { KILO, MEGA, GIGA } = sizes;
 
 /**
  * Shadows
@@ -145,3 +148,25 @@ export const clearfix = css`
     clear: both;
   }
 `;
+
+export const calculatePadding = ({ theme, size: buttonSize }) => (
+  diff = '0px'
+) => {
+  const sizeMap = {
+    [KILO]: `calc(${theme.spacings.bit} - ${diff}) calc(${
+      theme.spacings.mega
+    } - ${diff})`,
+    [MEGA]: `calc(${theme.spacings.byte} - ${diff}) calc(${
+      theme.spacings.giga
+    } - ${diff})`,
+    [GIGA]: `calc(${theme.spacings.kilo} - ${diff}) calc(${
+      theme.spacings.tera
+    } - ${diff})`
+  };
+
+  if (!sizeMap[buttonSize] && buttonSize) {
+    return null;
+  }
+
+  return sizeMap[buttonSize] || sizeMap.mega;
+};

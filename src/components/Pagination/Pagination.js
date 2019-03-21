@@ -4,9 +4,10 @@ import * as PaginationService from './PaginationService';
 import PaginationContainer from './PaginationContainer';
 import PaginationButton from './PaginationButton';
 import PageButton from './PageButton';
+import Separator from './Separator';
 
 /**
- * Pagination is a component to show pages numbers calculate dinamically.
+ * Pagination is a component to show pages numbers calculate dynamically.
  */
 
 const PAGINATION = {
@@ -14,7 +15,10 @@ const PAGINATION = {
   ITEMS_PER_PAGE: 50,
   PAGES_TO_SHOW: 5,
   LABEL_NEXT: '>',
-  LABEL_PREVIOUS: '<'
+  LABEL_PREVIOUS: '<',
+  FOOTER: null,
+  ALIGN: 'center',
+  JUSTIFY: 'center'
 };
 
 const Pagination = ({
@@ -24,7 +28,9 @@ const Pagination = ({
   pagesToShow,
   onChange,
   nextLabel,
-  previousLabel
+  previousLabel,
+  footer,
+  ...rest
 }) => {
   const PaginationButtonContainer = ({ currentPage }) => {
     const active = page === currentPage;
@@ -33,6 +39,7 @@ const Pagination = ({
         active={active}
         currentPage={currentPage}
         onClick={onChange}
+        key={currentPage}
       />
     );
   };
@@ -56,6 +63,8 @@ const Pagination = ({
         onChange={onChange}
         nextLabel={nextLabel}
         previousLabel={previousLabel}
+        footer={footer}
+        {...rest}
       >
         {Array.from({ length: totalPages }).map((item, index) => (
           <PaginationButtonContainer key={item} currentPage={index + 1} />
@@ -86,9 +95,13 @@ const Pagination = ({
       onChange={onChange}
       nextLabel={nextLabel}
       previousLabel={previousLabel}
+      footer={footer}
+      {...rest}
     >
       <PaginationButtonContainer currentPage={1} />
-      {hasOmittedPreviousPages && <PageButton>...</PageButton>}
+      {hasOmittedPreviousPages && (
+        <PageButton disabled>{Separator()}</PageButton>
+      )}
       {previousValues.map(item => (
         <PaginationButtonContainer key={item} currentPage={item} />
       ))}
@@ -98,7 +111,7 @@ const Pagination = ({
       {nextValues.map(item => (
         <PaginationButtonContainer key={item} currentPage={item} />
       ))}
-      {hasOmittedNextPages && <PageButton>...</PageButton>}
+      {hasOmittedNextPages && <PageButton disabled>{Separator()}</PageButton>}
       <PaginationButtonContainer currentPage={totalPages} />
     </PaginationContainer>
   );
@@ -126,13 +139,17 @@ Pagination.propTypes = {
    */
   pagesToShow: PropTypes.number,
   /**
-   * Label to be used on buttomn of next
+   * Label to be used on button of next
    */
-  nextLabel: PropTypes.string,
+  nextLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
-   * Label to be used on buttomn of previous
+   * Label to be used on button of previous
    */
-  previousLabel: PropTypes.string
+  previousLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  /**
+   * Text to be shown on the pagination footer
+   */
+  footer: PropTypes.string
 };
 
 Pagination.defaultProps = {
@@ -140,8 +157,10 @@ Pagination.defaultProps = {
   perPage: PAGINATION.ITEMS_PER_PAGE,
   pagesToShow: PAGINATION.PAGES_TO_SHOW,
   nextLabel: PAGINATION.LABEL_NEXT,
-  previousLabel: PAGINATION.LABEL_PREVIOUS
+  previousLabel: PAGINATION.LABEL_PREVIOUS,
+  footer: PAGINATION.FOOTER
 };
+
 /**
  * @component Pagination
  */
