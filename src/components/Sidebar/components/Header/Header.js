@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 const baseStyles = ({ theme }) => css`
-  label: header;
+  label: sidebar-header;
   display: flex;
   align-self: flex-start;
   align-items: center;

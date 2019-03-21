@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import NavList from './components/NavList';
 import NavItem from './components/NavItem';
 import Backdrop from './components/Backdrop';
@@ -12,6 +13,8 @@ const SIDEBAR_WIDTH = 256;
 
 const baseStyles = ({ theme }) => css`
   label: sidebar;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   min-width: ${SIDEBAR_WIDTH}px;
   background-color: ${theme.colors.n900};
@@ -69,6 +72,7 @@ Sidebar.propTypes = {
 };
 
 Sidebar.Header = Header;
+Sidebar.Footer = Footer;
 Sidebar.NavList = NavList;
 Sidebar.NavItem = NavItem;
 

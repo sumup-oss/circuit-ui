@@ -6,7 +6,7 @@ import { hideVisually } from 'polished';
 import CloseIcon from './closeIcon.svg';
 
 const baseStyles = ({ theme }) => css`
-  label: close-button;
+  label: sidebar-close-button;
   cursor: pointer;
   outline: none;
   display: flex;
