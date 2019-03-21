@@ -6,6 +6,7 @@ import Button from '../../Button';
 const Container = styled('div')`
   ${({ theme }) => `
     display: flex;
+    align-items: center;
     width: 100%;
     padding: ${theme.spacings.kilo};
   `};
