@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
 import { withProps } from 'recompose';
 
-import SpinnerSvg from './icons/spinner.svg';
+import { ReactComponent as SpinnerSvg } from './icons/spinner.svg';
 
 const spin = keyframes`
   0% {

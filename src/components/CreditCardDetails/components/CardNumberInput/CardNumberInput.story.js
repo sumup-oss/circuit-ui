@@ -37,11 +37,6 @@ const manySchemeIcons = getIconComponents(manySchemes);
 
 const marginTopClassName = css`
   width: calc(100vw - ${circuit.spacings.byte});
-
-  ${circuit.mq.untilKilo`
-    width: 75vw;
-    max-width: 400px;
-  `};
 `;
 
 storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardNumberInput`, module)
