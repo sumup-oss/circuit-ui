@@ -36,7 +36,6 @@
     "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "precommit": "lint-staged",
     "prepublishOnly": "yarn build:js"
   },
   "repository": {
@@ -151,5 +150,10 @@
     "*.js": [
       "eslint --cache"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
