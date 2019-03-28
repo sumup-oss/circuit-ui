@@ -13,9 +13,9 @@ import { childrenPropType } from '../../util/shared-prop-types';
 
 import Tooltip from '../Tooltip';
 
-import ErrorIcon from './error.svg';
-import WarningIcon from './warning.svg';
-import ValidIcon from './valid.svg';
+import { ReactComponent as ErrorIcon } from './error.svg';
+import { ReactComponent as WarningIcon } from './warning.svg';
+import { ReactComponent as ValidIcon } from './valid.svg';
 
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;

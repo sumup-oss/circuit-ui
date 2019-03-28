@@ -8,7 +8,7 @@ import { sizes } from '../../../../styles/constants';
 import { values } from '../../../../util/fp';
 
 import PureSpinner from '../../../Spinner';
-import SuccessSvg from '../icons/success.svg';
+import { ReactComponent as SuccessSvg } from '../icons/success.svg';
 import { LOADING_STATES } from '../../constants';
 import { SIZE_PROP_TYPE } from '../../../Button/constants';
 
@@ -51,7 +51,7 @@ const sizeStyles = label => ({ theme, size }) => {
   const sizeValue = sizeMap[size] || sizeMap.GIGA;
 
   return css`
-    label: ${label}--${size.toLowerCase()};
+    label: ${`${label}--${size.toLowerCase()}`};
     ${sizeMixin(sizeValue)};
   `;
 };

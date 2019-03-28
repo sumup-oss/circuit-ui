@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import MessageSuccess from '../../message-success.svg';
-import MessageError from '../../message-error.svg';
+import { ReactComponent as MessageSuccess } from '../../message-success.svg';
+import { ReactComponent as MessageError } from '../../message-error.svg';
 import MessageWarning from '../MessageWarning';
 
 const ICON_TYPES = {

@@ -1,29 +1,29 @@
 import React from 'react';
 
 import { flow, toPairs, reduce } from '../../../../util/fp';
-import Amex from './icons/amex.svg';
-import Unknown from './icons/unknown.svg';
-import Diners from './icons/diners.svg';
-import Discover from './icons/discover.svg';
-import Ec from './icons/ec.svg';
-import Elo from './icons/elo.svg';
-import Elv from './icons/elv.svg';
-import Hiper from './icons/hiper.svg';
-import Hipercard from './icons/hipercard.svg';
-import Jcb from './icons/jcb.svg';
-import Maestro from './icons/maestro.svg';
-import Mastercard from './icons/mastercard.svg';
-import VisaElectron from './icons/visa-electron.svg';
-import Visa from './icons/visa.svg';
-import Vpay from './icons/vpay.svg';
-import Cash from './icons/cash.svg';
-import GooglePay from './icons/google-pay.svg';
-import ApplePay from './icons/apple-pay.svg';
-import BancoEstado from './icons/banco-estado.svg';
-import Dankort from './icons/dankort.svg';
-import Nfc from './icons/nfc.svg';
-import UnionPay from './icons/union-pay.svg';
-import RedCompra from './icons/red-compra.svg';
+import { ReactComponent as Amex } from './icons/amex.svg';
+import { ReactComponent as Unknown } from './icons/unknown.svg';
+import { ReactComponent as Diners } from './icons/diners.svg';
+import { ReactComponent as Discover } from './icons/discover.svg';
+import { ReactComponent as Ec } from './icons/ec.svg';
+import { ReactComponent as Elo } from './icons/elo.svg';
+import { ReactComponent as Elv } from './icons/elv.svg';
+import { ReactComponent as Hiper } from './icons/hiper.svg';
+import { ReactComponent as Hipercard } from './icons/hipercard.svg';
+import { ReactComponent as Jcb } from './icons/jcb.svg';
+import { ReactComponent as Maestro } from './icons/maestro.svg';
+import { ReactComponent as Mastercard } from './icons/mastercard.svg';
+import { ReactComponent as VisaElectron } from './icons/visa-electron.svg';
+import { ReactComponent as Visa } from './icons/visa.svg';
+import { ReactComponent as Vpay } from './icons/vpay.svg';
+import { ReactComponent as Cash } from './icons/cash.svg';
+import { ReactComponent as GooglePay } from './icons/google-pay.svg';
+import { ReactComponent as ApplePay } from './icons/apple-pay.svg';
+import { ReactComponent as BancoEstado } from './icons/banco-estado.svg';
+import { ReactComponent as Dankort } from './icons/dankort.svg';
+import { ReactComponent as Nfc } from './icons/nfc.svg';
+import { ReactComponent as UnionPay } from './icons/union-pay.svg';
+import { ReactComponent as RedCompra } from './icons/red-compra.svg';
 
 export const iconComponents = {
   amex: Amex,
