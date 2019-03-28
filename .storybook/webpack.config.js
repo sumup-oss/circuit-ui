@@ -10,7 +10,7 @@ module.exports = ({ config, mode }) => {
   ).exclude = path.resolve(__dirname, '../src/');
 
   config.module.rules.push({
-    test: /\.stories\.jsx?$/,
+    test: /\.story\.jsx?$/,
     loaders: [require.resolve('@storybook/addon-storysource/loader')],
     enforce: 'pre'
   });
