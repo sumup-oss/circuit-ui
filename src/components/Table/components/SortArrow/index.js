@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import ArrowIcon from './arrow.svg';
+import { ReactComponent as ArrowIcon } from './arrow.svg';
 
 import SvgButton from '../../../SvgButton';
 import { ASCENDING, DESCENDING } from '../../constants';
