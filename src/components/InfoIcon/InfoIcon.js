@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Icon from './info.svg';
+import { ReactComponent as Icon } from './info.svg';
 
 const baseStyles = ({ theme }) => css`
   label: info-icon;

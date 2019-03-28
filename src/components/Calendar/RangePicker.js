@@ -5,8 +5,8 @@ import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';
 
-import CloseIcon from './close.svg';
-import ArrowRightIcon from './arrow-right.svg';
+import { ReactComponent as CloseIcon } from './close.svg';
+import { ReactComponent as ArrowRightIcon } from './arrow-right.svg';
 
 const CustomArrow = styled('div')`
   color: ${({ theme }) => theme.colors.b500};

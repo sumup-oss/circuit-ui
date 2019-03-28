@@ -12,7 +12,7 @@ import {
 } from '../../util/shared-prop-types';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
-import ArrowsIcon from './arrows.svg';
+import { ReactComponent as ArrowsIcon } from './arrows.svg';
 
 const selectBaseStyles = ({ theme }) => css`
   label: select;

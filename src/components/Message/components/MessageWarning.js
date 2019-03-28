@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import MessageSuccess from '../message-success.svg';
+import { ReactComponent as MessageSuccess } from '../message-success.svg';
 
 const MessageWarning = styled(MessageSuccess)`
   ${({ theme }) => `

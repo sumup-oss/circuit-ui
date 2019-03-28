@@ -1,15 +1,51 @@
-const merge = require('webpack-merge');
-
-const { getBaseConfig, prodConfig } = require('./webpack-helpers');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = ({ config, mode }) => {
   const isProduction = mode === 'PRODUCTION';
-  const baseConfig = getBaseConfig(isProduction);
-  const mergedConfig = merge(config, baseConfig);
 
-  config.module.rules = config.module.rules.filter(
-    rule => !rule.test.test('.svg')
+  // modify storybook's file-loader rule to avoid conflicts with svgr
+  config.module.rules.find(rule =>
+    rule.test.test('.svg')
+  ).exclude = path.resolve(__dirname, '../src/');
+
+  config.module.rules.push({
+    test: /\.stories\.jsx?$/,
+    loaders: [require.resolve('@storybook/addon-storysource/loader')],
+    enforce: 'pre'
+  });
+
+  config.module.rules.push({
+    test: /.svg$/,
+    use: [
+      {
+        loader: '@svgr/webpack',
+        options: {
+          svgoConfig: {
+            plugins: {
+              removeViewBox: false
+            }
+          }
+        }
+      },
+      'url-loader'
+    ]
+  });
+
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      STORYBOOK: JSON.stringify(true),
+      PRODUCTION: JSON.stringify(isProduction)
+    })
   );
 
-  return isProduction ? merge(mergedConfig, prodConfig) : mergedConfig;
+  if (isProduction) {
+    config.module.rules.push({
+      test: /\.css$/,
+      loaders: ['style-loader', 'css-loader'],
+      include: path.resolve(__dirname)
+    });
+  }
+
+  return config;
 };
