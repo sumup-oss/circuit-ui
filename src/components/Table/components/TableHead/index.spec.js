@@ -38,7 +38,7 @@ describe('TableHead', () => {
           <TableHead rowHeaders headers={fixtureHeaders} />
         );
 
-        expect(wrapper.find('TableCell').at(0).length).toBeTruthy();
+        expect(wrapper.find('td').at(0).length).toBeTruthy();
       });
     });
   });

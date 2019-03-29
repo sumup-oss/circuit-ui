@@ -15,6 +15,7 @@ const baseStyles = ({ theme }) => css`
  * A small info icon used for triggering tooltips
  * and other informational content.
  */
+
 const StyledIcon = styled(Icon)(baseStyles);
 const InfoIcon = props => <StyledIcon role="img" {...props} />;
 

@@ -61,12 +61,7 @@ exports[`AutoCompleteInput should render with default styles 1`] = `
 }
 
 <div
-  aria-expanded={false}
-  aria-haspopup="listbox"
-  aria-labelledby="downshift-0-label"
-  aria-owns={null}
   className="circuit-4 circuit-5"
-  role="combobox"
 >
   <div
     className=" circuit-2 circuit-3"
@@ -78,9 +73,8 @@ exports[`AutoCompleteInput should render with default styles 1`] = `
     <input
       aria-activedescendant={null}
       aria-autocomplete="list"
-      aria-controls={null}
+      aria-expanded={false}
       aria-invalid={false}
-      aria-labelledby="downshift-0-label"
       autoComplete="off"
       className=" circuit-0 circuit-1"
       disabled={false}
@@ -89,7 +83,8 @@ exports[`AutoCompleteInput should render with default styles 1`] = `
       onChange={[Function]}
       onKeyDown={[Function]}
       required={false}
-      role="search"
+      role="combobox"
+      type="search"
       value=""
     />
   </div>

@@ -4,20 +4,17 @@ route: /components/list
 menu: Components
 ---
 
-import { Playground } from 'docz'
+import { Playground } from 'docz';
 import { Fragment } from 'react';
 import List from '../../../src/components/List/List';
-import PropTable from '../../utils/PropTable';
-import { Wrapper } from '../../utils/Wrapper';
 
 # List
 
-At its core, the list component allows you to easily display a related content grouped together and 
+At its core, the list component allows you to easily display a related content grouped together and
 organized vertically. They should be used to present simple pieces of information. For more complex sets of data,
-consider using a Data Table.  
+consider using a Data Table.
 
-
-<Playground wrapper={Wrapper}>
+<Playground>
   <List ordered size={List.MEGA}>
     <li> A list</li>
     <li> A list</li>
@@ -33,11 +30,10 @@ Use it when you want to display a list of text-only related items.
 
 - **Do** break up chunks of related content and make the information easier for merchants to scan
 - **Do** use sentence casing
-- **Do** arrange List items in a logical way. Try to sort items into smaller meaningful categories. 
-Specific lists might be more useful in some contexts. If sorting is not possible, organize in alphabetical 
-or numerical order
+- **Do** arrange List items in a logical way. Try to sort items into smaller meaningful categories.
+  Specific lists might be more useful in some contexts. If sorting is not possible, organize in alphabetical
+  or numerical order
 - **Do not** show more than 2 columns on mobile view
-
 
 ## Component Variants
 
@@ -45,7 +41,7 @@ or numerical order
 
 Use ordered lists to imply sequence and order. They are commonly used when giving a set of instructions.
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <List ordered>
     <li> A list</li>
     <li> A list</li>
@@ -55,9 +51,9 @@ Use ordered lists to imply sequence and order. They are commonly used when givin
 
 ### Unordered list
 
- Use an unordered list to present content of equal status or value.
+Use an unordered list to present content of equal status or value.
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <List unordered>
     <li> A list</li>
     <li> A list</li>
@@ -69,7 +65,7 @@ Use ordered lists to imply sequence and order. They are commonly used when givin
 
 The size of the list should be the same as the surrounding content.
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <List size={List.KILO}>
       <li> Kilo list</li>

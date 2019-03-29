@@ -11,7 +11,7 @@ import { ReactComponent as SearchIcon } from './search.svg';
 const SearchInput = ({ children, ...props }) => (
   <Input
     {...props}
-    role="search"
+    type="search"
     renderPrefix={({ className }) => <SearchIcon {...{ className }} />}
   >
     {children}

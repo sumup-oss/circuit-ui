@@ -47,13 +47,13 @@ describe('Checkbox', () => {
    */
   it('should be unchecked by default', () => {
     const wrapper = shallow(<Checkbox {...{ name, onChange }} />);
-    const actual = wrapper.find('CheckboxInput').props().checked;
+    const actual = wrapper.find('input[type="checkbox"]').props().checked;
     expect(actual).toBeFalsy();
   });
 
   it('should call onChange when toggled', () => {
     const wrapper = shallow(<Checkbox {...{ name, onChange }} />);
-    const label = wrapper.find('CheckboxInput');
+    const label = wrapper.find('input[type="checkbox"]');
     label.simulate('change');
     expect(onChange).toHaveBeenCalledTimes(1);
   });

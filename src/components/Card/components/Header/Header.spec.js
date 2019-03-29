@@ -24,18 +24,15 @@ describe('CardHeader', () => {
    * Logic tests.
    */
   it('should render a close button when an onClose prop is passed', () => {
-    const wrapper = shallow(<CardHeader onClose={() => {}} />)
-      .children()
-      .dive();
+    const wrapper = shallow(<CardHeader onClose={() => {}} />);
+
     const actual = wrapper.find('CloseButton');
     expect(actual).toHaveLength(1);
   });
 
   it('should call the onClose prop when the close button is clicked', () => {
     const onClose = jest.fn();
-    const wrapper = shallow(<CardHeader onClose={onClose} />)
-      .children()
-      .dive();
+    const wrapper = shallow(<CardHeader onClose={onClose} />);
     wrapper.find('CloseButton').simulate('click');
     expect(onClose).toHaveBeenCalled();
   });
