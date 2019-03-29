@@ -48,8 +48,7 @@ describe('RadioButtonGroup', () => {
     const actual = wrapper
       .find('RadioButton')
       .at(1)
-      .dive()
-      .find('RadioButtonInput')
+      .find('input[type="radio"]')
       .prop('checked');
     expect(actual).toBeTruthy();
   });

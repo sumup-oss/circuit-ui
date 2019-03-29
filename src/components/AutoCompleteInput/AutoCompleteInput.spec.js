@@ -25,11 +25,11 @@ describe('AutoCompleteInput', () => {
 
     wrapper.find('input').simulate('change', { target: { value: '222' } });
 
-    console.log(wrapper.debug());
-
-    const item = wrapper.find('Items Item');
-
-    expect(item).toHaveLength(1);
-    expect(item.text()).toEqual('2222222222222');
+    expect(
+      wrapper
+        .find('#downshift-1-item-0')
+        .first()
+        .text()
+    ).toBe('2222222222222');
   });
 });

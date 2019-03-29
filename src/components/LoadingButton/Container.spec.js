@@ -14,10 +14,12 @@ describe('Container Container', () => {
   describe('getDerivedStateFromProps()', () => {
     describe('isLoading nextProp', () => {
       it('should update the state with LOADING_STATES.ACTIVE', () => {
-        const wrapper = mount(<Container isLoading />);
+        const wrapper = mount(<Container isLoading />)
+          .find('Container')
+          .instance();
         const expected = LOADING_STATES.ACTIVE;
 
-        expect(wrapper.state('loadingState')).toBe(expected);
+        expect(wrapper.state.loadingState).toBe(expected);
       });
     });
 
@@ -28,10 +30,14 @@ describe('Container Container', () => {
           const expected = LOADING_STATES.DISABLED;
 
           wrapper.setProps({
-            isLoading: false
+            children: React.cloneElement(wrapper.props().children, {
+              isLoading: false
+            })
           });
 
-          expect(wrapper.state('loadingState')).toBe(expected);
+          expect(wrapper.find('Container').instance().state.loadingState).toBe(
+            expected
+          );
         });
       });
 
@@ -43,10 +49,14 @@ describe('Container Container', () => {
           const expected = LOADING_STATES.SUCCESS;
 
           wrapper.setProps({
-            isLoading: false
+            children: React.cloneElement(wrapper.props().children, {
+              isLoading: false
+            })
           });
 
-          expect(wrapper.state('loadingState')).toBe(expected);
+          expect(wrapper.find('Container').instance().state.loadingState).toBe(
+            expected
+          );
         });
       });
 
@@ -58,10 +68,14 @@ describe('Container Container', () => {
           const expected = LOADING_STATES.ERROR;
 
           wrapper.setProps({
-            isLoading: false
+            children: React.cloneElement(wrapper.props().children, {
+              isLoading: false
+            })
           });
 
-          expect(wrapper.state('loadingState')).toBe(expected);
+          expect(wrapper.find('Container').instance().state.loadingState).toBe(
+            expected
+          );
         });
       });
     });
@@ -70,7 +84,9 @@ describe('Container Container', () => {
   describe('onAnimationComplete()', () => {
     it('should dispatch the provided onAnimationComplete handler', () => {
       const mock = jest.fn();
-      const wrapper = shallow(<Container onAnimationComplete={mock} />);
+      const wrapper = shallow(<Container onAnimationComplete={mock} />).find(
+        'Container'
+      );
 
       wrapper.instance().onAnimationComplete();
 
@@ -78,15 +94,17 @@ describe('Container Container', () => {
     });
 
     it('should update the state with LOADING_STATES.DISABLED', () => {
-      const wrapper = shallow(<Container />);
+      const wrapper = shallow(<Container />)
+        .find('Container')
+        .instance();
       const expected = LOADING_STATES.DISABLED;
 
       wrapper.setState({
         loadingState: LOADING_STATES.ACTIVE
       });
-      wrapper.instance().onAnimationComplete();
+      wrapper.onAnimationComplete();
 
-      expect(wrapper.state('loadingState')).toBe(expected);
+      expect(wrapper.state.loadingState).toBe(expected);
     });
   });
 

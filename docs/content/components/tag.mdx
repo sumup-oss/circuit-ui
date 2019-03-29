@@ -4,18 +4,20 @@ route: /components/tag
 menu: Components
 ---
 
-import { Playground } from 'docz'
+import { Playground } from 'docz';
 import { Fragment } from 'react';
 import Tag from '../../../src/components/Tag/Tag';
 import PropTable from '../../utils/PropTable';
-import {Wrapper} from '../../utils/Wrapper';
+import { Wrapper } from '../../utils/Wrapper';
 
 # Badge
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Tag onRemove={() => {}}>Refunded</Tag>{' '}
-    <Tag onRemove={() => {}} selected>Successful</Tag>
+    <Tag onRemove={() => {}} selected>
+      Successful
+    </Tag>
   </Fragment>
 </Playground>
 
@@ -29,7 +31,7 @@ import {Wrapper} from '../../utils/Wrapper';
 
 ### Selected tags
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Tag selected>Successful</Tag>
   </Fragment>
@@ -37,7 +39,7 @@ import {Wrapper} from '../../utils/Wrapper';
 
 ### Icon tags
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Tag>Successful</Tag>
   </Fragment>
@@ -45,8 +47,10 @@ import {Wrapper} from '../../utils/Wrapper';
 
 ### Removable tags
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
-    <Tag onRemove={() => {}} selected>Successful</Tag>
+    <Tag onRemove={() => {}} selected>
+      Successful
+    </Tag>
   </Fragment>
 </Playground>

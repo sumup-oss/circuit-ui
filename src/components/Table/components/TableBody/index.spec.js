@@ -24,9 +24,9 @@ describe('TableBody', () => {
 
         expect(
           wrapper
-            .find('TableRow')
+            .find('tr')
             .at(0)
-            .find('TableCell')
+            .find('td')
             .at(0).length
         ).toBeTruthy();
       });
@@ -37,7 +37,7 @@ describe('TableBody', () => {
 
       expect(
         wrapper
-          .find('TableRow')
+          .find('tr')
           .at(0)
           .find('TableHeader')
           .at(0)
@@ -51,11 +51,11 @@ describe('TableBody', () => {
 
         expect(
           wrapper
-            .find('TableRow')
+            .find('tr')
             .at(0)
-            .find('TableCell')
-            .at(0).length
-        ).toBeTruthy();
+            .find('th')
+            .at(0)
+        ).toExist();
       });
     });
   });
@@ -70,9 +70,9 @@ describe('TableBody', () => {
 
         expect(
           wrapper
-            .find('TableRow')
+            .find('tr')
             .at(0)
-            .find('TableCell')
+            .find('Styled(td)')
             .at(0)
             .props().isHovered
         ).toBeFalsy();
@@ -87,9 +87,9 @@ describe('TableBody', () => {
 
         expect(
           wrapper
-            .find('TableRow')
+            .find('tr')
             .at(0)
-            .find('TableCell')
+            .find('Styled(td)')
             .at(0)
             .props().isHovered
         ).toBeTruthy();

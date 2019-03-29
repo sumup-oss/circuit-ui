@@ -91,6 +91,11 @@ class Table extends Component {
     sortDirection: null
   };
 
+  constructor(props) {
+    super(props);
+    this.potato = 'potato';
+  }
+
   onSortEnter = i => this.setState({ sortHover: i });
 
   onSortLeave = () => this.setState({ sortHover: null });

@@ -3,7 +3,7 @@
 exports[`CardNumberInput should render all but the detected card scheme with reduced opacity 1`] = `
 Array [
   .circuit-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -11,7 +11,7 @@ Array [
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -23,7 +23,7 @@ Array [
     Supported card schemes: mastercard, visa, diners, jcb.
   </div>,
   .circuit-0 {
-  border: 0px;
+  border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -31,7 +31,7 @@ Array [
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -175,12 +175,12 @@ Array [
 }
 
 <div
-    class="circuit-14 circuit-15"
+    class=" circuit-14 circuit-15"
   >
     <input
       aria-invalid="false"
       autocomplete="cc-number"
-      class="circuit-0 circuit-1"
+      class=" circuit-0 circuit-1"
       id="cui-cc-card-number"
       name="creditCardInput"
       placeholder="•••• •••• •••• ••••"

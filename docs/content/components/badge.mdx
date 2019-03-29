@@ -4,22 +4,24 @@ route: /components/badge
 menu: Components
 ---
 
-import { Playground } from 'docz'
+import { Playground } from 'docz';
 import { Fragment } from 'react';
 import Badge from '../../../src/components/Badge/Badge';
 import PropTable from '../../utils/PropTable';
-import {Wrapper} from '../../utils/Wrapper';
+import { Wrapper } from '../../utils/Wrapper';
 
 # Badge
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Badge>Badge</Badge>
 </Playground>
 
 ## Props
+
 (Cannot be rendered because it's a styled component)
 
 ## Best practices
+
 - Only use one badge at a time.
 
 ## Usage guidelines
@@ -32,9 +34,10 @@ import {Wrapper} from '../../utils/Wrapper';
 ## Component variations
 
 ### Semantic badges
+
 The badges come in a number of colors based on their semantic meaning.
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Badge color={Badge.NEUTRAL}>Badge</Badge>
     <Badge color={Badge.PRIMARY}>Badge</Badge>
@@ -45,8 +48,11 @@ The badges come in a number of colors based on their semantic meaning.
 </Playground>
 
 ### Circular badges
+
 Badges that receive the `circle` prop can be used to indicate notifications.
 
-<Playground wrapper={Wrapper}>
-  <Badge circle color={Badge.DANGER}>5</Badge>
+<Playground>
+  <Badge circle color={Badge.DANGER}>
+    5
+  </Badge>
 </Playground>
