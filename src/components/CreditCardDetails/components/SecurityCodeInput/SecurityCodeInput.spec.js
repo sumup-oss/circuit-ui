@@ -6,7 +6,7 @@ describe('SecurityCodeInput', () => {
   const inputSelector = 'MaskedInput';
   it('should render a Label', () => {
     const wrapper = shallow(<SecurityCodeInput />);
-    expect(wrapper.find('SecurityCodeLabel')).toHaveLength(1);
+    expect(wrapper.find('label')).toHaveLength(1);
   });
 
   it('should render an Input', () => {

@@ -4,22 +4,23 @@ route: /components/blockquote
 menu: Components
 ---
 
-import { Playground } from 'docz'
+import { Playground } from 'docz';
 
 import { Fragment } from 'react';
 import Blockquote from '../../../src/components/Blockquote/Blockquote';
 
 import PropTable from '../../utils/PropTable';
-import {Wrapper} from '../../utils/Wrapper';
+import { Wrapper } from '../../utils/Wrapper';
 
 # Blockquote
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Blockquote>Blockquote</Blockquote>
 </Playground>
 
 ## Props
-<PropTable component={Blockquote}/>
+
+<PropTable component={Blockquote} />
 
 ## Best practices
 
@@ -28,9 +29,10 @@ import {Wrapper} from '../../utils/Wrapper';
 ## Component variations
 
 ### Sizes blockquotes
+
 The blockquotes come in a number of colors based on their semantic meaning.
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Blockquote size={Blockquote.KILO}>Blockquote</Blockquote>
     <Blockquote size={Blockquote.MEGA}>Blockquote</Blockquote>

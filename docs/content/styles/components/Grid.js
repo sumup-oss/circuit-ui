@@ -1,4 +1,5 @@
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import OriginalRow from '../../../../src/components/Row';
 import OriginalGrid from '../../../../src/components/Grid';
 import OriginalCol from '../../../../src/components/Col';

@@ -76,12 +76,12 @@ describe('Tag', () => {
     };
 
     it('should render a close button', () => {
-      const component = shallow(<Tag {...props}>SomeTest</Tag>).dive();
+      const component = shallow(<Tag {...props}>SomeTest</Tag>);
       expect(component.find('CloseButton')).toHaveLength(1);
     });
 
     it('should calls onRemove when click close', () => {
-      const component = shallow(<Tag {...props}>SomeTest</Tag>).dive();
+      const component = shallow(<Tag {...props}>SomeTest</Tag>);
 
       component.find('CloseButton').simulate('click');
 
@@ -95,16 +95,14 @@ describe('Tag', () => {
     };
 
     it('should render with icon', () => {
-      const component = shallow(<Tag {...props}>SomeTest</Tag>).dive();
+      const component = shallow(<Tag {...props}>SomeTest</Tag>);
       expect(component.find('DummyIcon')).toHaveLength(1);
     });
 
     it('gives priority to close button when a removable', () => {
       const onRemove = jest.fn();
 
-      const component = shallow(
-        <Tag {...{ onRemove, props }}>SomeTest</Tag>
-      ).dive();
+      const component = shallow(<Tag {...{ onRemove, props }}>SomeTest</Tag>);
 
       expect(component.find('DummyIcon')).toHaveLength(0);
       expect(component.find('CloseButton')).toHaveLength(1);
@@ -116,7 +114,7 @@ describe('Tag', () => {
 
       shallow(<Tag {...{ onRemove, ...props }}>SomeTest</Tag>);
 
-      expect(console.error).toHaveBeenCalledTimes(1);
+      expect(console.error).toHaveBeenCalled();
     });
   });
 });

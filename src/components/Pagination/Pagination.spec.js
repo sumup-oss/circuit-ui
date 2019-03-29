@@ -49,7 +49,7 @@ describe('Pagination', () => {
           );
           expect(component).toMatchSnapshot();
         });
-        it.only('should render five pages and one for showing that are hidden pages', () => {
+        it('should render five pages and one for showing that are hidden pages', () => {
           const component = shallow(
             <Pagination
               page={1}
@@ -58,9 +58,13 @@ describe('Pagination', () => {
               onChange={identity}
             />
           );
-          console.log(component.debug());
           expect(component.find('PaginationButtonContainer')).toHaveLength(5);
-          expect(component.find('PageButton')).toHaveLength(1);
+          expect(
+            component
+              .find('button')
+              .last()
+              .text()
+          ).toBe('>');
         });
       });
 
@@ -86,7 +90,12 @@ describe('Pagination', () => {
             />
           );
           expect(component.find('PaginationButtonContainer')).toHaveLength(5);
-          expect(component.find('PageButton')).toHaveLength(1);
+          expect(
+            component
+              .find('button')
+              .last()
+              .text()
+          ).toBe('>');
         });
       });
 
@@ -113,7 +122,12 @@ describe('Pagination', () => {
             />
           );
           expect(component.find('PaginationButtonContainer')).toHaveLength(5);
-          expect(component.find('PageButton')).toHaveLength(1);
+          expect(
+            component
+              .find('button')
+              .last()
+              .text()
+          ).toBe('>');
         });
       });
 
@@ -139,7 +153,12 @@ describe('Pagination', () => {
             />
           );
           expect(component.find('PaginationButtonContainer')).toHaveLength(5);
-          expect(component.find('PageButton')).toHaveLength(1);
+          expect(
+            component
+              .find('button')
+              .last()
+              .text()
+          ).toBe('>');
         });
       });
 
@@ -166,7 +185,12 @@ describe('Pagination', () => {
             />
           );
           expect(component.find('PaginationButtonContainer')).toHaveLength(5);
-          expect(component.find('PageButton')).toHaveLength(2);
+          expect(
+            component
+              .find('button')
+              .last()
+              .text()
+          ).toBe('>');
         });
       });
     });

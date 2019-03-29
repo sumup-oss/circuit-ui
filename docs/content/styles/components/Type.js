@@ -1,6 +1,7 @@
 import React, { Fragment, createElement } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { theme as themes } from '../../../../src';
 import Text from '../../../../src/components/Text';

@@ -4,8 +4,10 @@ module.exports = {
   process(src, filename) {
     const name = basename(filename);
     return `
-      const React = require('react');
-      module.exports = () => React.createElement('div', null, '${name}');
+      const React = require('react')
+      module.exports = {
+        ReactComponent: () => React.createElement('div', null, '${name}')
+      }
     `;
   }
 };

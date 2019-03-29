@@ -4,15 +4,12 @@ route: /components/typography
 menu: Components
 ---
 
-import { Playground } from 'docz'
+import { Playground, Props } from 'docz';
 
 import { Fragment } from 'react';
 import Text from '../../../src/components/Text/Text';
 import Heading from '../../../src/components/Heading/Heading';
 import SubHeading from '../../../src/components/SubHeading/SubHeading';
-
-import PropTable from '../../utils/PropTable';
-import {Wrapper} from '../../utils/Wrapper';
 
 # Typography
 
@@ -20,45 +17,67 @@ import {Wrapper} from '../../utils/Wrapper';
 
 ### Headings
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
-    <Heading element="h3" size={Heading.KILO}>Heading</Heading>
-    <Heading element="h3" size={Heading.MEGA}>Heading</Heading>
-    <Heading element="h3" size={Heading.GIGA}>Heading</Heading>
-    <Heading element="h3" size={Heading.TERA}>Heading</Heading>
-    <Heading element="h3" size={Heading.PETA}>Heading</Heading>
-    <Heading element="h3" size={Heading.EXA}>Heading</Heading>
-    <Heading element="h3" size={Heading.ZETTA}>Heading</Heading>
+    <Heading element="h3" size={Heading.KILO}>
+      Heading
+    </Heading>
+    <Heading element="h3" size={Heading.MEGA}>
+      Heading
+    </Heading>
+    <Heading element="h3" size={Heading.GIGA}>
+      Heading
+    </Heading>
+    <Heading element="h3" size={Heading.TERA}>
+      Heading
+    </Heading>
+    <Heading element="h3" size={Heading.PETA}>
+      Heading
+    </Heading>
+    <Heading element="h3" size={Heading.EXA}>
+      Heading
+    </Heading>
+    <Heading element="h3" size={Heading.ZETTA}>
+      Heading
+    </Heading>
   </Fragment>
 </Playground>
 
-<PropTable component={Heading}/>
+<Props of={Heading} />
 
 ### Subheadings
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
-    <SubHeading element="h3" size={SubHeading.KILO}>Subheading</SubHeading>
-    <SubHeading element="h3" size={SubHeading.MEGA}>Subheading</SubHeading>
+    <SubHeading element="h3" size={SubHeading.KILO}>
+      Subheading
+    </SubHeading>
+    <SubHeading element="h3" size={SubHeading.MEGA}>
+      Subheading
+    </SubHeading>
   </Fragment>
 </Playground>
 
-<PropTable component={SubHeading}/>
-
+<Props of={SubHeading} />
 
 ### Text
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Text>Text</Text>
-    <Text bold size={Text.KILO}>Text</Text>
-    <Text italic size={Text.KILO}>Text</Text>
-    <Text element="span" size={Text.MEGA}>Text</Text>
+    <Text bold size={Text.KILO}>
+      Text
+    </Text>
+    <Text italic size={Text.KILO}>
+      Text
+    </Text>
+    <Text element="span" size={Text.MEGA}>
+      Text
+    </Text>
   </Fragment>
 </Playground>
 
-<PropTable component={Text}/>
-
+<Props of={Text} />
 
 ## Best practices
 
