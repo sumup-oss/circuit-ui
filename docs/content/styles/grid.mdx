@@ -4,7 +4,7 @@ route: /styles/grid
 menu: Styles
 ---
 
-import { Playground } from 'docz'
+import { Playground } from 'docz';
 import { Wrapper } from '../../utils/Wrapper';
 import { Grid, Col, Row } from './components/Grid';
 
@@ -22,22 +22,22 @@ will need to use a third-party grid for that purpose.
 Sometimes you need the same type of grid behavior on all viewports. For that
 scenario, you can use the normal `span` attribute of the grid.
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Grid>
     <Row>
-      <Col span="2">Col 2</Col> 
-      <Col span="2">Col 2</Col> 
-      <Col span="2">Col 2</Col> 
-      <Col span="2">Col 2</Col> 
-      <Col span="2">Col 2</Col> 
-      <Col span="2">Col 2</Col> 
-    </Row> 
+      <Col span="2">Col 2</Col>
+      <Col span="2">Col 2</Col>
+      <Col span="2">Col 2</Col>
+      <Col span="2">Col 2</Col>
+      <Col span="2">Col 2</Col>
+      <Col span="2">Col 2</Col>
+    </Row>
     <Row>
-      <Col span="4">Col 4</Col> 
-      <Col span="4">Col 4</Col> 
-      <Col span="4">Col 4</Col> 
-    </Row> 
-  </Grid>  
+      <Col span="4">Col 4</Col>
+      <Col span="4">Col 4</Col>
+      <Col span="4">Col 4</Col>
+    </Row>
+  </Grid>
 </Playground>
 
 ## Responsive columns
@@ -51,15 +51,15 @@ responsive behavior of your grid:
 - giga
 - tera
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Grid>
     <Row>
-      <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col> 
-      <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col> 
-      <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col> 
-      <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col> 
-    </Row> 
-  </Grid>  
+      <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col>
+      <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col>
+      <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col>
+      <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col>
+    </Row>
+  </Grid>
 </Playground>
 
 Default refers to the smallest viewpoint.
@@ -69,18 +69,20 @@ Default refers to the smallest viewpoint.
 Sometimes you want to skip a column. For that, you can use the `skip` prop on
 the `Col` component.
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Grid>
     <Row>
-      <Col span="4">Col 4</Col> 
-      <Col span="4" skip="4">Col 4</Col> 
-    </Row> 
-  </Grid>  
+      <Col span="4">Col 4</Col>
+      <Col span="4" skip="4">
+        Col 4
+      </Col>
+    </Row>
+  </Grid>
 </Playground>
 
 ## Responsive skipping
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Grid>
     <Row>
       <Col span="3">Col 3</Col>

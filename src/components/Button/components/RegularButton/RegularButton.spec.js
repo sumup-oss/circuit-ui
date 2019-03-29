@@ -92,7 +92,7 @@ describe('RegularButton', () => {
           <Button href="#">Link Button</Button>
         </div>
       );
-      expect(wrapper.find('a')).toBePresent();
+      expect(wrapper.find('a')).toExist();
       expect(wrapper.find('a')).toHaveProp('href', '#');
     });
 
@@ -104,7 +104,7 @@ describe('RegularButton', () => {
           </Button>
         </div>
       );
-      expect(wrapper.find('a')).toBePresent();
+      expect(wrapper.find('a')).toExist();
       expect(wrapper.find('a')).toHaveProp('target', '_blank');
     });
   });

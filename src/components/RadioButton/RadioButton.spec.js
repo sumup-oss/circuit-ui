@@ -42,14 +42,14 @@ describe('RadioButton', () => {
    */
   it('should be unchecked by default', () => {
     const wrapper = shallow(<RadioButton />);
-    const actual = wrapper.find('RadioButtonInput').prop('checked');
+    const actual = wrapper.find('input[type="radio"]').prop('checked');
     expect(actual).toBeFalsy();
   });
 
   it('should call onChange when toggled', () => {
     const onToggle = jest.fn();
     const wrapper = shallow(<RadioButton {...{ onToggle }} />);
-    const label = wrapper.find('RadioButtonInput');
+    const label = wrapper.find('input[type="radio"]');
     label.simulate('click');
     expect(onToggle).toHaveBeenCalledTimes(1);
   });

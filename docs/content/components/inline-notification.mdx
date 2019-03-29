@@ -4,7 +4,7 @@ route: /components/inline-notification
 menu: Components
 ---
 
-import { Playground } from 'docz'
+import { Playground } from 'docz';
 import { Fragment } from 'react';
 import Card from '../../../src/components/Card/Card';
 import InlineNotification from '../../../src/components/InlineNotification/InlineNotification';
@@ -13,7 +13,7 @@ import { Wrapper } from '../../utils/Wrapper';
 
 # Inline notification
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Card>
       <InlineNotification type={InlineNotification.SUCCESS}>
@@ -27,7 +27,7 @@ import { Wrapper } from '../../utils/Wrapper';
 
 ### Color variants
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Card>
       <InlineNotification type={InlineNotification.SUCCESS}>
@@ -37,7 +37,7 @@ import { Wrapper } from '../../utils/Wrapper';
   </Fragment>
 </Playground>
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Card>
       <InlineNotification type={InlineNotification.WARNING}>
@@ -47,7 +47,7 @@ import { Wrapper } from '../../utils/Wrapper';
   </Fragment>
 </Playground>
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Card>
       <InlineNotification type={InlineNotification.DANGER}>
@@ -59,7 +59,7 @@ import { Wrapper } from '../../utils/Wrapper';
 
 ### Size variants
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <Fragment>
     <Card size={Card.GIGA}>
       <InlineNotification size={Card.GIGA} type={InlineNotification.DANGER}>
@@ -72,4 +72,3 @@ import { Wrapper } from '../../utils/Wrapper';
 ## Best practices
 
 ## Usage guidelines
-

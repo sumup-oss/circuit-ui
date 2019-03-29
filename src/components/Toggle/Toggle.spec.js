@@ -13,7 +13,7 @@ describe('Toggle', () => {
 
   it('should render with no margin styles when passed the noMargin prop', () => {
     const actual = create(<Toggle noMargin />);
-    expect(actual).toMatchSnapshot(actual);
+    expect(actual).toMatchSnapshot();
   });
 
   /**
