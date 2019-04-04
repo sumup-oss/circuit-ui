@@ -156,8 +156,8 @@ exports[`Text should render with size giga, when passed "giga" for the size prop
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 @media (min-width:480px) {

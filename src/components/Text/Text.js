@@ -11,7 +11,7 @@ const { KILO, MEGA, GIGA } = sizes;
 const mobileSizeMap = {
   [KILO]: KILO,
   [MEGA]: MEGA,
-  [GIGA]: MEGA
+  [GIGA]: GIGA
 };
 
 const baseStyles = ({ theme }) => css`
