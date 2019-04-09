@@ -4,13 +4,17 @@ route: /components/modal
 menu: Components
 ---
 
-import { Playground } from 'docz'
+import { Playground } from 'docz';
 import { Fragment } from 'react';
-import { ModalWrapper, ModalHeader, ModalFooter } from '../../../src/components/Modal';
+import {
+  ModalWrapper,
+  ModalHeader,
+  ModalFooter
+} from '../../../src/components/Modal';
 import Text from '../../../src/components/Text';
 import Button from '../../../src/components/Button';
-import PropTable from '../../utils/PropTable';
-import { Wrapper } from '../../utils/Wrapper';
+
+> > > > > > > 09355c0... Update docz
 
 # Modal
 
@@ -20,9 +24,11 @@ elements which obscure the primary user interface — avoid them where possible.
 
 <Playground wrapper={Wrapper}>
   <ModalWrapper>
-    <ModalHeader onClose={() => {}} title="Export transactions"/>
+    <ModalHeader onClose={() => {}} title="Export transactions" />
     <Text>Are you sure you want to export your transactions?</Text>
-    <ModalFooter><Button primary>Export</Button></ModalFooter>
+    <ModalFooter>
+      <Button primary>Export</Button>
+    </ModalFooter>
   </ModalWrapper>
 </Playground>
 
@@ -76,11 +82,7 @@ import { ModalProvider, ModalConsumer, ModalWrapper } from '@sumup/circuit-ui';
 class MyComponent extends Component {
   trigger(setModal) {
     setModal({
-      children: ({ onClose }) => (
-        <ModalWrapper>
-          I am in a modal! 
-        </ModalWrapper> 
-      ) 
+      children: ({ onClose }) => <ModalWrapper>I am in a modal!</ModalWrapper>
     });
   }
 
@@ -89,7 +91,9 @@ class MyComponent extends Component {
       <ModalProvider>
         <ModalConsumer>
           {({ setModal }) => (
-            <Button onClick={() => this.trigger(setModal)}>Trigger modal</Button>
+            <Button onClick={() => this.trigger(setModal)}>
+              Trigger modal
+            </Button>
           )}
         </ModalConsumer>
       </ModalProvider>
@@ -101,7 +105,6 @@ class MyComponent extends Component {
 - `ModalWrapper` This is the wrapper for the body of a modal.
 - `ModalHeader` This contains the title and the `X` close button.
 - `ModalFooter` This component right-aligns its content.
-
 
 ### Embedding the modal in code
 
@@ -119,15 +122,15 @@ class Page extends Component {
 
   toggleModal = () => {
     this.setState(state => ({ isModalOpen: !state.isModalOpen }));
-  }
+  };
 
   render() {
     return (
       <div>
-        <a href="#" onClick={() => this.toggleModal()}/>
+        <a href="#" onClick={() => this.toggleModal()} />
         {this.state.isModalOpen && (
           <Modal>
-            <ModalHeader onClose={() => this.toggleModal()} title="Hello"/>
+            <ModalHeader onClose={() => this.toggleModal()} title="Hello" />
             The modal is open!
           </Modal>
         )}
@@ -136,4 +139,3 @@ class Page extends Component {
   }
 }
 ```
-

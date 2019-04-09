@@ -5,14 +5,13 @@ menu: Components
 ---
 
 import { Fragment } from 'react';
+import { Playground } from 'docz';
 import Input from '../../../src/components/Input/Input';
 import Label from '../../../src/components/Label/Label';
 import Checkbox from '../../../src/components/Checkbox/Checkbox';
 import RadioButton from '../../../src/components/RadioButton/RadioButton';
 import Select from '../../../src/components/Select/Select';
 import TextArea from '../../../src/components/TextArea/TextArea';
-import PropTable from '../../utils/PropTable';
-import Playground from '../../utils/Playground';
 
 # Forms
 
@@ -40,8 +39,8 @@ first name, phone number, street name, etc.
   (e.g. first and last name).
 - **Do not** use input fields for requiring longer textual information from the
   user.
-- **Do not** communicate that an input field is required on the label or the placeholder. 
-We assume that everything is required for the user unless explicitly said so.
+- **Do not** communicate that an input field is required on the label or the placeholder.
+  We assume that everything is required for the user unless explicitly said so.
 - **Do not** mark required fields with asterisks.
 
 ### Component variations
@@ -53,7 +52,7 @@ already have or need and we do not want the user to edit it easily. A disabled
 field should only be open for editing again if a CTA is clicked.
 
 <Playground>
-  <Input name="input" id="input" disabled placeholder="You cannot type"/>
+  <Input name="input" id="input" disabled placeholder="You cannot type" />
 </Playground>
 
 #### Optional text field
@@ -95,7 +94,7 @@ order to continue the form flow.
 
 Use it when the information that the user inserted, due to our automatic
 validations, can affect another setting or attribute of the user's account we
-should warn him on the spot (without having to submit before) 
+should warn him on the spot (without having to submit before)
 
 <Playground>
   <Input name="input" id="input" hasWarning placeholder="I am warning you." />
@@ -125,7 +124,7 @@ Always provide a placeholder for text input fields.
 A label is a short text that explains what information is needed in the text
 field. Having a clear and straightforward label not only helps the user to know
 what is the purpose of the input but also helps directly with making forms
-more accessible. 
+more accessible.
 
 <Playground>
   <Label htmlFor="name">Label</Label>
@@ -140,14 +139,14 @@ Always provide a label for text input fields.
 - **Do** make the placeholder succinct (up to 3-4 words).
 - **Do** adjust the label to include "(optional)" if the corresponding input field is optional.
 - **Do** always place the label on top of the input field, aligned to the left.
-- **Do not** frame labels as questions (such as *"What is your phone
-  number?",* write "Phone number" instead).
+- **Do not** frame labels as questions (such as _"What is your phone
+  number?",_ write "Phone number" instead).
 - **Do not** use labels as help text.
 
 ## Checkbox
 
-The primary goal of checkboxes is to provide a way for the user to make a range of selections. 
-The users can select from zero, one, or multiple options. In other words, each checkbox is independent 
+The primary goal of checkboxes is to provide a way for the user to make a range of selections.
+The users can select from zero, one, or multiple options. In other words, each checkbox is independent
 of all other checkboxes in the list, and checking one box doesn’t uncheck the others.
 
 <Playground>
@@ -168,17 +167,17 @@ an option or agree to certain terms & conditions.
 
 ### Usage guidelines
 
-- **Do** accompany checkboxes with a descriptive label, except when a checkbox is used to select 
-multiple checkboxes (as a parent checkbox).
-- **Do** write items in a positive manner. (e.g. *"Send me reports"* instead of *"Do not send me reports"*)
-- **Do** try to display the checkbox list vertically, with one choice per line. If space is 
-limited you need to display it horizontally, make sure to separate the buttons and labels from one another.
+- **Do** accompany checkboxes with a descriptive label, except when a checkbox is used to select
+  multiple checkboxes (as a parent checkbox).
+- **Do** write items in a positive manner. (e.g. _"Send me reports"_ instead of _"Do not send me reports"_)
+- **Do** try to display the checkbox list vertically, with one choice per line. If space is
+  limited you need to display it horizontally, make sure to separate the buttons and labels from one another.
 - **Do** sort the items in a reasonable order (e.g. alphabetical, numerical, time-based, or some other clear system)
 - **Do** be as specific as possible.
 - **Do** use sentence case (e.g. "I agree..." not "You agree...")
 - **Do** use Labels as clicking area for the checkbox
-- **Do not** use negations (e.g. *“Don’t send me more email”*)
-- **Do not** use checkboxes as an action button. 
+- **Do not** use negations (e.g. _“Don’t send me more email”_)
+- **Do not** use checkboxes as an action button.
 - **Don not** rely on tooltips to explain a checkbox
 - **Do not** use commas or semicolons at the end of each line
 
@@ -201,10 +200,23 @@ limited you need to display it horizontally, make sure to separate the buttons a
 
 <Playground>
   <Fragment>
-    <Checkbox name="fruit" value="apples" id="apples" disabled checked onToggle={() => {}}>
+    <Checkbox
+      name="fruit"
+      value="apples"
+      id="apples"
+      disabled
+      checked
+      onToggle={() => {}}
+    >
       Apples
     </Checkbox>
-    <Checkbox name="fruit" value="bananas" id="bananas" disabled onToggle={() => {}}>
+    <Checkbox
+      name="fruit"
+      value="bananas"
+      id="bananas"
+      disabled
+      onToggle={() => {}}
+    >
       Bananas
     </Checkbox>
   </Fragment>
@@ -212,12 +224,18 @@ limited you need to display it horizontally, make sure to separate the buttons a
 
 ## Radio button
 
-A radio button is a quick way to extract a single coded answer from our users by presenting multiple 
-possibilities and allowing only one option to be chosen. 
+A radio button is a quick way to extract a single coded answer from our users by presenting multiple
+possibilities and allowing only one option to be chosen.
 
 <Playground>
   <Fragment>
-    <RadioButton name="fruit" value="true" id="pineapples" checked onToggle={() => {}}>
+    <RadioButton
+      name="fruit"
+      value="true"
+      id="pineapples"
+      checked
+      onToggle={() => {}}
+    >
       Pineapples
     </RadioButton>
     <RadioButton name="fruit" value="bananas" id="bananas" onToggle={() => {}}>
@@ -228,7 +246,7 @@ possibilities and allowing only one option to be chosen.
 
 ### When to use it
 
-Use a radio button when the user has to choose only one option based on a pre-defined list of mutually 
+Use a radio button when the user has to choose only one option based on a pre-defined list of mutually
 exclusive options.
 
 ### Usage guidelines
@@ -244,44 +262,47 @@ exclusive options.
 
 ##### Disabled Radio Button
 
-Use a disabled radio button only if you really need to communicate to the user that an option that existed 
-before is not available for choosing now. Keep in mind that you need to communicate why. One recommendation 
+Use a disabled radio button only if you really need to communicate to the user that an option that existed
+before is not available for choosing now. Keep in mind that you need to communicate why. One recommendation
 would be to pair a disabled input with a tooltip to give the appropriate context for our user.
 
 ## Select dropdown
 
-A select dropdown is a form field that allows merchants to choose one of the multiple options from a menu. 
+A select dropdown is a form field that allows merchants to choose one of the multiple options from a menu.
 An example being the expiration date for a users credit card.
 
 <Playground>
-  <Select onChange={() => {}} options={[
-    {
-      label: "Option 1",
-      value: 1
-    },
-    {
-      label: "Option 2",
-      value: 2
-    },
-    {
-      label: "Option 3",
-      value: 3
-    }
-  ]} />
+  <Select
+    onChange={() => {}}
+    options={[
+      {
+        label: 'Option 1',
+        value: 1
+      },
+      {
+        label: 'Option 2',
+        value: 2
+      },
+      {
+        label: 'Option 3',
+        value: 3
+      }
+    ]}
+  />
 </Playground>
 
 ### When to use it
 
-Best used when there are 4 or more defined options to choose from (e.g. Months).If there are less than 4 options, 
+Best used when there are 4 or more defined options to choose from (e.g. Months).If there are less than 4 options,
 consider using the radio button component.
 
 ### Usage guidelines
 
 - **Do** clearly label the select dropdown so that the merchant knows what options will be available
-- **Do** always provide a default option, typically the placeholder. The default option is not 
-selectable but should specify what options will be available.
-- **Do** list the options in a logical order. (e.g. Alphabetical, numerical, or in some order that allows the 
-merchant to find the option as easy as possible)
+- **Do** always provide a default option, typically the placeholder. The default option is not
+  selectable but should specify what options will be available.
+- **Do** list the options in a logical order. (e.g. Alphabetical, numerical, or in some order that allows the
+  merchant to find the option as easy as possible)
 - **Do not** use it to save space or tidy up a form.
 - **Do not** use it as a way to filter content
 
@@ -290,7 +311,7 @@ merchant to find the option as easy as possible)
 It is a type of input that allow mutiple lines of text.
 
 <Playground>
-  <TextArea value="Howdy from the text area"/>
+  <TextArea value="Howdy from the text area" />
 </Playground>
 
 ### When to use it
