@@ -4,12 +4,11 @@ route: /components/table
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Table from '../../../src/components/Table/Table';
-import PropTable from '../../utils/PropTable';
+
 import Badge from '../../../src/components/Badge/Badge';
-import { Wrapper } from '../../utils/Wrapper';
 
 # Table
 
@@ -24,7 +23,7 @@ import { Wrapper } from '../../utils/Wrapper';
   />
 </Playground>
 
-<PropTable component={Table} />
+<Props of={Table} />
 
 ## Usage in code
 

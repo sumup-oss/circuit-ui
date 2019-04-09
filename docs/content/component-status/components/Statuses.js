@@ -1,30 +1,22 @@
 import React from 'react';
-import { ThemeProvider } from 'emotion-theming';
 import Badge from '../../../../src/components/Badge';
-import { theme as themes } from '../../../../src';
 
 const Stable = () => (
-  <ThemeProvider theme={themes.circuit}>
-    <Badge color={Badge.SUCCESS} style={{ display: 'inline-block' }}>
-      Stable
-    </Badge>
-  </ThemeProvider>
+  <Badge color={Badge.SUCCESS} style={{ display: 'inline-block' }}>
+    Stable
+  </Badge>
 );
 
 const Deprecated = () => (
-  <ThemeProvider theme={themes.circuit}>
-    <Badge color={Badge.DANGER} style={{ display: 'inline-block' }}>
-      Depcreated
-    </Badge>
-  </ThemeProvider>
+  <Badge color={Badge.DANGER} style={{ display: 'inline-block' }}>
+    Deprecated
+  </Badge>
 );
 
 const InReview = () => (
-  <ThemeProvider theme={themes.circuit}>
-    <Badge color={Badge.WARNING} style={{ display: 'inline-block' }}>
-      In review
-    </Badge>
-  </ThemeProvider>
+  <Badge color={Badge.WARNING} style={{ display: 'inline-block' }}>
+    In review
+  </Badge>
 );
 
 export { Stable, InReview, Deprecated };
