@@ -4,11 +4,9 @@ route: /components/tag
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Tag from '../../../src/components/Tag/Tag';
-import PropTable from '../../utils/PropTable';
-import { Wrapper } from '../../utils/Wrapper';
 
 # Badge
 
@@ -21,7 +19,7 @@ import { Wrapper } from '../../utils/Wrapper';
   </Fragment>
 </Playground>
 
-<PropTable component={Tag} />
+<Props of={Tag} />
 
 ## Best practices
 

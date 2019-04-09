@@ -4,12 +4,9 @@ route: /getting-started/how-to-document
 menu: Getting Started
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 
 import Button from '../../../src/components/Button/Button';
-
-import PropTable from '../../utils/PropTable';
-import { Wrapper } from '../../utils/Wrapper';
 
 # Documenting a component
 
@@ -29,17 +26,16 @@ We have created a custom prop table component, which you can find in `docs/utils
 
 ```js
 import OriginalButton from '../../../src/components/Button/Button';
-import PropTable from '../../utils/PropTable';
 
 <div>
-  <PropTable component={Button} />
+  <Props of={Button} />
 </div>;
 ```
 
 the result looks like this:
 
 <div>
-  <PropTable component={Button} />
+  <Props of={Button} />
 </div>
 
 ## How To: Playground
@@ -47,8 +43,6 @@ the result looks like this:
 The Playground component requires the button to be wrapped in ThemeProvider (this will change in the future). Therefore we create a `DocButton.js` file, where the component is wrapped in a ThemeProvider.
 
 ```js
-import {Wrapper} from '../../utils/Wrapper';
-
 # Button
 
 <Playground>

@@ -4,7 +4,6 @@ route: /styles/media-queries
 menu: Styles
 ---
 
-import { Wrapper } from '../../utils/Wrapper';
 import Table from '../../../src/components/Table';
 import MediaQueriesTable from './components/MediaQueriesTable';
 
@@ -22,7 +21,7 @@ const ResponsiveDiv = styled('div')`
   ${({ theme }) => css`
     ${theme.mq.mega`
       padding-top: ${theme.spacings.peta};
-    `};    
+    `};
   `};
 `;
 ```
@@ -32,7 +31,7 @@ const ResponsiveDiv = styled('div')`
 You can use the following breakpoints when implementing either components
 inside Circuit UI or writing code that should be theme-compliant in your app.
 
-<MediaQueriesTable/>
+<MediaQueriesTable />
 
 ## Responsive best practices
 
