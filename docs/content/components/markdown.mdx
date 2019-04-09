@@ -4,11 +4,9 @@ route: /components/markdown
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Markdown from '../../../src/components/Markdown/Markdown';
-import PropTable from '../../utils/PropTable';
-import { Wrapper } from '../../utils/Wrapper';
 
 # Markdown
 
@@ -16,7 +14,7 @@ import { Wrapper } from '../../utils/Wrapper';
   <Markdown>**I am bold!**</Markdown>
 </Playground>
 
-<PropTable component={Markdown} />
+<Props of={Markdown} />
 
 ## Best practices
 
