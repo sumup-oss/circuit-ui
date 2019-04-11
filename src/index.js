@@ -147,6 +147,8 @@ export {
 export { default as Picture } from './components/Picture';
 export { default as AutoCompleteInput } from './components/AutoCompleteInput';
 export { default as AutoCompleteTags } from './components/AutoCompleteTags';
+
+export { TableRow, TableCell, TableHeader } from './components/Table';
 export { default as Table } from './components/Table';
 export { default as CardSchemes } from './components/CardSchemes';
 export {
