@@ -1,3 +1,4 @@
+// eslint-disable-next-line emotion/no-vanilla
 import { injectGlobal } from 'emotion';
 import { textMega } from './style-helpers';
 
