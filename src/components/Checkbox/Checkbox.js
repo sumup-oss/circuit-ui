@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { hideVisually, size } from 'polished';
 
-import CheckedIcon from './checked-icon.svg';
+import { ReactComponent as CheckedIcon } from './checked-icon.svg';
 import { disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';

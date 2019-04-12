@@ -110,7 +110,7 @@ exports[`Tabs styles should render with default styles 1`] = `
 }
 
 <div
-  className="circuit-6 circuit-7"
+  className=" circuit-6 circuit-7"
 >
   <div
     className="circuit-4 circuit-5"
@@ -128,7 +128,6 @@ exports[`Tabs styles should render with default styles 1`] = `
       aria-selected={true}
       className="circuit-2 circuit-1"
       role="tab"
-      tabIndex={undefined}
     >
       tab #2
     </button>
@@ -256,7 +255,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 }
 
 <div
-  className="circuit-6 circuit-7"
+  className=" circuit-6 circuit-7"
 >
   <div
     className="circuit-4 circuit-5"
@@ -274,7 +273,6 @@ exports[`Tabs styles should render with stretched styles 1`] = `
       aria-selected={true}
       className="circuit-2 circuit-1"
       role="tab"
-      tabIndex={undefined}
     >
       tab #2
     </button>

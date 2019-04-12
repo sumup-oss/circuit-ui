@@ -79,7 +79,7 @@
     "docz-core": "^1.0.0",
     "docz-theme-default": "^1.0.0",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^5.15.3",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "^4.1.0",

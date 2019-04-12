@@ -7,9 +7,10 @@ menu: Styles
 import Spacing from './components/Spacing';
 
 # Spacing
-Spaces are the invisible skeleton of every UI. It should be used in a wise and sensible way. 
-With space components, you can create bounds and separate elements on the UI. 
-The space component can be used in vertical and horizontal order.  
+
+Spaces are the invisible skeleton of every UI. It should be used in a wise and sensible way.
+With space components, you can create bounds and separate elements on the UI.
+The space component can be used in vertical and horizontal order.
 
 You can refer to a spacing from the theme using `theme.spacings.<SIZE>`.
 
@@ -23,13 +24,13 @@ You can refer to a spacing from the theme using `theme.spacings.<SIZE>`.
 <Spacing spacingName="zetta"/>
 
 ## When to use it
-Use it when you want to create a relationship with the level of the spacing used on a page. 
-You can create a close association between elements by using less space and vice versa. 
-Organized space patterns can help you not use lines or other graphical elements as a divider.  
 
+Use it when you want to create a relationship with the level of the spacing used on a page.
+You can create a close association between elements by using less space and vice versa.
+Organized space patterns can help you not use lines or other graphical elements as a divider.
 
 You can also create a hierarchy with spacing by setting more space around elements will give them higher importance than the components with less space around them. Example H1 have more margins than H2.
- As the headers descend in size, the spaces have to follow them.
+As the headers descend in size, the spaces have to follow them.
 
 ## Usage guidelines
 
@@ -42,7 +43,8 @@ You can also create a hierarchy with spacing by setting more space around elemen
 ## Usage in code
 
 ```javascript
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 const Box = styled('div')`
   ${({ theme }) => css`

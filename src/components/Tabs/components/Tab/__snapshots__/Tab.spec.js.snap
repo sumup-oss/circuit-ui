@@ -90,7 +90,6 @@ exports[`Tab styles should render with selected styles 1`] = `
   aria-selected={true}
   className="circuit-0 circuit-1"
   role="tab"
-  tabIndex={undefined}
 >
   content
 </button>

@@ -1,9 +1,10 @@
 import React from 'react';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import PropTypes from 'prop-types';
 
 import { hideVisually } from 'polished';
-import CloseIcon from './closeIcon.svg';
+import { ReactComponent as CloseIcon } from './closeIcon.svg';
 
 const baseStyles = ({ theme }) => css`
   label: sidebar-close-button;
@@ -23,9 +24,9 @@ const baseStyles = ({ theme }) => css`
   visibility: hidden;
   opacity: 0;
   z-index: ${theme.zIndex.sidebar};
-  ${theme.mq.giga`
-    visibility: hidden;  
-  `};
+  ${theme.mq.giga} {
+    visibility: hidden;
+  }
 `;
 
 const visibleStyles = ({ visible }) =>
@@ -40,7 +41,10 @@ const AccessibilityLabel = styled.span`
   ${hideVisually()};
 `;
 
-const FloatingButton = styled('button')(baseStyles, visibleStyles);
+const FloatingButton = styled.button`
+  ${baseStyles};
+  ${visibleStyles};
+`;
 
 const CloseButton = ({ visible, closeButtonLabel, onClick }) => (
   <FloatingButton visible={visible} onClick={onClick}>
@@ -62,6 +66,11 @@ CloseButton.propTypes = {
    * A function to handle the the click on the CloseButton
    */
   onClick: PropTypes.func
+};
+
+CloseButton.defaultProps = {
+  visible: false,
+  onClick: null
 };
 
 export default CloseButton;

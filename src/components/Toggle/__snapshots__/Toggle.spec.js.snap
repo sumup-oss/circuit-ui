@@ -108,6 +108,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   transition: background-color 200ms ease-in-out;
   height: 24px;
   width: 40px;
+  overflow: visible;
 }
 
 .circuit-4::-moz-focus-inner {

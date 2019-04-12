@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
   label: nav-item;
@@ -76,6 +77,14 @@ NavItem.propTypes = {
    * The onClick method to handle the click event on NavItems
    */
   onClick: PropTypes.func
+};
+
+NavItem.defaultProps = {
+  children: '',
+  defaultIcon: '',
+  selectedIcon: '',
+  selected: false,
+  onClick: null
 };
 
 export default NavItem;

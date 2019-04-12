@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
   label: sidebar-backdrop;
@@ -12,9 +13,9 @@ const baseStyles = ({ theme }) => css`
   visibility: hidden;
   opacity: 0;
   z-index: ${theme.zIndex.backdrop};
-  ${theme.mq.giga`
-    visibility: hidden;  
-  `};
+  ${theme.mq.giga} {
+    visibility: hidden;
+  }
 `;
 
 const visibleStyles = ({ visible }) =>

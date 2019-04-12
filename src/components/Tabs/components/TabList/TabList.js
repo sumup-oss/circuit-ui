@@ -1,5 +1,7 @@
 import React from 'react';
-import styled, { css } from 'react-emotion';
+import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { styleHelpers } from '../../../../styles';
 
 import Tab from '../Tab';
@@ -40,9 +42,9 @@ const navigationChildrenStyles = ({ stretched, ...props }) =>
 const navigationResponsiveChildrenStyles = props =>
   props.children.length <= MOBILE_AUTOSTRETCH_ITEMS_MAX &&
   css`
-    ${props.theme.mq.untilKilo`
+    ${props.theme.mq.untilKilo} {
       ${stretchedStyles(props)};
-    `}
+    }
   `;
 
 const Navigation = styled.div(
@@ -60,7 +62,13 @@ const TabList = ({ className, ...props }) => (
   </Wrapper>
 );
 
-TabList.defaultProps = {};
+TabList.propTypes = {
+  className: PropTypes.string
+};
+
+TabList.defaultProps = {
+  className: ''
+};
 
 /**
  * @component
