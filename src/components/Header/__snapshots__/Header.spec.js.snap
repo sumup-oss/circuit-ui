@@ -37,6 +37,7 @@ exports[`Header styles should render with default styles 1`] = `
 <div
   className="circuit-2 circuit-3"
 >
+  
   <h1
     className="circuit-0 circuit-1"
   >

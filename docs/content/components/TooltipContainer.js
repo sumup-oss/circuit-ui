@@ -1,6 +1,6 @@
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
 
-const TooltipContainer = styled("div")`
+const TooltipContainer = styled.div`
   position: relative;
   line-height: 0;
   width: 32px;
