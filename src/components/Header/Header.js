@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import Title from './components/Title';
 
 const baseStyles = ({ theme }) => css`
@@ -14,9 +15,9 @@ const baseStyles = ({ theme }) => css`
   z-index: ${theme.zIndex.header};
   position: sticky;
   top: 0;
-  ${theme.mq.giga`
+  ${theme.mq.giga} {
     display: none;
-  `}
+  }
 `;
 
 const Container = styled('div')(baseStyles);
@@ -37,6 +38,11 @@ Header.propTypes = {
    * The child component of Header.
    */
   children: PropTypes.node
+};
+
+Header.defaultProps = {
+  title: '',
+  children: ''
 };
 
 /**

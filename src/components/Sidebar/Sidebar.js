@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -22,10 +23,10 @@ const baseStyles = ({ theme }) => css`
   position: absolute;
   transform: translateX(-100%);
   z-index: ${theme.zIndex.sidebar};
-  ${theme.mq.giga`
+  ${theme.mq.giga} {
     transform: translateX(0);
     position: relative;
-  `};
+  }
 `;
 
 const openStyles = ({ theme, open }) =>
@@ -33,9 +34,9 @@ const openStyles = ({ theme, open }) =>
   css`
     label: sidebar--open;
     transform: translateX(0);
-    ${theme.mq.giga`
+    ${theme.mq.giga} {
       transform: translateX(0);
-    `};
+    }
   `;
 
 const Drawer = styled('div')(baseStyles, openStyles);
@@ -69,6 +70,12 @@ Sidebar.propTypes = {
    * A function to handle the sidebar close
    */
   onClose: PropTypes.func
+};
+
+Sidebar.defaultProps = {
+  children: '',
+  open: false,
+  onClose: null
 };
 
 Sidebar.Header = Header;

@@ -36,9 +36,12 @@ exports[`NavItem styles should render with default styles and match the snapshot
   onClick={[MockFunction]}
   selected={false}
 >
+  
   <div
     className="circuit-0 circuit-1"
-  />
+  >
+    
+  </div>
 </li>
 `;
 
@@ -110,8 +113,11 @@ exports[`NavItem styles should render with selected state styles and match the s
   onClick={[MockFunction]}
   selected={true}
 >
+  
   <div
     className="circuit-0 circuit-1"
-  />
+  >
+    
+  </div>
 </li>
 `;

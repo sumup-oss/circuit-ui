@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import hasSelectedChild from './utils';
 import SubNavList from '../SubNavList';
 
@@ -109,6 +110,16 @@ NavItem.propTypes = {
    * The onClick method to handle the click event on NavItems
    */
   onClick: PropTypes.func
+};
+
+NavItem.defaultProps = {
+  children: '',
+  label: '',
+  secondary: false,
+  defaultIcon: '',
+  selectedIcon: '',
+  selected: false,
+  onClick: null
 };
 
 export default NavItem;
