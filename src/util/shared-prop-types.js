@@ -146,14 +146,16 @@ export const localePropType = isRequired => (
   propName,
   componentName
 ) => {
-  if (isRequired && (!props[propName] || !props[propName].length)) {
+  // eslint-disable-next-line react/destructuring-assignment
+  const prop = props[propName];
+  if (isRequired && (!prop || !prop.length)) {
     return new Error(
       `Prop \`${propName}\` is marked as required in \`${componentName}\`,` +
-        `but received \`${props[propName]}\`.`
+        `but received \`${prop}\`.`
     );
   }
 
-  if (!/[a-z]{2}-[A-Z]{2}/.test(props[propName])) {
+  if (!/[a-z]{2}-[A-Z]{2}/.test(prop)) {
     return new Error(
       `Invalid prop \`${propName}\` supplied to` +
         ` \`${componentName}\`. Validation failed.`
