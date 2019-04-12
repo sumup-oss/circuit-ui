@@ -19,11 +19,24 @@ global.shallow = (...args) => {
   console.error(
     'We do not use Shallow anymore. Automatically switching to mount.'
   );
-  return renderWithTheme(mount)(...args);
+  return mount(...args, {
+    wrappingComponent: ThemeProvider,
+    wrappingComponentProps: {
+      theme: circuit
+    }
+  });
 };
+
+global.mount = (...args) =>
+  mount(...args, {
+    wrappingComponent: ThemeProvider,
+    wrappingComponentProps: {
+      theme: circuit
+    }
+  });
+
 global.render = renderWithTheme(render);
 global.create = renderWithTheme(create);
-global.mount = renderWithTheme(mount);
 global.renderToHtml = renderWithTheme(renderToStaticMarkup);
 global.axe = axe;
 

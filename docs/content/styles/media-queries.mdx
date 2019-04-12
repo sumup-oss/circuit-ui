@@ -15,7 +15,8 @@ function provided by the theme called `theme.mq`.
 ## Usage in code
 
 ```javascript
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 const ResponsiveDiv = styled('div')`
   ${({ theme }) => css`

@@ -36,7 +36,7 @@ describe('<Sidebar />', () => {
       onClose: jest.fn()
     };
     const actual = mount(<Sidebar {...props} />);
-    actual.find('Backdrop').simulate('click');
+    actual.find("[className*='sidebar-backdrop--visible']").simulate('click');
     expect(props.onClose).toHaveBeenCalled();
   });
 

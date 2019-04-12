@@ -5,7 +5,7 @@ import Element from './Element';
 describe('Element', () => {
   it('should render as basic html component', () => {
     const wrapper = shallow(<Element as="span" />);
-    expect(wrapper.name()).toEqual('span');
+    expect(wrapper.find('span')).toExist();
   });
 
   it('should render as custom react component', () => {

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import * as knobs from '@storybook/addon-knobs/react';
@@ -49,6 +49,7 @@ class TabsComposed extends Component {
         >
           {tabsExample.map(({ tab }, index) => (
             <Tab
+              // eslint-disable-next-line react/no-array-index-key
               key={index}
               selected={index === selectedIndex}
               onClick={() => this.setState({ selectedIndex: index })}
