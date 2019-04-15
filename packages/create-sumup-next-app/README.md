@@ -9,7 +9,6 @@ The easiest way to get started writing a [Next.js](https://github.com/zeit/next.
 
 - You should have **Node.js** installed at a version equal or above **`v9.10.0`**. If you cannot do that, see the Troubleshooting section for ways around this requirement.
 - At the moment this project reqires **`yarn`** to be installed on your system. Yarn is a package manager for JavaScript. You can read how to install the Yarn CLI in [their documentation](https://yarnpkg.com/en/docs/install).
-- You will need **`npx`** installed. You can run `yarn global add npx` or `npm install -g npx` to make that happen.
 
 ## ✨ Setting up a new SumUp Next.js project
 
@@ -23,7 +22,7 @@ This will create the folder `my-app` and initialize a new project inside. The pr
 
 ### Firing up the tools
 
-Run `yarn start` to start the development build. The app should automatically open in your browser. Changes you make to `src/App.js` should be visible on the page almost immediately.
+Run `yarn dev` to start the development build. The app should automatically open in your browser. Changes you make to `src/App.js` should be visible on the page almost immediately.
 
 To create a production build of your app, run `yarn build`. `Next.js` will create an optimized production build of your application inside the `build` folder of your project. It will also provide you with additional details on what to do with them.
 

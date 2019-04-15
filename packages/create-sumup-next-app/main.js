@@ -23,12 +23,11 @@ const DEPENDENCIES = [
   'next',
   'prop-types',
   // Our beautiful component library 💄
-  '@sumup/circuit-ui',
+  '@sumup/circuit-ui@beta',
   // CSS-in-JS 🚀
-  'react-emotion',
-  'emotion',
+  '@emotion/core',
+  '@emotion/styled',
   'emotion-theming',
-  'emotion-server',
   // Tools 🛠
   'lodash',
   // Server 🖥
@@ -50,11 +49,12 @@ const DEV_DEPENDENCIES = [
   // Loaders and plugins 🔌
   'babel-plugin-emotion',
   'babel-plugin-lodash',
+  'babel-plugin-inline-react-svg',
   'babel-jest',
   'babel-core@7.0.0-bridge.0',
-  'react-svg-loader',
-  'webpack-bundle-analyzer',
-  '@weco/next-plugin-transpile-modules'
+  'next-transpile-modules',
+  'next-compose-plugins',
+  'webpack-bundle-analyzer'
 ];
 
 const options = util.isDebugging()

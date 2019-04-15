@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { sharedPropTypes } from '@sumup/circuit-ui';
 
 const baseStyles = ({ theme }) => css`
@@ -9,7 +10,7 @@ const baseStyles = ({ theme }) => css`
   transition: color 0.1s ease-in-out;
 
   &:visited {
-    color: #551a8b;
+    color: ${theme.colors.v700};
   }
 
   &:hover,
@@ -24,16 +25,14 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-export const A = styled('a')`
-  ${baseStyles};
-`;
+export const A = styled('a')(baseStyles);
 
 /**
  * A basic anchor component for text links.
  */
 function Anchor({ children, title, className, id, ...otherProps }) {
   return (
-    <Link {...otherProps}>
+    <Link {...otherProps} passHref>
       <A {...{ title, className, id }}>{children}</A>
     </Link>
   );

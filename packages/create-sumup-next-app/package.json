@@ -29,6 +29,6 @@
     "listr-verbose-renderer": "^0.5.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "^0.0.13"
+    "@sumup/foundry": "^1.1.4"
   }
 }
