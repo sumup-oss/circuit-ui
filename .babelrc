@@ -13,7 +13,11 @@
   ],
   "env": {
     "cjs": {
-      "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
+      "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "lodash",
+        "inline-react-svg"
+      ],
       "presets": [
         ["@babel/preset-env", { "loose": true }],
         "@babel/preset-react",
@@ -27,7 +31,11 @@
       ]
     },
     "es": {
-      "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
+      "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "lodash",
+        "inline-react-svg"
+      ],
       "presets": [
         ["@babel/preset-env", { "loose": true, "modules": false }],
         "@babel/preset-react",
