@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import { Global, css } from '@emotion/core';
+import { Global, ClassNames } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import noScroll from 'no-scroll';
 
@@ -29,7 +29,7 @@ const FIXED_TRANSITION = `${TRANSITION_DURATION}ms cubic-bezier(0, 0.37, 0.64, 1
  * Documentation: http://reactcommunity.org/react-modal/styles/classes.html
  */
 
-const modalClassName = {
+const modalClassName = css => ({
   base: ({ theme }) => css`
     label: modal;
     outline: none;
@@ -90,9 +90,9 @@ const modalClassName = {
     }
   `
   /* eslint-enable max-len */
-};
+});
 
-const overlayClassName = {
+const overlayClassName = css => ({
   base: ({ theme }) => css`
     label: modal__overlay;
     background: ${transparentize(0.84, theme.colors.shadow)};
@@ -118,7 +118,7 @@ const overlayClassName = {
     label: modal__overlay--before-close;
     opacity: 0;
   `
-};
+});
 
 /**
  * Circuit UI's wrapper component for ReactModal. Uses the Card component
@@ -136,32 +136,36 @@ const Modal = ({
 }) => {
   ReactModal.setAppElement(appElement);
   const getClassValues = mapValues(styleFn => styleFn({ theme }));
-  const reactModalProps = {
-    className: getClassValues(modalClassName),
-    overlayClassName: getClassValues(overlayClassName),
-    contentLabel,
-    onAfterOpen: () => IS_IOS && noScroll.on(),
-    onAfterClose: () => IS_IOS && noScroll.off(),
-    onRequestClose: onClose,
-    htmlOpenClassName: 'ReactModal__Html--open',
-    closeTimeoutMS: TRANSITION_DURATION,
-    ...otherProps
-  };
-
   return (
-    <ReactModal {...reactModalProps}>
-      <Global
-        styles={css`
-          /* Remove scroll on the body when react-modal is open */
-          .ReactModal__Html--open {
-            height: 100%;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: auto;
-          }
-        `}
-      />
-      {isFunction(children) ? children() : children}
-    </ReactModal>
+    <ClassNames>
+      {({ css }) => {
+        const reactModalProps = {
+          className: getClassValues(modalClassName(css)),
+          overlayClassName: getClassValues(overlayClassName(css)),
+          contentLabel,
+          onAfterOpen: () => IS_IOS && noScroll.on(),
+          onAfterClose: () => IS_IOS && noScroll.off(),
+          onRequestClose: onClose,
+          closeTimeoutMS: TRANSITION_DURATION,
+          ...otherProps
+        };
+        return (
+          <ReactModal {...reactModalProps}>
+            <Global
+              styles={css`
+                /* Remove scroll on the body when react-modal is open */
+                .ReactModal__Html--open {
+                  height: 100%;
+                  overflow-y: hidden;
+                  -webkit-overflow-scrolling: auto;
+                }
+              `}
+            />
+            {isFunction(children) ? children() : children}
+          </ReactModal>
+        );
+      }}
+    </ClassNames>
   );
 };
 
