@@ -98,7 +98,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 <button
-  className=" circuit-4 circuit-5"
+  className="circuit-4 circuit-5"
   onClick={[Function]}
 >
   <span
@@ -185,7 +185,7 @@ exports[`Hamburger should render with default styles 1`] = `
 }
 
 <button
-  className=" circuit-4 circuit-5"
+  className="circuit-4 circuit-5"
   onClick={[Function]}
 >
   <span
