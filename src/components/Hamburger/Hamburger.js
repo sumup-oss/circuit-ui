@@ -50,12 +50,12 @@ const layersBaseStyles = ({ theme }) => css`
   }
 
   &::before {
-    transform: translateY(calc((${theme.spacings.bit}) * -1));
+    transform: translateY(-${theme.spacings.bit});
     width: ${HAMBURGUER_WIDTH};
   }
 
   &::after {
-    transform: translateY(calc(${theme.spacings.bit}));
+    transform: translateY(${theme.spacings.bit});
     width: ${HAMBURGUER_WIDTH};
   }
 `;
@@ -123,9 +123,9 @@ const Hamburger = ({
   labelActive,
   labelInActive,
   light,
-  className
+  ...rest
 }) => (
-  <HamburgerButton className={className} onClick={onClick} light={light}>
+  <HamburgerButton {...rest} onClick={onClick} light={light}>
     <HamburgerLayers isActive={isActive} light={light} />
     <HamburgerLabel>{isActive ? labelActive : labelInActive}</HamburgerLabel>
   </HamburgerButton>
@@ -159,8 +159,7 @@ Hamburger.defaultProps = {
   onClick: () => {},
   isActive: false,
   labelActive: 'Close menu',
-  labelInActive: 'Open menu',
-  className: ''
+  labelInActive: 'Open menu'
 };
 
 /**
