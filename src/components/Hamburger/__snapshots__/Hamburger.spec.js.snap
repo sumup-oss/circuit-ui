@@ -62,16 +62,16 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 .circuit-0::before {
-  -webkit-transform: translateY(calc((4px) * -1));
-  -ms-transform: translateY(calc((4px) * -1));
-  transform: translateY(calc((4px) * -1));
+  -webkit-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  transform: translateY(-4px);
   width: 12px;
 }
 
 .circuit-0::after {
-  -webkit-transform: translateY(calc(4px));
-  -ms-transform: translateY(calc(4px));
-  transform: translateY(calc(4px));
+  -webkit-transform: translateY(4px);
+  -ms-transform: translateY(4px);
+  transform: translateY(4px);
   width: 12px;
 }
 
@@ -156,16 +156,16 @@ exports[`Hamburger should render with default styles 1`] = `
 }
 
 .circuit-0::before {
-  -webkit-transform: translateY(calc((4px) * -1));
-  -ms-transform: translateY(calc((4px) * -1));
-  transform: translateY(calc((4px) * -1));
+  -webkit-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  transform: translateY(-4px);
   width: 12px;
 }
 
 .circuit-0::after {
-  -webkit-transform: translateY(calc(4px));
-  -ms-transform: translateY(calc(4px));
-  transform: translateY(calc(4px));
+  -webkit-transform: translateY(4px);
+  -ms-transform: translateY(4px);
+  transform: translateY(4px);
   width: 12px;
 }
 
