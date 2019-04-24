@@ -101,4 +101,17 @@ describe('Select', () => {
     const actual = wrapper.find('option [key=0]').length;
     expect(actual).toBe(0);
   });
+
+  it('should render with a prefix when passed the prefix prop', () => {
+    const DummyElement = () => (
+      <div style={{ width: '24px', height: '24px' }} />
+    );
+    const actual = create(
+      <Select
+        {...{ options }}
+        renderPrefix={({ className }) => <DummyElement {...{ className }} />}
+      />
+    );
+    expect(actual).toMatchSnapshot();
+  });
 });

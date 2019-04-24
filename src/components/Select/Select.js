@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled, { css, cx } from 'react-emotion';
 import { size } from 'polished';
+import { withTheme } from 'emotion-theming';
 
 import {
+  themePropType,
   eitherOrPropType,
   childrenPropType
 } from '../../util/shared-prop-types';
@@ -98,6 +100,27 @@ const containerNoMarginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
+const prefixStyles = ({ theme }) => css`
+  label: select__prefix;
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 40;
+  ${size(theme.spacings.mega)};
+  margin: ${theme.spacings.kilo};
+  pointer-events: none;
+`;
+
+const selectPrefixStyles = ({ theme, hasPrefix }) =>
+  hasPrefix &&
+  css`
+    label: select--prefix;
+    padding-left: calc(
+      ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
+    );
+  `;
+
 const SelectContainer = styled('div')`
   ${containerBaseStyles};
   ${containerNoMarginStyles};
@@ -108,11 +131,15 @@ const SelectContainer = styled('div')`
 const SelectElement = styled('select')`
   ${selectBaseStyles};
   ${selectInvalidStyles};
+  ${selectPrefixStyles};
 `;
 
 const Icon = styled(ArrowsIcon)`
   ${iconBaseStyles};
 `;
+
+const renderFixComponent = (className, renderFn) =>
+  (renderFn && renderFn({ className })) || null;
 
 /**
  * A native select component.
@@ -125,28 +152,47 @@ const Select = ({
   inline,
   options,
   children,
+  theme,
+  renderPrefix,
   ...props
-}) => (
-  <SelectContainer {...{ noMargin, inline, disabled }}>
-    <SelectElement {...{ ...props, value, disabled }}>
-      {!value && (
-        <option key="placeholder" value="">
-          {placeholder}
-        </option>
-      )}
-      {children ||
-        (options &&
-          options.map(({ label, ...rest }) => (
-            <option key={rest.value} {...rest}>
-              {label}
-            </option>
-          )))}
-    </SelectElement>
-    <Icon />
-  </SelectContainer>
-);
+}) => {
+  const prefixClassName = cx(prefixStyles({ theme }));
+  const prefix = renderFixComponent(prefixClassName, renderPrefix);
+
+  return (
+    <SelectContainer {...{ noMargin, inline, disabled }}>
+      {prefix}
+      <SelectElement
+        {...{
+          ...props,
+          value,
+          disabled,
+          hasPrefix: !!prefix
+        }}
+        blacklist={{
+          hasPrefix: true
+        }}
+      >
+        {!value && (
+          <option key="placeholder" value="">
+            {placeholder}
+          </option>
+        )}
+        {children ||
+          (options &&
+            options.map(({ label, ...rest }) => (
+              <option key={rest.value} {...rest}>
+                {label}
+              </option>
+            )))}
+      </SelectElement>
+      <Icon />
+    </SelectContainer>
+  );
+};
 
 Select.propTypes = {
+  theme: themePropType.isRequired,
   /**
    * onChange handler, called when the selection changes.
    */
@@ -200,7 +246,12 @@ Select.propTypes = {
   /**
    * Removes the default bottom margin from the select.
    */
-  noMargin: PropTypes.bool
+  noMargin: PropTypes.bool,
+  /**
+   * Render prop that should render a left-aligned overlay icon or element.
+   * Receives a className prop.
+   */
+  renderPrefix: PropTypes.func
 };
 
 Select.defaultProps = {
@@ -211,10 +262,11 @@ Select.defaultProps = {
   value: null,
   placeholder: 'Select an option',
   inline: false,
-  noMargin: false
+  noMargin: false,
+  renderPrefix: null
 };
 
 /**
  * @component
  */
-export default Select;
+export default withTheme(Select);
