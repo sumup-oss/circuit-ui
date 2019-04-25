@@ -1,12 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import PropTypes from 'prop-types';
 import { size } from 'polished';
-import { withTheme } from 'emotion-theming';
 
 import {
-  themePropType,
   eitherOrPropType,
   childrenPropType
 } from '../../util/shared-prop-types';
@@ -101,7 +100,11 @@ const containerNoMarginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const prefixStyles = ({ theme }) => css`
+/**
+ * Used with css prop directly, so it does not require prop
+ * destructuring.
+ */
+const prefixStyles = theme => css`
   label: select__prefix;
   display: block;
   position: absolute;
@@ -139,9 +142,6 @@ const Icon = styled(ArrowsIcon)`
   ${iconBaseStyles};
 `;
 
-const renderFixComponent = (className, renderFn) =>
-  (renderFn && renderFn({ className })) || null;
-
 /**
  * A native select component.
  */
@@ -153,7 +153,6 @@ const Select = ({
   inline,
   options,
   children,
-  theme,
   renderPrefix: RenderPrefix,
   ...props
 }) => {
@@ -192,7 +191,6 @@ const Select = ({
 };
 
 Select.propTypes = {
-  theme: themePropType.isRequired,
   /**
    * onChange handler, called when the selection changes.
    */
@@ -268,4 +266,4 @@ Select.defaultProps = {
 /**
  * @component
  */
-export default withTheme(Select);
+export default Select;
