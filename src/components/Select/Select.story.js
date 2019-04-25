@@ -10,9 +10,9 @@ import withTests from '../../util/withTests';
 import State from '../State';
 import Select from '.';
 
-import DE from './flags/de.svg';
-import US from './flags/us.svg';
-import FR from './flags/fr.svg';
+import { ReactComponent as DE } from './flags/de.svg';
+import { ReactComponent as US } from './flags/us.svg';
+import { ReactComponent as FR } from './flags/fr.svg';
 
 const options = [
   {
