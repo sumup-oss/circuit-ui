@@ -28,6 +28,10 @@ storiesOf(`${GROUPS.TYPOGRAPHY}|Heading`, module)
         element={select('Element', elements, elements[0])}
         size={select('Size', sizes, sizes[0])}
         noMargin={boolean('No margin', false)}
+        isHovering={true}
+        blacklist={{
+          isHovering: true
+        }}
       >
         {text('Text', 'This is a heading')}
       </Heading>
