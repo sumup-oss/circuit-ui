@@ -259,7 +259,6 @@ Select.defaultProps = {
   options: null,
   disabled: false,
   invalid: false,
-  value: null,
   placeholder: 'Select an option',
   inline: false,
   noMargin: false,
