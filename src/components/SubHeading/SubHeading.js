@@ -39,8 +39,14 @@ const SubHeadingElement = styled(HtmlElement)(
  * tag, except h1.
  */
 
-const SubHeading = props => (
-  <SubHeadingElement {...props} blacklist={{ noMargin: true }} />
+const SubHeading = ({ blacklist, ...restProps }) => (
+  <SubHeadingElement
+    {...restProps}
+    blacklist={{
+      ...blacklist,
+      noMargin: true
+    }}
+  />
 );
 
 SubHeading.KILO = KILO;

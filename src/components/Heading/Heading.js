@@ -52,8 +52,15 @@ const HeadingElement = styled(HtmlElement)`
 /**
  * A flexible heading component capable of rendering using any HTML heading tag.
  */
-const Heading = props => (
-  <HeadingElement {...props} blacklist={{ size: true, noMargin: true }} />
+const Heading = ({ blacklist, ...restProps }) => (
+  <HeadingElement
+    {...restProps}
+    blacklist={{
+      ...blacklist,
+      size: true,
+      noMargin: true
+    }}
+  />
 );
 
 Heading.KILO = KILO;
