@@ -39,15 +39,6 @@ const tagStyles = ({ theme }) => css`
   display: inline-block;
 `;
 
-const tagSelectedStyles = ({ selected, theme }) =>
-  selected &&
-  css`
-    label: tag--selected;
-    background-color: ${theme.colors.p500};
-    ${shadowBorder(theme.colors.p500)};
-    color: ${theme.colors.white};
-  `;
-
 const tagClickableStyles = ({ onClick, theme }) =>
   onClick &&
   css`
@@ -57,6 +48,25 @@ const tagClickableStyles = ({ onClick, theme }) =>
     &:hover {
       background-color: ${theme.colors.n300};
       ${shadowBorder(theme.colors.n300)};
+    }
+  `;
+
+const tagSelectedStyles = ({ selected, theme }) =>
+  selected &&
+  css`
+    label: tag--selected;
+    background-color: ${theme.colors.p500};
+    ${shadowBorder(theme.colors.p500)};
+    color: ${theme.colors.white};
+  `;
+
+const tagSelectedClickableStyles = ({ selected, onClick, theme }) =>
+  selected &&
+  onClick &&
+  css`
+    &:hover {
+      background-color: ${theme.colors.p500};
+      ${shadowBorder(theme.colors.p500)};
     }
   `;
 
@@ -88,8 +98,9 @@ const IconContainer = styled('span')`
 `;
 const TagElement = styled('span')`
   ${tagStyles};
-  ${tagSelectedStyles};
   ${tagClickableStyles};
+  ${tagSelectedStyles};
+  ${tagSelectedClickableStyles};
 `;
 
 /**
