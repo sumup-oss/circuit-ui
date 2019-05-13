@@ -4,13 +4,13 @@ exports[`Text should render as article element, when passed "article" for the el
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
 }
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
   }
 }
@@ -26,13 +26,13 @@ exports[`Text should render as div element, when passed "div" for the element pr
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
 }
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
   }
 }
@@ -48,13 +48,13 @@ exports[`Text should render as p element, when passed "p" for the element prop 1
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
 }
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
   }
 }
@@ -70,14 +70,14 @@ exports[`Text should render bold text when passed the bold prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   font-weight: 700;
 }
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
   }
 }
@@ -91,14 +91,14 @@ exports[`Text should render italic text when passed the italic prop 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   font-style: italic;
 }
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
   }
 }
@@ -112,7 +112,7 @@ exports[`Text should render struck through text when passed the strike prop 1`] 
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   -webkit-text-decoration: line-through;
   text-decoration: line-through;
@@ -120,7 +120,7 @@ exports[`Text should render struck through text when passed the strike prop 1`] 
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
   }
 }
@@ -135,14 +135,14 @@ exports[`Text should render with no margin styles when passed the noMargin prop 
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   margin-bottom: 0;
 }
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
   }
 }
@@ -156,7 +156,7 @@ exports[`Text should render with size giga, when passed "giga" for the size prop
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
 }
 
@@ -200,13 +200,13 @@ exports[`Text should render with size mega, when passed "mega" for the size prop
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
 }
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
   }
 }

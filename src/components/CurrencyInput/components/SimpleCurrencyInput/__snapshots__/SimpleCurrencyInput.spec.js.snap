@@ -19,7 +19,7 @@ exports[`SimpleCurrencyInput should adjust input padding and postfix width to ma
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -109,7 +109,7 @@ exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = 
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -196,7 +196,7 @@ exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] 
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -328,7 +328,7 @@ exports[`SimpleCurrencyInput should render with default styles 1`] = `
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -414,7 +414,7 @@ exports[`SimpleCurrencyInput should render with error styles 1`] = `
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -524,7 +524,7 @@ exports[`SimpleCurrencyInput should render with warning styles 1`] = `
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -647,7 +647,7 @@ exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = 
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-left: calc( 12px + 16px + 12px );
   text-align: right;

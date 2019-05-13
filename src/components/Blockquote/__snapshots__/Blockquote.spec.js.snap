@@ -33,7 +33,7 @@ exports[`Blockquote should render with giga styles 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   font-style: italic;
   padding-left: 12px;
@@ -64,7 +64,7 @@ exports[`Blockquote should render with mega styles 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   font-style: italic;
   padding-left: 12px;
@@ -73,7 +73,7 @@ exports[`Blockquote should render with mega styles 1`] = `
 
 @media (min-width:480px) {
   .circuit-1 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 24px;
   }
 }

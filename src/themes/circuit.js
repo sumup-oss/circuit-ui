@@ -178,7 +178,7 @@ export const typography = {
       lineHeight: '20px'
     },
     mega: {
-      fontSize: '15px',
+      fontSize: '16px',
       lineHeight: '24px'
     },
     giga: {

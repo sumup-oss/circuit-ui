@@ -74,7 +74,7 @@ Array [
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -304,7 +304,7 @@ Array [
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -505,7 +505,7 @@ Array [
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
 }
