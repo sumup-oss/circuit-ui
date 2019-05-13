@@ -3,18 +3,20 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import ArrowIcon from './arrow.svg';
 
-import SvgButton from '../../../../components/SvgButton';
+import SvgButton from '../../../SvgButton';
 import { ASCENDING, DESCENDING } from '../../constants';
 
 const baseStyles = ({ theme }) => css`
   display: flex;
   flex-direction: column;
+  height: 10px;
   left: ${theme.spacings.kilo};
   opacity: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   transition: opacity ${theme.transitions.default};
+  width: 5px;
 `;
 
 const StyledWrapper = styled(SvgButton)`

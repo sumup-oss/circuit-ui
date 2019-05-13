@@ -81,6 +81,7 @@ tbody .circuit-11:last-child td {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 10px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -90,6 +91,7 @@ tbody .circuit-11:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
+  width: 5px;
 }
 
 .circuit-1:focus,
@@ -476,6 +478,7 @@ tbody .circuit-11:last-child td {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 10px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -485,6 +488,7 @@ tbody .circuit-11:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
+  width: 5px;
 }
 
 .circuit-1:focus,
@@ -847,6 +851,7 @@ tbody .circuit-11:last-child td {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 10px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -856,6 +861,7 @@ tbody .circuit-11:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
+  width: 5px;
 }
 
 .circuit-1:focus,
@@ -1214,6 +1220,7 @@ tbody .circuit-11:last-child td {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 10px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -1223,6 +1230,7 @@ tbody .circuit-11:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
+  width: 5px;
 }
 
 .circuit-1:focus,

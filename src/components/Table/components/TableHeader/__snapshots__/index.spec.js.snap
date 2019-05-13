@@ -118,6 +118,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 10px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -127,6 +128,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
+  width: 5px;
 }
 
 .circuit-1:focus,
@@ -176,6 +178,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 10px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -185,6 +188,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
+  width: 5px;
 }
 
 .circuit-1:focus,
@@ -265,6 +269,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 10px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -274,6 +279,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
+  width: 5px;
 }
 
 .circuit-1:focus,
