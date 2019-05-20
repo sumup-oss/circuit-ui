@@ -63,6 +63,7 @@ exports[`Switch should have the correct default styles 1`] = `
   className="circuit-4 circuit-5"
   onClick={undefined}
   role="switch"
+  type="button"
 >
   <span
     className="circuit-0 circuit-1"
@@ -143,6 +144,7 @@ exports[`Switch should have the correct on styles 1`] = `
   className="circuit-4 circuit-5"
   onClick={undefined}
   role="switch"
+  type="button"
 >
   <span
     className="circuit-0 circuit-1"
