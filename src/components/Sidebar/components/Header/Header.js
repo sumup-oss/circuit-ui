@@ -7,9 +7,9 @@ const baseStyles = ({ theme }) => css`
   align-self: flex-start;
   align-items: center;
   justify-content: flex-start;
-  height: 64px;
+  min-height: 64px;
   width: 100%;
-  padding: ${theme.spacings.giga};
+  padding: ${theme.spacings.mega};
   background-color: ${theme.colors.bodyColor};
   color: ${theme.colors.n100};
 `;
@@ -18,7 +18,7 @@ const Header = styled('div')(baseStyles);
 
 Header.propTypes = {
   /**
-   * The children component passed to the Sidebar
+   * The children component passed to the Sidebar Header.
    */
   children: PropTypes.node
 };
