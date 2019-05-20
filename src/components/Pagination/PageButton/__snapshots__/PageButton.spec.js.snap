@@ -17,7 +17,7 @@ exports[`PageButton styles should render with default styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;

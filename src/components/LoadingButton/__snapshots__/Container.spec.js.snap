@@ -17,7 +17,7 @@ exports[`Container Container Style tests should have default styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }

@@ -1060,7 +1060,7 @@ exports[`RangePicker should render with default styles 1`] = `
   -webkit-transition: border-color 200ms ease-in-out;
   transition: border-color 200ms ease-in-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
 }
 
@@ -1096,7 +1096,7 @@ exports[`RangePicker should render with default styles 1`] = `
 
 .circuit-2 .DateInput_input {
   color: #212933;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   font-weight: 200;
   background-color: inherit;

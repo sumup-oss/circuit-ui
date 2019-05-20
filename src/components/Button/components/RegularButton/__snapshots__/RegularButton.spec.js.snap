@@ -17,7 +17,7 @@ exports[`RegularButton should have button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
@@ -83,7 +83,7 @@ exports[`RegularButton should have disabled button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
@@ -149,7 +149,7 @@ exports[`RegularButton should have flat button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   border-width: 0px;
@@ -236,7 +236,7 @@ exports[`RegularButton should have flat disabled button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   border-width: 0px;
@@ -323,7 +323,7 @@ exports[`RegularButton should have giga button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(12px - 0px) calc(32px - 0px);
 }
@@ -389,7 +389,7 @@ exports[`RegularButton should have kilo button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
@@ -455,7 +455,7 @@ exports[`RegularButton should have mega button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
@@ -521,7 +521,7 @@ exports[`RegularButton should have secondary button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   background-color: transparent;
@@ -633,7 +633,7 @@ exports[`RegularButton should have secondary disabled button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   background-color: transparent;
@@ -745,7 +745,7 @@ exports[`RegularButton should have secondary flat button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   background-color: transparent;
@@ -857,7 +857,7 @@ exports[`RegularButton should have stretch button styles 1`] = `
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(8px - 0px) calc(24px - 0px);
   width: 100%;
