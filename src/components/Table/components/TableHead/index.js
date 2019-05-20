@@ -39,12 +39,11 @@ const TableHead = ({
                 sortDirection={sortedRow === i ? sortDirection : null}
                 isSorted={sortedRow === i}
               />
-              {rowHeaders &&
-                i === 0 && (
-                  <TableCell role="presentation" aria-hidden="true" header>
-                    {getChildren(header)}
-                  </TableCell>
-                )}
+              {rowHeaders && i === 0 && (
+                <TableCell role="presentation" aria-hidden="true" header>
+                  {getChildren(header)}
+                </TableCell>
+              )}
             </Fragment>
           );
         })}
