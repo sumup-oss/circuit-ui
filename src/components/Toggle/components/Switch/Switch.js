@@ -83,7 +83,13 @@ const SwitchLabel = styled('span')`
  * A simple Switch component.
  */
 const Switch = ({ on, onToggle, labelOn, labelOff }) => (
-  <SwitchTrack onClick={onToggle} on={on} role="switch" aria-checked={on}>
+  <SwitchTrack
+    type="button"
+    onClick={onToggle}
+    on={on}
+    role="switch"
+    aria-checked={on}
+  >
     <SwitchKnob {...{ on }} />
     <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
   </SwitchTrack>
