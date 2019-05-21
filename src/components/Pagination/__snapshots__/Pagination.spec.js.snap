@@ -41,7 +41,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-right-radius: 0;
@@ -133,7 +133,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   background-color: #3388FF;
   border-color: #1760CE;
@@ -257,7 +257,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -336,7 +336,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-left-radius: 0;
@@ -930,7 +930,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-right-radius: 0;
@@ -1022,7 +1022,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   background-color: #3388FF;
   border-color: #1760CE;
@@ -1146,7 +1146,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -1225,7 +1225,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-left-radius: 0;
@@ -1309,7 +1309,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -1977,7 +1977,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-right-radius: 0;
@@ -2069,7 +2069,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   background-color: #3388FF;
   border-color: #1760CE;
@@ -2193,7 +2193,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -2272,7 +2272,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-left-radius: 0;
@@ -2356,7 +2356,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -3024,7 +3024,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-right-radius: 0;
@@ -3116,7 +3116,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   background-color: #3388FF;
   border-color: #1760CE;
@@ -3240,7 +3240,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -3319,7 +3319,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-left-radius: 0;
@@ -3403,7 +3403,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -4071,7 +4071,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-right-radius: 0;
@@ -4163,7 +4163,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   background-color: #3388FF;
   border-color: #1760CE;
@@ -4287,7 +4287,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -4366,7 +4366,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-left-radius: 0;
@@ -4450,7 +4450,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -5167,7 +5167,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-right-radius: 0;
@@ -5259,7 +5259,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   background-color: #3388FF;
   border-color: #1760CE;
@@ -5383,7 +5383,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
@@ -5462,7 +5462,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-left-radius: 0;
@@ -5546,7 +5546,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-radius: 0;
