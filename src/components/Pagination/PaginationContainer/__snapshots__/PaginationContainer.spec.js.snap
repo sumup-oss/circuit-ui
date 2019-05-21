@@ -41,7 +41,7 @@ exports[`PaginationContainer styles When actual page is diferrent that first and
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-right-radius: 0;
@@ -109,7 +109,7 @@ exports[`PaginationContainer styles When actual page is diferrent that first and
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-left-radius: 0;
@@ -336,7 +336,7 @@ exports[`PaginationContainer styles When the actual page is 1 should render with
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-right-radius: 0;
@@ -404,7 +404,7 @@ exports[`PaginationContainer styles When the actual page is 1 should render with
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-left-radius: 0;
@@ -631,7 +631,7 @@ exports[`PaginationContainer styles When the actual page is equal the last page 
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-right-radius: 0;
@@ -699,7 +699,7 @@ exports[`PaginationContainer styles When the actual page is equal the last page 
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 24px;
   padding: calc(4px - 0px) calc(16px - 0px);
   border-top-left-radius: 0;
