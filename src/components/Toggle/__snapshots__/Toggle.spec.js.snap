@@ -167,6 +167,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
     aria-checked={false}
     className="circuit-4 circuit-5"
     role="switch"
+    type="button"
   >
     <span
       className="circuit-0 circuit-1"
