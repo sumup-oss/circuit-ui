@@ -46,7 +46,7 @@ const selectedItemStyles = ({ theme, selectedChildIndex }) =>
     }
   `;
 
-const SubNavigationContainer = styled('ul')(
+const SubNavigationContainer = styled.ul(
   baseStyles,
   selectedItemStyles,
   listStyles
