@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'react-emotion';
 import { range } from 'lodash/fp';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { boolean, select } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
@@ -17,35 +17,66 @@ const SidebarContainer = styled.div`
   background-color: white;
 `;
 
+class Container extends Component {
+  state = { selected: 0 };
+
+  changeSelected = selected => {
+    this.setState({ selected });
+  };
+
+  render() {
+    const { selected } = this.state;
+    const open = boolean('Open', true);
+
+    return (
+      <SidebarContainer>
+        <Sidebar
+          open={open}
+          onClose={() => null}
+          closeButtonLabel="close-button"
+        >
+          <Sidebar.Header>Header</Sidebar.Header>
+          <Sidebar.NavList>
+            <Sidebar.NavItem
+              selected={Number(selected) === 10}
+              onClick={() => this.changeSelected(10)}
+              label={`Item #${10}`}
+            >
+              <Sidebar.NavItem
+                secondary
+                onClick={() => this.changeSelected(11)}
+                label={`Sub Item #${11}`}
+                selected={Number(selected) === 11}
+              />
+              <Sidebar.NavItem
+                secondary
+                onClick={() => this.changeSelected(12)}
+                label={`Sub Item #${12}`}
+                selected={Number(selected) === 12}
+              />
+              <Sidebar.NavItem
+                secondary
+                onClick={() => this.changeSelected(13)}
+                label={`Sub Item #${13}`}
+                selected={Number(selected) === 13}
+              />
+            </Sidebar.NavItem>
+            {range(1, 9).map(i => (
+              <Sidebar.NavItem
+                key={i}
+                selected={i === Number(selected)}
+                onClick={() => this.changeSelected(i)}
+                label={`Item #${i}`}
+              />
+            ))}
+          </Sidebar.NavList>
+          <Sidebar.Footer>Footer</Sidebar.Footer>
+        </Sidebar>
+      </SidebarContainer>
+    );
+  }
+}
+
 storiesOf(`${GROUPS.COMPONENTS}|Sidebar`, module)
   .addDecorator(withTests('Sidebar'))
-  .add(
-    'Sidebar',
-    withInfo()(() => {
-      const open = boolean('open', false);
-      const selected = select('selected', range(0, 4), 0);
-      return (
-        <SidebarContainer>
-          <Sidebar
-            open={open}
-            onClose={() => null}
-            closeButtonLabel="close-button"
-          >
-            <Sidebar.Header>Header</Sidebar.Header>
-            <Sidebar.NavList>
-              {range(0, 4).map(i => (
-                <Sidebar.NavItem
-                  key={i}
-                  selected={i === Number(selected)}
-                  onClick={() => null}
-                >
-                  Item #{i}
-                </Sidebar.NavItem>
-              ))}
-            </Sidebar.NavList>
-            <Sidebar.Footer>Footer</Sidebar.Footer>
-          </Sidebar>
-        </SidebarContainer>
-      );
-    })
-  );
+  .add('Sidebar', withInfo()(() => <Container />));
