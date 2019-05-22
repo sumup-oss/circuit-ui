@@ -22,7 +22,8 @@ const secondaryStyles = ({ theme, secondary }) =>
   secondary &&
   css`
     label: nav-item--secondary;
-    margin: 0px ${theme.spacings.mega};
+    margin: 0px ${theme.spacings.giga};
+    padding: ${theme.spacings.bit} 0px;
   `;
 
 const hoverStyles = ({ theme, selected }) =>
@@ -65,21 +66,19 @@ const NavItem = ({
   selectedIcon,
   selected,
   onClick
-}) => (
-  <Fragment>
-    <ListItem
-      selected={selected || hasSelectedChild(children)}
-      secondary={secondary}
-      onClick={onClick}
-    >
-      {defaultIcon && selectedIcon && selected ? selectedIcon : defaultIcon}
-      {secondary ? label : <LabelWrapper>{label}</LabelWrapper>}
-    </ListItem>
-    {children && (selected || hasSelectedChild(children)) && (
-      <SubNavList>{children}</SubNavList>
-    )}
-  </Fragment>
-);
+}) => {
+  const isSelected = selected || hasSelectedChild(children);
+
+  return (
+    <Fragment>
+      <ListItem selected={isSelected} secondary={secondary} onClick={onClick}>
+        {defaultIcon && selectedIcon && isSelected ? selectedIcon : defaultIcon}
+        {secondary ? label : <LabelWrapper>{label}</LabelWrapper>}
+      </ListItem>
+      {children && isSelected && <SubNavList>{children}</SubNavList>}
+    </Fragment>
+  );
+};
 
 NavItem.propTypes = {
   /**
