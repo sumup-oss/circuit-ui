@@ -69,7 +69,8 @@ Array [
   cursor: pointer;
   color: #9DA7B1;
   fill: #9DA7B1;
-  margin: 0px 16px;
+  margin: 0px 24px;
+  padding: 4px 0px;
 }
 
 .circuit-0:hover {
