@@ -27,18 +27,13 @@ module.exports = {
     { value: 'WIP', name: 'WIP:      Work in progress' }
   ],
 
-  scopes: [{ name: 'a' }, { name: 'bb' }, { name: 'ccc' }, { name: 'dddd' }],
-
-  // it needs to match the value for field type. Eg.: 'fix'
-
-  scopeOverrides: {
-    fix: [
-      { name: 'merge' },
-      { name: 'style' },
-      { name: 'e2eTest' },
-      { name: 'unitTest' }
-    ]
-  },
+  scopes: [
+    { name: 'components' },
+    { name: 'utils' },
+    { name: 'docs' },
+    { name: 'theme' },
+    { name: 'configs' }
+  ],
 
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix']

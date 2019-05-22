@@ -1,3 +1,1 @@
-module.exports = {
-  branches: ['master', 'next', { name: 'beta', prerelease: true }]
-};
+module.exports = require('@sumup/foundry/semantic-release').modules;
