@@ -70,6 +70,14 @@ if (process.env.NODE_ENV !== 'production' && !React.createContext) {
 }
 
 class Modal extends React.Component {
+  mountNode = null;
+
+  modalRef = null;
+
+  dialogRef = null;
+
+  mounted = false;
+
   constructor(props) {
     super(props);
 
@@ -125,14 +133,6 @@ class Modal extends React.Component {
       this.handleClose();
     }
   }
-
-  mountNode = null;
-
-  modalRef = null;
-
-  dialogRef = null;
-
-  mounted = false;
 
   handleRendered = () => {
     this.autoFocus();
