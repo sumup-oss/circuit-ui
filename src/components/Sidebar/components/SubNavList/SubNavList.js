@@ -9,7 +9,7 @@ const SUB_NAV_ITEM_HEIGHT = 32;
 /* eslint-disable max-len */
 const baseStyles = ({ theme }) => css`
   label: sub-nav-list;
-  margin: -${theme.spacings.byte} 0 ${theme.spacings.byte} ${theme.spacings.peta};
+  margin: -${theme.spacings.byte} 0 ${theme.spacings.byte} ${theme.spacings.tera};
   list-style: none;
   height: auto;
   position: relative;
