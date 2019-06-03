@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render, cleanup } from '@testing-library/react';
 
 import App from './App';
 
@@ -20,6 +20,8 @@ const renderApp = (props = {}) =>
   render(<App {...{ ...defaultProps, ...props }} />);
 
 describe('App', () => {
+  afterEach(cleanup);
+
   /**
    * Testing by what your user sees gives you more confidence
    * in your tests.

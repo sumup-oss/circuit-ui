@@ -1,3 +1,18 @@
+/**
+ * Copyright 2019, SumUp Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import { resolve } from 'path';
 import { writeFile } from 'fs';
 import { promisify } from 'util';
@@ -18,21 +33,22 @@ const APP_NAME = process.argv[2];
 const APP_PATH = resolve(WORKING_DIR, APP_NAME || '');
 const DEPENDENCIES = [
   // Our beautiful component library 💄
-  '@sumup/circuit-ui',
+  '@sumup/circuit-ui@beta',
   // CSS-in-JS 🚀
-  'react-emotion@^9.0.0',
-  'emotion@^9.0.0',
-  'emotion-theming@^9.0.0'
+  '@emotion/core@^10.0.10',
+  'emotion-theming@^10.0.10',
+  '@emotion/styled@^10.0.10',
+  'jest-emotion@^10.0.10'
 ];
 const DEV_DEPENDENCIES = [
   // React ⚛️
   'prop-types',
   // The toolkit 🛠
-  '@sumup/foundry',
+  '@sumup/foundry@beta',
   // Testing 📏
-  'react-testing-library@^5.3.1',
-  'jest-emotion@^9.0.0',
-  'jest-dom'
+  '@testing-library/react@^8.0.0',
+  'jest-emotion@^10.0.11',
+  'jest-dom@^3.4.0'
 ];
 
 const listrOptions = util.isDebugging()

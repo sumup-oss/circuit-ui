@@ -4,17 +4,16 @@
  */
 import 'jest-dom/extend-expect';
 
-import { createMatchers, createSerializer } from 'jest-emotion';
-import * as emotion from 'emotion';
+import serializer, { matchers } from 'jest-emotion';
 
 /**
  * These matchers help you test agains specific style rules
  * in a test.
  *
- * https://github.com/emotion-js/emotion/tree/master/packages/jest-emotion#tohavestylerule
+ * https://github.com/emotion-js/emotion/tree/master/packages/jest-emotion#custom-matchers
  * */
 // eslint-disable-next-line no-undef
-expect.extend(createMatchers(emotion));
+expect.extend(matchers);
 
 /**
  * The serializer will make sure emotion generated styles
@@ -23,4 +22,4 @@ expect.extend(createMatchers(emotion));
  * https://github.com/emotion-js/emotion/tree/master/packages/jest-emotion#snapshot-serializer
  * */
 // eslint-disable-next-line no-undef
-expect.addSnapshotSerializer(createSerializer(emotion));
+expect.addSnapshotSerializer(serializer);

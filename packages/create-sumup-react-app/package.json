@@ -1,6 +1,6 @@
 {
   "name": "@sumup/create-sumup-react-app",
-  "version": "1.1.2",
+  "version": "1.2.2",
   "description": "Creates a ready for development React app using create-react-app.",
   "repository": "github:sumup/create-sumup-react-app",
   "scripts": {
@@ -11,12 +11,12 @@
   "author": "Felix Jung <felix.jung@sumup.com>",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.4.1",
-    "esm": "^3.0.84",
+    "chalk": "^2.4.2",
+    "esm": "^3.2.25",
     "listr": "^0.14.3",
     "listr-verbose-renderer": "^0.5.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "^1.0.0"
+    "@sumup/foundry": "beta"
   }
 }
