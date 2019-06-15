@@ -45,7 +45,7 @@ const CurrencyIcon = styled('span')`
   ${iconInvalidStyles};
 `;
 
-const inputStyles = css`
+const inputStyles = stringCss => stringCss`
   label: currency-input__input;
   text-align: right;
 `;
@@ -82,7 +82,7 @@ const SimpleCurrencyInput = ({
   <ClassNames>
     {({ css: stringCss, cx }) => {
       const inputClassName = cx(
-        inputStyles,
+        inputStyles(stringCss),
         inputPrependStyles({
           theme,
           symbol,
