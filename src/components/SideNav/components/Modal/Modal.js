@@ -298,7 +298,7 @@ class Modal extends React.Component {
         onRendered={this.handleRendered}
       >
         <ModalContent
-          innerRef={ref => {
+          ref={ref => {
             this.modalRef = ref;
           }}
           hidden={exited}
