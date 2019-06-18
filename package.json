@@ -136,7 +136,7 @@
     "prop-types": "^15.7.2",
     "prop-types-exact": "^1.2.0",
     "react": "^16.8.6",
-    "react-dates": "^20.1.0",
+    "react-dates": "^16.6.1",
     "react-dom": "^16.8.6",
     "react-event-listener": "^0.6.6",
     "react-modal": "^3.8.1",
