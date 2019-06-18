@@ -86,7 +86,7 @@ const SideNav = props => {
       open={mode !== MODE.HIDDEN}
       variant={variant}
       anchor="left"
-      CardProps={{ className: drawerContentStyles }}
+      CardProps={{ additionalStyles: drawerContentStyles }}
     >
       <div
         css={css`
