@@ -64,6 +64,7 @@ const DrawerContainer = styled.div`
   ${anchorRightStyles};
   ${anchorTopStyles};
   ${anchorBottomStyles};
+  ${({ additionalStyles }) => additionalStyles}
 `;
 
 const Docked = styled.div`
@@ -201,7 +202,9 @@ Drawer.propTypes = {
   /**
    * Properties applied to the [`Paper`](/api/paper) element.
    */
-  CardProps: PropTypes.shape(Card.propTypes),
+  CardProps: PropTypes.shape({
+    additionalStyles: PropTypes.object
+  }),
   /**
    * Properties applied to the [`Slide`](/api/slide) element.
    */
