@@ -217,7 +217,7 @@ class Popover extends Component {
         {({ ref }) => (
           <ReferenceWrapper
             referenceWrapperStyles={referenceWrapperStyles}
-            innerRef={this.receiveButtonRef}
+            ref={this.receiveButtonRef}
             onClick={this.handleReferenceClick}
           >
             <div ref={ref}>{renderReference()}</div>
@@ -240,7 +240,7 @@ class Popover extends Component {
           isOpen && (
             <PopoverWrapper
               style={style}
-              innerRef={this.receivePopoverRef}
+              ref={this.receivePopoverRef}
               zIndex={zIndex}
             >
               <div ref={ref}>
