@@ -1,6 +1,6 @@
 {
   "name": "@sumup/create-sumup-next-app",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Creates a fresh NextJS application preconfigured with SumUp's Circuit UI and Foundry",
   "keywords": [
     "react",
