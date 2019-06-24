@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
-    "esm": "^3.0.84",
+    "esm": "^3.1.0",
     "listr": "^0.14.2",
     "listr-verbose-renderer": "^0.5.0"
   },
