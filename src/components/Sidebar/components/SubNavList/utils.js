@@ -19,4 +19,17 @@ import { isArray } from '../../../../util/type-check';
 const getSelectedChildIndex = children =>
   isArray(children) ? findIndex(child => child.props.selected, children) : 0;
 
-export default getSelectedChildIndex;
+const getSecondaryChild = (children, visible) => {
+  if (!children) {
+    return null;
+  }
+
+  return isArray(children)
+    ? children.map(child => ({
+        ...child,
+        props: { ...child.props, secondary: true, visible }
+      }))
+    : { ...children, props: { ...children.props, secondary: true, visible } };
+};
+
+export { getSelectedChildIndex, getSecondaryChild };
