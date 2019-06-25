@@ -24,6 +24,7 @@ import NavList from './components/NavList';
 import NavItem from './components/NavItem';
 import Backdrop from './components/Backdrop';
 import CloseButton from './components/CloseButton';
+import Aggregator from './components/Aggregator';
 
 const SIDEBAR_WIDTH = 256;
 
@@ -97,5 +98,6 @@ Sidebar.Header = Header;
 Sidebar.Footer = Footer;
 Sidebar.NavList = NavList;
 Sidebar.NavItem = NavItem;
+Sidebar.Aggregator = Aggregator;
 
 export default Sidebar;

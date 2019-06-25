@@ -52,31 +52,24 @@ class Container extends Component {
         >
           <Sidebar.Header>Header</Sidebar.Header>
           <Sidebar.NavList>
-            <Sidebar.NavItem
-              selected={Number(selected) === 10}
-              onClick={() => this.changeSelected(10)}
-              label={`Item #${10}`}
-            >
+            <Sidebar.Aggregator label={`Item #${1}`}>
               <Sidebar.NavItem
-                secondary
-                onClick={() => this.changeSelected(11)}
-                label={`Sub Item #${11}`}
-                selected={Number(selected) === 11}
+                onClick={() => this.changeSelected(4)}
+                label={`Sub Item #${1}`}
+                selected={Number(selected) === 4}
               />
               <Sidebar.NavItem
-                secondary
-                onClick={() => this.changeSelected(12)}
-                label={`Sub Item #${12}`}
-                selected={Number(selected) === 12}
+                onClick={() => this.changeSelected(5)}
+                label={`Sub Item #${2}`}
+                selected={Number(selected) === 5}
               />
               <Sidebar.NavItem
-                secondary
-                onClick={() => this.changeSelected(13)}
-                label={`Sub Item #${13}`}
-                selected={Number(selected) === 13}
+                onClick={() => this.changeSelected(6)}
+                label={`Sub Item #${3}`}
+                selected={Number(selected) === 6}
               />
-            </Sidebar.NavItem>
-            {range(1, 9).map(i => (
+            </Sidebar.Aggregator>
+            {range(2, 4).map(i => (
               <Sidebar.NavItem
                 key={i}
                 selected={i === Number(selected)}
