@@ -4,8 +4,10 @@ exports[`SubNavList styles should render with default styles when there is a sel
 .circuit-0 {
   margin: -8px 0 8px 32px;
   list-style: none;
-  height: auto;
-  position: relative;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .circuit-0::after {
@@ -33,11 +35,16 @@ exports[`SubNavList styles should render with default styles when there is a sel
 <ul
   className="circuit-0 circuit-1"
 >
-  <li>
+  <li
+    secondary={true}
+    visible={false}
+  >
     Item 1
   </li>
   <li
+    secondary={true}
     selected={true}
+    visible={false}
   >
     Item 2
   </li>
@@ -48,8 +55,10 @@ exports[`SubNavList styles should render with default styles when there is no se
 .circuit-0 {
   margin: -8px 0 8px 32px;
   list-style: none;
-  height: auto;
-  position: relative;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .circuit-0::before {
@@ -65,10 +74,16 @@ exports[`SubNavList styles should render with default styles when there is no se
 <ul
   className="circuit-0 circuit-1"
 >
-  <li>
+  <li
+    secondary={true}
+    visible={false}
+  >
     Item 1
   </li>
-  <li>
+  <li
+    secondary={true}
+    visible={false}
+  >
     Item 2
   </li>
 </ul>
@@ -78,8 +93,10 @@ exports[`SubNavList styles should render without children 1`] = `
 .circuit-0 {
   margin: -8px 0 8px 32px;
   list-style: none;
-  height: auto;
-  position: relative;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .circuit-0::after {

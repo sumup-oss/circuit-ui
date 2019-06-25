@@ -14,9 +14,10 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import getSelectedChildIndex from './utils';
+import { getSelectedChildIndex, getSecondaryChild } from './utils';
 import { childrenPropType } from '../../../../util/shared-prop-types';
 
 const SUB_NAV_ITEM_HEIGHT = 32;
@@ -26,10 +27,25 @@ const baseStyles = ({ theme }) => css`
   label: sub-nav-list;
   margin: -${theme.spacings.byte} 0 ${theme.spacings.byte} ${theme.spacings.tera};
   list-style: none;
-  height: auto;
-  position: relative;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
 `;
 /* eslint-enable max-len */
+
+const visibleStyles = ({ theme, visible, children }) =>
+  visible &&
+  css`
+    label: sub-nav-list--visible;
+    height: calc(${SUB_NAV_ITEM_HEIGHT}px * ${children.length});
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transition: height ${theme.transitions.default},
+      opacity ${theme.transitions.default} 100ms,
+      visibility ${theme.transitions.default} 100ms;
+  `;
 
 const listStyles = ({ theme, children }) =>
   children &&
@@ -65,12 +81,16 @@ const selectedItemStyles = ({ theme, selectedChildIndex }) =>
 const SubNavigationContainer = styled.ul(
   baseStyles,
   selectedItemStyles,
-  listStyles
+  listStyles,
+  visibleStyles
 );
 
-const SubNavList = ({ children }) => (
-  <SubNavigationContainer selectedChildIndex={getSelectedChildIndex(children)}>
-    {children}
+const SubNavList = ({ children, visible }) => (
+  <SubNavigationContainer
+    visible={visible}
+    selectedChildIndex={getSelectedChildIndex(children)}
+  >
+    {getSecondaryChild(children, visible)}
   </SubNavigationContainer>
 );
 
@@ -78,11 +98,16 @@ SubNavList.propTypes = {
   /**
    * The children component passed to the SubNavList
    */
-  children: childrenPropType
+  children: childrenPropType,
+  /**
+   * If the SubNavList is currently visible
+   */
+  visible: PropTypes.bool
 };
 
 SubNavList.defaultProps = {
-  children: null
+  children: null,
+  visible: false
 };
 
 /**
