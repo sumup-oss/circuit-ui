@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavItem styles should render with default styles and match the snapshot 1`] = `
-Array [
-  .circuit-2 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33,24 +32,21 @@ Array [
 }
 
 <li
-    className="circuit-2 circuit-3"
-    onClick={[MockFunction]}
-    selected={false}
+  className="circuit-2 circuit-3"
+  onClick={[MockFunction]}
+  selected={false}
+>
+  
+  <div
+    className="circuit-0 circuit-1"
   >
     
-    <div
-      className="circuit-0 circuit-1"
-    >
-      
-    </div>
-  </li>,
-  "",
-]
+  </div>
+</li>
 `;
 
 exports[`NavItem styles should render with default styles and match the snapshot for a secondary NavItem 1`] = `
-Array [
-  .circuit-0 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -71,28 +67,40 @@ Array [
   fill: #9DA7B1;
   margin: 0px 24px;
   padding: 4px 0px;
+  -webkit-transition: top 200ms ease-in-out;
+  transition: top 200ms ease-in-out;
 }
 
-.circuit-0:hover {
+.circuit-2:hover {
   color: #D8DDE1;
   fill: #D8DDE1;
 }
 
+.circuit-0 {
+  margin-left: 12px;
+  margin-left: 0px;
+  margin-top: -12px;
+  -webkit-transition: margin-top 300ms ease-in-out;
+  transition: margin-top 300ms ease-in-out;
+  margin-top: 0px;
+}
+
 <li
+  className="circuit-2 circuit-3"
+  onClick={[MockFunction]}
+  selected={false}
+>
+  
+  <div
     className="circuit-0 circuit-1"
-    onClick={[MockFunction]}
-    selected={false}
   >
     
-    
-  </li>,
-  "",
-]
+  </div>
+</li>
 `;
 
 exports[`NavItem styles should render with selected state styles and match the snapshot 1`] = `
-Array [
-  .circuit-0 {
+.circuit-0 {
   margin-left: 12px;
 }
 
@@ -120,17 +128,15 @@ Array [
 }
 
 <li
-    className="circuit-2 circuit-3"
-    onClick={[MockFunction]}
-    selected={true}
+  className="circuit-2 circuit-3"
+  onClick={[MockFunction]}
+  selected={true}
+>
+  
+  <div
+    className="circuit-0 circuit-1"
   >
     
-    <div
-      className="circuit-0 circuit-1"
-    >
-      
-    </div>
-  </li>,
-  "",
-]
+  </div>
+</li>
 `;
