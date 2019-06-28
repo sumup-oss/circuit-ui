@@ -4,7 +4,7 @@ dist: trusty
 node_js: '10.15.0'
 before_install:
   - npm install -g yarn
-install: yarn
+install: yarn install --frozen-lockfile
 script: yarn check:security && yarn check:licenses && yarn test:ci
 
 deploy:
