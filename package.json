@@ -11,11 +11,11 @@
   ],
   "scripts": {
     "coverage:upload": "codecov",
-    "fix:eslint": "eslint --fix",
+    "fix:eslint": "foundry run eslint --fix --quiet \"src/**/*.js\"",
     "fix": "yarn fix:eslint",
     "test": "yarn test:lint-js && yarn test:unit",
     "test:ci": "yarn test:lint-js && yarn test:unit --runInBand",
-    "test:lint-js": "eslint --cache --quiet src/**/*.js",
+    "test:lint-js": "foundry run eslint --quiet --cache \"src/**/*.js\"",
     "test:lint-js:watch": "onchange \"src/**/*.js\" -- yarn test:lint-js",
     "test:unit:verbose": "jest --coverage --no-cache",
     "test:unit": "yarn test:unit:verbose --silent",
@@ -64,7 +64,7 @@
     "@storybook/addon-storysource": "^5.0.5",
     "@storybook/addons": "^5.0.5",
     "@storybook/react": "^5.0.5",
-    "@sumup/foundry": "^1.1.4",
+    "@sumup/foundry": "1.4.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
@@ -147,11 +147,6 @@
     "recompose": "^0.30.0",
     "text-mask-addons": "^3.8.0",
     "warning": "^4.0.3"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --cache"
-    ]
   },
   "husky": {
     "hooks": {
