@@ -13,23 +13,6 @@
  * limitations under the License.
  */
 
-import { findIndex } from 'lodash/fp';
-import { isArray } from '../../../../util/type-check';
+import Aggregator from './Aggregator';
 
-const getSelectedChildIndex = children =>
-  isArray(children) ? findIndex(child => child.props.selected, children) : 0;
-
-const getSecondaryChild = (children, visible) => {
-  if (!children) {
-    return null;
-  }
-
-  return isArray(children)
-    ? children.map(child => ({
-        ...child,
-        props: { ...child.props, secondary: true, visible }
-      }))
-    : { ...children, props: { ...children.props, secondary: true, visible } };
-};
-
-export { getSelectedChildIndex, getSecondaryChild };
+export default Aggregator;
