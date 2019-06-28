@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Aggregator styles should render and match snapshot when open 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #9DA7B1;
+  fill: #9DA7B1;
+}
+
+.circuit-2:hover {
+  color: #D8DDE1;
+  fill: #D8DDE1;
+}
+
+.circuit-0 {
+  margin-left: 12px;
+}
+
+.circuit-4 {
+  margin: -8px 0 8px 32px;
+  list-style: none;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  height: calc(32px * );
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: height 200ms ease-in-out,opacity 200ms ease-in-out 100ms,visibility 200ms ease-in-out 100ms;
+  transition: height 200ms ease-in-out,opacity 200ms ease-in-out 100ms,visibility 200ms ease-in-out 100ms;
+}
+
+.circuit-4::after {
+  content: '';
+  width: 2px;
+  background: #3388FF;
+  height: 32px;
+  border-radius: 1px;
+  position: absolute;
+  top: calc(32px * 0);
+  -webkit-transition: top 200ms ease-in-out;
+  transition: top 200ms ease-in-out;
+}
+
+.circuit-4::before {
+  content: '';
+  width: 2px;
+  background: #5C656F;
+  height: calc(32px * );
+  position: absolute;
+  top: 0;
+  border-radius: 1px;
+}
+
+<Aggregator
+  defaultIcon="default-icon"
+  label="Aggregator"
+  onClick={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  selectedIcon="selected-icon"
+>
+  <Styled(div)
+    onClick={[Function]}
+  >
+    <div
+      className="circuit-2 circuit-3"
+      onClick={[Function]}
+    >
+      selected-icon
+      <Styled(div)>
+        <div
+          className="circuit-0 circuit-1"
+        >
+          Aggregator
+        </div>
+      </Styled(div)>
+    </div>
+  </Styled(div)>
+  <SubNavList
+    visible={true}
+  >
+    <Styled(ul)
+      selectedChildIndex={0}
+      visible={true}
+    >
+      <ul
+        className="circuit-4 circuit-5"
+      >
+        <div
+          data-testid="child"
+          secondary={true}
+          visible={true}
+        >
+          child
+        </div>
+      </ul>
+    </Styled(ul)>
+  </SubNavList>
+</Aggregator>
+`;
+
+exports[`Aggregator styles should render with default styles 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #9DA7B1;
+  fill: #9DA7B1;
+}
+
+.circuit-2:hover {
+  color: #D8DDE1;
+  fill: #D8DDE1;
+}
+
+.circuit-0 {
+  margin-left: 12px;
+}
+
+.circuit-4 {
+  margin: -8px 0 8px 32px;
+  list-style: none;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.circuit-4::after {
+  content: '';
+  width: 2px;
+  background: #3388FF;
+  height: 32px;
+  border-radius: 1px;
+  position: absolute;
+  top: calc(32px * 0);
+  -webkit-transition: top 200ms ease-in-out;
+  transition: top 200ms ease-in-out;
+}
+
+.circuit-4::before {
+  content: '';
+  width: 2px;
+  background: #5C656F;
+  height: calc(32px * );
+  position: absolute;
+  top: 0;
+  border-radius: 1px;
+}
+
+<Aggregator
+  defaultIcon="default-icon"
+  label="Aggregator"
+  onClick={[MockFunction]}
+  selectedIcon="selected-icon"
+>
+  <Styled(div)
+    onClick={[Function]}
+  >
+    <div
+      className="circuit-2 circuit-3"
+      onClick={[Function]}
+    >
+      default-icon
+      <Styled(div)>
+        <div
+          className="circuit-0 circuit-1"
+        >
+          Aggregator
+        </div>
+      </Styled(div)>
+    </div>
+  </Styled(div)>
+  <SubNavList
+    visible={false}
+  >
+    <Styled(ul)
+      selectedChildIndex={0}
+      visible={false}
+    >
+      <ul
+        className="circuit-4 circuit-5"
+      >
+        <div
+          data-testid="child"
+          secondary={true}
+          visible={false}
+        >
+          child
+        </div>
+      </ul>
+    </Styled(ul)>
+  </SubNavList>
+</Aggregator>
+`;

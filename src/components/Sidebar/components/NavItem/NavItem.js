@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import hasSelectedChild from './utils';
-import SubNavList from '../SubNavList';
+import NavLabel from '../NavLabel';
 
 const baseStyles = ({ theme }) => css`
   label: nav-item;
@@ -39,6 +38,7 @@ const secondaryStyles = ({ theme, secondary }) =>
     label: nav-item--secondary;
     margin: 0px ${theme.spacings.giga};
     padding: ${theme.spacings.bit} 0px;
+    transition: top ${theme.transitions.default};
   `;
 
 const hoverStyles = ({ theme, selected }) =>
@@ -51,7 +51,7 @@ const hoverStyles = ({ theme, selected }) =>
     }
   `;
 
-const activeStyles = ({ theme, selected }) =>
+const selectedStyles = ({ theme, selected }) =>
   selected &&
   css`
     label: nav-item--active;
@@ -59,55 +59,48 @@ const activeStyles = ({ theme, selected }) =>
     font-weight: ${theme.fontWeight.bold};
   `;
 
-const ListItem = styled('li')(
+const ListItem = styled.li(
   baseStyles,
   hoverStyles,
-  activeStyles,
+  selectedStyles,
   secondaryStyles
 );
 
-const labelWrapperStyles = ({ theme }) => css`
-  label: nav-item__label-wrapper;
-  margin-left: ${theme.spacings.kilo};
-`;
-
-const LabelWrapper = styled('div')(labelWrapperStyles);
-
 const NavItem = ({
-  children,
   label,
   secondary,
+  visible,
   defaultIcon,
   selectedIcon,
   selected,
   onClick
-}) => {
-  const isSelected = selected || hasSelectedChild(children);
-
-  return (
-    <Fragment>
-      <ListItem selected={isSelected} secondary={secondary} onClick={onClick}>
-        {defaultIcon && selectedIcon && isSelected ? selectedIcon : defaultIcon}
-        {secondary ? label : <LabelWrapper>{label}</LabelWrapper>}
-      </ListItem>
-      {children && isSelected && <SubNavList>{children}</SubNavList>}
-    </Fragment>
-  );
-};
+}) => (
+  <ListItem
+    selected={selected}
+    secondary={secondary}
+    visible={visible}
+    onClick={onClick}
+  >
+    {defaultIcon && selectedIcon && selected ? selectedIcon : defaultIcon}
+    <NavLabel secondary={secondary} visible={visible}>
+      {label}
+    </NavLabel>
+  </ListItem>
+);
 
 NavItem.propTypes = {
   /**
-   * The children component passed to the NavItem
-   */
-  children: PropTypes.node,
-  /**
-   * The children component passed to the NavItem
+   * The label of a NavItem
    */
   label: PropTypes.string,
   /**
    * If the NavItem is a secondary navigation item
    */
   secondary: PropTypes.bool,
+  /**
+   * If the NavItem is visible (it can be hidden when secondary)
+   */
+  visible: PropTypes.bool,
   /**
    * The icon to be shown when the NavItem is not selected
    */
@@ -117,7 +110,7 @@ NavItem.propTypes = {
    */
   selectedIcon: PropTypes.node,
   /**
-   * Tells if the item is selected
+   * If the item is selected
    */
   selected: PropTypes.bool,
   /**
@@ -127,9 +120,9 @@ NavItem.propTypes = {
 };
 
 NavItem.defaultProps = {
-  children: '',
   label: '',
   secondary: false,
+  visible: true,
   defaultIcon: '',
   selectedIcon: '',
   selected: false,
