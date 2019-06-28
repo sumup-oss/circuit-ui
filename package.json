@@ -36,7 +36,9 @@
     "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "prepublishOnly": "yarn build:js"
+    "prepublishOnly": "yarn build:js",
+    "check:security": "audit-ci --critical",
+    "check:licenses": "license-checker --production --summary --failOn=GPLv3"
   },
   "repository": {
     "type": "git",
@@ -65,6 +67,7 @@
     "@storybook/addons": "^5.0.5",
     "@storybook/react": "^5.0.5",
     "@sumup/foundry": "1.4.0",
+    "audit-ci": "^2.0.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
@@ -101,6 +104,7 @@
     "jest-cli": "^24.5.0",
     "jest-emotion": "^10.0.10",
     "jest-enzyme": "^7.0.2",
+    "license-checker": "^25.0.1",
     "onchange": "^5.2.0",
     "postcss-loader": "^3.0.0",
     "postcss-object-fit-images": "^1.1.2",
