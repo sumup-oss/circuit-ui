@@ -16,6 +16,7 @@
 - [Testing](#testing)
 - [Utils](#utils)
 - [Creating components](#creating-components)
+- [Code of conduct](#code-of-conduct)
 - [Contributing](#contributing)
 - [About SumUp](#about-sumup)
 
@@ -49,7 +50,7 @@ yarn deploy
 ## Linting and formatting
 
 ```
-yarn unit:lint-js
+yarn test:lint-js
 
 yarn fix
 ```
@@ -92,6 +93,12 @@ This project uses [@sumup/foundry](https://www.npmjs.com/package/@sumup/foundry)
 To create a new component, run `yarn create-component` inside the project. You'll see a CLI that guides you through the process.
 
 After the CLI has finished, all files will have been created in the location you specified.
+
+## Code of conduct
+
+We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](CODE_OF_CONDUCT.md).
+
+If you feel another member of the community violated our CoC or you are experiencing problems participating in our community because of another individual's behavior, please get in touch with our maintainers. We will enforce the CoC.
 
 ## Contributing
 

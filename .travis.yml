@@ -1,23 +1,21 @@
 language: node_js
 sudo: required
 dist: trusty
-node_js:
-  "8"
-install:
-  yarn
-script:
-  yarn test:ci
+node_js: '10.15.0'
+before_install:
+  - npm install -g yarn
+install: yarn install --frozen-lockfile
+script: yarn check:security && yarn check:licenses && yarn test:ci
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
-    branch: master 
+    branch: master
   local-dir: dist
   target_branch: gh-pages # default
 before_deploy:
- - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
- - rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME
-after_success:
-  yarn coverage:upload -t ${CODECOV_TOKEN}
+  - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+  - rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME
+after_success: yarn coverage:upload -t ${CODECOV_TOKEN}
