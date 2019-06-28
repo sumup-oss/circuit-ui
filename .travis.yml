@@ -1,7 +1,9 @@
 language: node_js
 sudo: required
 dist: trusty
-node_js: '8'
+node_js: '10.15.0'
+before_install:
+  - npm install -g yarn
 install: yarn
 script: yarn check:security && yarn check:licenses && yarn test:ci
 
