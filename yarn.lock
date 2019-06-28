@@ -1464,26 +1464,10 @@
     lodash "^4.17.4"
     micromatch "^3.1.10"
 
-"@semantic-release/error@^2.1.0", "@semantic-release/error@^2.2.0":
+"@semantic-release/error@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/error/-/error-2.2.0.tgz#ee9d5a09c9969eade1ec864776aeda5c5cddbbf0"
   integrity sha512-9Tj/qn+y2j+sjCI3Jd+qseGtHjOAeg7dU2/lVcqIQ9TV3QDaDXDYXcoOHU+7o2Hwh8L8ymL4gfuO7KxDs3q2zg==
-
-"@semantic-release/git@7.1.0-beta.3":
-  version "7.1.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-7.1.0-beta.3.tgz#eeef3dbdedad6c363aa8a3bba5210a72af26a3a2"
-  integrity sha512-8IX4izJAWJVUqsugNC+JTIw3ZVdO3oEzE0K+1UAvYPlVMXxDEvpEMDOvZ8VYhYHUU4HOyoGc+CSoBmb09wrzdQ==
-  dependencies:
-    "@semantic-release/error" "^2.1.0"
-    aggregate-error "^2.0.0"
-    debug "^4.0.0"
-    dir-glob "^2.0.0"
-    execa "^1.0.0"
-    fs-extra "^7.0.0"
-    globby "^9.0.0"
-    lodash "^4.17.4"
-    micromatch "^3.1.4"
-    p-reduce "^1.0.0"
 
 "@semantic-release/github@^5.2.10", "@semantic-release/github@^5.4.0-beta.1":
   version "5.4.0"
@@ -1996,13 +1980,12 @@
     telejson "^2.2.1"
     util-deprecate "^1.0.2"
 
-"@sumup/foundry@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@sumup/foundry/-/foundry-1.4.1.tgz#21e336f580ca0540ad38ed9a414693b45c307821"
-  integrity sha512-ei80KdS2EpefPzURlFAlSqG3ah6PIZXyFZISlIy1lFRgMki6m9g3l6AvRoiVrh/qHeGpnz5AXH5H2L8rekAGKw==
+"@sumup/foundry@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@sumup/foundry/-/foundry-1.5.0.tgz#e9205136fca2a3d30e2099d9227539ffd00cab2c"
+  integrity sha512-iudulLbdjM3VwQQWQZTGJHBFpoDT1sRRWAaT0NirdUYGkFuROAP3Jlash15nLeEBR+HYk8RALcZ+p633McWjdg==
   dependencies:
     "@semantic-release/commit-analyzer" "^6.1.0"
-    "@semantic-release/git" "7.1.0-beta.3"
     "@semantic-release/github" "^5.2.10"
     "@semantic-release/npm" "^5.1.4"
     "@semantic-release/release-notes-generator" "^7.1.4"
