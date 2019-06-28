@@ -108,14 +108,14 @@ export function getAnchor(props) {
  * when `variant="temporary"` is set.
  */
 class Drawer extends React.Component {
-  componentDidMount() {
-    this.mounted = true;
-  }
-
   // Let's assume that the Drawer will always be rendered on user space.
   // We use this state is order to skip the appear transition during the
   // initial mount of the component.
   mounted = false;
+
+  componentDidMount() {
+    this.mounted = true;
+  }
 
   render() {
     const {

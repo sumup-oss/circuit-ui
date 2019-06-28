@@ -25,7 +25,7 @@ describe('Backdrop', () => {
     });
 
     it('should render with default styles when visible', () => {
-      const actual = create(<Backdrop visible={true} />);
+      const actual = create(<Backdrop visible />);
       expect(actual).toMatchSnapshot();
     });
   });
