@@ -24,7 +24,7 @@ const baseStyles = ({ theme }) => css`
   cursor: pointer;
   padding: ${theme.spacings.giga};
   border-radius: ${theme.borderRadius.giga};
-  border: 1px solid ${theme.colors.n300};
+  border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   background-color: ${theme.colors.white};
   margin-bottom: ${theme.spacings.mega};
   fill: ${theme.colors.n400};
@@ -45,8 +45,6 @@ const selectedStyles = ({ selected, theme }) =>
     label: selector--selected;
     border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
     background-color: ${theme.colors.b100};
-    color: ${theme.colors.p500};
-    fill: ${theme.colors.p500};
     ${shadowSingle({ theme })};
   `;
 
