@@ -77,7 +77,7 @@
     "@storybook/addon-storysource": "^5.0.5",
     "@storybook/addons": "^5.0.5",
     "@storybook/react": "^5.0.5",
-    "@sumup/foundry": "1.4.0",
+    "@sumup/foundry": "^1.4.1",
     "audit-ci": "^2.0.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
