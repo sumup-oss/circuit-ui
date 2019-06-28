@@ -119,7 +119,8 @@ Heading.propTypes = {
   /**
    * The HTML heading element to render.
    */
-  element: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+  element: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  blacklist: PropTypes.object
 };
 
 Heading.defaultProps = {

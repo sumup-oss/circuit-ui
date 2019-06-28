@@ -18,9 +18,10 @@ import React, { forwardRef } from 'react';
 /**
  * Tabpanel wrapping content being showed by tabs
  */
-const TabPanel = forwardRef((props, ref) => (
+const TabRef = (props, ref) => (
   <div ref={ref} {...props} role="tabpanel" tabIndex="0" />
-));
+);
+const TabPanel = forwardRef(TabRef);
 
 /**
  * @component

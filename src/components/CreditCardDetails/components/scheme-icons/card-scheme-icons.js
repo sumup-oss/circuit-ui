@@ -71,7 +71,7 @@ const accessibleIconComponents = flow(
   reduce(
     (acc, [name, IconComponent]) => ({
       ...acc,
-      [name]: function Component({ props }) {
+      [name]: function Component(props) {
         return (
           <IconComponent aria-label={`icon ${name}`} role="img" {...props} />
         );
