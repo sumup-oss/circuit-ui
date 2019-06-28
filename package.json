@@ -1,7 +1,7 @@
 {
   "name": "@sumup/circuit-ui",
   "sideEffects": false,
-  "version": "1.0.0-beta.10",
+  "version": "0.0.0-semantically-released",
   "description": "SumUp's React UI component library",
   "main": "lib/index.js",
   "module": "lib/es/index.js",
@@ -10,16 +10,15 @@
     "README.md"
   ],
   "scripts": {
-    "coverage:upload": "codecov",
-    "fix:eslint": "foundry run eslint --fix --quiet \"src/**/*.js\"",
+    "commit": "git-cz",
     "fix": "yarn fix:eslint",
+    "fix:eslint": "foundry run eslint --fix --quiet src/**/**/*.js",
     "test": "yarn test:lint-js && yarn test:unit",
-    "test:ci": "yarn test:lint-js && yarn test:unit --runInBand",
-    "test:lint-js": "foundry run eslint --quiet --cache \"src/**/*.js\"",
+    "test:lint-js": "foundry run eslint --cache --quiet \"src/**/*.js\"",
     "test:lint-js:watch": "onchange \"src/**/*.js\" -- yarn test:lint-js",
-    "test:unit:verbose": "jest --coverage --no-cache",
     "test:unit": "yarn test:unit:verbose --silent",
     "test:unit:watch": "yarn test:unit:output --watch",
+    "test:unit:verbose": "jest --coverage --no-cache",
     "test:unit:output": "jest --json --outputFile=jest-test-results.json --no-cache --silent",
     "create-component": "foundry run plop component",
     "start": "yarn test:unit && start-storybook -p 6006",
@@ -33,12 +32,24 @@
     "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js",
     "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js",
     "clean:js": "rimraf lib",
-    "deploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME && gh-pages -d dist",
+    "predeploy": "rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME",
+    "deploy": "gh-pages -d dist",
+    "prerelease": "yarn build:js",
+    "release": "semantic-release",
+    "coverage:upload": "codecov",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "prepublishOnly": "yarn build:js",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.js"
+    }
   },
   "repository": {
     "type": "git",
@@ -66,7 +77,7 @@
     "@storybook/addon-storysource": "^5.0.5",
     "@storybook/addons": "^5.0.5",
     "@storybook/react": "^5.0.5",
-    "@sumup/foundry": "1.4.0",
+    "@sumup/foundry": "^1.4.1",
     "audit-ci": "^2.0.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
@@ -113,6 +124,9 @@
     "@svgr/webpack": "^4.1.0",
     "babel-plugin-inline-react-svg": "^1.1.0",
     "css-loader": "^2.1.1",
+    "commitizen": "^3.0.5",
+    "cz-customizable": "^5.3.0",
+    "cz-customizable-ghooks": "^1.5.0",
     "dom-helpers": "^3.4.0",
     "downshift": "^1.31.14",
     "emotion": "^10.0.9",

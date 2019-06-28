@@ -1,21 +1,48 @@
-language: node_js
 sudo: required
+
 dist: trusty
+
+language: node_js
+
 node_js: '10.15.0'
+
+cache:
+  yarn: true
+  directories:
+    - 'node_modules'
+
 before_install:
   - npm install -g yarn
 install: yarn install --frozen-lockfile
-script: yarn check:security && yarn check:licenses && yarn test:ci
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master
-  local-dir: dist
-  target_branch: gh-pages # default
-before_deploy:
-  - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-  - rm -rf ./dist && mkdir dist && yarn run docz:build && yarn build && cp ./src/CNAME ./dist/CNAME
-after_success: yarn coverage:upload -t ${CODECOV_TOKEN}
+jobs:
+  include:
+    # Run tests in parallel
+    - stage: test
+      script: yarn check:security && yarn check:licenses
+    - script: yarn test:lint-js
+    - script: yarn test:unit --runInBand
+      # Upload coverage reports to Codecov
+      after_success: yarn coverage:upload -t ${CODECOV_TOKEN}
+    - stage: publish
+      script: skip
+      # Publish package to NPM
+      deploy:
+        provider: script
+        skip_cleanup: true
+        on:
+          all_branches: true
+        script: yarn release
+      # Increase number of watchers
+    - script: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+      if: branch = master
+      # Deploy docz and Storybook to GitHub Pages
+      before_deploy: yarn predeploy
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        on:
+          branch: master
+        local-dir: dist
+        target_branch: gh-pages

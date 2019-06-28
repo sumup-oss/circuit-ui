@@ -175,6 +175,10 @@ class Popover extends Component {
     referenceWrapperStyles: () => null
   };
 
+  buttonRef = null;
+
+  popoverRef = null;
+
   componentDidMount() {
     document.addEventListener('click', this.handleDocumentClick, true);
   }
@@ -191,10 +195,6 @@ class Popover extends Component {
       this.props.onOutsideClickClose(target);
     }
   };
-
-  buttonRef = null;
-
-  popoverRef = null;
 
   receiveButtonRef = ref => {
     this.buttonRef = ref;
