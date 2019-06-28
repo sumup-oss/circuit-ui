@@ -17,23 +17,37 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import withAriaSelected from '../../util/withAriaSelected';
+import { shadowSingle } from '../../styles/style-helpers';
 
 const baseStyles = ({ theme }) => css`
   label: selector;
   cursor: pointer;
-  padding: ${theme.spacings.mega};
-  border-radius: ${theme.borderRadius.mega};
+  padding: ${theme.spacings.giga};
+  border-radius: ${theme.borderRadius.giga};
   border: 1px solid ${theme.colors.n300};
-  background-color: 1px solid ${theme.colors.n100};
+  background-color: ${theme.colors.white};
   margin-bottom: ${theme.spacings.mega};
+  fill: ${theme.colors.n400};
 `;
+
+const hoverStyles = ({ selected, theme }) =>
+  !selected &&
+  css`
+    label: selector--hover;
+    & :hover {
+      background-color: ${theme.colors.n100};
+    }
+  `;
 
 const selectedStyles = ({ selected, theme }) =>
   selected &&
   css`
     label: selector--selected;
     border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.b100};
+    color: ${theme.colors.p500};
+    fill: ${theme.colors.p500};
+    ${shadowSingle({ theme })};
   `;
 
 const disabledStyles = ({ disabled, theme }) =>
@@ -48,7 +62,12 @@ const disabledStyles = ({ disabled, theme }) =>
  * A selector allows users to choose between several mutually-exlusive choices,
  * accompanied by descriptions, possibly with tabular data.
  */
-const Selector = styled('div')(baseStyles, selectedStyles, disabledStyles);
+const Selector = styled.div(
+  baseStyles,
+  hoverStyles,
+  selectedStyles,
+  disabledStyles
+);
 
 Selector.propTypes = {
   /**
