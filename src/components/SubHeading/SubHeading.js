@@ -88,7 +88,8 @@ SubHeading.propTypes = {
   /**
    * The HTML heading element to render.
    */
-  element: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6'])
+  element: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6']),
+  blacklist: PropTypes.object
 };
 
 SubHeading.defaultProps = {
