@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import getSelectedChildIndex from './utils';
+import { getSelectedChildIndex, getSecondaryChild } from './utils';
 
 describe('getSelectedChildIndex', () => {
   it('should return the correct index of the selected child on an array', () => {
@@ -43,5 +43,33 @@ describe('getSelectedChildIndex', () => {
     const selectedChild = getSelectedChildIndex(children);
 
     expect(selectedChild).toEqual(0);
+  });
+});
+
+describe('getSecondaryChild', () => {
+  it('return a secondary item for a single child', () => {
+    const children = { props: { secondary: false } };
+    expect(getSecondaryChild(children).props.secondary).toBe(true);
+  });
+
+  it('should return all secondary children for an array of items', () => {
+    const children = [
+      { props: { secondary: false } },
+      { props: { secondary: false } }
+    ];
+    expect(getSecondaryChild(children)[0].props.secondary).toBe(true);
+    expect(getSecondaryChild(children)[1].props.secondary).toBe(true);
+  });
+
+  it('should return null when no children is received', () => {
+    expect(getSecondaryChild(undefined)).toBe(null);
+  });
+
+  it('should return a visible secondary child when it should be visible', () => {
+    const children = { props: { secondary: false } };
+    expect(getSecondaryChild(children, true).props).toEqual({
+      secondary: true,
+      visible: true
+    });
   });
 });
