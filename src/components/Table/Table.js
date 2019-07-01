@@ -194,10 +194,15 @@ Table.propTypes = {
    */
   headers: PropTypes.arrayOf(RowPropType),
   /**
-   * An array of rows with an array of cells for the table. The Cell can be a
+   * (An array of rows or object with children) containing an array of cells for the table. The Cell can be a
    * string or an object with options described on TableCell component
    */
-  rows: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
+  rows: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape({ cells: PropTypes.arrayOf(RowPropType) }),
+      PropTypes.arrayOf(RowPropType)
+    ])
+  ),
   /**
    * Enables/disables sticky columns on mobile
    */

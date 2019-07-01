@@ -112,6 +112,30 @@ describe('TableBody', () => {
     });
   });
 
+  describe('Row prop forwarding', () => {
+    describe('when additional props are provided with rows', () => {
+      it('should attach those props to the row', () => {
+        const selector = 'row-1-selector';
+        const rows = [{ cells: ['Foo', 'Bar'], 'data-selector': selector }];
+        const wrapper = mount(<TableBody rows={rows} />);
+
+        expect(wrapper.find(`tr[data-selector="${selector}"]`)).toHaveLength(1);
+      });
+    });
+  });
+
+  describe('Cell prop forwarding', () => {
+    describe('when additional props are provided with cells', () => {
+      it('should attach those props to the cell', () => {
+        const selector = 'cell-1-selector';
+        const rows = [[{ children: 'Foo', 'data-selector': selector }, 'Bar']];
+        const wrapper = mount(<TableBody rows={rows} />);
+
+        expect(wrapper.find(`td[data-selector="${selector}"]`)).toHaveLength(1);
+      });
+    });
+  });
+
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(<TableBody rowHeader rows={fixtureRows} />);
