@@ -14,19 +14,21 @@
  */
 
 import PropTypes from 'prop-types';
-import { isString, isNumber, curry } from 'lodash/fp';
+import { isString, isNumber, isArray, curry } from 'lodash/fp';
 import { ASCENDING, DESCENDING } from './constants';
 import { childrenPropType } from '../../util/shared-prop-types';
 
-export const mapProps = props =>
+export const mapRowProps = props => (isArray(props) ? { cells: props } : props);
+
+export const mapCellProps = props =>
   isString(props) || isNumber(props) ? { children: props } : props;
 
-export const getChildren = props => mapProps(props).children;
+export const getCellChildren = props => mapCellProps(props).children;
 
 export const getSortByValue = props =>
   Object.prototype.hasOwnProperty.call(props, 'sortByValue')
     ? props.sortByValue
-    : getChildren(props);
+    : getCellChildren(props);
 
 export const getSortDirection = (isActive, currentSort) => {
   if (!currentSort || !isActive) {
