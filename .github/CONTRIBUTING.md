@@ -43,6 +43,8 @@ experiencing and what you'd expect to experience.
 
 ## Proposing a change
 
+![Component pattern addition](/component-addition-flowchart.png)
+
 ### Creating or changing a component
 
 Our process for introducing changes to Circuit UI largely follow the Vanilla
@@ -84,4 +86,6 @@ design system process published by Canonical.
   generic "Change" issue type.
 
 ## Your first pull request
+
+## Development workflow
 
