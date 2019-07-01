@@ -19,7 +19,12 @@ import PropTypes from 'prop-types';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
-import { mapProps, getChildren, RowPropType } from '../../utils';
+import {
+  mapRowProps,
+  mapCellProps,
+  getCellChildren,
+  RowPropType
+} from '../../utils';
 import { TR_KEY_PREFIX, TD_KEY_PREFIX } from '../../constants';
 
 const getRowKey = index => `${TR_KEY_PREFIX}-${index}`;
@@ -28,37 +33,38 @@ const getCellKey = (rowIndex, cellIndex) =>
 
 const TableBody = ({ rows, rowHeaders, sortHover, onRowClick }) => (
   <tbody>
-    {rows.map((row, rowIndex) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <TableRow
-        key={getRowKey(rowIndex)}
-        onClick={onRowClick && (() => onRowClick(rowIndex))}
-      >
-        {row.map((cell, cellIndex) =>
-          rowHeaders && cellIndex === 0 ? (
-            // eslint-disable-next-line react/no-array-index-key
-            <Fragment key={getCellKey(rowIndex, cellIndex)}>
-              <TableHeader
-                fixed
-                scope={TableHeader.ROW}
+    {rows.map((row, rowIndex) => {
+      const { cells, ...props } = mapRowProps(row);
+      return (
+        <TableRow
+          key={getRowKey(rowIndex)}
+          onClick={onRowClick && (() => onRowClick(rowIndex))}
+          {...props}
+        >
+          {cells.map((cell, cellIndex) =>
+            rowHeaders && cellIndex === 0 ? (
+              <Fragment key={getCellKey(rowIndex, cellIndex)}>
+                <TableHeader
+                  fixed
+                  scope={TableHeader.ROW}
+                  isHovered={sortHover === cellIndex}
+                  {...mapCellProps(cell)}
+                />
+                <TableCell role="presentation" aria-hidden="true">
+                  {getCellChildren(cell)}
+                </TableCell>
+              </Fragment>
+            ) : (
+              <TableCell
+                key={getCellKey(rowIndex, cellIndex)}
                 isHovered={sortHover === cellIndex}
-                {...mapProps(cell)}
+                {...mapCellProps(cell)}
               />
-              <TableCell role="presentation" aria-hidden="true">
-                {getChildren(cell)}
-              </TableCell>
-            </Fragment>
-          ) : (
-            <TableCell
-              // eslint-disable-next-line react/no-array-index-key
-              key={getCellKey(rowIndex, cellIndex)}
-              isHovered={sortHover === cellIndex}
-              {...mapProps(cell)}
-            />
-          )
-        )}
-      </TableRow>
-    ))}
+            )
+          )}
+        </TableRow>
+      );
+    })}
   </tbody>
 );
 
@@ -67,10 +73,15 @@ const TableBody = ({ rows, rowHeaders, sortHover, onRowClick }) => (
  */
 TableBody.propTypes = {
   /**
-   * An array of rows with cells for the table. The Cell can be a string
+   *(An array of rows or object with children) containing cells for the table. The Cell can be a string
    * or an object with options described on TableHeader component
    */
-  rows: PropTypes.arrayOf(PropTypes.arrayOf(RowPropType)),
+  rows: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape({ cells: PropTypes.arrayOf(RowPropType) }),
+      PropTypes.arrayOf(RowPropType)
+    ])
+  ),
   /**
    * Enables/disables sticky columns on mobile
    */

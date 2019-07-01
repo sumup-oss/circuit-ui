@@ -33,12 +33,19 @@ const headers = [
 ];
 
 const rows = [
-  [
-    'Lorem ipsum dolor',
-    { children: '12/01/2017', sortByValue: 0 },
-    '-',
-    { children: 'Disabled', align: TableCell.RIGHT }
-  ],
+  {
+    cells: [
+      'Lorem ipsum dolor',
+      {
+        children: '12/01/2017',
+        sortByValue: 0,
+        'data-selector': 'item-1-cell-date-12/01/2017'
+      },
+      '-',
+      { children: 'Disabled', align: TableCell.RIGHT }
+    ],
+    'data-selector': 'item-1'
+  },
   [
     'Ipsum dolor sit amet',
     { children: '13/01/2017', sortByValue: 1 },
