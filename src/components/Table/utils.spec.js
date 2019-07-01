@@ -17,12 +17,31 @@ import * as utils from './utils';
 import { ASCENDING, DESCENDING } from './constants';
 
 describe('Table utils', () => {
-  describe('mapProps()', () => {
+  describe('mapRowProps()', () => {
+    describe('isArray', () => {
+      it('should map the array to cells key', () => {
+        const props = ['Foo'];
+        const expected = { cells: props };
+        const actual = utils.mapRowProps(props);
+
+        expect(actual).toEqual(expected);
+      });
+    });
+
+    it('should forward the props object', () => {
+      const props = { cells: ['Foo'] };
+      const expected = props;
+      const actual = utils.mapRowProps(props);
+
+      expect(actual).toEqual(expected);
+    });
+  });
+  describe('mapCellProps()', () => {
     describe('isString', () => {
       it('should map the string to children key', () => {
         const props = 'Foo';
         const expected = { children: props };
-        const actual = utils.mapProps(props);
+        const actual = utils.mapCellProps(props);
 
         expect(actual).toEqual(expected);
       });
@@ -31,18 +50,18 @@ describe('Table utils', () => {
     it('should forward the props object', () => {
       const props = { children: 'Foo' };
       const expected = props;
-      const actual = utils.mapProps(props);
+      const actual = utils.mapCellProps(props);
 
       expect(actual).toEqual(expected);
     });
   });
 
-  describe('getChildren()', () => {
+  describe('getCellChildren()', () => {
     describe('isString', () => {
       it('should return it', () => {
         const props = 'Foo';
         const expected = props;
-        const actual = utils.getChildren(props);
+        const actual = utils.getCellChildren(props);
 
         expect(actual).toBe(expected);
       });
@@ -51,7 +70,7 @@ describe('Table utils', () => {
     it('should return the children prop', () => {
       const props = { children: 'Foo' };
       const expected = 'Foo';
-      const actual = utils.getChildren(props);
+      const actual = utils.getCellChildren(props);
 
       expect(actual).toBe(expected);
     });

@@ -20,7 +20,7 @@ import { noop } from 'lodash/fp';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
-import { mapProps, getChildren, RowPropType } from '../../utils';
+import { mapCellProps, getCellChildren, RowPropType } from '../../utils';
 import { ASCENDING, DESCENDING, TH_KEY_PREFIX } from '../../constants';
 
 const TableHead = ({
@@ -36,9 +36,8 @@ const TableHead = ({
     {!!headers.length && (
       <TableRow header>
         {headers.map((header, i) => {
-          const props = mapProps(header);
+          const props = mapCellProps(header);
           return (
-            // eslint-disable-next-line react/no-array-index-key
             <Fragment key={`${TH_KEY_PREFIX}-${i}`}>
               <TableHeader
                 {...props}
@@ -56,7 +55,7 @@ const TableHead = ({
               />
               {rowHeaders && i === 0 && (
                 <TableCell role="presentation" aria-hidden="true" header>
-                  {getChildren(header)}
+                  {getCellChildren(header)}
                 </TableCell>
               )}
             </Fragment>
