@@ -34,7 +34,8 @@ const hoverStyles = ({ selected, theme }) =>
   !selected &&
   css`
     label: selector--hover;
-    & :hover {
+    &:hover {
+      border: ${theme.borderWidth.mega} solid ${theme.colors.n300};
       background-color: ${theme.colors.n100};
     }
   `;

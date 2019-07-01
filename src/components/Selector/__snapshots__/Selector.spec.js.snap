@@ -11,6 +11,7 @@ exports[`Selector should render a default selector appropriately 1`] = `
 }
 
 .circuit-0:hover {
+  border: 2px solid #D8DDE1;
   background-color: #FAFBFC;
 }
 
@@ -41,6 +42,7 @@ exports[`Selector should render a disabled selector appropriately 1`] = `
 }
 
 .circuit-0:hover {
+  border: 2px solid #D8DDE1;
   background-color: #FAFBFC;
 }
 
