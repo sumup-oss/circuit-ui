@@ -1,15 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Selector should render a default selector appropriately 1`] = `<withProps(Styled(div)) />`;
+exports[`Selector should render a default selector appropriately 1`] = `
+.circuit-0 {
+  cursor: pointer;
+  padding: 24px;
+  border-radius: 5px;
+  border: 1px solid #D8DDE1;
+  background-color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.circuit-0:hover {
+  border: 2px solid #D8DDE1;
+  background-color: #FAFBFC;
+}
+
+<withProps(Styled(div))>
+  <Styled(div)
+    disabled={false}
+    selected={false}
+  >
+    <div
+      className="circuit-0 circuit-1"
+      disabled={false}
+      selected={false}
+    />
+  </Styled(div)>
+</withProps(Styled(div))>
+`;
 
 exports[`Selector should render a disabled selector appropriately 1`] = `
+.circuit-0 {
+  cursor: pointer;
+  padding: 24px;
+  border-radius: 5px;
+  border: 1px solid #D8DDE1;
+  background-color: #FFFFFF;
+  margin-bottom: 16px;
+  color: #9DA7B1;
+  cursor: default;
+}
+
+.circuit-0:hover {
+  border: 2px solid #D8DDE1;
+  background-color: #FAFBFC;
+}
+
 <withProps(Styled(div))
   disabled={true}
-/>
+>
+  <Styled(div)
+    disabled={true}
+    selected={false}
+  >
+    <div
+      className="circuit-0 circuit-1"
+      disabled={true}
+      selected={false}
+    />
+  </Styled(div)>
+</withProps(Styled(div))>
 `;
 
 exports[`Selector should render a selected selector appropriately 1`] = `
+.circuit-0 {
+  cursor: pointer;
+  padding: 24px;
+  border-radius: 5px;
+  border: 1px solid #D8DDE1;
+  background-color: #FFFFFF;
+  margin-bottom: 16px;
+  border: 2px solid #3388FF;
+  background-color: #EDF4FC;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
 <withProps(Styled(div))
   selected={true}
-/>
+>
+  <Styled(div)
+    aria-selected={true}
+    disabled={false}
+    selected={true}
+  >
+    <div
+      aria-selected={true}
+      className="circuit-0 circuit-1"
+      disabled={false}
+      selected={true}
+    />
+  </Styled(div)>
+</withProps(Styled(div))>
 `;

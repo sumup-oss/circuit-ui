@@ -19,15 +19,15 @@ import Selector from '.';
 
 describe('Selector', () => {
   it('should render a default selector appropriately', () => {
-    const component = <Selector />;
-    expect(component).toMatchSnapshot();
+    const actual = mount(<Selector />);
+    expect(actual).toMatchSnapshot();
   });
   it('should render a disabled selector appropriately', () => {
-    const component = <Selector disabled />;
-    expect(component).toMatchSnapshot();
+    const actual = mount(<Selector disabled />);
+    expect(actual).toMatchSnapshot();
   });
   it('should render a selected selector appropriately', () => {
-    const component = <Selector selected />;
-    expect(component).toMatchSnapshot();
+    const actual = mount(<Selector selected />);
+    expect(actual).toMatchSnapshot();
   });
 });
