@@ -1,5 +1,8 @@
 # How to contribute
 
+So you want to contribute to Circuit UI? That's awesome. Here are a few
+things that can help you make it a reality.
+
 ## Code of conduct
 
 We expect all participants to read and adhere to our [code of conduct](/CODE_OF_CONDUCT.md).
@@ -89,3 +92,26 @@ design system process published by Canonical.
 
 ## Development workflow
 
+We develop our components in Storybook. To start running Storybook on your
+local machine, run:
+
+```
+yarn storybook
+```
+
+To run unit tests in watch mode, run:
+
+```
+yarn test:unit:watch
+```
+
+As for linting and formatting, you can configure your editor to automatically
+lint and format your code on save. For this purpose, we're using Prettier
+and ESLint.
+
+If you need to do it manually, you can run:
+
+```
+yarn unit:lint-js
+yarn fix
+```
