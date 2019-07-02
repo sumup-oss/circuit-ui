@@ -26,7 +26,7 @@ import { childrenPropType } from '../../../../util/shared-prop-types';
 const baseStyles = ({ theme }) => css`
   label: nav-aggregator;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   height: auto;
   margin: ${theme.spacings.mega};
@@ -56,9 +56,14 @@ const selectedStyles = ({ theme, selected }) =>
 const AggregatorContainer = styled.div(baseStyles, hoverStyles, selectedStyles);
 
 class Aggregator extends Component {
-  state = {
-    open: false
-  };
+  state = { open: false };
+
+  static getDerivedStateFromProps(props) {
+    if (hasSelectedChild(props.children)) {
+      return { open: true };
+    }
+    return null;
+  }
 
   componentDidUpdate(prevProps, prevState) {
     const { children } = this.props;
@@ -94,7 +99,9 @@ class Aggregator extends Component {
           selected={hasSelectedChild(children)}
           onClick={this.toggleAggregator}
         >
-          {defaultIcon && selectedIcon && open ? selectedIcon : defaultIcon}
+          {defaultIcon && selectedIcon && hasSelectedChild(children)
+            ? selectedIcon
+            : defaultIcon}
           <NavLabel>{label}</NavLabel>
         </AggregatorContainer>
         {children && <SubNavList visible={open}>{children}</SubNavList>}

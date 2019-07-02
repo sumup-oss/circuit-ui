@@ -26,7 +26,7 @@ const props = {
 
 class MockedNavigation extends Component {
   state = {
-    selected: 0
+    selected: 1
   };
 
   render() {
@@ -110,7 +110,7 @@ describe('Aggregator', () => {
       expect(actual.state().open).toBe(true);
     });
 
-    it('should close the aggregator when clicking again on the aggregator', async () => {
+    it('should not toggle when clicking again on the aggregator with a selected child', async () => {
       const actual = mount(
         <Aggregator {...props}>
           <div selected data-testid="child">
@@ -128,7 +128,7 @@ describe('Aggregator', () => {
       actual.find("[className*='nav-aggregator']").simulate('click');
 
       expect(props.onClick).toHaveBeenCalled();
-      expect(actual.state().open).toBe(false);
+      expect(actual.state().open).toBe(true);
     });
 
     it('should close when there are no selected children', async () => {
