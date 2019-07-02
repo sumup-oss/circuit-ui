@@ -56,7 +56,8 @@ There are a few helpers you may want to use within Circuit.
 Sometimes you may need to apply global styles to your page. Here is how you can do this with the utilities provided by Circuit UI.
 
 ```javascript
-import { theme, injectGlobalStyles } from '@sumup/circuit-ui';
+import { GlobalStyles } from '@sumup/circuit-ui';
+import { css } from '@emotion/core';
 
 const customStyles = `
   body {
@@ -64,7 +65,8 @@ const customStyles = `
   }
 `;
 
-injectGlobalStyles({ theme: theme.standard, custom: customStyles });
+<GlobalStyles custom={globalStyles}/>
+
 ```
 
 ## Contributing
