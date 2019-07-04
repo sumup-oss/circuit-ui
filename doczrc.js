@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import { circuit as theme } from './src/themes';
+
 export default {
   title: 'Circuit UI',
   description: "SumUp's React UI component library",
@@ -28,6 +30,21 @@ export default {
   public: 'docs/public',
   indexHtml: 'docs/index.html',
   wrapper: 'docs/utils/Wrapper',
+  themeConfig: {
+    colors: {
+      primary: theme.colors.p500,
+      link: theme.colors.p500,
+      blue: theme.colors.b500,
+      blueLight: theme.colors.b300,
+      skyBlue: theme.colors.b300,
+      background: theme.colors.white,
+      gray: theme.colors.n500,
+      grayDark: theme.colors.n700,
+      grayExtraDark: theme.colors.n900,
+      grayLight: theme.colors.n300,
+      grayExtraLight: theme.colors.n100
+    }
+  },
   menu: [
     'Home',
     'Changelog',
