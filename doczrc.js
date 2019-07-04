@@ -50,6 +50,7 @@ export default {
     'Changelog',
     'Component Status',
     'Getting Started',
+    'Principles',
     'Components',
     'Styles'
   ]
