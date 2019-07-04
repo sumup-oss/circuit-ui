@@ -22,6 +22,9 @@ const customCss = `
   div[class^="Sidebar__Footer"] {
     display: none;
   }
+  b, strong {
+    font-weight: 700;
+  }
 `;
 
 const Wrapper = props => (
