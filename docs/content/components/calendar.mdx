@@ -1,0 +1,48 @@
+---
+name: Calendar
+route: /components/calendar
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Fragment } from 'react';
+
+import { EnhancedRangePicker as RangePicker, EnhancedSingleDayPicker as SingleDayPicker } from './calendar';
+import CalendarTag from '../../../src/components/CalendarTag';
+import CalendarTagTwoStep from '../../../src/components/CalendarTagTwoStep';
+
+# Calendar
+
+<Playground>
+  <RangePicker/>
+</Playground>
+
+## Best practices
+
+## Usage guidelines
+
+## Component variations
+
+### Range Picker
+
+<Playground>
+  <RangePicker/>
+</Playground>
+
+### Single Day Picker
+
+<Playground>
+  <SingleDayPicker/>
+</Playground>
+
+### Calendar Tag
+
+<Playground>
+  <CalendarTag onDatesRangeChange={e => { console.log(e); }}/>
+</Playground>
+
+### Calendar Tag Two Step
+
+<Playground>
+  <CalendarTagTwoStep onDatesRangeChange={e => { console.log(e); }}/>
+</Playground>
