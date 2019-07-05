@@ -1,0 +1,49 @@
+---
+name: Toggle
+route: /components/toggle
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import { Fragment } from 'react';
+import Toggle from '../../../src/components/Toggle';
+import State from '../../../src/components/State';
+
+# Toggle
+
+<Playground>
+  <State initial={false} name="on" updaterName="onToggle" updater={on => !on}>
+    {({ onToggle, on }) => (
+      <Toggle
+        label="Short label"
+        onToggle={e => {
+          onToggle(e);
+        }}
+        {...{ on }}
+      />
+    )}
+  </State>
+</Playground>
+
+## Best practices
+
+## Usage guidelines
+
+## Component variations
+
+### With explanatory text
+
+<Playground>
+  <State initial={false} name="on" updaterName="onToggle" updater={on => !on}>
+    {({ onToggle, on }) => (
+      <Toggle
+        label="Short label"
+        explanation="Some more detailed text of what this means"
+        onToggle={e => {
+          onToggle(e);
+        }}
+        {...{ on }}
+      />
+    )}
+  </State>
+</Playground>
