@@ -14,27 +14,27 @@ import Sidebar from '../../../src/components/Sidebar';
   <Sidebar open={true} onClose={() => null} closeButtonLabel="close-button">
     <Sidebar.Header>Header</Sidebar.Header>
     <Sidebar.NavList>
-      <Sidebar.Aggregator label={`Item 1`}>
+      <Sidebar.Aggregator label="Overview">
         <Sidebar.NavItem
           onClick={() => null}
-          label="First item"
+          label="Analytics"
           selected={true}
         />
         <Sidebar.NavItem
           onClick={() => null}
-          label="First item"
-          selected={true}
+          label="Payouts and Balances"
+          selected={false}
         />
       </Sidebar.Aggregator>
       <Sidebar.NavItem
-        selected={true}
+        selected={false}
         onClick={() => null}
-        label="Item 1"
+        label="Transactions"
         />
       <Sidebar.NavItem
         selected={false}
         onClick={() => null}
-        label={`Item 2`}
+        label="Settings"
       />
     </Sidebar.NavList>
     <Sidebar.Footer>Footer</Sidebar.Footer>
@@ -47,3 +47,75 @@ import Sidebar from '../../../src/components/Sidebar';
 
 ## Component variations
 
+## Usage in code
+
+There are a couple of different components you'll need to construct your
+Sidebar:
+
+- `Sidebar` - Wrapper component, which must also be wrapped with a component
+  that will determine the width of the expanded sidebar.
+- `Sidebar.Header` - Header component
+- `Sidebar.NavList` - Wrapper for the list of navigation items
+- `Sidebar.Aggregator` - Wraps around a list of `Sidebar.NavItem` in case
+  you want to provided nested navigation.
+- `Sidebar.NavItem` - Individual navigation items.
+- `Sidebar.Footer` - Footer component
+
+### Adding items to the sidebar
+
+When you want to create a sidebar with a flat navigation structure, you
+can simply use something like this:
+
+```
+import React, { useState } from 'react';
+import { Sidebar } from '@sumup/circuit-ui';
+
+const Navigation = () => {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState([false, false]);
+  const handleSelect = newSelectedIndex => {
+    setSelected(selected.map((s, i) => i === newSelectedIndex && !i);
+  };
+
+  return (
+    <Sidebar open={open} onClose={() => setOpen(!open)} closeButtonLabel="close-button">
+      <Sidebar.Header>Header</Sidebar.Header>
+      <Sidebar.NavList>
+        <Sidebar.NavItem
+          selected={selected[0]}
+          onClick={() => handleSelect(0)}
+          label="Item #1"
+          />
+        <Sidebar.NavItem
+          selected={selected[1]}
+          onClick={() => handleSelect(1)}
+          label="Item #2"
+        />
+      </Sidebar.NavList>
+      <Sidebar.Footer>Footer</Sidebar.Footer>
+    </Sidebar> 
+  );
+};
+
+```
+
+### Adding submenus to the sidebar
+
+In order to create submenus, you need to wrap the `Sidebar.NavItem` components
+that you want to put inside a parent menu with the `Sidebar.Aggregator`
+component. You can do that like this:
+
+```
+<Sidebar.Aggregator label="Parent">
+  <Sidebar.NavItem
+    onClick={() => null}
+    label="Child 1"
+    selected={true}
+  />
+  <Sidebar.NavItem
+    onClick={() => null}
+    label="Child 2"
+    selected={false}
+  />
+</Sidebar.Aggregator>
+```
