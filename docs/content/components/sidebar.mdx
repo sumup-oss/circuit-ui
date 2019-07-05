@@ -1,0 +1,49 @@
+---
+name: Sidebar
+route: /components/sidebar
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import { Fragment } from 'react';
+import Sidebar from '../../../src/components/Sidebar';
+
+# Sidebar
+
+<Playground>
+  <Sidebar open={true} onClose={() => null} closeButtonLabel="close-button">
+    <Sidebar.Header>Header</Sidebar.Header>
+    <Sidebar.NavList>
+      <Sidebar.Aggregator label={`Item 1`}>
+        <Sidebar.NavItem
+          onClick={() => null}
+          label="First item"
+          selected={true}
+        />
+        <Sidebar.NavItem
+          onClick={() => null}
+          label="First item"
+          selected={true}
+        />
+      </Sidebar.Aggregator>
+      <Sidebar.NavItem
+        selected={true}
+        onClick={() => null}
+        label="Item 1"
+        />
+      <Sidebar.NavItem
+        selected={false}
+        onClick={() => null}
+        label={`Item 2`}
+      />
+    </Sidebar.NavList>
+    <Sidebar.Footer>Footer</Sidebar.Footer>
+  </Sidebar> 
+</Playground>
+
+## Best practices
+
+## Usage guidelines
+
+## Component variations
+
