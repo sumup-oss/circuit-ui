@@ -10,24 +10,27 @@ import Badge from '../../../src/components/Badge/Badge';
 
 # Badge
 
+Badges are non-actionable elements in the UI, used to indicate status of an object.
+
 <Playground>
   <Badge>Badge</Badge>
 </Playground>
 
-## Props
-
-(Cannot be rendered because it's a styled component)
-
 ## Best practices
 
-- Only use one badge at a time.
+- Use our colour patterns so that merchants can learn and identify status on a
+  glance.
+- Create a clear label with a short, scannable text.
+- Position a badge so that it is obvious what content the status is related to.
 
 ## Usage guidelines
 
-- Use to indicate statuses of a process, for instance, "Pending payment" or
-  "Successful transaction".
-- Only use semantic badges in cases where their colors can be mapped to a
-  meaning.
+- **Do** use badges to indicate the status of data rows in a table.
+- **Do** use badges to bring attention to a specific area on the screen (like a
+  new feature).
+- **Do not** use badges to indicate default statuses (e.g. in the Transaction
+  History, a transaction should only include a status if it's anything other
+  than default; failed, refunded, paid out, etc.)
 
 ## Component variations
 
