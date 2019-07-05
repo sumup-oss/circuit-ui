@@ -47,7 +47,7 @@ export default {
   },
   menu: [
     'Home',
-    'Changelog',
+    { name: 'Changelog', href: 'https://github.com/sumup/circuit-ui/releases' },
     'Component Status',
     'Getting Started',
     'Principles',
