@@ -6,18 +6,19 @@ menu: Components
 
 import { Playground } from 'docz';
 import { Fragment } from 'react';
-import Message from '../../../src/components/Message/Message';
 import Heading from '../../../src/components/Heading/Heading';
-import MessageIcon from '../../../src/components/Message/components/Icon/Icon';
-import { ReactComponent as HelpIcon } from '../../../src/components/Message/message-success.svg';
+import Message, { MessageIcon, MessageButton } from '../../../src/components/Message';
+import Button from '../../../src/components/Button';
 
 # Message
 
+Messages are used to serve our merchants with informative snippets or feedback
+on a given action. All banners should be dismissible with an "x", unless they
+require an essential action to be taken.
+
 <Playground>
   <Message>
-    <MessageIcon>
-      <HelpIcon />
-    </MessageIcon>
+    <MessageIcon type={MessageIcon.SUCCESS}/>
     <Heading size={Heading.KILO} element="h4" margin={false}>
       Transaction successfully refunded
     </Heading>
@@ -26,6 +27,80 @@ import { ReactComponent as HelpIcon } from '../../../src/components/Message/mess
 
 ## Best practices
 
-- Always specify the `alt` attribute.
+Messages can be categories into three groups:
+
+1. **Feedback Messages:** Used to provide feedback to a merchant after an action
+   has been taken. These notifications disappear automatically.
+2. **Informative Messages:** Can contain information which isn't essential but may
+   be useful to the merchant. (e.g. New feature announcement) It is recommended
+   to use a call to action.
+3. **Attention Messages:** When action is required by the merchant, attention
+   messages should be used and should clearly highlight which action is
+   required. **A call to action must be displayed.**
 
 ## Usage guidelines
+
+- **Do** allow merchants to dismiss all messages unless immediate action is required.
+- **Do** direct merchants to the relevant place with a CTA if action is required.
+- **Do** use feedback messages to validate an action has been completed.
+- **Do** use the correct badge colour to signify sentiment of a message.
+- **Do not** use attention messages unless a vital action is required.
+
+## Component variations
+
+### Feedback messages
+
+<Playground>
+  <Message>
+    <MessageIcon type={MessageIcon.SUCCESS}/>
+    <Heading size={Heading.KILO} element="h4" margin={false}>
+      Transaction successfully refunded
+    </Heading>
+  </Message>
+</Playground>
+
+### Informative messages
+
+<Playground>
+  <Message>
+    <MessageIcon type={MessageIcon.WARNING}/>
+    <div>
+      <Heading size={Heading.KILO} element="h4" margin={false}>
+        You still need to verify your account
+      </Heading>
+    </div>
+    <MessageButton>
+      <Button
+        size={Button.KILO}
+        onClick={e => {
+          console.log('Something happened');
+        }}
+        >
+        Verify account
+      </Button>
+    </MessageButton>
+  </Message>
+</Playground>
+
+### Attention messages
+
+<Playground>
+  <Message>
+    <MessageIcon type={MessageIcon.ERROR}/>
+    <div>
+      <Heading size={Heading.KILO} element="h4" margin={false}>
+        Your transaction has failed
+      </Heading>
+    </div>
+    <MessageButton>
+      <Button
+        size={Button.KILO}
+        onClick={e => {
+          console.log('Something happened');
+        }}
+        >
+        Try again
+      </Button>
+    </MessageButton>
+  </Message>
+</Playground>
