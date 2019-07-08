@@ -104,7 +104,7 @@ You can refer to a color from the theme using `theme.colors.<COLOR_NAME>`.
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const Box = styled('div')`
+const Box = styled.div`
   ${({ theme }) => css`
     background-color: ${theme.colors.n100};
     color: ${theme.colors.success};
