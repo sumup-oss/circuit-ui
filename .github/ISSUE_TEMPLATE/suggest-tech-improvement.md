@@ -5,14 +5,14 @@ about: Suggest an improvement to the technology and tools behind Circuit UI
 
 ## Suggested technology
 
-- Which technology do you suggest we start using?
-- Why are you suggesting it?
-- Which technology (if any) would it replace?
+- What technology do you suggest we start using?
+- What technology (if any) would it replace?
+- What problem does it solve?
 
 ## Alternatives
 
-...
+What are the alternatives you've explored? Why choose one over the other?
 
 ## Potential downsides
 
-Do you see any downsides to the technology you're suggesting?
+Do you see any downsides to this technology?
