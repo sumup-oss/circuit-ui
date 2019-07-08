@@ -13,6 +13,8 @@ import RadioButton from '../../../src/components/RadioButton/RadioButton';
 import Select from '../../../src/components/Select/Select';
 import TextArea from '../../../src/components/TextArea/TextArea';
 import SearchInput from '../../../src/components/SearchInput';
+import AutoCompleteInput from '../../../src/components/AutoCompleteInput';
+import AutoCompleteTags from '../../../src/components/AutoCompleteTags';
 
 # Forms
 
@@ -341,4 +343,16 @@ The search input can be disabled.
 
 <Playground>
   <SearchInput disabled />
+</Playground>
+
+## Autocomplete Input
+
+Autocomplete Input suggests input values based on a list of values.
+
+<Playground>
+  <AutoCompleteInput
+    items={['apples', 'oranges', 'pears']}
+    onChange={e => { console.log('On change') }}
+    clearOnSelect={false}
+  />
 </Playground>
