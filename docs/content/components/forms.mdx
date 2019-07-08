@@ -347,12 +347,23 @@ The search input can be disabled.
 
 ## Autocomplete Input
 
-Autocomplete Input suggests input values based on a list of values.
+Autocomplete Input suggests input values based on a given list of values.
 
 <Playground>
   <AutoCompleteInput
-    items={['apples', 'oranges', 'pears']}
+    items={['apples', 'bananas', 'carrots', 'grapes', 'oranges', 'pears', 'strawberries']}
     onChange={e => { console.log('On change') }}
     clearOnSelect={false}
+  />
+</Playground>
+
+## Autocomplete Tags
+
+Autocomplete Tags allows picking from a selection of tags based on a given list of tags.
+
+<Playground>
+  <AutoCompleteTags
+    availableTags={['apples', 'bananas', 'carrots', 'grapes', 'oranges', 'pears', 'strawberries']}
+    onChange={e => { console.log('On change') }}
   />
 </Playground>
