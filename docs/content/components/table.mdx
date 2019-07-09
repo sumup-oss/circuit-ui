@@ -103,16 +103,16 @@ implement that like this:
   <Table
     headers={[{ children: 'Country', sortable: true }]}
     onSortBy={(i, direction, rows) =>
-      'ascending'
+      direction === 'ascending'
         ? rows.sort((a, b) => a[0].localeCompare(b[0]))
         : rows.sort((a, b) => b[0].localeCompare(a[0]))
     }
     rows={[
-      ['Deutschland'],
-      ['Italien'],
-      ['Liechtenstein'],
+      ['Schweiz'],
       ['Österreich'],
-      ['Schweiz']
+      ['Deutschland'],
+      ['Liechtenstein'],
+      ['Italien']
     ]}
   />
 </Playground>
