@@ -1,0 +1,36 @@
+---
+name: Card Schemes
+route: /components/card-schemes
+menu: Components
+---
+
+import { Playground } from 'docz';
+import { Fragment } from 'react';
+import CardSchemes from '../../../src/components/CardSchemes';
+
+# Card Schemes
+
+Card scheme icons indicate the accepted card schemes. The icons are displayed based on a given list of scheme IDs.
+
+It can be used in forms with the `CardNumberInput` component.
+
+<Playground>
+  <CardSchemes
+    iconIds={['mastercard', 'visa', 'ec', 'googlePay', 'applePay']}
+  />
+</Playground>
+
+## Variations
+
+### Icon sizes
+
+<Playground>
+  <CardSchemes
+    size={CardSchemes.BYTE}
+    iconIds={['mastercard', 'visa', 'ec', 'googlePay', 'applePay']}
+  />
+</Playground>
+
+## Best practices
+
+## Usage guidelines
