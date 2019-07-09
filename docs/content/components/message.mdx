@@ -6,9 +6,12 @@ menu: Components
 
 import { Playground } from 'docz';
 import { Fragment } from 'react';
-import Heading from '../../../src/components/Heading/Heading';
+import Heading from '../../../src/components/Heading';
+import Text from '../../../src/components/Text';
 import Message, { MessageIcon, MessageButton } from '../../../src/components/Message';
 import Button from '../../../src/components/Button';
+import NotificationList from '../../../src/components/NotificationList';
+import NotificationBanner from '../../../src/components/NotificationBanner';
 
 # Message
 
@@ -45,6 +48,49 @@ Messages can be categories into three groups:
 - **Do** use feedback messages to validate an action has been completed.
 - **Do** use the correct badge colour to signify sentiment of a message.
 - **Do not** use attention messages unless a vital action is required.
+
+## Notification messages
+
+Messages are generally displayed as notifications to merchants.
+
+### Notification List
+
+You can display a list of messages with `NotificationList`.
+
+<Playground>
+  <NotificationList>
+    <Message>
+      <MessageIcon type={MessageIcon.SUCCESS}/>
+      <Heading size={Heading.KILO} element="h4" noMargin>
+        Account created
+      </Heading>
+    </Message>
+    <Message>
+      <MessageIcon type={MessageIcon.SUCCESS}/>
+      <Heading size={Heading.KILO} element="h4" noMargin>
+        Transaction successfully refunded
+      </Heading>
+    </Message>
+  </NotificationList>
+</Playground>
+
+### Notification Banner
+
+You can display a banner with a message with `NotificationBanner`, and position it at the top or bottom of a view.
+
+<Playground>
+  <NotificationBanner>
+    <Message>
+      <MessageIcon type={MessageIcon.SUCCESS}/>
+      <div>
+        <Heading size={Heading.KILO} element="h4" noMargin>
+          New Feature — Intelligent Reporting
+        </Heading>
+        <Text noMargin>Get automatic insights into your business statistics with one click.</Text>
+      </div>
+    </Message>
+  </NotificationBanner>
+</Playground>
 
 ## Component variations
 
