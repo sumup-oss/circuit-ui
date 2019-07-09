@@ -8,6 +8,7 @@ import { Playground, Props } from 'docz';
 
 import { Fragment } from 'react';
 import Button from '../../../src/components/Button/Button';
+import ButtonGroup from '../../../src/components/ButtonGroup/ButtonGroup';
 
 # Button
 
@@ -100,4 +101,15 @@ property to the component.
     <Button size={Button.MEGA}>Button</Button>
     <Button size={Button.GIGA}>Button</Button>
   </Fragment>
+</Playground>
+
+## Button Groups
+
+Use ButtonGroup to group buttons, for example when the UI gives the user a choice between saving or cancelling an action.
+
+<Playground>
+  <ButtonGroup>
+    <Button secondary>Cancel</Button>
+    <Button primary>Save</Button>
+  </ButtonGroup>
 </Playground>
