@@ -14,6 +14,7 @@ import Select from '../../../src/components/Select/Select';
 import TextArea from '../../../src/components/TextArea/TextArea';
 import SearchInput from '../../../src/components/SearchInput';
 import AutoCompleteInput from '../../../src/components/AutoCompleteInput';
+import CurrencyInput from '../../../src/components/CurrencyInput';
 import AutoCompleteTags from '../../../src/components/AutoCompleteTags';
 
 # Forms
@@ -326,6 +327,60 @@ question.
 
 - **Do not** use placeholders in text areas.
 
+## Currency input
+
+Currency Input indicates to the merchant that a number should be entered in a given currency.
+
+<Playground>
+  <CurrencyInput
+    placeholder='1.234,50'
+    currency='EUR'
+    locale='de-DE'
+  />
+</Playground>
+
+### Component Variations
+
+#### Currency
+
+You can use `currency` to specify which currency the input should use.
+
+<Playground>
+  <Fragment>
+    <CurrencyInput
+      placeholder="CHF: 1'234.50"
+      currency='CHF'
+      locale='de-CH'
+    />
+    <CurrencyInput
+      placeholder='RUB: 1 234,50'
+      currency='RUB'
+      locale='ru-RU'
+    />
+  </Fragment>
+</Playground>
+
+#### Locale
+
+You can use `locale` to change the currency formatting locale.
+For example, Euros could be formatted differently based on locale:
+
+
+<Playground>
+  <Fragment>
+    <CurrencyInput
+      placeholder='de-DE: 1.234,50'
+      currency='EUR'
+      locale='de-DE'
+    />
+    <CurrencyInput
+      placeholder='en-IE: 1,234.50'
+      currency='EUR'
+      locale='en-IE'
+    />
+  </Fragment>
+</Playground>
+
 ## Search Input
 
 Search Input is an input that indicates to the merchant they can use the field
@@ -351,6 +406,7 @@ Autocomplete Input suggests input values based on a given list of values.
 
 <Playground>
   <AutoCompleteInput
+    placeholder='Start typing'
     items={['apples', 'bananas', 'carrots', 'grapes', 'oranges', 'pears', 'strawberries']}
     onChange={e => { console.log('On change') }}
     clearOnSelect={false}
@@ -359,10 +415,11 @@ Autocomplete Input suggests input values based on a given list of values.
 
 ## Autocomplete Tags
 
-Autocomplete Tags allows picking from a selection of tags based on a given list of tags.
+Autocomplete Tags lets the merchant select one or several tags based on a given list of tags.
 
 <Playground>
   <AutoCompleteTags
+    placeholder='Start typing'
     availableTags={['apples', 'bananas', 'carrots', 'grapes', 'oranges', 'pears', 'strawberries']}
     onChange={e => { console.log('On change') }}
   />
