@@ -7,8 +7,9 @@ menu: Components
 import { Playground, Props } from 'docz';
 
 import { Fragment } from 'react';
-import Button from '../../../src/components/Button/Button';
-import ButtonGroup from '../../../src/components/ButtonGroup/ButtonGroup';
+import Button from '../../../src/components/Button';
+import { LoadingButtonWithState as LoadingButton } from "./button"
+import ButtonGroup from '../../../src/components/ButtonGroup';
 
 # Button
 
@@ -101,6 +102,15 @@ property to the component.
     <Button size={Button.MEGA}>Button</Button>
     <Button size={Button.GIGA}>Button</Button>
   </Fragment>
+</Playground>
+
+
+## Loading Button
+
+You can indicate a loading state in a button with `LoadingButton`, as well as visually notify the merchant of a success or an error after loading.
+
+<Playground>
+  <LoadingButton/>
 </Playground>
 
 ## Button Groups
