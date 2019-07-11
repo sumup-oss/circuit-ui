@@ -15,11 +15,14 @@ import Text from '../../../src/components/Text';
 
 <Status.Stable/> 
 
+The toggle is a switcher between two mutually exclusive states: on and off.
+
 <Playground>
   <State initial={false} name="on" updaterName="onToggle" updater={on => !on}>
     {({ onToggle, on }) => (
       <Toggle
-        label="Short label"
+        label="Receive marketing and promotional materials"
+        explanation="If this option is active you will receive weekly promotional materials in your email"
         onToggle={e => {
           onToggle(e);
         }}
@@ -29,25 +32,17 @@ import Text from '../../../src/components/Text';
   </State>
 </Playground>
 
-## Best practices
+## When to use it
+
+When the merchant needs to make a selection (turn on or off a setting) that will immediately happen,
+without having the confirm the action.
 
 ## Usage guidelines
+- **Do** always provide a default option for our merchant (when in doubt, leave it off)
+- **Do** use the `explanation` tag to be even more detailed about what the toggle is about
+- **Do not** use a toggle when the effect from the change does not take effect immediately
 
-## Component variations
+## Content guidelines
+- **Do** always be clear and precise in what the toggle turns on and off
+- **Do not** frame the label as a question
 
-### With explanatory text
-
-<Playground>
-  <State initial={false} name="on" updaterName="onToggle" updater={on => !on}>
-    {({ onToggle, on }) => (
-      <Toggle
-        label="Short label"
-        explanation="Some more detailed text of what this means"
-        onToggle={e => {
-          onToggle(e);
-        }}
-        {...{ on }}
-      />
-    )}
-  </State>
-</Playground>

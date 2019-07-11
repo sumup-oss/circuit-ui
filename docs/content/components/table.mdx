@@ -15,18 +15,40 @@ import Badge from '../../../src/components/Badge/Badge';
 
 <Status.Stable/>
 
+Tables allow merchants to see detailed information in an organized and orderly way, especially when
+a task revolves around comparing or analyzing the information set.
+
 <Playground>
   <Table
-    headers={[{ children: 'Name', sortable: true }, 'Type']}
+    headers={[{ children: 'Request Number', sortable: true }, 'Product', 'Total order value']}
     rows={[
-      ['Apple', 'Fruit'],
-      ['Broccoli', 'Vegetable'],
-      ['Chickpeas', 'Legume']
+      ['1', 'Air', '$29.99'],
+      ['2', 'Top', '$5.99'],
+      ['3', '3G', '$16.94']
     ]}
   />
 </Playground>
 
 <Props of={Table} />
+
+## When to use it
+
+To present data sets, such as "subaccounts" or "orders". Tables help merchants find information that they are looking
+for faster and if the data can be manipulated it can also be used for analysis. 
+
+## Usage guidelines
+
+- **Do** allow filtering and ordering, if possible, to help our merchants assess the information faster
+- **Do** pair the table component with pagination if your data set has more than 24 items
+- **Do** provide a unique identifier for each item and place it as the first column from left to right
+- **Do not** make an item on the table actionable. If you need this functionality, consider using a listview.
+
+## Content guidelines
+
+- **Do** align the text or values within columns to left
+- **Do** provide simple and short headers for each column
+- **Do** use sentence case for headers
+- **Do not** include units of measurement on the data item, you should place it just on the header
 
 ## Usage in code
 
@@ -45,22 +67,6 @@ they can also accept objects.
         { children: <Badge color={Badge.SUCCESS}>Vegetable</Badge> }
       ],
       ['Chickpeas', { children: <Badge color={Badge.WARNING}>Legume</Badge> }]
-    ]}
-  />
-</Playground>
-
-### Handling row clicks
-
-<Playground>
-  <Table
-    onRowClick={i => {
-      console.log('Clicked on row', i);
-    }}
-    headers={['Name', 'Type']}
-    rows={[
-      ['Apple', 'Fruit'],
-      ['Broccoli', 'Vegetable'],
-      ['Chickpeas', 'Legume']
     ]}
   />
 </Playground>
@@ -119,7 +125,3 @@ implement that like this:
     ]}
   />
 </Playground>
-
-## Best practices
-
-## Usage guidelines
