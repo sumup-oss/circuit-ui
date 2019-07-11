@@ -6,6 +6,7 @@ menu: Components
 
 import { Fragment } from 'react';
 import { Playground } from 'docz';
+import Text from '../../../src/components/Text';
 import Input from '../../../src/components/Input/Input';
 import Label from '../../../src/components/Label/Label';
 import Checkbox from '../../../src/components/Checkbox/Checkbox';
@@ -16,10 +17,13 @@ import SearchInput from '../../../src/components/SearchInput';
 import AutoCompleteInput from '../../../src/components/AutoCompleteInput';
 import CurrencyInput from '../../../src/components/CurrencyInput';
 import AutoCompleteTags from '../../../src/components/AutoCompleteTags';
+import Status from '../../utils/Statuses';
 
 # Forms
 
 ## Text Field
+
+<Status.Stable/>
 
 A text field is an input field for inserting short text and numbers. It has
 multiple functions and supports multiple character types/formats.
@@ -125,6 +129,8 @@ Always provide a placeholder for text input fields.
 
 ## Label
 
+<Status.Stable/>
+
 A label is a short text that explains what information is needed in the text
 field. Having a clear and straightforward label not only helps the user to know
 what is the purpose of the input but also helps directly with making forms
@@ -148,6 +154,8 @@ Always provide a label for text input fields.
 - **Do not** use labels as help text.
 
 ## Checkbox
+
+<Status.Stable/>
 
 The primary goal of checkboxes is to provide a way for the user to make a range of selections.
 The users can select from zero, one, or multiple options. In other words, each checkbox is independent
@@ -227,6 +235,8 @@ an option or agree to certain terms & conditions.
 </Playground>
 
 ## Radio button
+
+<Status.InReview/>
 
 A radio button is a quick way to extract a single coded answer from our users by presenting multiple
 possibilities and allowing only one option to be chosen.
@@ -312,6 +322,8 @@ consider using the radio button component.
 
 ## Textarea
 
+<Status.Stable/>
+
 It is a type of input that allow mutiple lines of text.
 
 <Playground>
@@ -328,6 +340,8 @@ question.
 - **Do not** use placeholders in text areas.
 
 ## Currency input
+
+<Status.InReview/> <Status.Description size={Text.KILO}>Design and styling issues causing overflow</Status.Description>
 
 Currency Input indicates to the merchant that a number should be entered in a given currency.
 
@@ -383,6 +397,8 @@ For example, Euros could be formatted differently based on locale:
 
 ## Search Input
 
+<Status.Stable/>
+
 Search Input is an input that indicates to the merchant they can use the field
 to search information on the screen.
 
@@ -402,6 +418,8 @@ The search input can be disabled.
 
 ## Autocomplete Input
 
+<Status.Stable/>
+
 Autocomplete Input suggests input values based on a given list of values.
 
 <Playground>
@@ -414,6 +432,8 @@ Autocomplete Input suggests input values based on a given list of values.
 </Playground>
 
 ## Autocomplete Tags
+
+<Status.Experimental/> <Status.Description size={Text.KILO}>Not currently used in production</Status.Description>
 
 Autocomplete Tags lets the merchant select one or several tags based on a given list of tags.
 

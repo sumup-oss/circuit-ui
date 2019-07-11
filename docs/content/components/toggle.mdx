@@ -8,8 +8,12 @@ import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Toggle from '../../../src/components/Toggle';
 import State from '../../../src/components/State';
+import Status from '../../utils/Statuses';
+import Text from '../../../src/components/Text';
 
 # Toggle
+
+<Status.Stable/> 
 
 <Playground>
   <State initial={false} name="on" updaterName="onToggle" updater={on => !on}>

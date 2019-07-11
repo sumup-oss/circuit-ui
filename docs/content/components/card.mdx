@@ -10,9 +10,12 @@ import Card from '../../../src/components/Card/Card';
 import { CardHeader } from '../../../src/components/Card';
 import ListView from '../../../src/components/ListView';
 import Text from '../../../src/components/Text';
+import Status from '../../utils/Statuses';
 import Heading from '../../../src/components/Heading/Heading';
 
 # Card
+
+<Status.Stable/>
 
 Cards are one of the most important elements that give structure for the content we are showing for our
 merchants. They group related information and make our product easy to scan and understand.
@@ -24,7 +27,7 @@ merchants. They group related information and make our product easy to scan and 
       Send us a message
       </Heading>
     </CardHeader>
-    <Text margin={false}>If you didn't solve your problem using our resource center, please send us a message bellow and we will answer as soon as possible</Text>
+    <Text margin={false}>If you didn't solve your problem using our resource center, please send us a message below and we will answer as soon as possible</Text>
     </Card>
   </Playground>
 
@@ -73,6 +76,8 @@ the single shadow is recommended.
 </Playground>
 
 ## List of cards
+
+<Status.InReview/> <Status.Description size={Text.KILO}>Likely to be renamed</Status.Description>
 
 You can create a list of cards using `ListView`. You should use it when showing the same type of information within
 each card and clicking on it opens contextual information about it. One example is the transaction history, where

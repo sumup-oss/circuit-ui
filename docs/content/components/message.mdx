@@ -12,8 +12,11 @@ import Message, { MessageIcon, MessageButton } from '../../../src/components/Mes
 import Button from '../../../src/components/Button';
 import NotificationList from '../../../src/components/NotificationList';
 import NotificationBanner from '../../../src/components/NotificationBanner';
+import Status from '../../utils/Statuses';
 
 # Message
+
+<Status.InReview/>
 
 Messages are used to serve our merchants with informative snippets or feedback
 on a given action. All banners should be dismissible with an "x", unless they
@@ -32,12 +35,12 @@ require an essential action to be taken.
 
 Messages can be categories into three groups:
 
-1. **Feedback Messages:** Used to provide feedback to a merchant after an action
+- **Feedback Messages:** Used to provide feedback to a merchant after an action
    has been taken. These notifications disappear automatically.
-2. **Informative Messages:** Can contain information which isn't essential but may
+- **Informative Messages:** Can contain information which isn't essential but may
    be useful to the merchant. (e.g. New feature announcement) It is recommended
    to use a call to action.
-3. **Attention Messages:** When action is required by the merchant, attention
+- **Attention Messages:** When action is required by the merchant, attention
    messages should be used and should clearly highlight which action is
    required. **A call to action must be displayed.**
 

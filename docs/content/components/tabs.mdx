@@ -7,8 +7,12 @@ menu: Components
 import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import { Tabs, Tab, TabPanel, TabList } from '../../../src/components/Tabs';
+import Status from '../../utils/Statuses';
+import Text from '../../../src/components/Text';
 
 # Tabs
+
+<Status.InReview/> <Status.Description size={Text.KILO}>Does not handle content overflow on mobile. Unclear use case compared to subnavigation.</Status.Description>
 
 <Playground>
   <Tabs

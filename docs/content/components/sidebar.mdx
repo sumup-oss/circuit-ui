@@ -7,8 +7,12 @@ menu: Components
 import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Sidebar from '../../../src/components/Sidebar';
+import Status from '../../utils/Statuses';
+import Text from '../../../src/components/Text';
 
 # Sidebar
+
+<Status.InReview/> <Status.Description size={Text.KILO}>Under active development</Status.Description>
 
 <Playground>
   <Sidebar open={true} onClose={() => null} closeButtonLabel="close-button">
