@@ -65,6 +65,59 @@ exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
 </div>
 `;
 
+exports[`LoadingIcon Style tests should have error LoadingIcon styles 1`] = `
+Array [
+  .circuit-1 {
+  opacity: 0;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  position: relative;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+<div
+    aria-busy="true"
+    aria-live="assertive"
+    className="circuit-0 circuit-1 circuit-2"
+    role="alertdialog"
+    size="kilo"
+  >
+    <div>
+      spinner.svg
+    </div>
+  </div>,
+  .circuit-0 {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+<div
+    className="circuit-0 circuit-1"
+    size="kilo"
+  >
+    <div>
+      error.svg
+    </div>
+  </div>,
+]
+`;
+
 exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
 .circuit-1 {
   opacity: 0;
