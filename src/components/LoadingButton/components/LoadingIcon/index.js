@@ -102,9 +102,9 @@ const Spinner = styled(PureSpinner)(
 );
 
 // TODO: add ARIA labels to icon.
-const StatusIcon = ({ svgIcon, size }) => (
+const StatusIcon = ({ as, size }) => (
   <IconContainer size={size}>
-    <Icon as={svgIcon} />
+    <Icon as={as} />
   </IconContainer>
 );
 
@@ -112,13 +112,13 @@ StatusIcon.propTypes = {
   /**
    * Size prop from the Button.
    */
-  svgIcon: PropTypes.oneOf([SuccessSvg, ErrorSvg]),
+  as: PropTypes.oneOf([SuccessSvg, ErrorSvg]),
   size: SIZE_PROP_TYPE
 };
 
 StatusIcon.defaultProps = {
-  size: GIGA,
-  visible: false
+  as: SuccessSvg,
+  size: GIGA
 };
 
 /**
@@ -128,10 +128,10 @@ const LoadingIcon = ({ loadingState, size }) => (
   <Fragment>
     <Spinner size={size} active={loadingState === LOADING_STATES.ACTIVE} />
     {loadingState === LOADING_STATES.SUCCESS && (
-      <StatusIcon svgIcon={SuccessSvg} size={size} />
+      <StatusIcon as={SuccessSvg} size={size} />
     )}
     {loadingState === LOADING_STATES.ERROR && (
-      <StatusIcon svgIcon={ErrorSvg} size={size} />
+      <StatusIcon as={ErrorSvg} size={size} />
     )}
   </Fragment>
 );

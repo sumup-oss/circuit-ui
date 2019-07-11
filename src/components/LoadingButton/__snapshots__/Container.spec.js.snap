@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container Container Style tests should have default styles 1`] = `
-.circuit-9 {
+.circuit-7 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -22,32 +22,32 @@ exports[`Container Container Style tests should have default styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-9:active {
+.circuit-7:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-9:focus {
+.circuit-7:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-9:hover {
+.circuit-7:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-9:hover,
-.circuit-9:active {
+.circuit-7:hover,
+.circuit-7:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-9[disabled],
-.circuit-9:disabled {
+.circuit-7[disabled],
+.circuit-7:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -56,7 +56,7 @@ exports[`Container Container Style tests should have default styles 1`] = `
   user-selectable: none;
 }
 
-.circuit-7 {
+.circuit-5 {
   position: relative;
 }
 
@@ -79,17 +79,6 @@ exports[`Container Container Style tests should have default styles 1`] = `
 }
 
 .circuit-3 {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  height: 24px;
-  width: 24px;
-}
-
-.circuit-5 {
   opacity: 1;
   -webkit-transform: translate(0,0);
   -ms-transform: translate(0,0);
@@ -100,13 +89,13 @@ exports[`Container Container Style tests should have default styles 1`] = `
 }
 
 <button
-  className="circuit-9 circuit-10"
+  className="circuit-7 circuit-8"
   disabled={false}
   size="mega"
   target={null}
 >
   <div
-    className="circuit-7 circuit-8"
+    className="circuit-5 circuit-6"
   >
     <div
       aria-busy="true"
@@ -121,14 +110,6 @@ exports[`Container Container Style tests should have default styles 1`] = `
     </div>
     <div
       className="circuit-3 circuit-4"
-      size="mega"
-    >
-      <div>
-        success.svg
-      </div>
-    </div>
-    <div
-      className="circuit-5 circuit-6"
     />
   </div>
 </button>
