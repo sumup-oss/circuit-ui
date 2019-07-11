@@ -13,10 +13,12 @@
  * limitations under the License.
  */
 
-import React, { Component } from 'react';
+/** @jsx jsx */
+
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
@@ -91,7 +93,7 @@ const noShadowStyles = ({ noShadow }) =>
   `;
 
 const ScrollContainer = styled.div(containerStyles);
-const Container = styled.div`
+const ShadowContainer = styled.div`
   ${shadowSingle};
   ${noShadowStyles};
 `;
@@ -158,31 +160,41 @@ class Table extends Component {
     } = this.props;
     const { sortDirection, sortHover, sortedRow } = this.state;
 
+    /**
+     * The position: relative; container is necessary because ShadowContainer
+     * is a position: absolute; element
+     */
     return (
-      <Container noShadow={noShadow}>
-        <ScrollContainer rowHeaders={rowHeaders}>
-          <StyledTable
-            rowHeaders={rowHeaders}
-            borderCollapsed={borderCollapsed}
-          >
-            <TableHead
-              sortDirection={sortDirection}
-              sortedRow={sortedRow}
-              onSortBy={this.onSortBy}
-              onSortEnter={this.onSortEnter}
-              onSortLeave={this.onSortLeave}
-              headers={headers}
+      <div
+        css={css`
+          position: relative;
+        `}
+      >
+        <ShadowContainer noShadow={noShadow}>
+          <ScrollContainer rowHeaders={rowHeaders}>
+            <StyledTable
               rowHeaders={rowHeaders}
-            />
-            <TableBody
-              rows={this.getSortedRows()}
-              rowHeaders={rowHeaders}
-              sortHover={sortHover}
-              onRowClick={onRowClick}
-            />
-          </StyledTable>
-        </ScrollContainer>
-      </Container>
+              borderCollapsed={borderCollapsed}
+            >
+              <TableHead
+                sortDirection={sortDirection}
+                sortedRow={sortedRow}
+                onSortBy={this.onSortBy}
+                onSortEnter={this.onSortEnter}
+                onSortLeave={this.onSortLeave}
+                headers={headers}
+                rowHeaders={rowHeaders}
+              />
+              <TableBody
+                rows={this.getSortedRows()}
+                rowHeaders={rowHeaders}
+                sortHover={sortHover}
+                onRowClick={onRowClick}
+              />
+            </StyledTable>
+          </ScrollContainer>
+        </ShadowContainer>
+      </div>
     );
   }
 }
