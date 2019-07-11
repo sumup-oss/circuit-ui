@@ -14,24 +14,24 @@
  */
 
 import React from 'react';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import Badge from '../../src/components/Badge';
+import Text from '../../src/components/Text';
 
-const Stable = () => (
-  <Badge color={Badge.SUCCESS} style={{ display: 'inline-block' }}>
-    Stable
-  </Badge>
-);
+const Stable = () => <Badge color={Badge.SUCCESS}>Stable</Badge>;
 
-const Deprecated = () => (
-  <Badge color={Badge.DANGER} style={{ display: 'inline-block' }}>
-    Deprecated
-  </Badge>
-);
+const Deprecated = () => <Badge color={Badge.DANGER}>Deprecated</Badge>;
 
-const InReview = () => (
-  <Badge color={Badge.WARNING} style={{ display: 'inline-block' }}>
-    In review
-  </Badge>
-);
+const InReview = () => <Badge color={Badge.WARNING}>In review</Badge>;
 
-export default { Stable, InReview, Deprecated };
+const Experimental = () => <Badge color={Badge.NEUTRAL}>Experimental</Badge>;
+
+const Description = styled(Text)`
+  ${({ theme }) => css`
+    margin-left: ${theme.spacings.byte};
+    display: inline-block;
+  `};
+`;
+
+export default { Stable, InReview, Deprecated, Experimental, Description };
