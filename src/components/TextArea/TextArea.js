@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+
+import { jsx, css } from '@emotion/core';
 
 import Input from '../Input';
 
-const inputClassName = css`
+const textAreaStyles = css`
   label: textarea;
   overflow: auto;
   resize: vertical;
@@ -28,7 +29,7 @@ const inputClassName = css`
  * TextArea component for forms.
  */
 const TextArea = props => (
-  <Input {...{ ...props, inputClassName }} element="textarea" />
+  <Input {...props} css={textAreaStyles} element="textarea" />
 );
 
 TextArea.LEFT = Input.LEFT;
