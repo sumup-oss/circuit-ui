@@ -17,6 +17,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { boolean } from '@storybook/addon-knobs';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
@@ -34,7 +35,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Header`, module)
     'Header',
     withInfo()(() => (
       <HeaderContainer>
-        <Header title="Title">
+        <Header title="Title" mobileOnly={boolean('mobileOnly')}>
           <Hamburguer light />
         </Header>
       </HeaderContainer>
