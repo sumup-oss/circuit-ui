@@ -6,7 +6,7 @@ menu: Components
 
 import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
-import Sidebar from '../../../src/components/Sidebar';
+import Sidebar from './sidebar';
 import Status from '../../utils/Statuses';
 import Text from '../../../src/components/Text';
 
@@ -19,34 +19,7 @@ sections of the same product (the merchant dashboard, for example), allowing eas
 and the second level of navigations, keeping a strong anchor for our merchants to always know where they are.
 
 <Playground>
-  <Sidebar open={true} onClose={() => null} closeButtonLabel="close-button">
-    <Sidebar.Header>Header</Sidebar.Header>
-    <Sidebar.NavList>
-      <Sidebar.Aggregator label="Overview">
-        <Sidebar.NavItem
-          onClick={() => null}
-          label="Analytics"
-          selected={true}
-        />
-        <Sidebar.NavItem
-          onClick={() => null}
-          label="Payouts and Balances"
-          selected={false}
-        />
-      </Sidebar.Aggregator>
-      <Sidebar.NavItem
-        selected={false}
-        onClick={() => null}
-        label="Transactions"
-        />
-      <Sidebar.NavItem
-        selected={false}
-        onClick={() => null}
-        label="Settings"
-      />
-    </Sidebar.NavList>
-    <Sidebar.Footer>Footer</Sidebar.Footer>
-  </Sidebar> 
+  <Sidebar />
 </Playground>
 
 ## When to use it
@@ -112,7 +85,7 @@ const Navigation = () => {
           selected={selected[0]}
           onClick={() => handleSelect(0)}
           label="Item #1"
-          />
+        />
         <Sidebar.NavItem
           selected={selected[1]}
           onClick={() => handleSelect(1)}
