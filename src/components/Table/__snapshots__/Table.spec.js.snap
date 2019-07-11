@@ -118,6 +118,8 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
   white-space: nowrap;
   display: none;
+  font-size: 13px;
+  font-weight: 700;
   padding: 8px 24px;
 }
 
@@ -523,6 +525,8 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
   white-space: nowrap;
   display: none;
+  font-size: 13px;
+  font-weight: 700;
   padding: 8px 24px;
 }
 
@@ -904,6 +908,8 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
   white-space: nowrap;
   display: none;
+  font-size: 13px;
+  font-weight: 700;
   padding: 8px 24px;
 }
 
@@ -1281,6 +1287,8 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
   white-space: nowrap;
   display: none;
+  font-size: 13px;
+  font-weight: 700;
   padding: 8px 24px;
 }
 
