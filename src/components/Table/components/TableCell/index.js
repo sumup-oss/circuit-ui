@@ -38,7 +38,12 @@ const presentationStyles = ({ theme, role, header }) =>
     label: table-cell--presentation;
     display: none;
 
-    ${header && `padding: ${theme.spacings.byte} ${theme.spacings.giga}`};
+    ${header &&
+      css`
+        font-size: ${theme.typography.text.kilo.fontSize};
+        font-weight: ${theme.fontWeight.bold};
+        padding: ${theme.spacings.byte} ${theme.spacings.giga};
+      `}
 
     ${theme.mq.untilMega} {
       display: table-cell;
