@@ -14,6 +14,9 @@ import Text from '../../../src/components/Text';
 
 <Status.InReview/> 
 
+Pagination provides an easy way for merchants to visualize bulks of information distributed in the different pages,
+while always providing an anchor to move from where they currently are in the list.
+
 <Playground>
   <Pagination
     page={1}
@@ -21,13 +24,15 @@ import Text from '../../../src/components/Text';
     total={50}
     pagesToShow={1}
     onChange={() => {}}
-    footer={'Showing 1 - 10 of 50 items'}
+    footer={'Showing 1 - 24 of 120 items'}
   />
 </Playground>
 
-## Best practices
+## When to use it
+Use it when you have a list of more than 32 items related to the same category. This allows a better
+experience searching through the data for our merchants.
 
 ## Usage guidelines
-
-## Component variations
-
+- **Do** always place the pagination component on the bottom of the list
+- **Do** always provide the total number of items on the list
+- **Do not** use pagination if a list is below 32 items

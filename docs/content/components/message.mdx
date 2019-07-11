@@ -18,9 +18,8 @@ import Status from '../../utils/Statuses';
 
 <Status.InReview/>
 
-Messages are used to serve our merchants with informative snippets or feedback
-on a given action. All banners should be dismissible with an "x", unless they
-require an essential action to be taken.
+Messages are a quick and subtle way of providing contextual feedback for our merchants through floating
+or fixed cards with a semantical meaning (either success, danger or attention).
 
 <Playground>
   <Message>
@@ -31,18 +30,10 @@ require an essential action to be taken.
   </Message>
 </Playground>
 
-## Best practices
+## When to use it
 
-Messages can be categories into three groups:
-
-- **Feedback Messages:** Used to provide feedback to a merchant after an action
-   has been taken. These notifications disappear automatically.
-- **Informative Messages:** Can contain information which isn't essential but may
-   be useful to the merchant. (e.g. New feature announcement) It is recommended
-   to use a call to action.
-- **Attention Messages:** When action is required by the merchant, attention
-   messages should be used and should clearly highlight which action is
-   required. **A call to action must be displayed.**
+Messages are used to serve our merchants with subtle informative snippets or feedback
+on a given action.  
 
 ## Usage guidelines
 
@@ -51,54 +42,17 @@ Messages can be categories into three groups:
 - **Do** use feedback messages to validate an action has been completed.
 - **Do** use the correct badge colour to signify sentiment of a message.
 - **Do not** use attention messages unless a vital action is required.
+- **Do not** use the messages component if our feedback for the merchant is super critical,
+such as an order's payment confirmation. Its subtle aspect could make it hard for them to have
+a strong confirmation of what just happened.
 
-## Notification messages
-
-Messages are generally displayed as notifications to merchants.
-You can also use the [Inline Notification](/components/inline-notification) component to display a notification inside the content flow.
-
-### Notification List
-
-You can display a list of messages with `NotificationList`.
-
-<Playground>
-  <NotificationList>
-    <Message>
-      <MessageIcon type={MessageIcon.SUCCESS}/>
-      <Heading size={Heading.KILO} element="h4" noMargin>
-        Account created
-      </Heading>
-    </Message>
-    <Message>
-      <MessageIcon type={MessageIcon.SUCCESS}/>
-      <Heading size={Heading.KILO} element="h4" noMargin>
-        Transaction successfully refunded
-      </Heading>
-    </Message>
-  </NotificationList>
-</Playground>
-
-### Notification Banner
-
-You can display a banner with a message with `NotificationBanner`, and position it at the top or bottom of a view.
-
-<Playground>
-  <NotificationBanner>
-    <Message>
-      <MessageIcon type={MessageIcon.SUCCESS}/>
-      <div>
-        <Heading size={Heading.KILO} element="h4" noMargin>
-          New Feature — Intelligent Reporting
-        </Heading>
-        <Text noMargin>Get automatic insights into your business statistics with one click.</Text>
-      </div>
-    </Message>
-  </NotificationBanner>
-</Playground>
 
 ## Component variations
 
 ### Feedback messages
+
+Used to provide feedback to a merchant after an action
+has been taken. These notifications disappear automatically.
 
 <Playground>
   <Message>
@@ -110,6 +64,10 @@ You can display a banner with a message with `NotificationBanner`, and position 
 </Playground>
 
 ### Informative messages
+
+ Can contain information which isn't essential but may
+ be useful to the merchant. (e.g. New feature announcement) It is recommended
+to use a call to action.
 
 <Playground>
   <Message>
@@ -134,6 +92,10 @@ You can display a banner with a message with `NotificationBanner`, and position 
 
 ### Attention messages
 
+When action is required by the merchant, attention
+messages should be used and should clearly highlight which action is
+required. **A call to action must be displayed.**
+
 <Playground>
   <Message>
     <MessageIcon type={MessageIcon.ERROR}/>
@@ -153,4 +115,43 @@ You can display a banner with a message with `NotificationBanner`, and position 
       </Button>
     </MessageButton>
   </Message>
+</Playground>
+
+### Notification Banner
+
+You can display a banner with a message with `NotificationBanner`, and position it at the top or bottom of a view.
+
+<Playground>
+  <NotificationBanner>
+    <Message>
+      <MessageIcon type={MessageIcon.SUCCESS}/>
+      <div>
+        <Heading size={Heading.KILO} element="h4" noMargin>
+          New Feature — Intelligent Reporting
+        </Heading>
+        <Text noMargin>Get automatic insights into your business statistics with one click.</Text>
+      </div>
+    </Message>
+  </NotificationBanner>
+</Playground>
+
+### Notification List
+
+You can display a list of messages with `NotificationList`.
+
+<Playground>
+  <NotificationList>
+    <Message>
+      <MessageIcon type={MessageIcon.SUCCESS}/>
+      <Heading size={Heading.KILO} element="h4" noMargin>
+        Account created
+      </Heading>
+    </Message>
+    <Message>
+      <MessageIcon type={MessageIcon.SUCCESS}/>
+      <Heading size={Heading.KILO} element="h4" noMargin>
+        Transaction successfully refunded
+      </Heading>
+    </Message>
+  </NotificationList>
 </Playground>
