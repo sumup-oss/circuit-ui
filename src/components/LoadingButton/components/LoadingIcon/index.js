@@ -24,6 +24,7 @@ import { values } from '../../../../util/fp';
 
 import PureSpinner from '../../../Spinner';
 import { ReactComponent as SuccessSvg } from '../icons/success.svg';
+import { ReactComponent as ErrorSvg } from '../icons/error.svg';
 import { LOADING_STATES } from '../../constants';
 import { SIZE_PROP_TYPE } from '../../../Button/constants';
 
@@ -72,33 +73,23 @@ const sizeStyles = label => ({ theme, size }) => {
 };
 
 /**
- * Icon styles for success icon
+ * Icon styles
  */
 
-const successIconBaseStyles = ({ theme }) => css`
-  label: loading-icon__success;
+const Icon = styled.div`
+  label: loading-icon;
   transform: scale3d(0, 0, 0);
   opacity: 0;
-  transition: opacity ${theme.transitions.default};
+  transition: opacity ${({ theme }) => theme.transitions.default};
   ${sizeMixin('100%')};
+  animation: ${iconEnter} ${({ theme }) => theme.transitions.default};
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
 `;
 
-const successIconVisibleStyles = ({ theme, visible }) =>
-  visible &&
-  css`
-    label: loading-icon__success--visible;
-    animation: ${iconEnter} ${theme.transitions.default};
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-  `;
-
-const SuccessIcon = styled(SuccessSvg)(
-  successIconBaseStyles,
-  successIconVisibleStyles
-);
-const SuccessContainer = styled('div')(
-  centeredStyles,
-  sizeStyles('loading-icon__success')
+const IconContainer = styled.div(
+  sizeStyles('loading-icon__status'),
+  centeredStyles
 );
 
 /**
@@ -111,33 +102,37 @@ const Spinner = styled(PureSpinner)(
 );
 
 // TODO: add ARIA labels to icon.
-const Success = ({ size, visible }) => (
-  <SuccessContainer size={size}>
-    <SuccessIcon visible={visible ? 1 : 0} />
-  </SuccessContainer>
+const StatusIcon = ({ as, size }) => (
+  <IconContainer size={size}>
+    <Icon as={as} />
+  </IconContainer>
 );
 
-Success.propTypes = {
+StatusIcon.propTypes = {
   /**
    * Size prop from the Button.
    */
-  size: SIZE_PROP_TYPE,
-  visible: PropTypes.bool
+  as: PropTypes.oneOf([SuccessSvg, ErrorSvg]),
+  size: SIZE_PROP_TYPE
 };
 
-Success.defaultProps = {
-  size: GIGA,
-  visible: false
+StatusIcon.defaultProps = {
+  as: SuccessSvg,
+  size: GIGA
 };
 
 /**
- * Two components that center themselves in the relatively positioned
- * parent.
+ * The components center themselves in the relatively positioned parent.
  */
 const LoadingIcon = ({ loadingState, size }) => (
   <Fragment>
     <Spinner size={size} active={loadingState === LOADING_STATES.ACTIVE} />
-    <Success size={size} visible={loadingState === LOADING_STATES.SUCCESS} />
+    {loadingState === LOADING_STATES.SUCCESS && (
+      <StatusIcon as={SuccessSvg} size={size} />
+    )}
+    {loadingState === LOADING_STATES.ERROR && (
+      <StatusIcon as={ErrorSvg} size={size} />
+    )}
   </Fragment>
 );
 

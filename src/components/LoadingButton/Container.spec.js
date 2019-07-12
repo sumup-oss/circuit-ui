@@ -36,7 +36,7 @@ describe('Container Container', () => {
       });
     });
 
-    describe('isLoading false nextProp with LOADING_STATEC.ACTIVE', () => {
+    describe('isLoading false nextProp with LOADING_STATE.ACTIVE', () => {
       describe('no exitAnimation', () => {
         it('should update the state with LOADING_STATES.DISABLED', () => {
           const wrapper = mount(<Container isLoading />);

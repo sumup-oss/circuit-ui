@@ -44,6 +44,13 @@ describe('LoadingIcon', () => {
       expect(actual).toMatchSnapshot();
     });
 
+    it('should have error LoadingIcon styles', () => {
+      const actual = create(
+        <LoadingIcon loadingState={LOADING_STATES.ERROR} size={KILO} />
+      );
+      expect(actual).toMatchSnapshot();
+    });
+
     it('should have kilo LoadingIcon styles', () => {
       const actual = create(
         <LoadingIcon loadingState={LOADING_STATES.DISABLED} size={KILO} />

@@ -40,6 +40,20 @@ storiesOf(`${GROUPS.COMPONENTS}|Button/LoadingButton`, module)
     ))
   )
   .add(
+    'LoadingButton with Error animation',
+    withInfo()(() => (
+      <LoadingButton
+        isLoading={boolean('Loading', false)}
+        onClick={action('clicked')}
+        onAnimationComplete={action('animation completed')}
+        exitAnimation={LoadingButton.ERROR}
+        primary
+      >
+        Click me
+      </LoadingButton>
+    ))
+  )
+  .add(
     'LoadingButton with no exit animation',
     withInfo()(() => (
       <LoadingButton
