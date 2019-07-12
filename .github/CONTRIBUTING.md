@@ -11,25 +11,10 @@ We expect all participants to read and adhere to our [code of conduct](/CODE_OF_
 
 Circuit UI follows semantic versioning. In short, this means we use patch versions
 for bugfixes, minor versions for new features, and major versions for
-breaking changes. Our release process is automated using [semantic-release](https://github.com/semantic-release/semantic-release)
-which adheres to the [Angular commit message conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).
+breaking changes. Our [release process](#Release-process) is automated using [semantic-release](https://github.com/semantic-release/semantic-release)
+which adheres to the [conventional commit message format](https://www.conventionalcommits.org).
 
 As a result, our changelog is pretty tidy. You can [read our changelog on GitHub](https://github.com/sumup/circuit-ui/releases).
-
-## Branch organization
-
-We have a couple of special branches that are automatically released whenever
-you merge code into them.
-
-- `master` - A merge to master will release a new version of the library.
-- `canary` - The step before master. This is where we prepare a group of
-  changes for the next release.
-- `beta` - Beta is a branch you can use to test your changes integrated with
-  other branches before it is ready to be PR'd to canary.
-
-## Releases
-
-TODO
 
 ## Bugs
 
@@ -116,6 +101,24 @@ yarn unit:lint-js
 yarn fix
 ```
 
+### Local testing
+
+While making changes to Circuit UI, you might want to test them in your
+application. You can do so by [linking the two projects](https://yarnpkg.com/lang/en/docs/cli/link/)
+locally. 
+
+Inside the Circuit UI project folder, run:
+
+```
+yarn link
+```
+
+Then, in your application project folder, run:
+
+```
+yarn link @sumup/circuit-ui
+```
+
 ### Deprecation process
 
 The purpose of deprecating a component or a feature is to warn people that
@@ -149,3 +152,48 @@ no longer needed.
 In some cases, you can also introduce a completely new version of the component
 alongside the old, especially in cases where teams need longer to migrate
 to the new component. For example, changing the SideNav component.
+
+## Releases
+
+We have a couple of special branches that are automatically released whenever 
+you merge code into them.
+
+- `beta` — This is a branch you can use to test your changes integrated with
+  other branches before it is ready to be PR'd to `canary`. It is also useful
+  if you need to deploy the changes somewhere to test them. `beta` is a 
+  throw-away branch that can be recreated from `canary` at any time.
+- `canary` - The step before `master`. This is where we prepare a group of
+  changes for the next release. Code on `canary` should be tested and stable.
+  Usually, `canary` is a couple of commits ahead of `master`.
+- `master` - A merge to `master` will release a new version of the library.
+  Code on `master` is stable and production-tested.
+- `next` - This branch is used to develop the next major version in parallel.
+  It is the only branch that can contain breaking changes.
+
+When you merge into one of these release branches, `semantic-release` runs in
+CI and automatically:
+
+- pushes a new version to the respective release channel on NPM (`beta`,
+  `canary`, `latest` or `next`)
+- updates the release notes on GitHub based on the commit messages since the
+  previous release
+- and posts comments on any PRs and issues that are included in the release.
+
+To install the most recent version from a release channel, run:
+
+```
+yarn add @sumup/circuit-ui@<release-channel>
+```
+
+
+### Troubleshooting
+
+- **The release failed.** This can happen if you merge multiple times to a 
+  release branch in short succession. The first CI job will fail because the
+  branch on GitHub is ahead of the branch that was checked out in CI. 
+  `semantic-release` will open an issue to alert you of the failure. You can
+  simply wait for the last CI job to finish. It should succeed and will 
+  automatically close the issue.
+- **My commit doesn't show in the release notes.** Make sure that your commit
+  message follows the [conventional commit format](https://www.conventionalcommits.org).
+  Otherwise, `semantic-release` can't understand your commit and will omit it.
