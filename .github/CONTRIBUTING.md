@@ -86,7 +86,7 @@ design system process published by Canonical.
 ### Technical changes or improvements
 
 - You should open an issue in Circuit UI with your proposed change using the
-  generic "Change" issue type.
+  "Suggest tech improvement" issue type.
 
 ## Your first pull request
 
