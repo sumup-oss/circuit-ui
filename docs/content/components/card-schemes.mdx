@@ -14,9 +14,7 @@ import Status from '../../utils/Statuses';
 
 <Status.InReview/> <Status.Description size={Text.KILO}>Likely to be moved to the icon library</Status.Description>
 
-Card scheme icons indicate the accepted card schemes. The icons are displayed based on a given list of scheme IDs.
-
-It can be used in forms with the `CardNumberInput` component.
+Card Schemes provides a quick way to pull all accepted card schemes icons from SumUp.
 
 <Playground>
   <CardSchemes
@@ -24,11 +22,21 @@ It can be used in forms with the `CardNumberInput` component.
   />
 </Playground>
 
+## When to use it
+
+Card scheme icons are used to indicate the accepted card schemes, such as in a credit card input form or in the marketing
+website to promote accepted schemes.
+
+## Usage guidelines
+
+- **Do** always check which schemes are accepted in each market, they usually vary from country to country
+- **Do** use to provide context beforehand when our merchant is completing a credit card payment
+
 <Props of={CardSchemes} />
 
-## Variations
+## Usage in code
 
-### Icon sizes
+It can be used in forms with the `CardNumberInput` component. Different sizes are also supported.
 
 <Playground>
   <CardSchemes
@@ -36,7 +44,3 @@ It can be used in forms with the `CardNumberInput` component.
     iconIds={['mastercard', 'visa', 'ec', 'googlePay', 'applePay']}
   />
 </Playground>
-
-## When to use it
-
-## Usage guidelines
