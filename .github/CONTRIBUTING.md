@@ -11,7 +11,7 @@ We expect all participants to read and adhere to our [code of conduct](/CODE_OF_
 
 Circuit UI follows semantic versioning. In short, this means we use patch versions
 for bugfixes, minor versions for new features, and major versions for
-breaking changes. Our [release process](#Release-process) is automated using [semantic-release](https://github.com/semantic-release/semantic-release)
+breaking changes. Our [release process](#Releases) is automated using [semantic-release](https://github.com/semantic-release/semantic-release)
 which adheres to the [conventional commit message format](https://www.conventionalcommits.org).
 
 As a result, our changelog is pretty tidy. You can [read our changelog on GitHub](https://github.com/sumup/circuit-ui/releases).
