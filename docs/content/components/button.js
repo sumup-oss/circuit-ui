@@ -17,7 +17,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import LoadingButton from '../../../src/components/LoadingButton';
 
-export const LoadingButtonWithState = ({ exitAnimation, children }) => {
+const LoadingButtonWithState = ({ exitAnimation, children }) => {
   // get loading button status animation or set as default
   const variation = exitAnimation || 'DEFAULT';
 
@@ -58,3 +58,5 @@ LoadingButtonWithState.propTypes = {
   exitAnimation: PropTypes.oneOf(['SUCCESS', 'ERROR']),
   children: PropTypes.string
 };
+
+export default LoadingButtonWithState;

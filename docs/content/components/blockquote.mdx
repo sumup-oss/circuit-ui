@@ -5,16 +5,15 @@ menu: Components
 ---
 
 import { Playground, Props } from 'docz';
-
 import { Fragment } from 'react';
 import Blockquote from '../../../src/components/Blockquote/Blockquote';
 import Status from '../../utils/Statuses';
 
 # Blockquote
 
-<Status.Stable/>
+<Status.Stable />
 
-Blockquotes are a way of styling specific text with indention, normally used for demonstrating and highlighting textual information that comes from an external source.  
+Blockquotes are a way of styling specific text with indention, normally used for demonstrating and highlighting textual information that comes from an external source.
 
 <Playground>
   <Blockquote>Blockquote</Blockquote>
@@ -23,16 +22,18 @@ Blockquotes are a way of styling specific text with indention, normally used for
 <Props of={Blockquote} />
 
 ## When to use it
-For highlighting pieces of textual information, usually quotes, that aren't from SumUp directly. 
+
+For highlighting pieces of textual information, usually quotes, that aren't from SumUp directly.
 For instance, we should use a blockquote to highlight a quote from a merchant that was interviewed on a blog post regarding product development.
 
 ## Usage guidelines
+
 - **Do** use blockquotes for citing quotes from merchants, partners or other external sources
 - **Do not** place an image within a blockquote, they should contain only text.
 
-
 ## Component variations
-You can customize the size of the blockquote using the `size` property. 
+
+You can customize the size of the blockquote using the `size` property.
 We reccomend always sticking to mega in most cases, since it fits well with the Circuit's default body text size.
 
 <Playground>

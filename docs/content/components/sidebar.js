@@ -16,7 +16,7 @@
 import React, { useState } from 'react';
 import Sidebar from '../../../src/components/Sidebar';
 
-const SidebarContainer = () => {
+const SidebarWithState = () => {
   const [selected, setSelected] = useState(0);
 
   return (
@@ -51,4 +51,4 @@ const SidebarContainer = () => {
   );
 };
 
-export default SidebarContainer;
+export default SidebarWithState;

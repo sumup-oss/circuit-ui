@@ -4,7 +4,7 @@ route: /components/card
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Card from '../../../src/components/Card/Card';
 import { CardHeader } from '../../../src/components/Card';
@@ -15,7 +15,7 @@ import Heading from '../../../src/components/Heading/Heading';
 
 # Card
 
-<Status.Stable/>
+<Status.Stable />
 
 Cards are one of the most important elements that give structure for the content we are showing for our
 merchants. They group related information and make our product easy to scan and understand.
@@ -24,16 +24,21 @@ merchants. They group related information and make our product easy to scan and 
   <Card>
     <CardHeader>
       <Heading size={Heading.KILO} noMargin>
-      Send us a message
+        Send us a message
       </Heading>
     </CardHeader>
-    <Text margin={false}>If you didn't solve your problem using our resource center, please send us a message below and we will answer as soon as possible</Text>
-    </Card>
-  </Playground>
+    <Text margin={false}>
+      If you didn't solve your problem using our resource center, please send us
+      a message below and we will answer as soon as possible
+    </Text>
+  </Card>
+</Playground>
+
+<Props of={Card} />
 
 ## When to use it
 
-You should use cards whenever you need to present related information in an easy and scannable way for our merchant. 
+You should use cards whenever you need to present related information in an easy and scannable way for our merchant.
 
 ## Usage guidelines
 
@@ -42,7 +47,7 @@ You should use cards whenever you need to present related information in an easy
 - **Do** place primary buttons on the bottom of the card, especially the main call to action for the next step
 - **Do not** place more than one primary button on a card
 - **Do not** fill the card with a lot of content. If the card requires too much scrolling, consider breaking it into multiple sections with different cards
-- **Do not** place a card 
+- **Do not** place a card
 
 ## Component variations
 
@@ -62,7 +67,7 @@ is the default and should be used for most cases.
 ### Shadows
 
 A card has three possible different shadows ranging from low intensity (single) to maximum (triple). For most cases,
-the single shadow is recommended. 
+the single shadow is recommended.
 
 <Playground>
   <Fragment>
@@ -86,14 +91,10 @@ transaction.
 
 <Playground>
   <ListView>
-    <ListView.Item>
-      First card
-    </ListView.Item>
-    <ListView.Item>
-      Second card
-    </ListView.Item>
-    <ListView.Item>
-      Third card
-    </ListView.Item>
+    <ListView.Item>First card</ListView.Item>
+    <ListView.Item>Second card</ListView.Item>
+    <ListView.Item>Third card</ListView.Item>
   </ListView>
 </Playground>
+
+<Props of={ListView} />

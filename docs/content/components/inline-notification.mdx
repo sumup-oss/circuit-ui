@@ -4,7 +4,7 @@ route: /components/inline-notification
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Card from '../../../src/components/Card/Card';
 import InlineNotification from '../../../src/components/InlineNotification/InlineNotification';
@@ -27,6 +27,8 @@ Inline notification is a component that provides a short contextual message abou
   </Fragment>
 </Playground>
 
+<Props of={InlineNotification} />
+
 ## When to use it
 
 Use it when we need to provide contextual information that highlights errors or warnings after the information has been inputted by our merchants.
@@ -34,7 +36,7 @@ Use it when we need to provide contextual information that highlights errors or 
 ## Usage guidelines
 
 - **Do** always place the inline notification above the primary call to action
-- **Do** make it clear for our merchants what they need to in order to fix the possible error 
+- **Do** make it clear for our merchants what they need to in order to fix the possible error
 - **Do not** place an inline notification in another card, it should always be in the same card where the information that merchant input is
 
 ## Component variants
@@ -63,8 +65,9 @@ could provide additional help if the fill it.
   <Fragment>
     <Card>
       <InlineNotification type={InlineNotification.WARNING} noMargin>
-        You are proceeding without a contact information in your shipping order. This might make it harder
-        for us to reach you if we have a problem delivering it.
+        You are proceeding without a contact information in your shipping order.
+        This might make it harder for us to reach you if we have a problem
+        delivering it.
       </InlineNotification>
     </Card>
   </Fragment>

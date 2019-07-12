@@ -6,9 +6,10 @@ menu: Components
 
 import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
-import Sidebar from './sidebar';
+import Sidebar from '../../../src/components/Sidebar';
 import Status from '../../utils/Statuses';
 import Text from '../../../src/components/Text';
+import SidebarWithState from './sidebar';
 
 # Sidebar
 
@@ -19,22 +20,25 @@ sections of the same product (the merchant dashboard, for example), allowing eas
 and the second level of navigations, keeping a strong anchor for our merchants to always know where they are.
 
 <Playground>
-  <Sidebar />
+  <SidebarWithState />
 </Playground>
 
+<Props of={Sidebar} />
+
 ## When to use it
+
 If you have a single product that is web-based and has multiple value propositions/actions for a given user,
 you should use a sidebar to ensure the usability and navigation of that product.
 
 The sidebar supports first and second level items. The first level is used for primary actions/value for our merchants within a product.
 When you have related multiple sections or the breakdown of a certain value you should group them as secondary items under a single first level item,
-which will act as an aggregator. 
+which will act as an aggregator.
 
 ## Usage guidelines
 
 - **Do** use sentence case for every single navigation items
 - **Do** always position the sidebar on the left side on desktop and in the top side (collapsed version) on mobile
-- **Do** make sure that the sidebar is always visible and sticky, both on desktop and mobile 
+- **Do** make sure that the sidebar is always visible and sticky, both on desktop and mobile
 - **Do** add icons to first level items to help our merchants understand what they should expect in that section
 - **Do** group related items of a given action under a secondary
 - **Do not** place any element or part of an element on the sidebar.
@@ -59,7 +63,6 @@ Sidebar:
   you want to provided nested navigation.
 - `Sidebar.NavItem` - Individual navigation items.
 - `Sidebar.Footer` - Footer component
-
 
 ### Adding items to the sidebar
 
@@ -93,7 +96,7 @@ const Navigation = () => {
         />
       </Sidebar.NavList>
       <Sidebar.Footer>Footer</Sidebar.Footer>
-    </Sidebar> 
+    </Sidebar>
   );
 };
 
@@ -122,8 +125,8 @@ component. You can do that like this:
 
 ### Using the SidebarContext
 
-To avoid keeping the logic of toggling the `Sidebar` on your application, you can use the available 
-`SidebarContextProvider` and `SidebarContextConsumer` that are implemented with the new version of 
+To avoid keeping the logic of toggling the `Sidebar` on your application, you can use the available
+`SidebarContextProvider` and `SidebarContextConsumer` that are implemented with the new version of
 React's Context API. You can do that like this:
 
 ```
@@ -159,7 +162,7 @@ const Navigation = () => {
               />
             </Sidebar.NavList>
             <Sidebar.Footer>Footer</Sidebar.Footer>
-          </Sidebar> 
+          </Sidebar>
         )}
       </SidebarContextConsumer
     </SidebarContextProvider>
@@ -168,6 +171,6 @@ const Navigation = () => {
 
 ```
 
-That way, you can use the `SidebarContextConsumer` to control the `Sidebar` open state on other 
-components of your application without the need to drill the toggling function to where you need 
+That way, you can use the `SidebarContextConsumer` to control the `Sidebar` open state on other
+components of your application without the need to drill the toggling function to where you need
 to use it.

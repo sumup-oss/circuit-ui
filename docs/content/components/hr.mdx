@@ -4,7 +4,7 @@ route: /components/hr
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Hr from '../../../src/components/Hr/Hr';
 import Text from '../../../src/components/Text';
@@ -12,13 +12,15 @@ import Status from '../../utils/Statuses';
 
 # HR
 
-<Status.Stable/>
+<Status.Stable />
 
 HR provides a visual line that separates content into sections
 
 <Playground>
   <Hr />
 </Playground>
+
+<Props of={Hr} />
 
 ## When to use it
 

@@ -7,7 +7,10 @@ menu: Components
 import { Playground } from 'docz';
 import { Fragment } from 'react';
 
-import { EnhancedRangePicker as RangePicker, EnhancedSingleDayPicker as SingleDayPicker } from './calendar';
+import {
+  EnhancedRangePicker as RangePicker,
+  EnhancedSingleDayPicker as SingleDayPicker
+} from './calendar';
 import CalendarTag from '../../../src/components/CalendarTag';
 import CalendarTagTwoStep from '../../../src/components/CalendarTagTwoStep';
 import Status from '../../utils/Statuses';
@@ -17,13 +20,12 @@ import Text from '../../../src/components/Text';
 
 <Status.InReview/> <Status.Description size={Text.KILO}>Likely to be renamed</Status.Description>
 
-A calendar contains a view with actionable buttons in order to pick a range of dates 
+A calendar contains a view with actionable buttons in order to pick a range of dates
 and time frames for a specific task.
 
 <Playground>
-  <RangePicker/>
+  <RangePicker />
 </Playground>
-
 
 ## When to use it
 
@@ -40,41 +42,49 @@ or filter a subset of dated items (such as the transaction history, for example)
 
 ### Range Picker
 
-<Status.InReview/> 
+<Status.InReview />
 
-Used when the merchant needs to have clear visibility of selected start and end dates after the selection, 
+Used when the merchant needs to have clear visibility of selected start and end dates after the selection,
 for instance when a merchant needs to pick a time period within a form.
 
 <Playground>
-  <RangePicker/>
+  <RangePicker />
 </Playground>
 
 ### Single Day Picker
 
-<Status.InReview/> 
+<Status.InReview />
 
-Used when you the merchant only needs to select a single specific date. 
+Used when you the merchant only needs to select a single specific date.
 
 <Playground>
-  <SingleDayPicker/>
+  <SingleDayPicker />
 </Playground>
 
 ### Calendar Tag
 
-<Status.InReview/> 
+<Status.InReview />
 
-Used for cases where the merchant needs to select dates within the same month and that selection affects the data displayed. 
+Used for cases where the merchant needs to select dates within the same month and that selection affects the data displayed.
 
 <Playground>
-  <CalendarTag onDatesRangeChange={e => { console.log(e); }}/>
+  <CalendarTag
+    onDatesRangeChange={e => {
+      console.log(e);
+    }}
+  />
 </Playground>
 
 ### Calendar Tag Two Step
 
-<Status.InReview/> 
+<Status.InReview />
 
-Used for cases where the merchant needs to select dates that could be outside the same month and that selection affects the data displayed. 
+Used for cases where the merchant needs to select dates that could be outside the same month and that selection affects the data displayed.
 
 <Playground>
-  <CalendarTagTwoStep onDatesRangeChange={e => { console.log(e); }}/>
+  <CalendarTagTwoStep
+    onDatesRangeChange={e => {
+      console.log(e);
+    }}
+  />
 </Playground>

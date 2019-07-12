@@ -8,7 +8,7 @@ import { Playground, Props } from 'docz';
 
 import { Fragment } from 'react';
 import Button from '../../../src/components/Button';
-import { LoadingButtonWithState as LoadingButton } from './button';
+import LoadingButtonWithState from './button';
 import ButtonGroup from '../../../src/components/ButtonGroup';
 import LoadingButtonComponent from '../../../src/components/LoadingButton';
 import Status from '../../utils/Statuses';
@@ -144,10 +144,14 @@ the merchant of success or an error after loading. You should only use it on pri
 
 <Playground>
   <ButtonGroup align={ButtonGroup.CENTER}>
-    {/* Take a look at the Storybook to see an implementation of LoadingButton */}
-    <LoadingButton>Load</LoadingButton>
-    <LoadingButton exitAnimation="SUCCESS">Load success</LoadingButton>
-    <LoadingButton exitAnimation="ERROR">Load error</LoadingButton>
+    {/* A live implementation example can be found on Storybook */}
+    <LoadingButtonWithState>Load</LoadingButtonWithState>
+    <LoadingButtonWithState exitAnimation="SUCCESS">
+      Load success
+    </LoadingButtonWithState>
+    <LoadingButtonWithState exitAnimation="ERROR">
+      Load error
+    </LoadingButtonWithState>
   </ButtonGroup>
 </Playground>
 

@@ -5,7 +5,7 @@ menu: Components
 ---
 
 import { Fragment } from 'react';
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import Text from '../../../src/components/Text';
 import Input from '../../../src/components/Input/Input';
 import Label from '../../../src/components/Label/Label';
@@ -23,7 +23,7 @@ import Status from '../../utils/Statuses';
 
 ## Text Field
 
-<Status.Stable/>
+<Status.Stable />
 
 A text field is an input field for inserting short text and numbers. It has
 multiple functions and supports multiple character types/formats.
@@ -34,6 +34,8 @@ multiple functions and supports multiple character types/formats.
     <Input name="input" id="input" placeholder="Placeholder" />
   </Fragment>
 </Playground>
+
+<Props of={Input} />
 
 ### When to use it
 
@@ -129,7 +131,7 @@ Always provide a placeholder for text input fields.
 
 ## Label
 
-<Status.Stable/>
+<Status.Stable />
 
 A label is a short text that explains what information is needed in the text
 field. Having a clear and straightforward label not only helps the user to know
@@ -139,6 +141,8 @@ more accessible.
 <Playground>
   <Label htmlFor="name">Label</Label>
 </Playground>
+
+<Props of={Label} />
 
 ### When to use it
 
@@ -155,7 +159,7 @@ Always provide a label for text input fields.
 
 ## Checkbox
 
-<Status.Stable/>
+<Status.Stable />
 
 The primary goal of checkboxes is to provide a way for the user to make a range of selections.
 The users can select from zero, one, or multiple options. In other words, each checkbox is independent
@@ -171,6 +175,8 @@ of all other checkboxes in the list, and checking one box doesn’t uncheck the 
     </Checkbox>
   </Fragment>
 </Playground>
+
+<Props of={Checkbox} />
 
 ### When to use it
 
@@ -236,7 +242,7 @@ an option or agree to certain terms & conditions.
 
 ## Radio button
 
-<Status.InReview/>
+<Status.InReview />
 
 A radio button is a quick way to extract a single coded answer from our users by presenting multiple
 possibilities and allowing only one option to be chosen.
@@ -257,6 +263,8 @@ possibilities and allowing only one option to be chosen.
     </RadioButton>
   </Fragment>
 </Playground>
+
+<Props of={RedioButton} />
 
 ### When to use it
 
@@ -305,6 +313,8 @@ An example being the expiration date for a users credit card.
   />
 </Playground>
 
+<Props of={Select} />
+
 ### When to use it
 
 Best used when there are 4 or more defined options to choose from (e.g. Months).If there are less than 4 options,
@@ -322,13 +332,15 @@ consider using the radio button component.
 
 ## Textarea
 
-<Status.Stable/>
+<Status.Stable />
 
 It is a type of input that allow mutiple lines of text.
 
 <Playground>
   <TextArea value="Howdy from the text area" />
 </Playground>
+
+<Props of={Textarea} />
 
 ### When to use it
 
@@ -346,12 +358,10 @@ question.
 Currency Input indicates to the merchant that a number should be entered in a given currency.
 
 <Playground>
-  <CurrencyInput
-    placeholder='1.234,50'
-    currency='EUR'
-    locale='de-DE'
-  />
+  <CurrencyInput placeholder="1.234,50" currency="EUR" locale="de-DE" />
 </Playground>
+
+<Props of={CurrencyInput} />
 
 ### Component Variations
 
@@ -361,16 +371,8 @@ You can use `currency` to specify which currency the input should use.
 
 <Playground>
   <Fragment>
-    <CurrencyInput
-      placeholder="CHF: 1'234.50"
-      currency='CHF'
-      locale='de-CH'
-    />
-    <CurrencyInput
-      placeholder='RUB: 1 234,50'
-      currency='RUB'
-      locale='ru-RU'
-    />
+    <CurrencyInput placeholder="CHF: 1'234.50" currency="CHF" locale="de-CH" />
+    <CurrencyInput placeholder="RUB: 1 234,50" currency="RUB" locale="ru-RU" />
   </Fragment>
 </Playground>
 
@@ -379,25 +381,24 @@ You can use `currency` to specify which currency the input should use.
 You can use `locale` to change the currency formatting locale.
 For example, Euros could be formatted differently based on locale:
 
-
 <Playground>
   <Fragment>
     <CurrencyInput
-      placeholder='de-DE: 1.234,50'
-      currency='EUR'
-      locale='de-DE'
+      placeholder="de-DE: 1.234,50"
+      currency="EUR"
+      locale="de-DE"
     />
     <CurrencyInput
-      placeholder='en-IE: 1,234.50'
-      currency='EUR'
-      locale='en-IE'
+      placeholder="en-IE: 1,234.50"
+      currency="EUR"
+      locale="en-IE"
     />
   </Fragment>
 </Playground>
 
 ## Search Input
 
-<Status.Stable/>
+<Status.Stable />
 
 Search Input is an input that indicates to the merchant they can use the field
 to search information on the screen.
@@ -405,6 +406,8 @@ to search information on the screen.
 <Playground>
   <SearchInput />
 </Playground>
+
+<Props of={SearchInput} />
 
 ### Component variations
 
@@ -418,18 +421,30 @@ The search input can be disabled.
 
 ## Autocomplete Input
 
-<Status.Stable/>
+<Status.Stable />
 
 Autocomplete Input suggests input values based on a given list of values.
 
 <Playground>
   <AutoCompleteInput
-    placeholder='Start typing'
-    items={['apples', 'bananas', 'carrots', 'grapes', 'oranges', 'pears', 'strawberries']}
-    onChange={e => { console.log('On change') }}
+    placeholder="Start typing"
+    items={[
+      'apples',
+      'bananas',
+      'carrots',
+      'grapes',
+      'oranges',
+      'pears',
+      'strawberries'
+    ]}
+    onChange={e => {
+      console.log('On change');
+    }}
     clearOnSelect={false}
   />
 </Playground>
+
+<Props of={AutoCompleteInput} />
 
 ## Autocomplete Tags
 
@@ -439,8 +454,20 @@ Autocomplete Tags lets the merchant select one or several tags based on a given 
 
 <Playground>
   <AutoCompleteTags
-    placeholder='Start typing'
-    availableTags={['apples', 'bananas', 'carrots', 'grapes', 'oranges', 'pears', 'strawberries']}
-    onChange={e => { console.log('On change') }}
+    placeholder="Start typing"
+    availableTags={[
+      'apples',
+      'bananas',
+      'carrots',
+      'grapes',
+      'oranges',
+      'pears',
+      'strawberries'
+    ]}
+    onChange={e => {
+      console.log('On change');
+    }}
   />
 </Playground>
+
+<Props of={AutoCompleteTags} />

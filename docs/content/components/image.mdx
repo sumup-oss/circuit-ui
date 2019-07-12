@@ -4,7 +4,7 @@ route: /components/image
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Image from '../../../src/components/Image/Image';
 import Text from '../../../src/components/Text';
@@ -12,7 +12,7 @@ import Status from '../../utils/Statuses';
 
 # Image
 
-<Status.Stable/>
+<Status.Stable />
 
 <Playground>
   <Image
@@ -21,14 +21,19 @@ import Status from '../../utils/Statuses';
   />
 </Playground>
 
+<Props of={Image} />
+
 ## When to use it
-Use the image component when you need to showcase visual files and ensure responsiveness. 
+
+Use the image component when you need to showcase visual files and ensure responsiveness.
 
 ## Usage guidelines
+
 - **Do** always specify the `alt` attribute.
 - **Do not** use unauthorized images from external sources
 
 ## "Alt" text guidelines
+
 - **Do** always write clear and simple `alt` text
 - **Do** keep the `alt` text as short as possible
 - **Do** write in the active voice
