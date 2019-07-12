@@ -14,56 +14,47 @@
  */
 
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import LoadingButton from '../../../src/components/LoadingButton';
 
-export const LoadingButtonWithState = () => {
-  const [loading, setLoading] = useState(false);
-  const [loadingSuccess, setLoadingSuccess] = useState(false);
-  const [loadingError, setLoadingError] = useState(false);
+export const LoadingButtonWithState = ({ exitAnimation, children }) => {
+  // get loading button status animation or set as default
+  const variation = exitAnimation || 'DEFAULT';
 
-  const handleClick = status => {
+  const [loading, setLoading] = useState({
+    DEFAULT: false,
+    SUCCESS: false,
+    ERROR: false
+  });
+
+  const handleClick = () => {
     // trigger loading state
-    if (status === 'success') {
-      setLoadingSuccess(true);
-      window.setTimeout(() => {
-        setLoadingSuccess(false);
-      }, 1000);
-    } else if (status === 'error') {
-      setLoadingError(true);
-      window.setTimeout(() => {
-        setLoadingError(false);
-      }, 1000);
-    } else {
-      setLoading(true);
-      window.setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-    }
+    setLoading({
+      ...loading,
+      [variation]: true
+    });
+    // reset loading
+    window.setTimeout(() => {
+      setLoading({
+        ...loading,
+        [variation]: false
+      });
+    }, 1000);
   };
 
   return (
-    <>
-      <LoadingButton primary isLoading={loading} onClick={() => handleClick()}>
-        Load
-      </LoadingButton>
-      <br />
-      <LoadingButton
-        primary
-        isLoading={loadingError}
-        onClick={() => handleClick('error')}
-        exitAnimation={LoadingButton.ERROR}
-      >
-        Load with error
-      </LoadingButton>
-      <br />
-      <LoadingButton
-        primary
-        isLoading={loadingSuccess}
-        onClick={() => handleClick('success')}
-        exitAnimation={LoadingButton.SUCCESS}
-      >
-        Load with success
-      </LoadingButton>
-    </>
+    <LoadingButton
+      primary
+      isLoading={loading[variation]}
+      onClick={() => handleClick()}
+      exitAnimation={exitAnimation && LoadingButton[exitAnimation]}
+    >
+      {children}
+    </LoadingButton>
   );
+};
+
+LoadingButtonWithState.propTypes = {
+  exitAnimation: PropTypes.oneOf(['SUCCESS', 'ERROR']),
+  children: PropTypes.string
 };

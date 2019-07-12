@@ -8,15 +8,16 @@ import { Playground, Props } from 'docz';
 
 import { Fragment } from 'react';
 import Button from '../../../src/components/Button';
-import { LoadingButtonWithState as LoadingButton } from "./button"
+import { LoadingButtonWithState as LoadingButton } from './button';
 import ButtonGroup from '../../../src/components/ButtonGroup';
+import LoadingButtonComponent from '../../../src/components/LoadingButton';
 import Status from '../../utils/Statuses';
 
 # Button
 
-<Status.InReview/>
+<Status.InReview />
 
-A button allows us to highlight actions in the product and make them easily 
+A button allows us to highlight actions in the product and make them easily
 perceived and achievable through just one click.
 
 <Playground>
@@ -30,16 +31,18 @@ perceived and achievable through just one click.
 Use buttons when merchants need to either navigate through a product or perform a specific task.
 
 ## Usage guidelines
+
 - **Do** always label a button in a clear and understandable way
 - **Do** always think about the priority of the action to be taken when choosing a type of button
 - **Do** position buttons in a predictable and coherent way throughout the product.
 - **Do** combine different button types if you have more than one button in a specific screen
-- **Do** use a loading state to provide feedback for our merchant when the action revolves around saving or 
-inputting information, especially when it could take some seconds.
+- **Do** use a loading state to provide feedback for our merchant when the action revolves around saving or
+  inputting information, especially when it could take some seconds.
 
 ## Content guidelines
+
 - **Do** always start the label with an actionable verb accompanied by a noun to provide enough context (example: "Confirm order").
-The only exceptions are the following common actions: "Save"; "Cancel"; and "Close".
+  The only exceptions are the following common actions: "Save"; "Cancel"; and "Close".
 - **Do** keep the label to a maximum of 3 words
 - **Do not** capitalize all words of the label, just the first word or brand/product words (such as Apple Pay, for example)
 
@@ -74,7 +77,7 @@ signal opposite actions from the primary button, such as "Cancel order".
 ### Flat buttons
 
 Used only in the marketing website when you need to position an action over a dark background. It has a
-primary and secondary version. 
+primary and secondary version.
 
 <Playground>
   <Fragment>
@@ -119,19 +122,10 @@ or no constraint on the button's placement.
   </Fragment>
 </Playground>
 
-## Loading button
-
-When the button's action is inputting/saving  information or it takes more than 3 seconds to take the merchant 
-to the next step/page, you can indicate a loading state with `LoadingButton`, as well as visually notify 
-the merchant of success or an error after loading. You should only use it on primary buttons.
-
-<Playground>
-  <LoadingButton/>
-</Playground>
-
 ## Button group
-Used when our merchant has two opposites actions to be taken in a certain step of a flow. It has a primary
-button for the expected action and a secondary button on its left 
+
+Used when our merchant has two opposites actions to be taken in a certain step of a flow. It is generally used aligned to the right,
+with a primary button for the expected action and a secondary button on its left.
 
 <Playground>
   <ButtonGroup>
@@ -139,3 +133,22 @@ button for the expected action and a secondary button on its left
     <Button primary>Confirm approval</Button>
   </ButtonGroup>
 </Playground>
+
+<Props of={ButtonGroup} />
+
+## Loading button
+
+When the button's action is inputting/saving information or it takes more than 3 seconds to take the merchant
+to the next step/page, you can indicate a loading state with `LoadingButton`, as well as visually notify
+the merchant of success or an error after loading. You should only use it on primary buttons.
+
+<Playground>
+  <ButtonGroup align={ButtonGroup.CENTER}>
+    {/* Take a look at the Storybook to see an implementation of LoadingButton */}
+    <LoadingButton>Load</LoadingButton>
+    <LoadingButton exitAnimation="SUCCESS">Load success</LoadingButton>
+    <LoadingButton exitAnimation="ERROR">Load error</LoadingButton>
+  </ButtonGroup>
+</Playground>
+
+<Props of={LoadingButtonComponent} />
