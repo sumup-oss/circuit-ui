@@ -136,7 +136,7 @@ no longer needed.
    in the original deprecation issue.
 3. **Add a notice to the docs and to the code.** Introduce the deprecation
    warning in a minor release. Change the status badge on the component page
-   to "Deprecated" and add a `console.log(`ComponentName is deprecated and will be removed in version X.0.0`)`
+   to "Deprecated" and add a `console.warn(`ComponentName is deprecated and will be removed in version X.0.0`)`
    to the `render()` function of the component, or generally on the first
    run of an instance of a component or feature.
 4. **Wait for the deadline.** You may still need to fix critical bugs during the
