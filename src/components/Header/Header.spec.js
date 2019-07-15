@@ -30,6 +30,12 @@ describe('Header', () => {
       expect(actual).toMatchSnapshot();
     });
 
+    it('should render and match snapshot for mobileOnly styles', () => {
+      const mobileProps = { ...props, mobileOnly: true };
+      const actual = create(<Header {...mobileProps} />);
+      expect(actual).toMatchSnapshot();
+    });
+
     it('should render children', () => {
       const wrapper = shallow(
         <Header>

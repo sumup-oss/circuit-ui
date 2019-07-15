@@ -29,16 +29,20 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacings.mega};
   z-index: ${theme.zIndex.header};
   position: sticky;
-  top: 0;
-  ${theme.mq.giga} {
-    display: none;
-  }
 `;
 
-const Container = styled('div')(baseStyles);
+const mobileOnlyStyles = ({ theme, mobileOnly }) =>
+  mobileOnly &&
+  css`
+    ${theme.mq.giga} {
+      display: none;
+    }
+  `;
 
-const Header = ({ title, children }) => (
-  <Container>
+const Container = styled('div')(baseStyles, mobileOnlyStyles);
+
+const Header = ({ title, mobileOnly, children }) => (
+  <Container mobileOnly={mobileOnly}>
     {children}
     <Title>{title}</Title>
   </Container>
@@ -49,6 +53,11 @@ Header.propTypes = {
    * The page title for the Header.
    */
   title: PropTypes.string,
+  /**
+   * If the Header should appear only on
+   * mobile screens (useful for when using together with the Sidebar).
+   */
+  mobileOnly: PropTypes.bool,
   /**
    * The child component of Header.
    */
