@@ -3,36 +3,85 @@ name: Principles
 route: /principles
 ---
 
-# Principles
+## Design Principles
 
-## Obvious and transparent naming
+When developing a common design language, is important to remind us why we are here in the first place. Our mission is to design simple yet beautiful solutions, which cater to real life problems by 
+partnering with our merchants so that they can spend more time doing what they love. In order to do that, we
+developed a set of principles that help us always be on that path.
 
-Our components should use names that are as standard as possible.  Opt for a
-more verbose name rather than a creative or clever one. When in doubt, look to
-several other component libraries for inspiration.
+**Problem focus.** We don't create new features, we solve real life problems. We strive to 
+understand the problems of our Merchants before focusing on the interface, involving them
+early and often to validate or disprove our hypotheses. We tailor our products to their 
+everyday tasks without getting attached to our own ideas.
 
-### Component and prop-naming guidelines
+**Universal Empathy.** At the centre of every design decision are our users as we aim to build 
+products that satisfy their needs. Open communication with our customer and constant research 
+helps us in understanding their needs and allows us to improve the ways in which their business 
+can be run and to alleviate their many pain-points. As we serve a broad range of global merchants 
+with differing problems, goals and measurements of success, we must never forget to think in an 
+inclusive way, optimising for individual use-cases and edge-cases. 
 
-- Try for one- or two-word component names.
-- Try for one-word props if possible.
-- Similarly, use onVerb handlers (e.g. "onClick") and stick to the DOM names when possible.
-- Labels in English should accept translated values, with default props in English.
-- Keep it concise without being clever.
+**Predictable Simplicity.** The products and features we develop should feel familiar to a merchant 
+using our platform for the first time. Creating products and features that maintain a sense of 
+predictability means are products are easier to understand and use from the outset. 
+We don't introduce new UI patterns, we utilize robust, useful and usable UI patterns and
+interactions with proven track records of working well in consumer grade applications
+
+
+## Development Principles
+
+When developing components in Circuit UI, we have a few development principles
+you should keep in mind. They will help you with picking good names, design
+clear and understandable APIs, and keep things consistent.
+
+### Naming principles
+
+**Use obvious and transparent naming.** Our components should use names that
+are as standard as possible. Opt for a more verbose name rather than a creative
+or clever one. When in doubt, you can look at several other component libraries
+for inspiration.
+
+**Opt for one- or two-word component and prop names.** When possible, stay
+concise as long as you can remain clear as well.
+
+**Handlers should be written as `onVerb`.** Or (if needed) `onVerbNoun` rather
+than `onNounVerb`. For example, if you cannot reasonably name your event
+handler `onSelect` because it is overly vague for your use-case, instead opt
+for something like `onSelectFruit` rather than `onFruitSelect`.
+
+If at all possible, stick to standard names you'd find in the DOM or React APIs like
+`onClick`. This helps make our APIs more predictable!
 
 ```javascript
-// Do
+// Do: Use standard component names and short prop names
 <DatePicker onClick={fn} nextButton="Next" prevButton="Previous" />
 
-// Don't
+// Don't: Come up with unusual component names or name handlers without the `on` prefix
 <CustomDatePicker selectDate={fn} />
 ```
 
-## Keep the API small
+### Component design principles
 
-- Don't expose underlying utilies or internals unless necessary.
+**Keep the API small.** As much as possible, avoid exposing too many options
+for configuring a component.  The exception is if you are wrapping an existing
+third-party library, you may have a good reason to simply pass along all
+additional props to ensure API compatibility with that third-party library.
 
-## Label elements with BEM
+### Best practices
 
-## Ensure accessibility and autocompletion
+**Every component must be thoroughly tested.** If the component is purely
+representative (e.g. simple, styled components), a snapshot test is sufficient.
+If the component is interactive, you should do your best to test the
+interaction on a unit level.
 
-## TBD
+**Ensure accessibility and autocompletion.** Every component should have a
+minimum of an accessibility test asserted with jest-axe. You should also make a
+special effort to properly enable autocompletion for relevant fields, using the
+proper input names and autocomplete properties.
+
+**All translated text should be provided as props with English defaults.** It
+must be possible for all user-facing text inside a component to be replaced
+with translated versions. This also makes it easier to stick to content
+guidelines by providing a good starting example.
+
+**Documentation is part of your component.** Be sure to write meaningful documentation about best practices / usage guidelines when creating or updating existing components. You can even use existing documentation for reference.

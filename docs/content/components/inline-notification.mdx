@@ -4,69 +4,87 @@ route: /components/inline-notification
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Card from '../../../src/components/Card/Card';
 import InlineNotification from '../../../src/components/InlineNotification/InlineNotification';
+import Text from '../../../src/components/Text';
+import Status from '../../utils/Statuses';
 
 # Inline notification
 
-<Playground>
-  <Fragment>
-    <Card>
-      <InlineNotification type={InlineNotification.SUCCESS}>
-        Lookin' good
-      </InlineNotification>
-    </Card>
-  </Fragment>
-</Playground>
+<Status.InReview/> <Status.Description size={Text.KILO}>Likely to be renamed</Status.Description>
 
-## Variations
-
-### Color variants
+Inline notification is a component that provides a short contextual message about an action taken by our merchants within the same card structure that they are in.
 
 <Playground>
   <Fragment>
     <Card>
-      <InlineNotification type={InlineNotification.SUCCESS}>
-        Lookin' good
+      <InlineNotification type={InlineNotification.DANGER} noMargin>
+        This combination of email address and password is incorrect.
       </InlineNotification>
     </Card>
   </Fragment>
 </Playground>
 
-<Playground>
-  <Fragment>
-    <Card>
-      <InlineNotification type={InlineNotification.WARNING}>
-        Lookin' good
-      </InlineNotification>
-    </Card>
-  </Fragment>
-</Playground>
+<Props of={InlineNotification} />
 
-<Playground>
-  <Fragment>
-    <Card>
-      <InlineNotification type={InlineNotification.DANGER}>
-        Lookin' good
-      </InlineNotification>
-    </Card>
-  </Fragment>
-</Playground>
+## When to use it
 
-### Size variants
-
-<Playground>
-  <Fragment>
-    <Card size={Card.GIGA}>
-      <InlineNotification size={Card.GIGA} type={InlineNotification.DANGER}>
-        Lookin' good
-      </InlineNotification>
-    </Card>
-  </Fragment>
-</Playground>
-
-## Best practices
+Use it when we need to provide contextual information that highlights errors or warnings after the information has been inputted by our merchants.
 
 ## Usage guidelines
+
+- **Do** always place the inline notification above the primary call to action
+- **Do** make it clear for our merchants what they need to in order to fix the possible error
+- **Do not** place an inline notification in another card, it should always be in the same card where the information that merchant input is
+
+## Component variants
+
+### Success
+
+Used to provide positive feedback without taking the merchant to another screen, such as updating the configuration
+on a settings page.
+
+<Playground>
+  <Fragment>
+    <Card>
+      <InlineNotification type={InlineNotification.SUCCESS} noMargin>
+        Your settings have been updated with success!
+      </InlineNotification>
+    </Card>
+  </Fragment>
+</Playground>
+
+### Warning
+
+Used to warn merchants regarding information that is not obligatory to fill or input, but it
+could provide additional help if the fill it.
+
+<Playground>
+  <Fragment>
+    <Card>
+      <InlineNotification type={InlineNotification.WARNING} noMargin>
+        You are proceeding without a contact information in your shipping order.
+        This might make it harder for us to reach you if we have a problem
+        delivering it.
+      </InlineNotification>
+    </Card>
+  </Fragment>
+</Playground>
+
+### Danger
+
+The most common inline notification type. Used to provide feedback that we cannot proceed forward in completing
+a task for the user (such as a login) if they don't fix what's wrong. Remember to always provide context on how
+to exactly solve the problem.
+
+<Playground>
+  <Fragment>
+    <Card>
+      <InlineNotification type={InlineNotification.DANGER} noMargin>
+        This combination of email address and password is incorrect.
+      </InlineNotification>
+    </Card>
+  </Fragment>
+</Playground>

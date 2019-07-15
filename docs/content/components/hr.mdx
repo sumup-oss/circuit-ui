@@ -4,16 +4,30 @@ route: /components/hr
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Hr from '../../../src/components/Hr/Hr';
+import Text from '../../../src/components/Text';
+import Status from '../../utils/Statuses';
 
 # HR
+
+<Status.Stable />
+
+HR provides a visual line that separates content into sections
 
 <Playground>
   <Hr />
 </Playground>
 
-## Best practices
+<Props of={Hr} />
+
+## When to use it
+
+Use it when you need to separate different sections of a certain content within a body text or a list
+of data within a card.
 
 ## Usage guidelines
+
+- **Do** proper space the HR from the sections to make sure the division is clear
+- **Do not** use HR to separate totally different content, it is used to break sections on a related content

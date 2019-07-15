@@ -1,31 +1,167 @@
 ---
 name: Message
-route: /components/Message
+route: /components/message
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
-import Message from '../../../src/components/Message/Message';
-import Heading from '../../../src/components/Heading/Heading';
-import MessageIcon from '../../../src/components/Message/components/Icon/Icon';
-import { ReactComponent as HelpIcon } from '../../../src/components/Message/message-success.svg';
+import Heading from '../../../src/components/Heading';
+import Text from '../../../src/components/Text';
+import Message, {
+  MessageIcon,
+  MessageButton
+} from '../../../src/components/Message';
+import Button from '../../../src/components/Button';
+import NotificationList from '../../../src/components/NotificationList';
+import NotificationBanner from '../../../src/components/NotificationBanner';
+import Status from '../../utils/Statuses';
 
 # Message
 
+<Status.InReview />
+
+Messages are a quick and subtle way of providing contextual feedback for our merchants through floating
+or fixed cards with a semantical meaning (either success, danger or attention).
+
 <Playground>
   <Message>
-    <MessageIcon>
-      <HelpIcon />
-    </MessageIcon>
+    <MessageIcon type={MessageIcon.SUCCESS} />
     <Heading size={Heading.KILO} element="h4" margin={false}>
       Transaction successfully refunded
     </Heading>
   </Message>
 </Playground>
 
-## Best practices
+<Props of={Message} />
 
-- Always specify the `alt` attribute.
+## When to use it
+
+Messages are used to serve our merchants with subtle informative snippets or feedback
+on a given action.
 
 ## Usage guidelines
+
+- **Do** allow merchants to dismiss all messages unless immediate action is required.
+- **Do** direct merchants to the relevant place with a CTA if action is required.
+- **Do** use feedback messages to validate an action has been completed.
+- **Do** use the correct badge colour to signify sentiment of a message.
+- **Do not** use attention messages unless a vital action is required.
+- **Do not** use the messages component if our feedback for the merchant is super critical,
+  such as an order's payment confirmation. Its subtle aspect could make it hard for them to have
+  a strong confirmation of what just happened.
+
+## Component variations
+
+### Feedback messages
+
+Used to provide feedback to a merchant after an action
+has been taken. These notifications disappear automatically.
+
+<Playground>
+  <Message>
+    <MessageIcon type={MessageIcon.SUCCESS} />
+    <Heading size={Heading.KILO} element="h4" margin={false}>
+      Transaction successfully refunded
+    </Heading>
+  </Message>
+</Playground>
+
+### Informative messages
+
+Can contain information which isn't essential but may
+be useful to the merchant. (e.g. New feature announcement) It is recommended
+to use a call to action.
+
+<Playground>
+  <Message>
+    <MessageIcon type={MessageIcon.WARNING} />
+    <div>
+      <Heading size={Heading.KILO} element="h4" margin={false}>
+        You still need to verify your account
+      </Heading>
+    </div>
+    <MessageButton>
+      <Button
+        size={Button.KILO}
+        onClick={e => {
+          console.log('Something happened');
+        }}
+      >
+        Verify account
+      </Button>
+    </MessageButton>
+  </Message>
+</Playground>
+
+### Attention messages
+
+When action is required by the merchant, attention
+messages should be used and should clearly highlight which action is
+required. **A call to action must be displayed.**
+
+<Playground>
+  <Message>
+    <MessageIcon type={MessageIcon.ERROR} />
+    <div>
+      <Heading size={Heading.KILO} element="h4" margin={false}>
+        Your transaction has failed
+      </Heading>
+    </div>
+    <MessageButton>
+      <Button
+        size={Button.KILO}
+        onClick={e => {
+          console.log('Something happened');
+        }}
+      >
+        Try again
+      </Button>
+    </MessageButton>
+  </Message>
+</Playground>
+
+## Notification Banner
+
+You can display a banner with a message with `NotificationBanner`, and position it at the top or bottom of a view.
+
+<Playground>
+  <NotificationBanner>
+    <Message>
+      <MessageIcon type={MessageIcon.SUCCESS} />
+      <div>
+        <Heading size={Heading.KILO} element="h4" noMargin>
+          New Feature — Intelligent Reporting
+        </Heading>
+        <Text noMargin>
+          Get automatic insights into your business statistics with one click.
+        </Text>
+      </div>
+    </Message>
+  </NotificationBanner>
+</Playground>
+
+<Props of={NotificationBanner} />
+
+## Notification List
+
+You can display a list of messages with `NotificationList`.
+
+<Playground>
+  <NotificationList>
+    <Message>
+      <MessageIcon type={MessageIcon.SUCCESS} />
+      <Heading size={Heading.KILO} element="h4" noMargin>
+        Account created
+      </Heading>
+    </Message>
+    <Message>
+      <MessageIcon type={MessageIcon.SUCCESS} />
+      <Heading size={Heading.KILO} element="h4" noMargin>
+        Transaction successfully refunded
+      </Heading>
+    </Message>
+  </NotificationList>
+</Playground>
+
+<Props of={NotificationList} />
