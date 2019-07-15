@@ -7,8 +7,15 @@ menu: Components
 import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Tag from '../../../src/components/Tag/Tag';
+import Status from '../../utils/Statuses';
+import Text from '../../../src/components/Text';
 
-# Badge
+# Tag
+
+<Status.Stable />
+
+Tags enable the merchant to add or remove attributes to a given content, for
+example: transaction history for a given day or week.
 
 <Playground>
   <Fragment>
@@ -23,7 +30,19 @@ import Tag from '../../../src/components/Tag/Tag';
 
 ## Best practices
 
+- For content within the tag, the text should be no longer than 30 characters.
+- Be as concise as possible in wording, limit to one to two words, as to not
+  take up too much space.
+
 ## Usage guidelines
+
+- **Do** make tags removable by default in order for merchants to have the
+  ability to add and remove them.
+- **Do** display tags above or within proximity to the content that needs to be
+  filtered.
+- **Do** ensure that icons are always be displayed on the left of the label, in
+  a canvas of 24px. The icon in question does not mean the `X` on the
+  right-hand side.
 
 ## Component variations
 

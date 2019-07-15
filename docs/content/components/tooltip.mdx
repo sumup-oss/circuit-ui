@@ -4,12 +4,16 @@ route: /components/tooltip
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Tooltip from '../../../src/components/Tooltip';
 import TooltipContainer from './TooltipContainer';
+import Status from '../../utils/Statuses';
+import Text from '../../../src/components/Text';
 
 # Tooltip
+
+<Status.Stable />
 
 Tooltips display additional information on floating labels.
 They can be activated when users hover, focus, tap, or click.
@@ -34,6 +38,8 @@ They can be activated when users hover, focus, tap, or click.
     </svg>
   </TooltipContainer>
 </Playground>
+
+<Props of={Tooltip} />
 
 ## When to use it
 

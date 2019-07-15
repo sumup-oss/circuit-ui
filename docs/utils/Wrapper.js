@@ -1,12 +1,41 @@
-/* eslint-disable */
+/**
+ * Copyright 2019, SumUp Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
-import { theme as themes } from '../../src/index';
+import { GlobalStyles, theme as themes } from '../../src/index';
+
+const customCss = `
+  div[class^="Sidebar__Footer"] {
+    display: none;
+  }
+  b, strong {
+    font-weight: 700;
+  }
+`;
 
 const Wrapper = props => (
-  <ThemeProvider theme={themes.circuit}>{props.children}</ThemeProvider>
+  <ThemeProvider theme={themes.circuit}>
+    <GlobalStyles custom={customCss} />
+    {props.children}
+  </ThemeProvider>
 );
+
+Wrapper.propTypes = {
+  children: PropTypes.children
+};
 
 export default Wrapper;

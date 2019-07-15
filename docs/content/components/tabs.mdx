@@ -1,0 +1,48 @@
+---
+name: Tabs
+route: /components/tabs
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import { Fragment } from 'react';
+import { Tabs, Tab, TabPanel, TabList } from '../../../src/components/Tabs';
+import Status from '../../utils/Statuses';
+import Text from '../../../src/components/Text';
+
+# Tabs
+
+<Status.InReview/> <Status.Description size={Text.KILO}>Does not handle content overflow on mobile. Unclear use case compared to subnavigation.</Status.Description>
+
+<Playground>
+  <Tabs
+    items={[
+      { id: 'one', tab: 'Tab 1', panel: 'Content 1' },
+      { id: 'two', tab: 'Tab 2', panel: 'Content 2' },
+      { id: 'three', tab: 'Tab 3', panel: 'Content 3' },
+      { id: 'four', tab: 'Tab 4', panel: 'Content 4' }
+    ]}
+  />
+</Playground>
+
+<Props of={Tabs} />
+
+## Variations
+
+If you need more control on the tabs, you can build you own tabs list instead of passing an array of items to the `Tabs` component. This can be useful to style any of the components individually.
+
+<Playground>
+  <TabList>
+    <Tab selected>Tab 1</Tab>
+    <Tab>Tab 2</Tab>
+    <Tab>Tab 3</Tab>
+  </TabList>
+  <TabPanel style={{ padding: '12px' }}>
+    Bear in mind that you'll have to manually implement the interface for
+    changing contents and the selected indicator.
+  </TabPanel>
+</Playground>
+
+## When to use it
+
+## Usage guidelines

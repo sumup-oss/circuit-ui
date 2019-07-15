@@ -10,75 +10,123 @@ import { Fragment } from 'react';
 import Text from '../../../src/components/Text/Text';
 import Heading from '../../../src/components/Heading/Heading';
 import SubHeading from '../../../src/components/SubHeading/SubHeading';
+import Status from '../../utils/Statuses';
 
 # Typography
 
-## Components
+## Headings
 
-### Headings
+<Status.Stable />
+
+Headings are used for titling major sections of the interface. They help better organize the information
+for our merchants providing useful labels for each possible section.
+
+### Usage guidelines
+- **Do** position the heading above the content
+- **Do** use the `Mega` size for titling cards and `Giga` for pages
 
 <Playground>
   <Fragment>
     <Heading element="h3" size={Heading.KILO}>
-      Heading
+      Login (kilo)
     </Heading>
     <Heading element="h3" size={Heading.MEGA}>
-      Heading
+      Orders (mega)
     </Heading>
     <Heading element="h3" size={Heading.GIGA}>
-      Heading
+      Employees (giga)
     </Heading>
     <Heading element="h3" size={Heading.TERA}>
-      Heading
+      Transactions (tera)
     </Heading>
     <Heading element="h3" size={Heading.PETA}>
-      Heading
+      Refer a friend (peta)
     </Heading>
     <Heading element="h3" size={Heading.EXA}>
-      Heading
+      Payout history (exa)
     </Heading>
     <Heading element="h3" size={Heading.ZETTA}>
-      Heading
+      Get in touch with us (zetta)
     </Heading>
   </Fragment>
 </Playground>
 
 <Props of={Heading} />
 
-### Subheadings
+## Subheadings
+
+<Status.Stable />
+
+Subheadings help merchants break through larger related contents in the same section.
+They are usually used to separate sections within a card.
+
+### Usage guidelines
+- **Do** use subheadings to break complex and longer contents in a page or card
+- **Do not** use a subheading without a heading title for the same section
 
 <Playground>
   <Fragment>
     <SubHeading element="h3" size={SubHeading.KILO}>
-      Subheading
+      Personal Address (kilo)
     </SubHeading>
     <SubHeading element="h3" size={SubHeading.MEGA}>
-      Subheading
+      Business Address (mega)
     </SubHeading>
   </Fragment>
 </Playground>
 
 <Props of={SubHeading} />
 
-### Text
+## Text
+
+<Status.Stable />
+
+Text is used to present the core textual content for our merchants. They are contained within headings and subheadings
+and have `bold` and `italic` attributes to tailor it according to the content we are.
+presenting.
+
+### Usage guidelines
+- **Do** use the `mega` size as the default for body text
+- **Do** use spacing to better organize textual information, such as different paragraphs
+- **Do not** overly use the `bold` attribute, it should be used to 
+help merchants scan through key parts of the content 
+
+#### Default
 
 <Playground>
   <Fragment>
-    <Text>Text</Text>
-    <Text bold size={Text.KILO}>
-      Text
+    <Text>Process over 500 transactions on a single charge and accept magstripe, chip, and contactless payments.</Text>
+  </Fragment>
+</Playground>
+
+#### Bold
+
+<Playground>
+  <Fragment>
+    <Text bold size={Text.MEGA}>
+     What tasks are important for your long-term goals? 
     </Text>
-    <Text italic size={Text.KILO}>
-      Text
+  </Fragment>
+</Playground>
+
+#### Italic
+
+<Playground>
+  <Fragment>
+    <Text italic size={Text.MEGA}>
+      According to the Federal Reserve Bureau, in-person credit card fraud is declining, thanks in part to the increasing use of EMV chip cards. 
     </Text>
-    <Text element="span" size={Text.MEGA}>
-      Text
+  </Fragment>
+</Playground>
+
+#### Span
+
+<Playground>
+  <Fragment>
+    <Text element="span" size={Text.Kilo}>
+      We do things differently. We build our own payment solution end-to-end so that we can always offer the best value & service.
     </Text>
   </Fragment>
 </Playground>
 
 <Props of={Text} />
-
-## Best practices
-
-## Usage guidelines

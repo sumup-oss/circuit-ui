@@ -8,21 +8,28 @@ menu: Getting Started
 
 ## Install
 
-You can install Circuit via npm or yarn. Today we do not have a functioning
-build for distribution, so you should install the latest release
-from github by tag.
+### Adding Circuit to an existing app
 
-[See all releases on Github](https://github.com/sumup/circuit-ui/releases)
-
-Circuit also uses [emotion](https://github.com/emotion-js/emotion) and [emotion-theming](https://github.com/emotion-js/emotion-theming).
+You can install Circuit via npm or yarn. It relies on
+[emotion](https://github.com/emotion-js/emotion) and
+[emotion-theming](https://github.com/emotion-js/emotion/tree/master/packages/emotion-theming) (as well as
+React) being available in whatever project you are working on.
 
 ```bash
-npm install git+https://github.com/sumup/circuit-ui.git#development-0.0.4 emotion react-emotion emotion-theming
+npm install @sumup/circuit-ui @emotion/core @emotion/styled emotion-theming
 ```
 
 ```bash
-yarn add git+https://github.com/sumup/circuit-ui.git#development-0.0.4 emotion react-emotion emotion-theming
+yarn add @sumup/circuit-ui @emotion/core @emotion/styled emotion-theming
 ```
+
+### Creating a new app with Circuit
+
+You can use [create-sumup-react-app](https://github.com/sumup/create-sumup-react-app) (powered by [create-react-app](https://github.com/facebook/create-react-app)) to scaffold out a new development-ready React app with Circuit built-in.
+
+### Creating presentations with Circuit
+
+You can create presentations with [circuit-deck](https://github.com/sumup/circuit-deck), a [mdx-deck](https://github.com/jxnblk/mdx-deck) starter with Circuit built-in.
 
 ## Configuring the theme
 
@@ -34,7 +41,7 @@ import { ThemeProvider } from 'emotion-theming';
 import { Button, theme } from '@sumup/circuit-ui';
 
 const App = () => (
-  <ThemeProvider theme={theme.standard}>
+  <ThemeProvider theme={theme.circuit}>
     <Button primary>Click me</Button>
   </ThemeProvider>
 );
@@ -56,7 +63,7 @@ There are a few helpers you may want to use within Circuit.
 Sometimes you may need to apply global styles to your page. Here is how you can do this with the utilities provided by Circuit UI.
 
 ```javascript
-import { theme, injectGlobalStyles } from '@sumup/circuit-ui';
+import { GlobalStyles } from '@sumup/circuit-ui';
 
 const customStyles = `
   body {
@@ -64,11 +71,11 @@ const customStyles = `
   }
 `;
 
-injectGlobalStyles({ theme: theme.standard, custom: customStyles });
+<GlobalStyles custom={customStyles}/>
+
 ```
 
 ## Contributing
 
-You can open a pull request on Github.
-
-# Developers
+Please see our [contribution guidelines](https://github.com/sumup/circuit-ui/blob/master/.github/CONTRIBUTING.md)
+to learn how you can contribute to thise project.

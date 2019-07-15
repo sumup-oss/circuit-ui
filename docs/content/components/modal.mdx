@@ -4,7 +4,7 @@ route: /components/modal
 menu: Components
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import {
   ModalWrapper,
@@ -13,16 +13,17 @@ import {
 } from '../../../src/components/Modal';
 import Text from '../../../src/components/Text';
 import Button from '../../../src/components/Button';
-
-> > > > > > > 09355c0... Update docz
+import Status from '../../utils/Statuses';
 
 # Modal
+
+<Status.Stable />
 
 Modals are floating cards which overlay the primary UI. All content in a single
 modal should be related to completing one single task. Modals are heavy UI
 elements which obscure the primary user interface — avoid them where possible.
 
-<Playground wrapper={Wrapper}>
+<Playground>
   <ModalWrapper>
     <ModalHeader onClose={() => {}} title="Export transactions" />
     <Text>Are you sure you want to export your transactions?</Text>
@@ -31,6 +32,10 @@ elements which obscure the primary user interface — avoid them where possible.
     </ModalFooter>
   </ModalWrapper>
 </Playground>
+
+<Props of={ModalWrapper} />
+<Props of={ModalHeader} />
+<Props of={ModalFooter} />
 
 ## When to use it
 
