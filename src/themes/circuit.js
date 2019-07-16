@@ -204,7 +204,9 @@ export const typography = {
 };
 
 export const fontStack = {
-  default: 'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI"',
+  default:
+    // eslint-disable-next-line
+    'aktiv-grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   mono: 'Consolas, monaco, monospace'
 };
 
