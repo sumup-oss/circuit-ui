@@ -28,6 +28,11 @@ import { textMega, disableVisually } from '../../styles/style-helpers';
 
 import { ReactComponent as ArrowsIcon } from './arrows.svg';
 
+// HACK: Firefox includes the border-width in the overall height of the element
+//       (despite box-sizing: border-box), so we have to force the height.
+//       line-height + 2px + (vertical padding * 2) + (border-width * 2)
+const MAX_HEIGHT = '42px';
+
 const selectBaseStyles = ({ theme }) => css`
   label: select;
   appearance: none;
@@ -40,6 +45,7 @@ const selectBaseStyles = ({ theme }) => css`
   color: ${theme.colors.n900};
   padding: ${theme.spacings.byte} ${theme.spacings.tera} ${theme.spacings.byte}
     ${theme.spacings.kilo};
+  max-height: ${MAX_HEIGHT};
   position: relative;
   width: 100%;
   z-index: ${theme.zIndex.select};
