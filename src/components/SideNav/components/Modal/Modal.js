@@ -19,7 +19,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import warning from 'warning';
+import warning from 'tiny-warning';
 import keycode from 'keycode';
 import ownerDocument from '../../../../util/ownerDocument';
 import RootRef from '../RootRef';
