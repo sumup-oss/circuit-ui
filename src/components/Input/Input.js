@@ -24,7 +24,10 @@ import { size } from 'polished';
 import HtmlElement from '../HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 import { directions } from '../../styles/constants';
-import { childrenPropType } from '../../util/shared-prop-types';
+import {
+  childrenPropType,
+  deprecatedPropType
+} from '../../util/shared-prop-types';
 
 import Tooltip from '../Tooltip';
 
@@ -268,7 +271,9 @@ const StyledInput = ({
   inline,
   disabled,
   wrapperClassName,
+  wrapperStyles,
   inputClassName,
+  inputStyles,
   deepRef,
   ...props
 }) => {
@@ -284,7 +289,13 @@ const StyledInput = ({
 
   return (
     <InputContainer
-      {...{ noMargin, inline, disabled, className: wrapperClassName }}
+      {...{
+        noMargin,
+        inline,
+        disabled,
+        className: wrapperClassName,
+        css: wrapperStyles
+      }}
     >
       {prefix}
       <InputElement
@@ -296,7 +307,8 @@ const StyledInput = ({
           deepRef,
           hasPrefix: !!prefix,
           hasSuffix: !!suffix,
-          className: inputClassName
+          className: inputClassName,
+          css: inputStyles
         }}
         aria-invalid={invalid}
         blacklist={{
@@ -382,13 +394,35 @@ Input.propTypes = {
    */
   textAlign: PropTypes.oneOf([Input.LEFT, Input.RIGHT]),
   /**
+   * @deprecated
    * Class name to overwrite the <input> element styles.
    */
-  inputClassName: PropTypes.string,
+  inputClassName: deprecatedPropType(
+    PropTypes.string,
+    [
+      'Emotion 10 uses style opjects instead of classnames.',
+      'Use the "inputStyles" prop instead.'
+    ].join(' ')
+  ),
   /**
+   * Emotion style object to overwrite the <input> element styles.
+   */
+  inputStyles: PropTypes.object,
+  /**
+   * @deprecated
    * Class name to overwrite the input wrapper element styles.
    */
-  wrapperClassName: PropTypes.string,
+  wrapperClassName: deprecatedPropType(
+    PropTypes.string,
+    [
+      'Emotion 10 uses style opjects instead of classnames.',
+      'Use the "wrapperStyles" prop instead.'
+    ].join(' ')
+  ),
+  /**
+   * Emotion style object to overwrite the input wrapper element styles.
+   */
+  wrapperStyles: PropTypes.object,
   /**
    * DOM node to be forwarded to the actual input being rendered by
    * styled.
