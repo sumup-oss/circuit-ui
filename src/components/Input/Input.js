@@ -275,6 +275,8 @@ const StyledInput = ({
   inputClassName,
   inputStyles,
   deepRef,
+  element,
+  as,
   ...props
 }) => {
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
@@ -305,6 +307,7 @@ const StyledInput = ({
           disabled,
           hasWarning,
           deepRef,
+          element: element || as,
           hasPrefix: !!prefix,
           hasSuffix: !!suffix,
           className: inputClassName,
@@ -339,9 +342,20 @@ Input.RIGHT = directions.RIGHT;
 Input.propTypes = {
   children: childrenPropType,
   /**
+   * @deprecated
    * The HTML input element to render.
    */
-  element: PropTypes.oneOf(['input', 'textarea']),
+  element: deprecatedPropType(
+    PropTypes.oneOf(['input', 'textarea']),
+    [
+      'Emotion 10 introduced the ability to change the HTML element.',
+      'Use the "as" prop instead.'
+    ].join(' ')
+  ),
+  /**
+   * The HTML input element to render.
+   */
+  as: PropTypes.oneOf(['input', 'textarea']),
   /**
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
@@ -400,7 +414,7 @@ Input.propTypes = {
   inputClassName: deprecatedPropType(
     PropTypes.string,
     [
-      'Emotion 10 uses style opjects instead of classnames.',
+      'Emotion 10 uses style objects instead of classnames.',
       'Use the "inputStyles" prop instead.'
     ].join(' ')
   ),
@@ -415,7 +429,7 @@ Input.propTypes = {
   wrapperClassName: deprecatedPropType(
     PropTypes.string,
     [
-      'Emotion 10 uses style opjects instead of classnames.',
+      'Emotion 10 uses style objects instead of classnames.',
       'Use the "wrapperStyles" prop instead.'
     ].join(' ')
   ),
@@ -434,7 +448,7 @@ StyledInput.propTypes = Input.propTypes;
 
 Input.defaultProps = {
   children: null,
-  element: 'input',
+  as: 'input',
   renderPrefix: null,
   renderSuffix: null,
   validationHint: null,
