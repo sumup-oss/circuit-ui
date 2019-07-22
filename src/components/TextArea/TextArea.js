@@ -29,7 +29,7 @@ const textAreaStyles = css`
  * TextArea component for forms.
  */
 const TextArea = props => (
-  <Input {...props} css={textAreaStyles} element="textarea" />
+  <Input {...props} inputStyles={textAreaStyles} as="textarea" />
 );
 
 TextArea.LEFT = Input.LEFT;

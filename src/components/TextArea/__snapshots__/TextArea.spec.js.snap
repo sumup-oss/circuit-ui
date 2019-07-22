@@ -15,6 +15,8 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -106,6 +108,8 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -237,6 +241,8 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   border-style: dashed;
   box-shadow: none;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -331,6 +337,8 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -460,6 +468,8 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -544,6 +554,8 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -628,6 +640,8 @@ exports[`TextArea should render with default styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -704,6 +718,8 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -774,6 +790,8 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -880,6 +898,8 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -967,6 +987,8 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -1074,6 +1096,8 @@ exports[`TextArea should render with optional styles when passed the optional pr
   border-style: dashed;
   box-shadow: none;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -1144,6 +1168,8 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
@@ -1231,6 +1257,8 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   font-size: 16px;
   line-height: 24px;
   padding-right: calc( 12px + 16px + 12px );
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0:focus,
