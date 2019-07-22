@@ -1,5 +1,3 @@
-import warning from 'tiny-warning';
-
 /**
  * Copyright 2019, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +12,8 @@ import warning from 'tiny-warning';
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import warning from 'tiny-warning';
 
 const warned = {};
 
