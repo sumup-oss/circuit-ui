@@ -14,11 +14,32 @@
  */
 
 import PropTypes from 'prop-types';
+import deprecate from './deprecate';
 import { TOP, BOTTOM, LEFT, RIGHT, START, END, CENTER } from './constants';
 
 // TODO: figure out if we can still get these props in react-docgen
 //       when they are imported and merged into a component's
 //       propTypes.
+
+export const deprecatedPropType = (propType, explanation = '') => (
+  props,
+  propName,
+  componentName
+) => {
+  if (props[propName] !== null) {
+    deprecate(
+      // eslint-disable-next-line max-len
+      `"${propName}" prop of "${componentName}" has been deprecated.\n${explanation}`
+    );
+  }
+
+  return PropTypes.checkPropTypes(
+    { propName: propType },
+    props,
+    propName,
+    componentName
+  );
+};
 
 export const eitherOrPropType = (
   firstProp,

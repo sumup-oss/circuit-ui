@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import warning from 'warning';
+import warning from 'tiny-warning';
 
 /**
  * Safe chained function

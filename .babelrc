@@ -16,7 +16,8 @@
       "plugins": [
         "@babel/plugin-proposal-class-properties",
         "lodash",
-        "inline-react-svg"
+        "inline-react-svg",
+        "dev-expression"
       ],
       "presets": [
         ["@babel/preset-env", { "loose": true }],
@@ -34,7 +35,8 @@
       "plugins": [
         "@babel/plugin-proposal-class-properties",
         "lodash",
-        "inline-react-svg"
+        "inline-react-svg",
+        "dev-expression"
       ],
       "presets": [
         ["@babel/preset-env", { "loose": true, "modules": false }],
