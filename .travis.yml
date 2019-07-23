@@ -19,7 +19,7 @@ jobs:
   include:
     # Run tests in parallel
     - stage: test
-      script: yarn check:security && yarn check:licenses
+      script: yarn check:licenses
     - script: yarn test:lint-js
     - script: yarn test:unit --runInBand
       # Upload coverage reports to Codecov
