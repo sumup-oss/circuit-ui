@@ -14,6 +14,7 @@
  */
 
 import React from 'react';
+import { css } from '@emotion/core';
 
 import Input from '.';
 import Label from '../Label';
@@ -104,6 +105,20 @@ describe('Input', () => {
 
   it('should render with no margin styles when passed the noMargin prop', () => {
     const actual = create(<Input noMargin />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with custom styles', () => {
+    const actual = create(
+      <Input
+        wrapperStyles={css`
+          border: 1px solid red;
+        `}
+        inputStyles={css`
+          color: red;
+        `}
+      />
+    );
     expect(actual).toMatchSnapshot();
   });
 
