@@ -15,11 +15,15 @@
 
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { css, ClassNames } from '@emotion/core';
+import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 import { hideVisually } from 'polished';
 
+import {
+  deprecatedPropType,
+  themePropType
+} from '../../../../util/shared-prop-types';
 import { flow, toPairs, map, keys } from '../../../../util/fp';
 import MaskedInput from '../../../MaskedInput';
 import Label from '../../../Label';
@@ -82,23 +86,15 @@ const AccessibleCardSchemeInfo = styled('div')`
   ${hideVisually()};
 `;
 
-const inputLongStyles = ({
-  theme,
-  acceptedCardSchemes,
-  className,
-  stringCss
-}) =>
-  shouldRenderSchemesUnderInput(acceptedCardSchemes)
-    ? stringCss`
-        label: card-number-input__input--long;
-        ${theme.mq.untilKilo} {
-          margin-bottom: ${theme.spacings.tera};
-          margin-bottom: calc(${theme.spacings.tera} + ${theme.spacings.bit});
-        }
-
-        ${className};
-      `
-    : className;
+const inputLongStyles = ({ theme, acceptedCardSchemes }) =>
+  shouldRenderSchemesUnderInput(acceptedCardSchemes) &&
+  css`
+    label: card-number-input__input--long;
+    ${theme.mq.untilKilo} {
+      margin-bottom: ${theme.spacings.tera};
+      margin-bottom: calc(${theme.spacings.tera} + ${theme.spacings.bit});
+    }
+  `;
 
 const schemeIconWrapperStyles = ({ theme }) => css`
   label: card-number-input__scheme-icon-wrapper;
@@ -134,10 +130,8 @@ const CardNumberInput = ({
   acceptedCardSchemes,
   detectedCardScheme,
   value,
-  className,
   id,
   label,
-  // eslint-disable-next-line
   theme,
   supportedSchemesLabel,
   detectedSchemeLabel,
@@ -151,53 +145,47 @@ const CardNumberInput = ({
     `${detectedSchemeLabel}: ${detectedCardScheme}`;
 
   return (
-    <ClassNames>
-      {({ css: stringCss }) => (
-        <Fragment>
-          <AccessibleCardSchemeInfo>
-            {supportedSchemesText}
-          </AccessibleCardSchemeInfo>
-          <AccessibleCardSchemeInfo aria-live="polite">
-            {detectedSchemesText}
-          </AccessibleCardSchemeInfo>
-          <Label htmlFor={id}>{label}</Label>
-          <MaskedInput
-            value={value}
-            type="tel"
-            id={id}
-            autoComplete="cc-number"
-            placeholder="•••• •••• •••• ••••"
-            wrapperClassName={inputLongStyles({
-              stringCss,
-              theme,
-              acceptedCardSchemes,
-              className
-            })}
-            guide={false}
-            mask={CARD_NUMBER_MASK}
-            {...props}
-          >
-            <SchemeList {...{ acceptedCardSchemes }} aria-hidden="true">
-              {flow(
-                toPairs,
-                map(([cardScheme, IconComponent]) => (
-                  <SchemeIconWrapper
-                    disabled={isDisabledSchemeIcon(
-                      value,
-                      detectedCardScheme,
-                      cardScheme
-                    )}
-                    key={cardScheme}
-                  >
-                    <IconComponent />
-                  </SchemeIconWrapper>
-                ))
-              )(acceptedCardSchemes)}
-            </SchemeList>
-          </MaskedInput>
-        </Fragment>
-      )}
-    </ClassNames>
+    <Fragment>
+      <AccessibleCardSchemeInfo>
+        {supportedSchemesText}
+      </AccessibleCardSchemeInfo>
+      <AccessibleCardSchemeInfo aria-live="polite">
+        {detectedSchemesText}
+      </AccessibleCardSchemeInfo>
+      <Label htmlFor={id}>{label}</Label>
+      <MaskedInput
+        value={value}
+        type="tel"
+        id={id}
+        autoComplete="cc-number"
+        placeholder="•••• •••• •••• ••••"
+        wrapperStyles={inputLongStyles({
+          theme,
+          acceptedCardSchemes
+        })}
+        guide={false}
+        mask={CARD_NUMBER_MASK}
+        {...props}
+      >
+        <SchemeList {...{ acceptedCardSchemes }} aria-hidden="true">
+          {flow(
+            toPairs,
+            map(([cardScheme, IconComponent]) => (
+              <SchemeIconWrapper
+                disabled={isDisabledSchemeIcon(
+                  value,
+                  detectedCardScheme,
+                  cardScheme
+                )}
+                key={cardScheme}
+              >
+                <IconComponent />
+              </SchemeIconWrapper>
+            ))
+          )(acceptedCardSchemes)}
+        </SchemeList>
+      </MaskedInput>
+    </Fragment>
   );
 };
 
@@ -233,9 +221,17 @@ CardNumberInput.propTypes = {
    */
   detectedSchemeLabel: PropTypes.string,
   /**
+   * @deprecated
    * Override styles for the Input component.
    */
-  className: PropTypes.string
+  className: deprecatedPropType(
+    PropTypes.string,
+    [
+      'Emotion 10 uses style objects instead of classnames.',
+      `Use Emotion's "css" prop instead.`
+    ].join(' ')
+  ),
+  theme: themePropType
 };
 
 CardNumberInput.defaultProps = {

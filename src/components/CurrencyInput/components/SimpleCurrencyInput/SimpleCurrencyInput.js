@@ -17,7 +17,7 @@
 
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css, ClassNames, jsx } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 
 import { themePropType } from '../../../../util/shared-prop-types';
@@ -60,22 +60,22 @@ const CurrencyIcon = styled('span')`
   ${iconInvalidStyles};
 `;
 
-const inputStyles = stringCss => stringCss`
+const inputBaseStyles = () => css`
   label: currency-input__input;
   text-align: right;
 `;
 
-const inputPrependStyles = ({ theme, symbol = '', prependSymbol, stringCss }) =>
+const inputPrependStyles = ({ theme, symbol = '', prependSymbol }) =>
   prependSymbol &&
-  stringCss`
+  css`
     label: currency-input__input--prepend-symbol;
     padding-left: ${theme.spacings.exa};
     padding-left: calc(${theme.spacings.giga} + ${symbol.length}ch);
   `;
 
-const inputAppendStyles = ({ theme, symbol = '', prependSymbol, stringCss }) =>
+const inputAppendStyles = ({ theme, symbol = '', prependSymbol }) =>
   !prependSymbol &&
-  stringCss`
+  css`
     label: currency-input__input--prepend-symbol;
     padding-right: ${theme.spacings.exa};
     padding-right: calc(${theme.spacings.giga} + ${symbol.length}ch);
@@ -94,62 +94,52 @@ const SimpleCurrencyInput = ({
   numberMask,
   ...props
 }) => (
-  <ClassNames>
-    {({ css: stringCss, cx }) => {
-      const inputClassName = cx(
-        inputStyles(stringCss),
-        inputPrependStyles({
-          theme,
-          symbol,
-          stringCss,
-          prependSymbol
-        }),
-        inputAppendStyles({
-          theme,
-          symbol,
-          stringCss,
-          prependSymbol
-        })
-      );
-
-      return (
-        <MaskedInput
-          inputClassName={inputClassName}
-          renderPrefix={({ className }) =>
-            prependSymbol && (
-              <CurrencyIcon
-                {...{ hasWarning, invalid, disabled }}
-                css={css`
-                  ${iconOverrideWidthStyles({ symbol })};
-                `}
-                className={className}
-                symbol={symbol}
-              >
-                {symbol}
-              </CurrencyIcon>
-            )
-          }
-          renderSuffix={({ className }) =>
-            !prependSymbol && (
-              <CurrencyIcon
-                {...{ hasWarning, invalid, disabled }}
-                css={css`
-                  ${iconOverrideWidthStyles({ symbol })};
-                `}
-                className={className}
-                symbol={symbol}
-              >
-                {symbol}
-              </CurrencyIcon>
-            )
-          }
-          type="text"
-          mask={numberMask}
-          {...{ ...props, hasWarning, invalid, disabled }}
-        />
-      );
-    }}
-  </ClassNames>
+  <MaskedInput
+    inputStyles={css([
+      inputBaseStyles(),
+      inputPrependStyles({
+        theme,
+        symbol,
+        prependSymbol
+      }),
+      inputAppendStyles({
+        theme,
+        symbol,
+        prependSymbol
+      })
+    ])}
+    renderPrefix={({ className }) =>
+      prependSymbol && (
+        <CurrencyIcon
+          {...{ hasWarning, invalid, disabled }}
+          css={css`
+            ${iconOverrideWidthStyles({ symbol })};
+          `}
+          className={className}
+          symbol={symbol}
+        >
+          {symbol}
+        </CurrencyIcon>
+      )
+    }
+    renderSuffix={({ className }) =>
+      !prependSymbol && (
+        <CurrencyIcon
+          {...{ hasWarning, invalid, disabled }}
+          css={css`
+            ${iconOverrideWidthStyles({ symbol })};
+          `}
+          className={className}
+          symbol={symbol}
+        >
+          {symbol}
+        </CurrencyIcon>
+      )
+    }
+    type="text"
+    mask={numberMask}
+    {...{ ...props, hasWarning, invalid, disabled }}
+  />
 );
 
 SimpleCurrencyInput.propTypes = {
