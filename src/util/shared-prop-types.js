@@ -34,7 +34,7 @@ export const deprecatedPropType = (propType, explanation = '') => (
   }
 
   return PropTypes.checkPropTypes(
-    { propName: propType },
+    { [propName]: propType },
     props,
     propName,
     componentName
@@ -63,7 +63,7 @@ export const eitherOrPropType = (
   /* eslint-enable max-len */
 
   return PropTypes.checkPropTypes(
-    { propName: propType },
+    { [propName]: propType },
     props,
     propName,
     componentName
