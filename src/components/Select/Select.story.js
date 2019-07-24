@@ -17,7 +17,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { boolean } from '@storybook/addon-knobs/react';
+import { boolean, text } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
@@ -71,6 +71,7 @@ storiesOf(`${GROUPS.FORMS}|Select`, module)
         onChange={action('Option selected')}
         disabled={boolean('Disabled', false)}
         invalid={boolean('Invalid', false)}
+        validationHint={text('Validation hint', '')}
       />
     ))
   )

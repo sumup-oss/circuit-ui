@@ -27,6 +27,7 @@ import {
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
 import { ReactComponent as ArrowsIcon } from './arrows.svg';
+import Tooltip from '../Tooltip';
 
 // HACK: Firefox includes the border-width in the overall height of the element
 //       (despite box-sizing: border-box), so we have to force the height.
@@ -146,6 +147,11 @@ const selectPrefixStyles = ({ theme, hasPrefix }) =>
     );
   `;
 
+const tooltipBaseStyles = css`
+  label: select__tooltip;
+  right: 1px;
+`;
+
 const SelectContainer = styled('div')`
   ${containerBaseStyles};
   ${containerNoMarginStyles};
@@ -163,6 +169,10 @@ const Icon = styled(ArrowsIcon)`
   ${iconBaseStyles};
 `;
 
+const SelectTooltip = styled(Tooltip)`
+  ${tooltipBaseStyles};
+`;
+
 /**
  * A native select component.
  */
@@ -175,6 +185,7 @@ const Select = ({
   options,
   children,
   renderPrefix: RenderPrefix,
+  validationHint,
   ...props
 }) => {
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
@@ -207,6 +218,11 @@ const Select = ({
             )))}
       </SelectElement>
       <Icon />
+      {!disabled && validationHint && (
+        <SelectTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+          {validationHint}
+        </SelectTooltip>
+      )}
     </SelectContainer>
   );
 };
@@ -270,7 +286,11 @@ Select.propTypes = {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix: PropTypes.func
+  renderPrefix: PropTypes.func,
+  /**
+   * Warning or error message, displayed in a tooltip.
+   */
+  validationHint: PropTypes.string
 };
 
 Select.defaultProps = {
