@@ -17,6 +17,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+import { text } from '@storybook/addon-knobs';
 import { withState } from 'recompose';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
@@ -69,9 +70,10 @@ storiesOf(`${GROUPS.FORMS}|Checkbox`, module)
               onChange(e);
             }}
             checked={isChecked}
+            validationHint={text('Validation hint', 'Something is wrong.')}
             invalid
           >
-            Error
+            {text('Label', 'Error')}
           </Checkbox>
         )}
       </State>
@@ -81,7 +83,7 @@ storiesOf(`${GROUPS.FORMS}|Checkbox`, module)
     'Disabled Checkbox',
     withInfo()(() => (
       <Checkbox value="checkbox" name="checkbox" disabled>
-        Disabled
+        {text('Label', 'Disabled')}
       </Checkbox>
     ))
   )
