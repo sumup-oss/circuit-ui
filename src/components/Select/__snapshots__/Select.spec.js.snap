@@ -579,6 +579,7 @@ exports[`Select should render with invalid styles when passed the invalid prop 1
   font-size: 16px;
   line-height: 24px;
   border-color: #EA7A7A;
+  padding-right: 56px;
 }
 
 .circuit-0:focus,
@@ -627,6 +628,9 @@ exports[`Select should render with invalid styles when passed the invalid prop 1
   </select>
   <div>
     arrows.svg
+  </div>
+  <div>
+    error.svg
   </div>
 </div>
 `;

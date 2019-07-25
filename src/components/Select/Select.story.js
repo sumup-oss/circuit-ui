@@ -76,6 +76,19 @@ storiesOf(`${GROUPS.FORMS}|Select`, module)
     ))
   )
   .add(
+    'Select invalid',
+    withInfo()(() => (
+      <Select
+        name="select"
+        options={options}
+        onChange={action('Option selected')}
+        disabled={boolean('Disabled', false)}
+        invalid={boolean('Invalid', true)}
+        validationHint={text('Validation hint', 'This field is required')}
+      />
+    ))
+  )
+  .add(
     'Select with prefix',
     withInfo()(() => (
       <State

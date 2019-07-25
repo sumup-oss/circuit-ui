@@ -31,9 +31,9 @@ import {
 
 import Tooltip from '../Tooltip';
 
-import { ReactComponent as ErrorIcon } from './error.svg';
-import { ReactComponent as WarningIcon } from './warning.svg';
-import { ReactComponent as ValidIcon } from './valid.svg';
+import { ReactComponent as ErrorIcon } from '../../icons/error.svg';
+import { ReactComponent as WarningIcon } from '../../icons/warning.svg';
+import { ReactComponent as ValidIcon } from '../../icons/valid.svg';
 
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;

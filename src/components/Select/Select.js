@@ -26,7 +26,8 @@ import {
 } from '../../util/shared-prop-types';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
-import { ReactComponent as ArrowsIcon } from './arrows.svg';
+import { ReactComponent as ArrowsIcon } from '../../icons/arrows.svg';
+import { ReactComponent as ErrorIcon } from '../../icons/error.svg';
 import Tooltip from '../Tooltip';
 
 // HACK: Firefox includes the border-width in the overall height of the element
@@ -77,20 +78,28 @@ const selectInvalidStyles = ({ theme, invalid, disabled }) =>
   css`
     label: select--invalid;
     border-color: ${theme.colors.r300};
+    padding-right: ${theme.spacings.zetta};
   `;
 
-const iconBaseStyles = ({ theme }) => css`
+const suffixBaseStyles = ({ theme }) => css`
   label: select__icon;
   fill: ${theme.colors.n700};
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  ${size(theme.spacings.kilo)};
-  top: 50%;
-  right: ${theme.spacings.kilo};
-  transform: translateY(-50%);
+  ${size(theme.spacings.mega)};
+  top: 1px;
+  right: 1px;
+  margin: ${theme.spacings.kilo};
 `;
+
+const suffixInvalidStyles = ({ theme, invalid }) =>
+  invalid &&
+  css`
+    label: select__icon--invalid;
+    right: calc(1px + ${theme.spacings.giga});
+  `;
 
 const containerBaseStyles = ({ theme }) => css`
   label: select__container;
@@ -165,8 +174,13 @@ const SelectElement = styled('select')`
   ${selectPrefixStyles};
 `;
 
-const Icon = styled(ArrowsIcon)`
-  ${iconBaseStyles};
+const SelectIcon = styled(ArrowsIcon)`
+  ${suffixBaseStyles};
+  ${suffixInvalidStyles};
+`;
+
+const InvalidIcon = styled(ErrorIcon)`
+  ${suffixBaseStyles};
 `;
 
 const SelectTooltip = styled(Tooltip)`
@@ -182,6 +196,7 @@ const Select = ({
   disabled,
   noMargin,
   inline,
+  invalid,
   options,
   children,
   renderPrefix: RenderPrefix,
@@ -196,6 +211,7 @@ const Select = ({
       <SelectElement
         {...{
           ...props,
+          invalid,
           value,
           disabled,
           hasPrefix: !!prefix
@@ -217,7 +233,8 @@ const Select = ({
               </option>
             )))}
       </SelectElement>
-      <Icon />
+      <SelectIcon invalid={invalid} />
+      {!disabled && invalid && <InvalidIcon />}
       {!disabled && validationHint && (
         <SelectTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
           {validationHint}
