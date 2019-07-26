@@ -70,8 +70,8 @@ storiesOf(`${GROUPS.FORMS}|Checkbox`, module)
               onChange(e);
             }}
             checked={isChecked}
-            validationHint={text('Validation hint', 'Something is wrong.')}
-            invalid
+            validationHint={text('Validation hint', 'This field is required.')}
+            invalid={!isChecked}
           >
             {text('Label', 'Error')}
           </Checkbox>

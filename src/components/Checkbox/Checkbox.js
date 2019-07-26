@@ -45,7 +45,7 @@ const labelBaseStyles = ({ theme }) => css`
     top: ${theme.spacings.kilo};
     left: 0;
     transform: translateY(-50%);
-    transition: border 0.05s ease-in;
+    transition: border 0.05s ease-in, background-color 0.05s ease-in;
   }
 
   svg {
@@ -69,6 +69,7 @@ const labelInvalidStyles = ({ theme, invalid }) =>
     label: checkbox--error;
     &:not(:focus)::before {
       border-color: ${theme.colors.r500};
+      background-color: ${theme.colors.r100};
     }
 
     &:not(:focus) svg {
