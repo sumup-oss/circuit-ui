@@ -16,7 +16,7 @@ exports[`Spinner should render with dark styles 1`] = `
   aria-busy="true"
   aria-live="assertive"
   className="circuit-0 circuit-1"
-  role="alertdialog"
+  role="alert"
 >
   <div>
     spinner.svg
@@ -40,7 +40,7 @@ exports[`Spinner should render with default styles 1`] = `
   aria-busy="true"
   aria-live="assertive"
   className="circuit-0 circuit-1"
-  role="alertdialog"
+  role="alert"
 >
   <div>
     spinner.svg

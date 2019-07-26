@@ -109,8 +109,17 @@ Spinner.defaultProps = {
   /**
    * Accessibilty attributes.
    */
-  role: 'alertdialog',
+  /**
+   * Indicates that element has been dynamically updated.
+   */
+  role: 'alert',
+  /**
+   * Tells screen reader to wait until loading is complete.
+   */
   'aria-busy': 'true',
+  /**
+   * Indicates that updates to the region have the highest priority.
+   */
   'aria-live': 'assertive'
 };
 
