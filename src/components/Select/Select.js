@@ -204,6 +204,7 @@ const Select = ({
   ...props
 }) => {
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
+  const showInvalid = !disabled && invalid;
 
   return (
     <SelectContainer {...{ noMargin, inline, disabled }}>
@@ -233,8 +234,8 @@ const Select = ({
               </option>
             )))}
       </SelectElement>
-      <SelectIcon invalid={invalid} />
-      {!disabled && invalid && <InvalidIcon />}
+      <SelectIcon invalid={showInvalid} />
+      {showInvalid && <InvalidIcon />}
       {!disabled && validationHint && (
         <SelectTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
           {validationHint}
