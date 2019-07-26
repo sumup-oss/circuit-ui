@@ -101,7 +101,7 @@ exports[`Container Container Style tests should have default styles 1`] = `
       aria-busy="true"
       aria-live="assertive"
       className="circuit-0 circuit-1 circuit-2"
-      role="alertdialog"
+      role="alert"
       size="mega"
     >
       <div>

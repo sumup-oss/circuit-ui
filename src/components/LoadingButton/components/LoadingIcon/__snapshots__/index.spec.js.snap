@@ -24,7 +24,7 @@ exports[`LoadingIcon Style tests should have active LoadingIcon styles 1`] = `
   aria-busy="true"
   aria-live="assertive"
   className="circuit-0 circuit-1 circuit-2"
-  role="alertdialog"
+  role="alert"
   size="kilo"
 >
   <div>
@@ -56,7 +56,7 @@ exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
   aria-busy="true"
   aria-live="assertive"
   className="circuit-0 circuit-1 circuit-2"
-  role="alertdialog"
+  role="alert"
   size="kilo"
 >
   <div>
@@ -89,7 +89,7 @@ Array [
     aria-busy="true"
     aria-live="assertive"
     className="circuit-0 circuit-1 circuit-2"
-    role="alertdialog"
+    role="alert"
     size="kilo"
   >
     <div>
@@ -141,7 +141,7 @@ exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
   aria-busy="true"
   aria-live="assertive"
   className="circuit-0 circuit-1 circuit-2"
-  role="alertdialog"
+  role="alert"
   size="giga"
 >
   <div>
@@ -173,7 +173,7 @@ exports[`LoadingIcon Style tests should have kilo LoadingIcon styles 1`] = `
   aria-busy="true"
   aria-live="assertive"
   className="circuit-0 circuit-1 circuit-2"
-  role="alertdialog"
+  role="alert"
   size="kilo"
 >
   <div>
@@ -205,7 +205,7 @@ exports[`LoadingIcon Style tests should have mega LoadingIcon styles 1`] = `
   aria-busy="true"
   aria-live="assertive"
   className="circuit-0 circuit-1 circuit-2"
-  role="alertdialog"
+  role="alert"
   size="mega"
 >
   <div>
@@ -238,7 +238,7 @@ Array [
     aria-busy="true"
     aria-live="assertive"
     className="circuit-0 circuit-1 circuit-2"
-    role="alertdialog"
+    role="alert"
     size="kilo"
   >
     <div>

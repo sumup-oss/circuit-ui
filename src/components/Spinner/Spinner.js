@@ -17,7 +17,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
-import { withProps } from 'recompose';
 
 import { ReactComponent as SpinnerSvg } from './icons/spinner.svg';
 
@@ -105,14 +104,26 @@ Spinner.propTypes = {
 
 Spinner.defaultProps = {
   dark: false,
-  active: true
+  active: true,
+
+  /**
+   * Accessibilty attributes.
+   */
+  /**
+   * Indicates that element has been dynamically updated.
+   */
+  role: 'alert',
+  /**
+   * Tells screen reader to wait until loading is complete.
+   */
+  'aria-busy': 'true',
+  /**
+   * Indicates that updates to the region have the highest priority.
+   */
+  'aria-live': 'assertive'
 };
 
 /**
  * @component
  */
-export default withProps({
-  role: 'alertdialog',
-  'aria-busy': 'true',
-  'aria-live': 'assertive'
-})(Spinner);
+export default Spinner;
