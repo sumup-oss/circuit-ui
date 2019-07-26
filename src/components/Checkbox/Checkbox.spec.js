@@ -44,6 +44,16 @@ describe('Checkbox', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with a tooltip when passed a validation hint', () => {
+    const actual = create(
+      <Checkbox
+        validationHint="This field is required."
+        {...{ name, onChange }}
+      />
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

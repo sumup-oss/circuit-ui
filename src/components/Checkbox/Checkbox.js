@@ -23,6 +23,7 @@ import { ReactComponent as CheckedIcon } from './checked-icon.svg';
 import { disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
+import Tooltip from '../Tooltip';
 
 const labelBaseStyles = ({ theme }) => css`
   label: checkbox__label;
@@ -44,7 +45,7 @@ const labelBaseStyles = ({ theme }) => css`
     top: ${theme.spacings.kilo};
     left: 0;
     transform: translateY(-50%);
-    transition: border 0.05s ease-in;
+    transition: border 0.05s ease-in, background-color 0.05s ease-in;
   }
 
   svg {
@@ -68,6 +69,7 @@ const labelInvalidStyles = ({ theme, invalid }) =>
     label: checkbox--error;
     &:not(:focus)::before {
       border-color: ${theme.colors.r500};
+      background-color: ${theme.colors.r100};
     }
 
     &:not(:focus) svg {
@@ -119,6 +121,11 @@ const checkboxWrapperBaseStyles = ({ theme }) => css`
   }
 `;
 
+const tooltipBaseStyles = ({ theme }) => css`
+  label: checkbox__tooltip;
+  left: -${theme.spacings.kilo};
+`;
+
 const CheckboxInput = styled('input')`
   ${inputStyles};
 `;
@@ -133,18 +140,34 @@ const CheckboxWrapper = styled('div')`
   ${checkboxWrapperBaseStyles};
 `;
 
+const CheckboxTooltip = styled(Tooltip)`
+  ${tooltipBaseStyles};
+`;
+
 /**
  * Checkbox component for forms.
  */
-const Checkbox = ({ children, id: customId, className, ...props }) => {
+const Checkbox = ({
+  children,
+  id: customId,
+  disabled,
+  validationHint,
+  className,
+  ...props
+}) => {
   const id = customId || uniqueId('checkbox_');
   return (
     <CheckboxWrapper className={className}>
-      <CheckboxInput {...props} id={id} type="checkbox" />
-      <CheckboxLabel {...props} htmlFor={id}>
+      <CheckboxInput {...props} id={id} type="checkbox" disabled={disabled} />
+      <CheckboxLabel {...props} htmlFor={id} disabled={disabled}>
         {children}
         <CheckedIcon aria-hidden="true" />
       </CheckboxLabel>
+      {!disabled && validationHint && (
+        <CheckboxTooltip position={Tooltip.TOP} align={Tooltip.RIGHT}>
+          {validationHint}
+        </CheckboxTooltip>
+      )}
     </CheckboxWrapper>
   );
 };
@@ -184,6 +207,10 @@ Checkbox.propTypes = {
    * attribute to the <input> element.
    */
   disabled: PropTypes.bool,
+  /**
+   * Warning or error message, displayed in a tooltip.
+   */
+  validationHint: PropTypes.string,
   /**
    * Override styles for the Checkbox component.
    */
