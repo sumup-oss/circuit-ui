@@ -62,6 +62,13 @@ describe('Select', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with a tooltip when passed a validation hint', () => {
+    const actual = create(
+      <Select {...{ options }} validationHint="This field is required." />
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
