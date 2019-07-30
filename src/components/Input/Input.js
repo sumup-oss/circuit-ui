@@ -461,9 +461,7 @@ Input.defaultProps = {
   inline: false,
   noMargin: false,
   deepRef: undefined,
-  textAlign: Input.LEFT,
-  inputClassName: '',
-  wrapperClassName: ''
+  textAlign: Input.LEFT
 };
 
 /**

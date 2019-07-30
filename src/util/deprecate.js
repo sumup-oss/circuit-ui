@@ -19,8 +19,7 @@ const warned = {};
 
 export default function deprecate(explanation = '') {
   if (__DEV__) {
-    const { stack } = new Error();
-    const message = `DEPRECATION: ${explanation}\n ${stack}`;
+    const message = `DEPRECATION: ${explanation}`;
 
     if (!warned[message]) {
       warning(false, message);
