@@ -116,6 +116,8 @@ const inputStyles = ({ theme }) => css`
 
 const checkboxWrapperBaseStyles = ({ theme }) => css`
   label: checkbox;
+  position: relative;
+
   &:last-of-type {
     margin-bottom: ${theme.spacings.mega};
   }
