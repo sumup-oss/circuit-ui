@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -56,8 +56,10 @@ const DownArrow = styled(ArrowIcon)`
  */
 const SortArrow = ({ direction, condensed }) => (
   <StyledWrapper condensed={condensed}>
-    {direction !== DESCENDING && <ArrowIcon />}
-    {direction !== ASCENDING && <DownArrow />}
+    <Fragment>
+      {direction !== DESCENDING && <ArrowIcon />}
+      {direction !== ASCENDING && <DownArrow />}
+    </Fragment>
   </StyledWrapper>
 );
 
