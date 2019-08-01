@@ -52,7 +52,7 @@ const DownArrow = styled(ArrowIcon)`
 `;
 
 /**
- * [PRIVATE] Arrow component for TableHeader sorting
+ * @private Arrow component for TableHeader sorting
  */
 const SortArrow = ({ direction, condensed }) => (
   <StyledWrapper condensed={condensed}>

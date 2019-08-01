@@ -71,7 +71,7 @@ const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
 );
 
 /**
- * [PRIVATE] TableHead for the Table component. The Table handles rendering it
+ * @private TableHead for the Table component. The Table handles rendering it
  */
 TableBody.propTypes = {
   /**
@@ -89,12 +89,12 @@ TableBody.propTypes = {
    */
   rowHeaders: PropTypes.bool,
   /**
-   * [PRIVATE] The current hovered sort cell index
+   * @private The current hovered sort cell index
    * Handled internally
    */
   sortHover: PropTypes.number,
   /**
-   * [PRIVATE] Adds condensed styles to the table.
+   * @private Adds condensed styles to the table.
    * Handled internally
    */
   condensed: PropTypes.bool,

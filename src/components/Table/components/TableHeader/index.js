@@ -153,17 +153,17 @@ TableHeader.propTypes = {
     TableHeader.CENTER
   ]),
   /**
-   * [PRIVATE] Adds ROL or COL styles based on the provided Scope.
+   * @private Adds ROL or COL styles based on the provided Scope.
    * Handled internally
    */
   scope: PropTypes.oneOf([TableHeader.COL, TableHeader.ROW]),
   /**
-   * [PRIVATE] Adds sticky style to the Header based on rowHeader definition.
+   * @private Adds sticky style to the Header based on rowHeader definition.
    * Handled internally
    */
   fixed: PropTypes.bool,
   /**
-   * [PRIVATE] Adds condensed style to the Header based on the table props.
+   * @private Adds condensed style to the Header based on the table props.
    * Handled internally
    */
   condensed: PropTypes.bool,
@@ -172,7 +172,7 @@ TableHeader.propTypes = {
    */
   sortable: PropTypes.bool,
   /**
-   * [PRIVATE] Adds active style to the Header if it is currently hovered by
+   * @private Adds active style to the Header if it is currently hovered by
    * sort.
    * Handled internally
    */
@@ -180,7 +180,7 @@ TableHeader.propTypes = {
   children: childrenPropType,
   sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
   /**
-   * [PRIVATE] Adds sorted style to the Header if it is currently sorted
+   * @private Adds sorted style to the Header if it is currently sorted
    * Handled internally
    */
   isSorted: PropTypes.bool

@@ -89,12 +89,12 @@ TableCell.propTypes = {
    */
   align: PropTypes.oneOf([TableCell.LEFT, TableCell.RIGHT, TableCell.CENTER]),
   /**
-   * [PRIVATE] Add heading styles to placeholder Cell.
+   * @private Add heading styles to placeholder Cell.
    * Handled internally
    */
   header: PropTypes.bool,
   /**
-   * [PRIVATE] Adds active style to the Cell if it is currently hovered by
+   * @private Adds active style to the Cell if it is currently hovered by
    * sort.
    * Handled internally
    */

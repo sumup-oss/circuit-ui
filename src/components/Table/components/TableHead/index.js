@@ -78,7 +78,7 @@ const TableHead = ({
 );
 
 /**
- * [PRIVATE] TableHead for the Table component. The Table handlers rendering it
+ * @private TableHead for the Table component. The Table handlers rendering it
  */
 TableHead.propTypes = {
   /**
@@ -91,28 +91,28 @@ TableHead.propTypes = {
    */
   rowHeaders: PropTypes.bool,
   /**
-   * [PRIVATE] Adds condensed styles the table according to the table props.
+   * @private Adds condensed styles the table according to the table props.
    * Handled internally.
    */
   condensed: PropTypes.bool,
   /**
-   * [PRIVATE] sortBy handler
+   * @private sortBy handler
    */
   onSortBy: PropTypes.func,
   /**
-   * [PRIVATE] The current sortDirection
+   * @private The current sortDirection
    */
   sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
   /**
-   * [PRIVATE] The current sorted row index
+   * @private The current sorted row index
    */
   sortedRow: PropTypes.number,
   /**
-   * [PRIVATE] sortEnter handler
+   * @private sortEnter handler
    */
   onSortEnter: PropTypes.func,
   /**
-   * [PRIVATE] sortLeave handler
+   * @private sortLeave handler
    */
   onSortLeave: PropTypes.func
 };
