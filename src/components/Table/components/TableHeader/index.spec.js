@@ -44,6 +44,11 @@ describe('TableHeader', () => {
       expect(actual).toMatchSnapshot();
     });
 
+    it('should render with condensed styles', () => {
+      const actual = create(<TableHeader condensed>{children}</TableHeader>);
+      expect(actual).toMatchSnapshot();
+    });
+
     describe('sortable + sorted', () => {
       it('should render with sortable + sorted ascending styles', () => {
         const actual = create(
