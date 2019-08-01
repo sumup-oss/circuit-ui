@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -35,8 +35,15 @@ const baseStyles = ({ theme }) => css`
   width: 5px;
 `;
 
+const condensedStyles = ({ condensed, theme }) =>
+  condensed &&
+  css`
+    left: ${theme.spacings.byte};
+  `;
+
 const StyledWrapper = styled(SvgButton)`
   ${baseStyles};
+  ${condensedStyles};
 `;
 
 const DownArrow = styled(ArrowIcon)`
@@ -47,21 +54,21 @@ const DownArrow = styled(ArrowIcon)`
 /**
  * [PRIVATE] Arrow component for TableHeader sorting
  */
-const SortArrow = ({ direction }) => (
-  <StyledWrapper>
-    <Fragment>
-      {direction !== DESCENDING && <ArrowIcon />}
-      {direction !== ASCENDING && <DownArrow />}
-    </Fragment>
+const SortArrow = ({ direction, condensed }) => (
+  <StyledWrapper condensed={condensed}>
+    {direction !== DESCENDING && <ArrowIcon />}
+    {direction !== ASCENDING && <DownArrow />}
   </StyledWrapper>
 );
 
 SortArrow.propTypes = {
-  direction: PropTypes.oneOf([ASCENDING, DESCENDING])
+  direction: PropTypes.oneOf([ASCENDING, DESCENDING]),
+  condensed: PropTypes.bool
 };
 
 SortArrow.defaultProps = {
-  direction: null
+  direction: null,
+  condensed: false
 };
 
 export default SortArrow;

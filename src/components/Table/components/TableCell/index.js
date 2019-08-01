@@ -60,6 +60,13 @@ const hoverStyles = ({ theme, isHovered }) =>
     background-color: ${theme.colors.n100};
   `;
 
+const condensedStyles = ({ condensed, theme }) =>
+  condensed &&
+  css`
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+    ${theme.typography.text.kilo};
+  `;
+
 /**
  * TableCell component for the Table. You shouldn't import this component
  * directly, the Table handles it
@@ -68,6 +75,7 @@ const TableCell = styled.td`
   ${baseStyles};
   ${presentationStyles};
   ${hoverStyles};
+  ${condensedStyles};
 `;
 
 TableCell.LEFT = directions.LEFT;

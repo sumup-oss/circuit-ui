@@ -95,6 +95,14 @@ const sortableActiveStyles = ({ sortable, isSorted }) =>
     }
   `;
 
+const condensedStyles = ({ condensed, theme }) =>
+  condensed &&
+  css`
+    vertical-align: middle;
+    padding: ${theme.spacings.byte} ${theme.spacings.mega};
+    ${theme.typography.text.kilo};
+  `;
+
 const StyledHeader = styled.th`
   ${baseStyles};
   ${hoveredStyles};
@@ -102,19 +110,27 @@ const StyledHeader = styled.th`
   ${colStyles};
   ${sortableStyles};
   ${sortableActiveStyles};
+  ${condensedStyles};
 `;
 
 /**
  * TableHeader component for the Table. You shouldn't import this component
  * directly, the Table handles it
  */
-const TableHeader = ({ sortable, children, sortDirection, ...rest }) => (
+const TableHeader = ({
+  sortable,
+  children,
+  sortDirection,
+  condensed,
+  ...rest
+}) => (
   <StyledHeader
     sortable={sortable}
+    condensed={condensed}
     aria-sort={getAriaSort(sortable, sortDirection)}
     {...rest}
   >
-    {sortable && <SortArrow direction={sortDirection} />}
+    {sortable && <SortArrow condensed={condensed} direction={sortDirection} />}
     {children}
   </StyledHeader>
 );
@@ -144,6 +160,11 @@ TableHeader.propTypes = {
    * Handled internally
    */
   fixed: PropTypes.bool,
+  /**
+   * [PRIVATE] Adds condensed style to the Header based on the table props.
+   * Handled internally
+   */
+  condensed: PropTypes.bool,
   /**
    * Defines whether or not the Header is sortable
    */
