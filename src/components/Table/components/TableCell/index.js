@@ -63,6 +63,7 @@ const hoverStyles = ({ theme, isHovered }) =>
 const condensedStyles = ({ condensed, theme }) =>
   condensed &&
   css`
+    label: table-cell--condensed;
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
     ${theme.typography.text.kilo};
   `;

@@ -70,7 +70,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
           headers={headers}
           rows={rows}
           rowHeaders={boolean('Mobile rows', false)}
-          condensed={boolean('Condensed', true)}
+          condensed={boolean('Condensed', false)}
           noShadow={boolean('Without Shadow', false)}
           onRowClick={action('onRowClick')}
           borderCollapsed={boolean('Border collapsed', false)}

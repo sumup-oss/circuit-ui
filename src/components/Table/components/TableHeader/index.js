@@ -95,9 +95,11 @@ const sortableActiveStyles = ({ sortable, isSorted }) =>
     }
   `;
 
-const condensedStyles = ({ condensed, theme }) =>
+const condensedStyles = ({ condensed, theme, fixed }) =>
   condensed &&
+  !fixed &&
   css`
+    label: table-header--condensed;
     vertical-align: middle;
     padding: ${theme.spacings.byte} ${theme.spacings.mega};
     ${theme.typography.text.kilo};
