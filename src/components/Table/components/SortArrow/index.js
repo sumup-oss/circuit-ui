@@ -35,8 +35,15 @@ const baseStyles = ({ theme }) => css`
   width: 5px;
 `;
 
+const condensedStyles = ({ condensed, theme }) =>
+  condensed &&
+  css`
+    left: ${theme.spacings.byte};
+  `;
+
 const StyledWrapper = styled(SvgButton)`
   ${baseStyles};
+  ${condensedStyles};
 `;
 
 const DownArrow = styled(ArrowIcon)`
@@ -45,10 +52,10 @@ const DownArrow = styled(ArrowIcon)`
 `;
 
 /**
- * [PRIVATE] Arrow component for TableHeader sorting
+ * @private Arrow component for TableHeader sorting
  */
-const SortArrow = ({ direction }) => (
-  <StyledWrapper>
+const SortArrow = ({ direction, condensed }) => (
+  <StyledWrapper condensed={condensed}>
     <Fragment>
       {direction !== DESCENDING && <ArrowIcon />}
       {direction !== ASCENDING && <DownArrow />}
@@ -57,11 +64,13 @@ const SortArrow = ({ direction }) => (
 );
 
 SortArrow.propTypes = {
-  direction: PropTypes.oneOf([ASCENDING, DESCENDING])
+  direction: PropTypes.oneOf([ASCENDING, DESCENDING]),
+  condensed: PropTypes.bool
 };
 
 SortArrow.defaultProps = {
-  direction: null
+  direction: null,
+  condensed: false
 };
 
 export default SortArrow;

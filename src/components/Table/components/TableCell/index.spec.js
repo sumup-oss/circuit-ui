@@ -35,6 +35,11 @@ describe('TableCell', () => {
       const actual = create(<TableCell header>{children}</TableCell>);
       expect(actual).toMatchSnapshot();
     });
+
+    it('should render with condensed styles', () => {
+      const actual = create(<TableCell condensed>{children}</TableCell>);
+      expect(actual).toMatchSnapshot();
+    });
   });
 
   describe('Accessibility tests', () => {

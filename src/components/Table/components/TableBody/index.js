@@ -31,7 +31,7 @@ const getRowKey = index => `${TR_KEY_PREFIX}-${index}`;
 const getCellKey = (rowIndex, cellIndex) =>
   `${TD_KEY_PREFIX}-${rowIndex}-${cellIndex}`;
 
-const TableBody = ({ rows, rowHeaders, sortHover, onRowClick }) => (
+const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
   <tbody>
     {rows.map((row, rowIndex) => {
       const { cells, ...props } = mapRowProps(row);
@@ -46,6 +46,7 @@ const TableBody = ({ rows, rowHeaders, sortHover, onRowClick }) => (
               <Fragment key={getCellKey(rowIndex, cellIndex)}>
                 <TableHeader
                   fixed
+                  condensed={condensed}
                   scope={TableHeader.ROW}
                   isHovered={sortHover === cellIndex}
                   {...mapCellProps(cell)}
@@ -57,6 +58,7 @@ const TableBody = ({ rows, rowHeaders, sortHover, onRowClick }) => (
             ) : (
               <TableCell
                 key={getCellKey(rowIndex, cellIndex)}
+                condensed={condensed}
                 isHovered={sortHover === cellIndex}
                 {...mapCellProps(cell)}
               />
@@ -69,7 +71,7 @@ const TableBody = ({ rows, rowHeaders, sortHover, onRowClick }) => (
 );
 
 /**
- * [PRIVATE] TableHead for the Table component. The Table handles rendering it
+ * @private TableHead for the Table component. The Table handles rendering it
  */
 TableBody.propTypes = {
   /**
@@ -87,10 +89,15 @@ TableBody.propTypes = {
    */
   rowHeaders: PropTypes.bool,
   /**
-   * [PRIVATE] The current hovered sort cell index
+   * @private The current hovered sort cell index
    * Handled internally
    */
   sortHover: PropTypes.number,
+  /**
+   * @private Adds condensed styles to the table.
+   * Handled internally
+   */
+  condensed: PropTypes.bool,
   /**
    * onClick handler
    */

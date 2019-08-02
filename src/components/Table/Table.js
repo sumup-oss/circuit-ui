@@ -154,9 +154,10 @@ class Table extends Component {
     const {
       rowHeaders,
       headers,
-      onRowClick,
       noShadow,
-      borderCollapsed
+      borderCollapsed,
+      condensed,
+      onRowClick
     } = this.props;
     const { sortDirection, sortHover, sortedRow } = this.state;
 
@@ -177,6 +178,7 @@ class Table extends Component {
               borderCollapsed={borderCollapsed}
             >
               <TableHead
+                condensed={condensed}
                 sortDirection={sortDirection}
                 sortedRow={sortedRow}
                 onSortBy={this.onSortBy}
@@ -186,6 +188,7 @@ class Table extends Component {
                 rowHeaders={rowHeaders}
               />
               <TableBody
+                condensed={condensed}
                 rows={this.getSortedRows()}
                 rowHeaders={rowHeaders}
                 sortHover={sortHover}
@@ -223,6 +226,10 @@ Table.propTypes = {
    * Removes the default box-shadow from the table.
    */
   noShadow: PropTypes.bool,
+  /**
+   * Toggles condensed styles on the Table.
+   */
+  condensed: PropTypes.bool,
   /**
    * Custom onSortBy function for the onSort handler.
    * The signature is (index, nextDirection, currentRows) and it should return

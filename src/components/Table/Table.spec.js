@@ -49,6 +49,11 @@ describe('Table', () => {
       );
       expect(actual).toMatchSnapshot();
     });
+
+    it('should render a condensed table', () => {
+      const actual = create(<Table headers={headers} rows={items} condensed />);
+      expect(actual).toMatchSnapshot();
+    });
   });
 
   describe('Accessibility tests', () => {

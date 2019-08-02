@@ -95,6 +95,16 @@ const sortableActiveStyles = ({ sortable, isSorted }) =>
     }
   `;
 
+const condensedStyles = ({ condensed, theme, fixed }) =>
+  condensed &&
+  !fixed &&
+  css`
+    label: table-header--condensed;
+    vertical-align: middle;
+    padding: ${theme.spacings.byte} ${theme.spacings.mega};
+    ${theme.typography.text.kilo};
+  `;
+
 const StyledHeader = styled.th`
   ${baseStyles};
   ${hoveredStyles};
@@ -102,19 +112,27 @@ const StyledHeader = styled.th`
   ${colStyles};
   ${sortableStyles};
   ${sortableActiveStyles};
+  ${condensedStyles};
 `;
 
 /**
  * TableHeader component for the Table. You shouldn't import this component
  * directly, the Table handles it
  */
-const TableHeader = ({ sortable, children, sortDirection, ...rest }) => (
+const TableHeader = ({
+  sortable,
+  children,
+  sortDirection,
+  condensed,
+  ...rest
+}) => (
   <StyledHeader
     sortable={sortable}
+    condensed={condensed}
     aria-sort={getAriaSort(sortable, sortDirection)}
     {...rest}
   >
-    {sortable && <SortArrow direction={sortDirection} />}
+    {sortable && <SortArrow condensed={condensed} direction={sortDirection} />}
     {children}
   </StyledHeader>
 );
@@ -135,21 +153,26 @@ TableHeader.propTypes = {
     TableHeader.CENTER
   ]),
   /**
-   * [PRIVATE] Adds ROL or COL styles based on the provided Scope.
+   * @private Adds ROL or COL styles based on the provided Scope.
    * Handled internally
    */
   scope: PropTypes.oneOf([TableHeader.COL, TableHeader.ROW]),
   /**
-   * [PRIVATE] Adds sticky style to the Header based on rowHeader definition.
+   * @private Adds sticky style to the Header based on rowHeader definition.
    * Handled internally
    */
   fixed: PropTypes.bool,
+  /**
+   * @private Adds condensed style to the Header based on the table props.
+   * Handled internally
+   */
+  condensed: PropTypes.bool,
   /**
    * Defines whether or not the Header is sortable
    */
   sortable: PropTypes.bool,
   /**
-   * [PRIVATE] Adds active style to the Header if it is currently hovered by
+   * @private Adds active style to the Header if it is currently hovered by
    * sort.
    * Handled internally
    */
@@ -157,7 +180,7 @@ TableHeader.propTypes = {
   children: childrenPropType,
   sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
   /**
-   * [PRIVATE] Adds sorted style to the Header if it is currently sorted
+   * @private Adds sorted style to the Header if it is currently sorted
    * Handled internally
    */
   isSorted: PropTypes.bool

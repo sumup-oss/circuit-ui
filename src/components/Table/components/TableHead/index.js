@@ -26,6 +26,7 @@ import { ASCENDING, DESCENDING, TH_KEY_PREFIX } from '../../constants';
 const TableHead = ({
   headers,
   rowHeaders,
+  condensed,
   onSortBy,
   sortDirection,
   sortedRow,
@@ -36,25 +37,35 @@ const TableHead = ({
     {!!headers.length && (
       <TableRow header>
         {headers.map((header, i) => {
-          const props = mapCellProps(header);
+          const cellProps = mapCellProps(header);
           return (
             <Fragment key={`${TH_KEY_PREFIX}-${i}`}>
               <TableHeader
-                {...props}
+                {...cellProps}
+                condensed={condensed}
                 fixed={rowHeaders && i === 0}
                 // eslint-disable-next-line react/prop-types
-                onClick={props.sortable ? () => onSortBy(i) : null}
+                onClick={cellProps.sortable ? () => onSortBy(i) : null}
                 onMouseEnter={
-                  props.sortable ? onSortEnter && (() => onSortEnter(i)) : null
+                  cellProps.sortable
+                    ? onSortEnter && (() => onSortEnter(i))
+                    : null
                 }
                 onMouseLeave={
-                  props.sortable ? onSortLeave && (() => onSortLeave(i)) : null
+                  cellProps.sortable
+                    ? onSortLeave && (() => onSortLeave(i))
+                    : null
                 }
                 sortDirection={sortedRow === i ? sortDirection : null}
                 isSorted={sortedRow === i}
               />
               {rowHeaders && i === 0 && (
-                <TableCell role="presentation" aria-hidden="true" header>
+                <TableCell
+                  condensed={condensed}
+                  role="presentation"
+                  aria-hidden="true"
+                  header
+                >
                   {getCellChildren(header)}
                 </TableCell>
               )}
@@ -67,7 +78,7 @@ const TableHead = ({
 );
 
 /**
- * [PRIVATE] TableHead for the Table component. The Table handlers rendering it
+ * @private TableHead for the Table component. The Table handlers rendering it
  */
 TableHead.propTypes = {
   /**
@@ -80,23 +91,28 @@ TableHead.propTypes = {
    */
   rowHeaders: PropTypes.bool,
   /**
-   * [PRIVATE] sortBy handler
+   * @private Adds condensed styles the table according to the table props.
+   * Handled internally.
+   */
+  condensed: PropTypes.bool,
+  /**
+   * @private sortBy handler
    */
   onSortBy: PropTypes.func,
   /**
-   * [PRIVATE] The current sortDirection
+   * @private The current sortDirection
    */
   sortDirection: PropTypes.oneOf([ASCENDING, DESCENDING]),
   /**
-   * [PRIVATE] The current sorted row index
+   * @private The current sorted row index
    */
   sortedRow: PropTypes.number,
   /**
-   * [PRIVATE] sortEnter handler
+   * @private sortEnter handler
    */
   onSortEnter: PropTypes.func,
   /**
-   * [PRIVATE] sortLeave handler
+   * @private sortLeave handler
    */
   onSortLeave: PropTypes.func
 };

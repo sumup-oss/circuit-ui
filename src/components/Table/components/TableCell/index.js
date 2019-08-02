@@ -60,6 +60,14 @@ const hoverStyles = ({ theme, isHovered }) =>
     background-color: ${theme.colors.n100};
   `;
 
+const condensedStyles = ({ condensed, theme }) =>
+  condensed &&
+  css`
+    label: table-cell--condensed;
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+    ${theme.typography.text.kilo};
+  `;
+
 /**
  * TableCell component for the Table. You shouldn't import this component
  * directly, the Table handles it
@@ -68,6 +76,7 @@ const TableCell = styled.td`
   ${baseStyles};
   ${presentationStyles};
   ${hoverStyles};
+  ${condensedStyles};
 `;
 
 TableCell.LEFT = directions.LEFT;
@@ -80,12 +89,12 @@ TableCell.propTypes = {
    */
   align: PropTypes.oneOf([TableCell.LEFT, TableCell.RIGHT, TableCell.CENTER]),
   /**
-   * [PRIVATE] Add heading styles to placeholder Cell.
+   * @private Add heading styles to placeholder Cell.
    * Handled internally
    */
   header: PropTypes.bool,
   /**
-   * [PRIVATE] Adds active style to the Cell if it is currently hovered by
+   * @private Adds active style to the Cell if it is currently hovered by
    * sort.
    * Handled internally
    */
