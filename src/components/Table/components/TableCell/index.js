@@ -77,7 +77,7 @@ const condensedPresentationStyles = ({ role, header, condensed, theme }) =>
     ${theme.typography.text.kilo};
     ${header &&
       css`
-        padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+        padding: ${theme.spacings.byte} ${theme.spacings.mega};
       `}
   `;
 

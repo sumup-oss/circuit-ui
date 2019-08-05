@@ -118,8 +118,9 @@ const ShadowContainer = styled.div`
 const tableContainerBaseStyles = () => css`
   position: relative;
 `;
-const tableContainerScrollableStyles = ({ scrollable }) =>
+const tableContainerScrollableStyles = ({ scrollable, rowHeaders }) =>
   scrollable &&
+  !rowHeaders &&
   css`
     height: 100%;
   `;
@@ -137,7 +138,8 @@ class Table extends Component {
     sortedRow: null,
     sortHover: null,
     sortDirection: null,
-    tableBodyHeight: null
+    tableBodyHeight: null,
+    scrollTop: null
   };
 
   componentDidMount() {
@@ -208,6 +210,14 @@ class Table extends Component {
     return [...rows].sort(sortFn(i), rows);
   };
 
+  setHeadRef = thead => {
+    this.tableHead = thead;
+  };
+
+  handleScroll = e => {
+    this.setState({ scrollTop: e.target.scrollTop });
+  };
+
   render() {
     const {
       rowHeaders,
@@ -218,12 +228,23 @@ class Table extends Component {
       scrollable,
       onRowClick
     } = this.props;
-    const { sortDirection, sortHover, sortedRow, tableBodyHeight } = this.state;
+    const {
+      sortDirection,
+      sortHover,
+      sortedRow,
+      tableBodyHeight,
+      scrollTop
+    } = this.state;
 
     return (
-      <TableContainer ref={this.setTableRef} scrollable={scrollable}>
+      <TableContainer
+        ref={this.setTableRef}
+        scrollable={scrollable}
+        rowHeaders={rowHeaders}
+      >
         <ShadowContainer noShadow={noShadow}>
           <ScrollContainer
+            onScroll={scrollable && this.handleScroll}
             rowHeaders={rowHeaders}
             scrollable={scrollable}
             height={tableBodyHeight}
@@ -233,8 +254,11 @@ class Table extends Component {
               borderCollapsed={borderCollapsed}
             >
               <TableHead
+                ref={this.setHeadRef}
+                top={scrollTop}
                 condensed={condensed}
                 scrollable={scrollable}
+                scrollTop={scrollTop}
                 sortDirection={sortDirection}
                 sortedRow={sortedRow}
                 onSortBy={this.onSortBy}

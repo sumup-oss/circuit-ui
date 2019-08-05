@@ -16,6 +16,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash/fp';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
@@ -23,18 +25,30 @@ import TableCell from '../TableCell';
 import { mapCellProps, getCellChildren, RowPropType } from '../../utils';
 import { ASCENDING, DESCENDING, TH_KEY_PREFIX } from '../../constants';
 
+const fixedStyles = ({ scrollable, top }) =>
+  scrollable &&
+  top &&
+  css`
+    transform: translateY(${top}px);
+  `;
+
+const Thead = styled.thead`
+  ${fixedStyles}
+`;
+
 const TableHead = ({
   headers,
   rowHeaders,
   condensed,
   scrollable,
+  top,
   onSortBy,
   sortDirection,
   sortedRow,
   onSortEnter,
   onSortLeave
 }) => (
-  <thead>
+  <Thead scrollable={scrollable} top={top}>
     {!!headers.length && (
       <TableRow header>
         {headers.map((header, i) => {
@@ -63,11 +77,11 @@ const TableHead = ({
               />
               {rowHeaders && i === 0 && (
                 <TableCell
+                  header
                   condensed={condensed}
                   scrollable={scrollable}
                   role="presentation"
                   aria-hidden="true"
-                  header
                 >
                   {getCellChildren(header)}
                 </TableCell>
@@ -77,7 +91,7 @@ const TableHead = ({
         })}
       </TableRow>
     )}
-  </thead>
+  </Thead>
 );
 
 /**
@@ -103,6 +117,11 @@ TableHead.propTypes = {
    * Handled internally.
    */
   scrollable: PropTypes.bool,
+  /**
+   * @private The value used to make the thead fixed while scrolling.
+   * Handled internally.
+   */
+  top: PropTypes.number,
   /**
    * @private sortBy handler
    */
