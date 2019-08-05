@@ -114,9 +114,19 @@ const ShadowContainer = styled.div`
  * The position: relative; container is necessary because ShadowContainer
  * is a position: absolute; element
  */
-const TableContainer = styled.div`
+
+const tableContainerBaseStyles = () => css`
   position: relative;
-  height: 100%;
+`;
+const tableContainerScrollableStyles = ({ scrollable }) =>
+  scrollable &&
+  css`
+    height: 100%;
+  `;
+
+const TableContainer = styled.div`
+  ${tableContainerBaseStyles};
+  ${tableContainerScrollableStyles};
 `;
 
 /**
@@ -211,7 +221,7 @@ class Table extends Component {
     const { sortDirection, sortHover, sortedRow, tableBodyHeight } = this.state;
 
     return (
-      <TableContainer ref={this.setTableRef}>
+      <TableContainer ref={this.setTableRef} scrollable={scrollable}>
         <ShadowContainer noShadow={noShadow}>
           <ScrollContainer
             rowHeaders={rowHeaders}
@@ -224,6 +234,7 @@ class Table extends Component {
             >
               <TableHead
                 condensed={condensed}
+                scrollable={scrollable}
                 sortDirection={sortDirection}
                 sortedRow={sortedRow}
                 onSortBy={this.onSortBy}
@@ -234,6 +245,7 @@ class Table extends Component {
               />
               <TableBody
                 condensed={condensed}
+                scrollable={scrollable}
                 rows={this.getSortedRows()}
                 rowHeaders={rowHeaders}
                 sortHover={sortHover}

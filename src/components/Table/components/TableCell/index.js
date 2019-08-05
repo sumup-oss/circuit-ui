@@ -68,15 +68,29 @@ const condensedStyles = ({ condensed, theme }) =>
     ${theme.typography.text.kilo};
   `;
 
+const condensedPresentationStyles = ({ role, header, condensed, theme }) =>
+  condensed &&
+  role === PRESENTATION &&
+  css`
+    label: table-cell-presentation--condensed;
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+    ${theme.typography.text.kilo};
+    ${header &&
+      css`
+        padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+      `}
+  `;
+
 /**
  * TableCell component for the Table. You shouldn't import this component
  * directly, the Table handles it
  */
 const TableCell = styled.td`
   ${baseStyles};
+  ${condensedStyles};
   ${presentationStyles};
   ${hoverStyles};
-  ${condensedStyles};
+  ${condensedPresentationStyles};
 `;
 
 TableCell.LEFT = directions.LEFT;

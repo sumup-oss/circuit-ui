@@ -27,6 +27,7 @@ const TableHead = ({
   headers,
   rowHeaders,
   condensed,
+  scrollable,
   onSortBy,
   sortDirection,
   sortedRow,
@@ -43,6 +44,7 @@ const TableHead = ({
               <TableHeader
                 {...cellProps}
                 condensed={condensed}
+                scrollable={scrollable}
                 fixed={rowHeaders && i === 0}
                 // eslint-disable-next-line react/prop-types
                 onClick={cellProps.sortable ? () => onSortBy(i) : null}
@@ -62,6 +64,7 @@ const TableHead = ({
               {rowHeaders && i === 0 && (
                 <TableCell
                   condensed={condensed}
+                  scrollable={scrollable}
                   role="presentation"
                   aria-hidden="true"
                   header
@@ -91,10 +94,15 @@ TableHead.propTypes = {
    */
   rowHeaders: PropTypes.bool,
   /**
-   * @private Adds condensed styles the table according to the table props.
+   * @private Adds condensed styles the table head according to the table props.
    * Handled internally.
    */
   condensed: PropTypes.bool,
+  /**
+   * @private Adds scrollable styles the table head according to the table props.
+   * Handled internally.
+   */
+  scrollable: PropTypes.bool,
   /**
    * @private sortBy handler
    */
