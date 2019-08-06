@@ -32,6 +32,65 @@ import {
 import { ASCENDING } from './constants';
 import { shadowSingle } from '../../styles/style-helpers';
 
+/**
+ * Table container styles.
+ * The position: relative; container is necessary because ShadowContainer
+ * is a position: absolute; element
+ */
+const tableContainerBaseStyles = () => css`
+  label: table-container;
+  position: relative;
+`;
+const tableContainerScrollableStyles = ({ scrollable, rowHeaders }) =>
+  scrollable &&
+  !rowHeaders &&
+  css`
+    height: 100%;
+  `;
+
+const noShadowStyles = ({ noShadow }) =>
+  noShadow &&
+  css`
+    label: table-container--no-shadow;
+    box-shadow: none;
+  `;
+
+const TableContainer = styled.div`
+  ${tableContainerBaseStyles};
+  ${shadowSingle};
+  ${noShadowStyles};
+  ${tableContainerScrollableStyles};
+`;
+
+/**
+ * Scroll container styles.
+ */
+const containerStyles = ({ theme, rowHeaders }) =>
+  rowHeaders &&
+  css`
+    label: table-container;
+    border-radius: ${theme.borderRadius.mega};
+    ${theme.mq.untilMega} {
+      margin-left: 145px;
+      overflow-x: auto;
+    }
+  `;
+
+const scrollableStyles = ({ scrollable, height }) =>
+  scrollable &&
+  css`
+    height: ${height || '100%'};
+    overflow-y: auto;
+  `;
+
+const ScrollContainer = styled.div`
+  ${containerStyles};
+  ${scrollableStyles};
+`;
+
+/**
+ * Table styles.
+ */
 const baseStyles = ({ theme }) => css`
   label: table;
   background-color: ${theme.colors.white};
@@ -73,59 +132,6 @@ const StyledTable = styled.table`
   ${baseStyles};
   ${responsiveStyles};
   ${borderCollapsedStyles};
-`;
-
-const containerStyles = ({ theme, rowHeaders }) =>
-  rowHeaders &&
-  css`
-    label: table-container;
-    border-radius: ${theme.borderRadius.mega};
-    ${theme.mq.untilMega} {
-      margin-left: 145px;
-      overflow-x: auto;
-    }
-  `;
-
-const scrollableStyles = ({ scrollable, height }) =>
-  scrollable &&
-  css`
-    height: ${height || '100%'};
-    overflow-y: auto;
-  `;
-
-const ScrollContainer = styled.div`
-  ${containerStyles};
-  ${scrollableStyles};
-`;
-
-/**
- * The position: relative; container is necessary because ShadowContainer
- * is a position: absolute; element
- */
-
-const tableContainerBaseStyles = () => css`
-  label: table-container;
-  position: relative;
-`;
-const tableContainerScrollableStyles = ({ scrollable, rowHeaders }) =>
-  scrollable &&
-  !rowHeaders &&
-  css`
-    height: 100%;
-  `;
-
-const noShadowStyles = ({ noShadow }) =>
-  noShadow &&
-  css`
-    label: table-container--no-shadow;
-    box-shadow: none;
-  `;
-
-const TableContainer = styled.div`
-  ${tableContainerBaseStyles};
-  ${shadowSingle};
-  ${noShadowStyles};
-  ${tableContainerScrollableStyles};
 `;
 
 /**
@@ -227,10 +233,6 @@ class Table extends Component {
     return [...rows].sort(sortFn(i), rows);
   };
 
-  setHeadRef = thead => {
-    this.tableHead = thead;
-  };
-
   handleScroll = e => {
     this.setState({ scrollTop: e.target.scrollTop });
   };
@@ -261,17 +263,16 @@ class Table extends Component {
         noShadow={noShadow}
       >
         <ScrollContainer
-          onScroll={scrollable && this.handleScroll}
           rowHeaders={rowHeaders}
           scrollable={scrollable}
           height={tableBodyHeight}
+          onScroll={scrollable && this.handleScroll}
         >
           <StyledTable
             rowHeaders={rowHeaders}
             borderCollapsed={borderCollapsed}
           >
             <TableHead
-              ref={this.setHeadRef}
               top={scrollTop}
               condensed={condensed}
               scrollable={scrollable}
