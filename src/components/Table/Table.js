@@ -148,7 +148,7 @@ class Table extends Component {
   };
 
   componentDidMount() {
-    if (this.props.scrollable) {
+    if (this.props.scrollable && this.props.rowHeaders) {
       this.addVerticalScroll();
     }
   }

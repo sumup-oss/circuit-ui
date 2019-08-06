@@ -83,7 +83,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
           rows={rows}
           rowHeaders={boolean('Mobile rows', true)}
           condensed={boolean('Condensed', true)}
-          scrollable={boolean('Scrollable', true)}
+          scrollable={boolean('Scrollable', false)}
           noShadow={boolean('Without Shadow', false)}
           onRowClick={action('onRowClick')}
           borderCollapsed={boolean('Border collapsed', false)}

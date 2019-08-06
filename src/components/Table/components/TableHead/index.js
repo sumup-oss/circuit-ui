@@ -29,6 +29,7 @@ const fixedStyles = ({ scrollable, top, rowHeaders }) =>
   scrollable &&
   !rowHeaders &&
   css`
+    label: table-head--fixed;
     transform: translateY(${top}px);
   `;
 
