@@ -19,7 +19,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
-import { throttle } from 'lodash/fp';
+import { isNil, throttle } from 'lodash/fp';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
@@ -148,7 +148,7 @@ class Table extends Component {
   };
 
   componentDidMount() {
-    if (this.props.scrollable && this.props.rowHeaders) {
+    if (this.props.scrollable && !this.props.rowHeaders) {
       this.addVerticalScroll();
     }
   }
@@ -195,7 +195,11 @@ class Table extends Component {
   };
 
   calculateTableBodyHeight = () => {
-    this.setState({ tableBodyHeight: `${this.tableContainer.offsetHeight}px` });
+    this.setState({
+      tableBodyHeight: isNil(this.tableContainer)
+        ? null
+        : `${this.tableContainer.offsetHeight}px`
+    });
   };
 
   onSortEnter = i => this.setState({ sortHover: i });
