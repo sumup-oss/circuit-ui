@@ -76,8 +76,9 @@ const containerStyles = ({ theme, rowHeaders }) =>
     }
   `;
 
-const scrollableStyles = ({ scrollable, height }) =>
+const scrollableStyles = ({ scrollable, height, rowHeaders }) =>
   scrollable &&
+  !rowHeaders &&
   css`
     height: ${height || '100%'};
     overflow-y: auto;
@@ -152,13 +153,20 @@ class Table extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (!prevProps.scrollable && this.props.scrollable) {
+  componentDidUpdate({ scrollable, rowHeaders }) {
+    const shouldAddScroll =
+      (!scrollable && this.props.scrollable) ||
+      (rowHeaders && !this.props.rowHeaders);
+
+    const shouldRemoveScroll =
+      (scrollable && !this.props.scrollable) ||
+      (!rowHeaders && this.props.rowHeaders);
+
+    if (shouldAddScroll) {
       this.addVerticalScroll();
     }
 
-    if (prevProps.scrollable && !this.props.scrollable) {
-      this.setState({ tableBodyHeight: null });
+    if (shouldRemoveScroll) {
       this.removeVerticalScroll();
     }
   }
@@ -187,13 +195,7 @@ class Table extends Component {
   };
 
   calculateTableBodyHeight = () => {
-    const HEADER_HEIGHT = 41;
-    const CONDENSED_HEADER_HEIGHT = 37;
-
-    const tableBodyHeight = `${this.tableContainer.offsetHeight -
-      (this.props.condensed ? CONDENSED_HEADER_HEIGHT : HEADER_HEIGHT)}px`;
-
-    this.setState({ tableBodyHeight });
+    this.setState({ tableBodyHeight: `${this.tableContainer.offsetHeight}px` });
   };
 
   onSortEnter = i => this.setState({ sortHover: i });
@@ -266,7 +268,7 @@ class Table extends Component {
           rowHeaders={rowHeaders}
           scrollable={scrollable}
           height={tableBodyHeight}
-          onScroll={scrollable && this.handleScroll}
+          onScroll={scrollable ? this.handleScroll : null}
         >
           <StyledTable
             rowHeaders={rowHeaders}

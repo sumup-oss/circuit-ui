@@ -25,9 +25,9 @@ import TableCell from '../TableCell';
 import { mapCellProps, getCellChildren, RowPropType } from '../../utils';
 import { ASCENDING, DESCENDING, TH_KEY_PREFIX } from '../../constants';
 
-const fixedStyles = ({ scrollable, top }) =>
+const fixedStyles = ({ scrollable, top, rowHeaders }) =>
   scrollable &&
-  top &&
+  !rowHeaders &&
   css`
     transform: translateY(${top}px);
   `;
@@ -48,7 +48,7 @@ const TableHead = ({
   onSortEnter,
   onSortLeave
 }) => (
-  <Thead scrollable={scrollable} top={top}>
+  <Thead scrollable={scrollable} top={top} rowHeaders={rowHeaders}>
     {!!headers.length && (
       <TableRow header>
         {headers.map((header, i) => {
