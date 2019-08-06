@@ -93,21 +93,9 @@ const scrollableStyles = ({ scrollable, height }) =>
     overflow-y: auto;
   `;
 
-const noShadowStyles = ({ noShadow }) =>
-  noShadow &&
-  css`
-    label: table-container--no-shadow;
-    box-shadow: none;
-  `;
-
 const ScrollContainer = styled.div`
   ${containerStyles};
   ${scrollableStyles};
-`;
-
-const ShadowContainer = styled.div`
-  ${shadowSingle};
-  ${noShadowStyles};
 `;
 
 /**
@@ -116,6 +104,7 @@ const ShadowContainer = styled.div`
  */
 
 const tableContainerBaseStyles = () => css`
+  label: table-container;
   position: relative;
 `;
 const tableContainerScrollableStyles = ({ scrollable, rowHeaders }) =>
@@ -125,8 +114,17 @@ const tableContainerScrollableStyles = ({ scrollable, rowHeaders }) =>
     height: 100%;
   `;
 
+const noShadowStyles = ({ noShadow }) =>
+  noShadow &&
+  css`
+    label: table-container--no-shadow;
+    box-shadow: none;
+  `;
+
 const TableContainer = styled.div`
   ${tableContainerBaseStyles};
+  ${shadowSingle};
+  ${noShadowStyles};
   ${tableContainerScrollableStyles};
 `;
 
@@ -144,20 +142,39 @@ class Table extends Component {
 
   componentDidMount() {
     if (this.props.scrollable) {
-      this.calculateTableBodyHeight();
+      this.addVerticalScroll();
+    }
+  }
 
-      window.addEventListener(
-        'resize',
-        throttle(1000, this.calculateTableBodyHeight)
-      );
+  componentDidUpdate(prevProps) {
+    if (!prevProps.scrollable && this.props.scrollable) {
+      this.addVerticalScroll();
+    }
+
+    if (prevProps.scrollable && !this.props.scrollable) {
+      this.setState({ tableBodyHeight: null });
+      this.removeVerticalScroll();
     }
   }
 
   componentWillUnmount() {
     if (this.props.scrollable) {
-      window.removeEventListener('resize', this.calculateTableBodyHeight);
+      this.removeVerticalScroll();
     }
   }
+
+  addVerticalScroll = () => {
+    this.calculateTableBodyHeight();
+
+    window.addEventListener(
+      'resize',
+      throttle(1000, this.calculateTableBodyHeight)
+    );
+  };
+
+  removeVerticalScroll = () => {
+    window.removeEventListener('resize', this.calculateTableBodyHeight);
+  };
 
   setTableRef = tableContainer => {
     this.tableContainer = tableContainer;
@@ -241,43 +258,42 @@ class Table extends Component {
         ref={this.setTableRef}
         scrollable={scrollable}
         rowHeaders={rowHeaders}
+        noShadow={noShadow}
       >
-        <ShadowContainer noShadow={noShadow}>
-          <ScrollContainer
-            onScroll={scrollable && this.handleScroll}
+        <ScrollContainer
+          onScroll={scrollable && this.handleScroll}
+          rowHeaders={rowHeaders}
+          scrollable={scrollable}
+          height={tableBodyHeight}
+        >
+          <StyledTable
             rowHeaders={rowHeaders}
-            scrollable={scrollable}
-            height={tableBodyHeight}
+            borderCollapsed={borderCollapsed}
           >
-            <StyledTable
+            <TableHead
+              ref={this.setHeadRef}
+              top={scrollTop}
+              condensed={condensed}
+              scrollable={scrollable}
+              scrollTop={scrollTop}
+              sortDirection={sortDirection}
+              sortedRow={sortedRow}
+              onSortBy={this.onSortBy}
+              onSortEnter={this.onSortEnter}
+              onSortLeave={this.onSortLeave}
+              headers={headers}
               rowHeaders={rowHeaders}
-              borderCollapsed={borderCollapsed}
-            >
-              <TableHead
-                ref={this.setHeadRef}
-                top={scrollTop}
-                condensed={condensed}
-                scrollable={scrollable}
-                scrollTop={scrollTop}
-                sortDirection={sortDirection}
-                sortedRow={sortedRow}
-                onSortBy={this.onSortBy}
-                onSortEnter={this.onSortEnter}
-                onSortLeave={this.onSortLeave}
-                headers={headers}
-                rowHeaders={rowHeaders}
-              />
-              <TableBody
-                condensed={condensed}
-                scrollable={scrollable}
-                rows={this.getSortedRows()}
-                rowHeaders={rowHeaders}
-                sortHover={sortHover}
-                onRowClick={onRowClick}
-              />
-            </StyledTable>
-          </ScrollContainer>
-        </ShadowContainer>
+            />
+            <TableBody
+              condensed={condensed}
+              scrollable={scrollable}
+              rows={this.getSortedRows()}
+              rowHeaders={rowHeaders}
+              sortHover={sortHover}
+              onRowClick={onRowClick}
+            />
+          </StyledTable>
+        </ScrollContainer>
       </TableContainer>
     );
   }
