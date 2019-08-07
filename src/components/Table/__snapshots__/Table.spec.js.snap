@@ -3,11 +3,11 @@
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
 .circuit-49 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 .circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 @media (max-width:767px) {
@@ -224,7 +224,7 @@ tbody .circuit-11:last-child td {
 >
   <div
     className="circuit-47 circuit-48"
-    height={null}
+    height="unset"
     onScroll={null}
   >
     <table
@@ -383,11 +383,11 @@ tbody .circuit-11:last-child td {
 exports[`Table Style tests should render a collapsed table 1`] = `
 .circuit-49 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 .circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 @media (max-width:767px) {
@@ -605,7 +605,7 @@ tbody .circuit-11:last-child td {
 >
   <div
     className="circuit-47 circuit-48"
-    height={null}
+    height="unset"
     onScroll={null}
   >
     <table
@@ -764,11 +764,11 @@ tbody .circuit-11:last-child td {
 exports[`Table Style tests should render a condensed table 1`] = `
 .circuit-49 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 .circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 @media (max-width:767px) {
@@ -1016,7 +1016,7 @@ tbody .circuit-11:last-child td {
 >
   <div
     className="circuit-47 circuit-48"
-    height={null}
+    height="unset"
     onScroll={null}
   >
     <table
@@ -1249,13 +1249,13 @@ tbody .circuit-9:last-child td {
 
 .circuit-41 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   height: 100%;
 }
 
 .circuit-39 {
-  height: 100%;
+  height: unset;
   overflow-y: auto;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 .circuit-37 {
@@ -1305,7 +1305,7 @@ tbody .circuit-9:last-child td {
 >
   <div
     className="circuit-39 circuit-40"
-    height={null}
+    height="unset"
     onScroll={[Function]}
   >
     <table
@@ -1430,11 +1430,11 @@ tbody .circuit-9:last-child td {
 exports[`Table Style tests should render with default styles 1`] = `
 .circuit-49 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 .circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 @media (max-width:767px) {
@@ -1651,7 +1651,7 @@ tbody .circuit-11:last-child td {
 >
   <div
     className="circuit-47 circuit-48"
-    height={null}
+    height="unset"
     onScroll={null}
   >
     <table
@@ -1810,11 +1810,11 @@ tbody .circuit-11:last-child td {
 exports[`Table Style tests should render with rowHeader styles 1`] = `
 .circuit-49 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 .circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 @media (max-width:767px) {
@@ -2031,7 +2031,7 @@ tbody .circuit-11:last-child td {
 >
   <div
     className="circuit-47 circuit-48"
-    height={null}
+    height="unset"
     onScroll={null}
   >
     <table
@@ -2188,15 +2188,8 @@ tbody .circuit-11:last-child td {
 `;
 
 exports[`Table Style tests should render without the table shadow 1`] = `
-.circuit-47 {
-  border-radius: 4px;
-}
-
-@media (max-width:767px) {
-  .circuit-47 {
-    margin-left: 145px;
-    overflow-x: auto;
-  }
+.circuit-49 {
+  position: relative;
 }
 
 .circuit-45 {
@@ -2401,10 +2394,17 @@ tbody .circuit-11:last-child td {
   white-space: nowrap;
 }
 
-.circuit-49 {
-  position: relative;
+.circuit-47 {
+  border-radius: 4px;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   box-shadow: none;
+}
+
+@media (max-width:767px) {
+  .circuit-47 {
+    margin-left: 145px;
+    overflow-x: auto;
+  }
 }
 
 <div
@@ -2412,7 +2412,7 @@ tbody .circuit-11:last-child td {
 >
   <div
     className="circuit-47 circuit-48"
-    height={null}
+    height="unset"
     onScroll={null}
   >
     <table
