@@ -25,12 +25,14 @@ import TableCell from '../TableCell';
 import { mapCellProps, getCellChildren, RowPropType } from '../../utils';
 import { ASCENDING, DESCENDING, TH_KEY_PREFIX } from '../../constants';
 
-const fixedStyles = ({ scrollable, top, rowHeaders }) =>
+const fixedStyles = ({ scrollable, top, rowHeaders, theme }) =>
   scrollable &&
-  !rowHeaders &&
   css`
     label: table-head--fixed;
     transform: translateY(${top}px);
+    ${theme.mq.untilMega} {
+      transform: ${rowHeaders ? 'unset' : `translateY(${top}px)`};
+    }
   `;
 
 const Thead = styled.thead`

@@ -19,7 +19,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
-import { isNil } from 'lodash/fp';
+import { isNil, throttle } from 'lodash/fp';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
@@ -41,16 +41,27 @@ const tableContainerBaseStyles = () => css`
   label: table-container;
   position: relative;
 `;
-const tableContainerScrollableStyles = ({ scrollable, rowHeaders }) =>
+const tableContainerScrollableStyles = ({ scrollable, rowHeaders, theme }) =>
   scrollable &&
-  !rowHeaders &&
   css`
     height: 100%;
+    ${theme.mq.untilMega} {
+      height: ${rowHeaders ? 'unset' : '100%'};
+    }
+  `;
+
+const noShadowStyles = ({ noShadow }) =>
+  noShadow &&
+  css`
+    label: table-container--no-shadow;
+    box-shadow: none;
   `;
 
 const TableContainer = styled.div`
   ${tableContainerBaseStyles};
   ${tableContainerScrollableStyles};
+  ${shadowSingle};
+  ${noShadowStyles};
 `;
 
 /**
@@ -62,24 +73,17 @@ const containerStyles = ({ theme, rowHeaders }) =>
     label: table-container;
     border-radius: ${theme.borderRadius.mega};
     ${theme.mq.untilMega} {
+      height: unset;
       margin-left: 145px;
       overflow-x: auto;
     }
   `;
 
-const scrollableStyles = ({ scrollable, height, rowHeaders }) =>
+const scrollableStyles = ({ scrollable, height }) =>
   scrollable &&
-  !rowHeaders &&
   css`
     height: ${height || '100%'};
     overflow-y: auto;
-  `;
-
-const noShadowStyles = ({ noShadow }) =>
-  noShadow &&
-  css`
-    label: table-container--no-shadow;
-    box-shadow: none;
   `;
 
 const ScrollContainer = styled.div`
@@ -143,7 +147,55 @@ class Table extends Component {
     sortedRow: null,
     sortHover: null,
     sortDirection: null,
-    scrollTop: null
+    scrollTop: null,
+    tableBodyHeight: null
+  };
+
+  componentDidUpdate({ scrollable, rowHeaders }) {
+    const shouldAddScroll =
+      (!scrollable && this.props.scrollable) ||
+      (rowHeaders && !this.props.rowHeaders);
+
+    const shouldRemoveScroll =
+      (scrollable && !this.props.scrollable) ||
+      (!rowHeaders && this.props.rowHeaders);
+
+    if (shouldAddScroll) {
+      this.addVerticalScroll();
+    }
+
+    if (shouldRemoveScroll) {
+      this.removeVerticalScroll();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.scrollable) {
+      this.removeVerticalScroll();
+    }
+  }
+
+  addVerticalScroll = () => {
+    this.calculateTableBodyHeight();
+
+    window.addEventListener(
+      'resize',
+      throttle(1000, this.calculateTableBodyHeight)
+    );
+  };
+
+  removeVerticalScroll = () => {
+    window.removeEventListener('resize', this.calculateTableBodyHeight);
+  };
+
+  calculateTableBodyHeight = () => {
+    this.setState({
+      tableBodyHeight: `${
+        isNil(this.tableContainer)
+          ? 'unset'
+          : this.tableContainer.parentNode.offsetHeight
+      }px`
+    });
   };
 
   setTableRef = tableContainer => {
@@ -201,12 +253,13 @@ class Table extends Component {
       scrollable,
       onRowClick
     } = this.props;
-    const { sortDirection, sortHover, sortedRow, scrollTop } = this.state;
-
-    const tableBodyHeight =
-      isNil(this.tableContainer) || !scrollable
-        ? 'unset'
-        : `${this.tableContainer.parentNode.offsetHeight}px`;
+    const {
+      sortDirection,
+      sortHover,
+      sortedRow,
+      scrollTop,
+      tableBodyHeight
+    } = this.state;
 
     return (
       <TableContainer
@@ -219,7 +272,6 @@ class Table extends Component {
           rowHeaders={rowHeaders}
           scrollable={scrollable}
           height={tableBodyHeight}
-          noShadow={noShadow}
           onScroll={scrollable ? this.handleScroll : null}
         >
           <StyledTable

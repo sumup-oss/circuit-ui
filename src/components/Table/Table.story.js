@@ -57,18 +57,6 @@ const rows = [
     { children: '14/01/2017', sortByValue: 2 },
     '-',
     { children: 'Disabled', align: TableCell.RIGHT }
-  ],
-  [
-    'Dolor sit amet, consectetur adipiscing',
-    { children: '14/01/2017', sortByValue: 2 },
-    '-',
-    { children: 'Disabled', align: TableCell.RIGHT }
-  ],
-  [
-    'Dolor sit amet, consectetur adipiscing',
-    { children: '14/01/2017', sortByValue: 2 },
-    '-',
-    { children: 'Disabled', align: TableCell.RIGHT }
   ]
 ];
 
@@ -77,12 +65,12 @@ storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .add(
     'Table',
     withInfo()(() => (
-      <div style={{ width: '98vw', height: 200 }}>
+      <div style={{ width: '98vw', height: 150 }}>
         <Table
           headers={headers}
           rows={rows}
           rowHeaders={boolean('Mobile rows', true)}
-          condensed={boolean('Condensed', true)}
+          condensed={boolean('Condensed', false)}
           scrollable={boolean('Scrollable', false)}
           noShadow={boolean('Without Shadow', false)}
           onRowClick={action('onRowClick')}
