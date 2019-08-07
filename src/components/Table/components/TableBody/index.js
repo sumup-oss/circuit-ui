@@ -51,7 +51,11 @@ const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
                   isHovered={sortHover === cellIndex}
                   {...mapCellProps(cell)}
                 />
-                <TableCell role="presentation" aria-hidden="true">
+                <TableCell
+                  role="presentation"
+                  condensed={condensed}
+                  aria-hidden="true"
+                >
                   {getCellChildren(cell)}
                 </TableCell>
               </Fragment>

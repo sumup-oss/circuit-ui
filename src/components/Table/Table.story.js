@@ -65,12 +65,13 @@ storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .add(
     'Table',
     withInfo()(() => (
-      <div style={{ width: '98vw' }}>
+      <div style={{ width: '98vw', height: 150 }}>
         <Table
           headers={headers}
           rows={rows}
-          rowHeaders={boolean('Mobile rows', false)}
+          rowHeaders={boolean('Mobile rows', true)}
           condensed={boolean('Condensed', false)}
+          scrollable={boolean('Scrollable', false)}
           noShadow={boolean('Without Shadow', false)}
           onRowClick={action('onRowClick')}
           borderCollapsed={boolean('Border collapsed', false)}

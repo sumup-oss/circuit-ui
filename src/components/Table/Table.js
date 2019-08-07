@@ -19,6 +19,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
+import { isNil, throttle } from 'lodash/fp';
 
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
@@ -31,6 +32,70 @@ import {
 import { ASCENDING } from './constants';
 import { shadowSingle } from '../../styles/style-helpers';
 
+/**
+ * Table container styles.
+ * The position: relative; container is necessary because ShadowContainer
+ * is a position: absolute; element
+ */
+const tableContainerBaseStyles = () => css`
+  label: table-container;
+  position: relative;
+`;
+const tableContainerScrollableStyles = ({ scrollable, rowHeaders, theme }) =>
+  scrollable &&
+  css`
+    height: 100%;
+    ${theme.mq.untilMega} {
+      height: ${rowHeaders ? 'unset' : '100%'};
+    }
+  `;
+
+const noShadowStyles = ({ noShadow }) =>
+  noShadow &&
+  css`
+    label: table-container--no-shadow;
+    box-shadow: none;
+  `;
+
+const TableContainer = styled.div`
+  ${tableContainerBaseStyles};
+  ${tableContainerScrollableStyles};
+  ${shadowSingle};
+  ${noShadowStyles};
+`;
+
+/**
+ * Scroll container styles.
+ */
+const containerStyles = ({ theme, rowHeaders }) =>
+  rowHeaders &&
+  css`
+    label: table-container;
+    border-radius: ${theme.borderRadius.mega};
+    ${theme.mq.untilMega} {
+      height: unset;
+      margin-left: 145px;
+      overflow-x: auto;
+    }
+  `;
+
+const scrollableStyles = ({ scrollable, height }) =>
+  scrollable &&
+  css`
+    height: ${height || '100%'};
+    overflow-y: auto;
+  `;
+
+const ScrollContainer = styled.div`
+  ${containerStyles};
+  ${scrollableStyles};
+  ${shadowSingle};
+  ${noShadowStyles};
+`;
+
+/**
+ * Table styles.
+ */
 const baseStyles = ({ theme }) => css`
   label: table;
   background-color: ${theme.colors.white};
@@ -74,30 +139,6 @@ const StyledTable = styled.table`
   ${borderCollapsedStyles};
 `;
 
-const containerStyles = ({ theme, rowHeaders }) =>
-  rowHeaders &&
-  css`
-    label: table-container;
-    border-radius: ${theme.borderRadius.mega};
-    ${theme.mq.untilMega} {
-      margin-left: 145px;
-      overflow-x: auto;
-    }
-  `;
-
-const noShadowStyles = ({ noShadow }) =>
-  noShadow &&
-  css`
-    label: table-container--no-shadow;
-    box-shadow: none;
-  `;
-
-const ScrollContainer = styled.div(containerStyles);
-const ShadowContainer = styled.div`
-  ${shadowSingle};
-  ${noShadowStyles};
-`;
-
 /**
  * Table interface component. It handles rendering rows/headers properly
  */
@@ -105,13 +146,61 @@ class Table extends Component {
   state = {
     sortedRow: null,
     sortHover: null,
-    sortDirection: null
+    sortDirection: null,
+    scrollTop: null,
+    tableBodyHeight: null
   };
 
-  constructor(props) {
-    super(props);
-    this.potato = 'potato';
+  componentDidUpdate({ scrollable, rowHeaders }) {
+    const shouldAddScroll =
+      (!scrollable && this.props.scrollable) ||
+      (rowHeaders && !this.props.rowHeaders);
+
+    const shouldRemoveScroll =
+      (scrollable && !this.props.scrollable) ||
+      (!rowHeaders && this.props.rowHeaders);
+
+    if (shouldAddScroll) {
+      this.addVerticalScroll();
+    }
+
+    if (shouldRemoveScroll) {
+      this.removeVerticalScroll();
+    }
   }
+
+  componentWillUnmount() {
+    if (this.props.scrollable) {
+      this.removeVerticalScroll();
+    }
+  }
+
+  addVerticalScroll = () => {
+    this.calculateTableBodyHeight();
+
+    window.addEventListener(
+      'resize',
+      throttle(1000, this.calculateTableBodyHeight)
+    );
+  };
+
+  removeVerticalScroll = () => {
+    window.removeEventListener('resize', this.calculateTableBodyHeight);
+  };
+
+  calculateTableBodyHeight = () => {
+    this.setState({
+      tableBodyHeight: `${
+        isNil(this.tableContainer)
+          ? 'unset'
+          : this.tableContainer.parentNode.offsetHeight
+      }px`
+    });
+  };
+
+  setTableRef = tableContainer => {
+    this.tableContainer = tableContainer;
+  };
 
   onSortEnter = i => this.setState({ sortHover: i });
 
@@ -150,6 +239,10 @@ class Table extends Component {
     return [...rows].sort(sortFn(i), rows);
   };
 
+  handleScroll = e => {
+    this.setState({ scrollTop: e.target.scrollTop });
+  };
+
   render() {
     const {
       rowHeaders,
@@ -157,47 +250,58 @@ class Table extends Component {
       noShadow,
       borderCollapsed,
       condensed,
+      scrollable,
       onRowClick
     } = this.props;
-    const { sortDirection, sortHover, sortedRow } = this.state;
+    const {
+      sortDirection,
+      sortHover,
+      sortedRow,
+      scrollTop,
+      tableBodyHeight
+    } = this.state;
 
-    /**
-     * The position: relative; container is necessary because ShadowContainer
-     * is a position: absolute; element
-     */
     return (
-      <div
-        css={css`
-          position: relative;
-        `}
+      <TableContainer
+        ref={this.setTableRef}
+        scrollable={scrollable}
+        rowHeaders={rowHeaders}
+        noShadow={noShadow}
       >
-        <ShadowContainer noShadow={noShadow}>
-          <ScrollContainer rowHeaders={rowHeaders}>
-            <StyledTable
+        <ScrollContainer
+          rowHeaders={rowHeaders}
+          scrollable={scrollable}
+          height={tableBodyHeight}
+          onScroll={scrollable ? this.handleScroll : null}
+        >
+          <StyledTable
+            rowHeaders={rowHeaders}
+            borderCollapsed={borderCollapsed}
+          >
+            <TableHead
+              top={scrollTop}
+              condensed={condensed}
+              scrollable={scrollable}
+              scrollTop={scrollTop}
+              sortDirection={sortDirection}
+              sortedRow={sortedRow}
+              onSortBy={this.onSortBy}
+              onSortEnter={this.onSortEnter}
+              onSortLeave={this.onSortLeave}
+              headers={headers}
               rowHeaders={rowHeaders}
-              borderCollapsed={borderCollapsed}
-            >
-              <TableHead
-                condensed={condensed}
-                sortDirection={sortDirection}
-                sortedRow={sortedRow}
-                onSortBy={this.onSortBy}
-                onSortEnter={this.onSortEnter}
-                onSortLeave={this.onSortLeave}
-                headers={headers}
-                rowHeaders={rowHeaders}
-              />
-              <TableBody
-                condensed={condensed}
-                rows={this.getSortedRows()}
-                rowHeaders={rowHeaders}
-                sortHover={sortHover}
-                onRowClick={onRowClick}
-              />
-            </StyledTable>
-          </ScrollContainer>
-        </ShadowContainer>
-      </div>
+            />
+            <TableBody
+              condensed={condensed}
+              scrollable={scrollable}
+              rows={this.getSortedRows()}
+              rowHeaders={rowHeaders}
+              sortHover={sortHover}
+              onRowClick={onRowClick}
+            />
+          </StyledTable>
+        </ScrollContainer>
+      </TableContainer>
     );
   }
 }
@@ -231,6 +335,10 @@ Table.propTypes = {
    */
   condensed: PropTypes.bool,
   /**
+   * Toggles vertical scroll on the Table body.
+   */
+  scrollable: PropTypes.bool,
+  /**
    * Custom onSortBy function for the onSort handler.
    * The signature is (index, nextDirection, currentRows) and it should return
    * an array of rows
@@ -251,6 +359,8 @@ Table.defaultProps = {
   headers: [],
   rows: [],
   rowHeaders: true,
+  condensed: false,
+  scrollable: false,
   noShadow: false,
   onSortBy: null,
   onRowClick: null,

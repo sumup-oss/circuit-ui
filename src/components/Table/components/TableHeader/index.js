@@ -95,14 +95,21 @@ const sortableActiveStyles = ({ sortable, isSorted }) =>
     }
   `;
 
-const condensedStyles = ({ condensed, theme, fixed }) =>
+const condensedStyles = ({ condensed, theme }) =>
   condensed &&
-  !fixed &&
   css`
     label: table-header--condensed;
     vertical-align: middle;
-    padding: ${theme.spacings.byte} ${theme.spacings.mega};
     ${theme.typography.text.kilo};
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+  `;
+
+const condensedColStyles = ({ condensed, scope, theme }) =>
+  condensed &&
+  scope === COL &&
+  css`
+    label: table-header-condensed--col;
+    padding: ${theme.spacings.byte} ${theme.spacings.mega};
   `;
 
 const StyledHeader = styled.th`
@@ -113,6 +120,7 @@ const StyledHeader = styled.th`
   ${sortableStyles};
   ${sortableActiveStyles};
   ${condensedStyles};
+  ${condensedColStyles};
 `;
 
 /**

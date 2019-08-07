@@ -54,6 +54,18 @@ describe('Table', () => {
       const actual = create(<Table headers={headers} rows={items} condensed />);
       expect(actual).toMatchSnapshot();
     });
+
+    it('should render a scrollable table', () => {
+      const actual = create(
+        <Table headers={headers} rows={items} scrollable rowHeaders={false} />
+      );
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should not render a scrollable table if the rowHeaders prop is true', () => {
+      const actual = create(<Table headers={headers} rows={items} />);
+      expect(actual).toMatchSnapshot();
+    });
   });
 
   describe('Accessibility tests', () => {

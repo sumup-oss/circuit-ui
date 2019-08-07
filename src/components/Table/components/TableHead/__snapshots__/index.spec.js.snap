@@ -94,7 +94,9 @@ tbody .circuit-9:last-child td {
   vertical-align: middle;
 }
 
-<thead>
+<thead
+  className="circuit-11 circuit-12"
+>
   <tr
     className="circuit-9 circuit-10"
   >
@@ -237,7 +239,9 @@ tbody .circuit-9:last-child td {
   vertical-align: middle;
 }
 
-<thead>
+<thead
+  className="circuit-11 circuit-12"
+>
   <tr
     className="circuit-9 circuit-10"
   >

@@ -1,20 +1,401 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table Style tests should render a collapsed table 1`] = `
+exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
 .circuit-49 {
   position: relative;
-}
-
-.circuit-47 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-45 {
+.circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+@media (max-width:767px) {
+  .circuit-47 {
+    height: unset;
+    margin-left: 145px;
+    overflow-x: auto;
+  }
+}
+
+.circuit-45 {
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  width: 100%;
 }
 
 @media (max-width:767px) {
   .circuit-45 {
+    margin-left: -145px;
+    width: calc(100% + 145px);
+  }
+
+  .circuit-45:after {
+    content: '';
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    height: 100%;
+    left: 145px;
+    position: absolute;
+    top: 0;
+    width: 6px;
+  }
+}
+
+.circuit-11 {
+  vertical-align: middle;
+}
+
+tbody .circuit-11:last-child th,
+tbody .circuit-11:last-child td {
+  border-bottom: none;
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (max-width:767px) {
+  .circuit-3 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-3:hover > button {
+  opacity: 1;
+}
+
+.circuit-1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  overflow: initial;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 10px;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  width: 5px;
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.circuit-5 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+}
+
+@media (max-width:767px) {
+  .circuit-5 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-7 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+.circuit-15 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+@media (max-width:767px) {
+  .circuit-15 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-17 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-17 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-19 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+<div
+  className="circuit-49 circuit-50"
+>
+  <div
+    className="circuit-47 circuit-48"
+    height={null}
+    onScroll={null}
+  >
+    <table
+      className="circuit-45 circuit-46"
+    >
+      <thead
+        className="circuit-13 circuit-14"
+      >
+        <tr
+          className="circuit-11 circuit-12"
+        >
+          <th
+            aria-sort="none"
+            className="circuit-3 circuit-4"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            scope="col"
+          >
+            <button
+              className="circuit-0 circuit-1 circuit-2"
+              type="button"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Foo
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-5 circuit-6"
+            role="presentation"
+          >
+            Foo
+          </td>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
+            onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
+          >
+            Bar
+          </th>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
+            onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
+          >
+            Baz
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Table Style tests should render a collapsed table 1`] = `
+.circuit-49 {
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-47 {
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+@media (max-width:767px) {
+  .circuit-47 {
+    height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
@@ -147,7 +528,7 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
 }
 
-.circuit-13 {
+.circuit-15 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -158,33 +539,12 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-13 {
+  .circuit-15 {
     left: 0;
     top: auto;
     position: absolute;
     width: 145px;
     white-space: unset;
-  }
-}
-
-.circuit-15 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-}
-
-@media (max-width:767px) {
-  .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
   }
 }
 
@@ -197,9 +557,30 @@ tbody .circuit-11:last-child td {
   transition: background-color 200ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
+  display: none;
 }
 
-.circuit-43 {
+@media (max-width:767px) {
+  .circuit-17 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-19 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-45 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
@@ -207,12 +588,12 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-43 {
+  .circuit-45 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-43:after {
+  .circuit-45:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -224,162 +605,162 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  className="circuit-49"
+  className="circuit-49 circuit-50"
 >
   <div
     className="circuit-47 circuit-48"
+    height={null}
+    onScroll={null}
   >
-    <div
+    <table
       className="circuit-45 circuit-46"
     >
-      <table
-        className="circuit-43 circuit-44"
+      <thead
+        className="circuit-13 circuit-14"
       >
-        <thead>
-          <tr
-            className="circuit-11 circuit-12"
+        <tr
+          className="circuit-11 circuit-12"
+        >
+          <th
+            aria-sort="none"
+            className="circuit-3 circuit-4"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            scope="col"
           >
-            <th
-              aria-sort="none"
-              className="circuit-3 circuit-4"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              scope="col"
+            <button
+              className="circuit-0 circuit-1 circuit-2"
+              type="button"
             >
-              <button
-                className="circuit-0 circuit-1 circuit-2"
-                type="button"
-              >
-                <div>
-                  arrow.svg
-                </div>
-                <div>
-                  arrow.svg
-                </div>
-              </button>
-              Foo
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-5 circuit-6"
-              role="presentation"
-            >
-              Foo
-            </td>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Bar
-            </th>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Baz
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            className="circuit-11 circuit-12"
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Foo
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-5 circuit-6"
+            role="presentation"
+          >
+            Foo
+          </td>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
+            Bar
+          </th>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
-            onClick={null}
+            Baz
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
@@ -387,36 +768,35 @@ tbody .circuit-11:last-child td {
 exports[`Table Style tests should render a condensed table 1`] = `
 .circuit-49 {
   position: relative;
-}
-
-.circuit-47 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-45 {
+.circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-47 {
+    height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-43 {
+.circuit-45 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-43 {
+  .circuit-45 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-43:after {
+  .circuit-45:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -455,6 +835,11 @@ tbody .circuit-11:last-child td {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  vertical-align: middle;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 12px 16px;
+  padding: 8px 16px;
 }
 
 @media (max-width:767px) {
@@ -474,47 +859,6 @@ tbody .circuit-11:last-child td {
 
 .circuit-3:hover > button {
   opacity: 1;
-}
-
-.circuit-13 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-}
-
-@media (max-width:767px) {
-  .circuit-13 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-15 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-}
-
-@media (max-width:767px) {
-  .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
 }
 
 .circuit-1 {
@@ -566,6 +910,9 @@ tbody .circuit-11:last-child td {
   transition: background-color 200ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 20px;
   display: none;
   font-size: 13px;
   font-weight: 700;
@@ -573,6 +920,7 @@ tbody .circuit-11:last-child td {
   padding: 12px 16px;
   font-size: 13px;
   line-height: 20px;
+  padding: 8px 16px;
 }
 
 @media (max-width:767px) {
@@ -598,9 +946,34 @@ tbody .circuit-11:last-child td {
   padding: 8px 24px;
   vertical-align: middle;
   vertical-align: middle;
-  padding: 8px 16px;
   font-size: 13px;
   line-height: 20px;
+  padding: 12px 16px;
+  padding: 8px 16px;
+}
+
+.circuit-15 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 12px 16px;
+}
+
+@media (max-width:767px) {
+  .circuit-15 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
 }
 
 .circuit-17 {
@@ -615,165 +988,462 @@ tbody .circuit-11:last-child td {
   padding: 12px 16px;
   font-size: 13px;
   line-height: 20px;
+  display: none;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+@media (max-width:767px) {
+  .circuit-17 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-19 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 20px;
 }
 
 <div
-  className="circuit-49"
+  className="circuit-49 circuit-50"
 >
   <div
     className="circuit-47 circuit-48"
+    height={null}
+    onScroll={null}
   >
-    <div
+    <table
       className="circuit-45 circuit-46"
     >
-      <table
-        className="circuit-43 circuit-44"
+      <thead
+        className="circuit-13 circuit-14"
       >
-        <thead>
-          <tr
-            className="circuit-11 circuit-12"
+        <tr
+          className="circuit-11 circuit-12"
+        >
+          <th
+            aria-sort="none"
+            className="circuit-3 circuit-4"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            scope="col"
           >
-            <th
-              aria-sort="none"
-              className="circuit-3 circuit-4"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              scope="col"
+            <button
+              className="circuit-0 circuit-1 circuit-2"
+              type="button"
             >
-              <button
-                className="circuit-0 circuit-1 circuit-2"
-                type="button"
-              >
-                <div>
-                  arrow.svg
-                </div>
-                <div>
-                  arrow.svg
-                </div>
-              </button>
-              Foo
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-5 circuit-6"
-              role="presentation"
-            >
-              Foo
-            </td>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Bar
-            </th>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Baz
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            className="circuit-11 circuit-12"
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Foo
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-5 circuit-6"
+            role="presentation"
+          >
+            Foo
+          </td>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
+            Bar
+          </th>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
+            Baz
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Table Style tests should render a scrollable table 1`] = `
+.circuit-9 {
+  vertical-align: middle;
+}
+
+tbody .circuit-9:last-child th,
+tbody .circuit-9:last-child td {
+  border-bottom: none;
+}
+
+.circuit-1 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  overflow: initial;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 10px;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  width: 5px;
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.circuit-5 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+.circuit-13 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-41 {
+  position: relative;
+  height: 100%;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+@media (max-width:767px) {
+  .circuit-41 {
+    height: 100%;
+  }
+}
+
+.circuit-39 {
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-37 {
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  width: 100%;
+}
+
+.circuit-11 {
+  -webkit-transform: translateY(px);
+  -ms-transform: translateY(px);
+  transform: translateY(px);
+}
+
+@media (max-width:767px) {
+  .circuit-11 {
+    -webkit-transform: translateY(nullpx);
+    -ms-transform: translateY(nullpx);
+    transform: translateY(nullpx);
+  }
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-3:hover > button {
+  opacity: 1;
+}
+
+<div
+  className="circuit-41 circuit-42"
+>
+  <div
+    className="circuit-39 circuit-40"
+    height={null}
+    onScroll={[Function]}
+  >
+    <table
+      className="circuit-37 circuit-38"
+    >
+      <thead
+        className="circuit-11 circuit-12"
+      >
+        <tr
+          className="circuit-9 circuit-10"
+        >
+          <th
+            aria-sort="none"
+            className="circuit-3 circuit-4"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            scope="col"
+          >
+            <button
+              className="circuit-0 circuit-1 circuit-2"
+              type="button"
             >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Foo
+          </th>
+          <th
+            aria-sort={null}
+            className="circuit-5 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            Bar
+          </th>
+          <th
+            aria-sort={null}
+            className="circuit-5 circuit-4"
+            onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
+          >
+            Baz
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="circuit-9 circuit-10"
+          onClick={null}
+        >
+          <td
+            className="circuit-13 circuit-14"
+          >
+            1
+          </td>
+          <td
+            className="circuit-13 circuit-14"
+          >
+            2
+          </td>
+          <td
+            className="circuit-13 circuit-14"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-9 circuit-10"
+          onClick={null}
+        >
+          <td
+            className="circuit-13 circuit-14"
+          >
+            1
+          </td>
+          <td
+            className="circuit-13 circuit-14"
+          >
+            2
+          </td>
+          <td
+            className="circuit-13 circuit-14"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-9 circuit-10"
+          onClick={null}
+        >
+          <td
+            className="circuit-13 circuit-14"
+          >
+            1
+          </td>
+          <td
+            className="circuit-13 circuit-14"
+          >
+            2
+          </td>
+          <td
+            className="circuit-13 circuit-14"
+          >
+            3
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
@@ -781,36 +1451,35 @@ tbody .circuit-11:last-child td {
 exports[`Table Style tests should render with default styles 1`] = `
 .circuit-49 {
   position: relative;
-}
-
-.circuit-47 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-45 {
+.circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-47 {
+    height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-43 {
+.circuit-45 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-43 {
+  .circuit-45 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-43:after {
+  .circuit-45:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -948,7 +1617,7 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
 }
 
-.circuit-13 {
+.circuit-15 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -959,33 +1628,12 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-13 {
+  .circuit-15 {
     left: 0;
     top: auto;
     position: absolute;
     width: 145px;
     white-space: unset;
-  }
-}
-
-.circuit-15 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-}
-
-@media (max-width:767px) {
-  .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
   }
 }
 
@@ -998,165 +1646,186 @@ tbody .circuit-11:last-child td {
   transition: background-color 200ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-17 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-19 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 <div
-  className="circuit-49"
+  className="circuit-49 circuit-50"
 >
   <div
     className="circuit-47 circuit-48"
+    height={null}
+    onScroll={null}
   >
-    <div
+    <table
       className="circuit-45 circuit-46"
     >
-      <table
-        className="circuit-43 circuit-44"
+      <thead
+        className="circuit-13 circuit-14"
       >
-        <thead>
-          <tr
-            className="circuit-11 circuit-12"
+        <tr
+          className="circuit-11 circuit-12"
+        >
+          <th
+            aria-sort="none"
+            className="circuit-3 circuit-4"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            scope="col"
           >
-            <th
-              aria-sort="none"
-              className="circuit-3 circuit-4"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              scope="col"
+            <button
+              className="circuit-0 circuit-1 circuit-2"
+              type="button"
             >
-              <button
-                className="circuit-0 circuit-1 circuit-2"
-                type="button"
-              >
-                <div>
-                  arrow.svg
-                </div>
-                <div>
-                  arrow.svg
-                </div>
-              </button>
-              Foo
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-5 circuit-6"
-              role="presentation"
-            >
-              Foo
-            </td>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Bar
-            </th>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Baz
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            className="circuit-11 circuit-12"
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Foo
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-5 circuit-6"
+            role="presentation"
+          >
+            Foo
+          </td>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
+            Bar
+          </th>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
-            onClick={null}
+            Baz
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
@@ -1164,36 +1833,35 @@ tbody .circuit-11:last-child td {
 exports[`Table Style tests should render with rowHeader styles 1`] = `
 .circuit-49 {
   position: relative;
-}
-
-.circuit-47 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-45 {
+.circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-47 {
+    height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-43 {
+.circuit-45 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-43 {
+  .circuit-45 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-43:after {
+  .circuit-45:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -1331,7 +1999,7 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
 }
 
-.circuit-13 {
+.circuit-15 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1342,33 +2010,12 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-13 {
+  .circuit-15 {
     left: 0;
     top: auto;
     position: absolute;
     width: 145px;
     white-space: unset;
-  }
-}
-
-.circuit-15 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-}
-
-@media (max-width:767px) {
-  .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
   }
 }
 
@@ -1381,198 +2028,217 @@ tbody .circuit-11:last-child td {
   transition: background-color 200ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-17 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-19 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 <div
-  className="circuit-49"
+  className="circuit-49 circuit-50"
 >
   <div
     className="circuit-47 circuit-48"
+    height={null}
+    onScroll={null}
   >
-    <div
+    <table
       className="circuit-45 circuit-46"
     >
-      <table
-        className="circuit-43 circuit-44"
+      <thead
+        className="circuit-13 circuit-14"
       >
-        <thead>
-          <tr
-            className="circuit-11 circuit-12"
+        <tr
+          className="circuit-11 circuit-12"
+        >
+          <th
+            aria-sort="none"
+            className="circuit-3 circuit-4"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            scope="col"
           >
-            <th
-              aria-sort="none"
-              className="circuit-3 circuit-4"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              scope="col"
+            <button
+              className="circuit-0 circuit-1 circuit-2"
+              type="button"
             >
-              <button
-                className="circuit-0 circuit-1 circuit-2"
-                type="button"
-              >
-                <div>
-                  arrow.svg
-                </div>
-                <div>
-                  arrow.svg
-                </div>
-              </button>
-              Foo
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-5 circuit-6"
-              role="presentation"
-            >
-              Foo
-            </td>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Bar
-            </th>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Baz
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            className="circuit-11 circuit-12"
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Foo
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-5 circuit-6"
+            role="presentation"
+          >
+            Foo
+          </td>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
+            Bar
+          </th>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
-            onClick={null}
+            Baz
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
 
 exports[`Table Style tests should render without the table shadow 1`] = `
-.circuit-49 {
-  position: relative;
-}
-
-.circuit-45 {
+.circuit-47 {
   border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-47 {
+    height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-43 {
+.circuit-45 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-43 {
+  .circuit-45 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-43:after {
+  .circuit-45:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -1710,7 +2376,7 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
 }
 
-.circuit-13 {
+.circuit-15 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1721,33 +2387,12 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-13 {
+  .circuit-15 {
     left: 0;
     top: auto;
     position: absolute;
     width: 145px;
     white-space: unset;
-  }
-}
-
-.circuit-15 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-}
-
-@media (max-width:767px) {
-  .circuit-15 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
   }
 }
 
@@ -1760,170 +2405,192 @@ tbody .circuit-11:last-child td {
   transition: background-color 200ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
+  display: none;
 }
 
-.circuit-47 {
+@media (max-width:767px) {
+  .circuit-17 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-19 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-49 {
+  position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   box-shadow: none;
 }
 
 <div
-  className="circuit-49"
+  className="circuit-49 circuit-50"
 >
   <div
     className="circuit-47 circuit-48"
+    height={null}
+    onScroll={null}
   >
-    <div
+    <table
       className="circuit-45 circuit-46"
     >
-      <table
-        className="circuit-43 circuit-44"
+      <thead
+        className="circuit-13 circuit-14"
       >
-        <thead>
-          <tr
-            className="circuit-11 circuit-12"
+        <tr
+          className="circuit-11 circuit-12"
+        >
+          <th
+            aria-sort="none"
+            className="circuit-3 circuit-4"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            scope="col"
           >
-            <th
-              aria-sort="none"
-              className="circuit-3 circuit-4"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              scope="col"
+            <button
+              className="circuit-0 circuit-1 circuit-2"
+              type="button"
             >
-              <button
-                className="circuit-0 circuit-1 circuit-2"
-                type="button"
-              >
-                <div>
-                  arrow.svg
-                </div>
-                <div>
-                  arrow.svg
-                </div>
-              </button>
-              Foo
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-5 circuit-6"
-              role="presentation"
-            >
-              Foo
-            </td>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Bar
-            </th>
-            <th
-              aria-sort={null}
-              className="circuit-7 circuit-4"
-              onClick={null}
-              onMouseEnter={null}
-              onMouseLeave={null}
-              scope="col"
-            >
-              Baz
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            className="circuit-11 circuit-12"
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Foo
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-5 circuit-6"
+            role="presentation"
+          >
+            Foo
+          </td>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
+            Bar
+          </th>
+          <th
+            aria-sort={null}
+            className="circuit-7 circuit-4"
             onClick={null}
+            onMouseEnter={null}
+            onMouseLeave={null}
+            scope="col"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-          <tr
-            className="circuit-11 circuit-12"
-            onClick={null}
+            Baz
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
           >
-            <th
-              aria-sort={null}
-              className="circuit-13 circuit-4"
-              scope="row"
-            >
-              1
-            </th>
-            <td
-              aria-hidden="true"
-              className="circuit-15 circuit-6"
-              role="presentation"
-            >
-              1
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              2
-            </td>
-            <td
-              className="circuit-17 circuit-6"
-            >
-              3
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+        <tr
+          className="circuit-11 circuit-12"
+          onClick={null}
+        >
+          <th
+            aria-sort={null}
+            className="circuit-15 circuit-4"
+            scope="row"
+          >
+            1
+          </th>
+          <td
+            aria-hidden="true"
+            className="circuit-17 circuit-6"
+            role="presentation"
+          >
+            1
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            2
+          </td>
+          <td
+            className="circuit-19 circuit-6"
+          >
+            3
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
