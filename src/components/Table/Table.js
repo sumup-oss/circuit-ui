@@ -186,11 +186,9 @@ class Table extends Component {
 
   calculateTableBodyHeight = () => {
     this.setState({
-      tableBodyHeight: `${
-        isNil(this.tableContainer)
-          ? 'unset'
-          : this.tableContainer.parentNode.offsetHeight
-      }px`
+      tableBodyHeight: isNil(this.tableContainer)
+        ? 'unset'
+        : `${this.tableContainer.parentNode.offsetHeight}px`
     });
   };
 

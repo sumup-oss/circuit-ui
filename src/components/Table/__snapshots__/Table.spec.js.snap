@@ -1313,7 +1313,7 @@ tbody .circuit-9:last-child td {
 }
 
 .circuit-39 {
-  height: unsetpx;
+  height: unset;
   overflow-y: auto;
 }
 
@@ -1322,7 +1322,7 @@ tbody .circuit-9:last-child td {
 >
   <div
     className="circuit-39 circuit-40"
-    height="unsetpx"
+    height="unset"
     onScroll={[Function]}
   >
     <table
