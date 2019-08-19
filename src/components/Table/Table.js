@@ -89,8 +89,6 @@ const scrollableStyles = ({ scrollable, height }) =>
 const ScrollContainer = styled.div`
   ${containerStyles};
   ${scrollableStyles};
-  ${shadowSingle};
-  ${noShadowStyles};
 `;
 
 /**
@@ -151,20 +149,18 @@ class Table extends Component {
     tableBodyHeight: null
   };
 
-  componentDidUpdate({ scrollable, rowHeaders }) {
-    const shouldAddScroll =
-      (!scrollable && this.props.scrollable) ||
-      (rowHeaders && !this.props.rowHeaders);
+  componentDidMount() {
+    if (this.props.scrollable) {
+      this.addVerticalScroll();
+    }
+  }
 
-    const shouldRemoveScroll =
-      (scrollable && !this.props.scrollable) ||
-      (!rowHeaders && this.props.rowHeaders);
-
-    if (shouldAddScroll) {
+  componentDidUpdate({ scrollable }) {
+    if (!scrollable && this.props.scrollable) {
       this.addVerticalScroll();
     }
 
-    if (shouldRemoveScroll) {
+    if (scrollable && !this.props.scrollable) {
       this.removeVerticalScroll();
     }
   }
@@ -190,11 +186,9 @@ class Table extends Component {
 
   calculateTableBodyHeight = () => {
     this.setState({
-      tableBodyHeight: `${
-        isNil(this.tableContainer)
-          ? 'unset'
-          : this.tableContainer.parentNode.offsetHeight
-      }px`
+      tableBodyHeight: isNil(this.tableContainer)
+        ? 'unset'
+        : `${this.tableContainer.parentNode.offsetHeight}px`
     });
   };
 
