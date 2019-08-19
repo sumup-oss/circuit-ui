@@ -65,7 +65,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
   .add(
     'Table',
     withInfo()(() => (
-      <div style={{ width: '98vw', height: 150 }}>
+      <div style={{ width: '98vw', maxHeight: 150 }}>
         <Table
           headers={headers}
           rows={rows}
