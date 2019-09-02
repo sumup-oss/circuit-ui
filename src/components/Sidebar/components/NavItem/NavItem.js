@@ -30,7 +30,9 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacings.bit};
   cursor: pointer;
   color: ${theme.colors.n500};
-  fill: ${theme.colors.n500};
+  * {
+    fill: ${theme.colors.n500};
+  }
 `;
 
 const secondaryStyles = ({ theme, secondary }) =>
@@ -49,7 +51,9 @@ const hoverStyles = ({ theme, selected, disabled }) =>
     label: nav-item--hover;
     &:hover {
       color: ${theme.colors.n300};
-      fill: ${theme.colors.n300};
+      * {
+        fill: ${theme.colors.n300};
+      }
     }
   `;
 
@@ -57,16 +61,22 @@ const selectedStyles = ({ theme, selected }) =>
   selected &&
   css`
     label: nav-item--active;
-    color: ${theme.colors.n100};
     font-weight: ${theme.fontWeight.bold};
+    color: ${theme.colors.n100};
+    * {
+      fill: ${theme.colors.n100};
+    }
   `;
 
 const disabledStyles = ({ theme, disabled }) =>
   disabled &&
   css`
     label: nav-item--disabled;
-    color: ${theme.colors.n700};
     cursor: not-allowed;
+    color: ${theme.colors.n700};
+    * {
+      fill: ${theme.colors.n700};
+    }
   `;
 
 const ListItem = styled.li(
