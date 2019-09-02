@@ -77,6 +77,7 @@ class Container extends Component {
               />
               <Sidebar.NavItem
                 label={`Second`}
+                disabled
                 selected={Number(selected) === 5}
                 onClick={() => this.changeSelected(5)}
               />
@@ -88,6 +89,7 @@ class Container extends Component {
             </Sidebar.Aggregator>
             <Sidebar.NavItem
               label={`Me`}
+              disabled
               selected={Number(selected) === 3}
               defaultIcon={<MeEmpty />}
               selectedIcon={<MeFull />}

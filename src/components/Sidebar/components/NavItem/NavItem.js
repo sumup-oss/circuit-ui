@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import NavLabel from '../NavLabel';
+import { ReactComponent as DisabledIcon } from './disabled-icon.svg';
 
 const baseStyles = ({ theme }) => css`
   label: nav-item;
@@ -41,7 +42,8 @@ const secondaryStyles = ({ theme, secondary }) =>
     transition: top ${theme.transitions.default};
   `;
 
-const hoverStyles = ({ theme, selected }) =>
+const hoverStyles = ({ theme, selected, disabled }) =>
+  !disabled &&
   !selected &&
   css`
     label: nav-item--hover;
@@ -59,11 +61,20 @@ const selectedStyles = ({ theme, selected }) =>
     font-weight: ${theme.fontWeight.bold};
   `;
 
+const disabledStyles = ({ theme, disabled }) =>
+  disabled &&
+  css`
+    label: nav-item--disabled;
+    color: ${theme.colors.n700};
+    cursor: not-allowed;
+  `;
+
 const ListItem = styled.li(
   baseStyles,
   hoverStyles,
   selectedStyles,
-  secondaryStyles
+  secondaryStyles,
+  disabledStyles
 );
 
 const NavItem = ({
@@ -73,20 +84,36 @@ const NavItem = ({
   defaultIcon,
   selectedIcon,
   selected,
+  disabled,
   onClick
-}) => (
-  <ListItem
-    selected={selected}
-    secondary={secondary}
-    visible={visible}
-    onClick={onClick}
-  >
-    {defaultIcon && selectedIcon && selected ? selectedIcon : defaultIcon}
-    <NavLabel secondary={secondary} visible={visible}>
-      {label}
-    </NavLabel>
-  </ListItem>
-);
+}) => {
+  // determine icon
+  let icon;
+  if (defaultIcon && disabled) {
+    icon = <DisabledIcon />;
+  } else if (defaultIcon && selectedIcon && selected) {
+    icon = selectedIcon;
+  } else if (defaultIcon) {
+    icon = defaultIcon;
+  } else {
+    icon = null;
+  }
+
+  return (
+    <ListItem
+      selected={selected}
+      secondary={secondary}
+      visible={visible}
+      disabled={disabled}
+      onClick={disabled ? null : onClick}
+    >
+      {icon}
+      <NavLabel secondary={secondary} visible={visible}>
+        {label}
+      </NavLabel>
+    </ListItem>
+  );
+};
 
 NavItem.propTypes = {
   /**
@@ -114,6 +141,10 @@ NavItem.propTypes = {
    */
   selected: PropTypes.bool,
   /**
+   * If the item is disabled
+   */
+  disabled: PropTypes.bool,
+  /**
    * The onClick method to handle the click event on NavItems
    */
   onClick: PropTypes.func
@@ -126,6 +157,7 @@ NavItem.defaultProps = {
   defaultIcon: '',
   selectedIcon: '',
   selected: false,
+  disabled: false,
   onClick: null
 };
 
