@@ -24,6 +24,11 @@ const props = {
   defaultIcon: 'default-icon'
 };
 
+const disabledProps = {
+  ...props,
+  disabled: true
+};
+
 class MockedNavigation extends Component {
   state = {
     selected: 1
@@ -72,6 +77,16 @@ describe('Aggregator', () => {
       actual.find("[className*='nav-aggregator']").simulate('click');
       await new Promise(resolve => setTimeout(resolve));
       actual.update();
+
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with disabled state styles and match the snapshot', () => {
+      const actual = mount(
+        <Aggregator {...disabledProps}>
+          <div data-testid="child">child</div>
+        </Aggregator>
+      );
 
       expect(actual).toMatchSnapshot();
     });
@@ -147,6 +162,18 @@ describe('Aggregator', () => {
       actual.update();
 
       expect(aggregator.state().open).toBe(false);
+    });
+
+    it('should not render children when disabled', () => {
+      const wrapper = mount(
+        <Aggregator {...props}>
+          <div data-selector="child">child</div>
+        </Aggregator>
+      );
+      const actual = wrapper.find('[data-selector="child"]');
+
+      expect(actual).toHaveLength(1);
+      expect(actual.text()).toEqual('child');
     });
   });
 

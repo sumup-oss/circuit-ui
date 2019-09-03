@@ -18,11 +18,17 @@ exports[`Aggregator styles should render and match snapshot when open 1`] = `
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
+}
+
+.circuit-2 * {
   fill: #9DA7B1;
 }
 
 .circuit-2:hover {
   color: #D8DDE1;
+}
+
+.circuit-2:hover * {
   fill: #D8DDE1;
 }
 
@@ -69,6 +75,7 @@ exports[`Aggregator styles should render and match snapshot when open 1`] = `
 
 <Aggregator
   defaultIcon="default-icon"
+  disabled={false}
   label="Aggregator"
   onClick={
     [MockFunction] {
@@ -86,10 +93,12 @@ exports[`Aggregator styles should render and match snapshot when open 1`] = `
   selectedIcon="selected-icon"
 >
   <Styled(div)
+    disabled={false}
     onClick={[Function]}
   >
     <div
       className="circuit-2 circuit-3"
+      disabled={false}
       onClick={[Function]}
     >
       default-icon
@@ -143,11 +152,17 @@ exports[`Aggregator styles should render with default styles 1`] = `
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
+}
+
+.circuit-2 * {
   fill: #9DA7B1;
 }
 
 .circuit-2:hover {
   color: #D8DDE1;
+}
+
+.circuit-2:hover * {
   fill: #D8DDE1;
 }
 
@@ -188,15 +203,18 @@ exports[`Aggregator styles should render with default styles 1`] = `
 
 <Aggregator
   defaultIcon="default-icon"
+  disabled={false}
   label="Aggregator"
   onClick={[MockFunction]}
   selectedIcon="selected-icon"
 >
   <Styled(div)
+    disabled={false}
     onClick={[Function]}
   >
     <div
       className="circuit-2 circuit-3"
+      disabled={false}
       onClick={[Function]}
     >
       default-icon
@@ -229,5 +247,84 @@ exports[`Aggregator styles should render with default styles 1`] = `
       </ul>
     </Styled(ul)>
   </SubNavList>
+</Aggregator>
+`;
+
+exports[`Aggregator styles should render with disabled state styles and match the snapshot 1`] = `
+.circuit-0 {
+  margin-left: 12px;
+}
+
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #9DA7B1;
+  cursor: not-allowed;
+  color: #5C656F;
+}
+
+.circuit-2 * {
+  fill: #9DA7B1;
+}
+
+.circuit-2 * {
+  fill: #5C656F;
+}
+
+<Aggregator
+  defaultIcon="default-icon"
+  disabled={true}
+  label="Aggregator"
+  onClick={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  selectedIcon="selected-icon"
+>
+  <Styled(div)
+    disabled={true}
+    onClick={[Function]}
+  >
+    <div
+      className="circuit-2 circuit-3"
+      disabled={true}
+      onClick={[Function]}
+    >
+      <ReactComponent>
+        <div>
+          lock.svg
+        </div>
+      </ReactComponent>
+      <Styled(div)>
+        <div
+          className="circuit-0 circuit-1"
+        >
+          Aggregator
+        </div>
+      </Styled(div)>
+    </div>
+  </Styled(div)>
 </Aggregator>
 `;
