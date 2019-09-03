@@ -17,7 +17,7 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { boolean } from '@storybook/addon-knobs/react';
+import { boolean, withKnobs } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
@@ -47,12 +47,11 @@ class Container extends Component {
 
   render() {
     const { selected } = this.state;
-    const open = boolean('Open', true);
 
     return (
       <SidebarContainer>
         <Sidebar
-          open={open}
+          open={true}
           onClose={() => null}
           closeButtonLabel="close-button"
         >
@@ -77,7 +76,7 @@ class Container extends Component {
               />
               <Sidebar.NavItem
                 label={`Second`}
-                disabled
+                disabled={boolean('Disabled sub-item', false)}
                 selected={Number(selected) === 5}
                 onClick={() => this.changeSelected(5)}
               />
@@ -89,7 +88,7 @@ class Container extends Component {
             </Sidebar.Aggregator>
             <Sidebar.NavItem
               label={`Me`}
-              disabled
+              disabled={boolean('Disabled item', false)}
               selected={Number(selected) === 3}
               defaultIcon={<MeEmpty />}
               selectedIcon={<MeFull />}
@@ -105,4 +104,5 @@ class Container extends Component {
 
 storiesOf(`${GROUPS.COMPONENTS}|Sidebar`, module)
   .addDecorator(withTests('Sidebar'))
+  .addDecorator(withKnobs)
   .add('Sidebar', withInfo()(() => <Container />));
