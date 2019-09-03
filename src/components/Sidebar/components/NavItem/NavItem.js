@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import NavLabel from '../NavLabel';
-import { ReactComponent as DisabledIcon } from './disabled-icon.svg';
+import { getIcon } from './utils';
 
 const baseStyles = ({ theme }) => css`
   label: nav-item;
@@ -97,17 +97,7 @@ const NavItem = ({
   disabled,
   onClick
 }) => {
-  // determine icon
-  let icon;
-  if (defaultIcon && disabled) {
-    icon = <DisabledIcon />;
-  } else if (defaultIcon && selectedIcon && selected) {
-    icon = selectedIcon;
-  } else if (defaultIcon) {
-    icon = defaultIcon;
-  } else {
-    icon = null;
-  }
+  const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
 
   return (
     <ListItem
