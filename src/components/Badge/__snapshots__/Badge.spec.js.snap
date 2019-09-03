@@ -15,6 +15,7 @@ exports[`Badge rendering color variations should render with danger colors 1`] =
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-align: center;
   background-color: #DB4D4D;
 }
 
@@ -39,6 +40,7 @@ exports[`Badge rendering color variations should render with primary colors 1`] 
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-align: center;
   background-color: #3388FF;
 }
 
@@ -63,6 +65,7 @@ exports[`Badge rendering color variations should render with success colors 1`] 
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-align: center;
   background-color: #8CC13F;
 }
 
@@ -87,6 +90,7 @@ exports[`Badge rendering color variations should render with warning colors 1`] 
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-align: center;
   background-color: #D8A413;
 }
 
@@ -111,6 +115,7 @@ exports[`Badge should have hover/active styles only when the onClick handler is 
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-align: center;
   background-color: #9DA7B1;
 }
 
@@ -144,6 +149,7 @@ exports[`Badge should have the correct circle styles 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-align: center;
   background-color: #9DA7B1;
   display: -webkit-box;
   display: -webkit-flex;
@@ -182,6 +188,7 @@ exports[`Badge should render with default styles 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-align: center;
   background-color: #9DA7B1;
 }
 
