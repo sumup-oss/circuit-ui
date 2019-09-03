@@ -48,17 +48,6 @@ describe('NavItem', () => {
       expect(actual).toMatchSnapshot();
     });
 
-    xit('should render children when selected', () => {
-      const wrapper = shallow(
-        <NavItem selected>
-          <span data-selector="child">text node</span>
-        </NavItem>
-      );
-      const actual = wrapper.find('[data-selector="child"]');
-
-      expect(actual).toBeTruthy();
-    });
-
     it('should render with disabled state styles and match the snapshot', () => {
       const props = {
         disabled: true
