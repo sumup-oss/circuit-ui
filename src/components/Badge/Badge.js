@@ -84,6 +84,7 @@ const baseStyles = ({ theme, onClick }) => css`
   font-weight: ${theme.fontWeight.bold};
   text-transform: uppercase;
   user-select: none;
+  text-align: center;
 `;
 
 const circleStyles = ({ circle }) =>
