@@ -8,6 +8,7 @@ exports[`SubNavList styles should render with default styles when there is a sel
   position: absolute;
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
 }
 
 .circuit-0::after {
@@ -59,6 +60,7 @@ exports[`SubNavList styles should render with default styles when there is no se
   position: absolute;
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
 }
 
 .circuit-0::before {
@@ -97,6 +99,7 @@ exports[`SubNavList styles should render without children 1`] = `
   position: absolute;
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
 }
 
 .circuit-0::after {
