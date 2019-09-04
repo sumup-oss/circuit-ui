@@ -43,12 +43,12 @@ Array [
   }
 }
 
-<div
+<nav
     className="circuit-0 circuit-1"
     open={true}
   >
     
-  </div>,
+  </nav>,
   .circuit-0 {
   width: 100%;
   height: 100%;
@@ -171,12 +171,12 @@ Array [
   }
 }
 
-<div
+<nav
     className="circuit-0 circuit-1"
     open={false}
   >
     
-  </div>,
+  </nav>,
   .circuit-0 {
   width: 100%;
   height: 100%;

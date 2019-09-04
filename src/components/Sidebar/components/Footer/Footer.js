@@ -27,7 +27,7 @@ const baseStyles = ({ theme }) => css`
   color: ${theme.colors.n100};
 `;
 
-const Footer = styled('div')(baseStyles);
+const Footer = styled('footer')(baseStyles);
 
 Footer.propTypes = {
   /**

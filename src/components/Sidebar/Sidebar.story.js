@@ -17,7 +17,7 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { boolean, withKnobs } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
@@ -76,7 +76,6 @@ class Container extends Component {
               />
               <Sidebar.NavItem
                 label={`Second`}
-                disabled={boolean('Disabled sub-item', false)}
                 selected={Number(selected) === 5}
                 onClick={() => this.changeSelected(5)}
               />
@@ -104,5 +103,4 @@ class Container extends Component {
 
 storiesOf(`${GROUPS.COMPONENTS}|Sidebar`, module)
   .addDecorator(withTests('Sidebar'))
-  .addDecorator(withKnobs)
   .add('Sidebar', withInfo()(() => <Container />));

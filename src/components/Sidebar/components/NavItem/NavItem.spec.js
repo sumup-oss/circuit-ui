@@ -61,7 +61,7 @@ describe('NavItem', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
         <NavList>
-          <NavItem />
+          <NavItem label="Item" />
         </NavList>
       );
       const actual = await axe(wrapper);
