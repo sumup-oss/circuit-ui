@@ -86,7 +86,7 @@ describe('getIcon', () => {
     });
 
     describe('if the item is not disabled', () => {
-      describe("when the item isn't selected", () => {
+      describe("if the item isn't selected", () => {
         it('should return the default icon', () => {
           const icon = getIcon({
             defaultIcon: mockDefaultIcon
@@ -95,7 +95,7 @@ describe('getIcon', () => {
         });
       });
 
-      describe('when the item is selected', () => {
+      describe('if the item is selected', () => {
         it('should return the selected icon if there is a selected icon', () => {
           const icon = getIcon({
             defaultIcon: mockDefaultIcon,

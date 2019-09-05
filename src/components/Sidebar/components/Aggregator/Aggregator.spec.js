@@ -24,11 +24,6 @@ const props = {
   defaultIcon: 'default-icon'
 };
 
-const disabledProps = {
-  ...props,
-  disabled: true
-};
-
 class MockedNavigation extends Component {
   state = {
     selected: 1
@@ -83,7 +78,7 @@ describe('Aggregator', () => {
 
     it('should render with disabled state styles and match the snapshot', () => {
       const actual = mount(
-        <Aggregator {...disabledProps}>
+        <Aggregator {...props} disabled={true}>
           <div data-testid="child">child</div>
         </Aggregator>
       );
@@ -166,14 +161,13 @@ describe('Aggregator', () => {
 
     it('should not render children when disabled', () => {
       const wrapper = mount(
-        <Aggregator {...props}>
+        <Aggregator {...props} disabled={true}>
           <div data-selector="child">child</div>
         </Aggregator>
       );
       const actual = wrapper.find('[data-selector="child"]');
 
-      expect(actual).toHaveLength(1);
-      expect(actual.text()).toEqual('child');
+      expect(actual).toHaveLength(0);
     });
   });
 

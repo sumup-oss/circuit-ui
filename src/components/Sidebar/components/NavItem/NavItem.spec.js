@@ -55,6 +55,17 @@ describe('NavItem', () => {
       const actual = create(<NavItem {...props} />);
       expect(actual).toMatchSnapshot();
     });
+
+    it('should render an icon', () => {
+      const wrapper = shallow(
+        <NavItem defaultIcon={<div data-selector="icon" />}>
+          <span data-selector="child">text node</span>
+        </NavItem>
+      );
+      const actual = wrapper.find('[data-selector="icon"]');
+
+      expect(actual).toHaveLength(1);
+    });
   });
 
   describe('accessibility', () => {

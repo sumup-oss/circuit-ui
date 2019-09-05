@@ -59,7 +59,7 @@ class Container extends Component {
           <Sidebar.NavList>
             <Sidebar.NavItem
               label={`Home`}
-              selected={Number(selected) === 1}
+              selected={selected === 1}
               onClick={() => this.changeSelected(1)}
               defaultIcon={<HomeEmpty />}
               selectedIcon={<HomeFull />}
@@ -71,24 +71,24 @@ class Container extends Component {
             >
               <Sidebar.NavItem
                 label={`First`}
-                selected={Number(selected) === 4}
+                selected={selected === 4}
                 onClick={() => this.changeSelected(4)}
               />
               <Sidebar.NavItem
                 label={`Second`}
-                selected={Number(selected) === 5}
+                selected={selected === 5}
                 onClick={() => this.changeSelected(5)}
               />
               <Sidebar.NavItem
                 label={`Third`}
-                selected={Number(selected) === 6}
+                selected={selected === 6}
                 onClick={() => this.changeSelected(6)}
               />
             </Sidebar.Aggregator>
             <Sidebar.NavItem
               label={`Me`}
               disabled={boolean('Disabled item', false)}
-              selected={Number(selected) === 3}
+              selected={selected === 3}
               defaultIcon={<MeEmpty />}
               selectedIcon={<MeFull />}
               onClick={() => this.changeSelected(3)}

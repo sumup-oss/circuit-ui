@@ -27,16 +27,17 @@ export const hasSelectedChild = children => {
   return false;
 };
 
-const disabledIcon = <Lock />;
-
 export const getIcon = ({ defaultIcon, selected, selectedIcon, disabled }) => {
-  if (defaultIcon && disabled) {
+  const disabledIcon = <Lock />;
+  const hasIcon = !!defaultIcon;
+
+  if (hasIcon && disabled) {
     return disabledIcon;
   }
-  if (defaultIcon && selectedIcon && selected) {
+  if (hasIcon && selectedIcon && selected) {
     return selectedIcon;
   }
-  if (defaultIcon) {
+  if (hasIcon) {
     return defaultIcon;
   }
   return null;
