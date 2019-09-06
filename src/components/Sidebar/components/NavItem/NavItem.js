@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import NavLabel from '../NavLabel';
+import { getIcon } from './utils';
 
 const baseStyles = ({ theme }) => css`
   label: nav-item;
@@ -29,7 +30,9 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacings.bit};
   cursor: pointer;
   color: ${theme.colors.n500};
-  fill: ${theme.colors.n500};
+  * {
+    fill: ${theme.colors.n500};
+  }
 `;
 
 const secondaryStyles = ({ theme, secondary }) =>
@@ -41,13 +44,16 @@ const secondaryStyles = ({ theme, secondary }) =>
     transition: top ${theme.transitions.default};
   `;
 
-const hoverStyles = ({ theme, selected }) =>
+const hoverStyles = ({ theme, selected, disabled }) =>
+  !disabled &&
   !selected &&
   css`
     label: nav-item--hover;
     &:hover {
       color: ${theme.colors.n300};
-      fill: ${theme.colors.n300};
+      * {
+        fill: ${theme.colors.n300};
+      }
     }
   `;
 
@@ -55,15 +61,30 @@ const selectedStyles = ({ theme, selected }) =>
   selected &&
   css`
     label: nav-item--active;
-    color: ${theme.colors.n100};
     font-weight: ${theme.fontWeight.bold};
+    color: ${theme.colors.n100};
+    * {
+      fill: ${theme.colors.n100};
+    }
+  `;
+
+const disabledStyles = ({ theme, disabled }) =>
+  disabled &&
+  css`
+    label: nav-item--disabled;
+    cursor: not-allowed;
+    color: ${theme.colors.n700};
+    * {
+      fill: ${theme.colors.n700};
+    }
   `;
 
 const ListItem = styled.li(
   baseStyles,
   hoverStyles,
   selectedStyles,
-  secondaryStyles
+  secondaryStyles,
+  disabledStyles
 );
 
 const NavItem = ({
@@ -73,20 +94,26 @@ const NavItem = ({
   defaultIcon,
   selectedIcon,
   selected,
+  disabled,
   onClick
-}) => (
-  <ListItem
-    selected={selected}
-    secondary={secondary}
-    visible={visible}
-    onClick={onClick}
-  >
-    {defaultIcon && selectedIcon && selected ? selectedIcon : defaultIcon}
-    <NavLabel secondary={secondary} visible={visible}>
-      {label}
-    </NavLabel>
-  </ListItem>
-);
+}) => {
+  const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
+
+  return (
+    <ListItem
+      selected={selected}
+      secondary={secondary}
+      visible={visible}
+      disabled={disabled}
+      onClick={disabled ? null : onClick}
+    >
+      {icon}
+      <NavLabel secondary={secondary} visible={visible}>
+        {label}
+      </NavLabel>
+    </ListItem>
+  );
+};
 
 NavItem.propTypes = {
   /**
@@ -114,6 +141,10 @@ NavItem.propTypes = {
    */
   selected: PropTypes.bool,
   /**
+   * If the item is disabled
+   */
+  disabled: PropTypes.bool,
+  /**
    * The onClick method to handle the click event on NavItems
    */
   onClick: PropTypes.func
@@ -126,6 +157,7 @@ NavItem.defaultProps = {
   defaultIcon: '',
   selectedIcon: '',
   selected: false,
+  disabled: false,
   onClick: null
 };
 

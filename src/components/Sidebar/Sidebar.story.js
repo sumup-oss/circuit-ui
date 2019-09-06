@@ -15,7 +15,6 @@
 
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import { range } from 'lodash/fp';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { boolean } from '@storybook/addon-knobs/react';
@@ -23,6 +22,13 @@ import { boolean } from '@storybook/addon-knobs/react';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
 import Sidebar from '.';
+
+import { ReactComponent as HomeEmpty } from './icons/home-empty.svg';
+import { ReactComponent as ListEmpty } from './icons/list-empty.svg';
+import { ReactComponent as MeEmpty } from './icons/me-empty.svg';
+import { ReactComponent as HomeFull } from './icons/home-full.svg';
+import { ReactComponent as ListFull } from './icons/list-full.svg';
+import { ReactComponent as MeFull } from './icons/me-full.svg';
 
 const SidebarContainer = styled.div`
   display: flex;
@@ -33,7 +39,7 @@ const SidebarContainer = styled.div`
 `;
 
 class Container extends Component {
-  state = { selected: 0 };
+  state = { selected: 1 };
 
   changeSelected = selected => {
     this.setState({ selected });
@@ -41,42 +47,52 @@ class Container extends Component {
 
   render() {
     const { selected } = this.state;
-    const open = boolean('Open', true);
 
     return (
       <SidebarContainer>
         <Sidebar
-          open={open}
+          open={true}
           onClose={() => null}
           closeButtonLabel="close-button"
         >
           <Sidebar.Header>Header</Sidebar.Header>
           <Sidebar.NavList>
-            <Sidebar.Aggregator label={`Item #${1}`}>
+            <Sidebar.NavItem
+              label={`Home`}
+              selected={selected === 1}
+              onClick={() => this.changeSelected(1)}
+              defaultIcon={<HomeEmpty />}
+              selectedIcon={<HomeFull />}
+            />
+            <Sidebar.Aggregator
+              label={`List`}
+              defaultIcon={<ListEmpty />}
+              selectedIcon={<ListFull />}
+            >
               <Sidebar.NavItem
+                label={`First`}
+                selected={selected === 4}
                 onClick={() => this.changeSelected(4)}
-                label={`Sub Item #${1}`}
-                selected={Number(selected) === 4}
               />
               <Sidebar.NavItem
+                label={`Second`}
+                selected={selected === 5}
                 onClick={() => this.changeSelected(5)}
-                label={`Sub Item #${2}`}
-                selected={Number(selected) === 5}
               />
               <Sidebar.NavItem
+                label={`Third`}
+                selected={selected === 6}
                 onClick={() => this.changeSelected(6)}
-                label={`Sub Item #${3}`}
-                selected={Number(selected) === 6}
               />
             </Sidebar.Aggregator>
-            {range(2, 4).map(i => (
-              <Sidebar.NavItem
-                key={i}
-                selected={i === Number(selected)}
-                onClick={() => this.changeSelected(i)}
-                label={`Item #${i}`}
-              />
-            ))}
+            <Sidebar.NavItem
+              label={`Me`}
+              disabled={boolean('Disabled item', false)}
+              selected={selected === 3}
+              defaultIcon={<MeEmpty />}
+              selectedIcon={<MeFull />}
+              onClick={() => this.changeSelected(3)}
+            />
           </Sidebar.NavList>
           <Sidebar.Footer>Footer</Sidebar.Footer>
         </Sidebar>

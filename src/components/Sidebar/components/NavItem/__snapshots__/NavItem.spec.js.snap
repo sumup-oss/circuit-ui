@@ -19,11 +19,17 @@ exports[`NavItem styles should render with default styles and match the snapshot
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
+}
+
+.circuit-2 * {
   fill: #9DA7B1;
 }
 
 .circuit-2:hover {
   color: #D8DDE1;
+}
+
+.circuit-2:hover * {
   fill: #D8DDE1;
 }
 
@@ -33,10 +39,10 @@ exports[`NavItem styles should render with default styles and match the snapshot
 
 <li
   className="circuit-2 circuit-3"
+  disabled={false}
   onClick={[MockFunction]}
   selected={false}
 >
-  
   <div
     className="circuit-0 circuit-1"
   >
@@ -64,15 +70,21 @@ exports[`NavItem styles should render with default styles and match the snapshot
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
-  fill: #9DA7B1;
   margin: 0px 24px;
   padding: 4px 0px;
   -webkit-transition: top 200ms ease-in-out;
   transition: top 200ms ease-in-out;
 }
 
+.circuit-2 * {
+  fill: #9DA7B1;
+}
+
 .circuit-2:hover {
   color: #D8DDE1;
+}
+
+.circuit-2:hover * {
   fill: #D8DDE1;
 }
 
@@ -87,10 +99,59 @@ exports[`NavItem styles should render with default styles and match the snapshot
 
 <li
   className="circuit-2 circuit-3"
+  disabled={false}
   onClick={[MockFunction]}
   selected={false}
 >
-  
+  <div
+    className="circuit-0 circuit-1"
+  >
+    
+  </div>
+</li>
+`;
+
+exports[`NavItem styles should render with disabled state styles and match the snapshot 1`] = `
+.circuit-0 {
+  margin-left: 12px;
+}
+
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  height: auto;
+  margin: 16px;
+  padding: 4px;
+  cursor: pointer;
+  color: #9DA7B1;
+  cursor: not-allowed;
+  color: #5C656F;
+}
+
+.circuit-2 * {
+  fill: #9DA7B1;
+}
+
+.circuit-2 * {
+  fill: #5C656F;
+}
+
+<li
+  className="circuit-2 circuit-3"
+  disabled={true}
+  onClick={null}
+  selected={false}
+>
   <div
     className="circuit-0 circuit-1"
   >
@@ -122,17 +183,24 @@ exports[`NavItem styles should render with selected state styles and match the s
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
-  fill: #9DA7B1;
-  color: #FAFBFC;
   font-weight: 700;
+  color: #FAFBFC;
+}
+
+.circuit-2 * {
+  fill: #9DA7B1;
+}
+
+.circuit-2 * {
+  fill: #FAFBFC;
 }
 
 <li
   className="circuit-2 circuit-3"
+  disabled={false}
   onClick={[MockFunction]}
   selected={true}
 >
-  
   <div
     className="circuit-0 circuit-1"
   >

@@ -30,7 +30,7 @@ const baseStyles = ({ theme }) => css`
   color: ${theme.colors.n100};
 `;
 
-const Header = styled('div')(baseStyles);
+const Header = styled('header')(baseStyles);
 
 Header.propTypes = {
   /**

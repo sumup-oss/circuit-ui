@@ -55,7 +55,7 @@ const openStyles = ({ theme, open }) =>
     }
   `;
 
-const Drawer = styled('div')(baseStyles, openStyles);
+const Drawer = styled('nav')(baseStyles, openStyles);
 
 const Sidebar = ({ children, open, closeButtonLabel, onClose, className }) => (
   <Fragment>

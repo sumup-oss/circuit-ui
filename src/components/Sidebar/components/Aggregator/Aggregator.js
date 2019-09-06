@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 
 import SubNavList from '../SubNavList';
 import NavLabel from '../NavLabel';
-import hasSelectedChild from '../NavItem/utils';
+import { hasSelectedChild, getIcon } from '../NavItem/utils';
 import { childrenPropType } from '../../../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
@@ -33,16 +33,21 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacings.bit};
   cursor: pointer;
   color: ${theme.colors.n500};
-  fill: ${theme.colors.n500};
+  * {
+    fill: ${theme.colors.n500};
+  }
 `;
 
-const hoverStyles = ({ theme, selected }) =>
+const hoverStyles = ({ theme, disabled, selected }) =>
+  !disabled &&
   !selected &&
   css`
     label: nav-aggregator--hover;
     &:hover {
       color: ${theme.colors.n300};
-      fill: ${theme.colors.n300};
+      * {
+        fill: ${theme.colors.n300};
+      }
     }
   `;
 
@@ -51,9 +56,28 @@ const selectedStyles = ({ theme, selected }) =>
   css`
     label: nav-aggregator--active;
     color: ${theme.colors.n100};
+    * {
+      fill: ${theme.colors.n100};
+    }
   `;
 
-const AggregatorContainer = styled.div(baseStyles, hoverStyles, selectedStyles);
+const disabledStyles = ({ theme, disabled }) =>
+  disabled &&
+  css`
+    label: nav-item--disabled;
+    cursor: not-allowed;
+    color: ${theme.colors.n700};
+    * {
+      fill: ${theme.colors.n700};
+    }
+  `;
+
+const AggregatorContainer = styled.div(
+  baseStyles,
+  hoverStyles,
+  selectedStyles,
+  disabledStyles
+);
 
 class Aggregator extends Component {
   state = { open: false };
@@ -90,21 +114,28 @@ class Aggregator extends Component {
   };
 
   render() {
-    const { children, label, defaultIcon, selectedIcon } = this.props;
+    const { children, label, defaultIcon, selectedIcon, disabled } = this.props;
     const { open } = this.state;
+    const icon = getIcon({
+      selected: hasSelectedChild(children),
+      selectedIcon,
+      defaultIcon,
+      disabled
+    });
 
     return (
       <Fragment>
         <AggregatorContainer
           selected={hasSelectedChild(children)}
+          disabled={disabled}
           onClick={this.toggleAggregator}
         >
-          {defaultIcon && selectedIcon && hasSelectedChild(children)
-            ? selectedIcon
-            : defaultIcon}
+          {icon}
           <NavLabel>{label}</NavLabel>
         </AggregatorContainer>
-        {children && <SubNavList visible={open}>{children}</SubNavList>}
+        {children && !disabled && (
+          <SubNavList visible={open}>{children}</SubNavList>
+        )}
       </Fragment>
     );
   }
@@ -128,6 +159,10 @@ Aggregator.propTypes = {
    */
   selectedIcon: PropTypes.node,
   /**
+   * Disables the Aggregator and all children
+   */
+  disabled: PropTypes.bool,
+  /**
    * The onClick method to handle the click event on the NavAggregator
    */
   onClick: PropTypes.func
@@ -138,6 +173,7 @@ Aggregator.defaultProps = {
   label: '',
   defaultIcon: '',
   selectedIcon: '',
+  disabled: false,
   onClick: null
 };
 

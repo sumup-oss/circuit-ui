@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-import hasSelectedChild from './utils';
+import React from 'react';
+import { hasSelectedChild, getIcon } from './utils';
+import { ReactComponent as Lock } from './lock.svg';
 
 describe('hasSelectedChild', () => {
   it('should return true for an array with a selected child', () => {
@@ -50,5 +52,67 @@ describe('hasSelectedChild', () => {
 
     const hasSelected = hasSelectedChild(children);
     expect(hasSelected).toBe(true);
+  });
+});
+
+describe('getIcon', () => {
+  const mockDefaultIcon = 'mock-default-icon.svg';
+  const mockSelectedIcon = 'mock-selected-icon.svg';
+  const disabledIcon = <Lock />;
+
+  describe('if there is no default icon', () => {
+    it('should not return an icon', () => {
+      const icon = getIcon({});
+      expect(icon).toBeNull();
+    });
+
+    it('should not return the disabled icon', () => {
+      const icon = getIcon({
+        disabled: true
+      });
+      expect(icon).toBeNull();
+    });
+  });
+
+  describe('if there is a default icon', () => {
+    describe('if the item is disabled', () => {
+      it('should return the disabled icon', () => {
+        const icon = getIcon({
+          defaultIcon: mockDefaultIcon,
+          disabled: true
+        });
+        expect(icon).toStrictEqual(disabledIcon);
+      });
+    });
+
+    describe('if the item is not disabled', () => {
+      describe("if the item isn't selected", () => {
+        it('should return the default icon', () => {
+          const icon = getIcon({
+            defaultIcon: mockDefaultIcon
+          });
+          expect(icon).toBe(mockDefaultIcon);
+        });
+      });
+
+      describe('if the item is selected', () => {
+        it('should return the selected icon if there is a selected icon', () => {
+          const icon = getIcon({
+            defaultIcon: mockDefaultIcon,
+            selected: true,
+            selectedIcon: mockSelectedIcon
+          });
+          expect(icon).toBe(mockSelectedIcon);
+        });
+
+        it('should return the default icon if there is no selected icon', () => {
+          const icon = getIcon({
+            defaultIcon: mockDefaultIcon,
+            selected: true
+          });
+          expect(icon).toBe(mockDefaultIcon);
+        });
+      });
+    });
   });
 });

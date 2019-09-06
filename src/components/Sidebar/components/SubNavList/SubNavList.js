@@ -31,6 +31,7 @@ const baseStyles = ({ theme }) => css`
   position: absolute;
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
 `;
 /* eslint-enable max-len */
 
