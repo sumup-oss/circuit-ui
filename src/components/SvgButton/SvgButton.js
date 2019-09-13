@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { size } from 'polished';
 import { withProps } from 'recompose';
+
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
   label: svg-button;
@@ -48,7 +49,7 @@ const SvgButton = styled('button')`
 `;
 
 SvgButton.propTypes = {
-  children: PropTypes.element.isRequired
+  children: childrenPropType
 };
 
 /**
