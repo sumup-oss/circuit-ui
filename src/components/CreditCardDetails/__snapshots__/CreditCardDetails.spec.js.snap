@@ -115,7 +115,7 @@ exports[`CreditCardDetails should render with default styles 1`] = `
 }
 
 <div
-  className="circuit-2 circuit-3"
+  class="circuit-2 circuit-3"
 >
   <div
     data-test="name-on-card"
@@ -124,7 +124,7 @@ exports[`CreditCardDetails should render with default styles 1`] = `
     data-test="card-number"
   />
   <div
-    className="circuit-0 circuit-1"
+    class="circuit-0 circuit-1"
   >
     <div>
       <div

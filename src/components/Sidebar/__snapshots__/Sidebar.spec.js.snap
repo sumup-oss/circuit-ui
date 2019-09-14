@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Sidebar /> should render and match snapshot when open 1`] = `
-Array [
+HTMLCollection [
   .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -44,11 +44,9 @@ Array [
 }
 
 <nav
-    className="circuit-0 circuit-1"
-    open={true}
-  >
-    
-  </nav>,
+    class="circuit-0 circuit-1"
+    open=""
+  />,
   .circuit-0 {
   width: 100%;
   height: 100%;
@@ -70,8 +68,7 @@ Array [
 }
 
 <div
-    className="circuit-0 circuit-1"
-    onClick={[MockFunction]}
+    class="circuit-0 circuit-1"
   />,
   .circuit-0 {
   border: 0;
@@ -126,11 +123,10 @@ Array [
 }
 
 <button
-    className="circuit-2 circuit-3"
-    onClick={[MockFunction]}
+    class="circuit-2 circuit-3"
   >
     <span
-      className="circuit-0 circuit-1"
+      class="circuit-0 circuit-1"
     />
     <div>
       closeIcon.svg
@@ -140,7 +136,7 @@ Array [
 `;
 
 exports[`<Sidebar /> should render and match the snapshot when closed 1`] = `
-Array [
+HTMLCollection [
   .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -172,11 +168,8 @@ Array [
 }
 
 <nav
-    className="circuit-0 circuit-1"
-    open={false}
-  >
-    
-  </nav>,
+    class="circuit-0 circuit-1"
+  />,
   .circuit-0 {
   width: 100%;
   height: 100%;
@@ -196,8 +189,7 @@ Array [
 }
 
 <div
-    className="circuit-0 circuit-1"
-    onClick={[MockFunction]}
+    class="circuit-0 circuit-1"
   />,
   .circuit-2 {
   cursor: pointer;
@@ -250,11 +242,10 @@ Array [
 }
 
 <button
-    className="circuit-2 circuit-3"
-    onClick={[MockFunction]}
+    class="circuit-2 circuit-3"
   >
     <span
-      className="circuit-0 circuit-1"
+      class="circuit-0 circuit-1"
     />
     <div>
       closeIcon.svg

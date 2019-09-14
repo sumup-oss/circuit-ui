@@ -6,7 +6,7 @@ exports[`Spacing margin bottom should render with margin bottom styles 1`] = `
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;
 
@@ -16,12 +16,12 @@ exports[`Spacing margin top should render with margin top styles 1`] = `
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;
 
 exports[`Spacing should render with default styles 1`] = `
 <div
-  className="css-1szl2r-spacing circuit-0"
+  class="css-1szl2r-spacing circuit-0"
 />
 `;

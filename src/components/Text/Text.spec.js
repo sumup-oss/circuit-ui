@@ -26,7 +26,7 @@ describe('Text', () => {
     it(`should render as ${el} element, when passed "${el}" for the element prop`, () => {
       const heading = create(
         <Text element={el}>{`${el.toUpperCase()} heading`}</Text>
-      ).toJSON();
+      );
       expect(heading).toMatchSnapshot();
     });
   });
@@ -34,9 +34,7 @@ describe('Text', () => {
   const sizes = ['kilo', 'mega', 'giga'];
   sizes.forEach(size => {
     it(`should render with size ${size}, when passed "${size}" for the size prop`, () => {
-      const heading = create(
-        <Text {...{ size }}>{`${size} heading`}</Text>
-      ).toJSON();
+      const heading = create(<Text {...{ size }}>{`${size} heading`}</Text>);
       expect(heading).toMatchSnapshot();
     });
   });

@@ -15,7 +15,7 @@ exports[`MessageIcon should render with custom icon content 1`] = `
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   <div>
     Custom content
@@ -38,7 +38,7 @@ exports[`MessageIcon should render with default styles 1`] = `
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;
 
@@ -57,7 +57,7 @@ exports[`MessageIcon should render with error icon 1`] = `
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   <div>
     message-error.svg
@@ -80,7 +80,7 @@ exports[`MessageIcon should render with warning icon 1`] = `
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   <div>
     message-success.svg

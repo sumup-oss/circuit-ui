@@ -89,27 +89,23 @@ exports[`Container Container Style tests should have default styles 1`] = `
 }
 
 <button
-  className="circuit-7 circuit-8"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-7 circuit-8"
 >
   <div
-    className="circuit-5 circuit-6"
+    class="circuit-5 circuit-6"
   >
     <div
       aria-busy="true"
       aria-live="assertive"
-      className="circuit-0 circuit-1 circuit-2"
+      class="circuit-0 circuit-1 circuit-2"
       role="alert"
-      size="mega"
     >
       <div>
         spinner.svg
       </div>
     </div>
     <div
-      className="circuit-3 circuit-4"
+      class="circuit-3 circuit-4"
     />
   </div>
 </button>

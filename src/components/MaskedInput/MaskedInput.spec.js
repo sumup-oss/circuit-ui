@@ -22,7 +22,7 @@ describe('MaskedInput', () => {
    * Logic tests.
    */
   it('should render an Input', () => {
-    const wrapper = render(<MaskedInput mask={[/\d/]} />);
+    const wrapper = mount(<MaskedInput mask={[/\d/]} />);
     const input = wrapper.find('input');
     expect(input).toBeTruthy();
   });

@@ -34,10 +34,7 @@ exports[`PlainButton should have giga link styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="giga"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Button
 </button>
@@ -77,10 +74,7 @@ exports[`PlainButton should have kilo link styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="kilo"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Button
 </button>
@@ -120,10 +114,7 @@ exports[`PlainButton should have mega link styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Button
 </button>
@@ -168,10 +159,7 @@ exports[`PlainButton should have primary styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Button
 </button>
@@ -211,10 +199,7 @@ exports[`PlainButton should render with default styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Link
 </button>
@@ -254,11 +239,8 @@ exports[`PlainButton should render with href 1`] = `
 }
 
 <a
-  className="circuit-0 circuit-1"
-  disabled={false}
+  class="circuit-0 circuit-1"
   href="example"
-  size="mega"
-  target={null}
 >
   Button
 </a>

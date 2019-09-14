@@ -20,14 +20,13 @@ exports[`CardSchemes should render with default styles 1`] = `
 }
 
 <ul
-  className="circuit-92 circuit-93"
+  class="circuit-92 circuit-93"
 >
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         amex.svg
@@ -35,11 +34,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         diners.svg
@@ -47,11 +45,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         discover.svg
@@ -59,11 +56,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         ec.svg
@@ -71,11 +67,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         elo.svg
@@ -83,11 +78,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         elv.svg
@@ -95,11 +89,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         hiper.svg
@@ -107,11 +100,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         hipercard.svg
@@ -119,11 +111,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         jcb.svg
@@ -131,11 +122,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         maestro.svg
@@ -143,11 +133,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         mastercard.svg
@@ -155,11 +144,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         visa-electron.svg
@@ -167,11 +155,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         visa.svg
@@ -179,11 +166,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         vpay.svg
@@ -191,11 +177,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         cash.svg
@@ -203,11 +188,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         google-pay.svg
@@ -215,11 +199,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         apple-pay.svg
@@ -227,11 +210,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         banco-estado.svg
@@ -239,11 +221,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         dankort.svg
@@ -251,11 +232,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         nfc.svg
@@ -263,11 +243,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         union-pay.svg
@@ -275,11 +254,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         red-compra.svg
@@ -287,11 +265,10 @@ exports[`CardSchemes should render with default styles 1`] = `
     </div>
   </li>
   <li
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div
-      className="circuit-0 circuit-1"
-      size="giga"
+      class="circuit-0 circuit-1"
     >
       <div>
         unknown.svg

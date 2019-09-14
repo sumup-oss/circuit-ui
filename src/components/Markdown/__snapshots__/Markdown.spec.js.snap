@@ -34,7 +34,7 @@ exports[`Markdown should override HTML tags with React components 1`] = `
     Utraque aut longe ore cruentum est
   </h2>
   <p
-    className=" circuit-0 circuit-1"
+    class=" circuit-0 circuit-1"
   >
     Lorem markdownum vultusque eligit significent sinistro, et virgis, inter!
 Rapuere Apollineam equas coloni urbis conata, 
@@ -50,7 +50,7 @@ et magnis prorumpit flere? Dura quantum.
     Indignantia tamen
   </h3>
   <p
-    className=" circuit-0 circuit-1"
+    class=" circuit-0 circuit-1"
   >
     Mediis monstravit inmunis Troes non leonis 
     <strong>
@@ -68,7 +68,7 @@ praecordiaque velut totosque norant alipedi candida electae est vestis, posse.
   </p>
   <blockquote>
     <p
-      className=" circuit-0 circuit-1"
+      class=" circuit-0 circuit-1"
     >
       Adstat Procnes et, in tempora Maenalon moles in nocte relicta, membra nec
 sudore nymphas robur! Adduxit sua equus Cadmeida 
@@ -99,7 +99,7 @@ terraeque gratus quaque, liquidumque quod: magnum mixta;
     Dumque et membris minas deprimeret Phrygiis sua
   </h3>
   <p
-    className=" circuit-0 circuit-1"
+    class=" circuit-0 circuit-1"
   >
     Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
 
@@ -123,13 +123,13 @@ teneo
     Develat nymphae
   </h3>
   <p
-    className=" circuit-0 circuit-1"
+    class=" circuit-0 circuit-1"
   >
     Conceperat depositae si manibus utiliter resonare vitat ima mortis ecce. Huic
 leni agat pro! Fuit relinque.
   </p>
   <ol
-    start={1}
+    start="1"
   >
     <li>
       Quodque nebulas turba orbem aut
@@ -147,16 +147,16 @@ leni agat pro! Fuit relinque.
     Circumstant iam reponere obibat indestrictus sine
   </h2>
   <p
-    className=" circuit-0 circuit-1"
+    class=" circuit-0 circuit-1"
   >
     <img
       alt="A random cute puppy"
-      className="circuit-10 circuit-11"
+      class="circuit-10 circuit-11"
       src="http://www.placepuppy.net/800/500"
     />
   </p>
   <p
-    className=" circuit-0 circuit-1"
+    class=" circuit-0 circuit-1"
   >
     Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
 cultus coniunx adituque.
@@ -262,7 +262,7 @@ teneo
 leni agat pro! Fuit relinque.
   </p>
   <ol
-    start={1}
+    start="1"
   >
     <li>
       Quodque nebulas turba orbem aut
@@ -390,7 +390,7 @@ teneo
 leni agat pro! Fuit relinque.
   </p>
   <ol
-    start={1}
+    start="1"
   >
     <li>
       Quodque nebulas turba orbem aut
@@ -518,7 +518,7 @@ teneo
 leni agat pro! Fuit relinque.
   </p>
   <ol
-    start={1}
+    start="1"
   >
     <li>
       Quodque nebulas turba orbem aut

@@ -76,9 +76,6 @@ exports[`PageButton styles should render with default styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1 circuit-2"
-  disabled={false}
-  size="kilo"
-  target={null}
+  class="circuit-0 circuit-1 circuit-2"
 />
 `;

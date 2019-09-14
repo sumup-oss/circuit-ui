@@ -36,7 +36,7 @@ exports[`ButtonGroup Center aligment should render with center alignment styles 
 }
 
 <ul
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;
 
@@ -76,7 +76,7 @@ exports[`ButtonGroup Left aligment should render with left alignment styles 1`] 
 }
 
 <ul
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;
 
@@ -116,7 +116,7 @@ exports[`ButtonGroup No margin bottom should render without margin bottom styles
 }
 
 <ul
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;
 
@@ -156,6 +156,6 @@ exports[`ButtonGroup should render with default styles 1`] = `
 }
 
 <ul
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;

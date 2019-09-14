@@ -34,19 +34,12 @@ exports[`SubNavList styles should render with default styles when there is a sel
 }
 
 <ul
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
-  <li
-    secondary={true}
-    visible={false}
-  >
+  <li>
     Item 1
   </li>
-  <li
-    secondary={true}
-    selected={true}
-    visible={false}
-  >
+  <li>
     Item 2
   </li>
 </ul>
@@ -74,18 +67,12 @@ exports[`SubNavList styles should render with default styles when there is no se
 }
 
 <ul
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
-  <li
-    secondary={true}
-    visible={false}
-  >
+  <li>
     Item 1
   </li>
-  <li
-    secondary={true}
-    visible={false}
-  >
+  <li>
     Item 2
   </li>
 </ul>
@@ -115,6 +102,6 @@ exports[`SubNavList styles should render without children 1`] = `
 }
 
 <ul
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;

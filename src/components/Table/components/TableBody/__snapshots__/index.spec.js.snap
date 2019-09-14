@@ -23,16 +23,15 @@ tbody .circuit-4:last-child td {
 
 <tbody>
   <tr
-    className="circuit-4 circuit-5"
-    onClick={null}
+    class="circuit-4 circuit-5"
   >
     <td
-      className="circuit-0 circuit-1"
+      class="circuit-0 circuit-1"
     >
       Foo
     </td>
     <td
-      className="circuit-0 circuit-1"
+      class="circuit-0 circuit-1"
     >
       Bar
     </td>
@@ -104,25 +103,23 @@ tbody .circuit-6:last-child td {
 
 <tbody>
   <tr
-    className="circuit-6 circuit-7"
-    onClick={null}
+    class="circuit-6 circuit-7"
   >
     <th
-      aria-sort={null}
-      className="circuit-0 circuit-1"
+      class="circuit-0 circuit-1"
       scope="row"
     >
       Foo
     </th>
     <td
       aria-hidden="true"
-      className="circuit-2 circuit-3"
+      class="circuit-2 circuit-3"
       role="presentation"
     >
       Foo
     </td>
     <td
-      className="circuit-4 circuit-3"
+      class="circuit-4 circuit-3"
     >
       Bar
     </td>

@@ -22,6 +22,6 @@ exports[`ModalHeader should render with default styles 1`] = `
 }
 
 <header
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;

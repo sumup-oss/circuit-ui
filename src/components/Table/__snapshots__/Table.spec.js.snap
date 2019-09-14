@@ -221,32 +221,27 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  className="circuit-49 circuit-50"
+  class="circuit-49 circuit-50"
 >
   <div
-    className="circuit-47 circuit-48"
-    height={null}
-    onScroll={null}
+    class="circuit-47 circuit-48"
   >
     <table
-      className="circuit-45 circuit-46"
+      class="circuit-45 circuit-46"
     >
       <thead
-        className="circuit-13 circuit-14"
+        class="circuit-13 circuit-14"
       >
         <tr
-          className="circuit-11 circuit-12"
+          class="circuit-11 circuit-12"
         >
           <th
             aria-sort="none"
-            className="circuit-3 circuit-4"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            class="circuit-3 circuit-4"
             scope="col"
           >
             <button
-              className="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1 circuit-2"
               type="button"
             >
               <div>
@@ -260,27 +255,19 @@ tbody .circuit-11:last-child td {
           </th>
           <td
             aria-hidden="true"
-            className="circuit-5 circuit-6"
+            class="circuit-5 circuit-6"
             role="presentation"
           >
             Foo
           </td>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Bar
           </th>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Baz
@@ -289,88 +276,82 @@ tbody .circuit-11:last-child td {
       </thead>
       <tbody>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
@@ -603,32 +584,27 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  className="circuit-49 circuit-50"
+  class="circuit-49 circuit-50"
 >
   <div
-    className="circuit-47 circuit-48"
-    height={null}
-    onScroll={null}
+    class="circuit-47 circuit-48"
   >
     <table
-      className="circuit-45 circuit-46"
+      class="circuit-45 circuit-46"
     >
       <thead
-        className="circuit-13 circuit-14"
+        class="circuit-13 circuit-14"
       >
         <tr
-          className="circuit-11 circuit-12"
+          class="circuit-11 circuit-12"
         >
           <th
             aria-sort="none"
-            className="circuit-3 circuit-4"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            class="circuit-3 circuit-4"
             scope="col"
           >
             <button
-              className="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1 circuit-2"
               type="button"
             >
               <div>
@@ -642,27 +618,19 @@ tbody .circuit-11:last-child td {
           </th>
           <td
             aria-hidden="true"
-            className="circuit-5 circuit-6"
+            class="circuit-5 circuit-6"
             role="presentation"
           >
             Foo
           </td>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Bar
           </th>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Baz
@@ -671,88 +639,82 @@ tbody .circuit-11:last-child td {
       </thead>
       <tbody>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
@@ -1015,32 +977,27 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  className="circuit-49 circuit-50"
+  class="circuit-49 circuit-50"
 >
   <div
-    className="circuit-47 circuit-48"
-    height={null}
-    onScroll={null}
+    class="circuit-47 circuit-48"
   >
     <table
-      className="circuit-45 circuit-46"
+      class="circuit-45 circuit-46"
     >
       <thead
-        className="circuit-13 circuit-14"
+        class="circuit-13 circuit-14"
       >
         <tr
-          className="circuit-11 circuit-12"
+          class="circuit-11 circuit-12"
         >
           <th
             aria-sort="none"
-            className="circuit-3 circuit-4"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            class="circuit-3 circuit-4"
             scope="col"
           >
             <button
-              className="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1 circuit-2"
               type="button"
             >
               <div>
@@ -1054,27 +1011,19 @@ tbody .circuit-11:last-child td {
           </th>
           <td
             aria-hidden="true"
-            className="circuit-5 circuit-6"
+            class="circuit-5 circuit-6"
             role="presentation"
           >
             Foo
           </td>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Bar
           </th>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Baz
@@ -1083,88 +1032,82 @@ tbody .circuit-11:last-child td {
       </thead>
       <tbody>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
@@ -1313,37 +1256,33 @@ tbody .circuit-9:last-child td {
 }
 
 .circuit-39 {
-  height: unset;
+  height: 0px;
   overflow-y: auto;
 }
 
 <div
-  className="circuit-41 circuit-42"
+  class="circuit-41 circuit-42"
 >
   <div
-    className="circuit-39 circuit-40"
-    height="unset"
-    onScroll={[Function]}
+    class="circuit-39 circuit-40"
+    height="0px"
   >
     <table
-      className="circuit-37 circuit-38"
+      class="circuit-37 circuit-38"
     >
       <thead
-        className="circuit-11 circuit-12"
+        class="circuit-11 circuit-12"
       >
         <tr
-          className="circuit-9 circuit-10"
+          class="circuit-9 circuit-10"
         >
           <th
             aria-sort="none"
-            className="circuit-3 circuit-4"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            class="circuit-3 circuit-4"
             scope="col"
           >
             <button
-              className="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1 circuit-2"
               type="button"
             >
               <div>
@@ -1356,21 +1295,13 @@ tbody .circuit-9:last-child td {
             Foo
           </th>
           <th
-            aria-sort={null}
-            className="circuit-5 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-5 circuit-4"
             scope="col"
           >
             Bar
           </th>
           <th
-            aria-sort={null}
-            className="circuit-5 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-5 circuit-4"
             scope="col"
           >
             Baz
@@ -1379,61 +1310,58 @@ tbody .circuit-9:last-child td {
       </thead>
       <tbody>
         <tr
-          className="circuit-9 circuit-10"
-          onClick={null}
+          class="circuit-9 circuit-10"
         >
           <td
-            className="circuit-13 circuit-14"
+            class="circuit-13 circuit-14"
           >
             1
           </td>
           <td
-            className="circuit-13 circuit-14"
+            class="circuit-13 circuit-14"
           >
             2
           </td>
           <td
-            className="circuit-13 circuit-14"
+            class="circuit-13 circuit-14"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-9 circuit-10"
-          onClick={null}
+          class="circuit-9 circuit-10"
         >
           <td
-            className="circuit-13 circuit-14"
+            class="circuit-13 circuit-14"
           >
             1
           </td>
           <td
-            className="circuit-13 circuit-14"
+            class="circuit-13 circuit-14"
           >
             2
           </td>
           <td
-            className="circuit-13 circuit-14"
+            class="circuit-13 circuit-14"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-9 circuit-10"
-          onClick={null}
+          class="circuit-9 circuit-10"
         >
           <td
-            className="circuit-13 circuit-14"
+            class="circuit-13 circuit-14"
           >
             1
           </td>
           <td
-            className="circuit-13 circuit-14"
+            class="circuit-13 circuit-14"
           >
             2
           </td>
           <td
-            className="circuit-13 circuit-14"
+            class="circuit-13 circuit-14"
           >
             3
           </td>
@@ -1665,32 +1593,27 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  className="circuit-49 circuit-50"
+  class="circuit-49 circuit-50"
 >
   <div
-    className="circuit-47 circuit-48"
-    height={null}
-    onScroll={null}
+    class="circuit-47 circuit-48"
   >
     <table
-      className="circuit-45 circuit-46"
+      class="circuit-45 circuit-46"
     >
       <thead
-        className="circuit-13 circuit-14"
+        class="circuit-13 circuit-14"
       >
         <tr
-          className="circuit-11 circuit-12"
+          class="circuit-11 circuit-12"
         >
           <th
             aria-sort="none"
-            className="circuit-3 circuit-4"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            class="circuit-3 circuit-4"
             scope="col"
           >
             <button
-              className="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1 circuit-2"
               type="button"
             >
               <div>
@@ -1704,27 +1627,19 @@ tbody .circuit-11:last-child td {
           </th>
           <td
             aria-hidden="true"
-            className="circuit-5 circuit-6"
+            class="circuit-5 circuit-6"
             role="presentation"
           >
             Foo
           </td>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Bar
           </th>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Baz
@@ -1733,88 +1648,82 @@ tbody .circuit-11:last-child td {
       </thead>
       <tbody>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
@@ -2046,32 +1955,27 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  className="circuit-49 circuit-50"
+  class="circuit-49 circuit-50"
 >
   <div
-    className="circuit-47 circuit-48"
-    height={null}
-    onScroll={null}
+    class="circuit-47 circuit-48"
   >
     <table
-      className="circuit-45 circuit-46"
+      class="circuit-45 circuit-46"
     >
       <thead
-        className="circuit-13 circuit-14"
+        class="circuit-13 circuit-14"
       >
         <tr
-          className="circuit-11 circuit-12"
+          class="circuit-11 circuit-12"
         >
           <th
             aria-sort="none"
-            className="circuit-3 circuit-4"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            class="circuit-3 circuit-4"
             scope="col"
           >
             <button
-              className="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1 circuit-2"
               type="button"
             >
               <div>
@@ -2085,27 +1989,19 @@ tbody .circuit-11:last-child td {
           </th>
           <td
             aria-hidden="true"
-            className="circuit-5 circuit-6"
+            class="circuit-5 circuit-6"
             role="presentation"
           >
             Foo
           </td>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Bar
           </th>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Baz
@@ -2114,88 +2010,82 @@ tbody .circuit-11:last-child td {
       </thead>
       <tbody>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
@@ -2428,32 +2318,27 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  className="circuit-49 circuit-50"
+  class="circuit-49 circuit-50"
 >
   <div
-    className="circuit-47 circuit-48"
-    height={null}
-    onScroll={null}
+    class="circuit-47 circuit-48"
   >
     <table
-      className="circuit-45 circuit-46"
+      class="circuit-45 circuit-46"
     >
       <thead
-        className="circuit-13 circuit-14"
+        class="circuit-13 circuit-14"
       >
         <tr
-          className="circuit-11 circuit-12"
+          class="circuit-11 circuit-12"
         >
           <th
             aria-sort="none"
-            className="circuit-3 circuit-4"
-            onClick={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            class="circuit-3 circuit-4"
             scope="col"
           >
             <button
-              className="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1 circuit-2"
               type="button"
             >
               <div>
@@ -2467,27 +2352,19 @@ tbody .circuit-11:last-child td {
           </th>
           <td
             aria-hidden="true"
-            className="circuit-5 circuit-6"
+            class="circuit-5 circuit-6"
             role="presentation"
           >
             Foo
           </td>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Bar
           </th>
           <th
-            aria-sort={null}
-            className="circuit-7 circuit-4"
-            onClick={null}
-            onMouseEnter={null}
-            onMouseLeave={null}
+            class="circuit-7 circuit-4"
             scope="col"
           >
             Baz
@@ -2496,88 +2373,82 @@ tbody .circuit-11:last-child td {
       </thead>
       <tbody>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>
         </tr>
         <tr
-          className="circuit-11 circuit-12"
-          onClick={null}
+          class="circuit-11 circuit-12"
         >
           <th
-            aria-sort={null}
-            className="circuit-15 circuit-4"
+            class="circuit-15 circuit-4"
             scope="row"
           >
             1
           </th>
           <td
             aria-hidden="true"
-            className="circuit-17 circuit-6"
+            class="circuit-17 circuit-6"
             role="presentation"
           >
             1
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             2
           </td>
           <td
-            className="circuit-19 circuit-6"
+            class="circuit-19 circuit-6"
           >
             3
           </td>

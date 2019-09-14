@@ -47,7 +47,7 @@ describe('Item', () => {
   });
 
   it('should render with selected styles', () => {
-    const actual = render(<Item isSelected>List item</Item>);
+    const actual = create(<Item isSelected>List item</Item>);
     expect(actual).toMatchSnapshot();
   });
 });

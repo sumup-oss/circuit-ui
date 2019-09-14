@@ -21,8 +21,8 @@ exports[`Label should be visually hidden when used as accessible only label 1`] 
 }
 
 <label
-  className="circuit-0 circuit-1"
-  htmlFor="some-id"
+  class="circuit-0 circuit-1"
+  for="some-id"
 >
   Label
 </label>
@@ -37,8 +37,8 @@ exports[`Label should render with default styles 1`] = `
 }
 
 <label
-  className="circuit-0 circuit-1"
-  htmlFor="some-id"
+  class="circuit-0 circuit-1"
+  for="some-id"
 >
   Label
 </label>

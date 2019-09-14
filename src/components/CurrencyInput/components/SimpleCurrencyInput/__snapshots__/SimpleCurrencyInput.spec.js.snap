@@ -79,6 +79,7 @@ exports[`SimpleCurrencyInput should adjust input padding and postfix width to ma
     class="circuit-0 circuit-1"
     placeholder="123,45"
     type="text"
+    value=""
   />
   <span
     class="circuit-2 circuit-3"
@@ -171,6 +172,7 @@ exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = 
     class="circuit-0 circuit-1"
     disabled=""
     type="text"
+    value=""
   />
   <span
     class="circuit-2 circuit-3"
@@ -305,6 +307,7 @@ exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] 
     aria-invalid="true"
     class="circuit-0 circuit-1"
     type="text"
+    value=""
   />
   <span
     class="circuit-2 circuit-3"
@@ -390,6 +393,7 @@ exports[`SimpleCurrencyInput should render with default styles 1`] = `
     aria-invalid="false"
     class="circuit-0 circuit-1"
     type="text"
+    value=""
   />
   <span
     class="circuit-2 circuit-3"
@@ -501,6 +505,7 @@ exports[`SimpleCurrencyInput should render with error styles 1`] = `
     aria-invalid="true"
     class="circuit-0 circuit-1"
     type="text"
+    value=""
   />
   <span
     class="circuit-2 circuit-3"
@@ -612,6 +617,7 @@ exports[`SimpleCurrencyInput should render with warning styles 1`] = `
     aria-invalid="false"
     class="circuit-0 circuit-1"
     type="text"
+    value=""
   />
   <span
     class="circuit-2 circuit-3"
@@ -705,6 +711,7 @@ exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = 
     class="circuit-2 circuit-3"
     placeholder="123.45"
     type="text"
+    value=""
   />
 </div>
 `;

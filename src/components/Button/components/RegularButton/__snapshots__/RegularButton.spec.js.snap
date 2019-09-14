@@ -57,10 +57,7 @@ exports[`RegularButton should have button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Button
 </button>
@@ -123,10 +120,8 @@ exports[`RegularButton should have disabled button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={true}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
+  disabled=""
 >
   Disabled button
 </button>
@@ -210,10 +205,7 @@ exports[`RegularButton should have flat button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Flat button
 </button>
@@ -297,10 +289,8 @@ exports[`RegularButton should have flat disabled button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={true}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
+  disabled=""
 >
   Flat button
 </button>
@@ -363,10 +353,7 @@ exports[`RegularButton should have giga button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="giga"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Button
 </button>
@@ -429,10 +416,7 @@ exports[`RegularButton should have kilo button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="kilo"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Button
 </button>
@@ -495,10 +479,7 @@ exports[`RegularButton should have mega button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Button
 </button>
@@ -607,10 +588,7 @@ exports[`RegularButton should have secondary button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Secondary button
 </button>
@@ -719,10 +697,8 @@ exports[`RegularButton should have secondary disabled button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={true}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
+  disabled=""
 >
   Secondary disabled button
 </button>
@@ -831,10 +807,7 @@ exports[`RegularButton should have secondary flat button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Secondary flat button
 </button>
@@ -899,10 +872,7 @@ exports[`RegularButton should have stretch button styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1"
-  disabled={false}
-  size="mega"
-  target={null}
+  class="circuit-0 circuit-1"
 >
   Stretched button
 </button>
