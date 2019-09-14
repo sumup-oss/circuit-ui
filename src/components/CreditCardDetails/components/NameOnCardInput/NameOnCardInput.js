@@ -16,18 +16,28 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import deprecate from '../../../../util/deprecate';
 import Label from '../../../Label';
 import Input from '../../../Input';
 
 /**
  * A conveniance input for the card holder.
  */
-const NameOnCardInput = ({ label, id, ...props }) => (
-  <Fragment>
-    <Label htmlFor={id}>{label}</Label>
-    <Input autoComplete="cc-name" type="text" {...{ ...props, id }} />
-  </Fragment>
-);
+const NameOnCardInput = ({ label, id, ...props }) => {
+  deprecate(
+    [
+      'NameOnCardInput has been deprecated.',
+      `Use SumUp's card widget instead:`,
+      'https://developer.sumup.com/docs/widgets-card-v2.'
+    ].join(' ')
+  );
+  return (
+    <Fragment>
+      <Label htmlFor={id}>{label}</Label>
+      <Input autoComplete="cc-name" type="text" {...{ ...props, id }} />
+    </Fragment>
+  );
+};
 
 NameOnCardInput.propTypes = {
   /**

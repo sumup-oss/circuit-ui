@@ -16,6 +16,8 @@
 import PropTypes from 'prop-types';
 import { compiler } from 'markdown-to-jsx';
 
+import deprecate from '../../util/deprecate';
+
 /**
  * Markdown component to parse and render GFM to JSX.
  */
@@ -26,6 +28,8 @@ const Markdown = ({
   forceInline,
   transformer
 }) => {
+  deprecate('Markdown has been deprecated.');
+
   const options = { overrides, forceBlock, forceInline };
   const transformedMarkdown = transformer(children);
   const html = compiler(transformedMarkdown, options);

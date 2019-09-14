@@ -19,11 +19,12 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { size } from 'polished';
 
+import deprecate from '../../../../util/deprecate';
 import Label from '../../../Label';
 import MaskedInput from '../../../MaskedInput';
-import { getPlaceholder, getMask } from './SecurityCodeInputService';
 import InfoIcon from '../../../InfoIcon';
 import SvgButton from '../../../SvgButton/SvgButton';
+import { getPlaceholder, getMask } from './SecurityCodeInputService';
 
 const baseInfoButtonStyles = ({ theme }) => css`
   label: security-code-input__info-button;
@@ -41,25 +42,34 @@ const SecurityCodeLabel = styled(Label)`
 /**
  * A specialized input for credit card security codes (CVV, etc.).
  */
-const SecurityCodeInput = ({ label, id, cardScheme, onShowInfo, ...props }) => (
-  <Fragment>
-    <SecurityCodeLabel htmlFor={id}>
-      {label}
-      {onShowInfo && (
-        <InfoButton type="button" onClick={onShowInfo}>
-          <InfoIcon />
-        </InfoButton>
-      )}
-    </SecurityCodeLabel>
-    <MaskedInput
-      autoComplete="cc-csc"
-      pattern="\d{3,4}"
-      mask={getMask(cardScheme)}
-      placeholder={getPlaceholder(cardScheme)}
-      {...{ ...props, id }}
-    />
-  </Fragment>
-);
+const SecurityCodeInput = ({ label, id, cardScheme, onShowInfo, ...props }) => {
+  deprecate(
+    [
+      'SecurityCodeInput has been deprecated.',
+      `Use SumUp's card widget instead:`,
+      'https://developer.sumup.com/docs/widgets-card-v2.'
+    ].join(' ')
+  );
+  return (
+    <Fragment>
+      <SecurityCodeLabel htmlFor={id}>
+        {label}
+        {onShowInfo && (
+          <InfoButton type="button" onClick={onShowInfo}>
+            <InfoIcon />
+          </InfoButton>
+        )}
+      </SecurityCodeLabel>
+      <MaskedInput
+        autoComplete="cc-csc"
+        pattern="\d{3,4}"
+        mask={getMask(cardScheme)}
+        placeholder={getPlaceholder(cardScheme)}
+        {...{ ...props, id }}
+      />
+    </Fragment>
+  );
+};
 
 SecurityCodeInput.propTypes = {
   /**

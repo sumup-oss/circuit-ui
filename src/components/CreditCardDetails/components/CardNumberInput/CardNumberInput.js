@@ -24,6 +24,7 @@ import {
   deprecatedPropType,
   themePropType
 } from '../../../../util/shared-prop-types';
+import deprecate from '../../../../util/deprecate';
 import { flow, toPairs, map, keys } from '../../../../util/fp';
 import MaskedInput from '../../../MaskedInput';
 import Label from '../../../Label';
@@ -137,6 +138,14 @@ const CardNumberInput = ({
   detectedSchemeLabel,
   ...props
 }) => {
+  deprecate(
+    [
+      'CardNumberInput has been deprecated.',
+      `Use SumUp's card widget instead:`,
+      'https://developer.sumup.com/docs/widgets-card-v2.'
+    ].join(' ')
+  );
+
   const supportedSchemesText = `${supportedSchemesLabel}: ${keys(
     acceptedCardSchemes
   ).join(', ')}.`;

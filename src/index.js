@@ -85,8 +85,10 @@ export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Label } from './components/Label';
 export { default as Input } from './components/Input';
-export { default as MaskedInput } from './components/MaskedInput';
-export { default as RestrictedInput } from './components/RestrictedInput';
+export {
+  InternalRestrictedInput as RestrictedInput
+} from './components/RestrictedInput';
+export { InternalMaskedInput as MaskedInput } from './components/MaskedInput';
 export { default as RadioButton } from './components/RadioButton';
 export { default as RadioButtonGroup } from './components/RadioButtonGroup';
 export { default as SearchInput } from './components/SearchInput';

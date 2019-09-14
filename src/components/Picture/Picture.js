@@ -17,20 +17,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { map } from 'lodash/fp';
 
+import deprecate from '../../util/deprecate';
+
 /**
  * A custom picture component.
  */
-const Picture = ({ sources, fallback, alt, ...rest }) => (
-  <picture {...rest}>
-    {map(
-      s => (
-        <source key={s.srcSet} {...s} />
-      ),
-      sources
-    )}
-    <img src={fallback} alt={alt} />
-  </picture>
-);
+const Picture = ({ sources, fallback, alt, ...rest }) => {
+  deprecate('Picture has been deprecated.');
+
+  return (
+    <picture {...rest}>
+      {map(
+        s => (
+          <source key={s.srcSet} {...s} />
+        ),
+        sources
+      )}
+      <img src={fallback} alt={alt} />
+    </picture>
+  );
+};
 
 Picture.propTypes = {
   /**

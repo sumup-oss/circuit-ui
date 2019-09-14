@@ -17,6 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Input from '../Input';
+import deprecate from '../../util/deprecate';
 import { handleKeyDown, handleCarretPosition } from './RestrictedInputService';
 import { directions } from '../../styles/constants';
 import { deprecatedPropType } from '../../util/shared-prop-types';
@@ -95,6 +96,12 @@ RestrictedInput.defaultProps = {
   onMouseUp: null,
   filteredKeys: []
 };
+
+export function InternalRestrictedInput(props) {
+  deprecate('RestrictedInput has been deprecated.');
+
+  return <RestrictedInput {...props} />;
+}
 
 /**
  * @component
