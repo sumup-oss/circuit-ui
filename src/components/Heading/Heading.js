@@ -17,9 +17,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
-import HtmlElement from '../HtmlElement';
-import { childrenPropType } from '../../util/shared-prop-types';
+import {
+  childrenPropType,
+  deprecatedPropType
+} from '../../util/shared-prop-types';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } = sizes;
@@ -62,25 +65,19 @@ const noMarginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const HeadingElement = styled(HtmlElement)`
+const HeadingElement = styled('h2', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+})`
   ${baseStyles};
   ${sizeStyles};
   ${noMarginStyles};
 `;
 
-// TODO: refactor this with Emotion 10 as prop
 /**
  * A flexible heading component capable of rendering using any HTML heading tag.
  */
-const Heading = ({ blacklist, ...restProps }) => (
-  <HeadingElement
-    {...restProps}
-    blacklist={{
-      ...blacklist,
-      size: true,
-      noMargin: true
-    }}
-  />
+const Heading = ({ element, as, ...restProps }) => (
+  <HeadingElement {...restProps} as={element || as} />
 );
 
 Heading.KILO = KILO;
@@ -119,12 +116,22 @@ Heading.propTypes = {
   /**
    * The HTML heading element to render.
    */
-  element: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-  blacklist: PropTypes.object
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  /**
+   * @deprecated
+   * The HTML input element to render.
+   */
+  element: deprecatedPropType(
+    PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+    [
+      'Emotion 10 introduced the ability to change the HTML element.',
+      'Use the "as" prop instead.'
+    ].join(' ')
+  )
 };
 
 Heading.defaultProps = {
-  element: 'h2',
+  as: 'h2',
   size: Heading.PETA,
   className: '',
   noMargin: false,

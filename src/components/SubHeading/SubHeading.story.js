@@ -32,7 +32,7 @@ storiesOf(`${GROUPS.TYPOGRAPHY}|SubHeading`, module)
     'SubHeading',
     withInfo()(() => (
       <SubHeading
-        element={select('Element', elements, elements[0])}
+        as={select('Element', elements, elements[0])}
         size={select('Size', sizes, sizes[0])}
         noMargin={boolean('No margin', false)}
       >

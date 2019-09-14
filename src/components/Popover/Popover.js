@@ -19,7 +19,6 @@ import { Manager, Reference, Popper } from 'react-popper';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Portal from '../Portal';
-import HTMLElement from '../HtmlElement';
 
 import {
   TOP,
@@ -155,10 +154,7 @@ class Popover extends Component {
     modifiers: PropTypes.shape(),
     arrowRenderer: PropTypes.func,
     referenceWrapperStyles: PropTypes.func,
-    referenceElement: PropTypes.oneOfType([
-      PropTypes.instanceOf(HTMLElement),
-      PropTypes.element
-    ])
+    referenceElement: PropTypes.element
   };
 
   static defaultProps = {

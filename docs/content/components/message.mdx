@@ -27,7 +27,7 @@ or fixed cards with a semantical meaning (either success, danger or attention).
 <Playground>
   <Message>
     <MessageIcon type={MessageIcon.SUCCESS} />
-    <Heading size={Heading.KILO} element="h4" margin={false}>
+    <Heading size={Heading.KILO} as="h4" margin={false}>
       Transaction successfully refunded
     </Heading>
   </Message>
@@ -61,7 +61,7 @@ has been taken. These notifications disappear automatically.
 <Playground>
   <Message>
     <MessageIcon type={MessageIcon.SUCCESS} />
-    <Heading size={Heading.KILO} element="h4" margin={false}>
+    <Heading size={Heading.KILO} as="h4" margin={false}>
       Transaction successfully refunded
     </Heading>
   </Message>
@@ -77,7 +77,7 @@ to use a call to action.
   <Message>
     <MessageIcon type={MessageIcon.WARNING} />
     <div>
-      <Heading size={Heading.KILO} element="h4" margin={false}>
+      <Heading size={Heading.KILO} as="h4" margin={false}>
         You still need to verify your account
       </Heading>
     </div>
@@ -104,7 +104,7 @@ required. **A call to action must be displayed.**
   <Message>
     <MessageIcon type={MessageIcon.ERROR} />
     <div>
-      <Heading size={Heading.KILO} element="h4" margin={false}>
+      <Heading size={Heading.KILO} as="h4" margin={false}>
         Your transaction has failed
       </Heading>
     </div>
@@ -130,7 +130,7 @@ You can display a banner with a message with `NotificationBanner`, and position 
     <Message>
       <MessageIcon type={MessageIcon.SUCCESS} />
       <div>
-        <Heading size={Heading.KILO} element="h4" noMargin>
+        <Heading size={Heading.KILO} as="h4" noMargin>
           New Feature — Intelligent Reporting
         </Heading>
         <Text noMargin>
@@ -151,13 +151,13 @@ You can display a list of messages with `NotificationList`.
   <NotificationList>
     <Message>
       <MessageIcon type={MessageIcon.SUCCESS} />
-      <Heading size={Heading.KILO} element="h4" noMargin>
+      <Heading size={Heading.KILO} as="h4" noMargin>
         Account created
       </Heading>
     </Message>
     <Message>
       <MessageIcon type={MessageIcon.SUCCESS} />
-      <Heading size={Heading.KILO} element="h4" noMargin>
+      <Heading size={Heading.KILO} as="h4" noMargin>
         Transaction successfully refunded
       </Heading>
     </Message>

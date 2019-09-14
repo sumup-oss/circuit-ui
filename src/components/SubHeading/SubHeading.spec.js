@@ -22,10 +22,10 @@ describe('SubHeading', () => {
    * Style tests.
    */
   const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
-  elements.forEach(el => {
-    it(`should render as ${el.toUpperCase()} element, when passed "${el}" for the element prop`, () => {
+  elements.forEach(as => {
+    it(`should render as ${as.toUpperCase()} element, when passed "${as}" for the element prop`, () => {
       const heading = create(
-        <SubHeading element={el}>{`${el.toUpperCase()} heading`}</SubHeading>
+        <SubHeading as={as}>{`${as.toUpperCase()} heading`}</SubHeading>
       );
       expect(heading).toMatchSnapshot();
     });

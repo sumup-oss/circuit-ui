@@ -87,21 +87,21 @@ storiesOf(`${GROUPS.COMPONENTS}|Markdown`, module)
             h1: {
               component: Heading,
               props: {
-                element: 'h1',
+                as: 'h1',
                 size: 'zetta'
               }
             },
             h2: {
               component: Heading,
               props: {
-                element: 'h2',
+                as: 'h2',
                 size: 'peta'
               }
             },
             h3: {
               component: Heading,
               props: {
-                element: 'h3',
+                as: 'h3',
                 size: 'giga'
               }
             },

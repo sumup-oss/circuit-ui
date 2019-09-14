@@ -18,8 +18,10 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import HtmlElement from '../HtmlElement';
-import { childrenPropType } from '../../util/shared-prop-types';
+import {
+  childrenPropType,
+  deprecatedPropType
+} from '../../util/shared-prop-types';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA } = sizes;
@@ -44,25 +46,15 @@ const noMarginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const SubHeadingElement = styled(HtmlElement)(
-  baseStyles,
-  sizeStyles,
-  noMarginStyles
-);
+const SubHeadingElement = styled('h3')(baseStyles, sizeStyles, noMarginStyles);
 
 /**
  * A flexible subheading component capable of rendering using any HTML heading
  * tag, except h1.
  */
 
-const SubHeading = ({ blacklist, ...restProps }) => (
-  <SubHeadingElement
-    {...restProps}
-    blacklist={{
-      ...blacklist,
-      noMargin: true
-    }}
-  />
+const SubHeading = ({ element, as, ...restProps }) => (
+  <SubHeadingElement as={element || as} {...restProps} />
 );
 
 SubHeading.KILO = KILO;
@@ -88,12 +80,21 @@ SubHeading.propTypes = {
   /**
    * The HTML heading element to render.
    */
-  element: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6']),
-  blacklist: PropTypes.object
+  as: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6']),
+  /**
+   * @deprecated
+   * The HTML input element to render.
+   */
+  element: deprecatedPropType(
+    PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6']),
+    [
+      'Emotion 10 introduced the ability to change the HTML element.',
+      'Use the "as" prop instead.'
+    ].join(' ')
+  )
 };
 
 SubHeading.defaultProps = {
-  element: 'h3',
   size: SubHeading.KILO,
   className: '',
   noMargin: false,
