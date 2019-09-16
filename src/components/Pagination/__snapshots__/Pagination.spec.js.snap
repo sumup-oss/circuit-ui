@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Pagination styles With 5 or less pages should render only the number of pages passed and the next and previous buttons 1`] = `
-.circuit-63 {
+.circuit-21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12,17 +12,6 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   align-items: center;
   width: 100%;
   padding: 12px;
-}
-
-.circuit-3 {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
-
-.circuit-3:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
 }
 
 .circuit-1 {
@@ -88,36 +77,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   z-index: 1;
 }
 
-.circuit-12 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
-}
-
-.circuit-12:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-12:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-12:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-12:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-}
-
-.circuit-10 {
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -147,32 +107,32 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   pointer-events: none;
 }
 
-.circuit-10:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-10:hover,
-.circuit-10:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10[disabled],
-.circuit-10:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -181,67 +141,45 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   user-selectable: none;
 }
 
-.circuit-10:active {
+.circuit-4:active {
   background-color: #1760CE;
   border-color: #003C8B;
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #1760CE;
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   background-color: #1760CE;
 }
 
-.circuit-10:hover,
-.circuit-10:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #003C8B;
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-10:hover:focus {
+.circuit-4:hover:focus {
   box-shadow: none;
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   border-color: #D8DDE1;
   box-shadow: none;
 }
 
-.circuit-21 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-}
-
-.circuit-21:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-21:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-21:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-19 {
+.circuit-7 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -264,6 +202,78 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   border-right: 0;
   font-weight: 400;
   border-color: #D8DDE1;
+}
+
+.circuit-7:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-7:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-7:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-7:hover,
+.circuit-7:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-7[disabled],
+.circuit-7:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-7:focus {
+  border-color: #D8DDE1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-7:hover {
+  box-shadow: 1px 0 0 #9DA7B1;
+  z-index: 1;
+}
+
+.circuit-7:hover:focus {
+  box-shadow: none;
+}
+
+.circuit-19 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .circuit-19:active {
@@ -300,597 +310,62 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   user-selectable: none;
 }
 
-.circuit-19:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-19:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-19:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-57 {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.circuit-55 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.circuit-55:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-55:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
-}
-
-.circuit-55:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-55:hover,
-.circuit-55:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-55[disabled],
-.circuit-55:disabled {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-<Pagination
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={1}
-  pagesToShow={5}
-  perPage={50}
-  previousLabel="<"
-  total={250}
-  translate={[Function]}
+<div
+  class="circuit-21 circuit-22"
 >
-  <PaginationContainer
-    footer={null}
-    nextLabel=">"
-    onChange={[Function]}
-    page={1}
-    previousLabel="<"
-    totalPages={5}
-    translate={[Function]}
+  <button
+    class="circuit-0 circuit-1 circuit-2"
+    data-testid="pagination-button-previous"
+    disabled=""
   >
-    <Container
-      translate={[Function]}
-    >
-      <div
-        className="circuit-63 circuit-64"
-      >
-        <NavigationButtonPrevious
-          disabled={true}
-          flat={false}
-          href={null}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-3 circuit-0"
-            disabled={true}
-            flat={false}
-            href={null}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-3 circuit-0"
-              disabled={true}
-              flat={false}
-              href={null}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-3 circuit-0"
-                disabled={true}
-                flat={false}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-0 circuit-1 circuit-2"
-                  disabled={true}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &lt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonPrevious>
-        <PaginationButtonContainer
-          currentPage={1}
-        >
-          <PaginationButton
-            active={true}
-            currentPage={1}
-            key="1"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={1}
-              onClick={[Function]}
-              primary={true}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={1}
-                onClick={[Function]}
-                plain={false}
-                primary={true}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={1}
-                  onClick={[Function]}
-                  primary={true}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={1}
-                    onClick={[Function]}
-                    primary={true}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={1}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      1
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={2}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={2}
-            key="2"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={2}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-21 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={2}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-21 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={2}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-21 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={2}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-19 circuit-2"
-                      disabled={false}
-                      name={2}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      2
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={3}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={3}
-            key="3"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={3}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-21 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={3}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-21 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={3}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-21 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={3}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-19 circuit-2"
-                      disabled={false}
-                      name={3}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      3
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={4}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={4}
-            key="4"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={4}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-21 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={4}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-21 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={4}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-21 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={4}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-19 circuit-2"
-                      disabled={false}
-                      name={4}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      4
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={5}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={5}
-            key="5"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={5}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-21 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={5}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-21 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={5}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-21 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={5}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-19 circuit-2"
-                      disabled={false}
-                      name={5}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      5
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <NavigationButtonNext
-          disabled={false}
-          flat={false}
-          href={null}
-          isFirst={false}
-          isLast={true}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-57 circuit-54"
-            disabled={false}
-            flat={false}
-            href={null}
-            isFirst={false}
-            isLast={true}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-57 circuit-54"
-              disabled={false}
-              flat={false}
-              href={null}
-              isFirst={false}
-              isLast={true}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-57 circuit-54"
-                disabled={false}
-                flat={false}
-                isFirst={false}
-                isLast={true}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-54 circuit-55 circuit-2"
-                  disabled={false}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &gt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonNext>
-      </div>
-    </Container>
-  </PaginationContainer>
-</Pagination>
+    &lt;
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="1"
+  >
+    1
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    data-testid="pagination-button-page"
+    name="2"
+  >
+    2
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    data-testid="pagination-button-page"
+    name="3"
+  >
+    3
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    data-testid="pagination-button-page"
+    name="4"
+  >
+    4
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    data-testid="pagination-button-page"
+    name="5"
+  >
+    5
+  </button>
+  <button
+    class="circuit-18 circuit-19 circuit-2"
+    data-testid="pagination-button-next"
+  >
+    &gt;
+  </button>
+</div>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is last but one page should render with default styles and match snapshot 1`] = `
-.circuit-72 {
+.circuit-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -901,17 +376,6 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   align-items: center;
   width: 100%;
   padding: 12px;
-}
-
-.circuit-3 {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
-
-.circuit-3:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
 }
 
 .circuit-1 {
@@ -977,36 +441,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   z-index: 1;
 }
 
-.circuit-48 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
-}
-
-.circuit-48:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-48:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-48:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-48:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-}
-
-.circuit-46 {
+.circuit-16 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -1036,32 +471,32 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   pointer-events: none;
 }
 
-.circuit-46:active {
+.circuit-16:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-46:focus {
+.circuit-16:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-46:hover,
-.circuit-46:active {
+.circuit-16:hover,
+.circuit-16:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-46[disabled],
-.circuit-46:disabled {
+.circuit-16[disabled],
+.circuit-16:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1070,67 +505,45 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   user-selectable: none;
 }
 
-.circuit-46:active {
+.circuit-16:active {
   background-color: #1760CE;
   border-color: #003C8B;
 }
 
-.circuit-46:focus {
+.circuit-16:focus {
   border-color: #1760CE;
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   background-color: #1760CE;
 }
 
-.circuit-46:hover,
-.circuit-46:active {
+.circuit-16:hover,
+.circuit-16:active {
   border-color: #003C8B;
 }
 
-.circuit-46:focus {
+.circuit-16:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-46:hover:focus {
+.circuit-16:hover:focus {
   box-shadow: none;
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   border-color: #D8DDE1;
   box-shadow: none;
 }
 
-.circuit-12 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-}
-
-.circuit-12:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-12:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-12:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-10 {
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -1155,32 +568,32 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   border-color: #D8DDE1;
 }
 
-.circuit-10:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-10:hover,
-.circuit-10:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10[disabled],
-.circuit-10:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1189,27 +602,22 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   user-selectable: none;
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-10:hover:focus {
+.circuit-4:hover:focus {
   box-shadow: none;
 }
 
-.circuit-66 {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.circuit-64 {
+.circuit-22 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -1232,32 +640,32 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   border-bottom-left-radius: 0;
 }
 
-.circuit-64:active {
+.circuit-22:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-64:focus {
+.circuit-22:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-64:hover {
+.circuit-22:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-64:hover,
-.circuit-64:active {
+.circuit-22:hover,
+.circuit-22:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-64[disabled],
-.circuit-64:disabled {
+.circuit-22[disabled],
+.circuit-22:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1266,34 +674,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   user-selectable: none;
 }
 
-.circuit-21 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  opacity: 1 !important;
-}
-
-.circuit-21:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-21:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-21:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-21:hover {
-  border-color: #D8DDE1;
-}
-
-.circuit-19 {
+.circuit-7 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -1319,32 +700,32 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   opacity: 1 !important;
 }
 
-.circuit-19:active {
+.circuit-7:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-19:focus {
+.circuit-7:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-19:hover,
-.circuit-19:active {
+.circuit-7:hover,
+.circuit-7:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19[disabled],
-.circuit-19:disabled {
+.circuit-7[disabled],
+.circuit-7:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1353,591 +734,86 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   user-selectable: none;
 }
 
-.circuit-19:focus {
+.circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-19:hover:focus {
+.circuit-7:hover:focus {
   box-shadow: none;
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   border-color: #D8DDE1;
 }
 
-<Pagination
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={9}
-  pagesToShow={5}
-  perPage={50}
-  previousLabel="<"
-  total={500}
-  translate={[Function]}
+<div
+  class="circuit-24 circuit-25"
 >
-  <PaginationContainer
-    footer={null}
-    nextLabel=">"
-    onChange={[Function]}
-    page={9}
-    previousLabel="<"
-    totalPages={10}
-    translate={[Function]}
+  <button
+    class="circuit-0 circuit-1 circuit-2"
+    data-testid="pagination-button-previous"
   >
-    <Container
-      translate={[Function]}
-    >
-      <div
-        className="circuit-72 circuit-73"
-      >
-        <NavigationButtonPrevious
-          disabled={false}
-          flat={false}
-          href={null}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-3 circuit-0"
-            disabled={false}
-            flat={false}
-            href={null}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-3 circuit-0"
-              disabled={false}
-              flat={false}
-              href={null}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-3 circuit-0"
-                disabled={false}
-                flat={false}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-0 circuit-1 circuit-2"
-                  disabled={false}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &lt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonPrevious>
-        <PaginationButtonContainer
-          currentPage={1}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={1}
-            key="1"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={1}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={1}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={1}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={1}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={1}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      1
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <Styled(Button)
-          disabled={true}
-          size="kilo"
-        >
-          <Button
-            className="circuit-21 circuit-9"
-            disabled={true}
-            flat={false}
-            href={null}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-21 circuit-9"
-              disabled={true}
-              flat={false}
-              href={null}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-21 circuit-9"
-                disabled={true}
-                flat={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-9 circuit-19 circuit-2"
-                  disabled={true}
-                  size="kilo"
-                  target={null}
-                >
-                  …
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </Styled(Button)>
-        <PaginationButtonContainer
-          currentPage={7}
-          key="7"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={7}
-            key="7"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={7}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={7}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={7}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={7}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={7}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      7
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={8}
-          key="8"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={8}
-            key="8"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={8}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={8}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={8}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={8}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={8}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      8
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={9}
-          key="9"
-        >
-          <PaginationButton
-            active={true}
-            currentPage={9}
-            key="9"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={9}
-              onClick={[Function]}
-              primary={true}
-              size="kilo"
-            >
-              <Button
-                className="circuit-48 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={9}
-                onClick={[Function]}
-                plain={false}
-                primary={true}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-48 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={9}
-                  onClick={[Function]}
-                  primary={true}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-48 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={9}
-                    onClick={[Function]}
-                    primary={true}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-46 circuit-2"
-                      disabled={false}
-                      name={9}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      9
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={10}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={10}
-            key="10"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={10}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={10}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={10}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={10}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={10}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      10
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <NavigationButtonNext
-          disabled={false}
-          flat={false}
-          href={null}
-          isFirst={false}
-          isLast={true}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-66 circuit-63"
-            disabled={false}
-            flat={false}
-            href={null}
-            isFirst={false}
-            isLast={true}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-66 circuit-63"
-              disabled={false}
-              flat={false}
-              href={null}
-              isFirst={false}
-              isLast={true}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-66 circuit-63"
-                disabled={false}
-                flat={false}
-                isFirst={false}
-                isLast={true}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-63 circuit-64 circuit-2"
-                  disabled={false}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &gt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonNext>
-      </div>
-    </Container>
-  </PaginationContainer>
-</Pagination>
+    &lt;
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="1"
+  >
+    1
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    disabled=""
+  >
+    …
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="7"
+  >
+    7
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="8"
+  >
+    8
+  </button>
+  <button
+    class="circuit-3 circuit-16 circuit-2"
+    data-testid="pagination-button-page"
+    name="9"
+  >
+    9
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="10"
+  >
+    10
+  </button>
+  <button
+    class="circuit-21 circuit-22 circuit-2"
+    data-testid="pagination-button-next"
+  >
+    &gt;
+  </button>
+</div>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on last page should render with default styles and match snapshot 1`] = `
-.circuit-72 {
+.circuit-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1948,17 +824,6 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   align-items: center;
   width: 100%;
   padding: 12px;
-}
-
-.circuit-3 {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
-
-.circuit-3:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
 }
 
 .circuit-1 {
@@ -2024,36 +889,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   z-index: 1;
 }
 
-.circuit-57 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
-}
-
-.circuit-57:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-57:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-57:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-57:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-}
-
-.circuit-55 {
+.circuit-19 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -2081,289 +917,6 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   border-color: #D8DDE1;
   font-weight: bold;
   pointer-events: none;
-}
-
-.circuit-55:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-55:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
-}
-
-.circuit-55:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-55:hover,
-.circuit-55:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-55[disabled],
-.circuit-55:disabled {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-55:active {
-  background-color: #1760CE;
-  border-color: #003C8B;
-}
-
-.circuit-55:focus {
-  border-color: #1760CE;
-}
-
-.circuit-55:hover {
-  background-color: #1760CE;
-}
-
-.circuit-55:hover,
-.circuit-55:active {
-  border-color: #003C8B;
-}
-
-.circuit-55:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-55:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-55:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-55:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-}
-
-.circuit-12 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-}
-
-.circuit-12:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-12:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-12:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-10 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-}
-
-.circuit-10:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-10:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
-}
-
-.circuit-10:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-10:hover,
-.circuit-10:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-10[disabled],
-.circuit-10:disabled {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-10:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-10:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-10:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-66 {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.circuit-64 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.circuit-64:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-64:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
-}
-
-.circuit-64:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-64:hover,
-.circuit-64:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-64[disabled],
-.circuit-64:disabled {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-21 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  opacity: 1 !important;
-}
-
-.circuit-21:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-21:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-21:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-21:hover {
-  border-color: #D8DDE1;
-}
-
-.circuit-19 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  opacity: 1 !important;
 }
 
 .circuit-19:active {
@@ -2400,6 +953,24 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   user-selectable: none;
 }
 
+.circuit-19:active {
+  background-color: #1760CE;
+  border-color: #003C8B;
+}
+
+.circuit-19:focus {
+  border-color: #1760CE;
+}
+
+.circuit-19:hover {
+  background-color: #1760CE;
+}
+
+.circuit-19:hover,
+.circuit-19:active {
+  border-color: #003C8B;
+}
+
 .circuit-19:focus {
   border-color: #D8DDE1;
   border-width: 1px;
@@ -2417,574 +988,281 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 
 .circuit-19:hover {
   border-color: #D8DDE1;
+  box-shadow: none;
 }
 
-<Pagination
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={10}
-  pagesToShow={5}
-  perPage={50}
-  previousLabel="<"
-  total={500}
-  translate={[Function]}
+.circuit-4 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  font-weight: 400;
+  border-color: #D8DDE1;
+}
+
+.circuit-4:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-4:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-4:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-4:hover,
+.circuit-4:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-4[disabled],
+.circuit-4:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-4:focus {
+  border-color: #D8DDE1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-4:hover {
+  box-shadow: 1px 0 0 #9DA7B1;
+  z-index: 1;
+}
+
+.circuit-4:hover:focus {
+  box-shadow: none;
+}
+
+.circuit-22 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.circuit-22:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-22:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-22:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-22:hover,
+.circuit-22:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-22[disabled],
+.circuit-22:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-7 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+  border-radius: 0;
+  border-right: 0;
+  font-weight: 400;
+  border-color: #D8DDE1;
+  opacity: 1 !important;
+}
+
+.circuit-7:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-7:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-7:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-7:hover,
+.circuit-7:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-7[disabled],
+.circuit-7:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-7:focus {
+  border-color: #D8DDE1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-7:hover {
+  box-shadow: 1px 0 0 #9DA7B1;
+  z-index: 1;
+}
+
+.circuit-7:hover:focus {
+  box-shadow: none;
+}
+
+.circuit-7:hover {
+  border-color: #D8DDE1;
+}
+
+<div
+  class="circuit-24 circuit-25"
 >
-  <PaginationContainer
-    footer={null}
-    nextLabel=">"
-    onChange={[Function]}
-    page={10}
-    previousLabel="<"
-    totalPages={10}
-    translate={[Function]}
+  <button
+    class="circuit-0 circuit-1 circuit-2"
+    data-testid="pagination-button-previous"
   >
-    <Container
-      translate={[Function]}
-    >
-      <div
-        className="circuit-72 circuit-73"
-      >
-        <NavigationButtonPrevious
-          disabled={false}
-          flat={false}
-          href={null}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-3 circuit-0"
-            disabled={false}
-            flat={false}
-            href={null}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-3 circuit-0"
-              disabled={false}
-              flat={false}
-              href={null}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-3 circuit-0"
-                disabled={false}
-                flat={false}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-0 circuit-1 circuit-2"
-                  disabled={false}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &lt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonPrevious>
-        <PaginationButtonContainer
-          currentPage={1}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={1}
-            key="1"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={1}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={1}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={1}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={1}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={1}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      1
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <Styled(Button)
-          disabled={true}
-          size="kilo"
-        >
-          <Button
-            className="circuit-21 circuit-9"
-            disabled={true}
-            flat={false}
-            href={null}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-21 circuit-9"
-              disabled={true}
-              flat={false}
-              href={null}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-21 circuit-9"
-                disabled={true}
-                flat={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-9 circuit-19 circuit-2"
-                  disabled={true}
-                  size="kilo"
-                  target={null}
-                >
-                  …
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </Styled(Button)>
-        <PaginationButtonContainer
-          currentPage={7}
-          key="7"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={7}
-            key="7"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={7}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={7}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={7}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={7}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={7}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      7
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={8}
-          key="8"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={8}
-            key="8"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={8}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={8}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={8}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={8}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={8}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      8
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={9}
-          key="9"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={9}
-            key="9"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={9}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={9}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={9}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={9}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={9}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      9
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={10}
-        >
-          <PaginationButton
-            active={true}
-            currentPage={10}
-            key="10"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={10}
-              onClick={[Function]}
-              primary={true}
-              size="kilo"
-            >
-              <Button
-                className="circuit-57 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={10}
-                onClick={[Function]}
-                plain={false}
-                primary={true}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-57 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={10}
-                  onClick={[Function]}
-                  primary={true}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-57 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={10}
-                    onClick={[Function]}
-                    primary={true}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-55 circuit-2"
-                      disabled={false}
-                      name={10}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      10
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <NavigationButtonNext
-          disabled={true}
-          flat={false}
-          href={null}
-          isFirst={false}
-          isLast={true}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-66 circuit-63"
-            disabled={true}
-            flat={false}
-            href={null}
-            isFirst={false}
-            isLast={true}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-66 circuit-63"
-              disabled={true}
-              flat={false}
-              href={null}
-              isFirst={false}
-              isLast={true}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-66 circuit-63"
-                disabled={true}
-                flat={false}
-                isFirst={false}
-                isLast={true}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-63 circuit-64 circuit-2"
-                  disabled={true}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &gt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonNext>
-      </div>
-    </Container>
-  </PaginationContainer>
-</Pagination>
+    &lt;
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="1"
+  >
+    1
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    disabled=""
+  >
+    …
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="7"
+  >
+    7
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="8"
+  >
+    8
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="9"
+  >
+    9
+  </button>
+  <button
+    class="circuit-3 circuit-19 circuit-2"
+    data-testid="pagination-button-page"
+    name="10"
+  >
+    10
+  </button>
+  <button
+    class="circuit-21 circuit-22 circuit-2"
+    data-testid="pagination-button-next"
+    disabled=""
+  >
+    &gt;
+  </button>
+</div>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on page 2 should render with default styles and match snapshot 1`] = `
-.circuit-72 {
+.circuit-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2995,17 +1273,6 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   align-items: center;
   width: 100%;
   padding: 12px;
-}
-
-.circuit-3 {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
-
-.circuit-3:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
 }
 
 .circuit-1 {
@@ -3071,36 +1338,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   z-index: 1;
 }
 
-.circuit-21 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
-}
-
-.circuit-21:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-21:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-21:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-21:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-}
-
-.circuit-19 {
+.circuit-7 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -3130,32 +1368,32 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   pointer-events: none;
 }
 
-.circuit-19:active {
+.circuit-7:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-19:focus {
+.circuit-7:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-19:hover,
-.circuit-19:active {
+.circuit-7:hover,
+.circuit-7:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19[disabled],
-.circuit-19:disabled {
+.circuit-7[disabled],
+.circuit-7:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -3164,67 +1402,45 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   user-selectable: none;
 }
 
-.circuit-19:active {
+.circuit-7:active {
   background-color: #1760CE;
   border-color: #003C8B;
 }
 
-.circuit-19:focus {
+.circuit-7:focus {
   border-color: #1760CE;
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   background-color: #1760CE;
 }
 
-.circuit-19:hover,
-.circuit-19:active {
+.circuit-7:hover,
+.circuit-7:active {
   border-color: #003C8B;
 }
 
-.circuit-19:focus {
+.circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-19:hover:focus {
+.circuit-7:hover:focus {
   box-shadow: none;
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   border-color: #D8DDE1;
   box-shadow: none;
 }
 
-.circuit-12 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-}
-
-.circuit-12:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-12:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-12:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-10 {
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -3249,32 +1465,32 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   border-color: #D8DDE1;
 }
 
-.circuit-10:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-10:hover,
-.circuit-10:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10[disabled],
-.circuit-10:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -3283,27 +1499,22 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   user-selectable: none;
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-10:hover:focus {
+.circuit-4:hover:focus {
   box-shadow: none;
 }
 
-.circuit-66 {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.circuit-64 {
+.circuit-22 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -3326,32 +1537,32 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   border-bottom-left-radius: 0;
 }
 
-.circuit-64:active {
+.circuit-22:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-64:focus {
+.circuit-22:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-64:hover {
+.circuit-22:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-64:hover,
-.circuit-64:active {
+.circuit-22:hover,
+.circuit-22:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-64[disabled],
-.circuit-64:disabled {
+.circuit-22[disabled],
+.circuit-22:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -3360,34 +1571,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   user-selectable: none;
 }
 
-.circuit-48 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  opacity: 1 !important;
-}
-
-.circuit-48:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-48:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-48:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-48:hover {
-  border-color: #D8DDE1;
-}
-
-.circuit-46 {
+.circuit-16 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -3413,32 +1597,32 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   opacity: 1 !important;
 }
 
-.circuit-46:active {
+.circuit-16:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-46:focus {
+.circuit-16:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-46:hover,
-.circuit-46:active {
+.circuit-16:hover,
+.circuit-16:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-46[disabled],
-.circuit-46:disabled {
+.circuit-16[disabled],
+.circuit-16:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -3447,591 +1631,86 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   user-selectable: none;
 }
 
-.circuit-46:focus {
+.circuit-16:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-46:hover:focus {
+.circuit-16:hover:focus {
   box-shadow: none;
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   border-color: #D8DDE1;
 }
 
-<Pagination
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={2}
-  pagesToShow={5}
-  perPage={50}
-  previousLabel="<"
-  total={500}
-  translate={[Function]}
+<div
+  class="circuit-24 circuit-25"
 >
-  <PaginationContainer
-    footer={null}
-    nextLabel=">"
-    onChange={[Function]}
-    page={2}
-    previousLabel="<"
-    totalPages={10}
-    translate={[Function]}
+  <button
+    class="circuit-0 circuit-1 circuit-2"
+    data-testid="pagination-button-previous"
   >
-    <Container
-      translate={[Function]}
-    >
-      <div
-        className="circuit-72 circuit-73"
-      >
-        <NavigationButtonPrevious
-          disabled={false}
-          flat={false}
-          href={null}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-3 circuit-0"
-            disabled={false}
-            flat={false}
-            href={null}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-3 circuit-0"
-              disabled={false}
-              flat={false}
-              href={null}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-3 circuit-0"
-                disabled={false}
-                flat={false}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-0 circuit-1 circuit-2"
-                  disabled={false}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &lt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonPrevious>
-        <PaginationButtonContainer
-          currentPage={1}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={1}
-            key="1"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={1}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={1}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={1}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={1}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={1}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      1
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={2}
-          key="2"
-        >
-          <PaginationButton
-            active={true}
-            currentPage={2}
-            key="2"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={2}
-              onClick={[Function]}
-              primary={true}
-              size="kilo"
-            >
-              <Button
-                className="circuit-21 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={2}
-                onClick={[Function]}
-                plain={false}
-                primary={true}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-21 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={2}
-                  onClick={[Function]}
-                  primary={true}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-21 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={2}
-                    onClick={[Function]}
-                    primary={true}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-19 circuit-2"
-                      disabled={false}
-                      name={2}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      2
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={3}
-          key="3"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={3}
-            key="3"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={3}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={3}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={3}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={3}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={3}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      3
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={4}
-          key="4"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={4}
-            key="4"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={4}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={4}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={4}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={4}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={4}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      4
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <Styled(Button)
-          disabled={true}
-          size="kilo"
-        >
-          <Button
-            className="circuit-48 circuit-9"
-            disabled={true}
-            flat={false}
-            href={null}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-48 circuit-9"
-              disabled={true}
-              flat={false}
-              href={null}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-48 circuit-9"
-                disabled={true}
-                flat={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-9 circuit-46 circuit-2"
-                  disabled={true}
-                  size="kilo"
-                  target={null}
-                >
-                  …
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </Styled(Button)>
-        <PaginationButtonContainer
-          currentPage={10}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={10}
-            key="10"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={10}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={10}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={10}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={10}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={10}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      10
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <NavigationButtonNext
-          disabled={false}
-          flat={false}
-          href={null}
-          isFirst={false}
-          isLast={true}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-66 circuit-63"
-            disabled={false}
-            flat={false}
-            href={null}
-            isFirst={false}
-            isLast={true}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-66 circuit-63"
-              disabled={false}
-              flat={false}
-              href={null}
-              isFirst={false}
-              isLast={true}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-66 circuit-63"
-                disabled={false}
-                flat={false}
-                isFirst={false}
-                isLast={true}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-63 circuit-64 circuit-2"
-                  disabled={false}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &gt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonNext>
-      </div>
-    </Container>
-  </PaginationContainer>
-</Pagination>
+    &lt;
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="1"
+  >
+    1
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    data-testid="pagination-button-page"
+    name="2"
+  >
+    2
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="3"
+  >
+    3
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="4"
+  >
+    4
+  </button>
+  <button
+    class="circuit-3 circuit-16 circuit-2"
+    disabled=""
+  >
+    …
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="10"
+  >
+    10
+  </button>
+  <button
+    class="circuit-21 circuit-22 circuit-2"
+    data-testid="pagination-button-next"
+  >
+    &gt;
+  </button>
+</div>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on page in the middle should render with default styles and match snapshot 1`] = `
-.circuit-81 {
+.circuit-27 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4042,17 +1721,6 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   align-items: center;
   width: 100%;
   padding: 12px;
-}
-
-.circuit-3 {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
-
-.circuit-3:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
 }
 
 .circuit-1 {
@@ -4118,36 +1786,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   z-index: 1;
 }
 
-.circuit-39 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
-}
-
-.circuit-39:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-39:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-39:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-39:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-}
-
-.circuit-37 {
+.circuit-13 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -4177,32 +1816,32 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   pointer-events: none;
 }
 
-.circuit-37:active {
+.circuit-13:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-37:focus {
+.circuit-13:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-37:hover {
+.circuit-13:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-37:hover,
-.circuit-37:active {
+.circuit-13:hover,
+.circuit-13:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-37[disabled],
-.circuit-37:disabled {
+.circuit-13[disabled],
+.circuit-13:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -4211,67 +1850,45 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   user-selectable: none;
 }
 
-.circuit-37:active {
+.circuit-13:active {
   background-color: #1760CE;
   border-color: #003C8B;
 }
 
-.circuit-37:focus {
+.circuit-13:focus {
   border-color: #1760CE;
 }
 
-.circuit-37:hover {
+.circuit-13:hover {
   background-color: #1760CE;
 }
 
-.circuit-37:hover,
-.circuit-37:active {
+.circuit-13:hover,
+.circuit-13:active {
   border-color: #003C8B;
 }
 
-.circuit-37:focus {
+.circuit-13:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-37:hover {
+.circuit-13:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-37:hover:focus {
+.circuit-13:hover:focus {
   box-shadow: none;
 }
 
-.circuit-37:hover {
+.circuit-13:hover {
   border-color: #D8DDE1;
   box-shadow: none;
 }
 
-.circuit-12 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-}
-
-.circuit-12:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-12:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-12:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-10 {
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -4296,32 +1913,32 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   border-color: #D8DDE1;
 }
 
-.circuit-10:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-10:hover,
-.circuit-10:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10[disabled],
-.circuit-10:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -4330,27 +1947,22 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   user-selectable: none;
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-10:hover:focus {
+.circuit-4:hover:focus {
   box-shadow: none;
 }
 
-.circuit-75 {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.circuit-73 {
+.circuit-25 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -4373,32 +1985,32 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   border-bottom-left-radius: 0;
 }
 
-.circuit-73:active {
+.circuit-25:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-73:focus {
+.circuit-25:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-73:hover {
+.circuit-25:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-73:hover,
-.circuit-73:active {
+.circuit-25:hover,
+.circuit-25:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-73[disabled],
-.circuit-73:disabled {
+.circuit-25[disabled],
+.circuit-25:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -4407,34 +2019,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   user-selectable: none;
 }
 
-.circuit-21 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  opacity: 1 !important;
-}
-
-.circuit-21:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-21:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-21:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-21:hover {
-  border-color: #D8DDE1;
-}
-
-.circuit-19 {
+.circuit-7 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -4460,32 +2045,32 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   opacity: 1 !important;
 }
 
-.circuit-19:active {
+.circuit-7:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-19:focus {
+.circuit-7:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-19:hover,
-.circuit-19:active {
+.circuit-7:hover,
+.circuit-7:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19[disabled],
-.circuit-19:disabled {
+.circuit-7[disabled],
+.circuit-7:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -4494,640 +2079,92 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   user-selectable: none;
 }
 
-.circuit-19:focus {
+.circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-19:hover:focus {
+.circuit-7:hover:focus {
   box-shadow: none;
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   border-color: #D8DDE1;
 }
 
-<Pagination
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={5}
-  pagesToShow={5}
-  perPage={50}
-  previousLabel="<"
-  total={500}
-  translate={[Function]}
+<div
+  class="circuit-27 circuit-28"
 >
-  <PaginationContainer
-    footer={null}
-    nextLabel=">"
-    onChange={[Function]}
-    page={5}
-    previousLabel="<"
-    totalPages={10}
-    translate={[Function]}
+  <button
+    class="circuit-0 circuit-1 circuit-2"
+    data-testid="pagination-button-previous"
   >
-    <Container
-      translate={[Function]}
-    >
-      <div
-        className="circuit-81 circuit-82"
-      >
-        <NavigationButtonPrevious
-          disabled={false}
-          flat={false}
-          href={null}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-3 circuit-0"
-            disabled={false}
-            flat={false}
-            href={null}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-3 circuit-0"
-              disabled={false}
-              flat={false}
-              href={null}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-3 circuit-0"
-                disabled={false}
-                flat={false}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-0 circuit-1 circuit-2"
-                  disabled={false}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &lt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonPrevious>
-        <PaginationButtonContainer
-          currentPage={1}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={1}
-            key="1"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={1}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={1}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={1}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={1}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={1}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      1
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <Styled(Button)
-          disabled={true}
-          size="kilo"
-        >
-          <Button
-            className="circuit-21 circuit-9"
-            disabled={true}
-            flat={false}
-            href={null}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-21 circuit-9"
-              disabled={true}
-              flat={false}
-              href={null}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-21 circuit-9"
-                disabled={true}
-                flat={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-9 circuit-19 circuit-2"
-                  disabled={true}
-                  size="kilo"
-                  target={null}
-                >
-                  …
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </Styled(Button)>
-        <PaginationButtonContainer
-          currentPage={4}
-          key="4"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={4}
-            key="4"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={4}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={4}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={4}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={4}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={4}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      4
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={5}
-          key="5"
-        >
-          <PaginationButton
-            active={true}
-            currentPage={5}
-            key="5"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={5}
-              onClick={[Function]}
-              primary={true}
-              size="kilo"
-            >
-              <Button
-                className="circuit-39 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={5}
-                onClick={[Function]}
-                plain={false}
-                primary={true}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-39 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={5}
-                  onClick={[Function]}
-                  primary={true}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-39 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={5}
-                    onClick={[Function]}
-                    primary={true}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-37 circuit-2"
-                      disabled={false}
-                      name={5}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      5
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={6}
-          key="6"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={6}
-            key="6"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={6}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={6}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={6}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={6}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={6}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      6
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <Styled(Button)
-          disabled={true}
-          size="kilo"
-        >
-          <Button
-            className="circuit-21 circuit-9"
-            disabled={true}
-            flat={false}
-            href={null}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-21 circuit-9"
-              disabled={true}
-              flat={false}
-              href={null}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-21 circuit-9"
-                disabled={true}
-                flat={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-9 circuit-19 circuit-2"
-                  disabled={true}
-                  size="kilo"
-                  target={null}
-                >
-                  …
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </Styled(Button)>
-        <PaginationButtonContainer
-          currentPage={10}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={10}
-            key="10"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={10}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={10}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={10}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={10}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={10}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      10
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <NavigationButtonNext
-          disabled={false}
-          flat={false}
-          href={null}
-          isFirst={false}
-          isLast={true}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-75 circuit-72"
-            disabled={false}
-            flat={false}
-            href={null}
-            isFirst={false}
-            isLast={true}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-75 circuit-72"
-              disabled={false}
-              flat={false}
-              href={null}
-              isFirst={false}
-              isLast={true}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-75 circuit-72"
-                disabled={false}
-                flat={false}
-                isFirst={false}
-                isLast={true}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-72 circuit-73 circuit-2"
-                  disabled={false}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &gt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonNext>
-      </div>
-    </Container>
-  </PaginationContainer>
-</Pagination>
+    &lt;
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="1"
+  >
+    1
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    disabled=""
+  >
+    …
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="4"
+  >
+    4
+  </button>
+  <button
+    class="circuit-3 circuit-13 circuit-2"
+    data-testid="pagination-button-page"
+    name="5"
+  >
+    5
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="6"
+  >
+    6
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    disabled=""
+  >
+    …
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="10"
+  >
+    10
+  </button>
+  <button
+    class="circuit-24 circuit-25 circuit-2"
+    data-testid="pagination-button-next"
+  >
+    &gt;
+  </button>
+</div>
 `;
 
 exports[`Pagination styles With more than 5 pages when user is on page one should render with default styles and match snapshot 1`] = `
-.circuit-72 {
+.circuit-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5138,17 +2175,6 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   align-items: center;
   width: 100%;
   padding: 12px;
-}
-
-.circuit-3 {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
-}
-
-.circuit-3:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
 }
 
 .circuit-1 {
@@ -5214,36 +2240,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   z-index: 1;
 }
 
-.circuit-12 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
-}
-
-.circuit-12:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-12:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-12:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-12:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-}
-
-.circuit-10 {
+.circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -5273,32 +2270,32 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   pointer-events: none;
 }
 
-.circuit-10:active {
+.circuit-4:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-10:hover,
-.circuit-10:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10[disabled],
-.circuit-10:disabled {
+.circuit-4[disabled],
+.circuit-4:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -5307,67 +2304,45 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   user-selectable: none;
 }
 
-.circuit-10:active {
+.circuit-4:active {
   background-color: #1760CE;
   border-color: #003C8B;
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #1760CE;
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   background-color: #1760CE;
 }
 
-.circuit-10:hover,
-.circuit-10:active {
+.circuit-4:hover,
+.circuit-4:active {
   border-color: #003C8B;
 }
 
-.circuit-10:focus {
+.circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-10:hover:focus {
+.circuit-4:hover:focus {
   box-shadow: none;
 }
 
-.circuit-10:hover {
+.circuit-4:hover {
   border-color: #D8DDE1;
   box-shadow: none;
 }
 
-.circuit-21 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-}
-
-.circuit-21:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-21:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-21:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-19 {
+.circuit-7 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -5392,32 +2367,32 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   border-color: #D8DDE1;
 }
 
-.circuit-19:active {
+.circuit-7:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-19:focus {
+.circuit-7:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-19:hover,
-.circuit-19:active {
+.circuit-7:hover,
+.circuit-7:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19[disabled],
-.circuit-19:disabled {
+.circuit-7[disabled],
+.circuit-7:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -5426,27 +2401,22 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   user-selectable: none;
 }
 
-.circuit-19:focus {
+.circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19:hover {
+.circuit-7:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-19:hover:focus {
+.circuit-7:hover:focus {
   box-shadow: none;
 }
 
-.circuit-66 {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.circuit-64 {
+.circuit-22 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -5469,32 +2439,32 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   border-bottom-left-radius: 0;
 }
 
-.circuit-64:active {
+.circuit-22:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-64:focus {
+.circuit-22:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-64:hover {
+.circuit-22:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-64:hover,
-.circuit-64:active {
+.circuit-22:hover,
+.circuit-22:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-64[disabled],
-.circuit-64:disabled {
+.circuit-22[disabled],
+.circuit-22:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -5503,34 +2473,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   user-selectable: none;
 }
 
-.circuit-48 {
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  opacity: 1 !important;
-}
-
-.circuit-48:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-48:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-48:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-48:hover {
-  border-color: #D8DDE1;
-}
-
-.circuit-46 {
+.circuit-16 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -5556,32 +2499,32 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   opacity: 1 !important;
 }
 
-.circuit-46:active {
+.circuit-16:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-46:focus {
+.circuit-16:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(4px - 1px) calc(16px - 1px);
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-46:hover,
-.circuit-46:active {
+.circuit-16:hover,
+.circuit-16:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-46[disabled],
-.circuit-46:disabled {
+.circuit-16[disabled],
+.circuit-16:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -5590,585 +2533,81 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   user-selectable: none;
 }
 
-.circuit-46:focus {
+.circuit-16:focus {
   border-color: #D8DDE1;
   border-width: 1px;
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   box-shadow: 1px 0 0 #9DA7B1;
   z-index: 1;
 }
 
-.circuit-46:hover:focus {
+.circuit-16:hover:focus {
   box-shadow: none;
 }
 
-.circuit-46:hover {
+.circuit-16:hover {
   border-color: #D8DDE1;
 }
 
-<Pagination
-  footer={null}
-  nextLabel=">"
-  onChange={[Function]}
-  page={1}
-  pagesToShow={5}
-  perPage={50}
-  previousLabel="<"
-  total={500}
-  translate={[Function]}
+<div
+  class="circuit-24 circuit-25"
 >
-  <PaginationContainer
-    footer={null}
-    nextLabel=">"
-    onChange={[Function]}
-    page={1}
-    previousLabel="<"
-    totalPages={10}
-    translate={[Function]}
+  <button
+    class="circuit-0 circuit-1 circuit-2"
+    data-testid="pagination-button-previous"
+    disabled=""
   >
-    <Container
-      translate={[Function]}
-    >
-      <div
-        className="circuit-72 circuit-73"
-      >
-        <NavigationButtonPrevious
-          disabled={true}
-          flat={false}
-          href={null}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-3 circuit-0"
-            disabled={true}
-            flat={false}
-            href={null}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-3 circuit-0"
-              disabled={true}
-              flat={false}
-              href={null}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-3 circuit-0"
-                disabled={true}
-                flat={false}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-0 circuit-1 circuit-2"
-                  disabled={true}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &lt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonPrevious>
-        <PaginationButtonContainer
-          currentPage={1}
-        >
-          <PaginationButton
-            active={true}
-            currentPage={1}
-            key="1"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={1}
-              onClick={[Function]}
-              primary={true}
-              size="kilo"
-            >
-              <Button
-                className="circuit-12 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={1}
-                onClick={[Function]}
-                plain={false}
-                primary={true}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-12 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={1}
-                  onClick={[Function]}
-                  primary={true}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-12 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={1}
-                    onClick={[Function]}
-                    primary={true}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-10 circuit-2"
-                      disabled={false}
-                      name={1}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      1
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={2}
-          key="2"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={2}
-            key="2"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={2}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-21 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={2}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-21 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={2}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-21 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={2}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-19 circuit-2"
-                      disabled={false}
-                      name={2}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      2
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={3}
-          key="3"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={3}
-            key="3"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={3}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-21 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={3}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-21 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={3}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-21 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={3}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-19 circuit-2"
-                      disabled={false}
-                      name={3}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      3
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <PaginationButtonContainer
-          currentPage={4}
-          key="4"
-        >
-          <PaginationButton
-            active={false}
-            currentPage={4}
-            key="4"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={4}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-21 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={4}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-21 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={4}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-21 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={4}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-19 circuit-2"
-                      disabled={false}
-                      name={4}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      4
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <Styled(Button)
-          disabled={true}
-          size="kilo"
-        >
-          <Button
-            className="circuit-48 circuit-9"
-            disabled={true}
-            flat={false}
-            href={null}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-48 circuit-9"
-              disabled={true}
-              flat={false}
-              href={null}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-48 circuit-9"
-                disabled={true}
-                flat={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-9 circuit-46 circuit-2"
-                  disabled={true}
-                  size="kilo"
-                  target={null}
-                >
-                  …
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </Styled(Button)>
-        <PaginationButtonContainer
-          currentPage={10}
-        >
-          <PaginationButton
-            active={false}
-            currentPage={10}
-            key="10"
-            onClick={[Function]}
-          >
-            <Styled(Button)
-              name={10}
-              onClick={[Function]}
-              primary={false}
-              size="kilo"
-            >
-              <Button
-                className="circuit-21 circuit-9"
-                disabled={false}
-                flat={false}
-                href={null}
-                name={10}
-                onClick={[Function]}
-                plain={false}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <RegularButton
-                  className="circuit-21 circuit-9"
-                  disabled={false}
-                  flat={false}
-                  href={null}
-                  name={10}
-                  onClick={[Function]}
-                  primary={false}
-                  secondary={false}
-                  size="kilo"
-                  stretch={false}
-                  target={null}
-                >
-                  <Styled(button)
-                    className="circuit-21 circuit-9"
-                    disabled={false}
-                    flat={false}
-                    name={10}
-                    onClick={[Function]}
-                    primary={false}
-                    secondary={false}
-                    size="kilo"
-                    stretch={false}
-                    target={null}
-                  >
-                    <button
-                      className="circuit-9 circuit-19 circuit-2"
-                      disabled={false}
-                      name={10}
-                      onClick={[Function]}
-                      size="kilo"
-                      target={null}
-                    >
-                      10
-                    </button>
-                  </Styled(button)>
-                </RegularButton>
-              </Button>
-            </Styled(Button)>
-          </PaginationButton>
-        </PaginationButtonContainer>
-        <NavigationButtonNext
-          disabled={false}
-          flat={false}
-          href={null}
-          isFirst={false}
-          isLast={true}
-          onClick={[Function]}
-          plain={false}
-          primary={false}
-          secondary={false}
-          size="kilo"
-          stretch={false}
-          target={null}
-        >
-          <Button
-            className="circuit-66 circuit-63"
-            disabled={false}
-            flat={false}
-            href={null}
-            isFirst={false}
-            isLast={true}
-            onClick={[Function]}
-            plain={false}
-            primary={false}
-            secondary={false}
-            size="kilo"
-            stretch={false}
-            target={null}
-          >
-            <RegularButton
-              className="circuit-66 circuit-63"
-              disabled={false}
-              flat={false}
-              href={null}
-              isFirst={false}
-              isLast={true}
-              onClick={[Function]}
-              primary={false}
-              secondary={false}
-              size="kilo"
-              stretch={false}
-              target={null}
-            >
-              <Styled(button)
-                className="circuit-66 circuit-63"
-                disabled={false}
-                flat={false}
-                isFirst={false}
-                isLast={true}
-                onClick={[Function]}
-                primary={false}
-                secondary={false}
-                size="kilo"
-                stretch={false}
-                target={null}
-              >
-                <button
-                  className="circuit-63 circuit-64 circuit-2"
-                  disabled={false}
-                  onClick={[Function]}
-                  size="kilo"
-                  target={null}
-                >
-                  &gt;
-                </button>
-              </Styled(button)>
-            </RegularButton>
-          </Button>
-        </NavigationButtonNext>
-      </div>
-    </Container>
-  </PaginationContainer>
-</Pagination>
+    &lt;
+  </button>
+  <button
+    class="circuit-3 circuit-4 circuit-2"
+    data-testid="pagination-button-page"
+    name="1"
+  >
+    1
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    data-testid="pagination-button-page"
+    name="2"
+  >
+    2
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    data-testid="pagination-button-page"
+    name="3"
+  >
+    3
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    data-testid="pagination-button-page"
+    name="4"
+  >
+    4
+  </button>
+  <button
+    class="circuit-3 circuit-16 circuit-2"
+    disabled=""
+  >
+    …
+  </button>
+  <button
+    class="circuit-3 circuit-7 circuit-2"
+    data-testid="pagination-button-page"
+    name="10"
+  >
+    10
+  </button>
+  <button
+    class="circuit-21 circuit-22 circuit-2"
+    data-testid="pagination-button-next"
+  >
+    &gt;
+  </button>
+</div>
 `;

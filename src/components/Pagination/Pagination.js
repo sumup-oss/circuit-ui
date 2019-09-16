@@ -21,10 +21,6 @@ import PaginationButton from './PaginationButton';
 import PageButton from './PageButton';
 import Separator from './Separator';
 
-/**
- * Pagination is a component to show pages numbers calculate dynamically.
- */
-
 const PAGINATION = {
   INITIAL_PAGE: 1,
   ITEMS_PER_PAGE: 50,
@@ -36,6 +32,29 @@ const PAGINATION = {
   JUSTIFY: 'center'
 };
 
+const PaginationButtonContainer = ({ currentPage, page, onChange }) => {
+  const active = page === currentPage;
+  return (
+    <PaginationButton
+      active={active}
+      currentPage={currentPage}
+      onClick={onChange}
+      key={currentPage}
+      data-testid="pagination-button-page"
+    />
+  );
+};
+
+PaginationButtonContainer.propTypes = {
+  currentPage: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  page: PropTypes.number,
+  onChange: PropTypes.func.isRequired
+};
+
+/**
+ * Pagination is a component to show pages numbers calculate dynamically.
+ */
 const Pagination = ({
   page,
   perPage,
@@ -47,23 +66,6 @@ const Pagination = ({
   footer,
   ...rest
 }) => {
-  const PaginationButtonContainer = ({ currentPage }) => {
-    const active = page === currentPage;
-    return (
-      <PaginationButton
-        active={active}
-        currentPage={currentPage}
-        onClick={onChange}
-        key={currentPage}
-      />
-    );
-  };
-
-  PaginationButtonContainer.propTypes = {
-    currentPage: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-      .isRequired
-  };
-
   const totalPages = PaginationService.calculatePages(total, perPage);
 
   if (totalPages < 2) {
@@ -82,7 +84,12 @@ const Pagination = ({
         {...rest}
       >
         {Array.from({ length: totalPages }).map((item, index) => (
-          <PaginationButtonContainer key={item} currentPage={index + 1} />
+          <PaginationButtonContainer
+            key={item}
+            currentPage={index + 1}
+            page={page}
+            onChange={onChange}
+          />
         ))}
       </PaginationContainer>
     );
@@ -113,21 +120,44 @@ const Pagination = ({
       footer={footer}
       {...rest}
     >
-      <PaginationButtonContainer currentPage={1} />
+      <PaginationButtonContainer
+        currentPage={1}
+        page={page}
+        onChange={onChange}
+      />
       {hasOmittedPreviousPages && (
         <PageButton disabled>{Separator()}</PageButton>
       )}
       {previousValues.map(item => (
-        <PaginationButtonContainer key={item} currentPage={item} />
+        <PaginationButtonContainer
+          key={item}
+          currentPage={item}
+          page={page}
+          onChange={onChange}
+        />
       ))}
       {!isFirstOrLastPage && (
-        <PaginationButtonContainer key={page} currentPage={page} />
+        <PaginationButtonContainer
+          key={page}
+          currentPage={page}
+          page={page}
+          onChange={onChange}
+        />
       )}
       {nextValues.map(item => (
-        <PaginationButtonContainer key={item} currentPage={item} />
+        <PaginationButtonContainer
+          key={item}
+          currentPage={item}
+          page={page}
+          onChange={onChange}
+        />
       ))}
       {hasOmittedNextPages && <PageButton disabled>{Separator()}</PageButton>}
-      <PaginationButtonContainer currentPage={totalPages} />
+      <PaginationButtonContainer
+        currentPage={totalPages}
+        page={page}
+        onChange={onChange}
+      />
     </PaginationContainer>
   );
 };

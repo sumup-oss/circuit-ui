@@ -19,9 +19,9 @@ import PaginationContainer from './PaginationContainer';
 
 describe('PaginationContainer', () => {
   describe('styles', () => {
-    describe('When the actual page is 1', () => {
+    describe('when the current page is 1', () => {
       it('should render with default styles', () => {
-        const component = shallow(
+        const component = create(
           <PaginationContainer
             page={1}
             totalPages={50}
@@ -35,9 +35,9 @@ describe('PaginationContainer', () => {
       });
     });
 
-    describe('When actual page is diferrent that first and last page', () => {
+    describe('when the current page is not the first and last page', () => {
       it('should render with default styles', () => {
-        const component = shallow(
+        const component = create(
           <PaginationContainer
             page={10}
             totalPages={50}
@@ -51,9 +51,9 @@ describe('PaginationContainer', () => {
       });
     });
 
-    describe('When the actual page is equal the last page', () => {
+    describe('when the current page is the last page', () => {
       it('should render with default styles', () => {
-        const component = shallow(
+        const component = create(
           <PaginationContainer
             page={50}
             totalPages={50}
@@ -73,7 +73,7 @@ describe('PaginationContainer', () => {
       it('should call function with parameter page less 1', () => {
         const onChange = jest.fn();
 
-        const component = shallow(
+        const { getByTestId } = render(
           <PaginationContainer
             page={10}
             totalPages={50}
@@ -83,10 +83,12 @@ describe('PaginationContainer', () => {
             Children Element
           </PaginationContainer>
         );
-        component
-          .find('NavigationButtonPrevious')
-          .at(0)
-          .simulate('click');
+
+        act(() => {
+          fireEvent.click(getByTestId('pagination-button-previous'));
+        });
+
+        expect(onChange).toHaveBeenCalledTimes(1);
         expect(onChange).toHaveBeenCalledWith(9);
       });
     });
@@ -95,7 +97,7 @@ describe('PaginationContainer', () => {
       it('should call function with parameter page more 1', () => {
         const onChange = jest.fn();
 
-        const component = shallow(
+        const { getByTestId } = render(
           <PaginationContainer
             page={10}
             totalPages={50}
@@ -105,10 +107,12 @@ describe('PaginationContainer', () => {
             Children Element
           </PaginationContainer>
         );
-        component
-          .find('NavigationButtonNext')
-          .at(0)
-          .simulate('click');
+
+        act(() => {
+          fireEvent.click(getByTestId('pagination-button-next'));
+        });
+
+        expect(onChange).toHaveBeenCalledTimes(1);
         expect(onChange).toHaveBeenCalledWith(11);
       });
     });
