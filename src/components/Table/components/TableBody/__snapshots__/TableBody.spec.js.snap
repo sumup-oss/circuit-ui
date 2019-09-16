@@ -24,14 +24,17 @@ tbody .circuit-4:last-child td {
 <tbody>
   <tr
     class="circuit-4 circuit-5"
+    data-testid="table-row"
   >
     <td
       class="circuit-0 circuit-1"
+      data-testid="table-cell"
     >
       Foo
     </td>
     <td
       class="circuit-0 circuit-1"
+      data-testid="table-cell"
     >
       Bar
     </td>
@@ -39,7 +42,7 @@ tbody .circuit-4:last-child td {
 </tbody>
 `;
 
-exports[`TableBody Style tests should render with fixed Header styles 1`] = `
+exports[`TableBody Style tests should render with fixed header styles 1`] = `
 .circuit-6 {
   vertical-align: middle;
 }
@@ -104,9 +107,11 @@ tbody .circuit-6:last-child td {
 <tbody>
   <tr
     class="circuit-6 circuit-7"
+    data-testid="table-row"
   >
     <th
       class="circuit-0 circuit-1"
+      data-testid="table-header"
       scope="row"
     >
       Foo
@@ -114,12 +119,110 @@ tbody .circuit-6:last-child td {
     <td
       aria-hidden="true"
       class="circuit-2 circuit-3"
+      data-testid="table-cell"
       role="presentation"
     >
       Foo
     </td>
     <td
       class="circuit-4 circuit-3"
+      data-testid="table-cell"
+    >
+      Bar
+    </td>
+  </tr>
+</tbody>
+`;
+
+exports[`TableBody logic tests sortHover should not render a cell with hovered styles if its column is not currently hovered 1`] = `
+.circuit-4 {
+  vertical-align: middle;
+}
+
+tbody .circuit-4:last-child th,
+tbody .circuit-4:last-child td {
+  border-bottom: none;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+<tbody>
+  <tr
+    class="circuit-4 circuit-5"
+    data-testid="table-row"
+  >
+    <td
+      class="circuit-0 circuit-1"
+      data-testid="table-cell"
+    >
+      Foo
+    </td>
+    <td
+      class="circuit-0 circuit-1"
+      data-testid="table-cell"
+    >
+      Bar
+    </td>
+  </tr>
+</tbody>
+`;
+
+exports[`TableBody logic tests sortHover should render a cell with hovered styles if its column is currently hovered 1`] = `
+.circuit-4 {
+  vertical-align: middle;
+}
+
+tbody .circuit-4:last-child th,
+tbody .circuit-4:last-child td {
+  border-bottom: none;
+}
+
+.circuit-2 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: #FAFBFC;
+}
+
+<tbody>
+  <tr
+    class="circuit-4 circuit-5"
+    data-testid="table-row"
+  >
+    <td
+      class="circuit-0 circuit-1"
+      data-testid="table-cell"
+    >
+      Foo
+    </td>
+    <td
+      class="circuit-2 circuit-1"
+      data-testid="table-cell"
     >
       Bar
     </td>

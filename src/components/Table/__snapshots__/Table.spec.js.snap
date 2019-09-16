@@ -1,36 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
-.circuit-49 {
+.circuit-52 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-47 {
+.circuit-50 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-47 {
+  .circuit-50 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-45 {
+.circuit-48 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-48 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-45:after {
+  .circuit-48:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -41,12 +41,12 @@ exports[`Table Style tests should not render a scrollable table if the rowHeader
   }
 }
 
-.circuit-11 {
+.circuit-14 {
   vertical-align: middle;
 }
 
-tbody .circuit-11:last-child th,
-tbody .circuit-11:last-child td {
+tbody .circuit-14:last-child th,
+tbody .circuit-14:last-child td {
   border-bottom: none;
 }
 
@@ -153,7 +153,37 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-7 {
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-10:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-10:hover > button {
+  opacity: 1;
+}
+
+.circuit-12 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -168,7 +198,7 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
 }
 
-.circuit-15 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -179,7 +209,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-15 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -188,7 +218,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-17 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -201,7 +231,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-17 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -209,7 +239,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-19 {
+.circuit-22 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -221,23 +251,24 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  class="circuit-49 circuit-50"
+  class="circuit-52 circuit-53"
 >
   <div
-    class="circuit-47 circuit-48"
+    class="circuit-50 circuit-51"
   >
     <table
-      class="circuit-45 circuit-46"
+      class="circuit-48 circuit-49"
     >
       <thead
-        class="circuit-13 circuit-14"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
         >
           <th
             aria-sort="none"
             class="circuit-3 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
             <button
@@ -251,109 +282,139 @@ tbody .circuit-11:last-child td {
                 arrow.svg
               </div>
             </button>
-            Foo
+            Letters
           </th>
           <td
             aria-hidden="true"
             class="circuit-5 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            Foo
+            Letters
           </td>
           <th
-            class="circuit-7 circuit-4"
+            aria-sort="none"
+            class="circuit-10 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Bar
+            <button
+              class="circuit-0 circuit-1 circuit-2"
+              type="button"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Numbers
           </th>
           <th
-            class="circuit-7 circuit-4"
+            class="circuit-12 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Baz
+            Words
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            b
           </td>
           <td
-            class="circuit-19 circuit-6"
-          >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             3
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
+          >
+            Foo
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
+          >
+            a
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
-          >
-            3
+            Bar
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            c
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            3
+            Baz
           </td>
         </tr>
       </tbody>
@@ -363,29 +424,29 @@ tbody .circuit-11:last-child td {
 `;
 
 exports[`Table Style tests should render a collapsed table 1`] = `
-.circuit-49 {
+.circuit-52 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-47 {
+.circuit-50 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-47 {
+  .circuit-50 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-11 {
+.circuit-14 {
   vertical-align: middle;
 }
 
-tbody .circuit-11:last-child th,
-tbody .circuit-11:last-child td {
+tbody .circuit-14:last-child th,
+tbody .circuit-14:last-child td {
   border-bottom: none;
 }
 
@@ -492,7 +553,37 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-7 {
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-10:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-10:hover > button {
+  opacity: 1;
+}
+
+.circuit-12 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -507,7 +598,7 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
 }
 
-.circuit-15 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -518,7 +609,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-15 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -527,7 +618,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-17 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -540,7 +631,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-17 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -548,7 +639,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-19 {
+.circuit-22 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -559,7 +650,7 @@ tbody .circuit-11:last-child td {
   white-space: nowrap;
 }
 
-.circuit-45 {
+.circuit-48 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
@@ -567,12 +658,12 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-48 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-45:after {
+  .circuit-48:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -584,23 +675,24 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  class="circuit-49 circuit-50"
+  class="circuit-52 circuit-53"
 >
   <div
-    class="circuit-47 circuit-48"
+    class="circuit-50 circuit-51"
   >
     <table
-      class="circuit-45 circuit-46"
+      class="circuit-48 circuit-49"
     >
       <thead
-        class="circuit-13 circuit-14"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
         >
           <th
             aria-sort="none"
             class="circuit-3 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
             <button
@@ -614,109 +706,139 @@ tbody .circuit-11:last-child td {
                 arrow.svg
               </div>
             </button>
-            Foo
+            Letters
           </th>
           <td
             aria-hidden="true"
             class="circuit-5 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            Foo
+            Letters
           </td>
           <th
-            class="circuit-7 circuit-4"
+            aria-sort="none"
+            class="circuit-10 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Bar
+            <button
+              class="circuit-0 circuit-1 circuit-2"
+              type="button"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Numbers
           </th>
           <th
-            class="circuit-7 circuit-4"
+            class="circuit-12 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Baz
+            Words
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            b
           </td>
           <td
-            class="circuit-19 circuit-6"
-          >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             3
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
+          >
+            Foo
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
+          >
+            a
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
-          >
-            3
+            Bar
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            c
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            3
+            Baz
           </td>
         </tr>
       </tbody>
@@ -726,36 +848,36 @@ tbody .circuit-11:last-child td {
 `;
 
 exports[`Table Style tests should render a condensed table 1`] = `
-.circuit-49 {
+.circuit-52 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-47 {
+.circuit-50 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-47 {
+  .circuit-50 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-45 {
+.circuit-48 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-48 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-45:after {
+  .circuit-48:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -766,12 +888,12 @@ exports[`Table Style tests should render a condensed table 1`] = `
   }
 }
 
-.circuit-11 {
+.circuit-14 {
   vertical-align: middle;
 }
 
-tbody .circuit-11:last-child th,
-tbody .circuit-11:last-child td {
+tbody .circuit-14:last-child th,
+tbody .circuit-14:last-child td {
   border-bottom: none;
 }
 
@@ -891,7 +1013,42 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-7 {
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 12px 16px;
+  padding: 8px 16px;
+}
+
+.circuit-10:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-10:hover > button {
+  opacity: 1;
+}
+
+.circuit-12 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -911,7 +1068,7 @@ tbody .circuit-11:last-child td {
   padding: 8px 16px;
 }
 
-.circuit-15 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -926,7 +1083,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-15 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -935,7 +1092,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-17 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -954,7 +1111,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-17 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -962,7 +1119,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-19 {
+.circuit-22 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -977,23 +1134,24 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  class="circuit-49 circuit-50"
+  class="circuit-52 circuit-53"
 >
   <div
-    class="circuit-47 circuit-48"
+    class="circuit-50 circuit-51"
   >
     <table
-      class="circuit-45 circuit-46"
+      class="circuit-48 circuit-49"
     >
       <thead
-        class="circuit-13 circuit-14"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
         >
           <th
             aria-sort="none"
             class="circuit-3 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
             <button
@@ -1007,109 +1165,139 @@ tbody .circuit-11:last-child td {
                 arrow.svg
               </div>
             </button>
-            Foo
+            Letters
           </th>
           <td
             aria-hidden="true"
             class="circuit-5 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            Foo
+            Letters
           </td>
           <th
-            class="circuit-7 circuit-4"
+            aria-sort="none"
+            class="circuit-10 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Bar
+            <button
+              class="circuit-0 circuit-1 circuit-2"
+              type="button"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Numbers
           </th>
           <th
-            class="circuit-7 circuit-4"
+            class="circuit-12 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Baz
+            Words
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            b
           </td>
           <td
-            class="circuit-19 circuit-6"
-          >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             3
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
+          >
+            Foo
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
+          >
+            a
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
-          >
-            3
+            Bar
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            c
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            3
+            Baz
           </td>
         </tr>
       </tbody>
@@ -1119,12 +1307,12 @@ tbody .circuit-11:last-child td {
 `;
 
 exports[`Table Style tests should render a scrollable table 1`] = `
-.circuit-9 {
+.circuit-12 {
   vertical-align: middle;
 }
 
-tbody .circuit-9:last-child th,
-tbody .circuit-9:last-child td {
+tbody .circuit-12:last-child th,
+tbody .circuit-12:last-child td {
   border-bottom: none;
 }
 
@@ -1167,64 +1355,6 @@ tbody .circuit-9:last-child td {
   width: 100%;
 }
 
-.circuit-5 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-}
-
-.circuit-13 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.circuit-41 {
-  position: relative;
-  height: 100%;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
-}
-
-@media (max-width:767px) {
-  .circuit-41 {
-    height: 100%;
-  }
-}
-
-.circuit-37 {
-  background-color: #FFFFFF;
-  border-collapse: separate;
-  width: 100%;
-}
-
-.circuit-11 {
-  -webkit-transform: translateY(px);
-  -ms-transform: translateY(px);
-  transform: translateY(px);
-}
-
-@media (max-width:767px) {
-  .circuit-11 {
-    -webkit-transform: translateY(nullpx);
-    -ms-transform: translateY(nullpx);
-    transform: translateY(nullpx);
-  }
-}
-
 .circuit-3 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -1255,30 +1385,89 @@ tbody .circuit-9:last-child td {
   opacity: 1;
 }
 
-.circuit-39 {
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+.circuit-16 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-44 {
+  position: relative;
+  height: 100%;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+@media (max-width:767px) {
+  .circuit-44 {
+    height: 100%;
+  }
+}
+
+.circuit-40 {
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  width: 100%;
+}
+
+.circuit-14 {
+  -webkit-transform: translateY(px);
+  -ms-transform: translateY(px);
+  transform: translateY(px);
+}
+
+@media (max-width:767px) {
+  .circuit-14 {
+    -webkit-transform: translateY(nullpx);
+    -ms-transform: translateY(nullpx);
+    transform: translateY(nullpx);
+  }
+}
+
+.circuit-42 {
   height: 0px;
   overflow-y: auto;
 }
 
 <div
-  class="circuit-41 circuit-42"
+  class="circuit-44 circuit-45"
 >
   <div
-    class="circuit-39 circuit-40"
+    class="circuit-42 circuit-43"
     height="0px"
   >
     <table
-      class="circuit-37 circuit-38"
+      class="circuit-40 circuit-41"
     >
       <thead
-        class="circuit-11 circuit-12"
+        class="circuit-14 circuit-15"
       >
         <tr
-          class="circuit-9 circuit-10"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-sort="none"
             class="circuit-3 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
             <button
@@ -1292,78 +1481,104 @@ tbody .circuit-9:last-child td {
                 arrow.svg
               </div>
             </button>
-            Foo
+            Letters
           </th>
           <th
-            class="circuit-5 circuit-4"
+            aria-sort="none"
+            class="circuit-3 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Bar
+            <button
+              class="circuit-0 circuit-1 circuit-2"
+              type="button"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Numbers
           </th>
           <th
-            class="circuit-5 circuit-4"
+            class="circuit-10 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Baz
+            Words
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="circuit-9 circuit-10"
+          class="circuit-12 circuit-13"
+          data-testid="table-row"
         >
           <td
-            class="circuit-13 circuit-14"
+            class="circuit-16 circuit-17"
+            data-testid="table-cell"
           >
-            1
+            b
           </td>
           <td
-            class="circuit-13 circuit-14"
-          >
-            2
-          </td>
-          <td
-            class="circuit-13 circuit-14"
+            class="circuit-16 circuit-17"
+            data-testid="table-cell"
           >
             3
+          </td>
+          <td
+            class="circuit-16 circuit-17"
+            data-testid="table-cell"
+          >
+            Foo
           </td>
         </tr>
         <tr
-          class="circuit-9 circuit-10"
+          class="circuit-12 circuit-13"
+          data-testid="table-row"
         >
           <td
-            class="circuit-13 circuit-14"
+            class="circuit-16 circuit-17"
+            data-testid="table-cell"
+          >
+            a
+          </td>
+          <td
+            class="circuit-16 circuit-17"
+            data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-13 circuit-14"
+            class="circuit-16 circuit-17"
+            data-testid="table-cell"
           >
-            2
-          </td>
-          <td
-            class="circuit-13 circuit-14"
-          >
-            3
+            Bar
           </td>
         </tr>
         <tr
-          class="circuit-9 circuit-10"
+          class="circuit-12 circuit-13"
+          data-testid="table-row"
         >
           <td
-            class="circuit-13 circuit-14"
+            class="circuit-16 circuit-17"
+            data-testid="table-cell"
           >
-            1
+            c
           </td>
           <td
-            class="circuit-13 circuit-14"
+            class="circuit-16 circuit-17"
+            data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-13 circuit-14"
+            class="circuit-16 circuit-17"
+            data-testid="table-cell"
           >
-            3
+            Baz
           </td>
         </tr>
       </tbody>
@@ -1373,36 +1588,36 @@ tbody .circuit-9:last-child td {
 `;
 
 exports[`Table Style tests should render with default styles 1`] = `
-.circuit-49 {
+.circuit-52 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-47 {
+.circuit-50 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-47 {
+  .circuit-50 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-45 {
+.circuit-48 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-48 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-45:after {
+  .circuit-48:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -1413,12 +1628,12 @@ exports[`Table Style tests should render with default styles 1`] = `
   }
 }
 
-.circuit-11 {
+.circuit-14 {
   vertical-align: middle;
 }
 
-tbody .circuit-11:last-child th,
-tbody .circuit-11:last-child td {
+tbody .circuit-14:last-child th,
+tbody .circuit-14:last-child td {
   border-bottom: none;
 }
 
@@ -1525,7 +1740,37 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-7 {
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-10:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-10:hover > button {
+  opacity: 1;
+}
+
+.circuit-12 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1540,7 +1785,7 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
 }
 
-.circuit-15 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1551,7 +1796,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-15 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -1560,7 +1805,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-17 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1573,7 +1818,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-17 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -1581,7 +1826,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-19 {
+.circuit-22 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1593,23 +1838,24 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  class="circuit-49 circuit-50"
+  class="circuit-52 circuit-53"
 >
   <div
-    class="circuit-47 circuit-48"
+    class="circuit-50 circuit-51"
   >
     <table
-      class="circuit-45 circuit-46"
+      class="circuit-48 circuit-49"
     >
       <thead
-        class="circuit-13 circuit-14"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
         >
           <th
             aria-sort="none"
             class="circuit-3 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
             <button
@@ -1623,109 +1869,139 @@ tbody .circuit-11:last-child td {
                 arrow.svg
               </div>
             </button>
-            Foo
+            Letters
           </th>
           <td
             aria-hidden="true"
             class="circuit-5 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            Foo
+            Letters
           </td>
           <th
-            class="circuit-7 circuit-4"
+            aria-sort="none"
+            class="circuit-10 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Bar
+            <button
+              class="circuit-0 circuit-1 circuit-2"
+              type="button"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Numbers
           </th>
           <th
-            class="circuit-7 circuit-4"
+            class="circuit-12 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Baz
+            Words
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            b
           </td>
           <td
-            class="circuit-19 circuit-6"
-          >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             3
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
+          >
+            Foo
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
+          >
+            a
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
-          >
-            3
+            Bar
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            c
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            3
+            Baz
           </td>
         </tr>
       </tbody>
@@ -1735,36 +2011,36 @@ tbody .circuit-11:last-child td {
 `;
 
 exports[`Table Style tests should render with rowHeader styles 1`] = `
-.circuit-49 {
+.circuit-52 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-47 {
+.circuit-50 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-47 {
+  .circuit-50 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-45 {
+.circuit-48 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-48 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-45:after {
+  .circuit-48:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -1775,12 +2051,12 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
   }
 }
 
-.circuit-11 {
+.circuit-14 {
   vertical-align: middle;
 }
 
-tbody .circuit-11:last-child th,
-tbody .circuit-11:last-child td {
+tbody .circuit-14:last-child th,
+tbody .circuit-14:last-child td {
   border-bottom: none;
 }
 
@@ -1887,7 +2163,37 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-7 {
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-10:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-10:hover > button {
+  opacity: 1;
+}
+
+.circuit-12 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1902,7 +2208,7 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
 }
 
-.circuit-15 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1913,7 +2219,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-15 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -1922,7 +2228,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-17 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1935,7 +2241,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-17 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -1943,7 +2249,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-19 {
+.circuit-22 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1955,23 +2261,24 @@ tbody .circuit-11:last-child td {
 }
 
 <div
-  class="circuit-49 circuit-50"
+  class="circuit-52 circuit-53"
 >
   <div
-    class="circuit-47 circuit-48"
+    class="circuit-50 circuit-51"
   >
     <table
-      class="circuit-45 circuit-46"
+      class="circuit-48 circuit-49"
     >
       <thead
-        class="circuit-13 circuit-14"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
         >
           <th
             aria-sort="none"
             class="circuit-3 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
             <button
@@ -1985,109 +2292,139 @@ tbody .circuit-11:last-child td {
                 arrow.svg
               </div>
             </button>
-            Foo
+            Letters
           </th>
           <td
             aria-hidden="true"
             class="circuit-5 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            Foo
+            Letters
           </td>
           <th
-            class="circuit-7 circuit-4"
+            aria-sort="none"
+            class="circuit-10 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Bar
+            <button
+              class="circuit-0 circuit-1 circuit-2"
+              type="button"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Numbers
           </th>
           <th
-            class="circuit-7 circuit-4"
+            class="circuit-12 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Baz
+            Words
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            b
           </td>
           <td
-            class="circuit-19 circuit-6"
-          >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             3
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
+          >
+            Foo
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
+          >
+            a
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
-          >
-            3
+            Bar
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            c
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            3
+            Baz
           </td>
         </tr>
       </tbody>
@@ -2097,31 +2434,31 @@ tbody .circuit-11:last-child td {
 `;
 
 exports[`Table Style tests should render without the table shadow 1`] = `
-.circuit-47 {
+.circuit-50 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-47 {
+  .circuit-50 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-45 {
+.circuit-48 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-45 {
+  .circuit-48 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-45:after {
+  .circuit-48:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -2132,12 +2469,12 @@ exports[`Table Style tests should render without the table shadow 1`] = `
   }
 }
 
-.circuit-11 {
+.circuit-14 {
   vertical-align: middle;
 }
 
-tbody .circuit-11:last-child th,
-tbody .circuit-11:last-child td {
+tbody .circuit-14:last-child th,
+tbody .circuit-14:last-child td {
   border-bottom: none;
 }
 
@@ -2244,7 +2581,37 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-7 {
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-10:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-10:hover > button {
+  opacity: 1;
+}
+
+.circuit-12 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2259,7 +2626,7 @@ tbody .circuit-11:last-child td {
   vertical-align: middle;
 }
 
-.circuit-15 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2270,7 +2637,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-15 {
+  .circuit-18 {
     left: 0;
     top: auto;
     position: absolute;
@@ -2279,7 +2646,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-17 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2292,7 +2659,7 @@ tbody .circuit-11:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-17 {
+  .circuit-20 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -2300,7 +2667,7 @@ tbody .circuit-11:last-child td {
   }
 }
 
-.circuit-19 {
+.circuit-22 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2311,30 +2678,31 @@ tbody .circuit-11:last-child td {
   white-space: nowrap;
 }
 
-.circuit-49 {
+.circuit-52 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   box-shadow: none;
 }
 
 <div
-  class="circuit-49 circuit-50"
+  class="circuit-52 circuit-53"
 >
   <div
-    class="circuit-47 circuit-48"
+    class="circuit-50 circuit-51"
   >
     <table
-      class="circuit-45 circuit-46"
+      class="circuit-48 circuit-49"
     >
       <thead
-        class="circuit-13 circuit-14"
+        class="circuit-16 circuit-17"
       >
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
         >
           <th
             aria-sort="none"
             class="circuit-3 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
             <button
@@ -2348,109 +2716,139 @@ tbody .circuit-11:last-child td {
                 arrow.svg
               </div>
             </button>
-            Foo
+            Letters
           </th>
           <td
             aria-hidden="true"
             class="circuit-5 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            Foo
+            Letters
           </td>
           <th
-            class="circuit-7 circuit-4"
+            aria-sort="none"
+            class="circuit-10 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Bar
+            <button
+              class="circuit-0 circuit-1 circuit-2"
+              type="button"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </button>
+            Numbers
           </th>
           <th
-            class="circuit-7 circuit-4"
+            class="circuit-12 circuit-4"
+            data-testid="table-header"
             scope="col"
           >
-            Baz
+            Words
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            b
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            b
           </td>
           <td
-            class="circuit-19 circuit-6"
-          >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             3
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
+          >
+            Foo
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            a
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
+          >
+            a
+          </td>
+          <td
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            2
-          </td>
-          <td
-            class="circuit-19 circuit-6"
-          >
-            3
+            Bar
           </td>
         </tr>
         <tr
-          class="circuit-11 circuit-12"
+          class="circuit-14 circuit-15"
+          data-testid="table-row"
         >
           <th
-            class="circuit-15 circuit-4"
+            class="circuit-18 circuit-4"
+            data-testid="table-header"
             scope="row"
           >
-            1
+            c
           </th>
           <td
             aria-hidden="true"
-            class="circuit-17 circuit-6"
+            class="circuit-20 circuit-6"
+            data-testid="table-cell"
             role="presentation"
           >
-            1
+            c
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-19 circuit-6"
+            class="circuit-22 circuit-6"
+            data-testid="table-cell"
           >
-            3
+            Baz
           </td>
         </tr>
       </tbody>

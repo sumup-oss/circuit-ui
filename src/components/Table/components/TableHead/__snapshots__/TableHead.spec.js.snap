@@ -103,6 +103,7 @@ tbody .circuit-9:last-child td {
     <th
       aria-sort="none"
       class="circuit-3 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       <button
@@ -120,12 +121,14 @@ tbody .circuit-9:last-child td {
     </th>
     <th
       class="circuit-5 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
       class="circuit-5 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       Baz
@@ -237,6 +240,7 @@ tbody .circuit-9:last-child td {
     <th
       aria-sort="none"
       class="circuit-3 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       <button
@@ -254,12 +258,14 @@ tbody .circuit-9:last-child td {
     </th>
     <th
       class="circuit-5 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
       class="circuit-5 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       Baz
