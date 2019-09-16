@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { styleHelpers } from '../../../../styles';
 
-import Tab from '../Tab';
+import { StyledTab } from '../Tab';
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 const DEFAULT_HEIGHT = '80px';
@@ -42,7 +42,7 @@ const navigationBaseStyles = css`
 `;
 
 const stretchedStyles = ({ children, theme }) => css`
-  & > ${Tab} {
+  & > ${StyledTab} {
     flex: 1 1 auto;
     padding: 0 ${theme.spacings.kilo};
     width: ${Math.floor(100 / children.length)}%;
