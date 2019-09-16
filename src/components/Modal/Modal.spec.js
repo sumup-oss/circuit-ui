@@ -32,6 +32,7 @@ describe('Modal', () => {
         <ModalConsumer>
           {({ setModal }) => (
             <Button
+              data-testid="button-open"
               type="button"
               onClick={() => {
                 setModal({
@@ -52,8 +53,8 @@ describe('Modal', () => {
     // eslint-disable-next-line react/prop-types, react/display-name
     children: ({ onClose }) => (
       <div>
-        <div data-test="card">Hello World!</div>
-        <button type="button" data-test="close" onClick={onClose} />
+        <div data-testid="card">Hello World!</div>
+        <button type="button" data-testid="button-close" onClick={onClose} />
       </div>
     ),
     // Disables the need for a wrapper. I couldn't get the Modal to work
@@ -67,10 +68,12 @@ describe('Modal', () => {
   };
 
   const openModal = modal => {
-    const wrapper = mount(<PageWithModal modal={modal} />);
-    const button = wrapper.find('Button');
-    button.simulate('click');
-    wrapper.update();
+    const wrapper = render(<PageWithModal modal={modal} />);
+
+    act(() => {
+      fireEvent.click(wrapper.getByTestId('button-open'));
+    });
+
     return wrapper;
   };
 
@@ -79,62 +82,27 @@ describe('Modal', () => {
   });
 
   it('should open', () => {
-    const wrapper = openModal(defaultModal);
-    expect(wrapper.find('[data-test="card"]')).toHaveLength(1);
+    const { getByTestId } = openModal(defaultModal);
+    expect(getByTestId('card')).toBeVisible();
   });
 
   describe('closing the modal', () => {
     it('should be closeable by pressing a close button', async () => {
-      const wrapper = openModal(defaultModal);
-      const closeButton = wrapper.find('[data-test="close"]').find('button');
-      closeButton.simulate('click');
-      /**
-       * Tried using jest's runAllTimers to force the ModalProvider
-       * to update state, but this didn't work. Somehow, this hack does.
-       */
-      await new Promise(resolve => {
-        setTimeout(() => resolve());
-      });
-      wrapper.update();
-      expect(defaultModal.onClose).toHaveBeenCalled();
-      expect(wrapper.find('[data-test="card"]')).toHaveLength(0);
-    });
+      const { getByTestId, queryByTestId } = openModal(defaultModal);
 
-    it('should close by clicking the overlay by default', async () => {
-      const wrapper = openModal({ ...defaultModal });
-      const overlay = wrapper
-        .find('ModalPortal')
-        .children()
-        .first();
-      overlay.simulate('click');
-      await new Promise(resolve => {
-        setTimeout(() => resolve());
+      act(() => {
+        fireEvent.click(getByTestId('button-close'));
       });
-      wrapper.update();
-      expect(defaultModal.onClose).toHaveBeenCalled();
-      expect(wrapper.find('[data-test="card"]')).toHaveLength(0);
-    });
 
-    it("should not close by clicking the overlay when 'shouldCloseOnOverlayClick' is 'false'", async () => {
-      const wrapper = openModal({
-        ...defaultModal,
-        shouldCloseOnOverlayClick: false
-      });
-      const overlay = wrapper
-        .find('ModalPortal')
-        .children()
-        .first();
-      overlay.simulate('click');
-      await new Promise(resolve => {
-        setTimeout(() => resolve());
-      });
-      wrapper.update();
-      expect(wrapper.find('[data-test="card"]')).toHaveLength(1);
+      await wait();
+
+      expect(defaultModal.onClose).toHaveBeenCalled();
+      expect(queryByTestId('card')).toBeNull();
     });
   });
 
   it('should render the children render prop', () => {
-    const wrapper = openModal(defaultModal);
-    expect(wrapper.find('[data-test="card"]').html()).toContain('Hello World!');
+    const { getByTestId } = openModal(defaultModal);
+    expect(getByTestId('card')).toHaveTextContent('Hello World!');
   });
 });

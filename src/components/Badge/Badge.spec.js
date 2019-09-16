@@ -72,8 +72,14 @@ describe('Badge', () => {
    */
   it('should be clickable', () => {
     const onClick = jest.fn();
-    const wrapper = shallow(<Badge {...{ onClick }} />);
-    wrapper.find('div').simulate('click');
-    expect(onClick).toHaveBeenCalled();
+    const { getByTestId } = render(
+      <Badge onClick={onClick} data-testid="badge" />
+    );
+
+    act(() => {
+      fireEvent.click(getByTestId('badge'));
+    });
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

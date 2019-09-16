@@ -24,23 +24,23 @@ describe('CreditCardDetails', () => {
         <button
           type="button"
           onClick={onHideInfo}
-          data-test="security-code-hide-info"
+          data-testid="security-code-hide-info"
         >
           Hide info
         </button>
       );
     const props = {
-      nameOnCard: <div data-test="name-on-card" />,
-      cardNumber: <div data-test="card-number" />,
-      expiryDate: <div data-test="expiry-date" />,
+      nameOnCard: <div data-testid="name-on-card" />,
+      cardNumber: <div data-testid="card-number" />,
+      expiryDate: <div data-testid="expiry-date" />,
       // eslint-disable-next-line
       renderSecurityCodeInput: ({ onShowInfo }) => (
-        <div data-test="security-code">
+        <div data-testid="security-code">
           {withInfoRenderProp && (
             <button
               type="button"
               onClick={onShowInfo}
-              data-test="security-code-show-info"
+              data-testid="security-code-show-info"
             />
           )}
         </div>
@@ -68,60 +68,73 @@ describe('CreditCardDetails', () => {
    */
 
   it('should render the name on card', () => {
-    const actual = shallow(component).find('[data-test="name-on-card"]');
-    expect(actual).toHaveLength(1);
+    const { getByTestId } = render(component);
+    const actual = getByTestId('name-on-card');
+    expect(actual).toBeVisible();
   });
 
-  it('should render the card-number', () => {
-    const actual = shallow(component).find('[data-test="card-number"]');
-    expect(actual).toHaveLength(1);
+  it('should render the card number', () => {
+    const { getByTestId } = render(component);
+    const actual = getByTestId('card-number');
+    expect(actual).toBeVisible();
   });
 
   it('should render the expiry date', () => {
-    const actual = shallow(component).find('[data-test="expiry-date"]');
-    expect(actual).toHaveLength(1);
+    const { getByTestId } = render(component);
+    const actual = getByTestId('expiry-date');
+    expect(actual).toBeVisible();
   });
 
   it('should render the security code', () => {
-    const actual = shallow(component).find('[data-test="security-code"]');
-    expect(actual).toHaveLength(1);
+    const { getByTestId } = render(component);
+    const actual = getByTestId('security-code');
+    expect(actual).toBeVisible();
   });
 
   describe('when using the renderSecurityCodeInfo render prop', () => {
-    const hideButtonSelector = '[data-test="security-code-hide-info"]';
-    const showButtonSelector = '[data-test="security-code-show-info"]';
+    const hideButtonSelector = 'security-code-hide-info';
+    const showButtonSelector = 'security-code-show-info';
 
     it('should not show the info by default', () => {
-      const wrapper = mount(componentWithInfo);
-      const hideButton = wrapper.find(hideButtonSelector);
-      expect(hideButton).toHaveLength(0);
+      const { queryByTestId } = render(componentWithInfo);
+      const hideButton = queryByTestId(hideButtonSelector);
+      expect(hideButton).toBeNull();
     });
 
     it('should show the "show info button"', () => {
-      const wrapper = mount(componentWithInfo);
-      const showButton = wrapper.find(showButtonSelector);
-      expect(showButton).toHaveLength(1);
+      const { getByTestId } = render(componentWithInfo);
+      const showButton = getByTestId(showButtonSelector);
+      expect(showButton).toBeVisible();
     });
 
     it('should show the info after clicking the "show info button"', () => {
-      const wrapper = mount(componentWithInfo);
-      const showButton = wrapper.find(showButtonSelector);
-      showButton.simulate('click');
-      wrapper.update();
-      const hideButton = wrapper.find(hideButtonSelector);
-      expect(hideButton).toHaveLength(1);
+      const { getByTestId } = render(componentWithInfo);
+      const showButton = getByTestId(showButtonSelector);
+
+      act(() => {
+        fireEvent.click(showButton);
+      });
+
+      const hideButton = getByTestId(hideButtonSelector);
+      expect(hideButton).toBeVisible();
     });
 
     it('should hide the info after clicking the "hide info button"', () => {
-      const wrapper = mount(componentWithInfo);
-      const showButton = wrapper.find(showButtonSelector);
-      showButton.simulate('click');
-      wrapper.update();
-      const hideButton = wrapper.find(hideButtonSelector);
-      hideButton.simulate('click');
-      wrapper.update();
-      const missingHideButton = wrapper.find(hideButtonSelector);
-      expect(missingHideButton).toHaveLength(0);
+      const { getByTestId, queryByTestId } = render(componentWithInfo);
+      const showButton = getByTestId(showButtonSelector);
+
+      act(() => {
+        fireEvent.click(showButton);
+      });
+
+      const hideButton = getByTestId(hideButtonSelector);
+
+      act(() => {
+        fireEvent.click(hideButton);
+      });
+
+      const missingHideButton = queryByTestId(hideButtonSelector);
+      expect(missingHideButton).toBeNull();
     });
   });
 

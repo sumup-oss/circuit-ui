@@ -18,8 +18,8 @@ import React from 'react';
 import Tag from '.';
 
 describe('Tag', () => {
-  const DummyIcon = () => (
-    <svg fill="#000000" xmlns="http://www.w3.org/2000/svg">
+  const DummyIcon = props => (
+    <svg {...props} fill="#000000" xmlns="http://www.w3.org/2000/svg">
       <path />
     </svg>
   );
@@ -91,43 +91,47 @@ describe('Tag', () => {
     };
 
     it('should render a close button', () => {
-      const component = shallow(<Tag {...props}>SomeTest</Tag>);
-      expect(component.find('CloseButton')).toHaveLength(1);
+      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
+      expect(getByTestId('tag-close')).not.toBeNull();
     });
 
     it('should calls onRemove when click close', () => {
-      const component = shallow(<Tag {...props}>SomeTest</Tag>);
+      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
 
-      component.find('CloseButton').simulate('click');
+      act(() => {
+        fireEvent.click(getByTestId('tag-close'));
+      });
 
-      expect(props.onRemove).toBeCalled();
+      expect(props.onRemove).toHaveBeenCalledTimes(1);
     });
   });
 
   describe('when has icon', () => {
     const props = {
-      icon: <DummyIcon />
+      icon: <DummyIcon data-testid="tag-icon" />
     };
 
     it('should render with icon', () => {
-      const component = shallow(<Tag {...props}>SomeTest</Tag>);
-      expect(component.find('DummyIcon')).toHaveLength(1);
+      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
+      expect(getByTestId('tag-icon')).not.toBeNull();
     });
 
     it('gives priority to close button when a removable', () => {
       const onRemove = jest.fn();
 
-      const component = shallow(<Tag {...{ onRemove, props }}>SomeTest</Tag>);
+      const { queryByTestId } = render(
+        <Tag {...{ onRemove, props }}>SomeTest</Tag>
+      );
 
-      expect(component.find('DummyIcon')).toHaveLength(0);
-      expect(component.find('CloseButton')).toHaveLength(1);
+      expect(queryByTestId('tag-icon')).toBeNull();
+      expect(queryByTestId('tag-close')).not.toBeNull();
     });
 
-    it('warns about icon + removable', () => {
+    it('should warn when both the icon and onRemove prop are passed', () => {
       jest.spyOn(console, 'error');
       const onRemove = jest.fn();
 
-      shallow(<Tag {...{ onRemove, ...props }}>SomeTest</Tag>);
+      render(<Tag {...{ onRemove, ...props }}>SomeTest</Tag>);
 
       expect(console.error).toHaveBeenCalled();
     });

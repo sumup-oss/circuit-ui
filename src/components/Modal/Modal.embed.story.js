@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
+import React from 'react';
 import styled from '@emotion/styled';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';

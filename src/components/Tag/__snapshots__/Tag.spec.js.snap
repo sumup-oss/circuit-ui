@@ -107,6 +107,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   SomeTest
   <button
     class="circuit-2 circuit-3 circuit-4 circuit-5"
+    data-testid="tag-close"
     type="button"
   >
     <div>
