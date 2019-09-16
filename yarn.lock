@@ -2184,6 +2184,11 @@
     "@testing-library/dom" "^6.1.0"
     "@types/testing-library__react" "^9.1.0"
 
+"@testing-library/user-event@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-7.0.1.tgz#c69bc0c691f8ee83faaaef60d7dd85b07532fa36"
+  integrity sha512-U5KHL2wyTWmKM3JW9eMI1fd/4B8qcJKuu6uKktZuTG17MTJNsbmH0dkiTHg3a1kN1xrkAAel8VVaq5fmEpuV4A==
+
 "@tippy.js/react@^2.2.0":
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@tippy.js/react/-/react-2.2.2.tgz#a0fbc646958cdb002d7d227f7b18dca346c76f2e"
