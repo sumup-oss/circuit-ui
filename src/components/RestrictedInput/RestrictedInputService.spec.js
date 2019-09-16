@@ -28,22 +28,36 @@ describe('RestrictedInputService', () => {
   });
 
   describe('filtering key events', () => {
-    it('should not return a handler when passed an empty set of keys', () => {
-      const userFilteredKeys = [];
-      const actual = handleKeyDown(userFilteredKeys);
-      expect(actual).toBeUndefined();
+    it('should register the custom handler when passed an empty set of keys', () => {
+      const onKeyDownMock = jest.fn();
+      const userWhitelistedKeys = [];
+      const keyEvent = { ...baseEvent, key: 'c' };
+      handleKeyDown(onKeyDownMock, userWhitelistedKeys)(keyEvent);
+      expect(onKeyDownMock).toHaveBeenCalledTimes(1);
     });
 
-    it('should register filtered keys', () => {
-      const userEnabledKeys = ['e'];
+    it('should register whitelisted keys', () => {
+      const onKeyDownMock = jest.fn();
+      const userWhitelistedKeys = ['e'];
       const keyEvent = { ...baseEvent, key: 'e' };
-      handleKeyDown(userEnabledKeys)(keyEvent);
+      handleKeyDown(onKeyDownMock, userWhitelistedKeys)(keyEvent);
       expect(keyEvent.preventDefault).not.toHaveBeenCalled();
+      expect(onKeyDownMock).toHaveBeenCalledTimes(1);
     });
 
-    it('should register keys from the default filter', () => {
-      const userEnabledKeys = ['1'];
-      const handler = handleKeyDown(userEnabledKeys);
+    it('should not register disallowed keys', () => {
+      const onKeyDownMock = jest.fn();
+      const userWhitelistedKeys = ['e'];
+      const keyEvent = { ...baseEvent, key: 'f' };
+      handleKeyDown(onKeyDownMock, userWhitelistedKeys)(keyEvent);
+      expect(keyEvent.preventDefault).toHaveBeenCalled();
+      expect(onKeyDownMock).not.toHaveBeenCalled();
+    });
+
+    it('should register keys from the default whitelist', () => {
+      const onKeyDownMock = jest.fn();
+      const userWhitelistedKeys = ['1'];
+      const handler = handleKeyDown(onKeyDownMock, userWhitelistedKeys);
       const defaultKeys = [
         'Tab',
         'Return',
@@ -56,20 +70,23 @@ describe('RestrictedInputService', () => {
         'Unidentified'
       ];
 
-      defaultKeys.forEach(key => {
+      defaultKeys.forEach((key, index) => {
         const keyEvent = { ...baseEvent, key };
         handler(keyEvent);
         expect(keyEvent.preventDefault).not.toHaveBeenCalled();
+        expect(onKeyDownMock).toHaveBeenCalledTimes(index + 1);
       });
     });
 
     it("should register keys when the event's `key` property is undefined", () => {
-      const userFilteredKeys = ['1'];
-      const handler = handleKeyDown(userFilteredKeys);
+      const onKeyDownMock = jest.fn();
+      const userWhitelistedKeys = ['1'];
+      const handler = handleKeyDown(onKeyDownMock, userWhitelistedKeys);
       const keyEvent = { ...baseEvent, key: undefined };
 
       handler(keyEvent);
       expect(keyEvent.preventDefault).not.toHaveBeenCalled();
+      expect(onKeyDownMock).toHaveBeenCalledTimes(1);
     });
   });
 

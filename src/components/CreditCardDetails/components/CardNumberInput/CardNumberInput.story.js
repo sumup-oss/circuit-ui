@@ -13,10 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
-import { Fragment } from 'react';
-import { css, jsx } from '@emotion/core';
+import React, { Fragment } from 'react';
+import { css } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';

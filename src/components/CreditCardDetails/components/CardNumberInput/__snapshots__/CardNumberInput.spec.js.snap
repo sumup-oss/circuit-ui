@@ -196,6 +196,7 @@ HTMLCollection [
     >
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
         disabled=""
       >
         <div>
@@ -204,6 +205,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-6 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           visa.svg
@@ -211,6 +213,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
         disabled=""
       >
         <div>
@@ -219,6 +222,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
         disabled=""
       >
         <div>
@@ -409,6 +413,7 @@ HTMLCollection [
     >
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           mastercard.svg
@@ -416,6 +421,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           visa.svg
@@ -423,6 +429,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           diners.svg
@@ -430,6 +437,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           jcb.svg
@@ -635,6 +643,7 @@ HTMLCollection [
     >
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           mastercard.svg
@@ -642,6 +651,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           visa.svg
@@ -649,6 +659,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           diners.svg
@@ -656,6 +667,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           discover.svg
@@ -663,6 +675,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           jcb.svg
@@ -670,6 +683,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           elo.svg
@@ -677,6 +691,7 @@ HTMLCollection [
       </li>
       <li
         class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
       >
         <div>
           maestro.svg

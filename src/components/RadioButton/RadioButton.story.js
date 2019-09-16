@@ -31,16 +31,16 @@ storiesOf(`${GROUPS.FORMS}|RadioButton`, module)
       <State
         initial={false}
         name="isChecked"
-        updaterName="onToggle"
+        updaterName="onChange"
         updater={isChecked => !isChecked}
       >
-        {({ isChecked, onToggle }) => (
+        {({ isChecked, onChange }) => (
           <RadioButton
             value="radio"
             name="radio"
-            onToggle={e => {
+            onChange={e => {
               action('Radio clicked')(e);
-              onToggle(e);
+              onChange(e);
             }}
             checked={isChecked}
           >
@@ -56,16 +56,16 @@ storiesOf(`${GROUPS.FORMS}|RadioButton`, module)
       <State
         initial={false}
         name="isChecked"
-        updaterName="onToggle"
+        updaterName="onChange"
         updater={isChecked => !isChecked}
       >
-        {({ isChecked, onToggle }) => (
+        {({ isChecked, onChange }) => (
           <RadioButton
             value="radio"
             name="radio"
-            onToggle={e => {
+            onChange={e => {
               action('Radio clicked')(e);
-              onToggle(e);
+              onChange(e);
             }}
             checked={isChecked}
             invalid

@@ -15,14 +15,22 @@
 
 import React from 'react';
 
-import AutoCompleteInput from '.';
+import AutoCompleteInput from './AutoCompleteInput';
+
+const items = [
+  { value: '1111111111111', 'data-testid': 'autocomplete-input-item' },
+  { value: '2222222222222', 'data-testid': 'autocomplete-input-item' },
+  { value: '3333333333333', 'data-testid': 'autocomplete-input-item' }
+];
 
 describe('AutoCompleteInput', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<AutoCompleteInput onChange={() => {}} items={[]} />);
+    const actual = create(
+      <AutoCompleteInput onChange={() => {}} items={items} />
+    );
     expect(actual).toMatchSnapshot();
   });
 
@@ -30,21 +38,23 @@ describe('AutoCompleteInput', () => {
    * Logic tests.
    */
   it('should filter items when input is changed', () => {
-    const handleChange = jest.fn();
-    const wrapper = mount(
+    const onChange = jest.fn();
+    const { getByTestId } = render(
       <AutoCompleteInput
-        onChange={handleChange}
-        items={['1111111111111', '2222222222222', '3333333333333']}
+        onChange={onChange}
+        items={items}
+        data-testid="autocomplete-input"
       />
     );
 
-    wrapper.find('input').simulate('change', { target: { value: '222' } });
+    const inputEl = getByTestId('autocomplete-input');
 
-    expect(
-      wrapper
-        .find('#downshift-1-item-0')
-        .first()
-        .text()
-    ).toBe('2222222222222');
+    act(() => {
+      userEvent.type(inputEl, '222');
+    });
+
+    const itemEl = getByTestId('autocomplete-input-item');
+
+    expect(itemEl).toHaveTextContent('2222222222222');
   });
 });

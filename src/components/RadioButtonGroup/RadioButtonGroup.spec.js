@@ -32,7 +32,6 @@ describe('RadioButtonGroup', () => {
       value: 'third'
     }
   ];
-  const value = 'second';
 
   /**
    * Style tests.
@@ -46,9 +45,10 @@ describe('RadioButtonGroup', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
+    const value = 'second';
     const wrapper = renderToHtml(
       <div role="group" aria-label="Choose your favourite option">
-        <RadioButtonGroup {...{ options, value }} />
+        <RadioButtonGroup options={options} value={value} />
       </div>
     );
     const actual = await axe(wrapper);
@@ -59,12 +59,12 @@ describe('RadioButtonGroup', () => {
    * Logic tests.
    */
   it('should check the currently active RadioButton', () => {
-    const wrapper = shallow(<RadioButtonGroup {...{ options, value }} />);
-    const actual = wrapper
-      .find('RadioButton')
-      .at(1)
-      .find('input[type="radio"]')
-      .prop('checked');
-    expect(actual).toBeTruthy();
+    const value = 'second';
+    const { getByLabelText } = render(
+      <RadioButtonGroup options={options} value={value} />
+    );
+    expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
+    expect(getByLabelText('Option 2')).toHaveAttribute('checked');
+    expect(getByLabelText('Option 3')).not.toHaveAttribute('checked');
   });
 });

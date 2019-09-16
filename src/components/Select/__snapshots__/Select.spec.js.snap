@@ -85,7 +85,7 @@ exports[`Select should not render with invalid styles when also passed the disab
 `;
 
 exports[`Select should render with a prefix when passed the prefix prop 1`] = `
-.circuit-2 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
@@ -93,6 +93,18 @@ exports[`Select should render with a prefix when passed the prefix prop 1`] = `
 }
 
 .circuit-0 {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 40;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-1 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -116,29 +128,30 @@ exports[`Select should render with a prefix when passed the prefix prop 1`] = `
   padding-left: calc( 12px + 16px + 12px );
 }
 
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
+.circuit-1:focus,
+.circuit-1:hover,
+.circuit-1:active {
   outline: none;
 }
 
-.circuit-0:focus {
+.circuit-1:focus {
   border-color: #3388FF;
 }
 
-.circuit-0:-moz-focusring {
+.circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-3 circuit-4"
 >
   <div
+    class="circuit-0"
     style="width: 24px; height: 24px;"
   />
   <select
-    class="circuit-0 circuit-1"
+    class="circuit-1 circuit-2"
   >
     <option
       value=""

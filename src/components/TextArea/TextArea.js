@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
-import { jsx, css } from '@emotion/core';
+import React from 'react';
+import { css } from '@emotion/core';
 
 import Input from '../Input';
 

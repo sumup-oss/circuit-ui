@@ -31,15 +31,15 @@ storiesOf(`${GROUPS.FORMS}|Toggle`, module)
       <State
         initial={false}
         name="on"
-        updaterName="onToggle"
+        updaterName="onChange"
         updater={on => !on}
       >
-        {({ onToggle, on }) => (
+        {({ onChange, on }) => (
           <Toggle
             label="Short label"
-            onToggle={e => {
+            onChange={e => {
               action('Toggle clicked')(e);
-              onToggle(e);
+              onChange(e);
             }}
             {...{ on }}
           />
@@ -53,15 +53,15 @@ storiesOf(`${GROUPS.FORMS}|Toggle`, module)
       <State
         initial={false}
         name="on"
-        updaterName="onToggle"
+        updaterName="onChange"
         updater={on => !on}
       >
-        {({ onToggle, on }) => (
+        {({ onChange, on }) => (
           <Toggle
             label="Short label"
-            onToggle={e => {
+            onChange={e => {
               action('Toggle clicked')(e);
-              onToggle(e);
+              onChange(e);
             }}
             {...{ on }}
             explanation="Some more detailed text of what this means"
@@ -76,15 +76,15 @@ storiesOf(`${GROUPS.FORMS}|Toggle`, module)
       <State
         initial={false}
         name="on"
-        updaterName="onToggle"
+        updaterName="onChange"
         updater={on => !on}
       >
-        {({ onToggle, on }) => (
+        {({ onChange, on }) => (
           <Toggle
             {...{ on }}
-            onToggle={e => {
+            onChange={e => {
               action('Toggle clicked')(e);
-              onToggle(e);
+              onChange(e);
             }}
             label="Short label"
             noMargin

@@ -56,16 +56,45 @@ describe('RadioButton', () => {
    * Logic tests.
    */
   it('should be unchecked by default', () => {
-    const wrapper = shallow(<RadioButton />);
-    const actual = wrapper.find('input[type="radio"]').prop('checked');
-    expect(actual).toBeFalsy();
+    const { getByLabelText } = render(<RadioButton>Label</RadioButton>);
+    const inputEl = getByLabelText('Label', {
+      exact: false
+    });
+    expect(inputEl).not.toHaveAttribute('checked');
   });
 
-  it('should call onChange when toggled', () => {
+  it('should call the change handler when clicked', () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = render(
+      <RadioButton onChange={onChange}>Label</RadioButton>
+    );
+    const inputEl = getByLabelText('Label', {
+      exact: false
+    });
+
+    act(() => {
+      fireEvent.click(inputEl);
+    });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  /**
+   * @deprecated
+   */
+  it('should call the change handler when clicked [deprecated]', () => {
     const onToggle = jest.fn();
-    const wrapper = shallow(<RadioButton {...{ onToggle }} />);
-    const label = wrapper.find('input[type="radio"]');
-    label.simulate('click');
+    const { getByLabelText } = render(
+      <RadioButton onToggle={onToggle}>Label</RadioButton>
+    );
+    const inputEl = getByLabelText('Label', {
+      exact: false
+    });
+
+    act(() => {
+      fireEvent.click(inputEl);
+    });
+
     expect(onToggle).toHaveBeenCalledTimes(1);
   });
 });

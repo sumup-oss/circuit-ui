@@ -19,6 +19,8 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { hideVisually, size } from 'polished';
 
+import { deprecatedPropType } from '../../../../util/shared-prop-types';
+
 const TRACK_WIDTH = 40;
 const TRACK_HEIGHT = 24;
 const KNOB_SIZE = 16;
@@ -98,13 +100,14 @@ const SwitchLabel = styled('span')`
 /**
  * A simple Switch component.
  */
-const Switch = ({ on, onToggle, labelOn, labelOff }) => (
+const Switch = ({ on, onToggle, onChange, labelOn, labelOff, ...rest }) => (
   <SwitchTrack
     type="button"
-    onClick={onToggle}
+    onClick={onToggle || onChange}
     on={on}
     role="switch"
     aria-checked={on}
+    {...rest}
   >
     <SwitchKnob {...{ on }} />
     <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
@@ -117,9 +120,20 @@ Switch.propTypes = {
    */
   on: PropTypes.bool,
   /**
-   * Toggle callback used as onClick.
+   * @deprecated
+   * Callback used when the user toggles the switch.
    */
-  onToggle: PropTypes.func.isRequired,
+  onToggle: deprecatedPropType(
+    PropTypes.func,
+    [
+      'The "onToggle" prop is deprecated.',
+      'Use the "onChange" prop instead.'
+    ].join(' ')
+  ),
+  /**
+   * Callback used when the user toggles the switch.
+   */
+  onChange: PropTypes.func.isRequired,
   /**
    * Label for the 'on' state. Important for accessibility.
    */

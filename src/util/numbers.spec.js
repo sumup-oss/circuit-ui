@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { keys } from 'lodash';
+import { keys } from 'lodash/fp';
 
 import * as numbers from './numbers';
 

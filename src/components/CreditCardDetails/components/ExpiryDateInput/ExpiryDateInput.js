@@ -17,6 +17,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'; // eslint-disable-line max-len
 
+import { uniqueId } from '../../../../util/id';
 import MaskedInput from '../../../MaskedInput';
 import Label from '../../../Label';
 
@@ -26,26 +27,32 @@ const datePipe = createAutoCorrectedDatePipe('mm/yy');
  * A specialized input for the credit card's expiry
  * date.
  */
-const ExpiryDateInput = ({ label, id, ...props }) => (
-  <Fragment>
-    <Label htmlFor={id}>{label}</Label>
-    <MaskedInput
-      autoComplete="cc-exp"
-      type="tel"
-      mask={[/\d/, /\d/, '/', /\d/, /\d/]}
-      guide={false}
-      keepCharPositions
-      pipe={datePipe}
-      {...{ ...props, id }}
-    />
-  </Fragment>
-);
+const ExpiryDateInput = ({ label, id, ...props }) => {
+  const inputId = id || uniqueId('cui-cc-expiry_');
+  return (
+    <Fragment>
+      <Label htmlFor={inputId} data-testid="expiry-date-input-label">
+        {label}
+      </Label>
+      <MaskedInput
+        data-testid="expiry-date-input-input"
+        autoComplete="cc-exp"
+        mask={[/\d/, /\d/, '/', /\d/, /\d/]}
+        guide={false}
+        keepCharPositions
+        pipe={datePipe}
+        id={inputId}
+        {...props}
+      />
+    </Fragment>
+  );
+};
 
 ExpiryDateInput.propTypes = {
   /**
    * The label to be used (for i18n purposes).
    */
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   /**
    * Placeholder for the input.
    */
@@ -58,8 +65,7 @@ ExpiryDateInput.propTypes = {
 
 ExpiryDateInput.defaultProps = {
   label: 'Expiry date',
-  placeholder: 'MM/YY',
-  id: 'cui-cc-expiry'
+  placeholder: 'MM/YY'
 };
 
 /**

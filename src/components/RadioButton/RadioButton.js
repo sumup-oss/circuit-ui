@@ -20,7 +20,10 @@ import { css } from '@emotion/core';
 import { hideVisually, size } from 'polished';
 
 import { disableVisually } from '../../styles/style-helpers';
-import { childrenPropType } from '../../util/shared-prop-types';
+import {
+  childrenPropType,
+  deprecatedPropType
+} from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 
 const labelBaseStyles = ({ theme }) => css`
@@ -131,12 +134,17 @@ const RadioButtonLabel = styled('label')`
 /**
  * RadioButton component for forms.
  */
-const RadioButton = ({ onToggle, children, id: customId, ...props }) => {
-  const id = customId || uniqueId('radio-button_');
+const RadioButton = ({ onToggle, onChange, children, id, ...props }) => {
+  const inputId = id || uniqueId('radio-button_');
   return (
     <Fragment>
-      <RadioButtonInput {...props} type="radio" onClick={onToggle} id={id} />
-      <RadioButtonLabel {...props} htmlFor={id}>
+      <RadioButtonInput
+        {...props}
+        type="radio"
+        onClick={onToggle || onChange}
+        id={inputId}
+      />
+      <RadioButtonLabel {...props} htmlFor={inputId}>
         {children}
       </RadioButtonLabel>
     </Fragment>
@@ -145,9 +153,20 @@ const RadioButton = ({ onToggle, children, id: customId, ...props }) => {
 
 RadioButton.propTypes = {
   /**
-   * Controles/Toggles the checked state.
+   * @deprecated
+   * Callback used when the user toggles the switch.
    */
-  onToggle: PropTypes.func.isRequired,
+  onToggle: deprecatedPropType(
+    PropTypes.func,
+    [
+      'The "onToggle" prop is deprecated.',
+      'Use the "onChange" prop instead.'
+    ].join(' ')
+  ),
+  /**
+   * Callback used when the user toggles the radio button.
+   */
+  onChange: PropTypes.func.isRequired,
   /**
    * Value string for input.
    */
