@@ -114,7 +114,15 @@ class Aggregator extends Component {
   };
 
   render() {
-    const { children, label, defaultIcon, selectedIcon, disabled } = this.props;
+    const {
+      children,
+      label,
+      defaultIcon,
+      selectedIcon,
+      disabled,
+      onClick,
+      ...props
+    } = this.props;
     const { open } = this.state;
     const icon = getIcon({
       selected: hasSelectedChild(children),
@@ -129,6 +137,7 @@ class Aggregator extends Component {
           selected={hasSelectedChild(children)}
           disabled={disabled}
           onClick={this.toggleAggregator}
+          {...props}
         >
           {icon}
           <NavLabel>{label}</NavLabel>

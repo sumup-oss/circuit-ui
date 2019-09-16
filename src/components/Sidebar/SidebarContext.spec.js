@@ -21,22 +21,28 @@ import {
 
 describe('SidebarContext', () => {
   it('should change Provider open state when using toggleSidebar', () => {
-    const wrapper = mount(
+    const { getByTestId } = render(
       <SidebarContextProvider>
         <SidebarContextConsumer>
-          {({ toggleSidebar }) => (
+          {({ toggleSidebar, isSidebarOpen }) => (
             <button
               type="button"
-              data-selector="child"
+              data-testid="button"
               onClick={toggleSidebar}
+              data-open={isSidebarOpen}
             />
           )}
         </SidebarContextConsumer>
       </SidebarContextProvider>
     );
-    const actual = wrapper.find('[data-selector="child"]');
+    const buttonEl = getByTestId('button');
 
-    actual.simulate('click');
-    expect(wrapper.instance().state.isSidebarOpen).toEqual(true);
+    expect(buttonEl).toHaveAttribute('data-open', 'false');
+
+    act(() => {
+      fireEvent.click(buttonEl);
+    });
+
+    expect(buttonEl).toHaveAttribute('data-open', 'true');
   });
 });

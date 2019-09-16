@@ -10,16 +10,11 @@ exports[`NavLabel styles should render and match snapshot when secondary 1`] = `
   margin-top: 0px;
 }
 
-<Styled(div)
-  secondary={true}
-  visible={true}
+<div
+  class="circuit-0 circuit-1"
 >
-  <div
-    className="circuit-0 circuit-1"
-  >
-    Item 01
-  </div>
-</Styled(div)>
+  Item 01
+</div>
 `;
 
 exports[`NavLabel styles should render and match snapshot when visible 1`] = `
@@ -27,15 +22,11 @@ exports[`NavLabel styles should render and match snapshot when visible 1`] = `
   margin-left: 12px;
 }
 
-<Styled(div)
-  visible={true}
+<div
+  class="circuit-0 circuit-1"
 >
-  <div
-    className="circuit-0 circuit-1"
-  >
-    Item 01
-  </div>
-</Styled(div)>
+  Item 01
+</div>
 `;
 
 exports[`NavLabel styles should render with default styles 1`] = `
@@ -43,11 +34,9 @@ exports[`NavLabel styles should render with default styles 1`] = `
   margin-left: 12px;
 }
 
-<Styled(div)>
-  <div
-    className="circuit-0 circuit-1"
-  >
-    Item 01
-  </div>
-</Styled(div)>
+<div
+  class="circuit-0 circuit-1"
+>
+  Item 01
+</div>
 `;

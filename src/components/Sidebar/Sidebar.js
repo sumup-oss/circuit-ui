@@ -62,11 +62,12 @@ const Sidebar = ({ children, open, closeButtonLabel, onClose, className }) => (
     <Drawer open={open} className={className}>
       {children}
     </Drawer>
-    <Backdrop visible={open} onClick={onClose} />
+    <Backdrop visible={open} onClick={onClose} data-testid="sidebar-backdrop" />
     <CloseButton
       visible={open}
       closeButtonLabel={closeButtonLabel}
       onClick={onClose}
+      data-testid="sidebar-close-button"
     />
   </Fragment>
 );

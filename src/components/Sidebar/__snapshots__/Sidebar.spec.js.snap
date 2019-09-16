@@ -69,6 +69,7 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
+    data-testid="sidebar-backdrop"
   />,
   .circuit-0 {
   border: 0;
@@ -124,6 +125,7 @@ HTMLCollection [
 
 <button
     class="circuit-2 circuit-3"
+    data-testid="sidebar-close-button"
   >
     <span
       class="circuit-0 circuit-1"
@@ -190,6 +192,7 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
+    data-testid="sidebar-backdrop"
   />,
   .circuit-2 {
   cursor: pointer;
@@ -243,6 +246,7 @@ HTMLCollection [
 
 <button
     class="circuit-2 circuit-3"
+    data-testid="sidebar-close-button"
   >
     <span
       class="circuit-0 circuit-1"

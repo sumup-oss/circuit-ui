@@ -20,17 +20,17 @@ import NavLabel from './NavLabel';
 describe('NavLabel', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = mount(<NavLabel>Item 01</NavLabel>);
+      const actual = create(<NavLabel>Item 01</NavLabel>);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render and match snapshot when visible', () => {
-      const actual = mount(<NavLabel visible>Item 01</NavLabel>);
+      const actual = create(<NavLabel visible>Item 01</NavLabel>);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render and match snapshot when secondary', () => {
-      const actual = mount(
+      const actual = create(
         <NavLabel visible secondary>
           Item 01
         </NavLabel>

@@ -26,15 +26,14 @@ describe('Title', () => {
   });
 
   it('should render children', () => {
-    const wrapper = shallow(
+    const { getByTestId } = render(
       <Title>
-        <span data-selector="child">Title</span>
+        <span data-testid="child">Title</span>
       </Title>
     );
-    const actual = wrapper.find('[data-selector="child"]');
-
-    expect(actual).toHaveLength(1);
-    expect(actual.text()).toEqual('Title');
+    const childEl = getByTestId('child');
+    expect(childEl).not.toBeNull();
+    expect(childEl).toHaveTextContent('Title');
   });
 
   describe('accessibility', () => {
