@@ -15,10 +15,7 @@
 
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import 'jest-enzyme';
 import '@testing-library/jest-dom/extend-expect';
-import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import { createSerializer } from 'jest-emotion';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { render, fireEvent, wait, act } from '@testing-library/react';
@@ -27,8 +24,6 @@ import { ThemeProvider } from 'emotion-theming';
 
 import { circuit } from './src/themes';
 
-Enzyme.configure({ adapter: new Adapter() });
-
 // eslint-disable-next-line react/prop-types
 const WithProviders = ({ children }) => (
   <ThemeProvider theme={circuit}>{children}</ThemeProvider>
@@ -36,20 +31,6 @@ const WithProviders = ({ children }) => (
 
 const renderWithProviders = renderFn => (component, ...rest) =>
   renderFn(<WithProviders>{component}</WithProviders>, rest);
-
-global.shallow = (...args) => {
-  console.error(
-    'We do not use Shallow anymore. Automatically switching to mount.'
-  );
-  return mount(...args, {
-    wrappingComponent: WithProviders
-  });
-};
-
-global.mount = (...args) =>
-  mount(...args, {
-    wrappingComponent: WithProviders
-  });
 
 global.axe = axe;
 global.act = act;

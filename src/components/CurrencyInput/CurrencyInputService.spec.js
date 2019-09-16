@@ -100,8 +100,6 @@ describe('CurrencyInputService', () => {
   describe('creating currency masks', () => {
     // This is testing implementation details. But since we are testing our
     // interface to a library, I think it kind of makes sense.
-    // Alternatively, we could simply try to do this with an integration
-    // test in Enzyme, but it feels difficult/hard to reproduce.
     it('should handle currency/locale pairs with no fractional part', () => {
       const currency = 'CLP';
       const locale = 'es-CL';

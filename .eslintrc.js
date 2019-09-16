@@ -24,8 +24,6 @@ const customConfig = {
         ]
       },
       globals: {
-        mount: true,
-        shallow: true,
         create: true,
         render: true,
         renderToHtml: true,
