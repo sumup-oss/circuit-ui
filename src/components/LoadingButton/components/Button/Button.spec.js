@@ -16,47 +16,44 @@
 import React from 'react';
 
 import { LOADING_STATES } from '../../constants';
-import LoadingButton from '.';
+import Button from '.';
 
-describe('LoadingButton', () => {
+describe('Button', () => {
   describe('Style tests', () => {
     it('should have default styles', () => {
-      const actual = create(<LoadingButton />);
+      const actual = create(<Button />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should have active loading styles', () => {
-      const actual = create(
-        <LoadingButton loadingState={LOADING_STATES.ACTIVE} />
-      );
+      const actual = create(<Button loadingState={LOADING_STATES.ACTIVE} />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should have isLoading styles', () => {
-      const actual = create(<LoadingButton isLoading />);
+      const actual = create(<Button isLoading />);
       expect(actual).toMatchSnapshot();
     });
   });
 
-  describe('isLoading', () => {
-    it('should not bind the onClick handler to the Button', () => {
-      const mock = jest.fn();
-      const wrapper = shallow(<LoadingButton isLoading onClick={mock} />);
+  describe('Logic tests', () => {
+    it('should not bind the click handler to the button while loading', () => {
+      const onClick = jest.fn();
+      const { getByTestId } = render(
+        <Button isLoading onClick={onClick} data-testid="loading-button" />
+      );
 
-      wrapper
-        .find('Button')
-        .first()
-        .simulate('click');
+      act(() => {
+        fireEvent.click(getByTestId('loading-button'));
+      });
 
-      expect(mock).not.toHaveBeenCalled();
+      expect(onClick).not.toHaveBeenCalled();
     });
   });
 
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(
-        <LoadingButton>Loading Button</LoadingButton>
-      );
+      const wrapper = renderToHtml(<Button>Loading Button</Button>);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

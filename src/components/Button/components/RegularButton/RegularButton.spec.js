@@ -102,25 +102,28 @@ describe('RegularButton', () => {
    */
   describe('as anchor element', () => {
     it('should become a link when passed an href prop', () => {
-      const wrapper = mount(
+      const { getByTestId } = render(
         <div>
-          <Button href="#">Link Button</Button>
-        </div>
-      );
-      expect(wrapper.find('a')).toExist();
-      expect(wrapper.find('a')).toHaveProp('href', '#');
-    });
-
-    it('should accept a target prop', () => {
-      const wrapper = mount(
-        <div>
-          <Button href="#" target="_blank">
+          <Button href="#" data-testid="link-button">
             Link Button
           </Button>
         </div>
       );
-      expect(wrapper.find('a')).toExist();
-      expect(wrapper.find('a')).toHaveProp('target', '_blank');
+      const buttonEl = getByTestId('link-button');
+      expect(buttonEl.tagName).toBe('A');
+      expect(buttonEl).toHaveAttribute('href');
+    });
+
+    it('should accept a target prop', () => {
+      const { getByTestId } = render(
+        <div>
+          <Button href="#" target="_blank" data-testid="link-button">
+            Link Button
+          </Button>
+        </div>
+      );
+      const buttonEl = getByTestId('link-button');
+      expect(buttonEl).toHaveAttribute('target', '_blank');
     });
   });
 });

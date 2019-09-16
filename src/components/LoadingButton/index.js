@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Container from './Container';
+import LoadingButton from './LoadingButton';
 
-export default Container;
+export default LoadingButton;

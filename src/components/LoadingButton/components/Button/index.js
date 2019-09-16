@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import LoadingIcon from './LoadingIcon';
+import Button from './Button';
 
-export default LoadingIcon;
+export default Button;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoadingButton Style tests should have active loading styles 1`] = `
+exports[`Button Style tests should have active loading styles 1`] = `
 .circuit-7 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -116,7 +116,7 @@ exports[`LoadingButton Style tests should have active loading styles 1`] = `
 </button>
 `;
 
-exports[`LoadingButton Style tests should have default styles 1`] = `
+exports[`Button Style tests should have default styles 1`] = `
 .circuit-7 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -227,7 +227,7 @@ exports[`LoadingButton Style tests should have default styles 1`] = `
 </button>
 `;
 
-exports[`LoadingButton Style tests should have isLoading styles 1`] = `
+exports[`Button Style tests should have isLoading styles 1`] = `
 .circuit-5 {
   position: relative;
 }
