@@ -4,7 +4,9 @@ require('@babel/register');
 const { format } = require('prettier');
 
 const { circuit } = require('../src/themes');
-const { createGlobalStyles } = require('../src/styles/global-styles');
+const {
+  createBaseStyles
+} = require('../src/components/BaseStyles/BaseStylesService');
 
-const globalStyles = createGlobalStyles({ theme: circuit });
+const globalStyles = createBaseStyles(circuit);
 console.log(format(globalStyles, { parser: 'css' }));

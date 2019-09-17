@@ -13,4 +13,25 @@
  * limitations under the License.
  */
 
-export { default } from './GlobalStyles';
+import { circuit } from '../../themes';
+import { createBaseStyles } from './BaseStylesService';
+
+describe('BaseStylesService', () => {
+  it('should return the global base styles', () => {
+    const actual = createBaseStyles(circuit);
+    expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * @deprecated
+   */
+  it('should accept custom global styles', () => {
+    const custom = `
+      p {
+        color: red;
+      }
+    `;
+    const actual = createBaseStyles(circuit, custom);
+    expect(actual).toMatchSnapshot();
+  });
+});

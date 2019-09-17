@@ -15,17 +15,17 @@
 
 import React from 'react';
 
-import Global from './GlobalStyles';
+import BaseStyles from './BaseStyles';
 
-import { createGlobalStyles } from './GlobalStylesService';
+import { createBaseStyles } from './BaseStylesService';
 
-jest.mock('./GlobalStylesService', () => ({
-  createGlobalStyles: jest.fn()
+jest.mock('./BaseStylesService', () => ({
+  createBaseStyles: jest.fn()
 }));
 
-describe('Global', () => {
-  it('should create the global stylesheet', () => {
-    render(<Global />);
-    expect(createGlobalStyles).toHaveBeenCalled();
+describe('BaseStyles', () => {
+  it('should create the global base stylesheet', () => {
+    render(<BaseStyles />);
+    expect(createBaseStyles).toHaveBeenCalled();
   });
 });

@@ -6,7 +6,7 @@ import { setOptions } from '@storybook/addon-options';
 import { ThemeProvider } from 'emotion-theming';
 
 import { circuit } from '../src/themes';
-import GlobalStyles from '../src/components/GlobalStyles'
+import BaseStyles from '../src/components/BaseStyles';
 
 // Sets the info addon's options.
 setDefaults({
@@ -16,8 +16,8 @@ setDefaults({
 setOptions({
   hierarchySeparator: /\//,
   hierarchyRootSeparator: /\|/,
-  name: "Circuit UI",
-  url: "https://github.com/sumup/circuit-ui",
+  name: 'Circuit UI',
+  url: 'https://github.com/sumup/circuit-ui'
 });
 
 const req = require.context('../src/components', true, /\.story\.js$/);
@@ -25,7 +25,7 @@ const req = require.context('../src/components', true, /\.story\.js$/);
 const withThemeProvider = storyFn => (
   <ThemeProvider theme={circuit}>
     <div>
-      <GlobalStyles />
+      <BaseStyles />
       {storyFn()}
     </div>
   </ThemeProvider>

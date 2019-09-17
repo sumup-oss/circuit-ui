@@ -14,21 +14,16 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Global as EmotionGlobal, css } from '@emotion/core';
 
-import { createGlobalStyles } from './GlobalStylesService';
+import deprecate from '../../util/deprecate';
+import BaseStyles from './BaseStyles';
 
-const Global = ({ custom }) => (
-  <EmotionGlobal styles={theme => css(createGlobalStyles(theme, custom))} />
-);
+export default BaseStyles;
 
-Global.propTypes = {
-  custom: PropTypes.string
+/**
+ * @deprecated
+ */
+export const GlobalStyles = props => {
+  deprecate('GlobalStyles has been renamed to BaseStyles.');
+  return <BaseStyles {...props} />;
 };
-
-Global.defaultProps = {
-  custom: ''
-};
-
-export default Global;

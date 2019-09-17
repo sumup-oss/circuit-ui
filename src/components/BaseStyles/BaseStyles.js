@@ -15,31 +15,29 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'emotion-theming';
-import { Global, css } from '@emotion/core';
-import { BaseStyles, theme as themes } from '../../src/index';
+import { Global } from '@emotion/core';
 
-const styles = css`
-  div[class^='Sidebar__Footer'] {
-    display: none;
-  }
+import { deprecatedPropType } from '../../util/shared-prop-types';
 
-  b,
-  strong {
-    font-weight: 700;
-  }
-`;
+import { createBaseStyles } from './BaseStylesService';
 
-const Wrapper = props => (
-  <ThemeProvider theme={themes.circuit}>
-    <BaseStyles />
-    <Global styles={styles} />
-    {props.children}
-  </ThemeProvider>
+const BaseStyles = ({ custom }) => (
+  <Global styles={theme => createBaseStyles(theme, custom)} />
 );
 
-Wrapper.propTypes = {
-  children: PropTypes.children
+BaseStyles.propTypes = {
+  custom: deprecatedPropType(
+    PropTypes.string,
+    [
+      'The "custom" prop has been deprecated.',
+      `Use Emotion's <Global /> component instead:`,
+      `https://emotion.sh/docs/globals`
+    ].join(' ')
+  )
 };
 
-export default Wrapper;
+BaseStyles.defaultProps = {
+  custom: ''
+};
+
+export default BaseStyles;

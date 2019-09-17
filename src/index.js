@@ -153,7 +153,7 @@ export { default as ProgressBar } from './components/ProgressBar';
 export { default as Tag } from './components/Tag';
 export { default as Popover } from './components/Popover';
 export { default as Tooltip } from './components/Tooltip';
-export { default as GlobalStyles } from './components/GlobalStyles';
+export { default as BaseStyles, GlobalStyles } from './components/BaseStyles';
 export {
   default as Modal,
   DEFAULT_APP_ELEMENT,

@@ -13,29 +13,99 @@
  * limitations under the License.
  */
 
-// eslint-disable-next-line emotion/no-vanilla
-import { injectGlobal } from 'emotion';
-import { textMega } from './style-helpers';
+import { css } from '@emotion/core';
 
-export const resets = `
-  /* http://meyerweb.com/eric/tools/css/reset/
+import { textMega } from '../../styles/style-helpers';
+
+export const createBaseStyles = (theme, custom) => css`
+  /**
+   * reset.css
+   * http://meyerweb.com/eric/tools/css/reset/
    * v2.0 | 20110126
    * License: none (public domain)
    */
 
-  html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed,
-  figure, figcaption, footer, header, hgroup,
-  menu, nav, output, ruby, section, summary,
-  time, mark, audio, video {
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -44,18 +114,30 @@ export const resets = `
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure,
-  footer, header, hgroup, menu, nav, section {
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
     display: block;
   }
   body {
     line-height: 1;
   }
-  blockquote, q {
+  blockquote,
+  q {
     quotes: none;
   }
-  blockquote:before, blockquote:after,
-  q:before, q:after {
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
     content: '';
     content: none;
   }
@@ -63,13 +145,10 @@ export const resets = `
     border-collapse: collapse;
     border-spacing: 0;
   }
-`;
 
-export const createGlobalStyles = ({ theme, custom = '' }) => `
-  /* Use resets */
-  ${resets}
-
-  /* Our globals */
+  /**
+   * Our global resets
+   */
 
   /**
    * Best practice from http://callmenick.com/post/the-new-box-sizing-reset
@@ -83,23 +162,29 @@ export const createGlobalStyles = ({ theme, custom = '' }) => `
 
   html {
     box-sizing: border-box;
-  }
 
-  html [type='button'] {
-    appearance: none;
+    [type='button'] {
+      appearance: none;
+    }
   }
 
   body {
     background-color: ${theme.colors.bodyBg};
     color: ${theme.colors.bodyColor};
-    ${textMega({ theme })}
+    ${textMega({ theme })};
   }
 
   /**
    * Form elements don't inherit font settings.
    * https://stackoverflow.com/questions/26140050/why-is-font-family-not-inherited-in-button-tags-automatically
    */
-  html, body, input, select, optgroup, textarea, button {
+  html,
+  body,
+  input,
+  select,
+  optgroup,
+  textarea,
+  button {
     font-weight: ${theme.fontWeight.regular};
     font-family: ${theme.fontStack.default};
     font-feature-settings: 'kern';
@@ -109,15 +194,14 @@ export const createGlobalStyles = ({ theme, custom = '' }) => `
     text-rendering: optimizeLegibility;
   }
 
-  pre, code {
+  pre,
+  code {
     font-family: ${theme.fontStack.mono};
   }
 
   /**
+   * @deprecated
    * Allow custom styles to override the default styles
    */
-  ${custom}
+  ${custom};
 `;
-
-export default ({ theme, custom }) =>
-  injectGlobal(createGlobalStyles({ theme, custom }));
