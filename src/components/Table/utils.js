@@ -20,6 +20,8 @@ import { childrenPropType } from '../../util/shared-prop-types';
 
 export const mapRowProps = props => (isArray(props) ? { cells: props } : props);
 
+export const getRowCells = props => mapRowProps(props).cells;
+
 export const mapCellProps = props =>
   isString(props) || isNumber(props) ? { children: props } : props;
 
@@ -39,8 +41,10 @@ export const getSortDirection = (isActive, currentSort) => {
 };
 
 export const ascendingSort = curry((i, a, b) => {
-  const first = getSortByValue(a[i]);
-  const second = getSortByValue(b[i]);
+  const firstRow = getRowCells(a);
+  const secondRow = getRowCells(b);
+  const first = getSortByValue(firstRow[i]);
+  const second = getSortByValue(secondRow[i]);
 
   if (first < second) {
     return -1;
@@ -53,8 +57,10 @@ export const ascendingSort = curry((i, a, b) => {
 });
 
 export const descendingSort = curry((i, a, b) => {
-  const first = getSortByValue(a[i]);
-  const second = getSortByValue(b[i]);
+  const firstRow = getRowCells(a);
+  const secondRow = getRowCells(b);
+  const first = getSortByValue(firstRow[i]);
+  const second = getSortByValue(secondRow[i]);
 
   if (first > second) {
     return -1;

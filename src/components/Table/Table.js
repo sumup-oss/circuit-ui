@@ -228,7 +228,7 @@ class Table extends Component {
   defaultSortBy = (i, direction, rows) => {
     const sortFn = direction === ASCENDING ? ascendingSort : descendingSort;
 
-    return [...rows].sort(sortFn(i), rows);
+    return [...rows].sort(sortFn(i));
   };
 
   handleScroll = e => {
@@ -252,6 +252,8 @@ class Table extends Component {
       scrollTop,
       tableBodyHeight
     } = this.state;
+
+    const rows = this.getSortedRows();
 
     return (
       <TableContainer
@@ -286,7 +288,7 @@ class Table extends Component {
             <TableBody
               condensed={condensed}
               scrollable={scrollable}
-              rows={this.getSortedRows()}
+              rows={rows}
               rowHeaders={rowHeaders}
               sortHover={sortHover}
               onRowClick={onRowClick}

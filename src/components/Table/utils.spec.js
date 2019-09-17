@@ -36,6 +36,27 @@ describe('Table utils', () => {
       expect(actual).toEqual(expected);
     });
   });
+
+  describe('getRowCells()', () => {
+    describe('isArray', () => {
+      it('should return it', () => {
+        const props = ['Foo'];
+        const expected = props;
+        const actual = utils.getRowCells(props);
+
+        expect(actual).toEqual(expected);
+      });
+    });
+
+    it('should return the cells prop', () => {
+      const props = { cells: ['Foo'] };
+      const expected = ['Foo'];
+      const actual = utils.getRowCells(props);
+
+      expect(actual).toEqual(expected);
+    });
+  });
+
   describe('mapCellProps()', () => {
     describe('isString', () => {
       it('should map the string to children key', () => {
