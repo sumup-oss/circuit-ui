@@ -13,6 +13,14 @@
  * limitations under the License.
  */
 
-import SvgButton from './SvgButton';
+import React from 'react';
 
-export default SvgButton;
+import deprecate from '../../util/deprecate';
+import IconButton from './IconButton';
+
+export const SvgButton = props => {
+  deprecate('SvgButton has been renamed to IconButton.');
+  return <IconButton {...props} />;
+};
+
+export default IconButton;

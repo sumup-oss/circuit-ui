@@ -19,8 +19,8 @@ import { withInfo } from '@storybook/addon-info';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import withTests from '../../util/withTests';
-import SvgButton from './SvgButton';
+import IconButton from './IconButton';
 
-storiesOf(`${GROUPS.COMPONENTS}|SvgButton`, module)
-  .addDecorator(withTests('SvgButton'))
-  .add('Default SvgButton', withInfo()(() => <SvgButton />));
+storiesOf(`${GROUPS.COMPONENTS}|IconButton`, module)
+  .addDecorator(withTests('IconButton'))
+  .add('Default IconButton', withInfo()(() => <IconButton />));
