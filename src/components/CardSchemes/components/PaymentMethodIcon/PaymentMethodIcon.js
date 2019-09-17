@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
-import { jsx, css } from '@emotion/core';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { keys } from 'lodash';
+import { css } from '@emotion/core';
+import { keys } from 'lodash/fp';
 
 import { sizes } from '../../../../styles/constants';
 // eslint-disable-next-line max-len
@@ -26,18 +25,18 @@ import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-s
 
 const { BYTE, KILO, MEGA, GIGA } = sizes;
 
-const PaymentMethodIconWrapBaseStyles = ({ theme, size }) => css`
+const wrapperStyles = ({ theme, size }) => css`
   height: ${theme.iconSizes[size]};
   width: auto;
   max-width: ${theme.spacings.zetta};
 `;
 
-const PaymentMethodIconWrap = styled('div')(PaymentMethodIconWrapBaseStyles);
+const IconWrapper = styled('div')(wrapperStyles);
 
 /**
  * A single card scheme icon
  */
-const PaymentMethodIcon = ({ iconId, size }) => {
+const PaymentMethodIcon = ({ iconId, size, ...rest }) => {
   const IconSvg = schemeMap[iconId];
 
   if (!IconSvg) {
@@ -45,7 +44,7 @@ const PaymentMethodIcon = ({ iconId, size }) => {
   }
 
   return (
-    <PaymentMethodIconWrap size={size}>
+    <IconWrapper size={size} {...rest}>
       <IconSvg
         css={css`
           width: auto;
@@ -55,7 +54,7 @@ const PaymentMethodIcon = ({ iconId, size }) => {
           line-height: 0;
         `}
       />
-    </PaymentMethodIconWrap>
+    </IconWrapper>
   );
 };
 

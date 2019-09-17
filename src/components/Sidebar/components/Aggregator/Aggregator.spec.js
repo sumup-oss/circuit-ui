@@ -21,7 +21,8 @@ const props = {
   label: 'Aggregator',
   onClick: jest.fn(),
   selectedIcon: 'selected-icon',
-  defaultIcon: 'default-icon'
+  defaultIcon: 'default-icon',
+  'data-testid': 'aggregator'
 };
 
 class MockedNavigation extends Component {
@@ -33,7 +34,7 @@ class MockedNavigation extends Component {
     const { selected } = this.state;
     return (
       <Fragment>
-        <Aggregator {...props}>
+        <Aggregator {...props} {...this.props}>
           <div selected={selected === 0} data-testid="child">
             child
           </div>
@@ -54,7 +55,7 @@ class MockedNavigation extends Component {
 describe('Aggregator', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = mount(
+      const actual = create(
         <Aggregator {...props}>
           <div data-testid="child">child</div>
         </Aggregator>
@@ -63,21 +64,22 @@ describe('Aggregator', () => {
     });
 
     it('should render and match snapshot when open', async () => {
-      const actual = mount(
+      const { container, getByTestId } = render(
         <Aggregator {...props}>
           <div data-testid="child">child</div>
         </Aggregator>
       );
+      const aggregatorEl = getByTestId('aggregator');
 
-      actual.find("[className*='nav-aggregator']").simulate('click');
-      await new Promise(resolve => setTimeout(resolve));
-      actual.update();
+      act(() => {
+        fireEvent.click(aggregatorEl);
+      });
 
-      expect(actual).toMatchSnapshot();
+      expect(container.children).toMatchSnapshot();
     });
 
     it('should render with disabled state styles and match the snapshot', () => {
-      const actual = mount(
+      const actual = create(
         <Aggregator {...props} disabled={true}>
           <div data-testid="child">child</div>
         </Aggregator>
@@ -89,17 +91,23 @@ describe('Aggregator', () => {
 
   describe('interactions', () => {
     it('should show children and call onClick when clicking the aggregator', () => {
-      const actual = mount(
-        <Aggregator {...props}>
-          <div selected data-testid="child">
-            child
-          </div>
+      const onClick = jest.fn();
+      const { getByTestId } = render(
+        <Aggregator {...props} onClick={onClick}>
+          <div data-testid="child">child</div>
         </Aggregator>
       );
+      const aggregatorEl = getByTestId('aggregator');
+      const childEl = getByTestId('child');
 
-      actual.find("[className*='nav-aggregator']").simulate('click');
-      expect(actual.state().open).toBe(true);
-      expect(props.onClick).toHaveBeenCalled();
+      expect(childEl).not.toBeVisible();
+
+      act(() => {
+        fireEvent.click(aggregatorEl);
+      });
+
+      expect(childEl).toBeVisible();
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
 
     it('should show children when clicking the aggregator and no onClick handle is passed', () => {
@@ -108,66 +116,82 @@ describe('Aggregator', () => {
         onClick: null
       };
 
-      const actual = mount(
+      const { getByTestId } = render(
         <Aggregator {...noHandlerProps}>
-          <div selected data-testid="child">
-            child
-          </div>
+          <div data-testid="child">child</div>
         </Aggregator>
       );
+      const aggregatorEl = getByTestId('aggregator');
+      const childEl = getByTestId('child');
 
-      actual.find("[className*='nav-aggregator']").simulate('click');
-      expect(actual.state().open).toBe(true);
+      expect(childEl).not.toBeVisible();
+
+      act(() => {
+        fireEvent.click(aggregatorEl);
+      });
+
+      expect(childEl).toBeVisible();
     });
 
     it('should not toggle when clicking again on the aggregator with a selected child', async () => {
-      const actual = mount(
-        <Aggregator {...props}>
+      const onClick = jest.fn();
+      const { getByTestId } = render(
+        <Aggregator {...props} onClick={onClick}>
           <div selected data-testid="child">
             child
           </div>
         </Aggregator>
       );
+      const aggregatorEl = getByTestId('aggregator');
+      const childEl = getByTestId('child');
 
-      actual.find("[className*='nav-aggregator']").simulate('click');
-      expect(actual.state().open).toBe(true);
+      expect(childEl).toBeVisible();
 
-      await new Promise(resolve => setTimeout(resolve));
-      actual.update();
+      act(() => {
+        fireEvent.click(aggregatorEl);
+      });
 
-      actual.find("[className*='nav-aggregator']").simulate('click');
+      expect(childEl).toBeVisible();
 
-      expect(props.onClick).toHaveBeenCalled();
-      expect(actual.state().open).toBe(true);
+      act(() => {
+        fireEvent.click(aggregatorEl);
+      });
+
+      expect(onClick).toHaveBeenCalledTimes(2);
+      expect(childEl).toBeVisible();
     });
 
     it('should close when there are no selected children', async () => {
-      const actual = mount(<MockedNavigation />);
-      const aggregator = actual.find('Aggregator');
+      const onClick = jest.fn();
+      const { getByTestId } = render(<MockedNavigation onClick={onClick} />);
+      const aggregatorEl = getByTestId('aggregator');
+      const childEl = getByTestId('child');
 
-      actual.find("[className*='nav-aggregator']").simulate('click');
-      expect(aggregator.state().open).toBe(true);
+      expect(childEl).not.toBeVisible();
 
-      await new Promise(resolve => setTimeout(resolve));
-      actual.update();
+      act(() => {
+        fireEvent.click(aggregatorEl);
+      });
 
-      actual.find("[id*='sibling']").simulate('click');
+      expect(childEl).toBeVisible();
 
-      await new Promise(resolve => setTimeout(resolve));
-      actual.update();
+      act(() => {
+        fireEvent.click(aggregatorEl);
+      });
 
-      expect(aggregator.state().open).toBe(false);
+      expect(onClick).toHaveBeenCalledTimes(2);
+      expect(childEl).not.toBeVisible();
     });
 
     it('should not render children when disabled', () => {
-      const wrapper = mount(
+      const { queryByTestId } = render(
         <Aggregator {...props} disabled={true}>
           <div data-selector="child">child</div>
         </Aggregator>
       );
-      const actual = wrapper.find('[data-selector="child"]');
+      const childEl = queryByTestId('child');
 
-      expect(actual).toHaveLength(0);
+      expect(childEl).toBeNull();
     });
   });
 

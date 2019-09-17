@@ -18,32 +18,33 @@ import React from 'react';
 import SecurityCodeInput from '.';
 
 describe('SecurityCodeInput', () => {
-  const inputSelector = 'MaskedInput';
-  it('should render a Label', () => {
-    const wrapper = shallow(<SecurityCodeInput />);
-    expect(wrapper.find('label')).toHaveLength(1);
-  });
-
-  it('should render an Input', () => {
-    const wrapper = shallow(<SecurityCodeInput />);
-    expect(wrapper.find(inputSelector)).toHaveLength(1);
+  it('should render an input with label', () => {
+    const { getByLabelText } = render(
+      <SecurityCodeInput label="Security Code" />
+    );
+    const inputEl = getByLabelText('Security Code');
+    expect(inputEl).toBeVisible();
   });
 
   it('should pass the placeholder to the Input', () => {
-    const wrapper = shallow(<SecurityCodeInput />);
-    const actual = wrapper.find(inputSelector).props().placeholder;
-    expect(actual).toBeTruthy();
+    const { getByPlaceholderText } = render(
+      <SecurityCodeInput placeholder="Security code" />
+    );
+    const inputEl = getByPlaceholderText('Security code');
+    expect(inputEl).toBeVisible();
   });
 
-  it('should pass the id to the Input', () => {
-    const wrapper = shallow(<SecurityCodeInput />);
-    const actual = wrapper.find(inputSelector).props().id;
-    expect(actual).toBeTruthy();
+  it('should pass any other props to the input', () => {
+    const { getByLabelText } = render(
+      <SecurityCodeInput label="Security Code" foo="bar" />
+    );
+    const inputEl = getByLabelText('Security Code');
+    expect(inputEl).toHaveAttribute('foo', 'bar');
   });
 
-  it('should spread any other props on the Input', () => {
-    const wrapper = shallow(<SecurityCodeInput foo="bar" />);
-    const actual = wrapper.find(inputSelector).props().foo;
-    expect(actual).toBeTruthy();
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<SecurityCodeInput />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

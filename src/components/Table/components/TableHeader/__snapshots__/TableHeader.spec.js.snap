@@ -22,8 +22,8 @@ exports[`TableHeader Style tests should render with condensed styles 1`] = `
 }
 
 <th
-  aria-sort={null}
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
+  data-testid="table-header"
   scope="col"
 >
   Foo
@@ -47,8 +47,8 @@ exports[`TableHeader Style tests should render with default styles 1`] = `
 }
 
 <th
-  aria-sort={null}
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
+  data-testid="table-header"
   scope="col"
 >
   Foo
@@ -73,8 +73,8 @@ exports[`TableHeader Style tests should render with hovered styles 1`] = `
 }
 
 <th
-  aria-sort={null}
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
+  data-testid="table-header"
   scope="col"
 >
   Foo
@@ -93,8 +93,8 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
 }
 
 <th
-  aria-sort={null}
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
+  data-testid="table-header"
   scope="row"
 >
   Foo
@@ -173,11 +173,12 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
 
 <th
   aria-sort="none"
-  className="circuit-3 circuit-4"
+  class="circuit-3 circuit-4"
+  data-testid="table-header"
   scope="col"
 >
   <button
-    className="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1 circuit-2"
     type="button"
   >
     <div>
@@ -267,11 +268,12 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 
 <th
   aria-sort="ascending"
-  className="circuit-3 circuit-4"
+  class="circuit-3 circuit-4"
+  data-testid="table-header"
   scope="col"
 >
   <button
-    className="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1 circuit-2"
     type="button"
   >
     <div>
@@ -358,11 +360,12 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 
 <th
   aria-sort="descending"
-  className="circuit-3 circuit-4"
+  class="circuit-3 circuit-4"
+  data-testid="table-header"
   scope="col"
 >
   <button
-    className="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1 circuit-2"
     type="button"
   >
     <div>

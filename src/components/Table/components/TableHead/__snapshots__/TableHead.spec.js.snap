@@ -95,21 +95,19 @@ tbody .circuit-9:last-child td {
 }
 
 <thead
-  className="circuit-11 circuit-12"
+  class="circuit-11 circuit-12"
 >
   <tr
-    className="circuit-9 circuit-10"
+    class="circuit-9 circuit-10"
   >
     <th
       aria-sort="none"
-      className="circuit-3 circuit-4"
-      onClick={[Function]}
-      onMouseEnter={null}
-      onMouseLeave={null}
+      class="circuit-3 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       <button
-        className="circuit-0 circuit-1 circuit-2"
+        class="circuit-0 circuit-1 circuit-2"
         type="button"
       >
         <div>
@@ -122,21 +120,15 @@ tbody .circuit-9:last-child td {
       Foo
     </th>
     <th
-      aria-sort={null}
-      className="circuit-5 circuit-4"
-      onClick={null}
-      onMouseEnter={null}
-      onMouseLeave={null}
+      class="circuit-5 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
-      aria-sort={null}
-      className="circuit-5 circuit-4"
-      onClick={null}
-      onMouseEnter={null}
-      onMouseLeave={null}
+      class="circuit-5 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       Baz
@@ -240,21 +232,19 @@ tbody .circuit-9:last-child td {
 }
 
 <thead
-  className="circuit-11 circuit-12"
+  class="circuit-11 circuit-12"
 >
   <tr
-    className="circuit-9 circuit-10"
+    class="circuit-9 circuit-10"
   >
     <th
       aria-sort="none"
-      className="circuit-3 circuit-4"
-      onClick={[Function]}
-      onMouseEnter={null}
-      onMouseLeave={null}
+      class="circuit-3 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       <button
-        className="circuit-0 circuit-1 circuit-2"
+        class="circuit-0 circuit-1 circuit-2"
         type="button"
       >
         <div>
@@ -267,21 +257,15 @@ tbody .circuit-9:last-child td {
       Foo
     </th>
     <th
-      aria-sort={null}
-      className="circuit-5 circuit-4"
-      onClick={null}
-      onMouseEnter={null}
-      onMouseLeave={null}
+      class="circuit-5 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
-      aria-sort={null}
-      className="circuit-5 circuit-4"
-      onClick={null}
-      onMouseEnter={null}
-      onMouseLeave={null}
+      class="circuit-5 circuit-4"
+      data-testid="table-header"
       scope="col"
     >
       Baz

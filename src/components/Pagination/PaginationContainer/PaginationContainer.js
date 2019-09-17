@@ -27,8 +27,6 @@ const Container = styled('div')`
   `};
 `;
 
-Container.displayName = 'Container';
-
 const NavigationButtonPrevious = styled(Button)`
   ${({ theme }) => `
     border-top-right-radius: 0;
@@ -40,13 +38,11 @@ const NavigationButtonPrevious = styled(Button)`
     }
 `};
 `;
-NavigationButtonPrevious.displayName = 'NavigationButtonPrevious';
 
 const NavigationButtonNext = styled(Button)`
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 `;
-NavigationButtonNext.displayName = 'NavigationButtonNext';
 
 const PaginationFooter = styled('div')`
   ${({ theme }) => `
@@ -73,6 +69,7 @@ const PaginationContainer = ({
         size={Button.KILO}
         onClick={() => onChange(page - 1)}
         disabled={page === 1}
+        data-testid="pagination-button-previous"
       >
         {previousLabel}
       </NavigationButtonPrevious>
@@ -83,6 +80,7 @@ const PaginationContainer = ({
         disabled={page === totalPages}
         isLast
         isFirst={false}
+        data-testid="pagination-button-next"
       >
         {nextLabel}
       </NavigationButtonNext>
@@ -90,8 +88,6 @@ const PaginationContainer = ({
     {footer && <PaginationFooter>{footer}</PaginationFooter>}
   </Fragment>
 );
-
-PaginationContainer.displayName = 'PaginationContainer';
 
 PaginationContainer.propTypes = {
   children: PropTypes.node.isRequired,

@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
-import { css, jsx } from '@emotion/core';
-import styled from '@emotion/styled';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { find } from 'lodash';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { find, identity } from 'lodash/fp';
 import { size } from 'polished';
 
 import HtmlElement from '../HtmlElement';
@@ -246,7 +245,7 @@ const ValidationIcon = ({
     showValid && <ValidIcon role="img" css={iconStyles} />
   ];
 
-  const icon = find(icons);
+  const icon = find(identity, icons);
 
   return (
     <ValidationIconWrapper {...{ invalid, hasWarning, className }}>

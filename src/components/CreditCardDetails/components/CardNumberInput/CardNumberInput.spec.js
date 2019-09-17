@@ -72,38 +72,36 @@ describe('CardNumberInput', () => {
 
   /**
    * Style tests.
-   *
-   * Using render in these tests, because text-mask relies
-   * on refs and those are not well supported in react's
-   * test renderer.
    */
-
   it('should render with default styles', () => {
-    const actual = render(emptyComponent);
+    const actual = create(emptyComponent);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with styles for more than 5 card schemes', () => {
-    const actual = render(manySchemesComponent);
+    const actual = create(manySchemesComponent);
     expect(actual).toMatchSnapshot();
   });
 
   /**
    * Logic tests.
    */
-
   it('should render all but the detected card scheme with reduced opacity', () => {
-    const wrapper = shallow(detectedComponent);
-    const disabledProps = wrapper.find('li').map(el => el.prop('disabled'));
-    const disabledWrappersCount = disabledProps.reduce(
-      (acc, prop) => acc + prop,
+    const { getAllByTestId } = render(detectedComponent);
+    const schemeEls = getAllByTestId('card-number-input-scheme');
+
+    const disabledCount = schemeEls.reduce(
+      (acc, el) => (el.getAttribute('disabled') === '' ? acc + 1 : acc),
       0
     );
-    expect(disabledWrappersCount).toBe(3);
-    const actualStyles = render(detectedComponent);
+    expect(disabledCount).toBe(3);
+    const actualStyles = create(detectedComponent);
     expect(actualStyles).toMatchSnapshot();
   });
 
+  /**
+   * Accessibility tests.
+   */
   // FIXME: Figure out what's the best combination of type/autocomplete for
   // this input.
   it.skip('should meet accessibility guidelines', async () => {

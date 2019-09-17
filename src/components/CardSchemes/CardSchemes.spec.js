@@ -33,12 +33,14 @@ describe('CardSchemes', () => {
 
   it('should render each icon specified in the "iconsIds" prop', () => {
     const iconIds = ['visa', 'mastercard'];
-    const wrapper = mount(<CardSchemes iconIds={iconIds} />);
+    const { container } = render(<CardSchemes iconIds={iconIds} />);
 
-    iconIds.forEach(iconId => {
-      const iconNodes = wrapper.find(`[aria-label="icon ${iconId}"]`);
-      expect(iconNodes).toHaveLength(1);
-      expect(iconNodes).toIncludeText(`${iconId}.svg`);
+    const iconEls = container.querySelectorAll('li');
+    expect(iconEls).toHaveLength(2);
+    iconIds.forEach((iconId, index) => {
+      expect(iconEls[index].firstChild.firstChild).toHaveTextContent(
+        `${iconId}.svg`
+      );
     });
   });
 

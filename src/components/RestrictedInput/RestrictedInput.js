@@ -19,6 +19,7 @@ import PropTypes from 'prop-types';
 import Input from '../Input';
 import { handleKeyDown, handleCarretPosition } from './RestrictedInputService';
 import { directions } from '../../styles/constants';
+import { deprecatedPropType } from '../../util/shared-prop-types';
 
 // TODO: add state management to enable shortcurts. This
 // will require tracking the previously pressed key and
@@ -32,6 +33,8 @@ import { directions } from '../../styles/constants';
  */
 const RestrictedInput = ({
   filteredKeys,
+  whitelistedKeys,
+  onKeyDown,
   onFocus,
   onMouseUp,
   alignCarretLeft,
@@ -39,7 +42,7 @@ const RestrictedInput = ({
 }) => (
   <Input
     {...props}
-    onKeyDown={handleKeyDown(filteredKeys)}
+    onKeyDown={handleKeyDown(onKeyDown, whitelistedKeys || filteredKeys)}
     onFocus={handleCarretPosition(onFocus, alignCarretLeft)}
     onMouseUp={handleCarretPosition(onMouseUp, alignCarretLeft)}
   />
@@ -50,22 +53,37 @@ RestrictedInput.RIGHT = directions.RIGHT;
 
 RestrictedInput.propTypes = {
   /**
-   * An array of keys that shold register with the input. All
-   * other keys will be ignored.
+   * @deprecated
+   * Callback used when the user toggles the switch.
    */
-  filteredKeys: PropTypes.arrayOf(PropTypes.string),
+  filteredKeys: deprecatedPropType(
+    PropTypes.arrayOf(PropTypes.string),
+    [
+      'The "filteredKeys" prop is deprecated.',
+      'Use the "whitelistedKeys" prop instead.'
+    ].join(' ')
+  ),
   /**
    * An array of keys that shold register with the input. All
    * other keys will be ignored.
+   */
+  whitelistedKeys: PropTypes.arrayOf(PropTypes.string),
+  /**
+   * Should the carret always be aligned on the left side of the input?
    */
   alignCarretLeft: PropTypes.bool,
   /**
-   * A focus event handler. We use our own to limit the keys a user
+   * A keyDown event handler. We use our own to limit the keys a user
    * can press when editing.
+   */
+  onKeyDown: PropTypes.func,
+  /**
+   * A focus event handler. We use our own to move the carret
+   * to one side of the input whenever a user focuses it.
    */
   onFocus: PropTypes.func,
   /**
-   * mouseup event handler. We use our own to move the carret
+   * A mouseup event handler. We use our own to move the carret
    * to one side of the input whenever a user clicks it.
    */
   onMouseUp: PropTypes.func

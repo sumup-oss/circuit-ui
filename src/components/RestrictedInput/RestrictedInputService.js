@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { includes, isArray } from '../../util/fp';
+import { isEmpty, isArray, includes } from 'lodash/fp';
 
-const DEFAULT_KEYS = [
+const DEFAULT_WHITELISTED_KEYS = [
   'Tab',
   'Return',
   'Delete',
@@ -27,15 +27,19 @@ const DEFAULT_KEYS = [
   'Unidentified' // This is here because legacy Chrome on XP sends it.
 ];
 
-export const handleKeyDown = userFilteredKeys => {
-  if (!isArray(userFilteredKeys) || !userFilteredKeys.length) {
-    return undefined;
+export const handleKeyDown = (onKeyDown, userWhitelistedKeys) => {
+  if (!isArray(userWhitelistedKeys) || isEmpty(userWhitelistedKeys)) {
+    return onKeyDown;
   }
-  const filteredKeys = [...DEFAULT_KEYS, ...userFilteredKeys];
-  return e => {
+  const whitelistedKeys = [...DEFAULT_WHITELISTED_KEYS, ...userWhitelistedKeys];
+  return event => {
     // TODO: think about replacing this with a regex.
-    if (e.key !== undefined && !includes(e.key, filteredKeys)) {
-      e.preventDefault();
+    if (event.key !== undefined && !includes(event.key, whitelistedKeys)) {
+      event.preventDefault();
+      return;
+    }
+    if (onKeyDown) {
+      onKeyDown(event);
     }
   };
 };

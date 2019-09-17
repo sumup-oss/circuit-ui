@@ -23,9 +23,8 @@ exports[`LoadingIcon Style tests should have active LoadingIcon styles 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1 circuit-2"
   role="alert"
-  size="kilo"
 >
   <div>
     spinner.svg
@@ -55,9 +54,8 @@ exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1 circuit-2"
   role="alert"
-  size="kilo"
 >
   <div>
     spinner.svg
@@ -66,7 +64,7 @@ exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
 `;
 
 exports[`LoadingIcon Style tests should have error LoadingIcon styles 1`] = `
-Array [
+HTMLCollection [
   .circuit-1 {
   opacity: 0;
   max-width: -webkit-fit-content;
@@ -88,9 +86,8 @@ Array [
 <div
     aria-busy="true"
     aria-live="assertive"
-    className="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1 circuit-2"
     role="alert"
-    size="kilo"
   >
     <div>
       spinner.svg
@@ -108,8 +105,7 @@ Array [
 }
 
 <div
-    className="circuit-0 circuit-1"
-    size="kilo"
+    class="circuit-0 circuit-1"
   >
     <div>
       error.svg
@@ -140,9 +136,8 @@ exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1 circuit-2"
   role="alert"
-  size="giga"
 >
   <div>
     spinner.svg
@@ -172,9 +167,8 @@ exports[`LoadingIcon Style tests should have kilo LoadingIcon styles 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1 circuit-2"
   role="alert"
-  size="kilo"
 >
   <div>
     spinner.svg
@@ -204,9 +198,8 @@ exports[`LoadingIcon Style tests should have mega LoadingIcon styles 1`] = `
 <div
   aria-busy="true"
   aria-live="assertive"
-  className="circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1 circuit-2"
   role="alert"
-  size="mega"
 >
   <div>
     spinner.svg
@@ -215,7 +208,7 @@ exports[`LoadingIcon Style tests should have mega LoadingIcon styles 1`] = `
 `;
 
 exports[`LoadingIcon Style tests should have success LoadingIcon styles 1`] = `
-Array [
+HTMLCollection [
   .circuit-1 {
   opacity: 0;
   max-width: -webkit-fit-content;
@@ -237,9 +230,8 @@ Array [
 <div
     aria-busy="true"
     aria-live="assertive"
-    className="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1 circuit-2"
     role="alert"
-    size="kilo"
   >
     <div>
       spinner.svg
@@ -257,8 +249,7 @@ Array [
 }
 
 <div
-    className="circuit-0 circuit-1"
-    size="kilo"
+    class="circuit-0 circuit-1"
   >
     <div>
       success.svg

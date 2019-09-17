@@ -141,6 +141,7 @@ const Tag = ({
         onClick={onRemove}
         selected={selected}
         label={labelRemoveButton}
+        data-testid="tag-close"
       />
     )}
   </TagElement>

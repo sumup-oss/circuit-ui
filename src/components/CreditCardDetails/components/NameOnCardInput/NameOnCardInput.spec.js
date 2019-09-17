@@ -18,26 +18,21 @@ import React from 'react';
 import NameOnCardInput from '.';
 
 describe('NameOnCardInput', () => {
-  const inputSelector = 'input';
-  it('should render a Label', () => {
-    const wrapper = shallow(<NameOnCardInput />);
-    expect(wrapper.find('Label')).toHaveLength(1);
+  it('should render an input with label', () => {
+    const { getByLabelText } = render(<NameOnCardInput label="Name on card" />);
+    const inputEl = getByLabelText('Name on card');
+    expect(inputEl).toBeVisible();
   });
 
-  it('should render an Input', () => {
-    const wrapper = shallow(<NameOnCardInput />);
-    expect(wrapper.find(inputSelector)).toHaveLength(1);
+  it('should pass any other props to the input', () => {
+    const { getByLabelText } = render(<NameOnCardInput foo="bar" />);
+    const inputEl = getByLabelText('Name on card');
+    expect(inputEl).toHaveAttribute('foo', 'bar');
   });
 
-  it('should pass the id to the Input', () => {
-    const wrapper = shallow(<NameOnCardInput />);
-    const actual = wrapper.find(inputSelector).props().id;
-    expect(actual).toBeTruthy();
-  });
-
-  it('should spread any other props on the Input', () => {
-    const wrapper = shallow(<NameOnCardInput foo="bar" />);
-    const actual = wrapper.find(inputSelector).props().foo;
-    expect(actual).toBeTruthy();
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<NameOnCardInput />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

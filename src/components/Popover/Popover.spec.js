@@ -75,33 +75,34 @@ describe('Popover', () => {
   });
 
   it('should render nothing without isOpen=false', () => {
-    const actual = mount(<Popover isOpen={false} {...defaultProps} />);
-    expect(actual.find('Popper')).toHaveLength(0);
+    const { queryByTestId } = render(
+      <Popover isOpen={false} {...defaultProps} />
+    );
+    expect(queryByTestId('popover-child')).toBeNull();
   });
 
-  it('it should call onReferenceClickClose on clicked reference when isOpen=true', () => {
+  it('should call onReferenceClickClose on clicked reference when isOpen=true', () => {
     const onReferenceClickClose = jest.fn();
-    const actual = mount(
+    const { getByTestId } = render(
       <Popover
         isOpen
         {...defaultProps}
         onReferenceClickClose={onReferenceClickClose}
       />
     );
-    actual
-      .find('Styled(div)')
-      .first()
-      .simulate('click');
+
+    act(() => {
+      fireEvent.click(getByTestId('popover-reference'));
+    });
+
     expect(onReferenceClickClose).toHaveBeenCalledTimes(1);
   });
 
   it('should not render <Reference> component when referenceElement is passed', () => {
-    const dummyElement = document.createElement('div');
-    const actual = shallow(
-      <Popover isOpen {...defaultProps} referenceElement={dummyElement} />
+    const { queryByTestId } = render(
+      <Popover isOpen {...defaultProps} referenceElement={<div />} />
     );
-    expect(actual.find('Reference')).toHaveLength(0);
-    expect(actual.find('Popper').prop('referenceElement')).toBe(dummyElement);
+    expect(queryByTestId('popover-reference')).toBeNull();
   });
 
   /**

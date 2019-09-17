@@ -32,13 +32,17 @@ describe('PaymentMethodIcon', () => {
    * Logic tests
    */
   it('should render the specified icon', () => {
-    const wrapper = mount(
-      <PaymentMethodIcon size={PaymentMethodIcon.BYTE} iconId={iconId} />
+    const { getByTestId } = render(
+      <PaymentMethodIcon
+        size={PaymentMethodIcon.BYTE}
+        iconId={iconId}
+        data-testid="payment-method-icon"
+      />
     );
 
-    const iconComponent = wrapper.find(`[aria-label="icon ${iconId}"]`);
-    expect(iconComponent).toHaveLength(1);
-    expect(iconComponent).toIncludeText(`${iconId}.svg`);
+    const iconEl = getByTestId('payment-method-icon');
+    expect(iconEl).toBeVisible();
+    expect(iconEl.firstChild).toHaveTextContent(`${iconId}.svg`);
   });
 
   /**

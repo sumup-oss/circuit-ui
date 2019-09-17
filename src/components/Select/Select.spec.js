@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Select from '.';
 import Label from '../Label';
@@ -69,6 +69,19 @@ describe('Select', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with a prefix when passed the prefix prop', () => {
+    const DummyElement = props => (
+      <div style={{ width: '24px', height: '24px' }} {...props} />
+    );
+    const actual = create(
+      <Select
+        {...{ options }}
+        renderPrefix={({ className }) => <DummyElement className={className} />}
+      />
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
@@ -86,52 +99,49 @@ describe('Select', () => {
    * Logic tests.
    */
   it('should accept the options as children', () => {
-    const children = (
-      <Fragment>
-        {options.map(({ label, ...rest }) => (
-          <option key={rest.value} {...rest}>
-            {label}
-          </option>
-        ))}
-      </Fragment>
-    );
-    const wrapper = shallow(<Select disabled>{children}</Select>);
-    const actual = wrapper.find('select').prop('disabled');
-    expect(actual).toBeTruthy();
+    const children = options.map(({ label, ...rest }) => (
+      <option key={rest.value} data-testid="select-option" {...rest}>
+        {label}
+      </option>
+    ));
+    const { getAllByTestId } = render(<Select>{children}</Select>);
+    const optionEls = getAllByTestId('select-option');
+    expect(optionEls).toHaveLength(options.length);
   });
 
   it('should be disabled when passed the disabled prop', () => {
-    const wrapper = shallow(<Select {...{ options }} disabled />);
-    const actual = wrapper.find('select').prop('disabled');
-    expect(actual).toBeTruthy();
+    const { getByTestId } = render(
+      <Select options={options} data-testid="select-element" disabled />
+    );
+    const selectEl = getByTestId('select-element');
+    expect(selectEl).toBeDisabled();
   });
 
   it('should show the placeholder when no value is passed', () => {
-    const expected = 'Placeholder';
-    const wrapper = shallow(<Select {...{ options, placeholder: expected }} />);
-    const actual = wrapper
-      .find('option')
-      .first()
-      .text();
-    expect(actual).toBe(expected);
+    const placeholder = 'Placeholder';
+    const { getByTestId } = render(
+      <Select
+        options={options}
+        placeholder={placeholder}
+        data-testid="select-element"
+      />
+    );
+    const selectEl = getByTestId('select-element');
+    expect(selectEl.firstChild).toHaveTextContent(placeholder);
   });
 
   it('should not show the placeholder when a value is selected', () => {
-    const wrapper = shallow(<Select {...{ options }} value={2} />);
-    const actual = wrapper.find('option [key=0]').length;
-    expect(actual).toBe(0);
-  });
-
-  it('should render with a prefix when passed the prefix prop', () => {
-    const DummyElement = () => (
-      <div style={{ width: '24px', height: '24px' }} />
-    );
-    const actual = create(
+    const placeholder = 'Placeholder';
+    const value = 2;
+    const { getByTestId } = render(
       <Select
-        {...{ options }}
-        renderPrefix={({ className }) => <DummyElement {...{ className }} />}
+        options={options}
+        placeholder={placeholder}
+        value={value}
+        data-testid="select-element"
       />
     );
-    expect(actual).toMatchSnapshot();
+    const selectEl = getByTestId('select-element');
+    expect(selectEl.firstChild).not.toHaveTextContent(placeholder);
   });
 });

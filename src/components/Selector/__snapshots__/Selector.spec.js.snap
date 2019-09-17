@@ -15,18 +15,9 @@ exports[`Selector should render a default selector appropriately 1`] = `
   background-color: #FAFBFC;
 }
 
-<withProps(Styled(div))>
-  <Styled(div)
-    disabled={false}
-    selected={false}
-  >
-    <div
-      className="circuit-0 circuit-1"
-      disabled={false}
-      selected={false}
-    />
-  </Styled(div)>
-</withProps(Styled(div))>
+<div
+  class="circuit-0 circuit-1"
+/>
 `;
 
 exports[`Selector should render a disabled selector appropriately 1`] = `
@@ -46,20 +37,10 @@ exports[`Selector should render a disabled selector appropriately 1`] = `
   background-color: #FAFBFC;
 }
 
-<withProps(Styled(div))
-  disabled={true}
->
-  <Styled(div)
-    disabled={true}
-    selected={false}
-  >
-    <div
-      className="circuit-0 circuit-1"
-      disabled={true}
-      selected={false}
-    />
-  </Styled(div)>
-</withProps(Styled(div))>
+<div
+  class="circuit-0 circuit-1"
+  disabled=""
+/>
 `;
 
 exports[`Selector should render a selected selector appropriately 1`] = `
@@ -75,20 +56,8 @@ exports[`Selector should render a selected selector appropriately 1`] = `
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-<withProps(Styled(div))
-  selected={true}
->
-  <Styled(div)
-    aria-selected={true}
-    disabled={false}
-    selected={true}
-  >
-    <div
-      aria-selected={true}
-      className="circuit-0 circuit-1"
-      disabled={false}
-      selected={true}
-    />
-  </Styled(div)>
-</withProps(Styled(div))>
+<div
+  aria-selected="true"
+  class="circuit-0 circuit-1"
+/>
 `;

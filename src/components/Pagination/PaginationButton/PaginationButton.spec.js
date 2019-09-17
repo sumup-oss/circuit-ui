@@ -20,14 +20,14 @@ import PaginationButton from './PaginationButton';
 describe('PaginationButton', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = shallow(
+      const actual = create(
         <PaginationButton currentPage={1} onClick={jest.fn()} />
       );
       expect(actual).toMatchSnapshot();
     });
 
-    it('should render with default styles when have plain false', () => {
-      const actual = shallow(
+    it('should render with plain styles', () => {
+      const actual = create(
         <PaginationButton currentPage={1} onClick={jest.fn()} plain />
       );
       expect(actual).toMatchSnapshot();
@@ -40,8 +40,15 @@ describe('PaginationButton', () => {
         currentPage: 13,
         onClick: jest.fn()
       };
-      const component = shallow(<PaginationButton {...props} />);
-      component.simulate('click');
+      const { getByTestId } = render(
+        <PaginationButton {...props} data-testid="pagination-button" />
+      );
+
+      act(() => {
+        fireEvent.click(getByTestId('pagination-button'));
+      });
+
+      expect(props.onClick).toHaveBeenCalledTimes(1);
       expect(props.onClick).toHaveBeenCalledWith(13);
     });
   });

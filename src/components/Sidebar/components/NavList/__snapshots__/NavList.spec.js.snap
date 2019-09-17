@@ -9,6 +9,6 @@ exports[`NavList styles should render with default styles 1`] = `
 }
 
 <ul
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 />
 `;

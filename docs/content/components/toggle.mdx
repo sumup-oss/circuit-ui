@@ -18,13 +18,13 @@ import Text from '../../../src/components/Text';
 The toggle is a switcher between two mutually exclusive states: on and off.
 
 <Playground>
-  <State initial={false} name="on" updaterName="onToggle" updater={on => !on}>
-    {({ onToggle, on }) => (
+  <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
+    {({ onChange, on }) => (
       <Toggle
         label="Receive marketing and promotional materials"
         explanation="If this option is active you will receive weekly promotional materials in your email"
-        onToggle={e => {
-          onToggle(e);
+        onChange={e => {
+          onChange(e);
         }}
         {...{ on }}
       />

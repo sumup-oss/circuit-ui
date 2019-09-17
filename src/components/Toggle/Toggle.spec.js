@@ -17,17 +17,22 @@ import React from 'react';
 
 import Toggle from '.';
 
+const defaultProps = {
+  label: 'Label',
+  explanation: 'A longer explanation'
+};
+
 describe('Toggle', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Toggle />);
+    const actual = create(<Toggle {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
-    const actual = create(<Toggle noMargin />);
+    const actual = create(<Toggle {...defaultProps} noMargin />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -36,7 +41,7 @@ describe('Toggle', () => {
    * See https://inclusive-components.design/toggle-button/
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Toggle />);
+    const wrapper = renderToHtml(<Toggle {...defaultProps} />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

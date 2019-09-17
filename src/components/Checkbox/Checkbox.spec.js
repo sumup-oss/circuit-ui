@@ -55,6 +55,34 @@ describe('Checkbox', () => {
   });
 
   /**
+   * Logic tests.
+   */
+  it('should be unchecked by default', () => {
+    const { getByLabelText } = render(
+      <Checkbox {...{ name, onChange }}>Label</Checkbox>
+    );
+    const inputEl = getByLabelText('Label', {
+      exact: false
+    });
+    expect(inputEl).not.toHaveAttribute('checked');
+  });
+
+  it('should call the change handler when clicked', () => {
+    const { getByLabelText } = render(
+      <Checkbox {...{ name, onChange }}>Label</Checkbox>
+    );
+    const inputEl = getByLabelText('Label', {
+      exact: false
+    });
+
+    act(() => {
+      fireEvent.click(inputEl);
+    });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
@@ -65,21 +93,5 @@ describe('Checkbox', () => {
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
-  });
-
-  /**
-   * Logic tests.
-   */
-  it('should be unchecked by default', () => {
-    const wrapper = shallow(<Checkbox {...{ name, onChange }} />);
-    const actual = wrapper.find('input[type="checkbox"]').props().checked;
-    expect(actual).toBeFalsy();
-  });
-
-  it('should call onChange when toggled', () => {
-    const wrapper = shallow(<Checkbox {...{ name, onChange }} />);
-    const label = wrapper.find('input[type="checkbox"]');
-    label.simulate('change');
-    expect(onChange).toHaveBeenCalledTimes(1);
   });
 });

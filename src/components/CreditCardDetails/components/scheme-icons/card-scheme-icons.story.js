@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import { flow, toPairs, map, pick, values } from '../../../../util/fp';

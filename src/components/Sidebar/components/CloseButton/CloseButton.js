@@ -61,8 +61,8 @@ const FloatingButton = styled.button`
   ${visibleStyles};
 `;
 
-const CloseButton = ({ visible, closeButtonLabel, onClick }) => (
-  <FloatingButton visible={visible} onClick={onClick}>
+const CloseButton = ({ visible, closeButtonLabel, onClick, ...props }) => (
+  <FloatingButton visible={visible} onClick={onClick} {...props}>
     <AccessibilityLabel>{closeButtonLabel}</AccessibilityLabel>
     <CloseIcon aria-hidden="true" />
   </FloatingButton>

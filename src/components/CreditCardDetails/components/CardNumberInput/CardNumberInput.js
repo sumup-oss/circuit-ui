@@ -172,6 +172,7 @@ const CardNumberInput = ({
             toPairs,
             map(([cardScheme, IconComponent]) => (
               <SchemeIconWrapper
+                data-testid="card-number-input-scheme"
                 disabled={isDisabledSchemeIcon(
                   value,
                   detectedCardScheme,

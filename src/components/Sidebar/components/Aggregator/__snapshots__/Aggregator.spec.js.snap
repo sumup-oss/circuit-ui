@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Aggregator styles should render and match snapshot when open 1`] = `
-.circuit-2 {
+HTMLCollection [
+  .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -36,7 +37,18 @@ exports[`Aggregator styles should render and match snapshot when open 1`] = `
   margin-left: 12px;
 }
 
-.circuit-4 {
+<div
+    class="circuit-2 circuit-3"
+    data-testid="aggregator"
+  >
+    default-icon
+    <div
+      class="circuit-0 circuit-1"
+    >
+      Aggregator
+    </div>
+  </div>,
+  .circuit-0 {
   margin: -8px 0 8px 32px;
   list-style: none;
   height: 0;
@@ -52,7 +64,7 @@ exports[`Aggregator styles should render and match snapshot when open 1`] = `
   transition: height 200ms ease-in-out,opacity 200ms ease-in-out 100ms,visibility 200ms ease-in-out 100ms;
 }
 
-.circuit-4::after {
+.circuit-0::after {
   content: '';
   width: 2px;
   background: #3388FF;
@@ -64,7 +76,7 @@ exports[`Aggregator styles should render and match snapshot when open 1`] = `
   transition: top 200ms ease-in-out;
 }
 
-.circuit-4::before {
+.circuit-0::before {
   content: '';
   width: 2px;
   background: #5C656F;
@@ -74,69 +86,21 @@ exports[`Aggregator styles should render and match snapshot when open 1`] = `
   border-radius: 1px;
 }
 
-<Aggregator
-  defaultIcon="default-icon"
-  disabled={false}
-  label="Aggregator"
-  onClick={
-    [MockFunction] {
-      "calls": Array [
-        Array [],
-      ],
-      "results": Array [
-        Object {
-          "isThrow": false,
-          "value": undefined,
-        },
-      ],
-    }
-  }
-  selectedIcon="selected-icon"
->
-  <Styled(div)
-    disabled={false}
-    onClick={[Function]}
+<ul
+    class="circuit-0 circuit-1"
   >
     <div
-      className="circuit-2 circuit-3"
-      disabled={false}
-      onClick={[Function]}
+      data-testid="child"
     >
-      default-icon
-      <Styled(div)>
-        <div
-          className="circuit-0 circuit-1"
-        >
-          Aggregator
-        </div>
-      </Styled(div)>
+      child
     </div>
-  </Styled(div)>
-  <SubNavList
-    visible={true}
-  >
-    <Styled(ul)
-      selectedChildIndex={0}
-      visible={true}
-    >
-      <ul
-        className="circuit-4 circuit-5"
-      >
-        <div
-          data-testid="child"
-          secondary={true}
-          visible={true}
-        >
-          child
-        </div>
-      </ul>
-    </Styled(ul)>
-  </SubNavList>
-</Aggregator>
+  </ul>,
+]
 `;
 
 exports[`Aggregator styles should render with default styles 1`] = `
-.circuit-2 {
+HTMLCollection [
+  .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -171,7 +135,18 @@ exports[`Aggregator styles should render with default styles 1`] = `
   margin-left: 12px;
 }
 
-.circuit-4 {
+<div
+    class="circuit-2 circuit-3"
+    data-testid="aggregator"
+  >
+    default-icon
+    <div
+      class="circuit-0 circuit-1"
+    >
+      Aggregator
+    </div>
+  </div>,
+  .circuit-0 {
   margin: -8px 0 8px 32px;
   list-style: none;
   height: 0;
@@ -181,7 +156,7 @@ exports[`Aggregator styles should render with default styles 1`] = `
   overflow: hidden;
 }
 
-.circuit-4::after {
+.circuit-0::after {
   content: '';
   width: 2px;
   background: #3388FF;
@@ -193,7 +168,7 @@ exports[`Aggregator styles should render with default styles 1`] = `
   transition: top 200ms ease-in-out;
 }
 
-.circuit-4::before {
+.circuit-0::before {
   content: '';
   width: 2px;
   background: #5C656F;
@@ -203,53 +178,16 @@ exports[`Aggregator styles should render with default styles 1`] = `
   border-radius: 1px;
 }
 
-<Aggregator
-  defaultIcon="default-icon"
-  disabled={false}
-  label="Aggregator"
-  onClick={[MockFunction]}
-  selectedIcon="selected-icon"
->
-  <Styled(div)
-    disabled={false}
-    onClick={[Function]}
+<ul
+    class="circuit-0 circuit-1"
   >
     <div
-      className="circuit-2 circuit-3"
-      disabled={false}
-      onClick={[Function]}
+      data-testid="child"
     >
-      default-icon
-      <Styled(div)>
-        <div
-          className="circuit-0 circuit-1"
-        >
-          Aggregator
-        </div>
-      </Styled(div)>
+      child
     </div>
-  </Styled(div)>
-  <SubNavList
-    visible={false}
-  >
-    <Styled(ul)
-      selectedChildIndex={0}
-      visible={false}
-    >
-      <ul
-        className="circuit-4 circuit-5"
-      >
-        <div
-          data-testid="child"
-          secondary={true}
-          visible={false}
-        >
-          child
-        </div>
-      </ul>
-    </Styled(ul)>
-  </SubNavList>
-</Aggregator>
+  </ul>,
+]
 `;
 
 exports[`Aggregator styles should render with disabled state styles and match the snapshot 1`] = `
@@ -286,47 +224,18 @@ exports[`Aggregator styles should render with disabled state styles and match th
   fill: #5C656F;
 }
 
-<Aggregator
-  defaultIcon="default-icon"
-  disabled={true}
-  label="Aggregator"
-  onClick={
-    [MockFunction] {
-      "calls": Array [
-        Array [],
-      ],
-      "results": Array [
-        Object {
-          "isThrow": false,
-          "value": undefined,
-        },
-      ],
-    }
-  }
-  selectedIcon="selected-icon"
+<div
+  class="circuit-2 circuit-3"
+  data-testid="aggregator"
+  disabled=""
 >
-  <Styled(div)
-    disabled={true}
-    onClick={[Function]}
+  <div>
+    lock.svg
+  </div>
+  <div
+    class="circuit-0 circuit-1"
   >
-    <div
-      className="circuit-2 circuit-3"
-      disabled={true}
-      onClick={[Function]}
-    >
-      <ReactComponent>
-        <div>
-          lock.svg
-        </div>
-      </ReactComponent>
-      <Styled(div)>
-        <div
-          className="circuit-0 circuit-1"
-        >
-          Aggregator
-        </div>
-      </Styled(div)>
-    </div>
-  </Styled(div)>
-</Aggregator>
+    Aggregator
+  </div>
+</div>
 `;

@@ -17,14 +17,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { noop, omit } from 'lodash/fp';
 
-import LoadingButton from './components/LoadingButton';
+import Button from './components/Button';
 import { LOADING_STATES, EXIT_ANIMATION_DURATION } from './constants';
 import { BUTTON_PROP_TYPES, BUTTON_DEFAULT_PROPS } from '../Button/constants';
 import { isActive, isDisabled, isSuccess, isError } from './utils';
 
 const { DISABLED, ACTIVE, SUCCESS, ERROR } = LOADING_STATES;
 
-class Container extends Component {
+export default class LoadingButton extends Component {
   static SUCCESS = SUCCESS;
 
   static ERROR = ERROR;
@@ -124,13 +124,7 @@ class Container extends Component {
       isError(loadingState);
 
     return (
-      <LoadingButton
-        {...props}
-        loadingState={loadingState}
-        isLoading={isLoading}
-      />
+      <Button {...props} loadingState={loadingState} isLoading={isLoading} />
     );
   }
 }
-
-export default Container;

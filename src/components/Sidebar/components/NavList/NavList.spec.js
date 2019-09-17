@@ -25,15 +25,14 @@ describe('NavList', () => {
     });
 
     it('should render children', () => {
-      const wrapper = shallow(
+      const { getByTestId } = render(
         <NavList>
-          <li data-selector="child">text node</li>
+          <span data-testid="child">Child</span>
         </NavList>
       );
-      const actual = wrapper.find('[data-selector="child"]');
-
-      expect(actual).toHaveLength(1);
-      expect(actual.text()).toEqual('text node');
+      const childEl = getByTestId('child');
+      expect(childEl).not.toBeNull();
+      expect(childEl).toHaveTextContent('Child');
     });
   });
 

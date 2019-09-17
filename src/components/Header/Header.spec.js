@@ -37,15 +37,14 @@ describe('Header', () => {
     });
 
     it('should render children', () => {
-      const wrapper = shallow(
+      const { getByTestId } = render(
         <Header>
-          <span data-selector="child">text node</span>
+          <span data-testid="child">Text</span>
         </Header>
       );
-      const actual = wrapper.find('[data-selector="child"]');
-
-      expect(actual).toHaveLength(1);
-      expect(actual.text()).toEqual('text node');
+      const childEl = getByTestId('child');
+      expect(childEl).not.toBeNull();
+      expect(childEl).toHaveTextContent('Text');
     });
   });
 

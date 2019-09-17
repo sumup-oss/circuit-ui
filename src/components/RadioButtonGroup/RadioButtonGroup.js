@@ -25,7 +25,7 @@ import RadioButton from '../RadioButton';
  */
 const RadioButtonGroup = ({
   options,
-  onChange: onToggle,
+  onChange,
   value: activeValue,
   name: customName
 }) => {
@@ -36,7 +36,7 @@ const RadioButtonGroup = ({
         options.map(({ label, value, className, ...props }) => (
           <div key={value} className={className}>
             <RadioButton
-              {...{ ...props, value, name, onToggle }}
+              {...{ ...props, value, name, onChange }}
               checked={value === activeValue}
             >
               {label}

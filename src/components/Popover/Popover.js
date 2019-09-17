@@ -224,7 +224,7 @@ class Popover extends Component {
       zIndex,
       modifiers,
       usePortal,
-      ...others
+      ...rest
     } = this.props;
 
     const reference = !referenceElement && (
@@ -234,6 +234,7 @@ class Popover extends Component {
             referenceWrapperStyles={referenceWrapperStyles}
             ref={this.receiveButtonRef}
             onClick={this.handleReferenceClick}
+            data-testid="popover-reference"
           >
             <div ref={ref}>{renderReference()}</div>
           </ReferenceWrapper>
@@ -244,7 +245,7 @@ class Popover extends Component {
     const popper = isOpen && (
       <Popper
         {...{
-          ...others,
+          ...rest,
           // Only pass referenceElement if it's truthy
           ...(referenceElement && { referenceElement })
         }}
@@ -257,6 +258,7 @@ class Popover extends Component {
               style={style}
               ref={this.receivePopoverRef}
               zIndex={zIndex}
+              data-testid="popover-child"
             >
               <div ref={ref}>
                 {renderPopover()}

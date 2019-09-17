@@ -40,8 +40,10 @@ describe('<Sidebar />', () => {
       open: true,
       onClose: jest.fn()
     };
-    const actual = mount(<Sidebar {...props} />);
-    actual.find('CloseButton').simulate('click');
+    const { getByTestId } = render(<Sidebar {...props} />);
+    act(() => {
+      fireEvent.click(getByTestId('sidebar-close-button'));
+    });
     expect(props.onClose).toHaveBeenCalled();
   });
 
@@ -50,8 +52,10 @@ describe('<Sidebar />', () => {
       open: true,
       onClose: jest.fn()
     };
-    const actual = mount(<Sidebar {...props} />);
-    actual.find("[className*='sidebar-backdrop--visible']").simulate('click');
+    const { getByTestId } = render(<Sidebar {...props} />);
+    act(() => {
+      fireEvent.click(getByTestId('sidebar-backdrop'));
+    });
     expect(props.onClose).toHaveBeenCalled();
   });
 

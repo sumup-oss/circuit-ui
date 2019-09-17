@@ -26,7 +26,7 @@ describe('SubHeading', () => {
     it(`should render as ${el.toUpperCase()} element, when passed "${el}" for the element prop`, () => {
       const heading = create(
         <SubHeading element={el}>{`${el.toUpperCase()} heading`}</SubHeading>
-      ).toJSON();
+      );
       expect(heading).toMatchSnapshot();
     });
   });
@@ -36,7 +36,7 @@ describe('SubHeading', () => {
     it(`should render with size ${size}, when passed "${size}" for the size prop`, () => {
       const heading = create(
         <SubHeading {...{ size }}>{`${size} heading`}</SubHeading>
-      ).toJSON();
+      );
       expect(heading).toMatchSnapshot();
     });
   });

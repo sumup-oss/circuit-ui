@@ -17,8 +17,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PageButton from '../PageButton';
 
-const PaginationButton = ({ currentPage, onClick, active }) => (
+const PaginationButton = ({ currentPage, onClick, active, ...props }) => (
   <PageButton
+    {...props}
     primary={active}
     name={currentPage}
     onClick={() => onClick(currentPage)}

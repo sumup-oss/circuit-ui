@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
-import { jsx, css } from '@emotion/core';
+import React from 'react';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import {
   Drawer,

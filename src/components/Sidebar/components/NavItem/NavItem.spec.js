@@ -57,14 +57,11 @@ describe('NavItem', () => {
     });
 
     it('should render an icon', () => {
-      const wrapper = shallow(
-        <NavItem defaultIcon={<div data-selector="icon" />}>
-          <span data-selector="child">text node</span>
-        </NavItem>
+      const { getByTestId } = render(
+        <NavItem defaultIcon={<div data-testid="icon" />} />
       );
-      const actual = wrapper.find('[data-selector="icon"]');
-
-      expect(actual).toHaveLength(1);
+      const iconEl = getByTestId('icon');
+      expect(iconEl).not.toBeNull();
     });
   });
 

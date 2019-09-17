@@ -47,7 +47,7 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>
@@ -95,7 +95,7 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>
@@ -148,7 +148,7 @@ exports[`Tooltip should render with align center, when passed "center" for the a
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>
@@ -201,7 +201,7 @@ exports[`Tooltip should render with align left, when passed "left" for the align
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>
@@ -254,7 +254,7 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>
@@ -302,7 +302,7 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>
@@ -355,7 +355,7 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>
@@ -408,7 +408,7 @@ exports[`Tooltip should render with position left, when passed "left" for the po
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>
@@ -461,7 +461,7 @@ exports[`Tooltip should render with position right, when passed "right" for the 
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>
@@ -514,7 +514,7 @@ exports[`Tooltip should render with position top, when passed "top" for the posi
 }
 
 <div
-  className="circuit-0 circuit-1"
+  class="circuit-0 circuit-1"
 >
   Tooltip content
 </div>

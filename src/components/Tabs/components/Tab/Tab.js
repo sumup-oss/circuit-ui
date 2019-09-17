@@ -18,8 +18,6 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Element from '../Element';
-
 import { textMega } from '../../../../styles/style-helpers';
 
 const defaultTabStyles = ({ theme }) => css`
@@ -48,7 +46,7 @@ const selectedTabStyles = ({ theme, selected }) =>
     label: tab--selected;
     position: relative;
 
-    ::after {
+    &::after {
       content: ' ';
       position: absolute;
       bottom: 0;
@@ -65,35 +63,30 @@ const tabIndex = selected => (selected ? undefined : '-1');
 /**
  * Tab component that represents a single tab inside a Tabs wrapper
  */
-const Tab = styled(({ selected, ...props }) => (
-  <Element
+const StyledTab = styled('button')(defaultTabStyles, selectedTabStyles);
+
+const Tab = ({ selected, ...props }) => (
+  <StyledTab
     {...props}
+    selected={selected}
     aria-selected={selected}
     tabIndex={tabIndex(selected)}
-    role="tab"
   />
-))(defaultTabStyles, selectedTabStyles);
+);
 
 Tab.propTypes = {
   /**
-   * className prop passed
-   */
-  className: PropTypes.string,
-  /**
    * Triggers selected styles of the component
    */
-  selected: PropTypes.bool,
-  /**
-   * The HTML element or React component to render.
-   */
-  as: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+  selected: PropTypes.bool
 };
 
 Tab.defaultProps = {
-  as: 'button',
-  role: 'tab',
-  selected: false
+  selected: false,
+  role: 'tab'
 };
+
+export { StyledTab };
 
 /**
  * @component

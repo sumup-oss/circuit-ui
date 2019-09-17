@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css, jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 
 import { themePropType } from '../../../../util/shared-prop-types';

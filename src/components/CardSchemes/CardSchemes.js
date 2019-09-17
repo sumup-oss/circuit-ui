@@ -17,7 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { isEmpty } from 'lodash';
+import { isEmpty } from 'lodash/fp';
 
 import PaymentMethodIcon from './components/PaymentMethodIcon';
 import { sizes } from '../../styles/constants';

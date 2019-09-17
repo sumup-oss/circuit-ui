@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Downshift from 'downshift';
-import { includes } from 'lodash/fp';
+import { includes, isString } from 'lodash/fp';
 
 import SearchInput from '../SearchInput';
 import Card from '../Card';
@@ -76,10 +76,14 @@ const itemHighlight = ({ selected, theme }) =>
 
 const Item = styled('div')(itemBaseStyles, itemHighlight);
 
-const filterItems = inputValue => item =>
-  !inputValue ||
-  inputValue.length < MIN_INPUT_FILTER ||
-  includes(inputValue.toLowerCase(), item.toLowerCase());
+const filterItems = inputValue => item => {
+  const value = isString(item) ? item : item.value;
+  return (
+    !inputValue ||
+    inputValue.length < MIN_INPUT_FILTER ||
+    includes(inputValue.toLowerCase(), value.toLowerCase())
+  );
+};
 
 /**
  * Basic AutoCompleteInput input with styled suggestions list
@@ -149,15 +153,23 @@ export default class AutoCompleteInput extends Component {
               {isOpen && !!filteredItems.length && (
                 <ItemsWrapper>
                   <Items spacing={Card.MEGA}>
-                    {filteredItems.map((item, index) => (
-                      <Item
-                        {...getItemProps({ item })}
-                        key={item}
-                        selected={index === highlightedIndex}
-                      >
-                        {item}
-                      </Item>
-                    ))}
+                    {filteredItems.map((item, index) => {
+                      const { value, children = value, ...rest } = isString(
+                        item
+                      )
+                        ? { value: item, children: item }
+                        : item;
+                      return (
+                        <Item
+                          {...getItemProps({ item: value })}
+                          key={value}
+                          selected={index === highlightedIndex}
+                          {...rest}
+                        >
+                          {children}
+                        </Item>
+                      );
+                    })}
                   </Items>
                 </ItemsWrapper>
               )}

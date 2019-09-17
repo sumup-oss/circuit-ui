@@ -41,7 +41,7 @@ exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1 circuit-2"
   type="button"
 >
   <div>
@@ -91,7 +91,7 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
 }
 
 <button
-  className="circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1 circuit-2"
   type="button"
 >
   <div>
@@ -144,7 +144,7 @@ exports[`SortArrow Style tests should render with descending arrow styles 1`] = 
 }
 
 <button
-  className="circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1 circuit-2"
   type="button"
 >
   <div>

@@ -13,4 +13,7 @@
  * limitations under the License.
  */
 
-export { default } from './Tab';
+import Tab, { StyledTab } from './Tab';
+
+export { StyledTab };
+export default Tab;

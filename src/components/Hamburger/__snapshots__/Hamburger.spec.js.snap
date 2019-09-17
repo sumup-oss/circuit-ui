@@ -98,14 +98,13 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 }
 
 <button
-  className="circuit-4 circuit-5"
-  onClick={[Function]}
+  class="circuit-4 circuit-5"
 >
   <span
-    className="circuit-0 circuit-1"
+    class="circuit-0 circuit-1"
   />
   <span
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     Close menu
   </span>
@@ -185,14 +184,13 @@ exports[`Hamburger should render with default styles 1`] = `
 }
 
 <button
-  className="circuit-4 circuit-5"
-  onClick={[Function]}
+  class="circuit-4 circuit-5"
 >
   <span
-    className="circuit-0 circuit-1"
+    class="circuit-0 circuit-1"
   />
   <span
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     Open menu
   </span>

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggle should render with default styles 1`] = `
-.circuit-6 {
+.circuit-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -69,24 +69,79 @@ exports[`Toggle should render with default styles 1`] = `
   width: 1px;
 }
 
+.circuit-12 {
+  display: block;
+  margin-left: 12px;
+}
+
+.circuit-7 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+@media (min-width:480px) {
+  .circuit-7 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+.circuit-10 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 0;
+  color: #9DA7B1;
+}
+
+@media (min-width:480px) {
+  .circuit-10 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
 <div
-  className="circuit-6 circuit-7"
+  class="circuit-14 circuit-15"
 >
   <button
-    aria-checked={false}
-    className="circuit-4 circuit-5"
+    aria-checked="false"
+    aria-labelledby="toggle-label_2"
+    class="circuit-4 circuit-5"
+    id="toggle-switch_1"
     role="switch"
     type="button"
   >
     <span
-      className="circuit-0 circuit-1"
+      class="circuit-0 circuit-1"
     />
     <span
-      className="circuit-2 circuit-3"
+      class="circuit-2 circuit-3"
     >
       off
     </span>
   </button>
+  <label
+    class="circuit-12 circuit-13"
+    for="toggle-switch_1"
+    id="toggle-label_2"
+  >
+    <p
+      class=" circuit-6 circuit-7 circuit-8"
+    >
+      Label
+    </p>
+    <p
+      class=" circuit-9 circuit-10 circuit-8"
+    >
+      A longer explanation
+    </p>
+  </label>
 </div>
 `;
 
@@ -148,7 +203,44 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   width: 1px;
 }
 
-.circuit-6 {
+.circuit-12 {
+  display: block;
+  margin-left: 12px;
+}
+
+.circuit-7 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+@media (min-width:480px) {
+  .circuit-7 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+.circuit-10 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 0;
+  color: #9DA7B1;
+}
+
+@media (min-width:480px) {
+  .circuit-10 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+.circuit-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -161,22 +253,40 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
 }
 
 <div
-  className="circuit-6 circuit-7"
+  class="circuit-14 circuit-15"
 >
   <button
-    aria-checked={false}
-    className="circuit-4 circuit-5"
+    aria-checked="false"
+    aria-labelledby="toggle-label_4"
+    class="circuit-4 circuit-5"
+    id="toggle-switch_3"
     role="switch"
     type="button"
   >
     <span
-      className="circuit-0 circuit-1"
+      class="circuit-0 circuit-1"
     />
     <span
-      className="circuit-2 circuit-3"
+      class="circuit-2 circuit-3"
     >
       off
     </span>
   </button>
+  <label
+    class="circuit-12 circuit-13"
+    for="toggle-switch_3"
+    id="toggle-label_4"
+  >
+    <p
+      class=" circuit-6 circuit-7 circuit-8"
+    >
+      Label
+    </p>
+    <p
+      class=" circuit-9 circuit-10 circuit-8"
+    >
+      A longer explanation
+    </p>
+  </label>
 </div>
 `;

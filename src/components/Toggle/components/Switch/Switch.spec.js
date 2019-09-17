@@ -34,10 +34,28 @@ describe('Switch', () => {
   /**
    * Logic tests.
    */
-  it('should call onChange when toggled', () => {
+  it('should call the change handler when toggled', () => {
+    const onChange = jest.fn();
+    const { getByTestId } = render(
+      <Switch onChange={onChange} data-testid="switch" />
+    );
+    act(() => {
+      fireEvent.click(getByTestId('switch'));
+    });
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  /**
+   * @deprecated
+   */
+  it('should call the change handler when toggled [deprecated]', () => {
     const onToggle = jest.fn();
-    const wrapper = shallow(<Switch {...{ onToggle }} />);
-    wrapper.simulate('click');
+    const { getByTestId } = render(
+      <Switch onToggle={onToggle} data-testid="switch" />
+    );
+    act(() => {
+      fireEvent.click(getByTestId('switch'));
+    });
     expect(onToggle).toHaveBeenCalledTimes(1);
   });
 });

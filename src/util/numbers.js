@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { get } from 'lodash';
+import { get, getOr } from 'lodash/fp';
 
 export const NUMBER_SEPARATORS = {
   'bg-BG': { decimal: ',', thousand: '\xA0' },
@@ -72,7 +72,7 @@ function getIntegerAndFractionalParts(numberString, precision) {
 }
 
 export function getNumberFormat(locale) {
-  const format = get(NUMBER_SEPARATORS, locale);
+  const format = get(locale, NUMBER_SEPARATORS);
   if (!format) {
     throw new TypeError(`No number format available for ${locale}`);
   }
@@ -110,10 +110,10 @@ export function formatNumberForLocale(number, locale, int = false) {
   if (!locale) {
     return number;
   }
-  const { decimal: decimalSep, thousand: thousandSep } = get(
-    NUMBER_SEPARATORS,
+  const { decimal: decimalSep, thousand: thousandSep } = getOr(
+    NUMBER_SEPARATORS.default,
     locale,
-    NUMBER_SEPARATORS.default
+    NUMBER_SEPARATORS
   );
   const precision = int ? 0 : 2;
   return formatNumber(number, { decimalSep, thousandSep, precision });

@@ -60,14 +60,13 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 }
 
 <div
-  className="circuit-2 circuit-3"
-  disabled={true}
+  class="circuit-2 circuit-3"
+  disabled=""
 >
   <textarea
-    aria-invalid={true}
-    className="circuit-0 circuit-1"
-    disabled={true}
-    required={false}
+    aria-invalid="true"
+    class="circuit-0 circuit-1"
+    disabled=""
   />
 </div>
 `;
@@ -183,17 +182,14 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={true}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="true"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div>
       error.svg
@@ -296,17 +292,14 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={true}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="true"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div>
       error.svg
@@ -426,20 +419,17 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 }
 
 <div
-  className="circuit-6 circuit-7"
-  disabled={false}
+  class="circuit-6 circuit-7"
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   />
   <div
-    className="circuit-4 circuit-5"
+    class="circuit-4 circuit-5"
   >
     Validation hint
   </div>
@@ -516,18 +506,14 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    prefix={[Function]}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   />
 </div>
 `;
@@ -602,18 +588,14 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
-    suffix={[Function]}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   />
 </div>
 `;
@@ -688,17 +670,14 @@ exports[`TextArea should render with default styles 1`] = `
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   />
 </div>
 `;
@@ -763,14 +742,13 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 }
 
 <div
-  className="circuit-2 circuit-3"
-  disabled={true}
+  class="circuit-2 circuit-3"
+  disabled=""
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={true}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
+    disabled=""
   />
 </div>
 `;
@@ -847,17 +825,14 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   />
 </div>
 `;
@@ -953,17 +928,14 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={true}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="true"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div>
       error.svg
@@ -1043,17 +1015,14 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   />
 </div>
 `;
@@ -1131,17 +1100,14 @@ exports[`TextArea should render with optional styles when passed the optional pr
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   />
 </div>
 `;
@@ -1216,17 +1182,14 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div>
       valid.svg
@@ -1326,17 +1289,14 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
 }
 
 <div
-  className="circuit-4 circuit-5"
-  disabled={false}
+  class="circuit-4 circuit-5"
 >
   <textarea
-    aria-invalid={false}
-    className="circuit-0 circuit-1"
-    disabled={false}
-    required={false}
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
   />
   <div
-    className="circuit-2 circuit-3"
+    class="circuit-2 circuit-3"
   >
     <div>
       warning.svg

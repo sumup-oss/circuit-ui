@@ -53,7 +53,7 @@ const SecurityCodeInput = ({ label, id, cardScheme, onShowInfo, ...props }) => (
     </SecurityCodeLabel>
     <MaskedInput
       autoComplete="cc-csc"
-      type="tel"
+      pattern="\d{3,4}"
       mask={getMask(cardScheme)}
       placeholder={getPlaceholder(cardScheme)}
       {...{ ...props, id }}

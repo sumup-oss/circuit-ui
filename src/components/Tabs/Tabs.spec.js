@@ -45,7 +45,7 @@ describe('Tabs', () => {
 
   describe('logic', () => {
     it('should switch panels on tab click', () => {
-      const wrapper = shallow(
+      const { getAllByTestId } = render(
         <Tabs
           items={[
             { id: 'a', tab: 'tab-a', panel: 'panel-a' },
@@ -55,22 +55,24 @@ describe('Tabs', () => {
         />
       );
 
-      wrapper
-        .find('[id="tab-b"]')
-        .first()
-        .simulate('click');
+      const tabEls = getAllByTestId('tab-element');
+      const panelEls = getAllByTestId('tab-panel');
 
-      expect(
-        wrapper
-          .find('[id="panel-b"]')
-          .first()
-          .prop('hidden')
-      ).toBeFalsy();
+      expect(panelEls[0]).toBeVisible();
+      expect(panelEls[1]).not.toBeVisible();
+
+      act(() => {
+        fireEvent.click(tabEls[1]);
+      });
+
+      expect(panelEls[0]).not.toBeVisible();
+      expect(panelEls[1]).toBeVisible();
     });
 
     it('should go to the next tab on right press', () => {
       const keyCodeRight = 39;
-      const wrapper = shallow(
+
+      const { getAllByTestId } = render(
         <Tabs
           items={[
             { id: 'a', tab: 'tab-a', panel: 'panel-a' },
@@ -80,17 +82,21 @@ describe('Tabs', () => {
         />
       );
 
-      wrapper
-        .find('[id="tab-a"]')
-        .last()
-        .simulate('keyDown', { keyCode: keyCodeRight });
+      const tabEls = getAllByTestId('tab-element');
+      const panelEls = getAllByTestId('tab-panel');
 
-      expect(
-        wrapper
-          .find('[id="panel-b"]')
-          .first()
-          .prop('hidden')
-      ).toBeFalsy();
+      expect(panelEls[0]).toBeVisible();
+      expect(panelEls[1]).not.toBeVisible();
+
+      act(() => {
+        fireEvent.keyDown(tabEls[0], {
+          key: 'ArrowRight',
+          code: keyCodeRight
+        });
+      });
+
+      expect(panelEls[0]).not.toBeVisible();
+      expect(panelEls[1]).toBeVisible();
     });
   });
 

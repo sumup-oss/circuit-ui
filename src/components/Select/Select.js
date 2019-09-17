@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-
-import { css, jsx } from '@emotion/core';
+import React from 'react';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import { size } from 'polished';
 
@@ -216,9 +215,6 @@ const Select = ({
           value,
           disabled,
           hasPrefix: !!prefix
-        }}
-        blacklist={{
-          hasPrefix: true
         }}
       >
         {!value && (

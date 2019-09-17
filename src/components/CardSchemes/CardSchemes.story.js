@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { keys } from 'lodash';
+import { keys } from 'lodash/fp';
 import { array, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
