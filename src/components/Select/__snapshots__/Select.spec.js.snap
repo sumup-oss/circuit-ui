@@ -40,6 +40,19 @@ exports[`Select should not render with invalid styles when also passed the disab
 }
 
 .circuit-2 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -50,7 +63,7 @@ exports[`Select should not render with invalid styles when also passed the disab
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-4 circuit-5"
   disabled=""
 >
   <select
@@ -78,18 +91,33 @@ exports[`Select should not render with invalid styles when also passed the disab
       Option 3
     </option>
   </select>
-  <div>
+  <div
+    class="circuit-2 circuit-3"
+  >
     arrows.svg
   </div>
 </div>
 `;
 
 exports[`Select should render with a prefix when passed the prefix prop 1`] = `
-.circuit-3 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+.circuit-3 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
 }
 
 .circuit-0 {
@@ -144,7 +172,7 @@ exports[`Select should render with a prefix when passed the prefix prop 1`] = `
 }
 
 <div
-  class="circuit-3 circuit-4"
+  class="circuit-5 circuit-6"
 >
   <div
     class="circuit-0"
@@ -174,13 +202,155 @@ exports[`Select should render with a prefix when passed the prefix prop 1`] = `
       Option 3
     </option>
   </select>
-  <div>
+  <div
+    class="circuit-3 circuit-4"
+  >
     arrows.svg
   </div>
 </div>
 `;
 
 exports[`Select should render with a tooltip when passed a validation hint 1`] = `
+.circuit-6 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  color: #212933;
+  padding: 8px 32px 8px 12px;
+  max-height: 42px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0:focus,
+.circuit-0:hover,
+.circuit-0:active {
+  outline: none;
+}
+
+.circuit-0:focus {
+  border-color: #3388FF;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-2 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
+}
+
+.circuit-4 {
+  display: inline-block;
+  width: 100%;
+  max-width: 280px;
+  min-width: 120px;
+  background-color: #212933;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 31;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  line-height: 20px;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  right: 50%;
+  right: calc(50% - (16px + 4px));
+  bottom: 100%;
+  bottom: calc(100% + 12px);
+  right: 1px;
+}
+
+.circuit-4::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 8px solid transparent;
+}
+
+.circuit-4::after {
+  right: 12px;
+}
+
+.circuit-4::after {
+  top: 100%;
+  border-top-color: #212933;
+}
+
+<div
+  class="circuit-6 circuit-7"
+>
+  <select
+    class="circuit-0 circuit-1"
+  >
+    <option
+      value=""
+    >
+      Select an option
+    </option>
+    <option
+      value="1"
+    >
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <div
+    class="circuit-2 circuit-3"
+  >
+    arrows.svg
+  </div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    This field is required.
+  </div>
+</div>
+`;
+
+exports[`Select should render with default styles 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -227,44 +397,16 @@ exports[`Select should render with a tooltip when passed a validation hint 1`] =
 }
 
 .circuit-2 {
-  display: inline-block;
-  width: 100%;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 31;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  font-size: 13px;
-  line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
-  right: 50%;
-  right: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  right: 1px;
-}
-
-.circuit-2::after {
+  fill: #5C656F;
   display: block;
-  content: '';
-  width: 0;
-  height: 0;
+  z-index: 40;
+  pointer-events: none;
   position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-2::after {
-  right: 12px;
-}
-
-.circuit-2::after {
-  top: 100%;
-  border-top-color: #212933;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
 }
 
 <div
@@ -294,91 +436,9 @@ exports[`Select should render with a tooltip when passed a validation hint 1`] =
       Option 3
     </option>
   </select>
-  <div>
-    arrows.svg
-  </div>
   <div
     class="circuit-2 circuit-3"
   >
-    This field is required.
-  </div>
-</div>
-`;
-
-exports[`Select should render with default styles 1`] = `
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.circuit-0 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
-  padding: 8px 32px 8px 12px;
-  max-height: 42px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
-}
-
-.circuit-0:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-<div
-  class="circuit-2 circuit-3"
->
-  <select
-    class="circuit-0 circuit-1"
-  >
-    <option
-      value=""
-    >
-      Select an option
-    </option>
-    <option
-      value="1"
-    >
-      Option 1
-    </option>
-    <option
-      value="2"
-    >
-      Option 2
-    </option>
-    <option
-      value="3"
-    >
-      Option 3
-    </option>
-  </select>
-  <div>
     arrows.svg
   </div>
 </div>
@@ -424,6 +484,19 @@ exports[`Select should render with disabled styles when passed the disabled prop
 }
 
 .circuit-2 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -434,7 +507,7 @@ exports[`Select should render with disabled styles when passed the disabled prop
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-4 circuit-5"
   disabled=""
 >
   <select
@@ -462,7 +535,9 @@ exports[`Select should render with disabled styles when passed the disabled prop
       Option 3
     </option>
   </select>
-  <div>
+  <div
+    class="circuit-2 circuit-3"
+  >
     arrows.svg
   </div>
 </div>
@@ -508,6 +583,19 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
 }
 
 .circuit-2 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -517,7 +605,7 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-4 circuit-5"
 >
   <select
     class="circuit-0 circuit-1"
@@ -543,14 +631,16 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
       Option 3
     </option>
   </select>
-  <div>
+  <div
+    class="circuit-2 circuit-3"
+  >
     arrows.svg
   </div>
 </div>
 `;
 
 exports[`Select should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-2 {
+.circuit-6 {
   color: #212933;
   display: block;
   position: relative;
@@ -597,8 +687,35 @@ exports[`Select should render with invalid styles when passed the invalid prop 1
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-2 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
+  right: calc(1px + 24px);
+}
+
+.circuit-4 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
+}
+
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-6 circuit-7"
 >
   <select
     class="circuit-0 circuit-1"
@@ -624,10 +741,14 @@ exports[`Select should render with invalid styles when passed the invalid prop 1
       Option 3
     </option>
   </select>
-  <div>
+  <div
+    class="circuit-2 circuit-3"
+  >
     arrows.svg
   </div>
-  <div>
+  <div
+    class="circuit-4 circuit-5"
+  >
     error.svg
   </div>
 </div>
@@ -673,6 +794,19 @@ exports[`Select should render with no margin styles when passed the noMargin pro
 }
 
 .circuit-2 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -681,7 +815,7 @@ exports[`Select should render with no margin styles when passed the noMargin pro
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-4 circuit-5"
 >
   <select
     class="circuit-0 circuit-1"
@@ -707,7 +841,9 @@ exports[`Select should render with no margin styles when passed the noMargin pro
       Option 3
     </option>
   </select>
-  <div>
+  <div
+    class="circuit-2 circuit-3"
+  >
     arrows.svg
   </div>
 </div>

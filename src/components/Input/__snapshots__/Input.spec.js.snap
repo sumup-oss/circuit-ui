@@ -70,14 +70,14 @@ exports[`Input should prioritize disabled over error styles 1`] = `
 `;
 
 exports[`Input should prioritize disabled over warning styles 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -89,6 +89,12 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
+}
+
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .circuit-0 {
@@ -178,16 +184,19 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <input
     aria-invalid="true"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       error.svg
     </div>
   </div>
@@ -195,14 +204,14 @@ exports[`Input should prioritize disabled over warning styles 1`] = `
 `;
 
 exports[`Input should prioritize error over optional styles 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -214,6 +223,12 @@ exports[`Input should prioritize error over optional styles 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
+}
+
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .circuit-0 {
@@ -286,16 +301,19 @@ exports[`Input should prioritize error over optional styles 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <input
     aria-invalid="true"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       error.svg
     </div>
   </div>
@@ -893,14 +911,14 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
 `;
 
 exports[`Input should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -912,6 +930,12 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   width: 16px;
   margin: 12px;
   pointer-events: none;
+}
+
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .circuit-0 {
@@ -981,16 +1005,19 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <input
     aria-invalid="true"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       error.svg
     </div>
   </div>
@@ -1243,7 +1270,7 @@ exports[`Input should render with right aligned text 1`] = `
 `;
 
 exports[`Input should render with valid styles when passed the showValid prop 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
@@ -1296,7 +1323,7 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -1309,17 +1336,26 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
   pointer-events: none;
 }
 
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <input
     aria-invalid="false"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       valid.svg
     </div>
   </div>
@@ -1327,7 +1363,7 @@ exports[`Input should render with valid styles when passed the showValid prop 1`
 `;
 
 exports[`Input should render with warning styles when passed the hasWarning prop 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
@@ -1400,7 +1436,7 @@ exports[`Input should render with warning styles when passed the hasWarning prop
   color: #D8A413;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -1414,17 +1450,26 @@ exports[`Input should render with warning styles when passed the hasWarning prop
   pointer-events: none;
 }
 
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <input
     aria-invalid="false"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       warning.svg
     </div>
   </div>

@@ -199,7 +199,10 @@ HTMLCollection [
         data-testid="card-number-input-scheme"
         disabled=""
       >
-        <div>
+        <div
+          aria-label="icon mastercard"
+          role="img"
+        >
           mastercard.svg
         </div>
       </li>
@@ -207,7 +210,10 @@ HTMLCollection [
         class="circuit-6 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon visa"
+          role="img"
+        >
           visa.svg
         </div>
       </li>
@@ -216,7 +222,10 @@ HTMLCollection [
         data-testid="card-number-input-scheme"
         disabled=""
       >
-        <div>
+        <div
+          aria-label="icon diners"
+          role="img"
+        >
           diners.svg
         </div>
       </li>
@@ -225,7 +234,10 @@ HTMLCollection [
         data-testid="card-number-input-scheme"
         disabled=""
       >
-        <div>
+        <div
+          aria-label="icon jcb"
+          role="img"
+        >
           jcb.svg
         </div>
       </li>
@@ -415,7 +427,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon mastercard"
+          role="img"
+        >
           mastercard.svg
         </div>
       </li>
@@ -423,7 +438,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon visa"
+          role="img"
+        >
           visa.svg
         </div>
       </li>
@@ -431,7 +449,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon diners"
+          role="img"
+        >
           diners.svg
         </div>
       </li>
@@ -439,7 +460,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon jcb"
+          role="img"
+        >
           jcb.svg
         </div>
       </li>
@@ -645,7 +669,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon mastercard"
+          role="img"
+        >
           mastercard.svg
         </div>
       </li>
@@ -653,7 +680,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon visa"
+          role="img"
+        >
           visa.svg
         </div>
       </li>
@@ -661,7 +691,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon diners"
+          role="img"
+        >
           diners.svg
         </div>
       </li>
@@ -669,7 +702,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon discover"
+          role="img"
+        >
           discover.svg
         </div>
       </li>
@@ -677,7 +713,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon jcb"
+          role="img"
+        >
           jcb.svg
         </div>
       </li>
@@ -685,7 +724,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon elo"
+          role="img"
+        >
           elo.svg
         </div>
       </li>
@@ -693,7 +735,10 @@ HTMLCollection [
         class="circuit-4 circuit-5"
         data-testid="card-number-input-scheme"
       >
-        <div>
+        <div
+          aria-label="icon maestro"
+          role="img"
+        >
           maestro.svg
         </div>
       </li>

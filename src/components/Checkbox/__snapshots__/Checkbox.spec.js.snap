@@ -143,7 +143,9 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
     name="name"
     value=""
   >
-    <div>
+    <div
+      aria-hidden="true"
+    >
       checked-icon.svg
     </div>
   </label>
@@ -258,7 +260,9 @@ exports[`Checkbox should render with checked styles when passed the checked prop
     name="name"
     value=""
   >
-    <div>
+    <div
+      aria-hidden="true"
+    >
       checked-icon.svg
     </div>
   </label>
@@ -367,7 +371,9 @@ exports[`Checkbox should render with default styles 1`] = `
     name="name"
     value=""
   >
-    <div>
+    <div
+      aria-hidden="true"
+    >
       checked-icon.svg
     </div>
   </label>
@@ -496,7 +502,9 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
     name="name"
     value=""
   >
-    <div>
+    <div
+      aria-hidden="true"
+    >
       checked-icon.svg
     </div>
   </label>
@@ -614,7 +622,9 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
     name="name"
     value=""
   >
-    <div>
+    <div
+      aria-hidden="true"
+    >
       checked-icon.svg
     </div>
   </label>

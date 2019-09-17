@@ -1,7 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button Style tests should have active loading styles 1`] = `
-.circuit-7 {
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+.circuit-9 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -22,32 +36,32 @@ exports[`Button Style tests should have active loading styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7:active {
+.circuit-9:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-7:focus {
+.circuit-9:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-7:hover {
+.circuit-9:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-7:hover,
-.circuit-7:active {
+.circuit-9:hover,
+.circuit-9:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-9[disabled],
+.circuit-9:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -56,11 +70,28 @@ exports[`Button Style tests should have active loading styles 1`] = `
   user-selectable: none;
 }
 
-.circuit-5 {
+.circuit-7 {
   position: relative;
 }
 
-.circuit-1 {
+.circuit-0 {
+  width: 100%;
+  height: 100%;
+}
+
+.circuit-0 > path {
+  fill: #FFFFFF;
+}
+
+.circuit-0 > path {
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.circuit-3 {
   opacity: 0;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
@@ -79,7 +110,7 @@ exports[`Button Style tests should have active loading styles 1`] = `
   transform: translate(-50%,-50%);
 }
 
-.circuit-3 {
+.circuit-5 {
   opacity: 1;
   -webkit-transform: translate(0,0);
   -ms-transform: translate(0,0);
@@ -94,30 +125,47 @@ exports[`Button Style tests should have active loading styles 1`] = `
 }
 
 <button
-  class="circuit-7 circuit-8"
+  class="circuit-9 circuit-10"
 >
   <div
-    class="circuit-5 circuit-6"
+    class="circuit-7 circuit-8"
   >
     <div
       aria-busy="true"
       aria-live="assertive"
-      class="circuit-0 circuit-1 circuit-2"
+      class="circuit-2 circuit-3 circuit-4"
       role="alert"
     >
-      <div>
+      <div
+        class="circuit-0 circuit-1"
+        dark="0"
+      >
         spinner.svg
       </div>
     </div>
     <div
-      class="circuit-3 circuit-4"
+      class="circuit-5 circuit-6"
     />
   </div>
 </button>
 `;
 
 exports[`Button Style tests should have default styles 1`] = `
-.circuit-7 {
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+.circuit-9 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -138,32 +186,32 @@ exports[`Button Style tests should have default styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7:active {
+.circuit-9:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-7:focus {
+.circuit-9:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-7:hover {
+.circuit-9:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-7:hover,
-.circuit-7:active {
+.circuit-9:hover,
+.circuit-9:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-9[disabled],
+.circuit-9:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -172,11 +220,11 @@ exports[`Button Style tests should have default styles 1`] = `
   user-selectable: none;
 }
 
-.circuit-5 {
+.circuit-7 {
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   opacity: 0;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
@@ -194,7 +242,24 @@ exports[`Button Style tests should have default styles 1`] = `
   transform: translate(-50%,-50%);
 }
 
-.circuit-3 {
+.circuit-0 {
+  width: 100%;
+  height: 100%;
+}
+
+.circuit-0 > path {
+  fill: #FFFFFF;
+}
+
+.circuit-0 > path {
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.circuit-5 {
   opacity: 1;
   -webkit-transform: translate(0,0);
   -ms-transform: translate(0,0);
@@ -205,34 +270,51 @@ exports[`Button Style tests should have default styles 1`] = `
 }
 
 <button
-  class="circuit-7 circuit-8"
+  class="circuit-9 circuit-10"
 >
   <div
-    class="circuit-5 circuit-6"
+    class="circuit-7 circuit-8"
   >
     <div
       aria-busy="true"
       aria-live="assertive"
-      class="circuit-0 circuit-1 circuit-2"
+      class="circuit-2 circuit-3 circuit-4"
       role="alert"
     >
-      <div>
+      <div
+        class="circuit-0 circuit-1"
+        dark="0"
+      >
         spinner.svg
       </div>
     </div>
     <div
-      class="circuit-3 circuit-4"
+      class="circuit-5 circuit-6"
     />
   </div>
 </button>
 `;
 
 exports[`Button Style tests should have isLoading styles 1`] = `
-.circuit-5 {
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+.circuit-7 {
   position: relative;
 }
 
-.circuit-1 {
+.circuit-3 {
   opacity: 0;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
@@ -250,7 +332,24 @@ exports[`Button Style tests should have isLoading styles 1`] = `
   transform: translate(-50%,-50%);
 }
 
-.circuit-3 {
+.circuit-0 {
+  width: 100%;
+  height: 100%;
+}
+
+.circuit-0 > path {
+  fill: #FFFFFF;
+}
+
+.circuit-0 > path {
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+.circuit-5 {
   opacity: 1;
   -webkit-transform: translate(0,0);
   -ms-transform: translate(0,0);
@@ -260,7 +359,7 @@ exports[`Button Style tests should have isLoading styles 1`] = `
   transition: opacity 200ms ease-in-out,transform 200ms ease-in-out;
 }
 
-.circuit-7 {
+.circuit-9 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -283,32 +382,32 @@ exports[`Button Style tests should have isLoading styles 1`] = `
   pointer-events: none;
 }
 
-.circuit-7:active {
+.circuit-9:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-7:focus {
+.circuit-9:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-7:hover {
+.circuit-9:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-7:hover,
-.circuit-7:active {
+.circuit-9:hover,
+.circuit-9:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-9[disabled],
+.circuit-9:disabled {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -318,23 +417,26 @@ exports[`Button Style tests should have isLoading styles 1`] = `
 }
 
 <button
-  class="circuit-7 circuit-8"
+  class="circuit-9 circuit-10"
 >
   <div
-    class="circuit-5 circuit-6"
+    class="circuit-7 circuit-8"
   >
     <div
       aria-busy="true"
       aria-live="assertive"
-      class="circuit-0 circuit-1 circuit-2"
+      class="circuit-2 circuit-3 circuit-4"
       role="alert"
     >
-      <div>
+      <div
+        class="circuit-0 circuit-1"
+        dark="0"
+      >
         spinner.svg
       </div>
     </div>
     <div
-      class="circuit-3 circuit-4"
+      class="circuit-5 circuit-6"
     />
   </div>
 </button>

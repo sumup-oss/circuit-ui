@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TableHead Style tests should render with default styles 1`] = `
-.circuit-8 {
+.circuit-10 {
   vertical-align: middle;
 }
 
-tbody .circuit-8:last-child th,
-tbody .circuit-8:last-child td {
+tbody .circuit-10:last-child th,
+tbody .circuit-10:last-child td {
   border-bottom: none;
 }
 
-.circuit-2 {
+.circuit-4 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -31,16 +31,16 @@ tbody .circuit-8:last-child td {
   user-select: none;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-2:hover > span {
+.circuit-4:hover > span {
   opacity: 1;
 }
 
-.circuit-0 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -62,7 +62,14 @@ tbody .circuit-8:last-child td {
   fill: #3388FF;
 }
 
-.circuit-4 {
+.circuit-0 {
+  margin-top: 2px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.circuit-6 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -78,21 +85,23 @@ tbody .circuit-8:last-child td {
 }
 
 <thead
-  class="circuit-10 circuit-11"
+  class="circuit-12 circuit-13"
 >
   <tr
-    class="circuit-8 circuit-9"
+    class="circuit-10 circuit-11"
   >
     <th
       aria-sort="none"
-      class="circuit-2 circuit-3"
+      class="circuit-4 circuit-5"
       data-testid="table-header"
       scope="col"
     >
       <span
-        class="circuit-0 circuit-1"
+        class="circuit-2 circuit-3"
       >
-        <div>
+        <div
+          class="circuit-0 circuit-1"
+        >
           arrow.svg
         </div>
         <div>
@@ -102,14 +111,14 @@ tbody .circuit-8:last-child td {
       Foo
     </th>
     <th
-      class="circuit-4 circuit-3"
+      class="circuit-6 circuit-5"
       data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-4 circuit-3"
+      class="circuit-6 circuit-5"
       data-testid="table-header"
       scope="col"
     >
@@ -120,16 +129,16 @@ tbody .circuit-8:last-child td {
 `;
 
 exports[`TableHead Style tests should render with rowHeader styles 1`] = `
-.circuit-8 {
+.circuit-10 {
   vertical-align: middle;
 }
 
-tbody .circuit-8:last-child th,
-tbody .circuit-8:last-child td {
+tbody .circuit-10:last-child th,
+tbody .circuit-10:last-child td {
   border-bottom: none;
 }
 
-.circuit-2 {
+.circuit-4 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -150,16 +159,16 @@ tbody .circuit-8:last-child td {
   user-select: none;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-2:hover > span {
+.circuit-4:hover > span {
   opacity: 1;
 }
 
-.circuit-0 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -181,7 +190,14 @@ tbody .circuit-8:last-child td {
   fill: #3388FF;
 }
 
-.circuit-4 {
+.circuit-0 {
+  margin-top: 2px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.circuit-6 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -197,21 +213,23 @@ tbody .circuit-8:last-child td {
 }
 
 <thead
-  class="circuit-10 circuit-11"
+  class="circuit-12 circuit-13"
 >
   <tr
-    class="circuit-8 circuit-9"
+    class="circuit-10 circuit-11"
   >
     <th
       aria-sort="none"
-      class="circuit-2 circuit-3"
+      class="circuit-4 circuit-5"
       data-testid="table-header"
       scope="col"
     >
       <span
-        class="circuit-0 circuit-1"
+        class="circuit-2 circuit-3"
       >
-        <div>
+        <div
+          class="circuit-0 circuit-1"
+        >
           arrow.svg
         </div>
         <div>
@@ -221,14 +239,14 @@ tbody .circuit-8:last-child td {
       Foo
     </th>
     <th
-      class="circuit-4 circuit-3"
+      class="circuit-6 circuit-5"
       data-testid="table-header"
       scope="col"
     >
       Bar
     </th>
     <th
-      class="circuit-4 circuit-3"
+      class="circuit-6 circuit-5"
       data-testid="table-header"
       scope="col"
     >

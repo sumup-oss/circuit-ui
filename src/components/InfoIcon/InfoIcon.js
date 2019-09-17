@@ -32,7 +32,7 @@ const baseStyles = ({ theme }) => css`
  */
 
 const StyledIcon = styled(Icon)(baseStyles);
-const InfoIcon = props => <StyledIcon role="img" {...props} />;
+const InfoIcon = props => <StyledIcon {...props} />;
 
 /**
  * @component

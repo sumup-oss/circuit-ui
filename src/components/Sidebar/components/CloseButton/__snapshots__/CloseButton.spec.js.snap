@@ -57,7 +57,9 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   <span
     class="circuit-0 circuit-1"
   />
-  <div>
+  <div
+    aria-hidden="true"
+  >
     closeIcon.svg
   </div>
 </button>
@@ -122,7 +124,9 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   <span
     class="circuit-0 circuit-1"
   />
-  <div>
+  <div
+    aria-hidden="true"
+  >
     closeIcon.svg
   </div>
 </button>

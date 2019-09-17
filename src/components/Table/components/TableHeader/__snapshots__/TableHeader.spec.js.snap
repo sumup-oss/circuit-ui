@@ -102,7 +102,7 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
 `;
 
 exports[`TableHeader Style tests should render with sortable styles 1`] = `
-.circuit-2 {
+.circuit-4 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -123,16 +123,16 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   user-select: none;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-2:hover > span {
+.circuit-4:hover > span {
   opacity: 1;
 }
 
-.circuit-0 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -154,16 +154,25 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   fill: #3388FF;
 }
 
+.circuit-0 {
+  margin-top: 2px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 <th
   aria-sort="none"
-  class="circuit-2 circuit-3"
+  class="circuit-4 circuit-5"
   data-testid="table-header"
   scope="col"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-2 circuit-3"
   >
-    <div>
+    <div
+      class="circuit-0 circuit-1"
+    >
       arrow.svg
     </div>
     <div>
@@ -249,7 +258,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 `;
 
 exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted descending styles 1`] = `
-.circuit-0 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -271,7 +280,14 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   fill: #3388FF;
 }
 
-.circuit-2 {
+.circuit-0 {
+  margin-top: 2px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.circuit-4 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -292,29 +308,31 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   user-select: none;
 }
 
-.circuit-2:hover {
+.circuit-4:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-2:hover > span {
+.circuit-4:hover > span {
   opacity: 1;
 }
 
-.circuit-2 > span {
+.circuit-4 > span {
   opacity: 1;
 }
 
 <th
   aria-sort="descending"
-  class="circuit-2 circuit-3"
+  class="circuit-4 circuit-5"
   data-testid="table-header"
   scope="col"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-2 circuit-3"
   >
-    <div>
+    <div
+      class="circuit-0 circuit-1"
+    >
       arrow.svg
     </div>
   </span>
