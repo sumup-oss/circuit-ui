@@ -80,7 +80,7 @@ const sortableStyles = ({ theme, sortable }) =>
       background-color: ${theme.colors.n100};
       color: ${theme.colors.b500};
 
-      & > button {
+      & > span {
         opacity: 1;
       }
     }
@@ -90,7 +90,7 @@ const sortableActiveStyles = ({ sortable, isSorted }) =>
   sortable &&
   isSorted &&
   css`
-    & > button {
+    & > span {
       opacity: 1;
     }
   `;

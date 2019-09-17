@@ -102,7 +102,7 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
 `;
 
 exports[`TableHeader Style tests should render with sortable styles 1`] = `
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -123,24 +123,16 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   user-select: none;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-3:hover > button {
+.circuit-2:hover > span {
   opacity: 1;
 }
 
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -149,6 +141,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   height: 10px;
+  width: 5px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -158,28 +151,17 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  width: 5px;
-}
-
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
+  fill: #3388FF;
 }
 
 <th
   aria-sort="none"
-  class="circuit-3 circuit-4"
+  class="circuit-2 circuit-3"
   data-testid="table-header"
   scope="col"
 >
-  <button
-    class="circuit-0 circuit-1 circuit-2"
-    type="button"
+  <span
+    class="circuit-0 circuit-1"
   >
     <div>
       arrow.svg
@@ -187,21 +169,13 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
     <div>
       arrow.svg
     </div>
-  </button>
+  </span>
   Foo
 </th>
 `;
 
 exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted ascending styles 1`] = `
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -210,6 +184,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -ms-flex-direction: column;
   flex-direction: column;
   height: 10px;
+  width: 5px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -219,20 +194,10 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  width: 5px;
+  fill: #3388FF;
 }
 
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -253,47 +218,38 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   user-select: none;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-3:hover > button {
+.circuit-2:hover > span {
   opacity: 1;
 }
 
-.circuit-3 > button {
+.circuit-2 > span {
   opacity: 1;
 }
 
 <th
   aria-sort="ascending"
-  class="circuit-3 circuit-4"
+  class="circuit-2 circuit-3"
   data-testid="table-header"
   scope="col"
 >
-  <button
-    class="circuit-0 circuit-1 circuit-2"
-    type="button"
+  <span
+    class="circuit-0 circuit-1"
   >
     <div>
       arrow.svg
     </div>
-  </button>
+  </span>
   Foo
 </th>
 `;
 
 exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted descending styles 1`] = `
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -302,6 +258,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -ms-flex-direction: column;
   flex-direction: column;
   height: 10px;
+  width: 5px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -311,20 +268,10 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  width: 5px;
+  fill: #3388FF;
 }
 
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -345,33 +292,32 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   user-select: none;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-3:hover > button {
+.circuit-2:hover > span {
   opacity: 1;
 }
 
-.circuit-3 > button {
+.circuit-2 > span {
   opacity: 1;
 }
 
 <th
   aria-sort="descending"
-  class="circuit-3 circuit-4"
+  class="circuit-2 circuit-3"
   data-testid="table-header"
   scope="col"
 >
-  <button
-    class="circuit-0 circuit-1 circuit-2"
-    type="button"
+  <span
+    class="circuit-0 circuit-1"
   >
     <div>
       arrow.svg
     </div>
-  </button>
+  </span>
   Foo
 </th>
 `;

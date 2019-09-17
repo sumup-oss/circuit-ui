@@ -17,36 +17,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { hideVisually } from 'polished';
 
 import { svgKilo } from '../../styles/style-helpers';
-import SvgButton from '../SvgButton';
-import { ReactComponent as Icon } from './close-icon.svg';
+import IconButton from '../IconButton';
+import { ReactComponent as CloseIcon } from './close-icon.svg';
 
-const SvgCloseButton = styled(SvgButton)(
+const StyledIconButton = styled(IconButton)(
   ({ theme }) => css`
     label: close-button;
     ${svgKilo({ theme })};
   `
 );
 
-const labelBaseStyles = () => css`
-  ${hideVisually()};
-`;
-
-// Important for accessibility
-const ButtonLabel = styled('span')`
-  ${labelBaseStyles};
-`;
-
 /**
  * A generic close button.
  */
-const CloseButton = ({ label, ...props }) => (
-  <SvgCloseButton {...props}>
-    <Icon />
-    <ButtonLabel>{label}</ButtonLabel>
-  </SvgCloseButton>
+const CloseButton = props => (
+  <StyledIconButton {...props}>
+    <CloseIcon />
+  </StyledIconButton>
 );
 
 CloseButton.propTypes = {
@@ -57,7 +46,7 @@ CloseButton.propTypes = {
 };
 
 CloseButton.defaultProps = {
-  label: 'close'
+  label: 'Close'
 };
 
 /**

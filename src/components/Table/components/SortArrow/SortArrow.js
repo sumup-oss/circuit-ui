@@ -13,26 +13,26 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { ReactComponent as ArrowIcon } from './arrow.svg';
+import { ReactComponent as UpIcon } from './arrow.svg';
 
-import SvgButton from '../../../SvgButton';
 import { ASCENDING, DESCENDING } from '../../constants';
 
 const baseStyles = ({ theme }) => css`
   display: flex;
   flex-direction: column;
   height: 10px;
+  width: 5px;
   left: ${theme.spacings.kilo};
   opacity: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   transition: opacity ${theme.transitions.default};
-  width: 5px;
+  fill: ${theme.colors.p500};
 `;
 
 const condensedStyles = ({ condensed, theme }) =>
@@ -41,12 +41,12 @@ const condensedStyles = ({ condensed, theme }) =>
     left: ${theme.spacings.byte};
   `;
 
-const StyledWrapper = styled(SvgButton)`
+const Wrapper = styled('span')`
   ${baseStyles};
   ${condensedStyles};
 `;
 
-const DownArrow = styled(ArrowIcon)`
+const DownIcon = styled(UpIcon)`
   margin-top: 2px;
   transform: rotate(180deg);
 `;
@@ -54,23 +54,16 @@ const DownArrow = styled(ArrowIcon)`
 /**
  * @private Arrow component for TableHeader sorting
  */
-const SortArrow = ({ direction, condensed }) => (
-  <StyledWrapper condensed={condensed}>
-    <Fragment>
-      {direction !== DESCENDING && <ArrowIcon />}
-      {direction !== ASCENDING && <DownArrow />}
-    </Fragment>
-  </StyledWrapper>
+const SortArrow = ({ direction = null, condensed = false }) => (
+  <Wrapper condensed={condensed}>
+    {direction !== ASCENDING && <DownIcon />}
+    {direction !== DESCENDING && <UpIcon />}
+  </Wrapper>
 );
 
 SortArrow.propTypes = {
   direction: PropTypes.oneOf([ASCENDING, DESCENDING]),
   condensed: PropTypes.bool
-};
-
-SortArrow.defaultProps = {
-  direction: null,
-  condensed: false
 };
 
 export default SortArrow;
