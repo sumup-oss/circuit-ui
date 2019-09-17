@@ -67,7 +67,7 @@ const currencyAmountUtils = {
 // Typography
 export { default as Heading } from './components/Heading';
 export { default as List } from './components/List';
-export { default as ListView } from './components/ListView';
+
 export { default as Markdown } from './components/Markdown';
 export { default as SubHeading } from './components/SubHeading';
 export { default as Text } from './components/Text';
@@ -145,6 +145,7 @@ export { default as Pagination } from './components/Pagination';
 export { default as Spinner } from './components/Spinner';
 export { default as Badge } from './components/Badge';
 export { default as Card, CardHeader, CardFooter } from './components/Card';
+export { default as CardList, ListView } from './components/CardList';
 export { default as Hamburger } from './components/Hamburger';
 export { default as Hr } from './components/Hr';
 export { default as Image } from './components/Image';

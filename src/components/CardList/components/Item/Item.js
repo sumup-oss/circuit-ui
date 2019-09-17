@@ -14,13 +14,18 @@
  */
 
 import PropTypes from 'prop-types';
+import { flow } from 'lodash/fp';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { setStatic } from 'recompose';
 
-import { shadowBorder } from '../../../../../../styles/style-helpers';
-import { sizes } from '../../../../../../styles/constants';
+import withKeyboardEvents from '../../../../util/withKeyboardEvents';
+import withAriaSelected from '../../../../util/withAriaSelected';
+import { sizes } from '../../../../styles/constants';
+import { shadowBorder } from '../../../../styles/style-helpers';
 
 const { KILO, MEGA, GIGA } = sizes;
+
 const sizeMap = {
   [KILO]: 'kilo',
   [MEGA]: 'mega',
@@ -28,7 +33,7 @@ const sizeMap = {
 };
 
 const baseStyles = ({ theme }) => css`
-  label: wrapper__item;
+  label: cardlist__item;
 
   align-items: center;
   position: relative;
@@ -55,7 +60,7 @@ const paddingStyles = ({ theme, padding }) =>
 const selectedStyles = ({ theme, selected }) =>
   selected &&
   css`
-    label: wrapper__item--selected;
+    label: cardlist__item--selected;
 
     background: ${theme.colors.p100};
   `;
@@ -87,27 +92,41 @@ const hoverStyles = ({ theme }) => css`
   }
 `;
 
-const Wrapper = styled('div')(
+const Item = styled('div')(
   baseStyles,
   paddingStyles,
   selectedStyles,
   hoverStyles
 );
 
-Wrapper.propTypes = {
+Item.propTypes = {
   /**
    * When true, shows the item with selected styles.
    */
   selected: PropTypes.bool,
   /**
-   * Circuit UI spacing size.
+   * A Circuit UI spacings size.
    */
-  padding: PropTypes.oneOf([KILO, MEGA, GIGA])
+  padding: PropTypes.oneOf([KILO, MEGA, GIGA]),
+  /**
+   * Content of the list item.
+   */
+  children: PropTypes.node.isRequired
 };
 
-Wrapper.defaultProps = {
+Item.defaultProps = {
+  padding: GIGA,
   selected: false,
-  padding: GIGA
+  tabIndex: 0
 };
 
-export default Wrapper;
+/**
+ * @component
+ */
+export default flow(
+  withKeyboardEvents,
+  withAriaSelected,
+  setStatic('KILO', KILO),
+  setStatic('MEGA', MEGA),
+  setStatic('GIGA', GIGA)
+)(Item);

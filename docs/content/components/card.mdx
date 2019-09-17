@@ -8,7 +8,7 @@ import { Playground, Props } from 'docz';
 import { Fragment } from 'react';
 import Card from '../../../src/components/Card/Card';
 import { CardHeader } from '../../../src/components/Card';
-import ListView from '../../../src/components/ListView';
+import CardList from '../../../src/components/CardList';
 import Text from '../../../src/components/Text';
 import Status from '../../utils/Statuses';
 import Heading from '../../../src/components/Heading/Heading';
@@ -84,17 +84,17 @@ the single shadow is recommended.
 
 <Status.InReview/> <Status.Description size={Text.KILO}>Likely to be renamed</Status.Description>
 
-You can create a list of cards using `ListView`. You should use it when showing the same type of information within
+You can create a list of cards using `CardList`. You should use it when showing the same type of information within
 each card and clicking on it opens contextual information about it. One example is the transaction history, where
 each transaction is a card shown on a list and clicking in any one of them shows more information on that particular
 transaction.
 
 <Playground>
-  <ListView>
-    <ListView.Item>First card</ListView.Item>
-    <ListView.Item>Second card</ListView.Item>
-    <ListView.Item>Third card</ListView.Item>
-  </ListView>
+  <CardList>
+    <CardList.Item>First card</CardList.Item>
+    <CardList.Item>Second card</CardList.Item>
+    <CardList.Item>Third card</CardList.Item>
+  </CardList>
 </Playground>
 
-<Props of={ListView} />
+<Props of={CardList} />

@@ -13,5 +13,4 @@
  * limitations under the License.
  */
 
-export { Wrapper } from './components';
 export { default } from './Item';

@@ -13,4 +13,21 @@
  * limitations under the License.
  */
 
-export { default as Wrapper } from './Wrapper';
+import React from 'react';
+
+import deprecate from '../../util/deprecate';
+import Item from './components/Item';
+import CardList from './CardList';
+
+Item.displayName = 'CardList.Item';
+CardList.Item = Item;
+
+export default CardList;
+
+/**
+ * @deprecated
+ */
+export const ListView = props => {
+  deprecate('ListView has been renamed to CardList.');
+  return <CardList {...props} />;
+};
