@@ -17,6 +17,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import PropTypes from 'prop-types';
+
 import {
   Drawer,
   List,
@@ -24,8 +25,8 @@ import {
   ListItemIcon,
   ListItemText
 } from './components';
+import deprecate from '../../util/deprecate';
 import { childrenPropType } from '../../util/shared-prop-types';
-
 import { disableVisually } from '../../styles/style-helpers';
 
 export const COLLAPSED_NAV_WIDTH = 64;
@@ -90,6 +91,12 @@ const FooterWrapper = styled.div`
 `;
 
 const SideNav = props => {
+  deprecate(
+    ['SideNav has been deprecated.', 'Use the Sidebar component instead.'].join(
+      ' '
+    )
+  );
+
   const { variant, toggleMode, mode, header, footer, children } = props;
   const drawerContentStyles = getDrawerContentStyles(props);
 

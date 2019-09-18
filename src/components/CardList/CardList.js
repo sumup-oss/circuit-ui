@@ -13,22 +13,23 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Global as EmotionGlobal, css } from '@emotion/core';
+import styled from '@emotion/styled';
 
-import { createGlobalStyles } from './GlobalStylesService';
+import Card from '../Card';
 
-const Global = ({ custom }) => (
-  <EmotionGlobal styles={theme => css(createGlobalStyles(theme, custom))} />
-);
+/**
+ * Component that wraps a list of CardList.Item components
+ */
+const Wrapper = styled(Card)`
+  label: cardlist__wrapper;
 
-Global.propTypes = {
-  custom: PropTypes.string
-};
+  padding: 0;
+`;
 
-Global.defaultProps = {
-  custom: ''
-};
+Wrapper.defaultProps = Card.defaultProps;
+Wrapper.displayName = 'CardList';
 
-export default Global;
+/**
+ * @component
+ */
+export default Wrapper;

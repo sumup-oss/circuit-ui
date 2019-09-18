@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import HtmlElement from './HtmlElement';
-
-export default HtmlElement;
+export { default } from './Item';

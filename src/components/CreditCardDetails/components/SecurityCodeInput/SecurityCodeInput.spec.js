@@ -36,10 +36,10 @@ describe('SecurityCodeInput', () => {
 
   it('should pass any other props to the input', () => {
     const { getByLabelText } = render(
-      <SecurityCodeInput label="Security Code" foo="bar" />
+      <SecurityCodeInput label="Security Code" data-foo="bar" />
     );
     const inputEl = getByLabelText('Security Code');
-    expect(inputEl).toHaveAttribute('foo', 'bar');
+    expect(inputEl).toHaveAttribute('data-foo', 'bar');
   });
 
   it('should meet accessibility guidelines', async () => {

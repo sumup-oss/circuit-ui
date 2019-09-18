@@ -76,9 +76,8 @@ export const BUTTON_DEFAULT_PROPS = {
 };
 
 export const REGULAR_BUTTON_ONLY_PROPS = [
-  'blacklist',
   'deepRef',
-  'element',
+  'as',
   'flat',
   'secondary',
   'stretch'

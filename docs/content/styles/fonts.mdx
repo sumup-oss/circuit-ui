@@ -26,31 +26,41 @@ Circuit UI does not enforce any approach. It is up to you to choose and implemen
 The simplest strategy is the [unceremonious font-face](https://www.zachleat.com/web/comprehensive-webfonts/#font-face) with `preload` and `font-display`. This is the default approach recommended by [Google Fonts](https://fonts.google.com/). Here's how you can implement it with Circuit UI:
 
 1. Add the font-face(s) that you'd like to use to your global HTML `<head>`:
-  ```html
-  <link rel="preload" href="font-lato/lato-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
-  <style>
-    @font-face {
-      font-family: Lato;
-      src: url('font-lato/lato-regular-webfont.woff2') format('woff2'), url('font-lato/lato-regular-webfont.woff') format('woff');
-      font-display: swap; /* optional */
-    }
-  </style>
-  ```
+
+```html
+<link
+  rel="preload"
+  href="font-lato/lato-regular-webfont.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<style>
+  @font-face {
+    font-family: Lato;
+    src: url('font-lato/lato-regular-webfont.woff2') format('woff2'), url('font-lato/lato-regular-webfont.woff')
+        format('woff');
+    font-display: swap; /* optional */
+  }
+</style>
+```
+
 2. Update the font stack in your theme:
-  ```js
-  export const fontStack = {
-    regular: '"Lato", sans-serif';
-  };
-  ```
+
+```js
+export const fontStack = {
+  regular: '"Lato", sans-serif';
+};
+```
 
 At SumUp, we like to use [FOFT, or FOUT with Two Stage Render](https://www.zachleat.com/web/comprehensive-webfonts/#foft) paired with [Critical FOFT with preload](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-preload). When you opt for this approach, you will have to add some custom global styles. Here's how you can do this with Circuit UI:
 
-When you use `<GlobalStyles/>` to inject the global styles, you can pass it your custom styles:
-
 ```js
-import { GlobalStyles, theme } from '@sumup/circuit-ui';
+import { Global, css } from '@emotion/core';
+import { ThemeProvider } from 'emotion-theming';
+import { theme } from '@sumup/circuit-ui';
 
-const customStyles = `
+const fontStyles = css`
   body {
     font-family: sans-serif;
   }
@@ -65,10 +75,8 @@ const customStyles = `
 export default function App() {
   return (
     <ThemeProvider theme={theme.circuit}>
-      <GlobalStyles custom={customStyles} />
-      <p>
-        Hello World!
-      </p>
+      <Global styles={fontStyles} />
+      <p>Hello World!</p>
     </ThemeProvider>
   );
 }

@@ -13,19 +13,25 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { circuit } from '../../themes';
+import { createBaseStyles } from './BaseStylesService';
 
-import Global from './GlobalStyles';
+describe('BaseStylesService', () => {
+  it('should return the global base styles', () => {
+    const actual = createBaseStyles(circuit);
+    expect(actual).toMatchSnapshot();
+  });
 
-import { createGlobalStyles } from './GlobalStylesService';
-
-jest.mock('./GlobalStylesService', () => ({
-  createGlobalStyles: jest.fn()
-}));
-
-describe('Global', () => {
-  it('should create the global stylesheet', () => {
-    render(<Global />);
-    expect(createGlobalStyles).toHaveBeenCalled();
+  /**
+   * @deprecated
+   */
+  it('should accept custom global styles', () => {
+    const custom = `
+      p {
+        color: red;
+      }
+    `;
+    const actual = createBaseStyles(circuit, custom);
+    expect(actual).toMatchSnapshot();
   });
 });

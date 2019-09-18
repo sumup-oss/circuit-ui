@@ -15,18 +15,18 @@
 
 import React from 'react';
 
-import ListView from '.';
+import CardList from '.';
 
 const BaseList = () => (
-  <ListView>
-    <ListView.Item>List item 1</ListView.Item>
-    <ListView.Item selected>List item 2</ListView.Item>
-    <ListView.Item>List item 3</ListView.Item>
-    <ListView.Item>List item 4</ListView.Item>
-  </ListView>
+  <CardList>
+    <CardList.Item>List item 1</CardList.Item>
+    <CardList.Item selected>List item 2</CardList.Item>
+    <CardList.Item>List item 3</CardList.Item>
+    <CardList.Item>List item 4</CardList.Item>
+  </CardList>
 );
 
-describe('ListView', () => {
+describe('CardList', () => {
   /**
    * Style tests.
    */

@@ -17,9 +17,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import HtmlElement from '../HtmlElement';
 import { textMega, textKilo, textGiga } from '../../styles/style-helpers';
 import { sizes } from '../../styles/constants';
 
@@ -77,24 +77,20 @@ const marginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-// TODO: refactor with Emotion 10 as prop
-// eslint-disable-next-line react/prop-types
-const ListElement = ({ ordered, ...otherProps }) => (
-  <HtmlElement
-    blacklist={{ size: true, noMargin: true }}
-    element={ordered ? 'ol' : 'ul'}
-    {...otherProps}
-  />
-);
-
-/**
- * A list, which can be ordered or unordered
- */
-const List = styled(ListElement)`
+const StyledList = styled('ol', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+})`
   ${baseStyles};
   ${sizeStyles};
   ${marginStyles};
 `;
+
+/**
+ * A list, which can be ordered or unordered
+ */
+const List = ({ ordered, ...otherProps }) => (
+  <StyledList as={ordered ? 'ol' : 'ul'} {...otherProps} />
+);
 
 List.KILO = KILO;
 List.MEGA = MEGA;

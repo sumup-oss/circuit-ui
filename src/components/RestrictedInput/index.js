@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
-import RestrictedInput from './RestrictedInput';
+import RestrictedInput, { InternalRestrictedInput } from './RestrictedInput';
+
+export { InternalRestrictedInput };
 
 export default RestrictedInput;

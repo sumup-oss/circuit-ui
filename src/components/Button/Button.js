@@ -38,9 +38,8 @@ const SHARED_PROPS = [
 
 export const BUTTON_PROPS = [
   ...SHARED_PROPS,
-  'blacklist',
   'deepRef',
-  'element',
+  'as',
   'flat',
   'secondary',
   'size',
@@ -51,9 +50,8 @@ export const BUTTON_PROPS = [
 export const PLAIN_BUTTON_PROPS = [...SHARED_PROPS, 'size', 'target'];
 
 const REGULAR_BUTTON_ONLY_PROPS = [
-  'blacklist',
   'deepRef',
-  'element',
+  'as',
   'flat',
   'secondary',
   'stretch'

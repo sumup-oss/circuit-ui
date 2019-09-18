@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+import deprecate from '../../util/deprecate';
 import { toBool } from '../../util/fp';
 import InlineInputs from '../InlineElements';
 
@@ -63,7 +64,19 @@ export default class CreditCardDetails extends Component {
     renderSecurityCodeInfo: null
   };
 
-  state = { isShowingInfo: false };
+  constructor(props) {
+    super(props);
+
+    deprecate(
+      [
+        'CreditCardDetails has been deprecated.',
+        `Use SumUp's card widget instead:`,
+        'https://developer.sumup.com/docs/widgets-card-v2.'
+      ].join(' ')
+    );
+
+    this.state = { isShowingInfo: false };
+  }
 
   getSecurityCodeInputProps = () => {
     const canShowSecurityCodeInfo = toBool(this.props.renderSecurityCodeInfo);

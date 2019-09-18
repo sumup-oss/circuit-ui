@@ -17,6 +17,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'; // eslint-disable-line max-len
 
+import deprecate from '../../../../util/deprecate';
 import { uniqueId } from '../../../../util/id';
 import MaskedInput from '../../../MaskedInput';
 import Label from '../../../Label';
@@ -28,6 +29,14 @@ const datePipe = createAutoCorrectedDatePipe('mm/yy');
  * date.
  */
 const ExpiryDateInput = ({ label, id, ...props }) => {
+  deprecate(
+    [
+      'ExpiryDateInput has been deprecated.',
+      `Use SumUp's card widget instead:`,
+      'https://developer.sumup.com/docs/widgets-card-v2.'
+    ].join(' ')
+  );
+
   const inputId = id || uniqueId('cui-cc-expiry_');
   return (
     <Fragment>

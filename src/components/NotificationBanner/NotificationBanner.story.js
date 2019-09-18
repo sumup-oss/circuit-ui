@@ -41,7 +41,7 @@ storiesOf(`${GROUPS.COMPONENTS}|NotificationBanner`, module)
                 h1: {
                   component: Heading,
                   props: {
-                    element: 'h4',
+                    as: 'h4',
                     size: Heading.KILO,
                     noMargin: true
                   }

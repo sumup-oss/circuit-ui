@@ -40,7 +40,7 @@ storiesOf(`${GROUPS.TYPOGRAPHY}|Heading`, module)
     'Heading',
     withInfo()(() => (
       <Heading
-        element={select('Element', elements, elements[0])}
+        as={select('Element', elements, elements[0])}
         size={select('Size', sizes, sizes[0])}
         noMargin={boolean('No margin', false)}
       >

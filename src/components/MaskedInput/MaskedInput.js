@@ -16,6 +16,7 @@
 import React from 'react';
 import TextMaskInput from 'react-text-mask';
 
+import deprecate from '../../util/deprecate';
 import Input from '../Input';
 
 /**
@@ -39,6 +40,17 @@ const MaskedInput = props => (
     )}
   />
 );
+
+export function InternalMaskedInput(props) {
+  deprecate(
+    [
+      'MaskedInput has been deprecated.',
+      'Use react-text-mask directly instead.'
+    ].join(' ')
+  );
+
+  return <MaskedInput {...props} />;
+}
 
 /**
  * @component

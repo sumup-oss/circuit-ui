@@ -20,7 +20,6 @@ import { css } from '@emotion/core';
 import { find, identity } from 'lodash/fp';
 import { size } from 'polished';
 
-import HtmlElement from '../HtmlElement';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 import { directions } from '../../styles/constants';
 import {
@@ -191,7 +190,7 @@ const InputContainer = styled('div')`
   ${containerInlineStyles};
 `;
 
-const InputElement = styled(HtmlElement)`
+const InputElement = styled('input')`
   ${inputBaseStyles};
   ${inputOptionalStyles};
   ${inputWarningStyles};
@@ -305,22 +304,14 @@ const StyledInput = ({
           invalid,
           disabled,
           hasWarning,
-          deepRef,
-          element: element || as,
+          ref: deepRef,
+          as: element || as,
           hasPrefix: !!prefix,
           hasSuffix: !!suffix,
           className: inputClassName,
           css: inputStyles
         }}
         aria-invalid={invalid}
-        blacklist={{
-          optional: true,
-          invalid: true,
-          textAlign: true,
-          hasWarning: true,
-          hasPrefix: true,
-          hasSuffix: true
-        }}
       />
       {suffix}
       {!disabled && validationHint && (

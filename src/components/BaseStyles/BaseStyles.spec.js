@@ -13,23 +13,19 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
+import React from 'react';
 
-import Card from '../../../Card';
+import BaseStyles from './BaseStyles';
 
-/**
- * Component that wraps a list of List.Item components
- */
-const Wrapper = styled(Card)`
-  label: wrapper;
+import { createBaseStyles } from './BaseStylesService';
 
-  padding: 0;
-`;
+jest.mock('./BaseStylesService', () => ({
+  createBaseStyles: jest.fn()
+}));
 
-Wrapper.defaultProps = Card.defaultProps;
-Wrapper.displayName = 'List';
-
-/**
- * @component
- */
-export default Wrapper;
+describe('BaseStyles', () => {
+  it('should create the global base stylesheet', () => {
+    render(<BaseStyles />);
+    expect(createBaseStyles).toHaveBeenCalled();
+  });
+});

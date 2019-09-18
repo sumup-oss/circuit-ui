@@ -22,10 +22,10 @@ describe('Text', () => {
    * Style tests.
    */
   const elements = ['p', 'article', 'div'];
-  elements.forEach(el => {
-    it(`should render as ${el} element, when passed "${el}" for the element prop`, () => {
+  elements.forEach(as => {
+    it(`should render as ${as} element, when passed "${as}" for the element prop`, () => {
       const heading = create(
-        <Text element={el}>{`${el.toUpperCase()} heading`}</Text>
+        <Text as={as}>{`${as.toUpperCase()} heading`}</Text>
       );
       expect(heading).toMatchSnapshot();
     });

@@ -10,6 +10,12 @@ const customConfig = {
   },
   overrides: [
     {
+      files: ['src/**/*Service.js', 'src/**/constants.js'],
+      rules: {
+        'import/prefer-default-export': 'off'
+      }
+    },
+    {
       files: ['src/**/*spec.js'],
       rules: {
         'max-len': [

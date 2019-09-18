@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
-import MaskedInput from './MaskedInput';
+import MaskedInput, { InternalMaskedInput } from './MaskedInput';
+
+export { InternalMaskedInput };
 
 export default MaskedInput;

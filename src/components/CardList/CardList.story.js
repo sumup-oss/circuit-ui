@@ -21,9 +21,9 @@ import * as knobs from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import withTests from '../../util/withTests';
-import List from '.';
+import CardList from '.';
 
-class ListContainer extends Component {
+class CardListStory extends Component {
   state = { selected: 0 };
 
   handleClick = selected => () => this.setState({ selected });
@@ -32,29 +32,29 @@ class ListContainer extends Component {
     const { selected } = this.state;
     const padding = knobs.select(
       'padding',
-      [List.Item.KILO, List.Item.MEGA, List.Item.GIGA],
-      List.Item.GIGA
+      [CardList.Item.KILO, CardList.Item.MEGA, CardList.Item.GIGA],
+      CardList.Item.GIGA
     );
 
     return (
       <div style={{ width: '320px' }}>
-        <List>
+        <CardList>
           {range(1, 6).map(i => (
-            <List.Item
+            <CardList.Item
               key={i}
               selected={selected === i}
               onClick={this.handleClick(i)}
               padding={padding}
             >
               Item #{i}
-            </List.Item>
+            </CardList.Item>
           ))}
-        </List>
+        </CardList>
       </div>
     );
   }
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|ListView`, module)
-  .addDecorator(withTests('ListView'))
-  .add('ListView', withInfo()(() => <ListContainer />));
+storiesOf(`${GROUPS.COMPONENTS}|CardList`, module)
+  .addDecorator(withTests('CardList'))
+  .add('CardList', withInfo()(() => <CardListStory />));

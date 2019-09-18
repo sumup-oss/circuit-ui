@@ -122,6 +122,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
+    "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/styled": "^10.0.10",
     "@svgr/webpack": "^4.1.0",
     "babel-plugin-inline-react-svg": "^1.1.0",

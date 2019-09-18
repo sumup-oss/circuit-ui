@@ -25,9 +25,9 @@ describe('NameOnCardInput', () => {
   });
 
   it('should pass any other props to the input', () => {
-    const { getByLabelText } = render(<NameOnCardInput foo="bar" />);
+    const { getByLabelText } = render(<NameOnCardInput data-foo="bar" />);
     const inputEl = getByLabelText('Name on card');
-    expect(inputEl).toHaveAttribute('foo', 'bar');
+    expect(inputEl).toHaveAttribute('data-foo', 'bar');
   });
 
   it('should meet accessibility guidelines', async () => {

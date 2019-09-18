@@ -35,7 +35,7 @@ storiesOf(`${GROUPS.TYPOGRAPHY}|Text`, module)
     withInfo()(() => (
       <div style={{ width: '66%', margin: '0 auto' }}>
         <Text
-          element={select('Element', elements, elements[0])}
+          as={select('Element', elements, elements[0])}
           size={select('Size', sizes, sizes[0])}
           noMargin={boolean('No margin')}
           bold={boolean('Bold')}

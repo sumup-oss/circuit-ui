@@ -13,5 +13,17 @@
  * limitations under the License.
  */
 
-export { Wrapper } from './components';
-export { default } from './Item';
+import React from 'react';
+
+import deprecate from '../../util/deprecate';
+import BaseStyles from './BaseStyles';
+
+export default BaseStyles;
+
+/**
+ * @deprecated
+ */
+export const GlobalStyles = props => {
+  deprecate('GlobalStyles has been renamed to BaseStyles.');
+  return <BaseStyles {...props} />;
+};

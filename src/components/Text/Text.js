@@ -17,9 +17,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
-import HtmlElement from '../HtmlElement';
-import { childrenPropType } from '../../util/shared-prop-types';
+import {
+  childrenPropType,
+  deprecatedPropType
+} from '../../util/shared-prop-types';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
@@ -79,8 +82,9 @@ const marginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-// TODO: Rewrite this whole thing using the as prop.
-export const StyledText = styled(HtmlElement)`
+export const StyledText = styled('p', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+})`
   ${baseStyles};
   ${sizeStyles};
   ${marginStyles};
@@ -94,17 +98,8 @@ export const StyledText = styled(HtmlElement)`
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
-const Text = ({ blacklist, ...restProps }) => (
-  <StyledText
-    {...restProps}
-    blacklist={{
-      ...blacklist,
-      size: true,
-      bold: true,
-      italic: true,
-      noMargin: true
-    }}
-  />
+const Text = ({ element, as, ...restProps }) => (
+  <StyledText {...restProps} as={element || as} />
 );
 
 Text.KILO = KILO;
@@ -143,17 +138,21 @@ Text.propTypes = {
   /**
    * The HTML element to render.
    */
-  element: PropTypes.string,
+  as: PropTypes.string,
   /**
-   * A hash of props that should not be forwarded as attributes to the HTML element.
-   * Prevents React from complaining about invalid attribute values.
+   * @deprecated
+   * The HTML input element to render.
    */
-  blacklist: PropTypes.objectOf(PropTypes.bool)
+  element: deprecatedPropType(
+    PropTypes.string,
+    [
+      'Emotion 10 introduced the ability to change the HTML element.',
+      'Use the "as" prop instead.'
+    ].join(' ')
+  )
 };
 
 Text.defaultProps = {
-  element: 'p',
-  blacklist: {},
   size: Text.MEGA,
   className: '',
   noMargin: false,
