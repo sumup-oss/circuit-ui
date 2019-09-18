@@ -69,7 +69,7 @@ IconButton.propTypes = {
   /**
    * The icon element. Must be a single child.
    */
-  children: PropTypes.element,
+  children: PropTypes.element.isRequired,
   /**
    * Visually hidden text label for screen readers. Crucial for accessibility.
    */
