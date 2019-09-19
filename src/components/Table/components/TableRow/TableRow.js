@@ -40,7 +40,7 @@ const clickableStyles = ({ theme, onClick }) =>
       &:hover {
         td,
         th {
-          color: ${theme.colors.b500};
+          color: ${theme.colors.p500};
           background-color: ${theme.colors.n100};
         }
       }
