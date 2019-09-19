@@ -24,7 +24,7 @@ const defaultTabStyles = ({ theme }) => css`
   label: tab;
   ${textMega({ theme })};
   padding: ${theme.spacings.kilo} ${theme.spacings.tera};
-  color: ${theme.colors.n500};
+  color: ${theme.colors.n700};
   text-decoration: none;
   cursor: pointer;
   background-color: transparent;
@@ -45,6 +45,7 @@ const selectedTabStyles = ({ theme, selected }) =>
   css`
     label: tab--selected;
     position: relative;
+    color: ${theme.colors.n900};
 
     &::after {
       content: ' ';

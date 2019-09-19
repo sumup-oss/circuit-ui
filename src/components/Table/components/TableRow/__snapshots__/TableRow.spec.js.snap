@@ -11,6 +11,12 @@ tbody .circuit-0:last-child td {
   border-bottom: none;
 }
 
+tbody .circuit-0:hover td,
+tbody .circuit-0:hover th {
+  color: #3388FF;
+  background-color: #FAFBFC;
+}
+
 <tr
   class="circuit-0 circuit-1"
 >

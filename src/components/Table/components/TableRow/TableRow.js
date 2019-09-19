@@ -30,11 +30,21 @@ const baseStyles = () => css`
   }
 `;
 
-const clickableStyles = ({ onClick }) =>
+const clickableStyles = ({ theme, onClick }) =>
   onClick &&
   css`
     label: table-row--clickable;
     cursor: pointer;
+
+    tbody & {
+      &:hover {
+        td,
+        th {
+          color: ${theme.colors.p500};
+          background-color: ${theme.colors.n100};
+        }
+      }
+    }
   `;
 
 const TableRow = styled.tr`

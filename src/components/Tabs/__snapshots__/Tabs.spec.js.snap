@@ -39,7 +39,7 @@ exports[`Tabs styles should render with default styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding: 12px 32px;
-  color: #9DA7B1;
+  color: #5C656F;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -70,7 +70,7 @@ exports[`Tabs styles should render with default styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding: 12px 32px;
-  color: #9DA7B1;
+  color: #5C656F;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -96,6 +96,7 @@ exports[`Tabs styles should render with default styles 1`] = `
   justify-content: center;
   outline: none;
   position: relative;
+  color: #212933;
 }
 
 .circuit-2::after {
@@ -151,7 +152,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding: 12px 32px;
-  color: #9DA7B1;
+  color: #5C656F;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -182,7 +183,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding: 12px 32px;
-  color: #9DA7B1;
+  color: #5C656F;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -208,6 +209,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   justify-content: center;
   outline: none;
   position: relative;
+  color: #212933;
 }
 
 .circuit-2::after {

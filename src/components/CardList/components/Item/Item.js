@@ -63,6 +63,7 @@ const selectedStyles = ({ theme, selected }) =>
     label: cardlist__item--selected;
 
     background: ${theme.colors.p100};
+    color: ${theme.colors.p900};
   `;
 
 const getBorderStyles = theme => css`
