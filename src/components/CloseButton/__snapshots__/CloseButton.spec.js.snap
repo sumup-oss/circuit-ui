@@ -43,7 +43,9 @@ exports[`CloseButton should render with default styles 1`] = `
   class="circuit-2 circuit-3 circuit-4"
   type="button"
 >
-  <div>
+  <div
+    role="presentation"
+  >
     close-icon.svg
   </div>
   <span

@@ -2,6 +2,16 @@
 
 exports[`SearchInput should grey out icon when disabled 1`] = `
 .circuit-0 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-1 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -18,37 +28,37 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   padding-right: calc( 12px + 16px + 12px );
 }
 
-.circuit-0:focus,
-.circuit-0:active {
+.circuit-1:focus,
+.circuit-1:active {
   border: 1px solid #3388FF;
   outline: none;
 }
 
-.circuit-0::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-0::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-0:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-0::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
@@ -59,15 +69,17 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-3 circuit-4"
   disabled=""
 >
-  <div>
+  <div
+    class="circuit-0"
+  >
     search.svg
   </div>
   <input
     aria-invalid="false"
-    class="circuit-0 circuit-1"
+    class="circuit-1 circuit-2"
     disabled=""
     type="search"
   />
@@ -75,7 +87,7 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 `;
 
 exports[`SearchInput should render with default styles 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
@@ -83,6 +95,16 @@ exports[`SearchInput should render with default styles 1`] = `
 }
 
 .circuit-0 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-1 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -99,37 +121,37 @@ exports[`SearchInput should render with default styles 1`] = `
   padding-right: calc( 12px + 16px + 12px );
 }
 
-.circuit-0:focus,
-.circuit-0:active {
+.circuit-1:focus,
+.circuit-1:active {
   border: 1px solid #3388FF;
   outline: none;
 }
 
-.circuit-0::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-0::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-0:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-0::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -143,18 +165,20 @@ exports[`SearchInput should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
-  <div>
+  <div
+    class="circuit-0"
+  >
     search.svg
   </div>
   <input
     aria-invalid="false"
-    class="circuit-0 circuit-1"
+    class="circuit-1 circuit-2"
     type="search"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   />
 </div>
 `;

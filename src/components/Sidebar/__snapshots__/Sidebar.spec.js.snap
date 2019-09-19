@@ -130,7 +130,9 @@ HTMLCollection [
     <span
       class="circuit-0 circuit-1"
     />
-    <div>
+    <div
+      aria-hidden="true"
+    >
       closeIcon.svg
     </div>
   </button>,
@@ -251,7 +253,9 @@ HTMLCollection [
     <span
       class="circuit-0 circuit-1"
     />
-    <div>
+    <div
+      aria-hidden="true"
+    >
       closeIcon.svg
     </div>
   </button>,

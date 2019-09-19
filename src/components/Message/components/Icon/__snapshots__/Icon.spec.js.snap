@@ -66,7 +66,7 @@ exports[`MessageIcon should render with error icon 1`] = `
 `;
 
 exports[`MessageIcon should render with warning icon 1`] = `
-.circuit-0 {
+.circuit-2 {
   display: block;
   margin-right: 16px;
   -webkit-box-flex: 0;
@@ -79,10 +79,16 @@ exports[`MessageIcon should render with warning icon 1`] = `
   line-height: 0;
 }
 
+.circuit-0 rect {
+  fill: #D8A413;
+}
+
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-2 circuit-3"
 >
-  <div>
+  <div
+    class="circuit-0 circuit-1"
+  >
     message-success.svg
   </div>
 </div>

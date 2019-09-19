@@ -72,14 +72,14 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 `;
 
 exports[`TextArea should prioritize disabled over warning styles 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -91,6 +91,12 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
+}
+
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .circuit-0 {
@@ -182,16 +188,19 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <textarea
     aria-invalid="true"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       error.svg
     </div>
   </div>
@@ -199,14 +208,14 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
 `;
 
 exports[`TextArea should prioritize error over optional styles 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -218,6 +227,12 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
+}
+
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .circuit-0 {
@@ -292,16 +307,19 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <textarea
     aria-invalid="true"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       error.svg
     </div>
   </div>
@@ -838,14 +856,14 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
 `;
 
 exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -857,6 +875,12 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   width: 16px;
   margin: 12px;
   pointer-events: none;
+}
+
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .circuit-0 {
@@ -928,16 +952,19 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <textarea
     aria-invalid="true"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       error.svg
     </div>
   </div>
@@ -1113,7 +1140,7 @@ exports[`TextArea should render with optional styles when passed the optional pr
 `;
 
 exports[`TextArea should render with valid styles when passed the showValid prop 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
@@ -1168,7 +1195,7 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -1181,17 +1208,26 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   pointer-events: none;
 }
 
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <textarea
     aria-invalid="false"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       valid.svg
     </div>
   </div>
@@ -1199,7 +1235,7 @@ exports[`TextArea should render with valid styles when passed the showValid prop
 `;
 
 exports[`TextArea should render with warning styles when passed the hasWarning prop 1`] = `
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
@@ -1274,7 +1310,7 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   color: #D8A413;
 }
 
-.circuit-2 {
+.circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -1288,17 +1324,26 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   pointer-events: none;
 }
 
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-5 circuit-6"
 >
   <textarea
     aria-invalid="false"
     class="circuit-0 circuit-1"
   />
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-3 circuit-4"
   >
-    <div>
+    <div
+      class="circuit-2"
+      role="img"
+    >
       warning.svg
     </div>
   </div>
