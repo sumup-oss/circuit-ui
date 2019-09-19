@@ -15,17 +15,17 @@
 
 import React from 'react';
 
-import SvgButton from '.';
+import IconButton from '.';
 
-describe('SvgButton', () => {
+describe('IconButton', () => {
   /**
    * Style tests.
    */
   it('should render with the default styles', () => {
     const actual = create(
-      <SvgButton>
+      <IconButton label="A fake SVG">
         <div>SVG here</div>
-      </SvgButton>
+      </IconButton>
     );
     expect(actual).toMatchSnapshot();
   });
@@ -35,9 +35,9 @@ describe('SvgButton', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <SvgButton>
+      <IconButton label="A fake SVG">
         <div>SVG here</div>
-      </SvgButton>
+      </IconButton>
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

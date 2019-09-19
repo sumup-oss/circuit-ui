@@ -23,17 +23,17 @@ import deprecate from '../../../../util/deprecate';
 import Label from '../../../Label';
 import MaskedInput from '../../../MaskedInput';
 import InfoIcon from '../../../InfoIcon';
-import SvgButton from '../../../SvgButton/SvgButton';
+import IconButton from '../../../IconButton';
 import { getPlaceholder, getMask } from './SecurityCodeInputService';
 
-const baseInfoButtonStyles = ({ theme }) => css`
+const infoButtonStyles = ({ theme }) => css`
   label: security-code-input__info-button;
   margin-left: ${theme.spacings.bit};
   align-self: center;
   ${size(theme.iconSizes.byte)};
 `;
 
-const InfoButton = styled(SvgButton)(baseInfoButtonStyles);
+const InfoButton = styled(IconButton)(infoButtonStyles);
 
 const SecurityCodeLabel = styled(Label)`
   display: flex;
@@ -42,7 +42,14 @@ const SecurityCodeLabel = styled(Label)`
 /**
  * A specialized input for credit card security codes (CVV, etc.).
  */
-const SecurityCodeInput = ({ label, id, cardScheme, onShowInfo, ...props }) => {
+const SecurityCodeInput = ({
+  label,
+  iconLabel,
+  id,
+  cardScheme,
+  onShowInfo,
+  ...props
+}) => {
   deprecate(
     [
       'SecurityCodeInput has been deprecated.',
@@ -55,7 +62,7 @@ const SecurityCodeInput = ({ label, id, cardScheme, onShowInfo, ...props }) => {
       <SecurityCodeLabel htmlFor={id}>
         {label}
         {onShowInfo && (
-          <InfoButton type="button" onClick={onShowInfo}>
+          <InfoButton onClick={onShowInfo} label={iconLabel}>
             <InfoIcon />
           </InfoButton>
         )}
@@ -77,6 +84,10 @@ SecurityCodeInput.propTypes = {
    */
   label: PropTypes.string,
   /**
+   * The label to be used for the info icon (for i18n purposes).
+   */
+  iconLabel: PropTypes.string,
+  /**
    * Id to be used for the input.
    */
   id: PropTypes.string,
@@ -92,6 +103,7 @@ SecurityCodeInput.propTypes = {
 
 SecurityCodeInput.defaultProps = {
   label: 'Security code',
+  iconLabel: 'Info',
   id: 'cui-cc-security-code',
   cardScheme: '',
   onShowInfo: null

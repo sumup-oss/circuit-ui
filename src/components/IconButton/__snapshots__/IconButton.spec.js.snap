@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CloseButton should render with default styles 1`] = `
-.circuit-3 {
+exports[`IconButton should render with the default styles 1`] = `
+.circuit-2 {
   padding: 0;
   margin: 0;
   display: inline-block;
@@ -10,16 +10,14 @@ exports[`CloseButton should render with default styles 1`] = `
   cursor: pointer;
   fill: #0F131A;
   overflow: initial;
-  height: 16px;
-  width: 16px;
 }
 
-.circuit-3:focus,
-.circuit-3:active {
+.circuit-2:focus,
+.circuit-2:active {
   outline: none;
 }
 
-.circuit-3 > svg {
+.circuit-2 > svg {
   height: 100%;
   width: 100%;
 }
@@ -40,16 +38,18 @@ exports[`CloseButton should render with default styles 1`] = `
 }
 
 <button
-  class="circuit-2 circuit-3 circuit-4"
+  class="circuit-2 circuit-3"
   type="button"
 >
-  <div>
-    close-icon.svg
+  <div
+    role="presentation"
+  >
+    SVG here
   </div>
   <span
     class="circuit-0 circuit-1"
   >
-    Close
+    A fake SVG
   </span>
 </button>
 `;

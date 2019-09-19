@@ -1,36 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
-.circuit-52 {
+.circuit-50 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-50 {
+.circuit-48 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-50 {
+  .circuit-48 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-48 {
+.circuit-46 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-48 {
+  .circuit-46 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-48:after {
+  .circuit-46:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -41,1272 +41,6 @@ exports[`Table Style tests should not render a scrollable table if the rowHeader
   }
 }
 
-.circuit-14 {
-  vertical-align: middle;
-}
-
-tbody .circuit-14:last-child th,
-tbody .circuit-14:last-child td {
-  border-bottom: none;
-}
-
-.circuit-3 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-@media (max-width:767px) {
-  .circuit-3 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-3:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-3:hover > button {
-  opacity: 1;
-}
-
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 10px;
-  left: 12px;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  width: 5px;
-}
-
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-5 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-}
-
-@media (max-width:767px) {
-  .circuit-5 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-.circuit-10 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.circuit-10:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-10:hover > button {
-  opacity: 1;
-}
-
-.circuit-12 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-}
-
-.circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-}
-
-@media (max-width:767px) {
-  .circuit-18 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-20 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-}
-
-@media (max-width:767px) {
-  .circuit-20 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-<div
-  class="circuit-52 circuit-53"
->
-  <div
-    class="circuit-50 circuit-51"
-  >
-    <table
-      class="circuit-48 circuit-49"
-    >
-      <thead
-        class="circuit-16 circuit-17"
-      >
-        <tr
-          class="circuit-14 circuit-15"
-        >
-          <th
-            aria-sort="none"
-            class="circuit-3 circuit-4"
-            data-testid="table-header"
-            scope="col"
-          >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
-            >
-              <div>
-                arrow.svg
-              </div>
-              <div>
-                arrow.svg
-              </div>
-            </button>
-            Letters
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-5 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Letters
-          </td>
-          <th
-            aria-sort="none"
-            class="circuit-10 circuit-4"
-            data-testid="table-header"
-            scope="col"
-          >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
-            >
-              <div>
-                arrow.svg
-              </div>
-              <div>
-                arrow.svg
-              </div>
-            </button>
-            Numbers
-          </th>
-          <th
-            class="circuit-12 circuit-4"
-            data-testid="table-header"
-            scope="col"
-          >
-            Words
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          class="circuit-14 circuit-15"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-18 circuit-4"
-            data-testid="table-header"
-            scope="row"
-          >
-            b
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-20 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            b
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            3
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            Foo
-          </td>
-        </tr>
-        <tr
-          class="circuit-14 circuit-15"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-18 circuit-4"
-            data-testid="table-header"
-            scope="row"
-          >
-            a
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-20 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            a
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            1
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            Bar
-          </td>
-        </tr>
-        <tr
-          class="circuit-14 circuit-15"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-18 circuit-4"
-            data-testid="table-header"
-            scope="row"
-          >
-            c
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-20 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            c
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            2
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            Baz
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`Table Style tests should render a collapsed table 1`] = `
-.circuit-52 {
-  position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
-}
-
-.circuit-50 {
-  border-radius: 4px;
-}
-
-@media (max-width:767px) {
-  .circuit-50 {
-    height: unset;
-    margin-left: 145px;
-    overflow-x: auto;
-  }
-}
-
-.circuit-14 {
-  vertical-align: middle;
-}
-
-tbody .circuit-14:last-child th,
-tbody .circuit-14:last-child td {
-  border-bottom: none;
-}
-
-.circuit-3 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-@media (max-width:767px) {
-  .circuit-3 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-3:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-3:hover > button {
-  opacity: 1;
-}
-
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 10px;
-  left: 12px;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  width: 5px;
-}
-
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-5 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-}
-
-@media (max-width:767px) {
-  .circuit-5 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-.circuit-10 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.circuit-10:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-10:hover > button {
-  opacity: 1;
-}
-
-.circuit-12 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-}
-
-.circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-}
-
-@media (max-width:767px) {
-  .circuit-18 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-20 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-}
-
-@media (max-width:767px) {
-  .circuit-20 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.circuit-48 {
-  background-color: #FFFFFF;
-  border-collapse: separate;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-@media (max-width:767px) {
-  .circuit-48 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-48:after {
-    content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
-}
-
-<div
-  class="circuit-52 circuit-53"
->
-  <div
-    class="circuit-50 circuit-51"
-  >
-    <table
-      class="circuit-48 circuit-49"
-    >
-      <thead
-        class="circuit-16 circuit-17"
-      >
-        <tr
-          class="circuit-14 circuit-15"
-        >
-          <th
-            aria-sort="none"
-            class="circuit-3 circuit-4"
-            data-testid="table-header"
-            scope="col"
-          >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
-            >
-              <div>
-                arrow.svg
-              </div>
-              <div>
-                arrow.svg
-              </div>
-            </button>
-            Letters
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-5 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Letters
-          </td>
-          <th
-            aria-sort="none"
-            class="circuit-10 circuit-4"
-            data-testid="table-header"
-            scope="col"
-          >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
-            >
-              <div>
-                arrow.svg
-              </div>
-              <div>
-                arrow.svg
-              </div>
-            </button>
-            Numbers
-          </th>
-          <th
-            class="circuit-12 circuit-4"
-            data-testid="table-header"
-            scope="col"
-          >
-            Words
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          class="circuit-14 circuit-15"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-18 circuit-4"
-            data-testid="table-header"
-            scope="row"
-          >
-            b
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-20 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            b
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            3
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            Foo
-          </td>
-        </tr>
-        <tr
-          class="circuit-14 circuit-15"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-18 circuit-4"
-            data-testid="table-header"
-            scope="row"
-          >
-            a
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-20 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            a
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            1
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            Bar
-          </td>
-        </tr>
-        <tr
-          class="circuit-14 circuit-15"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-18 circuit-4"
-            data-testid="table-header"
-            scope="row"
-          >
-            c
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-20 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            c
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            2
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            Baz
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`Table Style tests should render a condensed table 1`] = `
-.circuit-52 {
-  position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
-}
-
-.circuit-50 {
-  border-radius: 4px;
-}
-
-@media (max-width:767px) {
-  .circuit-50 {
-    height: unset;
-    margin-left: 145px;
-    overflow-x: auto;
-  }
-}
-
-.circuit-48 {
-  background-color: #FFFFFF;
-  border-collapse: separate;
-  width: 100%;
-}
-
-@media (max-width:767px) {
-  .circuit-48 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-48:after {
-    content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
-}
-
-.circuit-14 {
-  vertical-align: middle;
-}
-
-tbody .circuit-14:last-child th,
-tbody .circuit-14:last-child td {
-  border-bottom: none;
-}
-
-.circuit-3 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  font-size: 13px;
-  line-height: 20px;
-  padding: 12px 16px;
-  padding: 8px 16px;
-}
-
-@media (max-width:767px) {
-  .circuit-3 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-3:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-3:hover > button {
-  opacity: 1;
-}
-
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 10px;
-  left: 12px;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  width: 5px;
-  left: 8px;
-}
-
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-5 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  padding: 12px 16px;
-  font-size: 13px;
-  line-height: 20px;
-  display: none;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  padding: 12px 16px;
-  font-size: 13px;
-  line-height: 20px;
-  padding: 8px 16px;
-}
-
-@media (max-width:767px) {
-  .circuit-5 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-.circuit-10 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  vertical-align: middle;
-  font-size: 13px;
-  line-height: 20px;
-  padding: 12px 16px;
-  padding: 8px 16px;
-}
-
-.circuit-10:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-10:hover > button {
-  opacity: 1;
-}
-
-.circuit-12 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  vertical-align: middle;
-  font-size: 13px;
-  line-height: 20px;
-  padding: 12px 16px;
-  padding: 8px 16px;
-}
-
-.circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  vertical-align: middle;
-  font-size: 13px;
-  line-height: 20px;
-  padding: 12px 16px;
-}
-
-@media (max-width:767px) {
-  .circuit-18 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-20 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  padding: 12px 16px;
-  font-size: 13px;
-  line-height: 20px;
-  display: none;
-  padding: 12px 16px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-@media (max-width:767px) {
-  .circuit-20 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  padding: 12px 16px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-<div
-  class="circuit-52 circuit-53"
->
-  <div
-    class="circuit-50 circuit-51"
-  >
-    <table
-      class="circuit-48 circuit-49"
-    >
-      <thead
-        class="circuit-16 circuit-17"
-      >
-        <tr
-          class="circuit-14 circuit-15"
-        >
-          <th
-            aria-sort="none"
-            class="circuit-3 circuit-4"
-            data-testid="table-header"
-            scope="col"
-          >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
-            >
-              <div>
-                arrow.svg
-              </div>
-              <div>
-                arrow.svg
-              </div>
-            </button>
-            Letters
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-5 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Letters
-          </td>
-          <th
-            aria-sort="none"
-            class="circuit-10 circuit-4"
-            data-testid="table-header"
-            scope="col"
-          >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
-            >
-              <div>
-                arrow.svg
-              </div>
-              <div>
-                arrow.svg
-              </div>
-            </button>
-            Numbers
-          </th>
-          <th
-            class="circuit-12 circuit-4"
-            data-testid="table-header"
-            scope="col"
-          >
-            Words
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          class="circuit-14 circuit-15"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-18 circuit-4"
-            data-testid="table-header"
-            scope="row"
-          >
-            b
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-20 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            b
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            3
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            Foo
-          </td>
-        </tr>
-        <tr
-          class="circuit-14 circuit-15"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-18 circuit-4"
-            data-testid="table-header"
-            scope="row"
-          >
-            a
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-20 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            a
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            1
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            Bar
-          </td>
-        </tr>
-        <tr
-          class="circuit-14 circuit-15"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-18 circuit-4"
-            data-testid="table-header"
-            scope="row"
-          >
-            c
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-20 circuit-6"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            c
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            2
-          </td>
-          <td
-            class="circuit-22 circuit-6"
-            data-testid="table-cell"
-          >
-            Baz
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`Table Style tests should render a scrollable table 1`] = `
 .circuit-12 {
   vertical-align: middle;
 }
@@ -1316,46 +50,7 @@ tbody .circuit-12:last-child td {
   border-bottom: none;
 }
 
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 10px;
-  left: 12px;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  width: 5px;
-}
-
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1376,12 +71,98 @@ tbody .circuit-12:last-child td {
   user-select: none;
 }
 
-.circuit-3:hover {
+@media (max-width:767px) {
+  .circuit-2 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-2:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-3:hover > button {
+.circuit-2:hover > span {
+  opacity: 1;
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 10px;
+  width: 5px;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  fill: #3388FF;
+}
+
+.circuit-4 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+}
+
+@media (max-width:767px) {
+  .circuit-4 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-8 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-8:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-8:hover > span {
   opacity: 1;
 }
 
@@ -1405,58 +186,61 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+@media (max-width:767px) {
+  .circuit-16 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-18 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-18 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-20 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
   -webkit-transition: background-color 200ms ease-in-out;
   transition: background-color 200ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
 
-.circuit-44 {
-  position: relative;
-  height: 100%;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
-}
-
-@media (max-width:767px) {
-  .circuit-44 {
-    height: 100%;
-  }
-}
-
-.circuit-40 {
-  background-color: #FFFFFF;
-  border-collapse: separate;
-  width: 100%;
-}
-
-.circuit-14 {
-  -webkit-transform: translateY(px);
-  -ms-transform: translateY(px);
-  transform: translateY(px);
-}
-
-@media (max-width:767px) {
-  .circuit-14 {
-    -webkit-transform: translateY(nullpx);
-    -ms-transform: translateY(nullpx);
-    transform: translateY(nullpx);
-  }
-}
-
-.circuit-42 {
-  height: 0px;
-  overflow-y: auto;
-}
-
 <div
-  class="circuit-44 circuit-45"
+  class="circuit-50 circuit-51"
 >
   <div
-    class="circuit-42 circuit-43"
-    height="0px"
+    class="circuit-48 circuit-49"
   >
     <table
-      class="circuit-40 circuit-41"
+      class="circuit-46 circuit-47"
     >
       <thead
         class="circuit-14 circuit-15"
@@ -1466,13 +250,12 @@ tbody .circuit-12:last-child td {
         >
           <th
             aria-sort="none"
-            class="circuit-3 circuit-4"
+            class="circuit-2 circuit-3"
             data-testid="table-header"
             scope="col"
           >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
+            <span
+              class="circuit-0 circuit-1"
             >
               <div>
                 arrow.svg
@@ -1480,18 +263,25 @@ tbody .circuit-12:last-child td {
               <div>
                 arrow.svg
               </div>
-            </button>
+            </span>
             Letters
           </th>
+          <td
+            aria-hidden="true"
+            class="circuit-4 circuit-5"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Letters
+          </td>
           <th
             aria-sort="none"
-            class="circuit-3 circuit-4"
+            class="circuit-8 circuit-3"
             data-testid="table-header"
             scope="col"
           >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
+            <span
+              class="circuit-0 circuit-1"
             >
               <div>
                 arrow.svg
@@ -1499,11 +289,11 @@ tbody .circuit-12:last-child td {
               <div>
                 arrow.svg
               </div>
-            </button>
+            </span>
             Numbers
           </th>
           <th
-            class="circuit-10 circuit-4"
+            class="circuit-10 circuit-3"
             data-testid="table-header"
             scope="col"
           >
@@ -1516,20 +306,29 @@ tbody .circuit-12:last-child td {
           class="circuit-12 circuit-13"
           data-testid="table-row"
         >
+          <th
+            class="circuit-16 circuit-3"
+            data-testid="table-header"
+            scope="row"
+          >
+            b
+          </th>
           <td
-            class="circuit-16 circuit-17"
+            aria-hidden="true"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
+            role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-16 circuit-17"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-16 circuit-17"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Foo
@@ -1539,20 +338,29 @@ tbody .circuit-12:last-child td {
           class="circuit-12 circuit-13"
           data-testid="table-row"
         >
+          <th
+            class="circuit-16 circuit-3"
+            data-testid="table-header"
+            scope="row"
+          >
+            a
+          </th>
           <td
-            class="circuit-16 circuit-17"
+            aria-hidden="true"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
+            role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-16 circuit-17"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-16 circuit-17"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Bar
@@ -1562,20 +370,1136 @@ tbody .circuit-12:last-child td {
           class="circuit-12 circuit-13"
           data-testid="table-row"
         >
+          <th
+            class="circuit-16 circuit-3"
+            data-testid="table-header"
+            scope="row"
+          >
+            c
+          </th>
           <td
-            class="circuit-16 circuit-17"
+            aria-hidden="true"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
+            role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-16 circuit-17"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-16 circuit-17"
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            Baz
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Table Style tests should render a collapsed table 1`] = `
+.circuit-50 {
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-48 {
+  border-radius: 4px;
+}
+
+@media (max-width:767px) {
+  .circuit-48 {
+    height: unset;
+    margin-left: 145px;
+    overflow-x: auto;
+  }
+}
+
+.circuit-12 {
+  vertical-align: middle;
+}
+
+tbody .circuit-12:last-child th,
+tbody .circuit-12:last-child td {
+  border-bottom: none;
+}
+
+.circuit-2 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (max-width:767px) {
+  .circuit-2 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-2:hover > span {
+  opacity: 1;
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 10px;
+  width: 5px;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  fill: #3388FF;
+}
+
+.circuit-4 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+}
+
+@media (max-width:767px) {
+  .circuit-4 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-8 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-8:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-8:hover > span {
+  opacity: 1;
+}
+
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+.circuit-16 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+@media (max-width:767px) {
+  .circuit-16 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-18 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-18 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-20 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-46 {
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+@media (max-width:767px) {
+  .circuit-46 {
+    margin-left: -145px;
+    width: calc(100% + 145px);
+  }
+
+  .circuit-46:after {
+    content: '';
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    height: 100%;
+    left: 145px;
+    position: absolute;
+    top: 0;
+    width: 6px;
+  }
+}
+
+<div
+  class="circuit-50 circuit-51"
+>
+  <div
+    class="circuit-48 circuit-49"
+  >
+    <table
+      class="circuit-46 circuit-47"
+    >
+      <thead
+        class="circuit-14 circuit-15"
+      >
+        <tr
+          class="circuit-12 circuit-13"
+        >
+          <th
+            aria-sort="none"
+            class="circuit-2 circuit-3"
+            data-testid="table-header"
+            scope="col"
+          >
+            <span
+              class="circuit-0 circuit-1"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </span>
+            Letters
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-4 circuit-5"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Letters
+          </td>
+          <th
+            aria-sort="none"
+            class="circuit-8 circuit-3"
+            data-testid="table-header"
+            scope="col"
+          >
+            <span
+              class="circuit-0 circuit-1"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </span>
+            Numbers
+          </th>
+          <th
+            class="circuit-10 circuit-3"
+            data-testid="table-header"
+            scope="col"
+          >
+            Words
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="circuit-12 circuit-13"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-16 circuit-3"
+            data-testid="table-header"
+            scope="row"
+          >
+            b
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-18 circuit-5"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            b
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            3
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            Foo
+          </td>
+        </tr>
+        <tr
+          class="circuit-12 circuit-13"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-16 circuit-3"
+            data-testid="table-header"
+            scope="row"
+          >
+            a
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-18 circuit-5"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            a
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            1
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            Bar
+          </td>
+        </tr>
+        <tr
+          class="circuit-12 circuit-13"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-16 circuit-3"
+            data-testid="table-header"
+            scope="row"
+          >
+            c
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-18 circuit-5"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            c
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            2
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            Baz
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Table Style tests should render a condensed table 1`] = `
+.circuit-50 {
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-48 {
+  border-radius: 4px;
+}
+
+@media (max-width:767px) {
+  .circuit-48 {
+    height: unset;
+    margin-left: 145px;
+    overflow-x: auto;
+  }
+}
+
+.circuit-46 {
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  width: 100%;
+}
+
+@media (max-width:767px) {
+  .circuit-46 {
+    margin-left: -145px;
+    width: calc(100% + 145px);
+  }
+
+  .circuit-46:after {
+    content: '';
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    height: 100%;
+    left: 145px;
+    position: absolute;
+    top: 0;
+    width: 6px;
+  }
+}
+
+.circuit-12 {
+  vertical-align: middle;
+}
+
+tbody .circuit-12:last-child th,
+tbody .circuit-12:last-child td {
+  border-bottom: none;
+}
+
+.circuit-2 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 12px 16px;
+  padding: 8px 16px;
+}
+
+@media (max-width:767px) {
+  .circuit-2 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-2:hover > span {
+  opacity: 1;
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 10px;
+  width: 5px;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  fill: #3388FF;
+  left: 8px;
+}
+
+.circuit-4 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 20px;
+  display: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 8px 16px;
+}
+
+@media (max-width:767px) {
+  .circuit-4 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-8 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 12px 16px;
+  padding: 8px 16px;
+}
+
+.circuit-8:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-8:hover > span {
+  opacity: 1;
+}
+
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  vertical-align: middle;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 12px 16px;
+  padding: 8px 16px;
+}
+
+.circuit-16 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 12px 16px;
+}
+
+@media (max-width:767px) {
+  .circuit-16 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-18 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 20px;
+  display: none;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+@media (max-width:767px) {
+  .circuit-18 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-20 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+<div
+  class="circuit-50 circuit-51"
+>
+  <div
+    class="circuit-48 circuit-49"
+  >
+    <table
+      class="circuit-46 circuit-47"
+    >
+      <thead
+        class="circuit-14 circuit-15"
+      >
+        <tr
+          class="circuit-12 circuit-13"
+        >
+          <th
+            aria-sort="none"
+            class="circuit-2 circuit-3"
+            data-testid="table-header"
+            scope="col"
+          >
+            <span
+              class="circuit-0 circuit-1"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </span>
+            Letters
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-4 circuit-5"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Letters
+          </td>
+          <th
+            aria-sort="none"
+            class="circuit-8 circuit-3"
+            data-testid="table-header"
+            scope="col"
+          >
+            <span
+              class="circuit-0 circuit-1"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </span>
+            Numbers
+          </th>
+          <th
+            class="circuit-10 circuit-3"
+            data-testid="table-header"
+            scope="col"
+          >
+            Words
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="circuit-12 circuit-13"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-16 circuit-3"
+            data-testid="table-header"
+            scope="row"
+          >
+            b
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-18 circuit-5"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            b
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            3
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            Foo
+          </td>
+        </tr>
+        <tr
+          class="circuit-12 circuit-13"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-16 circuit-3"
+            data-testid="table-header"
+            scope="row"
+          >
+            a
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-18 circuit-5"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            a
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            1
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            Bar
+          </td>
+        </tr>
+        <tr
+          class="circuit-12 circuit-13"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-16 circuit-3"
+            data-testid="table-header"
+            scope="row"
+          >
+            c
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-18 circuit-5"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            c
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            2
+          </td>
+          <td
+            class="circuit-20 circuit-5"
+            data-testid="table-cell"
+          >
+            Baz
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Table Style tests should render a scrollable table 1`] = `
+.circuit-10 {
+  vertical-align: middle;
+}
+
+tbody .circuit-10:last-child th,
+tbody .circuit-10:last-child td {
+  border-bottom: none;
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 10px;
+  width: 5px;
+  left: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  fill: #3388FF;
+}
+
+.circuit-2 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-2:hover > span {
+  opacity: 1;
+}
+
+.circuit-8 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+}
+
+.circuit-14 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-42 {
+  position: relative;
+  height: 100%;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+@media (max-width:767px) {
+  .circuit-42 {
+    height: 100%;
+  }
+}
+
+.circuit-38 {
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  width: 100%;
+}
+
+.circuit-12 {
+  -webkit-transform: translateY(px);
+  -ms-transform: translateY(px);
+  transform: translateY(px);
+}
+
+@media (max-width:767px) {
+  .circuit-12 {
+    -webkit-transform: translateY(nullpx);
+    -ms-transform: translateY(nullpx);
+    transform: translateY(nullpx);
+  }
+}
+
+.circuit-40 {
+  height: 0px;
+  overflow-y: auto;
+}
+
+<div
+  class="circuit-42 circuit-43"
+>
+  <div
+    class="circuit-40 circuit-41"
+    height="0px"
+  >
+    <table
+      class="circuit-38 circuit-39"
+    >
+      <thead
+        class="circuit-12 circuit-13"
+      >
+        <tr
+          class="circuit-10 circuit-11"
+        >
+          <th
+            aria-sort="none"
+            class="circuit-2 circuit-3"
+            data-testid="table-header"
+            scope="col"
+          >
+            <span
+              class="circuit-0 circuit-1"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </span>
+            Letters
+          </th>
+          <th
+            aria-sort="none"
+            class="circuit-2 circuit-3"
+            data-testid="table-header"
+            scope="col"
+          >
+            <span
+              class="circuit-0 circuit-1"
+            >
+              <div>
+                arrow.svg
+              </div>
+              <div>
+                arrow.svg
+              </div>
+            </span>
+            Numbers
+          </th>
+          <th
+            class="circuit-8 circuit-3"
+            data-testid="table-header"
+            scope="col"
+          >
+            Words
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="circuit-10 circuit-11"
+          data-testid="table-row"
+        >
+          <td
+            class="circuit-14 circuit-15"
+            data-testid="table-cell"
+          >
+            b
+          </td>
+          <td
+            class="circuit-14 circuit-15"
+            data-testid="table-cell"
+          >
+            3
+          </td>
+          <td
+            class="circuit-14 circuit-15"
+            data-testid="table-cell"
+          >
+            Foo
+          </td>
+        </tr>
+        <tr
+          class="circuit-10 circuit-11"
+          data-testid="table-row"
+        >
+          <td
+            class="circuit-14 circuit-15"
+            data-testid="table-cell"
+          >
+            a
+          </td>
+          <td
+            class="circuit-14 circuit-15"
+            data-testid="table-cell"
+          >
+            1
+          </td>
+          <td
+            class="circuit-14 circuit-15"
+            data-testid="table-cell"
+          >
+            Bar
+          </td>
+        </tr>
+        <tr
+          class="circuit-10 circuit-11"
+          data-testid="table-row"
+        >
+          <td
+            class="circuit-14 circuit-15"
+            data-testid="table-cell"
+          >
+            c
+          </td>
+          <td
+            class="circuit-14 circuit-15"
+            data-testid="table-cell"
+          >
+            2
+          </td>
+          <td
+            class="circuit-14 circuit-15"
             data-testid="table-cell"
           >
             Baz
@@ -1588,36 +1512,36 @@ tbody .circuit-12:last-child td {
 `;
 
 exports[`Table Style tests should render with default styles 1`] = `
-.circuit-52 {
+.circuit-50 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-50 {
+.circuit-48 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-50 {
+  .circuit-48 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-48 {
+.circuit-46 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-48 {
+  .circuit-46 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-48:after {
+  .circuit-46:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -1628,16 +1552,16 @@ exports[`Table Style tests should render with default styles 1`] = `
   }
 }
 
-.circuit-14 {
+.circuit-12 {
   vertical-align: middle;
 }
 
-tbody .circuit-14:last-child th,
-tbody .circuit-14:last-child td {
+tbody .circuit-12:last-child th,
+tbody .circuit-12:last-child td {
   border-bottom: none;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1659,7 +1583,7 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-3 {
+  .circuit-2 {
     left: 0;
     top: auto;
     position: absolute;
@@ -1668,24 +1592,16 @@ tbody .circuit-14:last-child td {
   }
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-3:hover > button {
+.circuit-2:hover > span {
   opacity: 1;
 }
 
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1694,6 +1610,7 @@ tbody .circuit-14:last-child td {
   -ms-flex-direction: column;
   flex-direction: column;
   height: 10px;
+  width: 5px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -1703,20 +1620,10 @@ tbody .circuit-14:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  width: 5px;
+  fill: #3388FF;
 }
 
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-5 {
+.circuit-4 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1732,12 +1639,42 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-5 {
+  .circuit-4 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
     width: 145px;
   }
+}
+
+.circuit-8 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-8:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-8:hover > span {
+  opacity: 1;
 }
 
 .circuit-10 {
@@ -1753,39 +1690,9 @@ tbody .circuit-14:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
-.circuit-10:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-10:hover > button {
-  opacity: 1;
-}
-
-.circuit-12 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-}
-
-.circuit-18 {
+.circuit-16 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1796,7 +1703,7 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-18 {
+  .circuit-16 {
     left: 0;
     top: auto;
     position: absolute;
@@ -1805,7 +1712,7 @@ tbody .circuit-14:last-child td {
   }
 }
 
-.circuit-20 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1818,7 +1725,7 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-20 {
+  .circuit-18 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -1826,7 +1733,7 @@ tbody .circuit-14:last-child td {
   }
 }
 
-.circuit-22 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -1838,29 +1745,28 @@ tbody .circuit-14:last-child td {
 }
 
 <div
-  class="circuit-52 circuit-53"
+  class="circuit-50 circuit-51"
 >
   <div
-    class="circuit-50 circuit-51"
+    class="circuit-48 circuit-49"
   >
     <table
-      class="circuit-48 circuit-49"
+      class="circuit-46 circuit-47"
     >
       <thead
-        class="circuit-16 circuit-17"
+        class="circuit-14 circuit-15"
       >
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-sort="none"
-            class="circuit-3 circuit-4"
+            class="circuit-2 circuit-3"
             data-testid="table-header"
             scope="col"
           >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
+            <span
+              class="circuit-0 circuit-1"
             >
               <div>
                 arrow.svg
@@ -1868,12 +1774,12 @@ tbody .circuit-14:last-child td {
               <div>
                 arrow.svg
               </div>
-            </button>
+            </span>
             Letters
           </th>
           <td
             aria-hidden="true"
-            class="circuit-5 circuit-6"
+            class="circuit-4 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
@@ -1881,13 +1787,12 @@ tbody .circuit-14:last-child td {
           </td>
           <th
             aria-sort="none"
-            class="circuit-10 circuit-4"
+            class="circuit-8 circuit-3"
             data-testid="table-header"
             scope="col"
           >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
+            <span
+              class="circuit-0 circuit-1"
             >
               <div>
                 arrow.svg
@@ -1895,11 +1800,11 @@ tbody .circuit-14:last-child td {
               <div>
                 arrow.svg
               </div>
-            </button>
+            </span>
             Numbers
           </th>
           <th
-            class="circuit-12 circuit-4"
+            class="circuit-10 circuit-3"
             data-testid="table-header"
             scope="col"
           >
@@ -1909,11 +1814,11 @@ tbody .circuit-14:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-4"
+            class="circuit-16 circuit-3"
             data-testid="table-header"
             scope="row"
           >
@@ -1921,31 +1826,31 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-6"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-4"
+            class="circuit-16 circuit-3"
             data-testid="table-header"
             scope="row"
           >
@@ -1953,31 +1858,31 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-6"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-4"
+            class="circuit-16 circuit-3"
             data-testid="table-header"
             scope="row"
           >
@@ -1985,20 +1890,20 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-6"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Baz
@@ -2011,36 +1916,36 @@ tbody .circuit-14:last-child td {
 `;
 
 exports[`Table Style tests should render with rowHeader styles 1`] = `
-.circuit-52 {
+.circuit-50 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-50 {
+.circuit-48 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-50 {
+  .circuit-48 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-48 {
+.circuit-46 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-48 {
+  .circuit-46 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-48:after {
+  .circuit-46:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -2051,16 +1956,16 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
   }
 }
 
-.circuit-14 {
+.circuit-12 {
   vertical-align: middle;
 }
 
-tbody .circuit-14:last-child th,
-tbody .circuit-14:last-child td {
+tbody .circuit-12:last-child th,
+tbody .circuit-12:last-child td {
   border-bottom: none;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2082,7 +1987,7 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-3 {
+  .circuit-2 {
     left: 0;
     top: auto;
     position: absolute;
@@ -2091,24 +1996,16 @@ tbody .circuit-14:last-child td {
   }
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-3:hover > button {
+.circuit-2:hover > span {
   opacity: 1;
 }
 
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2117,6 +2014,7 @@ tbody .circuit-14:last-child td {
   -ms-flex-direction: column;
   flex-direction: column;
   height: 10px;
+  width: 5px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -2126,20 +2024,10 @@ tbody .circuit-14:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  width: 5px;
+  fill: #3388FF;
 }
 
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-5 {
+.circuit-4 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2155,12 +2043,42 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-5 {
+  .circuit-4 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
     width: 145px;
   }
+}
+
+.circuit-8 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-8:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-8:hover > span {
+  opacity: 1;
 }
 
 .circuit-10 {
@@ -2176,39 +2094,9 @@ tbody .circuit-14:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
-.circuit-10:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-10:hover > button {
-  opacity: 1;
-}
-
-.circuit-12 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-}
-
-.circuit-18 {
+.circuit-16 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2219,7 +2107,7 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-18 {
+  .circuit-16 {
     left: 0;
     top: auto;
     position: absolute;
@@ -2228,7 +2116,7 @@ tbody .circuit-14:last-child td {
   }
 }
 
-.circuit-20 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2241,7 +2129,7 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-20 {
+  .circuit-18 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -2249,7 +2137,7 @@ tbody .circuit-14:last-child td {
   }
 }
 
-.circuit-22 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2261,29 +2149,28 @@ tbody .circuit-14:last-child td {
 }
 
 <div
-  class="circuit-52 circuit-53"
+  class="circuit-50 circuit-51"
 >
   <div
-    class="circuit-50 circuit-51"
+    class="circuit-48 circuit-49"
   >
     <table
-      class="circuit-48 circuit-49"
+      class="circuit-46 circuit-47"
     >
       <thead
-        class="circuit-16 circuit-17"
+        class="circuit-14 circuit-15"
       >
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-sort="none"
-            class="circuit-3 circuit-4"
+            class="circuit-2 circuit-3"
             data-testid="table-header"
             scope="col"
           >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
+            <span
+              class="circuit-0 circuit-1"
             >
               <div>
                 arrow.svg
@@ -2291,12 +2178,12 @@ tbody .circuit-14:last-child td {
               <div>
                 arrow.svg
               </div>
-            </button>
+            </span>
             Letters
           </th>
           <td
             aria-hidden="true"
-            class="circuit-5 circuit-6"
+            class="circuit-4 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
@@ -2304,13 +2191,12 @@ tbody .circuit-14:last-child td {
           </td>
           <th
             aria-sort="none"
-            class="circuit-10 circuit-4"
+            class="circuit-8 circuit-3"
             data-testid="table-header"
             scope="col"
           >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
+            <span
+              class="circuit-0 circuit-1"
             >
               <div>
                 arrow.svg
@@ -2318,11 +2204,11 @@ tbody .circuit-14:last-child td {
               <div>
                 arrow.svg
               </div>
-            </button>
+            </span>
             Numbers
           </th>
           <th
-            class="circuit-12 circuit-4"
+            class="circuit-10 circuit-3"
             data-testid="table-header"
             scope="col"
           >
@@ -2332,11 +2218,11 @@ tbody .circuit-14:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-4"
+            class="circuit-16 circuit-3"
             data-testid="table-header"
             scope="row"
           >
@@ -2344,31 +2230,31 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-6"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-4"
+            class="circuit-16 circuit-3"
             data-testid="table-header"
             scope="row"
           >
@@ -2376,31 +2262,31 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-6"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-4"
+            class="circuit-16 circuit-3"
             data-testid="table-header"
             scope="row"
           >
@@ -2408,20 +2294,20 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-6"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Baz
@@ -2434,31 +2320,31 @@ tbody .circuit-14:last-child td {
 `;
 
 exports[`Table Style tests should render without the table shadow 1`] = `
-.circuit-50 {
+.circuit-48 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-50 {
+  .circuit-48 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-48 {
+.circuit-46 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-48 {
+  .circuit-46 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-48:after {
+  .circuit-46:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -2469,16 +2355,16 @@ exports[`Table Style tests should render without the table shadow 1`] = `
   }
 }
 
-.circuit-14 {
+.circuit-12 {
   vertical-align: middle;
 }
 
-tbody .circuit-14:last-child th,
-tbody .circuit-14:last-child td {
+tbody .circuit-12:last-child th,
+tbody .circuit-12:last-child td {
   border-bottom: none;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2500,7 +2386,7 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-3 {
+  .circuit-2 {
     left: 0;
     top: auto;
     position: absolute;
@@ -2509,24 +2395,16 @@ tbody .circuit-14:last-child td {
   }
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-3:hover > button {
+.circuit-2:hover > span {
   opacity: 1;
 }
 
-.circuit-1 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
+.circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2535,6 +2413,7 @@ tbody .circuit-14:last-child td {
   -ms-flex-direction: column;
   flex-direction: column;
   height: 10px;
+  width: 5px;
   left: 12px;
   opacity: 0;
   position: absolute;
@@ -2544,20 +2423,10 @@ tbody .circuit-14:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  width: 5px;
+  fill: #3388FF;
 }
 
-.circuit-1:focus,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-5 {
+.circuit-4 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2573,12 +2442,42 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-5 {
+  .circuit-4 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
     width: 145px;
   }
+}
+
+.circuit-8 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-8:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-8:hover > span {
+  opacity: 1;
 }
 
 .circuit-10 {
@@ -2594,39 +2493,9 @@ tbody .circuit-14:last-child td {
   font-weight: 700;
   padding: 8px 24px;
   vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
-.circuit-10:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-10:hover > button {
-  opacity: 1;
-}
-
-.circuit-12 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-}
-
-.circuit-18 {
+.circuit-16 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2637,7 +2506,7 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-18 {
+  .circuit-16 {
     left: 0;
     top: auto;
     position: absolute;
@@ -2646,7 +2515,7 @@ tbody .circuit-14:last-child td {
   }
 }
 
-.circuit-20 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2659,7 +2528,7 @@ tbody .circuit-14:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-20 {
+  .circuit-18 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -2667,7 +2536,7 @@ tbody .circuit-14:last-child td {
   }
 }
 
-.circuit-22 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -2678,36 +2547,35 @@ tbody .circuit-14:last-child td {
   white-space: nowrap;
 }
 
-.circuit-52 {
+.circuit-50 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   box-shadow: none;
 }
 
 <div
-  class="circuit-52 circuit-53"
+  class="circuit-50 circuit-51"
 >
   <div
-    class="circuit-50 circuit-51"
+    class="circuit-48 circuit-49"
   >
     <table
-      class="circuit-48 circuit-49"
+      class="circuit-46 circuit-47"
     >
       <thead
-        class="circuit-16 circuit-17"
+        class="circuit-14 circuit-15"
       >
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
         >
           <th
             aria-sort="none"
-            class="circuit-3 circuit-4"
+            class="circuit-2 circuit-3"
             data-testid="table-header"
             scope="col"
           >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
+            <span
+              class="circuit-0 circuit-1"
             >
               <div>
                 arrow.svg
@@ -2715,12 +2583,12 @@ tbody .circuit-14:last-child td {
               <div>
                 arrow.svg
               </div>
-            </button>
+            </span>
             Letters
           </th>
           <td
             aria-hidden="true"
-            class="circuit-5 circuit-6"
+            class="circuit-4 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
@@ -2728,13 +2596,12 @@ tbody .circuit-14:last-child td {
           </td>
           <th
             aria-sort="none"
-            class="circuit-10 circuit-4"
+            class="circuit-8 circuit-3"
             data-testid="table-header"
             scope="col"
           >
-            <button
-              class="circuit-0 circuit-1 circuit-2"
-              type="button"
+            <span
+              class="circuit-0 circuit-1"
             >
               <div>
                 arrow.svg
@@ -2742,11 +2609,11 @@ tbody .circuit-14:last-child td {
               <div>
                 arrow.svg
               </div>
-            </button>
+            </span>
             Numbers
           </th>
           <th
-            class="circuit-12 circuit-4"
+            class="circuit-10 circuit-3"
             data-testid="table-header"
             scope="col"
           >
@@ -2756,11 +2623,11 @@ tbody .circuit-14:last-child td {
       </thead>
       <tbody>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-4"
+            class="circuit-16 circuit-3"
             data-testid="table-header"
             scope="row"
           >
@@ -2768,31 +2635,31 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-6"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
             b
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             3
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Foo
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-4"
+            class="circuit-16 circuit-3"
             data-testid="table-header"
             scope="row"
           >
@@ -2800,31 +2667,31 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-6"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
             a
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             1
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Bar
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-12 circuit-13"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-4"
+            class="circuit-16 circuit-3"
             data-testid="table-header"
             scope="row"
           >
@@ -2832,20 +2699,20 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-6"
+            class="circuit-18 circuit-5"
             data-testid="table-cell"
             role="presentation"
           >
             c
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             2
           </td>
           <td
-            class="circuit-22 circuit-6"
+            class="circuit-20 circuit-5"
             data-testid="table-cell"
           >
             Baz
