@@ -26,7 +26,7 @@
     "build": "yarn docz:build && yarn build:stylesheet && yarn build:storybook",
     "prebuild:storybook": "yarn test:unit:output",
     "build:storybook": "build-storybook -c .storybook -o dist/storybook",
-    "build:stylesheet": "cross-env BABEL_ENV=cjs babel-node ./scripts/static-styles/cli.js --filePath=./dist/static/circuit-ui.css",
+    "build:stylesheet": "cross-env BABEL_ENV=cjs babel-node ./scripts/static-styles/cli.js --global --filePath=./dist/static/circuit-ui.css",
     "build:js": "yarn clean:js && yarn build:js:cjs && yarn build:js:es",
     "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js",
     "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js",

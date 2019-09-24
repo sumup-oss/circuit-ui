@@ -35,11 +35,16 @@ function main() {
       type: 'array',
       default: 'all',
       coerce: val => {
-        if (val.includes('all')) {
-          return componentOpts;
-        }
-        if (val.includes('none')) {
-          return [];
+        if (val.length === 1) {
+          if (val[0] === 'all') {
+            return componentOpts;
+          }
+          if (val[0] === 'none') {
+            return [];
+          }
+          if (val[0].includes(',')) {
+            return val[0].split(',');
+          }
         }
         return val;
       }
@@ -47,7 +52,7 @@ function main() {
     .option('global', {
       desc: 'Whether to include global styles.',
       type: 'boolean',
-      default: true
+      default: false
     })
     .option('customProperties', {
       desc: 'Whether to use CSS custom properties (variables).',
