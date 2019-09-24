@@ -44,6 +44,10 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const sizeStyles = ({ theme, size }) => {
+  if (!size) {
+    return null;
+  }
+
   const label = `heading--${size}`;
 
   return css`

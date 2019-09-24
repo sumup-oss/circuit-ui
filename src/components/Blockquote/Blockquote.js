@@ -44,7 +44,7 @@ const StyledText = styled(Text)`
  * Indented and italicised text to denote a quotation.
  */
 const Quote = ({ children, ...props }) => (
-  <StyledText {...props} element="blockquote" italic>
+  <StyledText {...props} as="blockquote" italic>
     {children}
   </StyledText>
 );

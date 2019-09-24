@@ -19,22 +19,7 @@ import { css } from '@emotion/core';
 
 import { textMega, calculatePadding } from '../../../../styles/style-helpers';
 
-const disabledStyles = css`
-  label: button--disabled;
-  opacity: 0.4;
-  pointer-events: none;
-  user-selectable: none;
-`;
-
-const stretchStyles = ({ stretch }) =>
-  stretch &&
-  css`
-    label: button--stretched;
-    width: 100%;
-    display: block;
-  `;
-
-const baseStyles = ({ theme, href, ...otherProps }) => css`
+const baseStyles = ({ theme, ...otherProps }) => css`
   label: button;
   background-color: ${theme.colors.n100};
   border-color: ${theme.colors.n300};
@@ -42,7 +27,7 @@ const baseStyles = ({ theme, href, ...otherProps }) => css`
   border-style: solid;
   border-width: 1px;
   box-shadow: inset 0 1px 0 1px rgba(255, 255, 255, 0.06);
-  display: ${href ? 'inline-block' : 'block'};
+  display: block;
   color: ${theme.colors.n700};
   cursor: pointer;
   font-weight: ${theme.fontWeight.bold};
@@ -76,9 +61,15 @@ const baseStyles = ({ theme, href, ...otherProps }) => css`
     padding: ${calculatePadding({ theme, ...otherProps })()};
   }
 
-  &[disabled],
-  &:disabled {
-    ${disabledStyles};
+  &[href] {
+    display: inline-block;
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+    user-selectable: none;
   }
 `;
 
@@ -107,6 +98,14 @@ const primaryStyles = ({ theme, primary }) =>
     &:active {
       border-color: ${theme.colors.p900};
     }
+  `;
+
+const stretchStyles = ({ stretch }) =>
+  stretch &&
+  css`
+    label: button--stretched;
+    width: 100%;
+    display: block;
   `;
 
 const flatStyles = ({ theme, flat, secondary, ...otherProps }) =>
@@ -198,6 +197,9 @@ const secondaryStyles = ({ theme, secondary, flat, ...otherProps }) =>
 
 const sizeStyles = props => {
   const { size: buttonSize } = props;
+  if (!buttonSize) {
+    return null;
+  }
   const padding = calculatePadding(props)();
   return css({
     label: `button--${buttonSize}`,

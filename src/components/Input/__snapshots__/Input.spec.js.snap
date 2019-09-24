@@ -932,12 +932,6 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
   pointer-events: none;
 }
 
-.circuit-2 {
-  display: block;
-  height: 100%;
-  width: 100%;
-}
-
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -1002,6 +996,12 @@ exports[`Input should render with invalid styles when passed the invalid prop 1`
 
 .circuit-0:not(:focus)::placeholder {
   color: #EA7A7A;
+}
+
+.circuit-2 {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 <div

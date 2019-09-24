@@ -50,8 +50,12 @@ exports[`PaginationButton styles should render with default styles 1`] = `
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;

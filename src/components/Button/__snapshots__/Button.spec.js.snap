@@ -86,8 +86,12 @@ exports[`Button should render a regular button 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-0[disabled],
-.circuit-0:disabled {
+.circuit-0[href] {
+  display: inline-block;
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;

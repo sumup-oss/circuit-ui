@@ -220,7 +220,8 @@ const ValidationIconWrapper = styled('div')(
   validationIconActiveStyles
 );
 
-const iconStyles = css`
+const iconStyles = type => css`
+  label: ${`input__validation-${type}`};
   display: block;
   height: 100%;
   width: 100%;
@@ -239,9 +240,9 @@ const ValidationIcon = ({
   }
 
   const icons = [
-    invalid && <ErrorIcon role="img" css={iconStyles} />,
-    hasWarning && <WarningIcon role="img" css={iconStyles} />,
-    showValid && <ValidIcon role="img" css={iconStyles} />
+    invalid && <ErrorIcon role="img" css={iconStyles('error')} />,
+    hasWarning && <WarningIcon role="img" css={iconStyles('warning')} />,
+    showValid && <ValidIcon role="img" css={iconStyles('valid')} />
   ];
 
   const icon = find(identity, icons);

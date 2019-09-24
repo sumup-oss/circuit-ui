@@ -62,8 +62,12 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -131,8 +135,12 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-4[disabled],
-.circuit-4:disabled {
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -228,8 +236,12 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-7[href] {
+  display: inline-block;
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -300,8 +312,12 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19[disabled],
-.circuit-19:disabled {
+.circuit-19[href] {
+  display: inline-block;
+}
+
+.circuit-19:disabled,
+.circuit-19[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -426,8 +442,12 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -495,8 +515,12 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-16[disabled],
-.circuit-16:disabled {
+.circuit-16[href] {
+  display: inline-block;
+}
+
+.circuit-16:disabled,
+.circuit-16[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -592,8 +616,12 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-4[disabled],
-.circuit-4:disabled {
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -664,8 +692,12 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-22[disabled],
-.circuit-22:disabled {
+.circuit-22[href] {
+  display: inline-block;
+}
+
+.circuit-22:disabled,
+.circuit-22[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -724,8 +756,12 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-7[href] {
+  display: inline-block;
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -874,8 +910,12 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -943,8 +983,12 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-19[disabled],
-.circuit-19:disabled {
+.circuit-19[href] {
+  display: inline-block;
+}
+
+.circuit-19:disabled,
+.circuit-19[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1040,8 +1084,12 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-4[disabled],
-.circuit-4:disabled {
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1112,8 +1160,12 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-22[disabled],
-.circuit-22:disabled {
+.circuit-22[href] {
+  display: inline-block;
+}
+
+.circuit-22:disabled,
+.circuit-22[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1172,8 +1224,12 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-7[href] {
+  display: inline-block;
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1323,8 +1379,12 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1392,8 +1452,12 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-7[href] {
+  display: inline-block;
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1489,8 +1553,12 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-4[disabled],
-.circuit-4:disabled {
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1561,8 +1629,12 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-22[disabled],
-.circuit-22:disabled {
+.circuit-22[href] {
+  display: inline-block;
+}
+
+.circuit-22:disabled,
+.circuit-22[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1621,8 +1693,12 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-16[disabled],
-.circuit-16:disabled {
+.circuit-16[href] {
+  display: inline-block;
+}
+
+.circuit-16:disabled,
+.circuit-16[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1771,8 +1847,12 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1840,8 +1920,12 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-13[disabled],
-.circuit-13:disabled {
+.circuit-13[href] {
+  display: inline-block;
+}
+
+.circuit-13:disabled,
+.circuit-13[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1937,8 +2021,12 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-4[disabled],
-.circuit-4:disabled {
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -2009,8 +2097,12 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-25[disabled],
-.circuit-25:disabled {
+.circuit-25[href] {
+  display: inline-block;
+}
+
+.circuit-25:disabled,
+.circuit-25[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -2069,8 +2161,12 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-7[href] {
+  display: inline-block;
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -2225,8 +2321,12 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -2294,8 +2394,12 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-4[disabled],
-.circuit-4:disabled {
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -2391,8 +2495,12 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-7[disabled],
-.circuit-7:disabled {
+.circuit-7[href] {
+  display: inline-block;
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -2463,8 +2571,12 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-22[disabled],
-.circuit-22:disabled {
+.circuit-22[href] {
+  display: inline-block;
+}
+
+.circuit-22:disabled,
+.circuit-22[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -2523,8 +2635,12 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-16[disabled],
-.circuit-16:disabled {
+.circuit-16[href] {
+  display: inline-block;
+}
+
+.circuit-16:disabled,
+.circuit-16[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
