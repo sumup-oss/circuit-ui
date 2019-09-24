@@ -30,7 +30,9 @@ function main() {
       default: 'circuit'
     })
     .option('components', {
-      desc: 'A comma separated list of the components to include.',
+      desc:
+        // eslint-disable-next-line max-len
+        'A comma separated list of the components to include. Also accepts "all" or "none".',
       options: ['all', 'none', ...componentOpts],
       type: 'array',
       default: 'all',
@@ -60,7 +62,7 @@ function main() {
       default: false
     })
     .option('pretty', {
-      desc: 'Whether the CSS should be pretty printed.',
+      desc: 'Whether the CSS should be formatted with prettier.',
       type: 'boolean',
       default: false
     })

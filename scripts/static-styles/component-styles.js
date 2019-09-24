@@ -59,7 +59,7 @@ function cleanRules(stylesObj, label) {
       return match[1];
     }
 
-    // No match meeans it's a wrapped styled component.
+    // It's a wrapped styled component.
     return rules.replace(/label:[\w-]*;/gi, '');
   } catch (error) {
     // A regex probably failed.
@@ -71,7 +71,7 @@ function cleanRules(stylesObj, label) {
 export default function componentStyles({ components, theme } = {}) {
   const styleSheets = {};
 
-  const createInsert = (props, name) => (...args) => {
+  const insertFactory = (props, name) => (...args) => {
     const label = cleanLabel(args[0], name);
     const rules = cleanRules(args[1], label);
 
@@ -91,7 +91,7 @@ export default function componentStyles({ components, theme } = {}) {
     styleSheets[label] += rules;
   };
 
-  const renderFn = render(theme, createInsert);
+  const renderFn = render(theme, insertFactory);
 
   components.forEach(
     ({ component: Component, name, props = {}, requiredProps = {} }) => {
