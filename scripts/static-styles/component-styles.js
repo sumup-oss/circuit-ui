@@ -13,25 +13,30 @@
  * limitations under the License.
  */
 
-import createCache from '@emotion/cache';
 import Stylis from '@emotion/stylis';
-import { entries, values } from 'lodash/fp';
+import { entries } from 'lodash/fp';
 
 import render from './render';
 
-const cache = createCache();
 const stylis = new Stylis();
 
-function cleanLabel(string) {
+function cleanLabel(string, name) {
   let label = string;
   try {
     // Strip the `.css-[id]-`.
     [, label] = /^\.css-\w*-([\w-]*)$/i.exec(string);
+
+    // It's a wrapped styled component.
+    if (!label.startsWith(name)) {
+      const regex = new RegExp(`.*(${name}.*)`, 'i');
+      [, label] = regex.exec(label);
+    }
+
     // Deduplicate the base name, e.g. `badge-badge--neutral`.
     return label.replace(/(?:\W|^)(.+)-\1/, '$1');
   } catch (error) {
     // A regex probably failed.
-    console.error(error.message, label);
+    console.error(error.message, name, label);
     return null;
   }
 }
@@ -45,9 +50,17 @@ function cleanRules(stylesObj, label) {
     rules = rules.replace(/\s{2,}/g, '');
     // Strip duplicate semicolons.
     rules = rules.replace(/;{2,}/g, ';');
+
     // Extract only the relevant rules.
     const regex = new RegExp(`label:${label};(.*)`, 'i');
-    return regex.exec(rules)[1];
+    const match = regex.exec(rules);
+
+    if (match) {
+      return match[1];
+    }
+
+    // No match meeans it's a wrapped styled component.
+    return rules.replace(/label:[\w-]*;/gi, '');
   } catch (error) {
     // A regex probably failed.
     console.error(error.message, label, rules);
@@ -58,55 +71,51 @@ function cleanRules(stylesObj, label) {
 export default function componentStyles({ components, theme } = {}) {
   const styleSheets = {};
 
-  const insert = (...args) => {
-    const label = cleanLabel(args[0]);
+  const createInsert = (props, name) => (...args) => {
+    const label = cleanLabel(args[0], name);
     const rules = cleanRules(args[1], label);
 
     if (!label || !rules) {
       return;
     }
 
-    const selector = `.${label}`;
-    const styles = stylis(selector, rules);
-
-    if (styleSheets[selector]) {
-      if (styleSheets[selector] !== styles) {
-        console.error(
-          [
-            `Found selector "${selector}" with different styles.`,
-            `This is usually caused by dynamic props.`,
-            styleSheets[selector],
-            styles
-          ].join('\n')
-        );
-      }
+    if (!styleSheets[label]) {
+      styleSheets[label] = rules;
       return;
     }
 
-    styleSheets[selector] = styles;
+    if (styleSheets[label].includes(rules)) {
+      return;
+    }
+
+    styleSheets[label] += rules;
   };
 
-  const renderFn = render({ cache: { ...cache, insert }, theme });
+  const renderFn = render(theme, createInsert);
 
-  components.forEach(({ component: Component, props }) => {
-    // Reset all props to `null`.
-    const baseProps = entries(props).reduce(
-      (acc, [prop]) => ({ ...acc, [prop]: null }),
-      {}
-    );
+  components.forEach(
+    ({ component: Component, name, props = {}, requiredProps = {} }) => {
+      // Reset all props to `null`.
+      const baseProps = entries(props).reduce(
+        (acc, [prop]) => ({ ...acc, [prop]: null }),
+        requiredProps
+      );
 
-    // Render the plain base component.
-    renderFn(Component, baseProps);
+      // Render the plain base component.
+      renderFn(Component, baseProps, name);
 
-    // Render each prop variation (not combination).
-    entries(props).forEach(([key, variations]) => {
-      variations.forEach(value => {
-        renderFn(Component, { ...baseProps, [key]: value });
+      // Render each prop variation (not combination).
+      entries(props).forEach(([key, variations]) => {
+        variations.forEach(value => {
+          renderFn(Component, { ...baseProps, [key]: value }, name);
+        });
       });
-    });
-  });
+    }
+  );
 
-  const styleSheet = values(styleSheets).join('');
+  const styleSheet = entries(styleSheets)
+    .map(([label, rules]) => stylis(`.${label}`, rules))
+    .join('');
 
   return styleSheet;
 }

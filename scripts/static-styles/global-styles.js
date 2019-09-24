@@ -13,25 +13,23 @@
  * limitations under the License.
  */
 
-import createCache from '@emotion/cache';
 import Stylis from '@emotion/stylis';
 
 import { BaseStyles } from '../../src';
 
 import render from './render';
 
-const cache = createCache();
 const stylis = new Stylis();
 
 export default function globalStyles({ theme } = {}) {
   let styleSheet = '';
 
-  const insert = (...args) => {
+  const insertFactory = () => (...args) => {
     const rules = args[1].styles;
     styleSheet = stylis('', rules);
   };
 
-  const renderFn = render({ cache: { ...cache, insert }, theme });
+  const renderFn = render(theme, insertFactory);
 
   renderFn(BaseStyles);
 

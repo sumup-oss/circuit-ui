@@ -17,14 +17,19 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { CacheProvider } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import createCache from '@emotion/cache';
 
-export default function render({ cache, theme }) {
-  return (Component, props = {}) =>
-    renderToStaticMarkup(
-      <CacheProvider value={cache}>
+const cache = createCache();
+
+export default function render(theme, insertFactory) {
+  return (Component, props = {}, name = '') => {
+    const insert = insertFactory(props, name);
+    return renderToStaticMarkup(
+      <CacheProvider value={{ ...cache, insert }}>
         <ThemeProvider theme={theme}>
           <Component {...props} />
         </ThemeProvider>
       </CacheProvider>
     );
+  };
 }

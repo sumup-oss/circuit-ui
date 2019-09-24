@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import createCache from '@emotion/cache';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -21,35 +20,47 @@ import { theme as themes } from '../../src';
 import render from './render';
 
 describe('Render', () => {
-  const cache = createCache();
   const { circuit } = themes;
 
   const styles = ({ theme }) => css`
     color: ${theme.colors.red};
   `;
 
+  const name = 'component';
   const Component = styled('div')(styles);
 
   it('should render the component', () => {
-    const renderFn = render({ cache, theme: circuit });
-    const actual = renderFn(Component);
+    const insert = jest.fn();
+    const insertFactory = jest.fn(() => insert);
+    const renderFn = render(circuit, insertFactory);
+    const actual = renderFn(Component, name);
     expect(actual).toContain('div');
   });
 
   it('should render the component with props', () => {
     const props = { children: 'Foo' };
-    const renderFn = render({ cache, theme: circuit });
-    const actual = renderFn(Component, props);
+    const insert = jest.fn();
+    const insertFactory = jest.fn(() => insert);
+    const renderFn = render(circuit, insertFactory);
+    const actual = renderFn(Component, props, name);
     expect(actual).toContain('Foo');
   });
 
-  // FIXME: For some reason, this test doesn't pass :(
-  it.skip('should insert the styles', () => {
+  it('should insert the styles', () => {
     const insert = jest.fn();
-    const renderFn = render({ cache: { ...cache, insert }, theme: circuit });
+    const insertFactory = jest.fn(() => insert);
+    const renderFn = render(circuit, insertFactory);
 
-    renderFn(Component);
+    renderFn(Component, name);
 
     expect(insert).toHaveBeenCalled();
+    expect(insert).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.objectContaining({
+        styles: expect.any(String)
+      }),
+      expect.any(Object),
+      expect.any(Boolean)
+    );
   });
 });

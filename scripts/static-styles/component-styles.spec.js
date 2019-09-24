@@ -22,12 +22,14 @@ describe('Component styles', () => {
   const { circuit: theme } = themes;
   const { components } = config;
 
-  // FIXME: For some reason, the `insert` function is never called.
-  it.skip('should return the component styles', () => {
+  it('should return the component styles', () => {
     const actual = componentStyles({
       theme,
       components
     });
-    expect(actual).not.toBeFalsy();
+    expect(typeof actual).toBe('string');
+    components.forEach(({ name }) => {
+      expect(actual).toContain(name);
+    });
   });
 });
