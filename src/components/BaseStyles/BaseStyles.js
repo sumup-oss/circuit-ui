@@ -36,8 +36,4 @@ BaseStyles.propTypes = {
   )
 };
 
-BaseStyles.defaultProps = {
-  custom: ''
-};
-
 export default BaseStyles;

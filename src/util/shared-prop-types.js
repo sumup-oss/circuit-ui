@@ -14,6 +14,8 @@
  */
 
 import PropTypes from 'prop-types';
+import { isNil } from 'lodash/fp';
+
 import deprecate from './deprecate';
 import { TOP, BOTTOM, LEFT, RIGHT, START, END, CENTER } from './constants';
 
@@ -26,7 +28,7 @@ export const deprecatedPropType = (propType, explanation = '') => (
   propName,
   componentName
 ) => {
-  if (props[propName] !== null) {
+  if (!isNil(props[propName])) {
     deprecate(
       // eslint-disable-next-line max-len
       `"${propName}" prop of "${componentName}" has been deprecated.\n${explanation}`
