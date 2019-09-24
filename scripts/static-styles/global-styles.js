@@ -16,7 +16,7 @@
 import createCache from '@emotion/cache';
 import Stylis from '@emotion/stylis';
 
-import BaseStyles from '../../src/components/BaseStyles';
+import { BaseStyles } from '../../src';
 
 import render from './render';
 

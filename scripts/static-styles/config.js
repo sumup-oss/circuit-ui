@@ -15,12 +15,10 @@
 
 import { values } from 'lodash/fp';
 
-import Badge from '../../src/components/Badge';
-import Button from '../../src/components/Button';
-import Card from '../../src/components/Card';
-import { circuit } from '../../src/themes';
-import { colorNames, sizes } from '../../src/styles/constants';
+import { Badge, Button, Card, theme, styleConstants } from '../../src';
 
+const { circuit } = theme;
+const { colorNames, sizes } = styleConstants;
 const { KILO, MEGA, GIGA } = sizes;
 
 const bool = [true, false];

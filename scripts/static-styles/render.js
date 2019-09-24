@@ -13,19 +13,14 @@
  * limitations under the License.
  */
 
-import { JSDOM } from 'jsdom';
 import React from 'react';
-import { render as renderFn } from '@testing-library/react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { CacheProvider } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
-const dom = new JSDOM('<!DOCTYPE html>');
-global.window = dom.window;
-global.document = dom.window.document;
-
 export default function render({ cache, theme }) {
   return (Component, props = {}) => {
-    renderFn(
+    renderToStaticMarkup(
       <CacheProvider value={cache}>
         <ThemeProvider theme={theme}>
           <Component {...props} />
