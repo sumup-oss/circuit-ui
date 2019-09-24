@@ -55,7 +55,7 @@ function cleanRules(stylesObj, label) {
   }
 }
 
-export default function main({ components, theme } = {}) {
+export default function componentStyles({ components, theme } = {}) {
   const styleSheets = {};
 
   const insert = (...args) => {

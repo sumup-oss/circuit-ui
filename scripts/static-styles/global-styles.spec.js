@@ -13,18 +13,16 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
-import { CacheProvider } from '@emotion/core';
-import { ThemeProvider } from 'emotion-theming';
+import { theme as themes } from '../../src';
 
-export default function render({ cache, theme }) {
-  return (Component, props = {}) =>
-    renderToStaticMarkup(
-      <CacheProvider value={cache}>
-        <ThemeProvider theme={theme}>
-          <Component {...props} />
-        </ThemeProvider>
-      </CacheProvider>
-    );
-}
+import globalStyles from './global-styles';
+
+describe('Global styles', () => {
+  const { circuit: theme } = themes;
+
+  // FIXME: For some reason, the `insert` function is never called.
+  it.skip('should return the global styles', () => {
+    const actual = globalStyles({ theme });
+    expect(actual).not.toBeFalsy();
+  });
+});

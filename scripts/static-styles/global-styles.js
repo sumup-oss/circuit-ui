@@ -23,7 +23,7 @@ import render from './render';
 const cache = createCache();
 const stylis = new Stylis();
 
-export default function main({ theme } = {}) {
+export default function globalStyles({ theme } = {}) {
   let styleSheet = '';
 
   const insert = (...args) => {
