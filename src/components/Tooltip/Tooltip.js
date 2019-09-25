@@ -20,7 +20,10 @@ import { includes } from 'lodash/fp';
 
 import { textKilo, shadowSingle } from '../../styles/style-helpers';
 import { CENTER, TOP, RIGHT, BOTTOM, LEFT } from '../../util/constants';
-import { positionPropType } from '../../util/shared-prop-types';
+import {
+  positionPropType,
+  childrenPropType
+} from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
   label: tooltip;
@@ -133,7 +136,7 @@ Tooltip.propTypes = {
   /**
    * The content of the tooltip.
    */
-  children: PropTypes.node.isRequired,
+  children: childrenPropType.isRequired,
   /**
    * The position of the tooltip in relation to its reference point.
    */

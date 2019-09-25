@@ -23,7 +23,7 @@ const LAYER_HEIGHT = '1px';
 const HAMBURGUER_WIDTH = '12px';
 
 const buttonBaseStyles = ({ theme }) => css`
-  label: hamburger-button;
+  label: hamburger;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -38,12 +38,12 @@ const buttonBaseStyles = ({ theme }) => css`
 const lightButtonStyles = ({ theme, light }) =>
   light &&
   css`
-    label: hamburger-button--light;
+    label: hamburger--light;
     border: ${theme.borderWidth.kilo} solid ${theme.colors.n700};
   `;
 
 const layersBaseStyles = ({ theme }) => css`
-  label: hamburger-layers;
+  label: hamburger__layers;
   top: 50%;
   width: ${HAMBURGUER_WIDTH};
 
@@ -79,7 +79,7 @@ const layersBaseStyles = ({ theme }) => css`
 const layersBaseLightStyles = ({ theme, light }) =>
   light &&
   css`
-    label: hamburger-layer--light;
+    label: hamburger__layers--light;
     &,
     &::after,
     &::before {
@@ -90,7 +90,7 @@ const layersBaseLightStyles = ({ theme, light }) =>
 const layersActiveStyles = ({ isActive }) =>
   isActive &&
   css`
-    label: hamburger-layers--active;
+    label: hamburger__layers--active;
     transform: rotate(225deg);
 
     &,
@@ -112,7 +112,7 @@ const layersActiveStyles = ({ isActive }) =>
   `;
 
 const labelBaseStyles = () => css`
-  label: hamburger-label;
+  label: hamburger__label;
   ${hideVisually()};
 `;
 

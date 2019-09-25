@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import Input from '../Input';
 
 const textAreaStyles = css`
-  label: textarea;
+  label: text-area;
   overflow: auto;
   resize: vertical;
 `;

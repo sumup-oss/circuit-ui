@@ -29,7 +29,7 @@ const ANIMATION_TIMING = '200ms ease-in-out';
 const knobShadow = color => `0 2px 0 0 ${color}`;
 
 const trackBaseStyles = ({ theme }) => css`
-  label: switch;
+  label: toggle__switch;
   margin: 0;
   padding: 0;
   border: 0;
@@ -51,7 +51,7 @@ const trackBaseStyles = ({ theme }) => css`
 const trackOnStyles = ({ theme, on }) =>
   on &&
   css`
-    label: switch--on;
+    label: toggle__switch--on;
     background-color: ${theme.colors.p500};
   `;
 
@@ -60,7 +60,7 @@ const SwitchTrack = styled('button')`
 `;
 
 const knobBaseStyles = ({ theme }) => css`
-  label: switch__knob;
+  label: toggle__switch-knob;
   display: block;
   background-color: ${theme.colors.n100};
   box-shadow: ${knobShadow(theme.colors.n500)};
@@ -75,7 +75,7 @@ const knobBaseStyles = ({ theme }) => css`
 const knobOnStyles = ({ theme, on }) =>
   on &&
   css`
-    label: switch__knob--on;
+    label: toggle__switch-knob--on;
     box-shadow: ${knobShadow(theme.colors.p700)};
     transform: translate3d(
       calc(${TRACK_WIDTH - KNOB_SIZE}px - ${theme.spacings.bit}),
@@ -85,6 +85,7 @@ const knobOnStyles = ({ theme, on }) =>
   `;
 
 const labelBaseStyles = () => css`
+  label: toggle__switch-label;
   ${hideVisually()};
 `;
 

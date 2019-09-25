@@ -43,14 +43,14 @@ const StyledText = styled(Text)`
 /**
  * Indented and italicised text to denote a quotation.
  */
-const Quote = ({ children, ...props }) => (
+const Blockquote = ({ children, ...props }) => (
   <StyledText {...props} as="blockquote" italic>
     {children}
   </StyledText>
 );
 
 // Satisfy react docgen
-const Blockquote = props => <Quote {...props} />;
+// const Blockquote = props => <Quote {...props} />;
 
 Blockquote.KILO = Text.KILO;
 Blockquote.MEGA = Text.MEGA;
@@ -60,14 +60,13 @@ Blockquote.propTypes = {
   /**
    * Child nodes to be rendered.
    */
-  children: childrenPropType.isRequired,
+  children: childrenPropType,
   /**
    * A Circuit UI body text size.
    */
   size: PropTypes.oneOf([Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA])
+    .isRequired
 };
-
-Quote.propTypes = Blockquote.propTypes;
 
 Blockquote.defaultProps = {
   size: Blockquote.KILO

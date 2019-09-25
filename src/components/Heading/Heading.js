@@ -43,15 +43,10 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.giga};
 `;
 
-const sizeStyles = ({ theme, size }) => {
-  if (!size) {
-    return null;
-  }
-
-  const label = `heading--${size}`;
-
-  return css`
-    label: ${label};
+const sizeStyles = ({ theme, size }) =>
+  size &&
+  css`
+    label: ${`heading--${size}`};
     font-size: ${theme.typography.headings[mobileSizeMap[size]].fontSize};
     line-height: ${theme.typography.headings[mobileSizeMap[size]].lineHeight};
 
@@ -60,7 +55,6 @@ const sizeStyles = ({ theme, size }) => {
       line-height: ${theme.typography.headings[size].lineHeight};
     }
   `;
-};
 
 const noMarginStyles = ({ noMargin }) =>
   noMargin &&
