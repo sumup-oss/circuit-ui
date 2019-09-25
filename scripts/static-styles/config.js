@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { values } from 'lodash/fp';
+import { entries, values, isFunction, kebabCase } from 'lodash/fp';
 
 import {
   Badge,
@@ -23,9 +23,21 @@ import {
   ButtonGroup,
   Card,
   Checkbox,
+  Hamburger,
   Heading,
   Hr,
+  Image,
   Input,
+  Label,
+  List,
+  RadioButton,
+  Select,
+  Selector,
+  SubHeading,
+  Tag,
+  Text,
+  TextArea,
+  Toggle,
   theme,
   styleConstants
 } from '../../src';
@@ -34,11 +46,77 @@ const { circuit } = theme;
 const { colorNames, sizes } = styleConstants;
 const { KILO, MEGA, GIGA } = sizes;
 
-const string = ['string'];
-const bool = [true, false];
-const func = [() => {}];
-// eslint-disable-next-line react/display-name
-const element = [props => <div {...props} />];
+const element = props => <div {...props} />;
+
+const PropTypes = {
+  string: ['string'],
+  number: [1],
+  bool: [true, false],
+  func: [() => {}],
+  element: [element],
+  custom: ({ raw }) => {
+    if (raw.startsWith('childrenPropType')) {
+      return [element];
+    }
+    return null;
+  }
+};
+
+const requiredPropTypes = {
+  string: 'string',
+  bool: true,
+  func: () => {},
+  element
+};
+
+function getVariations(name, prop, propOverrides) {
+  if (propOverrides[name]) {
+    return propOverrides[name];
+  }
+  const { name: type, ...meta } = prop.type;
+  if (PropTypes[type]) {
+    const propType = PropTypes[type];
+    return isFunction(propType) ? propType(meta) : propType;
+  }
+  return null;
+}
+
+function getProps(props, propOverrides) {
+  return entries(props).reduce((acc, [name, prop]) => {
+    const { name: type } = prop.type;
+    const variations = getVariations(name, prop, propOverrides);
+    if (!variations) {
+      console.warn(
+        [
+          `No variations found for prop "${name}" of type "${type}"`,
+          'Please provide a custom override.'
+        ].join(' ')
+      );
+      return acc;
+    }
+    return { ...acc, [name]: variations };
+  }, {});
+}
+
+function getRequiredProps(props) {
+  return entries(props)
+    .filter(([, prop]) => prop.required)
+    .reduce((acc, [name, prop]) => {
+      const value = requiredPropTypes[prop.type.name];
+      return { ...acc, [name]: value };
+    }, {});
+}
+
+function getComponentInfo(component, propOverrides = {}) {
+  // eslint-disable-next-line no-underscore-dangle
+  const { displayName, props } = component.__docgenInfo;
+  return {
+    component,
+    name: kebabCase(displayName),
+    props: getProps(props, propOverrides),
+    requiredProps: getRequiredProps(props)
+  };
+}
 
 export default {
   themes: { circuit },
@@ -48,45 +126,16 @@ export default {
       component: Badge,
       props: {
         color: values(colorNames),
-        circle: bool
+        circle: PropTypes.bool
       }
     },
-    {
-      name: 'blockquote',
-      component: Blockquote,
-      props: {
-        size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
-      },
-      requiredProps: {
-        children: 'string'
-      }
-    },
-    {
-      name: 'button',
-      component: Button,
-      props: {
-        disabled: bool,
-        flat: bool,
-        href: string,
-        plain: bool,
-        primary: bool,
-        size: [KILO, MEGA, GIGA],
-        secondary: bool,
-        stretch: bool,
-        target: string
-      }
-    },
-    {
-      name: 'button-group',
-      component: ButtonGroup,
-      props: {
-        align: [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT],
-        inlineMobile: bool
-      },
-      requiredProps: {
-        children: 'string'
-      }
-    },
+    getComponentInfo(Button, { size: [KILO, MEGA, GIGA] }),
+    getComponentInfo(Blockquote, {
+      size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
+    }),
+    getComponentInfo(ButtonGroup, {
+      align: [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT]
+    }),
     {
       name: 'card',
       component: Card,
@@ -95,59 +144,50 @@ export default {
         spacing: [Card.MEGA, Card.GIGA]
       }
     },
-    {
-      name: 'checkbox',
-      component: Checkbox,
-      props: {
-        onChange: func,
-        value: string,
-        id: string,
-        name: string,
-        checked: bool,
-        invalid: bool,
-        disabled: bool,
-        validationHint: string,
-        className: string
-      }
-    },
-    {
-      name: 'heading',
-      component: Heading,
-      props: {
-        size: [
-          Heading.KILO,
-          Heading.MEGA,
-          Heading.GIGA,
-          Heading.TERA,
-          Heading.PETA,
-          Heading.EXA,
-          Heading.ZETTA
-        ],
-        className: string,
-        noMargin: bool
-      }
-    },
-    {
-      name: 'hr',
-      component: Hr
-    },
-    {
-      name: 'input',
-      component: Input,
-      props: {
-        renderPrefix: element,
-        renderSuffix: element,
-        validationHint: string,
-        required: bool,
-        invalid: bool,
-        hasWarning: bool,
-        showValid: bool,
-        optional: bool,
-        disabled: bool,
-        inline: bool,
-        noMargin: bool,
-        textAlign: [Input.LEFT, Input.RIGHT]
-      }
-    }
+    getComponentInfo(Checkbox),
+    getComponentInfo(Hamburger),
+    getComponentInfo(Heading, {
+      size: [
+        Heading.KILO,
+        Heading.MEGA,
+        Heading.GIGA,
+        Heading.TERA,
+        Heading.PETA,
+        Heading.EXA,
+        Heading.ZETTA
+      ]
+    }),
+    { name: 'hr', component: Hr },
+    { name: 'image', component: Image },
+    getComponentInfo(Input, {
+      renderPrefix: PropTypes.element,
+      renderSuffix: PropTypes.element,
+      textAlign: [Input.LEFT, Input.RIGHT]
+    }),
+    getComponentInfo(Label),
+    getComponentInfo(List, {
+      size: [List.KILO, List.MEGA, List.GIGA]
+    }),
+    // TODO: Need to eliminate dynamic styles.
+    // getComponentInfo(ProgressBar, {
+    //   size: [ProgressBar.KILO, ProgressBar.MEGA, ProgressBar.GIGA]
+    // }),
+    getComponentInfo(RadioButton),
+    getComponentInfo(Select, {
+      renderPrefix: PropTypes.element
+    }),
+    { name: 'selector', component: Selector },
+    getComponentInfo(SubHeading, {
+      size: [SubHeading.KILO, SubHeading.MEGA]
+    }),
+    getComponentInfo(Tag, {
+      icon: PropTypes.element,
+      onRemove: PropTypes.func
+    }),
+    getComponentInfo(Text, {
+      size: [Text.KILO, Text.MEGA, Text.GIGA]
+    }),
+    getComponentInfo(TextArea),
+    getComponentInfo(Toggle)
   ]
 };
