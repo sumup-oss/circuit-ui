@@ -11,10 +11,6 @@ exports[`Slide styles should render with backward animation styles 1`] = `
   }
 }
 
-.circuit-0 {
-  width: 800px;
-}
-
 .circuit-4 {
   width: 100%;
   -webkit-box-flex: 0;
@@ -33,7 +29,11 @@ exports[`Slide styles should render with backward animation styles 1`] = `
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+.circuit-0 {
+  width: 800px;
 }
 
 .circuit-2 {
