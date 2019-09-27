@@ -19,20 +19,18 @@ export function getStackOrder(slideIndex, step, prevStep, slideDirection) {
   const isActive = step === slideIndex;
   const wasActive = prevStep === slideIndex;
 
-  if (slideDirection === SLIDE_DIRECTIONS.FORWARD && isActive) {
+  if (
+    (slideDirection === SLIDE_DIRECTIONS.FORWARD && isActive) ||
+    (slideDirection === SLIDE_DIRECTIONS.BACK && wasActive)
+  ) {
     return 2;
   }
 
-  if (slideDirection === SLIDE_DIRECTIONS.FORWARD && wasActive) {
+  if (
+    (slideDirection === SLIDE_DIRECTIONS.FORWARD && wasActive) ||
+    (slideDirection === SLIDE_DIRECTIONS.BACK && isActive)
+  ) {
     return 1;
-  }
-
-  if (slideDirection === SLIDE_DIRECTIONS.BACK && isActive) {
-    return 1;
-  }
-
-  if (slideDirection === SLIDE_DIRECTIONS.BACK && wasActive) {
-    return 2;
   }
 
   return slideIndex ? -slideIndex : 0;

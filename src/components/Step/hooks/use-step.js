@@ -37,8 +37,7 @@ export default function useStep(props = {}) {
       stepInterval: props.stepInterval,
       cycle: props.cycle
     }),
-    paused: !props.autoPlay,
-    animating: false
+    paused: !props.autoPlay
   };
   const [state, dispatch] = useReducer(StepService.reducer, initialState);
   const playingInterval = useRef(null);
@@ -130,9 +129,7 @@ export default function useStep(props = {}) {
   }
 
   function startPlaying() {
-    console.log('START PLAYING', playingInterval.current);
     if (!playingInterval.current) {
-      console.log('DO!');
       playingInterval.current = setInterval(
         next,
         getDurationFromProp(props.stepDuration)
@@ -150,7 +147,6 @@ export default function useStep(props = {}) {
   function updateSlide(newStep, onEndCallback) {
     const animationDuration = getDurationFromProp(props.animationDuration);
     const update = () => {
-      console.log('update slide');
       animationEndCallback.current = clearTimeout(animationEndCallback.current);
 
       stopPlaying();
