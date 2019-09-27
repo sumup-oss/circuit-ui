@@ -14663,6 +14663,13 @@ react-svg-loader@^2.1.0:
     loader-utils "^1.1.0"
     react-svg-core "^2.1.0"
 
+react-swipeable@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.4.0.tgz#3c2421296a993b8fc6cb05051b9bf025cb6af9e4"
+  integrity sha512-TUbldupF3cxMF+pBWfz24TlQa23K4CecqQ8EA+onxEiAg+UEPSJ5IousOjMm0IVBYz62KX1klHL8p7SGSR3CiQ==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-syntax-highlighter@^8.0.1:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-8.1.0.tgz#59103ff17a828a27ed7c8f035ae2558f09b6b78c"

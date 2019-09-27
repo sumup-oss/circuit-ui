@@ -115,6 +115,7 @@
     "react-docgen": "^4.1.0",
     "react-docgen-annotation-resolver": "^1.1.0",
     "react-svg-loader": "^2.1.0",
+    "react-swipeable": "^5.4.0",
     "react-test-renderer": "^16.8.6",
     "storybook-addon-smart-knobs": "^4.1.0",
     "style-loader": "^0.23.1",

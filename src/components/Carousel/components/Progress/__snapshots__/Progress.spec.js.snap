@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress styles should render with cycle styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+    transform: translateX(102%);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+    transform: translateX(102%);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+    transform: translateX(102%);
+  }
+}
+
+.circuit-0 {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background-color: #EEF0F2;
+  border-radius: 5px;
+}
+
+.circuit-0:after {
+  content: '';
+  display: block;
+  background-color: #0F131A;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 5000ms;
+  animation-duration: 5000ms;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  height: 100%;
+}
+
+<div
+  class="circuit-0 circuit-1"
+/>
+`;
+
+exports[`Progress styles should render with default styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+    transform: translateX(102%);
+  }
+}
+
+.circuit-0 {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background-color: #EEF0F2;
+  border-radius: 5px;
+}
+
+.circuit-0:after {
+  content: '';
+  display: block;
+  background-color: #0F131A;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 5000ms;
+  animation-duration: 5000ms;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  height: 100%;
+}
+
+<div
+  class="circuit-0 circuit-1"
+/>
+`;
+
+exports[`Progress styles should render with paused styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+    transform: translateX(102%);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+    transform: translateX(102%);
+  }
+}
+
+.circuit-0 {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background-color: #EEF0F2;
+  border-radius: 5px;
+}
+
+.circuit-0:after {
+  content: '';
+  display: block;
+  background-color: #0F131A;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 5000ms;
+  animation-duration: 5000ms;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  height: 100%;
+}
+
+<div
+  class="circuit-0 circuit-1"
+/>
+`;
