@@ -27,14 +27,12 @@ import Slides from './components/Slides';
 import Slide from './components/Slide';
 import SlideImage from './components/SlideImage';
 import Controls from './components/Controls';
-import Buttons from './components/Buttons';
+import { ButtonList, NextButton, PrevButton } from './components/Buttons';
 import Status from './components/Status';
 import Carousel from './Carousel';
 import { ASPECT_RATIO, ANIMATION_DURATION, SLIDE_DURATION } from './constants';
 
 import { SLIDES } from './__fixtures__';
-
-const { ButtonList, NextButton, PrevButton } = Buttons;
 
 const CustomCarousel = ({ slides }) => {
   const total = slides.length;

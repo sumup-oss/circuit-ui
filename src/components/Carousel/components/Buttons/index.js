@@ -13,6 +13,4 @@
  * limitations under the License.
  */
 
-import * as Buttons from './Buttons';
-
-export default Buttons;
+export { ButtonList, PlayButton, NextButton, PrevButton } from './Buttons';

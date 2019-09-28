@@ -224,9 +224,8 @@ describe('useStep', () => {
     unmount();
   });
 
-  // TO DO: enable when updated to React >= 16.9
   // eslint-disable-next-line max-len
-  it.skip('should automatically change steps based on step and animation duration', async () => {
+  it('should automatically change steps based on step and animation duration', async () => {
     const initialStep = 1;
     const stepInterval = 1;
     const { result, waitForNextUpdate, unmount } = renderHook(() =>
@@ -262,9 +261,8 @@ describe('useStep', () => {
     unmount();
   });
 
-  // TO DO: enable when updated to React >= 16.9
   // eslint-disable-next-line max-len
-  it.skip('should accept functions for step and animation duration', async () => {
+  it('should accept functions for step and animation duration', async () => {
     const initialStep = 1;
     const stepInterval = 1;
     const { result, waitForNextUpdate, unmount } = renderHook(() =>

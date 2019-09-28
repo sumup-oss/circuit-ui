@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import useStep from './hooks/use-step';
 import Step from './Step';
 
+export { useStep };
 export default Step;

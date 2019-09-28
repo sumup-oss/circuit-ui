@@ -13,6 +13,34 @@
  * limitations under the License.
  */
 
+import Container from './components/Container';
+import Controls from './components/Controls';
+import Progress from './components/Progress';
+import Slide from './components/Slide';
+import Slides from './components/Slides';
+import SlideImage from './components/SlideImage';
+import Status from './components/Status';
+import {
+  ButtonList,
+  PlayButton,
+  NextButton,
+  PrevButton
+} from './components/Buttons';
+
 import Carousel from './Carousel';
+
+export const CarouselComposer = {
+  Container,
+  Controls,
+  Progress,
+  Slide,
+  Slides,
+  SlideImage,
+  Status,
+  ButtonList,
+  PlayButton,
+  NextButton,
+  PrevButton
+};
 
 export default Carousel;

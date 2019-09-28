@@ -183,6 +183,9 @@ export {
   SidebarContextConsumer
 } from './components/Sidebar';
 export { default as Header } from './components/Header';
+export { default as Step, useStep } from './components/Step';
+export { default as AspectRatio } from './components/AspectRatio';
+export { default as Carousel, CarouselComposer } from './components/Carousel';
 
 // Helpers
 export { default as State } from './components/State';
