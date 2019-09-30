@@ -34,6 +34,7 @@ module.exports = ({ config, mode }) => {
 
   config.plugins.push(
     new webpack.DefinePlugin({
+      __DEV__: JSON.stringify(true), // show deprecation warnings in storybook
       STORYBOOK: JSON.stringify(true),
       PRODUCTION: JSON.stringify(isProduction)
     })
