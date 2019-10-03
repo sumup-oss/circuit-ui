@@ -117,30 +117,22 @@ If you prefer to embed the code declaratively inside the component, you can
 do it as such:
 
 ```javascript
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Modal } from '@sumup/circuit-ui';
 
-class Page extends Component {
-  constructor() {
-    this.state = { isModalOpen: false };
-  }
+const Page = () => {
+  const [isModalOpen, setModalIsOpen] = useState(false);
 
-  toggleModal = () => {
-    this.setState(state => ({ isModalOpen: !state.isModalOpen }));
-  };
-
-  render() {
-    return (
-      <div>
-        <a href="#" onClick={() => this.toggleModal()} />
-        {this.state.isModalOpen && (
-          <Modal>
-            <ModalHeader onClose={() => this.toggleModal()} title="Hello" />
-            The modal is open!
-          </Modal>
-        )}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <a href="#" onClick={() => setModalIsOpen(!isModalOpen)} />
+      {isModalOpenisModalOpen && (
+        <Modal>
+          <ModalHeader onClose={() => setModalIsOpen(!isModalOpen)} title="Hello" />
+          The modal is open!
+        </Modal>
+      )}
+    </div>
+  )
 }
 ```
