@@ -4,6 +4,7 @@ import { setDefaults } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from 'emotion-theming';
+import styled from '@emotion/styled';
 
 import { circuit } from '../src/themes';
 import storybookTheme from './theme';
@@ -38,19 +39,19 @@ const withThemeProvider = storyFn => (
   </ThemeProvider>
 );
 
+const Story = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  .sbdocs & {
+    min-height: auto;
+  }
+`;
+
 const withStoryStyles = storyFn => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh'
-      }}
-    >
-      {storyFn()}
-    </div>
-  );
+  return <Story>{storyFn()}</Story>;
 };
 
 const loadStories = () => {
