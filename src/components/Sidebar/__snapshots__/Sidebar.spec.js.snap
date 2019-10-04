@@ -72,21 +72,6 @@ HTMLCollection [
     data-testid="sidebar-backdrop"
   />,
   .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-2 {
   cursor: pointer;
   outline: none;
   display: -webkit-box;
@@ -118,18 +103,15 @@ HTMLCollection [
 }
 
 @media (min-width:960px) {
-  .circuit-2 {
+  .circuit-0 {
     visibility: hidden;
   }
 }
 
 <button
-    class="circuit-2 circuit-3"
+    class="circuit-0 circuit-1"
     data-testid="sidebar-close-button"
   >
-    <span
-      class="circuit-0 circuit-1"
-    />
     <div
       aria-hidden="true"
     >
@@ -196,7 +178,7 @@ HTMLCollection [
     class="circuit-0 circuit-1"
     data-testid="sidebar-backdrop"
   />,
-  .circuit-2 {
+  .circuit-0 {
   cursor: pointer;
   outline: none;
   display: -webkit-box;
@@ -226,33 +208,15 @@ HTMLCollection [
 }
 
 @media (min-width:960px) {
-  .circuit-2 {
+  .circuit-0 {
     visibility: hidden;
   }
 }
 
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <button
-    class="circuit-2 circuit-3"
+    class="circuit-0 circuit-1"
     data-testid="sidebar-close-button"
   >
-    <span
-      class="circuit-0 circuit-1"
-    />
     <div
       aria-hidden="true"
     >
