@@ -1,8 +1,9 @@
 import React from 'react';
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { setDefaults } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from 'emotion-theming';
 
 import { circuit } from '../src/themes';
@@ -18,6 +19,13 @@ setOptions({
   hierarchyRootSeparator: /\|/,
   name: 'Circuit UI',
   url: 'https://github.com/sumup/circuit-ui'
+});
+
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
 });
 
 const req = require.context('../src/components', true, /\.story\.js$/);
