@@ -103,9 +103,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
   /* eslint-disable max-len */
   return `
     ${absolutePosition}: 50%;
-    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${
-    theme.spacings.bit
-  }));
+    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${theme.spacings.bit}));
 
     &::after {
       ${absolutePosition}: ${theme.spacings.kilo};
