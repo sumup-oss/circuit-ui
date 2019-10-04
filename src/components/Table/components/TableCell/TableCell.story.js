@@ -15,11 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { boolean, text, select } from '@storybook/addon-knobs/react';
 import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
-import withTests from '../../../../util/withTests';
 import TableCell from '.';
 
 const options = {
@@ -29,16 +27,13 @@ const options = {
 };
 
 storiesOf(`${GROUPS.COMPONENTS}|Table/TableCell`, module)
-  .addDecorator(withTests('TableCell'))
-  .add(
-    'Table Cell',
-    withInfo()(() => (
-      <TableCell
-        style={{ width: '300px', alignSelf: 'center' }}
-        align={select('Align', options)}
-        isHovered={boolean('Hover styles', false)}
-      >
-        {text('Content', 'Header')}
-      </TableCell>
-    ))
-  );
+  .addParameters({ jest: ['TableCell'] })
+  .add('Table Cell', () => (
+    <TableCell
+      style={{ width: '300px', alignSelf: 'center' }}
+      align={select('Align', options)}
+      isHovered={boolean('Hover styles', false)}
+    >
+      {text('Content', 'Header')}
+    </TableCell>
+  ));

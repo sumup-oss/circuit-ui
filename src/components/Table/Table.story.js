@@ -15,12 +15,10 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import Table from './Table';
 import TableHeader from './components/TableHeader';
 import TableCell from './components/TableCell';
@@ -61,21 +59,18 @@ const rows = [
 ];
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
-  .addDecorator(withTests('Table'))
-  .add(
-    'Table',
-    withInfo()(() => (
-      <div style={{ width: '98vw', maxHeight: 150 }}>
-        <Table
-          headers={headers}
-          rows={rows}
-          rowHeaders={boolean('Mobile rows', true)}
-          condensed={boolean('Condensed', false)}
-          scrollable={boolean('Scrollable', false)}
-          noShadow={boolean('Without Shadow', false)}
-          onRowClick={action('onRowClick')}
-          borderCollapsed={boolean('Border collapsed', false)}
-        />
-      </div>
-    ))
-  );
+  .addParameters({ jest: ['Table'] })
+  .add('Table', () => (
+    <div style={{ width: '98vw', maxHeight: 150 }}>
+      <Table
+        headers={headers}
+        rows={rows}
+        rowHeaders={boolean('Mobile rows', true)}
+        condensed={boolean('Condensed', false)}
+        scrollable={boolean('Scrollable', false)}
+        noShadow={boolean('Without Shadow', false)}
+        onRowClick={action('onRowClick')}
+        borderCollapsed={boolean('Border collapsed', false)}
+      />
+    </div>
+  ));

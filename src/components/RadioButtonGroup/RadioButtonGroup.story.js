@@ -15,11 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import State from '../State';
 
 import RadioButtonGroup from './RadioButtonGroup';
@@ -40,27 +38,24 @@ const options = [
 ];
 
 storiesOf(`${GROUPS.FORMS}|RadioButton/RadioButtonGroup`, module)
-  .addDecorator(withTests('RadioButtonGroup'))
-  .add(
-    'RadioButtonGroup',
-    withInfo()(() => (
-      <State
-        initial=""
-        name="value"
-        updaterName="onChange"
-        updater={(prev, event) => event.target.value}
-      >
-        {({ value, onChange }) => (
-          <RadioButtonGroup
-            {...{ options, value }}
-            name="radio-button-group"
-            onChange={e => {
-              e.persist();
-              action(`${e.target.value} radio button clicked`)(e);
-              onChange(e);
-            }}
-          />
-        )}
-      </State>
-    ))
-  );
+  .addParameters({ jest: ['RadioButtonGroup'] })
+  .add('RadioButtonGroup', () => (
+    <State
+      initial=""
+      name="value"
+      updaterName="onChange"
+      updater={(prev, event) => event.target.value}
+    >
+      {({ value, onChange }) => (
+        <RadioButtonGroup
+          {...{ options, value }}
+          name="radio-button-group"
+          onChange={e => {
+            e.persist();
+            action(`${e.target.value} radio button clicked`)(e);
+            onChange(e);
+          }}
+        />
+      )}
+    </State>
+  ));

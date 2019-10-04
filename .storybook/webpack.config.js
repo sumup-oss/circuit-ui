@@ -11,7 +11,7 @@ module.exports = ({ config, mode }) => {
 
   config.module.rules.push({
     test: /\.story\.jsx?$/,
-    loaders: [require.resolve('@storybook/addon-storysource/loader')],
+    loaders: [require.resolve('@storybook/source-loader')],
     enforce: 'pre'
   });
 

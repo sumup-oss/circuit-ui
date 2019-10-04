@@ -15,72 +15,62 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
+
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import State from '../State';
 import RadioButton from './RadioButton';
 
 storiesOf(`${GROUPS.FORMS}|RadioButton`, module)
-  .addDecorator(withTests('RadioButton'))
-  .add(
-    'Default RadioButton',
-    withInfo()(() => (
-      <State
-        initial={false}
-        name="isChecked"
-        updaterName="onChange"
-        updater={isChecked => !isChecked}
-      >
-        {({ isChecked, onChange }) => (
-          <RadioButton
-            value="radio"
-            name="radio"
-            onChange={e => {
-              action('Radio clicked')(e);
-              onChange(e);
-            }}
-            checked={isChecked}
-          >
-            {isChecked ? 'Checked' : 'Unchecked'}
-          </RadioButton>
-        )}
-      </State>
-    ))
-  )
-  .add(
-    'Invalid RadioButton',
-    withInfo()(() => (
-      <State
-        initial={false}
-        name="isChecked"
-        updaterName="onChange"
-        updater={isChecked => !isChecked}
-      >
-        {({ isChecked, onChange }) => (
-          <RadioButton
-            value="radio"
-            name="radio"
-            onChange={e => {
-              action('Radio clicked')(e);
-              onChange(e);
-            }}
-            checked={isChecked}
-            invalid
-          >
-            Error
-          </RadioButton>
-        )}
-      </State>
-    ))
-  )
-  .add(
-    'Disabled RadioButton',
-    withInfo()(() => (
-      <RadioButton value="radio" name="radio" disabled>
-        Disabled
-      </RadioButton>
-    ))
-  );
+  .addParameters({ jest: ['RadioButton'] })
+  .add('Default RadioButton', () => (
+    <State
+      initial={false}
+      name="isChecked"
+      updaterName="onChange"
+      updater={isChecked => !isChecked}
+    >
+      {({ isChecked, onChange }) => (
+        <RadioButton
+          value="radio"
+          name="radio"
+          onChange={e => {
+            action('Radio clicked')(e);
+            onChange(e);
+          }}
+          checked={isChecked}
+        >
+          {isChecked ? 'Checked' : 'Unchecked'}
+        </RadioButton>
+      )}
+    </State>
+  ))
+  .add('Invalid RadioButton', () => (
+    <State
+      initial={false}
+      name="isChecked"
+      updaterName="onChange"
+      updater={isChecked => !isChecked}
+    >
+      {({ isChecked, onChange }) => (
+        <RadioButton
+          value="radio"
+          name="radio"
+          onChange={e => {
+            action('Radio clicked')(e);
+            onChange(e);
+          }}
+          checked={isChecked}
+          invalid
+        >
+          Error
+        </RadioButton>
+      )}
+    </State>
+  ))
+  .add('Disabled RadioButton', () => (
+    <RadioButton value="radio" name="radio" disabled>
+      Disabled
+    </RadioButton>
+  ));

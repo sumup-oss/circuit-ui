@@ -15,12 +15,10 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import IconButton from './IconButton';
 
 storiesOf(`${GROUPS.COMPONENTS}|IconButton`, module)
-  .addDecorator(withTests('IconButton'))
-  .add('Default IconButton', withInfo()(() => <IconButton />));
+  .addParameters({ jest: ['IconButton'] })
+  .add('Default IconButton', () => <IconButton />);

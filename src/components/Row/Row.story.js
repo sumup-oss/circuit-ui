@@ -16,10 +16,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import Row from './Row';
 import Col from '../Col';
 import { circuit } from '../../themes';
@@ -50,16 +49,13 @@ const StyledRow = styled(Row)`
 `;
 
 storiesOf(`${GROUPS.GRID}|Row`, module)
-  .addDecorator(withTests('Row'))
-  .add(
-    'Default Row',
-    withInfo()(() => (
-      <div style={{ width: '100vw' }}>
-        <StyledRow>
-          <StyledCol span="4">Col 4</StyledCol>
-          <StyledCol span="4">Col 4</StyledCol>
-          <StyledCol span="4">Col 4</StyledCol>
-        </StyledRow>
-      </div>
-    ))
-  );
+  .addParameters({ jest: ['Row'] })
+  .add('Default Row', () => (
+    <div style={{ width: '100vw' }}>
+      <StyledRow>
+        <StyledCol span="4">Col 4</StyledCol>
+        <StyledCol span="4">Col 4</StyledCol>
+        <StyledCol span="4">Col 4</StyledCol>
+      </StyledRow>
+    </div>
+  ));

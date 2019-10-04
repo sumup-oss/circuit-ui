@@ -5,7 +5,7 @@ import { ThemeProvider } from 'emotion-theming';
 
 import { circuit } from '../src/themes';
 import BaseStyles from '../src/components/BaseStyles';
-import withTests from '../src/util/withTests';
+import withTests from './withTests';
 
 const req = require.context('../src/components', true, /\.story\.js$/);
 

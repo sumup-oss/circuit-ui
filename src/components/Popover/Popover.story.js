@@ -16,12 +16,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { select, boolean } from '@storybook/addon-knobs/react';
 
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import Popover from './Popover';
 import Button from '../Button';
 
@@ -73,16 +71,13 @@ PopoverContainer.propTypes = {
 };
 
 storiesOf(`${GROUPS.COMPONENTS}|Popover`, module)
-  .addDecorator(withTests('Popover'))
-  .add(
-    'Default Popover',
-    withInfo()(() => (
-      <div>
-        <PopoverContainer
-          position={select('position', positions, Popover.BOTTOM)}
-          align={select('align', alignments, Popover.START)}
-          closeOnButtonClick={boolean('closeOnButton', false)}
-        />
-      </div>
-    ))
-  );
+  .addParameters({ jest: ['Popover'] })
+  .add('Default Popover', () => (
+    <div>
+      <PopoverContainer
+        position={select('position', positions, Popover.BOTTOM)}
+        align={select('align', alignments, Popover.START)}
+        closeOnButtonClick={boolean('closeOnButton', false)}
+      />
+    </div>
+  ));

@@ -15,11 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import styled from '@emotion/styled';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import InlineElements from './InlineElements';
 
 const Box = styled('div')`
@@ -43,61 +41,46 @@ const Container = styled('div')({
 });
 
 storiesOf(`${GROUPS.LAYOUT}|InlineElements`, module)
-  .addDecorator(withTests('InlineElements'))
-  .add(
-    'Two InlineElements',
-    withInfo()(() => (
-      <Container>
-        <InlineElements>
-          <Box />
-          <Box />
-        </InlineElements>
-      </Container>
-    ))
-  )
-  .add(
-    'Three InlineElements',
-    withInfo()(() => (
-      <Container>
-        <InlineElements>
-          <Box />
-          <Box />
-          <Box />
-        </InlineElements>
-      </Container>
-    ))
-  )
-  .add(
-    'Three InlineElements inline on mobile',
-    withInfo()(() => (
-      <Container>
-        <InlineElements inlineMobile>
-          <Box />
-          <Box />
-          <Box />
-        </InlineElements>
-      </Container>
-    ))
-  )
-  .add(
-    'Two InlineElements with ratios',
-    withInfo()(() => (
-      <Container>
-        <InlineElements ratios={[2, 1]}>
-          <Box>2x</Box>
-          <Box>1x</Box>
-        </InlineElements>
-      </Container>
-    ))
-  )
-  .add(
-    'Two InlineElements with ratios inline on mobile',
-    withInfo()(() => (
-      <Container>
-        <InlineElements ratios={[3, 1]} inlineMobile>
-          <Box>2x</Box>
-          <Box>1x</Box>
-        </InlineElements>
-      </Container>
-    ))
-  );
+  .addParameters({ jest: ['InlineElements'] })
+  .add('Two InlineElements', () => (
+    <Container>
+      <InlineElements>
+        <Box />
+        <Box />
+      </InlineElements>
+    </Container>
+  ))
+  .add('Three InlineElements', () => (
+    <Container>
+      <InlineElements>
+        <Box />
+        <Box />
+        <Box />
+      </InlineElements>
+    </Container>
+  ))
+  .add('Three InlineElements inline on mobile', () => (
+    <Container>
+      <InlineElements inlineMobile>
+        <Box />
+        <Box />
+        <Box />
+      </InlineElements>
+    </Container>
+  ))
+  .add('Two InlineElements with ratios', () => (
+    <Container>
+      <InlineElements ratios={[2, 1]}>
+        <Box>2x</Box>
+        <Box>1x</Box>
+      </InlineElements>
+    </Container>
+  ))
+  .add('Two InlineElements with ratios inline on mobile', () => (
+    <Container>
+      <InlineElements ratios={[3, 1]} inlineMobile>
+        <Box>2x</Box>
+        <Box>1x</Box>
+      </InlineElements>
+    </Container>
+  ));

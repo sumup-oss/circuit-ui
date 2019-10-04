@@ -15,11 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import styled from '@emotion/styled';
 import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import Tooltip from './Tooltip';
 
 const DummyIcon = () => (
@@ -51,48 +49,36 @@ const TooltipContainer = styled('div')`
 `;
 
 storiesOf(`${GROUPS.COMPONENTS}|Tooltip`, module)
-  .addDecorator(withTests('Tooltip'))
-  .add(
-    'Top left',
-    withInfo()(() => (
-      <TooltipContainer>
-        <Tooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
-          I am a teeny, tiny tooltip.
-        </Tooltip>
-        <DummyIcon />
-      </TooltipContainer>
-    ))
-  )
-  .add(
-    'Right center',
-    withInfo()(() => (
-      <TooltipContainer>
-        <Tooltip position={Tooltip.RIGHT} align={Tooltip.CENTER}>
-          I am a teeny, tiny tooltip.
-        </Tooltip>
-        <DummyIcon />
-      </TooltipContainer>
-    ))
-  )
-  .add(
-    'Bottom right',
-    withInfo()(() => (
-      <TooltipContainer>
-        <Tooltip position={Tooltip.BOTTOM} align={Tooltip.RIGHT}>
-          I am a teeny, tiny tooltip.
-        </Tooltip>
-        <DummyIcon />
-      </TooltipContainer>
-    ))
-  )
-  .add(
-    'Left center',
-    withInfo()(() => (
-      <TooltipContainer>
-        <Tooltip position={Tooltip.LEFT} align={Tooltip.CENTER}>
-          I am a teeny, tiny tooltip.
-        </Tooltip>
-        <DummyIcon />
-      </TooltipContainer>
-    ))
-  );
+  .addParameters({ jest: ['Tooltip'] })
+  .add('Top left', () => (
+    <TooltipContainer>
+      <Tooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+        I am a teeny, tiny tooltip.
+      </Tooltip>
+      <DummyIcon />
+    </TooltipContainer>
+  ))
+  .add('Right center', () => (
+    <TooltipContainer>
+      <Tooltip position={Tooltip.RIGHT} align={Tooltip.CENTER}>
+        I am a teeny, tiny tooltip.
+      </Tooltip>
+      <DummyIcon />
+    </TooltipContainer>
+  ))
+  .add('Bottom right', () => (
+    <TooltipContainer>
+      <Tooltip position={Tooltip.BOTTOM} align={Tooltip.RIGHT}>
+        I am a teeny, tiny tooltip.
+      </Tooltip>
+      <DummyIcon />
+    </TooltipContainer>
+  ))
+  .add('Left center', () => (
+    <TooltipContainer>
+      <Tooltip position={Tooltip.LEFT} align={Tooltip.CENTER}>
+        I am a teeny, tiny tooltip.
+      </Tooltip>
+      <DummyIcon />
+    </TooltipContainer>
+  ));
