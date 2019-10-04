@@ -1,24 +1,11 @@
 import React from 'react';
-import { configure, addDecorator } from '@storybook/react';
-import { setDefaults } from '@storybook/addon-info';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { setOptions } from '@storybook/addon-options';
 import { ThemeProvider } from 'emotion-theming';
 
 import { circuit } from '../src/themes';
 import BaseStyles from '../src/components/BaseStyles';
-
-// Sets the info addon's options.
-setDefaults({
-  header: false
-});
-
-setOptions({
-  hierarchySeparator: /\//,
-  hierarchyRootSeparator: /\|/,
-  name: 'Circuit UI',
-  url: 'https://github.com/sumup/circuit-ui'
-});
+import withTests from '../src/util/withTests';
 
 const req = require.context('../src/components', true, /\.story\.js$/);
 
@@ -47,6 +34,13 @@ const withStoryStyles = storyFn => {
 };
 
 const loadStories = () => {
+  addParameters({
+    hierarchySeparator: /\//,
+    hierarchyRootSeparator: /\|/,
+    brandTitle: 'SumUp Website',
+    brandUrl: 'https://github.com/sumup/website'
+  });
+  addDecorator(withTests);
   addDecorator(withKnobs);
   addDecorator(withStoryStyles);
   addDecorator(withThemeProvider);
