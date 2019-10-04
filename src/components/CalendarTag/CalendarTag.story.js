@@ -23,6 +23,9 @@ import withTests from '../../util/withTests';
 import CalendarTag from './CalendarTag';
 
 storiesOf(`${GROUPS.COMPONENTS}|Calendar/CalendarTag`, module)
+  .addParameters({
+    component: CalendarTag
+  })
   .addDecorator(withTests('CalendarTag'))
   .add(
     'Default CalendarTag',

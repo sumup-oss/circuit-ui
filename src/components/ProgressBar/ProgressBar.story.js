@@ -23,6 +23,9 @@ import withTests from '../../util/withTests';
 import ProgressBar from './ProgressBar';
 
 storiesOf(`${GROUPS.COMPONENTS}|ProgressBar`, module)
+  .addParameters({
+    component: ProgressBar
+  })
   .addDecorator(withTests('ProgressBar'))
   .add(
     'ProgressBar',

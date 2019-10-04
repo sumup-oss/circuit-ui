@@ -26,6 +26,9 @@ import State from '../State';
 import Checkbox from './Checkbox';
 
 storiesOf(`${GROUPS.FORMS}|Checkbox`, module)
+  .addParameters({
+    component: Checkbox
+  })
   .addDecorator(withTests('Checkbox'))
   .add(
     'Default Checkbox',

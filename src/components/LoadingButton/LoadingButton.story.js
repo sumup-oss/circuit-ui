@@ -24,6 +24,9 @@ import withTests from '../../util/withTests';
 import LoadingButton from '.';
 
 storiesOf(`${GROUPS.COMPONENTS}|Button/LoadingButton`, module)
+  .addParameters({
+    component: LoadingButton
+  })
   .addDecorator(withTests('LoadingButton'))
   .add(
     'LoadingButton with Success animation',

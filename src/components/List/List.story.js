@@ -25,6 +25,9 @@ import List from './List';
 const sizes = [List.KILO, List.MEGA, List.GIGA];
 
 storiesOf(`${GROUPS.COMPONENTS}|List`, module)
+  .addParameters({
+    component: List
+  })
   .addDecorator(withTests('List'))
   .add(
     'List',

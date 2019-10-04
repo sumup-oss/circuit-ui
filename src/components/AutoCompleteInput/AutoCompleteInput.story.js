@@ -25,6 +25,9 @@ import withTests from '../../util/withTests';
 import AutoCompleteInput from './AutoCompleteInput';
 
 storiesOf(`${GROUPS.FORMS}|AutoCompleteInput`, module)
+  .addParameters({
+    component: AutoCompleteInput
+  })
   .addDecorator(withTests('AutoCompleteInput'))
   .add(
     'Default AutoCompleteInput',

@@ -31,6 +31,9 @@ const containerStyles = {
 };
 
 storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
+  .addParameters({
+    component: Button
+  })
   .addDecorator(withTests('Button'))
   .add(
     'Button',

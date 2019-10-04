@@ -50,6 +50,9 @@ const StyledRow = styled(Row)`
 `;
 
 storiesOf(`${GROUPS.GRID}|Row`, module)
+  .addParameters({
+    component: Row
+  })
   .addDecorator(withTests('Row'))
   .add(
     'Default Row',

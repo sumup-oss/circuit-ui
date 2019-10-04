@@ -61,6 +61,9 @@ const countryOptions = [
 const flagIconMap = { DE, US, FR };
 
 storiesOf(`${GROUPS.FORMS}|Select`, module)
+  .addParameters({
+    component: Select
+  })
   .addDecorator(withTests('Select'))
   .add(
     'Select',

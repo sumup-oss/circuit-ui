@@ -33,6 +33,9 @@ const numberMask = createNumberMask({
 });
 
 storiesOf(`${GROUPS.FORMS}|CurrencyInput/SimpleCurrencyInput`, module)
+  .addParameters({
+    component: SimpleCurrencyInput
+  })
   .addDecorator(withTests('SimpleCurrencyInput'))
   .add(
     'Default SimpleCurrencyInput',

@@ -22,6 +22,9 @@ import withTests from '../../util/withTests';
 import Label from '.';
 
 storiesOf(`${GROUPS.FORMS}|Label`, module)
+  .addParameters({
+    component: Label
+  })
   .addDecorator(withTests('Label'))
   .add('Default Label', withInfo()(() => <Label>An input label</Label>))
   .add(

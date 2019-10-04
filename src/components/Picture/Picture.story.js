@@ -22,5 +22,8 @@ import withTests from '../../util/withTests';
 import Picture from './Picture';
 
 storiesOf(`${GROUPS.COMPONENTS}|Picture`, module)
+  .addParameters({
+    component: Picture
+  })
   .addDecorator(withTests('ResponsiveImage'))
   .add('Default Picture', withInfo()(() => <Picture />));

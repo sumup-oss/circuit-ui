@@ -22,6 +22,9 @@ import withTests from '../../util/withTests';
 import Image from './Image';
 
 storiesOf(`${GROUPS.COMPONENTS}|Image`, module)
+  .addParameters({
+    component: Image
+  })
   .addDecorator(withTests('Image'))
   .add(
     'Responsive Image',

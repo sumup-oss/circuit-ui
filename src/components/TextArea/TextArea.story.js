@@ -22,6 +22,9 @@ import withTests from '../../util/withTests';
 import TextArea from '.';
 
 storiesOf(`${GROUPS.FORMS}|TextArea`, module)
+  .addParameters({
+    component: TextArea
+  })
   .addDecorator(withTests('TextArea'))
   .add(
     'TextArea',

@@ -22,5 +22,8 @@ import withTests from '../../util/withTests';
 import IconButton from './IconButton';
 
 storiesOf(`${GROUPS.COMPONENTS}|IconButton`, module)
+  .addParameters({
+    component: IconButton
+  })
   .addDecorator(withTests('IconButton'))
   .add('Default IconButton', withInfo()(() => <IconButton />));

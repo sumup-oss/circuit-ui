@@ -24,6 +24,9 @@ import withTests from '../../util/withTests';
 import Pagination from '.';
 
 storiesOf(`${GROUPS.COMPONENTS}|Pagination`, module)
+  .addParameters({
+    component: Pagination
+  })
   .addDecorator(withTests('Pagination'))
   .add(
     'Pagination',

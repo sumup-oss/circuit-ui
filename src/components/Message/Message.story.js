@@ -27,6 +27,9 @@ import Text from '../Text';
 import Button from '../Button';
 
 storiesOf(`${GROUPS.COMPONENTS}|Message`, module)
+  .addParameters({
+    component: Message
+  })
   .addDecorator(withTests('Message'))
   .add(
     'Default Message',

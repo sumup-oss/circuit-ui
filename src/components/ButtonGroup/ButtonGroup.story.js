@@ -24,6 +24,9 @@ import ButtonGroup from '.';
 import Button from '../Button';
 
 storiesOf(`${GROUPS.COMPONENTS}|Button/ButtonGroup`, module)
+  .addParameters({
+    component: ButtonGroup
+  })
   .addDecorator(withTests('ButtonGroup'))
   .add(
     'Default ButtonGroup',

@@ -28,6 +28,9 @@ import Text from '../Text';
 import Button from '../Button';
 
 storiesOf(`${GROUPS.COMPONENTS}|NotificationBanner`, module)
+  .addParameters({
+    component: NotificationBanner
+  })
   .addDecorator(withTests('NotificationBanner'))
   .add(
     'Default NotificationBanner',

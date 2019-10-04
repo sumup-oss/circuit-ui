@@ -37,6 +37,9 @@ const Icon = () => (
 );
 
 storiesOf(`${GROUPS.COMPONENTS}|Tag`, module)
+  .addParameters({
+    component: Tag
+  })
   .addDecorator(withTests('Tag'))
   .add(
     'Default Tag',

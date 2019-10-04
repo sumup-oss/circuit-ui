@@ -22,5 +22,8 @@ import withTests from '../../util/withTests';
 import MaskedInput from './MaskedInput';
 
 storiesOf(`${GROUPS.FORMS}|MaskedInput`, module)
+  .addParameters({
+    component: MaskedInput
+  })
   .addDecorator(withTests('MaskedInput'))
   .add('Default MaskedInput', withInfo()(() => <MaskedInput />));

@@ -26,6 +26,9 @@ import { schemes } from '../..';
 const { SCHEMES } = schemes;
 
 storiesOf(`${GROUPS.FORMS}|CreditCardDetails/SecurityCodeInput`, module)
+  .addParameters({
+    component: SecurityCodeInput
+  })
   .addDecorator(withTests('SecurityCodeInput'))
   .add('Default SecurityCodeInput', withInfo()(() => <SecurityCodeInput />))
   .add(

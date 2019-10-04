@@ -35,6 +35,9 @@ const sizes = [
 ];
 
 storiesOf(`${GROUPS.TYPOGRAPHY}|Heading`, module)
+  .addParameters({
+    component: Heading
+  })
   .addDecorator(withTests('Heading'))
   .add(
     'Heading',

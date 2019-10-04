@@ -28,6 +28,9 @@ const Container = styled('div')`
 `;
 
 storiesOf(`${GROUPS.COMPONENTS}|Hr`, module)
+  .addParameters({
+    component: Hr
+  })
   .add(
     'Hr',
     withInfo()(() => (

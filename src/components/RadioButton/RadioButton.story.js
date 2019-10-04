@@ -24,6 +24,9 @@ import State from '../State';
 import RadioButton from './RadioButton';
 
 storiesOf(`${GROUPS.FORMS}|RadioButton`, module)
+  .addParameters({
+    component: RadioButton
+  })
   .addDecorator(withTests('RadioButton'))
   .add(
     'Default RadioButton',

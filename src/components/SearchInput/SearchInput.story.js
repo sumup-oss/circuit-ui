@@ -22,6 +22,9 @@ import withTests from '../../util/withTests';
 import SearchInput from '.';
 
 storiesOf(`${GROUPS.FORMS}|SearchInput`, module)
+  .addParameters({
+    component: SearchInput
+  })
   .addDecorator(withTests('SearchInput'))
   .add('Default SearchInput', withInfo()(() => <SearchInput />))
   .add('Disabled SearchInput', withInfo()(() => <SearchInput disabled />));

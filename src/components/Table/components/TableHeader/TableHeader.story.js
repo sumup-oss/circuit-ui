@@ -29,6 +29,9 @@ const options = {
 };
 
 storiesOf(`${GROUPS.COMPONENTS}|Table/TableHeader`, module)
+  .addParameters({
+    component: TableHeader
+  })
   .addDecorator(withTests('TableHeader'))
   .add(
     'Table Header',

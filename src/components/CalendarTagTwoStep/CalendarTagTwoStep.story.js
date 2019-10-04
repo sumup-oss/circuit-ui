@@ -23,6 +23,9 @@ import withTests from '../../util/withTests';
 import CalendarTagTwoStep from './CalendarTagTwoStep';
 
 storiesOf(`${GROUPS.COMPONENTS}|Calendar/CalendarTagTwoStep`, module)
+  .addParameters({
+    component: CalendarTagTwoStep
+  })
   .addDecorator(withTests('CalendarTagTwoStep'))
   .add(
     'Default CalendarTagTwoStep',

@@ -39,6 +39,9 @@ StyledCol.defaultProps = {
 };
 
 storiesOf(`${GROUPS.GRID}|Col`, module)
+  .addParameters({
+    component: Col
+  })
   .addDecorator(withTests('Col'))
   .add(
     'Default Col',

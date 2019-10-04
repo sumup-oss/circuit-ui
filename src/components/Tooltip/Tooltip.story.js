@@ -51,6 +51,9 @@ const TooltipContainer = styled('div')`
 `;
 
 storiesOf(`${GROUPS.COMPONENTS}|Tooltip`, module)
+  .addParameters({
+    component: Tooltip
+  })
   .addDecorator(withTests('Tooltip'))
   .add(
     'Top left',

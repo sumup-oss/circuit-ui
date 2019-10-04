@@ -29,6 +29,9 @@ const options = {
 };
 
 storiesOf(`${GROUPS.COMPONENTS}|Table/TableCell`, module)
+  .addParameters({
+    component: TableCell
+  })
   .addDecorator(withTests('TableCell'))
   .add(
     'Table Cell',

@@ -56,5 +56,8 @@ class CardListStory extends Component {
 }
 
 storiesOf(`${GROUPS.COMPONENTS}|CardList`, module)
+  .addParameters({
+    component: CardList
+  })
   .addDecorator(withTests('CardList'))
   .add('CardList', withInfo()(() => <CardListStory />));

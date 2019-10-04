@@ -22,5 +22,8 @@ import withTests from '../../util/withTests';
 import InfoIcon from './InfoIcon';
 
 storiesOf(`${GROUPS.ICONS}|InfoIcon`, module)
+  .addParameters({
+    component: InfoIcon
+  })
   .addDecorator(withTests('InfoIcon'))
   .add('Default InfoIcon', withInfo()(() => <InfoIcon />));

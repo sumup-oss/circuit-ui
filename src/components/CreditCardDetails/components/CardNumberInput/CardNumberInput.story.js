@@ -53,6 +53,9 @@ const marginTopClassName = css`
 `;
 
 storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardNumberInput`, module)
+  .addParameters({
+    component: CardNumberInput
+  })
   .addDecorator(withTests('CardNumberInput'))
   .add(
     'Empty CardNumberInput',

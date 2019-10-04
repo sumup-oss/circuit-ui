@@ -40,6 +40,9 @@ const options = [
 ];
 
 storiesOf(`${GROUPS.FORMS}|RadioButton/RadioButtonGroup`, module)
+  .addParameters({
+    component: RadioButtonGroup
+  })
   .addDecorator(withTests('RadioButtonGroup'))
   .add(
     'RadioButtonGroup',

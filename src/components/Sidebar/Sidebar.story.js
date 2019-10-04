@@ -102,5 +102,8 @@ class Container extends Component {
 }
 
 storiesOf(`${GROUPS.COMPONENTS}|Sidebar`, module)
+  .addParameters({
+    component: Sidebar
+  })
   .addDecorator(withTests('Sidebar'))
   .add('Sidebar', withInfo()(() => <Container />));

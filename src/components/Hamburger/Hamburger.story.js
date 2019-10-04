@@ -24,30 +24,34 @@ import State from '../State';
 
 import Hamburger from './Hamburger';
 
-storiesOf(`${GROUPS.COMPONENTS}|Hamburger`, module).add(
-  'Hamburger',
-  withInfo()(() => {
-    const light = boolean('light', false);
-    return (
-      <State
-        initial={false}
-        name="isActive"
-        updaterName="onClick"
-        updater={isActive => !isActive}
-      >
-        {({ onClick, isActive }) => (
-          <Hamburger
-            isActive={isActive}
-            onClick={e => {
-              action('Hamburger clicked')(e);
-              onClick(e);
-            }}
-            labelActive={text('Label active', 'Close menu')}
-            labelInActive={text('Label inactive', 'Open menu')}
-            light={light}
-          />
-        )}
-      </State>
-    );
+storiesOf(`${GROUPS.COMPONENTS}|Hamburger`, module)
+  .addParameters({
+    component: Hamburger
   })
-);
+  .add(
+    'Hamburger',
+    withInfo()(() => {
+      const light = boolean('light', false);
+      return (
+        <State
+          initial={false}
+          name="isActive"
+          updaterName="onClick"
+          updater={isActive => !isActive}
+        >
+          {({ onClick, isActive }) => (
+            <Hamburger
+              isActive={isActive}
+              onClick={e => {
+                action('Hamburger clicked')(e);
+                onClick(e);
+              }}
+              labelActive={text('Label active', 'Close menu')}
+              labelInActive={text('Label inactive', 'Open menu')}
+              light={light}
+            />
+          )}
+        </State>
+      );
+    })
+  );

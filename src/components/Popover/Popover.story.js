@@ -73,6 +73,9 @@ PopoverContainer.propTypes = {
 };
 
 storiesOf(`${GROUPS.COMPONENTS}|Popover`, module)
+  .addParameters({
+    component: Popover
+  })
   .addDecorator(withTests('Popover'))
   .add(
     'Default Popover',

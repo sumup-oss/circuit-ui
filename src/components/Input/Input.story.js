@@ -23,6 +23,9 @@ import Input from '.';
 import Label from '../Label';
 
 storiesOf(`${GROUPS.FORMS}|Input`, module)
+  .addParameters({
+    component: Input
+  })
   .addDecorator(withTests('Input'))
   .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
   .add(

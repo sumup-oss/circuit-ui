@@ -24,6 +24,9 @@ import withTests from '../../util/withTests';
 import Toggle from './Toggle';
 
 storiesOf(`${GROUPS.FORMS}|Toggle`, module)
+  .addParameters({
+    component: Toggle
+  })
   .addDecorator(withTests('Toggle'))
   .add(
     'Default Toggle',

@@ -22,6 +22,9 @@ import withTests from '../../util/withTests';
 import CurrencyInput from './CurrencyInput';
 
 storiesOf(`${GROUPS.FORMS}|CurrencyInput`, module)
+  .addParameters({
+    component: CurrencyInput
+  })
   .addDecorator(withTests('CurrencyInput'))
   .add(
     'Default CurrencyInput',

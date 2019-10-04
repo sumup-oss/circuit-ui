@@ -22,6 +22,9 @@ import withTests from '../../util/withTests';
 import Selector from './Selector';
 
 storiesOf(`${GROUPS.COMPONENTS}|Selector`, module)
+  .addParameters({
+    component: Selector
+  })
   .addDecorator(withTests('Selector'))
   .add('Default Selector', withInfo()(() => <Selector>Select me!</Selector>))
   .add(

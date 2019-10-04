@@ -22,5 +22,8 @@ import withTests from '../../util/withTests';
 import RestrictedInput from './RestrictedInput';
 
 storiesOf(`${GROUPS.FORMS}|RestrictedInput`, module)
+  .addParameters({
+    component: RestrictedInput
+  })
   .addDecorator(withTests('RestrictedInput'))
   .add('Default RestrictedInput', withInfo()(() => <RestrictedInput />));

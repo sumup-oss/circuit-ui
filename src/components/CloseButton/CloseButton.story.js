@@ -24,6 +24,9 @@ import withTests from '../../util/withTests';
 import CloseButton from './CloseButton';
 
 storiesOf(`${GROUPS.COMPONENTS}|CloseButton`, module)
+  .addParameters({
+    component: CloseButton
+  })
   .addDecorator(withTests('CloseButton'))
   .add(
     'Default CloseButton',

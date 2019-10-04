@@ -23,6 +23,9 @@ import Spacing from './Spacing';
 import Button from '../Button';
 
 storiesOf(`${GROUPS.LAYOUT}|Spacing`, module)
+  .addParameters({
+    component: Spacing
+  })
   .addDecorator(withTests('Spacing'))
   .add(
     'Bottom Spacing',

@@ -36,6 +36,9 @@ const Container = styled('div')(
 );
 
 storiesOf(`${GROUPS.COMPONENTS}|Spinner`, module)
+  .addParameters({
+    component: Spinner
+  })
   .addDecorator(withTests('Spinner'))
   .add(
     'Spinner',

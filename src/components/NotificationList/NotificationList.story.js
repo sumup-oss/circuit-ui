@@ -28,6 +28,9 @@ import Text from '../Text';
 import CloseButton from '../CloseButton';
 
 storiesOf(`${GROUPS.COMPONENTS}|NotificationList`, module)
+  .addParameters({
+    component: NotificationList
+  })
   .addDecorator(withTests('NotificationList'))
   .add(
     'Default NotificationList',

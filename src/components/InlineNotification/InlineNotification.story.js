@@ -24,6 +24,9 @@ import Card from '../Card';
 import Text from '../Text';
 
 storiesOf(`${GROUPS.COMPONENTS}|InlineNotification`, module)
+  .addParameters({
+    component: InlineNotification
+  })
   .addDecorator(withTests('InlineNotification'))
   .add(
     'Success InlineNotification',

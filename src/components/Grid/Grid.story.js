@@ -51,6 +51,9 @@ const StyledRow = styled(Row)`
 `;
 
 storiesOf(`${GROUPS.GRID}|Grid`, module)
+  .addParameters({
+    component: Grid
+  })
   .addDecorator(withTests('Grid'))
   .add(
     'Static columns',

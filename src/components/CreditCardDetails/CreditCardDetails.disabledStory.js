@@ -70,6 +70,9 @@ class YourFavoriteFormLibrary extends Component {
 }
 
 storiesOf('CreditCardDetails', module)
+  .addParameters({
+    component: CreditCardDetails
+  })
   .addDecorator(withTests('CreditCardDetails'))
   .add(
     'Default CreditCardDetails',

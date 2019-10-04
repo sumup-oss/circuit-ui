@@ -27,6 +27,9 @@ const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
 const sizes = [SubHeading.MEGA, SubHeading.KILO];
 
 storiesOf(`${GROUPS.TYPOGRAPHY}|SubHeading`, module)
+  .addParameters({
+    component: SubHeading
+  })
   .addDecorator(withTests('SubHeading'))
   .add(
     'SubHeading',

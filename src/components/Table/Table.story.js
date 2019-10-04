@@ -61,6 +61,9 @@ const rows = [
 ];
 
 storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+  .addParameters({
+    component: Table
+  })
   .addDecorator(withTests('Table'))
   .add(
     'Table',

@@ -43,6 +43,9 @@ const Container = styled('div')({
 });
 
 storiesOf(`${GROUPS.LAYOUT}|InlineElements`, module)
+  .addParameters({
+    component: InlineElements
+  })
   .addDecorator(withTests('InlineElements'))
   .add(
     'Two InlineElements',

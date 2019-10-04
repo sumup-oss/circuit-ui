@@ -43,6 +43,9 @@ for (let i = 0; i < 10000; i += 1) {
 }
 
 storiesOf(`${GROUPS.FORMS}|AutoCompleteTags`, module)
+  .addParameters({
+    component: AutoCompleteTags
+  })
   .addDecorator(withTests('AutoCompleteTags'))
   .add(
     'Default AutoCompleteTags',

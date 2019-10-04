@@ -27,6 +27,9 @@ import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 
 storiesOf(`${GROUPS.COMPONENTS}|Card`, module)
+  .addParameters({
+    component: Card
+  })
   .addDecorator(withTests('Card'))
   .add(
     'Default Card',

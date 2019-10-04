@@ -86,6 +86,9 @@ TabsComposed.propTypes = {
 };
 
 storiesOf(`${GROUPS.COMPONENTS}|Tabs`, module)
+  .addParameters({
+    component: Tabs
+  })
   .addDecorator(withTests('Tabs'))
   .add(
     'Tabs',

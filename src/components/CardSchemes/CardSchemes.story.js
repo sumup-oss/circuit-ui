@@ -32,12 +32,16 @@ const iconSizes = [
   CardSchemes.GIGA
 ];
 
-storiesOf(`${GROUPS.ICONS}|CardSchemes`, module).add(
-  'Default CardSchemes',
-  withInfo()(() => (
-    <CardSchemes
-      size={select('Schemes Size', iconSizes, iconSizes[CardSchemes.GIGA])}
-      iconIds={array('Card schemes', iconIds)}
-    />
-  ))
-);
+storiesOf(`${GROUPS.ICONS}|CardSchemes`, module)
+  .addParameters({
+    component: CardSchemes
+  })
+  .add(
+    'Default CardSchemes',
+    withInfo()(() => (
+      <CardSchemes
+        size={select('Schemes Size', iconSizes, iconSizes[CardSchemes.GIGA])}
+        iconIds={array('Card schemes', iconIds)}
+      />
+    ))
+  );

@@ -22,5 +22,8 @@ import withTests from '../../../../util/withTests';
 import NameOnCardInput from './NameOnCardInput';
 
 storiesOf(`${GROUPS.FORMS}|CreditCardDetails/NameOnCardInput`, module)
+  .addParameters({
+    component: NameOnCardInput
+  })
   .addDecorator(withTests('NameOnCardInput'))
   .add('Default NameOnCardInput', withInfo()(() => <NameOnCardInput />));

@@ -30,6 +30,9 @@ const HeaderContainer = styled('div')`
 `;
 
 storiesOf(`${GROUPS.COMPONENTS}|Header`, module)
+  .addParameters({
+    component: Header
+  })
   .addDecorator(withTests('Header'))
   .add(
     'Header',

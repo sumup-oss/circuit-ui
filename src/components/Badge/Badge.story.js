@@ -26,6 +26,9 @@ import withTests from '../../util/withTests';
 import Badge from './Badge';
 
 storiesOf(`${GROUPS.COMPONENTS}|Badge`, module)
+  .addParameters({
+    component: Badge
+  })
   .addDecorator(withTests('Badge'))
   .add(
     'Default Badge',
