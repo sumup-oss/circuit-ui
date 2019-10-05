@@ -141,7 +141,7 @@
     "react-modal": "^3.8.1",
     "react-popper": "^1.3.3",
     "react-text-mask": "5.4.3",
-    "react-transition-group": "^2.7.1",
+    "react-transition-group": "^4.3.0",
     "recompose": "^0.30.0",
     "text-mask-addons": "^3.8.0",
     "tiny-warning": "^1.0.3"
