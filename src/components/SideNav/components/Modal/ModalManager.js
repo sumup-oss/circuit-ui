@@ -15,8 +15,9 @@
 
 /* eslint-disable no-param-reassign */
 
-import css from 'dom-helpers/style';
-import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
+import css from 'dom-helpers/css';
+import getScrollbarSize from 'dom-helpers/scrollbarSize';
+
 import ownerDocument from '../../../../util/ownerDocument';
 import isOverflowing from './isOverflowing';
 import { ariaHidden, hideSiblings, showSiblings } from './manageAriaHidden';
