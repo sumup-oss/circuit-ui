@@ -39,7 +39,8 @@ jobs:
       # Deploy docz and Storybook to GitHub Pages
       before_deploy: yarn predeploy
       deploy:
-        provider: pages
+        provider: script
+        script: yarn deploy
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
         on:
