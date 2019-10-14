@@ -54,6 +54,31 @@ export default App;
 Simply import components by name from the `@sumup/circuit-ui` package, as demonstrated
 above.
 
+### Custom base components
+
+Some of the low-level components that are used in Circuit UI can be overridden with custom components. This is useful e.g. when your application is using a custom router and needs to use a special `Link` component.
+
+```javascript
+import { Link } from 'react-router-dom';
+import { ComponentsContext, Button } from '@sumup/circuit-ui';
+
+const CustomLink = ({ to, ...rest }) => <Link href={to} {...rest} />;
+
+const App = () => (
+  <ComponentsContext.Provider value={{ Link: CustomLink }}>
+    <Button href="/">Home</Button>
+  </ComponentsContext.Provider>
+);
+
+export default App;
+```
+
+Using the context provider and specifying custom components is fully optional. Circuit will fall back to basic components. You can also override a subset of components, Circuit will merge them with the default components. Below is an overview of the base components that can be overridden:
+
+#### `Link`
+
+Accepts the same props as the `<a>` HTML tag. If your custom component expects different props, you need to map them to the standard attributes (see the example above).
+
 ## Contributing
 
 Please see our [contribution guidelines](https://github.com/sumup/circuit-ui/blob/master/.github/CONTRIBUTING.md)
