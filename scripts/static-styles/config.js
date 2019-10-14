@@ -48,7 +48,7 @@ const { KILO, MEGA, GIGA } = sizes;
 
 const element = props => <div {...props} />;
 
-const PropTypes = {
+export const PropTypes = {
   string: ['string'],
   number: [1],
   bool: [true, false],
@@ -107,7 +107,7 @@ function getRequiredProps(props) {
     }, {});
 }
 
-function getComponentInfo(component, propOverrides = {}) {
+export function getComponentInfo(component, propOverrides = {}) {
   // eslint-disable-next-line no-underscore-dangle
   const { displayName, props } = component.__docgenInfo;
   return {

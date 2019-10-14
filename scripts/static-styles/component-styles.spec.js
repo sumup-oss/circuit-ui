@@ -16,13 +16,14 @@
 import { theme as themes } from '../../src';
 
 import componentStyles from './component-styles';
-import config from './config';
+import config, { getComponentInfo, PropTypes } from './config';
+import * as fixtures from './__fixtures__';
+
+const { circuit: theme } = themes;
 
 describe('Component styles', () => {
-  const { circuit: theme } = themes;
-  const { components } = config;
-
-  it('should return the component styles', () => {
+  it('should extract the component styles', () => {
+    const { components } = config;
     const actual = componentStyles({
       theme,
       components
@@ -30,6 +31,37 @@ describe('Component styles', () => {
     expect(typeof actual).toBe('string');
     components.forEach(({ name }) => {
       expect(actual).toContain(name);
+    });
+  });
+
+  describe('component types', () => {
+    it('should extract the styles from a styled component', () => {
+      const component = {
+        name: 'styled-component',
+        component: fixtures.StyledComponent,
+        props: {
+          value: PropTypes.string,
+          disabled: PropTypes.bool
+        }
+      };
+      const components = [component];
+      const actual = componentStyles({
+        theme,
+        components
+      });
+      expect(typeof actual).toBe('string');
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should extract the styles from a functional component', () => {
+      const component = getComponentInfo(fixtures.FunctionalComponent);
+      const components = [component];
+      const actual = componentStyles({
+        theme,
+        components
+      });
+      expect(typeof actual).toBe('string');
+      expect(actual).toMatchSnapshot();
     });
   });
 });
