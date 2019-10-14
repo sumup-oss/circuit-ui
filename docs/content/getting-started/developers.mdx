@@ -73,7 +73,27 @@ const App = () => (
 export default App;
 ```
 
-Using the context provider and specifying custom components is fully optional. Circuit will fall back to basic components. You can also override a subset of components, Circuit will merge them with the default components. Below is an overview of the base components that can be overridden:
+Using the context provider and specifying custom components is fully optional, Circuit will fall back to built-in components. You can also override only a subset of components, Circuit will merge them with the default components.
+
+In order to access the base components in your own application you can use the `withComponents` higher-order component or the `useComponents` hook:
+
+```javascript
+import { useComponents, withComponents } from '@sumup/circuit-ui';
+
+const Navigation = ({ links }) => {
+  const { Link } = useComponents();
+  return links.map(({ href, label }) => <Link href={href}>{label}</Link>);
+};
+
+const Logo = ({ components, companyName, companyUrl }) => {
+  const { Link } = components;
+  return <Link href={companyUrl}>{companyName}</Link>;
+};
+
+const FooterWithComponents = withComponents(Footer);
+```
+
+Below is an overview of the base components:
 
 #### `Link`
 
