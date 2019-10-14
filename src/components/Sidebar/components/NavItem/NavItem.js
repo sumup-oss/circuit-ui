@@ -17,6 +17,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+
+import { componentsPropType } from '../../../../util/shared-prop-types';
 import NavLabel from '../NavLabel';
 import { getIcon } from './utils';
 
@@ -79,7 +81,7 @@ const disabledStyles = ({ theme, disabled }) =>
     }
   `;
 
-const ListItem = styled.li(
+const StyledLink = styled.a(
   baseStyles,
   hoverStyles,
   selectedStyles,
@@ -95,23 +97,27 @@ const NavItem = ({
   selectedIcon,
   selected,
   disabled,
-  onClick
+  onClick,
+  components
 }) => {
   const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
+  const Link = StyledLink.withComponent(components.Link);
 
   return (
-    <ListItem
-      selected={selected}
-      secondary={secondary}
-      visible={visible}
-      disabled={disabled}
-      onClick={disabled ? null : onClick}
-    >
-      {icon}
-      <NavLabel secondary={secondary} visible={visible}>
-        {label}
-      </NavLabel>
-    </ListItem>
+    <li>
+      <Link
+        onClick={disabled ? null : onClick}
+        selected={selected}
+        secondary={secondary}
+        visible={visible}
+        disabled={disabled}
+      >
+        {icon}
+        <NavLabel secondary={secondary} visible={visible}>
+          {label}
+        </NavLabel>
+      </Link>
+    </li>
   );
 };
 
@@ -147,7 +153,8 @@ NavItem.propTypes = {
   /**
    * The onClick method to handle the click event on NavItems
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  components: componentsPropType
 };
 
 NavItem.defaultProps = {
