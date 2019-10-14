@@ -37,10 +37,14 @@ const ICON_MAP = {
 const baseStyles = ({ theme }) => css`
   label: message__icon;
   display: block;
-  margin-right: ${theme.spacings.mega};
+  margin: 0 0 ${theme.spacings.mega} 0;
   flex-grow: 0;
   flex-shrink: 0;
   line-height: 0;
+
+  ${theme.mq.kilo} {
+    margin: 0 ${theme.spacings.mega} 0 0;
+  }
 `;
 
 /**

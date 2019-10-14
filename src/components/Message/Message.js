@@ -18,12 +18,16 @@ import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 
-const baseStyles = () => css`
+const baseStyles = ({ theme }) => css`
   label: message;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+
+  ${theme.mq.kilo} {
+    flex-direction: row;
+  }
 `;
 
 /**
