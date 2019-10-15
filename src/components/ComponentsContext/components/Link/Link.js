@@ -13,7 +13,20 @@
  * limitations under the License.
  */
 
-import { withComponents } from '../../../ComponentsContext';
-import NavItem from './NavItem';
+import React from 'react';
 
-export default withComponents(NavItem);
+import { childrenPropType } from '../../../../util/shared-prop-types';
+
+/**
+ * A barebones Link component that's basically just an `<a>` tag
+ */
+const Link = ({ children, ...props }) => <a {...props}>{children}</a>;
+
+Link.propTypes = {
+  children: childrenPropType
+};
+
+/**
+ * @component
+ */
+export default Link;

@@ -179,6 +179,10 @@ export const themePropType = PropTypes.shape({
   }).isRequired
 });
 
+export const componentsPropType = PropTypes.shape({
+  Link: PropTypes.element
+});
+
 export const localePropType = isRequired => (
   props,
   propName,

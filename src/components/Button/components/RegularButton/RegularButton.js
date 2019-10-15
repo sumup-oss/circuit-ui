@@ -223,15 +223,15 @@ const ButtonElement = styled('button')`
   ${buttonLoadingStyles};
 `;
 
-const LinkButtonElement = ButtonElement.withComponent('a');
-
-// eslint-disable-next-line react/prop-types
-const RegularButton = ({ href, ...props }) =>
-  href ? (
+/* eslint-disable react/prop-types */
+const RegularButton = ({ components, href, ...props }) => {
+  const LinkButtonElement = ButtonElement.withComponent(components.Link);
+  return href ? (
     <LinkButtonElement {...{ ...props, href }} />
   ) : (
     <ButtonElement {...props} />
   );
+};
 
 export default RegularButton;
 export { calculatePadding };

@@ -53,14 +53,15 @@ const ButtonLinkWrapper = styled(StyledText.withComponent('button'))(
   primaryStyles
 );
 
-const PlainButtonWrapper = ButtonLinkWrapper.withComponent('a');
+/* eslint-disable react/prop-types */
+const PlainButton = ({ components, href, ...rest }) => {
+  const PlainButtonWrapper = ButtonLinkWrapper.withComponent(components.Link);
 
-// eslint-disable-next-line react/prop-types
-const PlainButton = ({ href, ...rest }) =>
-  href ? (
+  return href ? (
     <PlainButtonWrapper noMargin {...{ ...rest, href }} />
   ) : (
     <ButtonLinkWrapper noMargin {...rest} />
   );
+};
 
 export default PlainButton;

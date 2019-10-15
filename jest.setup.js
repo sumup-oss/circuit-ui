@@ -22,11 +22,16 @@ import { render, fireEvent, wait, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'emotion-theming';
 
+import ComponentsContext, {
+  defaultComponents
+} from './src/components/ComponentsContext';
 import { circuit } from './src/themes';
 
 // eslint-disable-next-line react/prop-types
 const WithProviders = ({ children }) => (
-  <ThemeProvider theme={circuit}>{children}</ThemeProvider>
+  <ComponentsContext.Provider value={defaultComponents}>
+    <ThemeProvider theme={circuit}>{children}</ThemeProvider>
+  </ComponentsContext.Provider>
 );
 
 const renderWithProviders = renderFn => (component, ...rest) =>

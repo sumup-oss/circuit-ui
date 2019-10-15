@@ -13,7 +13,20 @@
  * limitations under the License.
  */
 
-import { withComponents } from '../../../ComponentsContext';
-import NavItem from './NavItem';
+import { useContext } from 'react';
 
-export default withComponents(NavItem);
+import ComponentsContext from './ComponentsContext';
+import * as defaultComponents from './components';
+
+/**
+ * Subscribe to the components context with a hook.
+ */
+const useComponents = () => {
+  const components = useContext(ComponentsContext) || {};
+  return { ...defaultComponents, ...components };
+};
+
+/**
+ * @component
+ */
+export default useComponents;

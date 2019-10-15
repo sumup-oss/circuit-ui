@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { withComponents } from '../../../ComponentsContext';
-import NavItem from './NavItem';
+import Link from './Link';
 
-export default withComponents(NavItem);
+export { Link };

@@ -13,7 +13,10 @@
  * limitations under the License.
  */
 
-import { withComponents } from '../../../ComponentsContext';
-import NavItem from './NavItem';
+import { createContext } from 'react';
 
-export default withComponents(NavItem);
+import * as defaultComponents from './components';
+
+const ComponentsContext = createContext(defaultComponents);
+
+export default ComponentsContext;

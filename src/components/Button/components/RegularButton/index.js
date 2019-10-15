@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { withComponents } from '../../../ComponentsContext';
 import RegularButton from './RegularButton';
 
-export default RegularButton;
+export default withComponents(RegularButton);

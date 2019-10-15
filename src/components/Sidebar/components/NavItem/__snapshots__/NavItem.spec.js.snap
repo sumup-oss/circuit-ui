@@ -37,12 +37,14 @@ exports[`NavItem styles should render with default styles and match the snapshot
   margin-left: 12px;
 }
 
-<li
-  class="circuit-2 circuit-3"
->
-  <div
-    class="circuit-0 circuit-1"
-  />
+<li>
+  <a
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    />
+  </a>
 </li>
 `;
 
@@ -92,12 +94,14 @@ exports[`NavItem styles should render with default styles and match the snapshot
   margin-top: 0px;
 }
 
-<li
-  class="circuit-2 circuit-3"
->
-  <div
-    class="circuit-0 circuit-1"
-  />
+<li>
+  <a
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    />
+  </a>
 </li>
 `;
 
@@ -136,13 +140,15 @@ exports[`NavItem styles should render with disabled state styles and match the s
   fill: #5C656F;
 }
 
-<li
-  class="circuit-2 circuit-3"
-  disabled=""
->
-  <div
-    class="circuit-0 circuit-1"
-  />
+<li>
+  <a
+    class="circuit-2 circuit-3"
+    disabled=""
+  >
+    <div
+      class="circuit-0 circuit-1"
+    />
+  </a>
 </li>
 `;
 
@@ -181,11 +187,13 @@ exports[`NavItem styles should render with selected state styles and match the s
   fill: #FAFBFC;
 }
 
-<li
-  class="circuit-2 circuit-3"
->
-  <div
-    class="circuit-0 circuit-1"
-  />
+<li>
+  <a
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    />
+  </a>
 </li>
 `;
