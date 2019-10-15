@@ -11,15 +11,18 @@ import Anchor, { A } from './Anchor';
  * for most tests. You can pass in custom props to customize
  * rendering for your current test.
  * */
+
 const defaultProps = {
   href: 'https://sumup.com',
   children: `Visit SumUp's website`
 };
-function renderAnchor(props = {}) {
-  return render(<Anchor {...{ ...defaultProps, ...props }} />);
+
+function renderAnchor(renderFn, props = {}) {
+  return renderFn(<Anchor {...{ ...defaultProps, ...props }} />);
 }
-function renderA(props = {}) {
-  return render(<A {...{ ...defaultProps, ...props }} />);
+
+function renderA(renderFn, props = {}) {
+  return renderFn(<A {...{ ...defaultProps, ...props }} />);
 }
 
 describe('Anchor', () => {
@@ -29,7 +32,7 @@ describe('Anchor', () => {
    * */
   it('should show text inside the anchor', () => {
     const text = `Visit SumUp's website`;
-    const { getByText } = renderAnchor({ children: text });
+    const { getByText } = renderAnchor(render, { children: text });
     const heading = getByText(text, { selector: 'a' });
     expect(heading).not.toBeNull();
   });
@@ -39,18 +42,18 @@ describe('Anchor', () => {
    * You will still need to test manually to ensure full accessibility.
    * */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Anchor {...defaultProps} />);
+    const wrapper = renderAnchor(renderToHtml);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
 
   /**
    * For styled components it can be useful to write snapshot testing.
-   * In this case, we want to ensure that an anchor has hover, focus, 
+   * In this case, we want to ensure that an anchor has hover, focus,
    * and active styles.
    */
   it('should render with default styles', () => {
-    const { asFragment } = renderA();
-    expect(asFragment()).toMatchSnapshot();
+    const actual = renderA(create);
+    expect(actual).toMatchSnapshot();
   });
 });

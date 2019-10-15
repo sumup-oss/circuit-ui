@@ -1,1 +1,1 @@
-module.exports = require('@sumup/foundry/babel').node
+module.exports = require('@sumup/foundry/babel').node;

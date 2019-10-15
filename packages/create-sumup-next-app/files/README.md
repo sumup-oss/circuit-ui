@@ -13,12 +13,10 @@ A [Next.js](https://github.com/zeit/next.js/) starter app, preconfigured with Su
   - [`yarn dev`](#yarn-dev)
   - [`yarn build`](#yarn-build)
   - [`yarn start`](#yarn-start)
-  - [`yarn analyze`](#yarn-analyze)
   - [`yarn test:*`](#yarn-test)
   - [`yarn create:*`](#yarn-create)
-- [Custom Server](#custom-server)
 - [Fetching Data](#fetching-data)
-  - [`./src/pages/stars.js`](#srcpagesstarsjs)
+  - [`./pages/stars.js`](#pagesstarsjs)
 - [Styling with Emotion](#styling-with-emotion)
 - [Syntax Highlighting](#syntax-highlighting)
 - [Contributing](#contributing)
@@ -31,54 +29,49 @@ Your app should look something like:
 
 ```
 project-name/
-├─ src/
-│  ├─ components/
-│  │  ├─ Logo/
-│  │  │  ├─ Logo.js
-│  │  │  ├─ Logo.spec.js
-│  │  │  └─ index.js
-│  │  ├─ Container/
-│  │  │  ├─ Container.js
-│  │  │  └─ index.js
-│  │  └─ Logo/
-│  │  │  ├─ index.js
-│  │  │  ├─ Logo.js
-│  │  │  ├─ Logo.spec.js
-│  │  │  └─ logo.svg
-│  ├─ pages/
-│  │  ├─ _app.js
-│  │  ├─ _document.js
+├─ components/
+│  ├─ Logo/
+│  │  ├─ Logo.js
+│  │  ├─ Logo.spec.js
 │  │  └─ index.js
-│  ├─ static/
-│  │  └─ favicon.ico
-│  └─ .babelrc
-├─ server/
-│  ├─ app.js
+│  ├─ Container/
+│  │  ├─ Container.js
+│  │  └─ index.js
+│  └─ Logo/
+│  │  ├─ index.js
+│  │  ├─ Logo.js
+│  │  ├─ Logo.spec.js
+│  │  └─ logo.svg
+├─ pages/
+│  ├─ _app.js
+│  ├─ _document.js
 │  └─ index.js
+├─ public/
+│  └─ favicon.png
+└─ .babelrc.js
+├─ .eslintignore
 ├─ .eslintrc.js
 ├─ .gitignore
 ├─ jest.config.js
 ├─ jest.fileTransform.js
 ├─ jest.setup.js
 ├─ jest.transform.js
-├─ next.config.js
 ├─ package.json
 ├─ plopfile.js
 ├─ README.md
 └─ yarn.lock
 ```
 
-Routing in Next.js is based on the file system, so `./src/pages/index.js` maps to the `/` route and `./src/pages/about.js` would map to `/about`.
+Routing in Next.js is based on the file system, so `./pages/index.js` maps to the `/` route and `./pages/about.js` would map to `/about`.
 
-The `./static` directory maps to `/static` in the `next` server, so you can put all your
-other static resources like images or fonts in there.
+The `./public` directory maps to the root (`/`) path in the `next` server, so you can put all your other static resources like images or fonts in there.
 
 Out of the box, you get:
 
 - Automatic transpilation and bundling (with webpack and babel)
 - Hot code reloading
-- Server rendering and indexing of `./src/pages`
-- Static file serving. `./src/static/` is mapped to `/static/`
+- Server rendering and indexing of `./pages`
+- Static file serving. `./public/` is mapped to `/`
 
 Read more about [Next's Routing](https://github.com/zeit/next.js#routing).
 
@@ -91,26 +84,17 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits to the client-side code in `./src/`.<br>
-The server will restart if you make edits to the server-side code in `./server/`.<br>
-You will also see any errors in the console. Use the [Chrome DevTools](https://medium.com/@paul_irish/debugging-node-js-nightlies-with-chrome-devtools-7c4a1b95ae27) to debug the server code.
+The page will reload if you make edits to the client-side code. You will also see any errors in the console.
 
 ### `yarn build`
 
-Builds the app for production to the `./src/.next` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `./.next` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
 
 ### `yarn start`
 
-Starts the application in production mode.<br>
-The application should be compiled with `yarn build` first.
+Starts the application in production mode. The application should be compiled with `yarn build` first.
 
 See the section in Next docs about [deployment](https://github.com/zeit/next.js/wiki/Deployment) for more information.
-
-### `yarn analyze`
-
-Analyze the production bundle with [Webpack Bundle Analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer).<br>
-Compiles the application and opens the analyzer on port[`8889`](http://127.0.0.1:8889/).
 
 ### `yarn test:*`
 
@@ -126,56 +110,11 @@ This project uses [@sumup/foundry](https://www.npmjs.com/package/@sumup/foundry)
 
 After the CLI has finished, all files will have been created in the location you specified.
 
-## Custom Server
-
-The project comes with a minimal [express server](https://expressjs.com/) out of the box. This enables route patterns, redirects, and other custom server logic.
-
-The server code is not transpiled, so you are limited to the syntax and features that your version of Node supports. However, you can use `import` and `export` statements, thanks to the [`esm`](https://www.npmjs.com/package/esm) module loader.
-
-The below example makes `/a` resolve to `./pages/b`, and `/b` resolve to `./pages/a`, and also matches individual `/posts` and forwards their `id` to the Next.js page:
-
-```js
-import express from 'express';
-import next from 'next';
-
-const port = parseInt(process.env.PORT, 10) || 3000;
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev, dir: './src' });
-const handle = app.getRequestHandler();
-
-app.prepare().then(() => {
-  const server = express();
-
-  server.get('/a', (req, res) => {
-    return app.render(req, res, '/b', req.query);
-  });
-
-  server.get('/b', (req, res) => {
-    return app.render(req, res, '/a', req.query);
-  });
-
-  server.get('/posts/:id', (req, res) => {
-    return app.render(req, res, '/posts', { id: req.params.id });
-  });
-
-  server.get('*', (req, res) => {
-    return handle(req, res);
-  });
-
-  server.listen(port, err => {
-    if (err) throw err;
-    console.log(`> Ready on http://localhost:${port}`);
-  });
-});
-```
-
-Read more about [custom server and routing](https://github.com/zeit/next.js#custom-server-and-routing).
-
 ## Fetching Data
 
 You can fetch data in `pages` components using `getInitialProps` like this:
 
-### `./src/pages/stars.js`
+### `./pages/stars.js`
 
 ```jsx
 const Page = props => <div>Next stars: {props.stars}</div>;

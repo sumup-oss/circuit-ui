@@ -5,7 +5,7 @@ module.exports = {
     const name = basename(filename);
     return `
       const React = require('react');
-      module.exports = () => React.createElement('div', null, '${name}');
+      module.exports = props => React.createElement('div', props, '${name}');
     `;
   }
 };

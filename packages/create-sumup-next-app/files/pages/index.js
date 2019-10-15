@@ -4,7 +4,7 @@ import { Card, Heading, List, Text } from '@sumup/circuit-ui';
 
 import Container from '../components/Container';
 import Logo from '../components/Logo';
-import Anchor from '../components/Anchor/Anchor';
+import Anchor from '../components/Anchor';
 
 const title = 'Welcome to SumUp Next.js';
 
@@ -16,7 +16,9 @@ const Page = () => (
     <Container>
       <Logo />
       <Card>
-        <Heading size={Heading.KILO}>{title}</Heading>
+        <Heading size={Heading.TERA} style={{ textAlign: 'center' }}>
+          {title}
+        </Heading>
         <Text>
           This is a{' '}
           <Anchor href="https://github.com/zeit/next.js">Next.js</Anchor>-based

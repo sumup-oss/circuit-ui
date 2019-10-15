@@ -22,9 +22,9 @@ This will create the folder `my-app` and initialize a new project inside. The pr
 
 ### Firing up the tools
 
-Run `yarn dev` to start the development build. The app should automatically open in your browser. Changes you make to `src/App.js` should be visible on the page almost immediately.
+Run `yarn dev` to start the development build. The app should automatically open in your browser. Changes you make to `pages/index.js` should be visible on the page almost immediately.
 
-To create a production build of your app, run `yarn build`. `Next.js` will create an optimized production build of your application inside the `build` folder of your project. It will also provide you with additional details on what to do with them.
+To create a production build of your app, run `yarn build`. `Next.js` will create an optimized production build of your application inside the `.next/` folder of your project. It will also provide you with additional details on what to do with them.
 
 ### Adding a new component
 
@@ -47,14 +47,14 @@ Linting serves as a first line of defence against evil bugs on production.​ Yo
 
 ### Writing tests
 
-Writing tests is great. Tests are the second line of defence against bugs ending up on production. By covering your application in unit and integration tests, you can be sure you did not break anything when, for example, shipping refactored code to production. Your new React project comes with testing built in. By running `yarn test` you will start the test runner, [Jest](https://jestjs.io/en/). As you add tests or make changes to your code, Jest will re-run tests and show you the results. The app will come with `react-testing-library` set up for writing UI tests for your React components. Check out `src/App.spec.js` for examples.
+Writing tests is great. Tests are the second line of defence against bugs ending up on production. By covering your application in unit and integration tests, you can be sure you did not break anything when, for example, shipping refactored code to production. Your new React project comes with testing built in. By running `yarn test` you will start the test runner, [Jest](https://jestjs.io/en/). As you add tests or make changes to your code, Jest will re-run tests and show you the results. The app will come with `react-testing-library` set up for writing UI tests for your React components. Check out `components/Anchor.spec.js` for examples.
 
 ## 📖 Useful resources
 
-- The [docs](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents) for `create-react-app` contain a lot of solutions for common problems when writing a React application.
+- The [docs](https://nextjs.org/docs#setup) for `create-next-app` contain a lot of solutions for common problems when writing a React application.
 - Foundry [docs](https://github.com/sumup/foundry#table-of-contents).
-- Circuit UI [docs](https://circuit.sumup.com/#/) and [storybook](https://circuit.sumup.com/storybook/).
-- The [README](https://github.com/kentcdodds/react-testing-library/blob/master/README.md#what-is-react-testing-library) for`react-testing-library`.
+- Circuit UI [docs](https://circuit.sumup.com/) and [storybook](https://circuit.sumup.com/storybook/).
+- The [README](https://github.com/testing-library/react-testing-library/#readme) for`react-testing-library`.
 
 ## 💁‍♀ Tips
 
@@ -119,7 +119,7 @@ brew install watchman
 
 - [create-sumup-react-app](https://github.com/sumup/create-sumup-react-app) - Create new React apps with CRA, Circuit, and Foundry.
 - [create-react-app](https://github.com/facebook/create-react-app) - Create new React apps with no build configuration.
-- [create-next-app](https://github.com/segmentio/create-next-app) - Create Next.js apps in one command.
+- [create-next-app](https://github.com/zeit/next.js/tree/canary/packages/create-next-app) - Create Next.js apps in one command.
 
 ## 💙 About SumUp
 

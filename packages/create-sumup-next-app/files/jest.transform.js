@@ -1,5 +1,5 @@
 const { createTransformer } = require('babel-jest');
-const baseConfig = require('./src/.babelrc');
+const baseConfig = require('./.babelrc');
 
 const babelConfig = {
   ...baseConfig,

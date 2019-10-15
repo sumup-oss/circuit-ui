@@ -1,1 +1,1 @@
-module.exports = require('@sumup/foundry/eslint').node
+module.exports = require('@sumup/foundry/eslint').node;

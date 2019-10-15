@@ -17,44 +17,31 @@ const WORKING_DIR = process.cwd();
 const APP_NAME = process.argv[2];
 const APP_PATH = resolve(WORKING_DIR, APP_NAME || '');
 const DEPENDENCIES = [
-  // React and Next.js ️⚛
-  'react',
-  'react-dom',
-  'next',
-  'prop-types',
   // Our beautiful component library 💄
-  '@sumup/circuit-ui@beta',
+  '@sumup/circuit-ui',
   // CSS-in-JS 🚀
   '@emotion/core',
   '@emotion/styled',
   'emotion-theming',
   // Tools 🛠
-  'lodash',
-  // Server 🖥
-  'express',
-  'esm'
+  'lodash'
 ];
 const DEV_DEPENDENCIES = [
   // The toolkit 🛠
   '@sumup/foundry',
-  // Development 🏗
-  'nodemon',
   // Testing 📏
-  'react-testing-library',
-  'react-test-renderer',
+  '@testing-library/react',
+  '@testing-library/react-hooks',
+  '@testing-library/user-event',
+  '@testing-library/jest-dom',
   'jest',
   'jest-emotion',
-  'jest-dom',
   'jest-axe',
   // Loaders and plugins 🔌
   'babel-plugin-emotion',
   'babel-plugin-lodash',
   'babel-plugin-inline-react-svg',
-  'babel-jest',
-  'babel-core@7.0.0-bridge.0',
-  'next-transpile-modules',
-  'next-compose-plugins',
-  'webpack-bundle-analyzer'
+  'babel-jest'
 ];
 
 const options = util.isDebugging()
@@ -66,21 +53,11 @@ const options = util.isDebugging()
 const tasks = new Listr(
   [
     {
-      title: 'Initialize project',
-      task: () =>
-        new Listr([
-          {
-            title: 'Create project folder',
-            task: () => createProjectDirectory(APP_NAME)
-          },
-          {
-            title: 'Initialize package.json',
-            task: () => initProject(APP_PATH)
-          }
-        ])
+      title: 'Running Create Next App',
+      task: () => runCreateNextApp(APP_NAME)
     },
     {
-      title: 'Install dependencies',
+      title: 'Install additional dependencies',
       task: () => addDependencies()
     },
     {
@@ -92,8 +69,11 @@ const tasks = new Listr(
             task: () => setUpFoundry(APP_PATH)
           },
           {
-            title: 'Copy starter files',
-            task: () => copyStarterFiles(APP_PATH, FILES_PATH)
+            title: 'Replace Create Next App files',
+            task: async () => {
+              await deleteNextFiles(APP_PATH);
+              return copyCircuitFiles(APP_PATH);
+            }
           },
           {
             title: 'Customize package.json',
@@ -139,18 +119,11 @@ File issue: https://github.com/sumup/create-sumup-next-app/issues/new
 `);
 }
 
-function createProjectDirectory(appName) {
-  const cmd = 'mkdir';
-  const args = [appName];
+function runCreateNextApp(appName) {
+  const cmd = 'yarn';
+  const args = ['create', 'next-app', appName];
 
   return spawn(cmd, args, { cwd: WORKING_DIR });
-}
-
-function initProject(cwd) {
-  const cmd = 'yarn';
-  const args = ['init', '-y'];
-
-  return spawn(cmd, args, { cwd });
 }
 
 async function addDependencies({
@@ -176,14 +149,45 @@ function setUpFoundry(appPath, childProcessOptions = {}) {
     '--prettier',
     'base',
     '--plop',
-    'react'
+    'react',
+    '--lint-staged',
+    '--husky'
   ];
   return spawn(cmd, args, { cwd: appPath, ...childProcessOptions });
 }
 
-function copyStarterFiles(appPath = APP_PATH, sourcePath = FILES_PATH) {
+function deleteNextFiles(appPath) {
+  const cmd = 'rm';
+  const filesToDelete = [
+    'components/nav.js',
+    'pages/index.js',
+    'public/favicon.ico'
+  ];
+  const args = ['-rf', ...filesToDelete.map(file => file)];
+  return spawn(cmd, args, { cwd: appPath });
+}
+
+function copyCircuitFiles(appPath, sourcePath = FILES_PATH) {
   const cmd = 'cp';
-  const args = ['-r', `${sourcePath}/.`, appPath];
+  const filesToCopy = [
+    '__mocks__',
+    'components',
+    'pages',
+    'public',
+    '.babelrc.js',
+    '.gitignore',
+    '.eslintignore',
+    'jest.config.js',
+    'jest.setup.js',
+    'jest.fileTransform.js',
+    'jest.transform.js',
+    'README.md'
+  ];
+  const args = [
+    '-r',
+    ...filesToCopy.map(file => resolve(sourcePath, file)),
+    appPath
+  ];
   return spawn(cmd, args, { cwd: appPath });
 }
 
@@ -192,15 +196,12 @@ async function updatePackageJson(appPath) {
   const { default: packageJson } = await import(filepath);
   const main = 'server/index.js';
   const scripts = {
-    lint: 'foundry run eslint src/**/*.js',
-    analyze: 'ANALYZE=true yarn build',
-    dev: 'nodemon --inspect --watch server server/index.js',
-    build: 'next build src',
-    start: 'NODE_ENV=production node server/index.js',
-    'create:component': 'foundry run plop component',
-    'test:ci': 'jest --ci --coverage --testResultsProcessor="jest-junit"',
-    'test:unit': 'jest --coverage',
-    'test:unit:watch': 'jest --watch'
+    lint: 'foundry run eslint "**/*.js"',
+    test: 'jest --watch',
+    'test:ci':
+      'jest --ci --coverage  --reporters=default --reporters=jest-junit',
+    'test:coverage': 'jest --coverage',
+    'create:component': 'foundry run plop component'
   };
   const updatedPackageJson = {
     ...packageJson,

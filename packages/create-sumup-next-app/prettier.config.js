@@ -1,1 +1,1 @@
-module.exports = require('@sumup/foundry/prettier').base
+module.exports = require('@sumup/foundry/prettier').base;
