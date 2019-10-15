@@ -180,7 +180,7 @@ export const themePropType = PropTypes.shape({
 });
 
 export const componentsPropType = PropTypes.shape({
-  Link: PropTypes.element
+  Link: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
 });
 
 export const localePropType = isRequired => (
