@@ -60,6 +60,10 @@ const alignmentMap = {
 };
 
 const alignmentStyles = ({ align }) => {
+  if (!align) {
+    return null;
+  }
+
   const label = `button-group--${align}`;
 
   return css`

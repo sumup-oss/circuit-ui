@@ -32,6 +32,7 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacings.bit};
   cursor: pointer;
   color: ${theme.colors.n500};
+  text-decoration: none;
   * {
     fill: ${theme.colors.n500};
   }
@@ -98,7 +99,8 @@ const NavItem = ({
   selected,
   disabled,
   onClick,
-  components
+  components,
+  ...rest
 }) => {
   const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
   const Link = StyledLink.withComponent(components.Link);
@@ -111,6 +113,7 @@ const NavItem = ({
         secondary={secondary}
         visible={visible}
         disabled={disabled}
+        {...rest}
       >
         {icon}
         <NavLabel secondary={secondary} visible={visible}>
