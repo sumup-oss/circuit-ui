@@ -30,6 +30,7 @@ exports[`Selector should render a disabled selector appropriately 1`] = `
   margin-bottom: 16px;
   color: #9DA7B1;
   cursor: default;
+  pointer-events: none;
 }
 
 .circuit-0:hover {
