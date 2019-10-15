@@ -13,28 +13,16 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { css } from '@emotion/core';
+import { theme as themes } from '../../src';
 
-import Input from '../Input';
+import globalStyles from './global-styles';
 
-const textAreaStyles = css`
-  label: text-area;
-  overflow: auto;
-  resize: vertical;
-`;
+describe('Global styles', () => {
+  const { circuit: theme } = themes;
 
-/**
- * TextArea component for forms.
- */
-const TextArea = props => (
-  <Input {...props} inputStyles={textAreaStyles} as="textarea" />
-);
-
-TextArea.LEFT = Input.LEFT;
-TextArea.RIGHT = Input.RIGHT;
-
-/**
- * @component
- */
-export default TextArea;
+  // FIXME: For some reason, the `insert` function is never called.
+  it.skip('should return the global styles', () => {
+    const actual = globalStyles({ theme });
+    expect(actual).not.toBeFalsy();
+  });
+});

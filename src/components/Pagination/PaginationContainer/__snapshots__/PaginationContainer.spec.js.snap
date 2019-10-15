@@ -62,8 +62,12 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -124,8 +128,12 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-4[disabled],
-.circuit-4:disabled {
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -212,8 +220,12 @@ exports[`PaginationContainer styles when the current page is not the first and l
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -274,8 +286,12 @@ exports[`PaginationContainer styles when the current page is not the first and l
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-4[disabled],
-.circuit-4:disabled {
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -361,8 +377,12 @@ exports[`PaginationContainer styles when the current page is the last page shoul
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-1[disabled],
-.circuit-1:disabled {
+.circuit-1[href] {
+  display: inline-block;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -423,8 +443,12 @@ exports[`PaginationContainer styles when the current page is the last page shoul
   padding: calc(4px - 0px) calc(16px - 0px);
 }
 
-.circuit-4[disabled],
-.circuit-4:disabled {
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;

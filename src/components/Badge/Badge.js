@@ -90,6 +90,7 @@ const baseStyles = ({ theme, onClick }) => css`
 const circleStyles = ({ circle }) =>
   circle &&
   css`
+    label: badge--circle;
     display: flex;
     align-items: center;
     justify-content: center;

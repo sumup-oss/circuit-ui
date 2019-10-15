@@ -14,27 +14,22 @@
  */
 
 import React from 'react';
-import { css } from '@emotion/core';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { CacheProvider } from '@emotion/core';
+import { ThemeProvider } from 'emotion-theming';
+import createCache from '@emotion/cache';
 
-import Input from '../Input';
+const cache = createCache();
 
-const textAreaStyles = css`
-  label: text-area;
-  overflow: auto;
-  resize: vertical;
-`;
-
-/**
- * TextArea component for forms.
- */
-const TextArea = props => (
-  <Input {...props} inputStyles={textAreaStyles} as="textarea" />
-);
-
-TextArea.LEFT = Input.LEFT;
-TextArea.RIGHT = Input.RIGHT;
-
-/**
- * @component
- */
-export default TextArea;
+export default function render(theme, insertFactory) {
+  return (Component, props = {}, name = '') => {
+    const insert = insertFactory(props, name);
+    return renderToStaticMarkup(
+      <CacheProvider value={{ ...cache, insert }}>
+        <ThemeProvider theme={theme}>
+          <Component {...props} />
+        </ThemeProvider>
+      </CacheProvider>
+    );
+  };
+}

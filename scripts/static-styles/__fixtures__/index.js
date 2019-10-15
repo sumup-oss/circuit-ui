@@ -13,28 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { css } from '@emotion/core';
+import FunctionalComponent from './functional-component';
+import StyledComponent from './styled-component';
 
-import Input from '../Input';
-
-const textAreaStyles = css`
-  label: text-area;
-  overflow: auto;
-  resize: vertical;
-`;
-
-/**
- * TextArea component for forms.
- */
-const TextArea = props => (
-  <Input {...props} inputStyles={textAreaStyles} as="textarea" />
-);
-
-TextArea.LEFT = Input.LEFT;
-TextArea.RIGHT = Input.RIGHT;
-
-/**
- * @component
- */
-export default TextArea;
+export { FunctionalComponent, StyledComponent };

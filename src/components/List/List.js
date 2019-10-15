@@ -32,6 +32,9 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const sizeStyles = ({ theme, size }) => {
+  if (!size) {
+    return null;
+  }
   const settings = {
     [KILO]: {
       marginBottom: theme.spacings[KILO],

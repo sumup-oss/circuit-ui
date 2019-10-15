@@ -13,28 +13,31 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Input from '../Input';
-
-const textAreaStyles = css`
-  label: text-area;
-  overflow: auto;
-  resize: vertical;
+const baseStyles = ({ theme }) => css`
+  label: styled-component;
+  border: 1px solid ${theme.colors.p500};
 `;
 
-/**
- * TextArea component for forms.
- */
-const TextArea = props => (
-  <Input {...props} inputStyles={textAreaStyles} as="textarea" />
-);
+const disabledStyles = ({ disabled }) =>
+  disabled &&
+  css`
+    label: styled-component--disabled;
+    pointer-events: none;
+    opacity: 0.5;
+  `;
 
-TextArea.LEFT = Input.LEFT;
-TextArea.RIGHT = Input.RIGHT;
+const StyledComponent = styled.input(baseStyles, disabledStyles);
+
+StyledComponent.propTypes = {
+  label: PropTypes.string,
+  disabled: PropTypes.bool
+};
 
 /**
  * @component
  */
-export default TextArea;
+export default StyledComponent;

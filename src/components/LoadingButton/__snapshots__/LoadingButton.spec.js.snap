@@ -60,8 +60,12 @@ exports[`LoadingButton Style tests should render with default styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-9[disabled],
-.circuit-9:disabled {
+.circuit-9[href] {
+  display: inline-block;
+}
+
+.circuit-9:disabled,
+.circuit-9[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -205,8 +209,12 @@ exports[`LoadingButton Style tests should render with default styles after loadi
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-9[disabled],
-.circuit-9:disabled {
+.circuit-9[href] {
+  display: inline-block;
+}
+
+.circuit-9:disabled,
+.circuit-9[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -373,8 +381,12 @@ exports[`LoadingButton Style tests should render with loading styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-9[disabled],
-.circuit-9:disabled {
+.circuit-9[href] {
+  display: inline-block;
+}
+
+.circuit-9:disabled,
+.circuit-9[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;

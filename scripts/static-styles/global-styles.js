@@ -13,28 +13,25 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { css } from '@emotion/core';
+import Stylis from '@emotion/stylis';
 
-import Input from '../Input';
+import { BaseStyles } from '../../src';
 
-const textAreaStyles = css`
-  label: text-area;
-  overflow: auto;
-  resize: vertical;
-`;
+import render from './render';
 
-/**
- * TextArea component for forms.
- */
-const TextArea = props => (
-  <Input {...props} inputStyles={textAreaStyles} as="textarea" />
-);
+const stylis = new Stylis();
 
-TextArea.LEFT = Input.LEFT;
-TextArea.RIGHT = Input.RIGHT;
+export default function globalStyles({ theme } = {}) {
+  let styleSheet = '';
 
-/**
- * @component
- */
-export default TextArea;
+  const insertFactory = () => (...args) => {
+    const rules = args[1].styles;
+    styleSheet = stylis('', rules);
+  };
+
+  const renderFn = render(theme, insertFactory);
+
+  renderFn(BaseStyles);
+
+  return styleSheet;
+}
