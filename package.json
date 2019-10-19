@@ -114,7 +114,6 @@
     "prettier-eslint": "^8.8.2",
     "react-svg-loader": "^2.1.0",
     "react-test-renderer": "^16.8.6",
-    "storybook-addon-smart-knobs": "^4.1.0",
     "style-loader": "^0.23.1",
     "webpack-merge": "^4.2.1",
     "yargs": "^14.0.0"
