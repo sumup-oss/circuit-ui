@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 
 module.exports = ({ config, mode }) => {
   const isProduction = mode === 'PRODUCTION';
@@ -10,8 +11,9 @@ module.exports = ({ config, mode }) => {
   ).exclude = path.resolve(__dirname, '../src/');
 
   config.module.rules.push({
-    test: /\.story\.jsx?$/,
-    loaders: [require.resolve('@storybook/source-loader')],
+    test: /\.(stories|story)\.[tj]sx?$/,
+    loader: require.resolve('@storybook/source-loader'),
+    exclude: [/node_modules/],
     enforce: 'pre'
   });
 
@@ -42,6 +44,25 @@ module.exports = ({ config, mode }) => {
       __PRODUCTION__: JSON.stringify(false)
     })
   );
+
+  config.module.rules.push({
+    test: /\.(stories|story)\.mdx$/,
+    use: [
+      {
+        loader: 'babel-loader',
+        // may or may not need this line depending on your app's setup
+        options: {
+          plugins: ['@babel/plugin-transform-react-jsx']
+        }
+      },
+      {
+        loader: '@mdx-js/loader',
+        options: {
+          compilers: [createCompiler({})]
+        }
+      }
+    ]
+  });
 
   if (isProduction) {
     config.module.rules.push({
