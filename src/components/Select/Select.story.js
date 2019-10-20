@@ -18,8 +18,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import State from '../State';
 import Select from '.';
 
@@ -58,7 +56,7 @@ const countryOptions = [
 ];
 const flagIconMap = { DE, US, FR };
 
-storiesOf(`${GROUPS.FORMS}|Select`, module)
+storiesOf('Forms|Select', module)
   .addParameters({ jest: ['Select'] })
   .add('Select', () => (
     <Select

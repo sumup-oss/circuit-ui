@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import NotificationBanner from './NotificationBanner';
 import Message, { MessageButton, MessageIcon } from '../Message';
@@ -25,7 +24,7 @@ import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
 
-storiesOf(`${GROUPS.COMPONENTS}|NotificationBanner`, module)
+storiesOf('Components|NotificationBanner', module)
   .addParameters({ jest: ['NotificationBanner'] })
   .add('Default NotificationBanner', () => (
     <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}>

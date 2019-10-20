@@ -18,8 +18,6 @@ import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import Popover from './Popover';
 import Button from '../Button';
 
@@ -70,7 +68,7 @@ PopoverContainer.propTypes = {
   closeOnButtonClick: PropTypes.bool.isRequired
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Popover`, module)
+storiesOf('Components|Popover', module)
   .addParameters({ jest: ['Popover'] })
   .add('Default Popover', () => (
     <div>

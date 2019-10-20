@@ -15,10 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import IconButton from './IconButton';
 
-storiesOf(`${GROUPS.COMPONENTS}|IconButton`, module)
+storiesOf('Components|IconButton', module)
   .addParameters({ jest: ['IconButton'] })
   .add('Default IconButton', () => <IconButton />);

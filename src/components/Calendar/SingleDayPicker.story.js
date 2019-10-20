@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withStateHandlers } from 'recompose';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import { SingleDayPicker } from '.';
 
@@ -39,6 +38,6 @@ const CalendarStoryPicker = enhance(
   )
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Calendar`, module)
+storiesOf('Components|Calendar', module)
   .addParameters({ jest: ['Calendar'] })
   .add('SingleDayPicker', () => <CalendarStoryPicker />);

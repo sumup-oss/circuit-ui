@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import SimpleCurrencyInput from './SimpleCurrencyInput';
 import { CURRENCY_SYMBOLS } from '../../../../util/currency';
@@ -30,7 +29,7 @@ const numberMask = createNumberMask({
   decimalSymbol: '.'
 });
 
-storiesOf(`${GROUPS.FORMS}|CurrencyInput/SimpleCurrencyInput`, module)
+storiesOf('Forms|CurrencyInput/SimpleCurrencyInput', module)
   .addParameters({ jest: ['SimpleCurrencyInput'] })
   .add('Default SimpleCurrencyInput', () => (
     <SimpleCurrencyInput

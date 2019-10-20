@@ -17,8 +17,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import Row from './Row';
 import Col from '../Col';
 import { circuit } from '../../themes';
@@ -48,7 +46,7 @@ const StyledRow = styled(Row)`
   margin-bottom: 8px;
 `;
 
-storiesOf(`${GROUPS.GRID}|Row`, module)
+storiesOf('Grid|Row', module)
   .addParameters({ jest: ['Row'] })
   .add('Default Row', () => (
     <div style={{ width: '100vw' }}>

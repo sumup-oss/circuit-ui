@@ -16,7 +16,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import { circuit } from '../../themes';
 
@@ -36,7 +35,7 @@ StyledCol.defaultProps = {
   skip: '0'
 };
 
-storiesOf(`${GROUPS.GRID}|Col`, module)
+storiesOf('Grid|Col', module)
   .addParameters({ jest: ['Col'] })
   .add('Default Col', () => (
     <div style={{ width: '100vw' }}>

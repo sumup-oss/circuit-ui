@@ -17,14 +17,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import SubHeading from '.';
 
 const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
 const sizes = [SubHeading.MEGA, SubHeading.KILO];
 
-storiesOf(`${GROUPS.TYPOGRAPHY}|SubHeading`, module)
+storiesOf('Typography|SubHeading', module)
   .addParameters({ jest: ['SubHeading'] })
   .add('SubHeading', () => (
     <SubHeading

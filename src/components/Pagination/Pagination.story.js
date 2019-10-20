@@ -17,11 +17,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import Pagination from '.';
 
-storiesOf(`${GROUPS.COMPONENTS}|Pagination`, module)
+storiesOf('Components|Pagination', module)
   .addParameters({ jest: ['Pagination'] })
   .add('Pagination', () => (
     <Pagination

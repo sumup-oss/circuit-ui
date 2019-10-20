@@ -17,12 +17,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import State from '../State';
 import RadioButton from './RadioButton';
 
-storiesOf(`${GROUPS.FORMS}|RadioButton`, module)
+storiesOf('Forms|RadioButton', module)
   .addParameters({ jest: ['RadioButton'] })
   .add('Default RadioButton', () => (
     <State

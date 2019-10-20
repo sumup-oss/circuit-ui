@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import State from '../State';
 
@@ -37,7 +36,7 @@ const options = [
   }
 ];
 
-storiesOf(`${GROUPS.FORMS}|RadioButton/RadioButtonGroup`, module)
+storiesOf('Forms|RadioButton/RadioButtonGroup', module)
   .addParameters({ jest: ['RadioButtonGroup'] })
   .add('RadioButtonGroup', () => (
     <State

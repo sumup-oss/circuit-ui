@@ -15,10 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Picture from './Picture';
 
-storiesOf(`${GROUPS.COMPONENTS}|Picture`, module)
+storiesOf('Components|Picture', module)
   .addParameters({ jest: ['ResponsiveImage'] })
   .add('Default Picture', () => <Picture />);

@@ -15,10 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import MaskedInput from './MaskedInput';
 
-storiesOf(`${GROUPS.FORMS}|MaskedInput`, module)
+storiesOf('Forms|MaskedInput', module)
   .addParameters({ jest: ['MaskedInput'] })
   .add('Default MaskedInput', () => <MaskedInput />);

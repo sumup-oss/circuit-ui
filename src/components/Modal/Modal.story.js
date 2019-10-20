@@ -19,8 +19,6 @@ import { css } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import { ModalConsumer, ModalProvider } from '.';
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 import Button from '../Button';
@@ -53,7 +51,7 @@ const defaultModal = {
   }
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Modal`, module)
+storiesOf('Components|Modal', module)
   .addParameters({ jest: ['Modal'] })
   .add('Modal', () => <PageWithModal modal={defaultModal} />)
   .add('Modal with title', () => {

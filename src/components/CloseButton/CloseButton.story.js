@@ -17,11 +17,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import CloseButton from './CloseButton';
 
-storiesOf(`${GROUPS.COMPONENTS}|CloseButton`, module)
+storiesOf('Components|CloseButton', module)
   .addParameters({ jest: ['CloseButton'] })
   .add('Default CloseButton', () => (
     <CloseButton label={text('Label', 'Close')} />

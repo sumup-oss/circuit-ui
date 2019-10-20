@@ -15,11 +15,10 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import CurrencyInput from './CurrencyInput';
 
-storiesOf(`${GROUPS.FORMS}|CurrencyInput`, module)
+storiesOf('Forms|CurrencyInput', module)
   .addParameters({ jest: ['CurrencyInput'] })
   .add('Default CurrencyInput', () => (
     <CurrencyInput placeholder="123.45" locale="de-DE" currency="USD" />

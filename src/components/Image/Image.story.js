@@ -15,11 +15,10 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Image from './Image';
 
-storiesOf(`${GROUPS.COMPONENTS}|Image`, module)
+storiesOf('Components|Image', module)
   .addParameters({ jest: ['Image'] })
   .add('Responsive Image', () => (
     <Image src="http://www.placepuppy.net/800/500" alt="A random cute puppy" />

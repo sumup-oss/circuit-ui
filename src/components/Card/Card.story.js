@@ -16,7 +16,6 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Card, { CardHeader, CardFooter } from '.';
 import Heading from '../Heading';
@@ -24,7 +23,7 @@ import Text from '../Text';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 
-storiesOf(`${GROUPS.COMPONENTS}|Card`, module)
+storiesOf('Components|Card', module)
   .addParameters({ jest: ['Card'] })
   .add('Default Card', () => (
     <Card style={{ width: '500px', height: '150px', marginBottom: '15px' }} />

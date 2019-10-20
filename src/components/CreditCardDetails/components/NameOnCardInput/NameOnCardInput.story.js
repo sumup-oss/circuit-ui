@@ -15,10 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import NameOnCardInput from './NameOnCardInput';
 
-storiesOf(`${GROUPS.FORMS}|CreditCardDetails/NameOnCardInput`, module)
+storiesOf('Forms|CreditCardDetails/NameOnCardInput', module)
   .addParameters({ jest: ['NameOnCardInput'] })
   .add('Default NameOnCardInput', () => <NameOnCardInput />);

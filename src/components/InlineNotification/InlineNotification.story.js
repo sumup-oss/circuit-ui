@@ -15,13 +15,12 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import InlineNotification from './InlineNotification';
 import Card from '../Card';
 import Text from '../Text';
 
-storiesOf(`${GROUPS.COMPONENTS}|InlineNotification`, module)
+storiesOf('Components|InlineNotification', module)
   .addParameters({ jest: ['InlineNotification'] })
   .add('Success InlineNotification', () => (
     <InlineNotification type={InlineNotification.SUCCESS}>

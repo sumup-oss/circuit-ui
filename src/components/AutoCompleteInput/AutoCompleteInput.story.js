@@ -18,11 +18,9 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import AutoCompleteInput from './AutoCompleteInput';
 
-storiesOf(`${GROUPS.FORMS}|AutoCompleteInput`, module)
+storiesOf('Forms|AutoCompleteInput', module)
   .addParameters({ jest: ['AutoCompleteInput'] })
   .add('Default AutoCompleteInput', () => (
     <div style={{ width: '300px' }}>

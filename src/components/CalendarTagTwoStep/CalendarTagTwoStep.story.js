@@ -16,11 +16,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import CalendarTagTwoStep from './CalendarTagTwoStep';
 
-storiesOf(`${GROUPS.COMPONENTS}|Calendar/CalendarTagTwoStep`, module)
+storiesOf('Components|Calendar/CalendarTagTwoStep', module)
   .addParameters({ jest: ['CalendarTagTwoStep'] })
   .add('Default CalendarTagTwoStep', () => (
     <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>

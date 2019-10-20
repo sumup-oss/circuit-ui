@@ -17,7 +17,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Table from './Table';
 import TableHeader from './components/TableHeader';
@@ -58,7 +57,7 @@ const rows = [
   ]
 ];
 
-storiesOf(`${GROUPS.COMPONENTS}|Table`, module)
+storiesOf('Components|Table', module)
   .addParameters({ jest: ['Table'] })
   .add('Table', () => (
     <div style={{ width: '98vw', maxHeight: 150 }}>

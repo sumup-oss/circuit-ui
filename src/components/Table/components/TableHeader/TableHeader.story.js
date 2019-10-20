@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs/react';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import TableHeader from '.';
 
@@ -26,7 +25,7 @@ const options = {
   [TableHeader.CENTER]: TableHeader.CENTER
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Table/TableHeader`, module)
+storiesOf('Components|Table/TableHeader', module)
   .addParameters({ jest: ['TableHeader'] })
   .add('Table Header', () => (
     <TableHeader

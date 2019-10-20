@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Grid from './Grid';
 import Col from '../Col';
@@ -48,7 +47,7 @@ const StyledRow = styled(Row)`
   margin-bottom: 8px;
 `;
 
-storiesOf(`${GROUPS.GRID}|Grid`, module)
+storiesOf('Grid|Grid', module)
   .addParameters({ jest: ['Grid'] })
   .add('Static columns', () => (
     <div style={{ width: '100vw' }}>

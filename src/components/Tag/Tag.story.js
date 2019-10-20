@@ -18,8 +18,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import Tag from './Tag';
 
 const Icon = () => (
@@ -35,7 +33,7 @@ const Icon = () => (
   </svg>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Tag`, module)
+storiesOf('Components|Tag', module)
   .addParameters({ jest: ['Tag'] })
   .add('Default Tag', () => (
     <Tag

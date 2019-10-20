@@ -18,12 +18,11 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
 import { withState } from 'recompose';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import State from '../State';
 import Checkbox from './Checkbox';
 
-storiesOf(`${GROUPS.FORMS}|Checkbox`, module)
+storiesOf('Forms|Checkbox', module)
   .addParameters({ jest: ['Checkbox'] })
   .add('Default Checkbox', () => (
     <State

@@ -18,8 +18,6 @@ import { storiesOf } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import Button from './Button';
 
 const containerStyles = {
@@ -28,7 +26,7 @@ const containerStyles = {
   justifyContent: 'center'
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
+storiesOf('Components|Button', module)
   .addParameters({ jest: ['Button'] })
   .add('Button', () => (
     <div style={containerStyles}>

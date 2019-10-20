@@ -15,10 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import ExpiryDateInput from '.';
 
-storiesOf(`${GROUPS.FORMS}|CreditCardDetails/ExpiryDate`, module)
+storiesOf('Forms|CreditCardDetails/ExpiryDate', module)
   .addParameters({ jest: ['ExpiryDate'] })
   .add('Default ExpiryDateInput', () => <ExpiryDateInput />);

@@ -18,12 +18,11 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { text, boolean } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import State from '../State';
 
 import Hamburger from './Hamburger';
 
-storiesOf(`${GROUPS.COMPONENTS}|Hamburger`, module).add('Hamburger', () => {
+storiesOf('Components|Hamburger', module).add('Hamburger', () => {
   const light = boolean('light', false);
   return (
     <State

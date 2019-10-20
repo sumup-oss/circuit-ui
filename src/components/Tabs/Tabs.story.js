@@ -19,8 +19,6 @@ import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import * as knobs from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import { Tabs, TabList, TabPanel, Tab } from '../..';
 
 const sizeMap = {
@@ -82,7 +80,7 @@ TabsComposed.propTypes = {
   stretched: PropTypes.bool.isRequired
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Tabs`, module)
+storiesOf('Components|Tabs', module)
   .addParameters({ jest: ['Tabs'] })
   .add('Tabs', () => (
     <div style={{ width: '600px' }}>

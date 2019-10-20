@@ -18,7 +18,6 @@ import { keys } from 'lodash/fp';
 import { select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 // eslint-disable-next-line max-len
 import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
 import PaymentMethodIcon from './PaymentMethodIcon';
@@ -30,7 +29,7 @@ const iconSizes = [
   PaymentMethodIcon.GIGA
 ];
 
-storiesOf(`${GROUPS.ICONS}|PaymentMethodIcon`, module).add(
+storiesOf('Icons|PaymentMethodIcon', module).add(
   'Default PaymentMethodIcon',
   () => (
     <PaymentMethodIcon

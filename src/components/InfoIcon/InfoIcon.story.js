@@ -15,10 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import InfoIcon from './InfoIcon';
 
-storiesOf(`${GROUPS.ICONS}|InfoIcon`, module)
+storiesOf('Icons|InfoIcon', module)
   .addParameters({ jest: ['InfoIcon'] })
   .add('Default InfoIcon', () => <InfoIcon />);

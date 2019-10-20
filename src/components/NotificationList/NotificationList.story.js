@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import NotificationList from './NotificationList';
 import Message, { MessageButton, MessageIcon } from '../Message';
@@ -25,7 +24,7 @@ import Heading from '../Heading';
 import Text from '../Text';
 import CloseButton from '../CloseButton';
 
-storiesOf(`${GROUPS.COMPONENTS}|NotificationList`, module)
+storiesOf('Components|NotificationList', module)
   .addParameters({ jest: ['NotificationList'] })
   .add('Default NotificationList', () => (
     <NotificationList>

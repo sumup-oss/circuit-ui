@@ -15,11 +15,10 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Selector from './Selector';
 
-storiesOf(`${GROUPS.COMPONENTS}|Selector`, module)
+storiesOf('Components|Selector', module)
   .addParameters({ jest: ['Selector'] })
   .add('Default Selector', () => <Selector>Select me!</Selector>)
   .add('Disabled Selector', () => (

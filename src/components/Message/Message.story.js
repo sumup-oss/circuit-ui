@@ -18,13 +18,12 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { select } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import Message, { MessageIcon, MessageButton } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
 
-storiesOf(`${GROUPS.COMPONENTS}|Message`, module)
+storiesOf('Components|Message', module)
   .addParameters({ jest: ['Message'] })
   .add('Default Message', () => (
     <Message>

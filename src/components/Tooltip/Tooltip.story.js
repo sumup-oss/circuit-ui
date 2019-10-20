@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Tooltip from './Tooltip';
 
@@ -48,7 +47,7 @@ const TooltipContainer = styled('div')`
   }
 `;
 
-storiesOf(`${GROUPS.COMPONENTS}|Tooltip`, module)
+storiesOf('Components|Tooltip', module)
   .addParameters({ jest: ['Tooltip'] })
   .add('Top left', () => (
     <TooltipContainer>

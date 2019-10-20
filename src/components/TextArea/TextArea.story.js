@@ -16,11 +16,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import TextArea from '.';
 
-storiesOf(`${GROUPS.FORMS}|TextArea`, module)
+storiesOf('Forms|TextArea', module)
   .addParameters({ jest: ['TextArea'] })
   .add('TextArea', () => <TextArea placeholder="Enter your story here" />)
   .add('TextArea invalid', () => (

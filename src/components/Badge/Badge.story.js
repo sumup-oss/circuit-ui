@@ -18,12 +18,11 @@ import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
 import { values } from 'lodash/fp';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import { colorNames } from '../../styles/constants';
 
 import Badge from './Badge';
 
-storiesOf(`${GROUPS.COMPONENTS}|Badge`, module)
+storiesOf('Components|Badge', module)
   .addParameters({ jest: ['Badge'] })
   .add('Default Badge', () => (
     <Badge color={select('Color', values(colorNames))}>Update</Badge>

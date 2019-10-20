@@ -16,12 +16,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import ButtonGroup from '.';
 import Button from '../Button';
 
-storiesOf(`${GROUPS.COMPONENTS}|Button/ButtonGroup`, module)
+storiesOf('Components|Button/ButtonGroup', module)
   .addParameters({ jest: ['ButtonGroup'] })
   .add('Default ButtonGroup', () => (
     <div

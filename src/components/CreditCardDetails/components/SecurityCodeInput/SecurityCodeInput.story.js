@@ -16,14 +16,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import SecurityCodeInput from '.';
 import { schemes } from '../..';
 
 const { SCHEMES } = schemes;
 
-storiesOf(`${GROUPS.FORMS}|CreditCardDetails/SecurityCodeInput`, module)
+storiesOf('Forms|CreditCardDetails/SecurityCodeInput', module)
   .addParameters({ jest: ['SecurityCodeInput'] })
   .add('Default SecurityCodeInput', () => <SecurityCodeInput />)
   .add('AMEX SecurityCodeInput', () => (

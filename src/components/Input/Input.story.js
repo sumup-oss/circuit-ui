@@ -15,12 +15,11 @@
 
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Input from '.';
 import Label from '../Label';
 
-storiesOf(`${GROUPS.FORMS}|Input`, module)
+storiesOf('Forms|Input', module)
   .addParameters({ jest: ['Input'] })
   .add('Input', () => <Input placeholder="Placeholder" />)
   .add('Input valid', () => <Input placeholder="Placeholder" showValid />)

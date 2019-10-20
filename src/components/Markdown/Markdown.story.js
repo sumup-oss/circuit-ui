@@ -15,7 +15,6 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Markdown from './Markdown';
 import Heading from '../Heading';
@@ -66,7 +65,7 @@ leni agat pro! Fuit relinque.
 Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
 cultus coniunx adituque.`;
 
-storiesOf(`${GROUPS.COMPONENTS}|Markdown`, module)
+storiesOf('Components|Markdown', module)
   .addParameters({ jest: ['Markdown'] })
   .add('Default Markdown', () => (
     <div style={{ maxWidth: '66%', margin: '0 auto' }}>

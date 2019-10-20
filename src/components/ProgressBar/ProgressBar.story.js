@@ -17,11 +17,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select, number, text, boolean } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import ProgressBar from './ProgressBar';
 
-storiesOf(`${GROUPS.COMPONENTS}|ProgressBar`, module)
+storiesOf('Components|ProgressBar', module)
   .addParameters({ jest: ['ProgressBar'] })
   .add('ProgressBar', () => {
     const size = select(

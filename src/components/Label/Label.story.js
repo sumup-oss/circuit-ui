@@ -15,11 +15,10 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Label from '.';
 
-storiesOf(`${GROUPS.FORMS}|Label`, module)
+storiesOf('Forms|Label', module)
   .addParameters({ jest: ['Label'] })
   .add('Default Label', () => <Label>An input label</Label>)
   .add('Label used for accessibility only', () => (

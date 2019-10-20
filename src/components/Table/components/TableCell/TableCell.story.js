@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs/react';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import TableCell from '.';
 
@@ -26,7 +25,7 @@ const options = {
   [TableCell.CENTER]: TableCell.CENTER
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Table/TableCell`, module)
+storiesOf('Components|Table/TableCell', module)
   .addParameters({ jest: ['TableCell'] })
   .add('Table Cell', () => (
     <TableCell

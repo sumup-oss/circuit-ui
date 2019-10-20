@@ -19,8 +19,6 @@ import { css } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
@@ -31,7 +29,7 @@ const ExampleWrap = ({ children }) => (
   <div style={{ width: '70vw', minWidth: '300px ' }}>{children}</div>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Modal Embed`, module)
+storiesOf('Components|Modal Embed', module)
   .addParameters({ jest: ['Modal'] })
   .add('Modal', () => (
     <ExampleWrap>

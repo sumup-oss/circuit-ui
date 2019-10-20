@@ -15,11 +15,10 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import SearchInput from '.';
 
-storiesOf(`${GROUPS.FORMS}|SearchInput`, module)
+storiesOf('Forms|SearchInput', module)
   .addParameters({ jest: ['SearchInput'] })
   .add('Default SearchInput', () => <SearchInput />)
   .add('Disabled SearchInput', () => <SearchInput disabled />);

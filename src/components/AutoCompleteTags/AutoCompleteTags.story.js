@@ -17,8 +17,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import AutoCompleteTags from './AutoCompleteTags';
 
 const randomItems = [];
@@ -40,7 +38,7 @@ for (let i = 0; i < 10000; i += 1) {
   pushRandom();
 }
 
-storiesOf(`${GROUPS.FORMS}|AutoCompleteTags`, module)
+storiesOf('Forms|AutoCompleteTags', module)
   .addParameters({ jest: ['AutoCompleteTags'] })
   .add('Default AutoCompleteTags', () => (
     <div style={{ width: '300px' }}>

@@ -15,12 +15,11 @@
 
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import Spacing from './Spacing';
 import Button from '../Button';
 
-storiesOf(`${GROUPS.LAYOUT}|Spacing`, module)
+storiesOf('Layout|Spacing', module)
   .addParameters({ jest: ['Spacing'] })
   .add('Bottom Spacing', () => (
     <Fragment>

@@ -15,10 +15,9 @@
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import RestrictedInput from './RestrictedInput';
 
-storiesOf(`${GROUPS.FORMS}|RestrictedInput`, module)
+storiesOf('Forms|RestrictedInput', module)
   .addParameters({ jest: ['RestrictedInput'] })
   .add('Default RestrictedInput', () => <RestrictedInput />);

@@ -16,7 +16,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import InlineElements from './InlineElements';
 
@@ -40,7 +39,7 @@ const Container = styled('div')({
   padding: '12px'
 });
 
-storiesOf(`${GROUPS.LAYOUT}|InlineElements`, module)
+storiesOf('Layout|InlineElements', module)
   .addParameters({ jest: ['InlineElements'] })
   .add('Two InlineElements', () => (
     <Container>

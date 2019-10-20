@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import Sidebar from '.';
 
 import { ReactComponent as HomeEmpty } from './icons/home-empty.svg';
@@ -99,6 +98,6 @@ class Container extends Component {
   }
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|Sidebar`, module)
+storiesOf('Components|Sidebar', module)
   .addParameters({ jest: ['Sidebar'] })
   .add('Sidebar', () => <Container />);

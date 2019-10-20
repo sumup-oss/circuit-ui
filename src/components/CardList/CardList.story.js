@@ -18,7 +18,6 @@ import { range } from 'lodash/fp';
 import { storiesOf } from '@storybook/react';
 import * as knobs from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import CardList from '.';
 
 class CardListStory extends Component {
@@ -53,6 +52,6 @@ class CardListStory extends Component {
   }
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|CardList`, module)
+storiesOf('Components|CardList', module)
   .addParameters({ jest: ['CardList'] })
   .add('CardList', () => <CardListStory />);

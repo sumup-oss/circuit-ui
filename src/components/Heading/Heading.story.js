@@ -17,8 +17,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import Heading from '.';
 
 const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -32,7 +30,7 @@ const sizes = [
   Heading.KILO
 ];
 
-storiesOf(`${GROUPS.TYPOGRAPHY}|Heading`, module)
+storiesOf('Typography|Heading', module)
   .addParameters({ jest: ['Heading'] })
   .add('Heading', () => (
     <Heading

@@ -17,7 +17,6 @@ import React, { Fragment } from 'react';
 import { css } from '@emotion/core';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import { reduce } from '../../../../util/fp';
 import { CardNumberInput, cardSchemeIcons } from '..';
@@ -50,7 +49,7 @@ const marginTopClassName = css`
   width: calc(100vw - ${circuit.spacings.byte});
 `;
 
-storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardNumberInput`, module)
+storiesOf('Forms|CreditCardDetails/CardNumberInput', module)
   .addParameters({ jest: ['CardNumberInput'] })
   .add('Empty CardNumberInput', () => (
     <CardNumberInput

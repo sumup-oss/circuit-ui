@@ -16,11 +16,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import CalendarTag from './CalendarTag';
 
-storiesOf(`${GROUPS.COMPONENTS}|Calendar/CalendarTag`, module)
+storiesOf('Components|Calendar/CalendarTag', module)
   .addParameters({ jest: ['CalendarTag'] })
   .add('Default CalendarTag', () => (
     <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>

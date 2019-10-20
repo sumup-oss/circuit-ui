@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import Header from '.';
 import Hamburguer from '../Hamburger';
 
@@ -27,7 +26,7 @@ const HeaderContainer = styled('div')`
   height: auto;
 `;
 
-storiesOf(`${GROUPS.COMPONENTS}|Header`, module)
+storiesOf('Components|Header', module)
   .addParameters({ jest: ['Header'] })
   .add('Header', () => (
     <HeaderContainer>

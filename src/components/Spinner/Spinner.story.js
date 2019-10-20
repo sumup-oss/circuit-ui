@@ -19,8 +19,6 @@ import { boolean, select } from '@storybook/addon-knobs/react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
 import Spinner from './Spinner';
 
 const Container = styled('div')(
@@ -34,7 +32,7 @@ const Container = styled('div')(
   `
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Spinner`, module)
+storiesOf('Components|Spinner', module)
   .addParameters({ jest: ['Spinner'] })
   .add('Spinner', () => (
     <Container>

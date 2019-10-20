@@ -16,13 +16,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import List from './List';
 
 const sizes = [List.KILO, List.MEGA, List.GIGA];
 
-storiesOf(`${GROUPS.COMPONENTS}|List`, module)
+storiesOf('Components|List', module)
   .addParameters({ jest: ['List'] })
   .add('List', () => (
     <List size={select('Size', sizes, sizes[0])} ordered={boolean('Ordered')}>
