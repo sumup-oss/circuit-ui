@@ -6,8 +6,3 @@ export const GROUPS = {
   TYPOGRAPHY: 'Typography',
   ICONS: 'Icons'
 };
-
-export const OPTIONS = {
-  hierarchySeparator: /\//,
-  hierarchyRootSeparator: /\|/
-};

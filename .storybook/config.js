@@ -6,8 +6,18 @@ import { ThemeProvider } from 'emotion-theming';
 import { circuit } from '../src/themes';
 import BaseStyles from '../src/components/BaseStyles';
 import withTests from './withTests';
+import storybookTheme from './theme';
 
 const req = require.context('../src/components', true, /\.story\.js$/);
+
+addParameters({
+  options: {
+    theme: storybookTheme,
+    isFullscreen: false,
+    panelPosition: 'bottom',
+    isToolshown: true
+  }
+});
 
 const withThemeProvider = storyFn => (
   <ThemeProvider theme={circuit}>
@@ -34,12 +44,6 @@ const withStoryStyles = storyFn => {
 };
 
 const loadStories = () => {
-  addParameters({
-    hierarchySeparator: /\//,
-    hierarchyRootSeparator: /\|/,
-    brandTitle: 'SumUp Website',
-    brandUrl: 'https://github.com/sumup/website'
-  });
   addDecorator(withTests);
   addDecorator(withKnobs);
   addDecorator(withStoryStyles);
