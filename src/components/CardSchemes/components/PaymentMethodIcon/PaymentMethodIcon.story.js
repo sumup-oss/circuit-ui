@@ -29,9 +29,11 @@ const iconSizes = [
   PaymentMethodIcon.GIGA
 ];
 
-storiesOf('Icons|PaymentMethodIcon', module).add(
-  'Default PaymentMethodIcon',
-  () => (
+storiesOf('Icons|PaymentMethodIcon', module)
+  .addParameters({
+    component: PaymentMethodIcon
+  })
+  .add('Default PaymentMethodIcon', () => (
     <PaymentMethodIcon
       size={select(
         'Schemes Size',
@@ -40,5 +42,4 @@ storiesOf('Icons|PaymentMethodIcon', module).add(
       )}
       iconId={select('Schemes Icon', keys(schemeMap), 'visa')}
     />
-  )
-);
+  ));

@@ -24,6 +24,7 @@ import Text from '../Text';
 import Button from '../Button';
 
 storiesOf('Components|Message', module)
+  .addParameters({ component: Message })
   .addParameters({ jest: ['Message'] })
   .add('Default Message', () => (
     <Message>

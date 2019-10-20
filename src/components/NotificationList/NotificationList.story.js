@@ -25,6 +25,7 @@ import Text from '../Text';
 import CloseButton from '../CloseButton';
 
 storiesOf('Components|NotificationList', module)
+  .addParameters({ component: NotificationList })
   .addParameters({ jest: ['NotificationList'] })
   .add('Default NotificationList', () => (
     <NotificationList>

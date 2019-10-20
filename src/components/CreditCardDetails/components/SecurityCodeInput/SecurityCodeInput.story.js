@@ -23,6 +23,9 @@ import { schemes } from '../..';
 const { SCHEMES } = schemes;
 
 storiesOf('Forms|CreditCardDetails/SecurityCodeInput', module)
+  .addParameters({
+    component: SecurityCodeInput
+  })
   .addParameters({ jest: ['SecurityCodeInput'] })
   .add('Default SecurityCodeInput', () => <SecurityCodeInput />)
   .add('AMEX SecurityCodeInput', () => (

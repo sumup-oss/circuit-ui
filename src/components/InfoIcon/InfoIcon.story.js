@@ -19,5 +19,6 @@ import { storiesOf } from '@storybook/react';
 import InfoIcon from './InfoIcon';
 
 storiesOf('Icons|InfoIcon', module)
+  .addParameters({ component: InfoIcon })
   .addParameters({ jest: ['InfoIcon'] })
   .add('Default InfoIcon', () => <InfoIcon />);

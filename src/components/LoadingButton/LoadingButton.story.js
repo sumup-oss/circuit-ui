@@ -21,6 +21,7 @@ import { boolean } from '@storybook/addon-knobs/react';
 import LoadingButton from '.';
 
 storiesOf('Components|Button/LoadingButton', module)
+  .addParameters({ component: LoadingButton })
   .addParameters({ jest: ['LoadingButton'] })
   .add('LoadingButton with Success animation', () => (
     <LoadingButton

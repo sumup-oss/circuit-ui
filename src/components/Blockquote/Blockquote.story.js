@@ -34,10 +34,12 @@ tbh adaptogen green juice lo-fi kombucha.
 
 const sizes = [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA];
 
-storiesOf('Components|Blockquote', module).add('Blockquote', () => (
-  <Container>
-    <Blockquote size={select('Size', sizes, sizes[0])}>
-      {text('Quote', defaultQuote)}
-    </Blockquote>
-  </Container>
-));
+storiesOf('Components|Blockquote', module)
+  .addParameters({ component: Blockquote })
+  .add('Blockquote', () => (
+    <Container>
+      <Blockquote size={select('Size', sizes, sizes[0])}>
+        {text('Quote', defaultQuote)}
+      </Blockquote>
+    </Container>
+  ));

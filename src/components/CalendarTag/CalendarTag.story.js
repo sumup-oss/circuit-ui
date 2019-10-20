@@ -20,6 +20,7 @@ import { action } from '@storybook/addon-actions';
 import CalendarTag from './CalendarTag';
 
 storiesOf('Components|Calendar/CalendarTag', module)
+  .addParameters({ component: CalendarTag })
   .addParameters({ jest: ['CalendarTag'] })
   .add('Default CalendarTag', () => (
     <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>

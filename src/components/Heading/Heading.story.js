@@ -31,6 +31,7 @@ const sizes = [
 ];
 
 storiesOf('Typography|Heading', module)
+  .addParameters({ component: Heading })
   .addParameters({ jest: ['Heading'] })
   .add('Heading', () => (
     <Heading

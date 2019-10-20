@@ -36,6 +36,7 @@ StyledCol.defaultProps = {
 };
 
 storiesOf('Grid|Col', module)
+  .addParameters({ component: Col })
   .addParameters({ jest: ['Col'] })
   .add('Default Col', () => (
     <div style={{ width: '100vw' }}>

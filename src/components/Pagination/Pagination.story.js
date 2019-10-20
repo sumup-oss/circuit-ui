@@ -20,6 +20,7 @@ import { number, text } from '@storybook/addon-knobs/react';
 import Pagination from '.';
 
 storiesOf('Components|Pagination', module)
+  .addParameters({ component: Pagination })
   .addParameters({ jest: ['Pagination'] })
   .add('Pagination', () => (
     <Pagination

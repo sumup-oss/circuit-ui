@@ -21,6 +21,7 @@ import { boolean } from '@storybook/addon-knobs/react';
 import AutoCompleteInput from './AutoCompleteInput';
 
 storiesOf('Forms|AutoCompleteInput', module)
+  .addParameters({ component: AutoCompleteInput })
   .addParameters({ jest: ['AutoCompleteInput'] })
   .add('Default AutoCompleteInput', () => (
     <div style={{ width: '300px' }}>

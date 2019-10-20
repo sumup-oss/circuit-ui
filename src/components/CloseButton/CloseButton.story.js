@@ -20,6 +20,7 @@ import { text } from '@storybook/addon-knobs';
 import CloseButton from './CloseButton';
 
 storiesOf('Components|CloseButton', module)
+  .addParameters({ component: CloseButton })
   .addParameters({ jest: ['CloseButton'] })
   .add('Default CloseButton', () => (
     <CloseButton label={text('Label', 'Close')} />

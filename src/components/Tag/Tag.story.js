@@ -34,6 +34,7 @@ const Icon = () => (
 );
 
 storiesOf('Components|Tag', module)
+  .addParameters({ component: Tag })
   .addParameters({ jest: ['Tag'] })
   .add('Default Tag', () => (
     <Tag

@@ -19,6 +19,7 @@ import { storiesOf } from '@storybook/react';
 import Image from './Image';
 
 storiesOf('Components|Image', module)
+  .addParameters({ component: Image })
   .addParameters({ jest: ['Image'] })
   .add('Responsive Image', () => (
     <Image src="http://www.placepuppy.net/800/500" alt="A random cute puppy" />

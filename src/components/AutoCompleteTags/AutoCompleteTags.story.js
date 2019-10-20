@@ -39,6 +39,7 @@ for (let i = 0; i < 10000; i += 1) {
 }
 
 storiesOf('Forms|AutoCompleteTags', module)
+  .addParameters({ component: AutoCompleteTags })
   .addParameters({ jest: ['AutoCompleteTags'] })
   .add('Default AutoCompleteTags', () => (
     <div style={{ width: '300px' }}>

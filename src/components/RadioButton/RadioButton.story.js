@@ -21,6 +21,7 @@ import State from '../State';
 import RadioButton from './RadioButton';
 
 storiesOf('Forms|RadioButton', module)
+  .addParameters({ component: RadioButton })
   .addParameters({ jest: ['RadioButton'] })
   .add('Default RadioButton', () => (
     <State

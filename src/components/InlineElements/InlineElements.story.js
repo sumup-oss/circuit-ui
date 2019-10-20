@@ -40,6 +40,7 @@ const Container = styled('div')({
 });
 
 storiesOf('Layout|InlineElements', module)
+  .addParameters({ component: InlineElements })
   .addParameters({ jest: ['InlineElements'] })
   .add('Two InlineElements', () => (
     <Container>

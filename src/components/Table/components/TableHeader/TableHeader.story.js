@@ -26,6 +26,9 @@ const options = {
 };
 
 storiesOf('Components|Table/TableHeader', module)
+  .addParameters({
+    component: TableHeader
+  })
   .addParameters({ jest: ['TableHeader'] })
   .add('Table Header', () => (
     <TableHeader

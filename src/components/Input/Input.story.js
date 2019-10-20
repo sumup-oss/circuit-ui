@@ -20,6 +20,7 @@ import Input from '.';
 import Label from '../Label';
 
 storiesOf('Forms|Input', module)
+  .addParameters({ component: Input })
   .addParameters({ jest: ['Input'] })
   .add('Input', () => <Input placeholder="Placeholder" />)
   .add('Input valid', () => <Input placeholder="Placeholder" showValid />)

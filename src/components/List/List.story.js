@@ -22,6 +22,7 @@ import List from './List';
 const sizes = [List.KILO, List.MEGA, List.GIGA];
 
 storiesOf('Components|List', module)
+  .addParameters({ component: List })
   .addParameters({ jest: ['List'] })
   .add('List', () => (
     <List size={select('Size', sizes, sizes[0])} ordered={boolean('Ordered')}>

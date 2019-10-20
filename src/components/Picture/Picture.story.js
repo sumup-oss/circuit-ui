@@ -19,5 +19,6 @@ import { storiesOf } from '@storybook/react';
 import Picture from './Picture';
 
 storiesOf('Components|Picture', module)
+  .addParameters({ component: Picture })
   .addParameters({ jest: ['ResponsiveImage'] })
   .add('Default Picture', () => <Picture />);

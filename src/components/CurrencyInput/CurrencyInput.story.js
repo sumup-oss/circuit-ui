@@ -19,6 +19,7 @@ import { storiesOf } from '@storybook/react';
 import CurrencyInput from './CurrencyInput';
 
 storiesOf('Forms|CurrencyInput', module)
+  .addParameters({ component: CurrencyInput })
   .addParameters({ jest: ['CurrencyInput'] })
   .add('Default CurrencyInput', () => (
     <CurrencyInput placeholder="123.45" locale="de-DE" currency="USD" />

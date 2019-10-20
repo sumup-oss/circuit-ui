@@ -23,6 +23,7 @@ const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
 const sizes = [SubHeading.MEGA, SubHeading.KILO];
 
 storiesOf('Typography|SubHeading', module)
+  .addParameters({ component: SubHeading })
   .addParameters({ jest: ['SubHeading'] })
   .add('SubHeading', () => (
     <SubHeading

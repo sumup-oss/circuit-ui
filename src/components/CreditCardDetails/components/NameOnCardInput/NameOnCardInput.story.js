@@ -19,5 +19,8 @@ import { storiesOf } from '@storybook/react';
 import NameOnCardInput from './NameOnCardInput';
 
 storiesOf('Forms|CreditCardDetails/NameOnCardInput', module)
+  .addParameters({
+    component: NameOnCardInput
+  })
   .addParameters({ jest: ['NameOnCardInput'] })
   .add('Default NameOnCardInput', () => <NameOnCardInput />);

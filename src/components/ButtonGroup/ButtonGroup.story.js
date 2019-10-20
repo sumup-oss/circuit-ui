@@ -21,6 +21,7 @@ import ButtonGroup from '.';
 import Button from '../Button';
 
 storiesOf('Components|Button/ButtonGroup', module)
+  .addParameters({ component: ButtonGroup })
   .addParameters({ jest: ['ButtonGroup'] })
   .add('Default ButtonGroup', () => (
     <div

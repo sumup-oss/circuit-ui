@@ -19,6 +19,7 @@ import { storiesOf } from '@storybook/react';
 import Label from '.';
 
 storiesOf('Forms|Label', module)
+  .addParameters({ component: Label })
   .addParameters({ jest: ['Label'] })
   .add('Default Label', () => <Label>An input label</Label>)
   .add('Label used for accessibility only', () => (

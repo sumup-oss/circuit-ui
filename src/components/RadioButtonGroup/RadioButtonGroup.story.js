@@ -37,6 +37,7 @@ const options = [
 ];
 
 storiesOf('Forms|RadioButton/RadioButtonGroup', module)
+  .addParameters({ component: RadioButtonGroup })
   .addParameters({ jest: ['RadioButtonGroup'] })
   .add('RadioButtonGroup', () => (
     <State

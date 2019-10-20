@@ -21,6 +21,7 @@ import State from '../State/State';
 import Toggle from './Toggle';
 
 storiesOf('Forms|Toggle', module)
+  .addParameters({ component: Toggle })
   .addParameters({ jest: ['Toggle'] })
   .add('Default Toggle', () => (
     <State initial={false} name="on" updaterName="onChange" updater={on => !on}>

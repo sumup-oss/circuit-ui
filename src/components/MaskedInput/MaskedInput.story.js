@@ -19,5 +19,6 @@ import { storiesOf } from '@storybook/react';
 import MaskedInput from './MaskedInput';
 
 storiesOf('Forms|MaskedInput', module)
+  .addParameters({ component: MaskedInput })
   .addParameters({ jest: ['MaskedInput'] })
   .add('Default MaskedInput', () => <MaskedInput />);

@@ -26,6 +26,7 @@ const sizes = [Text.KILO, Text.MEGA, Text.GIGA];
 const content = `An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.`;
 
 storiesOf('Typography|Text', module)
+  .addParameters({ component: Text })
   .addParameters({ jest: ['Text'] })
   .add('Text', () => (
     <div style={{ width: '66%', margin: '0 auto' }}>

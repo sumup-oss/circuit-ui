@@ -19,6 +19,7 @@ import { storiesOf } from '@storybook/react';
 import Selector from './Selector';
 
 storiesOf('Components|Selector', module)
+  .addParameters({ component: Selector })
   .addParameters({ jest: ['Selector'] })
   .add('Default Selector', () => <Selector>Select me!</Selector>)
   .add('Disabled Selector', () => (

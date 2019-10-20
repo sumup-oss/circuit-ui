@@ -23,6 +23,7 @@ import { colorNames } from '../../styles/constants';
 import Badge from './Badge';
 
 storiesOf('Components|Badge', module)
+  .addParameters({ component: Badge })
   .addParameters({ jest: ['Badge'] })
   .add('Default Badge', () => (
     <Badge color={select('Color', values(colorNames))}>Update</Badge>

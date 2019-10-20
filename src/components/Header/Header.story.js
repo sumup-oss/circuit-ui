@@ -27,6 +27,7 @@ const HeaderContainer = styled('div')`
 `;
 
 storiesOf('Components|Header', module)
+  .addParameters({ component: Header })
   .addParameters({ jest: ['Header'] })
   .add('Header', () => (
     <HeaderContainer>

@@ -66,6 +66,7 @@ Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
 cultus coniunx adituque.`;
 
 storiesOf('Components|Markdown', module)
+  .addParameters({ component: Markdown })
   .addParameters({ jest: ['Markdown'] })
   .add('Default Markdown', () => (
     <div style={{ maxWidth: '66%', margin: '0 auto' }}>

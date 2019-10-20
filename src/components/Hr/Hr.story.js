@@ -26,6 +26,7 @@ const Container = styled('div')`
 `;
 
 storiesOf('Components|Hr', module)
+  .addParameters({ component: Hr })
   .add('Hr', () => (
     <Container>
       <Hr />

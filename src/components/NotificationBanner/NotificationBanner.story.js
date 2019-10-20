@@ -25,6 +25,7 @@ import Text from '../Text';
 import Button from '../Button';
 
 storiesOf('Components|NotificationBanner', module)
+  .addParameters({ component: NotificationBanner })
   .addParameters({ jest: ['NotificationBanner'] })
   .add('Default NotificationBanner', () => (
     <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}>

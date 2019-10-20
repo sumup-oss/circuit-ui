@@ -27,6 +27,7 @@ const containerStyles = {
 };
 
 storiesOf('Components|Button', module)
+  .addParameters({ component: Button })
   .addParameters({ jest: ['Button'] })
   .add('Button', () => (
     <div style={containerStyles}>

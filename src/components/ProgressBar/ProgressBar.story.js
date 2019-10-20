@@ -20,6 +20,7 @@ import { select, number, text, boolean } from '@storybook/addon-knobs/react';
 import ProgressBar from './ProgressBar';
 
 storiesOf('Components|ProgressBar', module)
+  .addParameters({ component: ProgressBar })
   .addParameters({ jest: ['ProgressBar'] })
   .add('ProgressBar', () => {
     const size = select(

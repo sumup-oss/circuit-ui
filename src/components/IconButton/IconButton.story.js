@@ -19,5 +19,6 @@ import { storiesOf } from '@storybook/react';
 import IconButton from './IconButton';
 
 storiesOf('Components|IconButton', module)
+  .addParameters({ component: IconButton })
   .addParameters({ jest: ['IconButton'] })
   .add('Default IconButton', () => <IconButton />);

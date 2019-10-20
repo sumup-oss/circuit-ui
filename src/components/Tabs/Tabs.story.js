@@ -81,6 +81,7 @@ TabsComposed.propTypes = {
 };
 
 storiesOf('Components|Tabs', module)
+  .addParameters({ component: Tabs })
   .addParameters({ jest: ['Tabs'] })
   .add('Tabs', () => (
     <div style={{ width: '600px' }}>

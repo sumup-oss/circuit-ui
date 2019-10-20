@@ -23,6 +23,7 @@ import State from '../State';
 import Checkbox from './Checkbox';
 
 storiesOf('Forms|Checkbox', module)
+  .addParameters({ component: Checkbox })
   .addParameters({ jest: ['Checkbox'] })
   .add('Default Checkbox', () => (
     <State

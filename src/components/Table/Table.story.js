@@ -58,6 +58,7 @@ const rows = [
 ];
 
 storiesOf('Components|Table', module)
+  .addParameters({ component: Table })
   .addParameters({ jest: ['Table'] })
   .add('Table', () => (
     <div style={{ width: '98vw', maxHeight: 150 }}>

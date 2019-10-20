@@ -26,6 +26,9 @@ const options = {
 };
 
 storiesOf('Components|Table/TableCell', module)
+  .addParameters({
+    component: TableCell
+  })
   .addParameters({ jest: ['TableCell'] })
   .add('Table Cell', () => (
     <TableCell

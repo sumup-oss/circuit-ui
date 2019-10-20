@@ -48,6 +48,7 @@ const StyledRow = styled(Row)`
 `;
 
 storiesOf('Grid|Grid', module)
+  .addParameters({ component: Grid })
   .addParameters({ jest: ['Grid'] })
   .add('Static columns', () => (
     <div style={{ width: '100vw' }}>

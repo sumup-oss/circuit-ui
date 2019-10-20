@@ -21,6 +21,7 @@ import Card from '../Card';
 import Text from '../Text';
 
 storiesOf('Components|InlineNotification', module)
+  .addParameters({ component: InlineNotification })
   .addParameters({ jest: ['InlineNotification'] })
   .add('Success InlineNotification', () => (
     <InlineNotification type={InlineNotification.SUCCESS}>

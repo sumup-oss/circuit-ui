@@ -20,6 +20,7 @@ import Spacing from './Spacing';
 import Button from '../Button';
 
 storiesOf('Layout|Spacing', module)
+  .addParameters({ component: Spacing })
   .addParameters({ jest: ['Spacing'] })
   .add('Bottom Spacing', () => (
     <Fragment>

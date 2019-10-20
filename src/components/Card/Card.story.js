@@ -24,6 +24,7 @@ import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 
 storiesOf('Components|Card', module)
+  .addParameters({ component: Card })
   .addParameters({ jest: ['Card'] })
   .add('Default Card', () => (
     <Card style={{ width: '500px', height: '150px', marginBottom: '15px' }} />

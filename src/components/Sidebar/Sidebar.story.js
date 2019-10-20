@@ -99,5 +99,6 @@ class Container extends Component {
 }
 
 storiesOf('Components|Sidebar', module)
+  .addParameters({ component: Sidebar })
   .addParameters({ jest: ['Sidebar'] })
   .add('Sidebar', () => <Container />);

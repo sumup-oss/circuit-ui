@@ -69,6 +69,7 @@ PopoverContainer.propTypes = {
 };
 
 storiesOf('Components|Popover', module)
+  .addParameters({ component: Popover })
   .addParameters({ jest: ['Popover'] })
   .add('Default Popover', () => (
     <div>

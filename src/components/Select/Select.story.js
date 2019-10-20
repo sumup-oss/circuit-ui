@@ -57,6 +57,7 @@ const countryOptions = [
 const flagIconMap = { DE, US, FR };
 
 storiesOf('Forms|Select', module)
+  .addParameters({ component: Select })
   .addParameters({ jest: ['Select'] })
   .add('Select', () => (
     <Select

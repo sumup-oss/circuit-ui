@@ -19,6 +19,7 @@ import { storiesOf } from '@storybook/react';
 import TextArea from '.';
 
 storiesOf('Forms|TextArea', module)
+  .addParameters({ component: TextArea })
   .addParameters({ jest: ['TextArea'] })
   .add('TextArea', () => <TextArea placeholder="Enter your story here" />)
   .add('TextArea invalid', () => (

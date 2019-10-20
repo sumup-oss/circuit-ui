@@ -33,6 +33,7 @@ const Container = styled('div')(
 );
 
 storiesOf('Components|Spinner', module)
+  .addParameters({ component: Spinner })
   .addParameters({ jest: ['Spinner'] })
   .add('Spinner', () => (
     <Container>

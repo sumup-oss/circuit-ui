@@ -48,6 +48,7 @@ const TooltipContainer = styled('div')`
 `;
 
 storiesOf('Components|Tooltip', module)
+  .addParameters({ component: Tooltip })
   .addParameters({ jest: ['Tooltip'] })
   .add('Top left', () => (
     <TooltipContainer>

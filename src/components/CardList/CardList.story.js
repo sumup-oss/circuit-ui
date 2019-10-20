@@ -53,5 +53,6 @@ class CardListStory extends Component {
 }
 
 storiesOf('Components|CardList', module)
+  .addParameters({ component: CardList })
   .addParameters({ jest: ['CardList'] })
   .add('CardList', () => <CardListStory />);

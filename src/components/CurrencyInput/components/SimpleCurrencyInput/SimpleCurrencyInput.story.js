@@ -30,6 +30,9 @@ const numberMask = createNumberMask({
 });
 
 storiesOf('Forms|CurrencyInput/SimpleCurrencyInput', module)
+  .addParameters({
+    component: SimpleCurrencyInput
+  })
   .addParameters({ jest: ['SimpleCurrencyInput'] })
   .add('Default SimpleCurrencyInput', () => (
     <SimpleCurrencyInput

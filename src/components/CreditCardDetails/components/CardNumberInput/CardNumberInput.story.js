@@ -50,6 +50,9 @@ const marginTopClassName = css`
 `;
 
 storiesOf('Forms|CreditCardDetails/CardNumberInput', module)
+  .addParameters({
+    component: CardNumberInput
+  })
   .addParameters({ jest: ['CardNumberInput'] })
   .add('Empty CardNumberInput', () => (
     <CardNumberInput
