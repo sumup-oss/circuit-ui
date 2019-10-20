@@ -1,6 +1,5 @@
 import React from 'react';
 import { configure, addDecorator, addParameters } from '@storybook/react';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { withKnobs } from '@storybook/addon-knobs';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
@@ -16,10 +15,6 @@ addParameters({
     isFullscreen: false,
     panelPosition: 'bottom',
     isToolshown: true
-  },
-  docs: {
-    container: DocsContainer,
-    page: DocsPage
   }
 });
 
