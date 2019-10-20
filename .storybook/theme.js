@@ -5,7 +5,7 @@ const theme = create({
   base: 'light',
   brandTitle: 'Circuit UI',
   brandUrl: 'https://github.com/sumup/circuit-ui',
-  brandImage: '/public/images/logo-name.svg',
+  brandImage: '/storybook/images/logo-name.svg',
   fontBase: circuit.fontStack.default,
   colorPrimary: circuit.colors.p500,
   colorSecondary: circuit.colors.p500,
