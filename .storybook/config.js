@@ -1,6 +1,7 @@
 import React from 'react';
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { withA11y } from '@storybook/addon-a11y';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 
@@ -41,6 +42,7 @@ const withThemeProvider = storyFn => (
   </ThemeProvider>
 );
 
+addDecorator(withA11y);
 addDecorator(withTests);
 addDecorator(withKnobs);
 addDecorator(withStoryStyles);
