@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import State from '../State';
@@ -36,26 +35,36 @@ const options = [
   }
 ];
 
-storiesOf('Forms|RadioButton/RadioButtonGroup', module)
-  .addParameters({ component: RadioButtonGroup })
-  .addParameters({ jest: ['RadioButtonGroup'] })
-  .add('RadioButtonGroup', () => (
-    <State
-      initial=""
-      name="value"
-      updaterName="onChange"
-      updater={(prev, event) => event.target.value}
-    >
-      {({ value, onChange }) => (
-        <RadioButtonGroup
-          {...{ options, value }}
-          name="radio-button-group"
-          onChange={e => {
-            e.persist();
-            action(`${e.target.value} radio button clicked`)(e);
-            onChange(e);
-          }}
-        />
-      )}
-    </State>
-  ));
+export default {
+  title: 'Forms|RadioButton/RadioButtonGroup',
+
+  parameters: {
+    component: RadioButtonGroup,
+    jest: ['RadioButtonGroup']
+  }
+};
+
+export const radioButtonGroup = () => (
+  <State
+    initial=""
+    name="value"
+    updaterName="onChange"
+    updater={(prev, event) => event.target.value}
+  >
+    {({ value, onChange }) => (
+      <RadioButtonGroup
+        {...{ options, value }}
+        name="radio-button-group"
+        onChange={e => {
+          e.persist();
+          action(`${e.target.value} radio button clicked`)(e);
+          onChange(e);
+        }}
+      />
+    )}
+  </State>
+);
+
+radioButtonGroup.story = {
+  name: 'RadioButtonGroup'
+};

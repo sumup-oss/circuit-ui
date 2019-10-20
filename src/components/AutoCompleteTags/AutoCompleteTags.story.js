@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import AutoCompleteTags from './AutoCompleteTags';
@@ -38,14 +37,24 @@ for (let i = 0; i < 10000; i += 1) {
   pushRandom();
 }
 
-storiesOf('Forms|AutoCompleteTags', module)
-  .addParameters({ component: AutoCompleteTags })
-  .addParameters({ jest: ['AutoCompleteTags'] })
-  .add('Default AutoCompleteTags', () => (
-    <div style={{ width: '300px' }}>
-      <AutoCompleteTags
-        availableTags={randomItems}
-        onChange={action('handleChange')}
-      />
-    </div>
-  ));
+export default {
+  title: 'Forms|AutoCompleteTags',
+
+  parameters: {
+    component: AutoCompleteTags,
+    jest: ['AutoCompleteTags']
+  }
+};
+
+export const autoCompleteTags = () => (
+  <div style={{ width: '300px' }}>
+    <AutoCompleteTags
+      availableTags={randomItems}
+      onChange={action('handleChange')}
+    />
+  </div>
+);
+
+autoCompleteTags.story = {
+  name: 'AutoCompleteTags'
+};

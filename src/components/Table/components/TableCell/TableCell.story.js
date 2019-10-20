@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs/react';
 
 import TableCell from '.';
@@ -25,17 +24,25 @@ const options = {
   [TableCell.CENTER]: TableCell.CENTER
 };
 
-storiesOf('Components|Table/TableCell', module)
-  .addParameters({
-    component: TableCell
-  })
-  .addParameters({ jest: ['TableCell'] })
-  .add('Table Cell', () => (
-    <TableCell
-      style={{ width: '300px', alignSelf: 'center' }}
-      align={select('Align', options)}
-      isHovered={boolean('Hover styles', false)}
-    >
-      {text('Content', 'Header')}
-    </TableCell>
-  ));
+export default {
+  title: 'Components|Table/TableCell',
+
+  parameters: {
+    component: TableCell,
+    jest: ['TableCell']
+  }
+};
+
+export const tableCell = () => (
+  <TableCell
+    style={{ width: '300px', alignSelf: 'center' }}
+    align={select('Align', options)}
+    isHovered={boolean('Hover styles', false)}
+  >
+    {text('Content', 'Header')}
+  </TableCell>
+);
+
+tableCell.story = {
+  name: 'Table Cell'
+};

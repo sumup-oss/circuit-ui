@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
 
 import Grid from './Grid';
@@ -47,117 +46,142 @@ const StyledRow = styled(Row)`
   margin-bottom: 8px;
 `;
 
-storiesOf('Grid|Grid', module)
-  .addParameters({ component: Grid })
-  .addParameters({ jest: ['Grid'] })
-  .add('Static columns', () => (
-    <div style={{ width: '100vw' }}>
-      <Grid>
-        <StyledRow>
-          <StyledCol span="2">Col 2</StyledCol>
-          <StyledCol span="2">Col 2</StyledCol>
-          <StyledCol span="2">Col 2</StyledCol>
-          <StyledCol span="2">Col 2</StyledCol>
-          <StyledCol span="2">Col 2</StyledCol>
-          <StyledCol span="2">Col 2</StyledCol>
-        </StyledRow>
+export default {
+  title: 'Grid|Grid',
 
-        <StyledRow>
-          <StyledCol span="3">Col 3</StyledCol>
-          <StyledCol span="3">Col 3</StyledCol>
-          <StyledCol span="3">Col 3</StyledCol>
-          <StyledCol span="3">Col 3</StyledCol>
-        </StyledRow>
+  parameters: {
+    component: Grid,
+    jest: ['Grid']
+  }
+};
 
-        <StyledRow>
-          <StyledCol span="4">Col 4</StyledCol>
-          <StyledCol span="4">Col 4</StyledCol>
-          <StyledCol span="4">Col 4</StyledCol>
-        </StyledRow>
+export const staticColumns = () => (
+  <div style={{ width: '100vw' }}>
+    <Grid>
+      <StyledRow>
+        <StyledCol span="2">Col 2</StyledCol>
+        <StyledCol span="2">Col 2</StyledCol>
+        <StyledCol span="2">Col 2</StyledCol>
+        <StyledCol span="2">Col 2</StyledCol>
+        <StyledCol span="2">Col 2</StyledCol>
+        <StyledCol span="2">Col 2</StyledCol>
+      </StyledRow>
 
-        <StyledRow>
-          <StyledCol span="4">Col 4</StyledCol>
-          <StyledCol span="2">Col 2</StyledCol>
-          <StyledCol span="2">Col 2</StyledCol>
-          <StyledCol span="1">1</StyledCol>
-          <StyledCol span="3">Col 4</StyledCol>
-        </StyledRow>
+      <StyledRow>
+        <StyledCol span="3">Col 3</StyledCol>
+        <StyledCol span="3">Col 3</StyledCol>
+        <StyledCol span="3">Col 3</StyledCol>
+        <StyledCol span="3">Col 3</StyledCol>
+      </StyledRow>
 
-        <StyledRow>
-          <StyledCol span="6">Col 6</StyledCol>
-          <StyledCol span="6">Col 6</StyledCol>
-        </StyledRow>
-      </Grid>
-    </div>
-  ))
-  .add('Responsive columns', () => (
-    <div style={{ width: '100vw' }}>
-      <Grid>
-        <StyledRow>
-          <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-            resize me
-          </StyledCol>
-          <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-            resize me
-          </StyledCol>
-          <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-            resize me
-          </StyledCol>
-          <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-            resize me
-          </StyledCol>
-        </StyledRow>
+      <StyledRow>
+        <StyledCol span="4">Col 4</StyledCol>
+        <StyledCol span="4">Col 4</StyledCol>
+        <StyledCol span="4">Col 4</StyledCol>
+      </StyledRow>
 
-        <StyledRow>
-          <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-            resize me
-          </StyledCol>
-          <StyledCol span="6">half</StyledCol>
-        </StyledRow>
-      </Grid>
-    </div>
-  ))
-  .add('Skipping columns', () => (
-    <div style={{ width: '100vw' }}>
-      <Grid>
-        <StyledRow>
-          <StyledCol span="3">Col 3</StyledCol>
-          <StyledCol span="3">Col 3</StyledCol>
-          <StyledCol span="3" skip="3">
-            Col 3
-          </StyledCol>
-        </StyledRow>
+      <StyledRow>
+        <StyledCol span="4">Col 4</StyledCol>
+        <StyledCol span="2">Col 2</StyledCol>
+        <StyledCol span="2">Col 2</StyledCol>
+        <StyledCol span="1">1</StyledCol>
+        <StyledCol span="3">Col 4</StyledCol>
+      </StyledRow>
 
-        <StyledRow>
-          <StyledCol span="6" skip="6">
-            First column
-          </StyledCol>
-          <StyledCol span="6" skip="-6">
-            Second Column
-          </StyledCol>
-        </StyledRow>
-      </Grid>
-    </div>
-  ))
-  .add('Responsive skipping', () => (
-    <div style={{ width: '100vw' }}>
-      <Grid>
-        <StyledRow>
-          <StyledCol span="3">Col 3</StyledCol>
-          <StyledCol span="3">Col 3</StyledCol>
-          <StyledCol span="3" skip={{ default: 0, untilKilo: 3 }}>
-            skip mobile
-          </StyledCol>
-        </StyledRow>
+      <StyledRow>
+        <StyledCol span="6">Col 6</StyledCol>
+        <StyledCol span="6">Col 6</StyledCol>
+      </StyledRow>
+    </Grid>
+  </div>
+);
 
-        <StyledRow>
-          <StyledCol span="6" skip={{ default: 6, untilKilo: 0 }}>
-            first column
-          </StyledCol>
-          <StyledCol span="6" skip={{ default: -6, untilKilo: 0 }}>
-            second column
-          </StyledCol>
-        </StyledRow>
-      </Grid>
-    </div>
-  ));
+staticColumns.story = {
+  name: 'Static columns'
+};
+
+export const responsiveColumns = () => (
+  <div style={{ width: '100vw' }}>
+    <Grid>
+      <StyledRow>
+        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+          resize me
+        </StyledCol>
+        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+          resize me
+        </StyledCol>
+        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+          resize me
+        </StyledCol>
+        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+          resize me
+        </StyledCol>
+      </StyledRow>
+
+      <StyledRow>
+        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
+          resize me
+        </StyledCol>
+        <StyledCol span="6">half</StyledCol>
+      </StyledRow>
+    </Grid>
+  </div>
+);
+
+responsiveColumns.story = {
+  name: 'Responsive columns'
+};
+
+export const skippingColumns = () => (
+  <div style={{ width: '100vw' }}>
+    <Grid>
+      <StyledRow>
+        <StyledCol span="3">Col 3</StyledCol>
+        <StyledCol span="3">Col 3</StyledCol>
+        <StyledCol span="3" skip="3">
+          Col 3
+        </StyledCol>
+      </StyledRow>
+
+      <StyledRow>
+        <StyledCol span="6" skip="6">
+          First column
+        </StyledCol>
+        <StyledCol span="6" skip="-6">
+          Second Column
+        </StyledCol>
+      </StyledRow>
+    </Grid>
+  </div>
+);
+
+skippingColumns.story = {
+  name: 'Skipping columns'
+};
+
+export const responsiveSkipping = () => (
+  <div style={{ width: '100vw' }}>
+    <Grid>
+      <StyledRow>
+        <StyledCol span="3">Col 3</StyledCol>
+        <StyledCol span="3">Col 3</StyledCol>
+        <StyledCol span="3" skip={{ default: 0, untilKilo: 3 }}>
+          skip mobile
+        </StyledCol>
+      </StyledRow>
+
+      <StyledRow>
+        <StyledCol span="6" skip={{ default: 6, untilKilo: 0 }}>
+          first column
+        </StyledCol>
+        <StyledCol span="6" skip={{ default: -6, untilKilo: 0 }}>
+          second column
+        </StyledCol>
+      </StyledRow>
+    </Grid>
+  </div>
+);
+
+responsiveSkipping.story = {
+  name: 'Responsive skipping'
+};

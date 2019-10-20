@@ -14,27 +14,41 @@
  */
 
 import React, { Fragment } from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Spacing from './Spacing';
 import Button from '../Button';
 
-storiesOf('Layout|Spacing', module)
-  .addParameters({ component: Spacing })
-  .addParameters({ jest: ['Spacing'] })
-  .add('Bottom Spacing', () => (
-    <Fragment>
-      <Spacing bottom>
-        <Button primary>Spacing bottom</Button>
-      </Spacing>
-      <Button>No spacing</Button>
-    </Fragment>
-  ))
-  .add('Top Spacing', () => (
-    <Fragment>
-      <Button>No spacing</Button>
-      <Spacing top>
-        <Button primary>Spacing top</Button>
-      </Spacing>
-    </Fragment>
-  ));
+export default {
+  title: 'Layout|Spacing',
+
+  parameters: {
+    component: Spacing,
+    jest: ['Spacing']
+  }
+};
+
+export const bottomSpacing = () => (
+  <Fragment>
+    <Spacing bottom>
+      <Button primary>Spacing bottom</Button>
+    </Spacing>
+    <Button>No spacing</Button>
+  </Fragment>
+);
+
+bottomSpacing.story = {
+  name: 'Bottom Spacing'
+};
+
+export const topSpacing = () => (
+  <Fragment>
+    <Button>No spacing</Button>
+    <Spacing top>
+      <Button primary>Spacing top</Button>
+    </Spacing>
+  </Fragment>
+);
+
+topSpacing.story = {
+  name: 'Top Spacing'
+};

@@ -14,13 +14,20 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import NameOnCardInput from './NameOnCardInput';
 
-storiesOf('Forms|CreditCardDetails/NameOnCardInput', module)
-  .addParameters({
-    component: NameOnCardInput
-  })
-  .addParameters({ jest: ['NameOnCardInput'] })
-  .add('Default NameOnCardInput', () => <NameOnCardInput />);
+export default {
+  title: 'Forms|CreditCardDetails/NameOnCardInput',
+
+  parameters: {
+    component: NameOnCardInput,
+    jest: ['NameOnCardInput']
+  }
+};
+
+export const nameOnCardInput = () => <NameOnCardInput />;
+
+nameOnCardInput.story = {
+  name: 'NameOnCardInput'
+};

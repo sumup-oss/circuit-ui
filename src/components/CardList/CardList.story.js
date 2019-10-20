@@ -15,7 +15,6 @@
 
 import React, { Component } from 'react';
 import { range } from 'lodash/fp';
-import { storiesOf } from '@storybook/react';
 import * as knobs from '@storybook/addon-knobs/react';
 
 import CardList from '.';
@@ -52,7 +51,17 @@ class CardListStory extends Component {
   }
 }
 
-storiesOf('Components|CardList', module)
-  .addParameters({ component: CardList })
-  .addParameters({ jest: ['CardList'] })
-  .add('CardList', () => <CardListStory />);
+export default {
+  title: 'Components|CardList',
+
+  parameters: {
+    component: CardList,
+    jest: ['CardList']
+  }
+};
+
+export const cardList = () => <CardListStory />;
+
+cardList.story = {
+  name: 'CardList'
+};

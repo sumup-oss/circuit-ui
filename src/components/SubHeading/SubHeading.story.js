@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
 
 import SubHeading from '.';
@@ -22,15 +21,25 @@ import SubHeading from '.';
 const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
 const sizes = [SubHeading.MEGA, SubHeading.KILO];
 
-storiesOf('Typography|SubHeading', module)
-  .addParameters({ component: SubHeading })
-  .addParameters({ jest: ['SubHeading'] })
-  .add('SubHeading', () => (
-    <SubHeading
-      as={select('Element', elements, elements[0])}
-      size={select('Size', sizes, sizes[0])}
-      noMargin={boolean('No margin', false)}
-    >
-      {text('Text', 'This is a subheading')}
-    </SubHeading>
-  ));
+export default {
+  title: 'Typography|SubHeading',
+
+  parameters: {
+    component: SubHeading,
+    jest: ['SubHeading']
+  }
+};
+
+export const subHeading = () => (
+  <SubHeading
+    as={select('Element', elements, elements[0])}
+    size={select('Size', sizes, sizes[0])}
+    noMargin={boolean('No margin', false)}
+  >
+    {text('Text', 'This is a subheading')}
+  </SubHeading>
+);
+
+subHeading.story = {
+  name: 'SubHeading'
+};

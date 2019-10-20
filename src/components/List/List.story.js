@@ -14,23 +14,32 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs';
 
 import List from './List';
 
 const sizes = [List.KILO, List.MEGA, List.GIGA];
 
-storiesOf('Components|List', module)
-  .addParameters({ component: List })
-  .addParameters({ jest: ['List'] })
-  .add('List', () => (
+export default {
+  title: 'Components|List',
+
+  parameters: {
+    component: List,
+    jest: ['List']
+  }
+};
+
+export const list = () => (
+  <List size={select('Size', sizes, sizes[0])} ordered={boolean('Ordered')}>
+    <li>This is a list</li>
+    <li>A very fine list</li>
     <List size={select('Size', sizes, sizes[0])} ordered={boolean('Ordered')}>
-      <li>This is a list</li>
-      <li>A very fine list</li>
-      <List size={select('Size', sizes, sizes[0])} ordered={boolean('Ordered')}>
-        <li>Sometimes a nested list</li>
-      </List>
-      <li>The kind of list you like</li>
+      <li>Sometimes a nested list</li>
     </List>
-  ));
+    <li>The kind of list you like</li>
+  </List>
+);
+
+list.story = {
+  name: 'List'
+};

@@ -14,10 +14,19 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import ExpiryDateInput from '.';
 
-storiesOf('Forms|CreditCardDetails/ExpiryDate', module)
-  .addParameters({ jest: ['ExpiryDate'] })
-  .add('Default ExpiryDateInput', () => <ExpiryDateInput />);
+export default {
+  title: 'Forms|CreditCardDetails/ExpiryDate',
+
+  parameters: {
+    jest: ['ExpiryDate']
+  }
+};
+
+export const expiryDateInput = () => <ExpiryDateInput />;
+
+expiryDateInput.story = {
+  name: 'ExpiryDateInput'
+};

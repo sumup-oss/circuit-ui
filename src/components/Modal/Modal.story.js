@@ -16,7 +16,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { ModalConsumer, ModalProvider } from '.';
@@ -51,11 +50,23 @@ const defaultModal = {
   }
 };
 
-storiesOf('Components|Modal', module)
-  .addParameters({ jest: ['Modal'] })
-  .add('Modal', () => <PageWithModal modal={defaultModal} />)
-  .add('Modal with title', () => {
-    const modalWithTitle = {
+export default {
+  title: 'Components|Modal',
+
+  parameters: {
+    jest: ['Modal']
+  }
+};
+
+export const modal = () => <PageWithModal modal={defaultModal} />;
+
+modal.story = {
+  name: 'Modal'
+};
+
+export const modalWithTitle = () => (
+  <PageWithModal
+    modal={{
       ...defaultModal,
       children: () => (
         <ModalWrapper>
@@ -63,22 +74,33 @@ storiesOf('Components|Modal', module)
           <Text>Some text in the modal body.</Text>
         </ModalWrapper>
       )
-    };
-    return <PageWithModal modal={modalWithTitle} />;
-  })
-  .add('Modal without close button', () => {
-    const modalWithTitleAndCloser = {
-      ...defaultModal,
-      children: () => (
-        <ModalWrapper>
-          <Text>Some text in the modal body.</Text>
-        </ModalWrapper>
-      )
-    };
-    return <PageWithModal modal={modalWithTitleAndCloser} />;
-  })
-  .add('Modal with title and close button', () => {
-    const modalWithTitle = {
+    }}
+  />
+);
+
+modalWithTitle.story = {
+  name: 'Modal with title'
+};
+
+export const modalWithoutCloseButton = () => {
+  const modalWithTitleAndCloser = {
+    ...defaultModal,
+    children: () => (
+      <ModalWrapper>
+        <Text>Some text in the modal body.</Text>
+      </ModalWrapper>
+    )
+  };
+  return <PageWithModal modal={modalWithTitleAndCloser} />;
+};
+
+modalWithoutCloseButton.story = {
+  name: 'Modal without close button'
+};
+
+export const modalWithTitleAndCloseButton = () => (
+  <PageWithModal
+    modal={{
       ...defaultModal,
       children: ({ onClose }) => (
         <ModalWrapper>
@@ -86,11 +108,17 @@ storiesOf('Components|Modal', module)
           <Text>Some text in the modal body.</Text>
         </ModalWrapper>
       )
-    };
-    return <PageWithModal modal={modalWithTitle} />;
-  })
-  .add('Modal with footer buttons', () => {
-    const modalWithTitle = {
+    }}
+  />
+);
+
+modalWithTitleAndCloseButton.story = {
+  name: 'Modal with title and close button'
+};
+
+export const modalWithFooterButtons = () => (
+  <PageWithModal
+    modal={{
       ...defaultModal,
       children: ({ onClose }) => (
         <ModalWrapper>
@@ -120,52 +148,64 @@ storiesOf('Components|Modal', module)
           </ModalFooter>
         </ModalWrapper>
       )
-    };
-    return <PageWithModal modal={modalWithTitle} />;
-  })
-  .add('Modal with Card styles override', () => {
-    const Container = styled('div')`
-      display: flex;
-      justify-content: stretch;
-      align-items: stretch;
-      flex-wrap: nowrap;
-      height: 100%;
-      background: #fff;
-    `;
+    }}
+  />
+);
 
-    const LeftColumn = styled('div')`
-      display: flex;
-      align-items: center;
-      width: 50%;
-      justify-content: center;
-      padding: 24px 18px;
-    `;
+modalWithFooterButtons.story = {
+  name: 'Modal with footer buttons'
+};
 
-    const RightColumn = styled('div')`
-      height: 100%;
-      width: 50%;
-      background: no-repeat center / cover
-        url('https://source.unsplash.com/random');
-    `;
+export const modalWithCardStylesOverride = () => {
+  const Container = styled('div')`
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    height: 100%;
+    background: #fff;
+  `;
 
-    const cardClassName = css`
-      padding: 0;
-      height: 50vh;
-    `;
-    const modalWithTitle = {
-      ...defaultModal,
-      className: cardClassName,
-      hasCloseButton: false,
-      children: () => (
-        <div css={cardClassName}>
-          <Container>
-            <LeftColumn>
-              <Text>A nice custom modal for special cases.</Text>
-            </LeftColumn>
-            <RightColumn />
-          </Container>
-        </div>
-      )
-    };
-    return <PageWithModal modal={modalWithTitle} />;
-  });
+  const LeftColumn = styled('div')`
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+    padding: 24px 18px;
+  `;
+
+  const RightColumn = styled('div')`
+    height: 100%;
+    width: 50%;
+    background: no-repeat center / cover
+      url('https://source.unsplash.com/random');
+  `;
+
+  const cardClassName = css`
+    padding: 0;
+    height: 50vh;
+  `;
+  return (
+    <PageWithModal
+      modal={{
+        ...defaultModal,
+        className: cardClassName,
+        hasCloseButton: false,
+        children: () => (
+          <div css={cardClassName}>
+            <Container>
+              <LeftColumn>
+                <Text>A nice custom modal for special cases.</Text>
+              </LeftColumn>
+              <RightColumn />
+            </Container>
+          </div>
+        )
+      }}
+    />
+  );
+};
+
+modalWithCardStylesOverride.story = {
+  name: 'Modal with Card styles override'
+};

@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import NotificationBanner from './NotificationBanner';
@@ -24,46 +23,56 @@ import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
 
-storiesOf('Components|NotificationBanner', module)
-  .addParameters({ component: NotificationBanner })
-  .addParameters({ jest: ['NotificationBanner'] })
-  .add('Default NotificationBanner', () => (
-    <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}>
-      <NotificationBanner>
-        <Message>
-          <MessageIcon type={MessageIcon.SUCCESS} />
-          <Markdown
-            overrides={{
-              h1: {
-                component: Heading,
-                props: {
-                  as: 'h4',
-                  size: Heading.KILO,
-                  noMargin: true
-                }
-              },
-              p: {
-                component: Text,
-                props: {
-                  noMargin: true
-                }
+export default {
+  title: 'Components|NotificationBanner',
+
+  parameters: {
+    component: NotificationBanner,
+    jest: ['NotificationBanner']
+  }
+};
+
+export const notificationBanner = () => (
+  <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}>
+    <NotificationBanner>
+      <Message>
+        <MessageIcon type={MessageIcon.SUCCESS} />
+        <Markdown
+          overrides={{
+            h1: {
+              component: Heading,
+              props: {
+                as: 'h4',
+                size: Heading.KILO,
+                noMargin: true
               }
+            },
+            p: {
+              component: Text,
+              props: {
+                noMargin: true
+              }
+            }
+          }}
+        >
+          {`# New Feature — Intelligent Reporting\nGet automatic insights
+                into your business statistics with one click.`}
+        </Markdown>
+        <MessageButton>
+          <Button
+            size={Button.KILO}
+            onClick={e => {
+              action('Close button clicked')(e);
             }}
           >
-            {`# New Feature — Intelligent Reporting\nGet automatic insights
-                into your business statistics with one click.`}
-          </Markdown>
-          <MessageButton>
-            <Button
-              size={Button.KILO}
-              onClick={e => {
-                action('Close button clicked')(e);
-              }}
-            >
-              Read more
-            </Button>
-          </MessageButton>
-        </Message>
-      </NotificationBanner>
-    </div>
-  ));
+            Read more
+          </Button>
+        </MessageButton>
+      </Message>
+    </NotificationBanner>
+  </div>
+);
+
+notificationBanner.story = {
+  name: 'NotificationBanner'
+};

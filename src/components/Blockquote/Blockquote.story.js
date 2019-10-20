@@ -15,7 +15,6 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
 import { select, text } from '@storybook/addon-knobs/react';
 
 import Blockquote from './Blockquote';
@@ -34,12 +33,22 @@ tbh adaptogen green juice lo-fi kombucha.
 
 const sizes = [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA];
 
-storiesOf('Components|Blockquote', module)
-  .addParameters({ component: Blockquote })
-  .add('Blockquote', () => (
-    <Container>
-      <Blockquote size={select('Size', sizes, sizes[0])}>
-        {text('Quote', defaultQuote)}
-      </Blockquote>
-    </Container>
-  ));
+export default {
+  title: 'Components|Blockquote',
+
+  parameters: {
+    component: Blockquote
+  }
+};
+
+export const blockquote = () => (
+  <Container>
+    <Blockquote size={select('Size', sizes, sizes[0])}>
+      {text('Quote', defaultQuote)}
+    </Blockquote>
+  </Container>
+);
+
+blockquote.story = {
+  name: 'Blockquote'
+};

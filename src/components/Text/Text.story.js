@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs';
 
 import Text from '.';
@@ -25,20 +24,30 @@ const sizes = [Text.KILO, Text.MEGA, Text.GIGA];
 // eslint-disable-next-line max-len
 const content = `An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.`;
 
-storiesOf('Typography|Text', module)
-  .addParameters({ component: Text })
-  .addParameters({ jest: ['Text'] })
-  .add('Text', () => (
-    <div style={{ width: '66%', margin: '0 auto' }}>
-      <Text
-        as={select('Element', elements, elements[0])}
-        size={select('Size', sizes, sizes[0])}
-        noMargin={boolean('No margin')}
-        bold={boolean('Bold')}
-        italic={boolean('Italic')}
-        strike={boolean('Strike through')}
-      >
-        {content}
-      </Text>
-    </div>
-  ));
+export default {
+  title: 'Typography|Text',
+
+  parameters: {
+    component: Text,
+    jest: ['Text']
+  }
+};
+
+export const text = () => (
+  <div style={{ width: '66%', margin: '0 auto' }}>
+    <Text
+      as={select('Element', elements, elements[0])}
+      size={select('Size', sizes, sizes[0])}
+      noMargin={boolean('No margin')}
+      bold={boolean('Bold')}
+      italic={boolean('Italic')}
+      strike={boolean('Strike through')}
+    >
+      {content}
+    </Text>
+  </div>
+);
+
+text.story = {
+  name: 'Text'
+};

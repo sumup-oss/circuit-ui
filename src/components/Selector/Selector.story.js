@@ -14,15 +14,36 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Selector from './Selector';
 
-storiesOf('Components|Selector', module)
-  .addParameters({ component: Selector })
-  .addParameters({ jest: ['Selector'] })
-  .add('Default Selector', () => <Selector>Select me!</Selector>)
-  .add('Disabled Selector', () => (
-    <Selector disabled>I cannot be selected</Selector>
-  ))
-  .add('Selected Selected', () => <Selector selected>I am selected!</Selector>);
+export default {
+  title: 'Components|Selector',
+
+  parameters: {
+    component: Selector,
+    jest: ['Selector']
+  }
+};
+
+export const selector = () => <Selector>Select me!</Selector>;
+
+selector.story = {
+  name: 'Selector'
+};
+
+export const disabledSelector = () => (
+  <Selector disabled>I cannot be selected</Selector>
+);
+
+disabledSelector.story = {
+  name: 'Disabled Selector'
+};
+
+export const selectedSelected = () => (
+  <Selector selected>I am selected!</Selector>
+);
+
+selectedSelected.story = {
+  name: 'Selected Selected'
+};

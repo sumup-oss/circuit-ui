@@ -16,7 +16,6 @@
 import React from 'react';
 import { keys } from 'lodash/fp';
 import { select } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
 
 // eslint-disable-next-line max-len
 import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
@@ -29,17 +28,21 @@ const iconSizes = [
   PaymentMethodIcon.GIGA
 ];
 
-storiesOf('Icons|PaymentMethodIcon', module)
-  .addParameters({
+export default {
+  title: 'Icons|PaymentMethodIcon',
+
+  parameters: {
     component: PaymentMethodIcon
-  })
-  .add('Default PaymentMethodIcon', () => (
-    <PaymentMethodIcon
-      size={select(
-        'Schemes Size',
-        iconSizes,
-        iconSizes[PaymentMethodIcon.GIGA]
-      )}
-      iconId={select('Schemes Icon', keys(schemeMap), 'visa')}
-    />
-  ));
+  }
+};
+
+export const paymentMethodIcon = () => (
+  <PaymentMethodIcon
+    size={select('Schemes Size', iconSizes, iconSizes[PaymentMethodIcon.GIGA])}
+    iconId={select('Schemes Icon', keys(schemeMap), 'visa')}
+  />
+);
+
+paymentMethodIcon.story = {
+  name: 'PaymentMethodIcon'
+};

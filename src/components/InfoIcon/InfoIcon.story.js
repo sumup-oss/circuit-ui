@@ -14,11 +14,20 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import InfoIcon from './InfoIcon';
 
-storiesOf('Icons|InfoIcon', module)
-  .addParameters({ component: InfoIcon })
-  .addParameters({ jest: ['InfoIcon'] })
-  .add('Default InfoIcon', () => <InfoIcon />);
+export default {
+  title: 'Icons|InfoIcon',
+
+  parameters: {
+    component: InfoIcon,
+    jest: ['InfoIcon']
+  }
+};
+
+export const infoIcon = () => <InfoIcon />;
+
+infoIcon.story = {
+  name: 'InfoIcon'
+};

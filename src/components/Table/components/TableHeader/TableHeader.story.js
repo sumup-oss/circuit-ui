@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean, text, select } from '@storybook/addon-knobs/react';
 
 import TableHeader from '.';
@@ -25,17 +24,25 @@ const options = {
   [TableHeader.CENTER]: TableHeader.CENTER
 };
 
-storiesOf('Components|Table/TableHeader', module)
-  .addParameters({
-    component: TableHeader
-  })
-  .addParameters({ jest: ['TableHeader'] })
-  .add('Table Header', () => (
-    <TableHeader
-      style={{ width: '300px', alignSelf: 'center' }}
-      align={select('Align', options)}
-      sortable={boolean('Sortable', false)}
-    >
-      {text('Content', 'Header')}
-    </TableHeader>
-  ));
+export default {
+  title: 'Components|Table/TableHeader',
+
+  parameters: {
+    component: TableHeader,
+    jest: ['TableHeader']
+  }
+};
+
+export const tableHeader = () => (
+  <TableHeader
+    style={{ width: '300px', alignSelf: 'center' }}
+    align={select('Align', options)}
+    sortable={boolean('Sortable', false)}
+  >
+    {text('Content', 'Header')}
+  </TableHeader>
+);
+
+tableHeader.story = {
+  name: 'Table Header'
+};

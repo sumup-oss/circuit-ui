@@ -14,14 +14,13 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Markdown from './Markdown';
 import Heading from '../Heading';
 import Text from '../Text';
 import Image from '../Image';
 
-const markdown = `# Manu illa amorem committere exit membra minor
+const content = `# Manu illa amorem committere exit membra minor
 
 ## Utraque aut longe ore cruentum est
 
@@ -65,44 +64,59 @@ leni agat pro! Fuit relinque.
 Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
 cultus coniunx adituque.`;
 
-storiesOf('Components|Markdown', module)
-  .addParameters({ component: Markdown })
-  .addParameters({ jest: ['Markdown'] })
-  .add('Default Markdown', () => (
-    <div style={{ maxWidth: '66%', margin: '0 auto' }}>
-      <Markdown>{markdown}</Markdown>
-    </div>
-  ))
-  .add('Markdown with components', () => (
-    <div style={{ maxWidth: '66%', margin: '0 auto' }}>
-      <Markdown
-        overrides={{
-          h1: {
-            component: Heading,
-            props: {
-              as: 'h1',
-              size: 'zetta'
-            }
-          },
-          h2: {
-            component: Heading,
-            props: {
-              as: 'h2',
-              size: 'peta'
-            }
-          },
-          h3: {
-            component: Heading,
-            props: {
-              as: 'h3',
-              size: 'giga'
-            }
-          },
-          p: Text,
-          img: Image
-        }}
-      >
-        {markdown}
-      </Markdown>
-    </div>
-  ));
+export default {
+  title: 'Components|Markdown',
+
+  parameters: {
+    component: Markdown,
+    jest: ['Markdown']
+  }
+};
+
+export const markdown = () => (
+  <div style={{ maxWidth: '66%', margin: '0 auto' }}>
+    <Markdown>{content}</Markdown>
+  </div>
+);
+
+markdown.story = {
+  name: 'Markdown'
+};
+
+export const markdownWithComponents = () => (
+  <div style={{ maxWidth: '66%', margin: '0 auto' }}>
+    <Markdown
+      overrides={{
+        h1: {
+          component: Heading,
+          props: {
+            as: 'h1',
+            size: 'zetta'
+          }
+        },
+        h2: {
+          component: Heading,
+          props: {
+            as: 'h2',
+            size: 'peta'
+          }
+        },
+        h3: {
+          component: Heading,
+          props: {
+            as: 'h3',
+            size: 'giga'
+          }
+        },
+        p: Text,
+        img: Image
+      }}
+    >
+      {content}
+    </Markdown>
+  </div>
+);
+
+markdownWithComponents.story = {
+  name: 'Markdown with components'
+};

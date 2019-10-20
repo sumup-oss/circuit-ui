@@ -14,16 +14,25 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import CalendarTag from './CalendarTag';
 
-storiesOf('Components|Calendar/CalendarTag', module)
-  .addParameters({ component: CalendarTag })
-  .addParameters({ jest: ['CalendarTag'] })
-  .add('Default CalendarTag', () => (
-    <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>
-      <CalendarTag onDatesRangeChange={action('onDatesRangeChange')} />
-    </div>
-  ));
+export default {
+  title: 'Components|Calendar/CalendarTag',
+
+  parameters: {
+    component: CalendarTag,
+    jest: ['CalendarTag']
+  }
+};
+
+export const calendarTag = () => (
+  <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>
+    <CalendarTag onDatesRangeChange={action('onDatesRangeChange')} />
+  </div>
+);
+
+calendarTag.story = {
+  name: 'CalendarTag'
+};

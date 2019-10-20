@@ -15,7 +15,6 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs';
 
 import Header from '.';
@@ -26,13 +25,23 @@ const HeaderContainer = styled('div')`
   height: auto;
 `;
 
-storiesOf('Components|Header', module)
-  .addParameters({ component: Header })
-  .addParameters({ jest: ['Header'] })
-  .add('Header', () => (
-    <HeaderContainer>
-      <Header title="Title" mobileOnly={boolean('mobileOnly')}>
-        <Hamburguer light />
-      </Header>
-    </HeaderContainer>
-  ));
+export default {
+  title: 'Components|Header',
+
+  parameters: {
+    component: Header,
+    jest: ['Header']
+  }
+};
+
+export const header = () => (
+  <HeaderContainer>
+    <Header title="Title" mobileOnly={boolean('mobileOnly')}>
+      <Hamburguer light />
+    </Header>
+  </HeaderContainer>
+);
+
+header.story = {
+  name: 'Header'
+};

@@ -14,14 +14,21 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { text } from '@storybook/addon-knobs';
 
 import CloseButton from './CloseButton';
 
-storiesOf('Components|CloseButton', module)
-  .addParameters({ component: CloseButton })
-  .addParameters({ jest: ['CloseButton'] })
-  .add('Default CloseButton', () => (
-    <CloseButton label={text('Label', 'Close')} />
-  ));
+export default {
+  title: 'Components|CloseButton',
+
+  parameters: {
+    component: CloseButton,
+    jest: ['CloseButton']
+  }
+};
+
+export const closeButton = () => <CloseButton label={text('Label', 'Close')} />;
+
+closeButton.story = {
+  name: 'CloseButton'
+};

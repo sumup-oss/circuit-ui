@@ -14,29 +14,36 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { select, boolean } from '@storybook/addon-knobs/react';
 
 import ButtonGroup from '.';
 import Button from '../Button';
 
-storiesOf('Components|Button/ButtonGroup', module)
-  .addParameters({ component: ButtonGroup })
-  .addParameters({ jest: ['ButtonGroup'] })
-  .add('Default ButtonGroup', () => (
-    <div
-      style={{ maxWidth: '500px', width: '100vw', border: '1px dotted #000' }}
+export default {
+  title: 'Components|Button/ButtonGroup',
+
+  parameters: {
+    component: ButtonGroup,
+    jest: ['ButtonGroup']
+  }
+};
+
+export const buttonGroup = () => (
+  <div style={{ maxWidth: '500px', width: '100vw', border: '1px dotted #000' }}>
+    <ButtonGroup
+      align={select(
+        'Align',
+        [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT],
+        ButtonGroup.RIGHT
+      )}
+      inlineMobile={boolean('Display inline on mobile', false)}
     >
-      <ButtonGroup
-        align={select(
-          'Align',
-          [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT],
-          ButtonGroup.RIGHT
-        )}
-        inlineMobile={boolean('Display inline on mobile', false)}
-      >
-        <Button secondary>Cancel</Button>
-        <Button primary>Confirm</Button>
-      </ButtonGroup>
-    </div>
-  ));
+      <Button secondary>Cancel</Button>
+      <Button primary>Confirm</Button>
+    </ButtonGroup>
+  </div>
+);
+
+buttonGroup.story = {
+  name: 'ButtonGroup'
+};

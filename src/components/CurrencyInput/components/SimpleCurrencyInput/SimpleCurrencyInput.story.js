@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 import SimpleCurrencyInput from './SimpleCurrencyInput';
@@ -29,31 +28,49 @@ const numberMask = createNumberMask({
   decimalSymbol: '.'
 });
 
-storiesOf('Forms|CurrencyInput/SimpleCurrencyInput', module)
-  .addParameters({
-    component: SimpleCurrencyInput
-  })
-  .addParameters({ jest: ['SimpleCurrencyInput'] })
-  .add('Default SimpleCurrencyInput', () => (
-    <SimpleCurrencyInput
-      placeholder="123.45"
-      symbol={CURRENCY_SYMBOLS.EUR}
-      numberMask={numberMask}
-    />
-  ))
-  .add('SimpleCurrencyInput for USD', () => (
-    <SimpleCurrencyInput
-      symbol={CURRENCY_SYMBOLS.USD}
-      placeholder="1,234.45"
-      numberMask={numberMask}
-      prependSymbol
-    />
-  ))
-  .add('SimpleCurrencyInput for right aligned CHF', () => (
-    <SimpleCurrencyInput
-      symbol={CURRENCY_SYMBOLS.CHF}
-      placeholder="1,234.45"
-      numberMask={numberMask}
-      prependSymbol={false}
-    />
-  ));
+export default {
+  title: 'Forms|CurrencyInput/SimpleCurrencyInput',
+
+  parameters: {
+    component: SimpleCurrencyInput,
+    jest: ['SimpleCurrencyInput']
+  }
+};
+
+export const simpleCurrencyInput = () => (
+  <SimpleCurrencyInput
+    placeholder="123.45"
+    symbol={CURRENCY_SYMBOLS.EUR}
+    numberMask={numberMask}
+  />
+);
+
+simpleCurrencyInput.story = {
+  name: 'SimpleCurrencyInput'
+};
+
+export const simpleCurrencyInputForUsd = () => (
+  <SimpleCurrencyInput
+    symbol={CURRENCY_SYMBOLS.USD}
+    placeholder="1,234.45"
+    numberMask={numberMask}
+    prependSymbol
+  />
+);
+
+simpleCurrencyInputForUsd.story = {
+  name: 'SimpleCurrencyInput for USD'
+};
+
+export const simpleCurrencyInputForRightAlignedChf = () => (
+  <SimpleCurrencyInput
+    symbol={CURRENCY_SYMBOLS.CHF}
+    placeholder="1,234.45"
+    numberMask={numberMask}
+    prependSymbol={false}
+  />
+);
+
+simpleCurrencyInputForRightAlignedChf.story = {
+  name: 'SimpleCurrencyInput for right aligned CHF'
+};

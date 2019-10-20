@@ -14,14 +14,28 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Label from '.';
 
-storiesOf('Forms|Label', module)
-  .addParameters({ component: Label })
-  .addParameters({ jest: ['Label'] })
-  .add('Default Label', () => <Label>An input label</Label>)
-  .add('Label used for accessibility only', () => (
-    <Label accessibleOnly>Only visible for screen readers</Label>
-  ));
+export default {
+  title: 'Forms|Label',
+
+  parameters: {
+    component: Label,
+    jest: ['Label']
+  }
+};
+
+export const label = () => <Label>An input label</Label>;
+
+label.story = {
+  name: 'Label'
+};
+
+export const labelUsedForAccessibilityOnly = () => (
+  <Label accessibleOnly>Only visible for screen readers</Label>
+);
+
+labelUsedForAccessibilityOnly.story = {
+  name: 'Label used for accessibility only'
+};

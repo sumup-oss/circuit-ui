@@ -14,25 +14,34 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
 import AutoCompleteInput from './AutoCompleteInput';
 
-storiesOf('Forms|AutoCompleteInput', module)
-  .addParameters({ component: AutoCompleteInput })
-  .addParameters({ jest: ['AutoCompleteInput'] })
-  .add('Default AutoCompleteInput', () => (
-    <div style={{ width: '300px' }}>
-      <AutoCompleteInput
-        items={[
-          'liam.murphy@sumup.com',
-          'liam.burdock@sumup.com',
-          'lilijane.giordano@sumup.com'
-        ]}
-        onChange={action('handleChange')}
-        clearOnSelect={boolean('clearOnSelect', false)}
-      />
-    </div>
-  ));
+export default {
+  title: 'Forms|AutoCompleteInput',
+
+  parameters: {
+    component: AutoCompleteInput,
+    jest: ['AutoCompleteInput']
+  }
+};
+
+export const autoCompleteInput = () => (
+  <div style={{ width: '300px' }}>
+    <AutoCompleteInput
+      items={[
+        'liam.murphy@sumup.com',
+        'liam.burdock@sumup.com',
+        'lilijane.giordano@sumup.com'
+      ]}
+      onChange={action('handleChange')}
+      clearOnSelect={boolean('clearOnSelect', false)}
+    />
+  </div>
+);
+
+autoCompleteInput.story = {
+  name: 'AutoCompleteInput'
+};

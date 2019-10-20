@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
 
 import Tooltip from './Tooltip';
@@ -47,38 +46,63 @@ const TooltipContainer = styled('div')`
   }
 `;
 
-storiesOf('Components|Tooltip', module)
-  .addParameters({ component: Tooltip })
-  .addParameters({ jest: ['Tooltip'] })
-  .add('Top left', () => (
-    <TooltipContainer>
-      <Tooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
-        I am a teeny, tiny tooltip.
-      </Tooltip>
-      <DummyIcon />
-    </TooltipContainer>
-  ))
-  .add('Right center', () => (
-    <TooltipContainer>
-      <Tooltip position={Tooltip.RIGHT} align={Tooltip.CENTER}>
-        I am a teeny, tiny tooltip.
-      </Tooltip>
-      <DummyIcon />
-    </TooltipContainer>
-  ))
-  .add('Bottom right', () => (
-    <TooltipContainer>
-      <Tooltip position={Tooltip.BOTTOM} align={Tooltip.RIGHT}>
-        I am a teeny, tiny tooltip.
-      </Tooltip>
-      <DummyIcon />
-    </TooltipContainer>
-  ))
-  .add('Left center', () => (
-    <TooltipContainer>
-      <Tooltip position={Tooltip.LEFT} align={Tooltip.CENTER}>
-        I am a teeny, tiny tooltip.
-      </Tooltip>
-      <DummyIcon />
-    </TooltipContainer>
-  ));
+export default {
+  title: 'Components|Tooltip',
+
+  parameters: {
+    component: Tooltip,
+    jest: ['Tooltip']
+  }
+};
+
+export const topLeft = () => (
+  <TooltipContainer>
+    <Tooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+      I am a teeny, tiny tooltip.
+    </Tooltip>
+    <DummyIcon />
+  </TooltipContainer>
+);
+
+topLeft.story = {
+  name: 'Top left'
+};
+
+export const rightCenter = () => (
+  <TooltipContainer>
+    <Tooltip position={Tooltip.RIGHT} align={Tooltip.CENTER}>
+      I am a teeny, tiny tooltip.
+    </Tooltip>
+    <DummyIcon />
+  </TooltipContainer>
+);
+
+rightCenter.story = {
+  name: 'Right center'
+};
+
+export const bottomRight = () => (
+  <TooltipContainer>
+    <Tooltip position={Tooltip.BOTTOM} align={Tooltip.RIGHT}>
+      I am a teeny, tiny tooltip.
+    </Tooltip>
+    <DummyIcon />
+  </TooltipContainer>
+);
+
+bottomRight.story = {
+  name: 'Bottom right'
+};
+
+export const leftCenter = () => (
+  <TooltipContainer>
+    <Tooltip position={Tooltip.LEFT} align={Tooltip.CENTER}>
+      I am a teeny, tiny tooltip.
+    </Tooltip>
+    <DummyIcon />
+  </TooltipContainer>
+);
+
+leftCenter.story = {
+  name: 'Left center'
+};

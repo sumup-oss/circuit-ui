@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
 
 import InlineElements from './InlineElements';
@@ -39,48 +38,78 @@ const Container = styled('div')({
   padding: '12px'
 });
 
-storiesOf('Layout|InlineElements', module)
-  .addParameters({ component: InlineElements })
-  .addParameters({ jest: ['InlineElements'] })
-  .add('Two InlineElements', () => (
-    <Container>
-      <InlineElements>
-        <Box />
-        <Box />
-      </InlineElements>
-    </Container>
-  ))
-  .add('Three InlineElements', () => (
-    <Container>
-      <InlineElements>
-        <Box />
-        <Box />
-        <Box />
-      </InlineElements>
-    </Container>
-  ))
-  .add('Three InlineElements inline on mobile', () => (
-    <Container>
-      <InlineElements inlineMobile>
-        <Box />
-        <Box />
-        <Box />
-      </InlineElements>
-    </Container>
-  ))
-  .add('Two InlineElements with ratios', () => (
-    <Container>
-      <InlineElements ratios={[2, 1]}>
-        <Box>2x</Box>
-        <Box>1x</Box>
-      </InlineElements>
-    </Container>
-  ))
-  .add('Two InlineElements with ratios inline on mobile', () => (
-    <Container>
-      <InlineElements ratios={[3, 1]} inlineMobile>
-        <Box>2x</Box>
-        <Box>1x</Box>
-      </InlineElements>
-    </Container>
-  ));
+export default {
+  title: 'Layout|InlineElements',
+
+  parameters: {
+    component: InlineElements,
+    jest: ['InlineElements']
+  }
+};
+
+export const twoInlineElements = () => (
+  <Container>
+    <InlineElements>
+      <Box />
+      <Box />
+    </InlineElements>
+  </Container>
+);
+
+twoInlineElements.story = {
+  name: 'Two InlineElements'
+};
+
+export const threeInlineElements = () => (
+  <Container>
+    <InlineElements>
+      <Box />
+      <Box />
+      <Box />
+    </InlineElements>
+  </Container>
+);
+
+threeInlineElements.story = {
+  name: 'Three InlineElements'
+};
+
+export const threeInlineElementsInlineOnMobile = () => (
+  <Container>
+    <InlineElements inlineMobile>
+      <Box />
+      <Box />
+      <Box />
+    </InlineElements>
+  </Container>
+);
+
+threeInlineElementsInlineOnMobile.story = {
+  name: 'Three InlineElements inline on mobile'
+};
+
+export const twoInlineElementsWithRatios = () => (
+  <Container>
+    <InlineElements ratios={[2, 1]}>
+      <Box>2x</Box>
+      <Box>1x</Box>
+    </InlineElements>
+  </Container>
+);
+
+twoInlineElementsWithRatios.story = {
+  name: 'Two InlineElements with ratios'
+};
+
+export const twoInlineElementsWithRatiosInlineOnMobile = () => (
+  <Container>
+    <InlineElements ratios={[3, 1]} inlineMobile>
+      <Box>2x</Box>
+      <Box>1x</Box>
+    </InlineElements>
+  </Container>
+);
+
+twoInlineElementsWithRatiosInlineOnMobile.story = {
+  name: 'Two InlineElements with ratios inline on mobile'
+};

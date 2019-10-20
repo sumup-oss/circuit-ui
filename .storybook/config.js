@@ -10,12 +10,6 @@ import BaseStyles from '../src/components/BaseStyles';
 import withTests from './withTests';
 import storybookTheme from './theme';
 
-const req = require.context(
-  '../src/components',
-  true,
-  /\.(stories|story)\.(js|ts|tsx|mdx)$/
-);
-
 addParameters({
   options: {
     theme: storybookTheme,
@@ -52,12 +46,12 @@ const withThemeProvider = storyFn => (
   </ThemeProvider>
 );
 
-const loadStories = () => {
-  addDecorator(withTests);
-  addDecorator(withKnobs);
-  addDecorator(withStoryStyles);
-  addDecorator(withThemeProvider);
-  req.keys().forEach(filename => req(filename));
-};
+addDecorator(withTests);
+addDecorator(withKnobs);
+addDecorator(withStoryStyles);
+addDecorator(withThemeProvider);
 
-configure(loadStories, module);
+configure(
+  require.context('../src', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/),
+  module
+);

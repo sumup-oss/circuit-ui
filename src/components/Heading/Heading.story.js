@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
 
 import Heading from '.';
@@ -30,15 +29,25 @@ const sizes = [
   Heading.KILO
 ];
 
-storiesOf('Typography|Heading', module)
-  .addParameters({ component: Heading })
-  .addParameters({ jest: ['Heading'] })
-  .add('Heading', () => (
-    <Heading
-      as={select('Element', elements, elements[0])}
-      size={select('Size', sizes, sizes[0])}
-      noMargin={boolean('No margin', false)}
-    >
-      {text('Text', 'This is a heading')}
-    </Heading>
-  ));
+export default {
+  title: 'Typography|Heading',
+
+  parameters: {
+    component: Heading,
+    jest: ['Heading']
+  }
+};
+
+export const heading = () => (
+  <Heading
+    as={select('Element', elements, elements[0])}
+    size={select('Size', sizes, sizes[0])}
+    noMargin={boolean('No margin', false)}
+  >
+    {text('Text', 'This is a heading')}
+  </Heading>
+);
+
+heading.story = {
+  name: 'Heading'
+};

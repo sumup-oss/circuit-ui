@@ -14,23 +14,32 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { number, text } from '@storybook/addon-knobs/react';
 
 import Pagination from '.';
 
-storiesOf('Components|Pagination', module)
-  .addParameters({ component: Pagination })
-  .addParameters({ jest: ['Pagination'] })
-  .add('Pagination', () => (
-    <Pagination
-      page={number('page', 1)}
-      perPage={number('perPage', 10)}
-      total={number('total', 50)}
-      pagesToShow={number('pagesToShow', 1)}
-      onChange={() => {}}
-      footer={text('footer', 'Showing 1 - 10 of 50 items')}
-      align={text('align', 'center')}
-      justify={text('justify', 'center')}
-    />
-  ));
+export default {
+  title: 'Components|Pagination',
+
+  parameters: {
+    component: Pagination,
+    jest: ['Pagination']
+  }
+};
+
+export const pagination = () => (
+  <Pagination
+    page={number('page', 1)}
+    perPage={number('perPage', 10)}
+    total={number('total', 50)}
+    pagesToShow={number('pagesToShow', 1)}
+    onChange={() => {}}
+    footer={text('footer', 'Showing 1 - 10 of 50 items')}
+    align={text('align', 'center')}
+    justify={text('justify', 'center')}
+  />
+);
+
+pagination.story = {
+  name: 'Pagination'
+};

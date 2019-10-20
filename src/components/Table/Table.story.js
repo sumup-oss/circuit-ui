@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
@@ -57,20 +56,30 @@ const rows = [
   ]
 ];
 
-storiesOf('Components|Table', module)
-  .addParameters({ component: Table })
-  .addParameters({ jest: ['Table'] })
-  .add('Table', () => (
-    <div style={{ width: '98vw', maxHeight: 150 }}>
-      <Table
-        headers={headers}
-        rows={rows}
-        rowHeaders={boolean('Mobile rows', true)}
-        condensed={boolean('Condensed', false)}
-        scrollable={boolean('Scrollable', false)}
-        noShadow={boolean('Without Shadow', false)}
-        onRowClick={action('onRowClick')}
-        borderCollapsed={boolean('Border collapsed', false)}
-      />
-    </div>
-  ));
+export default {
+  title: 'Components|Table',
+
+  parameters: {
+    component: Table,
+    jest: ['Table']
+  }
+};
+
+export const table = () => (
+  <div style={{ width: '98vw', maxHeight: 150 }}>
+    <Table
+      headers={headers}
+      rows={rows}
+      rowHeaders={boolean('Mobile rows', true)}
+      condensed={boolean('Condensed', false)}
+      scrollable={boolean('Scrollable', false)}
+      noShadow={boolean('Without Shadow', false)}
+      onRowClick={action('onRowClick')}
+      borderCollapsed={boolean('Border collapsed', false)}
+    />
+  </div>
+);
+
+table.story = {
+  name: 'Table'
+};

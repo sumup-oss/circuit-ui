@@ -14,11 +14,20 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import RestrictedInput from './RestrictedInput';
 
-storiesOf('Forms|RestrictedInput', module)
-  .addParameters({ component: RestrictedInput })
-  .addParameters({ jest: ['RestrictedInput'] })
-  .add('Default RestrictedInput', () => <RestrictedInput />);
+export default {
+  title: 'Forms|RestrictedInput',
+
+  parameters: {
+    component: RestrictedInput,
+    jest: ['RestrictedInput']
+  }
+};
+
+export const restrictedInput = () => <RestrictedInput />;
+
+restrictedInput.story = {
+  name: 'RestrictedInput'
+};

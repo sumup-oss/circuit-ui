@@ -14,56 +14,75 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import State from '../State/State';
 import Toggle from './Toggle';
 
-storiesOf('Forms|Toggle', module)
-  .addParameters({ component: Toggle })
-  .addParameters({ jest: ['Toggle'] })
-  .add('Default Toggle', () => (
-    <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
-      {({ onChange, on }) => (
-        <Toggle
-          label="Short label"
-          onChange={e => {
-            action('Toggle clicked')(e);
-            onChange(e);
-          }}
-          {...{ on }}
-        />
-      )}
-    </State>
-  ))
-  .add('Toggle with explanation', () => (
-    <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
-      {({ onChange, on }) => (
-        <Toggle
-          label="Short label"
-          onChange={e => {
-            action('Toggle clicked')(e);
-            onChange(e);
-          }}
-          {...{ on }}
-          explanation="Some more detailed text of what this means"
-        />
-      )}
-    </State>
-  ))
-  .add('Toggle with no bottom margin', () => (
-    <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
-      {({ onChange, on }) => (
-        <Toggle
-          {...{ on }}
-          onChange={e => {
-            action('Toggle clicked')(e);
-            onChange(e);
-          }}
-          label="Short label"
-          noMargin
-        />
-      )}
-    </State>
-  ));
+export default {
+  title: 'Forms|Toggle',
+
+  parameters: {
+    component: Toggle,
+    jest: ['Toggle']
+  }
+};
+
+export const toggle = () => (
+  <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
+    {({ onChange, on }) => (
+      <Toggle
+        label="Short label"
+        onChange={e => {
+          action('Toggle clicked')(e);
+          onChange(e);
+        }}
+        {...{ on }}
+      />
+    )}
+  </State>
+);
+
+toggle.story = {
+  name: 'Toggle'
+};
+
+export const toggleWithExplanation = () => (
+  <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
+    {({ onChange, on }) => (
+      <Toggle
+        label="Short label"
+        onChange={e => {
+          action('Toggle clicked')(e);
+          onChange(e);
+        }}
+        {...{ on }}
+        explanation="Some more detailed text of what this means"
+      />
+    )}
+  </State>
+);
+
+toggleWithExplanation.story = {
+  name: 'Toggle with explanation'
+};
+
+export const toggleWithNoBottomMargin = () => (
+  <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
+    {({ onChange, on }) => (
+      <Toggle
+        {...{ on }}
+        onChange={e => {
+          action('Toggle clicked')(e);
+          onChange(e);
+        }}
+        label="Short label"
+        noMargin
+      />
+    )}
+  </State>
+);
+
+toggleWithNoBottomMargin.story = {
+  name: 'Toggle with no bottom margin'
+};

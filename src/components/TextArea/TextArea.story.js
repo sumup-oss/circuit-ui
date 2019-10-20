@@ -14,27 +14,58 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import TextArea from '.';
 
-storiesOf('Forms|TextArea', module)
-  .addParameters({ component: TextArea })
-  .addParameters({ jest: ['TextArea'] })
-  .add('TextArea', () => <TextArea placeholder="Enter your story here" />)
-  .add('TextArea invalid', () => (
-    <TextArea placeholder="Invalid TextArea, maybe too many chars?" invalid />
-  ))
-  .add('TextArea warning', () => (
-    <TextArea
-      placeholder="TextArea with warning, maybe too many chars?"
-      hasWarning
-    />
-  ))
-  .add('TextArea optional', () => <TextArea placeholder="Optional" optional />)
-  .add('TextArea disabled', () => (
-    <TextArea
-      value="You cannot enter text because the textarea is disabled"
-      disabled
-    />
-  ));
+export default {
+  title: 'Forms|TextArea',
+
+  parameters: {
+    component: TextArea,
+    jest: ['TextArea']
+  }
+};
+
+export const textArea = () => <TextArea placeholder="Enter your story here" />;
+
+textArea.story = {
+  name: 'TextArea'
+};
+
+export const textAreaInvalid = () => (
+  <TextArea placeholder="Invalid TextArea, maybe too many chars?" invalid />
+);
+
+textAreaInvalid.story = {
+  name: 'TextArea invalid'
+};
+
+export const textAreaWarning = () => (
+  <TextArea
+    placeholder="TextArea with warning, maybe too many chars?"
+    hasWarning
+  />
+);
+
+textAreaWarning.story = {
+  name: 'TextArea warning'
+};
+
+export const textAreaOptional = () => (
+  <TextArea placeholder="Optional" optional />
+);
+
+textAreaOptional.story = {
+  name: 'TextArea optional'
+};
+
+export const textAreaDisabled = () => (
+  <TextArea
+    value="You cannot enter text because the textarea is disabled"
+    disabled
+  />
+);
+
+textAreaDisabled.story = {
+  name: 'TextArea disabled'
+};

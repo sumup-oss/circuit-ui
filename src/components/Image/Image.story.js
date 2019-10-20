@@ -14,13 +14,22 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Image from './Image';
 
-storiesOf('Components|Image', module)
-  .addParameters({ component: Image })
-  .addParameters({ jest: ['Image'] })
-  .add('Responsive Image', () => (
-    <Image src="http://www.placepuppy.net/800/500" alt="A random cute puppy" />
-  ));
+export default {
+  title: 'Components|Image',
+
+  parameters: {
+    component: Image,
+    jest: ['Image']
+  }
+};
+
+export const responsiveImage = () => (
+  <Image src="http://www.placepuppy.net/800/500" alt="A random cute puppy" />
+);
+
+responsiveImage.story = {
+  name: 'Responsive Image'
+};

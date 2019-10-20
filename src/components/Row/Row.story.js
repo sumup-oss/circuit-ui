@@ -15,7 +15,6 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
 
 import Row from './Row';
 import Col from '../Col';
@@ -46,15 +45,25 @@ const StyledRow = styled(Row)`
   margin-bottom: 8px;
 `;
 
-storiesOf('Grid|Row', module)
-  .addParameters({ component: Row })
-  .addParameters({ jest: ['Row'] })
-  .add('Default Row', () => (
-    <div style={{ width: '100vw' }}>
-      <StyledRow>
-        <StyledCol span="4">Col 4</StyledCol>
-        <StyledCol span="4">Col 4</StyledCol>
-        <StyledCol span="4">Col 4</StyledCol>
-      </StyledRow>
-    </div>
-  ));
+export default {
+  title: 'Grid|Row',
+
+  parameters: {
+    component: Row,
+    jest: ['Row']
+  }
+};
+
+export const row = () => (
+  <div style={{ width: '100vw' }}>
+    <StyledRow>
+      <StyledCol span="4">Col 4</StyledCol>
+      <StyledCol span="4">Col 4</StyledCol>
+      <StyledCol span="4">Col 4</StyledCol>
+    </StyledRow>
+  </div>
+);
+
+row.story = {
+  name: 'Row'
+};

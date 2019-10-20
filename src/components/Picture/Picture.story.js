@@ -14,11 +14,20 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import Picture from './Picture';
 
-storiesOf('Components|Picture', module)
-  .addParameters({ component: Picture })
-  .addParameters({ jest: ['ResponsiveImage'] })
-  .add('Default Picture', () => <Picture />);
+export default {
+  title: 'Components|Picture',
+
+  parameters: {
+    component: Picture,
+    jest: ['ResponsiveImage']
+  }
+};
+
+export const picture = () => <Picture />;
+
+picture.story = {
+  name: 'Picture'
+};

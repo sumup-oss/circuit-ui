@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -32,22 +31,32 @@ const Container = styled('div')(
   `
 );
 
-storiesOf('Components|Spinner', module)
-  .addParameters({ component: Spinner })
-  .addParameters({ jest: ['Spinner'] })
-  .add('Spinner', () => (
-    <Container>
-      <Spinner
-        dark={boolean('Show dark variant', false)}
-        size={select(
-          'Size',
-          {
-            [Spinner.MEGA]: 'Mega',
-            [Spinner.KILO]: 'Kilo',
-            [Spinner.GIGA]: 'Giga'
-          },
-          Spinner.GIGA
-        )}
-      />
-    </Container>
-  ));
+export default {
+  title: 'Components|Spinner',
+
+  parameters: {
+    component: Spinner,
+    jest: ['Spinner']
+  }
+};
+
+export const spinner = () => (
+  <Container>
+    <Spinner
+      dark={boolean('Show dark variant', false)}
+      size={select(
+        'Size',
+        {
+          [Spinner.MEGA]: 'Mega',
+          [Spinner.KILO]: 'Kilo',
+          [Spinner.GIGA]: 'Giga'
+        },
+        Spinner.GIGA
+      )}
+    />
+  </Container>
+);
+
+spinner.story = {
+  name: 'Spinner'
+};

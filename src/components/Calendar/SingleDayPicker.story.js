@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withStateHandlers } from 'recompose';
 
 import { SingleDayPicker } from '.';
@@ -38,6 +37,16 @@ const CalendarStoryPicker = enhance(
   )
 );
 
-storiesOf('Components|Calendar', module)
-  .addParameters({ jest: ['Calendar'] })
-  .add('SingleDayPicker', () => <CalendarStoryPicker />);
+export default {
+  title: 'Components|Calendar',
+
+  parameters: {
+    jest: ['Calendar']
+  }
+};
+
+export const singleDayPicker = () => <CalendarStoryPicker />;
+
+singleDayPicker.story = {
+  name: 'SingleDayPicker'
+};

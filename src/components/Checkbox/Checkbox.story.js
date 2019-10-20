@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
 import { withState } from 'recompose';
@@ -22,90 +21,115 @@ import { withState } from 'recompose';
 import State from '../State';
 import Checkbox from './Checkbox';
 
-storiesOf('Forms|Checkbox', module)
-  .addParameters({ component: Checkbox })
-  .addParameters({ jest: ['Checkbox'] })
-  .add('Default Checkbox', () => (
-    <State
-      initial={false}
-      name="isChecked"
-      updaterName="onChange"
-      updater={isChecked => !isChecked}
-    >
-      {({ isChecked, onChange }) => (
-        <Checkbox
-          value={isChecked}
-          name="checkbox"
-          onChange={e => {
-            action('Checkbox clicked')(e);
-            onChange(e);
-          }}
-          checked={isChecked}
-        >
-          {isChecked ? 'Checked' : 'Unchecked'}
-        </Checkbox>
-      )}
-    </State>
-  ))
-  .add('Invalid Checkbox', () => (
-    <State
-      initial={false}
-      name="isChecked"
-      updaterName="onChange"
-      updater={isChecked => !isChecked}
-    >
-      {({ isChecked, onChange }) => (
-        <Checkbox
-          value="true"
-          name="checkbox"
-          onChange={e => {
-            action('Checkbox clicked')(e);
-            onChange(e);
-          }}
-          checked={isChecked}
-          validationHint={text('Validation hint', 'This field is required.')}
-          invalid={!isChecked}
-        >
-          {text('Label', 'Error')}
-        </Checkbox>
-      )}
-    </State>
-  ))
-  .add('Disabled Checkbox', () => (
-    <Checkbox value="checkbox" name="checkbox" disabled>
-      {text('Label', 'Disabled')}
-    </Checkbox>
-  ))
-  .add('Multiple Checkboxes', () => {
-    const initialValues = { apples: false, bananas: false, oranges: false };
-    const withCheckboxes = withState('values', 'onChange', initialValues);
-    const MultipleCheckboxes = withCheckboxes(({ values, onChange }) => (
-      <div>
-        <Checkbox
-          value="apples"
-          name="checkbox"
-          onChange={() => onChange({ ...values, apples: !values.apples })}
-          checked={values.apples}
-        >
-          Apples
-        </Checkbox>
-        <Checkbox
-          value="bananas"
-          name="checkbox"
-          onChange={() => onChange({ ...values, bananas: !values.bananas })}
-          checked={values.bananas}
-        >
-          Bananas
-        </Checkbox>
-        <Checkbox
-          value="oranges"
-          name="checkbox"
-          onChange={() => onChange({ ...values, oranges: !values.oranges })}
-          checked={values.oranges}
-        >
-          Oranges
-        </Checkbox>
-      </div>
-    ));
-    return <MultipleCheckboxes />;
-  });
+export default {
+  title: 'Forms|Checkbox',
+
+  parameters: {
+    component: Checkbox,
+    jest: ['Checkbox']
+  }
+};
+
+export const checkbox = () => (
+  <State
+    initial={false}
+    name="isChecked"
+    updaterName="onChange"
+    updater={isChecked => !isChecked}
+  >
+    {({ isChecked, onChange }) => (
+      <Checkbox
+        value={isChecked}
+        name="checkbox"
+        onChange={e => {
+          action('Checkbox clicked')(e);
+          onChange(e);
+        }}
+        checked={isChecked}
+      >
+        {isChecked ? 'Checked' : 'Unchecked'}
+      </Checkbox>
+    )}
+  </State>
+);
+
+checkbox.story = {
+  name: 'Checkbox'
+};
+
+export const invalidCheckbox = () => (
+  <State
+    initial={false}
+    name="isChecked"
+    updaterName="onChange"
+    updater={isChecked => !isChecked}
+  >
+    {({ isChecked, onChange }) => (
+      <Checkbox
+        value="true"
+        name="checkbox"
+        onChange={e => {
+          action('Checkbox clicked')(e);
+          onChange(e);
+        }}
+        checked={isChecked}
+        validationHint={text('Validation hint', 'This field is required.')}
+        invalid={!isChecked}
+      >
+        {text('Label', 'Error')}
+      </Checkbox>
+    )}
+  </State>
+);
+
+invalidCheckbox.story = {
+  name: 'Invalid Checkbox'
+};
+
+export const disabledCheckbox = () => (
+  <Checkbox value="checkbox" name="checkbox" disabled>
+    {text('Label', 'Disabled')}
+  </Checkbox>
+);
+
+disabledCheckbox.story = {
+  name: 'Disabled Checkbox'
+};
+
+export const multipleCheckboxes = () => {
+  const initialValues = { apples: false, bananas: false, oranges: false };
+  const withCheckboxes = withState('values', 'onChange', initialValues);
+  const MultipleCheckboxes = withCheckboxes(({ values, onChange }) => (
+    <div>
+      <Checkbox
+        value="apples"
+        name="checkbox"
+        onChange={() => onChange({ ...values, apples: !values.apples })}
+        checked={values.apples}
+      >
+        Apples
+      </Checkbox>
+      <Checkbox
+        value="bananas"
+        name="checkbox"
+        onChange={() => onChange({ ...values, bananas: !values.bananas })}
+        checked={values.bananas}
+      >
+        Bananas
+      </Checkbox>
+      <Checkbox
+        value="oranges"
+        name="checkbox"
+        onChange={() => onChange({ ...values, oranges: !values.oranges })}
+        checked={values.oranges}
+      >
+        Oranges
+      </Checkbox>
+    </div>
+  ));
+  return <MultipleCheckboxes />;
+};
+
+multipleCheckboxes.story = {
+  name: 'Multiple Checkboxes'
+};

@@ -14,7 +14,6 @@
  */
 
 import React, { Fragment } from 'react';
-import { storiesOf } from '@storybook/react';
 import { select } from '@storybook/addon-knobs/react';
 import { values } from 'lodash/fp';
 
@@ -22,16 +21,31 @@ import { colorNames } from '../../styles/constants';
 
 import Badge from './Badge';
 
-storiesOf('Components|Badge', module)
-  .addParameters({ component: Badge })
-  .addParameters({ jest: ['Badge'] })
-  .add('Default Badge', () => (
-    <Badge color={select('Color', values(colorNames))}>Update</Badge>
-  ))
-  .add('Circular Badge', () => (
-    <Fragment>
-      <Badge circle>1</Badge>
-      <Badge circle>12</Badge>
-      <Badge circle>88</Badge>
-    </Fragment>
-  ));
+export default {
+  title: 'Components|Badge',
+
+  parameters: {
+    component: Badge,
+    jest: ['Badge']
+  }
+};
+
+export const badge = () => (
+  <Badge color={select('Color', values(colorNames))}>Update</Badge>
+);
+
+badge.story = {
+  name: 'Badge'
+};
+
+export const circularBadge = () => (
+  <Fragment>
+    <Badge circle>1</Badge>
+    <Badge circle>12</Badge>
+    <Badge circle>88</Badge>
+  </Fragment>
+);
+
+circularBadge.story = {
+  name: 'Circular Badge'
+};

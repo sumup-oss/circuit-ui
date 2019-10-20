@@ -14,13 +14,22 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import CurrencyInput from './CurrencyInput';
 
-storiesOf('Forms|CurrencyInput', module)
-  .addParameters({ component: CurrencyInput })
-  .addParameters({ jest: ['CurrencyInput'] })
-  .add('Default CurrencyInput', () => (
-    <CurrencyInput placeholder="123.45" locale="de-DE" currency="USD" />
-  ));
+export default {
+  title: 'Forms|CurrencyInput',
+
+  parameters: {
+    component: CurrencyInput,
+    jest: ['CurrencyInput']
+  }
+};
+
+export const currencyInput = () => (
+  <CurrencyInput placeholder="123.45" locale="de-DE" currency="USD" />
+);
+
+currencyInput.story = {
+  name: 'CurrencyInput'
+};

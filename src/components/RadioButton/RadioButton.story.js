@@ -14,62 +14,81 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import State from '../State';
 import RadioButton from './RadioButton';
 
-storiesOf('Forms|RadioButton', module)
-  .addParameters({ component: RadioButton })
-  .addParameters({ jest: ['RadioButton'] })
-  .add('Default RadioButton', () => (
-    <State
-      initial={false}
-      name="isChecked"
-      updaterName="onChange"
-      updater={isChecked => !isChecked}
-    >
-      {({ isChecked, onChange }) => (
-        <RadioButton
-          value="radio"
-          name="radio"
-          onChange={e => {
-            action('Radio clicked')(e);
-            onChange(e);
-          }}
-          checked={isChecked}
-        >
-          {isChecked ? 'Checked' : 'Unchecked'}
-        </RadioButton>
-      )}
-    </State>
-  ))
-  .add('Invalid RadioButton', () => (
-    <State
-      initial={false}
-      name="isChecked"
-      updaterName="onChange"
-      updater={isChecked => !isChecked}
-    >
-      {({ isChecked, onChange }) => (
-        <RadioButton
-          value="radio"
-          name="radio"
-          onChange={e => {
-            action('Radio clicked')(e);
-            onChange(e);
-          }}
-          checked={isChecked}
-          invalid
-        >
-          Error
-        </RadioButton>
-      )}
-    </State>
-  ))
-  .add('Disabled RadioButton', () => (
-    <RadioButton value="radio" name="radio" disabled>
-      Disabled
-    </RadioButton>
-  ));
+export default {
+  title: 'Forms|RadioButton',
+
+  parameters: {
+    component: RadioButton,
+    jest: ['RadioButton']
+  }
+};
+
+export const radioButton = () => (
+  <State
+    initial={false}
+    name="isChecked"
+    updaterName="onChange"
+    updater={isChecked => !isChecked}
+  >
+    {({ isChecked, onChange }) => (
+      <RadioButton
+        value="radio"
+        name="radio"
+        onChange={e => {
+          action('Radio clicked')(e);
+          onChange(e);
+        }}
+        checked={isChecked}
+      >
+        {isChecked ? 'Checked' : 'Unchecked'}
+      </RadioButton>
+    )}
+  </State>
+);
+
+radioButton.story = {
+  name: 'RadioButton'
+};
+
+export const invalidRadioButton = () => (
+  <State
+    initial={false}
+    name="isChecked"
+    updaterName="onChange"
+    updater={isChecked => !isChecked}
+  >
+    {({ isChecked, onChange }) => (
+      <RadioButton
+        value="radio"
+        name="radio"
+        onChange={e => {
+          action('Radio clicked')(e);
+          onChange(e);
+        }}
+        checked={isChecked}
+        invalid
+      >
+        Error
+      </RadioButton>
+    )}
+  </State>
+);
+
+invalidRadioButton.story = {
+  name: 'Invalid RadioButton'
+};
+
+export const disabledRadioButton = () => (
+  <RadioButton value="radio" name="radio" disabled>
+    Disabled
+  </RadioButton>
+);
+
+disabledRadioButton.story = {
+  name: 'Disabled RadioButton'
+};

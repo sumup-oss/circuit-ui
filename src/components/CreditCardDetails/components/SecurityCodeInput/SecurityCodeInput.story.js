@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import SecurityCodeInput from '.';
@@ -22,15 +21,33 @@ import { schemes } from '../..';
 
 const { SCHEMES } = schemes;
 
-storiesOf('Forms|CreditCardDetails/SecurityCodeInput', module)
-  .addParameters({
-    component: SecurityCodeInput
-  })
-  .addParameters({ jest: ['SecurityCodeInput'] })
-  .add('Default SecurityCodeInput', () => <SecurityCodeInput />)
-  .add('AMEX SecurityCodeInput', () => (
-    <SecurityCodeInput cardScheme={SCHEMES.AMEX} />
-  ))
-  .add('SecurityCodeInput with modal toggle', () => (
-    <SecurityCodeInput onShowInfo={action('Security modal toggled')} />
-  ));
+export default {
+  title: 'Forms|CreditCardDetails/SecurityCodeInput',
+
+  parameters: {
+    component: SecurityCodeInput,
+    jest: ['SecurityCodeInput']
+  }
+};
+
+export const securityCodeInput = () => <SecurityCodeInput />;
+
+securityCodeInput.story = {
+  name: 'SecurityCodeInput'
+};
+
+export const amexSecurityCodeInput = () => (
+  <SecurityCodeInput cardScheme={SCHEMES.AMEX} />
+);
+
+amexSecurityCodeInput.story = {
+  name: 'AMEX SecurityCodeInput'
+};
+
+export const securityCodeInputWithModalToggle = () => (
+  <SecurityCodeInput onShowInfo={action('Security modal toggled')} />
+);
+
+securityCodeInputWithModalToggle.story = {
+  name: 'SecurityCodeInput with modal toggle'
+};

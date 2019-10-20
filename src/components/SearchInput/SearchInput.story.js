@@ -14,12 +14,26 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
 import SearchInput from '.';
 
-storiesOf('Forms|SearchInput', module)
-  .addParameters({ component: SearchInput })
-  .addParameters({ jest: ['SearchInput'] })
-  .add('Default SearchInput', () => <SearchInput />)
-  .add('Disabled SearchInput', () => <SearchInput disabled />);
+export default {
+  title: 'Forms|SearchInput',
+
+  parameters: {
+    component: SearchInput,
+    jest: ['SearchInput']
+  }
+};
+
+export const searchInput = () => <SearchInput />;
+
+searchInput.story = {
+  name: 'SearchInput'
+};
+
+export const disabledSearchInput = () => <SearchInput disabled />;
+
+disabledSearchInput.story = {
+  name: 'Disabled SearchInput'
+};

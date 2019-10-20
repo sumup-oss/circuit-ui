@@ -14,16 +14,25 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import CalendarTagTwoStep from './CalendarTagTwoStep';
 
-storiesOf('Components|Calendar/CalendarTagTwoStep', module)
-  .addParameters({ component: CalendarTagTwoStep })
-  .addParameters({ jest: ['CalendarTagTwoStep'] })
-  .add('Default CalendarTagTwoStep', () => (
-    <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>
-      <CalendarTagTwoStep onDatesRangeChange={action('onDatesRangeChange')} />
-    </div>
-  ));
+export default {
+  title: 'Components|Calendar/CalendarTagTwoStep',
+
+  parameters: {
+    component: CalendarTagTwoStep,
+    jest: ['CalendarTagTwoStep']
+  }
+};
+
+export const calendarTagTwoStep = () => (
+  <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>
+    <CalendarTagTwoStep onDatesRangeChange={action('onDatesRangeChange')} />
+  </div>
+);
+
+calendarTagTwoStep.story = {
+  name: 'CalendarTagTwoStep'
+};

@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
@@ -33,16 +32,26 @@ const Icon = () => (
   </svg>
 );
 
-storiesOf('Components|Tag', module)
-  .addParameters({ component: Tag })
-  .addParameters({ jest: ['Tag'] })
-  .add('Default Tag', () => (
-    <Tag
-      selected={boolean('Selected', false)}
-      onRemove={boolean('Removable', false) ? action('Tag removed') : null}
-      icon={boolean('With Icon', false) ? <Icon /> : null}
-      onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
-    >
-      Transactions
-    </Tag>
-  ));
+export default {
+  title: 'Components|Tag',
+
+  parameters: {
+    component: Tag,
+    jest: ['Tag']
+  }
+};
+
+export const tag = () => (
+  <Tag
+    selected={boolean('Selected', false)}
+    onRemove={boolean('Removable', false) ? action('Tag removed') : null}
+    icon={boolean('With Icon', false) ? <Icon /> : null}
+    onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
+  >
+    Transactions
+  </Tag>
+);
+
+tag.story = {
+  name: 'Tag'
+};

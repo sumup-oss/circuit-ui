@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { withStateHandlers } from 'recompose';
 
 import { RangePicker } from '.';
@@ -42,6 +41,16 @@ const CalendarStoryPicker = enhance(
   )
 );
 
-storiesOf('Components|Calendar', module)
-  .addParameters({ jest: ['Calendar'] })
-  .add('RangePicker', () => <CalendarStoryPicker />);
+export default {
+  title: 'Components|Calendar/RangePicker',
+
+  parameters: {
+    jest: ['Calendar']
+  }
+};
+
+export const rangePicker = () => <CalendarStoryPicker />;
+
+rangePicker.story = {
+  name: 'RangePicker'
+};

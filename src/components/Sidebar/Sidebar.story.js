@@ -15,7 +15,6 @@
 
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
 import { boolean } from '@storybook/addon-knobs/react';
 
 import Sidebar from '.';
@@ -98,7 +97,17 @@ class Container extends Component {
   }
 }
 
-storiesOf('Components|Sidebar', module)
-  .addParameters({ component: Sidebar })
-  .addParameters({ jest: ['Sidebar'] })
-  .add('Sidebar', () => <Container />);
+export default {
+  title: 'Components|Sidebar',
+
+  parameters: {
+    component: Sidebar,
+    jest: ['Sidebar']
+  }
+};
+
+export const sidebar = () => <Container />;
+
+sidebar.story = {
+  name: 'Sidebar'
+};
