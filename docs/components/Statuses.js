@@ -16,9 +16,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
+import { css } from '@emotion/core';
 
+import BaseStyles from '../../src/components/BaseStyles';
 import Badge from '../../src/components/Badge';
 import { circuit } from '../../src/themes';
+
+import MDXStyles from './MDXStyles';
 
 const variants = {
   stable: { color: Badge.SUCCESS, label: 'Stable' },
@@ -32,7 +36,16 @@ const Status = ({ variant = 'stable' }) => {
 
   return (
     <ThemeProvider theme={circuit}>
-      <Badge color={color}>{label}</Badge>
+      <BaseStyles />
+      <MDXStyles />
+      <Badge
+        color={color}
+        css={theme => css`
+          margin-bottom: ${theme.spacings.mega};
+        `}
+      >
+        {label}
+      </Badge>
     </ThemeProvider>
   );
 };
