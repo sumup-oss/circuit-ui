@@ -18,7 +18,7 @@ module.exports = {
   coverageDirectory: './__coverage__',
   rootDir: '.',
   roots: ['src', 'scripts'],
-  moduleFileExtensions: ['js', 'jsx'],
+  moduleFileExtensions: ['js', 'jsx', 'json'],
   collectCoverageFrom: [
     'src/@(components|util|styles)/**/*.{js,jsx}',
     '!src/@(components|util|styles)/**/index.{js,jsx}',
@@ -29,7 +29,8 @@ module.exports = {
   moduleDirectories: ['node_modules', 'src'],
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '^.+\\.svg$': '<rootDir>/jest.fileTransformer.js'
+    '^.+\\.svg$': '<rootDir>/jest.fileTransformer.js',
+    '^.+\\.mdx$': '<rootDir>/jest.mdxTransformer.js'
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
 };
