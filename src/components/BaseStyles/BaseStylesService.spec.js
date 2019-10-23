@@ -19,7 +19,7 @@ import { createBaseStyles } from './BaseStylesService';
 describe('BaseStylesService', () => {
   it('should return the global base styles', () => {
     const actual = createBaseStyles(circuit);
-    expect(actual).toMatchSnapshot();
+    expect(actual.styles).toMatchSnapshot();
   });
 
   /**
@@ -32,6 +32,6 @@ describe('BaseStylesService', () => {
       }
     `;
     const actual = createBaseStyles(circuit, custom);
-    expect(actual).toMatchSnapshot();
+    expect(actual.styles).toMatchSnapshot();
   });
 });

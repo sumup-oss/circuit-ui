@@ -35,10 +35,8 @@ const withStoryStyles = storyFn => {
 
 const withThemeProvider = storyFn => (
   <ThemeProvider theme={circuit}>
-    <div>
-      <BaseStyles />
-      {storyFn()}
-    </div>
+    <BaseStyles />
+    {storyFn()}
   </ThemeProvider>
 );
 
