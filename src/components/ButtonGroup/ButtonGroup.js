@@ -21,8 +21,6 @@ import { css } from '@emotion/core';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { directions } from '../../styles/constants';
 
-const ALIGMENT_TYPES = [directions.LEFT, directions.CENTER, directions.RIGHT];
-
 const getInlineStyles = theme => css`
   display: flex;
   flex-wrap: nowrap;
@@ -109,7 +107,11 @@ ButtonGroup.propTypes = {
   /**
    * Direction to align the content. Either left/right
    */
-  align: PropTypes.oneOf(ALIGMENT_TYPES),
+  align: PropTypes.oneOf([
+    ButtonGroup.LEFT,
+    ButtonGroup.CENTER,
+    ButtonGroup.RIGHT
+  ]),
   /**
    * Whether to display buttons inline on mobile.
    */

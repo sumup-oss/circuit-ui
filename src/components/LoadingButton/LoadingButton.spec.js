@@ -16,7 +16,7 @@
 import React from 'react';
 
 import LoadingButton from './LoadingButton';
-import { LOADING_STATES } from './constants';
+import { DISABLED, ACTIVE, SUCCESS, ERROR } from './constants';
 
 describe('LoadingButton', () => {
   describe('Style tests', () => {
@@ -46,26 +46,26 @@ describe('LoadingButton', () => {
   describe('getDerivedStateFromProps()', () => {
     it('should update the state to ACTIVE', () => {
       const nextProps = { isLoading: true };
-      const prevState = { loadingState: LOADING_STATES.DISABLED };
+      const prevState = { loadingState: DISABLED };
       const actual = LoadingButton.getDerivedStateFromProps(
         nextProps,
         prevState
       );
-      const expected = { loadingState: LOADING_STATES.ACTIVE };
+      const expected = { loadingState: ACTIVE };
 
       expect(actual).toEqual(expected);
     });
 
     describe('exit animations', () => {
       const nextProps = { isLoading: false };
-      const prevState = { loadingState: LOADING_STATES.ACTIVE };
+      const prevState = { loadingState: ACTIVE };
 
       it('should update the state to DISABLED when there is no exit animation', () => {
         const actual = LoadingButton.getDerivedStateFromProps(
           nextProps,
           prevState
         );
-        const expected = { loadingState: LOADING_STATES.DISABLED };
+        const expected = { loadingState: DISABLED };
 
         expect(actual).toEqual(expected);
       });
@@ -75,7 +75,7 @@ describe('LoadingButton', () => {
           { ...nextProps, exitAnimation: LoadingButton.SUCCESS },
           prevState
         );
-        const expected = { loadingState: LOADING_STATES.SUCCESS };
+        const expected = { loadingState: SUCCESS };
 
         expect(actual).toEqual(expected);
       });
@@ -86,7 +86,7 @@ describe('LoadingButton', () => {
 
           prevState
         );
-        const expected = { loadingState: LOADING_STATES.ERROR };
+        const expected = { loadingState: ERROR };
 
         expect(actual).toEqual(expected);
       });
