@@ -1,23 +1,14 @@
----
-name: Badge
-route: /components/badge
-menu: Components
----
-
-import { Playground, Props } from 'docz';
-import { Fragment } from 'react';
-import Badge from '../../../src/components/Badge/Badge';
-import Status from '../../utils/Statuses';
+import { Status, Props, Story } from '../../../docs/components';
+import Badge from './Badge';
+import * as stories from './Badge.story.js';
 
 # Badge
 
 <Status.Stable />
 
-Badges are non-actionable elements in the UI, used to indicate status of an object.
+Badges are non-actionable elements in the UI, used to indicate the status of an object.
 
-<Playground>
-  <Badge>Badge</Badge>
-</Playground>
+<Story id="components-badge--base" />
 
 <Props of={Badge} />
 
@@ -43,22 +34,10 @@ Badges are non-actionable elements in the UI, used to indicate status of an obje
 
 The badges come in a number of colors based on their semantic meaning.
 
-<Playground>
-  <Fragment>
-    <Badge color={Badge.NEUTRAL}>Badge</Badge>
-    <Badge color={Badge.PRIMARY}>Badge</Badge>
-    <Badge color={Badge.SUCCESS}>Badge</Badge>
-    <Badge color={Badge.WARNING}>Badge</Badge>
-    <Badge color={Badge.DANGER}>Badge</Badge>
-  </Fragment>
-</Playground>
+<Story id="components-badge--colors" />
 
 ### Circular badges
 
 Badges that receive the `circle` prop can be used to indicate notifications.
 
-<Playground>
-  <Badge circle color={Badge.DANGER}>
-    5
-  </Badge>
-</Playground>
+<Story id="components-badge--circular" />

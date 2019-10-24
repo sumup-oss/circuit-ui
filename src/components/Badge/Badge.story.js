@@ -14,38 +14,39 @@
  */
 
 import React, { Fragment } from 'react';
-import { select } from '@storybook/addon-knobs/react';
+import { select, boolean } from '@storybook/addon-knobs/react';
 import { values } from 'lodash/fp';
 
+import docs from './Badge.docs.mdx';
 import { colorNames } from '../../styles/constants';
 
 import Badge from './Badge';
 
 export default {
   title: 'Components|Badge',
-
+  component: Badge,
   parameters: {
-    component: Badge,
+    docs: { page: docs },
     jest: ['Badge']
   }
 };
 
-export const badge = () => (
-  <Badge color={select('Color', values(colorNames))}>Update</Badge>
+export const base = () => (
+  <Badge color={select('Color', values(colorNames))}>Badge</Badge>
 );
 
-badge.story = {
-  name: 'Badge'
-};
-
-export const circularBadge = () => (
+export const colors = () => (
   <Fragment>
-    <Badge circle>1</Badge>
-    <Badge circle>12</Badge>
-    <Badge circle>88</Badge>
+    <Badge color={Badge.NEUTRAL}>Neutral</Badge>
+    <Badge color={Badge.PRIMARY}>Primary</Badge>
+    <Badge color={Badge.SUCCESS}>Success</Badge>
+    <Badge color={Badge.WARNING}>Warning</Badge>
+    <Badge color={Badge.DANGER}>Danger</Badge>
   </Fragment>
 );
 
-circularBadge.story = {
-  name: 'Circular Badge'
-};
+export const circular = () => (
+  <Badge color={Badge.PRIMARY} circle={boolean('Circular', true)}>
+    42
+  </Badge>
+);
