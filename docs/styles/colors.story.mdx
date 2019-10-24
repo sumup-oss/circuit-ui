@@ -1,18 +1,14 @@
----
-name: Colors
-route: /styles/colors
-menu: Styles
----
+import { Meta, MDXStyles, Swatch } from '../components';
 
-import Swatch from './components/Swatch';
+<Meta title="Styles|Colors" />
 
-# Default theme
+<MDXStyles />
+
+# Colors
 
 You can refer to a color from the theme using `theme.colors.<COLOR_NAME>`.
 
-## Colors
-
-### Primary colors
+### Primary
 
 <Swatch colorName="p100"/>
 <Swatch colorName="p200"/>
@@ -60,6 +56,15 @@ You can refer to a color from the theme using `theme.colors.<COLOR_NAME>`.
 <Swatch colorName="y700"/>
 <Swatch colorName="y900"/>
 
+### Oranges
+
+<Swatch colorName="o100"/>
+<Swatch colorName="o200"/>
+<Swatch colorName="o300"/>
+<Swatch colorName="o500"/>
+<Swatch colorName="o700"/>
+<Swatch colorName="o900"/>
+
 ### Reds
 
 <Swatch colorName="r100"/>
@@ -77,15 +82,6 @@ You can refer to a color from the theme using `theme.colors.<COLOR_NAME>`.
 <Swatch colorName="v500"/>
 <Swatch colorName="v700"/>
 <Swatch colorName="v900"/>
-
-### Oranges
-
-<Swatch colorName="o100"/>
-<Swatch colorName="o200"/>
-<Swatch colorName="o300"/>
-<Swatch colorName="o500"/>
-<Swatch colorName="o700"/>
-<Swatch colorName="o900"/>
 
 ### Application colors
 
@@ -116,7 +112,7 @@ const Box = styled.div`
 ## Best practices for using color
 
 - Don't refer to hex values in your code (e.g. `#DAEAFF`) but rather use the
-  colors via the theme (e.g. `theme.colors.p100).
+  colors via the theme (e.g. `theme.colors.p100`).
 - When referring to a color that should be treated as _primary_ (such as a
   button or a link), be sure to use the p-family of colors rather than
   the b-family of colors.

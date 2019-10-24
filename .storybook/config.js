@@ -47,6 +47,9 @@ addDecorator(withStoryStyles);
 addDecorator(withThemeProvider);
 
 configure(
-  require.context('../src', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/),
+  [
+    require.context('../src', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/),
+    require.context('../docs', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/)
+  ],
   module
 );

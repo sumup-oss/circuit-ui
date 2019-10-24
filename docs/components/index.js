@@ -23,4 +23,5 @@ export {
 export { default as Status } from './Statuses';
 export { default as Preview } from './Preview';
 export { default as Story } from './Story';
+export { default as Swatch } from './Story';
 export { default as MDXStyles } from './MDXStyles';
