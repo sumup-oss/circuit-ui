@@ -25,6 +25,7 @@ export { default as Status } from './Statuses';
 export { default as Preview } from './Preview';
 export { default as Story } from './Story';
 export { default as Swatch } from './Swatch';
+export { default as Type } from './Type';
 export { default as Spacing } from './Spacing';
 export { default as MediaQueriesTable } from './MediaQueriesTable';
 export { Grid, Row, Col } from './Grid';
