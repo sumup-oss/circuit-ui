@@ -18,9 +18,10 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import { theme as themes } from '../../../../src';
-import { shadowSingle } from '../../../../src/styles/style-helpers';
-import Text from '../../../../src/components/Text';
+
+import { theme as themes } from '../../src';
+import { shadowSingle } from '../../src/styles/style-helpers';
+import Text from '../../src/components/Text';
 
 const SWATCH_HEIGHT = '150px';
 const SWATCH_WIDTH = '135px';
