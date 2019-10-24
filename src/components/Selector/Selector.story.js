@@ -13,37 +13,56 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
+import { boolean } from '@storybook/addon-knobs/react';
 
+import docs from './Selector.docs.mdx';
 import Selector from './Selector';
 
 export default {
-  title: 'Components|Selector',
-
+  title: 'Forms|Selector',
+  component: Selector,
   parameters: {
-    component: Selector,
+    docs: { page: docs },
     jest: ['Selector']
   }
 };
 
-export const selector = () => <Selector>Select me!</Selector>;
+/* eslint-disable react/prop-types */
+const SelectorsWithState = props => {
+  const [selected, setSelected] = useState(0);
 
-selector.story = {
-  name: 'Selector'
+  const handleChange = index => e => {
+    setSelected(index);
+    if (props.onClick) {
+      props.onClick(e);
+    }
+  };
+
+  return (
+    <>
+      <Selector
+        {...props}
+        selected={selected === 0}
+        onClick={handleChange(0)}
+      />
+      <Selector
+        {...props}
+        selected={selected === 1}
+        onClick={handleChange(1)}
+      />
+    </>
+  );
 };
 
-export const disabledSelector = () => (
+export const base = () => (
+  <SelectorsWithState disabled={boolean('Disabled', false)}>
+    Select me!
+  </SelectorsWithState>
+);
+
+export const selected = () => <Selector selected>I am selected!</Selector>;
+
+export const disabled = () => (
   <Selector disabled>I cannot be selected</Selector>
 );
-
-disabledSelector.story = {
-  name: 'Disabled Selector'
-};
-
-export const selectedSelected = () => (
-  <Selector selected>I am selected!</Selector>
-);
-
-selectedSelected.story = {
-  name: 'Selected Selected'
-};
