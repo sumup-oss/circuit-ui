@@ -17,14 +17,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import Text from '../../../../src/components/Text';
-import { theme as themes } from '../../../../src';
+import { ThemeProvider } from 'emotion-theming';
+import Text from '../../src/components/Text';
+import { theme as themes } from '../../src';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
     width: ${theme.spacings.tera};
     height: ${theme.spacings.tera};
-    border-radius: ${theme.borderRadius[size]};
+    border-radius: ${theme.borderRadius.mega};
+    border: ${theme.borderWidth[size]} solid ${theme.colors.r500};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};
   `};
@@ -38,37 +40,39 @@ const Wrapper = styled('div')`
   `};
 `;
 
-const BorderRadiusSize = styled('span')`
+const BorderWidthSize = styled('span')`
   ${({ theme }) => css`
     color: ${theme.colors.n500};
   `};
 `;
 
-const BorderRadiusName = styled(Text)`
+const BorderWidthName = styled(Text)`
   ${({ theme }) => css`
     margin-left: ${theme.spacings.kilo};
     color: ${theme.colors.n500};
   `};
 `;
 
-const BorderRadius = ({ size }) => (
-  <Wrapper>
-    <Box size={size} />
-    <div>
-      <Text as="span">{size}</Text>
-      <BorderRadiusSize>
-        <BorderRadiusName size={Text.KILO} as="span">
-          {themes.circuit.borderRadius[size]}
-        </BorderRadiusName>
-      </BorderRadiusSize>
-    </div>
-  </Wrapper>
+const BorderWidth = ({ size }) => (
+  <ThemeProvider theme={themes.circuit}>
+    <Wrapper>
+      <Box size={size} />
+      <div>
+        <Text as="span">{size}</Text>
+        <BorderWidthSize>
+          <BorderWidthName size={Text.KILO} as="span">
+            {themes.circuit.borderWidth[size]}
+          </BorderWidthName>
+        </BorderWidthSize>
+      </div>
+    </Wrapper>
+  </ThemeProvider>
 );
 
-BorderRadius.propTypes = {
+BorderWidth.propTypes = {
   // eslint-disable-next-line
   theme: PropTypes.object.isRequired,
   size: PropTypes.string.isRequired
 };
 
-export default BorderRadius;
+export default BorderWidth;
