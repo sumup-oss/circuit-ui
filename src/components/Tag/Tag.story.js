@@ -17,6 +17,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
+import docs from './Tag.docs.mdx';
 import Tag from './Tag';
 
 const Icon = () => (
@@ -34,14 +35,14 @@ const Icon = () => (
 
 export default {
   title: 'Components|Tag',
-
+  component: Tag,
   parameters: {
-    component: Tag,
+    docs: { page: docs },
     jest: ['Tag']
   }
 };
 
-export const tag = () => (
+export const base = () => (
   <Tag
     selected={boolean('Selected', false)}
     onRemove={boolean('Removable', false) ? action('Tag removed') : null}
@@ -52,6 +53,16 @@ export const tag = () => (
   </Tag>
 );
 
-tag.story = {
-  name: 'Tag'
-};
+export const selected = () => <Tag selected>Transactions</Tag>;
+
+export const withIcon = () => <Tag icon={<Icon />}>Transactions</Tag>;
+
+export const removable = () => (
+  <Tag onRemove={action('Tag removed')} labelRemoveButton="Remove">
+    Transactions
+  </Tag>
+);
+
+export const clickable = () => (
+  <Tag onClick={action('Tag clicked')}>Transactions</Tag>
+);
