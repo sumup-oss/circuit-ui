@@ -28,8 +28,8 @@
     "build:storybook": "build-storybook -c .storybook -o dist -s .storybook/public",
     "build:stylesheets": "yarn static-styles --global --filePath=./dist/static/circuit-ui-v1.css",
     "build:js": "yarn clean:js && yarn build:js:cjs && yarn build:js:es",
-    "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js",
-    "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js",
+    "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js,*.docs.mdx",
+    "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js,*.docs.mdx",
     "clean:js": "rimraf lib",
     "predeploy": "rm -rf ./dist && mkdir dist && yarn build && cp ./src/CNAME ./dist/CNAME",
     "deploy": "gh-pages -d dist",
@@ -59,6 +59,7 @@
   },
   "homepage": "https://github.com/sumup/circuit-ui#readme",
   "devDependencies": {
+    "@babel/cli": "^7.6.4",
     "@babel/core": "^7.4.0",
     "@babel/node": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
