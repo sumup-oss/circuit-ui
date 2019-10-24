@@ -1,18 +1,19 @@
----
-name: Home
-route: /
----
+import { Meta, MDXStyles } from '../components';
 
-import Button from '../../src/components/Button/Button';
+<Meta title="Getting Started|Welcome" />
+
+<MDXStyles />
+
+<img
+  alt="Logo of SumUp's Circuit UI design system"
+  src="/images/logo-header.png"
+  style={{ margin: '0 auto 36px', display: 'block', width: '100%' }}
+/>
 
 # Circuit UI
 
 Resources, tooling, and design guidelines for building websites with Circuit
 UI, the web incarnation of the SumUp Circuit Design System.
-
-<Button primary href="/storybook" target="_blank">
-  Open storybook
-</Button>
 
 ## Introduction
 
@@ -32,10 +33,3 @@ Here are a few helpful links for getting started with Circuit UI:
 - [Styles](/styles) - Learn about our foundations such as colors, spacing, and typography.
 - [Guidelines](/guidelines) - Use the design system in a compliant way.
 - [Components](/components) - Explore the available UI components.
-
-## Contributing
-
-<img
-  src="/storybook/images/logo-header.png"
-  style={{ margin: '0 auto', display: 'block' }}
-/>
