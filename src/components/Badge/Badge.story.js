@@ -17,9 +17,9 @@ import React, { Fragment } from 'react';
 import { select, boolean } from '@storybook/addon-knobs/react';
 import { values } from 'lodash/fp';
 
-import docs from './Badge.docs.mdx';
 import { colorNames } from '../../styles/constants';
 
+import docs from './Badge.docs.mdx';
 import Badge from './Badge';
 
 export default {

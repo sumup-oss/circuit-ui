@@ -2,6 +2,8 @@
 
 exports[`Hr should render with default styles 1`] = `
 .circuit-0 {
+  display: block;
+  width: 100%;
   border: 1px solid #D8DDE1;
   margin-top: 16px;
   margin-bottom: 16px;

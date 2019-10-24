@@ -1,14 +1,5 @@
----
-name: HR
-route: /components/hr
-menu: Components
----
-
-import { Playground, Props } from 'docz';
-import { Fragment } from 'react';
+import { Status, Props, Story } from '../../../docs/components';
 import Hr from '../../../src/components/Hr/Hr';
-import Text from '../../../src/components/Text';
-import Status from '../../utils/Statuses';
 
 # HR
 
@@ -16,9 +7,7 @@ import Status from '../../utils/Statuses';
 
 HR provides a visual line that separates content into sections
 
-<Playground>
-  <Hr />
-</Playground>
+<Story id="components-hr--base" />
 
 <Props of={Hr} />
 
