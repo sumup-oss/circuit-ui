@@ -14,6 +14,7 @@
  */
 
 export {
+  Meta,
   Props,
   IconGallery,
   IconItem,
@@ -23,5 +24,7 @@ export {
 export { default as Status } from './Statuses';
 export { default as Preview } from './Preview';
 export { default as Story } from './Story';
-export { default as Swatch } from './Story';
+export { default as Swatch } from './Swatch';
+export { default as Spacing } from './Spacing';
+export { Grid, Row, Col } from './Grid';
 export { default as MDXStyles } from './MDXStyles';

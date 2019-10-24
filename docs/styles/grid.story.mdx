@@ -1,12 +1,8 @@
----
-name: Grid
-route: /styles/grid
-menu: Styles
----
+import { Meta, MDXStyles, Preview, Grid, Row, Col } from '../components';
 
-import { Playground } from 'docz';
+<Meta title="Styles|Grid" />
 
-import { Grid, Col, Row } from './components/Grid';
+<MDXStyles />
 
 # Grid
 
@@ -22,7 +18,7 @@ will need to use a third-party grid for that purpose.
 Sometimes you need the same type of grid behavior on all viewports. For that
 scenario, you can use the normal `span` attribute of the grid.
 
-<Playground>
+<Preview>
   <Grid>
     <Row>
       <Col span="2">Col 2</Col>
@@ -38,20 +34,20 @@ scenario, you can use the normal `span` attribute of the grid.
       <Col span="4">Col 4</Col>
     </Row>
   </Grid>
-</Playground>
+</Preview>
 
 ## Responsive columns
 
 You can use the following [breakpoints](/styles/media-queries) to define the
 responsive behavior of your grid:
 
-- untilKilo
-- kilo
-- mega
-- giga
-- tera
+- `untilKilo`
+- `kilo`
+- `mega`
+- `giga`
+- `tera`
 
-<Playground>
+<Preview>
   <Grid>
     <Row>
       <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col>
@@ -60,7 +56,7 @@ responsive behavior of your grid:
       <Col span={{ default: 12, mega: 3, kilo: 6 }}>Col 2</Col>
     </Row>
   </Grid>
-</Playground>
+</Preview>
 
 Default refers to the smallest viewpoint.
 
@@ -69,7 +65,7 @@ Default refers to the smallest viewpoint.
 Sometimes you want to skip a column. For that, you can use the `skip` prop on
 the `Col` component.
 
-<Playground>
+<Preview>
   <Grid>
     <Row>
       <Col span="4">Col 4</Col>
@@ -78,11 +74,11 @@ the `Col` component.
       </Col>
     </Row>
   </Grid>
-</Playground>
+</Preview>
 
 ## Responsive skipping
 
-<Playground>
+<Preview>
   <Grid>
     <Row>
       <Col span="3">Col 3</Col>
@@ -92,4 +88,4 @@ the `Col` component.
       </Col>
     </Row>
   </Grid>
-</Playground>
+</Preview>
