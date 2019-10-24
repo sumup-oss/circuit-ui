@@ -9,35 +9,7 @@ import { circuit } from '../src/themes';
 import BaseStyles from '../src/components/BaseStyles';
 import withTests from './withTests';
 import storybookTheme from './theme';
-
-const sortOrder = [
-  'Getting Started',
-  'Styles',
-  'Icons',
-  'Typography',
-  'Forms',
-  'Layout',
-  'Grid',
-  'Components'
-];
-
-function getCategory(kind) {
-  return kind.match(/([\w\s]+)\|/)[1];
-}
-
-function storySort(a, b) {
-  const aKind = a[1].kind;
-  const bKind = b[1].kind;
-
-  if (aKind === bKind) {
-    return 0;
-  }
-
-  const aCategory = getCategory(aKind);
-  const bCategory = getCategory(bKind);
-
-  return sortOrder.indexOf(aCategory) > sortOrder.indexOf(bCategory);
-}
+import storySort from './sort';
 
 addParameters({
   options: {
