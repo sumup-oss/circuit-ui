@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 
 import BaseStyles from '../../src/components/BaseStyles';
 import Badge from '../../src/components/Badge';
-import { circuit } from '../../src/themes';
+import { theme as themes } from '../../src';
 
 import MDXStyles from './MDXStyles';
 
@@ -35,7 +35,7 @@ const Status = ({ variant = 'stable' }) => {
   const { color, label } = variants[variant];
 
   return (
-    <ThemeProvider theme={circuit}>
+    <ThemeProvider theme={themes.circuit}>
       <BaseStyles />
       <MDXStyles />
       <Badge

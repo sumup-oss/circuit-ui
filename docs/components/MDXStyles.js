@@ -74,6 +74,7 @@ export const styles = theme => css`
       background: ${theme.colors.n200};
       border-radius: ${theme.borderRadius.mega};
       padding: ${theme.spacings.bit} ${theme.spacings.byte};
+      margin-bottom: ${theme.spacings.mega};
     }
 
     > ul,

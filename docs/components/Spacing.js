@@ -18,8 +18,8 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import Text from '../../../../src/components/Text';
-import { theme as themes } from '../../../../src';
+import Text from '../../src/components/Text';
+import { theme as themes } from '../../src';
 
 const Box = styled('div')`
   ${({ theme, spacingName }) => css`
