@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Circuit UI Logo](https://circuit.sumup.com/storybook/images/logo-header.png)](https://circuit.sumup.com)
+[![Circuit UI Logo](https://circuit.sumup.com/images/logo-header.png)](https://circuit.sumup.com)
 
 [Circuit UI](https://circuit.sumup.com) is the web incarnation of the [SumUp](https://sumup.com) Circuit Design System. Our primary goal is to create a system that can be used to build a wide variety of SumUp websites and apps, while providing a consistent user experience to our end users. In addition, the design system and component library should be easy to use for developers and designers.
 
