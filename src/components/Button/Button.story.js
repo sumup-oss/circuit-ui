@@ -13,64 +13,58 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
-import { action } from '@storybook/addon-actions';
 
+import docs from './Button.docs.mdx';
 import Button from './Button';
-
-const containerStyles = {
-  width: '400px',
-  display: 'flex',
-  justifyContent: 'center'
-};
 
 export default {
   title: 'Components|Button',
-
+  component: Button,
   parameters: {
-    component: Button,
+    docs: { page: docs },
     jest: ['Button']
   }
 };
 
-export const button = () => (
-  <div style={containerStyles}>
-    <Button
-      primary={boolean('Primary', false)}
-      disabled={boolean('Disabled', false)}
-      secondary={boolean('Secondary', false)}
-      flat={boolean('Flat', false)}
-      href={boolean('Link', false) ? '#' : undefined}
-      target={boolean('Link', false) ? '_blank' : undefined}
-      stretch={boolean('Stretched', false)}
-      size={select(
-        'Size',
-        [Button.KILO, Button.MEGA, Button.GIGA],
-        Button.KILO
-      )}
-    >
-      {text('Button Label', 'Button')}
-    </Button>
-  </div>
-);
-
-button.story = {
-  name: 'Button'
-};
-
-export const plainButton = () => (
+export const base = () => (
   <Button
-    plain
     primary={boolean('Primary', false)}
-    onClick={action('onClick')}
-    size={select('Size', [Button.KILO, Button.MEGA, Button.GIGA], Button.MEGA)}
-    href={boolean('href', false) ? 'http://www.google.com' : undefined}
+    disabled={boolean('Disabled', false)}
+    secondary={boolean('Secondary', false)}
+    flat={boolean('Flat', false)}
+    href={boolean('Link', false) ? '#' : undefined}
+    target={boolean('Link', false) ? '_blank' : undefined}
+    stretch={boolean('Stretched', false)}
+    size={select('Size', [Button.KILO, Button.MEGA, Button.GIGA], Button.KILO)}
   >
-    Button Link
+    {text('Button Label', 'Button')}
   </Button>
 );
 
-plainButton.story = {
-  name: 'Plain Button'
-};
+export const primary = () => (
+  <Button primary>{text('Button Label', 'Primary Button')}</Button>
+);
+
+export const secondary = () => (
+  <Button secondary>{text('Button Label', 'Secondary Button')}</Button>
+);
+
+export const flat = () => (
+  <Button flat>{text('Button Label', 'Flat Button')}</Button>
+);
+
+export const plain = () => (
+  <Button plain href={boolean('href', false) ? 'http://sumup.com' : null}>
+    {text('Button Label', 'Plain Button')}
+  </Button>
+);
+
+export const size = () => (
+  <Fragment>
+    <Button size={Button.KILO}>Button kilo</Button>
+    <Button size={Button.MEGA}>Button mega</Button>
+    <Button size={Button.GIGA}>Button giga</Button>
+  </Fragment>
+);

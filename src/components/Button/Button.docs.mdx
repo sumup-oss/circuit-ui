@@ -1,17 +1,8 @@
----
-name: Button
-route: /components/button
-menu: Components
----
+import { Status, Props, Story } from '../../../docs/components';
 
-import { Playground, Props } from 'docz';
-
-import { Fragment } from 'react';
-import Button from '../../../src/components/Button';
-import LoadingButtonWithState from './button';
-import ButtonGroup from '../../../src/components/ButtonGroup';
-import LoadingButtonComponent from '../../../src/components/LoadingButton';
-import Status from '../../utils/Statuses';
+import Button from './Button';
+import ButtonGroup from '../ButtonGroup';
+import LoadingButton from '../LoadingButton';
 
 # Button
 
@@ -20,9 +11,7 @@ import Status from '../../utils/Statuses';
 A button allows us to highlight actions in the product and make them easily
 perceived and achievable through just one click.
 
-<Playground>
-  <Button primary>Confirm order</Button>
-</Playground>
+<Story id="components-button--base" />
 
 <Props of={Button} />
 
@@ -53,86 +42,49 @@ Use buttons when merchants need to either navigate through a product or perform 
 Used to highlight the most important action in a certain page. In most cases, there should be only one primary button visible
 at a time.
 
-<Playground>
-  <Button primary>Save changes</Button>
-</Playground>
+<Story id="components-button--primary" />
 
 ### Default button
 
 Used to highlight secondary actions to be takes, specially when there's already a primary action on the page.
 
-<Playground>
-  <Button>Refund transaction</Button>
-</Playground>
+<Story id="components-button--base" />
 
-### Secondary buttons
+### Secondary button
 
 Only use secondary buttons when paired to a primary button, placed in the left side of it. They are used to
 signal opposite actions from the primary button, such as "Cancel order".
 
-<Playground>
-  <Button secondary>Cancel</Button>
-</Playground>
+<Story id="components-button--secondary" />
 
-### Flat buttons
+### Flat button
 
 Used only in the marketing website when you need to position an action over a dark background. It has a
 primary and secondary version.
 
-<Playground>
-  <Fragment>
-    <Button flat primary>
-      Join SumUp
-    </Button>
-  </Fragment>
-</Playground>
+<Story id="components-button--flat" />
 
-### Plain buttons
+### Plain button
 
 Used when you want to highlight an action within a body text. It should always open in the same window unless
 it links to an external source (such as a link to a complete study about card acceptance within a blog post).
 
-<Playground>
-  <Button plain primary href="#">
-    card acceptance study
-  </Button>
-</Playground>
+<Story id="components-button--plain" />
 
-### Sized buttons
+### Button sizes
 
 The button component also supports three different sizes: Mega, the best suitable for most cases; Kilo, used
 when there is sizing constraints in the button position; and Giga, used for extreme cases when there's little
 or no constraint on the button's placement.
 
-<Playground>
-  <Fragment>
-    <Button size={Button.KILO}>View kilo</Button>
-  </Fragment>
-</Playground>
-
-<Playground>
-  <Fragment>
-    <Button size={Button.MEGA}>View mega</Button>
-  </Fragment>
-</Playground>
-
-<Playground>
-  <Fragment>
-    <Button size={Button.GIGA}>View giga</Button>
-  </Fragment>
-</Playground>
+<Story id="components-button--size" />
 
 ## Button group
 
 Used when our merchant has two opposites actions to be taken in a certain step of a flow. It is generally used aligned to the right,
 with a primary button for the expected action and a secondary button on its left.
 
-<Playground>
-  <ButtonGroup>
-    <Button secondary>Cancel</Button>
-    <Button primary>Confirm approval</Button>
-  </ButtonGroup>
-</Playground>
+<Story id="components-button-buttongroup--base" />
 
 <Props of={ButtonGroup} />
 
@@ -144,17 +96,10 @@ When the button's action is inputting/saving information or it takes more than 3
 to the next step/page, you can indicate a loading state with `LoadingButton`, as well as visually notify
 the merchant of success or an error after loading. You should only use it on primary buttons.
 
-<Playground>
-  <ButtonGroup align={ButtonGroup.CENTER}>
-    {/* A live implementation example can be found on Storybook */}
-    <LoadingButtonWithState>Load</LoadingButtonWithState>
-    <LoadingButtonWithState exitAnimation="SUCCESS">
-      Load success
-    </LoadingButtonWithState>
-    <LoadingButtonWithState exitAnimation="ERROR">
-      Load error
-    </LoadingButtonWithState>
-  </ButtonGroup>
-</Playground>
+<Story id="components-button-loadingbutton--success-animation" />
 
-<Props of={LoadingButtonComponent} />
+<Story id="components-button-loadingbutton--error-animation" />
+
+<Story id="components-button-loadingbutton--no-exit-animation" />
+
+<Props of={LoadingButton} />

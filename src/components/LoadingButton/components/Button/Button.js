@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 
 import Button from '../../../Button';
 import LoadingIcon from '../LoadingIcon';
-import { LOADING_STATES } from '../../constants';
+import { DISABLED, ACTIVE, SUCCESS, ERROR } from '../../constants';
 import {
   BUTTON_PROP_TYPES,
   BUTTON_DEFAULT_PROPS
@@ -34,7 +34,7 @@ const childrenWrapperStyles = ({ theme }) => css`
 `;
 
 const childrenWrapperLoadingStyles = ({ loadingState }) =>
-  loadingState !== LOADING_STATES.DISABLED &&
+  loadingState !== DISABLED &&
   css`
     opacity: 0;
     transform: translate(0, 100%);
@@ -72,18 +72,13 @@ const LoadingButton = ({
 
 LoadingButton.propTypes = {
   ...BUTTON_PROP_TYPES,
-  loadingState: PropTypes.oneOf([
-    LOADING_STATES.DISABLED,
-    LOADING_STATES.ACTIVE,
-    LOADING_STATES.SUCCESS,
-    LOADING_STATES.ERROR
-  ]),
+  loadingState: PropTypes.oneOf([DISABLED, ACTIVE, SUCCESS, ERROR]),
   isLoading: PropTypes.bool
 };
 
 LoadingButton.defaultProps = {
   ...BUTTON_DEFAULT_PROPS,
-  loadingState: LOADING_STATES.DISABLED,
+  loadingState: DISABLED,
   isLoading: false
 };
 

@@ -15,9 +15,9 @@
 
 import { isEqual } from 'lodash/fp';
 
-import { LOADING_STATES } from './constants';
+import { ACTIVE, DISABLED, SUCCESS, ERROR } from './constants';
 
-export const isActive = isEqual(LOADING_STATES.ACTIVE);
-export const isDisabled = isEqual(LOADING_STATES.DISABLED);
-export const isSuccess = isEqual(LOADING_STATES.SUCCESS);
-export const isError = isEqual(LOADING_STATES.ERROR);
+export const isActive = isEqual(ACTIVE);
+export const isDisabled = isEqual(DISABLED);
+export const isSuccess = isEqual(SUCCESS);
+export const isError = isEqual(ERROR);

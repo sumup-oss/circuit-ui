@@ -21,29 +21,22 @@ import Button from '../Button';
 
 export default {
   title: 'Components|Button/ButtonGroup',
-
+  component: ButtonGroup,
   parameters: {
-    component: ButtonGroup,
     jest: ['ButtonGroup']
   }
 };
 
-export const buttonGroup = () => (
-  <div style={{ maxWidth: '500px', width: '100vw', border: '1px dotted #000' }}>
-    <ButtonGroup
-      align={select(
-        'Align',
-        [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT],
-        ButtonGroup.RIGHT
-      )}
-      inlineMobile={boolean('Display inline on mobile', false)}
-    >
-      <Button secondary>Cancel</Button>
-      <Button primary>Confirm</Button>
-    </ButtonGroup>
-  </div>
+export const base = () => (
+  <ButtonGroup
+    align={select(
+      'Align',
+      [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT],
+      ButtonGroup.RIGHT
+    )}
+    inlineMobile={boolean('Display inline on mobile', false)}
+  >
+    <Button secondary>Cancel</Button>
+    <Button primary>Confirm</Button>
+  </ButtonGroup>
 );
-
-buttonGroup.story = {
-  name: 'ButtonGroup'
-};

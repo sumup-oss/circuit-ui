@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import { LOADING_STATES } from '../../constants';
+import { DISABLED, ACTIVE, SUCCESS, ERROR } from '../../constants';
 import { sizes } from '../../../../styles/constants';
 import LoadingIcon from '.';
 
@@ -25,49 +25,43 @@ describe('LoadingIcon', () => {
   describe('Style tests', () => {
     it('should have disabled LoadingIcon styles', () => {
       const actual = create(
-        <LoadingIcon loadingState={LOADING_STATES.DISABLED} size={KILO} />
+        <LoadingIcon loadingState={DISABLED} size={KILO} />
       );
       expect(actual).toMatchSnapshot();
     });
 
     it('should have active LoadingIcon styles', () => {
-      const actual = create(
-        <LoadingIcon loadingState={LOADING_STATES.ACTIVE} size={KILO} />
-      );
+      const actual = create(<LoadingIcon loadingState={ACTIVE} size={KILO} />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should have success LoadingIcon styles', () => {
-      const actual = create(
-        <LoadingIcon loadingState={LOADING_STATES.SUCCESS} size={KILO} />
-      );
+      const actual = create(<LoadingIcon loadingState={SUCCESS} size={KILO} />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should have error LoadingIcon styles', () => {
-      const actual = create(
-        <LoadingIcon loadingState={LOADING_STATES.ERROR} size={KILO} />
-      );
+      const actual = create(<LoadingIcon loadingState={ERROR} size={KILO} />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should have kilo LoadingIcon styles', () => {
       const actual = create(
-        <LoadingIcon loadingState={LOADING_STATES.DISABLED} size={KILO} />
+        <LoadingIcon loadingState={DISABLED} size={KILO} />
       );
       expect(actual).toMatchSnapshot();
     });
 
     it('should have mega LoadingIcon styles', () => {
       const actual = create(
-        <LoadingIcon loadingState={LOADING_STATES.DISABLED} size={MEGA} />
+        <LoadingIcon loadingState={DISABLED} size={MEGA} />
       );
       expect(actual).toMatchSnapshot();
     });
 
     it('should have giga LoadingIcon styles', () => {
       const actual = create(
-        <LoadingIcon loadingState={LOADING_STATES.DISABLED} size={GIGA} />
+        <LoadingIcon loadingState={DISABLED} size={GIGA} />
       );
       expect(actual).toMatchSnapshot();
     });
@@ -76,7 +70,7 @@ describe('LoadingIcon', () => {
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
-        <LoadingIcon loadingState={LOADING_STATES.DISABLED} size={KILO} />
+        <LoadingIcon loadingState={DISABLED} size={KILO} />
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

@@ -13,56 +13,56 @@
  * limitations under the License.
  */
 
-import { LOADING_STATES } from './constants';
+import { DISABLED, ACTIVE, SUCCESS, ERROR } from './constants';
 
-import * as utils from './utils';
+import * as Service from './LoadingButtonService';
 
-describe('LoadingButton utils', () => {
+describe('LoadingButtonService', () => {
   describe('isActive()', () => {
     describe('not equal', () => {
       it('should return false', () => {
-        expect(utils.isActive(LOADING_STATES.DISABLED)).toBeFalsy();
+        expect(Service.isActive(DISABLED)).toBeFalsy();
       });
     });
 
     it('should return true', () => {
-      expect(utils.isActive(LOADING_STATES.ACTIVE)).toBeTruthy();
+      expect(Service.isActive(ACTIVE)).toBeTruthy();
     });
   });
 
   describe('isDisabled()', () => {
     describe('not equal', () => {
       it('should return false', () => {
-        expect(utils.isDisabled(LOADING_STATES.ACTIVE)).toBeFalsy();
+        expect(Service.isDisabled(ACTIVE)).toBeFalsy();
       });
     });
 
     it('should return true', () => {
-      expect(utils.isDisabled(LOADING_STATES.DISABLED)).toBeTruthy();
+      expect(Service.isDisabled(DISABLED)).toBeTruthy();
     });
   });
 
   describe('isSuccess()', () => {
     describe('not equal', () => {
       it('should return false', () => {
-        expect(utils.isSuccess(LOADING_STATES.DISABLED)).toBeFalsy();
+        expect(Service.isSuccess(DISABLED)).toBeFalsy();
       });
     });
 
     it('should return true', () => {
-      expect(utils.isSuccess(LOADING_STATES.SUCCESS)).toBeTruthy();
+      expect(Service.isSuccess(SUCCESS)).toBeTruthy();
     });
   });
 
   describe('isError()', () => {
     describe('not equal', () => {
       it('should return false', () => {
-        expect(utils.isError(LOADING_STATES.DISABLED)).toBeFalsy();
+        expect(Service.isError(DISABLED)).toBeFalsy();
       });
     });
 
     it('should return true', () => {
-      expect(utils.isError(LOADING_STATES.ERROR)).toBeTruthy();
+      expect(Service.isError(ERROR)).toBeTruthy();
     });
   });
 });
