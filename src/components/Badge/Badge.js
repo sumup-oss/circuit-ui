@@ -97,15 +97,15 @@ const circleStyles = ({ circle }) =>
     ${size(24)};
   `;
 
-/**
- * A badge for displaying update notifications etc.
- */
 const StyledBadge = styled('div')`
   ${baseStyles};
   ${colorStyles};
   ${circleStyles};
 `;
 
+/**
+ * A badge for displaying update notifications etc.
+ */
 const Badge = props => <StyledBadge {...props} />;
 
 Badge.NEUTRAL = colorNames.NEUTRAL;
