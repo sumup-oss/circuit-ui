@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -25,12 +26,12 @@ const baseStyles = () => css`
   width: 100%;
 `;
 
+const StyledImage = styled('img')(baseStyles);
+
 /**
  * The Image component. Responsive by default.
  */
-const Image = styled('img')`
-  ${baseStyles};
-`;
+const Image = props => <StyledImage {...props} />;
 
 Image.propTypes = {
   /**
