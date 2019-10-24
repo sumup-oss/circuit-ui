@@ -28,61 +28,54 @@ import { circuit } from '../../src/themes';
  */
 export const styles = theme => css`
   .sbdocs-content {
-    > h1,
-    > h2,
-    > h3 {
+    .sbdocs-h1,
+    .sbdocs-h2,
+    .sbdocs-h3 {
       font-weight: bold;
       margin-bottom: ${theme.spacings.mega};
     }
 
-    > h1 {
+    .sbdocs-h1 {
       font-size: ${theme.typography.headings.exa.fontSize};
       line-height: ${theme.typography.headings.exa.lineHeight};
     }
 
-    > h2 {
+    .sbdocs-h2 {
       font-size: ${theme.typography.headings.tera.fontSize};
       line-height: ${theme.typography.headings.tera.lineHeight};
       margin-top: ${theme.spacings.peta};
     }
 
-    > h3 {
+    .sbdocs-h3 {
       font-size: ${theme.typography.headings.giga.fontSize};
       line-height: ${theme.typography.headings.giga.lineHeight};
       margin-top: ${theme.spacings.giga};
     }
 
-    > p,
-    > ul > li,
-    > ol > li {
+    .sbdocs-p,
+    .sbdocs-ul .sbdocs-li,
+    .sbdocs-ol .sbdocs-li {
       font-size: ${theme.typography.text.mega.fontSize};
       line-height: ${theme.typography.text.mega.lineHeight};
       margin-bottom: ${theme.spacings.mega};
 
-      > strong {
+      .sbdocs-strong {
         font-weight: bold;
       }
 
-      > code {
+      .sbdocs-code {
         background: ${theme.colors.n200};
         border-radius: ${theme.borderRadius.mega};
-        padding: 0 ${theme.spacings.bit};
+        padding: ${theme.spacings.bit};
       }
     }
 
-    > pre {
-      background: ${theme.colors.n200};
-      border-radius: ${theme.borderRadius.mega};
-      padding: ${theme.spacings.bit} ${theme.spacings.byte};
-      margin-bottom: ${theme.spacings.mega};
-    }
-
-    > ul,
-    > ol {
+    .sbdocs-ul,
+    .sbdocs-ol {
       padding-left: ${theme.spacings.kilo};
       margin-bottom: ${theme.spacings.mega};
 
-      > li {
+      .sbdocs-li {
         margin-bottom: ${theme.spacings.bit};
         margin-left: ${theme.spacings.kilo};
       }
