@@ -18,15 +18,14 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import Text from '../../../../src/components/Text';
-import { theme as themes } from '../../../../src';
+import Text from '../../src/components/Text';
+import { theme as themes } from '../../src';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
-    width: ${theme.spacings.tera};
-    height: ${theme.spacings.tera};
-    border-radius: ${theme.borderRadius.mega};
-    border: ${theme.borderWidth[size]} solid ${theme.colors.r500};
+    width: ${theme.iconSizes[size]};
+    height: ${theme.iconSizes[size]};
+    border-radius: ${theme.borderRadius.kilo};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};
   `};
@@ -40,39 +39,39 @@ const Wrapper = styled('div')`
   `};
 `;
 
-const BorderWidthSize = styled('span')`
+const IconSizeSize = styled('span')`
   ${({ theme }) => css`
     color: ${theme.colors.n500};
   `};
 `;
 
-const BorderWidthName = styled(Text)`
+const IconSizeName = styled(Text)`
   ${({ theme }) => css`
     margin-left: ${theme.spacings.kilo};
     color: ${theme.colors.n500};
   `};
 `;
 
-const BorderWidth = ({ size }) => (
+const IconSize = ({ size }) => (
   <ThemeProvider theme={themes.circuit}>
     <Wrapper>
       <Box size={size} />
       <div>
         <Text as="span">{size}</Text>
-        <BorderWidthSize>
-          <BorderWidthName size={Text.KILO} as="span">
-            {themes.circuit.borderWidth[size]}
-          </BorderWidthName>
-        </BorderWidthSize>
+        <IconSizeSize>
+          <IconSizeName size={Text.KILO} as="span">
+            {themes.circuit.iconSizes[size]}
+          </IconSizeName>
+        </IconSizeSize>
       </div>
     </Wrapper>
   </ThemeProvider>
 );
 
-BorderWidth.propTypes = {
+IconSize.propTypes = {
   // eslint-disable-next-line
   theme: PropTypes.object.isRequired,
   size: PropTypes.string.isRequired
 };
 
-export default BorderWidth;
+export default IconSize;

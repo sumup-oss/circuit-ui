@@ -1,12 +1,15 @@
----
-name: Theme reference
-route: /styles/theme-reference
-menu: Styles
----
+import {
+  Meta,
+  MDXStyles,
+  Preview,
+  IconSize,
+  BorderRadius,
+  BorderWidth
+} from '../components';
 
-import IconSize from './components/IconSize';
-import BorderRadius from './components/BorderRadius';
-import BorderWidth from './components/BorderWidth';
+<Meta title="Styles|Theme" />
+
+<MDXStyles />
 
 # Theme reference
 
@@ -34,10 +37,12 @@ Refer to the [Spacing](/styles/spacing) documentation.
 
 Our icon sizes come in `byte`, `kilo`, `mega`, and `giga`.
 
-<IconSize size="byte"/>
-<IconSize size="kilo"/>
-<IconSize size="mega"/>
-<IconSize size="giga"/>
+<Preview>
+  <IconSize size="byte" />
+  <IconSize size="kilo" />
+  <IconSize size="mega" />
+  <IconSize size="giga" />
+</Preview>
 
 ## Border radius
 
@@ -45,16 +50,20 @@ Our icon sizes come in `byte`, `kilo`, `mega`, and `giga`.
 
 Our border radius come in `kilo`, `mega`, and `giga`.
 
-<BorderRadius size="kilo"/>
-<BorderRadius size="mega"/>
-<BorderRadius size="giga"/>
+<Preview>
+  <BorderRadius size="kilo" />
+  <BorderRadius size="mega" />
+  <BorderRadius size="giga" />
+</Preview>
 
 ## Border width
 
 `theme.borderWidth.<SIZE_NAME>`
 
-<BorderWidth size="kilo"/>
-<BorderWidth size="mega"/>
+<Preview>
+  <BorderWidth size="kilo" />
+  <BorderWidth size="mega" />
+</Preview>
 
 ## Typography
 
