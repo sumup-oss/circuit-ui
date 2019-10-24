@@ -59,11 +59,11 @@ export const styles = theme => css`
       line-height: ${theme.typography.text.mega.lineHeight};
       margin-bottom: ${theme.spacings.mega};
 
-      .sbdocs-strong {
+      strong {
         font-weight: bold;
       }
 
-      .sbdocs-code {
+      code {
         background: ${theme.colors.n200};
         border-radius: ${theme.borderRadius.mega};
         padding: ${theme.spacings.bit};
