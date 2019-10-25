@@ -25,7 +25,13 @@ import TabPanel from './components/TabPanel';
 
 class Tabs extends Component {
   static propTypes = {
+    /**
+     * The index of the initially selected tab.
+     */
     initialSelectedIndex: PropTypes.number,
+    /**
+     * A collection of tabs with an id, the tab label, and panel content.
+     */
     items: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,

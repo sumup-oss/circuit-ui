@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/* eslint-disable react/prop-types, react/display-name */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
@@ -20,6 +22,7 @@ import { css } from '@emotion/core';
 
 import BaseStyles from '../../src/components/BaseStyles';
 import Badge from '../../src/components/Badge';
+import Text from '../../src/components/Text';
 import { theme as themes } from '../../src';
 
 import MDXStyles from './MDXStyles';
@@ -50,16 +53,23 @@ const Status = ({ variant = 'stable' }) => {
   );
 };
 
+Status.Description = ({ children }) => (
+  <ThemeProvider theme={themes.circuit}>
+    <Text size={Text.KILO} as="span" italic>
+      {' '}
+      {children}
+    </Text>
+  </ThemeProvider>
+);
+
 Status.propTypes = {
   variant: PropTypes.oneOf(['stable', 'deprecated', 'inReview', 'experimental'])
 };
 
-/* eslint-disable react/display-name */
 Status.Stable = props => <Status {...props} variant="stable" />;
 Status.Deprecated = props => <Status {...props} variant="deprecated" />;
 Status.InReview = props => <Status {...props} variant="inReview" />;
 Status.Experimental = props => <Status {...props} variant="experimental" />;
-/* eslint-enable react/display-name */
 
 /**
  * @component
