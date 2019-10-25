@@ -70,7 +70,9 @@ const withThemeProvider = storyFn => (
 addDecorator(withA11y);
 addDecorator(withTests);
 addDecorator(withKnobs);
-addDecorator(withStoryStyles);
+if (!__TEST__) {
+  addDecorator(withStoryStyles);
+}
 addDecorator(withThemeProvider);
 
 configure(
