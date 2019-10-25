@@ -63,6 +63,10 @@ export const styles = theme => css`
         font-weight: bold;
       }
 
+      em {
+        font-style: italic;
+      }
+
       code {
         background: ${theme.colors.n200};
         border-radius: ${theme.borderRadius.mega};
