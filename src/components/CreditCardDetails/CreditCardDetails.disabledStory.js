@@ -16,9 +16,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
-import withTests from '../../util/withTests';
 import CreditCardDetails, {
   CardNumberInput,
   ExpiryDateInput,
@@ -70,94 +68,88 @@ class YourFavoriteFormLibrary extends Component {
 }
 
 storiesOf('CreditCardDetails', module)
-  .addDecorator(withTests('CreditCardDetails'))
-  .add(
-    'Default CreditCardDetails',
-    withInfo()(() => (
-      <YourFavoriteFormLibrary>
-        {({ values, handleChange }) => (
-          <div style={{ width: '95vw', maxWidth: '600px', margin: '0 auto' }}>
-            <CreditCardDetails
-              nameOnCard={
-                <NameOnCardInput
-                  value={values.name}
-                  onChange={handleChange('name')}
-                />
-              }
-              cardNumber={
-                <CardNumberInput
-                  {...{ acceptedCardSchemes }}
-                  value={values.cardNumber}
-                  onChange={handleChange('cardNumber')}
-                />
-              }
-              expiryDate={
-                <ExpiryDateInput
-                  value={values.expiryDate}
-                  onChange={handleChange('expiryDate')}
-                />
-              }
-              renderSecurityCodeInput={() => (
-                <SecurityCodeInput
-                  value={values.securityCode}
-                  onChange={handleChange('securityCode')}
-                />
-              )}
-            />
-          </div>
-        )}
-      </YourFavoriteFormLibrary>
-    ))
-  )
-  .add(
-    'CreditCardDetails with security code info',
-    withInfo()(() => (
-      <YourFavoriteFormLibrary>
-        {({ values, handleChange }) => (
-          <div style={{ width: '95vw', maxWidth: '600px', margin: '0 auto' }}>
-            <CreditCardDetails
-              nameOnCard={
-                <NameOnCardInput
-                  value={values.name}
-                  onChange={handleChange('name')}
-                />
-              }
-              cardNumber={
-                <CardNumberInput
-                  {...{ acceptedCardSchemes }}
-                  value={values.cardNumber}
-                  onChange={handleChange('cardNumber')}
-                />
-              }
-              expiryDate={
-                <ExpiryDateInput
-                  value={values.expiryDate}
-                  onChange={handleChange('expiryDate')}
-                />
-              }
-              renderSecurityCodeInput={({ onShowInfo }) => (
-                <SecurityCodeInput
-                  value={values.securityCode}
-                  onChange={handleChange('securityCode')}
-                  onShowInfo={onShowInfo}
-                />
-              )}
-              renderSecurityCodeInfo={({ isShowingInfo, onHideInfo }) =>
-                isShowingInfo && (
-                  <Fragment>
-                    <Text>
-                      Display some information regarding security codes. We do
-                      this with a Modal.
-                    </Text>
-                    <Button onClick={onHideInfo} type="button">
-                      Hide
-                    </Button>
-                  </Fragment>
-                )
-              }
-            />
-          </div>
-        )}
-      </YourFavoriteFormLibrary>
-    ))
-  );
+  .addParameters({ jest: ['CreditCardDetails'] })
+  .add('Default CreditCardDetails', () => (
+    <YourFavoriteFormLibrary>
+      {({ values, handleChange }) => (
+        <div style={{ width: '95vw', maxWidth: '600px', margin: '0 auto' }}>
+          <CreditCardDetails
+            nameOnCard={
+              <NameOnCardInput
+                value={values.name}
+                onChange={handleChange('name')}
+              />
+            }
+            cardNumber={
+              <CardNumberInput
+                {...{ acceptedCardSchemes }}
+                value={values.cardNumber}
+                onChange={handleChange('cardNumber')}
+              />
+            }
+            expiryDate={
+              <ExpiryDateInput
+                value={values.expiryDate}
+                onChange={handleChange('expiryDate')}
+              />
+            }
+            renderSecurityCodeInput={() => (
+              <SecurityCodeInput
+                value={values.securityCode}
+                onChange={handleChange('securityCode')}
+              />
+            )}
+          />
+        </div>
+      )}
+    </YourFavoriteFormLibrary>
+  ))
+  .add('CreditCardDetails with security code info', () => (
+    <YourFavoriteFormLibrary>
+      {({ values, handleChange }) => (
+        <div style={{ width: '95vw', maxWidth: '600px', margin: '0 auto' }}>
+          <CreditCardDetails
+            nameOnCard={
+              <NameOnCardInput
+                value={values.name}
+                onChange={handleChange('name')}
+              />
+            }
+            cardNumber={
+              <CardNumberInput
+                {...{ acceptedCardSchemes }}
+                value={values.cardNumber}
+                onChange={handleChange('cardNumber')}
+              />
+            }
+            expiryDate={
+              <ExpiryDateInput
+                value={values.expiryDate}
+                onChange={handleChange('expiryDate')}
+              />
+            }
+            renderSecurityCodeInput={({ onShowInfo }) => (
+              <SecurityCodeInput
+                value={values.securityCode}
+                onChange={handleChange('securityCode')}
+                onShowInfo={onShowInfo}
+              />
+            )}
+            renderSecurityCodeInfo={({ isShowingInfo, onHideInfo }) =>
+              isShowingInfo && (
+                <Fragment>
+                  <Text>
+                    Display some information regarding security codes. We do
+                    this with a Modal.
+                  </Text>
+                  <Button onClick={onHideInfo} type="button">
+                    Hide
+                  </Button>
+                </Fragment>
+              )
+            }
+          />
+        </div>
+      )}
+    </YourFavoriteFormLibrary>
+  ));

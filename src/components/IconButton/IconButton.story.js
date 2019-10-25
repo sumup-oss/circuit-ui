@@ -14,13 +14,20 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import IconButton from './IconButton';
 
-storiesOf(`${GROUPS.COMPONENTS}|IconButton`, module)
-  .addDecorator(withTests('IconButton'))
-  .add('Default IconButton', withInfo()(() => <IconButton />));
+export default {
+  title: 'Components|IconButton',
+
+  parameters: {
+    component: IconButton,
+    jest: ['IconButton']
+  }
+};
+
+export const iconButton = () => <IconButton />;
+
+iconButton.story = {
+  name: 'IconButton'
+};

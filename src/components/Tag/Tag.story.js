@@ -14,13 +14,9 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import Tag from './Tag';
 
 const Icon = () => (
@@ -36,18 +32,26 @@ const Icon = () => (
   </svg>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Tag`, module)
-  .addDecorator(withTests('Tag'))
-  .add(
-    'Default Tag',
-    withInfo()(() => (
-      <Tag
-        selected={boolean('Selected', false)}
-        onRemove={boolean('Removable', false) ? action('Tag removed') : null}
-        icon={boolean('With Icon', false) ? <Icon /> : null}
-        onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
-      >
-        Transactions
-      </Tag>
-    ))
-  );
+export default {
+  title: 'Components|Tag',
+
+  parameters: {
+    component: Tag,
+    jest: ['Tag']
+  }
+};
+
+export const tag = () => (
+  <Tag
+    selected={boolean('Selected', false)}
+    onRemove={boolean('Removable', false) ? action('Tag removed') : null}
+    icon={boolean('With Icon', false) ? <Icon /> : null}
+    onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
+  >
+    Transactions
+  </Tag>
+);
+
+tag.story = {
+  name: 'Tag'
+};

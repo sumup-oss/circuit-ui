@@ -15,11 +15,8 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { select, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import Blockquote from './Blockquote';
 
 const Container = styled('div')`
@@ -36,13 +33,22 @@ tbh adaptogen green juice lo-fi kombucha.
 
 const sizes = [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA];
 
-storiesOf(`${GROUPS.COMPONENTS}|Blockquote`, module).add(
-  'Blockquote',
-  withInfo()(() => (
-    <Container>
-      <Blockquote size={select('Size', sizes, sizes[0])}>
-        {text('Quote', defaultQuote)}
-      </Blockquote>
-    </Container>
-  ))
+export default {
+  title: 'Components|Blockquote',
+
+  parameters: {
+    component: Blockquote
+  }
+};
+
+export const blockquote = () => (
+  <Container>
+    <Blockquote size={select('Size', sizes, sizes[0])}>
+      {text('Quote', defaultQuote)}
+    </Blockquote>
+  </Container>
 );
+
+blockquote.story = {
+  name: 'Blockquote'
+};

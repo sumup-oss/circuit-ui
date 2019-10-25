@@ -16,9 +16,7 @@
 import React from 'react';
 import { keys } from 'lodash/fp';
 import { select } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
+
 // eslint-disable-next-line max-len
 import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
 import PaymentMethodIcon from './PaymentMethodIcon';
@@ -30,16 +28,21 @@ const iconSizes = [
   PaymentMethodIcon.GIGA
 ];
 
-storiesOf(`${GROUPS.ICONS}|PaymentMethodIcon`, module).add(
-  'Default PaymentMethodIcon',
-  withInfo()(() => (
-    <PaymentMethodIcon
-      size={select(
-        'Schemes Size',
-        iconSizes,
-        iconSizes[PaymentMethodIcon.GIGA]
-      )}
-      iconId={select('Schemes Icon', keys(schemeMap), 'visa')}
-    />
-  ))
+export default {
+  title: 'Icons|PaymentMethodIcon',
+
+  parameters: {
+    component: PaymentMethodIcon
+  }
+};
+
+export const paymentMethodIcon = () => (
+  <PaymentMethodIcon
+    size={select('Schemes Size', iconSizes, iconSizes[PaymentMethodIcon.GIGA])}
+    iconId={select('Schemes Icon', keys(schemeMap), 'visa')}
+  />
 );
+
+paymentMethodIcon.story = {
+  name: 'PaymentMethodIcon'
+};

@@ -14,18 +14,21 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { text } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
-import withTests from '../../util/withTests';
 import CloseButton from './CloseButton';
 
-storiesOf(`${GROUPS.COMPONENTS}|CloseButton`, module)
-  .addDecorator(withTests('CloseButton'))
-  .add(
-    'Default CloseButton',
-    withInfo()(() => <CloseButton label={text('Label', 'Close')} />)
-  );
+export default {
+  title: 'Components|CloseButton',
+
+  parameters: {
+    component: CloseButton,
+    jest: ['CloseButton']
+  }
+};
+
+export const closeButton = () => <CloseButton label={text('Label', 'Close')} />;
+
+closeButton.story = {
+  name: 'CloseButton'
+};

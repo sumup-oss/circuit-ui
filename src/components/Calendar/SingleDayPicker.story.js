@@ -14,12 +14,8 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withStateHandlers } from 'recompose';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import { SingleDayPicker } from '.';
 
 const enhance = withStateHandlers(
@@ -41,6 +37,16 @@ const CalendarStoryPicker = enhance(
   )
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Calendar`, module)
-  .addDecorator(withTests('Calendar'))
-  .add('SingleDayPicker', withInfo()(() => <CalendarStoryPicker />));
+export default {
+  title: 'Components|Calendar',
+
+  parameters: {
+    jest: ['Calendar']
+  }
+};
+
+export const singleDayPicker = () => <CalendarStoryPicker />;
+
+singleDayPicker.story = {
+  name: 'SingleDayPicker'
+};

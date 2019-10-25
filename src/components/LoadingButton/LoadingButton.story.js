@@ -14,55 +14,63 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import LoadingButton from '.';
 
-storiesOf(`${GROUPS.COMPONENTS}|Button/LoadingButton`, module)
-  .addDecorator(withTests('LoadingButton'))
-  .add(
-    'LoadingButton with Success animation',
-    withInfo()(() => (
-      <LoadingButton
-        isLoading={boolean('Loading', false)}
-        onClick={action('clicked')}
-        onAnimationComplete={action('animation completed')}
-        exitAnimation={LoadingButton.SUCCESS}
-        primary
-      >
-        Click me
-      </LoadingButton>
-    ))
-  )
-  .add(
-    'LoadingButton with Error animation',
-    withInfo()(() => (
-      <LoadingButton
-        isLoading={boolean('Loading', false)}
-        onClick={action('clicked')}
-        onAnimationComplete={action('animation completed')}
-        exitAnimation={LoadingButton.ERROR}
-        primary
-      >
-        Click me
-      </LoadingButton>
-    ))
-  )
-  .add(
-    'LoadingButton with no exit animation',
-    withInfo()(() => (
-      <LoadingButton
-        isLoading={boolean('Loading', false)}
-        onClick={action('clicked')}
-        onAnimationComplete={action('animation completed')}
-        primary
-      >
-        Click me
-      </LoadingButton>
-    ))
-  );
+export default {
+  title: 'Components|Button/LoadingButton',
+
+  parameters: {
+    component: LoadingButton,
+    jest: ['LoadingButton']
+  }
+};
+
+export const loadingButtonWithSuccessAnimation = () => (
+  <LoadingButton
+    isLoading={boolean('Loading', false)}
+    onClick={action('clicked')}
+    onAnimationComplete={action('animation completed')}
+    exitAnimation={LoadingButton.SUCCESS}
+    primary
+  >
+    Click me
+  </LoadingButton>
+);
+
+loadingButtonWithSuccessAnimation.story = {
+  name: 'LoadingButton with Success animation'
+};
+
+export const loadingButtonWithErrorAnimation = () => (
+  <LoadingButton
+    isLoading={boolean('Loading', false)}
+    onClick={action('clicked')}
+    onAnimationComplete={action('animation completed')}
+    exitAnimation={LoadingButton.ERROR}
+    primary
+  >
+    Click me
+  </LoadingButton>
+);
+
+loadingButtonWithErrorAnimation.story = {
+  name: 'LoadingButton with Error animation'
+};
+
+export const loadingButtonWithNoExitAnimation = () => (
+  <LoadingButton
+    isLoading={boolean('Loading', false)}
+    onClick={action('clicked')}
+    onAnimationComplete={action('animation completed')}
+    primary
+  >
+    Click me
+  </LoadingButton>
+);
+
+loadingButtonWithNoExitAnimation.story = {
+  name: 'LoadingButton with no exit animation'
+};

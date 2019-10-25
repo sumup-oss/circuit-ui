@@ -15,13 +15,9 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import { circuit } from '../../themes';
 
-import withTests from '../../util/withTests';
 import Col from './Col';
 
 const StyledCol = styled(Col)`
@@ -38,13 +34,21 @@ StyledCol.defaultProps = {
   skip: '0'
 };
 
-storiesOf(`${GROUPS.GRID}|Col`, module)
-  .addDecorator(withTests('Col'))
-  .add(
-    'Default Col',
-    withInfo()(() => (
-      <div style={{ width: '100vw' }}>
-        <StyledCol span="12">Default Column</StyledCol>
-      </div>
-    ))
-  );
+export default {
+  title: 'Grid|Col',
+
+  parameters: {
+    component: Col,
+    jest: ['Col']
+  }
+};
+
+export const col = () => (
+  <div style={{ width: '100vw' }}>
+    <StyledCol span="12">Column</StyledCol>
+  </div>
+);
+
+col.story = {
+  name: 'Col'
+};

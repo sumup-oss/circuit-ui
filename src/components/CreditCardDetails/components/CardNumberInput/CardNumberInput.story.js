@@ -15,12 +15,8 @@
 
 import React, { Fragment } from 'react';
 import { css } from '@emotion/core';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
-import withTests from '../../../../util/withTests';
 import { reduce } from '../../../../util/fp';
 import { CardNumberInput, cardSchemeIcons } from '..';
 import { schemes as cardSchemes } from '../..';
@@ -52,49 +48,61 @@ const marginTopClassName = css`
   width: calc(100vw - ${circuit.spacings.byte});
 `;
 
-storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardNumberInput`, module)
-  .addDecorator(withTests('CardNumberInput'))
-  .add(
-    'Empty CardNumberInput',
-    withInfo()(() => (
-      <CardNumberInput
-        acceptedCardSchemes={schemeIcons}
-        onChange={action('Changed input value')}
-        detectedCardScheme=""
-        name="creditCardInput"
-        value=""
-        css={marginTopClassName}
-      />
-    ))
-  )
-  .add(
-    'Empty CardNumberInput with many supported schemes',
-    withInfo()(() => (
-      <Fragment>
-        <Text style={{ width: '95vw' }}>
-          Displays card scheme icons below input on mobile, when there are more
-          than 5 schemes.
-        </Text>
-        <CardNumberInput
-          acceptedCardSchemes={manySchemeIcons}
-          onChange={action('Changed input value')}
-          detectedCardScheme=""
-          name="creditCardInput"
-          css={marginTopClassName}
-        />
-      </Fragment>
-    ))
-  )
-  .add(
-    'CardNumberInput with detected card scheme',
-    withInfo()(() => (
-      <CardNumberInput
-        acceptedCardSchemes={schemeIcons}
-        onChange={action('Changed input value')}
-        detectedCardScheme={SCHEMES.VISA}
-        value="4485 7197 7461 1397"
-        name="creditCardInput"
-        css={marginTopClassName}
-      />
-    ))
-  );
+export default {
+  title: 'Forms|CreditCardDetails/CardNumberInput',
+
+  parameters: {
+    component: CardNumberInput,
+    jest: ['CardNumberInput']
+  }
+};
+
+export const emptyCardNumberInput = () => (
+  <CardNumberInput
+    acceptedCardSchemes={schemeIcons}
+    onChange={action('Changed input value')}
+    detectedCardScheme=""
+    name="creditCardInput"
+    value=""
+    css={marginTopClassName}
+  />
+);
+
+emptyCardNumberInput.story = {
+  name: 'Empty CardNumberInput'
+};
+
+export const emptyCardNumberInputWithManySupportedSchemes = () => (
+  <Fragment>
+    <Text style={{ width: '95vw' }}>
+      Displays card scheme icons below input on mobile, when there are more than
+      5 schemes.
+    </Text>
+    <CardNumberInput
+      acceptedCardSchemes={manySchemeIcons}
+      onChange={action('Changed input value')}
+      detectedCardScheme=""
+      name="creditCardInput"
+      css={marginTopClassName}
+    />
+  </Fragment>
+);
+
+emptyCardNumberInputWithManySupportedSchemes.story = {
+  name: 'Empty CardNumberInput with many supported schemes'
+};
+
+export const cardNumberInputWithDetectedCardScheme = () => (
+  <CardNumberInput
+    acceptedCardSchemes={schemeIcons}
+    onChange={action('Changed input value')}
+    detectedCardScheme={SCHEMES.VISA}
+    value="4485 7197 7461 1397"
+    name="creditCardInput"
+    css={marginTopClassName}
+  />
+);
+
+cardNumberInputWithDetectedCardScheme.story = {
+  name: 'CardNumberInput with detected card scheme'
+};

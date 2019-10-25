@@ -14,21 +14,36 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import Selector from './Selector';
 
-storiesOf(`${GROUPS.COMPONENTS}|Selector`, module)
-  .addDecorator(withTests('Selector'))
-  .add('Default Selector', withInfo()(() => <Selector>Select me!</Selector>))
-  .add(
-    'Disabled Selector',
-    withInfo()(() => <Selector disabled>I cannot be selected</Selector>)
-  )
-  .add(
-    'Selected Selected',
-    withInfo()(() => <Selector selected>I am selected!</Selector>)
-  );
+export default {
+  title: 'Components|Selector',
+
+  parameters: {
+    component: Selector,
+    jest: ['Selector']
+  }
+};
+
+export const selector = () => <Selector>Select me!</Selector>;
+
+selector.story = {
+  name: 'Selector'
+};
+
+export const disabledSelector = () => (
+  <Selector disabled>I cannot be selected</Selector>
+);
+
+disabledSelector.story = {
+  name: 'Disabled Selector'
+};
+
+export const selectedSelected = () => (
+  <Selector selected>I am selected!</Selector>
+);
+
+selectedSelected.story = {
+  name: 'Selected Selected'
+};

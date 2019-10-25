@@ -1,26 +1,37 @@
 import React from 'react';
-import { configure, addDecorator } from '@storybook/react';
-import { setDefaults } from '@storybook/addon-info';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { setOptions } from '@storybook/addon-options';
+import { withA11y } from '@storybook/addon-a11y';
 import { ThemeProvider } from 'emotion-theming';
+import styled from '@emotion/styled';
 
 import { circuit } from '../src/themes';
 import BaseStyles from '../src/components/BaseStyles';
+import withTests from './withTests';
+import storybookTheme from './theme';
 
-// Sets the info addon's options.
-setDefaults({
-  header: false
+addParameters({
+  options: {
+    theme: storybookTheme,
+    isFullscreen: false,
+    panelPosition: 'bottom',
+    isToolshown: true
+  }
 });
 
-setOptions({
-  hierarchySeparator: /\//,
-  hierarchyRootSeparator: /\|/,
-  name: 'Circuit UI',
-  url: 'https://github.com/sumup/circuit-ui'
-});
+const Story = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  .sbdocs & {
+    min-height: auto;
+  }
+`;
 
-const req = require.context('../src/components', true, /\.story\.js$/);
+const withStoryStyles = storyFn => {
+  return <Story>{storyFn()}</Story>;
+};
 
 const withThemeProvider = storyFn => (
   <ThemeProvider theme={circuit}>
@@ -31,26 +42,13 @@ const withThemeProvider = storyFn => (
   </ThemeProvider>
 );
 
-const withStoryStyles = storyFn => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh'
-      }}
-    >
-      {storyFn()}
-    </div>
-  );
-};
+addDecorator(withA11y);
+addDecorator(withTests);
+addDecorator(withKnobs);
+addDecorator(withStoryStyles);
+addDecorator(withThemeProvider);
 
-const loadStories = () => {
-  addDecorator(withKnobs);
-  addDecorator(withStoryStyles);
-  addDecorator(withThemeProvider);
-  req.keys().forEach(filename => req(filename));
-};
-
-configure(loadStories, module);
+configure(
+  require.context('../src', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/),
+  module
+);

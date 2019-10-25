@@ -14,14 +14,9 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
-import withTests from '../../util/withTests';
 import State from '../State';
 import Select from '.';
 
@@ -60,61 +55,73 @@ const countryOptions = [
 ];
 const flagIconMap = { DE, US, FR };
 
-storiesOf(`${GROUPS.FORMS}|Select`, module)
-  .addDecorator(withTests('Select'))
-  .add(
-    'Select',
-    withInfo()(() => (
+export default {
+  title: 'Forms|Select',
+
+  parameters: {
+    component: Select,
+    jest: ['Select']
+  }
+};
+
+export const select = () => (
+  <Select
+    name="select"
+    options={options}
+    onChange={action('Option selected')}
+    disabled={boolean('Disabled', false)}
+    invalid={boolean('Invalid', false)}
+    validationHint={text('Validation hint', '')}
+  />
+);
+
+select.story = {
+  name: 'Select'
+};
+
+export const selectInvalid = () => (
+  <Select
+    name="select"
+    options={options}
+    onChange={action('Option selected')}
+    disabled={boolean('Disabled', false)}
+    invalid={boolean('Invalid', true)}
+    validationHint={text('Validation hint', 'This field is required')}
+  />
+);
+
+selectInvalid.story = {
+  name: 'Select invalid'
+};
+
+export const selectWithPrefix = () => (
+  <State
+    initial="US"
+    name="country"
+    updaterName="onChange"
+    updater={(prevCountry, country) => country}
+  >
+    {({ country, onChange }) => (
       <Select
-        name="select"
-        options={options}
-        onChange={action('Option selected')}
+        name="country_select"
+        options={countryOptions}
+        value={country}
+        renderPrefix={({ className }) => {
+          const Icon = flagIconMap[country];
+
+          return <Icon {...{ className }} />;
+        }}
+        onChange={e => {
+          action('Option selected')(e);
+          onChange(e.target.value);
+        }}
         disabled={boolean('Disabled', false)}
         invalid={boolean('Invalid', false)}
-        validationHint={text('Validation hint', '')}
       />
-    ))
-  )
-  .add(
-    'Select invalid',
-    withInfo()(() => (
-      <Select
-        name="select"
-        options={options}
-        onChange={action('Option selected')}
-        disabled={boolean('Disabled', false)}
-        invalid={boolean('Invalid', true)}
-        validationHint={text('Validation hint', 'This field is required')}
-      />
-    ))
-  )
-  .add(
-    'Select with prefix',
-    withInfo()(() => (
-      <State
-        initial="US"
-        name="country"
-        updaterName="onChange"
-        updater={(prevCountry, country) => country}
-      >
-        {({ country, onChange }) => (
-          <Select
-            name="country_select"
-            options={countryOptions}
-            value={country}
-            renderPrefix={({ className }) => {
-              const Icon = flagIconMap[country];
+    )}
+  </State>
+);
 
-              return <Icon {...{ className }} />;
-            }}
-            onChange={e => {
-              action('Option selected')(e);
-              onChange(e.target.value);
-            }}
-            disabled={boolean('Disabled', false)}
-            invalid={boolean('Invalid', false)}
-          />
-        )}
-      </State>
-    ))
-  );
+selectWithPrefix.story = {
+  name: 'Select with prefix'
+};

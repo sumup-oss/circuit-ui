@@ -166,6 +166,7 @@ export const calculatePadding = ({ theme, size: buttonSize }) => (
   diff = '0px'
 ) => {
   const sizeMap = {
+    /* eslint-disable max-len */
     [KILO]: `calc(${theme.spacings.bit} - ${diff}) calc(${
       theme.spacings.mega
     } - ${diff})`,
@@ -175,6 +176,7 @@ export const calculatePadding = ({ theme, size: buttonSize }) => (
     [GIGA]: `calc(${theme.spacings.kilo} - ${diff}) calc(${
       theme.spacings.tera
     } - ${diff})`
+    /* eslint-enable max-len */
   };
 
   if (!sizeMap[buttonSize] && buttonSize) {

@@ -100,6 +100,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
 
   const absolutePosition = positionMap[align];
 
+  /* eslint-disable max-len */
   return `
     ${absolutePosition}: 50%;
     ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${
@@ -110,6 +111,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
       ${absolutePosition}: ${theme.spacings.kilo};
     }
   `;
+  /* eslint-enable max-len */
 };
 
 const positionAndAlignStyles = ({ theme, position, align }) => css`

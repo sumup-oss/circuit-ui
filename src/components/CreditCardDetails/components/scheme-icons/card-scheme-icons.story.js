@@ -14,10 +14,8 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
 import { flow, toPairs, map, pick, values } from '../../../../util/fp';
 import { iconComponents } from './card-scheme-icons';
@@ -48,36 +46,48 @@ const IconWrapper = styled('li')`
   }
 `;
 
-storiesOf(`${GROUPS.FORMS}|CreditCardDetails/CardSchemeIcons`, module)
-  .add('Debit cards', () => {
-    const { DEBIT_SCHEMES } = schemes;
-    const debitIcons = pick(values(DEBIT_SCHEMES), iconComponents);
-    return (
-      <IconList>
-        {flow(
-          toPairs,
-          map(([name, Icon]) => (
-            <IconWrapper key={name}>
-              <Icon css={iconStyles} />
-            </IconWrapper>
-          ))
-        )(debitIcons)}
-      </IconList>
-    );
-  })
-  .add('Credit cards', () => {
-    const { CREDIT_SCHEMES } = schemes;
-    const debitIcons = pick(values(CREDIT_SCHEMES), iconComponents);
-    return (
-      <IconList>
-        {flow(
-          toPairs,
-          map(([name, Icon]) => (
-            <IconWrapper key={name}>
-              <Icon css={iconStyles} />
-            </IconWrapper>
-          ))
-        )(debitIcons)}
-      </IconList>
-    );
-  });
+export default {
+  title: 'Forms|CreditCardDetails/CardSchemeIcons'
+};
+
+export const debitCards = () => {
+  const { DEBIT_SCHEMES } = schemes;
+  const debitIcons = pick(values(DEBIT_SCHEMES), iconComponents);
+  return (
+    <IconList>
+      {flow(
+        toPairs,
+        map(([name, Icon]) => (
+          <IconWrapper key={name}>
+            <Icon css={iconStyles} />
+          </IconWrapper>
+        ))
+      )(debitIcons)}
+    </IconList>
+  );
+};
+
+debitCards.story = {
+  name: 'Debit cards'
+};
+
+export const creditCards = () => {
+  const { CREDIT_SCHEMES } = schemes;
+  const debitIcons = pick(values(CREDIT_SCHEMES), iconComponents);
+  return (
+    <IconList>
+      {flow(
+        toPairs,
+        map(([name, Icon]) => (
+          <IconWrapper key={name}>
+            <Icon css={iconStyles} />
+          </IconWrapper>
+        ))
+      )(debitIcons)}
+    </IconList>
+  );
+};
+
+creditCards.story = {
+  name: 'Credit cards'
+};

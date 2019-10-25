@@ -15,12 +15,8 @@
 
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { boolean } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-import withTests from '../../util/withTests';
 import Sidebar from '.';
 
 import { ReactComponent as HomeEmpty } from './icons/home-empty.svg';
@@ -101,6 +97,17 @@ class Container extends Component {
   }
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|Sidebar`, module)
-  .addDecorator(withTests('Sidebar'))
-  .add('Sidebar', withInfo()(() => <Container />));
+export default {
+  title: 'Components|Sidebar',
+
+  parameters: {
+    component: Sidebar,
+    jest: ['Sidebar']
+  }
+};
+
+export const sidebar = () => <Container />;
+
+sidebar.story = {
+  name: 'Sidebar'
+};

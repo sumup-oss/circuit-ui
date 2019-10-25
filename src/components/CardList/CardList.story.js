@@ -15,12 +15,8 @@
 
 import React, { Component } from 'react';
 import { range } from 'lodash/fp';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import * as knobs from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-import withTests from '../../util/withTests';
 import CardList from '.';
 
 class CardListStory extends Component {
@@ -55,6 +51,17 @@ class CardListStory extends Component {
   }
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|CardList`, module)
-  .addDecorator(withTests('CardList'))
-  .add('CardList', withInfo()(() => <CardListStory />));
+export default {
+  title: 'Components|CardList',
+
+  parameters: {
+    component: CardList,
+    jest: ['CardList']
+  }
+};
+
+export const cardList = () => <CardListStory />;
+
+cardList.story = {
+  name: 'CardList'
+};

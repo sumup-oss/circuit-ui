@@ -15,12 +15,8 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { boolean } from '@storybook/addon-knobs';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-import withTests from '../../util/withTests';
 import Header from '.';
 import Hamburguer from '../Hamburger';
 
@@ -29,15 +25,23 @@ const HeaderContainer = styled('div')`
   height: auto;
 `;
 
-storiesOf(`${GROUPS.COMPONENTS}|Header`, module)
-  .addDecorator(withTests('Header'))
-  .add(
-    'Header',
-    withInfo()(() => (
-      <HeaderContainer>
-        <Header title="Title" mobileOnly={boolean('mobileOnly')}>
-          <Hamburguer light />
-        </Header>
-      </HeaderContainer>
-    ))
-  );
+export default {
+  title: 'Components|Header',
+
+  parameters: {
+    component: Header,
+    jest: ['Header']
+  }
+};
+
+export const header = () => (
+  <HeaderContainer>
+    <Header title="Title" mobileOnly={boolean('mobileOnly')}>
+      <Hamburguer light />
+    </Header>
+  </HeaderContainer>
+);
+
+header.story = {
+  name: 'Header'
+};

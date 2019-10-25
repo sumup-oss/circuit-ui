@@ -14,13 +14,8 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
-import withTests from '../../util/withTests';
 import AutoCompleteTags from './AutoCompleteTags';
 
 const randomItems = [];
@@ -42,16 +37,24 @@ for (let i = 0; i < 10000; i += 1) {
   pushRandom();
 }
 
-storiesOf(`${GROUPS.FORMS}|AutoCompleteTags`, module)
-  .addDecorator(withTests('AutoCompleteTags'))
-  .add(
-    'Default AutoCompleteTags',
-    withInfo()(() => (
-      <div style={{ width: '300px' }}>
-        <AutoCompleteTags
-          availableTags={randomItems}
-          onChange={action('handleChange')}
-        />
-      </div>
-    ))
-  );
+export default {
+  title: 'Forms|AutoCompleteTags',
+
+  parameters: {
+    component: AutoCompleteTags,
+    jest: ['AutoCompleteTags']
+  }
+};
+
+export const autoCompleteTags = () => (
+  <div style={{ width: '300px' }}>
+    <AutoCompleteTags
+      availableTags={randomItems}
+      onChange={action('handleChange')}
+    />
+  </div>
+);
+
+autoCompleteTags.story = {
+  name: 'AutoCompleteTags'
+};

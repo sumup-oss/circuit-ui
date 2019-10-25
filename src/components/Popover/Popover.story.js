@@ -15,13 +15,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { select, boolean } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
-import withTests from '../../util/withTests';
 import Popover from './Popover';
 import Button from '../Button';
 
@@ -72,17 +67,25 @@ PopoverContainer.propTypes = {
   closeOnButtonClick: PropTypes.bool.isRequired
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Popover`, module)
-  .addDecorator(withTests('Popover'))
-  .add(
-    'Default Popover',
-    withInfo()(() => (
-      <div>
-        <PopoverContainer
-          position={select('position', positions, Popover.BOTTOM)}
-          align={select('align', alignments, Popover.START)}
-          closeOnButtonClick={boolean('closeOnButton', false)}
-        />
-      </div>
-    ))
-  );
+export default {
+  title: 'Components|Popover',
+
+  parameters: {
+    component: Popover,
+    jest: ['Popover']
+  }
+};
+
+export const popover = () => (
+  <div>
+    <PopoverContainer
+      position={select('position', positions, Popover.BOTTOM)}
+      align={select('align', alignments, Popover.START)}
+      closeOnButtonClick={boolean('closeOnButton', false)}
+    />
+  </div>
+);
+
+popover.story = {
+  name: 'Popover'
+};

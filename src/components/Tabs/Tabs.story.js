@@ -16,13 +16,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import * as knobs from '@storybook/addon-knobs/react';
-
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
-import withTests from '../../util/withTests';
 
 import { Tabs, TabList, TabPanel, Tab } from '../..';
 
@@ -85,57 +79,66 @@ TabsComposed.propTypes = {
   stretched: PropTypes.bool.isRequired
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Tabs`, module)
-  .addDecorator(withTests('Tabs'))
-  .add(
-    'Tabs',
-    withInfo()(() => (
-      <div style={{ width: '600px' }}>
-        <TabsComposed
-          size={knobs.select(
-            'with external CSS: size',
-            ['desktop', 'mobile'],
-            'desktop'
-          )}
-          extraPadding={knobs.boolean(
-            'with external CSS: extra padding',
-            false
-          )}
-          stretched={knobs.boolean('stretched', false)}
-        />
-      </div>
-    ))
-  )
-  .add(
-    'Tabs: Links',
-    withInfo()(() => (
-      <div style={{ width: '600px' }}>
-        <Fragment>
-          <TabList>
-            <Tab selected>Home</Tab>
-            <Tab as="a" href="https://www.google.com" target="_blank">
-              Page #1
-            </Tab>
-            <Tab as="a" href="https://www.google.com" target="_blank">
-              Page #2
-            </Tab>
-          </TabList>
-        </Fragment>
-      </div>
-    ))
-  )
-  .add(
-    'Tabs: Stateful',
-    withInfo()(() => (
-      <div style={{ width: '600px' }}>
-        <Tabs
-          items={[
-            { id: 'one', tab: 'Tab 1', panel: 'Content 1' },
-            { id: 'two', tab: 'Tab 2', panel: 'Content 2' },
-            { id: 'three', tab: 'Tab 3', panel: 'Content 3' },
-            { id: 'four', tab: 'Tab 4', panel: 'Content 4' }
-          ]}
-        />
-      </div>
-    ))
-  );
+export default {
+  title: 'Components|Tabs',
+
+  parameters: {
+    component: Tabs,
+    jest: ['Tabs']
+  }
+};
+
+export const tabs = () => (
+  <div style={{ width: '600px' }}>
+    <TabsComposed
+      size={knobs.select(
+        'with external CSS: size',
+        ['desktop', 'mobile'],
+        'desktop'
+      )}
+      extraPadding={knobs.boolean('with external CSS: extra padding', false)}
+      stretched={knobs.boolean('stretched', false)}
+    />
+  </div>
+);
+
+tabs.story = {
+  name: 'Tabs'
+};
+
+export const tabsLinks = () => (
+  <div style={{ width: '600px' }}>
+    <Fragment>
+      <TabList>
+        <Tab selected>Home</Tab>
+        <Tab as="a" href="https://www.google.com" target="_blank">
+          Page #1
+        </Tab>
+        <Tab as="a" href="https://www.google.com" target="_blank">
+          Page #2
+        </Tab>
+      </TabList>
+    </Fragment>
+  </div>
+);
+
+tabsLinks.story = {
+  name: 'Tabs: Links'
+};
+
+export const tabsStateful = () => (
+  <div style={{ width: '600px' }}>
+    <Tabs
+      items={[
+        { id: 'one', tab: 'Tab 1', panel: 'Content 1' },
+        { id: 'two', tab: 'Tab 2', panel: 'Content 2' },
+        { id: 'three', tab: 'Tab 3', panel: 'Content 3' },
+        { id: 'four', tab: 'Tab 4', panel: 'Content 4' }
+      ]}
+    />
+  </div>
+);
+
+tabsStateful.story = {
+  name: 'Tabs: Stateful'
+};
