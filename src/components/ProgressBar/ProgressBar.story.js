@@ -13,21 +13,28 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { select, number, text, boolean } from '@storybook/addon-knobs/react';
+import React, { Fragment } from 'react';
+import { select, number } from '@storybook/addon-knobs/react';
+import { css } from '@emotion/core';
 
+import docs from './ProgressBar.docs.mdx';
 import ProgressBar from './ProgressBar';
 
 export default {
   title: 'Components|ProgressBar',
-
+  component: ProgressBar,
   parameters: {
-    component: ProgressBar,
+    docs: { page: docs },
     jest: ['ProgressBar']
   }
 };
 
-export const progressBar = () => {
+const progressBarStyles = css`
+  min-width: 500px;
+  max-width: 90%;
+`;
+
+export const base = () => {
   const size = select(
     'Size',
     {
@@ -38,21 +45,64 @@ export const progressBar = () => {
     ProgressBar.KILO
   );
   const max = number('Maximum value', 10);
-  const value = number('Value', 5);
-  const percentage = boolean('Label in percentage', false);
-  const defaultLabel = percentage
-    ? `${(value / max) * 100}%`
-    : `${value}/${max}`;
-  const children = text('Label', defaultLabel);
+  const value = number('Value', 3);
   return (
-    <div style={{ width: '25vw' }}>
-      <ProgressBar value={value} max={max} size={size}>
-        {children}
-      </ProgressBar>
-    </div>
+    <ProgressBar value={value} max={max} size={size} css={progressBarStyles} />
   );
 };
 
-progressBar.story = {
-  name: 'ProgressBar'
+export const withFraction = () => {
+  const max = 10;
+  const value = 7;
+  const children = `${value}/${max}`;
+  return (
+    <ProgressBar value={value} max={max} css={progressBarStyles}>
+      {children}
+    </ProgressBar>
+  );
+};
+
+export const withPercentage = () => {
+  const max = 10;
+  const value = 7;
+  const children = `${(value / max) * 100}%`;
+  return (
+    <ProgressBar value={value} max={max} css={progressBarStyles}>
+      {children}
+    </ProgressBar>
+  );
+};
+
+export const size = () => {
+  const max = 10;
+  const value = 7;
+  const children = `${(value / max) * 100}%`;
+  return (
+    <Fragment>
+      <ProgressBar
+        size={ProgressBar.KILO}
+        value={value}
+        max={max}
+        css={progressBarStyles}
+      >
+        {children}
+      </ProgressBar>
+      <ProgressBar
+        size={ProgressBar.MEGA}
+        value={value}
+        max={max}
+        css={progressBarStyles}
+      >
+        {children}
+      </ProgressBar>
+      <ProgressBar
+        size={ProgressBar.GIGA}
+        value={value}
+        max={max}
+        css={progressBarStyles}
+      >
+        {children}
+      </ProgressBar>
+    </Fragment>
+  );
 };
