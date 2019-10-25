@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/* global expect */
+
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
@@ -58,6 +60,18 @@ global.STORYBOOK = false;
 global.__DEV__ = false;
 global.__PRODUCTION__ = false;
 global.__TEST__ = true;
+
+// react-popper relies on document.createRange
+if (global.document) {
+  document.createRange = () => ({
+    setStart: () => {},
+    setEnd: () => {},
+    commonAncestorContainer: {
+      nodeName: 'BODY',
+      ownerDocument: document
+    }
+  });
+}
 
 // Add custom matchers
 expect.extend(toHaveNoViolations);
