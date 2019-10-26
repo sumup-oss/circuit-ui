@@ -160,4 +160,7 @@ Tooltip.defaultProps = {
   align: Tooltip.CENTER
 };
 
+/**
+ * @component
+ */
 export default Tooltip;
