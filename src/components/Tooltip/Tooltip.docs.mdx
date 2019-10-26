@@ -1,15 +1,5 @@
----
-name: Tooltip
-route: /components/tooltip
-menu: Components
----
-
-import { Playground, Props } from 'docz';
-import { Fragment } from 'react';
-import Tooltip from '../../../src/components/Tooltip';
-import TooltipContainer from './TooltipContainer';
-import Status from '../../utils/Statuses';
-import Text from '../../../src/components/Text';
+import { Status, Props, Story } from '../../../docs/components';
+import Tooltip from './Tooltip';
 
 # Tooltip
 
@@ -18,26 +8,7 @@ import Text from '../../../src/components/Text';
 Tooltips display additional information on floating labels.
 They can be activated when users hover, focus, tap, or click.
 
-<Playground>
-  <TooltipContainer>
-    <Tooltip>I am a teeny, tiny tooltip.</Tooltip>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="feather feather-eye"
-    >
-      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-      <circle cx="12" cy="12" r="3" />
-    </svg>
-  </TooltipContainer>
-</Playground>
+<Story id="components-tooltip--base" />
 
 <Props of={Tooltip} />
 
@@ -57,3 +28,11 @@ as an auxiliary description to provide a supplementary or clarifying description
 - **Do not** use it to communicate important information (form title attributes or notifications)
 - **Do not** put links or buttons inside of a tooltip
 - **Do not** use it too often. If you are building not self-explanatory software, try different approaches.
+
+## Variations
+
+<Story id="components-tooltip--top-left" />
+
+<Story id="components-tooltip--bottom-right" />
+
+<Story id="components-tooltip--left-center" />
