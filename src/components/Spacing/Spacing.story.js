@@ -20,9 +20,8 @@ import Button from '../Button';
 
 export default {
   title: 'Layout|Spacing',
-
+  component: Spacing,
   parameters: {
-    component: Spacing,
     jest: ['Spacing']
   }
 };
@@ -36,10 +35,6 @@ export const bottomSpacing = () => (
   </Fragment>
 );
 
-bottomSpacing.story = {
-  name: 'Bottom Spacing'
-};
-
 export const topSpacing = () => (
   <Fragment>
     <Button>No spacing</Button>
@@ -48,7 +43,3 @@ export const topSpacing = () => (
     </Spacing>
   </Fragment>
 );
-
-topSpacing.story = {
-  name: 'Top Spacing'
-};

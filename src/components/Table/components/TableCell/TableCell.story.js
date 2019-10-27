@@ -26,14 +26,13 @@ const options = {
 
 export default {
   title: 'Components|Table/TableCell',
-
+  component: TableCell,
   parameters: {
-    component: TableCell,
     jest: ['TableCell']
   }
 };
 
-export const tableCell = () => (
+export const base = () => (
   <TableCell
     style={{ width: '300px', alignSelf: 'center' }}
     align={select('Align', options)}
@@ -42,7 +41,3 @@ export const tableCell = () => (
     {text('Content', 'Header')}
   </TableCell>
 );
-
-tableCell.story = {
-  name: 'Table Cell'
-};

@@ -19,15 +19,10 @@ import Picture from './Picture';
 
 export default {
   title: 'Components|Picture',
-
+  component: Picture,
   parameters: {
-    component: Picture,
-    jest: ['ResponsiveImage']
+    jest: ['Picture']
   }
 };
 
-export const picture = () => <Picture />;
-
-picture.story = {
-  name: 'Picture'
-};
+export const base = () => <Picture />;

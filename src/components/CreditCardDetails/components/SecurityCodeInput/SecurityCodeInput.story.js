@@ -23,31 +23,16 @@ const { SCHEMES } = schemes;
 
 export default {
   title: 'Forms|CreditCardDetails/SecurityCodeInput',
-
+  component: SecurityCodeInput,
   parameters: {
-    component: SecurityCodeInput,
     jest: ['SecurityCodeInput']
   }
 };
 
-export const securityCodeInput = () => <SecurityCodeInput />;
+export const base = () => <SecurityCodeInput />;
 
-securityCodeInput.story = {
-  name: 'SecurityCodeInput'
-};
+export const amex = () => <SecurityCodeInput cardScheme={SCHEMES.AMEX} />;
 
-export const amexSecurityCodeInput = () => (
-  <SecurityCodeInput cardScheme={SCHEMES.AMEX} />
-);
-
-amexSecurityCodeInput.story = {
-  name: 'AMEX SecurityCodeInput'
-};
-
-export const securityCodeInputWithModalToggle = () => (
+export const withModalToggle = () => (
   <SecurityCodeInput onShowInfo={action('Security modal toggled')} />
 );
-
-securityCodeInputWithModalToggle.story = {
-  name: 'SecurityCodeInput with modal toggle'
-};

@@ -67,10 +67,6 @@ export const debitCards = () => {
   );
 };
 
-debitCards.story = {
-  name: 'Debit cards'
-};
-
 export const creditCards = () => {
   const { CREDIT_SCHEMES } = schemes;
   const debitIcons = pick(values(CREDIT_SCHEMES), iconComponents);
@@ -86,8 +82,4 @@ export const creditCards = () => {
       )(debitIcons)}
     </IconList>
   );
-};
-
-creditCards.story = {
-  name: 'Credit cards'
 };

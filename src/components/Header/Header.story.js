@@ -14,34 +14,21 @@
  */
 
 import React from 'react';
-import styled from '@emotion/styled';
 import { boolean } from '@storybook/addon-knobs';
 
 import Header from '.';
 import Hamburguer from '../Hamburger';
 
-const HeaderContainer = styled('div')`
-  width: 375px;
-  height: auto;
-`;
-
 export default {
   title: 'Components|Header',
-
+  component: Header,
   parameters: {
-    component: Header,
     jest: ['Header']
   }
 };
 
-export const header = () => (
-  <HeaderContainer>
-    <Header title="Title" mobileOnly={boolean('mobileOnly')}>
-      <Hamburguer light />
-    </Header>
-  </HeaderContainer>
+export const base = () => (
+  <Header title="Title" mobileOnly={boolean('mobileOnly')}>
+    <Hamburguer light />
+  </Header>
 );
-
-header.story = {
-  name: 'Header'
-};
