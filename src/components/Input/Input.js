@@ -39,6 +39,11 @@ const containerBaseStyles = ({ theme }) => css`
   display: block;
   position: relative;
   margin-bottom: ${theme.spacings.mega};
+
+  label > &,
+  label + & {
+    margin-top: ${theme.spacings.bit};
+  }
 `;
 
 const containerDisabledStyles = ({ disabled }) =>
@@ -209,8 +214,8 @@ const validationIconBaseStyles = ({ theme }) => css`
   transition: opacity ${theme.transitions.default};
 `;
 
-const validationIconActiveStyles = ({ invalid, hasWarning }) =>
-  (invalid || hasWarning) &&
+const validationIconActiveStyles = ({ invalid, hasWarning, showValid }) =>
+  (invalid || hasWarning || showValid) &&
   css`
     opacity: 1;
   `;
@@ -248,7 +253,7 @@ const ValidationIcon = ({
   const icon = find(identity, icons);
 
   return (
-    <ValidationIconWrapper {...{ invalid, hasWarning, className }}>
+    <ValidationIconWrapper {...{ invalid, hasWarning, showValid, className }}>
       {icon || null}
     </ValidationIconWrapper>
   );

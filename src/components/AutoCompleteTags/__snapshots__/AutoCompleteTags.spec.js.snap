@@ -13,6 +13,11 @@ exports[`AutoCompleteTags should render with default styles 1`] = `
   margin-bottom: 0;
 }
 
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   position: absolute;
   top: 1px;

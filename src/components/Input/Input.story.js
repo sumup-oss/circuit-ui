@@ -13,102 +13,66 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 
-import Input from '.';
+import { uniqueId } from '../../util/id';
+
+import docs from './Input.docs.mdx';
+import Input from './Input';
 import Label from '../Label';
 
 export default {
   title: 'Forms|Input',
-
+  component: Input,
   parameters: {
-    component: Input,
+    docs: { page: docs },
     jest: ['Input']
   }
 };
 
-export const input = () => <Input placeholder="Placeholder" />;
-
-input.story = {
-  name: 'Input'
+// Inputs always need labels for accessibility.
+const InputWithLabel = props => {
+  const id = uniqueId();
+  return (
+    <Label htmlFor={id}>
+      Label
+      <Input placeholder="Placeholder" {...props} id={id} />
+    </Label>
+  );
 };
 
-export const inputValid = () => <Input placeholder="Placeholder" showValid />;
+export const base = () => <InputWithLabel />;
 
-inputValid.story = {
-  name: 'Input valid'
-};
-
-export const inputInvalid = () => (
-  <Fragment>
-    <Input
-      placeholder="Placeholder"
-      validationHint="This field is required."
-      invalid
-    />
-    <Input placeholder="Placeholder" invalid />
-  </Fragment>
+export const valid = () => (
+  <>
+    <InputWithLabel validationHint="That's correct." showValid />
+    <InputWithLabel showValid />
+  </>
 );
 
-inputInvalid.story = {
-  name: 'Input invalid'
-};
-
-export const inputWarning = () => (
-  <Fragment>
-    <Input
-      placeholder="Placeholder"
-      validationHint="This does not look right."
-      hasWarning
-    />
-    <Input placeholder="Placeholder" hasWarning />
-  </Fragment>
+export const invalid = () => (
+  <>
+    <InputWithLabel validationHint="This field is required." invalid />
+    <InputWithLabel invalid />
+  </>
 );
 
-inputWarning.story = {
-  name: 'Input warning'
-};
-
-export const inputOptional = () => <Input placeholder="Placeholder" optional />;
-
-inputOptional.story = {
-  name: 'Input optional'
-};
-
-export const inputDisabled = () => <Input value="Some value" disabled />;
-
-inputDisabled.story = {
-  name: 'Input disabled'
-};
-
-export const inputRightAlignedText = () => (
-  <Input placeholder="Placeholder" textAlign="right" />
+export const warning = () => (
+  <>
+    <InputWithLabel validationHint="This does not look right." hasWarning />
+    <InputWithLabel hasWarning />
+  </>
 );
 
-inputRightAlignedText.story = {
-  name: 'Input right aligned text'
-};
+export const optional = () => <InputWithLabel optional />;
 
-export const inlineInputs = () => (
+export const disabled = () => <InputWithLabel value="Some value" disabled />;
+
+export const rightAligned = () => <InputWithLabel textAlign="right" />;
+
+export const inline = () => (
   <div>
     <Input placeholder="First" inline />
     <Input placeholder="Second" inline />
   </div>
 );
-
-inlineInputs.story = {
-  name: 'Inline inputs'
-};
-
-export const stackedInputs = () => (
-  <div>
-    <Label htmlFor="first">My label</Label>
-    <Input placeholder="First" id="first" />
-    <Label htmlFor="second">My second label</Label>
-    <Input placeholder="Second" id="second" />
-  </div>
-);
-
-stackedInputs.story = {
-  name: 'Stacked inputs'
-};

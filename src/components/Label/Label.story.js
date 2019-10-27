@@ -15,27 +15,20 @@
 
 import React from 'react';
 
-import Label from '.';
+import Label from './Label';
+import docs from './Label.docs.mdx';
 
 export default {
   title: 'Forms|Label',
-
+  component: Label,
   parameters: {
-    component: Label,
+    docs: { page: docs },
     jest: ['Label']
   }
 };
 
-export const label = () => <Label>An input label</Label>;
+export const base = () => <Label>An input label</Label>;
 
-label.story = {
-  name: 'Label'
-};
-
-export const labelUsedForAccessibilityOnly = () => (
+export const forAccessibilityOnly = () => (
   <Label accessibleOnly>Only visible for screen readers</Label>
 );
-
-labelUsedForAccessibilityOnly.story = {
-  name: 'Label used for accessibility only'
-};
