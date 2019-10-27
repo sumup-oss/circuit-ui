@@ -1,19 +1,9 @@
----
-name: Modal
-route: /components/modal
-menu: Components
----
-
-import { Playground, Props } from 'docz';
-import { Fragment } from 'react';
+import { Status, Props, Story } from '../../../docs/components';
 import {
   ModalWrapper,
   ModalHeader,
   ModalFooter
 } from '../../../src/components/Modal';
-import Text from '../../../src/components/Text';
-import Button from '../../../src/components/Button';
-import Status from '../../utils/Statuses';
 
 # Modal
 
@@ -23,15 +13,7 @@ Modals are floating cards which overlay the primary UI. All content in a single
 modal should be related to completing one single task. Modals are heavy UI
 elements which obscure the primary user interface — avoid them where possible.
 
-<Playground>
-  <ModalWrapper>
-    <ModalHeader onClose={() => {}} title="Export transactions" />
-    <Text>Are you sure you want to export your transactions?</Text>
-    <ModalFooter>
-      <Button primary>Export</Button>
-    </ModalFooter>
-  </ModalWrapper>
-</Playground>
+<Story id="components-modal--base" />
 
 <Props of={ModalWrapper} />
 <Props of={ModalHeader} />

@@ -15,7 +15,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme } from 'emotion-theming';
 
 import { CardHeader } from '../../../Card';
 import Heading from '../../../Heading';
@@ -31,7 +30,14 @@ const ModalHeader = ({ title, onClose, labelCloseButton }) => (
 );
 
 ModalHeader.propTypes = {
+  /**
+   * Callback for the close button. If not specified, the button won't
+   * be shown.
+   */
   onClose: PropTypes.func,
+  /**
+   * The title for the Modal.
+   */
   title: PropTypes.string.isRequired,
   /**
    * Text label for the close button for screen readers.
@@ -47,4 +53,4 @@ ModalHeader.defaultProps = {
 /**
  * @component
  */
-export default withTheme(ModalHeader);
+export default ModalHeader;
