@@ -1,0 +1,41 @@
+import { Status, Props, Story } from '../../../docs/components';
+import Text from './Text';
+
+# Text
+
+<Status.Stable />
+
+Text is used to present the core textual content for our users. They are contained within headings and subheadings
+and have `bold` and `italic` attributes to tailor it according to the content we are.
+presenting.
+
+<Story id="typography-text--base" />
+
+<Props of={Text} />
+
+## Usage guidelines
+
+- **Do** use the `mega` size as the default for body text
+- **Do** use spacing to better organize textual information, such as different paragraphs
+- **Do not** overly use the `bold` attribute, it should be used to
+  help users scan through key parts of the content
+
+### Sizes
+
+<Story id="typography-text--size" />
+
+### Bold
+
+<Story id="typography-text--bold" />
+
+### Italic
+
+<Story id="typography-text--italic" />
+
+### Strikethrough
+
+<Story id="typography-text--strike" />
+
+### Custom element
+
+<Story id="typography-text--custom-element" />

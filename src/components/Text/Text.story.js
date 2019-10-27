@@ -17,6 +17,7 @@ import React from 'react';
 import { select, boolean } from '@storybook/addon-knobs';
 
 import Text from '.';
+import docs from './Text.docs.mdx';
 
 const elements = ['p', 'article', 'div', 'span', 'strong', 'em'];
 const sizes = [Text.KILO, Text.MEGA, Text.GIGA];
@@ -26,28 +27,37 @@ const content = `An electronic circuit is composed of individual electronic comp
 
 export default {
   title: 'Typography|Text',
-
+  component: Text,
   parameters: {
-    component: Text,
+    docs: { page: docs },
     jest: ['Text']
   }
 };
 
-export const text = () => (
-  <div style={{ width: '66%', margin: '0 auto' }}>
-    <Text
-      as={select('Element', elements, elements[0])}
-      size={select('Size', sizes, sizes[0])}
-      noMargin={boolean('No margin')}
-      bold={boolean('Bold')}
-      italic={boolean('Italic')}
-      strike={boolean('Strike through')}
-    >
-      {content}
-    </Text>
-  </div>
+export const base = () => (
+  <Text
+    as={select('Element', elements, elements[0])}
+    size={select('Size', sizes, sizes[0])}
+    noMargin={boolean('No margin')}
+    bold={boolean('Bold')}
+    italic={boolean('Italic')}
+    strike={boolean('Strike through')}
+  >
+    {content}
+  </Text>
 );
 
-text.story = {
-  name: 'Text'
-};
+export const size = () =>
+  sizes.map(s => (
+    <Text key={s} size={s}>
+      This is a {s} text. {content}
+    </Text>
+  ));
+
+export const bold = () => <Text bold>{content}</Text>;
+
+export const italic = () => <Text italic>{content}</Text>;
+
+export const strike = () => <Text strike>{content}</Text>;
+
+export const customElement = () => <Text as="span">{content}</Text>;

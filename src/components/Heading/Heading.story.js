@@ -16,7 +16,8 @@
 import React from 'react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
 
-import Heading from '.';
+import Heading from './Heading';
+import docs from './Heading.docs.mdx';
 
 const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 const sizes = [
@@ -31,14 +32,14 @@ const sizes = [
 
 export default {
   title: 'Typography|Heading',
-
+  component: Heading,
   parameters: {
-    component: Heading,
+    docs: { page: docs },
     jest: ['Heading']
   }
 };
 
-export const heading = () => (
+export const base = () => (
   <Heading
     as={select('Element', elements, elements[0])}
     size={select('Size', sizes, sizes[0])}
@@ -48,6 +49,9 @@ export const heading = () => (
   </Heading>
 );
 
-heading.story = {
-  name: 'Heading'
-};
+export const size = () =>
+  sizes.map(s => (
+    <Heading key={s} size={s}>
+      This is a {s} heading
+    </Heading>
+  ));
