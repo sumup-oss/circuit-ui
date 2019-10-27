@@ -40,9 +40,8 @@ const Container = styled('div')({
 
 export default {
   title: 'Layout|InlineElements',
-
+  component: InlineElements,
   parameters: {
-    component: InlineElements,
     jest: ['InlineElements']
   }
 };
@@ -56,10 +55,6 @@ export const twoInlineElements = () => (
   </Container>
 );
 
-twoInlineElements.story = {
-  name: 'Two InlineElements'
-};
-
 export const threeInlineElements = () => (
   <Container>
     <InlineElements>
@@ -69,10 +64,6 @@ export const threeInlineElements = () => (
     </InlineElements>
   </Container>
 );
-
-threeInlineElements.story = {
-  name: 'Three InlineElements'
-};
 
 export const threeInlineElementsInlineOnMobile = () => (
   <Container>
@@ -84,10 +75,6 @@ export const threeInlineElementsInlineOnMobile = () => (
   </Container>
 );
 
-threeInlineElementsInlineOnMobile.story = {
-  name: 'Three InlineElements inline on mobile'
-};
-
 export const twoInlineElementsWithRatios = () => (
   <Container>
     <InlineElements ratios={[2, 1]}>
@@ -97,10 +84,6 @@ export const twoInlineElementsWithRatios = () => (
   </Container>
 );
 
-twoInlineElementsWithRatios.story = {
-  name: 'Two InlineElements with ratios'
-};
-
 export const twoInlineElementsWithRatiosInlineOnMobile = () => (
   <Container>
     <InlineElements ratios={[3, 1]} inlineMobile>
@@ -109,7 +92,3 @@ export const twoInlineElementsWithRatiosInlineOnMobile = () => (
     </InlineElements>
   </Container>
 );
-
-twoInlineElementsWithRatiosInlineOnMobile.story = {
-  name: 'Two InlineElements with ratios inline on mobile'
-};

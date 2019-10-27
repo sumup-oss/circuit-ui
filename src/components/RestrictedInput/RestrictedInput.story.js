@@ -18,16 +18,11 @@ import React from 'react';
 import RestrictedInput from './RestrictedInput';
 
 export default {
-  title: 'Forms|RestrictedInput',
-
+  title: 'Forms|Input/RestrictedInput',
+  component: RestrictedInput,
   parameters: {
-    component: RestrictedInput,
     jest: ['RestrictedInput']
   }
 };
 
-export const restrictedInput = () => <RestrictedInput />;
-
-restrictedInput.story = {
-  name: 'RestrictedInput'
-};
+export const base = () => <RestrictedInput />;

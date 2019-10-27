@@ -33,14 +33,13 @@ const Container = styled('div')(
 
 export default {
   title: 'Components|Spinner',
-
+  component: Spinner,
   parameters: {
-    component: Spinner,
     jest: ['Spinner']
   }
 };
 
-export const spinner = () => (
+export const base = () => (
   <Container>
     <Spinner
       dark={boolean('Show dark variant', false)}
@@ -56,7 +55,3 @@ export const spinner = () => (
     />
   </Container>
 );
-
-spinner.story = {
-  name: 'Spinner'
-};

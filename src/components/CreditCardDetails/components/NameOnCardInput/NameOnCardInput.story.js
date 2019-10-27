@@ -19,15 +19,10 @@ import NameOnCardInput from './NameOnCardInput';
 
 export default {
   title: 'Forms|CreditCardDetails/NameOnCardInput',
-
+  component: NameOnCardInput,
   parameters: {
-    component: NameOnCardInput,
     jest: ['NameOnCardInput']
   }
 };
 
-export const nameOnCardInput = () => <NameOnCardInput />;
-
-nameOnCardInput.story = {
-  name: 'NameOnCardInput'
-};
+export const base = () => <NameOnCardInput />;

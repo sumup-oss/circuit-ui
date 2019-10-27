@@ -40,7 +40,6 @@ const CurrencyInput = ({ locale, currency, ...props }) => {
 
 CurrencyInput.propTypes = {
   theme: themePropType.isRequired,
-  // eslint-disable-next-line
   locale: localePropType(true),
   currency: PropTypes.oneOf(keys(CURRENCY_SYMBOLS)).isRequired
 };

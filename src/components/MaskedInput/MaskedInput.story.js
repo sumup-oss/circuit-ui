@@ -18,16 +18,11 @@ import React from 'react';
 import MaskedInput from './MaskedInput';
 
 export default {
-  title: 'Forms|MaskedInput',
-
+  title: 'Forms|Input/MaskedInput',
+  component: MaskedInput,
   parameters: {
-    component: MaskedInput,
     jest: ['MaskedInput']
   }
 };
 
-export const maskedInput = () => <MaskedInput />;
-
-maskedInput.story = {
-  name: 'MaskedInput'
-};
+export const base = () => <MaskedInput />;

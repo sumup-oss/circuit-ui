@@ -15,32 +15,32 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-
-import { circuit } from '../../themes';
+import { css } from '@emotion/core';
 
 import Col from './Col';
 
-const StyledCol = styled(Col)`
-  background-color: ${circuit.colors.b500};
-  color: ${circuit.colors.white};
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 20px;
-  height: 40px;
-  padding: 10px;
-`;
+export default {
+  title: 'Layout|Grid/Col',
+  component: Col,
+  parameters: {
+    jest: ['Col']
+  }
+};
+
+const StyledCol = styled(Col)(
+  ({ theme }) => css`
+    background-color: ${theme.colors.b500};
+    color: ${theme.colors.white};
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    height: 40px;
+    padding: 10px;
+  `
+);
 
 StyledCol.defaultProps = {
   skip: '0'
-};
-
-export default {
-  title: 'Grid|Col',
-
-  parameters: {
-    component: Col,
-    jest: ['Col']
-  }
 };
 
 export const col = () => (
@@ -48,7 +48,3 @@ export const col = () => (
     <StyledCol span="12">Column</StyledCol>
   </div>
 );
-
-col.story = {
-  name: 'Col'
-};

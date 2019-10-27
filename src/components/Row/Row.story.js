@@ -15,55 +15,52 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 import Row from './Row';
 import Col from '../Col';
-import { circuit } from '../../themes';
 
-const StyledCol = styled(Col)`
-  color: ${circuit.colors.white};
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 20px;
-  height: 40px;
-  padding: 10px;
-  &:nth-of-type(n) {
-    background-color: ${circuit.colors.b500};
+export default {
+  title: 'Layout|Grid/Row',
+  component: Row,
+  parameters: {
+    jest: ['Row']
   }
+};
 
-  &:nth-of-type(2n) {
-    background-color: ${circuit.colors.b300};
-  }
-`;
+const StyledCol = styled(Col)(
+  ({ theme }) => css`
+    color: ${theme.colors.white};
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    height: 40px;
+    padding: 10px;
+    &:nth-of-type(n) {
+      background-color: ${theme.colors.b500};
+    }
+
+    &:nth-of-type(2n) {
+      background-color: ${theme.colors.b300};
+    }
+  `
+);
 
 StyledCol.defaultProps = {
   skip: '0'
 };
 
-const StyledRow = styled(Row)`
-  border: 2px solid ${circuit.colors.y100};
-  margin-bottom: 8px;
-`;
-
-export default {
-  title: 'Grid|Row',
-
-  parameters: {
-    component: Row,
-    jest: ['Row']
-  }
-};
-
-export const row = () => (
-  <div style={{ width: '100vw' }}>
-    <StyledRow>
-      <StyledCol span="4">Col 4</StyledCol>
-      <StyledCol span="4">Col 4</StyledCol>
-      <StyledCol span="4">Col 4</StyledCol>
-    </StyledRow>
-  </div>
+const StyledRow = styled(Row)(
+  ({ theme }) => css`
+    border: 2px solid ${theme.colors.y100};
+    margin-bottom: 8px;
+  `
 );
 
-row.story = {
-  name: 'Row'
-};
+export const base = () => (
+  <StyledRow>
+    <StyledCol span="4">Col 4</StyledCol>
+    <StyledCol span="4">Col 4</StyledCol>
+    <StyledCol span="4">Col 4</StyledCol>
+  </StyledRow>
+);

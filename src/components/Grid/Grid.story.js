@@ -47,10 +47,9 @@ const StyledRow = styled(Row)`
 `;
 
 export default {
-  title: 'Grid|Grid',
-
+  title: 'Layout|Grid/Grid',
+  component: Grid,
   parameters: {
-    component: Grid,
     jest: ['Grid']
   }
 };
@@ -96,10 +95,6 @@ export const staticColumns = () => (
   </div>
 );
 
-staticColumns.story = {
-  name: 'Static columns'
-};
-
 export const responsiveColumns = () => (
   <div style={{ width: '100vw' }}>
     <Grid>
@@ -128,10 +123,6 @@ export const responsiveColumns = () => (
   </div>
 );
 
-responsiveColumns.story = {
-  name: 'Responsive columns'
-};
-
 export const skippingColumns = () => (
   <div style={{ width: '100vw' }}>
     <Grid>
@@ -155,10 +146,6 @@ export const skippingColumns = () => (
   </div>
 );
 
-skippingColumns.story = {
-  name: 'Skipping columns'
-};
-
 export const responsiveSkipping = () => (
   <div style={{ width: '100vw' }}>
     <Grid>
@@ -181,7 +168,3 @@ export const responsiveSkipping = () => (
     </Grid>
   </div>
 );
-
-responsiveSkipping.story = {
-  name: 'Responsive skipping'
-};
