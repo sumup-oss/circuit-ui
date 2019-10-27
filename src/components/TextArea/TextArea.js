@@ -34,6 +34,8 @@ const TextArea = props => (
 TextArea.LEFT = Input.LEFT;
 TextArea.RIGHT = Input.RIGHT;
 
+TextArea.propTypes = Input.propTypes;
+
 /**
  * @component
  */

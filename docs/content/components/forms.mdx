@@ -7,12 +7,9 @@ menu: Components
 import { Fragment } from 'react';
 import { Playground, Props } from 'docz';
 import Text from '../../../src/components/Text';
-import Input from '../../../src/components/Input/Input';
-import Label from '../../../src/components/Label/Label';
 import Checkbox from '../../../src/components/Checkbox/Checkbox';
 import RadioButton from '../../../src/components/RadioButton/RadioButton';
 import Select from '../../../src/components/Select/Select';
-import TextArea from '../../../src/components/TextArea/TextArea';
 import SearchInput from '../../../src/components/SearchInput';
 import AutoCompleteInput from '../../../src/components/AutoCompleteInput';
 import CurrencyInput from '../../../src/components/CurrencyInput';
@@ -20,142 +17,6 @@ import AutoCompleteTags from '../../../src/components/AutoCompleteTags';
 import Status from '../../utils/Statuses';
 
 # Forms
-
-## Text Field
-
-<Status.Stable />
-
-A text field is an input field for inserting short text and numbers. It has
-multiple functions and supports multiple character types/formats.
-
-<Playground>
-  <Fragment>
-    <Label htmlFor="name">Label</Label>
-    <Input name="input" id="input" placeholder="Placeholder" />
-  </Fragment>
-</Playground>
-
-<Props of={Input} />
-
-### When to use it
-
-When you need short textual information from the user such as email address,
-first name, phone number, street name, etc.
-
-### Usage guidelines
-
-- **Do** always accompany an input field with a visible label.
-- **Do** use one input per row, unless two fields are closely interrelated
-  (e.g. first and last name).
-- **Do not** use input fields for requiring longer textual information from the
-  user.
-- **Do not** communicate that an input field is required on the label or the placeholder.
-  We assume that everything is required for the user unless explicitly said so.
-- **Do not** mark required fields with asterisks.
-
-### Component variations
-
-#### Disabled text field
-
-You should use only when its a critical information from the user that we
-already have or need and we do not want the user to edit it easily. A disabled
-field should only be open for editing again if a CTA is clicked.
-
-<Playground>
-  <Input name="input" id="input" disabled placeholder="You cannot type" />
-</Playground>
-
-#### Optional text field
-
-We should always strive for not asking optional information from our users. We
-recommend using optional inputs only if you feel that information is not
-critical and the user could benefit from having it input (such as `cellphone`
-in the context of a delivery address).
-
-Remember to always mark the input as optional on the label and never on the
-placeholder.
-
-<Playground>
-  <Input name="input" id="input" optional />
-</Playground>
-
-#### Invalid text field
-
-When you have a validation logic behind information that is required in
-order to continue the form flow.
-
-<Playground>
-  <Input name="input" id="input" invalid placeholder="I am not valid!" />
-</Playground>
-
-##### Usage guidelines
-
-- **Do** try to tell that a text input is not valid as soon as we realize it.
-- **Do** display the error message that corresponds to the input above the input field.
-- **Do** use passive voice in the error message to avoid giving direct blame to
-  our users, eg "Password is required" instead of "You didn't set a password"
-- **Do not** use long sentences to describe why something is invalid, be direct
-  and tell the user how to fix it.
-- **Do not** place validation descriptions for formatting such as "Use only
-  numbers". We should always try to take care of this automatically for our users
-  (such as eliminating space in credit card inputs)
-
-#### Warning text field
-
-Use it when the information that the user inserted, due to our automatic
-validations, can affect another setting or attribute of the user's account we
-should warn him on the spot (without having to submit before)
-
-<Playground>
-  <Input name="input" id="input" hasWarning placeholder="I am warning you." />
-</Playground>
-
-## Placeholder
-
-An input field must always have a placeholder, which is a short example of the
-information required that helps the user to understand what kind of information
-is needed. (For instance, an Address Field could have a placeholder:
-Grunerstrasse 13)
-
-### When to use it
-
-Always provide a placeholder for text input fields.
-
-### Usage guidelines
-
-- **Do** make the placeholder succinct (up to 3-4 words).
-- **Do** make the placeholder contextual to the language and market.
-- **Do not** repeat the same content in the placeholder as the label.
-- **Do not** communicate that a field is optional in the placeholder, you
-  should do it in the label.
-
-## Label
-
-<Status.Stable />
-
-A label is a short text that explains what information is needed in the text
-field. Having a clear and straightforward label not only helps the user to know
-what is the purpose of the input but also helps directly with making forms
-more accessible.
-
-<Playground>
-  <Label htmlFor="name">Label</Label>
-</Playground>
-
-<Props of={Label} />
-
-### When to use it
-
-Always provide a label for text input fields.
-
-### Usage guidelines
-
-- **Do** make the placeholder succinct (up to 3-4 words).
-- **Do** adjust the label to include "(optional)" if the corresponding input field is optional.
-- **Do** always place the label on top of the input field, aligned to the left.
-- **Do not** frame labels as questions (such as _"What is your phone
-  number?",_ write "Phone number" instead).
-- **Do not** use labels as help text.
 
 ## Checkbox
 
@@ -329,27 +190,6 @@ consider using the radio button component.
   merchant to find the option as easy as possible)
 - **Do not** use it to save space or tidy up a form.
 - **Do not** use it as a way to filter content
-
-## Textarea
-
-<Status.Stable />
-
-It is a type of input that allow mutiple lines of text.
-
-<Playground>
-  <TextArea value="Howdy from the text area" />
-</Playground>
-
-<Props of={TextArea} />
-
-### When to use it
-
-Text Areas are best used for information that is prompted by an open-ended
-question.
-
-### Usage guidelines
-
-- **Do not** use placeholders in text areas.
 
 ## Currency input
 
