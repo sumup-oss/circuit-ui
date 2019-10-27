@@ -20,19 +20,12 @@ import CalendarTag from './CalendarTag';
 
 export default {
   title: 'Components|Calendar/CalendarTag',
-
+  component: CalendarTag,
   parameters: {
-    component: CalendarTag,
     jest: ['CalendarTag']
   }
 };
 
-export const calendarTag = () => (
-  <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>
-    <CalendarTag onDatesRangeChange={action('onDatesRangeChange')} />
-  </div>
+export const base = () => (
+  <CalendarTag onDatesRangeChange={action('onDatesRangeChange')} />
 );
-
-calendarTag.story = {
-  name: 'CalendarTag'
-};
