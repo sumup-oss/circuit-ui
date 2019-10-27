@@ -19,15 +19,10 @@ import InfoIcon from './InfoIcon';
 
 export default {
   title: 'Icons|InfoIcon',
-
+  component: InfoIcon,
   parameters: {
-    component: InfoIcon,
     jest: ['InfoIcon']
   }
 };
 
-export const infoIcon = () => <InfoIcon />;
-
-infoIcon.story = {
-  name: 'InfoIcon'
-};
+export const base = () => <InfoIcon />;

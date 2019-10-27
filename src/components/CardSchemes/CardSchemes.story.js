@@ -20,6 +20,7 @@ import { array, select } from '@storybook/addon-knobs';
 // eslint-disable-next-line max-len
 import schemeMap from '../CreditCardDetails/components/scheme-icons/card-scheme-icons';
 
+import docs from './CardSchemes.docs.mdx';
 import CardSchemes from './CardSchemes';
 
 const iconIds = keys(schemeMap);
@@ -32,19 +33,16 @@ const iconSizes = [
 
 export default {
   title: 'Icons|CardSchemes',
-
+  component: CardSchemes,
   parameters: {
-    component: CardSchemes
+    docs: { page: docs },
+    jest: ['CardSchemes']
   }
 };
 
-export const cardSchemes = () => (
+export const base = () => (
   <CardSchemes
     size={select('Schemes Size', iconSizes, iconSizes[CardSchemes.GIGA])}
     iconIds={array('Card schemes', iconIds)}
   />
 );
-
-cardSchemes.story = {
-  name: 'CardSchemes'
-};
