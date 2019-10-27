@@ -14,65 +14,37 @@
  */
 
 import React from 'react';
-import { action } from '@storybook/addon-actions';
+import { css } from '@emotion/core';
 
 import NotificationBanner from './NotificationBanner';
-import Message, { MessageButton, MessageIcon } from '../Message';
-import Markdown from '../Markdown';
-import Heading from '../Heading';
-import Text from '../Text';
-import Button from '../Button';
+
+import { base as Message } from '../Message/Message.story';
 
 export default {
-  title: 'Components|NotificationBanner',
-
+  title: 'Components|Message/NotificationBanner',
+  component: NotificationBanner,
   parameters: {
-    component: NotificationBanner,
     jest: ['NotificationBanner']
   }
 };
 
-export const notificationBanner = () => (
-  <div style={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}>
-    <NotificationBanner>
-      <Message>
-        <MessageIcon type={MessageIcon.SUCCESS} />
-        <Markdown
-          overrides={{
-            h1: {
-              component: Heading,
-              props: {
-                as: 'h4',
-                size: Heading.KILO,
-                noMargin: true
-              }
-            },
-            p: {
-              component: Text,
-              props: {
-                noMargin: true
-              }
-            }
-          }}
-        >
-          {`# New Feature — Intelligent Reporting\nGet automatic insights
-                into your business statistics with one click.`}
-        </Markdown>
-        <MessageButton>
-          <Button
-            size={Button.KILO}
-            onClick={e => {
-              action('Close button clicked')(e);
-            }}
-          >
-            Read more
-          </Button>
-        </MessageButton>
-      </Message>
-    </NotificationBanner>
+export const base = () => (
+  <div
+    css={css`
+      min-height: 5rem;
+    `}
+  >
+    <div
+      css={css`
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      `}
+    >
+      <NotificationBanner>
+        <Message />
+      </NotificationBanner>
+    </div>
   </div>
 );
-
-notificationBanner.story = {
-  name: 'NotificationBanner'
-};

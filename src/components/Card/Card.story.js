@@ -54,7 +54,7 @@ const Header = () => (
 );
 
 const Content = () => (
-  <Text margin={false}>This is some text showing in my card</Text>
+  <Text noMargin>This is some text showing in my card</Text>
 );
 
 export const base = () => <Card css={cardStyles} />;
