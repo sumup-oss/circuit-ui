@@ -15,50 +15,51 @@
 
 import React from 'react';
 
+import docs from './InlineNotification.docs.mdx';
 import InlineNotification from './InlineNotification';
 import Card from '../Card';
 import Text from '../Text';
 
 export default {
-  title: 'Components|InlineNotification',
-
+  title: 'Forms|InlineNotification',
+  component: InlineNotification,
   parameters: {
-    component: InlineNotification,
+    docs: { page: docs },
     jest: ['InlineNotification']
   }
 };
 
-export const successInlineNotification = () => (
+export const base = () => (
+  <Card>
+    <InlineNotification
+      type={InlineNotification.WARNING}
+      size={InlineNotification.GIGA}
+    >
+      Something might go terribly wrong.
+    </InlineNotification>
+    <Text>Sorry that is how it is.</Text>
+  </Card>
+);
+
+export const success = () => (
   <InlineNotification type={InlineNotification.SUCCESS}>
-    Something has gone terribly right.
+    Something has gone wonderfully right.
   </InlineNotification>
 );
 
-successInlineNotification.story = {
-  name: 'Success InlineNotification'
-};
+export const warning = () => (
+  <InlineNotification type={InlineNotification.WARNING}>
+    Something might go sideways.
+  </InlineNotification>
+);
 
-export const dangerInlineNotification = () => (
+export const alert = () => (
   <InlineNotification type={InlineNotification.DANGER}>
     Something has gone terribly wrong.
   </InlineNotification>
 );
 
-dangerInlineNotification.story = {
-  name: 'Danger InlineNotification'
-};
-
-export const warningInlineNotification = () => (
-  <InlineNotification type={InlineNotification.WARNING}>
-    Something might go terribly wrong.
-  </InlineNotification>
-);
-
-warningInlineNotification.story = {
-  name: 'Warning InlineNotification'
-};
-
-export const inlineNotificationWithMegaSpacing = () => (
+export const size = () => (
   <InlineNotification
     type={InlineNotification.WARNING}
     size={InlineNotification.MEGA}
@@ -66,23 +67,3 @@ export const inlineNotificationWithMegaSpacing = () => (
     Something might go terribly wrong with a bigger card.
   </InlineNotification>
 );
-
-inlineNotificationWithMegaSpacing.story = {
-  name: 'InlineNotification with Mega spacing'
-};
-
-export const inlineNotificationInsideACard = () => (
-  <Card>
-    <InlineNotification
-      type={InlineNotification.WARNING}
-      size={InlineNotification.GIGA}
-    >
-      Something might go terribly wrong with a bigger card.
-    </InlineNotification>
-    <Text>Sorry that is how it is.</Text>
-  </Card>
-);
-
-inlineNotificationInsideACard.story = {
-  name: 'InlineNotification inside a Card'
-};

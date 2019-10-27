@@ -88,15 +88,22 @@ InlineNotification.DANGER = DANGER;
 InlineNotification.SUCCESS = SUCCESS;
 InlineNotification.WARNING = WARNING;
 
+InlineNotification.MEGA = MEGA;
+InlineNotification.GIGA = GIGA;
+
 InlineNotification.propTypes = {
   /**
    * Indicates the color of the left border and text in the notification.
    */
-  type: PropTypes.oneOf([DANGER, SUCCESS, WARNING]),
+  type: PropTypes.oneOf([
+    InlineNotification.DANGER,
+    InlineNotification.SUCCESS,
+    InlineNotification.WARNING
+  ]),
   /**
    * Should correspond to the size provided to the surrounding Card component.
    */
-  size: PropTypes.oneOf([MEGA, GIGA]),
+  size: PropTypes.oneOf([InlineNotification.MEGA, InlineNotification.GIGA]),
   /**
    * Removes the default bottom margin from the text.
    */
@@ -104,7 +111,7 @@ InlineNotification.propTypes = {
 };
 
 InlineNotification.defaultProps = {
-  size: GIGA,
+  size: InlineNotification.GIGA,
   noMargin: false
 };
 
