@@ -202,7 +202,9 @@ const Select = ({
   validationHint,
   ...props
 }) => {
-  const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
+  const prefix = RenderPrefix && (
+    <RenderPrefix css={prefixStyles} value={value} />
+  );
   const showInvalid = !disabled && invalid;
 
   return (

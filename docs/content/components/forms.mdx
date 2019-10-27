@@ -1,6 +1,5 @@
 import Checkbox from '../../../src/components/Checkbox/Checkbox';
 import RadioButton from '../../../src/components/RadioButton/RadioButton';
-import Select from '../../../src/components/Select/Select';
 
 # Forms
 
@@ -134,45 +133,3 @@ exclusive options.
 Use a disabled radio button only if you really need to communicate to the user that an option that existed
 before is not available for choosing now. Keep in mind that you need to communicate why. One recommendation
 would be to pair a disabled input with a tooltip to give the appropriate context for our user.
-
-## Select dropdown
-
-A select dropdown is a form field that allows users to choose one of the multiple options from a menu.
-An example being the expiration date for a users credit card.
-
-<Playground>
-  <Select
-    onChange={() => {}}
-    options={[
-      {
-        label: 'Option 1',
-        value: 1
-      },
-      {
-        label: 'Option 2',
-        value: 2
-      },
-      {
-        label: 'Option 3',
-        value: 3
-      }
-    ]}
-  />
-</Playground>
-
-<Props of={Select} />
-
-### When to use it
-
-Best used when there are 4 or more defined options to choose from (e.g. Months).If there are less than 4 options,
-consider using the radio button component.
-
-### Usage guidelines
-
-- **Do** clearly label the select dropdown so that the user knows what options will be available
-- **Do** always provide a default option, typically the placeholder. The default option is not
-  selectable but should specify what options will be available.
-- **Do** list the options in a logical order. (e.g. Alphabetical, numerical, or in some order that allows the
-  user to find the option as easy as possible)
-- **Do not** use it to save space or tidy up a form.
-- **Do not** use it as a way to filter content
