@@ -1,39 +1,24 @@
-import RadioButton from '../../../src/components/RadioButton/RadioButton';
+import { Status, Props, Story } from '../../../docs/components';
+import RadioButton from './RadioButton';
+import RadioButtonGroup from '../RadioButtonGroup';
 
-# Forms
+# RadioButton
 
-## Radio button
-
-<Status.InReview />
+<Status.Stable />
 
 A radio button is a quick way to extract a single coded answer from our users by presenting multiple
 possibilities and allowing only one option to be chosen.
 
-<Playground>
-  <Fragment>
-    <RadioButton
-      name="fruit"
-      value="true"
-      id="pineapples"
-      checked
-      onChange={() => {}}
-    >
-      Pineapples
-    </RadioButton>
-    <RadioButton name="fruit" value="bananas" id="bananas" onChange={() => {}}>
-      Bananas
-    </RadioButton>
-  </Fragment>
-</Playground>
+<Story id="forms-radiobutton--base" />
 
 <Props of={RadioButton} />
 
-### When to use it
+## When to use it
 
 Use a radio button when the user has to choose only one option based on a pre-defined list of mutually
 exclusive options.
 
-### Usage guidelines
+## Usage guidelines
 
 - **Do** always associate the radio button with a label that clearly gives context for the user to make a decision
 - **Do** capitalize each item of the list
@@ -42,10 +27,22 @@ exclusive options.
 - **Do not** punctuate the end of every list item
 - **Do not** mark required fields with asterisks
 
-### Component variations
+## Component variations
 
-##### Disabled Radio Button
+### Disabled Radio Button
 
 Use a disabled radio button only if you really need to communicate to the user that an option that existed
 before is not available for choosing now. Keep in mind that you need to communicate why. One recommendation
 would be to pair a disabled input with a tooltip to give the appropriate context for our user.
+
+<Story id="forms-radiobutton--disabled" />
+
+### Invalid
+
+<Story id="forms-radiobutton--invalid" />
+
+## RadioButtonGroup
+
+<Story id="forms-radiobutton-radiobuttongroup--base" />
+
+<Props of={RadioButtonGroup} />
