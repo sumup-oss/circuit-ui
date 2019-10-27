@@ -1,0 +1,27 @@
+import { Status, Props, Story } from '../../../docs/components';
+import CurrencyInput from './CurrencyInput';
+
+# CurrencyInput
+
+<Status.InReview/> <Status.Description size={Text.KILO}>Design and styling issues causing overflow</Status.Description>
+
+Currency Input indicates to the user that a number should be entered in a given currency.
+
+<Story id="forms-input-currencyinput--base" />
+
+<Props of={CurrencyInput} />
+
+## Component Variations
+
+### Currency
+
+You can use `currency` to specify which currency the input should use.
+
+<Story id="forms-input-currencyinput--currencies" />
+
+### Locale
+
+You can use `locale` to change the currency formatting locale.
+For example, Euros could be formatted differently based on locale:
+
+<Story id="forms-input-currencyinput--locales" />

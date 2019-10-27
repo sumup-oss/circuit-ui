@@ -15,21 +15,62 @@
 
 import React from 'react';
 
+import { uniqueId } from '../../util/id';
+
+import docs from './CurrencyInput.docs.mdx';
 import CurrencyInput from './CurrencyInput';
+import Label from '../Label';
 
 export default {
-  title: 'Forms|CurrencyInput',
-
+  title: 'Forms|Input/CurrencyInput',
+  component: CurrencyInput,
   parameters: {
-    component: CurrencyInput,
+    docs: { page: docs },
     jest: ['CurrencyInput']
   }
 };
 
-export const currencyInput = () => (
-  <CurrencyInput placeholder="123.45" locale="de-DE" currency="USD" />
+// CurrencyInputs always need labels for accessibility.
+const CurrencyInputWithLabel = props => {
+  const id = uniqueId();
+  return (
+    <Label htmlFor={id}>
+      Amount
+      <CurrencyInput placeholder="123.45" {...props} id={id} />
+    </Label>
+  );
+};
+
+export const base = () => (
+  <CurrencyInputWithLabel placeholder="123,45" locale="de-DE" currency="EUR" />
 );
 
-currencyInput.story = {
-  name: 'CurrencyInput'
-};
+export const currencies = () => (
+  <>
+    <CurrencyInputWithLabel
+      placeholder="1,234.50"
+      currency="USD"
+      locale="en-US"
+    />
+    <CurrencyInputWithLabel
+      placeholder="1 234,50"
+      currency="RUB"
+      locale="ru-RU"
+    />
+  </>
+);
+
+export const locales = () => (
+  <>
+    <CurrencyInputWithLabel
+      placeholder="1.234,50"
+      currency="EUR"
+      locale="de-DE"
+    />
+    <CurrencyInputWithLabel
+      placeholder="1,234.50"
+      currency="EUR"
+      locale="en-IE"
+    />
+  </>
+);

@@ -1,7 +1,6 @@
 import Checkbox from '../../../src/components/Checkbox/Checkbox';
 import RadioButton from '../../../src/components/RadioButton/RadioButton';
 import Select from '../../../src/components/Select/Select';
-import CurrencyInput from '../../../src/components/CurrencyInput';
 
 # Forms
 
@@ -177,48 +176,3 @@ consider using the radio button component.
   user to find the option as easy as possible)
 - **Do not** use it to save space or tidy up a form.
 - **Do not** use it as a way to filter content
-
-## Currency input
-
-<Status.InReview/> <Status.Description size={Text.KILO}>Design and styling issues causing overflow</Status.Description>
-
-Currency Input indicates to the user that a number should be entered in a given currency.
-
-<Playground>
-  <CurrencyInput placeholder="1.234,50" currency="EUR" locale="de-DE" />
-</Playground>
-
-<Props of={CurrencyInput} />
-
-### Component Variations
-
-#### Currency
-
-You can use `currency` to specify which currency the input should use.
-
-<Playground>
-  <Fragment>
-    <CurrencyInput placeholder="CHF: 1'234.50" currency="CHF" locale="de-CH" />
-    <CurrencyInput placeholder="RUB: 1 234,50" currency="RUB" locale="ru-RU" />
-  </Fragment>
-</Playground>
-
-#### Locale
-
-You can use `locale` to change the currency formatting locale.
-For example, Euros could be formatted differently based on locale:
-
-<Playground>
-  <Fragment>
-    <CurrencyInput
-      placeholder="de-DE: 1.234,50"
-      currency="EUR"
-      locale="de-DE"
-    />
-    <CurrencyInput
-      placeholder="en-IE: 1,234.50"
-      currency="EUR"
-      locale="en-IE"
-    />
-  </Fragment>
-</Playground>
