@@ -15,57 +15,50 @@
 
 import React from 'react';
 
-import TextArea from '.';
+import { uniqueId } from '../../util/id';
+
+import TextArea from './TextArea';
+import docs from './TextArea.docs.mdx';
+import Label from '../Label';
 
 export default {
   title: 'Forms|TextArea',
-
+  component: TextArea,
   parameters: {
-    component: TextArea,
+    docs: { page: docs },
     jest: ['TextArea']
   }
 };
 
-export const textArea = () => <TextArea placeholder="Enter your story here" />;
-
-textArea.story = {
-  name: 'TextArea'
+// TextAreas always need labels for accessibility.
+const TextAreaWithLabel = props => {
+  const id = uniqueId();
+  return (
+    <Label htmlFor={id}>
+      Label
+      <TextArea placeholder="Write your text here..." {...props} id={id} />
+    </Label>
+  );
 };
 
-export const textAreaInvalid = () => (
-  <TextArea placeholder="Invalid TextArea, maybe too many chars?" invalid />
+export const base = () => <TextAreaWithLabel />;
+
+export const invalid = () => (
+  <TextAreaWithLabel validationHint="Please fill in this field." invalid />
 );
 
-textAreaInvalid.story = {
-  name: 'TextArea invalid'
-};
-
-export const textAreaWarning = () => (
-  <TextArea
-    placeholder="TextArea with warning, maybe too many chars?"
+export const warning = () => (
+  <TextAreaWithLabel
+    validationHint="We recommend that you fill in this field."
     hasWarning
   />
 );
 
-textAreaWarning.story = {
-  name: 'TextArea warning'
-};
+export const optional = () => <TextAreaWithLabel optional />;
 
-export const textAreaOptional = () => (
-  <TextArea placeholder="Optional" optional />
-);
-
-textAreaOptional.story = {
-  name: 'TextArea optional'
-};
-
-export const textAreaDisabled = () => (
-  <TextArea
-    value="You cannot enter text because the textarea is disabled"
+export const disabled = () => (
+  <TextAreaWithLabel
+    value="You cannot edit the text because the textarea is disabled"
     disabled
   />
 );
-
-textAreaDisabled.story = {
-  name: 'TextArea disabled'
-};
