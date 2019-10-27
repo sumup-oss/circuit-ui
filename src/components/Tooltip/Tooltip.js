@@ -28,7 +28,7 @@ import {
 const baseStyles = ({ theme }) => css`
   label: tooltip;
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: ${theme.colors.n900};

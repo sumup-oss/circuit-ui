@@ -59,6 +59,11 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   box-shadow: none;
 }
 
+label > .circuit-2,
+label + .circuit-2 {
+  margin-top: 4px;
+}
+
 <div
   class="circuit-2 circuit-3"
   disabled=""
@@ -77,6 +82,11 @@ exports[`TextArea should prioritize disabled over warning styles 1`] = `
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
 }
 
 .circuit-3 {
@@ -215,6 +225,11 @@ exports[`TextArea should prioritize error over optional styles 1`] = `
   margin-bottom: 16px;
 }
 
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
 .circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -334,6 +349,11 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
   margin-bottom: 16px;
 }
 
+label > .circuit-6,
+label + .circuit-6 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -397,7 +417,7 @@ exports[`TextArea should render with a Tooltip when passed the validationHint pr
 
 .circuit-4 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -460,6 +480,11 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -544,6 +569,11 @@ exports[`TextArea should render with a suffix when passed the suffix prop 1`] = 
   margin-bottom: 16px;
 }
 
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -624,6 +654,11 @@ exports[`TextArea should render with default styles 1`] = `
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -759,6 +794,11 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   box-shadow: none;
 }
 
+label > .circuit-2,
+label + .circuit-2 {
+  margin-top: 4px;
+}
+
 <div
   class="circuit-2 circuit-3"
   disabled=""
@@ -842,6 +882,11 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   margin-right: 16px;
 }
 
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 <div
   class="circuit-4 circuit-5"
 >
@@ -861,6 +906,11 @@ exports[`TextArea should render with invalid styles when passed the invalid prop
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
 }
 
 .circuit-3 {
@@ -1041,6 +1091,11 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   margin-bottom: 0;
 }
 
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 <div
   class="circuit-4 circuit-5"
 >
@@ -1060,6 +1115,11 @@ exports[`TextArea should render with optional styles when passed the optional pr
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
 }
 
 .circuit-2 {
@@ -1147,6 +1207,11 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   margin-bottom: 16px;
 }
 
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -1199,6 +1264,7 @@ exports[`TextArea should render with valid styles when passed the showValid prop
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
+  opacity: 1;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -1240,6 +1306,11 @@ exports[`TextArea should render with warning styles when passed the hasWarning p
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
 }
 
 .circuit-0 {
