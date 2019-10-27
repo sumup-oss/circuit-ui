@@ -15,25 +15,32 @@
 
 import React from 'react';
 
-import SearchInput from '.';
+import { uniqueId } from '../../util/id';
+
+import SearchInput from './SearchInput';
+import docs from './SearchInput.docs.mdx';
+import Label from '../Label';
 
 export default {
-  title: 'Forms|SearchInput',
-
+  title: 'Forms|Input/SearchInput',
+  component: SearchInput,
   parameters: {
-    component: SearchInput,
+    docs: { page: docs },
     jest: ['SearchInput']
   }
 };
 
-export const searchInput = () => <SearchInput />;
-
-searchInput.story = {
-  name: 'SearchInput'
+// SearchInputs always need labels for accessibility.
+const SearchInputWithLabel = props => {
+  const id = uniqueId();
+  return (
+    <Label htmlFor={id}>
+      Label
+      <SearchInput placeholder="Search..." {...props} id={id} />
+    </Label>
+  );
 };
 
-export const disabledSearchInput = () => <SearchInput disabled />;
+export const base = () => <SearchInputWithLabel />;
 
-disabledSearchInput.story = {
-  name: 'Disabled SearchInput'
-};
+export const disabled = () => <SearchInputWithLabel disabled />;
