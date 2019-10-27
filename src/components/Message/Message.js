@@ -33,9 +33,7 @@ const baseStyles = ({ theme }) => css`
 /**
  * A Message component for alerts, updates and notifications.
  */
-const Message = styled('div')`
-  ${baseStyles};
-`;
+const Message = styled('div')(baseStyles);
 
 Message.propTypes = {
   /**

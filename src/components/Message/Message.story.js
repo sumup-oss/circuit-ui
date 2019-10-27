@@ -15,8 +15,8 @@
 
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { select } from '@storybook/addon-knobs/react';
 
+import docs from './Message.docs.mdx';
 import Message, { MessageIcon, MessageButton } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
@@ -24,43 +24,41 @@ import Button from '../Button';
 
 export default {
   title: 'Components|Message',
-
+  component: Message,
   parameters: {
-    component: Message,
+    docs: { page: docs },
     jest: ['Message']
   }
 };
 
-export const message = () => (
+export const base = () => (
   <Message>
-    <MessageIcon
-      type={select(
-        'Message type',
-        [MessageIcon.SUCCESS, MessageIcon.ERROR, MessageIcon.WARNING],
-        MessageIcon.SUCCESS
-      )}
-    />
-    <Heading size={Heading.KILO} element="h4" margin={false}>
+    <div>
+      <Heading as="h4" size={Heading.KILO} noMargin>
+        New Feature — Intelligent Reporting
+      </Heading>
+      <Text noMargin>
+        Get automatic insights into your business statistics with one click.
+      </Text>
+    </div>
+  </Message>
+);
+
+export const success = () => (
+  <Message>
+    <MessageIcon type={MessageIcon.SUCCESS} />
+    <Heading size={Heading.KILO} as="h4" noMargin>
       Transaction successfully refunded
     </Heading>
   </Message>
 );
 
-message.story = {
-  name: 'Message'
-};
-
-export const messageWithButton = () => (
+export const warning = () => (
   <Message>
-    <MessageIcon type={MessageIcon.SUCCESS} />
-    <div>
-      <Heading element="h4" size={Heading.KILO} margin={false}>
-        New Feature — Intelligent Reporting
-      </Heading>
-      <Text margin={false}>
-        Get automatic insights into your business statistics with one click.
-      </Text>
-    </div>
+    <MessageIcon type={MessageIcon.WARNING} />
+    <Heading size={Heading.KILO} as="h4" noMargin>
+      You still need to verify your account
+    </Heading>
     <MessageButton>
       <Button
         size={Button.KILO}
@@ -68,12 +66,27 @@ export const messageWithButton = () => (
           action('Button clicked')(e);
         }}
       >
-        Read more
+        Verify account
       </Button>
     </MessageButton>
   </Message>
 );
 
-messageWithButton.story = {
-  name: 'Message with button'
-};
+export const alert = () => (
+  <Message>
+    <MessageIcon type={MessageIcon.ERROR} />
+    <Heading size={Heading.KILO} as="h4" noMargin>
+      Your transaction has failed
+    </Heading>
+    <MessageButton>
+      <Button
+        size={Button.KILO}
+        onClick={e => {
+          action('Button clicked')(e);
+        }}
+      >
+        Try again
+      </Button>
+    </MessageButton>
+  </Message>
+);
