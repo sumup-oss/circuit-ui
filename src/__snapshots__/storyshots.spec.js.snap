@@ -1129,7 +1129,63 @@ exports[`Storyshots Components|Button/ButtonGroup Base 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Components|Button/IconButton Icon Button 1`] = `
+exports[`Storyshots Components|Button/CloseButton Base 1`] = `
+.circuit-3 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  overflow: initial;
+  height: 16px;
+  width: 16px;
+}
+
+.circuit-3:focus,
+.circuit-3:active {
+  outline: none;
+}
+
+.circuit-3 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<button
+  class="circuit-2 circuit-3 circuit-4"
+  type="button"
+>
+  <div
+    role="presentation"
+  >
+    close-icon.svg
+  </div>
+  <span
+    class="circuit-0 circuit-1"
+  >
+    Close
+  </span>
+</button>
+`;
+
+exports[`Storyshots Components|Button/IconButton Base 1`] = `
 .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -5379,62 +5435,6 @@ exports[`Storyshots Components|Card/CardList Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|CloseButton Close Button 1`] = `
-.circuit-3 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
-  height: 16px;
-  width: 16px;
-}
-
-.circuit-3:focus,
-.circuit-3:active {
-  outline: none;
-}
-
-.circuit-3 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<button
-  class="circuit-2 circuit-3 circuit-4"
-  type="button"
->
-  <div
-    role="presentation"
-  >
-    close-icon.svg
-  </div>
-  <span
-    class="circuit-0 circuit-1"
-  >
-    Close
-  </span>
-</button>
-`;
-
 exports[`Storyshots Components|Hamburger Base 1`] = `
 .circuit-4 {
   cursor: pointer;
@@ -5521,7 +5521,7 @@ exports[`Storyshots Components|Hamburger Base 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Header Header 1`] = `
+exports[`Storyshots Components|Header Base 1`] = `
 .circuit-2 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -5535,11 +5535,6 @@ exports[`Storyshots Components|Header Header 1`] = `
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
-
-.circuit-10 {
-  width: 375px;
-  height: auto;
 }
 
 .circuit-8 {
@@ -5632,29 +5627,25 @@ exports[`Storyshots Components|Header Header 1`] = `
 }
 
 <div
-  class="circuit-10 circuit-11"
+  class="circuit-8 circuit-9"
 >
-  <div
-    class="circuit-8 circuit-9"
+  <button
+    class="circuit-4 circuit-5"
   >
-    <button
-      class="circuit-4 circuit-5"
+    <span
+      class="circuit-0 circuit-1"
+    />
+    <span
+      class="circuit-2 circuit-3"
     >
-      <span
-        class="circuit-0 circuit-1"
-      />
-      <span
-        class="circuit-2 circuit-3"
-      >
-        Open menu
-      </span>
-    </button>
-    <h1
-      class="circuit-6 circuit-7"
-    >
-      Title
-    </h1>
-  </div>
+      Open menu
+    </span>
+  </button>
+  <h1
+    class="circuit-6 circuit-7"
+  >
+    Title
+  </h1>
 </div>
 `;
 
@@ -5874,332 +5865,6 @@ HTMLCollection [
     </li>
   </ul>,
 ]
-`;
-
-exports[`Storyshots Components|Markdown Markdown 1`] = `
-<div
-  style="max-width: 66%; margin: 0px auto;"
->
-  <div>
-    <h1
-      id="manu-illa-amorem-committere-exit-membra-minor"
-    >
-      Manu illa amorem committere exit membra minor
-    </h1>
-    <h2
-      id="utraque-aut-longe-ore-cruentum-est"
-    >
-      Utraque aut longe ore cruentum est
-    </h2>
-    <p>
-      Lorem markdownum vultusque eligit significent sinistro, et virgis, inter!
-Rapuere Apollineam equas coloni urbis conata, 
-      <em>
-        Theti
-      </em>
-      , colla simul latus magis
-et magnis prorumpit flere? Dura quantum.
-    </p>
-    <h3
-      id="indignantia-tamen"
-    >
-      Indignantia tamen
-    </h3>
-    <p>
-      Mediis monstravit inmunis Troes non leonis 
-      <strong>
-        non
-      </strong>
-       externis cuncta inperfecta
-mihi 
-      <a
-        href="http://etluteave.net/"
-      >
-        aristas colligit
-      </a>
-       sacros, diu. Se prius
-praecordiaque velut totosque norant alipedi candida electae est vestis, posse.
-    </p>
-    <blockquote>
-      <p>
-        Adstat Procnes et, in tempora Maenalon moles in nocte relicta, membra nec
-sudore nymphas robur! Adduxit sua equus Cadmeida 
-        <strong>
-          egimus
-        </strong>
-         calathis ostendit
-quicquid ad heros. Usus atque, et talisque sum; quin ramis sectamque amore
-texerat Troada. Dedit murmure de iuvenis peraravit, addunt nihil; est est
-ostendens fer cum illa 
-        <strong>
-          Galanthida
-        </strong>
-        . Posset aliisque: enim tibi confinia
-terraeque gratus quaque, liquidumque quod: magnum mixta;
-
-        <a
-          href="http://priusiuno.org/cur.aspx"
-        >
-          sicco
-        </a>
-        .
-      </p>
-    </blockquote>
-    <h3
-      id="dumque-et-membris-minas-deprimeret-phrygiis-sua"
-    >
-      Dumque et membris minas deprimeret Phrygiis sua
-    </h3>
-    <p>
-      Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
-
-      <strong>
-        Signans Trinacris errat
-      </strong>
-       attonitoque spicis magistra odioque, aera palus
-altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia *qua
-quosque
-      <em>
-        , adde alma. Ait dixit suas gnatis ab facies altera nova *
-      </em>
-      flentemque
-teneo
-      <em />
-      : quoque profusis consequitur delusa et. Consistere adeunt.
-    </p>
-    <h3
-      id="develat-nymphae"
-    >
-      Develat nymphae
-    </h3>
-    <p>
-      Conceperat depositae si manibus utiliter resonare vitat ima mortis ecce. Huic
-leni agat pro! Fuit relinque.
-    </p>
-    <ol
-      start="1"
-    >
-      <li>
-        Quodque nebulas turba orbem aut
-      </li>
-      <li>
-        Nymphae lapsasque
-      </li>
-      <li>
-        Regoque tenere
-      </li>
-    </ol>
-    <h2
-      id="circumstant-iam-reponere-obibat-indestrictus-sine"
-    >
-      Circumstant iam reponere obibat indestrictus sine
-    </h2>
-    <p>
-      Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
-cultus coniunx adituque.
-    </p>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components|Markdown Markdown With Components 1`] = `
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-4 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 28px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 42px;
-    line-height: 48px;
-  }
-}
-
-.circuit-2 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 24px;
-  line-height: 32px;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 28px;
-    line-height: 32px;
-  }
-}
-
-.circuit-6 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 19px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-6 {
-    font-size: 22px;
-    line-height: 24px;
-  }
-}
-
-<div
-  style="max-width: 66%; margin: 0px auto;"
->
-  <div>
-    <h1
-      class=" circuit-0 circuit-1"
-      id="manu-illa-amorem-committere-exit-membra-minor"
-    >
-      Manu illa amorem committere exit membra minor
-    </h1>
-    <h2
-      class=" circuit-2 circuit-1"
-      id="utraque-aut-longe-ore-cruentum-est"
-    >
-      Utraque aut longe ore cruentum est
-    </h2>
-    <p
-      class=" circuit-4 circuit-5"
-    >
-      Lorem markdownum vultusque eligit significent sinistro, et virgis, inter!
-Rapuere Apollineam equas coloni urbis conata, 
-      <em>
-        Theti
-      </em>
-      , colla simul latus magis
-et magnis prorumpit flere? Dura quantum.
-    </p>
-    <h3
-      class=" circuit-6 circuit-1"
-      id="indignantia-tamen"
-    >
-      Indignantia tamen
-    </h3>
-    <p
-      class=" circuit-4 circuit-5"
-    >
-      Mediis monstravit inmunis Troes non leonis 
-      <strong>
-        non
-      </strong>
-       externis cuncta inperfecta
-mihi 
-      <a
-        href="http://etluteave.net/"
-      >
-        aristas colligit
-      </a>
-       sacros, diu. Se prius
-praecordiaque velut totosque norant alipedi candida electae est vestis, posse.
-    </p>
-    <blockquote>
-      <p
-        class=" circuit-4 circuit-5"
-      >
-        Adstat Procnes et, in tempora Maenalon moles in nocte relicta, membra nec
-sudore nymphas robur! Adduxit sua equus Cadmeida 
-        <strong>
-          egimus
-        </strong>
-         calathis ostendit
-quicquid ad heros. Usus atque, et talisque sum; quin ramis sectamque amore
-texerat Troada. Dedit murmure de iuvenis peraravit, addunt nihil; est est
-ostendens fer cum illa 
-        <strong>
-          Galanthida
-        </strong>
-        . Posset aliisque: enim tibi confinia
-terraeque gratus quaque, liquidumque quod: magnum mixta;
-
-        <a
-          href="http://priusiuno.org/cur.aspx"
-        >
-          sicco
-        </a>
-        .
-      </p>
-    </blockquote>
-    <h3
-      class=" circuit-6 circuit-1"
-      id="dumque-et-membris-minas-deprimeret-phrygiis-sua"
-    >
-      Dumque et membris minas deprimeret Phrygiis sua
-    </h3>
-    <p
-      class=" circuit-4 circuit-5"
-    >
-      Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
-
-      <strong>
-        Signans Trinacris errat
-      </strong>
-       attonitoque spicis magistra odioque, aera palus
-altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia *qua
-quosque
-      <em>
-        , adde alma. Ait dixit suas gnatis ab facies altera nova *
-      </em>
-      flentemque
-teneo
-      <em />
-      : quoque profusis consequitur delusa et. Consistere adeunt.
-    </p>
-    <h3
-      class=" circuit-6 circuit-1"
-      id="develat-nymphae"
-    >
-      Develat nymphae
-    </h3>
-    <p
-      class=" circuit-4 circuit-5"
-    >
-      Conceperat depositae si manibus utiliter resonare vitat ima mortis ecce. Huic
-leni agat pro! Fuit relinque.
-    </p>
-    <ol
-      start="1"
-    >
-      <li>
-        Quodque nebulas turba orbem aut
-      </li>
-      <li>
-        Nymphae lapsasque
-      </li>
-      <li>
-        Regoque tenere
-      </li>
-    </ol>
-    <h2
-      class=" circuit-2 circuit-1"
-      id="circumstant-iam-reponere-obibat-indestrictus-sine"
-    >
-      Circumstant iam reponere obibat indestrictus sine
-    </h2>
-    <p
-      class=" circuit-4 circuit-5"
-    >
-      Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
-cultus coniunx adituque.
-    </p>
-  </div>
-</div>
 `;
 
 exports[`Storyshots Components|Message Alert 1`] = `
@@ -8539,13 +8204,13 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Picture Picture 1`] = `
+exports[`Storyshots Components|Picture Base 1`] = `
 <picture>
   <img />
 </picture>
 `;
 
-exports[`Storyshots Components|Popover Popover 1`] = `
+exports[`Storyshots Components|Popover Base 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -8613,18 +8278,16 @@ exports[`Storyshots Components|Popover Popover 1`] = `
   outline: none;
 }
 
-<div>
-  <div
-    class="circuit-2 circuit-3"
-    data-testid="popover-reference"
-  >
-    <div>
-      <button
-        class="circuit-0 circuit-1"
-      >
-        Button
-      </button>
-    </div>
+<div
+  class="circuit-2 circuit-3"
+  data-testid="popover-reference"
+>
+  <div>
+    <button
+      class="circuit-0 circuit-1"
+    >
+      Show
+    </button>
   </div>
 </div>
 `;
@@ -9039,7 +8702,7 @@ exports[`Storyshots Components|ProgressBar With Percentage 1`] = `
 
 exports[`Storyshots Components|Sidebar Base 1`] = `
 HTMLCollection [
-  .circuit-32 {
+  .circuit-37 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9064,7 +8727,7 @@ HTMLCollection [
 }
 
 @media (min-width:960px) {
-  .circuit-32 {
+  .circuit-37 {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
@@ -9073,7 +8736,7 @@ HTMLCollection [
 }
 
 @media (min-width:960px) {
-  .circuit-32 {
+  .circuit-37 {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
@@ -9103,11 +8766,15 @@ HTMLCollection [
   color: #FAFBFC;
 }
 
-.circuit-28 {
+.circuit-33 {
   height: auto;
   justify-self: flex-start;
   overflow-y: auto;
   width: 100%;
+}
+
+.circuit-6 {
+  display: block;
 }
 
 .circuit-4 {
@@ -9146,7 +8813,7 @@ HTMLCollection [
   margin-left: 12px;
 }
 
-.circuit-8 {
+.circuit-9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9165,19 +8832,19 @@ HTMLCollection [
   color: #9DA7B1;
 }
 
-.circuit-8 * {
+.circuit-9 * {
   fill: #9DA7B1;
 }
 
-.circuit-8:hover {
+.circuit-9:hover {
   color: #D8DDE1;
 }
 
-.circuit-8:hover * {
+.circuit-9:hover * {
   fill: #D8DDE1;
 }
 
-.circuit-22 {
+.circuit-26 {
   margin: -8px 0 8px 32px;
   list-style: none;
   height: 0;
@@ -9187,7 +8854,7 @@ HTMLCollection [
   overflow: hidden;
 }
 
-.circuit-22::before {
+.circuit-26::before {
   content: '';
   width: 2px;
   background: #5C656F;
@@ -9197,7 +8864,7 @@ HTMLCollection [
   border-radius: 1px;
 }
 
-.circuit-12 {
+.circuit-13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9223,19 +8890,19 @@ HTMLCollection [
   transition: top 200ms ease-in-out;
 }
 
-.circuit-12 * {
+.circuit-13 * {
   fill: #9DA7B1;
 }
 
-.circuit-12:hover {
+.circuit-13:hover {
   color: #D8DDE1;
 }
 
-.circuit-12:hover * {
+.circuit-13:hover * {
   fill: #D8DDE1;
 }
 
-.circuit-10 {
+.circuit-11 {
   margin-left: 12px;
   margin-left: 0px;
   margin-top: -12px;
@@ -9243,7 +8910,7 @@ HTMLCollection [
   transition: margin-top 300ms ease-in-out;
 }
 
-.circuit-26 {
+.circuit-30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9265,19 +8932,19 @@ HTMLCollection [
   text-decoration: none;
 }
 
-.circuit-26 * {
+.circuit-30 * {
   fill: #9DA7B1;
 }
 
-.circuit-26:hover {
+.circuit-30:hover {
   color: #D8DDE1;
 }
 
-.circuit-26:hover * {
+.circuit-30:hover * {
   fill: #D8DDE1;
 }
 
-.circuit-30 {
+.circuit-35 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9295,7 +8962,7 @@ HTMLCollection [
 }
 
 <nav
-    class="circuit-32 circuit-33"
+    class="circuit-37 circuit-38"
     open=""
   >
     <header
@@ -9304,9 +8971,11 @@ HTMLCollection [
       Header
     </header>
     <ul
-      class="circuit-28 circuit-29"
+      class="circuit-33 circuit-34"
     >
-      <li>
+      <li
+        class="circuit-6"
+      >
         <a
           class="circuit-4 circuit-5"
         >
@@ -9321,7 +8990,7 @@ HTMLCollection [
         </a>
       </li>
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-9 circuit-10"
       >
         <div>
           list-empty.svg
@@ -9333,45 +9002,53 @@ HTMLCollection [
         </div>
       </div>
       <ul
-        class="circuit-22 circuit-23"
+        class="circuit-26 circuit-27"
       >
-        <li>
+        <li
+          class="circuit-6"
+        >
           <a
-            class="circuit-12 circuit-5"
+            class="circuit-13 circuit-5"
           >
             <div
-              class="circuit-10 circuit-3"
+              class="circuit-11 circuit-3"
             >
               First
             </div>
           </a>
         </li>
-        <li>
+        <li
+          class="circuit-6"
+        >
           <a
-            class="circuit-12 circuit-5"
+            class="circuit-13 circuit-5"
           >
             <div
-              class="circuit-10 circuit-3"
+              class="circuit-11 circuit-3"
             >
               Second
             </div>
           </a>
         </li>
-        <li>
+        <li
+          class="circuit-6"
+        >
           <a
-            class="circuit-12 circuit-5"
+            class="circuit-13 circuit-5"
           >
             <div
-              class="circuit-10 circuit-3"
+              class="circuit-11 circuit-3"
             >
               Third
             </div>
           </a>
         </li>
       </ul>
-      <li>
+      <li
+        class="circuit-6"
+      >
         <a
-          class="circuit-26 circuit-5"
+          class="circuit-30 circuit-5"
         >
           <div>
             me-empty.svg
@@ -9385,7 +9062,7 @@ HTMLCollection [
       </li>
     </ul>
     <footer
-      class="circuit-30 circuit-31"
+      class="circuit-35 circuit-36"
     >
       Footer
     </footer>
@@ -9484,7 +9161,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Spinner Spinner 1`] = `
+exports[`Storyshots Components|Spinner Base 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
@@ -11118,7 +10795,7 @@ tbody .circuit-6:last-child td {
 </div>
 `;
 
-exports[`Storyshots Components|Table/TableCell Table Cell 1`] = `
+exports[`Storyshots Components|Table/TableCell Base 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -11139,7 +10816,7 @@ exports[`Storyshots Components|Table/TableCell Table Cell 1`] = `
 </td>
 `;
 
-exports[`Storyshots Components|Table/TableHeader Table Header 1`] = `
+exports[`Storyshots Components|Table/TableHeader Base 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -12919,256 +12596,6 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/CardNumberInput Card Number Input With Detected Card Scheme 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<div
-    class="circuit-0 circuit-1"
-  >
-    Supported card schemes: mastercard, visa, diners, jcb.
-  </div>,
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<div
-    aria-live="polite"
-    class="circuit-0 circuit-1"
-  >
-    Detected scheme: visa
-  </div>,
-  .circuit-0 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-<label
-    class="circuit-0 circuit-1"
-    for="cui-cc-card-number"
-  >
-    Card number
-  </label>,
-  .circuit-14 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-14,
-label + .circuit-14 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-12 {
-  bottom: 100%;
-  display: block;
-  list-style: none;
-  position: absolute;
-  overflow-x: auto;
-  right: 0;
-  text-align: right;
-  white-space: nowrap;
-  opacity: 1;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-@media (min-width:480px) {
-  .circuit-12 {
-    right: 0;
-    width: auto;
-    text-align: right;
-  }
-}
-
-.circuit-6 {
-  display: inline-block;
-}
-
-.circuit-6:not(:last-of-type) {
-  margin-right: 4px;
-}
-
-.circuit-6 > svg {
-  width: auto;
-  height: 16px;
-}
-
-.circuit-4 {
-  display: inline-block;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  opacity: 0.2;
-}
-
-.circuit-4:not(:last-of-type) {
-  margin-right: 4px;
-}
-
-.circuit-4 > svg {
-  width: auto;
-  height: 16px;
-}
-
-<div
-    class="circuit-14 circuit-15"
-  >
-    <input
-      aria-invalid="false"
-      autocomplete="cc-number"
-      class="circuit-0 circuit-1"
-      id="cui-cc-card-number"
-      name="creditCardInput"
-      placeholder="•••• •••• •••• ••••"
-      type="tel"
-      value="4485 7197 7461 1397"
-    />
-    <div
-      class="circuit-2 circuit-3"
-    />
-    <ul
-      aria-hidden="true"
-      class="circuit-12 circuit-13"
-    >
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-        disabled=""
-      >
-        <div
-          aria-label="icon mastercard"
-          role="img"
-        >
-          mastercard.svg
-        </div>
-      </li>
-      <li
-        class="circuit-6 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon visa"
-          role="img"
-        >
-          visa.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-        disabled=""
-      >
-        <div
-          aria-label="icon diners"
-          role="img"
-        >
-          diners.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-        disabled=""
-      >
-        <div
-          aria-label="icon jcb"
-          role="img"
-        >
-          jcb.svg
-        </div>
-      </li>
-    </ul>
-  </div>,
-]
-`;
-
 exports[`Storyshots Forms|CreditCardDetails/CardNumberInput Empty Card Number Input 1`] = `
 HTMLCollection [
   .circuit-0 {
@@ -13397,7 +12824,7 @@ label + .circuit-14 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/CardNumberInput Empty Card Number Input With Many Supported Schemes 1`] = `
+exports[`Storyshots Forms|CreditCardDetails/CardNumberInput Empty With Many Supported Schemes 1`] = `
 HTMLCollection [
   .circuit-0 {
   font-weight: 400;
@@ -13696,6 +13123,256 @@ label + .circuit-20 {
 ]
 `;
 
+exports[`Storyshots Forms|CreditCardDetails/CardNumberInput With Detected Card Scheme 1`] = `
+HTMLCollection [
+  .circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+    class="circuit-0 circuit-1"
+  >
+    Supported card schemes: mastercard, visa, diners, jcb.
+  </div>,
+  .circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<div
+    aria-live="polite"
+    class="circuit-0 circuit-1"
+  >
+    Detected scheme: visa
+  </div>,
+  .circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+<label
+    class="circuit-0 circuit-1"
+    for="cui-cc-card-number"
+  >
+    Card number
+  </label>,
+  .circuit-14 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-14,
+label + .circuit-14 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-12 {
+  bottom: 100%;
+  display: block;
+  list-style: none;
+  position: absolute;
+  overflow-x: auto;
+  right: 0;
+  text-align: right;
+  white-space: nowrap;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+@media (min-width:480px) {
+  .circuit-12 {
+    right: 0;
+    width: auto;
+    text-align: right;
+  }
+}
+
+.circuit-6 {
+  display: inline-block;
+}
+
+.circuit-6:not(:last-of-type) {
+  margin-right: 4px;
+}
+
+.circuit-6 > svg {
+  width: auto;
+  height: 16px;
+}
+
+.circuit-4 {
+  display: inline-block;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  opacity: 0.2;
+}
+
+.circuit-4:not(:last-of-type) {
+  margin-right: 4px;
+}
+
+.circuit-4 > svg {
+  width: auto;
+  height: 16px;
+}
+
+<div
+    class="circuit-14 circuit-15"
+  >
+    <input
+      aria-invalid="false"
+      autocomplete="cc-number"
+      class="circuit-0 circuit-1"
+      id="cui-cc-card-number"
+      name="creditCardInput"
+      placeholder="•••• •••• •••• ••••"
+      type="tel"
+      value="4485 7197 7461 1397"
+    />
+    <div
+      class="circuit-2 circuit-3"
+    />
+    <ul
+      aria-hidden="true"
+      class="circuit-12 circuit-13"
+    >
+      <li
+        class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
+        disabled=""
+      >
+        <div
+          aria-label="icon mastercard"
+          role="img"
+        >
+          mastercard.svg
+        </div>
+      </li>
+      <li
+        class="circuit-6 circuit-5"
+        data-testid="card-number-input-scheme"
+      >
+        <div
+          aria-label="icon visa"
+          role="img"
+        >
+          visa.svg
+        </div>
+      </li>
+      <li
+        class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
+        disabled=""
+      >
+        <div
+          aria-label="icon diners"
+          role="img"
+        >
+          diners.svg
+        </div>
+      </li>
+      <li
+        class="circuit-4 circuit-5"
+        data-testid="card-number-input-scheme"
+        disabled=""
+      >
+        <div
+          aria-label="icon jcb"
+          role="img"
+        >
+          jcb.svg
+        </div>
+      </li>
+    </ul>
+  </div>,
+]
+`;
+
 exports[`Storyshots Forms|CreditCardDetails/CardSchemeIcons Credit Cards 1`] = `
 .circuit-21 {
   -webkit-align-items: center;
@@ -13875,7 +13552,7 @@ exports[`Storyshots Forms|CreditCardDetails/CardSchemeIcons Debit Cards 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/ExpiryDate Expiry Date Input 1`] = `
+exports[`Storyshots Forms|CreditCardDetails/ExpiryDate Base 1`] = `
 HTMLCollection [
   .circuit-0 {
   font-size: 13px;
@@ -13980,7 +13657,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/NameOnCardInput Name On Card Input 1`] = `
+exports[`Storyshots Forms|CreditCardDetails/NameOnCardInput Base 1`] = `
 HTMLCollection [
   .circuit-0 {
   font-size: 13px;
@@ -14082,7 +13759,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/SecurityCodeInput Amex Security Code Input 1`] = `
+exports[`Storyshots Forms|CreditCardDetails/SecurityCodeInput Amex 1`] = `
 HTMLCollection [
   .circuit-1 {
   font-size: 13px;
@@ -14190,7 +13867,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/SecurityCodeInput Security Code Input 1`] = `
+exports[`Storyshots Forms|CreditCardDetails/SecurityCodeInput Base 1`] = `
 HTMLCollection [
   .circuit-1 {
   font-size: 13px;
@@ -14298,7 +13975,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/SecurityCodeInput Security Code Input With Modal Toggle 1`] = `
+exports[`Storyshots Forms|CreditCardDetails/SecurityCodeInput With Modal Toggle 1`] = `
 HTMLCollection [
   .circuit-2 {
   border: 0;
@@ -14468,288 +14145,6 @@ label + .circuit-4 {
     />
   </div>,
 ]
-`;
-
-exports[`Storyshots Forms|CurrencyInput/SimpleCurrencyInput Simple Currency Input 1`] = `
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: 48px;
-  padding-right: calc(24px + 1ch);
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  color: #1760CE;
-  line-height: 16px;
-  width: 1ch;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-<div
-  class="circuit-4 circuit-5"
->
-  <input
-    aria-invalid="false"
-    class="circuit-0 circuit-1"
-    placeholder="123.45"
-    type="text"
-    value=""
-  />
-  <span
-    class="circuit-2 circuit-3"
-  >
-    €
-  </span>
-</div>
-`;
-
-exports[`Storyshots Forms|CurrencyInput/SimpleCurrencyInput Simple Currency Input For Right Aligned Chf 1`] = `
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: 48px;
-  padding-right: calc(24px + 3ch);
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  color: #1760CE;
-  line-height: 16px;
-  width: 3ch;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-<div
-  class="circuit-4 circuit-5"
->
-  <input
-    aria-invalid="false"
-    class="circuit-0 circuit-1"
-    placeholder="1,234.45"
-    type="text"
-    value=""
-  />
-  <span
-    class="circuit-2 circuit-3"
-  >
-    CHF
-  </span>
-</div>
-`;
-
-exports[`Storyshots Forms|CurrencyInput/SimpleCurrencyInput Simple Currency Input For Usd 1`] = `
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  color: #1760CE;
-  line-height: 16px;
-  width: 1ch;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-2 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-left: 48px;
-  padding-left: calc(24px + 1ch);
-}
-
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-<div
-  class="circuit-4 circuit-5"
->
-  <span
-    class="circuit-0 circuit-1"
-  >
-    $
-  </span>
-  <input
-    aria-invalid="false"
-    class="circuit-2 circuit-3"
-    placeholder="1,234.45"
-    type="text"
-    value=""
-  />
-</div>
 `;
 
 exports[`Storyshots Forms|InlineNotification Alert 1`] = `
@@ -17066,6 +16461,459 @@ label + .circuit-4 {
 ]
 `;
 
+exports[`Storyshots Forms|Input/CurrencyInput/SimpleCurrencyInput Base 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
+  padding-right: 48px;
+  padding-right: calc(24px + 1ch);
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2 {
+  color: #1760CE;
+  line-height: 16px;
+  width: 1ch;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+<div
+  class="circuit-4 circuit-5"
+>
+  <input
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
+    placeholder="123.45"
+    type="text"
+    value=""
+  />
+  <span
+    class="circuit-2 circuit-3"
+  >
+    €
+  </span>
+</div>
+`;
+
+exports[`Storyshots Forms|Input/CurrencyInput/SimpleCurrencyInput For Right Aligned CHF 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
+  padding-right: 48px;
+  padding-right: calc(24px + 3ch);
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2 {
+  color: #1760CE;
+  line-height: 16px;
+  width: 3ch;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+<div
+  class="circuit-4 circuit-5"
+>
+  <input
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
+    placeholder="1,234.45"
+    type="text"
+    value=""
+  />
+  <span
+    class="circuit-2 circuit-3"
+  >
+    CHF
+  </span>
+</div>
+`;
+
+exports[`Storyshots Forms|Input/CurrencyInput/SimpleCurrencyInput For Usd 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  color: #1760CE;
+  line-height: 16px;
+  width: 1ch;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-2 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
+  padding-left: 48px;
+  padding-left: calc(24px + 1ch);
+}
+
+.circuit-2:focus,
+.circuit-2:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-2::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+<div
+  class="circuit-4 circuit-5"
+>
+  <span
+    class="circuit-0 circuit-1"
+  >
+    $
+  </span>
+  <input
+    aria-invalid="false"
+    class="circuit-2 circuit-3"
+    placeholder="1,234.45"
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`Storyshots Forms|Input/MaskedInput Base 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+<div
+  class="circuit-4 circuit-5"
+>
+  <input
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
+    value=""
+  />
+  <div
+    class="circuit-2 circuit-3"
+  />
+</div>
+`;
+
+exports[`Storyshots Forms|Input/RestrictedInput Base 1`] = `
+.circuit-0 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+}
+
+.circuit-0:focus,
+.circuit-0:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+<div
+  class="circuit-4 circuit-5"
+>
+  <input
+    aria-invalid="false"
+    class="circuit-0 circuit-1"
+  />
+  <div
+    class="circuit-2 circuit-3"
+  />
+</div>
+`;
+
 exports[`Storyshots Forms|Input/SearchInput Base 1`] = `
 .circuit-7 {
   font-size: 13px;
@@ -17313,92 +17161,6 @@ exports[`Storyshots Forms|Label For Accessibility Only 1`] = `
 >
   Only visible for screen readers
 </label>
-`;
-
-exports[`Storyshots Forms|MaskedInput Masked Input 1`] = `
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-<div
-  class="circuit-4 circuit-5"
->
-  <input
-    aria-invalid="false"
-    class="circuit-0 circuit-1"
-    value=""
-  />
-  <div
-    class="circuit-2 circuit-3"
-  />
-</div>
 `;
 
 exports[`Storyshots Forms|RadioButton Base 1`] = `
@@ -17939,91 +17701,6 @@ HTMLCollection [
     </label>
   </div>,
 ]
-`;
-
-exports[`Storyshots Forms|RestrictedInput Restricted Input 1`] = `
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-<div
-  class="circuit-4 circuit-5"
->
-  <input
-    aria-invalid="false"
-    class="circuit-0 circuit-1"
-  />
-  <div
-    class="circuit-2 circuit-3"
-  />
-</div>
 `;
 
 exports[`Storyshots Forms|Select Base 1`] = `
@@ -19353,7 +19030,427 @@ exports[`Storyshots Forms|Toggle With Explanation 1`] = `
 </div>
 `;
 
-exports[`Storyshots Grid|Col Col 1`] = `
+exports[`Storyshots Icons|CardSchemes Base 1`] = `
+.circuit-115 {
+  display: block;
+  line-height: 0;
+  text-align: center;
+}
+
+.circuit-3 {
+  box-sizing: content-box;
+  display: inline-block;
+  padding: 8px;
+}
+
+.circuit-1 {
+  height: 32px;
+  width: auto;
+  max-width: 56px;
+}
+
+.circuit-0 {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  display: inline-block;
+  line-height: 0;
+}
+
+<ul
+  class="circuit-115 circuit-116"
+>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon amex"
+        class="circuit-0"
+        role="img"
+      >
+        amex.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon diners"
+        class="circuit-0"
+        role="img"
+      >
+        diners.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon discover"
+        class="circuit-0"
+        role="img"
+      >
+        discover.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon ec"
+        class="circuit-0"
+        role="img"
+      >
+        ec.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon elo"
+        class="circuit-0"
+        role="img"
+      >
+        elo.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon elv"
+        class="circuit-0"
+        role="img"
+      >
+        elv.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon hiper"
+        class="circuit-0"
+        role="img"
+      >
+        hiper.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon hipercard"
+        class="circuit-0"
+        role="img"
+      >
+        hipercard.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon jcb"
+        class="circuit-0"
+        role="img"
+      >
+        jcb.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon maestro"
+        class="circuit-0"
+        role="img"
+      >
+        maestro.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon mastercard"
+        class="circuit-0"
+        role="img"
+      >
+        mastercard.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon visaElectron"
+        class="circuit-0"
+        role="img"
+      >
+        visa-electron.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon visa"
+        class="circuit-0"
+        role="img"
+      >
+        visa.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon vpay"
+        class="circuit-0"
+        role="img"
+      >
+        vpay.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon cash"
+        class="circuit-0"
+        role="img"
+      >
+        cash.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon googlePay"
+        class="circuit-0"
+        role="img"
+      >
+        google-pay.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon applePay"
+        class="circuit-0"
+        role="img"
+      >
+        apple-pay.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon bancoEstado"
+        class="circuit-0"
+        role="img"
+      >
+        banco-estado.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon dankort"
+        class="circuit-0"
+        role="img"
+      >
+        dankort.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon nfc"
+        class="circuit-0"
+        role="img"
+      >
+        nfc.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon unionPay"
+        class="circuit-0"
+        role="img"
+      >
+        union-pay.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon redCompra"
+        class="circuit-0"
+        role="img"
+      >
+        red-compra.svg
+      </div>
+    </div>
+  </li>
+  <li
+    class="circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-1 circuit-2"
+    >
+      <div
+        aria-label="icon default"
+        class="circuit-0"
+        role="img"
+      >
+        unknown.svg
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Icons|InfoIcon Base 1`] = `
+.circuit-0 {
+  border: 1px solid #9DA7B1;
+  border-radius: 100%;
+  fill: #9DA7B1;
+}
+
+<div
+  class="circuit-0 circuit-1"
+>
+  info.svg
+</div>
+`;
+
+exports[`Storyshots Icons|PaymentMethodIcon Base 1`] = `
+.circuit-1 {
+  height: 32px;
+  width: auto;
+  max-width: 56px;
+}
+
+.circuit-0 {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  display: inline-block;
+  line-height: 0;
+}
+
+<div
+  class="circuit-1 circuit-2"
+>
+  <div
+    aria-label="icon visa"
+    class="circuit-0"
+    role="img"
+  >
+    visa.svg
+  </div>
+</div>
+`;
+
+exports[`Storyshots Layout|Grid/Col Col 1`] = `
 .circuit-0 {
   box-sizing: border-box;
   float: left;
@@ -19411,7 +19508,7 @@ exports[`Storyshots Grid|Col Col 1`] = `
 </div>
 `;
 
-exports[`Storyshots Grid|Grid Responsive Columns 1`] = `
+exports[`Storyshots Layout|Grid/Grid Responsive Columns 1`] = `
 .circuit-16 {
   margin: 0 auto;
   width: 100%;
@@ -19669,7 +19766,7 @@ exports[`Storyshots Grid|Grid Responsive Columns 1`] = `
 </div>
 `;
 
-exports[`Storyshots Grid|Grid Responsive Skipping 1`] = `
+exports[`Storyshots Layout|Grid/Grid Responsive Skipping 1`] = `
 .circuit-14 {
   margin: 0 auto;
   width: 100%;
@@ -20039,7 +20136,7 @@ exports[`Storyshots Grid|Grid Responsive Skipping 1`] = `
 </div>
 `;
 
-exports[`Storyshots Grid|Grid Skipping Columns 1`] = `
+exports[`Storyshots Layout|Grid/Grid Skipping Columns 1`] = `
 .circuit-14 {
   margin: 0 auto;
   width: 100%;
@@ -20388,7 +20485,7 @@ exports[`Storyshots Grid|Grid Skipping Columns 1`] = `
 </div>
 `;
 
-exports[`Storyshots Grid|Grid Static Columns 1`] = `
+exports[`Storyshots Layout|Grid/Grid Static Columns 1`] = `
 .circuit-50 {
   margin: 0 auto;
   width: 100%;
@@ -20891,7 +20988,7 @@ exports[`Storyshots Grid|Grid Static Columns 1`] = `
 </div>
 `;
 
-exports[`Storyshots Grid|Row Row 1`] = `
+exports[`Storyshots Layout|Grid/Row Base 1`] = `
 .circuit-6 {
   position: relative;
   border: 2px solid #F2E9C7;
@@ -20992,449 +21089,25 @@ exports[`Storyshots Grid|Row Row 1`] = `
 }
 
 <div
-  style="width: 100vw;"
+  class="circuit-6 circuit-7"
 >
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-0 circuit-1"
+    span="4"
   >
-    <div
-      class="circuit-0 circuit-1"
-      span="4"
-    >
-      Col 4
-    </div>
-    <div
-      class="circuit-0 circuit-1"
-      span="4"
-    >
-      Col 4
-    </div>
-    <div
-      class="circuit-0 circuit-1"
-      span="4"
-    >
-      Col 4
-    </div>
+    Col 4
   </div>
-</div>
-`;
-
-exports[`Storyshots Icons|CardSchemes Base 1`] = `
-.circuit-115 {
-  display: block;
-  line-height: 0;
-  text-align: center;
-}
-
-.circuit-3 {
-  box-sizing: content-box;
-  display: inline-block;
-  padding: 8px;
-}
-
-.circuit-1 {
-  height: 32px;
-  width: auto;
-  max-width: 56px;
-}
-
-.circuit-0 {
-  width: auto;
-  max-width: 100%;
-  height: 100%;
-  display: inline-block;
-  line-height: 0;
-}
-
-<ul
-  class="circuit-115 circuit-116"
->
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon amex"
-        class="circuit-0"
-        role="img"
-      >
-        amex.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon diners"
-        class="circuit-0"
-        role="img"
-      >
-        diners.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon discover"
-        class="circuit-0"
-        role="img"
-      >
-        discover.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon ec"
-        class="circuit-0"
-        role="img"
-      >
-        ec.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon elo"
-        class="circuit-0"
-        role="img"
-      >
-        elo.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon elv"
-        class="circuit-0"
-        role="img"
-      >
-        elv.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon hiper"
-        class="circuit-0"
-        role="img"
-      >
-        hiper.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon hipercard"
-        class="circuit-0"
-        role="img"
-      >
-        hipercard.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon jcb"
-        class="circuit-0"
-        role="img"
-      >
-        jcb.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon maestro"
-        class="circuit-0"
-        role="img"
-      >
-        maestro.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon mastercard"
-        class="circuit-0"
-        role="img"
-      >
-        mastercard.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon visaElectron"
-        class="circuit-0"
-        role="img"
-      >
-        visa-electron.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon visa"
-        class="circuit-0"
-        role="img"
-      >
-        visa.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon vpay"
-        class="circuit-0"
-        role="img"
-      >
-        vpay.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon cash"
-        class="circuit-0"
-        role="img"
-      >
-        cash.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon googlePay"
-        class="circuit-0"
-        role="img"
-      >
-        google-pay.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon applePay"
-        class="circuit-0"
-        role="img"
-      >
-        apple-pay.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon bancoEstado"
-        class="circuit-0"
-        role="img"
-      >
-        banco-estado.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon dankort"
-        class="circuit-0"
-        role="img"
-      >
-        dankort.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon nfc"
-        class="circuit-0"
-        role="img"
-      >
-        nfc.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon unionPay"
-        class="circuit-0"
-        role="img"
-      >
-        union-pay.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon redCompra"
-        class="circuit-0"
-        role="img"
-      >
-        red-compra.svg
-      </div>
-    </div>
-  </li>
-  <li
-    class="circuit-3 circuit-4"
-  >
-    <div
-      class="circuit-1 circuit-2"
-    >
-      <div
-        aria-label="icon default"
-        class="circuit-0"
-        role="img"
-      >
-        unknown.svg
-      </div>
-    </div>
-  </li>
-</ul>
-`;
-
-exports[`Storyshots Icons|InfoIcon Base 1`] = `
-.circuit-0 {
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  fill: #9DA7B1;
-}
-
-<div
-  class="circuit-0 circuit-1"
->
-  info.svg
-</div>
-`;
-
-exports[`Storyshots Icons|PaymentMethodIcon Base 1`] = `
-.circuit-1 {
-  height: 32px;
-  width: auto;
-  max-width: 56px;
-}
-
-.circuit-0 {
-  width: auto;
-  max-width: 100%;
-  height: 100%;
-  display: inline-block;
-  line-height: 0;
-}
-
-<div
-  class="circuit-1 circuit-2"
->
   <div
-    aria-label="icon visa"
-    class="circuit-0"
-    role="img"
+    class="circuit-0 circuit-1"
+    span="4"
   >
-    visa.svg
+    Col 4
+  </div>
+  <div
+    class="circuit-0 circuit-1"
+    span="4"
+  >
+    Col 4
   </div>
 </div>
 `;
@@ -22594,6 +22267,324 @@ HTMLCollection [
      heading
   </h2>,
 ]
+`;
+
+exports[`Storyshots Typography|Markdown Base 1`] = `
+<div>
+  <h1
+    id="manu-illa-amorem-committere-exit-membra-minor"
+  >
+    Manu illa amorem committere exit membra minor
+  </h1>
+  <h2
+    id="utraque-aut-longe-ore-cruentum-est"
+  >
+    Utraque aut longe ore cruentum est
+  </h2>
+  <p>
+    Lorem markdownum vultusque eligit significent sinistro, et virgis, inter!
+Rapuere Apollineam equas coloni urbis conata, 
+    <em>
+      Theti
+    </em>
+    , colla simul latus magis
+et magnis prorumpit flere? Dura quantum.
+  </p>
+  <h3
+    id="indignantia-tamen"
+  >
+    Indignantia tamen
+  </h3>
+  <p>
+    Mediis monstravit inmunis Troes non leonis 
+    <strong>
+      non
+    </strong>
+     externis cuncta inperfecta
+mihi 
+    <a
+      href="http://etluteave.net/"
+    >
+      aristas colligit
+    </a>
+     sacros, diu. Se prius
+praecordiaque velut totosque norant alipedi candida electae est vestis, posse.
+  </p>
+  <blockquote>
+    <p>
+      Adstat Procnes et, in tempora Maenalon moles in nocte relicta, membra nec
+sudore nymphas robur! Adduxit sua equus Cadmeida 
+      <strong>
+        egimus
+      </strong>
+       calathis ostendit
+quicquid ad heros. Usus atque, et talisque sum; quin ramis sectamque amore
+texerat Troada. Dedit murmure de iuvenis peraravit, addunt nihil; est est
+ostendens fer cum illa 
+      <strong>
+        Galanthida
+      </strong>
+      . Posset aliisque: enim tibi confinia
+terraeque gratus quaque, liquidumque quod: magnum mixta;
+
+      <a
+        href="http://priusiuno.org/cur.aspx"
+      >
+        sicco
+      </a>
+      .
+    </p>
+  </blockquote>
+  <h3
+    id="dumque-et-membris-minas-deprimeret-phrygiis-sua"
+  >
+    Dumque et membris minas deprimeret Phrygiis sua
+  </h3>
+  <p>
+    Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
+
+    <strong>
+      Signans Trinacris errat
+    </strong>
+     attonitoque spicis magistra odioque, aera palus
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia *qua
+quosque
+    <em>
+      , adde alma. Ait dixit suas gnatis ab facies altera nova *
+    </em>
+    flentemque
+teneo
+    <em />
+    : quoque profusis consequitur delusa et. Consistere adeunt.
+  </p>
+  <h3
+    id="develat-nymphae"
+  >
+    Develat nymphae
+  </h3>
+  <p>
+    Conceperat depositae si manibus utiliter resonare vitat ima mortis ecce. Huic
+leni agat pro! Fuit relinque.
+  </p>
+  <ol
+    start="1"
+  >
+    <li>
+      Quodque nebulas turba orbem aut
+    </li>
+    <li>
+      Nymphae lapsasque
+    </li>
+    <li>
+      Regoque tenere
+    </li>
+  </ol>
+  <h2
+    id="circumstant-iam-reponere-obibat-indestrictus-sine"
+  >
+    Circumstant iam reponere obibat indestrictus sine
+  </h2>
+  <p>
+    Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
+cultus coniunx adituque.
+  </p>
+</div>
+`;
+
+exports[`Storyshots Typography|Markdown With Components 1`] = `
+.circuit-4 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-4 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 42px;
+    line-height: 48px;
+  }
+}
+
+.circuit-2 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+}
+
+.circuit-6 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 19px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-6 {
+    font-size: 22px;
+    line-height: 24px;
+  }
+}
+
+<div>
+  <h1
+    class=" circuit-0 circuit-1"
+    id="manu-illa-amorem-committere-exit-membra-minor"
+  >
+    Manu illa amorem committere exit membra minor
+  </h1>
+  <h2
+    class=" circuit-2 circuit-1"
+    id="utraque-aut-longe-ore-cruentum-est"
+  >
+    Utraque aut longe ore cruentum est
+  </h2>
+  <p
+    class=" circuit-4 circuit-5"
+  >
+    Lorem markdownum vultusque eligit significent sinistro, et virgis, inter!
+Rapuere Apollineam equas coloni urbis conata, 
+    <em>
+      Theti
+    </em>
+    , colla simul latus magis
+et magnis prorumpit flere? Dura quantum.
+  </p>
+  <h3
+    class=" circuit-6 circuit-1"
+    id="indignantia-tamen"
+  >
+    Indignantia tamen
+  </h3>
+  <p
+    class=" circuit-4 circuit-5"
+  >
+    Mediis monstravit inmunis Troes non leonis 
+    <strong>
+      non
+    </strong>
+     externis cuncta inperfecta
+mihi 
+    <a
+      href="http://etluteave.net/"
+    >
+      aristas colligit
+    </a>
+     sacros, diu. Se prius
+praecordiaque velut totosque norant alipedi candida electae est vestis, posse.
+  </p>
+  <blockquote>
+    <p
+      class=" circuit-4 circuit-5"
+    >
+      Adstat Procnes et, in tempora Maenalon moles in nocte relicta, membra nec
+sudore nymphas robur! Adduxit sua equus Cadmeida 
+      <strong>
+        egimus
+      </strong>
+       calathis ostendit
+quicquid ad heros. Usus atque, et talisque sum; quin ramis sectamque amore
+texerat Troada. Dedit murmure de iuvenis peraravit, addunt nihil; est est
+ostendens fer cum illa 
+      <strong>
+        Galanthida
+      </strong>
+      . Posset aliisque: enim tibi confinia
+terraeque gratus quaque, liquidumque quod: magnum mixta;
+
+      <a
+        href="http://priusiuno.org/cur.aspx"
+      >
+        sicco
+      </a>
+      .
+    </p>
+  </blockquote>
+  <h3
+    class=" circuit-6 circuit-1"
+    id="dumque-et-membris-minas-deprimeret-phrygiis-sua"
+  >
+    Dumque et membris minas deprimeret Phrygiis sua
+  </h3>
+  <p
+    class=" circuit-4 circuit-5"
+  >
+    Mundus pugno, geniti sic muros Notum tu ad motis; nobis mihi tangi dextra?
+
+    <strong>
+      Signans Trinacris errat
+    </strong>
+     attonitoque spicis magistra odioque, aera palus
+altum, ense pectora socerumque! Et ipsum vix bis sibi, sitim, aras praemia *qua
+quosque
+    <em>
+      , adde alma. Ait dixit suas gnatis ab facies altera nova *
+    </em>
+    flentemque
+teneo
+    <em />
+    : quoque profusis consequitur delusa et. Consistere adeunt.
+  </p>
+  <h3
+    class=" circuit-6 circuit-1"
+    id="develat-nymphae"
+  >
+    Develat nymphae
+  </h3>
+  <p
+    class=" circuit-4 circuit-5"
+  >
+    Conceperat depositae si manibus utiliter resonare vitat ima mortis ecce. Huic
+leni agat pro! Fuit relinque.
+  </p>
+  <ol
+    start="1"
+  >
+    <li>
+      Quodque nebulas turba orbem aut
+    </li>
+    <li>
+      Nymphae lapsasque
+    </li>
+    <li>
+      Regoque tenere
+    </li>
+  </ol>
+  <h2
+    class=" circuit-2 circuit-1"
+    id="circumstant-iam-reponere-obibat-indestrictus-sine"
+  >
+    Circumstant iam reponere obibat indestrictus sine
+  </h2>
+  <p
+    class=" circuit-4 circuit-5"
+  >
+    Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
+cultus coniunx adituque.
+  </p>
+</div>
 `;
 
 exports[`Storyshots Typography|SubHeading Base 1`] = `
