@@ -7,7 +7,7 @@ import NotificationList from '../NotificationList';
 
 <Status.InReview /><Status.Description>Likely to be renamed.</Status.Description>
 
-Messages are a quick and subtle way of providing contextual feedback for our merchants through floating
+Messages are a quick and subtle way of providing contextual feedback for our users through floating
 or fixed cards with a semantical meaning (either success, danger or attention).
 
 <Story id="components-message--base" />
@@ -18,17 +18,17 @@ or fixed cards with a semantical meaning (either success, danger or attention).
 
 ## When to use it
 
-Messages are used to serve our merchants with subtle informative snippets or feedback
+Messages are used to serve our users with subtle informative snippets or feedback
 on a given action.
 
 ## Usage guidelines
 
-- **Do** allow merchants to dismiss all messages unless immediate action is required.
-- **Do** direct merchants to the relevant place with a CTA if action is required.
+- **Do** allow users to dismiss all messages unless immediate action is required.
+- **Do** direct users to the relevant place with a CTA if action is required.
 - **Do** use feedback messages to validate an action has been completed.
 - **Do** use the correct badge colour to signify sentiment of a message.
 - **Do not** use attention messages unless a vital action is required.
-- **Do not** use the messages component if our feedback for the merchant is super critical,
+- **Do not** use the messages component if our feedback for the user is super critical,
   such as an order's payment confirmation. Its subtle aspect could make it hard for them to have
   a strong confirmation of what just happened.
 
@@ -36,7 +36,7 @@ on a given action.
 
 ### Feedback messages
 
-Used to provide feedback to a merchant after an action
+Used to provide feedback to a user after an action
 has been taken. These notifications disappear automatically.
 
 <Story id="components-message--success" />
@@ -44,14 +44,14 @@ has been taken. These notifications disappear automatically.
 ### Informative messages
 
 Can contain information which isn't essential but may
-be useful to the merchant. (e.g. New feature announcement) It is recommended
+be useful to the user. (e.g. New feature announcement) It is recommended
 to use a call to action.
 
 <Story id="components-message--warning" />
 
 ### Attention messages
 
-When action is required by the merchant, attention
+When action is required by the user, attention
 messages should be used and should clearly highlight which action is
 required. **A call to action must be displayed.**
 
