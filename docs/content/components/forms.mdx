@@ -1,19 +1,7 @@
----
-name: Forms
-route: /components/forms
-menu: Components
----
-
-import { Fragment } from 'react';
-import { Playground, Props } from 'docz';
-import Text from '../../../src/components/Text';
 import Checkbox from '../../../src/components/Checkbox/Checkbox';
 import RadioButton from '../../../src/components/RadioButton/RadioButton';
 import Select from '../../../src/components/Select/Select';
-import AutoCompleteInput from '../../../src/components/AutoCompleteInput';
 import CurrencyInput from '../../../src/components/CurrencyInput';
-import AutoCompleteTags from '../../../src/components/AutoCompleteTags';
-import Status from '../../utils/Statuses';
 
 # Forms
 
@@ -234,56 +222,3 @@ For example, Euros could be formatted differently based on locale:
     />
   </Fragment>
 </Playground>
-
-## Autocomplete Input
-
-<Status.Stable />
-
-Autocomplete Input suggests input values based on a given list of values.
-
-<Playground>
-  <AutoCompleteInput
-    placeholder="Start typing"
-    items={[
-      'apples',
-      'bananas',
-      'carrots',
-      'grapes',
-      'oranges',
-      'pears',
-      'strawberries'
-    ]}
-    onChange={e => {
-      console.log('On change');
-    }}
-    clearOnSelect={false}
-  />
-</Playground>
-
-<Props of={AutoCompleteInput} />
-
-## Autocomplete Tags
-
-<Status.Experimental/> <Status.Description size={Text.KILO}>Not currently used in production</Status.Description>
-
-Autocomplete Tags lets the user select one or several tags based on a given list of tags.
-
-<Playground>
-  <AutoCompleteTags
-    placeholder="Start typing"
-    availableTags={[
-      'apples',
-      'bananas',
-      'carrots',
-      'grapes',
-      'oranges',
-      'pears',
-      'strawberries'
-    ]}
-    onChange={e => {
-      console.log('On change');
-    }}
-  />
-</Playground>
-
-<Props of={AutoCompleteTags} />

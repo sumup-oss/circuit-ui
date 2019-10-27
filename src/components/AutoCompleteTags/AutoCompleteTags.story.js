@@ -18,6 +18,14 @@ import { action } from '@storybook/addon-actions';
 
 import AutoCompleteTags from './AutoCompleteTags';
 
+export default {
+  title: 'Forms|Input/AutoCompleteTags',
+  component: AutoCompleteTags,
+  parameters: {
+    jest: ['AutoCompleteTags']
+  }
+};
+
 const randomItems = [];
 const mails = ['@sumup.com', '@gmail.com', '@hotmail.com'];
 const names = ['liam', 'josh', 'tom', 'adam', 'aaron', 'john', 'killjoy'];
@@ -37,24 +45,9 @@ for (let i = 0; i < 10000; i += 1) {
   pushRandom();
 }
 
-export default {
-  title: 'Forms|AutoCompleteTags',
-
-  parameters: {
-    component: AutoCompleteTags,
-    jest: ['AutoCompleteTags']
-  }
-};
-
-export const autoCompleteTags = () => (
-  <div style={{ width: '300px' }}>
-    <AutoCompleteTags
-      availableTags={randomItems}
-      onChange={action('handleChange')}
-    />
-  </div>
+export const base = () => (
+  <AutoCompleteTags
+    availableTags={randomItems}
+    onChange={action('handleChange')}
+  />
 );
-
-autoCompleteTags.story = {
-  name: 'AutoCompleteTags'
-};
