@@ -13,48 +13,31 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { action } from '@storybook/addon-actions';
+import React, { useState } from 'react';
 import { text, boolean } from '@storybook/addon-knobs/react';
-
-import State from '../State';
 
 import Hamburger from './Hamburger';
 
 export default {
   title: 'Components|Hamburger',
-
+  component: Hamburger,
   parameters: {
-    component: Hamburger,
     jest: ['Hamburger']
   }
 };
 
-export const hamburger = () => {
-  const light = boolean('light', false);
-  return (
-    <State
-      initial={false}
-      name="isActive"
-      updaterName="onClick"
-      updater={isActive => !isActive}
-    >
-      {({ onClick, isActive }) => (
-        <Hamburger
-          isActive={isActive}
-          onClick={e => {
-            action('Hamburger clicked')(e);
-            onClick(e);
-          }}
-          labelActive={text('Label active', 'Close menu')}
-          labelInActive={text('Label inactive', 'Open menu')}
-          light={light}
-        />
-      )}
-    </State>
-  );
+const HamburderWithState = () => {
+  const [active, setActive] = useState(false);
+  const handleClick = () => {
+    setActive(prev => !prev);
+  };
+  return <Hamburger isActive={active} onClick={handleClick} />;
 };
 
-hamburger.story = {
-  name: 'Hamburger'
-};
+export const base = () => (
+  <HamburderWithState
+    labelActive={text('Label active', 'Close menu')}
+    labelInActive={text('Label inactive', 'Open menu')}
+    light={boolean('light', false)}
+  />
+);
