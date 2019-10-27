@@ -9,7 +9,6 @@ import requireContext from 'require-context.macro';
 import { theme as themes, BaseStyles } from '../src';
 import { theme, components } from './util/theme';
 import { sortStories } from './util/story-helpers';
-import withTests from './util/withTests';
 
 const { circuit } = themes;
 
@@ -68,11 +67,15 @@ const withThemeProvider = storyFn => (
 );
 
 addDecorator(withA11y);
-addDecorator(withTests);
 addDecorator(withKnobs);
+
+// These decorators need to be disabled for StoryShots to work.
 if (!__TEST__) {
+  const withTests = require('./util/withTests');
+  addDecorator(withTests);
   addDecorator(withStoryStyles);
 }
+
 addDecorator(withThemeProvider);
 
 configure(
