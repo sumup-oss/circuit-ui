@@ -13,33 +13,29 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs/react';
+import { uniqueId } from '../../util/id';
 
-import State from '../State';
-import Select from '.';
+import docs from './Select.docs.mdx';
+import Select from './Select';
+import Label from '../Label';
 
 import { ReactComponent as DE } from './flags/de.svg';
 import { ReactComponent as US } from './flags/us.svg';
 import { ReactComponent as FR } from './flags/fr.svg';
 
-const options = [
-  {
-    label: 'Option 1',
-    value: 1
-  },
-  {
-    label: 'Option 2',
-    value: 2
-  },
-  {
-    label: 'Option 3',
-    value: 3
+export default {
+  title: 'Forms|Select',
+  component: Select,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Select']
   }
-];
+};
 
-const countryOptions = [
+const options = [
   {
     label: 'United States',
     value: 'US'
@@ -55,73 +51,44 @@ const countryOptions = [
 ];
 const flagIconMap = { DE, US, FR };
 
-export default {
-  title: 'Forms|Select',
-
-  parameters: {
-    component: Select,
-    jest: ['Select']
-  }
+// Selects always need labels for accessibility.
+const SelectWithLabelAndState = () => {
+  const [value, setValue] = useState('US');
+  const id = uniqueId();
+  return (
+    <Label htmlFor={id}>
+      <Select
+        id={id}
+        name="select"
+        options={options}
+        value={value}
+        onChange={e => {
+          action('Option selected')(e);
+          setValue(e.target.value);
+        }}
+        disabled={boolean('Disabled', false)}
+        invalid={boolean('Invalid', false)}
+        validationHint={text('Validation hint', '')}
+      />
+    </Label>
+  );
 };
 
-export const select = () => (
-  <Select
-    name="select"
-    options={options}
-    onChange={action('Option selected')}
-    disabled={boolean('Disabled', false)}
-    invalid={boolean('Invalid', false)}
-    validationHint={text('Validation hint', '')}
-  />
-);
+export const base = () => <SelectWithLabelAndState />;
 
-select.story = {
-  name: 'Select'
-};
-
-export const selectInvalid = () => (
-  <Select
-    name="select"
-    options={options}
-    onChange={action('Option selected')}
-    disabled={boolean('Disabled', false)}
+export const invalid = () => (
+  <SelectWithLabelAndState
     invalid={boolean('Invalid', true)}
     validationHint={text('Validation hint', 'This field is required')}
   />
 );
 
-selectInvalid.story = {
-  name: 'Select invalid'
-};
-
-export const selectWithPrefix = () => (
-  <State
-    initial="US"
-    name="country"
-    updaterName="onChange"
-    updater={(prevCountry, country) => country}
-  >
-    {({ country, onChange }) => (
-      <Select
-        name="country_select"
-        options={countryOptions}
-        value={country}
-        renderPrefix={({ className }) => {
-          const Icon = flagIconMap[country];
-
-          return <Icon {...{ className }} />;
-        }}
-        onChange={e => {
-          action('Option selected')(e);
-          onChange(e.target.value);
-        }}
-        disabled={boolean('Disabled', false)}
-        invalid={boolean('Invalid', false)}
-      />
-    )}
-  </State>
+export const withPrefix = () => (
+  <SelectWithLabelAndState
+    name="country_select"
+    renderPrefix={({ className, value }) => {
+      const Icon = flagIconMap[value];
+      return <Icon {...{ className }} />;
+    }}
+  />
 );
-
-selectWithPrefix.story = {
-  name: 'Select with prefix'
-};
