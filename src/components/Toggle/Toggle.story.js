@@ -14,7 +14,6 @@
  */
 
 import React, { useState } from 'react';
-import { action } from '@storybook/addon-actions';
 
 import docs from './Toggle.docs.mdx';
 import Toggle from './Toggle';
@@ -32,24 +31,18 @@ export default {
 const ToggleWithState = props => {
   const [on, setOn] = useState(false);
 
-  const handleChange = e => {
+  const handleChange = () => {
     setOn(prev => !prev);
-    if (props.onChange) {
-      props.onChange(e);
-    }
   };
 
   return <Toggle {...props} on={on} onChange={handleChange} />;
 };
 
-export const base = () => (
-  <ToggleWithState label="Short label" onChange={action('Toggle clicked')} />
-);
+export const base = () => <ToggleWithState label="Short label" />;
 
 export const withExplanation = () => (
   <ToggleWithState
     label="Short label"
-    onChange={action('Toggle clicked')}
     explanation="Some more detailed text of what this means"
   />
 );
