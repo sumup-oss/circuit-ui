@@ -15,7 +15,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme } from 'emotion-theming';
 
 import { keys } from '../../util/fp';
 import { themePropType, localePropType } from '../../util/shared-prop-types';
@@ -49,4 +48,4 @@ CurrencyInput.propTypes = {
 /**
  * @component
  */
-export default withTheme(CurrencyInput);
+export default CurrencyInput;
