@@ -35,4 +35,9 @@ const SingleDayPicker = props => (
   </CalendarWrapper>
 );
 
+SingleDayPicker.propTypes = SingleDatePicker.propTypes;
+
+/**
+ * @component
+ */
 export default SingleDayPicker;

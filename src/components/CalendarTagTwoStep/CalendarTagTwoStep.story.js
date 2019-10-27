@@ -20,19 +20,12 @@ import CalendarTagTwoStep from './CalendarTagTwoStep';
 
 export default {
   title: 'Components|Calendar/CalendarTagTwoStep',
-
+  component: CalendarTagTwoStep,
   parameters: {
-    component: CalendarTagTwoStep,
     jest: ['CalendarTagTwoStep']
   }
 };
 
-export const calendarTagTwoStep = () => (
-  <div style={{ height: '100vh', width: '100vw', padding: '10px' }}>
-    <CalendarTagTwoStep onDatesRangeChange={action('onDatesRangeChange')} />
-  </div>
+export const base = () => (
+  <CalendarTagTwoStep onDatesRangeChange={action('onDatesRangeChange')} />
 );
-
-calendarTagTwoStep.story = {
-  name: 'CalendarTagTwoStep'
-};

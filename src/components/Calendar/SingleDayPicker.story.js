@@ -13,40 +13,31 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { withStateHandlers } from 'recompose';
+import React, { useState } from 'react';
 
-import { SingleDayPicker } from '.';
-
-const enhance = withStateHandlers(
-  { date: null, focused: null },
-  {
-    onDateChange: () => date => ({ date }),
-    onFocusChange: () => ({ focused }) => ({ focused })
-  }
-);
-
-const CalendarStoryPicker = enhance(
-  ({ date, onDateChange, focused, onFocusChange }) => (
-    <SingleDayPicker
-      date={date}
-      onDateChange={onDateChange}
-      focused={focused}
-      onFocusChange={onFocusChange}
-    />
-  )
-);
+import SingleDayPicker from './SingleDayPicker';
 
 export default {
-  title: 'Components|Calendar',
-
+  title: 'Components|Calendar/SingleDayPicker',
+  component: SingleDayPicker,
   parameters: {
-    jest: ['Calendar']
+    jest: ['SingleDayPicker']
   }
 };
 
-export const singleDayPicker = () => <CalendarStoryPicker />;
+const SingleDayPickerWithState = props => {
+  const [date, setDate] = useState(null);
+  const [focusedInput, setFocusedInput] = useState(null);
 
-singleDayPicker.story = {
-  name: 'SingleDayPicker'
+  return (
+    <SingleDayPicker
+      {...props}
+      date={date}
+      onDateChange={setDate}
+      focused={focusedInput}
+      onFocusChange={setFocusedInput}
+    />
+  );
 };
+
+export const base = () => <SingleDayPickerWithState />;

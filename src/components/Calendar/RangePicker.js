@@ -45,4 +45,9 @@ const RangePicker = props => (
   </CalendarWrapper>
 );
 
+RangePicker.propTypes = DateRangePicker.propTypes;
+
+/**
+ * @component
+ */
 export default RangePicker;
