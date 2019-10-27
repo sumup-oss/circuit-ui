@@ -16,18 +16,19 @@
 import React from 'react';
 import { number, text } from '@storybook/addon-knobs/react';
 
+import docs from './Pagination.docs.mdx';
 import Pagination from '.';
 
 export default {
   title: 'Components|Pagination',
-
+  component: Pagination,
   parameters: {
-    component: Pagination,
+    docs: { page: docs },
     jest: ['Pagination']
   }
 };
 
-export const pagination = () => (
+export const base = () => (
   <Pagination
     page={number('page', 1)}
     perPage={number('perPage', 10)}
@@ -39,7 +40,3 @@ export const pagination = () => (
     justify={text('justify', 'center')}
   />
 );
-
-pagination.story = {
-  name: 'Pagination'
-};
