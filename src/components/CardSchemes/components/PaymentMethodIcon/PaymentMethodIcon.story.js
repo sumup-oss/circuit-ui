@@ -30,19 +30,15 @@ const iconSizes = [
 
 export default {
   title: 'Icons|PaymentMethodIcon',
-
+  component: PaymentMethodIcon,
   parameters: {
-    component: PaymentMethodIcon
+    jest: ['PaymentMethodIcon']
   }
 };
 
-export const paymentMethodIcon = () => (
+export const base = () => (
   <PaymentMethodIcon
     size={select('Schemes Size', iconSizes, iconSizes[PaymentMethodIcon.GIGA])}
     iconId={select('Schemes Icon', keys(schemeMap), 'visa')}
   />
 );
-
-paymentMethodIcon.story = {
-  name: 'PaymentMethodIcon'
-};
