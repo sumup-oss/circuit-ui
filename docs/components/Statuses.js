@@ -20,12 +20,7 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
 import { css } from '@emotion/core';
 
-import BaseStyles from '../../src/components/BaseStyles';
-import Badge from '../../src/components/Badge';
-import Text from '../../src/components/Text';
-import { theme as themes } from '../../src';
-
-import MDXStyles from './MDXStyles';
+import { theme as themes, Badge, Text } from '../../src';
 
 const variants = {
   stable: { color: Badge.SUCCESS, label: 'Stable' },
@@ -39,8 +34,6 @@ const Status = ({ variant = 'stable' }) => {
 
   return (
     <ThemeProvider theme={themes.circuit}>
-      <BaseStyles />
-      <MDXStyles />
       <Badge
         color={color}
         css={theme => css`
