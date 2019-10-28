@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavItem styles should render with default styles and match the snapshot 1`] = `
+.circuit-4 {
+  display: block;
+}
+
 .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -39,7 +43,9 @@ exports[`NavItem styles should render with default styles and match the snapshot
   margin-left: 12px;
 }
 
-<li>
+<li
+  class="circuit-4"
+>
   <a
     class="circuit-2 circuit-3"
   >
@@ -51,6 +57,10 @@ exports[`NavItem styles should render with default styles and match the snapshot
 `;
 
 exports[`NavItem styles should render with default styles and match the snapshot for a secondary NavItem 1`] = `
+.circuit-4 {
+  display: block;
+}
+
 .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -98,7 +108,9 @@ exports[`NavItem styles should render with default styles and match the snapshot
   margin-top: 0px;
 }
 
-<li>
+<li
+  class="circuit-4"
+>
   <a
     class="circuit-2 circuit-3"
   >
@@ -110,6 +122,10 @@ exports[`NavItem styles should render with default styles and match the snapshot
 `;
 
 exports[`NavItem styles should render with disabled state styles and match the snapshot 1`] = `
+.circuit-4 {
+  display: block;
+}
+
 .circuit-0 {
   margin-left: 12px;
 }
@@ -146,7 +162,9 @@ exports[`NavItem styles should render with disabled state styles and match the s
   fill: #5C656F;
 }
 
-<li>
+<li
+  class="circuit-4"
+>
   <a
     class="circuit-2 circuit-3"
     disabled=""
@@ -159,6 +177,10 @@ exports[`NavItem styles should render with disabled state styles and match the s
 `;
 
 exports[`NavItem styles should render with selected state styles and match the snapshot 1`] = `
+.circuit-4 {
+  display: block;
+}
+
 .circuit-0 {
   margin-left: 12px;
 }
@@ -195,7 +217,9 @@ exports[`NavItem styles should render with selected state styles and match the s
   fill: #FAFBFC;
 }
 
-<li>
+<li
+  class="circuit-4"
+>
   <a
     class="circuit-2 circuit-3"
   >
