@@ -18,7 +18,7 @@ const { circuit } = themes;
 export const theme = create({
   base: 'light',
   brandTitle: 'Circuit UI',
-  brandUrl: 'https://github.com/sumup/circuit-ui',
+  brandUrl: 'https://github.com/sumup-oss/circuit-ui',
   brandImage: '/images/logo-name.svg',
   fontBase: circuit.fontStack.default,
   colorPrimary: circuit.colors.p500,

@@ -102,7 +102,7 @@ If you feel another member of the community violated our CoC or you are experien
 
 ## Contributing
 
-If you have ideas for how we could improve this readme or the project in general, [let us know](https://github.com/sumup/circuit-ui/issues) or [contribute some](https://github.com/sumup/circuit-ui/edit/master/README.md)!
+If you have ideas for how we could improve this readme or the project in general, [let us know](https://github.com/sumup-oss/circuit-ui/issues) or [contribute some](https://github.com/sumup-oss/circuit-ui/edit/master/README.md)!
 
 ## About SumUp
 
