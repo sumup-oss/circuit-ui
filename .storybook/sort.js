@@ -2,13 +2,12 @@
 // Items that are not included in the list are shown below the sorted items.
 const SORT_ORDER = {
   Introduction: ['Welcome'],
-  Styles: [],
-  Icons: [],
-  Typography: [],
-  Forms: [],
+  Styles: ['Static Styles', 'Theme'],
+  Typography: ['Heading', 'SubHeading', 'Text'],
   Layout: [],
-  Grid: [],
-  Components: []
+  Forms: [],
+  Components: [],
+  Icons: []
 };
 
 const GROUPS = Object.keys(SORT_ORDER);
