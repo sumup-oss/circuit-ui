@@ -19,9 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
-import { theme as themes } from '../../src';
-import { shadowSingle } from '../../src/styles/style-helpers';
-import Text from '../../src/components/Text';
+import { theme as themes, Text, styleHelpers } from '../../src';
 
 const SWATCH_HEIGHT = '150px';
 const SWATCH_WIDTH = '135px';
@@ -59,7 +57,7 @@ const ColorWrapper = styled('div')`
     margin-bottom: ${theme.spacings.mega};
     border-bottom-left-radius: ${theme.borderRadius.giga};
     border-bottom-right-radius: ${theme.borderRadius.giga};
-    ${shadowSingle({ theme })};
+    ${styleHelpers.shadowSingle({ theme })};
   `};
 `;
 

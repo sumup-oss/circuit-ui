@@ -15,9 +15,12 @@
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import OriginalRow from '../../src/components/Row';
-import OriginalGrid from '../../src/components/Grid';
-import OriginalCol from '../../src/components/Col';
+
+import {
+  Grid as OriginalGrid,
+  Row as OriginalRow,
+  Col as OriginalCol
+} from '../../src';
 
 export const Grid = styled(OriginalGrid)`
   ${({ theme }) => css`

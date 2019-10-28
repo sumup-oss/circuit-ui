@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
-import { Text, theme as themes } from '../../src';
+import { theme as themes, Text } from '../../src';
 
 const TypePx = styled(Text)`
   ${({ theme: t }) => css`
