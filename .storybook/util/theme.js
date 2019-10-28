@@ -9,7 +9,9 @@ import {
   Text,
   List,
   Image
-} from '../src';
+} from '../../src';
+
+import { Link } from '../components';
 
 const { circuit } = themes;
 
@@ -55,5 +57,6 @@ export const components = {
   }),
   ul: withThemeProvider(List, { size: TEXT_SIZE }),
   ol: withThemeProvider(List, { ordered: true, size: TEXT_SIZE }),
-  img: withThemeProvider(Image)
+  img: withThemeProvider(Image),
+  a: withThemeProvider(Link, { size: TEXT_SIZE })
 };

@@ -18,13 +18,13 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
-import Text from '../../src/components/Text';
-import { theme as themes } from '../../src';
+
+import { theme as themes, Text } from '../../src';
 
 const Box = styled('div')`
-  ${({ theme, size }) => css`
-    width: ${theme.iconSizes[size]};
-    height: ${theme.iconSizes[size]};
+  ${({ theme, spacingName }) => css`
+    width: ${theme.spacings[spacingName]};
+    height: ${theme.spacings[spacingName]};
     border-radius: ${theme.borderRadius.kilo};
     background-color: ${theme.colors.r300};
     margin-right: ${theme.spacings.mega};
@@ -39,39 +39,39 @@ const Wrapper = styled('div')`
   `};
 `;
 
-const IconSizeSize = styled('span')`
+const SpacingSize = styled('span')`
   ${({ theme }) => css`
     color: ${theme.colors.n500};
   `};
 `;
 
-const IconSizeName = styled(Text)`
+const SpacingName = styled(Text)`
   ${({ theme }) => css`
     margin-left: ${theme.spacings.kilo};
     color: ${theme.colors.n500};
   `};
 `;
 
-const IconSize = ({ size }) => (
+const Spacing = ({ spacingName }) => (
   <ThemeProvider theme={themes.circuit}>
     <Wrapper>
-      <Box size={size} />
+      <Box spacingName={spacingName} />
       <div>
-        <Text as="span">{size}</Text>
-        <IconSizeSize>
-          <IconSizeName size={Text.KILO} as="span">
-            {themes.circuit.iconSizes[size]}
-          </IconSizeName>
-        </IconSizeSize>
+        <Text as="span">{spacingName}</Text>
+        <SpacingSize>
+          <SpacingName size={Text.KILO} as="span">
+            {themes.circuit.spacings[spacingName]}
+          </SpacingName>
+        </SpacingSize>
       </div>
     </Wrapper>
   </ThemeProvider>
 );
 
-IconSize.propTypes = {
+Spacing.propTypes = {
   // eslint-disable-next-line
   theme: PropTypes.object.isRequired,
-  size: PropTypes.string.isRequired
+  spacingName: PropTypes.string.isRequired
 };
 
-export default IconSize;
+export default Spacing;

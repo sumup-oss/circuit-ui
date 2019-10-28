@@ -6,15 +6,33 @@ import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 
 import { theme as themes, BaseStyles } from '../src';
-import { theme, components } from './theme';
-import withTests from './withTests';
-import storySort from './sort';
+import { theme, components } from './util/theme';
+import { sortStories } from './util/story-helpers';
+import withTests from './util/withTests';
 
 const { circuit } = themes;
 
+// Add group and story names to the sort order to explicitly order them.
+// Items that are not included in the list are shown below the sorted items.
+const SORT_ORDER = {
+  Introduction: [
+    'Welcome',
+    'Developers',
+    'Designers',
+    'Contributing',
+    'Code of Conduct'
+  ],
+  Styles: ['Static Styles', 'Theme'],
+  Typography: ['Heading', 'SubHeading', 'Text'],
+  Layout: [],
+  Forms: [],
+  Components: [],
+  Icons: []
+};
+
 addParameters({
   options: {
-    storySort,
+    storySort: sortStories(SORT_ORDER),
     theme,
     isFullscreen: false,
     panelPosition: 'bottom',
