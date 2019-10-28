@@ -106,7 +106,12 @@ const NavItem = ({
   const Link = StyledLink.withComponent(components.Link);
 
   return (
-    <li>
+    <li
+      css={css`
+        /* the default display: list-item breaks spacing on Safari */
+        display: block;
+      `}
+    >
       <Link
         onClick={disabled ? null : onClick}
         selected={selected}
