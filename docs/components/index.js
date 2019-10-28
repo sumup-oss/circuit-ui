@@ -32,4 +32,3 @@ export { default as BorderWidth } from './BorderWidth';
 export { default as BorderRadius } from './BorderRadius';
 export { default as IconSize } from './IconSize';
 export { Grid, Row, Col } from './Grid';
-export { default as MDXStyles } from './MDXStyles';

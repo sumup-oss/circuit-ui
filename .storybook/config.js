@@ -5,19 +5,23 @@ import { withA11y } from '@storybook/addon-a11y';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 
-import { circuit } from '../src/themes';
-import BaseStyles from '../src/components/BaseStyles';
+import { theme as themes, BaseStyles } from '../src';
+import { theme, components } from './theme';
 import withTests from './withTests';
-import storybookTheme from './theme';
 import storySort from './sort';
+
+const { circuit } = themes;
 
 addParameters({
   options: {
     storySort,
-    theme: storybookTheme,
+    theme,
     isFullscreen: false,
     panelPosition: 'bottom',
     isToolshown: true
+  },
+  docs: {
+    components
   }
 });
 
