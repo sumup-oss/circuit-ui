@@ -50,14 +50,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sumup/circuit-ui.git"
+    "url": "git+https://github.com/sumup-oss/circuit-ui.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sumup/circuit-ui/issues"
+    "url": "https://github.com/sumup-oss/circuit-ui/issues"
   },
-  "homepage": "https://github.com/sumup/circuit-ui#readme",
+  "homepage": "https://github.com/sumup-oss/circuit-ui#readme",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.4.0",
