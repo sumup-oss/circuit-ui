@@ -15,21 +15,21 @@
 
 import React from 'react';
 
+import docs from './Image.docs.mdx';
 import Image from './Image';
 
 export default {
   title: 'Components|Image',
-
+  component: Image,
   parameters: {
-    component: Image,
+    docs: { page: docs },
     jest: ['Image']
   }
 };
 
-export const responsiveImage = () => (
-  <Image src="http://www.placepuppy.net/800/500" alt="A random cute puppy" />
+export const base = () => (
+  <Image
+    src="https://source.unsplash.com/random"
+    alt="A random image from Unsplash"
+  />
 );
-
-responsiveImage.story = {
-  name: 'Responsive Image'
-};

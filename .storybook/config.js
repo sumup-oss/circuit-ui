@@ -5,22 +5,48 @@ import { withA11y } from '@storybook/addon-a11y';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 
-import { circuit } from '../src/themes';
-import BaseStyles from '../src/components/BaseStyles';
-import withTests from './withTests';
-import storybookTheme from './theme';
+import { theme as themes, BaseStyles } from '../src';
+import { theme, components } from './util/theme';
+import { sortStories } from './util/story-helpers';
+import withTests from './util/withTests';
+
+const { circuit } = themes;
+
+// Add group and story names to the sort order to explicitly order them.
+// Items that are not included in the list are shown below the sorted items.
+const SORT_ORDER = {
+  Introduction: [
+    'Welcome',
+    'Developers',
+    'Designers',
+    'Contributing',
+    'Code of Conduct'
+  ],
+  Styles: ['Static Styles', 'Theme'],
+  Typography: ['Heading', 'SubHeading', 'Text'],
+  Layout: [],
+  Forms: [],
+  Components: [],
+  Icons: []
+};
 
 addParameters({
   options: {
-    theme: storybookTheme,
+    storySort: sortStories(SORT_ORDER),
+    theme,
     isFullscreen: false,
     panelPosition: 'bottom',
     isToolshown: true
+  },
+  docs: {
+    components
   }
 });
 
 const Story = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -35,10 +61,8 @@ const withStoryStyles = storyFn => {
 
 const withThemeProvider = storyFn => (
   <ThemeProvider theme={circuit}>
-    <div>
-      <BaseStyles />
-      {storyFn()}
-    </div>
+    <BaseStyles />
+    {storyFn()}
   </ThemeProvider>
 );
 
@@ -49,6 +73,9 @@ addDecorator(withStoryStyles);
 addDecorator(withThemeProvider);
 
 configure(
-  require.context('../src', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/),
+  [
+    require.context('../src', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/),
+    require.context('../docs', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/)
+  ],
   module
 );

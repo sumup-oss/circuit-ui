@@ -17,7 +17,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { withTheme } from 'emotion-theming';
 
 import Card from '../../../Card';
 
@@ -52,4 +51,4 @@ ModalWrapper.propTypes = {
 /**
  * @component
  */
-export default withTheme(ModalWrapper);
+export default ModalWrapper;

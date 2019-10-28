@@ -23,91 +23,53 @@ import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
 
-// eslint-disable-next-line react/prop-types
-const ExampleWrap = ({ children }) => (
-  <div style={{ width: '70vw', minWidth: '300px ' }}>{children}</div>
-);
-
 export default {
-  title: 'Components|Modal Embed',
-
+  title: 'Components|Modal/Embedded',
   parameters: {
     jest: ['Modal']
   }
 };
 
-export const modal = () => (
-  <ExampleWrap>
-    <ModalWrapper>Hello World!</ModalWrapper>
-  </ExampleWrap>
+export const base = () => <ModalWrapper>Hello World!</ModalWrapper>;
+
+export const withTitle = () => (
+  <ModalWrapper>
+    <ModalHeader title="A title" />
+    <Text>Hello world!</Text>
+  </ModalWrapper>
 );
 
-modal.story = {
-  name: 'Modal'
-};
-
-export const modalWithTitle = () => (
-  <ExampleWrap>
-    <ModalWrapper>
-      <ModalHeader title="A title" />
-      <Text>Hello world!</Text>
-    </ModalWrapper>
-  </ExampleWrap>
+export const withoutCloseButton = () => (
+  <ModalWrapper>
+    <Text>Some text in the modal body.</Text>
+  </ModalWrapper>
 );
 
-modalWithTitle.story = {
-  name: 'Modal with title'
-};
-
-export const modalWithoutCloseButton = () => (
-  <ExampleWrap>
-    <ModalWrapper>
-      <Text>Some text in the modal body.</Text>
-    </ModalWrapper>
-  </ExampleWrap>
+export const withTitleAndCloseButton = () => (
+  <ModalWrapper>
+    <ModalHeader title="A modal" onClose={action('onClose')} />
+    <Text>Some text in the modal body.</Text>
+  </ModalWrapper>
 );
 
-modalWithoutCloseButton.story = {
-  name: 'Modal without close button'
-};
-
-export const modalWithTitleAndCloseButton = () => (
-  <ExampleWrap>
-    <ModalWrapper>
-      <ModalHeader title="A modal" onClose={action('onClose')} />
-      <Text>Some text in the modal body.</Text>
-    </ModalWrapper>
-  </ExampleWrap>
+export const withFooter = () => (
+  <ModalWrapper>
+    <ModalHeader title="A modal" />
+    <Text>Some text in the modal body.</Text>
+    <ModalFooter>
+      <ButtonGroup>
+        <Button secondary onClick={action('Cancel button clicked')}>
+          Cancel
+        </Button>
+        <Button primary onClick={action('Confirm button clicked')}>
+          Confirm
+        </Button>
+      </ButtonGroup>
+    </ModalFooter>
+  </ModalWrapper>
 );
 
-modalWithTitleAndCloseButton.story = {
-  name: 'Modal with title and close button'
-};
-
-export const modalWithFooterButtons = () => (
-  <ExampleWrap>
-    <ModalWrapper>
-      <ModalHeader title="A modal" />
-      <Text>Some text in the modal body.</Text>
-      <ModalFooter>
-        <ButtonGroup>
-          <Button secondary onClick={action('Cancel button clicked')}>
-            Cancel
-          </Button>
-          <Button primary onClick={action('Confirm button clicked')}>
-            Confirm
-          </Button>
-        </ButtonGroup>
-      </ModalFooter>
-    </ModalWrapper>
-  </ExampleWrap>
-);
-
-modalWithFooterButtons.story = {
-  name: 'Modal with footer buttons'
-};
-
-export const modalWithCardStylesOverride = () => {
+export const withCustomStyles = () => {
   const Container = styled('div')`
     display: flex;
     justify-content: stretch;
@@ -133,24 +95,19 @@ export const modalWithCardStylesOverride = () => {
   `;
 
   return (
-    <ExampleWrap>
-      <div
-        css={css`
-          padding: 0;
-          height: 50vh;
-        `}
-      >
-        <Container>
-          <LeftColumn>
-            <Text>A nice custom modal for special cases.</Text>
-          </LeftColumn>
-          <RightColumn />
-        </Container>
-      </div>
-    </ExampleWrap>
+    <div
+      css={css`
+        width: 100%;
+        padding: 0;
+        height: 50vh;
+      `}
+    >
+      <Container>
+        <LeftColumn>
+          <Text>A nice custom modal for special cases.</Text>
+        </LeftColumn>
+        <RightColumn />
+      </Container>
+    </div>
   );
-};
-
-modalWithCardStylesOverride.story = {
-  name: 'Modal with Card styles override'
 };

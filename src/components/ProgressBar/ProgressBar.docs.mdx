@@ -1,0 +1,43 @@
+import { Status, Props, Story } from '../../../.storybook/components';
+import ProgressBar from './ProgressBar';
+
+# Progress bar
+
+<Status.Stable />
+
+A progress bar is a UI element used to visualise the progression of a task or
+operation. The visual element is always combined with a label describing a
+status value either in percentage or fraction format.
+
+<Story id="components-progressbar--base" />
+
+<Props of={ProgressBar} />
+
+## When to use it
+
+The progress bar should be used to indicate the amount of time left to complete
+a task. It should not however, be used to indicate the time needed to load a page.
+
+## Usage guidelines
+
+- **Do** place the status value to the right of the progress bar.
+- **Do** use in moderation, only for tasks, operations or information that may take a long time.
+- **Do not** use an indeterminate value beyond percentage or fraction.
+- **Do not** use a progress bar for every task, operation or information.
+
+## Component variations
+
+### Percentage or fraction completion
+
+When you specify the label for the progress bar, it should only be shown
+as either a fraction (e.g. _1/3_) or percentage (e.g. _33%_).
+
+<Story id="components-progressbar--with-fraction" />
+
+<Story id="components-progressbar--with-percentage" />
+
+### Sizes
+
+You can use the progress bar in a variety of sizes: `ProgressBar.KILO`, `ProgressBar.MEGA`, or `ProgressBar.GIGA`.
+
+<Story id="components-progressbar--size" />

@@ -34,6 +34,7 @@ const SearchInput = ({ children, ...props }) => (
 );
 
 SearchInput.propTypes = {
+  ...Input.propTypes,
   children: childrenPropType
 };
 

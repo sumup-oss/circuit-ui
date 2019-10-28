@@ -28,7 +28,7 @@ exports[`InlineNotification should render with danger styles 1`] = `
 
 exports[`InlineNotification should render with default styles 1`] = `
 <p
-  class="css-23lb85-inline-notification circuit-0"
+  class="css-sw13lm-inline-notification circuit-0"
 />
 `;
 

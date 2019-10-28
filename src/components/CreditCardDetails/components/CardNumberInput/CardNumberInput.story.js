@@ -23,6 +23,14 @@ import { schemes as cardSchemes } from '../..';
 import Text from '../../../Text';
 import { circuit } from '../../../../themes';
 
+export default {
+  title: 'Forms|CreditCardDetails/CardNumberInput',
+  component: CardNumberInput,
+  parameters: {
+    jest: ['CardNumberInput']
+  }
+};
+
 const { SCHEMES } = cardSchemes;
 
 const getIconComponents = reduce(
@@ -48,15 +56,6 @@ const marginTopClassName = css`
   width: calc(100vw - ${circuit.spacings.byte});
 `;
 
-export default {
-  title: 'Forms|CreditCardDetails/CardNumberInput',
-
-  parameters: {
-    component: CardNumberInput,
-    jest: ['CardNumberInput']
-  }
-};
-
 export const emptyCardNumberInput = () => (
   <CardNumberInput
     acceptedCardSchemes={schemeIcons}
@@ -68,11 +67,7 @@ export const emptyCardNumberInput = () => (
   />
 );
 
-emptyCardNumberInput.story = {
-  name: 'Empty CardNumberInput'
-};
-
-export const emptyCardNumberInputWithManySupportedSchemes = () => (
+export const emptyWithManySupportedSchemes = () => (
   <Fragment>
     <Text style={{ width: '95vw' }}>
       Displays card scheme icons below input on mobile, when there are more than
@@ -88,11 +83,7 @@ export const emptyCardNumberInputWithManySupportedSchemes = () => (
   </Fragment>
 );
 
-emptyCardNumberInputWithManySupportedSchemes.story = {
-  name: 'Empty CardNumberInput with many supported schemes'
-};
-
-export const cardNumberInputWithDetectedCardScheme = () => (
+export const withDetectedCardScheme = () => (
   <CardNumberInput
     acceptedCardSchemes={schemeIcons}
     onChange={action('Changed input value')}
@@ -102,7 +93,3 @@ export const cardNumberInputWithDetectedCardScheme = () => (
     css={marginTopClassName}
   />
 );
-
-cardNumberInputWithDetectedCardScheme.story = {
-  name: 'CardNumberInput with detected card scheme'
-};

@@ -18,16 +18,11 @@ import React from 'react';
 import IconButton from './IconButton';
 
 export default {
-  title: 'Components|IconButton',
-
+  title: 'Components|Button/IconButton',
+  component: IconButton,
   parameters: {
-    component: IconButton,
     jest: ['IconButton']
   }
 };
 
-export const iconButton = () => <IconButton />;
-
-iconButton.story = {
-  name: 'IconButton'
-};
+export const base = () => <IconButton />;

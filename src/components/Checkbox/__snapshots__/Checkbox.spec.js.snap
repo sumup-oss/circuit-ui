@@ -88,7 +88,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 
 .circuit-4 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;

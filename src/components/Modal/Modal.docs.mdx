@@ -1,0 +1,128 @@
+import { Status, Props, Story } from '../../../.storybook/components';
+import {
+  ModalWrapper,
+  ModalHeader,
+  ModalFooter
+} from '../../../src/components/Modal';
+
+# Modal
+
+<Status.Stable />
+
+Modals are floating cards which overlay the primary UI. All content in a single
+modal should be related to completing one single task. Modals are heavy UI
+elements which obscure the primary user interface — avoid them where possible.
+
+<Story id="components-modal--base" />
+
+<Props of={ModalWrapper} />
+<Props of={ModalHeader} />
+<Props of={ModalFooter} />
+
+## When to use it
+
+Use it when you want the user to focus on a single and perhaps more complex task
+
+## Usage guidelines
+
+#### General guidelines
+
+- **Do** use modals sparingly.
+- **Do** use modals when you want to isolate an action from the primary UI.
+- **Do not** draw a modal over another modal.
+- **Do not** fill a modal with content which has multiple end results.
+- **Do not** present a modal without a user prompting a modal (e.g. as a popup).
+
+#### Header guidelines
+
+- **Do** use concise yet descriptive headings that label the function of the specific modal.
+- **Do not** exclude headings from modals.
+
+#### Content guidelines
+
+- **Do** align text content to the left.
+- **Do not** have more than two columns of content.
+
+#### Footer guidelines
+
+The modal footer contains CTA's which carry out an action on the entire modal.
+
+- **Do** align modal CTA's to the right side of the footer.
+- **Do not** have more than one "Primary - Major" CTA.
+
+## Usage in code
+
+There are a number of ways to use a modal in code. In some codebases, you
+may opt to create a helper higher-order component that complements the
+`ModalConsumer`.
+
+### Using the modal provider and consumer
+
+The benefit of using the modal provider and consumer is that the modal provider
+can be delcared once at the application root, and you do not need to manage
+to open/closed state of the modal yourself.
+
+```javascript
+import React, { Component } from 'react';
+import { ModalProvider, ModalConsumer, ModalWrapper } from '@sumup/circuit-ui';
+
+class MyComponent extends Component {
+  trigger(setModal) {
+    setModal({
+      children: ({ onClose }) => <ModalWrapper>I am in a modal!</ModalWrapper>
+    });
+  }
+
+  render() {
+    return (
+      <ModalProvider>
+        <ModalConsumer>
+          {({ setModal }) => (
+            <Button onClick={() => this.trigger(setModal)}>
+              Trigger modal
+            </Button>
+          )}
+        </ModalConsumer>
+      </ModalProvider>
+    );
+  }
+}
+```
+
+- `ModalWrapper` This is the wrapper for the body of a modal.
+- `ModalHeader` This contains the title and the `X` close button.
+- `ModalFooter` This component right-aligns its content.
+
+### Embedding the modal in code
+
+If you prefer to embed the code declaratively inside the component, you can
+do it as such:
+
+```javascript
+import React, { Component } from 'react';
+import { Modal } from '@sumup/circuit-ui';
+
+class Page extends Component {
+  constructor() {
+    this.state = { isModalOpen: false };
+  }
+
+  toggleModal = () => {
+    this.setState(state => ({ isModalOpen: !state.isModalOpen }));
+  };
+
+  render() {
+    return (
+      <div>
+        <a href="#" onClick={() => this.toggleModal()} />
+        {this.state.isModalOpen && (
+          <Modal>
+            <ModalHeader onClose={() => this.toggleModal()} title="Hello" />
+            The modal is open!
+          </Modal>
+        )}
+      </div>
+    );
+  }
+}
+```

@@ -15,7 +15,9 @@
 
 import React, { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
+import { css } from '@emotion/core';
 
+import docs from './Card.docs.mdx';
 import Card, { CardHeader, CardFooter } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
@@ -24,128 +26,96 @@ import Button from '../Button';
 
 export default {
   title: 'Components|Card',
-
+  component: Card,
   parameters: {
-    component: Card,
+    docs: { page: docs },
     jest: ['Card']
   }
 };
 
-export const card = () => (
-  <Card style={{ width: '500px', height: '150px', marginBottom: '15px' }} />
+const cardStyles = theme => css`
+  width: 500px;
+  height: 150px;
+  max-width: 90%;
+  max-height: 90%;
+  margin-bottom: ${theme.spacings.mega};
+`;
+
+const contentStyles = theme => css`
+  background: ${theme.colors.n200};
+  width: 100%;
+  height: 100%;
+`;
+
+const Header = () => (
+  <Heading size={Heading.KILO} noMargin>
+    Card heading
+  </Heading>
 );
 
-card.story = {
-  name: 'Card'
-};
+const Content = () => (
+  <Text noMargin>This is some text showing in my card</Text>
+);
 
-export const cardWithShadows = () => (
+export const base = () => <Card css={cardStyles} />;
+
+export const shadows = () => (
   <Fragment>
-    <Card
-      shadow={Card.SINGLE}
-      style={{ width: '500px', height: '150px', marginBottom: '15px' }}
-    />
-    <Card
-      shadow={Card.DOUBLE}
-      style={{ width: '500px', height: '150px', marginBottom: '15px' }}
-    />
-    <Card
-      shadow={Card.TRIPLE}
-      style={{ width: '500px', height: '150px', marginBottom: '15px' }}
-    />
+    <Card shadow={Card.SINGLE} css={cardStyles} />
+    <Card shadow={Card.DOUBLE} css={cardStyles} />
+    <Card shadow={Card.TRIPLE} css={cardStyles} />
   </Fragment>
 );
 
-cardWithShadows.story = {
-  name: 'Card with shadows'
-};
-
-export const cardWithSpacings = () => (
+export const spacings = () => (
   <Fragment>
-    <Card
-      spacing={Card.MEGA}
-      style={{ width: '500px', height: '150px', marginBottom: '15px' }}
-    >
-      <div
-        style={{
-          backgroundColor: 'lightgray',
-          width: '100%',
-          height: '100%'
-        }}
-      />
+    <Card spacing={Card.MEGA} css={cardStyles}>
+      <div css={contentStyles} />
     </Card>
-    <Card
-      spacing={Card.GIGA}
-      style={{ width: '500px', height: '150px', marginBottom: '15px' }}
-    >
-      <div
-        style={{
-          backgroundColor: 'lightgray',
-          width: '100%',
-          height: '100%'
-        }}
-      />
+    <Card spacing={Card.GIGA} css={cardStyles}>
+      <div css={contentStyles} />
     </Card>
   </Fragment>
 );
 
-cardWithSpacings.story = {
-  name: 'Card with spacings'
-};
+export const withHeader = () => (
+  <Fragment>
+    <Card>
+      <CardHeader>
+        <Header />
+      </CardHeader>
+      <Content />
+    </Card>
 
-export const cardWithHeaderAndBody = () => (
-  <Card>
-    <CardHeader>
-      <Heading size={Heading.KILO} noMargin>
-        Card heading
-      </Heading>
-    </CardHeader>
-    <Text margin={false}>This is some text showing in my card</Text>
-  </Card>
+    <Card>
+      <CardHeader onClose={action('CloseButton clicked')}>
+        <Header />
+      </CardHeader>
+      <Content />
+    </Card>
+  </Fragment>
 );
 
-cardWithHeaderAndBody.story = {
-  name: 'Card with Header and body'
-};
+export const withFooter = () => (
+  <Fragment>
+    <Card>
+      <Content />
+      <CardFooter>
+        <ButtonGroup>
+          <Button secondary>Cancel</Button>
+          <Button>Confirm</Button>
+        </ButtonGroup>
+      </CardFooter>
+    </Card>
 
-export const cardWithHeaderBodyButtonsAndCloseIcon = () => (
-  <Card>
-    <CardHeader onClose={action('CloseButton clicked')}>
-      <Heading size={Heading.KILO} noMargin>
-        Card heading
-      </Heading>
-    </CardHeader>
-    <Text margin={false}>This is some text showing in my card</Text>
-    <CardFooter>
-      <ButtonGroup>
-        <Button secondary>Cancel</Button>
-        <Button>Confirm</Button>
-      </ButtonGroup>
-    </CardFooter>
-  </Card>
+    <Card>
+      <Content />
+      <CardFooter align="left">
+        <ButtonGroup align="left">
+          <Button secondary>Cancel</Button>
+          <Button>Confirm</Button>
+        </ButtonGroup>
+      </CardFooter>
+    </Card>
+  </Fragment>
 );
-
-cardWithHeaderBodyButtonsAndCloseIcon.story = {
-  name: 'Card with Header, body, buttons, and close icon'
-};
-
-export const cardFooterWithLeftAligment = () => (
-  <Card>
-    <CardHeader onClose={action('CloseButton clicked')}>
-      <Heading size={Heading.KILO} noMargin>
-        Card heading
-      </Heading>
-    </CardHeader>
-    <Text margin={false}>This is some text showing in my card</Text>
-    <CardFooter align="left">
-      <ButtonGroup align="left">
-        <Button secondary>Cancel</Button>
-        <Button>Confirm</Button>
-      </ButtonGroup>
-    </CardFooter>
-  </Card>
-);
-
-cardFooterWithLeftAligment.story = {
-  name: 'Card footer with left aligment'
-};

@@ -13,12 +13,17 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { action } from '@storybook/addon-actions';
-
-import State from '../State';
+import React, { useState } from 'react';
 
 import RadioButtonGroup from './RadioButtonGroup';
+
+export default {
+  title: 'Forms|RadioButton/RadioButtonGroup',
+  component: RadioButtonGroup,
+  parameters: {
+    jest: ['RadioButtonGroup']
+  }
+};
 
 const options = [
   {
@@ -35,36 +40,16 @@ const options = [
   }
 ];
 
-export default {
-  title: 'Forms|RadioButton/RadioButtonGroup',
-
-  parameters: {
-    component: RadioButtonGroup,
-    jest: ['RadioButtonGroup']
-  }
+// eslint-disable-next-line react/prop-types
+const RadioButtonGroupWithState = ({ value: initial, children, ...props }) => {
+  const [value, setValue] = useState(initial);
+  const handleChange = e => {
+    e.persist();
+    setValue(e.target.value);
+  };
+  return <RadioButtonGroup {...props} value={value} onChange={handleChange} />;
 };
 
-export const radioButtonGroup = () => (
-  <State
-    initial=""
-    name="value"
-    updaterName="onChange"
-    updater={(prev, event) => event.target.value}
-  >
-    {({ value, onChange }) => (
-      <RadioButtonGroup
-        {...{ options, value }}
-        name="radio-button-group"
-        onChange={e => {
-          e.persist();
-          action(`${e.target.value} radio button clicked`)(e);
-          onChange(e);
-        }}
-      />
-    )}
-  </State>
+export const base = () => (
+  <RadioButtonGroupWithState options={options} name="radio-button-group" />
 );
-
-radioButtonGroup.story = {
-  name: 'RadioButtonGroup'
-};

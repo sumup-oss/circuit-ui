@@ -14,14 +14,14 @@ for bugfixes, minor versions for new features, and major versions for
 breaking changes. Our [release process](#Releases) is automated using [semantic-release](https://github.com/semantic-release/semantic-release)
 which adheres to the [conventional commit message format](https://www.conventionalcommits.org).
 
-As a result, our changelog is pretty tidy. You can [read our changelog on GitHub](https://github.com/sumup/circuit-ui/releases).
+As a result, our changelog is pretty tidy. You can [read our changelog on GitHub](https://github.com/sumup-oss/circuit-ui/releases).
 
 ## Bugs
 
-We use the [GitHub issues](https://github.com/sumup/circuit-ui/issues) to track
+We use the [GitHub issues](https://github.com/sumup-oss/circuit-ui/issues) to track
 all our bugs and feature requests.
 
-When [submitting a new issue](https://github.com/sumup/circuit-ui/issues/new),
+When [submitting a new issue](https://github.com/sumup-oss/circuit-ui/issues/new),
 please check that it hasn't already been raised by someone else. We've provided
 a template for new issues which will help you structure your issue to ensure it
 can be picked up and actioned easily.
@@ -31,7 +31,7 @@ experiencing and what you'd expect to experience.
 
 ## Proposing a change
 
-![Component pattern addition](/component-addition-flowchart.png)
+![Component pattern addition](https://circuit.sumup.com/images/component-addition-flowchart.png)
 
 ### Creating or changing a component
 
@@ -105,7 +105,7 @@ yarn fix
 
 While making changes to Circuit UI, you might want to test them in your
 application. You can do so by [linking the two projects](https://yarnpkg.com/lang/en/docs/cli/link/)
-locally. 
+locally.
 
 Inside the Circuit UI project folder, run:
 
@@ -132,7 +132,7 @@ no longer needed.
    the component in use, and proactively communicate with the teams responsible
    for those features. Give your reasoning about _why_ you believe the feature
    should be deprecated, and discuss the impact on the teams that rely on
-   that feature today. 
+   that feature today.
 2. **Decide on a timeline.** Based on the feedback you receive, come up with
    a timeline, including the people who are affected by the change. Generally
    speaking, 3-6 months is ample time. Document the planned date of removal
@@ -155,12 +155,12 @@ to the new component. For example, changing the SideNav component.
 
 ## Releases
 
-We have a couple of special branches that are automatically released whenever 
+We have a couple of special branches that are automatically released whenever
 you merge code into them.
 
 - `beta` — This is a branch you can use to test your changes integrated with
   other branches before it is ready to be PR'd to `canary`. It is also useful
-  if you need to deploy the changes somewhere to test them. `beta` is a 
+  if you need to deploy the changes somewhere to test them. `beta` is a
   throw-away branch that can be recreated from `canary` at any time.
 - `canary` - The step before `master`. This is where we prepare a group of
   changes for the next release. Code on `canary` should be tested and stable.
@@ -185,14 +185,13 @@ To install the most recent version from a release channel, run:
 yarn add @sumup/circuit-ui@<release-channel>
 ```
 
-
 ### Troubleshooting
 
-- **The release failed.** This can happen if you merge multiple times to a 
+- **The release failed.** This can happen if you merge multiple times to a
   release branch in short succession. The first CI job will fail because the
-  branch on GitHub is ahead of the branch that was checked out in CI. 
+  branch on GitHub is ahead of the branch that was checked out in CI.
   `semantic-release` will open an issue to alert you of the failure. You can
-  simply wait for the last CI job to finish. It should succeed and will 
+  simply wait for the last CI job to finish. It should succeed and will
   automatically close the issue.
 - **My commit doesn't show in the release notes.** Make sure that your commit
   message follows the [conventional commit format](https://www.conventionalcommits.org).

@@ -17,31 +17,40 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
+import { uniqueId } from '../../util/id';
+
+import docs from './AutoCompleteInput.docs.mdx';
 import AutoCompleteInput from './AutoCompleteInput';
+import Label from '../Label';
 
 export default {
-  title: 'Forms|AutoCompleteInput',
-
+  title: 'Forms|Input/AutoCompleteInput',
+  component: AutoCompleteInput,
   parameters: {
-    component: AutoCompleteInput,
+    docs: { page: docs },
     jest: ['AutoCompleteInput']
   }
 };
 
-export const autoCompleteInput = () => (
-  <div style={{ width: '300px' }}>
-    <AutoCompleteInput
-      items={[
-        'liam.murphy@sumup.com',
-        'liam.burdock@sumup.com',
-        'lilijane.giordano@sumup.com'
-      ]}
-      onChange={action('handleChange')}
-      clearOnSelect={boolean('clearOnSelect', false)}
-    />
-  </div>
-);
-
-autoCompleteInput.story = {
-  name: 'AutoCompleteInput'
+// Inputs always need labels for accessibility.
+const AutoCompleteInputWithLabel = props => {
+  const id = uniqueId();
+  return (
+    <Label htmlFor={id}>
+      Label
+      <AutoCompleteInput {...props} id={id} />
+    </Label>
+  );
 };
+
+export const base = () => (
+  <AutoCompleteInputWithLabel
+    items={[
+      'liam.murphy@sumup.com',
+      'liam.burdock@sumup.com',
+      'lilijane.giordano@sumup.com'
+    ]}
+    onChange={action('handleChange')}
+    clearOnSelect={boolean('clearOnSelect', false)}
+  />
+);

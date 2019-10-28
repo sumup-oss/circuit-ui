@@ -17,6 +17,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { isFunction } from '../../util/type-check';
+import deprecate from '../../util/deprecate';
 
 class State extends Component {
   static propTypes = {
@@ -30,6 +31,15 @@ class State extends Component {
 
   constructor(props) {
     super(props);
+
+    deprecate(
+      [
+        'State has been deprecated.',
+        `Use React's useState hook instead:`,
+        'https://reactjs.org/docs/hooks-reference.html#usestate'
+      ].join(' ')
+    );
+
     const { initial, name } = props;
     const initialStateValue = isFunction(initial) ? initial(props) : initial;
     this.state = {

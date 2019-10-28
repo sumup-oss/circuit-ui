@@ -1,0 +1,24 @@
+import { Status, Props, Story } from '../../../.storybook/components';
+import Pagination from './Pagination';
+
+# Pagination
+
+<Status.Experimental /><Status.Description>Has usability issues. Design and API will likely change.</Status.Description>
+
+Pagination provides an easy way for users to visualize bulks of information distributed in the different pages,
+while always providing an anchor to move from where they currently are in the list.
+
+<Story id="components-pagination--base" />
+
+<Props of={Pagination} />
+
+## When to use it
+
+Use it when you have a list of more than 32 items related to the same category. This allows a better
+experience searching through the data for our users.
+
+## Usage guidelines
+
+- **Do** always place the pagination component on the bottom of the list
+- **Do** always provide the total number of items on the list
+- **Do not** use pagination if a list is below 32 items

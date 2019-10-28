@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import React, { useState } from 'react';
 import { boolean } from '@storybook/addon-knobs/react';
 
+import docs from './Sidebar.docs.mdx';
 import Sidebar from '.';
 
 import { ReactComponent as HomeEmpty } from './icons/home-empty.svg';
@@ -26,88 +26,66 @@ import { ReactComponent as HomeFull } from './icons/home-full.svg';
 import { ReactComponent as ListFull } from './icons/list-full.svg';
 import { ReactComponent as MeFull } from './icons/me-full.svg';
 
-const SidebarContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 600px;
-  width: 400px;
-  background-color: white;
-`;
-
-class Container extends Component {
-  state = { selected: 1 };
-
-  changeSelected = selected => {
-    this.setState({ selected });
-  };
-
-  render() {
-    const { selected } = this.state;
-
-    return (
-      <SidebarContainer>
-        <Sidebar
-          open={true}
-          onClose={() => null}
-          closeButtonLabel="close-button"
-        >
-          <Sidebar.Header>Header</Sidebar.Header>
-          <Sidebar.NavList>
-            <Sidebar.NavItem
-              label={`Home`}
-              selected={selected === 1}
-              onClick={() => this.changeSelected(1)}
-              defaultIcon={<HomeEmpty />}
-              selectedIcon={<HomeFull />}
-            />
-            <Sidebar.Aggregator
-              label={`List`}
-              defaultIcon={<ListEmpty />}
-              selectedIcon={<ListFull />}
-            >
-              <Sidebar.NavItem
-                label={`First`}
-                selected={selected === 4}
-                onClick={() => this.changeSelected(4)}
-              />
-              <Sidebar.NavItem
-                label={`Second`}
-                selected={selected === 5}
-                onClick={() => this.changeSelected(5)}
-              />
-              <Sidebar.NavItem
-                label={`Third`}
-                selected={selected === 6}
-                onClick={() => this.changeSelected(6)}
-              />
-            </Sidebar.Aggregator>
-            <Sidebar.NavItem
-              label={`Me`}
-              disabled={boolean('Disabled item', false)}
-              selected={selected === 3}
-              defaultIcon={<MeEmpty />}
-              selectedIcon={<MeFull />}
-              onClick={() => this.changeSelected(3)}
-            />
-          </Sidebar.NavList>
-          <Sidebar.Footer>Footer</Sidebar.Footer>
-        </Sidebar>
-      </SidebarContainer>
-    );
-  }
-}
-
 export default {
   title: 'Components|Sidebar',
-
+  component: Sidebar,
   parameters: {
-    component: Sidebar,
+    docs: { page: docs },
     jest: ['Sidebar']
   }
 };
 
-export const sidebar = () => <Container />;
+const SidebarWithState = () => {
+  const [selected, setSelected] = useState(1);
 
-sidebar.story = {
-  name: 'Sidebar'
+  return (
+    <Sidebar open={true} onClose={() => null} closeButtonLabel="close-button">
+      <Sidebar.Header>Header</Sidebar.Header>
+      <Sidebar.NavList>
+        <Sidebar.NavItem
+          key="home"
+          label="Home"
+          selected={selected === 1}
+          onClick={() => setSelected(1)}
+          defaultIcon={<HomeEmpty />}
+          selectedIcon={<HomeFull />}
+        />
+        <Sidebar.Aggregator
+          key="list"
+          selected={selected === 2}
+          label="List"
+          defaultIcon={<ListEmpty />}
+          selectedIcon={<ListFull />}
+        >
+          <Sidebar.NavItem
+            label={`First`}
+            selected={selected === 4}
+            onClick={() => setSelected(4)}
+          />
+          <Sidebar.NavItem
+            label={`Second`}
+            selected={selected === 5}
+            onClick={() => setSelected(5)}
+          />
+          <Sidebar.NavItem
+            label={`Third`}
+            selected={selected === 6}
+            onClick={() => setSelected(6)}
+          />
+        </Sidebar.Aggregator>
+        <Sidebar.NavItem
+          key="me"
+          label="Me"
+          disabled={boolean('Disabled item', false)}
+          selected={selected === 3}
+          defaultIcon={<MeEmpty />}
+          selectedIcon={<MeFull />}
+          onClick={() => setSelected(3)}
+        />
+      </Sidebar.NavList>
+      <Sidebar.Footer>Footer</Sidebar.Footer>
+    </Sidebar>
+  );
 };
+
+export const base = () => <SidebarWithState />;

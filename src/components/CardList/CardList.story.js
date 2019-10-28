@@ -17,6 +17,7 @@ import React, { Component } from 'react';
 import { range } from 'lodash/fp';
 import * as knobs from '@storybook/addon-knobs/react';
 
+import docs from './CardList.docs.mdx';
 import CardList from '.';
 
 class CardListStory extends Component {
@@ -33,35 +34,29 @@ class CardListStory extends Component {
     );
 
     return (
-      <div style={{ width: '320px' }}>
-        <CardList>
-          {range(1, 6).map(i => (
-            <CardList.Item
-              key={i}
-              selected={selected === i}
-              onClick={this.handleClick(i)}
-              padding={padding}
-            >
-              Item #{i}
-            </CardList.Item>
-          ))}
-        </CardList>
-      </div>
+      <CardList>
+        {range(1, 6).map(i => (
+          <CardList.Item
+            key={i}
+            selected={selected === i}
+            onClick={this.handleClick(i)}
+            padding={padding}
+          >
+            Item #{i}
+          </CardList.Item>
+        ))}
+      </CardList>
     );
   }
 }
 
 export default {
-  title: 'Components|CardList',
-
+  title: 'Components|Card/CardList',
+  component: CardList,
   parameters: {
-    component: CardList,
+    docs: { page: docs },
     jest: ['CardList']
   }
 };
 
-export const cardList = () => <CardListStory />;
-
-cardList.story = {
-  name: 'CardList'
-};
+export const base = () => <CardListStory />;

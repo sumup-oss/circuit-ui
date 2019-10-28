@@ -16,21 +16,22 @@
 import React from 'react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
 
-import SubHeading from '.';
+import SubHeading from './SubHeading';
+import docs from './SubHeading.docs.mdx';
 
 const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
 const sizes = [SubHeading.MEGA, SubHeading.KILO];
 
 export default {
   title: 'Typography|SubHeading',
-
+  component: SubHeading,
   parameters: {
-    component: SubHeading,
+    docs: { page: docs },
     jest: ['SubHeading']
   }
 };
 
-export const subHeading = () => (
+export const base = () => (
   <SubHeading
     as={select('Element', elements, elements[0])}
     size={select('Size', sizes, sizes[0])}
@@ -40,6 +41,9 @@ export const subHeading = () => (
   </SubHeading>
 );
 
-subHeading.story = {
-  name: 'SubHeading'
-};
+export const size = () =>
+  sizes.map(s => (
+    <SubHeading key={s} size={s}>
+      This is a {s} subheading.
+    </SubHeading>
+  ));

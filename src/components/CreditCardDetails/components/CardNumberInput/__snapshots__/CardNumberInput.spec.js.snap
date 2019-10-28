@@ -46,7 +46,6 @@ HTMLCollection [
   .circuit-0 {
   font-size: 13px;
   line-height: 20px;
-  margin-bottom: 4px;
   display: block;
 }
 
@@ -61,6 +60,11 @@ HTMLCollection [
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-14,
+label + .circuit-14 {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -292,7 +296,6 @@ HTMLCollection [
   .circuit-0 {
   font-size: 13px;
   line-height: 20px;
-  margin-bottom: 4px;
   display: block;
 }
 
@@ -307,6 +310,11 @@ HTMLCollection [
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-14,
+label + .circuit-14 {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -516,7 +524,6 @@ HTMLCollection [
   .circuit-0 {
   font-size: 13px;
   line-height: 20px;
-  margin-bottom: 4px;
   display: block;
 }
 
@@ -603,6 +610,11 @@ HTMLCollection [
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-20,
+label + .circuit-20 {
+  margin-top: 4px;
 }
 
 @media (max-width:479px) {

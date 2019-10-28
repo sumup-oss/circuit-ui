@@ -13,82 +13,43 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { action } from '@storybook/addon-actions';
+import React, { useState } from 'react';
 
-import State from '../State';
 import RadioButton from './RadioButton';
+import docs from './RadioButton.docs.mdx';
 
 export default {
   title: 'Forms|RadioButton',
-
+  component: RadioButton,
   parameters: {
-    component: RadioButton,
+    docs: { page: docs },
     jest: ['RadioButton']
   }
 };
 
-export const radioButton = () => (
-  <State
-    initial={false}
-    name="isChecked"
-    updaterName="onChange"
-    updater={isChecked => !isChecked}
-  >
-    {({ isChecked, onChange }) => (
-      <RadioButton
-        value="radio"
-        name="radio"
-        onChange={e => {
-          action('Radio clicked')(e);
-          onChange(e);
-        }}
-        checked={isChecked}
-      >
-        {isChecked ? 'Checked' : 'Unchecked'}
-      </RadioButton>
-    )}
-  </State>
-);
-
-radioButton.story = {
-  name: 'RadioButton'
+// eslint-disable-next-line react/prop-types
+const RadioButtonWithState = ({ checked: initial, children, ...props }) => {
+  const [checked, setChecked] = useState(initial);
+  const handleChange = () => {
+    setChecked(prev => !prev);
+  };
+  return (
+    <RadioButton {...props} checked={checked} onChange={handleChange}>
+      {children || (checked ? 'Checked' : 'Unchecked')}
+    </RadioButton>
+  );
 };
 
-export const invalidRadioButton = () => (
-  <State
-    initial={false}
-    name="isChecked"
-    updaterName="onChange"
-    updater={isChecked => !isChecked}
-  >
-    {({ isChecked, onChange }) => (
-      <RadioButton
-        value="radio"
-        name="radio"
-        onChange={e => {
-          action('Radio clicked')(e);
-          onChange(e);
-        }}
-        checked={isChecked}
-        invalid
-      >
-        Error
-      </RadioButton>
-    )}
-  </State>
+export const base = () => <RadioButtonWithState value="radio" name="radio" />;
+
+export const invalid = () => (
+  <RadioButtonWithState value="invalid" name="invalid" invalid>
+    Error
+  </RadioButtonWithState>
 );
 
-invalidRadioButton.story = {
-  name: 'Invalid RadioButton'
-};
-
-export const disabledRadioButton = () => (
-  <RadioButton value="radio" name="radio" disabled>
+export const disabled = () => (
+  <RadioButtonWithState value="disabled" name="disabled" disabled>
     Disabled
-  </RadioButton>
+  </RadioButtonWithState>
 );
-
-disabledRadioButton.story = {
-  name: 'Disabled RadioButton'
-};

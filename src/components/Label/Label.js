@@ -31,7 +31,6 @@ const visuallyHiddenStyles = ({ visuallyHidden }) =>
 const baseStyles = ({ theme }) => css`
   label: label;
   ${textKilo({ theme })};
-  margin-bottom: ${theme.spacings.bit};
   display: block;
 `;
 
@@ -50,10 +49,12 @@ Label.propTypes = {
    * The identifier of the corresponding form element.
    */
   htmlFor: PropTypes.string.isRequired,
+  /**
+   * Visually hides the label, but keeps it available to screen readers.
+   * Useful to add a label to purely visual elements.
+   */
   visuallyHidden: PropTypes.bool
 };
-
-StyledLabel.propTypes = Label.propTypes;
 
 Label.defaultProps = {
   visuallyHidden: false

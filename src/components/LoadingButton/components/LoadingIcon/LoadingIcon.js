@@ -20,12 +20,11 @@ import { css, keyframes } from '@emotion/core';
 import { size as sizeMixin } from 'polished';
 
 import { sizes } from '../../../../styles/constants';
-import { values } from '../../../../util/fp';
 
 import PureSpinner from '../../../Spinner';
 import { ReactComponent as SuccessSvg } from '../../icons/success.svg';
 import { ReactComponent as ErrorSvg } from '../../icons/error.svg';
-import { LOADING_STATES } from '../../constants';
+import { DISABLED, ACTIVE, SUCCESS, ERROR } from '../../constants';
 import { SIZE_PROP_TYPE } from '../../../Button/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
@@ -126,13 +125,9 @@ StatusIcon.defaultProps = {
  */
 const LoadingIcon = ({ loadingState, size }) => (
   <Fragment>
-    <Spinner size={size} active={loadingState === LOADING_STATES.ACTIVE} />
-    {loadingState === LOADING_STATES.SUCCESS && (
-      <StatusIcon as={SuccessSvg} size={size} />
-    )}
-    {loadingState === LOADING_STATES.ERROR && (
-      <StatusIcon as={ErrorSvg} size={size} />
-    )}
+    <Spinner size={size} active={loadingState === ACTIVE} />
+    {loadingState === SUCCESS && <StatusIcon as={SuccessSvg} size={size} />}
+    {loadingState === ERROR && <StatusIcon as={ErrorSvg} size={size} />}
   </Fragment>
 );
 
@@ -141,7 +136,7 @@ LoadingIcon.propTypes = {
    * Current loading state of the button. Determines whether the icon shows
    * and whether Spinner or Success are shown.
    */
-  loadingState: PropTypes.oneOf(values(LOADING_STATES)).isRequired,
+  loadingState: PropTypes.oneOf([DISABLED, ACTIVE, SUCCESS, ERROR]).isRequired,
   /**
    * Size prop from the Button.
    */

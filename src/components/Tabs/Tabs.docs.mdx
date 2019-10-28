@@ -1,0 +1,36 @@
+import { Status, Props, Story } from '../../../.storybook/components';
+import { Tabs, Tab, TabList, TabPanel } from '../../../src/components/Tabs';
+
+# Tabs
+
+<Status.InReview/><Status.Description>Does not handle content overflow on mobile. Unclear use case compared to subnavigation.</Status.Description>
+
+<Story id="components-tabs--base" />
+
+<Props of={Tabs} />
+
+## Variations
+
+If you need more control on the tabs, you can build you own tabs list instead of passing an array of items to the `Tabs` component. This can be useful to style any of the components individually.
+
+<Story id="components-tabs--controlled-state" />
+
+### Tab
+
+<Props of={Tab} />
+
+### TabList
+
+<Props of={TabList} />
+
+### TabPanel
+
+<Props of={TabPanel} />
+
+## With links
+
+<Story id="components-tabs--links" />
+
+## When to use it
+
+## Usage guidelines

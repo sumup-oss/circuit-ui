@@ -18,6 +18,8 @@ import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
   label: hr;
+  display: block;
+  width: 100%;
   border: 1px solid ${theme.colors.n300};
   margin-top: ${theme.spacings.mega};
   margin-bottom: ${theme.spacings.mega};

@@ -26,14 +26,13 @@ const options = {
 
 export default {
   title: 'Components|Table/TableHeader',
-
+  component: TableHeader,
   parameters: {
-    component: TableHeader,
     jest: ['TableHeader']
   }
 };
 
-export const tableHeader = () => (
+export const base = () => (
   <TableHeader
     style={{ width: '300px', alignSelf: 'center' }}
     align={select('Align', options)}
@@ -42,7 +41,3 @@ export const tableHeader = () => (
     {text('Content', 'Header')}
   </TableHeader>
 );
-
-tableHeader.story = {
-  name: 'Table Header'
-};

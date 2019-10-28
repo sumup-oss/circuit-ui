@@ -19,8 +19,6 @@ import { css } from '@emotion/core';
 
 import { directions } from '../../../../styles/constants';
 
-const ALIGMENT_TYPES = [directions.LEFT, directions.RIGHT];
-
 const alignmentStyles = ({ theme, align }) =>
   align === directions.RIGHT &&
   css`
@@ -47,12 +45,12 @@ const baseStyles = ({ theme }) => css`
  * Footer used in the Card component. Used for styling and aligment
  * purposes only.
  */
-const CardFooter = styled('footer')(baseStyles, alignmentStyles);
+const ModalFooter = styled('footer')(baseStyles, alignmentStyles);
 
-CardFooter.LEFT = directions.LEFT;
-CardFooter.RIGHT = directions.RIGHT;
+ModalFooter.LEFT = directions.LEFT;
+ModalFooter.RIGHT = directions.RIGHT;
 
-CardFooter.propTypes = {
+ModalFooter.propTypes = {
   /**
    * Buttons wrapped in a ButtonGroup.
    */
@@ -60,14 +58,14 @@ CardFooter.propTypes = {
   /**
    * Direction to align the content. Either left/right
    */
-  align: PropTypes.oneOf(ALIGMENT_TYPES)
+  align: PropTypes.oneOf([ModalFooter.LEFT, ModalFooter.RIGHT])
 };
 
-CardFooter.defaultProps = {
-  align: CardFooter.RIGHT
+ModalFooter.defaultProps = {
+  align: ModalFooter.RIGHT
 };
 
 /**
  * @component
  */
-export default CardFooter;
+export default ModalFooter;

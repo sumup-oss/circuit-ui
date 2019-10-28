@@ -18,11 +18,12 @@ module.exports = {
   coverageDirectory: './__coverage__',
   rootDir: '.',
   roots: ['src', 'scripts'],
-  moduleFileExtensions: ['js'],
+  moduleFileExtensions: ['js', 'jsx'],
   collectCoverageFrom: [
     'src/@(components|util|styles)/**/*.{js,jsx}',
     '!src/@(components|util|styles)/**/index.{js,jsx}',
     '!src/@(components|util|styles)/**/*.story.{js,jsx}',
+    '!src/@(components|util|styles)/**/*.docs.mdx',
     '!**/node_modules/**'
   ],
   moduleDirectories: ['node_modules', 'src'],

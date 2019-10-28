@@ -13,76 +13,36 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { action } from '@storybook/addon-actions';
+import React, { useState } from 'react';
 
-import State from '../State/State';
+import docs from './Toggle.docs.mdx';
 import Toggle from './Toggle';
 
 export default {
   title: 'Forms|Toggle',
-
+  component: Toggle,
   parameters: {
-    component: Toggle,
+    docs: { page: docs },
     jest: ['Toggle']
   }
 };
 
-export const toggle = () => (
-  <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
-    {({ onChange, on }) => (
-      <Toggle
-        label="Short label"
-        onChange={e => {
-          action('Toggle clicked')(e);
-          onChange(e);
-        }}
-        {...{ on }}
-      />
-    )}
-  </State>
-);
+/* eslint-disable react/prop-types */
+const ToggleWithState = props => {
+  const [on, setOn] = useState(false);
 
-toggle.story = {
-  name: 'Toggle'
+  const handleChange = () => {
+    setOn(prev => !prev);
+  };
+
+  return <Toggle {...props} on={on} onChange={handleChange} />;
 };
 
-export const toggleWithExplanation = () => (
-  <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
-    {({ onChange, on }) => (
-      <Toggle
-        label="Short label"
-        onChange={e => {
-          action('Toggle clicked')(e);
-          onChange(e);
-        }}
-        {...{ on }}
-        explanation="Some more detailed text of what this means"
-      />
-    )}
-  </State>
+export const base = () => <ToggleWithState label="Short label" />;
+
+export const withExplanation = () => (
+  <ToggleWithState
+    label="Short label"
+    explanation="Some more detailed text of what this means"
+  />
 );
-
-toggleWithExplanation.story = {
-  name: 'Toggle with explanation'
-};
-
-export const toggleWithNoBottomMargin = () => (
-  <State initial={false} name="on" updaterName="onChange" updater={on => !on}>
-    {({ onChange, on }) => (
-      <Toggle
-        {...{ on }}
-        onChange={e => {
-          action('Toggle clicked')(e);
-          onChange(e);
-        }}
-        label="Short label"
-        noMargin
-      />
-    )}
-  </State>
-);
-
-toggleWithNoBottomMargin.story = {
-  name: 'Toggle with no bottom margin'
-};

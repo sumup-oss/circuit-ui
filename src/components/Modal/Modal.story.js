@@ -18,11 +18,21 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { action } from '@storybook/addon-actions';
 
-import { ModalConsumer, ModalProvider } from '.';
+import docs from './Modal.docs.mdx';
+import Modal, { ModalConsumer, ModalProvider } from '.';
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
+
+export default {
+  title: 'Components|Modal',
+  component: Modal,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Modal', 'ModalWrapper', 'ModalHeader', 'ModalFooter']
+  }
+};
 
 /* eslint-disable react/display-name, react/prop-types */
 
@@ -50,21 +60,9 @@ const defaultModal = {
   }
 };
 
-export default {
-  title: 'Components|Modal',
+export const base = () => <PageWithModal modal={defaultModal} />;
 
-  parameters: {
-    jest: ['Modal']
-  }
-};
-
-export const modal = () => <PageWithModal modal={defaultModal} />;
-
-modal.story = {
-  name: 'Modal'
-};
-
-export const modalWithTitle = () => (
+export const withHeader = () => (
   <PageWithModal
     modal={{
       ...defaultModal,
@@ -78,11 +76,7 @@ export const modalWithTitle = () => (
   />
 );
 
-modalWithTitle.story = {
-  name: 'Modal with title'
-};
-
-export const modalWithoutCloseButton = () => {
+export const withoutCloseButton = () => {
   const modalWithTitleAndCloser = {
     ...defaultModal,
     children: () => (
@@ -94,11 +88,7 @@ export const modalWithoutCloseButton = () => {
   return <PageWithModal modal={modalWithTitleAndCloser} />;
 };
 
-modalWithoutCloseButton.story = {
-  name: 'Modal without close button'
-};
-
-export const modalWithTitleAndCloseButton = () => (
+export const withTitleAndCloseButton = () => (
   <PageWithModal
     modal={{
       ...defaultModal,
@@ -112,11 +102,7 @@ export const modalWithTitleAndCloseButton = () => (
   />
 );
 
-modalWithTitleAndCloseButton.story = {
-  name: 'Modal with title and close button'
-};
-
-export const modalWithFooterButtons = () => (
+export const withFooter = () => (
   <PageWithModal
     modal={{
       ...defaultModal,
@@ -152,11 +138,7 @@ export const modalWithFooterButtons = () => (
   />
 );
 
-modalWithFooterButtons.story = {
-  name: 'Modal with footer buttons'
-};
-
-export const modalWithCardStylesOverride = () => {
+export const withCustomStyles = () => {
   const Container = styled('div')`
     display: flex;
     justify-content: stretch;
@@ -204,8 +186,4 @@ export const modalWithCardStylesOverride = () => {
       }}
     />
   );
-};
-
-modalWithCardStylesOverride.story = {
-  name: 'Modal with Card styles override'
 };

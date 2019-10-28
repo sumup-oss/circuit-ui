@@ -19,6 +19,14 @@ import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import SimpleCurrencyInput from './SimpleCurrencyInput';
 import { CURRENCY_SYMBOLS } from '../../../../util/currency';
 
+export default {
+  title: 'Forms|Input/CurrencyInput/SimpleCurrencyInput',
+  component: SimpleCurrencyInput,
+  parameters: {
+    jest: ['SimpleCurrencyInput']
+  }
+};
+
 const numberMask = createNumberMask({
   prefix: '',
   suffix: '',
@@ -28,16 +36,7 @@ const numberMask = createNumberMask({
   decimalSymbol: '.'
 });
 
-export default {
-  title: 'Forms|CurrencyInput/SimpleCurrencyInput',
-
-  parameters: {
-    component: SimpleCurrencyInput,
-    jest: ['SimpleCurrencyInput']
-  }
-};
-
-export const simpleCurrencyInput = () => (
+export const base = () => (
   <SimpleCurrencyInput
     placeholder="123.45"
     symbol={CURRENCY_SYMBOLS.EUR}
@@ -45,11 +44,7 @@ export const simpleCurrencyInput = () => (
   />
 );
 
-simpleCurrencyInput.story = {
-  name: 'SimpleCurrencyInput'
-};
-
-export const simpleCurrencyInputForUsd = () => (
+export const forUsd = () => (
   <SimpleCurrencyInput
     symbol={CURRENCY_SYMBOLS.USD}
     placeholder="1,234.45"
@@ -58,11 +53,7 @@ export const simpleCurrencyInputForUsd = () => (
   />
 );
 
-simpleCurrencyInputForUsd.story = {
-  name: 'SimpleCurrencyInput for USD'
-};
-
-export const simpleCurrencyInputForRightAlignedChf = () => (
+export const forRightAlignedCHF = () => (
   <SimpleCurrencyInput
     symbol={CURRENCY_SYMBOLS.CHF}
     placeholder="1,234.45"
@@ -70,7 +61,3 @@ export const simpleCurrencyInputForRightAlignedChf = () => (
     prependSymbol={false}
   />
 );
-
-simpleCurrencyInputForRightAlignedChf.story = {
-  name: 'SimpleCurrencyInput for right aligned CHF'
-};

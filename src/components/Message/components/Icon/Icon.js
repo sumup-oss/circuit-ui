@@ -67,19 +67,17 @@ MessageIcon.WARNING = ICON_TYPES.WARNING;
 
 MessageIcon.propTypes = {
   /**
-   * Icon
+   * A custom icon to display.
    */
   children: PropTypes.element,
+  /**
+   * The icon type. Overrides a custom icon.
+   */
   type: PropTypes.oneOf([
-    ICON_TYPES.SUCCESS,
-    ICON_TYPES.ERROR,
-    ICON_TYPES.WARNING
+    MessageIcon.SUCCESS,
+    MessageIcon.ERROR,
+    MessageIcon.WARNING
   ])
-};
-
-MessageIcon.defaultProps = {
-  type: null,
-  children: null
 };
 
 /**

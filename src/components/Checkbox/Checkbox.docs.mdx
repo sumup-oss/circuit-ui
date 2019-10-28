@@ -1,0 +1,49 @@
+import { Status, Props, Story } from '../../../.storybook/components';
+import Checkbox from './Checkbox';
+
+# Checkbox
+
+<Status.Stable />
+
+The primary goal of checkboxes is to provide a way for the user to make a range of selections.
+The users can select from zero, one, or multiple options. In other words, each checkbox is independent
+of all other checkboxes in the list, and checking one box doesn’t uncheck the others.
+
+<Story id="forms-checkbox--base" />
+
+<Props of={Checkbox} />
+
+## When to use it
+
+Use it to ask the users questions with one or multiple alternatives. You could also use it as a way to toggle
+an option or agree to certain terms & conditions.
+
+## Usage guidelines
+
+- **Do** accompany checkboxes with a descriptive label, except when a checkbox is used to select
+  multiple checkboxes (as a parent checkbox).
+- **Do** write items in a positive manner. (e.g. _"Send me reports"_ instead of _"Do not send me reports"_)
+- **Do** try to display the checkbox list vertically, with one choice per line. If space is
+  limited you need to display it horizontally, make sure to separate the buttons and labels from one another.
+- **Do** sort the items in a reasonable order (e.g. alphabetical, numerical, time-based, or some other clear system)
+- **Do** be as specific as possible.
+- **Do** use sentence case (e.g. "I agree..." not "You agree...")
+- **Do** use Labels as clicking area for the checkbox
+- **Do not** use negations (e.g. _“Don’t send me more email”_)
+- **Do not** use checkboxes as an action button.
+- **Don not** rely on tooltips to explain a checkbox
+- **Do not** use commas or semicolons at the end of each line
+
+## Component variations
+
+### Invalid
+
+<Story id="forms-checkbox--invalid" />
+
+### Disabled
+
+<Story id="forms-checkbox--disabled" />
+
+### Multiple
+
+<Story id="forms-checkbox--multiple" />

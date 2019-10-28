@@ -13,64 +13,80 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { boolean } from '@storybook/addon-knobs/react';
 
 import LoadingButton from '.';
 
+// eslint-disable-next-line react/prop-types
+const LoadingButtonWithState = ({ exitAnimation, ...props }) => {
+  // get loading button status animation or set as default
+  const variation = exitAnimation || 'DEFAULT';
+
+  const [loading, setLoading] = useState({
+    DEFAULT: false,
+    SUCCESS: false,
+    ERROR: false
+  });
+
+  const handleClick = () => {
+    // trigger loading state
+    setLoading({
+      ...loading,
+      [variation]: true
+    });
+    // reset loading
+    setTimeout(() => {
+      setLoading({
+        ...loading,
+        [variation]: false
+      });
+    }, 1000);
+  };
+
+  return (
+    <LoadingButton
+      {...props}
+      isLoading={loading[variation]}
+      exitAnimation={exitAnimation && LoadingButton[exitAnimation]}
+      onClick={handleClick}
+    />
+  );
+};
+
 export default {
   title: 'Components|Button/LoadingButton',
-
+  component: LoadingButton,
   parameters: {
-    component: LoadingButton,
     jest: ['LoadingButton']
   }
 };
 
-export const loadingButtonWithSuccessAnimation = () => (
-  <LoadingButton
-    isLoading={boolean('Loading', false)}
-    onClick={action('clicked')}
+export const successAnimation = () => (
+  <LoadingButtonWithState
     onAnimationComplete={action('animation completed')}
     exitAnimation={LoadingButton.SUCCESS}
     primary
   >
     Click me
-  </LoadingButton>
+  </LoadingButtonWithState>
 );
 
-loadingButtonWithSuccessAnimation.story = {
-  name: 'LoadingButton with Success animation'
-};
-
-export const loadingButtonWithErrorAnimation = () => (
-  <LoadingButton
-    isLoading={boolean('Loading', false)}
-    onClick={action('clicked')}
+export const errorAnimation = () => (
+  <LoadingButtonWithState
     onAnimationComplete={action('animation completed')}
     exitAnimation={LoadingButton.ERROR}
     primary
   >
     Click me
-  </LoadingButton>
+  </LoadingButtonWithState>
 );
 
-loadingButtonWithErrorAnimation.story = {
-  name: 'LoadingButton with Error animation'
-};
-
-export const loadingButtonWithNoExitAnimation = () => (
-  <LoadingButton
-    isLoading={boolean('Loading', false)}
-    onClick={action('clicked')}
+export const noExitAnimation = () => (
+  <LoadingButtonWithState
     onAnimationComplete={action('animation completed')}
     primary
   >
     Click me
-  </LoadingButton>
+  </LoadingButtonWithState>
 );
-
-loadingButtonWithNoExitAnimation.story = {
-  name: 'LoadingButton with no exit animation'
-};
