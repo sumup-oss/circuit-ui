@@ -31,7 +31,7 @@
     "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js,*.docs.mdx",
     "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js,*.docs.mdx",
     "clean:js": "rimraf lib",
-    "predeploy": "rm -rf ./dist && mkdir dist && yarn build && cp ./src/CNAME ./dist/CNAME",
+    "predeploy": "rm -rf ./dist && mkdir -p dist/static && yarn build && cp ./src/CNAME ./dist/CNAME",
     "deploy": "gh-pages -d dist",
     "prerelease": "yarn build:js",
     "release": "semantic-release",
