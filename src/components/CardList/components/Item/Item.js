@@ -51,21 +51,6 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const paddingStyles = ({ theme, padding }) =>
-  padding &&
-  css`
-    padding: ${theme.spacings[sizeMap[padding]]};
-  `;
-
-const selectedStyles = ({ theme, selected }) =>
-  selected &&
-  css`
-    label: cardlist__item--selected;
-
-    background: ${theme.colors.p100};
-    color: ${theme.colors.p900};
-  `;
-
 const getBorderStyles = theme => css`
   outline: none;
 
@@ -80,6 +65,22 @@ const getBorderStyles = theme => css`
     border-radius: ${theme.borderRadius.mega};
   }
 `;
+
+const paddingStyles = ({ theme, padding }) =>
+  padding &&
+  css`
+    padding: ${theme.spacings[sizeMap[padding]]};
+  `;
+
+const selectedStyles = ({ theme, selected }) =>
+  selected &&
+  css`
+    label: cardlist__item--selected;
+
+    background: ${theme.colors.p100};
+
+    ${getBorderStyles(theme)};
+  `;
 
 const hoverStyles = ({ theme }) => css`
   @media (hover: hover) {
