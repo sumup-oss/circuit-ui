@@ -53,7 +53,7 @@
     "url": "git+https://github.com/sumup-oss/circuit-ui.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/sumup-oss/circuit-ui/issues"
   },
