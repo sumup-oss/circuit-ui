@@ -18,7 +18,7 @@ import React from 'react';
 import { Text as NativeText } from 'react-native';
 import { useTheme } from 'emotion-theming';
 
-import { cx } from '../../styles/native';
+import { cx, globalTextStyle } from '../../styles/native';
 
 import * as styles from './styles';
 
@@ -26,7 +26,12 @@ import * as styles from './styles';
 const Text = ({ size, bold, italic, strike, noMargin, style, ...props }) => {
   const theme = useTheme();
   const styleProps = { size, bold, italic, strike, noMargin, style };
-  return <NativeText {...props} style={cx(styles, theme, styleProps)} />;
+  return (
+    <NativeText
+      {...props}
+      style={cx({ globalTextStyle, ...styles }, theme, styleProps)}
+    />
+  );
 };
 
 export default Text;

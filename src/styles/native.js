@@ -13,22 +13,15 @@
  * limitations under the License.
  */
 
+import { css } from '@emotion/native';
 import { reduce, isFunction, isEmpty, isObject } from 'lodash/fp';
 
-function transformStyleFactory(props) {
-  return style => {
-    const styleRules = isFunction(style) ? style(props) : style;
+export const globalTextStyle = ({ theme }) => css`
+  font-family: ${theme.fontStack.default};
+  font-weight: ${theme.fontWeight.regular};
+  color: ${theme.colors.bodyColor};
+`;
 
-    if (!isObject(style) || isEmpty(style)) {
-      return null;
-    }
-    // Emotion native complains about the 'label' rule.
-    const { label, ...rest } = styleRules;
-    return rest;
-  };
-}
-
-// eslint-disable-next-line import/prefer-default-export
 export function cx(styles, theme, props = {}) {
   const transformStyle = transformStyleFactory({ ...props, theme });
   const customStyleRules = transformStyle(props.style);
@@ -49,4 +42,17 @@ export function cx(styles, theme, props = {}) {
   }
 
   return coreStyles;
+}
+
+function transformStyleFactory(props) {
+  return style => {
+    const styleRules = isFunction(style) ? style(props) : style;
+
+    if (!isObject(style) || isEmpty(style)) {
+      return null;
+    }
+    // Emotion native complains about the 'label' rule.
+    const { label, ...rest } = styleRules;
+    return rest;
+  };
 }
