@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { circuit, standard } from './themes';
+import { standard } from './themes';
 
 // Typography
 // export { default as Heading } from './components/Heading';
@@ -29,4 +29,10 @@ export {
 } from './components/ComponentsContext';
 
 // Themes
-export const themes = { circuit, standard };
+const circuit = {
+  fontStack: {
+    default: 'aktivGrotest'
+  },
+  ...standard
+};
+export const themes = { circuit };
