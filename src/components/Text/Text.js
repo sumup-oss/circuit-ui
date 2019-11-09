@@ -13,16 +13,8 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import isPropValid from '@emotion/is-prop-valid';
 
-import {
-  childrenPropType,
-  deprecatedPropType
-} from '../../util/shared-prop-types';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
@@ -33,13 +25,13 @@ const mobileSizeMap = {
   [GIGA]: MEGA
 };
 
-const baseStyles = ({ theme }) => css`
+export const baseStyles = ({ theme }) => css`
   label: text;
   font-weight: ${theme.fontWeight.regular};
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const sizeStyles = ({ theme, size }) => {
+export const sizeStyles = ({ theme, size }) => {
   if (!size) {
     return null;
   }
@@ -56,114 +48,30 @@ const sizeStyles = ({ theme, size }) => {
   `;
 };
 
-const boldStyles = ({ theme, bold }) =>
+export const boldStyles = ({ theme, bold }) =>
   bold &&
   css`
     label: text--bold;
     font-weight: ${theme.fontWeight.bold};
   `;
 
-const italicStyles = ({ italic }) =>
+export const italicStyles = ({ italic }) =>
   italic &&
   css`
     label: text--italic;
     font-style: italic;
   `;
 
-const strikeThroughStyles = ({ strike }) =>
+export const strikeThroughStyles = ({ strike }) =>
   strike &&
   css`
     label: text--strike-through;
     text-decoration: line-through;
   `;
 
-const marginStyles = ({ noMargin }) =>
+export const marginStyles = ({ noMargin }) =>
   noMargin &&
   css`
     label: text--no-margin;
     margin-bottom: 0;
   `;
-
-export const StyledText = styled('p', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
-})`
-  ${baseStyles};
-  ${sizeStyles};
-  ${marginStyles};
-  ${boldStyles};
-  ${italicStyles};
-  ${strikeThroughStyles};
-`;
-
-/**
- * The Text component is used for long-form text. Typically with
- * <p>, <div>, <article>, or <section> elements. Capable of rendering
- * using different HTML tags.
- */
-const Text = ({ element, as, ...restProps }) => (
-  <StyledText {...restProps} as={element || as} />
-);
-
-Text.KILO = KILO;
-Text.MEGA = MEGA;
-Text.GIGA = GIGA;
-
-Text.propTypes = {
-  /**
-   * Child nodes to be rendered.
-   */
-  children: childrenPropType,
-  /**
-   * A Circuit UI body text size.
-   */
-  size: PropTypes.oneOf([Text.KILO, Text.MEGA, Text.GIGA]),
-  /**
-   * Optional additional className string to overwrite styles.
-   */
-  className: PropTypes.string,
-  /**
-   * Removes the default bottom margin from the text.
-   */
-  noMargin: PropTypes.bool,
-  /**
-   * Bolds the text.
-   */
-  bold: PropTypes.bool,
-  /**
-   * Bolds the text.
-   */
-  italic: PropTypes.bool,
-  /**
-   * Strikes through the text.
-   */
-  strike: PropTypes.bool,
-  /**
-   * The HTML element to render.
-   */
-  as: PropTypes.string,
-  /**
-   * @deprecated
-   * The HTML input element to render.
-   */
-  element: deprecatedPropType(
-    PropTypes.string,
-    [
-      'Emotion 10 introduced the ability to change the HTML element.',
-      'Use the "as" prop instead.'
-    ].join(' ')
-  )
-};
-
-Text.defaultProps = {
-  size: Text.MEGA,
-  className: '',
-  noMargin: false,
-  bold: false,
-  italic: false,
-  children: null
-};
-
-/**
- * @component
- */
-export default Text;
