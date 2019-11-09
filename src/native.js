@@ -19,7 +19,7 @@ import { circuit, standard } from './themes';
 // export { default as Heading } from './components/Heading';
 // export { default as SubHeading } from './components/SubHeading';
 // export { default as List } from './components/List';
-export { default as Text } from './components/Text/native';
+export { default as Text } from './components/Text/Text';
 
 // Themes
 export const themes = { circuit, standard };

@@ -19,7 +19,7 @@ import { Text as NativeText } from 'react-native';
 import { isFunction } from 'lodash/fp';
 import { useTheme } from 'emotion-theming';
 
-import * as styles from './Text';
+import * as styles from './styles';
 
 // eslint-disable-next-line react/prop-types
 const Text = ({ size, bold, italic, strike, noMargin, style, ...props }) => {
