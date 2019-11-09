@@ -13,20 +13,6 @@
  * limitations under the License.
  */
 
-import { circuit, standard } from './themes';
+import { Text } from 'react-native';
 
-// Typography
-// export { default as Heading } from './components/Heading';
-// export { default as SubHeading } from './components/SubHeading';
-// export { default as List } from './components/List';
-export { default as Text } from './components/Text/Text';
-
-// Helpers
-export {
-  default as ComponentsContext,
-  withComponents,
-  useComponents
-} from './components/ComponentsContext';
-
-// Themes
-export const themes = { circuit, standard };
+export { Text };

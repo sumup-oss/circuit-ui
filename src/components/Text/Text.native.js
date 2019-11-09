@@ -15,16 +15,17 @@
 
 // import styled from '@emotion/native';
 import React from 'react';
-import { Text as NativeText } from 'react-native';
 import { useTheme } from 'emotion-theming';
 
 import { cx, globalTextStyle } from '../../styles/native';
+import { useComponents } from '../ComponentsContext';
 
 import * as styles from './styles';
 
 // eslint-disable-next-line react/prop-types
 const Text = ({ size, bold, italic, strike, noMargin, style, ...props }) => {
   const theme = useTheme();
+  const { Text: NativeText } = useComponents();
   const styleProps = { size, bold, italic, strike, noMargin, style };
   return (
     <NativeText
