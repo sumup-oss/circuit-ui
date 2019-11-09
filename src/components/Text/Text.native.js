@@ -16,28 +16,17 @@
 // import styled from '@emotion/native';
 import React from 'react';
 import { Text as NativeText } from 'react-native';
-import { isFunction } from 'lodash/fp';
 import { useTheme } from 'emotion-theming';
+
+import { cx } from '../../styles/native';
 
 import * as styles from './styles';
 
 // eslint-disable-next-line react/prop-types
 const Text = ({ size, bold, italic, strike, noMargin, style, ...props }) => {
   const theme = useTheme();
-  return (
-    <NativeText
-      {...props}
-      style={[
-        styles.baseStyles({ theme }),
-        styles.sizeStyles({ theme, size }),
-        styles.boldStyles({ theme, bold }),
-        styles.italicStyles({ theme, italic }),
-        styles.strikeThroughStyles({ theme, strike }),
-        styles.marginStyles({ theme, noMargin }),
-        isFunction(style) ? style({ theme }) : style
-      ]}
-    />
-  );
+  const styleProps = { size, bold, italic, strike, noMargin, style };
+  return <NativeText {...props} style={cx(styles, theme, styleProps)} />;
 };
 
 export default Text;
