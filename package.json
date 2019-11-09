@@ -27,9 +27,10 @@
     "prebuild:storybook": "yarn test:unit:output",
     "build:storybook": "build-storybook -c .storybook -o dist -s .storybook/public",
     "build:stylesheets": "mkdir -p dist/static && yarn static-styles --global --filePath=./dist/static/circuit-ui-v1.css",
-    "build:js": "yarn clean:js && yarn build:js:cjs && yarn build:js:es",
-    "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js,*.docs.mdx",
-    "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js,*.docs.mdx",
+    "build:js": "yarn clean:js && yarn build:js:cjs && yarn build:js:es && yarn build:js:native",
+    "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib",
+    "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es",
+    "build:js:native": "cross-env BABEL_ENV=native babel src --out-dir lib/native",
     "clean:js": "rimraf lib",
     "predeploy": "rm -rf ./dist && yarn build && cp ./src/CNAME ./dist/CNAME",
     "deploy": "gh-pages -d dist",
@@ -67,6 +68,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.9",
     "@emotion/cache": "^10.0.19",
     "@emotion/core": "^10.0.21",
+    "@emotion/native": "^10.0.22",
     "@emotion/styled": "^10.0.17",
     "@emotion/stylis": "^0.8.4",
     "@storybook/addon-a11y": "^5.2.0",
@@ -121,6 +123,7 @@
     "react-docgen": "^4.1.0",
     "react-docgen-annotation-resolver": "^1.1.0",
     "react-dom": "^16.10.2",
+    "react-native": "^0.61.4",
     "react-svg-loader": "^3.0.3",
     "react-test-renderer": "^16.8.6",
     "require-context.macro": "^1.2.2",
@@ -160,6 +163,7 @@
     "@emotion/styled": ">=10.0.0",
     "emotion-theming": ">=10.0.0",
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react-dom": ">=16.8.0",
+    "react-native": ">=0.61.0"
   }
 }
