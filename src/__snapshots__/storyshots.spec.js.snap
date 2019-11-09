@@ -3041,8 +3041,7 @@ exports[`Storyshots Components|Calendar/RangePicker Base 1`] = `
             class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
             id="DateInput__screen-reader-message-your_unique_start_date_id"
           >
-            Press the down arrow key to interact with the calendar and
-  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+            Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
           </p>
         </div>
         <div
@@ -3076,8 +3075,7 @@ exports[`Storyshots Components|Calendar/RangePicker Base 1`] = `
             class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
             id="DateInput__screen-reader-message-your_unique_end_date_id"
           >
-            Press the down arrow key to interact with the calendar and
-  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+            Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
           </p>
         </div>
         <button
@@ -4305,8 +4303,7 @@ exports[`Storyshots Components|Calendar/SingleDayPicker Base 1`] = `
             class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
             id="DateInput__screen-reader-message-date"
           >
-            Press the down arrow key to interact with the calendar and
-  select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+            Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
           </p>
         </div>
       </div>
@@ -8701,21 +8698,6 @@ exports[`Storyshots Components|ProgressBar With Percentage 1`] = `
 `;
 
 exports[`Storyshots Components|Sidebar Base 1`] = `
-.circuit-41 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 .circuit-45 {
   height: 100vh;
 }
@@ -9026,6 +9008,21 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
   }
 }
 
+.circuit-41 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 <div
   class="circuit-45 circuit-46"
 >
@@ -9140,19 +9137,20 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
     data-testid="sidebar-backdrop"
   />
   <button
+    aria-label="close-button"
     class="circuit-43 circuit-44"
     data-testid="sidebar-close-button"
   >
+    <div
+      role="presentation"
+    >
+      closeIcon.svg
+    </div>
     <span
       class="circuit-41 circuit-42"
     >
       close-button
     </span>
-    <div
-      aria-hidden="true"
-    >
-      closeIcon.svg
-    </div>
   </button>
 </div>
 `;
@@ -13563,7 +13561,19 @@ HTMLCollection [
   >
     Expiry date
   </label>,
-  .circuit-0 {
+  .circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -13620,18 +13630,6 @@ HTMLCollection [
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 <div
@@ -13667,7 +13665,19 @@ HTMLCollection [
   >
     Name on card
   </label>,
-  .circuit-0 {
+  .circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -13724,18 +13734,6 @@ HTMLCollection [
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 <div
@@ -13773,7 +13771,19 @@ HTMLCollection [
   >
     Security code
   </label>,
-  .circuit-0 {
+  .circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -13830,18 +13840,6 @@ HTMLCollection [
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 <div
@@ -13881,7 +13879,19 @@ HTMLCollection [
   >
     Security code
   </label>,
-  .circuit-0 {
+  .circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -13938,18 +13948,6 @@ HTMLCollection [
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 <div
@@ -14053,7 +14051,19 @@ HTMLCollection [
       </span>
     </button>
   </label>,
-  .circuit-0 {
+  .circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -14110,18 +14120,6 @@ HTMLCollection [
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 <div
@@ -14332,6 +14330,18 @@ exports[`Storyshots Forms|Input Base 1`] = `
   display: block;
 }
 
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -14389,18 +14399,6 @@ exports[`Storyshots Forms|Input Base 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 <label
@@ -14933,6 +14931,18 @@ exports[`Storyshots Forms|Input Optional 1`] = `
   display: block;
 }
 
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -14944,18 +14954,6 @@ exports[`Storyshots Forms|Input Optional 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -15035,6 +15033,18 @@ exports[`Storyshots Forms|Input Right Aligned 1`] = `
   display: block;
 }
 
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -15046,18 +15056,6 @@ exports[`Storyshots Forms|Input Right Aligned 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -15136,6 +15134,18 @@ HTMLCollection [
   display: block;
 }
 
+.circuit-7 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-7,
+label + .circuit-7 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -15180,18 +15190,6 @@ HTMLCollection [
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
-}
-
-.circuit-7 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-7,
-label + .circuit-7 {
-  margin-top: 4px;
 }
 
 .circuit-3 {
@@ -15292,6 +15290,18 @@ label + .circuit-7 {
   display: block;
 }
 
+.circuit-5 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -15336,18 +15346,6 @@ label + .circuit-7 {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
-}
-
-.circuit-5 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-5,
-label + .circuit-5 {
-  margin-top: 4px;
 }
 
 .circuit-3 {
@@ -15797,7 +15795,11 @@ label + .circuit-3 {
 >
   Label
   <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-0-label"
     class="circuit-5 circuit-6"
+    role="combobox"
   >
     <div
       class="circuit-3 circuit-4"
@@ -15809,12 +15811,11 @@ label + .circuit-3 {
       </div>
       <input
         aria-autocomplete="list"
-        aria-expanded="false"
         aria-invalid="false"
+        aria-labelledby="downshift-0-label"
         autocomplete="off"
         class="circuit-1 circuit-2"
         id="1"
-        role="combobox"
         type="search"
         value=""
       />
@@ -15899,7 +15900,11 @@ label + .circuit-3 {
 }
 
 <div
+  aria-expanded="false"
+  aria-haspopup="listbox"
+  aria-labelledby="downshift-1-label"
   class="circuit-5 circuit-6"
+  role="combobox"
 >
   <div
     class="circuit-3 circuit-4"
@@ -15911,12 +15916,11 @@ label + .circuit-3 {
     </div>
     <input
       aria-autocomplete="list"
-      aria-expanded="false"
       aria-invalid="false"
+      aria-labelledby="downshift-1-label"
       autocomplete="off"
       class="circuit-1 circuit-2"
       id="downshift-1-input"
-      role="combobox"
       type="search"
       value=""
     />
@@ -16740,6 +16744,18 @@ label + .circuit-4 {
 `;
 
 exports[`Storyshots Forms|Input/MaskedInput Base 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -16797,18 +16813,6 @@ exports[`Storyshots Forms|Input/MaskedInput Base 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 <div
@@ -16826,6 +16830,18 @@ label + .circuit-4 {
 `;
 
 exports[`Storyshots Forms|Input/RestrictedInput Base 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -16883,18 +16899,6 @@ exports[`Storyshots Forms|Input/RestrictedInput Base 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 <div
@@ -16974,6 +16978,18 @@ exports[`Storyshots Forms|Input/SearchInput Base 1`] = `
   transition: color 200ms ease-in-out;
 }
 
+.circuit-5 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
 .circuit-3 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -16985,18 +17001,6 @@ exports[`Storyshots Forms|Input/SearchInput Base 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-5 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-5,
-label + .circuit-5 {
-  margin-top: 4px;
 }
 
 <label
@@ -18105,6 +18109,18 @@ exports[`Storyshots Forms|TextArea Base 1`] = `
   display: block;
 }
 
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -18116,18 +18132,6 @@ exports[`Storyshots Forms|TextArea Base 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -18479,6 +18483,18 @@ exports[`Storyshots Forms|TextArea Optional 1`] = `
   display: block;
 }
 
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -18490,18 +18506,6 @@ exports[`Storyshots Forms|TextArea Optional 1`] = `
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
 }
 
 .circuit-0 {
