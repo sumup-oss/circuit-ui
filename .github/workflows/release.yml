@@ -6,6 +6,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Setup
         uses: ./.github/actions/setup
       - name: Check licenses
@@ -15,7 +17,7 @@ jobs:
       - name: Test
         run: yarn test:unit --runInBand
       - name: Codecov
-        uses: codecov/codecov-action@v1.0.2
+        uses: codecov/codecov-action@v1.0.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
