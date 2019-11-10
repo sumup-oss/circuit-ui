@@ -61,7 +61,7 @@ describe('<Sidebar />', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Sidebar />);
+      const wrapper = renderToHtml(<Sidebar closeButtonLabel="close" />);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

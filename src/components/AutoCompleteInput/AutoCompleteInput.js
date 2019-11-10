@@ -144,7 +144,7 @@ export default class AutoCompleteInput extends Component {
             .slice(0, SUGGESTIONS_LIMIT);
 
           return (
-            <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
+            <AutoCompleteWrapper {...getRootProps({ refKey: 'ref' })}>
               <SearchInput
                 {...getInputProps({ ...inputProps })}
                 noMargin

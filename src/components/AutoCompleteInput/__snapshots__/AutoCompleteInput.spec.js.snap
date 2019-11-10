@@ -76,7 +76,11 @@ label + .circuit-3 {
 }
 
 <div
+  aria-expanded="false"
+  aria-haspopup="listbox"
+  aria-labelledby="downshift-0-label"
   class="circuit-5 circuit-6"
+  role="combobox"
 >
   <div
     class="circuit-3 circuit-4"
@@ -88,12 +92,11 @@ label + .circuit-3 {
     </div>
     <input
       aria-autocomplete="list"
-      aria-expanded="false"
       aria-invalid="false"
+      aria-labelledby="downshift-0-label"
       autocomplete="off"
       class="circuit-1 circuit-2"
       id="downshift-0-input"
-      role="combobox"
       type="search"
       value=""
     />
