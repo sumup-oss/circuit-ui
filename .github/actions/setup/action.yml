@@ -12,11 +12,10 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/yarn.lock') }}
+          key: node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.OS }}-node-${{ env.cache-name }}-
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
+            node-${{ env.cache-name }}-
+            node-
       - name: Install dependencies
         run: |
           npm install -g yarn
