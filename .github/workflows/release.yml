@@ -1,0 +1,26 @@
+name: Release
+
+on: [push]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup
+        uses: ./.github/actions/setup
+      - name: Check licenses
+        run: yarn check:licenses
+      - name: Lint
+        run: yarn test:lint-js
+      - name: Test
+        run: yarn test:unit --runInBand
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Release
+        if: success() && (github.ref == 'master' || github.ref == 'canary' || github.ref == 'beta' || github.ref == 'alpha')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn release
