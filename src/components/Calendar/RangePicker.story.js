@@ -13,38 +13,38 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withStateHandlers } from 'recompose';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import React, { useState } from 'react';
 
-import withTests from '../../util/withTests';
-import { RangePicker } from '.';
+import RangePicker from './RangePicker';
 
-const enhance = withStateHandlers(
-  { startDate: null, endDate: null, focusedInput: null },
-  {
-    onDatesChange: () => ({ startDate, endDate }) => ({ startDate, endDate }),
-    onFocusChange: () => focusedInput => ({ focusedInput })
+export default {
+  title: 'Components|Calendar/RangePicker',
+  component: RangePicker,
+  parameters: {
+    jest: ['RangePicker']
   }
-);
+};
 
-const CalendarStoryPicker = enhance(
-  ({ startDate, endDate, focusedInput, onDatesChange, onFocusChange }) => (
+const RangePickerWithState = props => {
+  const [{ startDate, endDate }, setRange] = useState({});
+  const [focusedInput, setFocusedInput] = useState(null);
+
+  return (
     <RangePicker
+      {...props}
       startDate={startDate}
-      startDateId="your_unique_start_date_id"
       endDate={endDate}
-      endDateId="your_unique_end_date_id"
-      onDatesChange={onDatesChange}
+      onDatesChange={setRange}
       focusedInput={focusedInput}
-      onFocusChange={onFocusChange}
-      showClearDates
+      onFocusChange={setFocusedInput}
     />
-  )
-);
+  );
+};
 
-storiesOf(`${GROUPS.COMPONENTS}|Calendar`, module)
-  .addDecorator(withTests('Calendar'))
-  .add('RangePicker', withInfo()(() => <CalendarStoryPicker />));
+export const base = () => (
+  <RangePickerWithState
+    startDateId="your_unique_start_date_id"
+    endDateId="your_unique_end_date_id"
+    showClearDates
+  />
+);

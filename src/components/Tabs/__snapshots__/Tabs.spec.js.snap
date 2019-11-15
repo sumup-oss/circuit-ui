@@ -111,7 +111,7 @@ exports[`Tabs styles should render with default styles 1`] = `
 }
 
 <div
-  class=" circuit-6 circuit-7"
+  class="circuit-6 circuit-7"
 >
   <div
     class="circuit-4 circuit-5"
@@ -257,7 +257,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 }
 
 <div
-  class=" circuit-6 circuit-7"
+  class="circuit-6 circuit-7"
 >
   <div
     class="circuit-4 circuit-5"

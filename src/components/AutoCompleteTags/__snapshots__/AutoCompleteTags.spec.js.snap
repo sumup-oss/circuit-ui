@@ -13,6 +13,11 @@ exports[`AutoCompleteTags should render with default styles 1`] = `
   margin-bottom: 0;
 }
 
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   position: absolute;
   top: 1px;
@@ -71,7 +76,11 @@ exports[`AutoCompleteTags should render with default styles 1`] = `
 }
 
 <div
+  aria-expanded="false"
+  aria-haspopup="listbox"
+  aria-labelledby="downshift-0-label"
   class="circuit-5 circuit-6"
+  role="combobox"
 >
   <div
     class="circuit-3 circuit-4"
@@ -83,12 +92,11 @@ exports[`AutoCompleteTags should render with default styles 1`] = `
     </div>
     <input
       aria-autocomplete="list"
-      aria-expanded="false"
       aria-invalid="false"
+      aria-labelledby="downshift-0-label"
       autocomplete="off"
       class="circuit-1 circuit-2"
       id="downshift-0-input"
-      role="combobox"
       type="search"
       value=""
     />

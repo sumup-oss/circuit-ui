@@ -39,6 +39,11 @@ const containerBaseStyles = ({ theme }) => css`
   display: block;
   position: relative;
   margin-bottom: ${theme.spacings.mega};
+
+  label > &,
+  label + & {
+    margin-top: ${theme.spacings.bit};
+  }
 `;
 
 const containerDisabledStyles = ({ disabled }) =>
@@ -209,8 +214,8 @@ const validationIconBaseStyles = ({ theme }) => css`
   transition: opacity ${theme.transitions.default};
 `;
 
-const validationIconActiveStyles = ({ invalid, hasWarning }) =>
-  (invalid || hasWarning) &&
+const validationIconActiveStyles = ({ invalid, hasWarning, showValid }) =>
+  (invalid || hasWarning || showValid) &&
   css`
     opacity: 1;
   `;
@@ -220,7 +225,8 @@ const ValidationIconWrapper = styled('div')(
   validationIconActiveStyles
 );
 
-const iconStyles = css`
+const iconStyles = type => css`
+  label: ${`input__validation-${type}`};
   display: block;
   height: 100%;
   width: 100%;
@@ -239,15 +245,15 @@ const ValidationIcon = ({
   }
 
   const icons = [
-    invalid && <ErrorIcon role="img" css={iconStyles} />,
-    hasWarning && <WarningIcon role="img" css={iconStyles} />,
-    showValid && <ValidIcon role="img" css={iconStyles} />
+    invalid && <ErrorIcon role="img" css={iconStyles('error')} />,
+    hasWarning && <WarningIcon role="img" css={iconStyles('warning')} />,
+    showValid && <ValidIcon role="img" css={iconStyles('valid')} />
   ];
 
   const icon = find(identity, icons);
 
   return (
-    <ValidationIconWrapper {...{ invalid, hasWarning, className }}>
+    <ValidationIconWrapper {...{ invalid, hasWarning, showValid, className }}>
       {icon || null}
     </ValidationIconWrapper>
   );

@@ -16,17 +16,23 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
-import { ModalConsumer, ModalProvider } from '.';
+import docs from './Modal.docs.mdx';
+import Modal, { ModalConsumer, ModalProvider } from '.';
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
+
+export default {
+  title: 'Components|Modal',
+  component: Modal,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Modal', 'ModalWrapper', 'ModalHeader', 'ModalFooter']
+  }
+};
 
 /* eslint-disable react/display-name, react/prop-types */
 
@@ -54,122 +60,116 @@ const defaultModal = {
   }
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Modal`, module)
-  .addDecorator(withTests('Modal'))
-  .add('Modal', withInfo()(() => <PageWithModal modal={defaultModal} />))
-  .add(
-    'Modal with title',
-    withInfo()(() => {
-      const modalWithTitle = {
-        ...defaultModal,
-        children: () => (
-          <ModalWrapper>
-            <ModalHeader title="A modal" />
-            <Text>Some text in the modal body.</Text>
-          </ModalWrapper>
-        )
-      };
-      return <PageWithModal modal={modalWithTitle} />;
-    })
-  )
-  .add(
-    'Modal without close button',
-    withInfo()(() => {
-      const modalWithTitleAndCloser = {
-        ...defaultModal,
-        children: () => (
-          <ModalWrapper>
-            <Text>Some text in the modal body.</Text>
-          </ModalWrapper>
-        )
-      };
-      return <PageWithModal modal={modalWithTitleAndCloser} />;
-    })
-  )
-  .add(
-    'Modal with title and close button',
-    withInfo()(() => {
-      const modalWithTitle = {
-        ...defaultModal,
-        children: ({ onClose }) => (
-          <ModalWrapper>
-            <ModalHeader title="A modal" onClose={onClose} />
-            <Text>Some text in the modal body.</Text>
-          </ModalWrapper>
-        )
-      };
-      return <PageWithModal modal={modalWithTitle} />;
-    })
-  )
-  .add(
-    'Modal with footer buttons',
-    withInfo()(() => {
-      const modalWithTitle = {
-        ...defaultModal,
-        children: ({ onClose }) => (
-          <ModalWrapper>
-            <ModalHeader title="A modal" />
-            <Text>Some text in the modal body.</Text>
-            <ModalFooter>
-              <ButtonGroup>
-                <Button
-                  secondary
-                  onClick={e => {
-                    action('Cancel button clicked')(e);
-                    onClose(e);
-                  }}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  primary
-                  onClick={e => {
-                    action('Confirm button clicked')(e);
-                    onClose(e);
-                  }}
-                >
-                  Confirm
-                </Button>
-              </ButtonGroup>
-            </ModalFooter>
-          </ModalWrapper>
-        )
-      };
-      return <PageWithModal modal={modalWithTitle} />;
-    })
-  )
-  .add(
-    'Modal with Card styles override',
-    withInfo()(() => {
-      const Container = styled('div')`
-        display: flex;
-        justify-content: stretch;
-        align-items: stretch;
-        flex-wrap: nowrap;
-        height: 100%;
-        background: #fff;
-      `;
+export const base = () => <PageWithModal modal={defaultModal} />;
 
-      const LeftColumn = styled('div')`
-        display: flex;
-        align-items: center;
-        width: 50%;
-        justify-content: center;
-        padding: 24px 18px;
-      `;
+export const withHeader = () => (
+  <PageWithModal
+    modal={{
+      ...defaultModal,
+      children: () => (
+        <ModalWrapper>
+          <ModalHeader title="A modal" />
+          <Text>Some text in the modal body.</Text>
+        </ModalWrapper>
+      )
+    }}
+  />
+);
 
-      const RightColumn = styled('div')`
-        height: 100%;
-        width: 50%;
-        background: no-repeat center / cover
-          url('https://source.unsplash.com/random');
-      `;
+export const withoutCloseButton = () => {
+  const modalWithTitleAndCloser = {
+    ...defaultModal,
+    children: () => (
+      <ModalWrapper>
+        <Text>Some text in the modal body.</Text>
+      </ModalWrapper>
+    )
+  };
+  return <PageWithModal modal={modalWithTitleAndCloser} />;
+};
 
-      const cardClassName = css`
-        padding: 0;
-        height: 50vh;
-      `;
-      const modalWithTitle = {
+export const withTitleAndCloseButton = () => (
+  <PageWithModal
+    modal={{
+      ...defaultModal,
+      children: ({ onClose }) => (
+        <ModalWrapper>
+          <ModalHeader title="A modal" onClose={onClose} />
+          <Text>Some text in the modal body.</Text>
+        </ModalWrapper>
+      )
+    }}
+  />
+);
+
+export const withFooter = () => (
+  <PageWithModal
+    modal={{
+      ...defaultModal,
+      children: ({ onClose }) => (
+        <ModalWrapper>
+          <ModalHeader title="A modal" />
+          <Text>Some text in the modal body.</Text>
+          <ModalFooter>
+            <ButtonGroup>
+              <Button
+                secondary
+                onClick={e => {
+                  action('Cancel button clicked')(e);
+                  onClose(e);
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                primary
+                onClick={e => {
+                  action('Confirm button clicked')(e);
+                  onClose(e);
+                }}
+              >
+                Confirm
+              </Button>
+            </ButtonGroup>
+          </ModalFooter>
+        </ModalWrapper>
+      )
+    }}
+  />
+);
+
+export const withCustomStyles = () => {
+  const Container = styled('div')`
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    height: 100%;
+    background: #fff;
+  `;
+
+  const LeftColumn = styled('div')`
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+    padding: 24px 18px;
+  `;
+
+  const RightColumn = styled('div')`
+    height: 100%;
+    width: 50%;
+    background: no-repeat center / cover
+      url('https://source.unsplash.com/random');
+  `;
+
+  const cardClassName = css`
+    padding: 0;
+    height: 50vh;
+  `;
+  return (
+    <PageWithModal
+      modal={{
         ...defaultModal,
         className: cardClassName,
         hasCloseButton: false,
@@ -183,7 +183,7 @@ storiesOf(`${GROUPS.COMPONENTS}|Modal`, module)
             </Container>
           </div>
         )
-      };
-      return <PageWithModal modal={modalWithTitle} />;
-    })
+      }}
+    />
   );
+};

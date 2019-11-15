@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { size } from 'polished';
-import { values } from 'lodash/fp';
 
 import { subHeadingKilo } from '../../styles/style-helpers';
 import { colorNames } from '../../styles/constants';
@@ -90,20 +90,29 @@ const baseStyles = ({ theme, onClick }) => css`
 const circleStyles = ({ circle }) =>
   circle &&
   css`
+    label: badge--circle;
     display: flex;
     align-items: center;
     justify-content: center;
     ${size(24)};
   `;
 
-/**
- * A badge for displaying update notifications etc.
- */
-const Badge = styled('div')`
+const StyledBadge = styled('div')`
   ${baseStyles};
   ${colorStyles};
   ${circleStyles};
 `;
+
+/**
+ * A badge for displaying update notifications etc.
+ */
+const Badge = props => <StyledBadge {...props} />;
+
+Badge.NEUTRAL = colorNames.NEUTRAL;
+Badge.PRIMARY = colorNames.PRIMARY;
+Badge.SUCCESS = colorNames.SUCCESS;
+Badge.WARNING = colorNames.WARNING;
+Badge.DANGER = colorNames.DANGER;
 
 Badge.propTypes = {
   /**
@@ -114,14 +123,14 @@ Badge.propTypes = {
    * Ensures text is centered and the badge looks like a circle.
    */
   circle: PropTypes.bool,
-  color: PropTypes.oneOf(values(colorNames))
+  color: PropTypes.oneOf([
+    Badge.NEUTRAL,
+    Badge.PRIMARY,
+    Badge.SUCCESS,
+    Badge.WARNING,
+    Badge.DANGER
+  ])
 };
-
-Badge.NEUTRAL = colorNames.NEUTRAL;
-Badge.PRIMARY = colorNames.PRIMARY;
-Badge.SUCCESS = colorNames.SUCCESS;
-Badge.WARNING = colorNames.WARNING;
-Badge.DANGER = colorNames.DANGER;
 
 Badge.defaultProps = {
   circle: false,

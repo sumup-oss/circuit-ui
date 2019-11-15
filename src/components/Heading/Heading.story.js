@@ -14,14 +14,10 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
-import withTests from '../../util/withTests';
-import Heading from '.';
+import Heading from './Heading';
+import docs from './Heading.docs.mdx';
 
 const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 const sizes = [
@@ -34,17 +30,28 @@ const sizes = [
   Heading.KILO
 ];
 
-storiesOf(`${GROUPS.TYPOGRAPHY}|Heading`, module)
-  .addDecorator(withTests('Heading'))
-  .add(
-    'Heading',
-    withInfo()(() => (
-      <Heading
-        as={select('Element', elements, elements[0])}
-        size={select('Size', sizes, sizes[0])}
-        noMargin={boolean('No margin', false)}
-      >
-        {text('Text', 'This is a heading')}
-      </Heading>
-    ))
-  );
+export default {
+  title: 'Typography|Heading',
+  component: Heading,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Heading']
+  }
+};
+
+export const base = () => (
+  <Heading
+    as={select('Element', elements, elements[0])}
+    size={select('Size', sizes, sizes[0])}
+    noMargin={boolean('No margin', false)}
+  >
+    {text('Text', 'This is a heading')}
+  </Heading>
+);
+
+export const size = () =>
+  sizes.map(s => (
+    <Heading key={s} size={s}>
+      This is a {s} heading
+    </Heading>
+  ));

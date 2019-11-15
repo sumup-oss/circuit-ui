@@ -18,20 +18,22 @@ import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 
-const baseStyles = () => css`
+const baseStyles = ({ theme }) => css`
   label: message;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+
+  ${theme.mq.kilo} {
+    flex-direction: row;
+  }
 `;
 
 /**
  * A Message component for alerts, updates and notifications.
  */
-const Message = styled('div')`
-  ${baseStyles};
-`;
+const Message = styled('div')(baseStyles);
 
 Message.propTypes = {
   /**

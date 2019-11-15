@@ -14,19 +14,21 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
-import Label from '.';
+import Label from './Label';
+import docs from './Label.docs.mdx';
 
-storiesOf(`${GROUPS.FORMS}|Label`, module)
-  .addDecorator(withTests('Label'))
-  .add('Default Label', withInfo()(() => <Label>An input label</Label>))
-  .add(
-    'Label used for accessibility only',
-    withInfo()(() => (
-      <Label accessibleOnly>Only visible for screen readers</Label>
-    ))
-  );
+export default {
+  title: 'Forms|Label',
+  component: Label,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Label']
+  }
+};
+
+export const base = () => <Label>An input label</Label>;
+
+export const forAccessibilityOnly = () => (
+  <Label accessibleOnly>Only visible for screen readers</Label>
+);

@@ -1,56 +1,87 @@
 import React from 'react';
-import { configure, addDecorator } from '@storybook/react';
-import { setDefaults } from '@storybook/addon-info';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import { setOptions } from '@storybook/addon-options';
+import { withA11y } from '@storybook/addon-a11y';
 import { ThemeProvider } from 'emotion-theming';
+import styled from '@emotion/styled';
+import requireContext from 'require-context.macro';
 
-import { circuit } from '../src/themes';
-import BaseStyles from '../src/components/BaseStyles';
+import { theme as themes, BaseStyles } from '../src';
+import { theme, components } from './util/theme';
+import { sortStories } from './util/story-helpers';
 
-// Sets the info addon's options.
-setDefaults({
-  header: false
+const { circuit } = themes;
+
+// Add group and story names to the sort order to explicitly order them.
+// Items that are not included in the list are shown below the sorted items.
+const SORT_ORDER = {
+  Introduction: [
+    'Welcome',
+    'Developers',
+    'Designers',
+    'Contributing',
+    'Code of Conduct'
+  ],
+  Styles: ['Static Styles', 'Theme'],
+  Typography: ['Heading', 'SubHeading', 'Text'],
+  Layout: [],
+  Forms: [],
+  Components: [],
+  Icons: []
+};
+
+addParameters({
+  options: {
+    storySort: sortStories(SORT_ORDER),
+    theme,
+    isFullscreen: false,
+    panelPosition: 'bottom',
+    isToolshown: true
+  },
+  docs: {
+    components
+  }
 });
 
-setOptions({
-  hierarchySeparator: /\//,
-  hierarchyRootSeparator: /\|/,
-  name: 'Circuit UI',
-  url: 'https://github.com/sumup/circuit-ui'
-});
+const Story = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  .sbdocs & {
+    min-height: auto;
+  }
+`;
 
-const req = require.context('../src/components', true, /\.story\.js$/);
+const withStoryStyles = storyFn => {
+  return <Story>{storyFn()}</Story>;
+};
 
 const withThemeProvider = storyFn => (
   <ThemeProvider theme={circuit}>
-    <div>
-      <BaseStyles />
-      {storyFn()}
-    </div>
+    <BaseStyles />
+    {storyFn()}
   </ThemeProvider>
 );
 
-const withStoryStyles = storyFn => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh'
-      }}
-    >
-      {storyFn()}
-    </div>
-  );
-};
+addDecorator(withA11y);
+addDecorator(withKnobs);
 
-const loadStories = () => {
-  addDecorator(withKnobs);
+// These decorators need to be disabled for StoryShots to work.
+if (!__TEST__) {
+  const withTests = require('./util/withTests').default;
+  addDecorator(withTests);
   addDecorator(withStoryStyles);
-  addDecorator(withThemeProvider);
-  req.keys().forEach(filename => req(filename));
-};
+}
 
-configure(loadStories, module);
+addDecorator(withThemeProvider);
+
+configure(
+  [
+    requireContext('../src', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/),
+    requireContext('../docs', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/)
+  ],
+  module
+);

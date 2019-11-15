@@ -32,7 +32,7 @@ describe('CloseButton', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<CloseButton />);
+      const wrapper = renderToHtml(<CloseButton label="close" />);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });

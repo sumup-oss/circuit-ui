@@ -14,17 +14,22 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import styled from '@emotion/styled';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
+import docs from './Tooltip.docs.mdx';
 import Tooltip from './Tooltip';
 
-const DummyIcon = () => (
+export default {
+  title: 'Components|Tooltip',
+  component: Tooltip,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Tooltip']
+  }
+};
+
+const Icon = () => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -33,7 +38,6 @@ const DummyIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="feather feather-eye"
   >
     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
     <circle cx="12" cy="12" r="3" />
@@ -43,6 +47,7 @@ const DummyIcon = () => (
 const TooltipContainer = styled('div')`
   position: relative;
   line-height: 0;
+  margin: 1rem;
 
   div {
     visibility: visible;
@@ -50,49 +55,25 @@ const TooltipContainer = styled('div')`
   }
 `;
 
-storiesOf(`${GROUPS.COMPONENTS}|Tooltip`, module)
-  .addDecorator(withTests('Tooltip'))
-  .add(
-    'Top left',
-    withInfo()(() => (
-      <TooltipContainer>
-        <Tooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
-          I am a teeny, tiny tooltip.
-        </Tooltip>
-        <DummyIcon />
-      </TooltipContainer>
-    ))
-  )
-  .add(
-    'Right center',
-    withInfo()(() => (
-      <TooltipContainer>
-        <Tooltip position={Tooltip.RIGHT} align={Tooltip.CENTER}>
-          I am a teeny, tiny tooltip.
-        </Tooltip>
-        <DummyIcon />
-      </TooltipContainer>
-    ))
-  )
-  .add(
-    'Bottom right',
-    withInfo()(() => (
-      <TooltipContainer>
-        <Tooltip position={Tooltip.BOTTOM} align={Tooltip.RIGHT}>
-          I am a teeny, tiny tooltip.
-        </Tooltip>
-        <DummyIcon />
-      </TooltipContainer>
-    ))
-  )
-  .add(
-    'Left center',
-    withInfo()(() => (
-      <TooltipContainer>
-        <Tooltip position={Tooltip.LEFT} align={Tooltip.CENTER}>
-          I am a teeny, tiny tooltip.
-        </Tooltip>
-        <DummyIcon />
-      </TooltipContainer>
-    ))
-  );
+const TooltipWithContainer = props => (
+  <TooltipContainer>
+    <Tooltip {...props}>I am a teeny, tiny tooltip.</Tooltip>
+    <Icon />
+  </TooltipContainer>
+);
+
+export const base = () => (
+  <TooltipWithContainer position={Tooltip.RIGHT} align={Tooltip.CENTER} />
+);
+
+export const topLeft = () => (
+  <TooltipWithContainer position={Tooltip.TOP} align={Tooltip.LEFT} />
+);
+
+export const bottomRight = () => (
+  <TooltipWithContainer position={Tooltip.BOTTOM} align={Tooltip.RIGHT} />
+);
+
+export const leftCenter = () => (
+  <TooltipWithContainer position={Tooltip.LEFT} align={Tooltip.CENTER} />
+);

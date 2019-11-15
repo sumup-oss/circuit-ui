@@ -38,6 +38,9 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const shadowStyles = ({ theme, shadow }) => {
+  if (!shadow) {
+    return null;
+  }
   const shadowOptions = {
     [SINGLE]: shadowSingle,
     [DOUBLE]: shadowDouble,
@@ -50,6 +53,9 @@ const shadowStyles = ({ theme, shadow }) => {
 };
 
 const spacingStyles = ({ theme, spacing }) => {
+  if (!spacing) {
+    return null;
+  }
   const spacings = {
     [MEGA]: `
       ${theme.spacings.mega} ${theme.spacings.mega}

@@ -14,21 +14,22 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
+import docs from './Image.docs.mdx';
 import Image from './Image';
 
-storiesOf(`${GROUPS.COMPONENTS}|Image`, module)
-  .addDecorator(withTests('Image'))
-  .add(
-    'Responsive Image',
-    withInfo()(() => (
-      <Image
-        src="http://www.placepuppy.net/800/500"
-        alt="A random cute puppy"
-      />
-    ))
-  );
+export default {
+  title: 'Components|Image',
+  component: Image,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Image']
+  }
+};
+
+export const base = () => (
+  <Image
+    src="https://source.unsplash.com/random"
+    alt="A random image from Unsplash"
+  />
+);

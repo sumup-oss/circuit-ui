@@ -14,13 +14,15 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
-import withTests from '../../../../util/withTests';
-import ExpiryDateInput from '.';
+import ExpiryDateInput from './ExpiryDateInput';
 
-storiesOf(`${GROUPS.FORMS}|CreditCardDetails/ExpiryDate`, module)
-  .addDecorator(withTests('ExpiryDate'))
-  .add('Default ExpiryDateInput', withInfo()(() => <ExpiryDateInput />));
+export default {
+  title: 'Forms|CreditCardDetails/ExpiryDate',
+  component: ExpiryDateInput,
+  parameters: {
+    jest: ['ExpiryDate']
+  }
+};
+
+export const base = () => <ExpiryDateInput />;

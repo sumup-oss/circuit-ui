@@ -1,0 +1,29 @@
+import { Status, Props, Story } from '../../../.storybook/components';
+
+import Label from './Label';
+
+# Label
+
+<Status.Stable />
+
+A label is a short text that explains what information is needed in the text
+field. Having a clear and straightforward label not only helps the user to know
+what is the purpose of the input but also helps directly with making forms
+more accessible.
+
+<Story id="forms-label--base" />
+
+<Props of={Label} />
+
+## When to use it
+
+Always provide a label for text input fields.
+
+## Usage guidelines
+
+- **Do** make the placeholder succinct (up to 3-4 words).
+- **Do** adjust the label to include "(optional)" if the corresponding input field is optional.
+- **Do** always place the label on top of the input field, aligned to the left.
+- **Do not** frame labels as questions (such as _"What is your phone
+  number?",_ write "Phone number" instead).
+- **Do not** use labels as help text.

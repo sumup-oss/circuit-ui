@@ -14,44 +14,51 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
-import TextArea from '.';
+import { uniqueId } from '../../util/id';
 
-storiesOf(`${GROUPS.FORMS}|TextArea`, module)
-  .addDecorator(withTests('TextArea'))
-  .add(
-    'TextArea',
-    withInfo()(() => <TextArea placeholder="Enter your story here" />)
-  )
-  .add(
-    'TextArea invalid',
-    withInfo()(() => (
-      <TextArea placeholder="Invalid TextArea, maybe too many chars?" invalid />
-    ))
-  )
-  .add(
-    'TextArea warning',
-    withInfo()(() => (
-      <TextArea
-        placeholder="TextArea with warning, maybe too many chars?"
-        hasWarning
-      />
-    ))
-  )
-  .add(
-    'TextArea optional',
-    withInfo()(() => <TextArea placeholder="Optional" optional />)
-  )
-  .add(
-    'TextArea disabled',
-    withInfo()(() => (
-      <TextArea
-        value="You cannot enter text because the textarea is disabled"
-        disabled
-      />
-    ))
+import TextArea from './TextArea';
+import docs from './TextArea.docs.mdx';
+import Label from '../Label';
+
+export default {
+  title: 'Forms|TextArea',
+  component: TextArea,
+  parameters: {
+    docs: { page: docs },
+    jest: ['TextArea']
+  }
+};
+
+// TextAreas always need labels for accessibility.
+const TextAreaWithLabel = props => {
+  const id = uniqueId();
+  return (
+    <Label htmlFor={id}>
+      Label
+      <TextArea placeholder="Write your text here..." {...props} id={id} />
+    </Label>
   );
+};
+
+export const base = () => <TextAreaWithLabel />;
+
+export const invalid = () => (
+  <TextAreaWithLabel validationHint="Please fill in this field." invalid />
+);
+
+export const warning = () => (
+  <TextAreaWithLabel
+    validationHint="We recommend that you fill in this field."
+    hasWarning
+  />
+);
+
+export const optional = () => <TextAreaWithLabel optional />;
+
+export const disabled = () => (
+  <TextAreaWithLabel
+    value="You cannot edit the text because the textarea is disabled"
+    disabled
+  />
+);

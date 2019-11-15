@@ -22,7 +22,6 @@ import RegularButton from './components/RegularButton';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
-export const SIZE_PROP_TYPE = PropTypes.oneOf([KILO, MEGA, GIGA]);
 
 const SHARED_PROPS = [
   'children',
@@ -68,6 +67,10 @@ const Button = ({ plain, ...props }) =>
     <RegularButton {...props} />
   );
 
+Button.KILO = KILO;
+Button.MEGA = MEGA;
+Button.GIGA = GIGA;
+
 Button.propTypes = {
   /**
    * Should the Button be disabled?
@@ -92,7 +95,7 @@ Button.propTypes = {
   /**
    * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
    */
-  size: SIZE_PROP_TYPE,
+  size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
   /**
    * Renders a secondary button. Secondary buttons look the same for
    * primary (default) and flat buttons.
@@ -115,14 +118,10 @@ Button.defaultProps = {
   plain: false,
   primary: false,
   secondary: false,
-  size: MEGA,
+  size: Button.MEGA,
   stretch: false,
   target: null
 };
-
-Button.KILO = KILO;
-Button.MEGA = MEGA;
-Button.GIGA = GIGA;
 
 /**
  * @component

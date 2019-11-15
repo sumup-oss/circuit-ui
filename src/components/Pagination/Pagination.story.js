@@ -14,29 +14,29 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { number, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
-import withTests from '../../util/withTests';
+import docs from './Pagination.docs.mdx';
 import Pagination from '.';
 
-storiesOf(`${GROUPS.COMPONENTS}|Pagination`, module)
-  .addDecorator(withTests('Pagination'))
-  .add(
-    'Pagination',
-    withInfo()(() => (
-      <Pagination
-        page={number('page', 1)}
-        perPage={number('perPage', 10)}
-        total={number('total', 50)}
-        pagesToShow={number('pagesToShow', 1)}
-        onChange={() => {}}
-        footer={text('footer', 'Showing 1 - 10 of 50 items')}
-        align={text('align', 'center')}
-        justify={text('justify', 'center')}
-      />
-    ))
-  );
+export default {
+  title: 'Components|Pagination',
+  component: Pagination,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Pagination']
+  }
+};
+
+export const base = () => (
+  <Pagination
+    page={number('page', 1)}
+    perPage={number('perPage', 10)}
+    total={number('total', 50)}
+    pagesToShow={number('pagesToShow', 1)}
+    onChange={() => {}}
+    footer={text('footer', 'Showing 1 - 10 of 50 items')}
+    align={text('align', 'center')}
+    justify={text('justify', 'center')}
+  />
+);

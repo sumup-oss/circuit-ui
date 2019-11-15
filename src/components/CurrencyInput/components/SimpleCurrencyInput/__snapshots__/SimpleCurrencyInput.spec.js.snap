@@ -8,6 +8,11 @@ exports[`SimpleCurrencyInput should adjust input padding and postfix width to ma
   margin-bottom: 16px;
 }
 
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -100,6 +105,11 @@ exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = 
   box-shadow: none;
 }
 
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -187,6 +197,11 @@ exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] 
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -323,6 +338,11 @@ exports[`SimpleCurrencyInput should render with default styles 1`] = `
   margin-bottom: 16px;
 }
 
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -409,6 +429,11 @@ exports[`SimpleCurrencyInput should render with error styles 1`] = `
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -523,6 +548,11 @@ exports[`SimpleCurrencyInput should render with warning styles 1`] = `
   margin-bottom: 16px;
 }
 
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -633,6 +663,11 @@ exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = 
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
 }
 
 .circuit-0 {

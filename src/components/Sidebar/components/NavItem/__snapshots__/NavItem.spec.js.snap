@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavItem styles should render with default styles and match the snapshot 1`] = `
+.circuit-4 {
+  display: block;
+}
+
 .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -19,6 +23,8 @@ exports[`NavItem styles should render with default styles and match the snapshot
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .circuit-2 * {
@@ -38,15 +44,23 @@ exports[`NavItem styles should render with default styles and match the snapshot
 }
 
 <li
-  class="circuit-2 circuit-3"
+  class="circuit-4"
 >
-  <div
-    class="circuit-0 circuit-1"
-  />
+  <a
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    />
+  </a>
 </li>
 `;
 
 exports[`NavItem styles should render with default styles and match the snapshot for a secondary NavItem 1`] = `
+.circuit-4 {
+  display: block;
+}
+
 .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -65,6 +79,8 @@ exports[`NavItem styles should render with default styles and match the snapshot
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   margin: 0px 24px;
   padding: 4px 0px;
   -webkit-transition: top 200ms ease-in-out;
@@ -93,15 +109,23 @@ exports[`NavItem styles should render with default styles and match the snapshot
 }
 
 <li
-  class="circuit-2 circuit-3"
+  class="circuit-4"
 >
-  <div
-    class="circuit-0 circuit-1"
-  />
+  <a
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    />
+  </a>
 </li>
 `;
 
 exports[`NavItem styles should render with disabled state styles and match the snapshot 1`] = `
+.circuit-4 {
+  display: block;
+}
+
 .circuit-0 {
   margin-left: 12px;
 }
@@ -124,6 +148,8 @@ exports[`NavItem styles should render with disabled state styles and match the s
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   cursor: not-allowed;
   color: #5C656F;
 }
@@ -137,16 +163,24 @@ exports[`NavItem styles should render with disabled state styles and match the s
 }
 
 <li
-  class="circuit-2 circuit-3"
-  disabled=""
+  class="circuit-4"
 >
-  <div
-    class="circuit-0 circuit-1"
-  />
+  <a
+    class="circuit-2 circuit-3"
+    disabled=""
+  >
+    <div
+      class="circuit-0 circuit-1"
+    />
+  </a>
 </li>
 `;
 
 exports[`NavItem styles should render with selected state styles and match the snapshot 1`] = `
+.circuit-4 {
+  display: block;
+}
+
 .circuit-0 {
   margin-left: 12px;
 }
@@ -169,6 +203,8 @@ exports[`NavItem styles should render with selected state styles and match the s
   padding: 4px;
   cursor: pointer;
   color: #9DA7B1;
+  -webkit-text-decoration: none;
+  text-decoration: none;
   font-weight: 700;
   color: #FAFBFC;
 }
@@ -182,10 +218,14 @@ exports[`NavItem styles should render with selected state styles and match the s
 }
 
 <li
-  class="circuit-2 circuit-3"
+  class="circuit-4"
 >
-  <div
-    class="circuit-0 circuit-1"
-  />
+  <a
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    />
+  </a>
 </li>
 `;

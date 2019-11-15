@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import isWindow from 'dom-helpers/query/isWindow';
+import isWindow from 'dom-helpers/isWindow';
+
 import ownerDocument from '../../../../util/ownerDocument';
 import ownerWindow from '../../../../util/ownerWindow';
 

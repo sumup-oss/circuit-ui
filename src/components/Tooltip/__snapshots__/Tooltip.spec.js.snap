@@ -3,7 +3,7 @@
 exports[`Tooltip should override alignment styles with position styles 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -56,7 +56,7 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
 exports[`Tooltip should render with align bottom, when passed "bottom" for the align prop 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -104,7 +104,7 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
 exports[`Tooltip should render with align center, when passed "center" for the align prop 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -157,7 +157,7 @@ exports[`Tooltip should render with align center, when passed "center" for the a
 exports[`Tooltip should render with align left, when passed "left" for the align prop 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -210,7 +210,7 @@ exports[`Tooltip should render with align left, when passed "left" for the align
 exports[`Tooltip should render with align right, when passed "right" for the align prop 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -263,7 +263,7 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
 exports[`Tooltip should render with align top, when passed "top" for the align prop 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -311,7 +311,7 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
 exports[`Tooltip should render with position bottom, when passed "bottom" for the position prop 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -364,7 +364,7 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
 exports[`Tooltip should render with position left, when passed "left" for the position prop 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -417,7 +417,7 @@ exports[`Tooltip should render with position left, when passed "left" for the po
 exports[`Tooltip should render with position right, when passed "right" for the position prop 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;
@@ -470,7 +470,7 @@ exports[`Tooltip should render with position right, when passed "right" for the 
 exports[`Tooltip should render with position top, when passed "top" for the position prop 1`] = `
 .circuit-0 {
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: #212933;

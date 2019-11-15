@@ -40,10 +40,12 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const sizeStyles = ({ theme, size }) => {
-  const label = `text--${size}`;
+  if (!size) {
+    return null;
+  }
 
   return css`
-    label: ${label};
+    label: ${`text--${size}`};
     font-size: ${theme.typography.text[mobileSizeMap[size]].fontSize};
     line-height: ${theme.typography.text[mobileSizeMap[size]].lineHeight};
 

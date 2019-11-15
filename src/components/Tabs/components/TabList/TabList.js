@@ -69,7 +69,7 @@ const Navigation = styled.div(
 );
 
 /**
- * TabList component that wrap Tab components
+ * TabList component that wraps the Tab components
  */
 const TabList = ({ className, ...props }) => (
   <Wrapper className={className}>
@@ -78,11 +78,10 @@ const TabList = ({ className, ...props }) => (
 );
 
 TabList.propTypes = {
+  /**
+   * Override styles for the TabList component.
+   */
   className: PropTypes.string
-};
-
-TabList.defaultProps = {
-  className: ''
 };
 
 /**

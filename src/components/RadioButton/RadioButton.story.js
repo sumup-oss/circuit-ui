@@ -13,74 +13,43 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import React, { useState } from 'react';
 
-import withTests from '../../util/withTests';
-import State from '../State';
 import RadioButton from './RadioButton';
+import docs from './RadioButton.docs.mdx';
 
-storiesOf(`${GROUPS.FORMS}|RadioButton`, module)
-  .addDecorator(withTests('RadioButton'))
-  .add(
-    'Default RadioButton',
-    withInfo()(() => (
-      <State
-        initial={false}
-        name="isChecked"
-        updaterName="onChange"
-        updater={isChecked => !isChecked}
-      >
-        {({ isChecked, onChange }) => (
-          <RadioButton
-            value="radio"
-            name="radio"
-            onChange={e => {
-              action('Radio clicked')(e);
-              onChange(e);
-            }}
-            checked={isChecked}
-          >
-            {isChecked ? 'Checked' : 'Unchecked'}
-          </RadioButton>
-        )}
-      </State>
-    ))
-  )
-  .add(
-    'Invalid RadioButton',
-    withInfo()(() => (
-      <State
-        initial={false}
-        name="isChecked"
-        updaterName="onChange"
-        updater={isChecked => !isChecked}
-      >
-        {({ isChecked, onChange }) => (
-          <RadioButton
-            value="radio"
-            name="radio"
-            onChange={e => {
-              action('Radio clicked')(e);
-              onChange(e);
-            }}
-            checked={isChecked}
-            invalid
-          >
-            Error
-          </RadioButton>
-        )}
-      </State>
-    ))
-  )
-  .add(
-    'Disabled RadioButton',
-    withInfo()(() => (
-      <RadioButton value="radio" name="radio" disabled>
-        Disabled
-      </RadioButton>
-    ))
+export default {
+  title: 'Forms|RadioButton',
+  component: RadioButton,
+  parameters: {
+    docs: { page: docs },
+    jest: ['RadioButton']
+  }
+};
+
+// eslint-disable-next-line react/prop-types
+const RadioButtonWithState = ({ checked: initial, children, ...props }) => {
+  const [checked, setChecked] = useState(initial);
+  const handleChange = () => {
+    setChecked(prev => !prev);
+  };
+  return (
+    <RadioButton {...props} checked={checked} onChange={handleChange}>
+      {children || (checked ? 'Checked' : 'Unchecked')}
+    </RadioButton>
   );
+};
+
+export const base = () => <RadioButtonWithState value="radio" name="radio" />;
+
+export const invalid = () => (
+  <RadioButtonWithState value="invalid" name="invalid" invalid>
+    Error
+  </RadioButtonWithState>
+);
+
+export const disabled = () => (
+  <RadioButtonWithState value="disabled" name="disabled" disabled>
+    Disabled
+  </RadioButtonWithState>
+);

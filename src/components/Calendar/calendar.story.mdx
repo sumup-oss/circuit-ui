@@ -1,0 +1,69 @@
+import { Meta, Status, Props, Story } from '../../../.storybook/components';
+
+import RangePicker from './RangePicker';
+import SingleDayPicker from './SingleDayPicker';
+import CalendarTag from '../CalendarTag';
+import CalendarTagTwoStep from '../CalendarTagTwoStep';
+
+<Meta title="Components|Calendar/Calendar" />
+
+# Calendar
+
+<Status.InReview/><Status.Description>Likely to be renamed. Prop names likely to be changed.</Status.Description>
+
+A calendar contains a view with actionable buttons in order to pick a range of dates
+and time frames for a specific task.
+
+## When to use it
+
+Calendars are used when we need our users to pick a specific time period in order to complete a task
+or filter a subset of dated items (such as the transaction history, for example).
+
+## Usage guidelines
+
+- **Do** suggest frequently used selections, such as "Today", "Last month", and others.
+- **Do** use the proper component variation depending on how you need the data input
+- **Do not** use it when requiring dates very far from the present, such as a birth date.
+
+## Component variations
+
+### Range Picker
+
+<Status.InReview />
+
+Used when the user needs to have clear visibility of selected start and end dates after the selection,
+for instance when a user needs to pick a time period within a form.
+
+<Story id="components-calendar-rangepicker--base" />
+
+<Props of={RangePicker} />
+
+### Single Day Picker
+
+<Status.InReview />
+
+Used when you the user only needs to select a single specific date.
+
+<Story id="components-calendar-singledaypicker--base" />
+
+<Props of={SingleDayPicker} />
+
+### Calendar Tag
+
+<Status.InReview />
+
+Used for cases where the user needs to select dates within the same month and that selection affects the data displayed.
+
+<Story id="components-calendar-calendartag--base" />
+
+<Props of={CalendarTag} />
+
+### Calendar Tag Two Step
+
+<Status.InReview />
+
+Used for cases where the user needs to select dates that could be outside the same month and that selection affects the data displayed.
+
+<Story id="components-calendar-calendartagtwostep--base" />
+
+<Props of={CalendarTagTwoStep} />

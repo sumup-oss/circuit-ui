@@ -13,19 +13,11 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import styled from '@emotion/styled';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import React, { Fragment } from 'react';
 import { select, text } from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import docs from './Blockquote.docs.mdx';
 import Blockquote from './Blockquote';
-
-const Container = styled('div')`
-  width: 500px;
-  max-width: 90%;
-`;
 
 const defaultQuote = `
 Lorem ipsum dolor amet echo park activated charcoal banjo deep
@@ -36,13 +28,37 @@ tbh adaptogen green juice lo-fi kombucha.
 
 const sizes = [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA];
 
-storiesOf(`${GROUPS.COMPONENTS}|Blockquote`, module).add(
-  'Blockquote',
-  withInfo()(() => (
-    <Container>
-      <Blockquote size={select('Size', sizes, sizes[0])}>
-        {text('Quote', defaultQuote)}
-      </Blockquote>
-    </Container>
-  ))
+export default {
+  title: 'Components|Blockquote',
+  component: Blockquote,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Blockquote']
+  }
+};
+
+export const base = () => (
+  <Blockquote size={select('Size', sizes, sizes[0])}>
+    {text('Quote', defaultQuote)}
+  </Blockquote>
+);
+
+export const size = () => (
+  <Fragment>
+    <Blockquote size={Blockquote.KILO}>
+      Kilo - The ability to accept credit card payments that are EMV-compliant
+      is essentially an insurance policy against fraud and an impressively
+      economical one at that.
+    </Blockquote>
+    <Blockquote size={Blockquote.MEGA}>
+      Mega - The ability to accept credit card payments that are EMV-compliant
+      is essentially an insurance policy against fraud and an impressively
+      economical one at that.
+    </Blockquote>
+    <Blockquote size={Blockquote.GIGA}>
+      Giga - The ability to accept credit card payments that are EMV-compliant
+      is essentially an insurance policy against fraud and an impressively
+      economical one at that.
+    </Blockquote>
+  </Fragment>
 );

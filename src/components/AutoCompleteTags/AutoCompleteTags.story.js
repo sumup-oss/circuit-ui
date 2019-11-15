@@ -14,14 +14,17 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
-import withTests from '../../util/withTests';
 import AutoCompleteTags from './AutoCompleteTags';
+
+export default {
+  title: 'Forms|Input/AutoCompleteTags',
+  component: AutoCompleteTags,
+  parameters: {
+    jest: ['AutoCompleteTags']
+  }
+};
 
 const randomItems = [];
 const mails = ['@sumup.com', '@gmail.com', '@hotmail.com'];
@@ -42,16 +45,9 @@ for (let i = 0; i < 10000; i += 1) {
   pushRandom();
 }
 
-storiesOf(`${GROUPS.FORMS}|AutoCompleteTags`, module)
-  .addDecorator(withTests('AutoCompleteTags'))
-  .add(
-    'Default AutoCompleteTags',
-    withInfo()(() => (
-      <div style={{ width: '300px' }}>
-        <AutoCompleteTags
-          availableTags={randomItems}
-          onChange={action('handleChange')}
-        />
-      </div>
-    ))
-  );
+export const base = () => (
+  <AutoCompleteTags
+    availableTags={randomItems}
+    onChange={action('handleChange')}
+  />
+);

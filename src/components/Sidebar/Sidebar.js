@@ -65,7 +65,7 @@ const Sidebar = ({ children, open, closeButtonLabel, onClose, className }) => (
     <Backdrop visible={open} onClick={onClose} data-testid="sidebar-backdrop" />
     <CloseButton
       visible={open}
-      closeButtonLabel={closeButtonLabel}
+      label={closeButtonLabel}
       onClick={onClose}
       data-testid="sidebar-close-button"
     />

@@ -32,7 +32,8 @@ module.exports = {
     { name: 'utils' },
     { name: 'docs' },
     { name: 'theme' },
-    { name: 'configs' }
+    { name: 'configs' },
+    { name: 'scripts' }
   ],
 
   allowCustomScopes: true,

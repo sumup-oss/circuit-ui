@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import { LOADING_STATES } from '../../constants';
+import { ACTIVE } from '../../constants';
 import Button from '.';
 
 describe('Button', () => {
@@ -26,7 +26,7 @@ describe('Button', () => {
     });
 
     it('should have active loading styles', () => {
-      const actual = create(<Button loadingState={LOADING_STATES.ACTIVE} />);
+      const actual = create(<Button loadingState={ACTIVE} />);
       expect(actual).toMatchSnapshot();
     });
 

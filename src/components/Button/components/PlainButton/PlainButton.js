@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { StyledText } from '../../../Text';
 
 const baseStyles = ({ theme }) => css`
-  label: button--link;
+  label: button__link;
   box-shadow: none;
   border: none;
   background: none;
@@ -41,6 +41,7 @@ const baseStyles = ({ theme }) => css`
 const primaryStyles = ({ theme, primary }) =>
   primary &&
   css`
+    label: button__link--primary;
     color: ${theme.colors.p500};
 
     &:active {
@@ -48,19 +49,20 @@ const primaryStyles = ({ theme, primary }) =>
     }
   `;
 
-const ButtonLinkWrapper = styled(StyledText.withComponent('button'))(
+const ButtonLinkWrapper = styled(StyledText)(
   baseStyles,
   primaryStyles
-);
+).withComponent('button');
 
-const PlainButtonWrapper = ButtonLinkWrapper.withComponent('a');
+/* eslint-disable react/prop-types */
+const PlainButton = ({ components, href, ...rest }) => {
+  const PlainButtonWrapper = ButtonLinkWrapper.withComponent(components.Link);
 
-// eslint-disable-next-line react/prop-types
-const PlainButton = ({ href, ...rest }) =>
-  href ? (
+  return href ? (
     <PlainButtonWrapper noMargin {...{ ...rest, href }} />
   ) : (
     <ButtonLinkWrapper noMargin {...rest} />
   );
+};
 
 export default PlainButton;

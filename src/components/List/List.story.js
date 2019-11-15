@@ -14,31 +14,63 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { boolean, select } from '@storybook/addon-knobs';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
+import docs from './List.docs.mdx';
 import List from './List';
 
 const sizes = [List.KILO, List.MEGA, List.GIGA];
 
-storiesOf(`${GROUPS.COMPONENTS}|List`, module)
-  .addDecorator(withTests('List'))
-  .add(
-    'List',
-    withInfo()(() => (
-      <List size={select('Size', sizes, sizes[0])} ordered={boolean('Ordered')}>
-        <li>This is a list</li>
-        <li>A very fine list</li>
-        <List
-          size={select('Size', sizes, sizes[0])}
-          ordered={boolean('Ordered')}
-        >
-          <li>Sometimes a nested list</li>
-        </List>
-        <li>The kind of list you like</li>
-      </List>
-    ))
-  );
+export default {
+  title: 'Components|List',
+  component: List,
+  parameters: {
+    docs: { page: docs },
+    jest: ['List']
+  }
+};
+
+const ListItems = () => (
+  <>
+    <li>This is a list</li>
+    <li>A very fine list</li>
+  </>
+);
+
+export const base = () => (
+  <List
+    size={select('Size', sizes, sizes[0])}
+    ordered={boolean('Ordered', false)}
+  >
+    <ListItems />
+  </List>
+);
+
+export const ordered = () => (
+  <List size={select('Size', sizes, sizes[0])} ordered>
+    <ListItems />
+  </List>
+);
+
+export const size = () => (
+  <>
+    <List size={sizes[0]}>
+      <ListItems />
+    </List>
+    <List size={sizes[1]}>
+      <ListItems />
+    </List>
+    <List size={sizes[2]}>
+      <ListItems />
+    </List>
+  </>
+);
+
+export const nested = () => (
+  <List>
+    <ListItems />
+    <List>
+      <li>Sometimes a nested list</li>
+    </List>
+  </List>
+);

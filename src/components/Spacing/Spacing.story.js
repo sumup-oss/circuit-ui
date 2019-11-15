@@ -14,35 +14,32 @@
  */
 
 import React, { Fragment } from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import Spacing from './Spacing';
 import Button from '../Button';
 
-storiesOf(`${GROUPS.LAYOUT}|Spacing`, module)
-  .addDecorator(withTests('Spacing'))
-  .add(
-    'Bottom Spacing',
-    withInfo()(() => (
-      <Fragment>
-        <Spacing bottom>
-          <Button primary>Spacing bottom</Button>
-        </Spacing>
-        <Button>No spacing</Button>
-      </Fragment>
-    ))
-  )
-  .add(
-    'Top Spacing',
-    withInfo()(() => (
-      <Fragment>
-        <Button>No spacing</Button>
-        <Spacing top>
-          <Button primary>Spacing top</Button>
-        </Spacing>
-      </Fragment>
-    ))
-  );
+export default {
+  title: 'Layout|Spacing',
+  component: Spacing,
+  parameters: {
+    jest: ['Spacing']
+  }
+};
+
+export const bottomSpacing = () => (
+  <Fragment>
+    <Spacing bottom>
+      <Button primary>Spacing bottom</Button>
+    </Spacing>
+    <Button>No spacing</Button>
+  </Fragment>
+);
+
+export const topSpacing = () => (
+  <Fragment>
+    <Button>No spacing</Button>
+    <Spacing top>
+      <Button primary>Spacing top</Button>
+    </Spacing>
+  </Fragment>
+);

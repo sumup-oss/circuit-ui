@@ -33,11 +33,13 @@ const baseStyles = ({ theme }) => css`
   margin-bottom: ${theme.spacings.kilo};
 `;
 
-const sizeStyles = ({ theme, size }) => css`
-  label: ${`sub-heading--${size}`};
-  font-size: ${theme.typography.subHeadings[size].fontSize};
-  line-height: ${theme.typography.subHeadings[size].lineHeight};
-`;
+const sizeStyles = ({ theme, size }) =>
+  size &&
+  css`
+    label: ${`sub-heading--${size}`};
+    font-size: ${theme.typography.subHeadings[size].fontSize};
+    line-height: ${theme.typography.subHeadings[size].lineHeight};
+  `;
 
 const noMarginStyles = ({ noMargin }) =>
   noMargin &&

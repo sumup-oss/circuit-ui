@@ -15,12 +15,9 @@
 
 import React, { Component } from 'react';
 import { range } from 'lodash/fp';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import * as knobs from '@storybook/addon-knobs/react';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-import withTests from '../../util/withTests';
+import docs from './CardList.docs.mdx';
 import CardList from '.';
 
 class CardListStory extends Component {
@@ -37,24 +34,29 @@ class CardListStory extends Component {
     );
 
     return (
-      <div style={{ width: '320px' }}>
-        <CardList>
-          {range(1, 6).map(i => (
-            <CardList.Item
-              key={i}
-              selected={selected === i}
-              onClick={this.handleClick(i)}
-              padding={padding}
-            >
-              Item #{i}
-            </CardList.Item>
-          ))}
-        </CardList>
-      </div>
+      <CardList>
+        {range(1, 6).map(i => (
+          <CardList.Item
+            key={i}
+            selected={selected === i}
+            onClick={this.handleClick(i)}
+            padding={padding}
+          >
+            Item #{i}
+          </CardList.Item>
+        ))}
+      </CardList>
     );
   }
 }
 
-storiesOf(`${GROUPS.COMPONENTS}|CardList`, module)
-  .addDecorator(withTests('CardList'))
-  .add('CardList', withInfo()(() => <CardListStory />));
+export default {
+  title: 'Components|Card/CardList',
+  component: CardList,
+  parameters: {
+    docs: { page: docs },
+    jest: ['CardList']
+  }
+};
+
+export const base = () => <CardListStory />;

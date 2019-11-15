@@ -14,12 +14,8 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { boolean, text, select } from '@storybook/addon-knobs/react';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
-import withTests from '../../../../util/withTests';
 import TableCell from '.';
 
 const options = {
@@ -28,17 +24,20 @@ const options = {
   [TableCell.CENTER]: TableCell.CENTER
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Table/TableCell`, module)
-  .addDecorator(withTests('TableCell'))
-  .add(
-    'Table Cell',
-    withInfo()(() => (
-      <TableCell
-        style={{ width: '300px', alignSelf: 'center' }}
-        align={select('Align', options)}
-        isHovered={boolean('Hover styles', false)}
-      >
-        {text('Content', 'Header')}
-      </TableCell>
-    ))
-  );
+export default {
+  title: 'Components|Table/TableCell',
+  component: TableCell,
+  parameters: {
+    jest: ['TableCell']
+  }
+};
+
+export const base = () => (
+  <TableCell
+    style={{ width: '300px', alignSelf: 'center' }}
+    align={select('Align', options)}
+    isHovered={boolean('Hover styles', false)}
+  >
+    {text('Content', 'Header')}
+  </TableCell>
+);

@@ -19,9 +19,7 @@ import { css } from '@emotion/core';
 
 const baseStyles = ({ theme }) => css`
   label: sidebar-footer;
-  display: flex;
-  flex: 1;
-  align-items: flex-end;
+  margin-top: auto;
   padding: ${theme.spacings.giga};
   background-color: ${theme.colors.n900};
   color: ${theme.colors.n100};

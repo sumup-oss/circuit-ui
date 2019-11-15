@@ -18,11 +18,14 @@ import PropTypes from 'prop-types';
 import { noop, omit } from 'lodash/fp';
 
 import Button from './components/Button';
-import { LOADING_STATES, EXIT_ANIMATION_DURATION } from './constants';
+import { DISABLED, ACTIVE, SUCCESS, ERROR } from './constants';
 import { BUTTON_PROP_TYPES, BUTTON_DEFAULT_PROPS } from '../Button/constants';
-import { isActive, isDisabled, isSuccess, isError } from './utils';
-
-const { DISABLED, ACTIVE, SUCCESS, ERROR } = LOADING_STATES;
+import {
+  isActive,
+  isDisabled,
+  isSuccess,
+  isError
+} from './LoadingButtonService';
 
 export default class LoadingButton extends Component {
   static SUCCESS = SUCCESS;
@@ -36,14 +39,17 @@ export default class LoadingButton extends Component {
       PropTypes.string,
       PropTypes.number
     ]),
-    exitAnimation: PropTypes.oneOf([SUCCESS, ERROR]),
+    exitAnimation: PropTypes.oneOf([
+      LoadingButton.SUCCESS,
+      LoadingButton.ERROR
+    ]),
     onAnimationComplete: PropTypes.func
   };
 
   static defaultProps = {
     ...BUTTON_DEFAULT_PROPS,
     isLoading: false,
-    exitAnimationDuration: EXIT_ANIMATION_DURATION,
+    exitAnimationDuration: 2000,
     exitAnimation: null,
     onAnimationComplete: noop
   };

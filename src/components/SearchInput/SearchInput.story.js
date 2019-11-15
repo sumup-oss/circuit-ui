@@ -14,14 +14,33 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
-import SearchInput from '.';
+import { uniqueId } from '../../util/id';
 
-storiesOf(`${GROUPS.FORMS}|SearchInput`, module)
-  .addDecorator(withTests('SearchInput'))
-  .add('Default SearchInput', withInfo()(() => <SearchInput />))
-  .add('Disabled SearchInput', withInfo()(() => <SearchInput disabled />));
+import SearchInput from './SearchInput';
+import docs from './SearchInput.docs.mdx';
+import Label from '../Label';
+
+export default {
+  title: 'Forms|Input/SearchInput',
+  component: SearchInput,
+  parameters: {
+    docs: { page: docs },
+    jest: ['SearchInput']
+  }
+};
+
+// SearchInputs always need labels for accessibility.
+const SearchInputWithLabel = props => {
+  const id = uniqueId();
+  return (
+    <Label htmlFor={id}>
+      Label
+      <SearchInput placeholder="Search..." {...props} id={id} />
+    </Label>
+  );
+};
+
+export const base = () => <SearchInputWithLabel />;
+
+export const disabled = () => <SearchInputWithLabel disabled />;

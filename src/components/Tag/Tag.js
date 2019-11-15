@@ -18,7 +18,10 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { eitherOrPropType } from '../../util/shared-prop-types';
+import {
+  eitherOrPropType,
+  childrenPropType
+} from '../../util/shared-prop-types';
 import { textMega, shadowBorder } from '../../styles/style-helpers';
 import DefaultCloseButton from '../CloseButton';
 
@@ -151,7 +154,7 @@ Tag.propTypes = {
   /**
    * The content of the tag.
    */
-  children: PropTypes.node,
+  children: childrenPropType,
   /**
    * An optional  tag's icon.
    */

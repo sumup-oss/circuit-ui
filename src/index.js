@@ -191,6 +191,12 @@ export { default as Carousel, CarouselComposer } from './components/Carousel';
 export { default as State } from './components/State';
 export { default as InlineElements } from './components/InlineElements';
 
+export {
+  default as ComponentsContext,
+  withComponents,
+  useComponents
+} from './components/ComponentsContext';
+
 // Theme
 const standard = { ...circuit }; // otherwise this get exported as a `Module`
 const theme = {

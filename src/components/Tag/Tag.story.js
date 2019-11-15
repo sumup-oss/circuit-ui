@@ -14,13 +14,10 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
+import docs from './Tag.docs.mdx';
 import Tag from './Tag';
 
 const Icon = () => (
@@ -36,18 +33,36 @@ const Icon = () => (
   </svg>
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Tag`, module)
-  .addDecorator(withTests('Tag'))
-  .add(
-    'Default Tag',
-    withInfo()(() => (
-      <Tag
-        selected={boolean('Selected', false)}
-        onRemove={boolean('Removable', false) ? action('Tag removed') : null}
-        icon={boolean('With Icon', false) ? <Icon /> : null}
-        onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
-      >
-        Transactions
-      </Tag>
-    ))
-  );
+export default {
+  title: 'Components|Tag',
+  component: Tag,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Tag']
+  }
+};
+
+export const base = () => (
+  <Tag
+    selected={boolean('Selected', false)}
+    onRemove={boolean('Removable', false) ? action('Tag removed') : null}
+    icon={boolean('With Icon', false) ? <Icon /> : null}
+    onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
+  >
+    Transactions
+  </Tag>
+);
+
+export const selected = () => <Tag selected>Transactions</Tag>;
+
+export const withIcon = () => <Tag icon={<Icon />}>Transactions</Tag>;
+
+export const removable = () => (
+  <Tag onRemove={action('Tag removed')} labelRemoveButton="Remove">
+    Transactions
+  </Tag>
+);
+
+export const clickable = () => (
+  <Tag onClick={action('Tag clicked')}>Transactions</Tag>
+);

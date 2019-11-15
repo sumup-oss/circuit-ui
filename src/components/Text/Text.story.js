@@ -14,13 +14,10 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { select, boolean } from '@storybook/addon-knobs';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import Text from '.';
+import docs from './Text.docs.mdx';
 
 const elements = ['p', 'article', 'div', 'span', 'strong', 'em'];
 const sizes = [Text.KILO, Text.MEGA, Text.GIGA];
@@ -28,22 +25,39 @@ const sizes = [Text.KILO, Text.MEGA, Text.GIGA];
 // eslint-disable-next-line max-len
 const content = `An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.`;
 
-storiesOf(`${GROUPS.TYPOGRAPHY}|Text`, module)
-  .addDecorator(withTests('Text'))
-  .add(
-    'Text',
-    withInfo()(() => (
-      <div style={{ width: '66%', margin: '0 auto' }}>
-        <Text
-          as={select('Element', elements, elements[0])}
-          size={select('Size', sizes, sizes[0])}
-          noMargin={boolean('No margin')}
-          bold={boolean('Bold')}
-          italic={boolean('Italic')}
-          strike={boolean('Strike through')}
-        >
-          {content}
-        </Text>
-      </div>
-    ))
-  );
+export default {
+  title: 'Typography|Text',
+  component: Text,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Text']
+  }
+};
+
+export const base = () => (
+  <Text
+    as={select('Element', elements, elements[0])}
+    size={select('Size', sizes, sizes[0])}
+    noMargin={boolean('No margin')}
+    bold={boolean('Bold')}
+    italic={boolean('Italic')}
+    strike={boolean('Strike through')}
+  >
+    {content}
+  </Text>
+);
+
+export const size = () =>
+  sizes.map(s => (
+    <Text key={s} size={s}>
+      This is a {s} text. {content}
+    </Text>
+  ));
+
+export const bold = () => <Text bold>{content}</Text>;
+
+export const italic = () => <Text italic>{content}</Text>;
+
+export const strike = () => <Text strike>{content}</Text>;
+
+export const customElement = () => <Text as="span">{content}</Text>;

@@ -24,9 +24,14 @@ const baseStyles = ({ theme }) => css`
   label: message__button;
   display: block;
   padding-left: ${theme.spacings.giga};
+  margin-top: ${theme.spacings.mega};
   margin-left: auto;
   flex-grow: 0;
   flex-shrink: 0;
+
+  ${theme.mq.kilo} {
+    margin-top: 0;
+  }
 `;
 
 const alignmentStyles = ({ align }) => {

@@ -14,32 +14,39 @@
  */
 
 import React, { Fragment } from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { select } from '@storybook/addon-knobs/react';
+import { select, boolean } from '@storybook/addon-knobs/react';
 import { values } from 'lodash/fp';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 import { colorNames } from '../../styles/constants';
 
-import withTests from '../../util/withTests';
+import docs from './Badge.docs.mdx';
 import Badge from './Badge';
 
-storiesOf(`${GROUPS.COMPONENTS}|Badge`, module)
-  .addDecorator(withTests('Badge'))
-  .add(
-    'Default Badge',
-    withInfo()(() => (
-      <Badge color={select('Color', values(colorNames))}>Update</Badge>
-    ))
-  )
-  .add(
-    'Circular Badge',
-    withInfo()(() => (
-      <Fragment>
-        <Badge circle>1</Badge>
-        <Badge circle>12</Badge>
-        <Badge circle>88</Badge>
-      </Fragment>
-    ))
-  );
+export default {
+  title: 'Components|Badge',
+  component: Badge,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Badge']
+  }
+};
+
+export const base = () => (
+  <Badge color={select('Color', values(colorNames))}>Badge</Badge>
+);
+
+export const colors = () => (
+  <Fragment>
+    <Badge color={Badge.NEUTRAL}>Neutral</Badge>
+    <Badge color={Badge.PRIMARY}>Primary</Badge>
+    <Badge color={Badge.SUCCESS}>Success</Badge>
+    <Badge color={Badge.WARNING}>Warning</Badge>
+    <Badge color={Badge.DANGER}>Danger</Badge>
+  </Fragment>
+);
+
+export const circular = () => (
+  <Badge color={Badge.PRIMARY} circle={boolean('Circular', true)}>
+    42
+  </Badge>
+);

@@ -26,12 +26,12 @@ const baseStyles = ({ theme }) => css`
   fill: ${theme.colors.n500};
 `;
 
+const StyledIcon = styled(Icon)(baseStyles);
+
 /**
  * A small info icon used for triggering tooltips
  * and other informational content.
  */
-
-const StyledIcon = styled(Icon)(baseStyles);
 const InfoIcon = props => <StyledIcon {...props} />;
 
 /**

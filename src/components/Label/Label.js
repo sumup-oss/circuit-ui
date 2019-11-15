@@ -24,13 +24,13 @@ import { textKilo } from '../../styles/style-helpers';
 const visuallyHiddenStyles = ({ visuallyHidden }) =>
   visuallyHidden &&
   css`
+    label: label--hidden;
     ${hideVisually()};
   `;
 
 const baseStyles = ({ theme }) => css`
-  label: form-label;
+  label: label;
   ${textKilo({ theme })};
-  margin-bottom: ${theme.spacings.bit};
   display: block;
 `;
 
@@ -49,10 +49,12 @@ Label.propTypes = {
    * The identifier of the corresponding form element.
    */
   htmlFor: PropTypes.string.isRequired,
+  /**
+   * Visually hides the label, but keeps it available to screen readers.
+   * Useful to add a label to purely visual elements.
+   */
   visuallyHidden: PropTypes.bool
 };
-
-StyledLabel.propTypes = Label.propTypes;
 
 Label.defaultProps = {
   visuallyHidden: false

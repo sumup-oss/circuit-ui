@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/* global expect */
+
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
@@ -22,11 +24,16 @@ import { render, fireEvent, wait, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'emotion-theming';
 
+import ComponentsContext, {
+  defaultComponents
+} from './src/components/ComponentsContext';
 import { circuit } from './src/themes';
 
 // eslint-disable-next-line react/prop-types
 const WithProviders = ({ children }) => (
-  <ThemeProvider theme={circuit}>{children}</ThemeProvider>
+  <ComponentsContext.Provider value={defaultComponents}>
+    <ThemeProvider theme={circuit}>{children}</ThemeProvider>
+  </ComponentsContext.Provider>
 );
 
 const renderWithProviders = renderFn => (component, ...rest) =>
@@ -53,6 +60,18 @@ global.STORYBOOK = false;
 global.__DEV__ = false;
 global.__PRODUCTION__ = false;
 global.__TEST__ = true;
+
+// react-popper relies on document.createRange
+if (global.document) {
+  document.createRange = () => ({
+    setStart: () => {},
+    setEnd: () => {},
+    commonAncestorContainer: {
+      nodeName: 'BODY',
+      ownerDocument: document
+    }
+  });
+}
 
 // Add custom matchers
 expect.extend(toHaveNoViolations);

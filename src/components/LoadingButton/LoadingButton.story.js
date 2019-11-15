@@ -13,56 +13,80 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
-import { boolean } from '@storybook/addon-knobs/react';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import LoadingButton from '.';
 
-storiesOf(`${GROUPS.COMPONENTS}|Button/LoadingButton`, module)
-  .addDecorator(withTests('LoadingButton'))
-  .add(
-    'LoadingButton with Success animation',
-    withInfo()(() => (
-      <LoadingButton
-        isLoading={boolean('Loading', false)}
-        onClick={action('clicked')}
-        onAnimationComplete={action('animation completed')}
-        exitAnimation={LoadingButton.SUCCESS}
-        primary
-      >
-        Click me
-      </LoadingButton>
-    ))
-  )
-  .add(
-    'LoadingButton with Error animation',
-    withInfo()(() => (
-      <LoadingButton
-        isLoading={boolean('Loading', false)}
-        onClick={action('clicked')}
-        onAnimationComplete={action('animation completed')}
-        exitAnimation={LoadingButton.ERROR}
-        primary
-      >
-        Click me
-      </LoadingButton>
-    ))
-  )
-  .add(
-    'LoadingButton with no exit animation',
-    withInfo()(() => (
-      <LoadingButton
-        isLoading={boolean('Loading', false)}
-        onClick={action('clicked')}
-        onAnimationComplete={action('animation completed')}
-        primary
-      >
-        Click me
-      </LoadingButton>
-    ))
+// eslint-disable-next-line react/prop-types
+const LoadingButtonWithState = ({ exitAnimation, ...props }) => {
+  // get loading button status animation or set as default
+  const variation = exitAnimation || 'DEFAULT';
+
+  const [loading, setLoading] = useState({
+    DEFAULT: false,
+    SUCCESS: false,
+    ERROR: false
+  });
+
+  const handleClick = () => {
+    // trigger loading state
+    setLoading({
+      ...loading,
+      [variation]: true
+    });
+    // reset loading
+    setTimeout(() => {
+      setLoading({
+        ...loading,
+        [variation]: false
+      });
+    }, 1000);
+  };
+
+  return (
+    <LoadingButton
+      {...props}
+      isLoading={loading[variation]}
+      exitAnimation={exitAnimation && LoadingButton[exitAnimation]}
+      onClick={handleClick}
+    />
   );
+};
+
+export default {
+  title: 'Components|Button/LoadingButton',
+  component: LoadingButton,
+  parameters: {
+    jest: ['LoadingButton']
+  }
+};
+
+export const successAnimation = () => (
+  <LoadingButtonWithState
+    onAnimationComplete={action('animation completed')}
+    exitAnimation={LoadingButton.SUCCESS}
+    primary
+  >
+    Click me
+  </LoadingButtonWithState>
+);
+
+export const errorAnimation = () => (
+  <LoadingButtonWithState
+    onAnimationComplete={action('animation completed')}
+    exitAnimation={LoadingButton.ERROR}
+    primary
+  >
+    Click me
+  </LoadingButtonWithState>
+);
+
+export const noExitAnimation = () => (
+  <LoadingButtonWithState
+    onAnimationComplete={action('animation completed')}
+    primary
+  >
+    Click me
+  </LoadingButtonWithState>
+);

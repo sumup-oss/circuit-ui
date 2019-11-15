@@ -13,77 +13,66 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import React from 'react';
 
-import withTests from '../../util/withTests';
-import Input from '.';
+import { uniqueId } from '../../util/id';
+
+import docs from './Input.docs.mdx';
+import Input from './Input';
 import Label from '../Label';
 
-storiesOf(`${GROUPS.FORMS}|Input`, module)
-  .addDecorator(withTests('Input'))
-  .add('Input', withInfo()(() => <Input placeholder="Placeholder" />))
-  .add(
-    'Input valid',
-    withInfo()(() => <Input placeholder="Placeholder" showValid />)
-  )
-  .add(
-    'Input invalid',
-    withInfo()(() => (
-      <Fragment>
-        <Input
-          placeholder="Placeholder"
-          validationHint="This field is required."
-          invalid
-        />
-        <Input placeholder="Placeholder" invalid />
-      </Fragment>
-    ))
-  )
-  .add(
-    'Input warning',
-    withInfo()(() => (
-      <Fragment>
-        <Input
-          placeholder="Placeholder"
-          validationHint="This does not look right."
-          hasWarning
-        />
-        <Input placeholder="Placeholder" hasWarning />
-      </Fragment>
-    ))
-  )
-  .add(
-    'Input optional',
-    withInfo()(() => <Input placeholder="Placeholder" optional />)
-  )
-  .add(
-    'Input disabled',
-    withInfo()(() => <Input value="Some value" disabled />)
-  )
-  .add(
-    'Input right aligned text',
-    withInfo()(() => <Input placeholder="Placeholder" textAlign="right" />)
-  )
-  .add(
-    'Inline inputs',
-    withInfo()(() => (
-      <div>
-        <Input placeholder="First" inline />
-        <Input placeholder="Second" inline />
-      </div>
-    ))
-  )
-  .add(
-    'Stacked inputs',
-    withInfo()(() => (
-      <div>
-        <Label htmlFor="first">My label</Label>
-        <Input placeholder="First" id="first" />
-        <Label htmlFor="second">My second label</Label>
-        <Input placeholder="Second" id="second" />
-      </div>
-    ))
+export default {
+  title: 'Forms|Input',
+  component: Input,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Input']
+  }
+};
+
+// Inputs always need labels for accessibility.
+const InputWithLabel = props => {
+  const id = uniqueId();
+  return (
+    <Label htmlFor={id}>
+      Label
+      <Input placeholder="Placeholder" {...props} id={id} />
+    </Label>
   );
+};
+
+export const base = () => <InputWithLabel />;
+
+export const valid = () => (
+  <>
+    <InputWithLabel validationHint="That's correct." showValid />
+    <InputWithLabel showValid />
+  </>
+);
+
+export const invalid = () => (
+  <>
+    <InputWithLabel validationHint="This field is required." invalid />
+    <InputWithLabel invalid />
+  </>
+);
+
+export const warning = () => (
+  <>
+    <InputWithLabel validationHint="This does not look right." hasWarning />
+    <InputWithLabel hasWarning />
+  </>
+);
+
+export const optional = () => <InputWithLabel optional />;
+
+export const disabled = () => <InputWithLabel value="Some value" disabled />;
+
+export const rightAligned = () => <InputWithLabel textAlign="right" />;
+
+export const inline = () => (
+  <div>
+    <Input placeholder="First" inline />
+    <Input placeholder="Second" inline />
+  </div>
+);

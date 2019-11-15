@@ -20,12 +20,15 @@ import { includes } from 'lodash/fp';
 
 import { textKilo, shadowSingle } from '../../styles/style-helpers';
 import { CENTER, TOP, RIGHT, BOTTOM, LEFT } from '../../util/constants';
-import { positionPropType } from '../../util/shared-prop-types';
+import {
+  positionPropType,
+  childrenPropType
+} from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
   label: tooltip;
   display: inline-block;
-  width: 100%;
+  width: auto;
   max-width: 280px;
   min-width: 120px;
   background-color: ${theme.colors.n900};
@@ -97,16 +100,16 @@ const getAlignmentStyles = ({ theme, position, align }) => {
 
   const absolutePosition = positionMap[align];
 
+  /* eslint-disable max-len */
   return `
     ${absolutePosition}: 50%;
-    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${
-    theme.spacings.bit
-  }));
+    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${theme.spacings.bit}));
 
     &::after {
       ${absolutePosition}: ${theme.spacings.kilo};
     }
   `;
+  /* eslint-enable max-len */
 };
 
 const positionAndAlignStyles = ({ theme, position, align }) => css`
@@ -133,7 +136,7 @@ Tooltip.propTypes = {
   /**
    * The content of the tooltip.
    */
-  children: PropTypes.node.isRequired,
+  children: childrenPropType.isRequired,
   /**
    * The position of the tooltip in relation to its reference point.
    */
@@ -155,4 +158,7 @@ Tooltip.defaultProps = {
   align: Tooltip.CENTER
 };
 
+/**
+ * @component
+ */
 export default Tooltip;

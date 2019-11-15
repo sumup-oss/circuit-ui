@@ -55,6 +55,7 @@ const disabledStyles = ({ disabled, theme }) =>
     label: selector--disabled;
     color: ${theme.colors.n500};
     cursor: default;
+    pointer-events: none;
   `;
 
 /**

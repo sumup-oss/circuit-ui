@@ -14,27 +14,25 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
 
-import withTests from '../../../../util/withTests';
 import SecurityCodeInput from '.';
 import { schemes } from '../..';
 
 const { SCHEMES } = schemes;
 
-storiesOf(`${GROUPS.FORMS}|CreditCardDetails/SecurityCodeInput`, module)
-  .addDecorator(withTests('SecurityCodeInput'))
-  .add('Default SecurityCodeInput', withInfo()(() => <SecurityCodeInput />))
-  .add(
-    'AMEX SecurityCodeInput',
-    withInfo()(() => <SecurityCodeInput cardScheme={SCHEMES.AMEX} />)
-  )
-  .add(
-    'SecurityCodeInput with modal toggle',
-    withInfo()(() => (
-      <SecurityCodeInput onShowInfo={action('Security modal toggled')} />
-    ))
-  );
+export default {
+  title: 'Forms|CreditCardDetails/SecurityCodeInput',
+  component: SecurityCodeInput,
+  parameters: {
+    jest: ['SecurityCodeInput']
+  }
+};
+
+export const base = () => <SecurityCodeInput />;
+
+export const amex = () => <SecurityCodeInput cardScheme={SCHEMES.AMEX} />;
+
+export const withModalToggle = () => (
+  <SecurityCodeInput onShowInfo={action('Security modal toggled')} />
+);

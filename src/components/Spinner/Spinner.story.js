@@ -14,14 +14,10 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { boolean, select } from '@storybook/addon-knobs/react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
-import withTests from '../../util/withTests';
 import Spinner from './Spinner';
 
 const Container = styled('div')(
@@ -35,24 +31,27 @@ const Container = styled('div')(
   `
 );
 
-storiesOf(`${GROUPS.COMPONENTS}|Spinner`, module)
-  .addDecorator(withTests('Spinner'))
-  .add(
-    'Spinner',
-    withInfo()(() => (
-      <Container>
-        <Spinner
-          dark={boolean('Show dark variant', false)}
-          size={select(
-            'Size',
-            {
-              [Spinner.MEGA]: 'Mega',
-              [Spinner.KILO]: 'Kilo',
-              [Spinner.GIGA]: 'Giga'
-            },
-            Spinner.GIGA
-          )}
-        />
-      </Container>
-    ))
-  );
+export default {
+  title: 'Components|Spinner',
+  component: Spinner,
+  parameters: {
+    jest: ['Spinner']
+  }
+};
+
+export const base = () => (
+  <Container>
+    <Spinner
+      dark={boolean('Show dark variant', false)}
+      size={select(
+        'Size',
+        {
+          [Spinner.MEGA]: 'Mega',
+          [Spinner.KILO]: 'Kilo',
+          [Spinner.GIGA]: 'Giga'
+        },
+        Spinner.GIGA
+      )}
+    />
+  </Container>
+);

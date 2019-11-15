@@ -13,13 +13,7 @@
  * limitations under the License.
  */
 
-export const EXIT_ANIMATION_DURATION = 2000;
-
-export const DEFAULT_LOADING_DELAY = 500;
-
-export const LOADING_STATES = {
-  DISABLED: 'disabled',
-  ACTIVE: 'active',
-  SUCCESS: 'success',
-  ERROR: 'error'
-};
+export const DISABLED = 'disabled';
+export const ACTIVE = 'active';
+export const SUCCESS = 'success';
+export const ERROR = 'error';

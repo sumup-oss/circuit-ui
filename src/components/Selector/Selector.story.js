@@ -13,22 +13,56 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
+import React, { useState } from 'react';
+import { boolean } from '@storybook/addon-knobs/react';
 
-import withTests from '../../util/withTests';
+import docs from './Selector.docs.mdx';
 import Selector from './Selector';
 
-storiesOf(`${GROUPS.COMPONENTS}|Selector`, module)
-  .addDecorator(withTests('Selector'))
-  .add('Default Selector', withInfo()(() => <Selector>Select me!</Selector>))
-  .add(
-    'Disabled Selector',
-    withInfo()(() => <Selector disabled>I cannot be selected</Selector>)
-  )
-  .add(
-    'Selected Selected',
-    withInfo()(() => <Selector selected>I am selected!</Selector>)
+export default {
+  title: 'Forms|Selector',
+  component: Selector,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Selector']
+  }
+};
+
+/* eslint-disable react/prop-types */
+const SelectorsWithState = props => {
+  const [selected, setSelected] = useState(0);
+
+  const handleChange = index => e => {
+    setSelected(index);
+    if (props.onClick) {
+      props.onClick(e);
+    }
+  };
+
+  return (
+    <>
+      <Selector
+        {...props}
+        selected={selected === 0}
+        onClick={handleChange(0)}
+      />
+      <Selector
+        {...props}
+        selected={selected === 1}
+        onClick={handleChange(1)}
+      />
+    </>
   );
+};
+
+export const base = () => (
+  <SelectorsWithState disabled={boolean('Disabled', false)}>
+    Select me!
+  </SelectorsWithState>
+);
+
+export const selected = () => <Selector selected>I am selected!</Selector>;
+
+export const disabled = () => (
+  <Selector disabled>I cannot be selected</Selector>
+);

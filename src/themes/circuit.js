@@ -49,7 +49,7 @@ const greens = {
 
 const violets = {
   v100: '#E9CFF2',
-  v200: '#D2A9D3',
+  v200: '#D7A9DC',
   v300: '#C781C9',
   v500: '#B54DB3',
   v700: '#8928A2',
@@ -79,7 +79,7 @@ const reds = {
   r200: '#EDA2A2',
   r300: '#EA7A7A',
   r500: '#DB4D4D',
-  r700: '#B1322E',
+  r700: '#B22828',
   r900: '#7F1818'
 };
 

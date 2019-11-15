@@ -13,63 +13,58 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import React, { Fragment } from 'react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
-import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-
-import withTests from '../../util/withTests';
+import docs from './Button.docs.mdx';
 import Button from './Button';
 
-const containerStyles = {
-  width: '400px',
-  display: 'flex',
-  justifyContent: 'center'
+export default {
+  title: 'Components|Button',
+  component: Button,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Button']
+  }
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Button`, module)
-  .addDecorator(withTests('Button'))
-  .add(
-    'Button',
-    withInfo()(() => (
-      <div style={containerStyles}>
-        <Button
-          primary={boolean('Primary', false)}
-          disabled={boolean('Disabled', false)}
-          secondary={boolean('Secondary', false)}
-          flat={boolean('Flat', false)}
-          href={boolean('Link', false) ? '#' : undefined}
-          target={boolean('Link', false) ? '_blank' : undefined}
-          stretch={boolean('Stretched', false)}
-          size={select(
-            'Size',
-            [Button.KILO, Button.MEGA, Button.GIGA],
-            Button.KILO
-          )}
-        >
-          {text('Button Label', 'Button')}
-        </Button>
-      </div>
-    ))
-  )
-  .add(
-    'Plain Button',
-    withInfo()(() => (
-      <Button
-        plain
-        primary={boolean('Primary', false)}
-        onClick={action('onClick')}
-        size={select(
-          'Size',
-          [Button.KILO, Button.MEGA, Button.GIGA],
-          Button.MEGA
-        )}
-        href={boolean('href', false) ? 'http://www.google.com' : undefined}
-      >
-        Button Link
-      </Button>
-    ))
-  );
+export const base = () => (
+  <Button
+    primary={boolean('Primary', false)}
+    disabled={boolean('Disabled', false)}
+    secondary={boolean('Secondary', false)}
+    flat={boolean('Flat', false)}
+    href={boolean('Link', false) ? '#' : undefined}
+    target={boolean('Link', false) ? '_blank' : undefined}
+    stretch={boolean('Stretched', false)}
+    size={select('Size', [Button.KILO, Button.MEGA, Button.GIGA], Button.KILO)}
+  >
+    {text('Button Label', 'Button')}
+  </Button>
+);
+
+export const primary = () => (
+  <Button primary>{text('Button Label', 'Primary Button')}</Button>
+);
+
+export const secondary = () => (
+  <Button secondary>{text('Button Label', 'Secondary Button')}</Button>
+);
+
+export const flat = () => (
+  <Button flat>{text('Button Label', 'Flat Button')}</Button>
+);
+
+export const plain = () => (
+  <Button plain href={boolean('href', false) ? 'http://sumup.com' : null}>
+    {text('Button Label', 'Plain Button')}
+  </Button>
+);
+
+export const size = () => (
+  <Fragment>
+    <Button size={Button.KILO}>Button kilo</Button>
+    <Button size={Button.MEGA}>Button mega</Button>
+    <Button size={Button.GIGA}>Button giga</Button>
+  </Fragment>
+);
