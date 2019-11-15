@@ -38,6 +38,6 @@ describe('AspectRatio', () => {
 
   it('should not render without children', () => {
     const actual = create(<AspectRatio spectRatio={1.618} />);
-    expect(actual).toMatchSnapshot();
+    expect(actual).toBeNull();
   });
 });
