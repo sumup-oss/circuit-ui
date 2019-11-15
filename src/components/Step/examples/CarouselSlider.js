@@ -77,10 +77,10 @@ const CarouselSlider = ({ images = [], ...stepProps }) => (
           step={state.step}
           animationDuration={state.animationDuration}
         >
-          {images.map((image, i) => (
+          {images.map(src => (
             <SliderImage
-              key={i}
-              src={image}
+              key={src}
+              src={src}
               alt="random pic"
               animationDuration={state.animationDuration}
             />

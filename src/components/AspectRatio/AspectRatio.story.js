@@ -14,11 +14,8 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { number } from '@storybook/addon-knobs/react';
 import styled from '@emotion/styled';
-
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
 
 import AspectRatio from './AspectRatio';
 
@@ -26,10 +23,18 @@ const Background = styled('div')`
   background: lightgrey;
 `;
 
-storiesOf(`${GROUPS.COMPONENTS}|AspectRatio`, module).add('AspectRatio', () => (
+export default {
+  title: 'Components|AspectRatio',
+  component: AspectRatio,
+  parameters: {
+    jest: ['AspectRatio']
+  }
+};
+
+export const base = () => (
   <div style={{ width: '50vw' }}>
     <AspectRatio aspectRatio={number('Aspect ratio', 1.5)}>
       <Background />
     </AspectRatio>
   </div>
-));
+);

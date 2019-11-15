@@ -14,12 +14,8 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
-import withTests from '../../../../util/withTests';
 
 import Heading from '../../../Heading';
 import Image from '../../../Image';
@@ -35,22 +31,29 @@ const headingStyles = css`
 `;
 const StyledHeading = styled(Heading)(headingStyles);
 
-storiesOf(`${GROUPS.COMPONENTS}|Carousel/Slide`, module)
-  .addDecorator(withTests('Carousel/Slide'))
-  .add('Slide with image', () => (
-    <div style={{ width: '50vw' }}>
-      <Slide>
-        <Image src="https://placedog.net/800/600" alt="random puppy" />
-      </Slide>
-    </div>
-  ))
-  .add('Slide with text and image', () => (
-    <div style={{ width: '50vw' }}>
-      <Slide>
-        <Image src="https://placedog.net/800/600" alt="random puppy" />
-        <StyledHeading size={Heading.EXA}>
-          Get The SumUp Card Reader Today!
-        </StyledHeading>
-      </Slide>
-    </div>
-  ));
+export default {
+  title: 'Components|Carousel/Slide',
+  component: Slide,
+  parameters: {
+    jest: ['Carousel/Slide']
+  }
+};
+
+export const onlyImage = () => (
+  <div style={{ width: '50vw' }}>
+    <Slide>
+      <Image src="https://placedog.net/800/600" alt="random puppy" />
+    </Slide>
+  </div>
+);
+
+export const textAndImage = () => (
+  <div style={{ width: '50vw' }}>
+    <Slide>
+      <Image src="https://placedog.net/800/600" alt="random puppy" />
+      <StyledHeading size={Heading.EXA}>
+        Get The SumUp Card Reader Today!
+      </StyledHeading>
+    </Slide>
+  </div>
+);

@@ -14,23 +14,25 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { boolean, number } from '@storybook/addon-knobs/react';
-
-import { GROUPS } from '../../../../../.storybook/hierarchySeparators';
-import withTests from '../../../../util/withTests';
 
 import Progress from './Progress';
 import { SLIDE_DURATION } from '../../constants';
 
-storiesOf(`${GROUPS.COMPONENTS}|Carousel/Progress`, module)
-  .addDecorator(withTests('Carousel/Progress'))
-  .add('Progress', () => (
-    <div style={{ width: '60vw' }}>
-      <Progress
-        paused={boolean('Paused', false)}
-        cycle={boolean('Cycle', true)}
-        animationDuration={number('Animation duration', SLIDE_DURATION)}
-      />
-    </div>
-  ));
+export default {
+  title: 'Components|Carousel/Progress',
+  component: Progress,
+  parameters: {
+    jest: ['Carousel/Progress']
+  }
+};
+
+export const base = () => (
+  <div style={{ width: '60vw' }}>
+    <Progress
+      paused={boolean('Paused', false)}
+      cycle={boolean('Cycle', true)}
+      animationDuration={number('Animation duration', SLIDE_DURATION)}
+    />
+  </div>
+);

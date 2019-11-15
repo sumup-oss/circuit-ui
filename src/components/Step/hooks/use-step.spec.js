@@ -36,32 +36,30 @@ describe('useStep', () => {
     unmount();
   });
 
-  it('should warn if cycle is used without totalSteps prop', () => {
-    const spy = jest.spyOn(global.console, 'warn');
+  it('should warn if cycle is used without totalSteps prop in dev environment', () => {
+    global.__DEV__ = true;
 
-    renderHook(() => useStep({ cycle: true }));
-
-    expect(global.console.warn).toHaveBeenCalledTimes(1);
-    expect(global.console.warn).toHaveBeenCalledWith(
+    const { result } = renderHook(() => useStep({ cycle: true }));
+    const expectedError = new Error(
       'Cannot use cycle prop without totalSteps prop.'
     );
 
-    spy.mockReset();
-    spy.mockRestore();
+    expect(result.error).toEqual(expectedError);
+
+    global.__DEV__ = false;
   });
 
   it('should warn if autoPlay is used without stepDuration prop', () => {
-    const spy = jest.spyOn(global.console, 'warn');
+    global.__DEV__ = true;
 
-    renderHook(() => useStep({ autoPlay: true }));
-
-    expect(global.console.warn).toHaveBeenCalledTimes(1);
-    expect(global.console.warn).toHaveBeenCalledWith(
+    const { result } = renderHook(() => useStep({ autoPlay: true }));
+    const expectedError = Error(
       'Cannot use autoPlay prop without stepDuration prop.'
     );
 
-    spy.mockReset();
-    spy.mockRestore();
+    expect(result.error).toEqual(expectedError);
+
+    global.__DEV__ = false;
   });
 
   it('should return actions and prop getters', () => {

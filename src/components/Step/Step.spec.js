@@ -25,10 +25,17 @@ describe('Step', () => {
     jest.resetModules();
   });
 
-  it('should not render without children as a function', () => {
-    const actual = create(<Step />);
+  it('should throw error without children as a function', () => {
+    const expectedError = new Error('Children must be a function');
 
-    expect(actual).toBeNull();
+    expect(() => create(<Step />)).toThrow(expectedError);
+    expect(() =>
+      create(
+        <Step>
+          <div />
+        </Step>
+      )
+    ).toThrow(expectedError);
   });
 
   it('should pass state and helpers to children', () => {

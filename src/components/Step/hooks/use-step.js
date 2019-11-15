@@ -19,14 +19,12 @@ import { isFunction } from 'lodash/fp';
 import * as StepService from '../StepService';
 
 export default function useStep(props = {}) {
-  if (props.cycle && !props.totalSteps) {
-    // eslint-disable-next-line no-console
-    console.warn('Cannot use cycle prop without totalSteps prop.');
+  if (__DEV__ && props.cycle && !props.totalSteps) {
+    throw new Error('Cannot use cycle prop without totalSteps prop.');
   }
 
-  if (props.autoPlay && !props.stepDuration) {
-    // eslint-disable-next-line no-console
-    console.warn('Cannot use autoPlay prop without stepDuration prop.');
+  if (__DEV__ && props.autoPlay && !props.stepDuration) {
+    throw new Error('Cannot use autoPlay prop without stepDuration prop.');
   }
 
   const initialState = {

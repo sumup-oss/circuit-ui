@@ -16,11 +16,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
 import { object, number, boolean } from '@storybook/addon-knobs/react';
-
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-import withTests from '../../util/withTests';
 
 import Container from './components/Container';
 import Slides from './components/Slides';
@@ -29,10 +25,21 @@ import SlideImage from './components/SlideImage';
 import Controls from './components/Controls';
 import { ButtonList, NextButton, PrevButton } from './components/Buttons';
 import Status from './components/Status';
-import Carousel from './Carousel';
 import { ASPECT_RATIO, ANIMATION_DURATION, SLIDE_DURATION } from './constants';
 
+import Carousel from './Carousel';
+import docs from './Carousel.docs.mdx';
+
 import { SLIDES } from './__fixtures__';
+
+export default {
+  title: 'Components|Carousel',
+  component: Carousel,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Carousel']
+  }
+};
 
 const CustomCarousel = ({ slides }) => {
   const total = slides.length;
@@ -72,24 +79,23 @@ const CustomCarousel = ({ slides }) => {
   );
 };
 
-storiesOf(`${GROUPS.COMPONENTS}|Carousel`, module)
-  .addDecorator(withTests('Carousel'))
-  .add('Carousel: Stateful', () => (
-    <div style={{ width: '50vw' }}>
-      <Carousel
-        slides={object('Slides', SLIDES)}
-        slideDuration={number('Slide duration', SLIDE_DURATION)}
-        animationDuration={number('Animation duration', ANIMATION_DURATION)}
-        aspectRatio={number('Aspect ratio', ASPECT_RATIO)}
-        cycle={boolean('Cycle', true)}
-        swipe={boolean('Swipe', true)}
-        autoPlay={boolean('Auto play', true)}
-        hideControls={boolean('Hide controls', false)}
-      />
-    </div>
-  ))
-  .add('Carousel: Composed', () => (
-    <div style={{ width: '50vw' }}>
-      <CustomCarousel slides={object('Slides', SLIDES)} />
-    </div>
-  ));
+export const stateful = () => (
+  <div style={{ width: '50vw' }}>
+    <Carousel
+      slides={object('Slides', SLIDES)}
+      slideDuration={number('Slide duration', SLIDE_DURATION)}
+      animationDuration={number('Animation duration', ANIMATION_DURATION)}
+      aspectRatio={number('Aspect ratio', ASPECT_RATIO)}
+      cycle={boolean('Cycle', true)}
+      swipe={boolean('Swipe', true)}
+      autoPlay={boolean('Auto play', true)}
+      hideControls={boolean('Hide controls', false)}
+    />
+  </div>
+);
+
+export const composed = () => (
+  <div style={{ width: '50vw' }}>
+    <CustomCarousel slides={object('Slides', SLIDES)} />
+  </div>
+);

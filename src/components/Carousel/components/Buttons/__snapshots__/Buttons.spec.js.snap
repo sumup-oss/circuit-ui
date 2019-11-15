@@ -68,8 +68,12 @@ exports[`Buttons styles should render with default styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-3[disabled],
-.circuit-3:disabled {
+.circuit-3[href] {
+  display: inline-block;
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -169,8 +173,12 @@ exports[`Buttons styles should render with default styles 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-14[disabled],
-.circuit-14:disabled {
+.circuit-14[href] {
+  display: inline-block;
+}
+
+.circuit-14:disabled,
+.circuit-14[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;

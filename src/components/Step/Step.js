@@ -47,7 +47,7 @@ function Step({
   });
 
   if (!isFunction(children)) {
-    return null;
+    throw new Error('Children must be a function');
   }
 
   return children(stateAndHelpers);

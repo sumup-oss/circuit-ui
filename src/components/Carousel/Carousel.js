@@ -39,7 +39,7 @@ import {
   PlayButton
 } from './components/Buttons';
 
-import useComponentSize from './hooks/use-component-size';
+import useComponentSize from '../../hooks/use-component-size';
 import {
   ASPECT_RATIO,
   ANIMATION_DURATION,

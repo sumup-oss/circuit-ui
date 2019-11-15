@@ -14,12 +14,11 @@
  */
 
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import { object, number, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
-import { GROUPS } from '../../../.storybook/hierarchySeparators';
-import withTests from '../../util/withTests';
+import Step from './Step';
+import docs from './Step.docs.mdx';
 
 import CarouselSlider from './examples/CarouselSlider';
 import YesOrNoSlider from './examples/YesOrNoSlider';
@@ -35,40 +34,49 @@ const IMAGES = [
 const STEP_DURATION = 2000;
 const ANIMATION_DURATION = 300;
 
-storiesOf(`${GROUPS.COMPONENTS}|Step`, module)
-  .addDecorator(withTests('Step'))
-  .add('CarouselSlider', () => (
-    <CarouselSlider
-      images={object('images', IMAGES)}
-      stepDuration={number('Step duration', STEP_DURATION)}
-      animationDuration={number('Animation duration', ANIMATION_DURATION)}
-      cycle={boolean('Cycle', true)}
-      autoPlay={boolean('Auto play', false)}
-      onNext={action('onNext')}
-      onPrevious={action('onPrev')}
-      onPlay={action('onPlay')}
-      onPause={action('onPause')}
-      onBeforeChange={action('onBeforeChange')}
-      onAfterChange={action('onAfterChange')}
-    />
-  ))
-  .add('YesOrNoSlider', () => (
-    <YesOrNoSlider
-      images={object('images', IMAGES)}
-      cycle={boolean('Cycle', true)}
-      onNext={action('onNext')}
-      onPrevious={action('onPrev')}
-      onPlay={action('onPlay')}
-      onPause={action('onPause')}
-      onBeforeChange={action('onBeforeChange')}
-      onAfterChange={action('onAfterChange')}
-    />
-  ))
-  .add('MultiStepForm', () => (
-    <MultiStepForm
-      onNext={action('onNext')}
-      onPrevious={action('onPrev')}
-      onBeforeChange={action('onBeforeChange')}
-      onAfterChange={action('onAfterChange')}
-    />
-  ));
+export default {
+  title: 'Components|Step',
+  component: Step,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Step']
+  }
+};
+
+export const slider = () => (
+  <CarouselSlider
+    images={object('images', IMAGES)}
+    stepDuration={number('Step duration', STEP_DURATION)}
+    animationDuration={number('Animation duration', ANIMATION_DURATION)}
+    cycle={boolean('Cycle', true)}
+    autoPlay={boolean('Auto play', false)}
+    onNext={action('onNext')}
+    onPrevious={action('onPrev')}
+    onPlay={action('onPlay')}
+    onPause={action('onPause')}
+    onBeforeChange={action('onBeforeChange')}
+    onAfterChange={action('onAfterChange')}
+  />
+);
+
+export const swiper = () => (
+  <YesOrNoSlider
+    images={object('images', IMAGES)}
+    cycle={boolean('Cycle', true)}
+    onNext={action('onNext')}
+    onPrevious={action('onPrev')}
+    onPlay={action('onPlay')}
+    onPause={action('onPause')}
+    onBeforeChange={action('onBeforeChange')}
+    onAfterChange={action('onAfterChange')}
+  />
+);
+
+export const form = () => (
+  <MultiStepForm
+    onNext={action('onNext')}
+    onPrevious={action('onPrev')}
+    onBeforeChange={action('onBeforeChange')}
+    onAfterChange={action('onAfterChange')}
+  />
+);

@@ -1,5 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Components|AspectRatio Base 1`] = `
+.circuit-2 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+  height: 0;
+  width: 100%;
+  padding-top: 67%;
+}
+
+.circuit-0 {
+  background: lightgrey;
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  z-index: 2;
+}
+
+<div
+  style="width: 50vw;"
+>
+  <div
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    />
+  </div>
+</div>
+`;
+
 exports[`Storyshots Components|Badge Base 1`] = `
 .circuit-0 {
   border-radius: 100px;
@@ -5432,6 +5475,1621 @@ exports[`Storyshots Components|Card/CardList Base 1`] = `
 </div>
 `;
 
+exports[`Storyshots Components|Carousel Composed 1`] = `
+.circuit-56 {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.circuit-36 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.circuit-10 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%,0,0);
+  -ms-transform: translate3d(0%,0,0);
+  transform: translate3d(0%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-6 {
+  width: 100%;
+}
+
+.circuit-1 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.circuit-1 img {
+  object-fit: cover;
+}
+
+.circuit-22 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-100%,0,0);
+  -ms-transform: translate3d(-100%,0,0);
+  transform: translate3d(-100%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.circuit-34 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-200%,0,0);
+  -ms-transform: translate3d(-200%,0,0);
+  transform: translate3d(-200%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -2;
+}
+
+.circuit-54 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.circuit-50 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+  background-color: #D8DDE1;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+.circuit-50:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-50:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-50:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-50:hover,
+.circuit-50:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-50[href] {
+  display: inline-block;
+}
+
+.circuit-50:disabled,
+.circuit-50[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-50:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-50:active,
+.circuit-50:focus,
+.circuit-50:hover {
+  padding: 0;
+}
+
+@media (max-width:479px) {
+  .circuit-50 {
+    width: 24px;
+    height: 24px;
+  }
+
+  .circuit-50 svg {
+    width: 25%;
+  }
+}
+
+.circuit-38 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.circuit-42 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+  background-color: #D8DDE1;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 8px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.circuit-42:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-42:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-42:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-42:hover,
+.circuit-42:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-42[href] {
+  display: inline-block;
+}
+
+.circuit-42:disabled,
+.circuit-42[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-42:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-42:active,
+.circuit-42:focus,
+.circuit-42:hover {
+  padding: 0;
+}
+
+@media (max-width:479px) {
+  .circuit-42 {
+    width: 24px;
+    height: 24px;
+  }
+
+  .circuit-42 svg {
+    width: 25%;
+  }
+}
+
+.circuit-8 {
+  box-shadow: 0 0 1px rgba(0,0,0,0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-4 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+  height: 0;
+  width: 100%;
+  padding-top: 40%;
+  background: #FAFBFC;
+}
+
+.circuit-52 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.circuit-45 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-45 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-45 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+<div
+  style="width: 50vw;"
+>
+  <div
+    class="circuit-56 circuit-57"
+  >
+    <div
+      class="circuit-36 circuit-37"
+    >
+      <div
+        class="circuit-10 circuit-11"
+        style="opacity: 1; transition: opacity .3s ease-in;"
+        width="100%"
+      >
+        <div
+          class="circuit-8 circuit-9"
+        >
+          <div
+            class="circuit-6 circuit-7"
+            width="100%"
+          >
+            <div
+              class="circuit-3 circuit-4 circuit-5"
+            >
+              <img
+                alt="doggy"
+                class="circuit-0 circuit-1 circuit-2"
+                src="https://placedog.net/600"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-22 circuit-11"
+        style="opacity: 0; transition: opacity .3s ease-in;"
+        width="100%"
+      >
+        <div
+          class="circuit-8 circuit-9"
+        >
+          <div
+            class="circuit-6 circuit-7"
+            width="100%"
+          >
+            <div
+              class="circuit-3 circuit-4 circuit-5"
+            >
+              <img
+                alt="doggy dog"
+                class="circuit-0 circuit-1 circuit-2"
+                src="https://placedog.net/700"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-34 circuit-11"
+        style="opacity: 0; transition: opacity .3s ease-in;"
+        width="100%"
+      >
+        <div
+          class="circuit-8 circuit-9"
+        >
+          <div
+            class="circuit-6 circuit-7"
+            width="100%"
+          >
+            <div
+              class="circuit-3 circuit-4 circuit-5"
+            >
+              <img
+                alt="woof woof"
+                class="circuit-0 circuit-1 circuit-2"
+                src="https://placedog.net/800"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-54 circuit-55"
+    >
+      <div
+        class="circuit-52 circuit-53"
+      >
+        <button
+          class="circuit-40 circuit-41 circuit-42 circuit-43"
+        >
+          <div
+            class="circuit-38 circuit-39"
+          >
+            <div>
+              arrow.svg
+            </div>
+          </div>
+        </button>
+        <p
+          class=" circuit-44 circuit-45 circuit-46"
+          style="margin-left: 8px;"
+        >
+          1
+           / 
+          3
+        </p>
+        <button
+          class="circuit-41 circuit-50 circuit-43"
+        >
+          <div
+            class="circuit-38 circuit-39"
+          >
+            <div>
+              arrow.svg
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Carousel Stateful 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+    transform: translateX(102%);
+  }
+}
+
+.circuit-64 {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.circuit-36 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.circuit-10 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%,0,0);
+  -ms-transform: translate3d(0%,0,0);
+  transform: translate3d(0%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-8 {
+  box-shadow: 0 0 1px rgba(0,0,0,0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-6 {
+  width: 100%;
+}
+
+.circuit-4 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+  height: 0;
+  width: 100%;
+  padding-top: 56%;
+  background: #FAFBFC;
+}
+
+.circuit-1 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.circuit-1 img {
+  object-fit: cover;
+}
+
+.circuit-22 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-100%,0,0);
+  -ms-transform: translate3d(-100%,0,0);
+  transform: translate3d(-100%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -1;
+}
+
+.circuit-34 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(-200%,0,0);
+  -ms-transform: translate3d(-200%,0,0);
+  transform: translate3d(-200%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: -2;
+}
+
+.circuit-62 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.circuit-40 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-right: 48px;
+}
+
+@media (min-width:480px) {
+  .circuit-40 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-40 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-40 {
+    margin-right: 12px;
+  }
+}
+
+.circuit-42 {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background-color: #EEF0F2;
+  border-radius: 5px;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.circuit-42:after {
+  content: '';
+  display: block;
+  background-color: #0F131A;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 5640ms;
+  animation-duration: 5640ms;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  height: 100%;
+}
+
+.circuit-60 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-left: 48px;
+}
+
+@media (max-width:479px) {
+  .circuit-60 {
+    margin-left: 12px;
+  }
+}
+
+.circuit-47 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+  background-color: #D8DDE1;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+.circuit-47:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-47:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-47:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-47:hover,
+.circuit-47:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-47[href] {
+  display: inline-block;
+}
+
+.circuit-47:disabled,
+.circuit-47[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-47:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-47:active,
+.circuit-47:focus,
+.circuit-47:hover {
+  padding: 0;
+}
+
+@media (max-width:479px) {
+  .circuit-47 {
+    width: 24px;
+    height: 24px;
+  }
+
+  .circuit-47 svg {
+    width: 25%;
+  }
+}
+
+.circuit-44 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.circuit-53 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+  background-color: #D8DDE1;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 8px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.circuit-53:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-53:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-53:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-53:hover,
+.circuit-53:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-53[href] {
+  display: inline-block;
+}
+
+.circuit-53:disabled,
+.circuit-53[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-53:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-53:active,
+.circuit-53:focus,
+.circuit-53:hover {
+  padding: 0;
+}
+
+@media (max-width:479px) {
+  .circuit-53 {
+    width: 24px;
+    height: 24px;
+  }
+
+  .circuit-53 svg {
+    width: 25%;
+  }
+}
+
+<div
+  style="width: 50vw;"
+>
+  <div
+    aria-label="gallery"
+    class="circuit-64 circuit-65"
+  >
+    <div
+      class="circuit-36 circuit-37"
+    >
+      <div
+        class="circuit-10 circuit-11"
+        width="100%"
+      >
+        <div
+          class="circuit-8 circuit-9"
+        >
+          <div
+            class="circuit-6 circuit-7"
+            width="100%"
+          >
+            <div
+              class="circuit-3 circuit-4 circuit-5"
+            >
+              <img
+                alt="doggy"
+                class="circuit-0 circuit-1 circuit-2"
+                src="https://placedog.net/600"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-22 circuit-11"
+        width="100%"
+      >
+        <div
+          class="circuit-8 circuit-9"
+        >
+          <div
+            class="circuit-6 circuit-7"
+            width="100%"
+          >
+            <div
+              class="circuit-3 circuit-4 circuit-5"
+            >
+              <img
+                alt="doggy dog"
+                class="circuit-0 circuit-1 circuit-2"
+                src="https://placedog.net/700"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="circuit-34 circuit-11"
+        width="100%"
+      >
+        <div
+          class="circuit-8 circuit-9"
+        >
+          <div
+            class="circuit-6 circuit-7"
+            width="100%"
+          >
+            <div
+              class="circuit-3 circuit-4 circuit-5"
+            >
+              <img
+                alt="woof woof"
+                class="circuit-0 circuit-1 circuit-2"
+                src="https://placedog.net/800"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circuit-62 circuit-63"
+    >
+      <p
+        class="circuit-38 circuit-39 circuit-40 circuit-41"
+      >
+        1
+         / 
+        3
+      </p>
+      <div
+        class="circuit-42 circuit-43"
+      />
+      <div
+        class="circuit-60 circuit-61"
+      >
+        <button
+          aria-label="pause"
+          class="circuit-46 circuit-47 circuit-48"
+        >
+          <div
+            class="circuit-44 circuit-45"
+          >
+            <div>
+              pause.svg
+            </div>
+          </div>
+        </button>
+        <button
+          aria-label="previous"
+          class="circuit-51 circuit-46 circuit-53 circuit-48"
+        >
+          <div
+            class="circuit-44 circuit-45"
+          >
+            <div>
+              arrow.svg
+            </div>
+          </div>
+        </button>
+        <button
+          aria-label="next"
+          class="circuit-46 circuit-47 circuit-48"
+        >
+          <div
+            class="circuit-44 circuit-45"
+          >
+            <div>
+              arrow.svg
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Carousel/Buttons All Buttons 1`] = `
+.circuit-3 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+  background-color: #D8DDE1;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+.circuit-3:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-3:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-3:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-3:hover,
+.circuit-3:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-3[href] {
+  display: inline-block;
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-3:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-3:active,
+.circuit-3:focus,
+.circuit-3:hover {
+  padding: 0;
+}
+
+@media (max-width:479px) {
+  .circuit-3 {
+    width: 24px;
+    height: 24px;
+  }
+
+  .circuit-3 svg {
+    width: 25%;
+  }
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.circuit-14 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+  background-color: #D8DDE1;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 8px;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.circuit-14:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-14:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-14:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-14:hover,
+.circuit-14:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-14[href] {
+  display: inline-block;
+}
+
+.circuit-14:disabled,
+.circuit-14[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-14:first-of-type {
+  margin-left: 0;
+}
+
+.circuit-14:active,
+.circuit-14:focus,
+.circuit-14:hover {
+  padding: 0;
+}
+
+@media (max-width:479px) {
+  .circuit-14 {
+    width: 24px;
+    height: 24px;
+  }
+
+  .circuit-14 svg {
+    width: 25%;
+  }
+}
+
+.circuit-21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+<div
+  class="circuit-21 circuit-22"
+>
+  <button
+    aria-label="pause"
+    class="circuit-2 circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    >
+      <div>
+        pause.svg
+      </div>
+    </div>
+  </button>
+  <button
+    aria-label="play"
+    class="circuit-2 circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    >
+      <div>
+        play.svg
+      </div>
+    </div>
+  </button>
+  <button
+    class="circuit-12 circuit-2 circuit-14 circuit-4"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    >
+      <div>
+        arrow.svg
+      </div>
+    </div>
+  </button>
+  <button
+    class="circuit-2 circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    >
+      <div>
+        arrow.svg
+      </div>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`Storyshots Components|Carousel/Progress Base 1`] = `
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+    transform: translateX(102%);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    width: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  90% {
+    width: 100%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  100% {
+    width: 100%;
+    -webkit-transform: translateX(102%);
+    -ms-transform: translateX(102%);
+    transform: translateX(102%);
+  }
+}
+
+.circuit-0 {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background-color: #EEF0F2;
+  border-radius: 5px;
+}
+
+.circuit-0:after {
+  content: '';
+  display: block;
+  background-color: #0F131A;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 5000ms;
+  animation-duration: 5000ms;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  height: 100%;
+}
+
+<div
+  style="width: 60vw;"
+>
+  <div
+    class="circuit-0 circuit-1"
+  />
+</div>
+`;
+
+exports[`Storyshots Components|Carousel/Slide Only Image 1`] = `
+.circuit-6 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%,0,0);
+  -ms-transform: translate3d(0%,0,0);
+  transform: translate3d(0%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-2 {
+  width: 100%;
+}
+
+.circuit-4 {
+  box-shadow: 0 0 1px rgba(0,0,0,0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-0 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+}
+
+<div
+  style="width: 50vw;"
+>
+  <div
+    class="circuit-6 circuit-7"
+    width="100%"
+  >
+    <div
+      class="circuit-4 circuit-5"
+    >
+      <div
+        class="circuit-2 circuit-3"
+        width="100%"
+      >
+        <img
+          alt="random puppy"
+          class="circuit-0 circuit-1"
+          src="https://placedog.net/800/600"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Carousel/Slide Text And Image 1`] = `
+.circuit-9 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%,0,0);
+  -ms-transform: translate3d(0%,0,0);
+  transform: translate3d(0%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-5 {
+  width: 100%;
+}
+
+.circuit-7 {
+  box-shadow: 0 0 1px rgba(0,0,0,0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-0 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+}
+
+.circuit-3 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 28px;
+  line-height: 32px;
+  color: #fff;
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 25px;
+  z-index: 2;
+}
+
+@media (min-width:480px) {
+  .circuit-3 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+<div
+  style="width: 50vw;"
+>
+  <div
+    class="circuit-9 circuit-10"
+    width="100%"
+  >
+    <div
+      class="circuit-7 circuit-8"
+    >
+      <div
+        class="circuit-5 circuit-6"
+        width="100%"
+      >
+        <img
+          alt="random puppy"
+          class="circuit-0 circuit-1"
+          src="https://placedog.net/800/600"
+        />
+        <h2
+          class=" circuit-2 circuit-3 circuit-4"
+        >
+          Get The SumUp Card Reader Today!
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Carousel/Status Base 1`] = `
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-1 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width:479px) {
+  .circuit-1 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+<p
+  class=" circuit-0 circuit-1 circuit-2"
+>
+  1
+   / 
+  3
+</p>
+`;
+
 exports[`Storyshots Components|Hamburger Base 1`] = `
 .circuit-4 {
   cursor: pointer;
@@ -9232,6 +10890,703 @@ exports[`Storyshots Components|Spinner Base 1`] = `
       spinner.svg
     </div>
   </div>
+</div>
+`;
+
+exports[`Storyshots Components|Step Form 1`] = `
+.circuit-8 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-24 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: #3388FF;
+  border-color: #1760CE;
+  color: #FFFFFF;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-24:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-24:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-24:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-24:hover,
+.circuit-24:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-24[href] {
+  display: inline-block;
+}
+
+.circuit-24:disabled,
+.circuit-24[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-24:active {
+  background-color: #1760CE;
+  border-color: #003C8B;
+}
+
+.circuit-24:focus {
+  border-color: #1760CE;
+}
+
+.circuit-24:hover {
+  background-color: #1760CE;
+}
+
+.circuit-24:hover,
+.circuit-24:active {
+  border-color: #003C8B;
+}
+
+.circuit-14 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-14,
+label + .circuit-14 {
+  margin-top: 4px;
+}
+
+.circuit-10 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+}
+
+.circuit-10:focus,
+.circuit-10:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-10::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-10::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-10:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-10::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-12 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 19px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 22px;
+    line-height: 24px;
+  }
+}
+
+.circuit-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-left: 8px;
+}
+
+.circuit-26 {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 300px;
+}
+
+.circuit-2 {
+  background-color: #FAFBFC;
+  border: 1px solid #D8DDE1;
+  border-radius: 4px;
+  position: relative;
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+}
+
+.circuit-2::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 33.33333333333333%;
+  background-color: #3388FF;
+  border: 1px solid #1760CE;
+  box-shadow: inset 0 1px 0 0 #AFD0FE;
+  border-radius: 3px 0 0 3px;
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+}
+
+<div
+  class="circuit-26 circuit-27"
+>
+  <h2
+    class=" circuit-0 circuit-1"
+  >
+    Step 
+    1
+     of 
+    3
+  </h2>
+  <div
+    class="circuit-6 circuit-7"
+  >
+    <span
+      aria-labelledby="progress-bar_41"
+      aria-valuemax="3"
+      aria-valuemin="0"
+      aria-valuenow="1"
+      class="circuit-2 circuit-3"
+      max="3"
+      role="progressbar"
+      value="1"
+    />
+    <span
+      class="circuit-4 circuit-5"
+      id="progress-bar_41"
+    />
+  </div>
+  <section>
+    <label
+      class="circuit-8 circuit-9"
+      for="first"
+    >
+      First Name
+    </label>
+    <div
+      class="circuit-14 circuit-15"
+    >
+      <input
+        aria-invalid="false"
+        class="circuit-10 circuit-11"
+        id="first"
+        placeholder="John"
+      />
+      <div
+        class="circuit-12 circuit-13"
+      />
+    </div>
+    <label
+      class="circuit-8 circuit-9"
+      for="second"
+    >
+      Second Name
+    </label>
+    <div
+      class="circuit-14 circuit-15"
+    >
+      <input
+        aria-invalid="false"
+        class="circuit-10 circuit-11"
+        id="second"
+        placeholder="Doe"
+      />
+      <div
+        class="circuit-12 circuit-13"
+      />
+    </div>
+    <button
+      class="circuit-24 circuit-25"
+    >
+      Next
+    </button>
+  </section>
+</div>
+`;
+
+exports[`Storyshots Components|Step Slider 1`] = `
+.circuit-28 {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 400px;
+}
+
+.circuit-15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-transform: translate3d(0px,0,0);
+  -ms-transform: translate3d(0px,0,0);
+  transform: translate3d(0px,0,0);
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.circuit-1 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 400px;
+  -ms-flex-preferred-size: 400px;
+  flex-basis: 400px;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  padding: 24px;
+}
+
+.circuit-26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.circuit-18 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+  margin: 8px;
+}
+
+.circuit-18:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-18:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-18:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-18:hover,
+.circuit-18:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-18[href] {
+  display: inline-block;
+}
+
+.circuit-18:disabled,
+.circuit-18[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-21 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: #3388FF;
+  border-color: #1760CE;
+  color: #FFFFFF;
+  padding: calc(8px - 0px) calc(24px - 0px);
+  margin: 8px;
+}
+
+.circuit-21:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-21:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-21:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-21:hover,
+.circuit-21:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-21[href] {
+  display: inline-block;
+}
+
+.circuit-21:disabled,
+.circuit-21[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-21:active {
+  background-color: #1760CE;
+  border-color: #003C8B;
+}
+
+.circuit-21:focus {
+  border-color: #1760CE;
+}
+
+.circuit-21:hover {
+  background-color: #1760CE;
+}
+
+.circuit-21:hover,
+.circuit-21:active {
+  border-color: #003C8B;
+}
+
+<div
+  class="circuit-28 circuit-29"
+>
+  <div
+    class="circuit-15 circuit-16"
+    step="0"
+  >
+    <img
+      alt="random pic"
+      class="circuit-0 circuit-1 circuit-2"
+      src="https://placedog.net/500/500"
+    />
+    <img
+      alt="random pic"
+      class="circuit-0 circuit-1 circuit-2"
+      src="https://placedog.net/600/600"
+    />
+    <img
+      alt="random pic"
+      class="circuit-0 circuit-1 circuit-2"
+      src="https://placedog.net/700/700"
+    />
+    <img
+      alt="random pic"
+      class="circuit-0 circuit-1 circuit-2"
+      src="https://placedog.net/800/800"
+    />
+    <img
+      alt="random pic"
+      class="circuit-0 circuit-1 circuit-2"
+      src="https://placedog.net/900/900"
+    />
+  </div>
+  <div
+    class="circuit-26 circuit-27"
+  >
+    <button
+      aria-label="previous"
+      class="circuit-17 circuit-18 circuit-19"
+    >
+      ← Prev
+    </button>
+    <button
+      aria-label="play"
+      class="circuit-17 circuit-21 circuit-19"
+    >
+      Play
+    </button>
+    <button
+      aria-label="next"
+      class="circuit-17 circuit-18 circuit-19"
+    >
+      Next →
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components|Step Swiper 1`] = `
+.circuit-3 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-3:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-3:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(8px - 1px) calc(24px - 1px);
+}
+
+.circuit-3:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-3:hover,
+.circuit-3:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(8px - 0px) calc(24px - 0px);
+}
+
+.circuit-3[href] {
+  display: inline-block;
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-9 {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 400px;
+}
+
+.circuit-1 {
+  display: block;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  -webkit-transition: -webkit-transform 200ms ease;
+  -webkit-transition: transform 200ms ease;
+  transition: transform 200ms ease;
+}
+
+.circuit-7 {
+  list-style-type: none;
+  width: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.circuit-7 > li:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.circuit-7 > li > * {
+  width: 100%;
+}
+
+@media (min-width:480px) {
+  .circuit-7 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+
+  .circuit-7 > li:not(:last-of-type) {
+    margin-bottom: 0;
+    margin-right: 16px;
+  }
+}
+
+<div
+  class="circuit-9 circuit-10"
+>
+  <div>
+    <img
+      alt="random pic"
+      class="circuit-0 circuit-1 circuit-2"
+      src="https://placedog.net/500/500"
+    />
+  </div>
+  <ul
+    class="circuit-7 circuit-8"
+  >
+    <li>
+      <button
+        aria-label="previous"
+        class="circuit-3 circuit-4"
+      >
+        No
+      </button>
+    </li>
+    <li>
+      <button
+        aria-label="next"
+        class="circuit-3 circuit-4"
+      >
+        Yes
+      </button>
+    </li>
+  </ul>
 </div>
 `;
 
@@ -18184,7 +20539,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="41"
+  for="42"
 >
   Label
   <div
@@ -18193,7 +20548,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="41"
+      id="42"
       placeholder="Write your text here..."
     />
     <div
@@ -18275,7 +20630,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4 circuit-5"
-  for="45"
+  for="46"
 >
   Label
   <div
@@ -18286,7 +20641,7 @@ label + .circuit-2 {
       aria-invalid="false"
       class="circuit-0 circuit-1"
       disabled=""
-      id="45"
+      id="46"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -18445,7 +20800,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="42"
+  for="43"
 >
   Label
   <div
@@ -18454,7 +20809,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="true"
       class="circuit-0 circuit-1"
-      id="42"
+      id="43"
       placeholder="Write your text here..."
     />
     <div
@@ -18561,7 +20916,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="44"
+  for="45"
 >
   Label
   <div
@@ -18570,7 +20925,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="44"
+      id="45"
       placeholder="Write your text here..."
     />
     <div
@@ -18730,7 +21085,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="43"
+  for="44"
 >
   Label
   <div
@@ -18739,7 +21094,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="43"
+      id="44"
       placeholder="Write your text here..."
     />
     <div
@@ -18856,9 +21211,9 @@ exports[`Storyshots Forms|Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_47"
+    aria-labelledby="toggle-label_48"
     class="circuit-4 circuit-5"
-    id="toggle-switch_46"
+    id="toggle-switch_47"
     role="switch"
     type="button"
   >
@@ -18873,8 +21228,8 @@ exports[`Storyshots Forms|Toggle Base 1`] = `
   </button>
   <label
     class="circuit-9 circuit-10"
-    for="toggle-switch_46"
-    id="toggle-label_47"
+    for="toggle-switch_47"
+    id="toggle-label_48"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
@@ -18996,9 +21351,9 @@ exports[`Storyshots Forms|Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_49"
+    aria-labelledby="toggle-label_50"
     class="circuit-4 circuit-5"
-    id="toggle-switch_48"
+    id="toggle-switch_49"
     role="switch"
     type="button"
   >
@@ -19013,8 +21368,8 @@ exports[`Storyshots Forms|Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-12 circuit-13"
-    for="toggle-switch_48"
-    id="toggle-label_49"
+    for="toggle-switch_49"
+    id="toggle-label_50"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
