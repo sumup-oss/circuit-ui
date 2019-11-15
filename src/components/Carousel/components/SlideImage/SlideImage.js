@@ -27,7 +27,6 @@ const backgroundStyles = ({ theme }) => css`
   label: carousel__slideimage;
   background: ${theme.colors.n100};
 `;
-// fix AspectRatio when upgrade to latest @emotion dependency
 const StyledAspectRatio = styled(AspectRatio)(backgroundStyles);
 
 const imageStyles = css`
