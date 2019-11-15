@@ -36,7 +36,7 @@ describe('useComponentSize', () => {
     expect(result.current).toEqual({ width: 800, height: 450 });
   });
 
-  it('should update on widnow resize events', () => {
+  it('should update on window resize events', () => {
     const ref = {
       current: {
         offsetWidth: 800,
