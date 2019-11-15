@@ -28,7 +28,7 @@ describe('Step', () => {
   it('should not render without children as a function', () => {
     const actual = create(<Step />);
 
-    expect(actual).toMatchSnapshot();
+    expect(actual).toBeNull();
   });
 
   it('should pass state and helpers to children', () => {
