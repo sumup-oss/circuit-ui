@@ -33,22 +33,21 @@ const APP_NAME = process.argv[2];
 const APP_PATH = resolve(WORKING_DIR, APP_NAME || '');
 const DEPENDENCIES = [
   // Our beautiful component library 💄
-  '@sumup/circuit-ui@beta',
+  '@sumup/circuit-ui@^1.0.0',
   // CSS-in-JS 🚀
   '@emotion/core@^10.0.10',
   'emotion-theming@^10.0.10',
-  '@emotion/styled@^10.0.10',
-  'jest-emotion@^10.0.10'
+  '@emotion/styled@^10.0.10'
 ];
 const DEV_DEPENDENCIES = [
   // React ⚛️
   'prop-types',
   // The toolkit 🛠
-  '@sumup/foundry@beta',
+  '@sumup/foundry@^1.0.0',
   // Testing 📏
-  '@testing-library/react@^8.0.0',
+  '@testing-library/react@^9.0.0',
   'jest-emotion@^10.0.11',
-  'jest-dom@^3.4.0'
+  '@testing-library/jest-dom@^4.2.0'
 ];
 
 const listrOptions = util.isDebugging()
@@ -61,7 +60,6 @@ const tasks = new Listr(
   [
     {
       title: 'Running Create React App',
-      // task: () => runCreateReactApp(APP_NAME)
       task: () => runCreateReactApp(APP_NAME)
     },
     {
