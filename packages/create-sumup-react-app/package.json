@@ -1,10 +1,12 @@
 {
   "name": "@sumup/create-sumup-react-app",
-  "version": "1.2.2",
+  "version": "0.0.0-semantically-released",
   "description": "Creates a ready for development React app using create-react-app.",
   "repository": "github:sumup/create-sumup-react-app",
   "scripts": {
-    "lint": "foundry run eslint \"**/*.js\""
+    "lint": "foundry run eslint \"**/*.js\"",
+    "release": "semantic-release",
+    "check:licenses": "license-checker --production --summary --failOn=GPLv3"
   },
   "files": [
     "/lib",
@@ -28,6 +30,12 @@
     "listr-verbose-renderer": "^0.5.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "^1.0.0"
+    "@sumup/foundry": "^1.0.0",
+    "license-checker": "^25.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
