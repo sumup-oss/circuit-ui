@@ -4,12 +4,23 @@
   "description": "Creates a ready for development React app using create-react-app.",
   "repository": "github:sumup/create-sumup-react-app",
   "scripts": {
-    "lint": "foundry run eslint ./**/*.js"
+    "lint": "foundry run eslint \"**/*.js\""
   },
+  "files": [
+    "/lib",
+    "/files",
+    "bin",
+    "index.js",
+    "main.js",
+    "yarn.lock",
+    "README",
+    "CODE_OF_CONDUCT",
+    "CONTRIBUTING"
+  ],
   "bin": "bin",
   "main": "index.js",
   "author": "Felix Jung <felix.jung@sumup.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "chalk": "^2.4.2",
     "esm": "^3.2.25",
@@ -17,6 +28,6 @@
     "listr-verbose-renderer": "^0.5.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "beta"
+    "@sumup/foundry": "^1.0.0"
   }
 }
