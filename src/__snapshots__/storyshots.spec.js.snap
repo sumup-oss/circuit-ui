@@ -8701,7 +8701,7 @@ exports[`Storyshots Components|ProgressBar With Percentage 1`] = `
 `;
 
 exports[`Storyshots Components|Sidebar Base 1`] = `
-.circuit-41 {
+.circuit-43 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -8716,11 +8716,11 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
   width: 1px;
 }
 
-.circuit-45 {
+.circuit-47 {
   height: 100vh;
 }
 
-.circuit-37 {
+.circuit-39 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8745,7 +8745,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 }
 
 @media (min-width:960px) {
-  .circuit-37 {
+  .circuit-39 {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
@@ -8754,7 +8754,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 }
 
 @media (min-width:960px) {
-  .circuit-37 {
+  .circuit-39 {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
@@ -8784,7 +8784,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
   color: #FAFBFC;
 }
 
-.circuit-33 {
+.circuit-35 {
   height: auto;
   justify-self: flex-start;
   overflow-y: auto;
@@ -8928,7 +8928,16 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
   transition: margin-top 300ms ease-in-out;
 }
 
-.circuit-30 {
+.circuit-28 {
+  display: block;
+  width: 100%;
+  border: 1px solid #D8DDE1;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #323E49;
+}
+
+.circuit-32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8950,26 +8959,26 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
   text-decoration: none;
 }
 
-.circuit-30 * {
+.circuit-32 * {
   fill: #9DA7B1;
 }
 
-.circuit-30:hover {
+.circuit-32:hover {
   color: #D8DDE1;
 }
 
-.circuit-30:hover * {
+.circuit-32:hover * {
   fill: #D8DDE1;
 }
 
-.circuit-35 {
+.circuit-37 {
   margin-top: auto;
   padding: 24px;
   background-color: #212933;
   color: #FAFBFC;
 }
 
-.circuit-39 {
+.circuit-41 {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -8984,12 +8993,12 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 }
 
 @media (min-width:960px) {
-  .circuit-39 {
+  .circuit-41 {
     visibility: hidden;
   }
 }
 
-.circuit-43 {
+.circuit-45 {
   cursor: pointer;
   outline: none;
   display: -webkit-box;
@@ -9021,16 +9030,16 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 }
 
 @media (min-width:960px) {
-  .circuit-43 {
+  .circuit-45 {
     visibility: hidden;
   }
 }
 
 <div
-  class="circuit-45 circuit-46"
+  class="circuit-47 circuit-48"
 >
   <nav
-    class="circuit-37 circuit-38"
+    class="circuit-39 circuit-40"
     open=""
   >
     <header
@@ -9039,7 +9048,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
       Header
     </header>
     <ul
-      class="circuit-33 circuit-34"
+      class="circuit-35 circuit-36"
     >
       <li
         class="circuit-6"
@@ -9112,11 +9121,14 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
           </a>
         </li>
       </ul>
+      <hr
+        class="circuit-28 circuit-29"
+      />
       <li
         class="circuit-6"
       >
         <a
-          class="circuit-30 circuit-5"
+          class="circuit-32 circuit-5"
         >
           <div>
             me-empty.svg
@@ -9130,21 +9142,21 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
       </li>
     </ul>
     <footer
-      class="circuit-35 circuit-36"
+      class="circuit-37 circuit-38"
     >
       Footer
     </footer>
   </nav>
   <div
-    class="circuit-39 circuit-40"
+    class="circuit-41 circuit-42"
     data-testid="sidebar-backdrop"
   />
   <button
-    class="circuit-43 circuit-44"
+    class="circuit-45 circuit-46"
     data-testid="sidebar-close-button"
   >
     <span
-      class="circuit-41 circuit-42"
+      class="circuit-43 circuit-44"
     >
       close-button
     </span>

@@ -19,6 +19,7 @@ import { boolean } from '@storybook/addon-knobs/react';
 
 import docs from './Sidebar.docs.mdx';
 import Sidebar from '.';
+import Separator from './components/Separator';
 
 import { ReactComponent as HomeEmpty } from './icons/home-empty.svg';
 import { ReactComponent as ListEmpty } from './icons/list-empty.svg';
@@ -79,6 +80,7 @@ const SidebarWithState = () => {
               onClick={() => setSelected(6)}
             />
           </Sidebar.Aggregator>
+          <Separator />
           <Sidebar.NavItem
             key="me"
             label="Me"
