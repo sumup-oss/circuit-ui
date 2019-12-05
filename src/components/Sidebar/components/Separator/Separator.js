@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import Hr from '../../../Hr';
 
 const baseStyles = ({ theme }) => css`
-  label: separator;
+  label: sidebar-separator;
   border: 1px solid ${theme.colors.n800};
 `;
 
