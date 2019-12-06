@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import { jsx, css } from '@emotion/core';
+import { jsx, css, Global } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import {
   Card,
@@ -8,7 +8,7 @@ import {
   List,
   Text,
   theme as themes,
-  GlobalStyles
+  BaseStyles
 } from '@sumup/circuit-ui';
 import { ReactComponent as LogoIcon } from './assets/logo.svg';
 
@@ -33,15 +33,16 @@ const Container = styled('header')`
   margin: 0 auto;
 `;
 
+const globalStyles = css`
+  body {
+    background-color: ${circuit.colors.n100};
+  }
+`;
+
 const App = () => (
   <ThemeProvider theme={circuit}>
-    <GlobalStyles
-      custom={`
-        body {
-          background-color: ${circuit.colors.n100};
-        }
-      `}
-    />
+    <BaseStyles />
+    <Global styles={globalStyles} />
     <Container>
       <Logo data-testid="sumup-logo" />
       <Card>

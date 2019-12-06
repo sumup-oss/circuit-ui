@@ -201,7 +201,7 @@ async function updatePackageJson(appPath) {
   const filepath = resolve(appPath, 'package.json');
   const { default: packageJson } = await import(filepath);
   const scripts = {
-    lint: 'foundry run eslint src/**/*.js',
+    lint: "foundry run eslint 'src/**/*.js'",
     'create-component': 'foundry run plop component'
   };
   const updatedPackageJson = {

@@ -30,7 +30,7 @@
     "listr-verbose-renderer": "^0.5.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "^1.0.0",
+    "@sumup/foundry": "^2.0.0-beta",
     "license-checker": "^25.0.1"
   },
   "husky": {
