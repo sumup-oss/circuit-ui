@@ -1,6 +1,6 @@
 {
   "name": "circuit-ui",
-  "version": "2",
+  "version": 2,
   "scope": "sumup-oss",
   "regions": ["sfo1", "bru"],
   "public": "false",
