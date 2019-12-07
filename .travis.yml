@@ -45,5 +45,5 @@ jobs:
         github_token: $GITHUB_TOKEN
         on:
           branch: master
-        local-dir: dist
+        local-dir: public
         target_branch: gh-pages
