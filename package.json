@@ -30,6 +30,7 @@
     "build:js": "yarn clean:js && yarn build:js:cjs && yarn build:js:es",
     "build:js:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js,*.docs.mdx",
     "build:js:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js,*.docs.mdx",
+    "build:tsc": "tsc",
     "clean:js": "rimraf lib",
     "predeploy": "rm -rf ./public && yarn build && cp ./src/CNAME ./public/CNAME",
     "deploy": "gh-pages -d public",
