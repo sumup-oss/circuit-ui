@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, {SFC} from 'react';
 import { omit } from 'lodash/fp';
-import PropTypes from 'prop-types';
 
 import PlainButton from './components/PlainButton';
 import RegularButton from './components/RegularButton';
@@ -56,60 +55,36 @@ const REGULAR_BUTTON_ONLY_PROPS = [
   'stretch'
 ];
 
+enum SIZE_PROP_TYPE {
+  KILO,
+  MEGA,
+  GIGA
+}
+
+interface Props {
+  size: SIZE_PROP_TYPE // Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
+  href: string // URL the Button should lead to. Causes the Button to render an <a> tag.
+  flat: boolean // Button has a 'flat' variation, triggered with this prop.
+  plain: boolean // Makes the button look and behave like a text link.
+  target: string // Link target. Should only be passed, if href is passed, too.
+  stretch: boolean // Trigger stretch (full width) styles on the component.
+  primary: boolean // Renders a primary button using the brand color.
+  disabled: boolean // Should the Button be disabled?
+  secondary: boolean // Renders a secondary button. Secondary buttons look the same for primary (default) and flat buttons.
+  defaultProps: {}
+}
+
 /**
  * A button component with support for the anchor and button
  * element as well as a button-looking button and a text link.
  */
-const Button = ({ plain, ...props }) =>
+const Button: SFC<Props> = ({ plain, ...props}) => 
   plain ? (
     <PlainButton {...omit(REGULAR_BUTTON_ONLY_PROPS, props)} />
   ) : (
     <RegularButton {...props} />
   );
 
-Button.KILO = KILO;
-Button.MEGA = MEGA;
-Button.GIGA = GIGA;
-
-Button.propTypes = {
-  /**
-   * Should the Button be disabled?
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Button has a 'flat' variation, triggered with this prop.
-   */
-  flat: PropTypes.bool,
-  /**
-   * URL the Button should lead to. Causes the Button to render an <a> tag.
-   */
-  href: PropTypes.string,
-  /**
-   * Makes the button look and behave like a text link.
-   */
-  plain: PropTypes.bool,
-  /**
-   * Renders a primary button using the brand color.
-   */
-  primary: PropTypes.bool,
-  /**
-   * Size of the button. Use the Button's KILO, MEGA, or GIGA properties.
-   */
-  size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
-  /**
-   * Renders a secondary button. Secondary buttons look the same for
-   * primary (default) and flat buttons.
-   */
-  secondary: PropTypes.bool,
-  /**
-   * Trigger stretch (full width) styles on the component.
-   */
-  stretch: PropTypes.bool,
-  /**
-   * Link target. Should only be passed, if href is passed, too.
-   */
-  target: PropTypes.string
-};
 
 Button.defaultProps = {
   disabled: false,
@@ -118,10 +93,14 @@ Button.defaultProps = {
   plain: false,
   primary: false,
   secondary: false,
-  size: Button.MEGA,
+  size: MEGA,
   stretch: false,
   target: null
 };
+
+Button.KILO = KILO;
+Button.MEGA = MEGA;
+Button.GIGA = GIGA;
 
 /**
  * @component
