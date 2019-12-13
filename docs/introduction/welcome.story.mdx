@@ -1,8 +1,14 @@
-import { Meta } from '../../.storybook/components';
+import {
+  Meta,
+  Image,
+  Status,
+  Intro,
+  Teaser
+} from '../../.storybook/components';
 
 <Meta title="Introduction|Welcome" />
 
-<img
+<Image
   width="2400"
   height="1000"
   alt="Logo of SumUp's Circuit UI design system"
@@ -10,30 +16,59 @@ import { Meta } from '../../.storybook/components';
   style={{ margin: '0 auto 36px' }}
 />
 
-# Circuit UI
+<Intro>
+  Circuit UI is the web implementation of the SumUp Circuit Design System. Our
+  primary goal is to create a system that can be used to build a wide variety of
+  web applications, while providing a consistent, accessible, and performant
+  user experience to our users.
+</Intro>
 
-Resources, tooling, and design guidelines for building websites with Circuit
-UI, the web incarnation of the SumUp Circuit Design System.
+[![Version](https://img.shields.io/npm/v/@sumup/circuit-ui)](https://www.npmjs.com/package/@sumup/circuit-ui) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/blob/master/LICENSE) [![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/)
 
-## Introduction
+<Teaser title="Getting started">
 
-Our primary goal is to create a system that can be used to build a wide variety
-of SumUp websites, while providing a consistent user experience to our end
-users. In addition, the design system and component library should be
-easy to use and developer and designer-friendly.
+Set up a new app with Circuit UI or add it to an existing project.
 
-This style guide is living documentation that will be updated as we continue to
-improve and evolve our design system.
+[Get started](Introduction|Getting-started)
 
-## Getting started
+</Teaser>
 
-Here are a few helpful links for getting started with Circuit UI:
+<Teaser title="Design principles">
 
-- [Getting started](Introduction|Developers) - Install and configure Circuit for your React app.
-- [Static Styles](Styles|Static-Styles) _experimental_ - Use Circuit UI styles without React.
-- [Theme](Styles|Theme) - Learn about our foundations such as colors, spacing, and typography.
-- [Contributing](Introduction|Contributing) - File a bug report, suggest a change, or open a PR.
+Discover the guiding principles behind Circuit UI's design.
+
+[Read design guidelines](Introduction|Design-Principles)
+
+</Teaser>
+
+<Teaser title="Theming">
+
+Learn about our foundations such as colors, spacing, and typography.
+
+[Browse theme reference](Advanced|Theme)
+
+</Teaser>
+
+<Teaser title="Contributing">
+
+File a bug report, suggest a change, or open a pull request.
+
+[Contribute](Introduction|Contributing)
+
+</Teaser>
+
+<div style={{ clear: 'both' }} />
 
 ## Changelog
 
-Read the [release notes](https://github.com/sumup-oss/circuit-ui/releases) on GitHub.
+Circuit UI follows semantic versioning. In short, this means we use patch versions for bugfixes, minor versions for new features, and major versions for breaking changes. You can read [our changelog on GitHub](https://github.com/sumup-oss/circuit-ui/releases).
+
+## Related Projects
+
+- **[create-sumup-react-app](https://github.com/sumup/create-sumup-react-app)** — bootstrap a new React app with [create-react-app](https://create-react-app.dev/), Circuit UI, Prettier, and Jest
+- **[create-sumup-next-app](https://github.com/sumup/create-sumup-next-app)** — bootstrap a fresh [Next.js](https://nextjs.org/) app with SumUp's standard frontend toolchain
+- **[circuit-deck](https://github.com/sumup/circuit-deck)** — create presentations with [mdx-deck](https://github.com/jxnblk/mdx-deck) and Circuit UI
+
+## About SumUp
+
+[SumUp](https://sumup.com) is a mobile-point of sale provider. It is our mission to make easy and fast card payments a reality across the _entire_ world. You can pay with SumUp in more than 30 countries, already. Our engineers work in Berlin, Cologne, Sofia, and Sāo Paulo. They write code in JavaScript, Swift, Ruby, Elixir, Erlang, and much more. Want to come work and with us? [Head to our careers page](https://sumup.com/careers) to find out more.

@@ -2,6 +2,8 @@
 
 [![Circuit UI Logo](https://circuit.sumup.com/images/logo-header.png)](https://circuit.sumup.com)
 
+[![Stars](https://img.shields.io/github/stars/sumup-oss/circuit-ui?style=social)](https://github.com/sumup-oss/circuit-ui/) [![Version](https://img.shields.io/npm/v/@sumup/circuit-ui)](https://www.npmjs.com/package/@sumup/circuit-ui) [![Coverage](https://img.shields.io/codecov/c/github/sumup-oss/circuit-ui)](https://codecov.io/gh/sumup-oss/circuit-ui) [![License](https://img.shields.io/github/license/sumup-oss/circuit-ui)](https://github.com/sumup-oss/circuit-ui/blob/master/LICENSE)
+
 [Circuit UI](https://circuit.sumup.com) is the web incarnation of the [SumUp](https://sumup.com) Circuit Design System. Our primary goal is to create a system that can be used to build a wide variety of SumUp websites and apps, while providing a consistent user experience to our end users. In addition, the design system and component library should be easy to use for developers and designers.
 
 </div>
@@ -51,7 +53,7 @@ yarn deploy
 ## Linting and formatting
 
 ```
-yarn test:lint-js
+yarn test:lint
 
 yarn fix
 ```

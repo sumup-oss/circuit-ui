@@ -21,26 +21,33 @@ import { ThemeProvider } from 'emotion-theming';
 
 import { theme as themes, Text, styleHelpers } from '../../src';
 
-const SWATCH_HEIGHT = '150px';
-const SWATCH_WIDTH = '135px';
+const SWATCH_WIDTH = '99px';
+const SWATCH_HEIGHT = '99px';
+
+const ColorWrapper = styled('div')`
+  ${({ theme }) => css`
+    display: inline-block;
+    margin-right: ${theme.spacings.kilo};
+    margin-bottom: ${theme.spacings.kilo};
+    border-bottom-left-radius: ${theme.borderRadius.giga};
+    border-bottom-right-radius: ${theme.borderRadius.giga};
+    ${styleHelpers.shadowSingle({ theme })};
+  `};
+`;
 
 const Color = styled('div')`
   ${({ theme, colorName }) => css`
-    width: ${SWATCH_HEIGHT};
-    height: ${SWATCH_WIDTH};
+    width: ${SWATCH_WIDTH};
+    height: ${SWATCH_HEIGHT};
     border-top-left-radius: ${theme.borderRadius.giga};
     border-top-right-radius: ${theme.borderRadius.giga};
     background-color: ${theme.colors[colorName]};
-    display: inline-block;
   `};
 `;
 
 const ColorName = styled('div')`
-  ${({ theme, colorName }) => css`
-    display: flex;
-    justify-content: space-between;
-    padding: ${theme.spacings.mega};
-    content: '${colorName}';
+  ${({ theme }) => css`
+    padding: ${theme.spacings.kilo} ${theme.spacings.mega};
   `};
 `;
 
@@ -50,28 +57,17 @@ const ColorHex = styled(Text)`
   `};
 `;
 
-const ColorWrapper = styled('div')`
-  ${({ theme }) => css`
-    display: inline-block;
-    margin-right: ${theme.spacings.mega};
-    margin-bottom: ${theme.spacings.mega};
-    border-bottom-left-radius: ${theme.borderRadius.giga};
-    border-bottom-right-radius: ${theme.borderRadius.giga};
-    ${styleHelpers.shadowSingle({ theme })};
-  `};
-`;
-
 const Swatch = ({ colorName }) => (
   <ThemeProvider theme={themes.circuit}>
     <ColorWrapper>
       <Color colorName={colorName} />
       <ColorName>
-        <ColorHex as="span" size="kilo" noMargin>
-          {themes.circuit.colors[colorName]}
-        </ColorHex>
-        <Text bold as="span" size="kilo" noMargin>
+        <Text bold as="p" size="kilo" noMargin>
           {colorName}
         </Text>
+        <ColorHex as="p" size="kilo" noMargin>
+          {themes.circuit.colors[colorName]}
+        </ColorHex>
       </ColorName>
     </ColorWrapper>
   </ThemeProvider>
