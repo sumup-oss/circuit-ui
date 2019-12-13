@@ -1,0 +1,302 @@
+import {
+  Meta,
+  Preview,
+  Swatch,
+  Spacing,
+  IconSize,
+  BorderRadius,
+  BorderWidth,
+  Type,
+  MediaQueriesTable
+} from '../../.storybook/components';
+import { Heading, SubHeading, Text } from '../../src';
+
+<Meta title="Advanced|Theme" />
+
+# Theming
+
+## Configuring the theme
+
+Theming is built into [Emotion](https://github.com/emotion-js/emotion), our CSS-in-JS library. You need to make the theme available to the components by wrapping your application in a `ThemeProvider` (this is already configured when using [`create-sumup-react-app`](https://github.com/sumup/create-sumup-react-app)):
+
+```jsx
+import { ThemeProvider } from 'emotion-theming';
+import { theme, Button } from '@sumup/circuit-ui';
+
+export default function App() {
+  return (
+    <ThemeProvider theme={theme.circuit}>
+      <Button primary>Click me</Button>
+    </ThemeProvider>
+  );
+}
+```
+
+In most cases, the default SumUp theme should cover your needs. If you need to customize it, we recommend to make a copy of the [default theme](https://github.com/sumup-oss/circuit-ui/blob/master/src/themes/circuit.js) to ensure that no values are missing.
+
+Refer to the [Emotion theming](https://emotion.sh/docs/theming) documentation to learn how to use the theme in your own components.
+
+## Theme reference
+
+### Colors
+
+```
+theme.colors.<COLOR_NAME>
+```
+
+When referring to a color that should be treated as _primary_ (such as a button or a link), be sure to use the "p" (primary) family of colors rather than the "b" (blue) family of colors.
+
+#### Primary
+
+<Swatch colorName="p100"/>
+<Swatch colorName="p200"/>
+<Swatch colorName="p300"/>
+<Swatch colorName="p400"/>
+<Swatch colorName="p500"/>
+<Swatch colorName="p700"/>
+<Swatch colorName="p900"/>
+
+#### Neutrals
+
+<Swatch colorName="n100"/>
+<Swatch colorName="n200"/>
+<Swatch colorName="n300"/>
+<Swatch colorName="n500"/>
+<Swatch colorName="n700"/>
+<Swatch colorName="n800"/>
+<Swatch colorName="n900"/>
+
+#### Blues
+
+<Swatch colorName="b100"/>
+<Swatch colorName="b200"/>
+<Swatch colorName="b300"/>
+<Swatch colorName="b400"/>
+<Swatch colorName="b500"/>
+<Swatch colorName="b700"/>
+<Swatch colorName="b900"/>
+
+#### Greens
+
+<Swatch colorName="g100"/>
+<Swatch colorName="g200"/>
+<Swatch colorName="g300"/>
+<Swatch colorName="g500"/>
+<Swatch colorName="g700"/>
+<Swatch colorName="g900"/>
+
+#### Yellows
+
+<Swatch colorName="y100"/>
+<Swatch colorName="y200"/>
+<Swatch colorName="y300"/>
+<Swatch colorName="y500"/>
+<Swatch colorName="y700"/>
+<Swatch colorName="y900"/>
+
+#### Oranges
+
+<Swatch colorName="o100"/>
+<Swatch colorName="o200"/>
+<Swatch colorName="o300"/>
+<Swatch colorName="o500"/>
+<Swatch colorName="o700"/>
+<Swatch colorName="o900"/>
+
+#### Reds
+
+<Swatch colorName="r100"/>
+<Swatch colorName="r200"/>
+<Swatch colorName="r300"/>
+<Swatch colorName="r500"/>
+<Swatch colorName="r700"/>
+<Swatch colorName="r900"/>
+
+#### Violets
+
+<Swatch colorName="v100"/>
+<Swatch colorName="v200"/>
+<Swatch colorName="v300"/>
+<Swatch colorName="v500"/>
+<Swatch colorName="v700"/>
+<Swatch colorName="v900"/>
+
+#### Application colors
+
+<Swatch colorName="bodyBg"/>
+<Swatch colorName="bodyColor"/>
+<Swatch colorName="shadow"/>
+
+#### Semantic colors
+
+<Swatch colorName="danger"/>
+<Swatch colorName="success"/>
+<Swatch colorName="warning"/>
+
+### Spacings
+
+```
+theme.spacings.[bit|byte|kilo|mega|giga|tera|peta|exa|zetta]
+```
+
+Use spacings for gutters, margins, and paddings. Don't use it for border width, border radius, icon size, font size, or line height. Use the dedicated theme properties instead.
+
+<Preview>
+  <Spacing spacingName="bit" />
+  <Spacing spacingName="byte" />
+  <Spacing spacingName="kilo" />
+  <Spacing spacingName="mega" />
+  <Spacing spacingName="giga" />
+  <Spacing spacingName="tera" />
+  <Spacing spacingName="peta" />
+  <Spacing spacingName="exa" />
+  <Spacing spacingName="zetta" />
+</Preview>
+
+### Icon sizes
+
+```
+theme.iconSizes.[byte|kilo|mega|giga]
+```
+
+<Preview>
+  <IconSize size="byte" />
+  <IconSize size="kilo" />
+  <IconSize size="mega" />
+  <IconSize size="giga" />
+</Preview>
+
+### Border radius
+
+```
+theme.borderRadius.[kilo|mega|giga]
+```
+
+<Preview>
+  <BorderRadius size="kilo" />
+  <BorderRadius size="mega" />
+  <BorderRadius size="giga" />
+</Preview>
+
+### Border width
+
+```
+theme.borderWidth.[kilo|mega]
+```
+
+<Preview>
+  <BorderWidth size="kilo" />
+  <BorderWidth size="mega" />
+</Preview>
+
+### Typography
+
+```
+theme.typography.[headings|subHeadings|text].<SIZE_NAME>.[fontSize|lineHeight]
+```
+
+Avoid using `theme.typography` directly in your styles, rather use the specialized components [`Heading`](Typography|Heading/Base), [`SubHeading`](Typography|SubHeading/Base), and [`Text`](Typography|Text/Base).
+
+#### Headings
+
+<Preview>
+  <Type size={Heading.ZETTA} component={Heading} name="headings" />
+  <Type size={Heading.EXA} component={Heading} name="headings" />
+  <Type size={Heading.PETA} component={Heading} name="headings" />
+  <Type size={Heading.TERA} component={Heading} name="headings" />
+  <Type size={Heading.GIGA} component={Heading} name="headings" />
+  <Type size={Heading.MEGA} component={Heading} name="headings" />
+  <Type size={Heading.KILO} component={Heading} name="headings" />
+</Preview>
+
+#### Subheading
+
+<Preview>
+  <Type size="mega" component={SubHeading} name="subHeadings" />
+  <Type size="kilo" component={SubHeading} name="subHeadings" />
+</Preview>
+
+#### Text
+
+<Preview>
+  <Type size={Text.GIGA} component={Text} name="text" />
+  <Type size={Text.MEGA} component={Text} name="text" />
+  <Type size={Text.KILO} component={Text} name="text" />
+</Preview>
+
+### Font stack
+
+```
+theme.fontStack.[default|mono]
+```
+
+Refer to the [Fonts](Advanced|Fonts) documentation to learn how to define and load custom fonts in a performant way.
+
+### Font weight
+
+```
+theme.fontWeight.[regular|bold]
+```
+
+You can only toggle the boldness of `Text`, but not `Heading` or `Subheading`.
+
+<Preview>
+  <Type size={Text.MEGA} bold component={Text} fontWeight="bold" name="text" />
+  <Type size={Text.MEGA} component={Text} fontWeight="regular" name="text" />
+</Preview>
+
+### Grid
+
+```
+theme.grid.<BREAKPOINT>.[priority|breakpoint|cols|maxWidth|gutter]
+```
+
+The grid provided by Circuit UI is a float-based grid. We use
+this grid in applications where we need to support older browsers, such as Android and iOS webviews.
+
+The [static CSS](Advanced|Static-CSS) does not include a grid system.
+
+Refer to the [grid](Advanced|Grid) documentation for an overview of the grid system.
+
+### Breakpoints and media queries
+
+```
+theme.mq.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera|afterTera]
+theme.breakpoints.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera|afterTera]
+```
+
+Avoid using `theme.breakpoints` directly, instead use the named media query helpers. The following media queries are available:
+
+<MediaQueriesTable />
+
+#### Usage in code
+
+```js
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+
+const ResponsiveDiv = styled('div')(
+  ({ theme }) => css`
+    ${theme.mq.mega} {
+      padding-top: ${theme.spacings.peta};
+    }
+  `
+);
+```
+
+### Transitions
+
+```
+theme.transitions.[default]
+```
+
+For now there is just one transition. In the future when we
+have animations, there may be more :)
+
+### Z-index
+
+```
+theme.zIndex.[default|absolute|popover|select|tooltip|modal]
+```
+
+Z-indices for various components to ensure they stack properly.
