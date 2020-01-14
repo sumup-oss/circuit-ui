@@ -1,13 +1,12 @@
 import React from 'react';
-import { configure, addDecorator, addParameters } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
-import requireContext from 'require-context.macro';
 
 import { theme as themes, BaseStyles } from '../src';
-import { theme, components } from './util/theme';
+import { components } from './util/theme';
 import { sortStories } from './util/story-helpers';
 
 const { circuit } = themes;
@@ -31,17 +30,8 @@ const SORT_ORDER = {
 };
 
 addParameters({
-  options: {
-    storySort: sortStories(SORT_ORDER),
-    theme,
-    isFullscreen: false,
-    showPanel: false,
-    panelPosition: 'bottom',
-    isToolshown: true
-  },
-  docs: {
-    components
-  }
+  options: { storySort: sortStories(SORT_ORDER) },
+  docs: { components }
 });
 
 const Story = styled.div`
@@ -78,11 +68,3 @@ if (!__TEST__) {
 }
 
 addDecorator(withThemeProvider);
-
-configure(
-  [
-    requireContext('../src', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/),
-    requireContext('../docs', true, /\.(stories|story)\.(js|ts|tsx|mdx)$/)
-  ],
-  module
-);
