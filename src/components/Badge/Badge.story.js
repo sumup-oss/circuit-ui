@@ -23,7 +23,7 @@ import docs from './Badge.docs.mdx';
 import Badge from './Badge';
 
 export default {
-  title: 'Components|Badge',
+  title: 'Components/Badge',
   component: Badge,
   parameters: {
     docs: { page: docs },

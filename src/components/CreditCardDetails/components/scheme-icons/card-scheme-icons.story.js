@@ -47,7 +47,7 @@ const IconWrapper = styled('li')`
 `;
 
 export default {
-  title: 'Forms|CreditCardDetails/CardSchemeIcons'
+  title: 'Forms/CreditCardDetails/CardSchemeIcons'
 };
 
 export const debitCards = () => {

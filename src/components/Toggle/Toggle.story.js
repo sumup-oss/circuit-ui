@@ -19,7 +19,7 @@ import docs from './Toggle.docs.mdx';
 import Toggle from './Toggle';
 
 export default {
-  title: 'Forms|Toggle',
+  title: 'Forms/Toggle',
   component: Toggle,
   parameters: {
     docs: { page: docs },

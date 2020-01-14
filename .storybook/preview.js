@@ -30,7 +30,10 @@ const SORT_ORDER = {
 };
 
 addParameters({
-  options: { storySort: sortStories(SORT_ORDER) },
+  options: {
+    storySort: sortStories(SORT_ORDER),
+    showRoots: true
+  },
   docs: { components }
 });
 

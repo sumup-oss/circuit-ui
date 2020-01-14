@@ -19,7 +19,7 @@ import { text, boolean } from '@storybook/addon-knobs/react';
 import Hamburger from './Hamburger';
 
 export default {
-  title: 'Components|Hamburger',
+  title: 'Components/Hamburger',
   component: Hamburger,
   parameters: {
     jest: ['Hamburger']

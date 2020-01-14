@@ -25,7 +25,7 @@ import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 
 export default {
-  title: 'Components|Card',
+  title: 'Components/Card',
   component: Card,
   parameters: {
     docs: { page: docs },

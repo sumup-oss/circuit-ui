@@ -19,7 +19,7 @@ import RadioButton from './RadioButton';
 import docs from './RadioButton.docs.mdx';
 
 export default {
-  title: 'Forms|RadioButton',
+  title: 'Forms/RadioButton',
   component: RadioButton,
   parameters: {
     docs: { page: docs },

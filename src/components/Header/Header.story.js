@@ -20,7 +20,7 @@ import Header from '.';
 import Hamburguer from '../Hamburger';
 
 export default {
-  title: 'Components|Header',
+  title: 'Components/Header',
   component: Header,
   parameters: {
     jest: ['Header']

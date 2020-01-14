@@ -22,7 +22,7 @@ import { schemes } from '../..';
 const { SCHEMES } = schemes;
 
 export default {
-  title: 'Forms|CreditCardDetails/SecurityCodeInput',
+  title: 'Forms/CreditCardDetails/SecurityCodeInput',
   component: SecurityCodeInput,
   parameters: {
     jest: ['SecurityCodeInput']

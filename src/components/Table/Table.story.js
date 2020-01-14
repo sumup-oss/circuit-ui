@@ -25,7 +25,7 @@ import TableHeader from './components/TableHeader';
 import TableCell from './components/TableCell';
 
 export default {
-  title: 'Components|Table',
+  title: 'Components/Table',
   component: Table,
   parameters: {
     docs: { page: docs },

@@ -20,7 +20,7 @@ import docs from './Selector.docs.mdx';
 import Selector from './Selector';
 
 export default {
-  title: 'Forms|Selector',
+  title: 'Forms/Selector',
   component: Selector,
   parameters: {
     docs: { page: docs },

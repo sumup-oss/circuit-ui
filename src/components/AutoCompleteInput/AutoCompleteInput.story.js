@@ -24,7 +24,7 @@ import AutoCompleteInput from './AutoCompleteInput';
 import Label from '../Label';
 
 export default {
-  title: 'Forms|Input/AutoCompleteInput',
+  title: 'Forms/Input/AutoCompleteInput',
   component: AutoCompleteInput,
   parameters: {
     docs: { page: docs },
