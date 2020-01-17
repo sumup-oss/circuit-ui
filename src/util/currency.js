@@ -192,7 +192,7 @@ export function formatCurrency(amount, currency, locale) {
     currencyFormat
   );
 
-  return sign + currencyString;
+  return `${sign}${currencyString}`;
 }
 
 function toCurrencyNumberFormat(number, currencyFormat) {
