@@ -94,7 +94,7 @@ export const getBreakPointStyles = theme =>
  * defined on the grid config.
  */
 export const sortByPriority = curry((grid, iteratee) =>
-  iteratee.sort((a, b) => grid[head(a)].priority >= grid[head(b)].priority)
+  iteratee.sort((a, b) => grid[head(a)].priority - grid[head(b)].priority)
 );
 
 /**
