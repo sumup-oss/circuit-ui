@@ -18,7 +18,7 @@ import React from 'react';
 import RestrictedInput from './RestrictedInput';
 
 export default {
-  title: 'Forms|Input/RestrictedInput',
+  title: 'Forms/Input/RestrictedInput',
   component: RestrictedInput,
   parameters: {
     jest: ['RestrictedInput']

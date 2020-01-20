@@ -22,7 +22,7 @@ import CurrencyInput from './CurrencyInput';
 import Label from '../Label';
 
 export default {
-  title: 'Forms|Input/CurrencyInput',
+  title: 'Forms/Input/CurrencyInput',
   component: CurrencyInput,
   parameters: {
     docs: { page: docs },

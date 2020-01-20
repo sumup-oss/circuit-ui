@@ -51,7 +51,7 @@ class CardListStory extends Component {
 }
 
 export default {
-  title: 'Components|Card/CardList',
+  title: 'Components/Card/CardList',
   component: CardList,
   parameters: {
     docs: { page: docs },

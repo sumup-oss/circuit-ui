@@ -19,7 +19,7 @@ import Label from './Label';
 import docs from './Label.docs.mdx';
 
 export default {
-  title: 'Forms|Label',
+  title: 'Forms/Label',
   component: Label,
   parameters: {
     docs: { page: docs },

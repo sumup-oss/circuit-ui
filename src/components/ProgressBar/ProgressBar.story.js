@@ -21,7 +21,7 @@ import docs from './ProgressBar.docs.mdx';
 import ProgressBar from './ProgressBar';
 
 export default {
-  title: 'Components|ProgressBar',
+  title: 'Components/ProgressBar',
   component: ProgressBar,
   parameters: {
     docs: { page: docs },

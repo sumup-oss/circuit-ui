@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import Col from './Col';
 
 export default {
-  title: 'Layout|Grid/Col',
+  title: 'Layout/Grid/Col',
   component: Col,
   parameters: {
     jest: ['Col']

@@ -19,7 +19,7 @@ import { action } from '@storybook/addon-actions';
 import CalendarTagTwoStep from './CalendarTagTwoStep';
 
 export default {
-  title: 'Components|Calendar/CalendarTagTwoStep',
+  title: 'Components/Calendar/CalendarTagTwoStep',
   component: CalendarTagTwoStep,
   parameters: {
     jest: ['CalendarTagTwoStep']

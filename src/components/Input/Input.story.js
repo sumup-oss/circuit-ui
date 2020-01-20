@@ -22,7 +22,7 @@ import Input from './Input';
 import Label from '../Label';
 
 export default {
-  title: 'Forms|Input',
+  title: 'Forms/Input',
   component: Input,
   parameters: {
     docs: { page: docs },

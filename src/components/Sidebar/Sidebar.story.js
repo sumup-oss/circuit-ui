@@ -33,7 +33,7 @@ const Viewport = styled.div`
 `;
 
 export default {
-  title: 'Components|Sidebar',
+  title: 'Components/Sidebar',
   component: Sidebar,
   parameters: {
     docs: { page: docs },

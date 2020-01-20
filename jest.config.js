@@ -27,10 +27,15 @@ module.exports = {
     '!**/node_modules/**'
   ],
   moduleDirectories: ['node_modules', 'src'],
+  // HACK: See https://github.com/storybookjs/storybook/pull/9292
+  moduleNameMapper: {
+    'react-syntax-highlighter/dist/esm/(.*)':
+      'react-syntax-highlighter/dist/cjs/$1'
+  },
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.svg$': '<rootDir>/jest.fileTransformer.js',
-    '^.+\\.mdx$': '<rootDir>/jest.mdxTransformer.js'
+    '^.+\\.mdx?$': '<rootDir>/jest.mdxTransformer.js'
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
 };

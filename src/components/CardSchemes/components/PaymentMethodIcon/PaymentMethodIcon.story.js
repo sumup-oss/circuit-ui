@@ -29,7 +29,7 @@ const iconSizes = [
 ];
 
 export default {
-  title: 'Icons|PaymentMethodIcon',
+  title: 'Icons/PaymentMethodIcon',
   component: PaymentMethodIcon,
   parameters: {
     jest: ['PaymentMethodIcon']

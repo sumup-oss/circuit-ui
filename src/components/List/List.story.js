@@ -22,7 +22,7 @@ import List from './List';
 const sizes = [List.KILO, List.MEGA, List.GIGA];
 
 export default {
-  title: 'Components|List',
+  title: 'Components/List',
   component: List,
   parameters: {
     docs: { page: docs },

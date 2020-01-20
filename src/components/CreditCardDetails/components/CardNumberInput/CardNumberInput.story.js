@@ -24,7 +24,7 @@ import Text from '../../../Text';
 import { circuit } from '../../../../themes';
 
 export default {
-  title: 'Forms|CreditCardDetails/CardNumberInput',
+  title: 'Forms/CreditCardDetails/CardNumberInput',
   component: CardNumberInput,
   parameters: {
     jest: ['CardNumberInput']

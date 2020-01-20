@@ -31,7 +31,7 @@ const sizes = [
 ];
 
 export default {
-  title: 'Typography|Heading',
+  title: 'Typography/Heading',
   component: Heading,
   parameters: {
     docs: { page: docs },

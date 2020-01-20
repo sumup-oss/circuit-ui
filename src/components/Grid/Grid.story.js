@@ -47,7 +47,7 @@ const StyledRow = styled(Row)`
 `;
 
 export default {
-  title: 'Layout|Grid/Grid',
+  title: 'Layout/Grid/Grid',
   component: Grid,
   parameters: {
     jest: ['Grid']

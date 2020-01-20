@@ -21,7 +21,7 @@ import Card from '../Card';
 import Text from '../Text';
 
 export default {
-  title: 'Forms|InlineNotification',
+  title: 'Forms/InlineNotification',
   component: InlineNotification,
   parameters: {
     docs: { page: docs },

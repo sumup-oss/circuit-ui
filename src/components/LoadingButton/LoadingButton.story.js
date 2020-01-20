@@ -55,7 +55,7 @@ const LoadingButtonWithState = ({ exitAnimation, ...props }) => {
 };
 
 export default {
-  title: 'Components|Button/LoadingButton',
+  title: 'Components/Button/LoadingButton',
   component: LoadingButton,
   parameters: {
     jest: ['LoadingButton']

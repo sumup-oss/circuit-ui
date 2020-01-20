@@ -25,7 +25,7 @@ const options = {
 };
 
 export default {
-  title: 'Components|Table/TableHeader',
+  title: 'Components/Table/TableHeader',
   component: TableHeader,
   parameters: {
     jest: ['TableHeader']

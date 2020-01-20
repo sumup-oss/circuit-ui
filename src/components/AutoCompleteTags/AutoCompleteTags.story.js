@@ -19,7 +19,7 @@ import { action } from '@storybook/addon-actions';
 import AutoCompleteTags from './AutoCompleteTags';
 
 export default {
-  title: 'Forms|Input/AutoCompleteTags',
+  title: 'Forms/Input/AutoCompleteTags',
   component: AutoCompleteTags,
   parameters: {
     jest: ['AutoCompleteTags']
