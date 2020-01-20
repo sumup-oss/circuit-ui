@@ -181,14 +181,18 @@ export function formatCurrency(amount, currency, locale) {
     get(currency)
   )(CURRENCY_SYMBOLS);
   const currencyFormat = getCurrencyFormat(currency, locale);
-  const formattedAmount = toCurrencyNumberFormat(amount, currencyFormat);
+
+  const absAmount = Math.abs(amount);
+  const sign = amount < 0 ? '-' : '';
+
+  const formattedAmount = toCurrencyNumberFormat(absAmount, currencyFormat);
   const currencyString = addSymbol(
     formattedAmount,
     currencySymbol,
     currencyFormat
   );
 
-  return currencyString;
+  return `${sign}${currencyString}`;
 }
 
 function toCurrencyNumberFormat(number, currencyFormat) {
