@@ -274,17 +274,19 @@ describe('currency', () => {
       });
     });
 
-    it('should place minus sign in front', () => {
-      const negativeInputs = [-11.23, '-1000', -0.98];
+    describe('handling negative amounts', () => {
+      it('should place a minus sign in front of the currency', () => {
+        const negativeInputs = [-11.23, '-1000', -0.98];
 
-      const eurOutputs = ['-11,23\xA0€', '-1.000,00\xA0€', '-0,98\xA0€'];
-      testCurrency(negativeInputs, 'EUR', 'de-DE', eurOutputs);
+        const eurOutputs = ['-11,23\xA0€', '-1.000,00\xA0€', '-0,98\xA0€'];
+        testCurrency(negativeInputs, 'EUR', 'de-DE', eurOutputs);
 
-      const usdOutputs = ['-$11.23', '-$1,000.00', '-$0.98'];
-      testCurrency(negativeInputs, 'USD', 'en-US', usdOutputs);
+        const usdOutputs = ['-$11.23', '-$1,000.00', '-$0.98'];
+        testCurrency(negativeInputs, 'USD', 'en-US', usdOutputs);
 
-      const gbpOutputs = ['-£11.23', '-£1,000.00', '-£0.98'];
-      testCurrency(negativeInputs, 'GBP', 'en-GB', gbpOutputs);
+        const gbpOutputs = ['-£11.23', '-£1,000.00', '-£0.98'];
+        testCurrency(negativeInputs, 'GBP', 'en-GB', gbpOutputs);
+      });
     });
   });
 
