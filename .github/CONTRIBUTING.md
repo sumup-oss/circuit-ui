@@ -8,7 +8,7 @@ Thank you for making the effort to improve Circuit UI! There are multiple ways t
 
 ## Filing an issue
 
-We use [GitHub issues](https://github.com/sumup-oss/circuit-ui/issues) to track all our bugs and feature requests. When [submitting a new issue](https://github.com/sumup-oss/circuit-ui/issues/new/choose), please check that it hasn't already been raised by someone else. We've provided templates for new issues which will help you to structure your issue to ensure it can be picked up and actioned easily.
+We use [GitHub issues](https://github.com/sumup-oss/circuit-ui/issues) to track all our bugs and feature requests. When [submitting a new issue](https://github.com/sumup-oss/circuit-ui/issues/new/choose), please check that it hasn't already been raised by someone else. We've provided templates for new issues which will help you structure your report to ensure it can be picked up and actioned easily.
 
 ## Proposing a change
 
