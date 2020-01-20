@@ -20,10 +20,11 @@ jobs:
     # Run tests in parallel
     - stage: test
       script: yarn check:licenses
-    - script: yarn test:lint-js
-    - script: yarn test:unit --runInBand
+    - script: yarn check:security
+    - script: yarn test:lint
+    - script: yarn test:unit:ci
       # Upload coverage reports to Codecov
-      after_success: yarn coverage:upload -t ${CODECOV_TOKEN}
+      after_success: yarn coverage-upload -t ${CODECOV_TOKEN}
     - stage: publish
       script: skip
       # Publish package to NPM

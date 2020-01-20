@@ -1,0 +1,58 @@
+import { Meta, Intro } from '../../.storybook/components';
+
+<Meta title="Advanced|Base Components" />
+
+# Base Components
+
+<Intro>
+  Some of the low-level components that are used in Circuit UI can be overridden
+  with custom components. This is useful for example when your application is
+  using a custom router and needs to use a special Link component.
+</Intro>
+
+```javascript
+import { Link } from 'react-router-dom';
+import { ComponentsContext, Button } from '@sumup/circuit-ui';
+
+const CustomLink = ({ to, ...props }) => <Link href={to} {...props} />;
+
+const App = () => (
+  <ComponentsContext.Provider value={{ Link: CustomLink }}>
+    <Button href="/">Home</Button>
+  </ComponentsContext.Provider>
+);
+
+export default App;
+```
+
+Using the context provider and specifying custom components is fully optional, Circuit UI will fall back to built-in components. You can also override only a subset of components, Circuit UI will merge them with the default components.
+
+In order to access the base components in your own application you can use the `withComponents` higher-order component or the `useComponents` hook:
+
+```javascript
+import { useComponents, withComponents } from '@sumup/circuit-ui';
+
+const Navigation = ({ links }) => {
+  const { Link } = useComponents();
+  return links.map(({ href, label }) => <Link href={href}>{label}</Link>);
+};
+
+const Logo = ({ components, companyName, companyUrl }) => {
+  const { Link } = components;
+  return <Link href={companyUrl}>{companyName}</Link>;
+};
+
+const FooterWithComponents = withComponents(Footer);
+```
+
+Below is an overview of the base components:
+
+### `Link`
+
+Accepts the same props as the `<a>` HTML tag. If your custom component expects different props, you need to map them to the standard attributes:
+
+```javascript
+import { Link } from 'react-router-dom';
+
+const CustomLink = ({ to, ...props }) => <Link href={to} {...props} />;
+```

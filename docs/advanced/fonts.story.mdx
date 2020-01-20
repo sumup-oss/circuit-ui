@@ -1,6 +1,6 @@
 import { Meta } from '../../.storybook/components';
 
-<Meta title="Styles|Fonts" />
+<Meta title="Advanced|Fonts" />
 
 # Fonts
 
@@ -53,7 +53,7 @@ export const fontStack = {
 
 At SumUp, we like to use [FOFT, or FOUT with Two Stage Render](https://www.zachleat.com/web/comprehensive-webfonts/#foft) paired with [Critical FOFT with preload](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-preload). When you opt for this approach, you will have to add some custom global styles. Here's how you can do this with Circuit UI:
 
-```js
+```jsx
 import { Global, css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { theme } from '@sumup/circuit-ui';

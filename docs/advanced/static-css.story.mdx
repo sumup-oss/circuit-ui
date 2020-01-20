@@ -1,16 +1,19 @@
-import { Meta, Status } from '../../.storybook/components';
+import { Meta, Status, Intro } from '../../.storybook/components';
 
-<Meta title="Styles|Static Styles" />
+<Meta title="Advanced|Static CSS" />
 
-# Static Styles
+# Static CSS
 
 <Status.Experimental/><Status.Description>This has not been tested in production. Use with caution.</Status.Description>
 
-Projects that can't or don't use React can still benefit from Circuit UI. They can use the styles by extracting the plain CSS from the components.
+<Intro>
+  Projects that can't or don't use React can still benefit from Circuit UI. They
+  can use the styles by extracting the plain CSS from the components.
+</Intro>
 
 ## Generating a stylesheet
 
-Circuit UI offers a CLI to generate a stylesheet that is tailored to your project: `yarn static-styles`. Below is an overview of the available options:
+Circuit UI offers a CLI to generate a stylesheet that is tailored to your project. Below is an overview of the available options:
 
 ```sh
 $ yarn static-styles --help
@@ -37,8 +40,8 @@ A hosted version of a stylesheet with all supported components is available at h
 
 ## Theming
 
-At built time, when the styles are extracted to static CSS, any dynamic values are replaced by static values. By default, the theme values are hard-coded and cannot be changed with JavaScript at runtime.
+At built time, when the styles are extracted to static CSS, any dynamic values are replaced by static values. That means that the theme values are hard-coded and cannot be changed with JavaScript at runtime.
 
 In order to change the theme values at runtime you can use [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties). Pass the `--customProperties` flag to the CLI to generate the CSS with custom properties and add the root values to the global styles.
 
-Be aware that custom properties are [only supported in Edge 16+](https://caniuse.com/#feat=css-variables). Depending on your target group, you should use a [polyfill](https://github.com/jhildenbiddle/css-vars-ponyfill).
+Be aware that custom properties are [only supported in Edge 16+](https://caniuse.com/#feat=css-variables). Depending on your target user group, you should use a [polyfill](https://github.com/jhildenbiddle/css-vars-ponyfill).
