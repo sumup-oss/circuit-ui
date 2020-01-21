@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import { flow, toPairs, reduce } from '../../../../util/fp';
+import { flow, toPairs, reduce } from '../../util/fp';
 import { ReactComponent as Amex } from './icons/amex.svg';
 import { ReactComponent as Unknown } from './icons/unknown.svg';
 import { ReactComponent as Diners } from './icons/diners.svg';

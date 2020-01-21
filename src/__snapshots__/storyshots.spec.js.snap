@@ -9998,7 +9998,7 @@ exports[`Storyshots Components/ProgressBar Base 1`] = `
   class="circuit-4 circuit-5"
 >
   <span
-    aria-labelledby="progress-bar_24"
+    aria-labelledby="progress-bar_23"
     aria-valuemax="10"
     aria-valuemin="0"
     aria-valuenow="3"
@@ -10009,7 +10009,7 @@ exports[`Storyshots Components/ProgressBar Base 1`] = `
   />
   <span
     class="circuit-2 circuit-3"
-    id="progress-bar_24"
+    id="progress-bar_23"
   />
 </div>
 `;
@@ -10041,6 +10041,72 @@ HTMLCollection [
   position: relative;
   width: 100%;
   height: 8px;
+  overflow: hidden;
+  min-width: 500px;
+  max-width: 90%;
+}
+
+.circuit-0::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  background-color: #3388FF;
+  border: 1px solid #1760CE;
+  box-shadow: inset 0 1px 0 0 #AFD0FE;
+  border-radius: 3px 0 0 3px;
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+}
+
+<div
+    class="circuit-4 circuit-5"
+  >
+    <span
+      aria-labelledby="progress-bar_26"
+      aria-valuemax="10"
+      aria-valuemin="0"
+      aria-valuenow="7"
+      class="circuit-0 circuit-1"
+      max="10"
+      role="progressbar"
+      value="7"
+    />
+    <span
+      class="circuit-2 circuit-3"
+      id="progress-bar_26"
+    >
+      70%
+    </span>
+  </div>,
+  .circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-left: 8px;
+}
+
+.circuit-0 {
+  background-color: #FAFBFC;
+  border: 1px solid #D8DDE1;
+  border-radius: 4px;
+  position: relative;
+  width: 100%;
+  height: 16px;
   overflow: hidden;
   min-width: 500px;
   max-width: 90%;
@@ -10106,7 +10172,7 @@ HTMLCollection [
   border-radius: 4px;
   position: relative;
   width: 100%;
-  height: 16px;
+  height: 32px;
   overflow: hidden;
   min-width: 500px;
   max-width: 90%;
@@ -10148,7 +10214,11 @@ HTMLCollection [
       70%
     </span>
   </div>,
-  .circuit-4 {
+]
+`;
+
+exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10172,7 +10242,7 @@ HTMLCollection [
   border-radius: 4px;
   position: relative;
   width: 100%;
-  height: 32px;
+  height: 8px;
   overflow: hidden;
   min-width: 500px;
   max-width: 90%;
@@ -10195,29 +10265,28 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-4 circuit-5"
+  class="circuit-4 circuit-5"
+>
+  <span
+    aria-labelledby="progress-bar_24"
+    aria-valuemax="10"
+    aria-valuemin="0"
+    aria-valuenow="7"
+    class="circuit-0 circuit-1"
+    max="10"
+    role="progressbar"
+    value="7"
+  />
+  <span
+    class="circuit-2 circuit-3"
+    id="progress-bar_24"
   >
-    <span
-      aria-labelledby="progress-bar_29"
-      aria-valuemax="10"
-      aria-valuemin="0"
-      aria-valuenow="7"
-      class="circuit-0 circuit-1"
-      max="10"
-      role="progressbar"
-      value="7"
-    />
-    <span
-      class="circuit-2 circuit-3"
-      id="progress-bar_29"
-    >
-      70%
-    </span>
-  </div>,
-]
+    7/10
+  </span>
+</div>
 `;
 
-exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
+exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
 .circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10280,75 +10349,6 @@ exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
   <span
     class="circuit-2 circuit-3"
     id="progress-bar_25"
-  >
-    7/10
-  </span>
-</div>
-`;
-
-exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.circuit-2 {
-  font-size: 13px;
-  line-height: 20px;
-  margin-left: 8px;
-}
-
-.circuit-0 {
-  background-color: #FAFBFC;
-  border: 1px solid #D8DDE1;
-  border-radius: 4px;
-  position: relative;
-  width: 100%;
-  height: 8px;
-  overflow: hidden;
-  min-width: 500px;
-  max-width: 90%;
-}
-
-.circuit-0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 70%;
-  background-color: #3388FF;
-  border: 1px solid #1760CE;
-  box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: 3px 0 0 3px;
-  -webkit-transition: width 0.05s ease-out;
-  transition: width 0.05s ease-out;
-}
-
-<div
-  class="circuit-4 circuit-5"
->
-  <span
-    aria-labelledby="progress-bar_26"
-    aria-valuemax="10"
-    aria-valuemin="0"
-    aria-valuenow="7"
-    class="circuit-0 circuit-1"
-    max="10"
-    role="progressbar"
-    value="7"
-  />
-  <span
-    class="circuit-2 circuit-3"
-    id="progress-bar_26"
   >
     70%
   </span>
@@ -11004,6 +11004,20 @@ label + .circuit-14 {
   margin-top: 4px;
 }
 
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 19px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 22px;
+    line-height: 24px;
+  }
+}
+
 .circuit-10 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -11061,20 +11075,6 @@ label + .circuit-14 {
   width: 16px;
   margin: 12px;
   pointer-events: none;
-}
-
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 19px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 22px;
-    line-height: 24px;
-  }
 }
 
 .circuit-6 {
@@ -11142,7 +11142,7 @@ label + .circuit-14 {
     class="circuit-6 circuit-7"
   >
     <span
-      aria-labelledby="progress-bar_41"
+      aria-labelledby="progress-bar_40"
       aria-valuemax="3"
       aria-valuemin="0"
       aria-valuenow="1"
@@ -11153,7 +11153,7 @@ label + .circuit-14 {
     />
     <span
       class="circuit-4 circuit-5"
-      id="progress-bar_41"
+      id="progress-bar_40"
     />
   </div>
   <section>
@@ -14957,1557 +14957,6 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms/CreditCardDetails/CardNumberInput Empty Card Number Input 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<div
-    class="circuit-0 circuit-1"
-  >
-    Supported card schemes: mastercard, visa, diners, jcb.
-  </div>,
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<div
-    aria-live="polite"
-    class="circuit-0 circuit-1"
-  />,
-  .circuit-0 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-<label
-    class="circuit-0 circuit-1"
-    for="cui-cc-card-number"
-  >
-    Card number
-  </label>,
-  .circuit-14 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-14,
-label + .circuit-14 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-12 {
-  bottom: 100%;
-  display: block;
-  list-style: none;
-  position: absolute;
-  overflow-x: auto;
-  right: 0;
-  text-align: right;
-  white-space: nowrap;
-  opacity: 1;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-@media (min-width:480px) {
-  .circuit-12 {
-    right: 0;
-    width: auto;
-    text-align: right;
-  }
-}
-
-.circuit-4 {
-  display: inline-block;
-}
-
-.circuit-4:not(:last-of-type) {
-  margin-right: 4px;
-}
-
-.circuit-4 > svg {
-  width: auto;
-  height: 16px;
-}
-
-<div
-    class="circuit-14 circuit-15"
-  >
-    <input
-      aria-invalid="false"
-      autocomplete="cc-number"
-      class="circuit-0 circuit-1"
-      id="cui-cc-card-number"
-      name="creditCardInput"
-      placeholder="•••• •••• •••• ••••"
-      type="tel"
-      value=""
-    />
-    <div
-      class="circuit-2 circuit-3"
-    />
-    <ul
-      aria-hidden="true"
-      class="circuit-12 circuit-13"
-    >
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon mastercard"
-          role="img"
-        >
-          mastercard.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon visa"
-          role="img"
-        >
-          visa.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon diners"
-          role="img"
-        >
-          diners.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon jcb"
-          role="img"
-        >
-          jcb.svg
-        </div>
-      </li>
-    </ul>
-  </div>,
-]
-`;
-
-exports[`Storyshots Forms/CreditCardDetails/CardNumberInput Empty With Many Supported Schemes 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<p
-    class=" circuit-0 circuit-1"
-    style="width: 95vw;"
-  >
-    Displays card scheme icons below input on mobile, when there are more than 5 schemes.
-  </p>,
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<div
-    class="circuit-0 circuit-1"
-  >
-    Supported card schemes: mastercard, visa, diners, discover, jcb, elo, maestro.
-  </div>,
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<div
-    aria-live="polite"
-    class="circuit-0 circuit-1"
-  />,
-  .circuit-0 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-<label
-    class="circuit-0 circuit-1"
-    for="cui-cc-card-number"
-  >
-    Card number
-  </label>,
-  .circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-4 {
-  display: inline-block;
-}
-
-.circuit-4:not(:last-of-type) {
-  margin-right: 4px;
-}
-
-.circuit-4 > svg {
-  width: auto;
-  height: 16px;
-}
-
-.circuit-20 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-20,
-label + .circuit-20 {
-  margin-top: 4px;
-}
-
-@media (max-width:479px) {
-  .circuit-20 {
-    margin-bottom: 32px;
-    margin-bottom: calc(32px + 4px);
-  }
-}
-
-.circuit-18 {
-  bottom: 100%;
-  display: block;
-  list-style: none;
-  position: absolute;
-  overflow-x: auto;
-  right: 0;
-  text-align: right;
-  white-space: nowrap;
-  opacity: 1;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-@media (min-width:480px) {
-  .circuit-18 {
-    right: 0;
-    width: auto;
-    text-align: right;
-  }
-}
-
-@media (max-width:479px) {
-  .circuit-18 {
-    top: -75%;
-    top: calc(100% + 4px);
-    bottom: initial;
-    left: 0;
-    width: 100%;
-    text-align: left;
-  }
-}
-
-<div
-    class="circuit-20 circuit-21"
-  >
-    <input
-      aria-invalid="false"
-      autocomplete="cc-number"
-      class="circuit-0 circuit-1"
-      id="cui-cc-card-number"
-      name="creditCardInput"
-      placeholder="•••• •••• •••• ••••"
-      type="tel"
-      value=""
-    />
-    <div
-      class="circuit-2 circuit-3"
-    />
-    <ul
-      aria-hidden="true"
-      class="circuit-18 circuit-19"
-    >
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon mastercard"
-          role="img"
-        >
-          mastercard.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon visa"
-          role="img"
-        >
-          visa.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon diners"
-          role="img"
-        >
-          diners.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon discover"
-          role="img"
-        >
-          discover.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon jcb"
-          role="img"
-        >
-          jcb.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon elo"
-          role="img"
-        >
-          elo.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon maestro"
-          role="img"
-        >
-          maestro.svg
-        </div>
-      </li>
-    </ul>
-  </div>,
-]
-`;
-
-exports[`Storyshots Forms/CreditCardDetails/CardNumberInput With Detected Card Scheme 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<div
-    class="circuit-0 circuit-1"
-  >
-    Supported card schemes: mastercard, visa, diners, jcb.
-  </div>,
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-<div
-    aria-live="polite"
-    class="circuit-0 circuit-1"
-  >
-    Detected scheme: visa
-  </div>,
-  .circuit-0 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-<label
-    class="circuit-0 circuit-1"
-    for="cui-cc-card-number"
-  >
-    Card number
-  </label>,
-  .circuit-14 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-14,
-label + .circuit-14 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-12 {
-  bottom: 100%;
-  display: block;
-  list-style: none;
-  position: absolute;
-  overflow-x: auto;
-  right: 0;
-  text-align: right;
-  white-space: nowrap;
-  opacity: 1;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-@media (min-width:480px) {
-  .circuit-12 {
-    right: 0;
-    width: auto;
-    text-align: right;
-  }
-}
-
-.circuit-6 {
-  display: inline-block;
-}
-
-.circuit-6:not(:last-of-type) {
-  margin-right: 4px;
-}
-
-.circuit-6 > svg {
-  width: auto;
-  height: 16px;
-}
-
-.circuit-4 {
-  display: inline-block;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  opacity: 0.2;
-}
-
-.circuit-4:not(:last-of-type) {
-  margin-right: 4px;
-}
-
-.circuit-4 > svg {
-  width: auto;
-  height: 16px;
-}
-
-<div
-    class="circuit-14 circuit-15"
-  >
-    <input
-      aria-invalid="false"
-      autocomplete="cc-number"
-      class="circuit-0 circuit-1"
-      id="cui-cc-card-number"
-      name="creditCardInput"
-      placeholder="•••• •••• •••• ••••"
-      type="tel"
-      value="4485 7197 7461 1397"
-    />
-    <div
-      class="circuit-2 circuit-3"
-    />
-    <ul
-      aria-hidden="true"
-      class="circuit-12 circuit-13"
-    >
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-        disabled=""
-      >
-        <div
-          aria-label="icon mastercard"
-          role="img"
-        >
-          mastercard.svg
-        </div>
-      </li>
-      <li
-        class="circuit-6 circuit-5"
-        data-testid="card-number-input-scheme"
-      >
-        <div
-          aria-label="icon visa"
-          role="img"
-        >
-          visa.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-        disabled=""
-      >
-        <div
-          aria-label="icon diners"
-          role="img"
-        >
-          diners.svg
-        </div>
-      </li>
-      <li
-        class="circuit-4 circuit-5"
-        data-testid="card-number-input-scheme"
-        disabled=""
-      >
-        <div
-          aria-label="icon jcb"
-          role="img"
-        >
-          jcb.svg
-        </div>
-      </li>
-    </ul>
-  </div>,
-]
-`;
-
-exports[`Storyshots Forms/CreditCardDetails/CardSchemeIcons Credit Cards 1`] = `
-.circuit-21 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  list-style: none;
-  max-width: '30vw';
-}
-
-.circuit-1 {
-  height: 32px;
-  width: 48px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.circuit-1:not(:last-of-type) {
-  margin-right: 12px;
-}
-
-.circuit-0 {
-  width: auto;
-  height: 100%;
-}
-
-<ul
-  class="circuit-21 circuit-22"
->
-  <li
-    class="circuit-1 circuit-2"
-  >
-    <div
-      class="circuit-0"
-    >
-      amex.svg
-    </div>
-  </li>
-  <li
-    class="circuit-1 circuit-2"
-  >
-    <div
-      class="circuit-0"
-    >
-      diners.svg
-    </div>
-  </li>
-  <li
-    class="circuit-1 circuit-2"
-  >
-    <div
-      class="circuit-0"
-    >
-      discover.svg
-    </div>
-  </li>
-  <li
-    class="circuit-1 circuit-2"
-  >
-    <div
-      class="circuit-0"
-    >
-      elo.svg
-    </div>
-  </li>
-  <li
-    class="circuit-1 circuit-2"
-  >
-    <div
-      class="circuit-0"
-    >
-      jcb.svg
-    </div>
-  </li>
-  <li
-    class="circuit-1 circuit-2"
-  >
-    <div
-      class="circuit-0"
-    >
-      mastercard.svg
-    </div>
-  </li>
-  <li
-    class="circuit-1 circuit-2"
-  >
-    <div
-      class="circuit-0"
-    >
-      visa.svg
-    </div>
-  </li>
-</ul>
-`;
-
-exports[`Storyshots Forms/CreditCardDetails/CardSchemeIcons Debit Cards 1`] = `
-.circuit-6 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  list-style: none;
-  max-width: '30vw';
-}
-
-.circuit-1 {
-  height: 32px;
-  width: 48px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.circuit-1:not(:last-of-type) {
-  margin-right: 12px;
-}
-
-.circuit-0 {
-  width: auto;
-  height: 100%;
-}
-
-<ul
-  class="circuit-6 circuit-7"
->
-  <li
-    class="circuit-1 circuit-2"
-  >
-    <div
-      class="circuit-0"
-    >
-      hipercard.svg
-    </div>
-  </li>
-  <li
-    class="circuit-1 circuit-2"
-  >
-    <div
-      class="circuit-0"
-    >
-      maestro.svg
-    </div>
-  </li>
-</ul>
-`;
-
-exports[`Storyshots Forms/CreditCardDetails/ExpiryDate Base 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-<label
-    class="circuit-0 circuit-1"
-    data-testid="expiry-date-input-label"
-    for="cui-cc-expiry_8"
-  >
-    Expiry date
-  </label>,
-  .circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-<div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      aria-invalid="false"
-      autocomplete="cc-exp"
-      class="circuit-0 circuit-1"
-      data-testid="expiry-date-input-input"
-      id="cui-cc-expiry_8"
-      placeholder="MM/YY"
-      value=""
-    />
-    <div
-      class="circuit-2 circuit-3"
-    />
-  </div>,
-]
-`;
-
-exports[`Storyshots Forms/CreditCardDetails/NameOnCardInput Base 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-<label
-    class="circuit-0 circuit-1"
-    for="cui-cc-name-on-card"
-  >
-    Name on card
-  </label>,
-  .circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-<div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      aria-invalid="false"
-      autocomplete="cc-name"
-      class="circuit-0 circuit-1"
-      id="cui-cc-name-on-card"
-      type="text"
-    />
-    <div
-      class="circuit-2 circuit-3"
-    />
-  </div>,
-]
-`;
-
-exports[`Storyshots Forms/CreditCardDetails/SecurityCodeInput Amex 1`] = `
-HTMLCollection [
-  .circuit-1 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<label
-    class="circuit-0 circuit-1 circuit-2"
-    for="cui-cc-security-code"
-  >
-    Security code
-  </label>,
-  .circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-<div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      aria-invalid="false"
-      autocomplete="cc-csc"
-      class="circuit-0 circuit-1"
-      id="cui-cc-security-code"
-      pattern="\\\\d{3,4}"
-      placeholder="1234"
-      value=""
-    />
-    <div
-      class="circuit-2 circuit-3"
-    />
-  </div>,
-]
-`;
-
-exports[`Storyshots Forms/CreditCardDetails/SecurityCodeInput Base 1`] = `
-HTMLCollection [
-  .circuit-1 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-<label
-    class="circuit-0 circuit-1 circuit-2"
-    for="cui-cc-security-code"
-  >
-    Security code
-  </label>,
-  .circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-<div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      aria-invalid="false"
-      autocomplete="cc-csc"
-      class="circuit-0 circuit-1"
-      id="cui-cc-security-code"
-      pattern="\\\\d{3,4}"
-      placeholder="123"
-      value=""
-    />
-    <div
-      class="circuit-2 circuit-3"
-    />
-  </div>,
-]
-`;
-
-exports[`Storyshots Forms/CreditCardDetails/SecurityCodeInput With Modal Toggle 1`] = `
-HTMLCollection [
-  .circuit-2 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-8 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.circuit-5 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
-  margin-left: 4px;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-  height: 14px;
-  width: 14px;
-}
-
-.circuit-5:focus,
-.circuit-5:active {
-  outline: none;
-}
-
-.circuit-5 > svg {
-  height: 100%;
-  width: 100%;
-}
-
-.circuit-0 {
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  fill: #9DA7B1;
-}
-
-<label
-    class="circuit-7 circuit-8 circuit-9"
-    for="cui-cc-security-code"
-  >
-    Security code
-    <button
-      class="circuit-4 circuit-5 circuit-6"
-      type="button"
-    >
-      <div
-        class="circuit-0 circuit-1"
-        role="presentation"
-      >
-        info.svg
-      </div>
-      <span
-        class="circuit-2 circuit-3"
-      >
-        Info
-      </span>
-    </button>
-  </label>,
-  .circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-<div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      aria-invalid="false"
-      autocomplete="cc-csc"
-      class="circuit-0 circuit-1"
-      id="cui-cc-security-code"
-      pattern="\\\\d{3,4}"
-      placeholder="123"
-      value=""
-    />
-    <div
-      class="circuit-2 circuit-3"
-    />
-  </div>,
-]
-`;
-
 exports[`Storyshots Forms/InlineNotification Alert 1`] = `
 .circuit-0 {
   color: #DB4D4D;
@@ -16555,20 +15004,6 @@ exports[`Storyshots Forms/InlineNotification Base 1`] = `
   padding: 16px 24px;
 }
 
-.circuit-2 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -16586,6 +15021,20 @@ exports[`Storyshots Forms/InlineNotification Base 1`] = `
   height: 100%;
   background-color: #D8A413;
   width: 3px;
+}
+
+.circuit-2 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 <div
@@ -16770,7 +15219,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="14"
+  for="13"
 >
   Label
   <div
@@ -16779,7 +15228,7 @@ label + .circuit-4 {
     <input
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="14"
+      id="13"
       placeholder="Placeholder"
     />
     <div
@@ -16859,7 +15308,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4 circuit-5"
-  for="22"
+  for="21"
 >
   Label
   <div
@@ -16870,7 +15319,7 @@ label + .circuit-2 {
       aria-invalid="false"
       class="circuit-0 circuit-1"
       disabled=""
-      id="22"
+      id="21"
       placeholder="Placeholder"
       value="Some value"
     />
@@ -17129,7 +15578,7 @@ label + .circuit-7 {
 
 <label
     class="circuit-9 circuit-10"
-    for="17"
+    for="16"
   >
     Label
     <div
@@ -17138,7 +15587,7 @@ label + .circuit-7 {
       <input
         aria-invalid="true"
         class="circuit-0 circuit-1"
-        id="17"
+        id="16"
         placeholder="Placeholder"
       />
       <div
@@ -17264,7 +15713,7 @@ label + .circuit-5 {
 
 <label
     class="circuit-7 circuit-8"
-    for="18"
+    for="17"
   >
     Label
     <div
@@ -17273,7 +15722,7 @@ label + .circuit-5 {
       <input
         aria-invalid="true"
         class="circuit-0 circuit-1"
-        id="18"
+        id="17"
         placeholder="Placeholder"
       />
       <div
@@ -17374,7 +15823,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="21"
+  for="20"
 >
   Label
   <div
@@ -17383,7 +15832,7 @@ label + .circuit-4 {
     <input
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="21"
+      id="20"
       placeholder="Placeholder"
     />
     <div
@@ -17474,7 +15923,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="23"
+  for="22"
 >
   Label
   <div
@@ -17483,7 +15932,7 @@ label + .circuit-4 {
     <input
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="23"
+      id="22"
       placeholder="Placeholder"
     />
     <div
@@ -17622,7 +16071,7 @@ label + .circuit-7 {
 
 <label
     class="circuit-9 circuit-10"
-    for="15"
+    for="14"
   >
     Label
     <div
@@ -17631,7 +16080,7 @@ label + .circuit-7 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="15"
+        id="14"
         placeholder="Placeholder"
       />
       <div
@@ -17737,7 +16186,7 @@ label + .circuit-5 {
 
 <label
     class="circuit-7 circuit-8"
-    for="16"
+    for="15"
   >
     Label
     <div
@@ -17746,7 +16195,7 @@ label + .circuit-5 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="16"
+        id="15"
         placeholder="Placeholder"
       />
       <div
@@ -17913,7 +16362,7 @@ label + .circuit-7 {
 
 <label
     class="circuit-9 circuit-10"
-    for="19"
+    for="18"
   >
     Label
     <div
@@ -17922,7 +16371,7 @@ label + .circuit-7 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="19"
+        id="18"
         placeholder="Placeholder"
       />
       <div
@@ -18048,7 +16497,7 @@ label + .circuit-5 {
 
 <label
     class="circuit-7 circuit-8"
-    for="20"
+    for="19"
   >
     Label
     <div
@@ -18057,7 +16506,7 @@ label + .circuit-5 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="20"
+        id="19"
         placeholder="Placeholder"
       />
       <div
@@ -18379,7 +16828,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="9"
+  for="8"
 >
   Amount
   <div
@@ -18388,7 +16837,7 @@ label + .circuit-4 {
     <input
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="9"
+      id="8"
       placeholder="123,45"
       type="text"
       value=""
@@ -18487,7 +16936,7 @@ label + .circuit-4 {
 
 <label
     class="circuit-6 circuit-7"
-    for="10"
+    for="9"
   >
     Amount
     <div
@@ -18501,7 +16950,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-2 circuit-3"
-        id="10"
+        id="9"
         placeholder="1,234.50"
         type="text"
         value=""
@@ -18591,7 +17040,7 @@ label + .circuit-4 {
 
 <label
     class="circuit-6 circuit-7"
-    for="11"
+    for="10"
   >
     Amount
     <div
@@ -18600,7 +17049,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="11"
+        id="10"
         placeholder="1 234,50"
         type="text"
         value=""
@@ -18700,7 +17149,7 @@ label + .circuit-4 {
 
 <label
     class="circuit-6 circuit-7"
-    for="12"
+    for="11"
   >
     Amount
     <div
@@ -18709,7 +17158,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="12"
+        id="11"
         placeholder="1.234,50"
         type="text"
         value=""
@@ -18804,7 +17253,7 @@ label + .circuit-4 {
 
 <label
     class="circuit-6 circuit-7"
-    for="13"
+    for="12"
   >
     Amount
     <div
@@ -18818,7 +17267,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-2 circuit-3"
-        id="13"
+        id="12"
         placeholder="1,234.50"
         type="text"
         value=""
@@ -19372,7 +17821,7 @@ label + .circuit-5 {
 
 <label
   class="circuit-7 circuit-8"
-  for="36"
+  for="35"
 >
   Label
   <div
@@ -19386,7 +17835,7 @@ label + .circuit-5 {
     <input
       aria-invalid="false"
       class="circuit-1 circuit-2"
-      id="36"
+      id="35"
       placeholder="Search..."
       type="search"
     />
@@ -19478,7 +17927,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-5 circuit-6"
-  for="37"
+  for="36"
 >
   Label
   <div
@@ -19494,7 +17943,7 @@ label + .circuit-3 {
       aria-invalid="false"
       class="circuit-1 circuit-2"
       disabled=""
-      id="37"
+      id="36"
       placeholder="Search..."
       type="search"
     />
@@ -19554,7 +18003,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_30"
+    id="radio-button_29"
     name="radio"
     type="radio"
     value="radio"
@@ -19607,7 +18056,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_30"
+    for="radio-button_29"
     name="radio"
     value="radio"
   >
@@ -19641,7 +18090,7 @@ HTMLCollection [
 <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="radio-button_32"
+    id="radio-button_31"
     name="disabled"
     type="radio"
     value="disabled"
@@ -19713,7 +18162,7 @@ HTMLCollection [
 <label
     class="circuit-0 circuit-1"
     disabled=""
-    for="radio-button_32"
+    for="radio-button_31"
     name="disabled"
     value="disabled"
   >
@@ -19746,7 +18195,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_31"
+    id="radio-button_30"
     name="invalid"
     type="radio"
     value="invalid"
@@ -19807,7 +18256,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_31"
+    for="radio-button_30"
     name="invalid"
     value="invalid"
   >
@@ -19887,14 +18336,14 @@ HTMLCollection [
 <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_33"
+      id="radio-button_32"
       name="radio-button-group"
       type="radio"
       value="First"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_33"
+      for="radio-button_32"
       name="radio-button-group"
       value="First"
     >
@@ -19970,14 +18419,14 @@ HTMLCollection [
 <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_34"
+      id="radio-button_33"
       name="radio-button-group"
       type="radio"
       value="Second"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_34"
+      for="radio-button_33"
       name="radio-button-group"
       value="Second"
     >
@@ -20053,14 +18502,14 @@ HTMLCollection [
 <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_35"
+      id="radio-button_34"
       name="radio-button-group"
       type="radio"
       value="Third"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_35"
+      for="radio-button_34"
       name="radio-button-group"
       value="Third"
     >
@@ -20071,6 +18520,109 @@ HTMLCollection [
 `;
 
 exports[`Storyshots Forms/Select Base 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  color: #212933;
+  padding: 8px 32px 8px 12px;
+  max-height: 42px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0:focus,
+.circuit-0:hover,
+.circuit-0:active {
+  outline: none;
+}
+
+.circuit-0:focus {
+  border-color: #3388FF;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-2 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
+}
+
+<label
+  class="circuit-6 circuit-7"
+  for="37"
+>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <select
+      class="circuit-0 circuit-1"
+      id="37"
+      name="select"
+    >
+      <option
+        value="US"
+      >
+        United States
+      </option>
+      <option
+        value="DE"
+      >
+        Germany
+      </option>
+      <option
+        value="FR"
+      >
+        France
+      </option>
+    </select>
+    <div
+      class="circuit-2 circuit-3"
+    >
+      arrows.svg
+    </div>
+    
+  </div>
+</label>
+`;
+
+exports[`Storyshots Forms/Select Invalid 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -20173,7 +18725,7 @@ exports[`Storyshots Forms/Select Base 1`] = `
 </label>
 `;
 
-exports[`Storyshots Forms/Select Invalid 1`] = `
+exports[`Storyshots Forms/Select With Prefix 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -20248,109 +18800,6 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
     <select
       class="circuit-0 circuit-1"
       id="39"
-      name="select"
-    >
-      <option
-        value="US"
-      >
-        United States
-      </option>
-      <option
-        value="DE"
-      >
-        Germany
-      </option>
-      <option
-        value="FR"
-      >
-        France
-      </option>
-    </select>
-    <div
-      class="circuit-2 circuit-3"
-    >
-      arrows.svg
-    </div>
-    
-  </div>
-</label>
-`;
-
-exports[`Storyshots Forms/Select With Prefix 1`] = `
-.circuit-6 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.circuit-0 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
-  padding: 8px 32px 8px 12px;
-  max-height: 42px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
-}
-
-.circuit-0:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-2 {
-  fill: #5C656F;
-  display: block;
-  z-index: 40;
-  pointer-events: none;
-  position: absolute;
-  height: 16px;
-  width: 16px;
-  top: 1px;
-  right: 1px;
-  margin: 12px;
-}
-
-<label
-  class="circuit-6 circuit-7"
-  for="40"
->
-  <div
-    class="circuit-4 circuit-5"
-  >
-    <select
-      class="circuit-0 circuit-1"
-      id="40"
       name="select"
     >
       <option
@@ -20551,7 +19000,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="42"
+  for="41"
 >
   Label
   <div
@@ -20560,7 +19009,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="42"
+      id="41"
       placeholder="Write your text here..."
     />
     <div
@@ -20642,7 +19091,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4 circuit-5"
-  for="46"
+  for="45"
 >
   Label
   <div
@@ -20653,7 +19102,7 @@ label + .circuit-2 {
       aria-invalid="false"
       class="circuit-0 circuit-1"
       disabled=""
-      id="46"
+      id="45"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -20812,7 +19261,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="43"
+  for="42"
 >
   Label
   <div
@@ -20821,7 +19270,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="true"
       class="circuit-0 circuit-1"
-      id="43"
+      id="42"
       placeholder="Write your text here..."
     />
     <div
@@ -20928,7 +19377,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="45"
+  for="44"
 >
   Label
   <div
@@ -20937,7 +19386,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="45"
+      id="44"
       placeholder="Write your text here..."
     />
     <div
@@ -21097,7 +19546,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="44"
+  for="43"
 >
   Label
   <div
@@ -21106,7 +19555,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="44"
+      id="43"
       placeholder="Write your text here..."
     />
     <div
@@ -21223,9 +19672,9 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_48"
+    aria-labelledby="toggle-label_47"
     class="circuit-4 circuit-5"
-    id="toggle-switch_47"
+    id="toggle-switch_46"
     role="switch"
     type="button"
   >
@@ -21240,8 +19689,8 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   </button>
   <label
     class="circuit-9 circuit-10"
-    for="toggle-switch_47"
-    id="toggle-label_48"
+    for="toggle-switch_46"
+    id="toggle-label_47"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
@@ -21363,9 +19812,9 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_50"
+    aria-labelledby="toggle-label_49"
     class="circuit-4 circuit-5"
-    id="toggle-switch_49"
+    id="toggle-switch_48"
     role="switch"
     type="button"
   >
@@ -21380,8 +19829,8 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-12 circuit-13"
-    for="toggle-switch_49"
-    id="toggle-label_50"
+    for="toggle-switch_48"
+    id="toggle-label_49"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
@@ -24759,20 +23208,6 @@ cultus coniunx adituque.
 `;
 
 exports[`Storyshots Typography/Markdown With Components 1`] = `
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-4 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -24811,6 +23246,20 @@ exports[`Storyshots Typography/Markdown With Components 1`] = `
 @media (min-width:480px) {
   .circuit-6 {
     font-size: 22px;
+    line-height: 24px;
+  }
+}
+
+.circuit-4 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-4 {
+    font-size: 16px;
     line-height: 24px;
   }
 }

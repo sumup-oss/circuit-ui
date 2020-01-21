@@ -13,23 +13,6 @@
  * limitations under the License.
  */
 
-import {
-  // Utils for CardNumberInput
-  isValidCardNumber,
-  isAcceptedCardScheme,
-  normalizeCardNumber,
-  detectCardScheme,
-  // Utils for ExpiryDateInput
-  isFutureDate,
-  isCompleteMonth,
-  isCompleteYear,
-  normalizeExpiryDate,
-  // Utils for SecurityCodeInput
-  isValidSecurityCode,
-  // Misc
-  schemes as ALL_CARD_SCHEMES
-} from './components/CreditCardDetails';
-
 import { normalizeAmount, isValidAmount } from './components/CurrencyInput';
 
 import { circuit } from './themes';
@@ -40,24 +23,6 @@ export {
   currency as currencyUtils,
   sharedPropTypes
 } from './util';
-
-const cardNumberUtils = {
-  isValidCardNumber,
-  isAcceptedCardScheme,
-  normalizeCardNumber,
-  detectCardScheme
-};
-
-const expiryDateUtils = {
-  isFutureDate,
-  isCompleteMonth,
-  isCompleteYear,
-  normalizeExpiryDate
-};
-
-const securityCodeUtils = {
-  isValidSecurityCode
-};
 
 const currencyAmountUtils = {
   normalizeAmount,
@@ -93,20 +58,6 @@ export { default as RadioButtonGroup } from './components/RadioButtonGroup';
 export { default as SearchInput } from './components/SearchInput';
 export { default as Select } from './components/Select';
 export { default as TextArea } from './components/TextArea';
-export {
-  default as CreditCardDetails,
-  CardNumberInput,
-  cardSchemeIcons,
-  NameOnCardInput,
-  SecurityCodeInput,
-  ExpiryDateInput
-} from './components/CreditCardDetails';
-export {
-  cardNumberUtils,
-  expiryDateUtils,
-  securityCodeUtils,
-  ALL_CARD_SCHEMES
-};
 export {
   default as CurrencyInput,
   SimpleCurrencyInput

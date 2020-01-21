@@ -18,7 +18,7 @@ import { keys } from 'lodash/fp';
 
 import CardSchemes from './CardSchemes';
 // eslint-disable-next-line max-len
-import schemeMap from '../CreditCardDetails/components/scheme-icons/card-scheme-icons';
+import schemeMap from './card-scheme-icons';
 
 describe('CardSchemes', () => {
   /**

@@ -18,7 +18,7 @@ import { keys } from 'lodash/fp';
 import { select } from '@storybook/addon-knobs';
 
 // eslint-disable-next-line max-len
-import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
+import schemeMap from '../../card-scheme-icons';
 import PaymentMethodIcon from './PaymentMethodIcon';
 
 const iconSizes = [
