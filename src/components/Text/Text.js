@@ -19,10 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
-import {
-  childrenPropType,
-  deprecatedPropType
-} from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
@@ -100,9 +97,7 @@ export const StyledText = styled('p', {
  * <p>, <div>, <article>, or <section> elements. Capable of rendering
  * using different HTML tags.
  */
-const Text = ({ element, as, ...restProps }) => (
-  <StyledText {...restProps} as={element || as} />
-);
+const Text = props => <StyledText {...props} />;
 
 Text.KILO = KILO;
 Text.MEGA = MEGA;
@@ -140,18 +135,7 @@ Text.propTypes = {
   /**
    * The HTML element to render.
    */
-  as: PropTypes.string,
-  /**
-   * @deprecated
-   * The HTML input element to render.
-   */
-  element: deprecatedPropType(
-    PropTypes.string,
-    [
-      'Emotion 10 introduced the ability to change the HTML element.',
-      'Use the "as" prop instead.'
-    ].join(' ')
-  )
+  as: PropTypes.string
 };
 
 Text.defaultProps = {
