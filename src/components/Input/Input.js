@@ -22,10 +22,7 @@ import { size } from 'polished';
 
 import { textMega, disableVisually } from '../../styles/style-helpers';
 import { directions } from '../../styles/constants';
-import {
-  childrenPropType,
-  deprecatedPropType
-} from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 import Tooltip from '../Tooltip';
 
@@ -338,17 +335,6 @@ Input.RIGHT = directions.RIGHT;
 Input.propTypes = {
   children: childrenPropType,
   /**
-   * @deprecated
-   * The HTML input element to render.
-   */
-  element: deprecatedPropType(
-    PropTypes.oneOf(['input', 'textarea']),
-    [
-      'Emotion 10 introduced the ability to change the HTML element.',
-      'Use the "as" prop instead.'
-    ].join(' ')
-  ),
-  /**
    * The HTML input element to render.
    */
   as: PropTypes.oneOf(['input', 'textarea']),
@@ -404,31 +390,9 @@ Input.propTypes = {
    */
   textAlign: PropTypes.oneOf([Input.LEFT, Input.RIGHT]),
   /**
-   * @deprecated
-   * Class name to overwrite the <input> element styles.
-   */
-  inputClassName: deprecatedPropType(
-    PropTypes.string,
-    [
-      'Emotion 10 uses style objects instead of classnames.',
-      'Use the "inputStyles" prop instead.'
-    ].join(' ')
-  ),
-  /**
    * Emotion style object to overwrite the <input> element styles.
    */
   inputStyles: PropTypes.object,
-  /**
-   * @deprecated
-   * Class name to overwrite the input wrapper element styles.
-   */
-  wrapperClassName: deprecatedPropType(
-    PropTypes.string,
-    [
-      'Emotion 10 uses style objects instead of classnames.',
-      'Use the "wrapperStyles" prop instead.'
-    ].join(' ')
-  ),
   /**
    * Emotion style object to overwrite the input wrapper element styles.
    */
