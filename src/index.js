@@ -67,7 +67,7 @@ export { default as Button } from './components/Button';
 export { default as LoadingButton } from './components/LoadingButton';
 export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as CloseButton } from './components/CloseButton';
-export { default as IconButton, SvgButton } from './components/IconButton';
+export { default as IconButton } from './components/IconButton';
 export { default as Toggle } from './components/Toggle';
 export { default as Selector } from './components/Selector';
 
