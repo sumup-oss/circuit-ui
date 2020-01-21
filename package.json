@@ -133,7 +133,6 @@
     "downshift": "^3.3.4",
     "keycode": "^2.2.0",
     "lodash": "^4.17.11",
-    "markdown-to-jsx": "^6.9.3",
     "moment": "^2.24.0",
     "no-scroll": "^2.1.1",
     "polished": "^3.1.0",
