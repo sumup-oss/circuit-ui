@@ -144,7 +144,7 @@ export { default as Pagination } from './components/Pagination';
 export { default as Spinner } from './components/Spinner';
 export { default as Badge } from './components/Badge';
 export { default as Card, CardHeader, CardFooter } from './components/Card';
-export { default as CardList, ListView } from './components/CardList';
+export { default as CardList } from './components/CardList';
 export { default as Hamburger } from './components/Hamburger';
 export { default as Hr } from './components/Hr';
 export { default as Image } from './components/Image';
