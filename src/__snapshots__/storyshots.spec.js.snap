@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components|Badge Base 1`] = `
+exports[`Storyshots Components/Badge Base 1`] = `
 .circuit-0 {
   border-radius: 100px;
   color: #FFFFFF;
@@ -27,7 +27,7 @@ exports[`Storyshots Components|Badge Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Badge Circular 1`] = `
+exports[`Storyshots Components/Badge Circular 1`] = `
 .circuit-0 {
   border-radius: 100px;
   color: #FFFFFF;
@@ -68,7 +68,7 @@ exports[`Storyshots Components|Badge Circular 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Badge Colors 1`] = `
+exports[`Storyshots Components/Badge Colors 1`] = `
 HTMLCollection [
   .circuit-0 {
   border-radius: 100px;
@@ -193,7 +193,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Blockquote Base 1`] = `
+exports[`Storyshots Components/Blockquote Base 1`] = `
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -223,7 +223,7 @@ tbh adaptogen green juice lo-fi kombucha.
 </blockquote>
 `;
 
-exports[`Storyshots Components|Blockquote Size 1`] = `
+exports[`Storyshots Components/Blockquote Size 1`] = `
 HTMLCollection [
   .circuit-1 {
   font-weight: 400;
@@ -296,7 +296,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Button Base 1`] = `
+exports[`Storyshots Components/Button Base 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -363,7 +363,7 @@ exports[`Storyshots Components|Button Base 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Button Flat 1`] = `
+exports[`Storyshots Components/Button Flat 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -451,7 +451,7 @@ exports[`Storyshots Components|Button Flat 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Button Plain 1`] = `
+exports[`Storyshots Components/Button Plain 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -491,7 +491,7 @@ exports[`Storyshots Components|Button Plain 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Button Primary 1`] = `
+exports[`Storyshots Components/Button Primary 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -579,7 +579,7 @@ exports[`Storyshots Components|Button Primary 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Button Secondary 1`] = `
+exports[`Storyshots Components/Button Secondary 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -692,7 +692,7 @@ exports[`Storyshots Components|Button Secondary 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Button Size 1`] = `
+exports[`Storyshots Components/Button Size 1`] = `
 HTMLCollection [
   .circuit-0 {
   background-color: #FAFBFC;
@@ -889,7 +889,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Button/ButtonGroup Base 1`] = `
+exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
 .circuit-2 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -1129,7 +1129,7 @@ exports[`Storyshots Components|Button/ButtonGroup Base 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Components|Button/CloseButton Base 1`] = `
+exports[`Storyshots Components/Button/CloseButton Base 1`] = `
 .circuit-3 {
   padding: 0;
   margin: 0;
@@ -1185,7 +1185,7 @@ exports[`Storyshots Components|Button/CloseButton Base 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Button/IconButton Base 1`] = `
+exports[`Storyshots Components/Button/IconButton Base 1`] = `
 .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -1255,7 +1255,7 @@ exports[`Storyshots Components|Button/IconButton Base 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Button/LoadingButton Error Animation 1`] = `
+exports[`Storyshots Components/Button/LoadingButton Error Animation 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
@@ -1427,7 +1427,7 @@ exports[`Storyshots Components|Button/LoadingButton Error Animation 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Button/LoadingButton No Exit Animation 1`] = `
+exports[`Storyshots Components/Button/LoadingButton No Exit Animation 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
@@ -1599,7 +1599,7 @@ exports[`Storyshots Components|Button/LoadingButton No Exit Animation 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Button/LoadingButton Success Animation 1`] = `
+exports[`Storyshots Components/Button/LoadingButton Success Animation 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
@@ -1771,7 +1771,7 @@ exports[`Storyshots Components|Button/LoadingButton Success Animation 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Calendar/CalendarTag Base 1`] = `
+exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
 .circuit-0 {
   border-radius: 4px;
   font-size: 16px;
@@ -1799,7 +1799,7 @@ exports[`Storyshots Components|Calendar/CalendarTag Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Calendar/CalendarTagTwoStep Base 1`] = `
+exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
 .circuit-0 {
   border-radius: 4px;
   font-size: 16px;
@@ -1827,7 +1827,7 @@ exports[`Storyshots Components|Calendar/CalendarTagTwoStep Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Calendar/RangePicker Base 1`] = `
+exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
 .circuit-2 .PresetDateRangePicker_panel {
   padding: 0 22px 11px;
 }
@@ -3093,7 +3093,7 @@ exports[`Storyshots Components|Calendar/RangePicker Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Calendar/SingleDayPicker Base 1`] = `
+exports[`Storyshots Components/Calendar/SingleDayPicker Base 1`] = `
 .circuit-0 .PresetDateRangePicker_panel {
   padding: 0 22px 11px;
 }
@@ -4312,7 +4312,7 @@ exports[`Storyshots Components|Calendar/SingleDayPicker Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Card Base 1`] = `
+exports[`Storyshots Components/Card Base 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -4342,7 +4342,7 @@ exports[`Storyshots Components|Card Base 1`] = `
 />
 `;
 
-exports[`Storyshots Components|Card Shadows 1`] = `
+exports[`Storyshots Components/Card Shadows 1`] = `
 HTMLCollection [
   .circuit-0 {
   background-color: #FFFFFF;
@@ -4428,7 +4428,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Card Spacings 1`] = `
+exports[`Storyshots Components/Card Spacings 1`] = `
 HTMLCollection [
   .circuit-1 {
   background-color: #FFFFFF;
@@ -4507,7 +4507,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Card With Footer 1`] = `
+exports[`Storyshots Components/Card With Footer 1`] = `
 HTMLCollection [
   .circuit-2 {
   background-color: #FAFBFC;
@@ -5087,7 +5087,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Card With Header 1`] = `
+exports[`Storyshots Components/Card With Header 1`] = `
 HTMLCollection [
   .circuit-6 {
   background-color: #FFFFFF;
@@ -5312,7 +5312,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Card/CardList Base 1`] = `
+exports[`Storyshots Components/Card/CardList Base 1`] = `
 .circuit-10 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -5432,7 +5432,7 @@ exports[`Storyshots Components|Card/CardList Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Hamburger Base 1`] = `
+exports[`Storyshots Components/Hamburger Base 1`] = `
 .circuit-4 {
   cursor: pointer;
   display: -webkit-box;
@@ -5518,7 +5518,7 @@ exports[`Storyshots Components|Hamburger Base 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Header Base 1`] = `
+exports[`Storyshots Components/Header Base 1`] = `
 .circuit-2 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -5646,7 +5646,7 @@ exports[`Storyshots Components|Header Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Hr Base 1`] = `
+exports[`Storyshots Components/Hr Base 1`] = `
 .circuit-0 {
   display: block;
   width: 100%;
@@ -5660,7 +5660,7 @@ exports[`Storyshots Components|Hr Base 1`] = `
 />
 `;
 
-exports[`Storyshots Components|Image Base 1`] = `
+exports[`Storyshots Components/Image Base 1`] = `
 .circuit-0 {
   display: block;
   height: auto;
@@ -5675,7 +5675,7 @@ exports[`Storyshots Components|Image Base 1`] = `
 />
 `;
 
-exports[`Storyshots Components|List Base 1`] = `
+exports[`Storyshots Components/List Base 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -5706,7 +5706,7 @@ exports[`Storyshots Components|List Base 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Components|List Nested 1`] = `
+exports[`Storyshots Components/List Nested 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -5744,7 +5744,7 @@ exports[`Storyshots Components|List Nested 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Components|List Ordered 1`] = `
+exports[`Storyshots Components/List Ordered 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -5775,7 +5775,7 @@ exports[`Storyshots Components|List Ordered 1`] = `
 </ol>
 `;
 
-exports[`Storyshots Components|List Size 1`] = `
+exports[`Storyshots Components/List Size 1`] = `
 HTMLCollection [
   .circuit-0 {
   font-weight: 400;
@@ -5864,7 +5864,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Message Alert 1`] = `
+exports[`Storyshots Components/Message Alert 1`] = `
 .circuit-4 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -6034,7 +6034,7 @@ exports[`Storyshots Components|Message Alert 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Message Base 1`] = `
+exports[`Storyshots Components/Message Base 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -6109,7 +6109,7 @@ exports[`Storyshots Components|Message Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Message Success 1`] = `
+exports[`Storyshots Components/Message Success 1`] = `
 .circuit-2 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -6188,7 +6188,7 @@ exports[`Storyshots Components|Message Success 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Message Warning 1`] = `
+exports[`Storyshots Components/Message Warning 1`] = `
 .circuit-6 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -6364,7 +6364,7 @@ exports[`Storyshots Components|Message Warning 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Message/NotificationBanner Base 1`] = `
+exports[`Storyshots Components/Message/NotificationBanner Base 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -6477,7 +6477,7 @@ exports[`Storyshots Components|Message/NotificationBanner Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Message/NotificationList Base 1`] = `
+exports[`Storyshots Components/Message/NotificationList Base 1`] = `
 .circuit-2 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -6612,7 +6612,7 @@ exports[`Storyshots Components|Message/NotificationList Base 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Components|Modal Base 1`] = `
+exports[`Storyshots Components/Modal Base 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -6680,7 +6680,7 @@ exports[`Storyshots Components|Modal Base 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Modal With Custom Styles 1`] = `
+exports[`Storyshots Components/Modal With Custom Styles 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -6748,7 +6748,7 @@ exports[`Storyshots Components|Modal With Custom Styles 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Modal With Footer 1`] = `
+exports[`Storyshots Components/Modal With Footer 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -6816,7 +6816,7 @@ exports[`Storyshots Components|Modal With Footer 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Modal With Header 1`] = `
+exports[`Storyshots Components/Modal With Header 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -6884,7 +6884,7 @@ exports[`Storyshots Components|Modal With Header 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Modal With Title And Close Button 1`] = `
+exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -6952,7 +6952,7 @@ exports[`Storyshots Components|Modal With Title And Close Button 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Modal Without Close Button 1`] = `
+exports[`Storyshots Components/Modal Without Close Button 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -7020,7 +7020,7 @@ exports[`Storyshots Components|Modal Without Close Button 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components|Modal/Embedded Base 1`] = `
+exports[`Storyshots Components/Modal/Embedded Base 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -7057,7 +7057,7 @@ exports[`Storyshots Components|Modal/Embedded Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Modal/Embedded With Custom Styles 1`] = `
+exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -7143,7 +7143,7 @@ exports[`Storyshots Components|Modal/Embedded With Custom Styles 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Modal/Embedded With Footer 1`] = `
+exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 .circuit-8 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -7508,7 +7508,7 @@ exports[`Storyshots Components|Modal/Embedded With Footer 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Modal/Embedded With Title 1`] = `
+exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 .circuit-2 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -7603,7 +7603,7 @@ exports[`Storyshots Components|Modal/Embedded With Title 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Modal/Embedded With Title And Close Button 1`] = `
+exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = `
 .circuit-7 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -7752,7 +7752,7 @@ exports[`Storyshots Components|Modal/Embedded With Title And Close Button 1`] = 
 </div>
 `;
 
-exports[`Storyshots Components|Modal/Embedded Without Close Button 1`] = `
+exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -7807,7 +7807,7 @@ exports[`Storyshots Components|Modal/Embedded Without Close Button 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Pagination Base 1`] = `
+exports[`Storyshots Components/Pagination Base 1`] = `
 HTMLCollection [
   .circuit-21 {
   display: -webkit-box;
@@ -8201,13 +8201,13 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Picture Base 1`] = `
+exports[`Storyshots Components/Picture Base 1`] = `
 <picture>
   <img />
 </picture>
 `;
 
-exports[`Storyshots Components|Popover Base 1`] = `
+exports[`Storyshots Components/Popover Base 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
@@ -8289,7 +8289,7 @@ exports[`Storyshots Components|Popover Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|ProgressBar Base 1`] = `
+exports[`Storyshots Components/ProgressBar Base 1`] = `
 .circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8356,7 +8356,7 @@ exports[`Storyshots Components|ProgressBar Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|ProgressBar Size 1`] = `
+exports[`Storyshots Components/ProgressBar Size 1`] = `
 HTMLCollection [
   .circuit-4 {
   display: -webkit-box;
@@ -8559,7 +8559,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|ProgressBar With Fraction 1`] = `
+exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
 .circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8628,7 +8628,7 @@ exports[`Storyshots Components|ProgressBar With Fraction 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|ProgressBar With Percentage 1`] = `
+exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
 .circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8697,12 +8697,12 @@ exports[`Storyshots Components|ProgressBar With Percentage 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Sidebar Base 1`] = `
-.circuit-45 {
+exports[`Storyshots Components/Sidebar Base 1`] = `
+.circuit-47 {
   height: 100vh;
 }
 
-.circuit-37 {
+.circuit-39 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8727,7 +8727,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 }
 
 @media (min-width:960px) {
-  .circuit-37 {
+  .circuit-39 {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
@@ -8736,7 +8736,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 }
 
 @media (min-width:960px) {
-  .circuit-37 {
+  .circuit-39 {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
@@ -8766,7 +8766,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
   color: #FAFBFC;
 }
 
-.circuit-33 {
+.circuit-35 {
   height: auto;
   justify-self: flex-start;
   overflow-y: auto;
@@ -8910,7 +8910,16 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
   transition: margin-top 300ms ease-in-out;
 }
 
-.circuit-30 {
+.circuit-28 {
+  display: block;
+  width: 100%;
+  border: 1px solid #D8DDE1;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #323E49;
+}
+
+.circuit-32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8932,26 +8941,26 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
   text-decoration: none;
 }
 
-.circuit-30 * {
+.circuit-32 * {
   fill: #9DA7B1;
 }
 
-.circuit-30:hover {
+.circuit-32:hover {
   color: #D8DDE1;
 }
 
-.circuit-30:hover * {
+.circuit-32:hover * {
   fill: #D8DDE1;
 }
 
-.circuit-35 {
+.circuit-37 {
   margin-top: auto;
   padding: 24px;
   background-color: #212933;
   color: #FAFBFC;
 }
 
-.circuit-39 {
+.circuit-41 {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -8966,12 +8975,12 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 }
 
 @media (min-width:960px) {
-  .circuit-39 {
+  .circuit-41 {
     visibility: hidden;
   }
 }
 
-.circuit-43 {
+.circuit-45 {
   cursor: pointer;
   outline: none;
   display: -webkit-box;
@@ -9003,12 +9012,12 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 }
 
 @media (min-width:960px) {
-  .circuit-43 {
+  .circuit-45 {
     visibility: hidden;
   }
 }
 
-.circuit-41 {
+.circuit-43 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -9024,10 +9033,10 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 }
 
 <div
-  class="circuit-45 circuit-46"
+  class="circuit-47 circuit-48"
 >
   <nav
-    class="circuit-37 circuit-38"
+    class="circuit-39 circuit-40"
     open=""
   >
     <header
@@ -9036,7 +9045,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
       Header
     </header>
     <ul
-      class="circuit-33 circuit-34"
+      class="circuit-35 circuit-36"
     >
       <li
         class="circuit-6"
@@ -9109,11 +9118,14 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
           </a>
         </li>
       </ul>
+      <hr
+        class="circuit-28 circuit-29"
+      />
       <li
         class="circuit-6"
       >
         <a
-          class="circuit-30 circuit-5"
+          class="circuit-32 circuit-5"
         >
           <div>
             me-empty.svg
@@ -9127,18 +9139,18 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
       </li>
     </ul>
     <footer
-      class="circuit-35 circuit-36"
+      class="circuit-37 circuit-38"
     >
       Footer
     </footer>
   </nav>
   <div
-    class="circuit-39 circuit-40"
+    class="circuit-41 circuit-42"
     data-testid="sidebar-backdrop"
   />
   <button
     aria-label="close-button"
-    class="circuit-43 circuit-44"
+    class="circuit-45 circuit-46"
     data-testid="sidebar-close-button"
   >
     <div
@@ -9147,7 +9159,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
       closeIcon.svg
     </div>
     <span
-      class="circuit-41 circuit-42"
+      class="circuit-43 circuit-44"
     >
       close-button
     </span>
@@ -9155,7 +9167,7 @@ exports[`Storyshots Components|Sidebar Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Spinner Base 1`] = `
+exports[`Storyshots Components/Spinner Base 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
@@ -9235,7 +9247,7 @@ exports[`Storyshots Components|Spinner Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Table Base 1`] = `
+exports[`Storyshots Components/Table Base 1`] = `
 .circuit-62 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
@@ -9719,7 +9731,7 @@ tbody .circuit-32:hover th {
 </div>
 `;
 
-exports[`Storyshots Components|Table Custom Sort 1`] = `
+exports[`Storyshots Components/Table Custom Sort 1`] = `
 .circuit-46 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
@@ -10055,7 +10067,7 @@ tbody .circuit-8:last-child td {
 </div>
 `;
 
-exports[`Storyshots Components|Table Sortable 1`] = `
+exports[`Storyshots Components/Table Sortable 1`] = `
 .circuit-46 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
@@ -10430,7 +10442,7 @@ tbody .circuit-14:last-child td {
 </div>
 `;
 
-exports[`Storyshots Components|Table With Component Rows 1`] = `
+exports[`Storyshots Components/Table With Component Rows 1`] = `
 .circuit-24 {
   border-radius: 100px;
   color: #FFFFFF;
@@ -10789,7 +10801,7 @@ tbody .circuit-6:last-child td {
 </div>
 `;
 
-exports[`Storyshots Components|Table/TableCell Base 1`] = `
+exports[`Storyshots Components/Table/TableCell Base 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -10810,7 +10822,7 @@ exports[`Storyshots Components|Table/TableCell Base 1`] = `
 </td>
 `;
 
-exports[`Storyshots Components|Table/TableHeader Base 1`] = `
+exports[`Storyshots Components/Table/TableHeader Base 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
@@ -10836,7 +10848,7 @@ exports[`Storyshots Components|Table/TableHeader Base 1`] = `
 </th>
 `;
 
-exports[`Storyshots Components|Tabs Base 1`] = `
+exports[`Storyshots Components/Tabs Base 1`] = `
 HTMLCollection [
   .circuit-10 {
   background: #FFFFFF;
@@ -11029,7 +11041,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Tabs Controlled State 1`] = `
+exports[`Storyshots Components/Tabs Controlled State 1`] = `
 HTMLCollection [
   .circuit-10 {
   background: #FFFFFF;
@@ -11175,7 +11187,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components|Tabs Links 1`] = `
+exports[`Storyshots Components/Tabs Links 1`] = `
 .circuit-8 {
   background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
@@ -11323,7 +11335,7 @@ exports[`Storyshots Components|Tabs Links 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Tag Base 1`] = `
+exports[`Storyshots Components/Tag Base 1`] = `
 .circuit-0 {
   border-radius: 4px;
   font-size: 16px;
@@ -11341,7 +11353,7 @@ exports[`Storyshots Components|Tag Base 1`] = `
 </span>
 `;
 
-exports[`Storyshots Components|Tag Clickable 1`] = `
+exports[`Storyshots Components/Tag Clickable 1`] = `
 .circuit-0 {
   border-radius: 4px;
   font-size: 16px;
@@ -11365,7 +11377,7 @@ exports[`Storyshots Components|Tag Clickable 1`] = `
 </span>
 `;
 
-exports[`Storyshots Components|Tag Removable 1`] = `
+exports[`Storyshots Components/Tag Removable 1`] = `
 .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -11439,7 +11451,7 @@ exports[`Storyshots Components|Tag Removable 1`] = `
 </span>
 `;
 
-exports[`Storyshots Components|Tag Selected 1`] = `
+exports[`Storyshots Components/Tag Selected 1`] = `
 .circuit-0 {
   border-radius: 4px;
   font-size: 16px;
@@ -11460,7 +11472,7 @@ exports[`Storyshots Components|Tag Selected 1`] = `
 </span>
 `;
 
-exports[`Storyshots Components|Tag With Icon 1`] = `
+exports[`Storyshots Components/Tag With Icon 1`] = `
 .circuit-2 {
   border-radius: 4px;
   font-size: 16px;
@@ -11509,7 +11521,7 @@ exports[`Storyshots Components|Tag With Icon 1`] = `
 </span>
 `;
 
-exports[`Storyshots Components|Tooltip Base 1`] = `
+exports[`Storyshots Components/Tooltip Base 1`] = `
 .circuit-2 {
   position: relative;
   line-height: 0;
@@ -11596,7 +11608,7 @@ exports[`Storyshots Components|Tooltip Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Tooltip Bottom Right 1`] = `
+exports[`Storyshots Components/Tooltip Bottom Right 1`] = `
 .circuit-2 {
   position: relative;
   line-height: 0;
@@ -11678,7 +11690,7 @@ exports[`Storyshots Components|Tooltip Bottom Right 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Tooltip Left Center 1`] = `
+exports[`Storyshots Components/Tooltip Left Center 1`] = `
 .circuit-2 {
   position: relative;
   line-height: 0;
@@ -11765,7 +11777,7 @@ exports[`Storyshots Components|Tooltip Left Center 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components|Tooltip Top Left 1`] = `
+exports[`Storyshots Components/Tooltip Top Left 1`] = `
 .circuit-2 {
   position: relative;
   line-height: 0;
@@ -11847,7 +11859,7 @@ exports[`Storyshots Components|Tooltip Top Left 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Checkbox Base 1`] = `
+exports[`Storyshots Forms/Checkbox Base 1`] = `
 .circuit-4 {
   position: relative;
 }
@@ -11959,7 +11971,7 @@ exports[`Storyshots Forms|Checkbox Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Checkbox Disabled 1`] = `
+exports[`Storyshots Forms/Checkbox Disabled 1`] = `
 .circuit-4 {
   position: relative;
 }
@@ -12091,7 +12103,7 @@ exports[`Storyshots Forms|Checkbox Disabled 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Checkbox Invalid 1`] = `
+exports[`Storyshots Forms/Checkbox Invalid 1`] = `
 .circuit-6 {
   position: relative;
 }
@@ -12258,7 +12270,7 @@ exports[`Storyshots Forms|Checkbox Invalid 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Checkbox Multiple 1`] = `
+exports[`Storyshots Forms/Checkbox Multiple 1`] = `
 HTMLCollection [
   .circuit-4 {
   position: relative;
@@ -12590,7 +12602,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/CardNumberInput Empty Card Number Input 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/CardNumberInput Empty Card Number Input 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -12818,7 +12830,7 @@ label + .circuit-14 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/CardNumberInput Empty With Many Supported Schemes 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/CardNumberInput Empty With Many Supported Schemes 1`] = `
 HTMLCollection [
   .circuit-0 {
   font-weight: 400;
@@ -13117,7 +13129,7 @@ label + .circuit-20 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/CardNumberInput With Detected Card Scheme 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/CardNumberInput With Detected Card Scheme 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -13367,7 +13379,7 @@ label + .circuit-14 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/CardSchemeIcons Credit Cards 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/CardSchemeIcons Credit Cards 1`] = `
 .circuit-21 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -13479,7 +13491,7 @@ exports[`Storyshots Forms|CreditCardDetails/CardSchemeIcons Credit Cards 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/CardSchemeIcons Debit Cards 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/CardSchemeIcons Debit Cards 1`] = `
 .circuit-6 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -13546,7 +13558,7 @@ exports[`Storyshots Forms|CreditCardDetails/CardSchemeIcons Debit Cards 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/ExpiryDate Base 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/ExpiryDate Base 1`] = `
 HTMLCollection [
   .circuit-0 {
   font-size: 13px;
@@ -13651,7 +13663,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/NameOnCardInput Base 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/NameOnCardInput Base 1`] = `
 HTMLCollection [
   .circuit-0 {
   font-size: 13px;
@@ -13753,7 +13765,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/SecurityCodeInput Amex 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/SecurityCodeInput Amex 1`] = `
 HTMLCollection [
   .circuit-1 {
   font-size: 13px;
@@ -13861,7 +13873,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/SecurityCodeInput Base 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/SecurityCodeInput Base 1`] = `
 HTMLCollection [
   .circuit-1 {
   font-size: 13px;
@@ -13969,7 +13981,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|CreditCardDetails/SecurityCodeInput With Modal Toggle 1`] = `
+exports[`Storyshots Forms/CreditCardDetails/SecurityCodeInput With Modal Toggle 1`] = `
 HTMLCollection [
   .circuit-2 {
   border: 0;
@@ -14141,7 +14153,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|InlineNotification Alert 1`] = `
+exports[`Storyshots Forms/InlineNotification Alert 1`] = `
 .circuit-0 {
   color: #DB4D4D;
   position: relative;
@@ -14169,7 +14181,7 @@ exports[`Storyshots Forms|InlineNotification Alert 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms|InlineNotification Base 1`] = `
+exports[`Storyshots Forms/InlineNotification Base 1`] = `
 .circuit-4 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -14239,7 +14251,7 @@ exports[`Storyshots Forms|InlineNotification Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|InlineNotification Size 1`] = `
+exports[`Storyshots Forms/InlineNotification Size 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -14267,7 +14279,7 @@ exports[`Storyshots Forms|InlineNotification Size 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms|InlineNotification Success 1`] = `
+exports[`Storyshots Forms/InlineNotification Success 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -14295,7 +14307,7 @@ exports[`Storyshots Forms|InlineNotification Success 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms|InlineNotification Warning 1`] = `
+exports[`Storyshots Forms/InlineNotification Warning 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -14323,7 +14335,7 @@ exports[`Storyshots Forms|InlineNotification Warning 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms|Input Base 1`] = `
+exports[`Storyshots Forms/Input Base 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -14422,7 +14434,7 @@ label + .circuit-4 {
 </label>
 `;
 
-exports[`Storyshots Forms|Input Disabled 1`] = `
+exports[`Storyshots Forms/Input Disabled 1`] = `
 .circuit-4 {
   font-size: 13px;
   line-height: 20px;
@@ -14511,7 +14523,7 @@ label + .circuit-2 {
 </label>
 `;
 
-exports[`Storyshots Forms|Input Inline 1`] = `
+exports[`Storyshots Forms/Input Inline 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -14613,7 +14625,7 @@ label + .circuit-4 {
 </div>
 `;
 
-exports[`Storyshots Forms|Input Invalid 1`] = `
+exports[`Storyshots Forms/Input Invalid 1`] = `
 HTMLCollection [
   .circuit-9 {
   font-size: 13px;
@@ -14924,7 +14936,7 @@ label + .circuit-5 {
 ]
 `;
 
-exports[`Storyshots Forms|Input Optional 1`] = `
+exports[`Storyshots Forms/Input Optional 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -15026,7 +15038,7 @@ label + .circuit-4 {
 </label>
 `;
 
-exports[`Storyshots Forms|Input Right Aligned 1`] = `
+exports[`Storyshots Forms/Input Right Aligned 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -15126,7 +15138,7 @@ label + .circuit-4 {
 </label>
 `;
 
-exports[`Storyshots Forms|Input Valid 1`] = `
+exports[`Storyshots Forms/Input Valid 1`] = `
 HTMLCollection [
   .circuit-9 {
   font-size: 13px;
@@ -15397,7 +15409,7 @@ label + .circuit-5 {
 ]
 `;
 
-exports[`Storyshots Forms|Input Warning 1`] = `
+exports[`Storyshots Forms/Input Warning 1`] = `
 HTMLCollection [
   .circuit-9 {
   font-size: 13px;
@@ -15708,7 +15720,7 @@ label + .circuit-5 {
 ]
 `;
 
-exports[`Storyshots Forms|Input/AutoCompleteInput Base 1`] = `
+exports[`Storyshots Forms/Input/AutoCompleteInput Base 1`] = `
 .circuit-7 {
   font-size: 13px;
   line-height: 20px;
@@ -15824,7 +15836,7 @@ label + .circuit-3 {
 </label>
 `;
 
-exports[`Storyshots Forms|Input/AutoCompleteTags Base 1`] = `
+exports[`Storyshots Forms/Input/AutoCompleteTags Base 1`] = `
 .circuit-5 {
   min-width: 150px;
 }
@@ -15928,7 +15940,7 @@ label + .circuit-3 {
 </div>
 `;
 
-exports[`Storyshots Forms|Input/CurrencyInput Base 1`] = `
+exports[`Storyshots Forms/Input/CurrencyInput Base 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -16035,7 +16047,7 @@ label + .circuit-4 {
 </label>
 `;
 
-exports[`Storyshots Forms|Input/CurrencyInput Currencies 1`] = `
+exports[`Storyshots Forms/Input/CurrencyInput Currencies 1`] = `
 HTMLCollection [
   .circuit-6 {
   font-size: 13px;
@@ -16248,7 +16260,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|Input/CurrencyInput Locales 1`] = `
+exports[`Storyshots Forms/Input/CurrencyInput Locales 1`] = `
 HTMLCollection [
   .circuit-6 {
   font-size: 13px;
@@ -16461,7 +16473,7 @@ label + .circuit-4 {
 ]
 `;
 
-exports[`Storyshots Forms|Input/CurrencyInput/SimpleCurrencyInput Base 1`] = `
+exports[`Storyshots Forms/Input/CurrencyInput/SimpleCurrencyInput Base 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -16555,7 +16567,7 @@ label + .circuit-4 {
 </div>
 `;
 
-exports[`Storyshots Forms|Input/CurrencyInput/SimpleCurrencyInput For Right Aligned CHF 1`] = `
+exports[`Storyshots Forms/Input/CurrencyInput/SimpleCurrencyInput For Right Aligned CHF 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -16649,7 +16661,7 @@ label + .circuit-4 {
 </div>
 `;
 
-exports[`Storyshots Forms|Input/CurrencyInput/SimpleCurrencyInput For Usd 1`] = `
+exports[`Storyshots Forms/Input/CurrencyInput/SimpleCurrencyInput For Usd 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -16743,7 +16755,7 @@ label + .circuit-4 {
 </div>
 `;
 
-exports[`Storyshots Forms|Input/MaskedInput Base 1`] = `
+exports[`Storyshots Forms/Input/MaskedInput Base 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -16829,7 +16841,7 @@ label + .circuit-4 {
 </div>
 `;
 
-exports[`Storyshots Forms|Input/RestrictedInput Base 1`] = `
+exports[`Storyshots Forms/Input/RestrictedInput Base 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
@@ -16914,7 +16926,7 @@ label + .circuit-4 {
 </div>
 `;
 
-exports[`Storyshots Forms|Input/SearchInput Base 1`] = `
+exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
 .circuit-7 {
   font-size: 13px;
   line-height: 20px;
@@ -17030,7 +17042,7 @@ label + .circuit-5 {
 </label>
 `;
 
-exports[`Storyshots Forms|Input/SearchInput Disabled 1`] = `
+exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
 .circuit-5 {
   font-size: 13px;
   line-height: 20px;
@@ -17135,7 +17147,7 @@ label + .circuit-3 {
 </label>
 `;
 
-exports[`Storyshots Forms|Label Base 1`] = `
+exports[`Storyshots Forms/Label Base 1`] = `
 .circuit-0 {
   font-size: 13px;
   line-height: 20px;
@@ -17149,7 +17161,7 @@ exports[`Storyshots Forms|Label Base 1`] = `
 </label>
 `;
 
-exports[`Storyshots Forms|Label For Accessibility Only 1`] = `
+exports[`Storyshots Forms/Label For Accessibility Only 1`] = `
 .circuit-0 {
   font-size: 13px;
   line-height: 20px;
@@ -17163,7 +17175,7 @@ exports[`Storyshots Forms|Label For Accessibility Only 1`] = `
 </label>
 `;
 
-exports[`Storyshots Forms|RadioButton Base 1`] = `
+exports[`Storyshots Forms/RadioButton Base 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -17249,7 +17261,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms|RadioButton Disabled 1`] = `
+exports[`Storyshots Forms/RadioButton Disabled 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -17355,7 +17367,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms|RadioButton Invalid 1`] = `
+exports[`Storyshots Forms/RadioButton Invalid 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -17449,7 +17461,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms|RadioButton/RadioButtonGroup Base 1`] = `
+exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
 HTMLCollection [
   .circuit-0 {
   border: 0;
@@ -17703,7 +17715,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms|Select Base 1`] = `
+exports[`Storyshots Forms/Select Base 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -17806,7 +17818,7 @@ exports[`Storyshots Forms|Select Base 1`] = `
 </label>
 `;
 
-exports[`Storyshots Forms|Select Invalid 1`] = `
+exports[`Storyshots Forms/Select Invalid 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -17909,7 +17921,7 @@ exports[`Storyshots Forms|Select Invalid 1`] = `
 </label>
 `;
 
-exports[`Storyshots Forms|Select With Prefix 1`] = `
+exports[`Storyshots Forms/Select With Prefix 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -18012,7 +18024,7 @@ exports[`Storyshots Forms|Select With Prefix 1`] = `
 </label>
 `;
 
-exports[`Storyshots Forms|Selector Base 1`] = `
+exports[`Storyshots Forms/Selector Base 1`] = `
 HTMLCollection [
   .circuit-0 {
   cursor: pointer;
@@ -18055,7 +18067,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms|Selector Disabled 1`] = `
+exports[`Storyshots Forms/Selector Disabled 1`] = `
 .circuit-0 {
   cursor: pointer;
   padding: 24px;
@@ -18081,7 +18093,7 @@ exports[`Storyshots Forms|Selector Disabled 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Selector Selected 1`] = `
+exports[`Storyshots Forms/Selector Selected 1`] = `
 .circuit-0 {
   cursor: pointer;
   padding: 24px;
@@ -18102,7 +18114,7 @@ exports[`Storyshots Forms|Selector Selected 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|TextArea Base 1`] = `
+exports[`Storyshots Forms/TextArea Base 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -18203,7 +18215,7 @@ label + .circuit-4 {
 </label>
 `;
 
-exports[`Storyshots Forms|TextArea Disabled 1`] = `
+exports[`Storyshots Forms/TextArea Disabled 1`] = `
 .circuit-4 {
   font-size: 13px;
   line-height: 20px;
@@ -18295,7 +18307,7 @@ label + .circuit-2 {
 </label>
 `;
 
-exports[`Storyshots Forms|TextArea Invalid 1`] = `
+exports[`Storyshots Forms/TextArea Invalid 1`] = `
 .circuit-9 {
   font-size: 13px;
   line-height: 20px;
@@ -18476,7 +18488,7 @@ label + .circuit-7 {
 </label>
 `;
 
-exports[`Storyshots Forms|TextArea Optional 1`] = `
+exports[`Storyshots Forms/TextArea Optional 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -18580,7 +18592,7 @@ label + .circuit-4 {
 </label>
 `;
 
-exports[`Storyshots Forms|TextArea Warning 1`] = `
+exports[`Storyshots Forms/TextArea Warning 1`] = `
 .circuit-9 {
   font-size: 13px;
   line-height: 20px;
@@ -18761,7 +18773,7 @@ label + .circuit-7 {
 </label>
 `;
 
-exports[`Storyshots Forms|Toggle Base 1`] = `
+exports[`Storyshots Forms/Toggle Base 1`] = `
 .circuit-11 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -18885,7 +18897,7 @@ exports[`Storyshots Forms|Toggle Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms|Toggle With Explanation 1`] = `
+exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 .circuit-14 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -19030,7 +19042,7 @@ exports[`Storyshots Forms|Toggle With Explanation 1`] = `
 </div>
 `;
 
-exports[`Storyshots Icons|CardSchemes Base 1`] = `
+exports[`Storyshots Icons/CardSchemes Base 1`] = `
 .circuit-115 {
   display: block;
   line-height: 0;
@@ -19408,7 +19420,7 @@ exports[`Storyshots Icons|CardSchemes Base 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Icons|InfoIcon Base 1`] = `
+exports[`Storyshots Icons/InfoIcon Base 1`] = `
 .circuit-0 {
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -19422,7 +19434,7 @@ exports[`Storyshots Icons|InfoIcon Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Icons|PaymentMethodIcon Base 1`] = `
+exports[`Storyshots Icons/PaymentMethodIcon Base 1`] = `
 .circuit-1 {
   height: 32px;
   width: auto;
@@ -19450,7 +19462,7 @@ exports[`Storyshots Icons|PaymentMethodIcon Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout|Grid/Col Col 1`] = `
+exports[`Storyshots Layout/Grid/Col Col 1`] = `
 .circuit-0 {
   box-sizing: border-box;
   float: left;
@@ -19508,7 +19520,7 @@ exports[`Storyshots Layout|Grid/Col Col 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout|Grid/Grid Responsive Columns 1`] = `
+exports[`Storyshots Layout/Grid/Grid Responsive Columns 1`] = `
 .circuit-16 {
   margin: 0 auto;
   width: 100%;
@@ -19766,7 +19778,7 @@ exports[`Storyshots Layout|Grid/Grid Responsive Columns 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout|Grid/Grid Responsive Skipping 1`] = `
+exports[`Storyshots Layout/Grid/Grid Responsive Skipping 1`] = `
 .circuit-14 {
   margin: 0 auto;
   width: 100%;
@@ -20136,7 +20148,7 @@ exports[`Storyshots Layout|Grid/Grid Responsive Skipping 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout|Grid/Grid Skipping Columns 1`] = `
+exports[`Storyshots Layout/Grid/Grid Skipping Columns 1`] = `
 .circuit-14 {
   margin: 0 auto;
   width: 100%;
@@ -20485,7 +20497,7 @@ exports[`Storyshots Layout|Grid/Grid Skipping Columns 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout|Grid/Grid Static Columns 1`] = `
+exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
 .circuit-50 {
   margin: 0 auto;
   width: 100%;
@@ -20988,7 +21000,7 @@ exports[`Storyshots Layout|Grid/Grid Static Columns 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout|Grid/Row Base 1`] = `
+exports[`Storyshots Layout/Grid/Row Base 1`] = `
 .circuit-6 {
   position: relative;
   border: 2px solid #F2E9C7;
@@ -21112,7 +21124,7 @@ exports[`Storyshots Layout|Grid/Row Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout|InlineElements Three Inline Elements 1`] = `
+exports[`Storyshots Layout/InlineElements Three Inline Elements 1`] = `
 .circuit-8 {
   width: 95vw;
   max-width: 600px;
@@ -21222,7 +21234,7 @@ exports[`Storyshots Layout|InlineElements Three Inline Elements 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout|InlineElements Three Inline Elements Inline On Mobile 1`] = `
+exports[`Storyshots Layout/InlineElements Three Inline Elements Inline On Mobile 1`] = `
 .circuit-8 {
   width: 95vw;
   max-width: 600px;
@@ -21371,7 +21383,7 @@ exports[`Storyshots Layout|InlineElements Three Inline Elements Inline On Mobile
 </div>
 `;
 
-exports[`Storyshots Layout|InlineElements Two Inline Elements 1`] = `
+exports[`Storyshots Layout/InlineElements Two Inline Elements 1`] = `
 .circuit-6 {
   width: 95vw;
   max-width: 600px;
@@ -21478,7 +21490,7 @@ exports[`Storyshots Layout|InlineElements Two Inline Elements 1`] = `
 </div>
 `;
 
-exports[`Storyshots Layout|InlineElements Two Inline Elements With Ratios 1`] = `
+exports[`Storyshots Layout/InlineElements Two Inline Elements With Ratios 1`] = `
 .circuit-6 {
   width: 95vw;
   max-width: 600px;
@@ -21605,7 +21617,7 @@ exports[`Storyshots Layout|InlineElements Two Inline Elements With Ratios 1`] = 
 </div>
 `;
 
-exports[`Storyshots Layout|InlineElements Two Inline Elements With Ratios Inline On Mobile 1`] = `
+exports[`Storyshots Layout/InlineElements Two Inline Elements With Ratios Inline On Mobile 1`] = `
 .circuit-6 {
   width: 95vw;
   max-width: 600px;
@@ -21771,7 +21783,7 @@ exports[`Storyshots Layout|InlineElements Two Inline Elements With Ratios Inline
 </div>
 `;
 
-exports[`Storyshots Layout|Spacing Bottom Spacing 1`] = `
+exports[`Storyshots Layout/Spacing Bottom Spacing 1`] = `
 HTMLCollection [
   .circuit-0 {
   background-color: #FAFBFC;
@@ -21933,7 +21945,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Layout|Spacing Top Spacing 1`] = `
+exports[`Storyshots Layout/Spacing Top Spacing 1`] = `
 HTMLCollection [
   .circuit-0 {
   background-color: #FAFBFC;
@@ -22095,7 +22107,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Typography|Heading Base 1`] = `
+exports[`Storyshots Typography/Heading Base 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -22117,7 +22129,7 @@ exports[`Storyshots Typography|Heading Base 1`] = `
 </h1>
 `;
 
-exports[`Storyshots Typography|Heading Size 1`] = `
+exports[`Storyshots Typography/Heading Size 1`] = `
 HTMLCollection [
   .circuit-0 {
   font-weight: 700;
@@ -22269,7 +22281,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Typography|Markdown Base 1`] = `
+exports[`Storyshots Typography/Markdown Base 1`] = `
 <div>
   <h1
     id="manu-illa-amorem-committere-exit-membra-minor"
@@ -22391,7 +22403,7 @@ cultus coniunx adituque.
 </div>
 `;
 
-exports[`Storyshots Typography|Markdown With Components 1`] = `
+exports[`Storyshots Typography/Markdown With Components 1`] = `
 .circuit-4 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -22587,7 +22599,7 @@ cultus coniunx adituque.
 </div>
 `;
 
-exports[`Storyshots Typography|SubHeading Base 1`] = `
+exports[`Storyshots Typography/SubHeading Base 1`] = `
 .circuit-0 {
   text-transform: uppercase;
   font-weight: 700;
@@ -22603,7 +22615,7 @@ exports[`Storyshots Typography|SubHeading Base 1`] = `
 </h2>
 `;
 
-exports[`Storyshots Typography|SubHeading Size 1`] = `
+exports[`Storyshots Typography/SubHeading Size 1`] = `
 HTMLCollection [
   .circuit-0 {
   text-transform: uppercase;
@@ -22638,7 +22650,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Typography|Text Base 1`] = `
+exports[`Storyshots Typography/Text Base 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -22660,7 +22672,7 @@ exports[`Storyshots Typography|Text Base 1`] = `
 </p>
 `;
 
-exports[`Storyshots Typography|Text Bold 1`] = `
+exports[`Storyshots Typography/Text Bold 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -22683,7 +22695,7 @@ exports[`Storyshots Typography|Text Bold 1`] = `
 </p>
 `;
 
-exports[`Storyshots Typography|Text Custom Element 1`] = `
+exports[`Storyshots Typography/Text Custom Element 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -22705,7 +22717,7 @@ exports[`Storyshots Typography|Text Custom Element 1`] = `
 </span>
 `;
 
-exports[`Storyshots Typography|Text Italic 1`] = `
+exports[`Storyshots Typography/Text Italic 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -22728,7 +22740,7 @@ exports[`Storyshots Typography|Text Italic 1`] = `
 </p>
 `;
 
-exports[`Storyshots Typography|Text Size 1`] = `
+exports[`Storyshots Typography/Text Size 1`] = `
 HTMLCollection [
   .circuit-0 {
   font-weight: 400;
@@ -22799,7 +22811,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Typography|Text Strike 1`] = `
+exports[`Storyshots Typography/Text Strike 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;

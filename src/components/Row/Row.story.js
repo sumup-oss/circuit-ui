@@ -21,7 +21,7 @@ import Row from './Row';
 import Col from '../Col';
 
 export default {
-  title: 'Layout|Grid/Row',
+  title: 'Layout/Grid/Row',
   component: Row,
   parameters: {
     jest: ['Row']

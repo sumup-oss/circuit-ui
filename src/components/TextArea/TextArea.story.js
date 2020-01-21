@@ -22,7 +22,7 @@ import docs from './TextArea.docs.mdx';
 import Label from '../Label';
 
 export default {
-  title: 'Forms|TextArea',
+  title: 'Forms/TextArea',
   component: TextArea,
   parameters: {
     docs: { page: docs },

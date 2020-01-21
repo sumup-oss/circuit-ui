@@ -26,7 +26,7 @@ const variants = {
   stable: { color: Badge.SUCCESS, label: 'Stable' },
   deprecated: { color: Badge.DANGER, label: 'Deprecated' },
   inReview: { color: Badge.WARNING, label: 'In Review' },
-  experimental: { color: Badge.NEUTRAL, label: 'Experimental' }
+  experimental: { color: Badge.PRIMARY, label: 'Experimental' }
 };
 
 const Status = ({ variant = 'stable' }) => {

@@ -18,7 +18,7 @@ import React from 'react';
 import IconButton from './IconButton';
 
 export default {
-  title: 'Components|Button/IconButton',
+  title: 'Components/Button/IconButton',
   component: IconButton,
   parameters: {
     jest: ['IconButton']

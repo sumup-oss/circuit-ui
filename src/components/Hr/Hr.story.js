@@ -19,7 +19,7 @@ import docs from './Hr.docs.mdx';
 import Hr from './Hr';
 
 export default {
-  title: 'Components|Hr',
+  title: 'Components/Hr',
   component: Hr,
   parameters: {
     docs: { page: docs },

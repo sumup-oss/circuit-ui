@@ -19,7 +19,7 @@ import { action } from '@storybook/addon-actions';
 import CalendarTag from './CalendarTag';
 
 export default {
-  title: 'Components|Calendar/CalendarTag',
+  title: 'Components/Calendar/CalendarTag',
   component: CalendarTag,
   parameters: {
     jest: ['CalendarTag']

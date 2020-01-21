@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import RadioButtonGroup from './RadioButtonGroup';
 
 export default {
-  title: 'Forms|RadioButton/RadioButtonGroup',
+  title: 'Forms/RadioButton/RadioButtonGroup',
   component: RadioButtonGroup,
   parameters: {
     jest: ['RadioButtonGroup']

@@ -20,7 +20,7 @@ import ButtonGroup from '.';
 import Button from '../Button';
 
 export default {
-  title: 'Components|Button/ButtonGroup',
+  title: 'Components/Button/ButtonGroup',
   component: ButtonGroup,
   parameters: {
     jest: ['ButtonGroup']

@@ -32,7 +32,7 @@ const Container = styled('div')(
 );
 
 export default {
-  title: 'Components|Spinner',
+  title: 'Components/Spinner',
   component: Spinner,
   parameters: {
     jest: ['Spinner']

@@ -27,7 +27,7 @@ import { ReactComponent as US } from './flags/us.svg';
 import { ReactComponent as FR } from './flags/fr.svg';
 
 export default {
-  title: 'Forms|Select',
+  title: 'Forms/Select',
   component: Select,
   parameters: {
     docs: { page: docs },

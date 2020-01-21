@@ -23,7 +23,7 @@ const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
 const sizes = [SubHeading.MEGA, SubHeading.KILO];
 
 export default {
-  title: 'Typography|SubHeading',
+  title: 'Typography/SubHeading',
   component: SubHeading,
   parameters: {
     docs: { page: docs },

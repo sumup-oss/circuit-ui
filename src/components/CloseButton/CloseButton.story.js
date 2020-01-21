@@ -19,7 +19,7 @@ import { text } from '@storybook/addon-knobs';
 import CloseButton from './CloseButton';
 
 export default {
-  title: 'Components|Button/CloseButton',
+  title: 'Components/Button/CloseButton',
   parameters: {
     component: CloseButton,
     jest: ['CloseButton']

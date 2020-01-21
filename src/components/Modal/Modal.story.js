@@ -26,7 +26,7 @@ import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
 
 export default {
-  title: 'Components|Modal',
+  title: 'Components/Modal',
   component: Modal,
   parameters: {
     docs: { page: docs },

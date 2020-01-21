@@ -1,10 +1,16 @@
 import React from 'react';
 import LinkTo from '@storybook/addon-links/react';
+import { css } from '@emotion/core';
+
 import { isStoryName, splitStoryName } from '../util/story-helpers';
 
 import { Text } from '../../src';
 
-const Link = ({ children, href, size, ...props }) => {
+const styles = css`
+  font: inherit;
+`;
+
+const Link = ({ children, href, ...props }) => {
   const storyName = decodeURIComponent(href);
 
   if (isStoryName(storyName)) {
@@ -18,9 +24,9 @@ const Link = ({ children, href, size, ...props }) => {
   }
 
   return (
-    <Text as="a" href={href} target="_blank" size={size} {...props}>
+    <a css={styles} href={href} target="_blank" {...props}>
       {children}
-    </Text>
+    </a>
   );
 };
 

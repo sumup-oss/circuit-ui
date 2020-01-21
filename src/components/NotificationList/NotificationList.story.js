@@ -19,7 +19,7 @@ import NotificationList from './NotificationList';
 import { success as Message } from '../Message/Message.story';
 
 export default {
-  title: 'Components|Message/NotificationList',
+  title: 'Components/Message/NotificationList',
   component: NotificationList,
   parameters: {
     jest: ['NotificationList']

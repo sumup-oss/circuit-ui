@@ -23,11 +23,11 @@ export const CURRENCY_FORMATS = {
     'el-CY': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'el-GR': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'et-EE': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
-    'de-AT': { prependSymbol: true, fractionalPrecision: 2, addSpace: true },
+    'de-AT': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'de-DE': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'de-LU': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'en-IE': { prependSymbol: true, fractionalPrecision: 2, addSpace: false },
-    'en-MT': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'en-MT': { prependSymbol: true, fractionalPrecision: 2, addSpace: false },
     'es-ES': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'fi-FI': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     'fr-BE': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
@@ -45,7 +45,7 @@ export const CURRENCY_FORMATS = {
   },
   CHF: {
     'de-CH': { prependSymbol: true, fractionalPrecision: 2, addSpace: true },
-    'it-CH': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
+    'it-CH': { prependSymbol: true, fractionalPrecision: 2, addSpace: true },
     'fr-CH': { prependSymbol: true, fractionalPrecision: 2, addSpace: true },
     default: { prependSymbol: true, fractionalPrecision: 2, addSpace: false }
   },
@@ -141,10 +141,7 @@ function addSymbol(amount, symbol, { addSpace = true, prepend = false } = {}) {
 }
 
 export function getCurrencyFormat(currency, locale) {
-  const symbol = compose(
-    defaultTo(currency),
-    get(currency)
-  )(CURRENCY_SYMBOLS);
+  const symbol = compose(defaultTo(currency), get(currency))(CURRENCY_SYMBOLS);
 
   const { decimal: decimalSep, thousand: thousandSep } = getNumberFormat(
     locale
@@ -181,14 +178,18 @@ export function formatCurrency(amount, currency, locale) {
     get(currency)
   )(CURRENCY_SYMBOLS);
   const currencyFormat = getCurrencyFormat(currency, locale);
-  const formattedAmount = toCurrencyNumberFormat(amount, currencyFormat);
+
+  const absAmount = Math.abs(amount);
+  const sign = amount < 0 ? '-' : '';
+
+  const formattedAmount = toCurrencyNumberFormat(absAmount, currencyFormat);
   const currencyString = addSymbol(
     formattedAmount,
     currencySymbol,
     currencyFormat
   );
 
-  return currencyString;
+  return `${sign}${currencyString}`;
 }
 
 function toCurrencyNumberFormat(number, currencyFormat) {

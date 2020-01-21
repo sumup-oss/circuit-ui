@@ -65,7 +65,7 @@ Parte quam aequore, nebulas demisere. Iurgia venit finxit nec manibus tamen
 cultus coniunx adituque.`;
 
 export default {
-  title: 'Typography|Markdown',
+  title: 'Typography/Markdown',
   component: Markdown,
   parameters: {
     jest: ['Markdown']

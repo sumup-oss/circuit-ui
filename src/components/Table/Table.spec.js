@@ -23,7 +23,11 @@ const headers = [
   { children: 'Numbers', sortable: true },
   'Words'
 ];
-const rows = [['b', '3', 'Foo'], ['a', '1', 'Bar'], ['c', '2', 'Baz']];
+const rows = [
+  ['b', '3', 'Foo'],
+  ['a', '1', 'Bar'],
+  ['c', '2', 'Baz']
+];
 const rowLength = rows[0].length;
 
 describe('Table', () => {

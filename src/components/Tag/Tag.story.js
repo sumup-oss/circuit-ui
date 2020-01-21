@@ -34,7 +34,7 @@ const Icon = () => (
 );
 
 export default {
-  title: 'Components|Tag',
+  title: 'Components/Tag',
   component: Tag,
   parameters: {
     docs: { page: docs },

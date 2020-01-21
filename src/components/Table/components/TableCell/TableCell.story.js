@@ -25,7 +25,7 @@ const options = {
 };
 
 export default {
-  title: 'Components|Table/TableCell',
+  title: 'Components/Table/TableCell',
   component: TableCell,
   parameters: {
     jest: ['TableCell']

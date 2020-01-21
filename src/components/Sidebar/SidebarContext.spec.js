@@ -13,11 +13,24 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useContext } from 'react';
 import {
+  SidebarContext,
   SidebarContextProvider,
   SidebarContextConsumer
 } from './SidebarContext';
+
+const ToggleSidebarButton = () => {
+  const { toggleSidebar, isSidebarOpen } = useContext(SidebarContext);
+
+  return (
+    <button
+      data-testid="button"
+      onClick={toggleSidebar}
+      data-open={isSidebarOpen}
+    />
+  );
+};
 
 describe('SidebarContext', () => {
   it('should change Provider open state when using toggleSidebar', () => {
@@ -44,5 +57,23 @@ describe('SidebarContext', () => {
     });
 
     expect(buttonEl).toHaveAttribute('data-open', 'true');
+  });
+
+  it('should be able to consume context, along with useContext hook', () => {
+    const { getByTestId } = render(
+      <SidebarContextProvider>
+        <ToggleSidebarButton />
+      </SidebarContextProvider>
+    );
+
+    const buttonElement = getByTestId('button');
+
+    expect(buttonElement).toHaveAttribute('data-open', 'false');
+
+    act(() => {
+      fireEvent.click(buttonElement);
+    });
+
+    expect(buttonElement).toHaveAttribute('data-open', 'true');
   });
 });

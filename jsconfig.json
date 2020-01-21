@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "lint": {
+          "validProperties": ["label"]
+        }
+      }
+    ]
+  },
+  "include": ["src/**/*"]
+}
