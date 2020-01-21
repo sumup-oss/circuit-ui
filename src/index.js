@@ -131,7 +131,6 @@ export { default as AspectRatio } from './components/AspectRatio';
 export { default as Carousel, CarouselComposer } from './components/Carousel';
 
 // Helpers
-export { default as State } from './components/State';
 export { default as InlineElements } from './components/InlineElements';
 
 export {
