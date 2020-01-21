@@ -120,9 +120,6 @@ export { default as CardSchemes } from './components/CardSchemes';
 // eslint-disable-next-line prettier/prettier, max-len
 export { default as PaymentMethodIcon } from './components/CardSchemes/components/PaymentMethodIcon';
 
-export { default as SideNav } from './components/SideNav';
-export { Menu } from './components/SideNav/components';
-export { Drawer } from './components/SideNav/components';
 export { default as Sidebar } from './components/Sidebar';
 export {
   SidebarContextProvider,
