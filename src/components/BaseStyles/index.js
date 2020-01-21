@@ -13,17 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
-import deprecate from '../../util/deprecate';
 import BaseStyles from './BaseStyles';
 
 export default BaseStyles;
-
-/**
- * @deprecated
- */
-export const GlobalStyles = props => {
-  deprecate('GlobalStyles has been renamed to BaseStyles.');
-  return <BaseStyles {...props} />;
-};

@@ -21,17 +21,4 @@ describe('BaseStylesService', () => {
     const actual = createBaseStyles(circuit);
     expect(actual.styles).toMatchSnapshot();
   });
-
-  /**
-   * @deprecated
-   */
-  it('should accept custom global styles', () => {
-    const custom = `
-      p {
-        color: red;
-      }
-    `;
-    const actual = createBaseStyles(circuit, custom);
-    expect(actual.styles).toMatchSnapshot();
-  });
 });

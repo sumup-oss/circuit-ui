@@ -85,7 +85,7 @@ export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Label } from './components/Label';
 export { default as Input } from './components/Input';
-// eslint-disable-next-line max-len
+// eslint-disable-next-line prettier/prettier, max-len
 export { InternalRestrictedInput as RestrictedInput } from './components/RestrictedInput';
 export { InternalMaskedInput as MaskedInput } from './components/MaskedInput';
 export { default as RadioButton } from './components/RadioButton';
@@ -152,7 +152,7 @@ export { default as ProgressBar } from './components/ProgressBar';
 export { default as Tag } from './components/Tag';
 export { default as Popover } from './components/Popover';
 export { default as Tooltip } from './components/Tooltip';
-export { default as BaseStyles, GlobalStyles } from './components/BaseStyles';
+export { default as BaseStyles } from './components/BaseStyles';
 export {
   default as Modal,
   DEFAULT_APP_ELEMENT,
@@ -169,7 +169,7 @@ export { default as AutoCompleteTags } from './components/AutoCompleteTags';
 export { TableRow, TableCell, TableHeader } from './components/Table';
 export { default as Table } from './components/Table';
 export { default as CardSchemes } from './components/CardSchemes';
-// eslint-disable-next-line max-len
+// eslint-disable-next-line prettier/prettier, max-len
 export { default as PaymentMethodIcon } from './components/CardSchemes/components/PaymentMethodIcon';
 
 export { default as SideNav } from './components/SideNav';
