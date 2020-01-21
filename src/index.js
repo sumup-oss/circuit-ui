@@ -111,7 +111,6 @@ export {
   ModalHeader,
   ModalFooter
 } from './components/Modal';
-export { default as Picture } from './components/Picture';
 export { default as AutoCompleteInput } from './components/AutoCompleteInput';
 export { default as AutoCompleteTags } from './components/AutoCompleteTags';
 

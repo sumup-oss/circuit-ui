@@ -9859,12 +9859,6 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components/Picture Base 1`] = `
-<picture>
-  <img />
-</picture>
-`;
-
 exports[`Storyshots Components/Popover Base 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
