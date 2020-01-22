@@ -36,7 +36,6 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
-        if: success() && (github.ref == 'master' || github.ref == 'canary' || github.ref == 'beta' || github.ref == 'alpha')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
