@@ -14,6 +14,7 @@
  */
 
 import React, { Component, createContext } from 'react';
+import { Global, css } from '@emotion/core';
 
 import Modal, { TRANSITION_DURATION } from './Modal';
 import { childrenPropType } from '../../util/shared-prop-types';
@@ -89,6 +90,18 @@ export class ModalProvider extends Component {
       <ContextProvider value={this.contextValue}>
         {this.props.children}
         {modal && <Modal {...modalProps} />}
+        {isOpen && (
+          <Global
+            styles={css`
+              /* Remove scroll on the body when react-modal is open */
+              .ReactModal__Html--open {
+                height: 100%;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: auto;
+              }
+            `}
+          />
+        )}
       </ContextProvider>
     );
   }
