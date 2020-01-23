@@ -16,7 +16,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import { Global, ClassNames } from '@emotion/core';
+import { ClassNames } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import noScroll from 'no-scroll';
 
@@ -167,16 +167,6 @@ const Modal = ({
         };
         return (
           <ReactModal {...reactModalProps}>
-            <Global
-              styles={css`
-                /* Remove scroll on the body when react-modal is open */
-                .ReactModal__Html--open {
-                  height: 100%;
-                  overflow-y: hidden;
-                  -webkit-overflow-scrolling: auto;
-                }
-              `}
-            />
             {isFunction(children) ? children() : children}
           </ReactModal>
         );
