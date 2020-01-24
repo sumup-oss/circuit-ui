@@ -17711,6 +17711,102 @@ HTMLCollection [
 ]
 `;
 
+exports[`Storyshots Forms/Select Base 1`] = `
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  color: #212933;
+  padding: 8px 32px 8px 12px;
+  max-height: 42px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0:focus,
+.circuit-0:hover,
+.circuit-0:active {
+  outline: none;
+}
+
+.circuit-0:focus {
+  border-color: #3388FF;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-2 {
+  fill: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  right: 1px;
+  margin: 12px;
+}
+
+<div
+  class="circuit-4 circuit-5"
+>
+  <select
+    class="circuit-0 circuit-1"
+    name="select"
+  >
+    <option
+      value="US"
+    >
+      United States
+    </option>
+    <option
+      value="DE"
+    >
+      Germany
+    </option>
+    <option
+      value="FR"
+    >
+      France
+    </option>
+  </select>
+  <div
+    class="circuit-2 circuit-3"
+  >
+    arrows.svg
+  </div>
+  
+</div>
+`;
+
 exports[`Storyshots Forms/Select Invalid 1`] = `
 .circuit-6 {
   font-size: 13px;
@@ -17816,102 +17912,6 @@ label + .circuit-4 {
     
   </div>
 </label>
-`;
-
-exports[`Storyshots Forms/Select Render Base 1`] = `
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
-  padding: 8px 32px 8px 12px;
-  max-height: 42px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
-}
-
-.circuit-0:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-2 {
-  fill: #5C656F;
-  display: block;
-  z-index: 40;
-  pointer-events: none;
-  position: absolute;
-  height: 16px;
-  width: 16px;
-  top: 1px;
-  right: 1px;
-  margin: 12px;
-}
-
-<div
-  class="circuit-4 circuit-5"
->
-  <select
-    class="circuit-0 circuit-1"
-    name="select"
-  >
-    <option
-      value="US"
-    >
-      United States
-    </option>
-    <option
-      value="DE"
-    >
-      Germany
-    </option>
-    <option
-      value="FR"
-    >
-      France
-    </option>
-  </select>
-  <div
-    class="circuit-2 circuit-3"
-  >
-    arrows.svg
-  </div>
-  
-</div>
 `;
 
 exports[`Storyshots Forms/Select With Prefix 1`] = `

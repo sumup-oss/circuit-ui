@@ -50,7 +50,7 @@ const options = [
 ];
 const flagIconMap = { DE, US, FR };
 
-export const renderBase = (value, onChange) => (
+export const base = (value, onChange) => (
   <Select
     name="select"
     options={options}
@@ -71,7 +71,7 @@ const SelectWithLabelAndState = () => {
   return (
     <Label>
       Country
-      {renderBase(value, setValue)}
+      {base(value, setValue)}
     </Label>
   );
 };
