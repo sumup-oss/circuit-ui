@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { isFunction } from 'lodash/fp';
+import { over } from 'lodash/fp';
 
 export function calculateNextStep(data = {}) {
   const { step, stepInterval = 1, firstStep = 0, totalSteps, cycle } = data;
@@ -60,30 +60,26 @@ export function reducer(state, action) {
   }
 }
 
-export function callAll(...fns) {
-  return (...args) => fns.forEach(fn => isFunction(fn) && fn(...args));
-}
-
 export function generatePropGetters(actions = {}) {
   const getPlayControlProps = (props = {}) => ({
     'aria-label': 'play',
     ...props,
-    onClick: callAll(props.onClick, actions.play)
+    onClick: over([props.onClick, actions.play])
   });
   const getPauseControlProps = (props = {}) => ({
     'aria-label': 'pause',
     ...props,
-    onClick: callAll(props.onClick, actions.pause)
+    onClick: over([props.onClick, actions.pause])
   });
   const getNextControlProps = (props = {}) => ({
     'aria-label': 'next',
     ...props,
-    onClick: callAll(props.onClick, actions.next)
+    onClick: over([props.onClick, actions.next])
   });
   const getPreviousControlProps = (props = {}) => ({
     'aria-label': 'previous',
     ...props,
-    onClick: callAll(props.onClick, actions.previous)
+    onClick: over([props.onClick, actions.previous])
   });
 
   return {

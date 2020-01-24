@@ -96,18 +96,6 @@ describe('StepService', () => {
     });
   });
 
-  describe('callAll', () => {
-    it('should call all function specified as arguments', () => {
-      const fnOne = jest.fn();
-      const fnTwo = jest.fn();
-
-      StepService.callAll(fnOne, fnTwo)();
-
-      expect(fnOne).toHaveBeenCalledTimes(1);
-      expect(fnTwo).toHaveBeenCalledTimes(1);
-    });
-  });
-
   describe('generatePropGetters', () => {
     it('should return all necessary getters', () => {
       const expected = expect.objectContaining({
