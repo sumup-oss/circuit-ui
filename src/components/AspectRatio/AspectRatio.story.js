@@ -24,7 +24,7 @@ const Background = styled('div')`
 `;
 
 export default {
-  title: 'Components|AspectRatio',
+  title: 'Components/AspectRatio',
   component: AspectRatio,
   parameters: {
     jest: ['AspectRatio']

@@ -19,7 +19,7 @@ import { number } from '@storybook/addon-knobs/react';
 import Status from './Status';
 
 export default {
-  title: 'Components|Carousel/Status',
+  title: 'Components/Carousel/Status',
   component: Status,
   parameters: {
     jest: ['Carousel/Status']

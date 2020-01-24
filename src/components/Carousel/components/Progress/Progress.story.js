@@ -20,7 +20,7 @@ import Progress from './Progress';
 import { SLIDE_DURATION } from '../../constants';
 
 export default {
-  title: 'Components|Carousel/Progress',
+  title: 'Components/Carousel/Progress',
   component: Progress,
   parameters: {
     jest: ['Carousel/Progress']

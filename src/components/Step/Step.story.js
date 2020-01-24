@@ -35,7 +35,7 @@ const STEP_DURATION = 2000;
 const ANIMATION_DURATION = 300;
 
 export default {
-  title: 'Components|Step',
+  title: 'Components/Step',
   component: Step,
   parameters: {
     docs: { page: docs },

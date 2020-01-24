@@ -14,6 +14,7 @@
  */
 
 import { useCallback, useState, useEffect } from 'react';
+import throttle from 'lodash/fp/throttle';
 
 function getSize(el) {
   if (!el) {
@@ -31,12 +32,14 @@ function getSize(el) {
 
 export default function useComponentSize(ref = {}) {
   const [componentSize, setComponentSize] = useState(getSize(ref.current));
-
-  const handleResize = useCallback(() => {
-    if (ref.current) {
-      setComponentSize(getSize(ref.current));
-    }
-  }, [ref]);
+  const handleResize = useCallback(
+    throttle(500)(() => {
+      if (ref.current) {
+        setComponentSize(getSize(ref.current));
+      }
+    }),
+    [ref]
+  );
 
   useEffect(() => {
     const node = ref.current;
@@ -48,7 +51,7 @@ export default function useComponentSize(ref = {}) {
     handleResize();
 
     if (typeof ResizeObserver === 'function') {
-      let resizeObserver = new ResizeObserver(() => handleResize());
+      let resizeObserver = new ResizeObserver(handleResize);
       resizeObserver.observe(node);
 
       // eslint-disable-next-line consistent-return
@@ -64,7 +67,8 @@ export default function useComponentSize(ref = {}) {
     return function cleanup() {
       window.removeEventListener('resize', handleResize);
     };
-  }, [ref, handleResize]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return componentSize;
 }

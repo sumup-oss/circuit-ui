@@ -21,7 +21,7 @@ import * as Buttons from './Buttons';
 const { ButtonList, PlayButton, NextButton, PrevButton } = Buttons;
 
 export default {
-  title: 'Components|Carousel/Buttons',
+  title: 'Components/Carousel/Buttons',
   component: Buttons,
   parameters: {
     jest: ['Carousel/Buttons']

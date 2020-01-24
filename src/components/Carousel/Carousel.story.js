@@ -33,7 +33,7 @@ import docs from './Carousel.docs.mdx';
 import { SLIDES } from './__fixtures__';
 
 export default {
-  title: 'Components|Carousel',
+  title: 'Components/Carousel',
   component: Carousel,
   parameters: {
     docs: { page: docs },
