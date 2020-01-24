@@ -85,9 +85,8 @@ export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Label } from './components/Label';
 export { default as Input } from './components/Input';
-export {
-  InternalRestrictedInput as RestrictedInput
-} from './components/RestrictedInput';
+// eslint-disable-next-line max-len
+export { InternalRestrictedInput as RestrictedInput } from './components/RestrictedInput';
 export { InternalMaskedInput as MaskedInput } from './components/MaskedInput';
 export { default as RadioButton } from './components/RadioButton';
 export { default as RadioButtonGroup } from './components/RadioButtonGroup';
@@ -170,9 +169,8 @@ export { default as AutoCompleteTags } from './components/AutoCompleteTags';
 export { TableRow, TableCell, TableHeader } from './components/Table';
 export { default as Table } from './components/Table';
 export { default as CardSchemes } from './components/CardSchemes';
-export {
-  default as PaymentMethodIcon
-} from './components/CardSchemes/components/PaymentMethodIcon';
+// eslint-disable-next-line max-len
+export { default as PaymentMethodIcon } from './components/CardSchemes/components/PaymentMethodIcon';
 
 export { default as SideNav } from './components/SideNav';
 export { Menu } from './components/SideNav/components';

@@ -18,7 +18,7 @@ import React from 'react';
 import MaskedInput from './MaskedInput';
 
 export default {
-  title: 'Forms|Input/MaskedInput',
+  title: 'Forms/Input/MaskedInput',
   component: MaskedInput,
   parameters: {
     jest: ['MaskedInput']

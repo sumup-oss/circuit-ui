@@ -20,7 +20,7 @@ import docs from './Tooltip.docs.mdx';
 import Tooltip from './Tooltip';
 
 export default {
-  title: 'Components|Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
     docs: { page: docs },

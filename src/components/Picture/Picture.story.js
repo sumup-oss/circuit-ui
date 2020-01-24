@@ -18,7 +18,7 @@ import React from 'react';
 import Picture from './Picture';
 
 export default {
-  title: 'Components|Picture',
+  title: 'Components/Picture',
   component: Picture,
   parameters: {
     jest: ['Picture']

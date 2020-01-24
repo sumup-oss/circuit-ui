@@ -25,7 +25,7 @@ const positions = [Popover.TOP, Popover.BOTTOM, Popover.LEFT, Popover.RIGHT];
 const alignments = [Popover.START, Popover.END, Popover.CENTER];
 
 export default {
-  title: 'Components|Popover',
+  title: 'Components/Popover',
   component: Popover,
   parameters: {
     jest: ['Popover']

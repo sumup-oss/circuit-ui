@@ -39,7 +39,7 @@ const Type = ({ size, component, name, fontWeight, ...props }) => {
       {createElement(component, {
         children: (
           <Fragment>
-            A better way to get {size}.
+            This is {size}
             <TypePx as="span" size={Text.KILO}>
               {weight ? `${weight}` : `${fontSize}, ${lineHeight}`}
             </TypePx>

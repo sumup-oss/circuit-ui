@@ -28,15 +28,14 @@ jobs:
       - name: Check licenses
         run: yarn check:licenses
       - name: Lint
-        run: yarn test:lint-js
+        run: yarn test:lint
       - name: Test
-        run: yarn test:unit --runInBand
+        run: yarn test:unit:ci
       - name: Codecov
         uses: codecov/codecov-action@v1.0.3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
-        if: success() && (github.ref == 'master' || github.ref == 'canary' || github.ref == 'beta' || github.ref == 'alpha')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

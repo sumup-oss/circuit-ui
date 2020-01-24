@@ -19,7 +19,7 @@ import Spacing from './Spacing';
 import Button from '../Button';
 
 export default {
-  title: 'Layout|Spacing',
+  title: 'Layout/Spacing',
   component: Spacing,
   parameters: {
     jest: ['Spacing']

@@ -32,7 +32,7 @@ const iconSizes = [
 ];
 
 export default {
-  title: 'Icons|CardSchemes',
+  title: 'Icons/CardSchemes',
   component: CardSchemes,
   parameters: {
     docs: { page: docs },

@@ -18,7 +18,7 @@ import React from 'react';
 import NameOnCardInput from './NameOnCardInput';
 
 export default {
-  title: 'Forms|CreditCardDetails/NameOnCardInput',
+  title: 'Forms/CreditCardDetails/NameOnCardInput',
   component: NameOnCardInput,
   parameters: {
     jest: ['NameOnCardInput']

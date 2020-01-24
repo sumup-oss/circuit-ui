@@ -23,7 +23,7 @@ import Text from '../Text';
 import Button from '../Button';
 
 export default {
-  title: 'Components|Message',
+  title: 'Components/Message',
   component: Message,
   parameters: {
     docs: { page: docs },

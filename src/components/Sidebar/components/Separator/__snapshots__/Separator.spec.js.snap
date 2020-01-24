@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Separator should render with default styles 1`] = `
+.circuit-0 {
+  display: block;
+  width: 100%;
+  border: 1px solid #D8DDE1;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #323E49;
+}
+
+<hr
+  class="circuit-0 circuit-1"
+/>
+`;

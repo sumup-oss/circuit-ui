@@ -18,7 +18,7 @@ import React from 'react';
 import InfoIcon from './InfoIcon';
 
 export default {
-  title: 'Icons|InfoIcon',
+  title: 'Icons/InfoIcon',
   component: InfoIcon,
   parameters: {
     jest: ['InfoIcon']

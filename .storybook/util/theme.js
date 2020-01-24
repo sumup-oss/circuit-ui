@@ -1,4 +1,5 @@
 import { create } from '@storybook/theming';
+import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 
 import {
@@ -7,8 +8,7 @@ import {
   Heading,
   SubHeading,
   Text,
-  List,
-  Image
+  List
 } from '../../src';
 
 import { Link } from '../components';
@@ -37,12 +37,42 @@ const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
 
 const TEXT_SIZE = Text.MEGA;
 
+const headingStyles = theme => css`
+  *:not(h1):not(h2):not(h3) + & {
+    margin-top: ${theme.spacings.peta};
+  }
+`;
+
+const subHeadingStyles = theme => css`
+  margin-top: ${theme.spacings.giga};
+`;
+
 export const components = {
-  h1: withThemeProvider(Heading, { as: 'h1', size: Heading.ZETTA }),
-  h2: withThemeProvider(Heading, { as: 'h2', size: Heading.PETA }),
-  h3: withThemeProvider(Heading, { as: 'h3', size: Heading.GIGA }),
-  h4: withThemeProvider(SubHeading, { as: 'h4', size: SubHeading.MEGA }),
-  h5: withThemeProvider(SubHeading, { as: 'h5', size: SubHeading.KILO }),
+  h1: withThemeProvider(Heading, {
+    as: 'h1',
+    size: Heading.ZETTA,
+    css: headingStyles
+  }),
+  h2: withThemeProvider(Heading, {
+    as: 'h2',
+    size: Heading.PETA,
+    css: headingStyles
+  }),
+  h3: withThemeProvider(Heading, {
+    as: 'h3',
+    size: Heading.GIGA,
+    css: headingStyles
+  }),
+  h4: withThemeProvider(SubHeading, {
+    as: 'h4',
+    size: SubHeading.MEGA,
+    css: subHeadingStyles
+  }),
+  h5: withThemeProvider(SubHeading, {
+    as: 'h5',
+    size: SubHeading.KILO,
+    css: subHeadingStyles
+  }),
   p: withThemeProvider(Text, { as: 'p', size: TEXT_SIZE }),
   li: withThemeProvider(Text, { as: 'li', size: TEXT_SIZE }),
   strong: withThemeProvider(Text, {
@@ -57,6 +87,5 @@ export const components = {
   }),
   ul: withThemeProvider(List, { size: TEXT_SIZE }),
   ol: withThemeProvider(List, { ordered: true, size: TEXT_SIZE }),
-  img: withThemeProvider(Image),
   a: withThemeProvider(Link, { size: TEXT_SIZE })
 };

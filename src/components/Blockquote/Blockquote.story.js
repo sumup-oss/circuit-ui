@@ -29,7 +29,7 @@ tbh adaptogen green juice lo-fi kombucha.
 const sizes = [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA];
 
 export default {
-  title: 'Components|Blockquote',
+  title: 'Components/Blockquote',
   component: Blockquote,
   parameters: {
     docs: { page: docs },

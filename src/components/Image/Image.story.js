@@ -19,7 +19,7 @@ import docs from './Image.docs.mdx';
 import Image from './Image';
 
 export default {
-  title: 'Components|Image',
+  title: 'Components/Image',
   component: Image,
   parameters: {
     docs: { page: docs },

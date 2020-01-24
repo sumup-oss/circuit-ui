@@ -20,7 +20,7 @@ import SimpleCurrencyInput from './SimpleCurrencyInput';
 import { CURRENCY_SYMBOLS } from '../../../../util/currency';
 
 export default {
-  title: 'Forms|Input/CurrencyInput/SimpleCurrencyInput',
+  title: 'Forms/Input/CurrencyInput/SimpleCurrencyInput',
   component: SimpleCurrencyInput,
   parameters: {
     jest: ['SimpleCurrencyInput']

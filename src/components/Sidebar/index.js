@@ -15,9 +15,10 @@
 
 import Sidebar from './Sidebar';
 import {
+  SidebarContext,
   SidebarContextProvider,
   SidebarContextConsumer
 } from './SidebarContext';
 
 export default Sidebar;
-export { SidebarContextProvider, SidebarContextConsumer };
+export { SidebarContext, SidebarContextProvider, SidebarContextConsumer };

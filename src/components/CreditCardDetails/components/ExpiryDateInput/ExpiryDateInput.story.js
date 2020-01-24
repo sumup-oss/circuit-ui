@@ -18,7 +18,7 @@ import React from 'react';
 import ExpiryDateInput from './ExpiryDateInput';
 
 export default {
-  title: 'Forms|CreditCardDetails/ExpiryDate',
+  title: 'Forms/CreditCardDetails/ExpiryDate',
   component: ExpiryDateInput,
   parameters: {
     jest: ['ExpiryDate']

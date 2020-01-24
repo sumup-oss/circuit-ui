@@ -39,7 +39,7 @@ const Container = styled('div')({
 });
 
 export default {
-  title: 'Layout|InlineElements',
+  title: 'Layout/InlineElements',
   component: InlineElements,
   parameters: {
     jest: ['InlineElements']

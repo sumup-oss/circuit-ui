@@ -24,7 +24,7 @@ import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
 
 export default {
-  title: 'Components|Modal/Embedded',
+  title: 'Components/Modal/Embedded',
   parameters: {
     jest: ['Modal']
   }

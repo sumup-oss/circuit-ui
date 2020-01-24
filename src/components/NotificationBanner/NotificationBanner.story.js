@@ -21,7 +21,7 @@ import NotificationBanner from './NotificationBanner';
 import { base as Message } from '../Message/Message.story';
 
 export default {
-  title: 'Components|Message/NotificationBanner',
+  title: 'Components/Message/NotificationBanner',
   component: NotificationBanner,
   parameters: {
     jest: ['NotificationBanner']

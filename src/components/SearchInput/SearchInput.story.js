@@ -22,7 +22,7 @@ import docs from './SearchInput.docs.mdx';
 import Label from '../Label';
 
 export default {
-  title: 'Forms|Input/SearchInput',
+  title: 'Forms/Input/SearchInput',
   component: SearchInput,
   parameters: {
     docs: { page: docs },
