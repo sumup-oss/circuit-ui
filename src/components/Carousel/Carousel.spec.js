@@ -32,6 +32,12 @@ describe('Carousel', () => {
       expect(actual).toMatchSnapshot();
     });
 
+    it('should render with default paused styles', () => {
+      const actual = create(<Carousel slides={SLIDES} autoPlay={false} />);
+
+      expect(actual).toMatchSnapshot();
+    });
+
     it('should render with children as a function', () => {
       const actual = create(
         <Carousel slides={SLIDES}>

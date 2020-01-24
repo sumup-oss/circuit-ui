@@ -73,7 +73,7 @@ const innerWrapperStyles = css`
 `;
 const InnerWrapper = styled('div')(innerWrapperStyles);
 
-export const NextButton = (props = {}) => (
+export const NextButton = props => (
   <Button {...props}>
     <InnerWrapper>
       <ArrowIcon />
