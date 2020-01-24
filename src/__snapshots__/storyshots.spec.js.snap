@@ -17711,7 +17711,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms/Select Base 1`] = `
+exports[`Storyshots Forms/Select Invalid 1`] = `
 .circuit-6 {
   font-size: 13px;
   line-height: 20px;
@@ -17723,6 +17723,11 @@ exports[`Storyshots Forms/Select Base 1`] = `
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -17778,14 +17783,13 @@ exports[`Storyshots Forms/Select Base 1`] = `
 
 <label
   class="circuit-6 circuit-7"
-  for="38"
 >
+  Country
   <div
     class="circuit-4 circuit-5"
   >
     <select
       class="circuit-0 circuit-1"
-      id="38"
       name="select"
     >
       <option
@@ -17814,18 +17818,17 @@ exports[`Storyshots Forms/Select Base 1`] = `
 </label>
 `;
 
-exports[`Storyshots Forms/Select Invalid 1`] = `
-.circuit-6 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
+exports[`Storyshots Forms/Select Render Base 1`] = `
 .circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
+}
+
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
 }
 
 .circuit-0 {
@@ -17879,42 +17882,36 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   margin: 12px;
 }
 
-<label
-  class="circuit-6 circuit-7"
-  for="39"
+<div
+  class="circuit-4 circuit-5"
 >
-  <div
-    class="circuit-4 circuit-5"
+  <select
+    class="circuit-0 circuit-1"
+    name="select"
   >
-    <select
-      class="circuit-0 circuit-1"
-      id="39"
-      name="select"
+    <option
+      value="US"
     >
-      <option
-        value="US"
-      >
-        United States
-      </option>
-      <option
-        value="DE"
-      >
-        Germany
-      </option>
-      <option
-        value="FR"
-      >
-        France
-      </option>
-    </select>
-    <div
-      class="circuit-2 circuit-3"
+      United States
+    </option>
+    <option
+      value="DE"
     >
-      arrows.svg
-    </div>
-    
+      Germany
+    </option>
+    <option
+      value="FR"
+    >
+      France
+    </option>
+  </select>
+  <div
+    class="circuit-2 circuit-3"
+  >
+    arrows.svg
   </div>
-</label>
+  
+</div>
 `;
 
 exports[`Storyshots Forms/Select With Prefix 1`] = `
@@ -17931,6 +17928,11 @@ exports[`Storyshots Forms/Select With Prefix 1`] = `
   margin-bottom: 16px;
 }
 
+label > .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -17984,14 +17986,13 @@ exports[`Storyshots Forms/Select With Prefix 1`] = `
 
 <label
   class="circuit-6 circuit-7"
-  for="40"
 >
+  Country
   <div
     class="circuit-4 circuit-5"
   >
     <select
       class="circuit-0 circuit-1"
-      id="40"
       name="select"
     >
       <option
@@ -18192,7 +18193,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="41"
+  for="38"
 >
   Label
   <div
@@ -18201,7 +18202,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="41"
+      id="38"
       placeholder="Write your text here..."
     />
     <div
@@ -18283,7 +18284,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4 circuit-5"
-  for="45"
+  for="42"
 >
   Label
   <div
@@ -18294,7 +18295,7 @@ label + .circuit-2 {
       aria-invalid="false"
       class="circuit-0 circuit-1"
       disabled=""
-      id="45"
+      id="42"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -18453,7 +18454,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="42"
+  for="39"
 >
   Label
   <div
@@ -18462,7 +18463,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="true"
       class="circuit-0 circuit-1"
-      id="42"
+      id="39"
       placeholder="Write your text here..."
     />
     <div
@@ -18569,7 +18570,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="44"
+  for="41"
 >
   Label
   <div
@@ -18578,7 +18579,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="44"
+      id="41"
       placeholder="Write your text here..."
     />
     <div
@@ -18738,7 +18739,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="43"
+  for="40"
 >
   Label
   <div
@@ -18747,7 +18748,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="43"
+      id="40"
       placeholder="Write your text here..."
     />
     <div
@@ -18864,9 +18865,9 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_47"
+    aria-labelledby="toggle-label_44"
     class="circuit-4 circuit-5"
-    id="toggle-switch_46"
+    id="toggle-switch_43"
     role="switch"
     type="button"
   >
@@ -18881,8 +18882,8 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   </button>
   <label
     class="circuit-9 circuit-10"
-    for="toggle-switch_46"
-    id="toggle-label_47"
+    for="toggle-switch_43"
+    id="toggle-label_44"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
@@ -19004,9 +19005,9 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_49"
+    aria-labelledby="toggle-label_46"
     class="circuit-4 circuit-5"
-    id="toggle-switch_48"
+    id="toggle-switch_45"
     role="switch"
     type="button"
   >
@@ -19021,8 +19022,8 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-12 circuit-13"
-    for="toggle-switch_48"
-    id="toggle-label_49"
+    for="toggle-switch_45"
+    id="toggle-label_46"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"

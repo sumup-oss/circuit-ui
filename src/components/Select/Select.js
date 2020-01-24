@@ -106,6 +106,11 @@ const containerBaseStyles = ({ theme }) => css`
   display: block;
   position: relative;
   margin-bottom: ${theme.spacings.mega};
+
+  label > &,
+  label + & {
+    margin-top: ${theme.spacings.bit};
+  }
 `;
 
 const containerDisabledStyles = ({ disabled }) =>

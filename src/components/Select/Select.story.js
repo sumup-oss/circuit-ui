@@ -16,7 +16,6 @@
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs/react';
-import { uniqueId } from '../../util/id';
 
 import docs from './Select.docs.mdx';
 import Select from './Select';
@@ -51,30 +50,31 @@ const options = [
 ];
 const flagIconMap = { DE, US, FR };
 
+export const renderBase = (value, onChange) => (
+  <Select
+    name="select"
+    options={options}
+    value={value}
+    onChange={e => {
+      action('Option selected')(e);
+      onChange(e.target.value);
+    }}
+    disabled={boolean('Disabled', false)}
+    invalid={boolean('Invalid', false)}
+    validationHint={text('Validation hint', '')}
+  />
+);
+
 // Selects always need labels for accessibility.
 const SelectWithLabelAndState = () => {
   const [value, setValue] = useState('US');
-  const id = uniqueId();
   return (
-    <Label htmlFor={id}>
-      <Select
-        id={id}
-        name="select"
-        options={options}
-        value={value}
-        onChange={e => {
-          action('Option selected')(e);
-          setValue(e.target.value);
-        }}
-        disabled={boolean('Disabled', false)}
-        invalid={boolean('Invalid', false)}
-        validationHint={text('Validation hint', '')}
-      />
+    <Label>
+      Country
+      {renderBase(value, setValue)}
     </Label>
   );
 };
-
-export const base = () => <SelectWithLabelAndState />;
 
 export const invalid = () => (
   <SelectWithLabelAndState
