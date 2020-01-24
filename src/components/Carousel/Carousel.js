@@ -17,7 +17,6 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { isFunction } from 'lodash/fp';
 
 import Step from '../Step';
 import {
@@ -160,7 +159,9 @@ const Carousel = ({
             </Controls>
           )}
 
-          {isFunction(children) ? children({ state, actions }) : children}
+          {typeof children === 'function'
+            ? children({ state, actions })
+            : children}
         </Container>
       )}
     </Step>
