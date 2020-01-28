@@ -18,9 +18,10 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
+import TextMaskInput from 'react-text-mask';
 
 import { themePropType } from '../../../../util/shared-prop-types';
-import MaskedInput from '../../../MaskedInput';
+import Input from '../../../Input';
 
 const iconBaseStyles = ({ theme }) => css`
   label: simple-currency-input__symbol;
@@ -93,7 +94,11 @@ const SimpleCurrencyInput = ({
   numberMask,
   ...props
 }) => (
-  <MaskedInput
+  <TextMaskInput
+    guide={false}
+    render={(ref, { defaultValue, ...renderProps }) => (
+      <Input value={defaultValue} {...renderProps} deepRef={ref} />
+    )}
     inputStyles={css([
       inputBaseStyles(),
       inputPrependStyles({
@@ -153,7 +158,7 @@ SimpleCurrencyInput.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * A mask function for the MaskedInput. Typically created,
+   * A mask function for react-text-mask. Typically created,
    * via the CurrencyInputService.
    */
   numberMask: PropTypes.func.isRequired,

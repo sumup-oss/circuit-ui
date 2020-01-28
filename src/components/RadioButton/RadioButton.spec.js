@@ -78,23 +78,4 @@ describe('RadioButton', () => {
 
     expect(onChange).toHaveBeenCalledTimes(1);
   });
-
-  /**
-   * @deprecated
-   */
-  it('should call the change handler when clicked [deprecated]', () => {
-    const onToggle = jest.fn();
-    const { getByLabelText } = render(
-      <RadioButton onToggle={onToggle}>Label</RadioButton>
-    );
-    const inputEl = getByLabelText('Label', {
-      exact: false
-    });
-
-    act(() => {
-      fireEvent.click(inputEl);
-    });
-
-    expect(onToggle).toHaveBeenCalledTimes(1);
-  });
 });

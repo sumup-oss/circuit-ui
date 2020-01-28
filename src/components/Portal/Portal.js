@@ -16,7 +16,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import exactProp from 'prop-types-exact';
 
 import ownerDocument from '../../util/ownerDocument';
 
@@ -120,7 +119,5 @@ Portal.defaultProps = {
   container: null,
   onRendered: () => {}
 };
-
-Portal.propTypes = exactProp(Portal.propTypes);
 
 export default Portal;

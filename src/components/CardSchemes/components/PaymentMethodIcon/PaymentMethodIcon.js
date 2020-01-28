@@ -20,8 +20,7 @@ import { css } from '@emotion/core';
 import { keys } from 'lodash/fp';
 
 import { sizes } from '../../../../styles/constants';
-// eslint-disable-next-line max-len
-import schemeMap from '../../../CreditCardDetails/components/scheme-icons/card-scheme-icons';
+import schemeMap from '../../card-scheme-icons';
 
 const { BYTE, KILO, MEGA, GIGA } = sizes;
 

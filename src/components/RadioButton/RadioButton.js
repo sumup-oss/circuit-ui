@@ -20,10 +20,7 @@ import { css } from '@emotion/core';
 import { hideVisually, size } from 'polished';
 
 import { disableVisually } from '../../styles/style-helpers';
-import {
-  childrenPropType,
-  deprecatedPropType
-} from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 
 const labelBaseStyles = ({ theme }) => css`
@@ -134,14 +131,14 @@ const RadioButtonLabel = styled('label')`
 /**
  * RadioButton component for forms.
  */
-const RadioButton = ({ onToggle, onChange, children, id, ...props }) => {
+const RadioButton = ({ onChange, children, id, ...props }) => {
   const inputId = id || uniqueId('radio-button_');
   return (
     <Fragment>
       <RadioButtonInput
         {...props}
         type="radio"
-        onClick={onToggle || onChange}
+        onClick={onChange}
         id={inputId}
       />
       <RadioButtonLabel {...props} htmlFor={inputId}>
@@ -152,17 +149,6 @@ const RadioButton = ({ onToggle, onChange, children, id, ...props }) => {
 };
 
 RadioButton.propTypes = {
-  /**
-   * @deprecated
-   * Callback used when the user toggles the switch.
-   */
-  onToggle: deprecatedPropType(
-    PropTypes.func,
-    [
-      'The "onToggle" prop is deprecated.',
-      'Use the "onChange" prop instead.'
-    ].join(' ')
-  ),
   /**
    * Callback used when the user toggles the radio button.
    */

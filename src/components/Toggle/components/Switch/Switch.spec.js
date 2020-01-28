@@ -44,18 +44,4 @@ describe('Switch', () => {
     });
     expect(onChange).toHaveBeenCalledTimes(1);
   });
-
-  /**
-   * @deprecated
-   */
-  it('should call the change handler when toggled [deprecated]', () => {
-    const onToggle = jest.fn();
-    const { getByTestId } = render(
-      <Switch onToggle={onToggle} data-testid="switch" />
-    );
-    act(() => {
-      fireEvent.click(getByTestId('switch'));
-    });
-    expect(onToggle).toHaveBeenCalledTimes(1);
-  });
 });

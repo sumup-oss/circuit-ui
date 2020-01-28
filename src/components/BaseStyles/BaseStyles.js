@@ -14,26 +14,10 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Global } from '@emotion/core';
-
-import { deprecatedPropType } from '../../util/shared-prop-types';
 
 import { createBaseStyles } from './BaseStylesService';
 
-const BaseStyles = ({ custom }) => (
-  <Global styles={theme => createBaseStyles(theme, custom)} />
-);
-
-BaseStyles.propTypes = {
-  custom: deprecatedPropType(
-    PropTypes.string,
-    [
-      'The "custom" prop has been deprecated.',
-      `Use Emotion's <Global /> component instead:`,
-      `https://emotion.sh/docs/globals`
-    ].join(' ')
-  )
-};
+const BaseStyles = () => <Global styles={theme => createBaseStyles(theme)} />;
 
 export default BaseStyles;
