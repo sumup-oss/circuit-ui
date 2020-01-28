@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slide styles should render with backward animation styles 1`] = `
+@keyframes animation-0 {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
+.circuit-4 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 800px;
+  -ms-flex-preferred-size: 800px;
+  flex-basis: 800px;
+  -webkit-transform: translate3d(0%,0,0);
+  -ms-transform: translate3d(0%,0,0);
+  transform: translate3d(0%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.circuit-0 {
+  width: 800px;
+}
+
+.circuit-2 {
+  box-shadow: 0 0 1px rgba(0,0,0,0.05);
+  overflow: hidden;
+  will-change: width;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 640ms;
+  animation-duration: 640ms;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+<div
+  class="circuit-4 circuit-5"
+  width="800px"
+>
+  <div
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+      width="800px"
+    />
+  </div>
+</div>
+`;
+
+exports[`Slide styles should render with default styles 1`] = `
+.circuit-4 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-transform: translate3d(0%,0,0);
+  -ms-transform: translate3d(0%,0,0);
+  transform: translate3d(0%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.circuit-2 {
+  box-shadow: 0 0 1px rgba(0,0,0,0.05);
+  overflow: hidden;
+  will-change: width;
+}
+
+.circuit-0 {
+  width: 100%;
+}
+
+<div
+  class="circuit-4 circuit-5"
+  width="100%"
+>
+  <div
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+      width="100%"
+    />
+  </div>
+</div>
+`;
+
+exports[`Slide styles should render with forward animation styles 1`] = `
+@keyframes animation-0 {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.circuit-4 {
+  width: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 800px;
+  -ms-flex-preferred-size: 800px;
+  flex-basis: 800px;
+  -webkit-transform: translate3d(0%,0,0);
+  -ms-transform: translate3d(0%,0,0);
+  transform: translate3d(0%,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.circuit-2 {
+  box-shadow: 0 0 1px rgba(0,0,0,0.05);
+  overflow: hidden;
+  will-change: width;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-duration: 640ms;
+  animation-duration: 640ms;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.circuit-0 {
+  width: 800px;
+}
+
+<div
+  class="circuit-4 circuit-5"
+  width="800px"
+>
+  <div
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+      width="800px"
+    />
+  </div>
+</div>
+`;

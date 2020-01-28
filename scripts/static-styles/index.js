@@ -15,6 +15,7 @@
 
 import fs from 'fs';
 import path from 'path';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import prettier from 'prettier';
 
 import config from './config';
