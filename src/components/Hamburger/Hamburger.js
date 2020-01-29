@@ -20,7 +20,7 @@ import styled from '@emotion/styled';
 import { hideVisually } from 'polished';
 
 const LAYER_HEIGHT = '1px';
-const HAMBURGUER_WIDTH = '12px';
+const HAMBURGER_WIDTH = '12px';
 
 const buttonBaseStyles = ({ theme }) => css`
   label: hamburger;
@@ -45,7 +45,7 @@ const lightButtonStyles = ({ theme, light }) =>
 const layersBaseStyles = ({ theme }) => css`
   label: hamburger__layers;
   top: 50%;
-  width: ${HAMBURGUER_WIDTH};
+  width: ${HAMBURGER_WIDTH};
 
   &,
   &::after,
@@ -67,12 +67,12 @@ const layersBaseStyles = ({ theme }) => css`
 
   &::before {
     transform: translateY(-${theme.spacings.bit});
-    width: ${HAMBURGUER_WIDTH};
+    width: ${HAMBURGER_WIDTH};
   }
 
   &::after {
     transform: translateY(${theme.spacings.bit});
-    width: ${HAMBURGUER_WIDTH};
+    width: ${HAMBURGER_WIDTH};
   }
 `;
 
@@ -98,7 +98,7 @@ const layersActiveStyles = ({ isActive }) =>
     &::after {
       transition: width 0.2s ease-out, opacity 0.1s ease-out 0.15s,
         transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s;
-      width: ${HAMBURGUER_WIDTH};
+      width: ${HAMBURGER_WIDTH};
     }
 
     &::before {
