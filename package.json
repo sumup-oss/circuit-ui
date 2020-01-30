@@ -18,7 +18,6 @@
     "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib --ignore *.spec.js,*.story.js,*.docs.mdx",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir lib/es --ignore *.spec.js,*.story.js,*.docs.mdx",
     "build:docs": "yarn build:storybook && yarn build:stylesheets",
-    "prebuild:storybook": "yarn test:unit:output",
     "build:storybook": "build-storybook -c .storybook -o public -s .storybook/public",
     "build:stylesheets": "mkdir -p public/static && yarn static-styles --global --filePath=./public/static/circuit-ui-v1.css",
     "test": "yarn test:lint && yarn test:unit",
