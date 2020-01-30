@@ -1,6 +1,6 @@
-sudo: required
-
 dist: trusty
+
+os: linux
 
 language: node_js
 
@@ -32,16 +32,14 @@ jobs:
       deploy:
         # Publish Circuit UI to NPM
         - provider: script
-          skip_cleanup: true
           on:
             all_branches: true
           script: yarn release
         # Deploy Storybook to GitHub Pages
         - provider: pages
-          skip_cleanup: true
-          github_token: $GITHUB_TOKEN
+          token: $GITHUB_TOKEN
           on:
             all_branches: true
             # branch: master
-          local-dir: public
+          local_dir: public
           target_branch: gh-pages
