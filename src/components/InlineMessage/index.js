@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import InlineNotification from './InlineNotification';
+import InlineMessage from './InlineMessage';
 
-export default InlineNotification;
+export default InlineMessage;

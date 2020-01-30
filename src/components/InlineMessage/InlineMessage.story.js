@@ -15,55 +15,49 @@
 
 import React from 'react';
 
-import docs from './InlineNotification.docs.mdx';
-import InlineNotification from './InlineNotification';
+import docs from './InlineMessage.docs.mdx';
+import InlineMessage from './InlineMessage';
 import Card from '../Card';
 import Text from '../Text';
 
 export default {
-  title: 'Forms/InlineNotification',
-  component: InlineNotification,
+  title: 'Forms/InlineMessage',
+  component: InlineMessage,
   parameters: {
     docs: { page: docs },
-    jest: ['InlineNotification']
+    jest: ['InlineMessage']
   }
 };
 
 export const base = () => (
   <Card>
-    <InlineNotification
-      type={InlineNotification.WARNING}
-      size={InlineNotification.GIGA}
-    >
+    <InlineMessage type={InlineMessage.WARNING} size={InlineMessage.GIGA}>
       Something might go terribly wrong.
-    </InlineNotification>
+    </InlineMessage>
     <Text>Sorry that is how it is.</Text>
   </Card>
 );
 
 export const success = () => (
-  <InlineNotification type={InlineNotification.SUCCESS}>
+  <InlineMessage type={InlineMessage.SUCCESS}>
     Something has gone wonderfully right.
-  </InlineNotification>
+  </InlineMessage>
 );
 
 export const warning = () => (
-  <InlineNotification type={InlineNotification.WARNING}>
+  <InlineMessage type={InlineMessage.WARNING}>
     Something might go sideways.
-  </InlineNotification>
+  </InlineMessage>
 );
 
 export const alert = () => (
-  <InlineNotification type={InlineNotification.DANGER}>
+  <InlineMessage type={InlineMessage.DANGER}>
     Something has gone terribly wrong.
-  </InlineNotification>
+  </InlineMessage>
 );
 
 export const size = () => (
-  <InlineNotification
-    type={InlineNotification.WARNING}
-    size={InlineNotification.MEGA}
-  >
+  <InlineMessage type={InlineMessage.WARNING} size={InlineMessage.MEGA}>
     Something might go terribly wrong with a bigger card.
-  </InlineNotification>
+  </InlineMessage>
 );

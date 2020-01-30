@@ -14919,7 +14919,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms/InlineNotification Alert 1`] = `
+exports[`Storyshots Forms/InlineMessage Alert 1`] = `
 .circuit-0 {
   color: #DB4D4D;
   position: relative;
@@ -14947,7 +14947,7 @@ exports[`Storyshots Forms/InlineNotification Alert 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms/InlineNotification Base 1`] = `
+exports[`Storyshots Forms/InlineMessage Base 1`] = `
 .circuit-4 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -15017,7 +15017,7 @@ exports[`Storyshots Forms/InlineNotification Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms/InlineNotification Size 1`] = `
+exports[`Storyshots Forms/InlineMessage Size 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15045,7 +15045,7 @@ exports[`Storyshots Forms/InlineNotification Size 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms/InlineNotification Success 1`] = `
+exports[`Storyshots Forms/InlineMessage Success 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15073,7 +15073,7 @@ exports[`Storyshots Forms/InlineNotification Success 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms/InlineNotification Warning 1`] = `
+exports[`Storyshots Forms/InlineMessage Warning 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;

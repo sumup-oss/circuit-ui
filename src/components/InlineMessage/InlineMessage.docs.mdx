@@ -1,0 +1,43 @@
+import { Status, Props, Story } from '../../../.storybook/components';
+import InlineMessage from './InlineMessage';
+
+# InlineMessage
+
+<Status.Stable />
+
+Inline message is a component that provides a short contextual message about an action taken by a user within the same card structure that they are in.
+
+<Story id="forms-inlinemessage--base" />
+<Props of={InlineMessage} />
+
+## When to use it
+
+Use it when we need to provide contextual information that highlights errors or warnings after the information has been inputted by a user.
+
+## Usage guidelines
+
+- **Do** always place the inline message above the primary call to action
+- **Do** make it clear for our users what they need to do in order to fix the possible error
+- **Do not** place an inline message in another card, it should always be in the same card as the input it is referring to
+
+## Component variants
+
+### Success
+
+Used to provide positive feedback without taking the user to another screen, such as updating the configuration
+on a settings page.
+
+<Story id="forms-inlinemessage--success" />
+
+### Warning
+
+Used to warn users regarding information that is not obligatory to fill or input, but it
+could provide additional help if the fill it.
+
+<Story id="forms-inlinemessage--warning" />
+
+### Alert
+
+The most common inline message type. Used to provide feedback that we cannot proceed forward in completing a task for the user (such as a login) if they don't fix what's wrong. Remember to always provide concrete instructions on how to solve the problem.
+
+<Story id="forms-inlinemessage--alert" />

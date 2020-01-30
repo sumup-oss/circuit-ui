@@ -15,44 +15,35 @@
 
 import React from 'react';
 
-import InlineNotification from '.';
+import InlineMessage from '.';
 
-describe('InlineNotification', () => {
+describe('InlineMessage', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<InlineNotification />);
+    const actual = create(<InlineMessage />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with success styles', () => {
-    const actual = create(
-      <InlineNotification type={InlineNotification.SUCCESS} />
-    );
+    const actual = create(<InlineMessage type={InlineMessage.SUCCESS} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with warning styles', () => {
-    const actual = create(
-      <InlineNotification type={InlineNotification.WARNING} />
-    );
+    const actual = create(<InlineMessage type={InlineMessage.WARNING} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with danger styles', () => {
-    const actual = create(
-      <InlineNotification type={InlineNotification.DANGER} />
-    );
+    const actual = create(<InlineMessage type={InlineMessage.DANGER} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with giga spacing', () => {
     const actual = create(
-      <InlineNotification
-        type={InlineNotification.DANGER}
-        size={InlineNotification.GIGA}
-      />
+      <InlineMessage type={InlineMessage.DANGER} size={InlineMessage.GIGA} />
     );
     expect(actual).toMatchSnapshot();
   });
@@ -61,7 +52,7 @@ describe('InlineNotification', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<InlineNotification />);
+    const wrapper = renderToHtml(<InlineMessage />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

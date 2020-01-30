@@ -22,7 +22,7 @@ const { SUCCESS, DANGER, WARNING } = colorNames;
 const { MEGA, GIGA } = sizes;
 
 const baseStyles = css`
-  label: inline-notification;
+  label: inline-message;
 `;
 
 const marginStyles = ({ noMargin }) =>
@@ -48,7 +48,7 @@ const createLeftBorderStyles = colorName => ({ theme, size, type }) => {
   return (
     colorName === type &&
     css`
-      label: ${`inline-notification--${type}`};
+      label: ${`inline-message--${type}`};
       color: ${textColors[type]};
       position: relative;
       margin-bottom: ${theme.spacings.mega};
@@ -74,9 +74,9 @@ const warningStyles = createLeftBorderStyles(WARNING);
 const dangerStyles = createLeftBorderStyles(DANGER);
 
 /**
- * An inline notification displayed inside a Card.
+ * An inline message displayed inside a Card.
  */
-const InlineNotification = styled('p')(
+const InlineMessage = styled('p')(
   baseStyles,
   dangerStyles,
   successStyles,
@@ -84,38 +84,38 @@ const InlineNotification = styled('p')(
   marginStyles
 );
 
-InlineNotification.DANGER = DANGER;
-InlineNotification.SUCCESS = SUCCESS;
-InlineNotification.WARNING = WARNING;
+InlineMessage.DANGER = DANGER;
+InlineMessage.SUCCESS = SUCCESS;
+InlineMessage.WARNING = WARNING;
 
-InlineNotification.MEGA = MEGA;
-InlineNotification.GIGA = GIGA;
+InlineMessage.MEGA = MEGA;
+InlineMessage.GIGA = GIGA;
 
-InlineNotification.propTypes = {
+InlineMessage.propTypes = {
   /**
-   * Indicates the color of the left border and text in the notification.
+   * Indicates the color of the left border and text in the message.
    */
   type: PropTypes.oneOf([
-    InlineNotification.DANGER,
-    InlineNotification.SUCCESS,
-    InlineNotification.WARNING
+    InlineMessage.DANGER,
+    InlineMessage.SUCCESS,
+    InlineMessage.WARNING
   ]),
   /**
    * Should correspond to the size provided to the surrounding Card component.
    */
-  size: PropTypes.oneOf([InlineNotification.MEGA, InlineNotification.GIGA]),
+  size: PropTypes.oneOf([InlineMessage.MEGA, InlineMessage.GIGA]),
   /**
    * Removes the default bottom margin from the text.
    */
   noMargin: PropTypes.bool
 };
 
-InlineNotification.defaultProps = {
-  size: InlineNotification.GIGA,
+InlineMessage.defaultProps = {
+  size: InlineMessage.GIGA,
   noMargin: false
 };
 
 /**
  * @component
  */
-export default InlineNotification;
+export default InlineMessage;

@@ -58,6 +58,7 @@ export {
   default as CurrencyInput,
   SimpleCurrencyInput
 } from './components/CurrencyInput';
+export { default as InlineMessage } from './components/InlineMessage';
 export { currencyAmountUtils };
 
 // Actions
@@ -77,7 +78,6 @@ export {
 } from './components/Notification';
 export { default as NotificationBanner } from './components/NotificationBanner';
 export { default as NotificationList } from './components/NotificationList';
-export { default as InlineNotification } from './components/InlineNotification';
 
 // Layout
 export { default as Grid } from './components/Grid';
