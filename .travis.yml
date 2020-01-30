@@ -35,6 +35,7 @@ jobs:
           on:
             all_branches: true
           script: yarn release
+          edge: true
         # Deploy Storybook to GitHub Pages
         - provider: pages
           token: $GITHUB_TOKEN
@@ -43,3 +44,4 @@ jobs:
             # branch: master
           local_dir: public
           target_branch: gh-pages
+          edge: true
