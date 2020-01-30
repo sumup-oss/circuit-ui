@@ -28,23 +28,20 @@ jobs:
     - stage: publish
       script: skip
       # Publish package to NPM
-      deploy:
-        provider: script
-        skip_cleanup: true
-        on:
-          all_branches: true
-        script: yarn release
-      # Increase number of watchers
-    - script: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-      if: branch = master
-      # Deploy Storybook to GitHub Pages
       before_deploy: yarn predeploy
       deploy:
-        provider: script
-        script: yarn deploy
-        skip_cleanup: true
-        github_token: $GITHUB_TOKEN
-        on:
-          branch: master
-        local-dir: public
-        target_branch: gh-pages
+        # Publish Circuit UI to NPM
+        - provider: script
+          skip_cleanup: true
+          on:
+            all_branches: true
+          script: yarn release
+        # Deploy Storybook to GitHub Pages
+        - provider: pages
+          skip_cleanup: true
+          github_token: $GITHUB_TOKEN
+          on:
+            all_branches: true
+            # branch: master
+          local-dir: public
+          target_branch: gh-pages
