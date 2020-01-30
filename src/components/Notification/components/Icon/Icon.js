@@ -18,9 +18,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { ReactComponent as MessageSuccess } from '../../message-success.svg';
-import { ReactComponent as MessageError } from '../../message-error.svg';
-import MessageWarning from '../MessageWarning';
+import { ReactComponent as Success } from '../../notification-success.svg';
+import { ReactComponent as Error } from '../../notification-error.svg';
+import Warning from '../NotificationWarning';
 
 const ICON_TYPES = {
   SUCCESS: 'success',
@@ -29,13 +29,13 @@ const ICON_TYPES = {
 };
 
 const ICON_MAP = {
-  [ICON_TYPES.SUCCESS]: MessageSuccess,
-  [ICON_TYPES.ERROR]: MessageError,
-  [ICON_TYPES.WARNING]: MessageWarning
+  [ICON_TYPES.SUCCESS]: Success,
+  [ICON_TYPES.ERROR]: Error,
+  [ICON_TYPES.WARNING]: Warning
 };
 
 const baseStyles = ({ theme }) => css`
-  label: message__icon;
+  label: notification__icon;
   display: block;
   margin: 0 0 ${theme.spacings.mega} 0;
   flex-grow: 0;
@@ -48,24 +48,26 @@ const baseStyles = ({ theme }) => css`
 `;
 
 /**
- * Icon used in the Message component. Used for styling and alignment
+ * Icon used in the Notification component. Used for styling and alignment
  * purposes only.
  */
-const MessageIconContainer = styled('div')(baseStyles);
+const NotificationIconContainer = styled('div')(baseStyles);
 
-const MessageIcon = ({ type, children }) => {
+const NotificationIcon = ({ type, children }) => {
   const Icon = ICON_MAP[type];
 
   return (
-    <MessageIconContainer>{Icon ? <Icon /> : children}</MessageIconContainer>
+    <NotificationIconContainer>
+      {Icon ? <Icon /> : children}
+    </NotificationIconContainer>
   );
 };
 
-MessageIcon.SUCCESS = ICON_TYPES.SUCCESS;
-MessageIcon.ERROR = ICON_TYPES.ERROR;
-MessageIcon.WARNING = ICON_TYPES.WARNING;
+NotificationIcon.SUCCESS = ICON_TYPES.SUCCESS;
+NotificationIcon.ERROR = ICON_TYPES.ERROR;
+NotificationIcon.WARNING = ICON_TYPES.WARNING;
 
-MessageIcon.propTypes = {
+NotificationIcon.propTypes = {
   /**
    * A custom icon to display.
    */
@@ -74,13 +76,13 @@ MessageIcon.propTypes = {
    * The icon type. Overrides a custom icon.
    */
   type: PropTypes.oneOf([
-    MessageIcon.SUCCESS,
-    MessageIcon.ERROR,
-    MessageIcon.WARNING
+    NotificationIcon.SUCCESS,
+    NotificationIcon.ERROR,
+    NotificationIcon.WARNING
   ])
 };
 
 /**
  * @component
  */
-export default MessageIcon;
+export default NotificationIcon;

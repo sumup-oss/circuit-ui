@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 import { childrenPropType } from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
-  label: message;
+  label: notification;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -31,14 +31,14 @@ const baseStyles = ({ theme }) => css`
 `;
 
 /**
- * A Message component for alerts, updates and notifications.
+ * A Notification component for alerts, updates and notifications.
  */
-const Message = styled('div')(baseStyles);
+const Notification = styled('div')(baseStyles);
 
-Message.propTypes = {
+Notification.propTypes = {
   /**
-   * Content to be rendered inside the Message.
-   * Supports a special MessageIcon and MessageButton.
+   * Content to be rendered inside the Notification.
+   * Supports a special NotificationIcon and NotificationButton.
    */
   children: childrenPropType
 };
@@ -46,4 +46,4 @@ Message.propTypes = {
 /**
  * @component
  */
-export default Message;
+export default Notification;

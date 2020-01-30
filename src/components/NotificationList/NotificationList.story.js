@@ -16,10 +16,10 @@
 import React from 'react';
 
 import NotificationList from './NotificationList';
-import { success as Message } from '../Message/Message.story';
+import { success as Notification } from '../Notification/Notification.story';
 
 export default {
-  title: 'Components/Message/NotificationList',
+  title: 'Components/Notification/NotificationList',
   component: NotificationList,
   parameters: {
     jest: ['NotificationList']
@@ -28,6 +28,6 @@ export default {
 
 export const base = () => (
   <NotificationList>
-    <Message />
+    <Notification />
   </NotificationList>
 );

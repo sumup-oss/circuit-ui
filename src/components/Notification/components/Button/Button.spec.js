@@ -15,32 +15,20 @@
 
 import React from 'react';
 
-import { MessageIcon } from '../..';
+import { NotificationButton } from '../..';
 
-describe('MessageIcon', () => {
+describe('NotificationButton', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<MessageIcon />);
+    const actual = create(<NotificationButton />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with error icon', () => {
-    const actual = create(<MessageIcon type={MessageIcon.ERROR} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with warning icon', () => {
-    const actual = create(<MessageIcon type={MessageIcon.WARNING} />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with custom icon content', () => {
+  it('should render alignment styles when passed the align prop', () => {
     const actual = create(
-      <MessageIcon>
-        <div>Custom content</div>
-      </MessageIcon>
+      <NotificationButton align={NotificationButton.CENTER} />
     );
     expect(actual).toMatchSnapshot();
   });
@@ -49,7 +37,7 @@ describe('MessageIcon', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<MessageIcon />);
+    const wrapper = renderToHtml(<NotificationButton />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

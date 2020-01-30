@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MessageIcon should render with custom icon content 1`] = `
+exports[`NotificationIcon should render with custom icon content 1`] = `
 .circuit-0 {
   display: block;
   margin: 0 0 16px 0;
@@ -29,7 +29,7 @@ exports[`MessageIcon should render with custom icon content 1`] = `
 </div>
 `;
 
-exports[`MessageIcon should render with default styles 1`] = `
+exports[`NotificationIcon should render with default styles 1`] = `
 .circuit-0 {
   display: block;
   margin: 0 0 16px 0;
@@ -54,7 +54,7 @@ exports[`MessageIcon should render with default styles 1`] = `
 />
 `;
 
-exports[`MessageIcon should render with error icon 1`] = `
+exports[`NotificationIcon should render with error icon 1`] = `
 .circuit-0 {
   display: block;
   margin: 0 0 16px 0;
@@ -78,12 +78,12 @@ exports[`MessageIcon should render with error icon 1`] = `
   class="circuit-0 circuit-1"
 >
   <div>
-    message-error.svg
+    notification-error.svg
   </div>
 </div>
 `;
 
-exports[`MessageIcon should render with warning icon 1`] = `
+exports[`NotificationIcon should render with warning icon 1`] = `
 .circuit-2 {
   display: block;
   margin: 0 0 16px 0;
@@ -113,7 +113,7 @@ exports[`MessageIcon should render with warning icon 1`] = `
   <div
     class="circuit-0 circuit-1"
   >
-    message-success.svg
+    notification-success.svg
   </div>
 </div>
 `;

@@ -41,7 +41,7 @@ const NotificationBannerInner = styled('div')`
 `;
 
 /**
- * NotificationBanner displays a persistent Message.
+ * NotificationBanner displays a persistent Notification.
  */
 const NotificationBanner = ({ children, ...props }) => (
   <NotificationBannerOuter {...props} aria-live="polite" region="status">
@@ -51,7 +51,7 @@ const NotificationBanner = ({ children, ...props }) => (
 
 NotificationBanner.propTypes = {
   /**
-   * A single Message.
+   * A single Notification.
    */
   children: PropTypes.element
 };

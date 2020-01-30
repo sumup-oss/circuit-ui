@@ -71,10 +71,10 @@ export { default as Selector } from './components/Selector';
 
 // Notifications
 export {
-  default as Message,
-  MessageIcon,
-  MessageButton
-} from './components/Message';
+  default as Notification,
+  NotificationIcon,
+  NotificationButton
+} from './components/Notification';
 export { default as NotificationBanner } from './components/NotificationBanner';
 export { default as NotificationList } from './components/NotificationList';
 export { default as InlineNotification } from './components/InlineNotification';

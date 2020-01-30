@@ -13,8 +13,11 @@
  * limitations under the License.
  */
 
-import Message from './Message';
+import Notification from './Notification';
 
-export { Icon as MessageIcon, Button as MessageButton } from './components';
+export {
+  Icon as NotificationIcon,
+  Button as NotificationButton
+} from './components';
 
-export default Message;
+export default Notification;
