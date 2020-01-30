@@ -40,8 +40,7 @@ jobs:
         - provider: pages
           token: $GITHUB_TOKEN
           on:
-            all_branches: true
-            # branch: master
+            branch: master
           local_dir: public
           target_branch: gh-pages
           edge: true
