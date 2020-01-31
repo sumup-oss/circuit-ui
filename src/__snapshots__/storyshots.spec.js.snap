@@ -1255,7 +1255,7 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
 </button>
 `;
 
-exports[`Storyshots Components/Button/LoadingButton Error Animation 1`] = `
+exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
@@ -1270,7 +1270,7 @@ exports[`Storyshots Components/Button/LoadingButton Error Animation 1`] = `
   }
 }
 
-.circuit-9 {
+.circuit-8 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -1292,38 +1292,40 @@ exports[`Storyshots Components/Button/LoadingButton Error Animation 1`] = `
   border-color: #1760CE;
   color: #FFFFFF;
   padding: calc(8px - 0px) calc(24px - 0px);
+  position: relative;
+  overflow: hidden;
 }
 
-.circuit-9:active {
+.circuit-8:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-9:focus {
+.circuit-8:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-9:hover {
+.circuit-8:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-9:hover,
-.circuit-9:active {
+.circuit-8:hover,
+.circuit-8:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-9[href] {
+.circuit-8[href] {
   display: inline-block;
 }
 
-.circuit-9:disabled,
-.circuit-9[disabled] {
+.circuit-8:disabled,
+.circuit-8[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1332,26 +1334,22 @@ exports[`Storyshots Components/Button/LoadingButton Error Animation 1`] = `
   user-selectable: none;
 }
 
-.circuit-9:active {
+.circuit-8:active {
   background-color: #1760CE;
   border-color: #003C8B;
 }
 
-.circuit-9:focus {
+.circuit-8:focus {
   border-color: #1760CE;
 }
 
-.circuit-9:hover {
+.circuit-8:hover {
   background-color: #1760CE;
 }
 
-.circuit-9:hover,
-.circuit-9:active {
+.circuit-8:hover,
+.circuit-8:active {
   border-color: #003C8B;
-}
-
-.circuit-7 {
-  position: relative;
 }
 
 .circuit-3 {
@@ -1390,6 +1388,7 @@ exports[`Storyshots Components/Button/LoadingButton Error Animation 1`] = `
 }
 
 .circuit-5 {
+  display: inline-block;
   opacity: 1;
   -webkit-transform: translate(0,0);
   -ms-transform: translate(0,0);
@@ -1400,34 +1399,30 @@ exports[`Storyshots Components/Button/LoadingButton Error Animation 1`] = `
 }
 
 <button
-  class="circuit-9 circuit-10"
+  class="circuit-7 circuit-8 circuit-9"
 >
   <div
-    class="circuit-7 circuit-8"
+    aria-busy="true"
+    aria-live="assertive"
+    class="circuit-2 circuit-3 circuit-4"
+    role="alert"
   >
     <div
-      aria-busy="true"
-      aria-live="assertive"
-      class="circuit-2 circuit-3 circuit-4"
-      role="alert"
+      class="circuit-0 circuit-1"
+      dark="0"
     >
-      <div
-        class="circuit-0 circuit-1"
-        dark="0"
-      >
-        spinner.svg
-      </div>
-    </div>
-    <div
-      class="circuit-5 circuit-6"
-    >
-      Click me
+      spinner.svg
     </div>
   </div>
+  <span
+    class="circuit-5 circuit-6"
+  >
+    Things take time
+  </span>
 </button>
 `;
 
-exports[`Storyshots Components/Button/LoadingButton No Exit Animation 1`] = `
+exports[`Storyshots Components/Button/LoadingButton Error 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
@@ -1442,7 +1437,7 @@ exports[`Storyshots Components/Button/LoadingButton No Exit Animation 1`] = `
   }
 }
 
-.circuit-9 {
+.circuit-8 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -1464,38 +1459,40 @@ exports[`Storyshots Components/Button/LoadingButton No Exit Animation 1`] = `
   border-color: #1760CE;
   color: #FFFFFF;
   padding: calc(8px - 0px) calc(24px - 0px);
+  position: relative;
+  overflow: hidden;
 }
 
-.circuit-9:active {
+.circuit-8:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-9:focus {
+.circuit-8:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-9:hover {
+.circuit-8:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-9:hover,
-.circuit-9:active {
+.circuit-8:hover,
+.circuit-8:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-9[href] {
+.circuit-8[href] {
   display: inline-block;
 }
 
-.circuit-9:disabled,
-.circuit-9[disabled] {
+.circuit-8:disabled,
+.circuit-8[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1504,26 +1501,22 @@ exports[`Storyshots Components/Button/LoadingButton No Exit Animation 1`] = `
   user-selectable: none;
 }
 
-.circuit-9:active {
+.circuit-8:active {
   background-color: #1760CE;
   border-color: #003C8B;
 }
 
-.circuit-9:focus {
+.circuit-8:focus {
   border-color: #1760CE;
 }
 
-.circuit-9:hover {
+.circuit-8:hover {
   background-color: #1760CE;
 }
 
-.circuit-9:hover,
-.circuit-9:active {
+.circuit-8:hover,
+.circuit-8:active {
   border-color: #003C8B;
-}
-
-.circuit-7 {
-  position: relative;
 }
 
 .circuit-3 {
@@ -1562,6 +1555,7 @@ exports[`Storyshots Components/Button/LoadingButton No Exit Animation 1`] = `
 }
 
 .circuit-5 {
+  display: inline-block;
   opacity: 1;
   -webkit-transform: translate(0,0);
   -ms-transform: translate(0,0);
@@ -1572,34 +1566,30 @@ exports[`Storyshots Components/Button/LoadingButton No Exit Animation 1`] = `
 }
 
 <button
-  class="circuit-9 circuit-10"
+  class="circuit-7 circuit-8 circuit-9"
 >
   <div
-    class="circuit-7 circuit-8"
+    aria-busy="true"
+    aria-live="assertive"
+    class="circuit-2 circuit-3 circuit-4"
+    role="alert"
   >
     <div
-      aria-busy="true"
-      aria-live="assertive"
-      class="circuit-2 circuit-3 circuit-4"
-      role="alert"
+      class="circuit-0 circuit-1"
+      dark="0"
     >
-      <div
-        class="circuit-0 circuit-1"
-        dark="0"
-      >
-        spinner.svg
-      </div>
-    </div>
-    <div
-      class="circuit-5 circuit-6"
-    >
-      Click me
+      spinner.svg
     </div>
   </div>
+  <span
+    class="circuit-5 circuit-6"
+  >
+    I will fail.
+  </span>
 </button>
 `;
 
-exports[`Storyshots Components/Button/LoadingButton Success Animation 1`] = `
+exports[`Storyshots Components/Button/LoadingButton Success 1`] = `
 @keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
@@ -1614,7 +1604,7 @@ exports[`Storyshots Components/Button/LoadingButton Success Animation 1`] = `
   }
 }
 
-.circuit-9 {
+.circuit-8 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -1636,38 +1626,40 @@ exports[`Storyshots Components/Button/LoadingButton Success Animation 1`] = `
   border-color: #1760CE;
   color: #FFFFFF;
   padding: calc(8px - 0px) calc(24px - 0px);
+  position: relative;
+  overflow: hidden;
 }
 
-.circuit-9:active {
+.circuit-8:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-9:focus {
+.circuit-8:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-9:hover {
+.circuit-8:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-9:hover,
-.circuit-9:active {
+.circuit-8:hover,
+.circuit-8:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-9[href] {
+.circuit-8[href] {
   display: inline-block;
 }
 
-.circuit-9:disabled,
-.circuit-9[disabled] {
+.circuit-8:disabled,
+.circuit-8[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -1676,26 +1668,22 @@ exports[`Storyshots Components/Button/LoadingButton Success Animation 1`] = `
   user-selectable: none;
 }
 
-.circuit-9:active {
+.circuit-8:active {
   background-color: #1760CE;
   border-color: #003C8B;
 }
 
-.circuit-9:focus {
+.circuit-8:focus {
   border-color: #1760CE;
 }
 
-.circuit-9:hover {
+.circuit-8:hover {
   background-color: #1760CE;
 }
 
-.circuit-9:hover,
-.circuit-9:active {
+.circuit-8:hover,
+.circuit-8:active {
   border-color: #003C8B;
-}
-
-.circuit-7 {
-  position: relative;
 }
 
 .circuit-3 {
@@ -1734,6 +1722,7 @@ exports[`Storyshots Components/Button/LoadingButton Success Animation 1`] = `
 }
 
 .circuit-5 {
+  display: inline-block;
   opacity: 1;
   -webkit-transform: translate(0,0);
   -ms-transform: translate(0,0);
@@ -1744,30 +1733,26 @@ exports[`Storyshots Components/Button/LoadingButton Success Animation 1`] = `
 }
 
 <button
-  class="circuit-9 circuit-10"
+  class="circuit-7 circuit-8 circuit-9"
 >
   <div
-    class="circuit-7 circuit-8"
+    aria-busy="true"
+    aria-live="assertive"
+    class="circuit-2 circuit-3 circuit-4"
+    role="alert"
   >
     <div
-      aria-busy="true"
-      aria-live="assertive"
-      class="circuit-2 circuit-3 circuit-4"
-      role="alert"
+      class="circuit-0 circuit-1"
+      dark="0"
     >
-      <div
-        class="circuit-0 circuit-1"
-        dark="0"
-      >
-        spinner.svg
-      </div>
-    </div>
-    <div
-      class="circuit-5 circuit-6"
-    >
-      Click me
+      spinner.svg
     </div>
   </div>
+  <span
+    class="circuit-5 circuit-6"
+  >
+    I am a success!
+  </span>
 </button>
 `;
 
