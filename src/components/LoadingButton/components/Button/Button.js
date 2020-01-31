@@ -26,7 +26,13 @@ import {
   BUTTON_DEFAULT_PROPS
 } from '../../../Button/constants';
 
+const StyledButton = styled(Button)`
+  position: relative;
+  overflow: hidden;
+`;
+
 const childrenWrapperStyles = ({ theme }) => css`
+  display: inline-block;
   opacity: 1;
   transform: translate(0, 0);
   transition: opacity ${theme.transitions.default},
@@ -40,11 +46,7 @@ const childrenWrapperLoadingStyles = ({ loadingState }) =>
     transform: translate(0, 100%);
   `;
 
-const Wrapper = styled.div`
-  position: relative;
-`;
-
-const ChildrenWrapper = styled.div`
+const ChildrenWrapper = styled.span`
   ${childrenWrapperStyles};
   ${childrenWrapperLoadingStyles};
 `;
@@ -57,17 +59,15 @@ const LoadingButton = ({
   isLoading,
   ...otherProps
 }) => (
-  <Button
+  <StyledButton
     {...otherProps}
     size={size}
     onClick={isLoading ? null : onClick}
     isLoading={isLoading}
   >
-    <Wrapper>
-      <LoadingIcon size={size} loadingState={loadingState} />
-      <ChildrenWrapper loadingState={loadingState}>{children}</ChildrenWrapper>
-    </Wrapper>
-  </Button>
+    <LoadingIcon size={size} loadingState={loadingState} />
+    <ChildrenWrapper loadingState={loadingState}>{children}</ChildrenWrapper>
+  </StyledButton>
 );
 
 LoadingButton.propTypes = {

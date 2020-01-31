@@ -32,7 +32,6 @@ const { KILO, MEGA, GIGA } = sizes;
 /**
  * Keyframes
  */
-
 const iconEnter = keyframes`
   0% {
     opacity: 1;
@@ -48,7 +47,6 @@ const iconEnter = keyframes`
 /**
  * General purpose style functions.
  */
-
 const centeredStyles = () => css`
   position: absolute;
   left: 50%;
@@ -74,7 +72,6 @@ const sizeStyles = label => ({ theme, size }) => {
 /**
  * Icon styles
  */
-
 const Icon = styled.div`
   label: loading-icon;
   transform: scale3d(0, 0, 0);
@@ -94,7 +91,6 @@ const IconContainer = styled.div(
 /**
  * Direct sub-components
  */
-
 const Spinner = styled(PureSpinner)(
   sizeStyles('loading-icon__spinner'),
   centeredStyles
@@ -108,10 +104,10 @@ const StatusIcon = ({ as, size }) => (
 );
 
 StatusIcon.propTypes = {
+  as: PropTypes.oneOf([SuccessSvg, ErrorSvg]),
   /**
    * Size prop from the Button.
    */
-  as: PropTypes.oneOf([SuccessSvg, ErrorSvg]),
   size: SIZE_PROP_TYPE
 };
 
