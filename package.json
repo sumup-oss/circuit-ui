@@ -32,7 +32,7 @@
     "test": "jest --silent",
     "test:watch": "yarn test --watch",
     "test:output": "mkdir __reports__ && jest --json --outputFile=__reports__/jest-results.json",
-    "test:ci": "test:output --ci --coverage --runInBand",
+    "test:ci": "yarn test:output --ci --coverage --runInBand",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
     "predeploy": "rm -rf ./public && yarn build:docs && cp ./src/CNAME ./public/CNAME",
