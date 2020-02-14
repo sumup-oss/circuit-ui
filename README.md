@@ -53,15 +53,15 @@ yarn deploy
 ## Linting and formatting
 
 ```
-yarn test:lint
+yarn lint
 
-yarn fix
+yarn lint:fix
 ```
 
 ## Testing
 
 ```
-yarn test:unit:watch
+yarn test:watch
 ```
 
 ```javascript

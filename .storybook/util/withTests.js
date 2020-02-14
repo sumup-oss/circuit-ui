@@ -1,6 +1,6 @@
 import { withTests } from '@storybook/addon-jest';
 
-import results from '../../jest-test-results.json';
+import results from '../../__reports__/jest-results.json';
 
 export default withTests(
   {

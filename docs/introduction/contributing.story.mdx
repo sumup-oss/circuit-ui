@@ -79,15 +79,15 @@ yarn storybook
 We use [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library) to unit test our components. Since most components are purely visual, we rely a lot on snapshot tests. Business logic should be tested with more specific assertions. To start unit tests in watch mode, run:
 
 ```bash
-yarn test:unit:watch
+yarn test:watch
 ```
 
 As for linting and formatting, you can configure your editor to automatically lint and format your code on save. For this purpose, we're using [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/). If you need to do it manually, you can run:
 
 ```bash
-yarn test:lint
+yarn lint
 # Automatically fix (some) issues
-yarn test:lint:fix
+yarn lint:fix
 ```
 
 While making changes to Circuit UI, you might want to test them in your application. You can do so by [linking the two projects](https://yarnpkg.com/lang/en/docs/cli/link/) locally.
