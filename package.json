@@ -60,7 +60,6 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui#readme",
   "dependencies": {
-    "@emotion/is-prop-valid": "^0.8.2",
     "downshift": "^3.3.4",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
@@ -73,7 +72,8 @@
     "react-text-mask": "5.4.3",
     "recompose": "^0.30.0",
     "text-mask-addons": "^3.8.0",
-    "tiny-warning": "^1.0.3"
+    "tiny-warning": "^1.0.3",
+    "yargs": "^14.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
@@ -84,6 +84,7 @@
     "@emotion/babel-preset-css-prop": "^10.0.9",
     "@emotion/cache": "^10.0.19",
     "@emotion/core": "^10.0.21",
+    "@emotion/is-prop-valid": "^0.8.2",
     "@emotion/styled": "^10.0.17",
     "@emotion/stylis": "^0.8.4",
     "@storybook/addon-a11y": "^5.2.0",
@@ -140,8 +141,7 @@
     "react-swipeable": "^5.4.0",
     "react-test-renderer": "^16.8.6",
     "style-loader": "^1.0.0",
-    "webpack-merge": "^4.2.1",
-    "yargs": "^14.0.0"
+    "webpack-merge": "^4.2.1"
   },
   "husky": {
     "hooks": {
@@ -149,10 +149,13 @@
     }
   },
   "peerDependencies": {
-    "@emotion/core": ">=10.0.0",
-    "@emotion/styled": ">=10.0.0",
-    "emotion-theming": ">=10.0.0",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "@emotion/cache": "10.x",
+    "@emotion/core": "10.x",
+    "@emotion/is-prop-valid": "0.8.x",
+    "@emotion/styled": "10.x",
+    "@emotion/stylis": "0.8.x",
+    "emotion-theming": "10.x",
+    "react": ">=16.8.0 < 17",
+    "react-dom": ">=16.8.0 < 17"
   }
 }

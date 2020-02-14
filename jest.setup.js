@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-/* global expect */
-
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';

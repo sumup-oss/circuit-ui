@@ -20,8 +20,6 @@ import React from 'react';
  */
 const TabPanels = ({ selectedIndex, children }) =>
   React.Children.map(children, (child, index) => {
-    console.log(child, index, selectedIndex);
-
     if (index === selectedIndex) {
       return child;
     }

@@ -133,6 +133,7 @@ describe('Tag', () => {
 
       render(<Tag {...{ onRemove, ...props }}>SomeTest</Tag>);
 
+      // eslint-disable-next-line no-console
       expect(console.error).toHaveBeenCalled();
     });
   });

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+/* eslint-disable jest/expect-expect */
+
 import * as currency from './currency';
 
 describe('currency', () => {
@@ -302,15 +304,17 @@ describe('currency', () => {
     });
 
     describe('when given a currency and locale', () => {
-      const inputs = [11.23, 1000, 0.98];
-      const ccy = 'CHF';
-      const locale = 'de-CH';
-      const expected = ['11.23', "1'000.00", '0.98'];
+      it('should return the formatted amount', () => {
+        const inputs = [11.23, 1000, 0.98];
+        const ccy = 'CHF';
+        const locale = 'de-CH';
+        const expected = ['11.23', "1'000.00", '0.98'];
 
-      inputs.forEach((number, i) => {
-        expect(currency.formatAmountForLocale(number, ccy, locale)).toBe(
-          expected[i]
-        );
+        inputs.forEach((number, i) => {
+          expect(currency.formatAmountForLocale(number, ccy, locale)).toBe(
+            expected[i]
+          );
+        });
       });
     });
   });

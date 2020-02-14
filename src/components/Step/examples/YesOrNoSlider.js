@@ -19,6 +19,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Swipeable } from 'react-swipeable';
 
 import Image from '../../Image';

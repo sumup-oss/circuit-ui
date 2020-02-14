@@ -276,8 +276,8 @@ export const breakpoints = {
 export const mq = createMediaQueries(breakpoints);
 
 export const transitions = {
-  default: `200ms ease-in-out`,
-  slow: `300ms ease-in-out`
+  default: '200ms ease-in-out',
+  slow: '300ms ease-in-out'
 };
 
 // these values need to be properly trimmed/renamed as we go.

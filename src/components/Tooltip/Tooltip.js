@@ -60,8 +60,10 @@ const positionMap = {
 
 const getPositionStyles = ({ theme, position }) => {
   const absolutePosition = positionMap[position];
+
+  // The first absolute position rule is a fallback.
   return `
-    ${absolutePosition}: 100%; ${'' /* Fallback  */}
+    ${absolutePosition}: 100%;
     ${absolutePosition}: calc(100% + ${theme.spacings.kilo});
 
     &::after {

@@ -65,17 +65,17 @@ const SidebarWithState = () => {
             selectedIcon={<ListFull />}
           >
             <Sidebar.NavItem
-              label={`First`}
+              label="First"
               selected={selected === 4}
               onClick={() => setSelected(4)}
             />
             <Sidebar.NavItem
-              label={`Second`}
+              label="Second"
               selected={selected === 5}
               onClick={() => setSelected(5)}
             />
             <Sidebar.NavItem
-              label={`Third`}
+              label="Third"
               selected={selected === 6}
               onClick={() => setSelected(6)}
             />
