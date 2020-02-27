@@ -26,11 +26,34 @@ describe('Link', () => {
     'data-testid': 'link'
   };
 
+  const invalidProps = {
+    ...defaultProps,
+    disabled: false,
+    size: 'mega',
+    selected: false,
+    primary: true,
+    stretch: false
+  };
+
   describe('styles', () => {
     it('should render with the attributes it receives', () => {
       const { getByTestId } = render(<Link {...defaultProps} />);
       const linkEl = getByTestId('link');
 
+      expect(linkEl).toHaveAttribute('href', defaultProps.href);
+      expect(linkEl).toHaveAttribute('target', defaultProps.target);
+      expect(linkEl).toHaveAttribute('rel', defaultProps.rel);
+    });
+
+    it('should render without invalid html attributes it receives', () => {
+      const { getByTestId } = render(<Link {...invalidProps} />);
+      const linkEl = getByTestId('link');
+
+      expect(linkEl).not.toHaveAttribute('disabled', invalidProps.disabled);
+      expect(linkEl).not.toHaveAttribute('size', invalidProps.size);
+      expect(linkEl).not.toHaveAttribute('selected', invalidProps.selected);
+      expect(linkEl).not.toHaveAttribute('primary', invalidProps.primary);
+      expect(linkEl).not.toHaveAttribute('stretch', invalidProps.stretch);
       expect(linkEl).toHaveAttribute('href', defaultProps.href);
       expect(linkEl).toHaveAttribute('target', defaultProps.target);
       expect(linkEl).toHaveAttribute('rel', defaultProps.rel);
