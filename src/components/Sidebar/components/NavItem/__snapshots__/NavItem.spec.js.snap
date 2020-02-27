@@ -167,7 +167,6 @@ exports[`NavItem styles should render with disabled state styles and match the s
 >
   <a
     class="circuit-2 circuit-3"
-    disabled=""
   >
     <div
       class="circuit-0 circuit-1"
