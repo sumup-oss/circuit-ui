@@ -14,6 +14,7 @@
  */
 
 import React, { useState } from 'react';
+import { includes, debounce } from 'lodash/fp';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
@@ -33,71 +34,89 @@ export default {
   }
 };
 
-const options = [
+const items = [
   'Apple',
   'Banana',
-  'Cranberries',
+  'Cherries',
   'Pitaya (Dragonfruit)',
   'Kiwi',
   'Mango',
-  'Passion fruit',
-  'Watermelon'
+  'Honeydew Melon'
 ];
+
+const icons = {
+  Apple: '🍎',
+  Banana: '🍌',
+  Cherries: '🍒',
+  'Pitaya (Dragonfruit)': '🐉',
+  Kiwi: '🥝',
+  Mango: '🥭',
+  'Honeydew Melon': '🍈'
+};
 
 // Inputs always need labels for accessibility.
 const AutoCompleteInputWithLabel = props => {
   const id = uniqueId();
   return (
     <Label htmlFor={id}>
-      Label
-      <AutoCompleteInput {...props} id={id} />
+      {"What's your favourite fruit?"}
+      <AutoCompleteInput
+        clearOnSelect={boolean('clearOnSelect', false)}
+        showClear={boolean('showClear', false)}
+        {...props}
+        id={id}
+      />
     </Label>
   );
 };
 
 export const base = () => (
   <AutoCompleteInputWithLabel
-    items={options}
+    options={items}
     onChange={action('handleChange')}
     onInputValueChange={action('handleInputValueChange')}
-    clearOnSelect={boolean('clearOnSelect', false)}
   />
 );
 
-export const customItems = () => {
-  const items = options.map(value => ({
+export const customOptions = () => {
+  const options = items.map(value => ({
     value,
     children: (
-      <Text size={Text.GIGA} bold noMargin>
-        {value}
+      <Text size={Text.GIGA} noMargin>
+        {icons[value]} {value}
       </Text>
     )
   }));
   return (
     <AutoCompleteInputWithLabel
-      items={items}
+      options={options}
       onChange={action('handleChange')}
       onInputValueChange={action('handleInputValueChange')}
-      clearOnSelect={boolean('clearOnSelect', false)}
     />
   );
 };
 
-export const asyncItems = () => {
+export const asyncOptions = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [items, setItems] = useState([]);
+  const [options, setOptions] = useState([]);
 
-  const handleInputValueChange = () =>
+  const handleInputValueChange = debounce(100, inputValue =>
     setTimeout(() => {
-      setItems(options);
-    }, 500);
+      const filteredOptions = inputValue
+        ? items.filter(option =>
+            includes(inputValue.toLowerCase(), option.toLowerCase())
+          )
+        : options;
+      setOptions(filteredOptions);
+    }, 500)
+  );
 
   return (
     <AutoCompleteInputWithLabel
-      items={items}
+      options={options}
       onChange={action('handleChange')}
       onInputValueChange={handleInputValueChange}
-      clearOnSelect={boolean('clearOnSelect', false)}
+      filterOptions={opts => opts}
     />
   );
 };

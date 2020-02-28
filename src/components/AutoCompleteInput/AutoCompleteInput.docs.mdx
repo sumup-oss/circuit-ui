@@ -4,19 +4,31 @@ import AutoCompleteTags from '../AutoCompleteTags';
 
 # AutocompleteInput
 
-<Status.Stable />
+<Status.InReview /><Status.Description>The API is likely to change</Status.Description>
 
-AutocompleteInput suggests input values based on a given list of values.
+AutocompleteInput suggests input values based on a given list of options.
 
 <Story id="forms-input-autocompleteinput--base" />
 
 <Props of={AutoCompleteInput} />
 
+### Custom Items
+
+Display the list of options in a custom way, for example with icons:
+
+<Story id="forms-input-autocompleteinput--custom-options" />
+
+### Async Items
+
+Asynchronously update the list of options while the user is typing:
+
+<Story id="forms-input-autocompleteinput--async-options" />
+
 # AutoCompleteTags
 
 <Status.Experimental/><Status.Description>Not currently used in production</Status.Description>
 
-AutoCompleteTags let the user select one or several tags based on a given list of values.
+AutoCompleteTags let the user select one or several tags based on a given list of options.
 
 <Story id="forms-input-autocompletetags--base" />
 
