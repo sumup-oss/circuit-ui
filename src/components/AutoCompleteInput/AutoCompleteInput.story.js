@@ -96,8 +96,7 @@ export const customOptions = () => {
   );
 };
 
-export const asyncOptions = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const AsyncAutoCompleteInput = () => {
   const [options, setOptions] = useState([]);
 
   const handleInputValueChange = debounce(100, inputValue =>
@@ -120,3 +119,5 @@ export const asyncOptions = () => {
     />
   );
 };
+
+export const asyncOptions = () => <AsyncAutoCompleteInput />;
