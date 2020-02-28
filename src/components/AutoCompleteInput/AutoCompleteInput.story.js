@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
@@ -22,6 +22,7 @@ import { uniqueId } from '../../util/id';
 import docs from './AutoCompleteInput.docs.mdx';
 import AutoCompleteInput from './AutoCompleteInput';
 import Label from '../Label';
+import Text from '../Text';
 
 export default {
   title: 'Forms/Input/AutoCompleteInput',
@@ -31,6 +32,17 @@ export default {
     jest: ['AutoCompleteInput']
   }
 };
+
+const options = [
+  'Apple',
+  'Banana',
+  'Cranberries',
+  'Pitaya (Dragonfruit)',
+  'Kiwi',
+  'Mango',
+  'Passion fruit',
+  'Watermelon'
+];
 
 // Inputs always need labels for accessibility.
 const AutoCompleteInputWithLabel = props => {
@@ -45,12 +57,47 @@ const AutoCompleteInputWithLabel = props => {
 
 export const base = () => (
   <AutoCompleteInputWithLabel
-    items={[
-      'liam.murphy@sumup.com',
-      'liam.burdock@sumup.com',
-      'lilijane.giordano@sumup.com'
-    ]}
+    items={options}
     onChange={action('handleChange')}
+    onInputValueChange={action('handleInputValueChange')}
     clearOnSelect={boolean('clearOnSelect', false)}
   />
 );
+
+export const customItems = () => {
+  const items = options.map(value => ({
+    value,
+    children: (
+      <Text size={Text.GIGA} bold noMargin>
+        {value}
+      </Text>
+    )
+  }));
+  return (
+    <AutoCompleteInputWithLabel
+      items={items}
+      onChange={action('handleChange')}
+      onInputValueChange={action('handleInputValueChange')}
+      clearOnSelect={boolean('clearOnSelect', false)}
+    />
+  );
+};
+
+export const asyncItems = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [items, setItems] = useState([]);
+
+  const handleInputValueChange = () =>
+    setTimeout(() => {
+      setItems(options);
+    }, 500);
+
+  return (
+    <AutoCompleteInputWithLabel
+      items={items}
+      onChange={action('handleChange')}
+      onInputValueChange={handleInputValueChange}
+      clearOnSelect={boolean('clearOnSelect', false)}
+    />
+  );
+};

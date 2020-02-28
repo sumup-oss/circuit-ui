@@ -23,9 +23,9 @@ import { includes, isString } from 'lodash/fp';
 import SearchInput from '../SearchInput';
 import Card from '../Card';
 import { textMega } from '../../styles/style-helpers';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const MIN_INPUT_FILTER = 2;
-const SUGGESTIONS_LIMIT = 7;
 
 const AutoCompleteWrapper = styled('div')`
   label: input__container
@@ -91,23 +91,39 @@ const filterItems = inputValue => item => {
 export default class AutoCompleteInput extends Component {
   static propTypes = {
     /**
-     * handleChange function that will receive the input
+     * Callback function that is called when the user selects a value
      */
     onChange: PropTypes.func.isRequired,
-
     /**
-     * If true, will clean the input after a value ie selected
+     * Callback function that is called as the user is typing
+     */
+    onInputValueChange: PropTypes.func,
+    /**
+     * If true, will clean the input after a value is selected
      */
     clearOnSelect: PropTypes.bool,
-
     /**
-     * Array of items (strings) the can be selected
+     * Array of items that can be selected. An item can be a string or
+     * an object with a children and a value property
      */
-    items: PropTypes.arrayOf(PropTypes.string).isRequired
+    items: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({
+          value: PropTypes.string,
+          children: childrenPropType
+        })
+      ])
+    ).isRequired,
+    /**
+     * The maximum number of suggestions to show to the user
+     */
+    maxNumberOfItems: PropTypes.number
   };
 
   static defaultProps = {
-    clearOnSelect: false
+    clearOnSelect: false,
+    maxNumberOfItems: 7
   };
 
   handleChange = value => {
@@ -127,10 +143,21 @@ export default class AutoCompleteInput extends Component {
   };
 
   render() {
-    const { items, onChange, clearOnSelect, ...inputProps } = this.props;
+    const {
+      items,
+      onChange,
+      clearOnSelect,
+      onInputValueChange,
+      maxNumberOfItems,
+      ...inputProps
+    } = this.props;
 
     return (
-      <Downshift ref={this.handleDownShiftRef} onSelect={this.handleChange}>
+      <Downshift
+        ref={this.handleDownShiftRef}
+        onSelect={this.handleChange}
+        onInputValueChange={onInputValueChange}
+      >
         {({
           getRootProps,
           getInputProps,
@@ -141,7 +168,7 @@ export default class AutoCompleteInput extends Component {
         }) => {
           const filteredItems = items
             .filter(filterItems(inputValue))
-            .slice(0, SUGGESTIONS_LIMIT);
+            .slice(0, maxNumberOfItems);
 
           return (
             <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
@@ -154,11 +181,8 @@ export default class AutoCompleteInput extends Component {
                 <ItemsWrapper>
                   <Items spacing={Card.MEGA}>
                     {filteredItems.map((item, index) => {
-                      const { value, children = value, ...rest } = isString(
-                        item
-                      )
-                        ? { value: item, children: item }
-                        : item;
+                      const itemObj = isString(item) ? { value: item } : item;
+                      const { value, children = value, ...rest } = itemObj;
                       return (
                         <Item
                           {...getItemProps({ item: value })}
