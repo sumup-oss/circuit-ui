@@ -72,7 +72,7 @@ const optionBaseStyles = ({ theme }) => css`
   padding: ${theme.spacings.byte} ${theme.spacings.mega};
 `;
 
-const optionHighlight = ({ selected, theme }) =>
+const optionSelectedStyles = ({ selected, theme }) =>
   selected &&
   css`
     label: input__option--selected;
@@ -80,7 +80,7 @@ const optionHighlight = ({ selected, theme }) =>
     background-color: ${theme.colors.n100};
   `;
 
-const Option = styled(Text)(optionBaseStyles, optionHighlight);
+const Option = styled(Text)(optionBaseStyles, optionSelectedStyles);
 
 const defaultFilterOptions = (options, inputValue) => {
   if (!inputValue || inputValue.length < MIN_INPUT_LENGTH) {
