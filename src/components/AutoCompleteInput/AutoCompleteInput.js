@@ -23,7 +23,7 @@ import { includes, isString, isEmpty } from 'lodash/fp';
 import SearchInput from '../SearchInput';
 import CloseButton from '../CloseButton';
 import Card from '../Card';
-import { textMega } from '../../styles/style-helpers';
+import Text from '../Text';
 import {
   childrenPropType,
   deprecatedPropType
@@ -49,48 +49,38 @@ const ClearButton = styled(CloseButton)`
   pointer-events: all !important;
 `;
 
-const baseOptionsWrapperStyles = ({ theme }) => css`
-  position: relative;
-  height: 0px;
-  overflow: visible;
-  margin-top: ${theme.spacings.bit};
-  z-index: ${theme.zIndex.popover};
-`;
-
-const OptionsWrapper = styled('div')(baseOptionsWrapperStyles);
-
-const optionsBaseStyles = ({ theme }) => css`
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+const optionsStyles = ({ theme }) => css`
+  label: input__options;
   position: absolute;
-  top: 0;
+  top: calc(100% + ${theme.spacings.bit});
   left: 0;
   right: 0;
+  z-index: ${theme.zIndex.popover};
+  padding: ${theme.spacings.bit} 0;
 `;
 
-const Options = styled(Card)(optionsBaseStyles);
+const Options = styled(Card)(optionsStyles);
 
 Options.defaultProps = Card.defaultProps;
 
 const optionBaseStyles = ({ theme }) => css`
+  label: input__option;
   cursor: pointer;
   margin: 0;
   text-overflow: ellipsis;
   overflow: hidden;
-  ${textMega({ theme })};
-  padding: 0 0 ${theme.spacings.byte} 0;
-
-  &:last-of-type {
-    padding-bottom: 0;
-  }
+  padding: ${theme.spacings.byte} ${theme.spacings.mega};
 `;
 
 const optionHighlight = ({ selected, theme }) =>
   selected &&
   css`
+    label: input__option--selected;
     color: ${theme.colors.p500};
+    background-color: ${theme.colors.n100};
   `;
 
-const Option = styled('div')(optionBaseStyles, optionHighlight);
+const Option = styled(Text)(optionBaseStyles, optionHighlight);
 
 const defaultFilterOptions = (options, inputValue) => {
   if (!inputValue || inputValue.length < MIN_INPUT_LENGTH) {
@@ -230,26 +220,23 @@ export default class AutoCompleteInput extends Component {
                 renderSuffix={renderSuffix}
               />
               {isOpen && !isEmpty(maxOptions) && (
-                <OptionsWrapper>
-                  <Options spacing={Card.MEGA}>
-                    {maxOptions.map((option, index) => {
-                      const item = isString(option)
-                        ? { value: option }
-                        : option;
-                      const { value, children = value, ...rest } = item;
-                      return (
-                        <Option
-                          {...getItemProps({ item: value })}
-                          key={value}
-                          selected={index === highlightedIndex}
-                          {...rest}
-                        >
-                          {children}
-                        </Option>
-                      );
-                    })}
-                  </Options>
-                </OptionsWrapper>
+                <Options spacing={Card.MEGA}>
+                  {maxOptions.map((option, index) => {
+                    const item = isString(option) ? { value: option } : option;
+                    const { value, children = value, ...rest } = item;
+                    return (
+                      <Option
+                        {...getItemProps({ item: value })}
+                        key={value}
+                        selected={index === highlightedIndex}
+                        noMargin
+                        {...rest}
+                      >
+                        {children}
+                      </Option>
+                    );
+                  })}
+                </Options>
               )}
             </AutoCompleteWrapper>
           );
