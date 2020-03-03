@@ -14,29 +14,13 @@
  */
 
 import React from 'react';
-import isPropValid from '@emotion/is-prop-valid';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 
 /**
  * A barebones Link component that's basically just an `<a>` tag
  */
-const Link = ({ children, ...props }) => (
-  <a {...filterValidProps(props)}>{children}</a>
-);
-
-function filterValidProps(props) {
-  const INVALID_HTML_ATTRIBUTES = ['size', 'disabled', 'selected'];
-  const result = {};
-
-  Object.keys(props).forEach(key => {
-    if (isPropValid(key) && !INVALID_HTML_ATTRIBUTES.includes(key)) {
-      result[key] = props[key];
-    }
-  });
-
-  return result;
-}
+const Link = ({ children, ...props }) => <a {...props}>{children}</a>;
 
 Link.propTypes = {
   children: childrenPropType

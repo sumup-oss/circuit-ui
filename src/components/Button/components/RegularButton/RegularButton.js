@@ -16,6 +16,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
 import { textMega, calculatePadding } from '../../../../styles/style-helpers';
 
@@ -215,7 +216,9 @@ const buttonLoadingStyles = ({ isLoading }) =>
     pointer-events: none;
   `;
 
-const ButtonElement = styled('button')`
+const ButtonElement = styled('button', {
+  shouldForwardProp: isPropValid
+})`
   ${baseStyles};
   ${primaryStyles};
   ${sizeStyles};

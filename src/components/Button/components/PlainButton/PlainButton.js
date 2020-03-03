@@ -16,6 +16,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
 import { StyledText } from '../../../Text';
 
@@ -49,10 +50,9 @@ const primaryStyles = ({ theme, primary }) =>
     }
   `;
 
-const ButtonLinkWrapper = styled(StyledText)(
-  baseStyles,
-  primaryStyles
-).withComponent('button');
+const ButtonLinkWrapper = styled(StyledText, {
+  shouldForwardProp: isPropValid
+})(baseStyles, primaryStyles).withComponent('button');
 
 /* eslint-disable react/prop-types */
 const PlainButton = ({ components, href, ...rest }) => {
