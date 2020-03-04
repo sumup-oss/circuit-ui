@@ -16,15 +16,15 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { remove, includes } from 'lodash/fp';
+import { remove, includes, isEmpty } from 'lodash/fp';
 
 import AutoCompleteInput from '../AutoCompleteInput';
 import Tag from '../Tag';
 
 const TagsWrapper = styled('div')`
   margin-top: ${props => props.theme.spacings.kilo};
-  /* this *hack* is to not allow the tags to be visible bellow the overlay */
-  padding: 0 1px 0 1px;
+  /* this *hack* is to not allow the tags to be visible below the overlay */
+  padding: 0 1px;
 
   span {
     display: inline-block;
@@ -46,8 +46,8 @@ class AutoCompleteTags extends Component {
     }
   }
 
-  handleAddTag = item =>
-    this.setState(({ tags }) => ({ tags: [...tags, item] }));
+  handleAddTag = option =>
+    this.setState(({ tags }) => ({ tags: [...tags, option] }));
 
   handleRemoveTag = newTag =>
     this.setState(({ tags }) => ({
@@ -57,18 +57,18 @@ class AutoCompleteTags extends Component {
   render() {
     const { availableTags } = this.props;
     const { tags } = this.state;
-    const autoCompleteItems = availableTags.filter(
-      item => !includes(item, tags)
+    const autoCompleteOptions = availableTags.filter(
+      option => !includes(option, tags)
     );
 
     return (
       <Fragment>
         <AutoCompleteInput
           onChange={this.handleAddTag}
-          items={autoCompleteItems}
+          options={autoCompleteOptions}
           clearOnSelect
         />
-        {!!tags.length && (
+        {!isEmpty(tags) && (
           <TagsWrapper>
             {tags.map(tag => (
               <Tag key={tag} onRemove={() => this.handleRemoveTag(tag)}>

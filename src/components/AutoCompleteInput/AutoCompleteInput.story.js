@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
+import { includes, debounce } from 'lodash/fp';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
 
@@ -22,6 +23,7 @@ import { uniqueId } from '../../util/id';
 import docs from './AutoCompleteInput.docs.mdx';
 import AutoCompleteInput from './AutoCompleteInput';
 import Label from '../Label';
+import Text from '../Text';
 
 export default {
   title: 'Forms/Input/AutoCompleteInput',
@@ -32,25 +34,90 @@ export default {
   }
 };
 
+const items = [
+  'Apple',
+  'Banana',
+  'Cherries',
+  'Pitaya (Dragonfruit)',
+  'Kiwi',
+  'Mango',
+  'Honeydew Melon'
+];
+
+const icons = {
+  Apple: '🍎',
+  Banana: '🍌',
+  Cherries: '🍒',
+  'Pitaya (Dragonfruit)': '🐉',
+  Kiwi: '🥝',
+  Mango: '🥭',
+  'Honeydew Melon': '🍈'
+};
+
 // Inputs always need labels for accessibility.
 const AutoCompleteInputWithLabel = props => {
   const id = uniqueId();
   return (
     <Label htmlFor={id}>
-      Label
-      <AutoCompleteInput {...props} id={id} />
+      {"What's your favourite fruit?"}
+      <AutoCompleteInput
+        clearOnSelect={boolean('clearOnSelect', false)}
+        showClear={boolean('showClear', false)}
+        {...props}
+        id={id}
+      />
     </Label>
   );
 };
 
 export const base = () => (
   <AutoCompleteInputWithLabel
-    items={[
-      'liam.murphy@sumup.com',
-      'liam.burdock@sumup.com',
-      'lilijane.giordano@sumup.com'
-    ]}
+    options={items}
     onChange={action('handleChange')}
-    clearOnSelect={boolean('clearOnSelect', false)}
+    onInputValueChange={action('handleInputValueChange')}
   />
 );
+
+export const customOptions = () => {
+  const options = items.map(value => ({
+    value,
+    children: (
+      <Text size={Text.GIGA} noMargin>
+        {icons[value]} {value}
+      </Text>
+    )
+  }));
+  return (
+    <AutoCompleteInputWithLabel
+      options={options}
+      onChange={action('handleChange')}
+      onInputValueChange={action('handleInputValueChange')}
+    />
+  );
+};
+
+const AsyncAutoCompleteInput = () => {
+  const [options, setOptions] = useState([]);
+
+  const handleInputValueChange = debounce(100, inputValue =>
+    setTimeout(() => {
+      const filteredOptions = inputValue
+        ? items.filter(option =>
+            includes(inputValue.toLowerCase(), option.toLowerCase())
+          )
+        : options;
+      setOptions(filteredOptions);
+    }, 500)
+  );
+
+  return (
+    <AutoCompleteInputWithLabel
+      options={options}
+      onChange={action('handleChange')}
+      onInputValueChange={handleInputValueChange}
+      filterOptions={opts => opts}
+    />
+  );
+};
+
+export const asyncOptions = () => <AsyncAutoCompleteInput />;
