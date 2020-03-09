@@ -1200,8 +1200,6 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -1233,8 +1231,6 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -5306,8 +5302,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -7151,8 +7145,6 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -7181,8 +7173,6 @@ exports[`Storyshots Components/Header Base 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -9320,8 +9310,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -10673,8 +10661,6 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -13731,8 +13717,6 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -14221,8 +14205,6 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -14333,8 +14315,6 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -14465,8 +14445,6 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -14633,8 +14611,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -14742,8 +14718,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -14851,8 +14825,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -17808,8 +17780,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -17894,8 +17864,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -18000,8 +17968,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -18094,8 +18060,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -18177,8 +18141,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -18260,8 +18222,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -19458,8 +19418,6 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -19582,8 +19540,6 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
