@@ -17675,6 +17675,7 @@ HTMLCollection [
 
 .circuit-0:not(:focus)::before {
   border-color: #DB4D4D;
+  background-color: #F4CBCB;
 }
 
 .circuit-0:not(:focus)::after {
