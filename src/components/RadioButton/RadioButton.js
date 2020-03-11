@@ -85,6 +85,7 @@ const labelInvalidStyles = ({ theme, invalid }) =>
     label: radio-button--error;
     &:not(:focus)::before {
       border-color: ${theme.colors.r500};
+      background-color: ${theme.colors.r100};
     }
 
     &:not(:focus)::after {
