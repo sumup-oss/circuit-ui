@@ -42,13 +42,13 @@ const PaymentMethodIconWrap = styled('li')(CardSchemeBaseStyles);
 /**
  *   Displays a row of available or active card scheme icons
  */
-const CardSchemes = ({ iconIds, size }) => {
+const CardSchemes = ({ iconIds, size, ...props }) => {
   if (isEmpty(iconIds)) {
     return null;
   }
 
   return (
-    <CardSchemeWrapper>
+    <CardSchemeWrapper {...props}>
       {iconIds.map(iconId => (
         <PaymentMethodIconWrap key={iconId}>
           <PaymentMethodIcon size={size} iconId={iconId} />
