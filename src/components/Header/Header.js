@@ -41,8 +41,8 @@ const mobileOnlyStyles = ({ theme, mobileOnly }) =>
 
 const Container = styled('div')(baseStyles, mobileOnlyStyles);
 
-const Header = ({ title, mobileOnly, children }) => (
-  <Container mobileOnly={mobileOnly}>
+const Header = ({ title, mobileOnly, children, ...props }) => (
+  <Container mobileOnly={mobileOnly} {...props}>
     {children}
     <Title>{title}</Title>
   </Container>

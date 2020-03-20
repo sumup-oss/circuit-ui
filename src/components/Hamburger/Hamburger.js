@@ -126,6 +126,7 @@ const HamburgerLayers = styled('span')`
   ${layersActiveStyles}
   ${layersBaseLightStyles};
 `;
+
 const HamburgerLabel = styled('span')`
   ${labelBaseStyles};
 `;
@@ -139,9 +140,9 @@ const Hamburger = ({
   labelActive,
   labelInActive,
   light,
-  ...rest
+  ...props
 }) => (
-  <HamburgerButton {...rest} onClick={onClick} light={light}>
+  <HamburgerButton {...props} onClick={onClick} light={light}>
     <HamburgerLayers isActive={isActive} light={light} />
     <HamburgerLabel>{isActive ? labelActive : labelInActive}</HamburgerLabel>
   </HamburgerButton>
