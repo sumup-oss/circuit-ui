@@ -19,7 +19,7 @@ import { css } from '@emotion/core';
 
 import { textMega, calculatePadding } from '../../../../styles/style-helpers';
 
-const baseStyles = ({ theme, ...otherProps }) => css`
+const baseStyles = ({ theme, ...props }) => css`
   label: button;
   background-color: ${theme.colors.n100};
   border-color: ${theme.colors.n300};
@@ -47,7 +47,7 @@ const baseStyles = ({ theme, ...otherProps }) => css`
     border-color: ${theme.colors.n500};
     border-width: 2px;
     outline: 0;
-    padding: ${calculatePadding({ theme, ...otherProps })('1px')};
+    padding: ${calculatePadding({ theme, ...props })('1px')};
   }
 
   &:hover {
@@ -58,7 +58,7 @@ const baseStyles = ({ theme, ...otherProps }) => css`
   &:active {
     border-color: ${theme.colors.n500};
     border-width: 1px;
-    padding: ${calculatePadding({ theme, ...otherProps })()};
+    padding: ${calculatePadding({ theme, ...props })()};
   }
 
   &[href] {
@@ -108,7 +108,7 @@ const stretchStyles = ({ stretch }) =>
     display: block;
   `;
 
-const flatStyles = ({ theme, flat, secondary, ...otherProps }) =>
+const flatStyles = ({ theme, flat, secondary, ...props }) =>
   flat &&
   !secondary &&
   css`
@@ -128,18 +128,16 @@ const flatStyles = ({ theme, flat, secondary, ...otherProps }) =>
     &:active:focus,
     &:hover:focus {
       border-width: 0;
-      padding: ${calculatePadding({ theme, flat, secondary, ...otherProps })()};
+      padding: ${calculatePadding({ theme, flat, secondary, ...props })()};
     }
 
     &:focus {
       border-width: 2px;
-      padding: ${calculatePadding({ theme, flat, secondary, ...otherProps })(
-        '2px'
-      )};
+      padding: ${calculatePadding({ theme, flat, secondary, ...props })('2px')};
     }
   `;
 
-const secondaryStyles = ({ theme, secondary, flat, ...otherProps }) =>
+const secondaryStyles = ({ theme, secondary, flat, ...props }) =>
   secondary &&
   css`
     label: button--secondary;
@@ -160,9 +158,7 @@ const secondaryStyles = ({ theme, secondary, flat, ...otherProps }) =>
       border-color: ${theme.colors.n900};
       border-width: 2px;
       box-shadow: none;
-      padding: ${calculatePadding({ theme, flat, secondary, ...otherProps })(
-        '2px'
-      )};
+      padding: ${calculatePadding({ theme, flat, secondary, ...props })('2px')};
     }
 
     &:hover {
@@ -175,7 +171,7 @@ const secondaryStyles = ({ theme, secondary, flat, ...otherProps }) =>
     &:hover,
     &:hover:focus,
     &:active:focus {
-      padding: ${calculatePadding({ theme, flat, secondary, ...otherProps })()};
+      padding: ${calculatePadding({ theme, flat, secondary, ...props })()};
     }
 
     &:active,
@@ -189,9 +185,7 @@ const secondaryStyles = ({ theme, secondary, flat, ...otherProps }) =>
       border-color: ${theme.colors.n900};
       border-width: 2px;
       box-shadow: none;
-      padding: ${calculatePadding({ theme, flat, secondary, ...otherProps })(
-        '2px'
-      )};
+      padding: ${calculatePadding({ theme, flat, secondary, ...props })('2px')};
     }
   `;
 
