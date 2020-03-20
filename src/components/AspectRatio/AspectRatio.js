@@ -60,7 +60,7 @@ const childAspectRatioStyles = (cssClassName, { aspectRatio }) =>
   `;
 
 const AspectRatio = React.forwardRef(
-  ({ aspectRatio, children, className }, ref) => {
+  ({ aspectRatio, children, ...props }, ref) => {
     if (!children) {
       return null;
     }
@@ -68,7 +68,7 @@ const AspectRatio = React.forwardRef(
     const [child, ...restChildren] = Children.toArray(children);
 
     return (
-      <Wrapper ref={ref} aspectRatio={aspectRatio} className={className}>
+      <Wrapper ref={ref} aspectRatio={aspectRatio} {...props}>
         <ClassNames>
           {({ css: cssClassName, cx }) =>
             React.cloneElement(child, {
