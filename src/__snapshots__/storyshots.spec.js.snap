@@ -1831,9 +1831,7 @@ exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
   box-shadow: 0px 0px 0px 1px #D8DDE1;
 }
 
-<div
-  class="circuit-2 circuit-3"
->
+<div>
   <span
     class="circuit-0 circuit-1"
   >
@@ -1859,9 +1857,7 @@ exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
   box-shadow: 0px 0px 0px 1px #D8DDE1;
 }
 
-<div
-  class="circuit-2 circuit-3"
->
+<div>
   <span
     class="circuit-0 circuit-1"
   >
@@ -9952,6 +9948,8 @@ exports[`Storyshots Components/ProgressBar Base 1`] = `
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 16px;
+  min-width: 500px;
+  max-width: 90%;
 }
 
 .circuit-0 {
@@ -9962,8 +9960,6 @@ exports[`Storyshots Components/ProgressBar Base 1`] = `
   width: 100%;
   height: 8px;
   overflow: hidden;
-  min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0::after {
@@ -10020,6 +10016,8 @@ HTMLCollection [
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 16px;
+  min-width: 500px;
+  max-width: 90%;
 }
 
 .circuit-2 {
@@ -10036,8 +10034,6 @@ HTMLCollection [
   width: 100%;
   height: 8px;
   overflow: hidden;
-  min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0::after {
@@ -10086,6 +10082,8 @@ HTMLCollection [
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 16px;
+  min-width: 500px;
+  max-width: 90%;
 }
 
 .circuit-2 {
@@ -10102,8 +10100,6 @@ HTMLCollection [
   width: 100%;
   height: 16px;
   overflow: hidden;
-  min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0::after {
@@ -10152,6 +10148,8 @@ HTMLCollection [
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 16px;
+  min-width: 500px;
+  max-width: 90%;
 }
 
 .circuit-2 {
@@ -10168,8 +10166,6 @@ HTMLCollection [
   width: 100%;
   height: 32px;
   overflow: hidden;
-  min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0::after {
@@ -10222,6 +10218,8 @@ exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 16px;
+  min-width: 500px;
+  max-width: 90%;
 }
 
 .circuit-2 {
@@ -10238,8 +10236,6 @@ exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
   width: 100%;
   height: 8px;
   overflow: hidden;
-  min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0::after {
@@ -10291,6 +10287,8 @@ exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 16px;
+  min-width: 500px;
+  max-width: 90%;
 }
 
 .circuit-2 {
@@ -10307,8 +10305,6 @@ exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
   width: 100%;
   height: 8px;
   overflow: hidden;
-  min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0::after {
@@ -11071,18 +11067,6 @@ label + .circuit-14 {
   pointer-events: none;
 }
 
-.circuit-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
 .circuit-4 {
   font-size: 13px;
   line-height: 20px;
@@ -11093,6 +11077,18 @@ label + .circuit-14 {
   margin: 0 auto;
   width: 90%;
   max-width: 300px;
+}
+
+.circuit-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
 .circuit-2 {
