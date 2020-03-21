@@ -243,7 +243,8 @@ class Table extends Component {
       borderCollapsed,
       condensed,
       scrollable,
-      onRowClick
+      onRowClick,
+      ...props
     } = this.props;
     const {
       sortDirection,
@@ -261,6 +262,7 @@ class Table extends Component {
         scrollable={scrollable}
         rowHeaders={rowHeaders}
         noShadow={noShadow}
+        {...props}
       >
         <ScrollContainer
           rowHeaders={rowHeaders}
