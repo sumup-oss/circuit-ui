@@ -86,10 +86,11 @@ const SubNavigationContainer = styled.ul(
   visibleStyles
 );
 
-const SubNavList = ({ children, visible }) => (
+const SubNavList = ({ children, visible, ...props }) => (
   <SubNavigationContainer
     visible={visible}
     selectedChildIndex={getSelectedChildIndex(children)}
+    {...props}
   >
     {getSecondaryChild(children, visible)}
   </SubNavigationContainer>

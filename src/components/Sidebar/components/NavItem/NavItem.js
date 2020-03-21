@@ -100,7 +100,7 @@ const NavItem = ({
   disabled,
   onClick,
   components,
-  ...rest
+  ...props
 }) => {
   const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
   const Link = StyledLink.withComponent(components.Link);
@@ -118,7 +118,7 @@ const NavItem = ({
         secondary={secondary}
         visible={visible}
         disabled={disabled}
-        {...rest}
+        {...props}
       >
         {icon}
         <NavLabel secondary={secondary} visible={visible}>

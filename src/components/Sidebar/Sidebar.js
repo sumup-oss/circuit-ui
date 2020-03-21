@@ -58,9 +58,9 @@ const openStyles = ({ theme, open }) =>
 
 const Drawer = styled('nav')(baseStyles, openStyles);
 
-const Sidebar = ({ children, open, closeButtonLabel, onClose, className }) => (
+const Sidebar = ({ children, open, closeButtonLabel, onClose, ...props }) => (
   <Fragment>
-    <Drawer open={open} className={className}>
+    <Drawer open={open} {...props}>
       {children}
     </Drawer>
     <Backdrop visible={open} onClick={onClose} data-testid="sidebar-backdrop" />
@@ -89,11 +89,7 @@ Sidebar.propTypes = {
   /**
    * A function to handle the sidebar close
    */
-  onClose: PropTypes.func,
-  /**
-   * A className to allow custom styles with Emotion's css prop
-   */
-  className: PropTypes.string
+  onClose: PropTypes.func
 };
 
 Sidebar.defaultProps = {
