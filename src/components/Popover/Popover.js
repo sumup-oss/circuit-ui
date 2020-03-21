@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import { Manager, Reference, Popper } from 'react-popper';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+
 import Portal from '../Portal';
 
 import {
@@ -220,7 +221,7 @@ class Popover extends Component {
       zIndex,
       modifiers,
       usePortal,
-      ...rest
+      ...props
     } = this.props;
 
     const reference = !referenceElement && (
@@ -241,7 +242,7 @@ class Popover extends Component {
     const popper = isOpen && (
       <Popper
         {...{
-          ...rest,
+          ...props,
           // Only pass referenceElement if it's truthy
           ...(referenceElement && { referenceElement })
         }}
