@@ -69,7 +69,7 @@ class Tabs extends Component {
   };
 
   render() {
-    const { items } = this.props;
+    const { items, ...props } = this.props;
     const { selectedIndex } = this.state;
     const { tabs, panels } = items.reduce(
       (aggr, { id, tab, panel }, index) => {
@@ -111,7 +111,7 @@ class Tabs extends Component {
 
     return (
       <Fragment>
-        <TabList>{tabs}</TabList>
+        <TabList {...props}>{tabs}</TabList>
         {panels}
       </Fragment>
     );
