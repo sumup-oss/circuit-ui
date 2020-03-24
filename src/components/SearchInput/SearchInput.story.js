@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import { uniqueId } from '../../util/id';
 
@@ -41,6 +41,35 @@ const SearchInputWithLabel = props => {
   );
 };
 
+const SearchInputWithClear = props => {
+  const id = uniqueId();
+  const [value, setValue] = useState('');
+
+  const handleChange = ({ target: { value: inputValue } }) => {
+    setValue(inputValue);
+  };
+
+  const handleClear = () => {
+    setValue('');
+  };
+
+  return (
+    <Label htmlFor={id}>
+      Label
+      <SearchInput
+        {...props}
+        id={id}
+        value={value}
+        onClear={handleClear}
+        onChange={handleChange}
+        placeholder="Search..."
+      />
+    </Label>
+  );
+};
+
 export const base = () => <SearchInputWithLabel />;
 
 export const disabled = () => <SearchInputWithLabel disabled />;
+
+export const controlled = () => <SearchInputWithClear />;
