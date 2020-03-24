@@ -91,8 +91,8 @@ const StyledList = styled('ol', {
 /**
  * A list, which can be ordered or unordered
  */
-const List = ({ ordered, ...otherProps }) => (
-  <StyledList as={ordered ? 'ol' : 'ul'} {...otherProps} />
+const List = ({ ordered, ...props }) => (
+  <StyledList as={ordered ? 'ol' : 'ul'} {...props} />
 );
 
 List.KILO = KILO;

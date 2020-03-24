@@ -98,17 +98,19 @@ const ProgressBarLabel = styled('span')`
 /**
  * Progress bar component to indicate progress
  */
-const ProgressBar = ({ children, max, value, ...props }) => {
+const ProgressBar = ({ children, max, value, size, ...props }) => {
   const ariaId = uniqueId('progress-bar_');
   return (
-    <ProgressBarWrapper>
+    <ProgressBarWrapper {...props}>
       <ProgressBarProgress
         role="progressbar"
         aria-valuenow={value}
         aria-valuemin="0"
         aria-valuemax={max}
         aria-labelledby={ariaId}
-        {...{ ...props, max, value }}
+        size={size}
+        max={max}
+        value={value}
       />
       <ProgressBarLabel id={ariaId}>{children}</ProgressBarLabel>
     </ProgressBarWrapper>
@@ -141,7 +143,7 @@ ProgressBar.propTypes = {
 
 ProgressBar.defaultProps = {
   size: ProgressBar.KILO,
-  max: 1.0,
+  max: 1,
   value: 0,
   children: null
 };

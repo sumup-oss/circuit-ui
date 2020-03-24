@@ -17,9 +17,7 @@ exports[`CalendarTag should render with default styles 1`] = `
   box-shadow: 0px 0px 0px 1px #D8DDE1;
 }
 
-<div
-  class="circuit-2 circuit-3"
->
+<div>
   <span
     class="circuit-0 circuit-1"
   >

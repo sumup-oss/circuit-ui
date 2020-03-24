@@ -132,13 +132,13 @@ const TableHeader = ({
   children,
   sortDirection,
   condensed,
-  ...rest
+  ...props
 }) => (
   <StyledHeader
     sortable={sortable}
     condensed={condensed}
     aria-sort={getAriaSort(sortable, sortDirection)}
-    {...rest}
+    {...props}
   >
     {sortable && <SortArrow condensed={condensed} direction={sortDirection} />}
     {children}

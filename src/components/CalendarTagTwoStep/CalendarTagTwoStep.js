@@ -44,16 +44,8 @@ const buttonBase = ({ theme, primary }) => css`
 
 const InfoButton = styled('span')(buttonBase);
 
-const baseStyles = () => css`
-  label: button_calendar;
-`;
-
 const CalendarWrapper = styled.div`
   margin-top: ${({ theme }) => theme.spacings.byte};
-`;
-
-const CalendarTagWrapper = styled('div')`
-  ${baseStyles};
 `;
 
 /**
@@ -143,13 +135,13 @@ export default class CalendarTagTwoStep extends Component {
   };
 
   render() {
-    const { clearText, confirmText } = this.props;
+    const { clearText, confirmText, onDatesRangeChange, ...props } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
     const isOpen = focusedInput !== null;
     const isFilled = !!(startDate && endDate);
 
     return (
-      <CalendarTagWrapper>
+      <div {...props}>
         <Tag
           selected={isOpen || isFilled}
           ref={this.handleButtonRef}
@@ -180,7 +172,7 @@ export default class CalendarTagTwoStep extends Component {
             />
           </CalendarWrapper>
         )}
-      </CalendarTagWrapper>
+      </div>
     );
   }
 }

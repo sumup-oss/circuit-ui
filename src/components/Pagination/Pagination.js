@@ -64,7 +64,7 @@ const Pagination = ({
   nextLabel,
   previousLabel,
   footer,
-  ...rest
+  ...props
 }) => {
   const totalPages = PaginationService.calculatePages(total, perPage);
 
@@ -81,7 +81,7 @@ const Pagination = ({
         nextLabel={nextLabel}
         previousLabel={previousLabel}
         footer={footer}
-        {...rest}
+        {...props}
       >
         {Array.from({ length: totalPages }).map((item, index) => (
           <PaginationButtonContainer
@@ -118,7 +118,7 @@ const Pagination = ({
       nextLabel={nextLabel}
       previousLabel={previousLabel}
       footer={footer}
-      {...rest}
+      {...props}
     >
       <PaginationButtonContainer
         currentPage={1}

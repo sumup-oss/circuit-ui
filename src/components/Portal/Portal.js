@@ -20,10 +20,10 @@ import PropTypes from 'prop-types';
 import ownerDocument from '../../util/ownerDocument';
 
 function getContainer(container, defaultContainer) {
-  // eslint-disable-next-line no-param-reassign
-  container = typeof container === 'function' ? container() : container;
+  const customContainer =
+    typeof container === 'function' ? container() : container;
   // eslint-disable-next-line react/no-find-dom-node
-  return ReactDOM.findDOMNode(container) || defaultContainer;
+  return ReactDOM.findDOMNode(customContainer) || defaultContainer;
 }
 
 function getOwnerDocument(element) {
