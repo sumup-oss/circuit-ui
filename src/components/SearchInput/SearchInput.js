@@ -37,7 +37,9 @@ const SearchInput = ({ children, value, onClear, ...props }) => (
     value={value}
     renderPrefix={({ className }) => <SearchIcon {...{ className }} />}
     renderSuffix={({ className }) =>
-      value ? <StyledClearIcon onClick={onClear} {...{ className }} /> : null
+      value && onClear ? (
+        <StyledClearIcon onClick={onClear} {...{ className }} />
+      ) : null
     }
     {...props}
   >
