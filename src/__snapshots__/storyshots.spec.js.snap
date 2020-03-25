@@ -17253,7 +17253,7 @@ label + .circuit-3 {
 </label>
 `;
 
-exports[`Storyshots Forms/Input/SearchInput Controlled 1`] = `
+exports[`Storyshots Forms/Input/SearchInput Clearable 1`] = `
 .circuit-5 {
   font-size: 13px;
   line-height: 20px;
