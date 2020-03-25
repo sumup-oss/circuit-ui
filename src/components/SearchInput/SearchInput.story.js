@@ -14,6 +14,7 @@
  */
 
 import React, { useState } from 'react';
+import { identity } from 'lodash/fp';
 
 import { uniqueId } from '../../util/id';
 
@@ -72,4 +73,4 @@ export const base = () => <SearchInputWithLabel />;
 
 export const disabled = () => <SearchInputWithLabel disabled />;
 
-export const controlled = () => <SearchInputWithClear />;
+export const clearable = () => <SearchInputWithClear onClear={identity} />;
