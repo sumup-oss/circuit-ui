@@ -99,7 +99,7 @@
     "@storybook/addons": "^5.2.0",
     "@storybook/react": "^5.2.0",
     "@storybook/source-loader": "^5.2.4",
-    "@sumup/foundry": "^2.0.0-beta",
+    "@sumup/foundry": "^2.0.0",
     "@svgr/webpack": "^4.3.3",
     "@testing-library/dom": "^6.5.0",
     "@testing-library/jest-dom": "^4.1.0",
@@ -142,11 +142,6 @@
     "react-test-renderer": "^16.8.6",
     "style-loader": "^1.0.0",
     "webpack-merge": "^4.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "peerDependencies": {
     "@emotion/cache": "10.x",
