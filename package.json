@@ -31,7 +31,7 @@
     "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
     "test": "jest --silent",
     "test:watch": "yarn test --watch",
-    "test:output": "mkdir __reports__ && jest --json --outputFile=__reports__/jest-results.json",
+    "test:output": "mkdir -p __reports__ && jest --json --outputFile=__reports__/jest-results.json",
     "test:ci": "yarn test:output --ci --coverage --runInBand",
     "check:security": "audit-ci --critical",
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
