@@ -14,20 +14,34 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import styled from '@emotion/styled';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 
 import Input from '../Input';
-import { ReactComponent as SearchIcon } from './search.svg';
+import { ReactComponent as SearchIcon } from './icons/search.svg';
+import { ReactComponent as ClearIcon } from './icons/clear.svg';
+
+const StyledClearIcon = styled(ClearIcon)`
+  pointer-events: all !important;
+  cursor: pointer !important;
+`;
 
 /**
  * SearchInput component for forms.
  */
-const SearchInput = ({ children, ...props }) => (
+const SearchInput = ({ children, value, onClear, ...props }) => (
   <Input
-    {...props}
-    type="search"
+    value={value}
     renderPrefix={({ className }) => <SearchIcon {...{ className }} />}
+    renderSuffix={({ className }) =>
+      value && onClear ? (
+        <StyledClearIcon onClick={onClear} {...{ className }} />
+      ) : null
+    }
+    {...props}
   >
     {children}
   </Input>
@@ -35,11 +49,13 @@ const SearchInput = ({ children, ...props }) => (
 
 SearchInput.propTypes = {
   ...Input.propTypes,
-  children: childrenPropType
+  children: childrenPropType,
+  onClear: PropTypes.func
 };
 
 SearchInput.defaultProps = {
-  children: null
+  children: null,
+  onClear: null
 };
 
 /**

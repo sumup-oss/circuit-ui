@@ -15818,7 +15818,6 @@ label + .circuit-3 {
         class="circuit-1 circuit-2"
         id="3"
         role="combobox"
-        type="search"
         value=""
       />
     </div>
@@ -15937,7 +15936,6 @@ label + .circuit-3 {
         class="circuit-1 circuit-2"
         id="1"
         role="combobox"
-        type="search"
         value=""
       />
     </div>
@@ -16056,7 +16054,6 @@ label + .circuit-3 {
         class="circuit-1 circuit-2"
         id="2"
         role="combobox"
-        type="search"
         value=""
       />
     </div>
@@ -16164,7 +16161,6 @@ label + .circuit-3 {
       class="circuit-1 circuit-2"
       id="downshift-3-input"
       role="combobox"
-      type="search"
       value=""
     />
   </div>
@@ -17158,7 +17154,7 @@ label + .circuit-4 {
 `;
 
 exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
-.circuit-7 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -17222,37 +17218,24 @@ exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
 }
 
 .circuit-3 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
-  pointer-events: none;
-}
-
-.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-5,
-label + .circuit-5 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
 <label
-  class="circuit-7 circuit-8"
+  class="circuit-5 circuit-6"
   for="38"
 >
   Label
   <div
-    class="circuit-5 circuit-6"
+    class="circuit-3 circuit-4"
   >
     <div
       class="circuit-0"
@@ -17264,10 +17247,107 @@ label + .circuit-5 {
       class="circuit-1 circuit-2"
       id="38"
       placeholder="Search..."
-      type="search"
+      value=""
     />
+  </div>
+</label>
+`;
+
+exports[`Storyshots Forms/Input/SearchInput Clearable 1`] = `
+.circuit-5 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-0 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 16px;
+  width: 16px;
+  margin: 12px;
+  pointer-events: none;
+}
+
+.circuit-1 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
+<label
+  class="circuit-5 circuit-6"
+  for="40"
+>
+  Label
+  <div
+    class="circuit-3 circuit-4"
+  >
     <div
-      class="circuit-3 circuit-4"
+      class="circuit-0"
+    >
+      search.svg
+    </div>
+    <input
+      aria-invalid="false"
+      class="circuit-1 circuit-2"
+      id="40"
+      placeholder="Search..."
+      value=""
     />
   </div>
 </label>
@@ -17372,7 +17452,7 @@ label + .circuit-3 {
       disabled=""
       id="39"
       placeholder="Search..."
-      type="search"
+      value=""
     />
   </div>
 </label>
@@ -18429,7 +18509,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="40"
+  for="41"
 >
   Label
   <div
@@ -18438,7 +18518,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="40"
+      id="41"
       placeholder="Write your text here..."
     />
     <div
@@ -18520,7 +18600,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4 circuit-5"
-  for="44"
+  for="45"
 >
   Label
   <div
@@ -18531,7 +18611,7 @@ label + .circuit-2 {
       aria-invalid="false"
       class="circuit-0 circuit-1"
       disabled=""
-      id="44"
+      id="45"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -18690,7 +18770,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="41"
+  for="42"
 >
   Label
   <div
@@ -18699,7 +18779,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="true"
       class="circuit-0 circuit-1"
-      id="41"
+      id="42"
       placeholder="Write your text here..."
     />
     <div
@@ -18806,7 +18886,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="43"
+  for="44"
 >
   Label
   <div
@@ -18815,7 +18895,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="43"
+      id="44"
       placeholder="Write your text here..."
     />
     <div
@@ -18975,7 +19055,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="42"
+  for="43"
 >
   Label
   <div
@@ -18984,7 +19064,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="42"
+      id="43"
       placeholder="Write your text here..."
     />
     <div
@@ -19101,9 +19181,9 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_46"
+    aria-labelledby="toggle-label_47"
     class="circuit-4 circuit-5"
-    id="toggle-switch_45"
+    id="toggle-switch_46"
     role="switch"
     type="button"
   >
@@ -19118,8 +19198,8 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   </button>
   <label
     class="circuit-9 circuit-10"
-    for="toggle-switch_45"
-    id="toggle-label_46"
+    for="toggle-switch_46"
+    id="toggle-label_47"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
@@ -19241,9 +19321,9 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_48"
+    aria-labelledby="toggle-label_49"
     class="circuit-4 circuit-5"
-    id="toggle-switch_47"
+    id="toggle-switch_48"
     role="switch"
     type="button"
   >
@@ -19258,8 +19338,8 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-12 circuit-13"
-    for="toggle-switch_47"
-    id="toggle-label_48"
+    for="toggle-switch_48"
+    id="toggle-label_49"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
