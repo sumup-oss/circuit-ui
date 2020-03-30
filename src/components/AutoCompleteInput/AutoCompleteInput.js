@@ -186,7 +186,7 @@ export default class AutoCompleteInput extends Component {
       ...inputProps
     } = this.props;
 
-    const onClear = showClear && this.handleClear;
+    const onClear = showClear ? this.handleClear : null;
 
     return (
       <Downshift
