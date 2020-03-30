@@ -15818,6 +15818,7 @@ label + .circuit-3 {
         class="circuit-1 circuit-2"
         id="3"
         role="combobox"
+        type="text"
         value=""
       />
     </div>
@@ -15936,6 +15937,7 @@ label + .circuit-3 {
         class="circuit-1 circuit-2"
         id="1"
         role="combobox"
+        type="text"
         value=""
       />
     </div>
@@ -16054,6 +16056,7 @@ label + .circuit-3 {
         class="circuit-1 circuit-2"
         id="2"
         role="combobox"
+        type="text"
         value=""
       />
     </div>
@@ -16161,6 +16164,7 @@ label + .circuit-3 {
       class="circuit-1 circuit-2"
       id="downshift-3-input"
       role="combobox"
+      type="text"
       value=""
     />
   </div>
@@ -17247,6 +17251,7 @@ label + .circuit-3 {
       class="circuit-1 circuit-2"
       id="38"
       placeholder="Search..."
+      type="text"
       value=""
     />
   </div>
@@ -17347,6 +17352,7 @@ label + .circuit-3 {
       class="circuit-1 circuit-2"
       id="40"
       placeholder="Search..."
+      type="text"
       value=""
     />
   </div>
@@ -17452,6 +17458,7 @@ label + .circuit-3 {
       disabled=""
       id="39"
       placeholder="Search..."
+      type="text"
       value=""
     />
   </div>

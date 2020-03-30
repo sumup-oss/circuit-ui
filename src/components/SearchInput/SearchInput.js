@@ -35,6 +35,7 @@ const StyledClearIcon = styled(ClearIcon)`
 const SearchInput = ({ children, value, onClear, ...props }) => (
   <Input
     value={value}
+    type="text"
     renderPrefix={({ className }) => <SearchIcon {...{ className }} />}
     renderSuffix={({ className }) =>
       value && onClear ? (

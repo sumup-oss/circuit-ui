@@ -93,6 +93,7 @@ label + .circuit-5 {
   <input
     aria-invalid="false"
     class="circuit-1 circuit-2"
+    type="text"
     value="search value"
   />
   <div
@@ -189,6 +190,7 @@ label + .circuit-3 {
     aria-invalid="false"
     class="circuit-1 circuit-2"
     disabled=""
+    type="text"
     value=""
   />
 </div>
@@ -275,6 +277,7 @@ label + .circuit-3 {
   <input
     aria-invalid="false"
     class="circuit-1 circuit-2"
+    type="text"
     value=""
   />
 </div>
