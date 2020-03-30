@@ -116,6 +116,7 @@ const AsyncAutoCompleteInput = () => {
       onChange={action('handleChange')}
       onInputValueChange={handleInputValueChange}
       filterOptions={opts => opts}
+      showClear
     />
   );
 };

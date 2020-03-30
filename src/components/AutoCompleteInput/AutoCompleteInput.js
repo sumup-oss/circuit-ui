@@ -21,7 +21,6 @@ import Downshift from 'downshift';
 import { includes, isString, isEmpty } from 'lodash/fp';
 
 import SearchInput from '../SearchInput';
-import CloseButton from '../CloseButton';
 import Card from '../Card';
 import Text from '../Text';
 import {
@@ -43,11 +42,6 @@ const autoCompleteWrapperStyles = ({ theme }) => css`
 `;
 
 const AutoCompleteWrapper = styled('div')(autoCompleteWrapperStyles);
-
-const ClearButton = styled(CloseButton)`
-  label: input__button-clear;
-  pointer-events: all !important;
-`;
 
 const optionsStyles = ({ theme }) => css`
   label: input__options;
@@ -192,8 +186,7 @@ export default class AutoCompleteInput extends Component {
       ...inputProps
     } = this.props;
 
-    const renderSuffix = props =>
-      showClear ? <ClearButton {...props} onClick={this.handleClear} /> : null;
+    const onClear = showClear && this.handleClear;
 
     return (
       <Downshift
@@ -216,8 +209,8 @@ export default class AutoCompleteInput extends Component {
             <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
               <SearchInput
                 {...getInputProps(inputProps)}
+                onClear={onClear}
                 noMargin
-                renderSuffix={renderSuffix}
               />
               {isOpen && !isEmpty(maxOptions) && (
                 <Options spacing={Card.MEGA}>
