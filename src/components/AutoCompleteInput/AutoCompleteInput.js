@@ -157,8 +157,7 @@ export default class AutoCompleteInput extends Component {
   static defaultProps = {
     filterOptions: defaultFilterOptions,
     maxNumberOfOptions: 7,
-    clearOnSelect: false,
-    showClear: false
+    clearOnSelect: false
   };
 
   handleChange = value => {
