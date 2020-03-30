@@ -18,13 +18,12 @@ import PropTypes from 'prop-types';
 
 import styled from '@emotion/styled';
 
-import { childrenPropType } from '../../util/shared-prop-types';
-
 import Input from '../Input';
+import IconButton from '../IconButton';
 import { ReactComponent as SearchIcon } from './icons/search.svg';
 import { ReactComponent as ClearIcon } from './icons/clear.svg';
 
-const StyledClearIcon = styled(ClearIcon)`
+const ClearButton = styled(IconButton)`
   pointer-events: all !important;
   cursor: pointer !important;
 `;
@@ -32,14 +31,21 @@ const StyledClearIcon = styled(ClearIcon)`
 /**
  * SearchInput component for forms.
  */
-const SearchInput = ({ children, value, onClear, ...props }) => (
+const SearchInput = ({ children, value, onClear, clearLabel, ...props }) => (
   <Input
     value={value}
     type="text"
-    renderPrefix={({ className }) => <SearchIcon {...{ className }} />}
-    renderSuffix={({ className }) =>
+    renderPrefix={renderProps => <SearchIcon {...renderProps} />}
+    renderSuffix={renderProps =>
       value && onClear ? (
-        <StyledClearIcon onClick={onClear} {...{ className }} />
+        <ClearButton
+          onClick={onClear}
+          label={clearLabel}
+          data-testid="input-clear"
+          {...renderProps}
+        >
+          <ClearIcon />
+        </ClearButton>
       ) : null
     }
     {...props}
@@ -50,13 +56,20 @@ const SearchInput = ({ children, value, onClear, ...props }) => (
 
 SearchInput.propTypes = {
   ...Input.propTypes,
-  children: childrenPropType,
-  onClear: PropTypes.func
+  /**
+   * Callback function when the user clears the field.
+   */
+  onClear: PropTypes.func,
+  /**
+   * Visually hidden text label on the clear button for screen readers.
+   * Crucial for accessibility.
+   */
+  clearLabel: PropTypes.string
 };
 
 SearchInput.defaultProps = {
-  children: null,
-  onClear: null
+  onClear: null,
+  clearLabel: 'Clear'
 };
 
 /**
