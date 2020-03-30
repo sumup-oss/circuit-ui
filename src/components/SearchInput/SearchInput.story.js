@@ -36,7 +36,7 @@ const SearchInputWithLabel = props => {
   const id = uniqueId();
   return (
     <Label htmlFor={id}>
-      Label
+      Search
       <SearchInput placeholder="Search..." {...props} id={id} />
     </Label>
   );

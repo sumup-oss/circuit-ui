@@ -36,10 +36,10 @@ describe('SearchInput', () => {
   it('should display a clear icon when not empty and an onClear callback is provided', () => {
     const onClear = jest.fn(identity);
 
-    const actual = create(
+    const { getByTestId } = render(
       <SearchInput value="search value" onClear={onClear} />
     );
-    expect(actual).toMatchSnapshot();
+    expect(getByTestId('input-clear')).toBeVisible();
   });
 
   /**

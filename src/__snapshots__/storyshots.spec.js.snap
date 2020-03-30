@@ -12707,9 +12707,9 @@ label + .circuit-14 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -12943,9 +12943,9 @@ HTMLCollection [
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -13236,9 +13236,9 @@ label + .circuit-14 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -13613,9 +13613,9 @@ HTMLCollection [
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -13717,9 +13717,9 @@ HTMLCollection [
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -13823,9 +13823,9 @@ HTMLCollection [
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -13931,9 +13931,9 @@ HTMLCollection [
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -14103,9 +14103,9 @@ HTMLCollection [
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -14382,9 +14382,9 @@ exports[`Storyshots Forms/Input Base 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -14564,9 +14564,9 @@ exports[`Storyshots Forms/Input Inline 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -14640,9 +14640,9 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -14816,9 +14816,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -14937,9 +14937,9 @@ exports[`Storyshots Forms/Input Optional 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -15039,9 +15039,9 @@ exports[`Storyshots Forms/Input Right Aligned 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -15199,9 +15199,9 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -15355,9 +15355,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -15424,9 +15424,9 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -15600,9 +15600,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -15741,9 +15741,9 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -15860,9 +15860,9 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -15979,9 +15979,9 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -16092,9 +16092,9 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -16247,9 +16247,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -16305,9 +16305,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -16459,9 +16459,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -16568,9 +16568,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -16622,9 +16622,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -16774,9 +16774,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -16868,9 +16868,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -16912,9 +16912,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -17040,9 +17040,9 @@ exports[`Storyshots Forms/Input/MaskedInput Base 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -17126,9 +17126,9 @@ exports[`Storyshots Forms/Input/RestrictedInput Base 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -17168,9 +17168,9 @@ exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -17237,7 +17237,7 @@ label + .circuit-3 {
   class="circuit-5 circuit-6"
   for="38"
 >
-  Label
+  Search
   <div
     class="circuit-3 circuit-4"
   >
@@ -17269,9 +17269,9 @@ exports[`Storyshots Forms/Input/SearchInput Clearable 1`] = `
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -17370,9 +17370,9 @@ exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -17442,7 +17442,7 @@ label + .circuit-3 {
   class="circuit-5 circuit-6"
   for="39"
 >
-  Label
+  Search
   <div
     class="circuit-3 circuit-4"
     disabled=""
@@ -18448,9 +18448,9 @@ exports[`Storyshots Forms/TextArea Base 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -18654,9 +18654,9 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -18822,9 +18822,9 @@ exports[`Storyshots Forms/TextArea Optional 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -18939,9 +18939,9 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
