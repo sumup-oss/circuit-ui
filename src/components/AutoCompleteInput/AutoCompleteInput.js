@@ -129,9 +129,19 @@ export default class AutoCompleteInput extends Component {
      */
     clearOnSelect: PropTypes.bool,
     /**
-     * Whether to show a button that clears the selection when clicked
+     * Callback function that is called when the user clears the input
      */
-    showClear: PropTypes.bool,
+    onClear: PropTypes.func,
+    /**
+     * @deprecated
+     */
+    showClear: deprecatedPropType(
+      PropTypes.bool,
+      [
+        'The "showClear" prop has been deprecated.',
+        `Use the "onClear" callback prop instead.`
+      ].join(' ')
+    ),
     /**
      * @deprecated
      */
@@ -167,6 +177,9 @@ export default class AutoCompleteInput extends Component {
     if (this.downshiftRef) {
       this.downshiftRef.clearSelection();
     }
+    if (this.props.onClear) {
+      this.props.onClear();
+    }
   };
 
   handleDownShiftRef = ref => {
@@ -182,11 +195,12 @@ export default class AutoCompleteInput extends Component {
       onInputValueChange,
       filterOptions,
       maxNumberOfOptions,
+      onClear,
       showClear,
       ...inputProps
     } = this.props;
 
-    const onClear = showClear ? this.handleClear : null;
+    const handleClear = showClear || onClear ? this.handleClear : null;
 
     return (
       <Downshift
@@ -209,7 +223,7 @@ export default class AutoCompleteInput extends Component {
             <AutoCompleteWrapper {...getRootProps({ refKey: 'innerRef' })}>
               <SearchInput
                 {...getInputProps(inputProps)}
-                onClear={onClear}
+                onClear={handleClear}
                 noMargin
               />
               {isOpen && !isEmpty(maxOptions) && (

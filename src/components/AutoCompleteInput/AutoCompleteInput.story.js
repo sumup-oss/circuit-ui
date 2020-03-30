@@ -62,7 +62,6 @@ const AutoCompleteInputWithLabel = props => {
       {"What's your favourite fruit?"}
       <AutoCompleteInput
         clearOnSelect={boolean('clearOnSelect', false)}
-        showClear={boolean('showClear', false)}
         {...props}
         id={id}
       />
@@ -73,8 +72,9 @@ const AutoCompleteInputWithLabel = props => {
 export const base = () => (
   <AutoCompleteInputWithLabel
     options={items}
-    onChange={action('handleChange')}
-    onInputValueChange={action('handleInputValueChange')}
+    onChange={action('onChange')}
+    onInputValueChange={action('onInputValueChange')}
+    onClear={action('onClear')}
   />
 );
 
@@ -90,8 +90,9 @@ export const customOptions = () => {
   return (
     <AutoCompleteInputWithLabel
       options={options}
-      onChange={action('handleChange')}
-      onInputValueChange={action('handleInputValueChange')}
+      onChange={action('onChange')}
+      onInputValueChange={action('onInputValueChange')}
+      onClear={action('onClear')}
     />
   );
 };
@@ -99,7 +100,8 @@ export const customOptions = () => {
 const AsyncAutoCompleteInput = () => {
   const [options, setOptions] = useState([]);
 
-  const handleInputValueChange = debounce(100, inputValue =>
+  const handleInputValueChange = debounce(100, inputValue => {
+    action('onInputValueChange')(inputValue);
     setTimeout(() => {
       const filteredOptions = inputValue
         ? items.filter(option =>
@@ -107,16 +109,16 @@ const AsyncAutoCompleteInput = () => {
           )
         : options;
       setOptions(filteredOptions);
-    }, 500)
-  );
+    }, 500);
+  });
 
   return (
     <AutoCompleteInputWithLabel
       options={options}
-      onChange={action('handleChange')}
+      onChange={action('onChange')}
       onInputValueChange={handleInputValueChange}
       filterOptions={opts => opts}
-      showClear
+      onClear={action('onClear')}
     />
   );
 };
