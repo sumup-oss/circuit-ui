@@ -70,9 +70,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -167,9 +167,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -301,9 +301,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -400,9 +400,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -513,9 +513,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -630,9 +630,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -677,9 +677,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
