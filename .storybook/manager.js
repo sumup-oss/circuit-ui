@@ -6,7 +6,7 @@ import { theme, components } from './util/theme';
 addons.setConfig({
   theme,
   isFullscreen: false,
-  showPanel: false,
+  showPanel: true,
   panelPosition: 'bottom',
   isToolshown: true
 });
