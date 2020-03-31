@@ -29,40 +29,26 @@ export default {
 };
 
 /* eslint-disable react/prop-types */
-const SelectorsWithState = props => {
-  const [selected, setSelected] = useState(0);
+const SelectorWithState = props => {
+  const [checked, setChecked] = useState(props.checked || false);
 
-  const handleChange = index => e => {
-    setSelected(index);
-    if (props.onClick) {
-      props.onClick(e);
-    }
+  const toggleChecked = () => {
+    setChecked(prev => !prev);
   };
 
-  return (
-    <>
-      <Selector
-        {...props}
-        selected={selected === 0}
-        onClick={handleChange(0)}
-      />
-      <Selector
-        {...props}
-        selected={selected === 1}
-        onClick={handleChange(1)}
-      />
-    </>
-  );
+  return <Selector {...props} checked={checked} onChange={toggleChecked} />;
 };
 
 export const base = () => (
-  <SelectorsWithState disabled={boolean('Disabled', false)}>
+  <SelectorWithState disabled={boolean('Disabled', false)}>
     Select me!
-  </SelectorsWithState>
+  </SelectorWithState>
 );
 
-export const selected = () => <Selector selected>I am selected!</Selector>;
+export const selected = () => (
+  <SelectorWithState checked>I am selected!</SelectorWithState>
+);
 
 export const disabled = () => (
-  <Selector disabled>I cannot be selected</Selector>
+  <SelectorWithState disabled>I cannot be selected</SelectorWithState>
 );
