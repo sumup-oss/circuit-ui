@@ -20,15 +20,15 @@ import RadioButtonGroup from '.';
 describe('RadioButtonGroup', () => {
   const options = [
     {
-      label: 'Option 1',
+      children: 'Option 1',
       value: 'first'
     },
     {
-      label: 'Option 2',
+      children: 'Option 2',
       value: 'second'
     },
     {
-      label: 'Option 3',
+      children: 'Option 3',
       value: 'third'
     }
   ];
@@ -42,23 +42,9 @@ describe('RadioButtonGroup', () => {
   });
 
   /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const value = 'second';
-    const wrapper = renderToHtml(
-      <div role="group" aria-label="Choose your favourite option">
-        <RadioButtonGroup options={options} value={value} />
-      </div>
-    );
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
-  });
-
-  /**
    * Logic tests.
    */
-  it('should check the currently active RadioButton', () => {
+  it('should check the selected option', () => {
     const value = 'second';
     const { getByLabelText } = render(
       <RadioButtonGroup options={options} value={value} />
@@ -66,5 +52,21 @@ describe('RadioButtonGroup', () => {
     expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
     expect(getByLabelText('Option 2')).toHaveAttribute('checked');
     expect(getByLabelText('Option 3')).not.toHaveAttribute('checked');
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const value = 'second';
+    const wrapper = renderToHtml(
+      <RadioButtonGroup
+        options={options}
+        value={value}
+        label="Choose your favourite option"
+      />
+    );
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

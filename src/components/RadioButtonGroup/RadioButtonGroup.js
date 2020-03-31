@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { uniqueId } from '../../util/id';
@@ -27,36 +27,38 @@ const RadioButtonGroup = ({
   options,
   onChange,
   value: activeValue,
-  name: customName
+  name: customName,
+  label,
+  ...props
 }) => {
   const name = customName || uniqueId('radio-button-group_');
   return (
-    <Fragment>
+    <div role="group" aria-label={label} {...props}>
       {options &&
-        options.map(({ label, value, className, ...props }) => (
+        options.map(({ children, value, className, ...rest }) => (
           <div key={value} className={className}>
             <RadioButton
-              {...{ ...props, value, name, onChange }}
+              {...{ ...rest, value, name, onChange }}
               checked={value === activeValue}
             >
-              {label}
+              {children}
             </RadioButton>
           </div>
         ))}
-    </Fragment>
+    </div>
   );
 };
 
 RadioButtonGroup.propTypes = {
   /**
    * A collection of available options. Each option must have at least
-   * a value and label.
+   * a value and children.
    */
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
         .isRequired,
-      label: PropTypes.string.isRequired,
+      children: PropTypes.string.isRequired,
       disabled: PropTypes.bool
     })
   ).isRequired,
@@ -71,7 +73,11 @@ RadioButtonGroup.propTypes = {
   /**
    * A unique name for the radio group.
    */
-  name: PropTypes.string
+  name: PropTypes.string,
+  /**
+   * A visually hidden description of the selector group for screen readers.
+   */
+  label: PropTypes.string
 };
 
 RadioButtonGroup.defaultProps = {
