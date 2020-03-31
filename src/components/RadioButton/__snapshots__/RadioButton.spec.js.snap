@@ -20,11 +20,23 @@ HTMLCollection [
   border-color: #3388FF;
 }
 
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
 <input
     checked=""
     class="circuit-0 circuit-1"
     id="radio-button_2"
     type="radio"
+    value=""
   />,
   .circuit-0 {
   color: #5C656F;
@@ -72,17 +84,6 @@ HTMLCollection [
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-.circuit-0::before {
-  border-color: #3388FF;
-}
-
-.circuit-0::after {
-  -webkit-transform: translateY(-50%) scale(1,1);
-  -ms-transform: translateY(-50%) scale(1,1);
-  transform: translateY(-50%) scale(1,1);
-  opacity: 1;
-}
-
 <label
     class="circuit-0 circuit-1"
     for="radio-button_2"
@@ -110,10 +111,22 @@ HTMLCollection [
   border-color: #3388FF;
 }
 
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
 <input
     class="circuit-0 circuit-1"
     id="radio-button_1"
     type="radio"
+    value=""
   />,
   .circuit-0 {
   color: #5C656F;
@@ -188,11 +201,23 @@ HTMLCollection [
   border-color: #3388FF;
 }
 
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
 <input
     class="circuit-0 circuit-1"
     disabled=""
     id="radio-button_3"
     type="radio"
+    value=""
   />,
   .circuit-0 {
   color: #5C656F;
@@ -286,10 +311,22 @@ HTMLCollection [
   border-color: #3388FF;
 }
 
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
 <input
     class="circuit-0 circuit-1"
     id="radio-button_4"
     type="radio"
+    value=""
   />,
   .circuit-0 {
   color: #5C656F;

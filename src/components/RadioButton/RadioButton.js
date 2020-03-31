@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -61,21 +61,6 @@ const labelBaseStyles = ({ theme }) => css`
   }
 `;
 
-const labelCheckedStyles = ({ theme, checked }) =>
-  checked &&
-  css`
-    label: radio-button--active;
-
-    &::before {
-      border-color: ${theme.colors.p500};
-    }
-
-    &::after {
-      transform: translateY(-50%) scale(1, 1);
-      opacity: 1;
-    }
-  `;
-
 const labelInvalidStyles = ({ theme, invalid }) =>
   invalid &&
   css`
@@ -115,6 +100,17 @@ const inputStyles = ({ theme }) => css`
     border-width: 2px;
     border-color: ${theme.colors.p500};
   }
+
+  &:checked + label {
+    &::before {
+      border-color: ${theme.colors.p500};
+    }
+
+    &::after {
+      transform: translateY(-50%) scale(1, 1);
+      opacity: 1;
+    }
+  }
 `;
 
 const RadioButtonInput = styled('input')`
@@ -123,7 +119,6 @@ const RadioButtonInput = styled('input')`
 
 const RadioButtonLabel = styled('label')`
   ${labelBaseStyles};
-  ${labelCheckedStyles};
   ${labelDisabledStyles};
   ${labelInvalidStyles};
 `;
@@ -131,20 +126,31 @@ const RadioButtonLabel = styled('label')`
 /**
  * RadioButton component for forms.
  */
-const RadioButton = ({ onChange, children, id, ...props }) => {
+const RadioButton = ({
+  onChange,
+  children,
+  id,
+  name,
+  value,
+  checked,
+  ...props
+}) => {
   const inputId = id || uniqueId('radio-button_');
   return (
-    <Fragment>
+    <>
       <RadioButtonInput
         {...props}
         type="radio"
-        onClick={onChange}
+        name={name}
         id={inputId}
+        value={value}
+        checked={checked}
+        onClick={onChange}
       />
       <RadioButtonLabel {...props} htmlFor={inputId}>
         {children}
       </RadioButtonLabel>
-    </Fragment>
+    </>
   );
 };
 
@@ -152,7 +158,7 @@ RadioButton.propTypes = {
   /**
    * Callback used when the user toggles the radio button.
    */
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   /**
    * Value string for input.
    */
@@ -160,15 +166,15 @@ RadioButton.propTypes = {
   /**
    * Child nodes to be rendered as the label.
    */
-  children: childrenPropType,
-  /**
-   * A unique ID used to link the input and label.
-   */
-  id: PropTypes.string,
+  children: childrenPropType.isRequired,
   /**
    * The name of the radio group that the radio button belongs to.
    */
   name: PropTypes.string.isRequired,
+  /**
+   * A unique ID used to link the input and label.
+   */
+  id: PropTypes.string,
   /**
    * Triggers checked styles on the component. This is also forwarded as
    * attribute to the <input> element.
