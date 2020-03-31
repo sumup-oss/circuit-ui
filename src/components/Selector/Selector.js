@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import { hideVisually } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import { shadowSingle } from '../../styles/style-helpers';
+import { shadowSingle, shadowDouble } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 
 const wrapperStyles = ({ theme }) => css`
@@ -33,6 +33,7 @@ const SelectorWrapper = styled.div(wrapperStyles);
 
 const baseStyles = ({ theme }) => css`
   label: selector__label;
+  ${shadowSingle({ theme })};
   display: block;
   cursor: pointer;
   padding: ${theme.spacings.giga};
@@ -52,14 +53,14 @@ const baseStyles = ({ theme }) => css`
     width: 100%;
     height: 100%;
     border-radius: ${theme.borderRadius.giga};
-    border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
+    border: ${theme.borderWidth.kilo} solid ${theme.colors.n500};
   }
 
   &:hover {
     background-color: ${theme.colors.n100};
 
     &::before {
-      border: ${theme.borderWidth.mega} solid ${theme.colors.n300};
+      border: ${theme.borderWidth.mega} solid ${theme.colors.n500};
     }
   }
 `;
@@ -71,6 +72,10 @@ const disabledStyles = ({ disabled, theme }) =>
     color: ${theme.colors.n500};
     cursor: default;
     pointer-events: none;
+
+    &::before {
+      border-color: ${theme.colors.n300};
+    }
   `;
 
 const SelectorLabel = styled.label(baseStyles, disabledStyles);
@@ -79,9 +84,15 @@ const inputStyles = ({ theme }) => css`
   label: selector__input;
   ${hideVisually()};
 
+  &:focus + label {
+    &::before {
+      border-width: ${theme.borderWidth.mega};
+    }
+  }
+
   &:checked + label {
     background-color: ${theme.colors.b100};
-    ${shadowSingle({ theme })};
+    ${shadowDouble({ theme })};
 
     &::before {
       border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
