@@ -37,7 +37,7 @@ function FunctionalComponent({ label, value }) {
   const id = 'id';
   return (
     <Wrapper>
-      <Label for={id}>{label}</Label>
+      <Label htmlFor={id}>{label}</Label>
       <Input id={id} value={value} />
     </Wrapper>
   );
