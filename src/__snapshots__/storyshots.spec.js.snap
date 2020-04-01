@@ -4711,6 +4711,11 @@ HTMLCollection [
   justify-content: space-between;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
+  width: 500px;
+  height: 150px;
+  max-width: 90%;
+  max-height: 90%;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -4969,6 +4974,11 @@ HTMLCollection [
   justify-content: space-between;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
+  width: 500px;
+  height: 150px;
+  max-width: 90%;
+  max-height: 90%;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -5093,6 +5103,11 @@ HTMLCollection [
   justify-content: space-between;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
+  width: 500px;
+  height: 150px;
+  max-width: 90%;
+  max-height: 90%;
+  margin-bottom: 16px;
 }
 
 .circuit-2 {
@@ -5176,6 +5191,11 @@ HTMLCollection [
   justify-content: space-between;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
+  width: 500px;
+  height: 150px;
+  max-width: 90%;
+  max-height: 90%;
+  margin-bottom: 16px;
 }
 
 .circuit-7 {
@@ -14169,6 +14189,20 @@ exports[`Storyshots Forms/InlineNotification Alert 1`] = `
 `;
 
 exports[`Storyshots Forms/InlineNotification Base 1`] = `
+.circuit-2 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
 .circuit-4 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -14185,20 +14219,6 @@ exports[`Storyshots Forms/InlineNotification Base 1`] = `
   justify-content: space-between;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
   padding: 16px 24px;
-}
-
-.circuit-2 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 16px;
-    line-height: 24px;
-  }
 }
 
 .circuit-0 {
