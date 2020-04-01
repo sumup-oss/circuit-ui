@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -40,49 +40,55 @@ const StyledTag = styled(Tag)(
   `
 );
 
-const AutoCompleteTags = ({
-  availableTags,
-  selectedTags,
-  onChange,
-  ...inputProps
-}) => {
-  const [selected, setSelected] = useState(selectedTags);
+class AutoCompleteTags extends Component {
+  state = {
+    selected: this.props.selectedTags
+  };
 
-  const handleAdd = tag => {
+  handleAdd = tag => {
+    const { selected } = this.state;
     const newSelected = [...selected, tag];
-    setSelected(newSelected);
-    onChange(newSelected);
+
+    this.setState({ selected: newSelected });
+    this.props.onChange(newSelected);
   };
 
-  const handleRemove = tag => {
+  handleRemove = tag => {
+    const { selected } = this.state;
     const newSelected = filter(option => option !== tag, selected);
-    setSelected(newSelected);
-    onChange(newSelected);
+
+    this.setState({ selected: newSelected });
+    this.props.onChange(newSelected);
   };
 
-  return (
-    <Fragment>
-      <AutoCompleteInput
-        clearOnSelect
-        onChange={handleAdd}
-        options={difference(availableTags, selected)}
-        {...inputProps}
-      />
-      {!isEmpty(selected) && (
-        <TagsWrapper data-testid="autocomplete-tags-selected">
-          {map(
-            tag => (
-              <StyledTag key={tag} onRemove={() => handleRemove(tag)}>
-                {tag}
-              </StyledTag>
-            ),
-            selected
-          )}
-        </TagsWrapper>
-      )}
-    </Fragment>
-  );
-};
+  render() {
+    const { availableTags, ...inputProps } = this.props;
+    const { selected } = this.state;
+
+    return (
+      <Fragment>
+        <AutoCompleteInput
+          clearOnSelect
+          options={difference(availableTags, selected)}
+          {...inputProps}
+          onChange={this.handleAdd}
+        />
+        {!isEmpty(selected) && (
+          <TagsWrapper data-testid="autocomplete-tags-selected">
+            {map(
+              tag => (
+                <StyledTag key={tag} onRemove={() => this.handleRemove(tag)}>
+                  {tag}
+                </StyledTag>
+              ),
+              selected
+            )}
+          </TagsWrapper>
+        )}
+      </Fragment>
+    );
+  }
+}
 
 AutoCompleteTags.propTypes = {
   /**
