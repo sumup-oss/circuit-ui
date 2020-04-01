@@ -13,6 +13,25 @@
  * limitations under the License.
  */
 
-import InlineNotification from './InlineNotification';
+import React from 'react';
 
-export default InlineNotification;
+import Notification from '.';
+
+describe('Notification', () => {
+  /**
+   * Style tests.
+   */
+  it('should render with default styles', () => {
+    const actual = create(<Notification />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<Notification />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+});

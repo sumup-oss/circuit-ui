@@ -13,16 +13,8 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
+import Button from './Button/Button';
+import Icon from './Icon/Icon';
+import NotificationWarning from './NotificationWarning';
 
-import { ReactComponent as MessageSuccess } from '../message-success.svg';
-
-const MessageWarning = styled(MessageSuccess)`
-  ${({ theme }) => `
-    rect {
-      fill: ${theme.colors.y500};
-    }
-  `};
-`;
-
-export default MessageWarning;
+export { Button, Icon, NotificationWarning };

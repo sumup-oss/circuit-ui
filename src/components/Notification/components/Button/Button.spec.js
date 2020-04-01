@@ -15,19 +15,21 @@
 
 import React from 'react';
 
-import { MessageButton } from '../..';
+import { NotificationButton } from '../..';
 
-describe('MessageButton', () => {
+describe('NotificationButton', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<MessageButton />);
+    const actual = create(<NotificationButton />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render alignment styles when passed the align prop', () => {
-    const actual = create(<MessageButton align={MessageButton.CENTER} />);
+    const actual = create(
+      <NotificationButton align={NotificationButton.CENTER} />
+    );
     expect(actual).toMatchSnapshot();
   });
 
@@ -35,7 +37,7 @@ describe('MessageButton', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<MessageButton />);
+    const wrapper = renderToHtml(<NotificationButton />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

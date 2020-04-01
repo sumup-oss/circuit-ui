@@ -7508,754 +7508,6 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components/Message Alert 1`] = `
-.circuit-4 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-4:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-4:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
-}
-
-.circuit-4:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-4:hover,
-.circuit-4:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-4[href] {
-  display: inline-block;
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-2 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-@media (min-width:480px) {
-  .circuit-8 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-.circuit-0 {
-  display: block;
-  margin: 0 0 16px 0;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    margin: 0 16px 0 0;
-  }
-}
-
-.circuit-6 {
-  display: block;
-  padding-left: 24px;
-  margin-top: 16px;
-  margin-left: auto;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-@media (min-width:480px) {
-  .circuit-6 {
-    margin-top: 0;
-  }
-}
-
-<div
-  class="circuit-8 circuit-9"
->
-  <div
-    class="circuit-0 circuit-1"
-  >
-    <div>
-      message-error.svg
-    </div>
-  </div>
-  <h4
-    class=" circuit-2 circuit-3"
-  >
-    Your transaction has failed
-  </h4>
-  <div
-    class="circuit-6 circuit-7"
-  >
-    <button
-      class="circuit-4 circuit-5"
-    >
-      Try again
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components/Message Base 1`] = `
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-2 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-@media (min-width:480px) {
-  .circuit-4 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-<div
-  class="circuit-4 circuit-5"
->
-  <div>
-    <h4
-      class=" circuit-0 circuit-1"
-    >
-      New Feature — Intelligent Reporting
-    </h4>
-    <p
-      class=" circuit-2 circuit-3"
-    >
-      Get automatic insights into your business statistics with one click.
-    </p>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components/Message Success 1`] = `
-.circuit-2 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-@media (min-width:480px) {
-  .circuit-4 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-.circuit-0 {
-  display: block;
-  margin: 0 0 16px 0;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    margin: 0 16px 0 0;
-  }
-}
-
-<div
-  class="circuit-4 circuit-5"
->
-  <div
-    class="circuit-0 circuit-1"
-  >
-    <div>
-      message-success.svg
-    </div>
-  </div>
-  <h4
-    class=" circuit-2 circuit-3"
-  >
-    Transaction successfully refunded
-  </h4>
-</div>
-`;
-
-exports[`Storyshots Components/Message Warning 1`] = `
-.circuit-6 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-6:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-6:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
-}
-
-.circuit-6:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-6:hover,
-.circuit-6:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-6[href] {
-  display: inline-block;
-}
-
-.circuit-6:disabled,
-.circuit-6[disabled] {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-4 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-4 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-10 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-@media (min-width:480px) {
-  .circuit-10 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-.circuit-2 {
-  display: block;
-  margin: 0 0 16px 0;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    margin: 0 16px 0 0;
-  }
-}
-
-.circuit-0 rect {
-  fill: #D8A413;
-}
-
-.circuit-8 {
-  display: block;
-  padding-left: 24px;
-  margin-top: 16px;
-  margin-left: auto;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-@media (min-width:480px) {
-  .circuit-8 {
-    margin-top: 0;
-  }
-}
-
-<div
-  class="circuit-10 circuit-11"
->
-  <div
-    class="circuit-2 circuit-3"
-  >
-    <div
-      class="circuit-0 circuit-1"
-    >
-      message-success.svg
-    </div>
-  </div>
-  <h4
-    class=" circuit-4 circuit-5"
-  >
-    You still need to verify your account
-  </h4>
-  <div
-    class="circuit-8 circuit-9"
-  >
-    <button
-      class="circuit-6 circuit-7"
-    >
-      Verify account
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components/Message/NotificationBanner Base 1`] = `
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-2 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-@media (min-width:480px) {
-  .circuit-4 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-.circuit-11 {
-  min-height: 5rem;
-}
-
-.circuit-10 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.circuit-8 {
-  width: 100%;
-  background-color: #FFFFFF;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
-}
-
-.circuit-6 {
-  padding: 16px 24px;
-}
-
-<div
-  class="circuit-11"
->
-  <div
-    class="circuit-10"
-  >
-    <div
-      aria-live="polite"
-      class="circuit-8 circuit-9"
-    >
-      <div
-        class="circuit-6 circuit-7"
-      >
-        <div
-          class="circuit-4 circuit-5"
-        >
-          <div>
-            <h4
-              class=" circuit-0 circuit-1"
-            >
-              New Feature — Intelligent Reporting
-            </h4>
-            <p
-              class=" circuit-2 circuit-3"
-            >
-              Get automatic insights into your business statistics with one click.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components/Message/NotificationList Base 1`] = `
-.circuit-2 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-@media (min-width:480px) {
-  .circuit-4 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-.circuit-0 {
-  display: block;
-  margin: 0 0 16px 0;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    margin: 0 16px 0 0;
-  }
-}
-
-.circuit-8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 400px;
-  max-width: 90vw;
-  max-width: calc(100vw - 48px);
-}
-
-.circuit-8 > * {
-  margin-top: 16px;
-}
-
-.circuit-8 > *:first-child {
-  margin-top: 0;
-}
-
-@media (max-width:767px) {
-  .circuit-8 {
-    max-width: none;
-    width: 100%;
-  }
-}
-
-.circuit-6 {
-  background-color: #FFFFFF;
-  border-radius: 4px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
-  padding: 16px 16px;
-}
-
-<ul
-  aria-live="polite"
-  class="circuit-8 circuit-9"
->
-  <li
-    class="circuit-6 circuit-7"
-    spacing="mega"
-  >
-    <div
-      class="circuit-4 circuit-5"
-    >
-      <div
-        class="circuit-0 circuit-1"
-      >
-        <div>
-          message-success.svg
-        </div>
-      </div>
-      <h4
-        class=" circuit-2 circuit-3"
-      >
-        Transaction successfully refunded
-      </h4>
-    </div>
-  </li>
-</ul>
-`;
-
 exports[`Storyshots Components/Modal Base 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
@@ -9447,6 +8699,754 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
     Some text in the modal body.
   </p>
 </div>
+`;
+
+exports[`Storyshots Components/Notification Alert 1`] = `
+.circuit-4 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-4:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-4:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-4:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-4:hover,
+.circuit-4:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-4[href] {
+  display: inline-block;
+}
+
+.circuit-4:disabled,
+.circuit-4[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-2 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+@media (min-width:480px) {
+  .circuit-8 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+.circuit-0 {
+  display: block;
+  margin: 0 0 16px 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    margin: 0 16px 0 0;
+  }
+}
+
+.circuit-6 {
+  display: block;
+  padding-left: 24px;
+  margin-top: 16px;
+  margin-left: auto;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+@media (min-width:480px) {
+  .circuit-6 {
+    margin-top: 0;
+  }
+}
+
+<div
+  class="circuit-8 circuit-9"
+>
+  <div
+    class="circuit-0 circuit-1"
+  >
+    <div>
+      notification-error.svg
+    </div>
+  </div>
+  <h4
+    class=" circuit-2 circuit-3"
+  >
+    Your transaction has failed
+  </h4>
+  <div
+    class="circuit-6 circuit-7"
+  >
+    <button
+      class="circuit-4 circuit-5"
+    >
+      Try again
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/Notification Base 1`] = `
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+@media (min-width:480px) {
+  .circuit-4 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+<div
+  class="circuit-4 circuit-5"
+>
+  <div>
+    <h4
+      class=" circuit-0 circuit-1"
+    >
+      New Feature — Intelligent Reporting
+    </h4>
+    <p
+      class=" circuit-2 circuit-3"
+    >
+      Get automatic insights into your business statistics with one click.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/Notification Success 1`] = `
+.circuit-2 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+@media (min-width:480px) {
+  .circuit-4 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+.circuit-0 {
+  display: block;
+  margin: 0 0 16px 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    margin: 0 16px 0 0;
+  }
+}
+
+<div
+  class="circuit-4 circuit-5"
+>
+  <div
+    class="circuit-0 circuit-1"
+  >
+    <div>
+      notification-success.svg
+    </div>
+  </div>
+  <h4
+    class=" circuit-2 circuit-3"
+  >
+    Transaction successfully refunded
+  </h4>
+</div>
+`;
+
+exports[`Storyshots Components/Notification Warning 1`] = `
+.circuit-6 {
+  background-color: #FAFBFC;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
+  display: block;
+  color: #5C656F;
+  cursor: pointer;
+  font-weight: 700;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-6:active {
+  background-color: #D8DDE1;
+  border-color: #9DA7B1;
+  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
+}
+
+.circuit-6:focus {
+  border-color: #9DA7B1;
+  border-width: 2px;
+  outline: 0;
+  padding: calc(4px - 1px) calc(16px - 1px);
+}
+
+.circuit-6:hover {
+  background-color: #D8DDE1;
+}
+
+.circuit-6:hover,
+.circuit-6:active {
+  border-color: #9DA7B1;
+  border-width: 1px;
+  padding: calc(4px - 0px) calc(16px - 0px);
+}
+
+.circuit-6[href] {
+  display: inline-block;
+}
+
+.circuit-6:disabled,
+.circuit-6[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-user-selectable: none;
+  -moz-user-selectable: none;
+  -ms-user-selectable: none;
+  user-selectable: none;
+}
+
+.circuit-4 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-4 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+@media (min-width:480px) {
+  .circuit-10 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+.circuit-2 {
+  display: block;
+  margin: 0 0 16px 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    margin: 0 16px 0 0;
+  }
+}
+
+.circuit-0 rect {
+  fill: #D8A413;
+}
+
+.circuit-8 {
+  display: block;
+  padding-left: 24px;
+  margin-top: 16px;
+  margin-left: auto;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+@media (min-width:480px) {
+  .circuit-8 {
+    margin-top: 0;
+  }
+}
+
+<div
+  class="circuit-10 circuit-11"
+>
+  <div
+    class="circuit-2 circuit-3"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    >
+      notification-success.svg
+    </div>
+  </div>
+  <h4
+    class=" circuit-4 circuit-5"
+  >
+    You still need to verify your account
+  </h4>
+  <div
+    class="circuit-8 circuit-9"
+  >
+    <button
+      class="circuit-6 circuit-7"
+    >
+      Verify account
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+@media (min-width:480px) {
+  .circuit-4 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+.circuit-11 {
+  min-height: 5rem;
+}
+
+.circuit-10 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.circuit-8 {
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-6 {
+  padding: 16px 24px;
+}
+
+<div
+  class="circuit-11"
+>
+  <div
+    class="circuit-10"
+  >
+    <div
+      aria-live="polite"
+      class="circuit-8 circuit-9"
+    >
+      <div
+        class="circuit-6 circuit-7"
+      >
+        <div
+          class="circuit-4 circuit-5"
+        >
+          <div>
+            <h4
+              class=" circuit-0 circuit-1"
+            >
+              New Feature — Intelligent Reporting
+            </h4>
+            <p
+              class=" circuit-2 circuit-3"
+            >
+              Get automatic insights into your business statistics with one click.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
+.circuit-2 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+@media (min-width:480px) {
+  .circuit-4 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
+
+.circuit-0 {
+  display: block;
+  margin: 0 0 16px 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    margin: 0 16px 0 0;
+  }
+}
+
+.circuit-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 400px;
+  max-width: 90vw;
+  max-width: calc(100vw - 48px);
+}
+
+.circuit-8 > * {
+  margin-top: 16px;
+}
+
+.circuit-8 > *:first-child {
+  margin-top: 0;
+}
+
+@media (max-width:767px) {
+  .circuit-8 {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+.circuit-6 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
+  padding: 16px 16px;
+}
+
+<ul
+  aria-live="polite"
+  class="circuit-8 circuit-9"
+>
+  <li
+    class="circuit-6 circuit-7"
+    spacing="mega"
+  >
+    <div
+      class="circuit-4 circuit-5"
+    >
+      <div
+        class="circuit-0 circuit-1"
+      >
+        <div>
+          notification-success.svg
+        </div>
+      </div>
+      <h4
+        class=" circuit-2 circuit-3"
+      >
+        Transaction successfully refunded
+      </h4>
+    </div>
+  </li>
+</ul>
 `;
 
 exports[`Storyshots Components/Pagination Base 1`] = `
@@ -14919,7 +14919,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms/InlineNotification Alert 1`] = `
+exports[`Storyshots Forms/InlineMessage Alert 1`] = `
 .circuit-0 {
   color: #DB4D4D;
   position: relative;
@@ -14947,7 +14947,7 @@ exports[`Storyshots Forms/InlineNotification Alert 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms/InlineNotification Base 1`] = `
+exports[`Storyshots Forms/InlineMessage Base 1`] = `
 .circuit-4 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -15017,7 +15017,7 @@ exports[`Storyshots Forms/InlineNotification Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms/InlineNotification Size 1`] = `
+exports[`Storyshots Forms/InlineMessage Size 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15045,7 +15045,7 @@ exports[`Storyshots Forms/InlineNotification Size 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms/InlineNotification Success 1`] = `
+exports[`Storyshots Forms/InlineMessage Success 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15073,7 +15073,7 @@ exports[`Storyshots Forms/InlineNotification Success 1`] = `
 </p>
 `;
 
-exports[`Storyshots Forms/InlineNotification Warning 1`] = `
+exports[`Storyshots Forms/InlineMessage Warning 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;

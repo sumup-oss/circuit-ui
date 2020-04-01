@@ -15,44 +15,32 @@
 
 import React from 'react';
 
-import InlineNotification from '.';
+import { NotificationIcon } from '../..';
 
-describe('InlineNotification', () => {
+describe('NotificationIcon', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<InlineNotification />);
+    const actual = create(<NotificationIcon />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with success styles', () => {
-    const actual = create(
-      <InlineNotification type={InlineNotification.SUCCESS} />
-    );
+  it('should render with error icon', () => {
+    const actual = create(<NotificationIcon type={NotificationIcon.ERROR} />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with warning styles', () => {
-    const actual = create(
-      <InlineNotification type={InlineNotification.WARNING} />
-    );
+  it('should render with warning icon', () => {
+    const actual = create(<NotificationIcon type={NotificationIcon.WARNING} />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with danger styles', () => {
+  it('should render with custom icon content', () => {
     const actual = create(
-      <InlineNotification type={InlineNotification.DANGER} />
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with giga spacing', () => {
-    const actual = create(
-      <InlineNotification
-        type={InlineNotification.DANGER}
-        size={InlineNotification.GIGA}
-      />
+      <NotificationIcon>
+        <div>Custom content</div>
+      </NotificationIcon>
     );
     expect(actual).toMatchSnapshot();
   });
@@ -61,7 +49,7 @@ describe('InlineNotification', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<InlineNotification />);
+    const wrapper = renderToHtml(<NotificationIcon />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

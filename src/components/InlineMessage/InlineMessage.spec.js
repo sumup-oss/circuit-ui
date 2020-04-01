@@ -15,32 +15,35 @@
 
 import React from 'react';
 
-import { MessageIcon } from '../..';
+import InlineMessage from '.';
 
-describe('MessageIcon', () => {
+describe('InlineMessage', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<MessageIcon />);
+    const actual = create(<InlineMessage />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with error icon', () => {
-    const actual = create(<MessageIcon type={MessageIcon.ERROR} />);
+  it('should render with success styles', () => {
+    const actual = create(<InlineMessage type={InlineMessage.SUCCESS} />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with warning icon', () => {
-    const actual = create(<MessageIcon type={MessageIcon.WARNING} />);
+  it('should render with warning styles', () => {
+    const actual = create(<InlineMessage type={InlineMessage.WARNING} />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with custom icon content', () => {
+  it('should render with danger styles', () => {
+    const actual = create(<InlineMessage type={InlineMessage.DANGER} />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with giga spacing', () => {
     const actual = create(
-      <MessageIcon>
-        <div>Custom content</div>
-      </MessageIcon>
+      <InlineMessage type={InlineMessage.DANGER} size={InlineMessage.GIGA} />
     );
     expect(actual).toMatchSnapshot();
   });
@@ -49,7 +52,7 @@ describe('MessageIcon', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<MessageIcon />);
+    const wrapper = renderToHtml(<InlineMessage />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

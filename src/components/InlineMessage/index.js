@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import Message from './Message';
+import InlineMessage from './InlineMessage';
 
-export { Icon as MessageIcon, Button as MessageButton } from './components';
-
-export default Message;
+export default InlineMessage;

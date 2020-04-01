@@ -50,7 +50,7 @@ const NotificationListWrapper = styled('ul')`
 const NotificationListCard = Card.withComponent('li');
 
 /**
- * NotificationList displays Messages as Cards in a corner.
+ * NotificationList displays Notifications as Cards in a corner.
  */
 const NotificationList = ({ children, ...props }) => (
   <NotificationListWrapper {...props} aria-live="polite" region="log">
@@ -64,7 +64,7 @@ const NotificationList = ({ children, ...props }) => (
 
 NotificationList.propTypes = {
   /**
-   * One or more Messages.
+   * One or more Notifications.
    */
   children: childrenPropType
 };

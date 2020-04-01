@@ -16,23 +16,23 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import docs from './Message.docs.mdx';
-import Message, { MessageIcon, MessageButton } from '.';
+import docs from './Notification.docs.mdx';
+import Notification, { NotificationIcon, NotificationButton } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
 
 export default {
-  title: 'Components/Message',
-  component: Message,
+  title: 'Components/Notification',
+  component: Notification,
   parameters: {
     docs: { page: docs },
-    jest: ['Message']
+    jest: ['Notification']
   }
 };
 
 export const base = () => (
-  <Message>
+  <Notification>
     <div>
       <Heading as="h4" size={Heading.KILO} noMargin>
         New Feature — Intelligent Reporting
@@ -41,25 +41,25 @@ export const base = () => (
         Get automatic insights into your business statistics with one click.
       </Text>
     </div>
-  </Message>
+  </Notification>
 );
 
 export const success = () => (
-  <Message>
-    <MessageIcon type={MessageIcon.SUCCESS} />
+  <Notification>
+    <NotificationIcon type={NotificationIcon.SUCCESS} />
     <Heading size={Heading.KILO} as="h4" noMargin>
       Transaction successfully refunded
     </Heading>
-  </Message>
+  </Notification>
 );
 
 export const warning = () => (
-  <Message>
-    <MessageIcon type={MessageIcon.WARNING} />
+  <Notification>
+    <NotificationIcon type={NotificationIcon.WARNING} />
     <Heading size={Heading.KILO} as="h4" noMargin>
       You still need to verify your account
     </Heading>
-    <MessageButton>
+    <NotificationButton>
       <Button
         size={Button.KILO}
         onClick={e => {
@@ -68,17 +68,17 @@ export const warning = () => (
       >
         Verify account
       </Button>
-    </MessageButton>
-  </Message>
+    </NotificationButton>
+  </Notification>
 );
 
 export const alert = () => (
-  <Message>
-    <MessageIcon type={MessageIcon.ERROR} />
+  <Notification>
+    <NotificationIcon type={NotificationIcon.ERROR} />
     <Heading size={Heading.KILO} as="h4" noMargin>
       Your transaction has failed
     </Heading>
-    <MessageButton>
+    <NotificationButton>
       <Button
         size={Button.KILO}
         onClick={e => {
@@ -87,6 +87,6 @@ export const alert = () => (
       >
         Try again
       </Button>
-    </MessageButton>
-  </Message>
+    </NotificationButton>
+  </Notification>
 );

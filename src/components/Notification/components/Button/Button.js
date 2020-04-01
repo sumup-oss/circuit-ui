@@ -21,7 +21,7 @@ const CENTER = 'center';
 const TOP = 'top';
 
 const baseStyles = ({ theme }) => css`
-  label: message__button;
+  label: notification__button;
   display: block;
   padding-left: ${theme.spacings.giga};
   margin-top: ${theme.spacings.mega};
@@ -40,21 +40,21 @@ const alignmentStyles = ({ align }) => {
     [TOP]: 'flex-start'
   };
   return css`
-    label: ${`message__button--${align}`};
+    label: ${`notification__button--${align}`};
     align-self: ${alignments[align]};
   `;
 };
 
 /**
- * Button used in the Message component. Used for styling and aligment
+ * Button used in the Notification component. Used for styling and aligment
  * purposes only.
  */
-const MessageButton = styled('div')(baseStyles, alignmentStyles);
+const NotificationButton = styled('div')(baseStyles, alignmentStyles);
 
-MessageButton.TOP = TOP;
-MessageButton.CENTER = CENTER;
+NotificationButton.TOP = TOP;
+NotificationButton.CENTER = CENTER;
 
-MessageButton.propTypes = {
+NotificationButton.propTypes = {
   /**
    * Button
    */
@@ -62,14 +62,14 @@ MessageButton.propTypes = {
   /**
    * Vertical alignment
    */
-  align: PropTypes.oneOf([MessageButton.TOP, MessageButton.CENTER])
+  align: PropTypes.oneOf([NotificationButton.TOP, NotificationButton.CENTER])
 };
 
-MessageButton.defaultProps = {
-  align: MessageButton.CENTER
+NotificationButton.defaultProps = {
+  align: NotificationButton.CENTER
 };
 
 /**
  * @component
  */
-export default MessageButton;
+export default NotificationButton;
