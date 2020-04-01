@@ -13,74 +13,95 @@
  * limitations under the License.
  */
 
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { remove, includes, isEmpty } from 'lodash/fp';
+import { css } from '@emotion/core';
+import { isEmpty, map, filter, difference } from 'lodash/fp';
 
 import AutoCompleteInput from '../AutoCompleteInput';
 import Tag from '../Tag';
 
-const TagsWrapper = styled('div')`
-  margin-top: ${props => props.theme.spacings.kilo};
-  /* this *hack* is to not allow the tags to be visible below the overlay */
-  padding: 0 1px;
+const TagsWrapper = styled('div')(
+  ({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: ${theme.spacings.kilo};
+  `
+);
 
-  span {
-    display: inline-block;
-    margin-bottom: ${props => props.theme.spacings.byte};
-  }
-`;
+const StyledTag = styled(Tag)(
+  ({ theme }) => css`
+    margin-top: ${theme.spacings.byte};
+    &:first-of-type: {
+      margin-top: 0;
+    }
+  `
+);
 
-class AutoCompleteTags extends Component {
-  static propTypes = {
-    onChange: PropTypes.func.isRequired,
-    availableTags: PropTypes.arrayOf(PropTypes.string).isRequired
+const AutoCompleteTags = ({
+  availableTags,
+  selectedTags,
+  onChange,
+  ...inputProps
+}) => {
+  const [selected, setSelected] = useState(selectedTags);
+
+  const handleAdd = tag => {
+    const newSelected = [...selected, tag];
+    setSelected(newSelected);
+    onChange(newSelected);
   };
 
-  state = { tags: [] };
+  const handleRemove = tag => {
+    const newSelected = filter(option => option !== tag, selected);
+    setSelected(newSelected);
+    onChange(newSelected);
+  };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.tags.length !== this.state.tags.length) {
-      this.props.onChange(this.state.tags);
-    }
-  }
-
-  handleAddTag = option =>
-    this.setState(({ tags }) => ({ tags: [...tags, option] }));
-
-  handleRemoveTag = newTag =>
-    this.setState(({ tags }) => ({
-      tags: remove(tag => tag === newTag)(tags)
-    }));
-
-  render() {
-    const { availableTags } = this.props;
-    const { tags } = this.state;
-    const autoCompleteOptions = availableTags.filter(
-      option => !includes(option, tags)
-    );
-
-    return (
-      <Fragment>
-        <AutoCompleteInput
-          onChange={this.handleAddTag}
-          options={autoCompleteOptions}
-          clearOnSelect
-        />
-        {!isEmpty(tags) && (
-          <TagsWrapper>
-            {tags.map(tag => (
-              <Tag key={tag} onRemove={() => this.handleRemoveTag(tag)}>
+  return (
+    <Fragment>
+      <AutoCompleteInput
+        clearOnSelect
+        onChange={handleAdd}
+        options={difference(availableTags, selected)}
+        {...inputProps}
+      />
+      {!isEmpty(selected) && (
+        <TagsWrapper data-testid="autocomplete-tags-selected">
+          {map(
+            tag => (
+              <StyledTag key={tag} onRemove={() => handleRemove(tag)}>
                 {tag}
-              </Tag>
-            ))}
-          </TagsWrapper>
-        )}
-      </Fragment>
-    );
-  }
-}
+              </StyledTag>
+            ),
+            selected
+          )}
+        </TagsWrapper>
+      )}
+    </Fragment>
+  );
+};
+
+AutoCompleteTags.propTypes = {
+  /**
+   * The available options to provided to the AutoCompleteInput.
+   */
+  availableTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  /**
+   * The initially selected options.
+   */
+  selectedTags: PropTypes.arrayOf(PropTypes.string),
+  /**
+   * Callback function used to handle adding and removing a tag.
+   */
+  onChange: PropTypes.func.isRequired
+};
+
+AutoCompleteTags.defaultProps = {
+  selectedTags: []
+};
 
 /**
  * @component

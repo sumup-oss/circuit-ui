@@ -46,8 +46,27 @@ for (let i = 0; i < 10000; i += 1) {
 }
 
 export const base = () => (
-  <AutoCompleteTags
-    availableTags={randomItems}
-    onChange={action('handleChange')}
-  />
+  <div style={{ height: '20vh' }}>
+    <AutoCompleteTags
+      placeholder="Search by email"
+      availableTags={randomItems}
+      onChange={action('handleChange')}
+    />
+  </div>
+);
+
+export const selected = () => (
+  <div style={{ height: '20vh' }}>
+    <AutoCompleteTags
+      placeholder="Search by email"
+      availableTags={[
+        'test1@sumup.com',
+        'test2@sumup.com',
+        'test3@sumup.com',
+        'test4@sumup.com'
+      ]}
+      selectedTags={['test4@sumup.com']}
+      onChange={action('handleChange')}
+    />
+  </div>
 );

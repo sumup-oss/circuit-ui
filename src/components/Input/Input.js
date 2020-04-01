@@ -80,6 +80,7 @@ const inputBaseStyles = ({ theme }) => css`
   transition: border-color ${theme.transitions.default};
   width: 100%;
   ${textMega({ theme })};
+  margin: 0;
 
   &:focus,
   &:active {
