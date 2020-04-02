@@ -97,6 +97,16 @@ export const customOptions = () => {
   );
 };
 
+export const preselected = () => (
+  <AutoCompleteInputWithLabel
+    defaultSelectedItem={items[0]}
+    options={items}
+    onChange={action('onChange')}
+    onInputValueChange={action('onInputValueChange')}
+    onClear={action('onClear')}
+  />
+);
+
 const AsyncAutoCompleteInput = () => {
   const [options, setOptions] = useState([]);
 

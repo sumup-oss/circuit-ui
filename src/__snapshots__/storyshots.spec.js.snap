@@ -1130,6 +1130,21 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
 `;
 
 exports[`Storyshots Components/Button/CloseButton Base 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-3 {
   padding: 0;
   margin: 0;
@@ -1151,21 +1166,6 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
 .circuit-3 > svg {
   height: 100%;
   width: 100%;
-}
-
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <button
@@ -5175,7 +5175,22 @@ HTMLCollection [
       This is some text showing in my card
     </p>
   </div>,
-  .circuit-11 {
+  .circuit-2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-11 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -5265,21 +5280,6 @@ HTMLCollection [
 .circuit-5 > svg {
   height: 100%;
   width: 100%;
-}
-
-.circuit-2 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <div
@@ -7612,6 +7612,21 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 `;
 
 exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = `
+.circuit-2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-7 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -7664,21 +7679,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 .circuit-5 > svg {
   height: 100%;
   width: 100%;
-}
-
-.circuit-2 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 .circuit-9 {
@@ -8348,7 +8348,7 @@ exports[`Storyshots Components/ProgressBar Base 1`] = `
   class="circuit-4 circuit-5"
 >
   <span
-    aria-labelledby="progress-bar_26"
+    aria-labelledby="progress-bar_27"
     aria-valuemax="10"
     aria-valuemin="0"
     aria-valuenow="3"
@@ -8359,7 +8359,7 @@ exports[`Storyshots Components/ProgressBar Base 1`] = `
   />
   <span
     class="circuit-2 circuit-3"
-    id="progress-bar_26"
+    id="progress-bar_27"
   />
 </div>
 `;
@@ -8391,72 +8391,6 @@ HTMLCollection [
   position: relative;
   width: 100%;
   height: 8px;
-  overflow: hidden;
-  min-width: 500px;
-  max-width: 90%;
-}
-
-.circuit-0::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 70%;
-  background-color: #3388FF;
-  border: 1px solid #1760CE;
-  box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: 3px 0 0 3px;
-  -webkit-transition: width 0.05s ease-out;
-  transition: width 0.05s ease-out;
-}
-
-<div
-    class="circuit-4 circuit-5"
-  >
-    <span
-      aria-labelledby="progress-bar_29"
-      aria-valuemax="10"
-      aria-valuemin="0"
-      aria-valuenow="7"
-      class="circuit-0 circuit-1"
-      max="10"
-      role="progressbar"
-      value="7"
-    />
-    <span
-      class="circuit-2 circuit-3"
-      id="progress-bar_29"
-    >
-      70%
-    </span>
-  </div>,
-  .circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.circuit-2 {
-  font-size: 13px;
-  line-height: 20px;
-  margin-left: 8px;
-}
-
-.circuit-0 {
-  background-color: #FAFBFC;
-  border: 1px solid #D8DDE1;
-  border-radius: 4px;
-  position: relative;
-  width: 100%;
-  height: 16px;
   overflow: hidden;
   min-width: 500px;
   max-width: 90%;
@@ -8522,7 +8456,7 @@ HTMLCollection [
   border-radius: 4px;
   position: relative;
   width: 100%;
-  height: 32px;
+  height: 16px;
   overflow: hidden;
   min-width: 500px;
   max-width: 90%;
@@ -8564,11 +8498,7 @@ HTMLCollection [
       70%
     </span>
   </div>,
-]
-`;
-
-exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
-.circuit-4 {
+  .circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8592,7 +8522,7 @@ exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
   border-radius: 4px;
   position: relative;
   width: 100%;
-  height: 8px;
+  height: 32px;
   overflow: hidden;
   min-width: 500px;
   max-width: 90%;
@@ -8615,28 +8545,29 @@ exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
->
-  <span
-    aria-labelledby="progress-bar_27"
-    aria-valuemax="10"
-    aria-valuemin="0"
-    aria-valuenow="7"
-    class="circuit-0 circuit-1"
-    max="10"
-    role="progressbar"
-    value="7"
-  />
-  <span
-    class="circuit-2 circuit-3"
-    id="progress-bar_27"
+    class="circuit-4 circuit-5"
   >
-    7/10
-  </span>
-</div>
+    <span
+      aria-labelledby="progress-bar_32"
+      aria-valuemax="10"
+      aria-valuemin="0"
+      aria-valuenow="7"
+      class="circuit-0 circuit-1"
+      max="10"
+      role="progressbar"
+      value="7"
+    />
+    <span
+      class="circuit-2 circuit-3"
+      id="progress-bar_32"
+    >
+      70%
+    </span>
+  </div>,
+]
 `;
 
-exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
+exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
 .circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8699,6 +8630,75 @@ exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
   <span
     class="circuit-2 circuit-3"
     id="progress-bar_28"
+  >
+    7/10
+  </span>
+</div>
+`;
+
+exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-left: 8px;
+}
+
+.circuit-0 {
+  background-color: #FAFBFC;
+  border: 1px solid #D8DDE1;
+  border-radius: 4px;
+  position: relative;
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  min-width: 500px;
+  max-width: 90%;
+}
+
+.circuit-0::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  background-color: #3388FF;
+  border: 1px solid #1760CE;
+  box-shadow: inset 0 1px 0 0 #AFD0FE;
+  border-radius: 3px 0 0 3px;
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+}
+
+<div
+  class="circuit-4 circuit-5"
+>
+  <span
+    aria-labelledby="progress-bar_29"
+    aria-valuemax="10"
+    aria-valuemin="0"
+    aria-valuenow="7"
+    class="circuit-0 circuit-1"
+    max="10"
+    role="progressbar"
+    value="7"
+  />
+  <span
+    class="circuit-2 circuit-3"
+    id="progress-bar_29"
   >
     70%
   </span>
@@ -11957,14 +11957,14 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
 >
   <input
     class="circuit-0 circuit-1"
-    id="checkbox_4"
+    id="checkbox_5"
     name="base"
     type="checkbox"
     value="true"
   />
   <label
     class="circuit-2 circuit-3"
-    for="checkbox_4"
+    for="checkbox_5"
     name="base"
     value="true"
   >
@@ -12088,7 +12088,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="checkbox_6"
+    id="checkbox_7"
     name="disabled"
     type="checkbox"
     value="disabled"
@@ -12096,7 +12096,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   <label
     class="circuit-2 circuit-3"
     disabled=""
-    for="checkbox_6"
+    for="checkbox_7"
     name="disabled"
     value="disabled"
   >
@@ -12251,14 +12251,14 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
 >
   <input
     class="circuit-0 circuit-1"
-    id="checkbox_5"
+    id="checkbox_6"
     name="invalid"
     type="checkbox"
     value="invalid"
   />
   <label
     class="circuit-2 circuit-3"
-    for="checkbox_5"
+    for="checkbox_6"
     name="invalid"
     value="invalid"
   >
@@ -12369,14 +12369,14 @@ HTMLCollection [
   >
     <input
       class="circuit-0 circuit-1"
-      id="checkbox_7"
+      id="checkbox_8"
       name="fruits"
       type="checkbox"
       value="apples"
     />
     <label
       class="circuit-2 circuit-3"
-      for="checkbox_7"
+      for="checkbox_8"
       name="fruits"
       value="apples"
     >
@@ -12478,14 +12478,14 @@ HTMLCollection [
   >
     <input
       class="circuit-0 circuit-1"
-      id="checkbox_8"
+      id="checkbox_9"
       name="fruits"
       type="checkbox"
       value="bananas"
     />
     <label
       class="circuit-2 circuit-3"
-      for="checkbox_8"
+      for="checkbox_9"
       name="fruits"
       value="bananas"
     >
@@ -12587,14 +12587,14 @@ HTMLCollection [
   >
     <input
       class="circuit-0 circuit-1"
-      id="checkbox_9"
+      id="checkbox_10"
       name="fruits"
       type="checkbox"
       value="oranges"
     />
     <label
       class="circuit-2 circuit-3"
-      for="checkbox_9"
+      for="checkbox_10"
       name="fruits"
       value="oranges"
     >
@@ -13576,7 +13576,7 @@ HTMLCollection [
 <label
     class="circuit-0 circuit-1"
     data-testid="expiry-date-input-label"
-    for="cui-cc-expiry_10"
+    for="cui-cc-expiry_11"
   >
     Expiry date
   </label>,
@@ -13659,7 +13659,7 @@ label + .circuit-4 {
       autocomplete="cc-exp"
       class="circuit-0 circuit-1"
       data-testid="expiry-date-input-input"
-      id="cui-cc-expiry_10"
+      id="cui-cc-expiry_11"
       placeholder="MM/YY"
       value=""
     />
@@ -14422,7 +14422,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="16"
+  for="17"
 >
   Label
   <div
@@ -14431,7 +14431,7 @@ label + .circuit-4 {
     <input
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="16"
+      id="17"
       placeholder="Placeholder"
     />
     <div
@@ -14511,7 +14511,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4 circuit-5"
-  for="24"
+  for="25"
 >
   Label
   <div
@@ -14522,7 +14522,7 @@ label + .circuit-2 {
       aria-invalid="false"
       class="circuit-0 circuit-1"
       disabled=""
-      id="24"
+      id="25"
       placeholder="Placeholder"
       value="Some value"
     />
@@ -14781,7 +14781,7 @@ label + .circuit-7 {
 
 <label
     class="circuit-9 circuit-10"
-    for="19"
+    for="20"
   >
     Label
     <div
@@ -14790,7 +14790,7 @@ label + .circuit-7 {
       <input
         aria-invalid="true"
         class="circuit-0 circuit-1"
-        id="19"
+        id="20"
         placeholder="Placeholder"
       />
       <div
@@ -14916,7 +14916,7 @@ label + .circuit-5 {
 
 <label
     class="circuit-7 circuit-8"
-    for="20"
+    for="21"
   >
     Label
     <div
@@ -14925,7 +14925,7 @@ label + .circuit-5 {
       <input
         aria-invalid="true"
         class="circuit-0 circuit-1"
-        id="20"
+        id="21"
         placeholder="Placeholder"
       />
       <div
@@ -15026,7 +15026,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="23"
+  for="24"
 >
   Label
   <div
@@ -15035,7 +15035,7 @@ label + .circuit-4 {
     <input
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="23"
+      id="24"
       placeholder="Placeholder"
     />
     <div
@@ -15126,7 +15126,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="25"
+  for="26"
 >
   Label
   <div
@@ -15135,7 +15135,7 @@ label + .circuit-4 {
     <input
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="25"
+      id="26"
       placeholder="Placeholder"
     />
     <div
@@ -15274,7 +15274,7 @@ label + .circuit-7 {
 
 <label
     class="circuit-9 circuit-10"
-    for="17"
+    for="18"
   >
     Label
     <div
@@ -15283,7 +15283,7 @@ label + .circuit-7 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="17"
+        id="18"
         placeholder="Placeholder"
       />
       <div
@@ -15389,7 +15389,7 @@ label + .circuit-5 {
 
 <label
     class="circuit-7 circuit-8"
-    for="18"
+    for="19"
   >
     Label
     <div
@@ -15398,7 +15398,7 @@ label + .circuit-5 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="18"
+        id="19"
         placeholder="Placeholder"
       />
       <div
@@ -15565,7 +15565,7 @@ label + .circuit-7 {
 
 <label
     class="circuit-9 circuit-10"
-    for="21"
+    for="22"
   >
     Label
     <div
@@ -15574,7 +15574,7 @@ label + .circuit-7 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="21"
+        id="22"
         placeholder="Placeholder"
       />
       <div
@@ -15700,7 +15700,7 @@ label + .circuit-5 {
 
 <label
     class="circuit-7 circuit-8"
-    for="22"
+    for="23"
   >
     Label
     <div
@@ -15709,7 +15709,7 @@ label + .circuit-5 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="22"
+        id="23"
         placeholder="Placeholder"
       />
       <div
@@ -15816,7 +15816,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-7 circuit-8"
-  for="3"
+  for="4"
 >
   What's your favourite fruit?
   <div
@@ -15836,7 +15836,7 @@ label + .circuit-3 {
         aria-invalid="false"
         autocomplete="off"
         class="circuit-1 circuit-2"
-        id="3"
+        id="4"
         role="combobox"
         type="text"
         value=""
@@ -16084,6 +16084,186 @@ label + .circuit-3 {
 </label>
 `;
 
+exports[`Storyshots Forms/Input/AutoCompleteInput Preselected 1`] = `
+.circuit-12 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-10 {
+  position: relative;
+  min-width: 150px;
+}
+
+label > .circuit-10,
+label + .circuit-10 {
+  margin-top: 4px;
+}
+
+.circuit-8 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+label > .circuit-8,
+label + .circuit-8 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
+  pointer-events: none;
+}
+
+.circuit-1 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-6 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  overflow: initial;
+  pointer-events: all !important;
+  cursor: pointer !important;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
+  pointer-events: none;
+}
+
+.circuit-6:focus,
+.circuit-6:active {
+  outline: none;
+}
+
+.circuit-6 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.circuit-3 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+<label
+  class="circuit-12 circuit-13"
+  for="3"
+>
+  What's your favourite fruit?
+  <div
+    class="circuit-10 circuit-11"
+  >
+    <div
+      class="circuit-8 circuit-9"
+    >
+      <div
+        class="circuit-0"
+      >
+        search.svg
+      </div>
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-invalid="false"
+        autocomplete="off"
+        class="circuit-1 circuit-2"
+        id="3"
+        role="combobox"
+        type="text"
+        value="Apple"
+      />
+      <button
+        class="circuit-5 circuit-6 circuit-7"
+        data-testid="input-clear"
+        type="button"
+      >
+        <div
+          role="presentation"
+        >
+          clear.svg
+        </div>
+        <span
+          class="circuit-3 circuit-4"
+        >
+          Clear
+        </span>
+      </button>
+    </div>
+  </div>
+</label>
+`;
+
 exports[`Storyshots Forms/Input/AutoCompleteTags Base 1`] = `
 .circuit-5 {
   position: relative;
@@ -16182,7 +16362,7 @@ label + .circuit-3 {
       aria-invalid="false"
       autocomplete="off"
       class="circuit-1 circuit-2"
-      id="downshift-3-input"
+      id="downshift-4-input"
       role="combobox"
       type="text"
       value=""
@@ -16275,7 +16455,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="11"
+  for="12"
 >
   Amount
   <div
@@ -16284,7 +16464,7 @@ label + .circuit-4 {
     <input
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="11"
+      id="12"
       placeholder="123,45"
       type="text"
       value=""
@@ -16383,7 +16563,7 @@ label + .circuit-4 {
 
 <label
     class="circuit-6 circuit-7"
-    for="12"
+    for="13"
   >
     Amount
     <div
@@ -16397,7 +16577,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-2 circuit-3"
-        id="12"
+        id="13"
         placeholder="1,234.50"
         type="text"
         value=""
@@ -16487,7 +16667,7 @@ label + .circuit-4 {
 
 <label
     class="circuit-6 circuit-7"
-    for="13"
+    for="14"
   >
     Amount
     <div
@@ -16496,7 +16676,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="13"
+        id="14"
         placeholder="1 234,50"
         type="text"
         value=""
@@ -16596,7 +16776,7 @@ label + .circuit-4 {
 
 <label
     class="circuit-6 circuit-7"
-    for="14"
+    for="15"
   >
     Amount
     <div
@@ -16605,7 +16785,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="14"
+        id="15"
         placeholder="1.234,50"
         type="text"
         value=""
@@ -16700,7 +16880,7 @@ label + .circuit-4 {
 
 <label
     class="circuit-6 circuit-7"
-    for="15"
+    for="16"
   >
     Amount
     <div
@@ -16714,7 +16894,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-2 circuit-3"
-        id="15"
+        id="16"
         placeholder="1,234.50"
         type="text"
         value=""
@@ -17255,7 +17435,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-5 circuit-6"
-  for="38"
+  for="39"
 >
   Search
   <div
@@ -17269,7 +17449,7 @@ label + .circuit-3 {
     <input
       aria-invalid="false"
       class="circuit-1 circuit-2"
-      id="38"
+      id="39"
       placeholder="Search..."
       type="text"
       value=""
@@ -17356,7 +17536,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-5 circuit-6"
-  for="40"
+  for="41"
 >
   Label
   <div
@@ -17370,7 +17550,7 @@ label + .circuit-3 {
     <input
       aria-invalid="false"
       class="circuit-1 circuit-2"
-      id="40"
+      id="41"
       placeholder="Search..."
       type="text"
       value=""
@@ -17460,7 +17640,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-5 circuit-6"
-  for="39"
+  for="40"
 >
   Search
   <div
@@ -17476,7 +17656,7 @@ label + .circuit-3 {
       aria-invalid="false"
       class="circuit-1 circuit-2"
       disabled=""
-      id="39"
+      id="40"
       placeholder="Search..."
       type="text"
       value=""
@@ -17537,7 +17717,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_32"
+    id="radio-button_33"
     name="radio"
     type="radio"
     value="radio"
@@ -17590,7 +17770,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_32"
+    for="radio-button_33"
     name="radio"
     value="radio"
   >
@@ -17624,7 +17804,7 @@ HTMLCollection [
 <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="radio-button_34"
+    id="radio-button_35"
     name="disabled"
     type="radio"
     value="disabled"
@@ -17696,7 +17876,7 @@ HTMLCollection [
 <label
     class="circuit-0 circuit-1"
     disabled=""
-    for="radio-button_34"
+    for="radio-button_35"
     name="disabled"
     value="disabled"
   >
@@ -17729,7 +17909,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_33"
+    id="radio-button_34"
     name="invalid"
     type="radio"
     value="invalid"
@@ -17791,7 +17971,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_33"
+    for="radio-button_34"
     name="invalid"
     value="invalid"
   >
@@ -17871,14 +18051,14 @@ HTMLCollection [
 <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_35"
+      id="radio-button_36"
       name="radio-button-group"
       type="radio"
       value="First"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_35"
+      for="radio-button_36"
       name="radio-button-group"
       value="First"
     >
@@ -17954,14 +18134,14 @@ HTMLCollection [
 <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_36"
+      id="radio-button_37"
       name="radio-button-group"
       type="radio"
       value="Second"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_36"
+      for="radio-button_37"
       name="radio-button-group"
       value="Second"
     >
@@ -18037,14 +18217,14 @@ HTMLCollection [
 <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_37"
+      id="radio-button_38"
       name="radio-button-group"
       type="radio"
       value="Third"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_37"
+      for="radio-button_38"
       name="radio-button-group"
       value="Third"
     >
@@ -18536,7 +18716,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="41"
+  for="42"
 >
   Label
   <div
@@ -18545,7 +18725,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="41"
+      id="42"
       placeholder="Write your text here..."
     />
     <div
@@ -18627,7 +18807,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4 circuit-5"
-  for="45"
+  for="46"
 >
   Label
   <div
@@ -18638,7 +18818,7 @@ label + .circuit-2 {
       aria-invalid="false"
       class="circuit-0 circuit-1"
       disabled=""
-      id="45"
+      id="46"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -18797,7 +18977,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="42"
+  for="43"
 >
   Label
   <div
@@ -18806,7 +18986,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="true"
       class="circuit-0 circuit-1"
-      id="42"
+      id="43"
       placeholder="Write your text here..."
     />
     <div
@@ -18913,7 +19093,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="44"
+  for="45"
 >
   Label
   <div
@@ -18922,7 +19102,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="44"
+      id="45"
       placeholder="Write your text here..."
     />
     <div
@@ -19082,7 +19262,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="43"
+  for="44"
 >
   Label
   <div
@@ -19091,7 +19271,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="43"
+      id="44"
       placeholder="Write your text here..."
     />
     <div
@@ -19208,9 +19388,9 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_47"
+    aria-labelledby="toggle-label_48"
     class="circuit-4 circuit-5"
-    id="toggle-switch_46"
+    id="toggle-switch_47"
     role="switch"
     type="button"
   >
@@ -19225,8 +19405,8 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   </button>
   <label
     class="circuit-9 circuit-10"
-    for="toggle-switch_46"
-    id="toggle-label_47"
+    for="toggle-switch_47"
+    id="toggle-label_48"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
@@ -19348,9 +19528,9 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_49"
+    aria-labelledby="toggle-label_50"
     class="circuit-4 circuit-5"
-    id="toggle-switch_48"
+    id="toggle-switch_49"
     role="switch"
     type="button"
   >
@@ -19365,8 +19545,8 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-12 circuit-13"
-    for="toggle-switch_48"
-    id="toggle-label_49"
+    for="toggle-switch_49"
+    id="toggle-label_50"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
