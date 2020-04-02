@@ -121,4 +121,23 @@ describe('AutoCompleteInput', () => {
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onClear).toHaveBeenCalledTimes(1);
   });
+
+  it('should initialize the selected option', () => {
+    const onChange = jest.fn();
+    const onClear = jest.fn();
+    const defaultSelectedItem = options[0].value;
+    const { getByTestId } = render(
+      <AutoCompleteInput
+        defaultSelectedItem={defaultSelectedItem}
+        onChange={onChange}
+        onClear={onClear}
+        options={options}
+        data-testid="autocomplete-input"
+      />
+    );
+
+    const inputEl = getByTestId('autocomplete-input');
+
+    expect(inputEl.value).toBe(defaultSelectedItem);
+  });
 });

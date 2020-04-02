@@ -133,6 +133,14 @@ export default class AutoCompleteInput extends Component {
      */
     onClear: PropTypes.func,
     /**
+     * This is the initial input value.
+     */
+    defaultInputValue: PropTypes.string,
+    /**
+     * Pass an item or an array of items that should be selected by default.
+     */
+    defaultSelectedItem: PropTypes.string,
+    /**
      * @deprecated
      */
     showClear: deprecatedPropType(
@@ -194,6 +202,8 @@ export default class AutoCompleteInput extends Component {
       onInputValueChange,
       filterOptions,
       maxNumberOfOptions,
+      defaultInputValue,
+      defaultSelectedItem,
       onClear,
       showClear,
       ...inputProps
@@ -206,6 +216,8 @@ export default class AutoCompleteInput extends Component {
         ref={this.handleDownShiftRef}
         onSelect={this.handleChange}
         onInputValueChange={onInputValueChange}
+        defaultSelectedItem={defaultSelectedItem}
+        defaultInputValue={defaultInputValue}
       >
         {({
           getRootProps,
