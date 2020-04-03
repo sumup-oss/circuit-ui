@@ -15,13 +15,13 @@
 
 import React, { useState } from 'react';
 
-import RadioButtonGroup from './RadioButtonGroup';
+import SelectorGroup from './SelectorGroup';
 
 export default {
-  title: 'Forms/RadioButton/RadioButtonGroup',
-  component: RadioButtonGroup,
+  title: 'Forms/Selector/SelectorGroup',
+  component: SelectorGroup,
   parameters: {
-    jest: ['RadioButtonGroup']
+    jest: ['SelectorGroup']
   }
 };
 
@@ -40,14 +40,22 @@ const options = [
   }
 ];
 
-// eslint-disable-next-line react/prop-types
-const RadioButtonGroupWithState = ({ value: initial, children, ...props }) => {
-  const [value, setValue] = useState(initial);
-  const handleChange = e => {
-    setValue(e.target.value);
+/* eslint-disable react/prop-types */
+const SelectorGroupWithState = ({ children, ...props }) => {
+  const [value, setValue] = useState(props.multiple ? [] : '');
+  const handleChange = event => {
+    event.persist();
+    setValue(prev => {
+      if (!props.multiple) {
+        return event.target.value;
+      }
+      return prev.includes(event.target.value)
+        ? prev.filter(v => v !== event.target.value)
+        : [...prev, event.target.value];
+    });
   };
   return (
-    <RadioButtonGroup
+    <SelectorGroup
       {...props}
       value={value}
       onChange={handleChange}
@@ -55,7 +63,12 @@ const RadioButtonGroupWithState = ({ value: initial, children, ...props }) => {
     />
   );
 };
+/* eslint-enable react/prop-types */
 
 export const base = () => (
-  <RadioButtonGroupWithState options={options} name="radio-button-group" />
+  <SelectorGroupWithState options={options} name="selector-group" />
+);
+
+export const multiple = () => (
+  <SelectorGroupWithState options={options} name="selector-group" multiple />
 );

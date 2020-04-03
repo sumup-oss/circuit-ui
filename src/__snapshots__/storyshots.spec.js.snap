@@ -11118,7 +11118,7 @@ label + .circuit-14 {
     class="circuit-6 circuit-7"
   >
     <span
-      aria-labelledby="progress-bar_40"
+      aria-labelledby="progress-bar_49"
       aria-valuemax="3"
       aria-valuemin="0"
       aria-valuenow="1"
@@ -11129,7 +11129,7 @@ label + .circuit-14 {
     />
     <span
       class="circuit-4 circuit-5"
-      id="progress-bar_40"
+      id="progress-bar_49"
     />
   </div>
   <section>
@@ -14285,8 +14285,6 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   <label
     class="circuit-2 circuit-3"
     for="checkbox_2"
-    name="base"
-    value="true"
   >
     Unchecked
     <div
@@ -14415,8 +14413,6 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
     class="circuit-2 circuit-3"
     disabled=""
     for="checkbox_4"
-    name="disabled"
-    value="disabled"
   >
     Unchecked
     <div
@@ -14575,8 +14571,6 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   <label
     class="circuit-2 circuit-3"
     for="checkbox_3"
-    name="invalid"
-    value="invalid"
   >
     Unchecked
     <div
@@ -14691,8 +14685,6 @@ HTMLCollection [
     <label
       class="circuit-2 circuit-3"
       for="checkbox_5"
-      name="fruits"
-      value="apples"
     >
       Apples
       <div
@@ -14798,8 +14790,6 @@ HTMLCollection [
     <label
       class="circuit-2 circuit-3"
       for="checkbox_6"
-      name="fruits"
-      value="bananas"
     >
       Bananas
       <div
@@ -14905,8 +14895,6 @@ HTMLCollection [
     <label
       class="circuit-2 circuit-3"
       for="checkbox_7"
-      name="fruits"
-      value="oranges"
     >
       Oranges
       <div
@@ -17790,6 +17778,17 @@ HTMLCollection [
   border-color: #3388FF;
 }
 
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
 <input
     class="circuit-0 circuit-1"
     id="radio-button_29"
@@ -17846,8 +17845,6 @@ HTMLCollection [
 <label
     class="circuit-0 circuit-1"
     for="radio-button_29"
-    name="radio"
-    value="radio"
   >
     Unchecked
   </label>,
@@ -17872,6 +17869,17 @@ HTMLCollection [
 .circuit-0:focus + label::before {
   border-width: 2px;
   border-color: #3388FF;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
 }
 
 <input
@@ -17950,8 +17958,6 @@ HTMLCollection [
     class="circuit-0 circuit-1"
     disabled=""
     for="radio-button_31"
-    name="disabled"
-    value="disabled"
   >
     Disabled
   </label>,
@@ -17976,6 +17982,17 @@ HTMLCollection [
 .circuit-0:focus + label::before {
   border-width: 2px;
   border-color: #3388FF;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
 }
 
 <input
@@ -18042,8 +18059,6 @@ HTMLCollection [
 <label
     class="circuit-0 circuit-1"
     for="radio-button_30"
-    name="invalid"
-    value="invalid"
   >
     Error
   </label>,
@@ -18051,8 +18066,7 @@ HTMLCollection [
 `;
 
 exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
-HTMLCollection [
-  .circuit-0 {
+.circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -18068,6 +18082,17 @@ HTMLCollection [
 .circuit-0:focus + label::before {
   border-width: 2px;
   border-color: #3388FF;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
 }
 
 .circuit-2 {
@@ -18116,186 +18141,56 @@ HTMLCollection [
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-<div>
+<div
+  aria-label="Choose your favourite fruit"
+  role="group"
+>
+  <div>
     <input
       class="circuit-0 circuit-1"
       id="radio-button_32"
       name="radio-button-group"
       type="radio"
-      value="First"
+      value="apple"
     />
     <label
       class="circuit-2 circuit-3"
       for="radio-button_32"
-      name="radio-button-group"
-      value="First"
     >
-      Option 1
+      Apple
     </label>
-  </div>,
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
-}
-
-.circuit-2 {
-  color: #5C656F;
-  padding-left: 24px;
-  position: relative;
-}
-
-.circuit-2::before {
-  box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
-}
-
-.circuit-2::after {
-  box-sizing: border-box;
-  height: 8px;
-  width: 8px;
-  background-color: #3388FF;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 4px;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-}
-
-<div>
+  </div>
+  <div>
     <input
       class="circuit-0 circuit-1"
       id="radio-button_33"
       name="radio-button-group"
       type="radio"
-      value="Second"
+      value="banana"
     />
     <label
       class="circuit-2 circuit-3"
       for="radio-button_33"
-      name="radio-button-group"
-      value="Second"
     >
-      Option 2
+      Banana
     </label>
-  </div>,
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
-}
-
-.circuit-2 {
-  color: #5C656F;
-  padding-left: 24px;
-  position: relative;
-}
-
-.circuit-2::before {
-  box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
-}
-
-.circuit-2::after {
-  box-sizing: border-box;
-  height: 8px;
-  width: 8px;
-  background-color: #3388FF;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 4px;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-}
-
-<div>
+  </div>
+  <div>
     <input
       class="circuit-0 circuit-1"
       id="radio-button_34"
       name="radio-button-group"
       type="radio"
-      value="Third"
+      value="mango"
     />
     <label
       class="circuit-2 circuit-3"
       for="radio-button_34"
-      name="radio-button-group"
-      value="Third"
     >
-      Option 3
+      Mango
     </label>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Storyshots Forms/Select Base 1`] = `
@@ -18608,92 +18503,502 @@ exports[`Storyshots Forms/Select With Prefix 1`] = `
 `;
 
 exports[`Storyshots Forms/Selector Base 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  cursor: pointer;
-  padding: 24px;
-  border-radius: 5px;
-  border: 1px solid #D8DDE1;
-  background-color: #FFFFFF;
+.circuit-4 {
+  position: relative;
   margin-bottom: 16px;
-  border: 2px solid #3388FF;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label::before {
+  border-width: 2px;
+}
+
+.circuit-0:checked + label {
   background-color: #EDF4FC;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
 }
 
-<div
-    aria-selected="true"
-    class="circuit-0 circuit-1"
-  >
-    Select me!
-  </div>,
-  .circuit-0 {
+.circuit-0:checked + label::before {
+  border: 2px solid #3388FF;
+}
+
+.circuit-2 {
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  display: block;
   cursor: pointer;
   padding: 24px;
   border-radius: 5px;
-  border: 1px solid #D8DDE1;
   background-color: #FFFFFF;
-  margin-bottom: 16px;
+  text-align: center;
 }
 
-.circuit-0:hover {
-  border: 2px solid #D8DDE1;
+.circuit-2::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid #9DA7B1;
+}
+
+.circuit-2:hover {
   background-color: #FAFBFC;
 }
 
+.circuit-2:hover::before {
+  border: 2px solid #9DA7B1;
+}
+
 <div
-    aria-selected="false"
+  class="circuit-4 circuit-5"
+>
+  <input
     class="circuit-0 circuit-1"
+    id="selector_40"
+    type="radio"
+    value=""
+  />
+  <label
+    class="circuit-2 circuit-3"
+    for="selector_40"
   >
     Select me!
-  </div>,
-]
+  </label>
+</div>
 `;
 
 exports[`Storyshots Forms/Selector Disabled 1`] = `
+.circuit-4 {
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label::before {
+  border-width: 2px;
+}
+
+.circuit-0:checked + label {
+  background-color: #EDF4FC;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-0:checked + label::before {
+  border: 2px solid #3388FF;
+}
+
+.circuit-2 {
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  display: block;
   cursor: pointer;
   padding: 24px;
   border-radius: 5px;
-  border: 1px solid #D8DDE1;
   background-color: #FFFFFF;
-  margin-bottom: 16px;
+  text-align: center;
   color: #9DA7B1;
   cursor: default;
   pointer-events: none;
 }
 
-.circuit-0:hover {
-  border: 2px solid #D8DDE1;
+.circuit-2::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid #9DA7B1;
+}
+
+.circuit-2:hover {
   background-color: #FAFBFC;
 }
 
+.circuit-2:hover::before {
+  border: 2px solid #9DA7B1;
+}
+
+.circuit-2::before {
+  border-color: #D8DDE1;
+}
+
 <div
-  class="circuit-0 circuit-1"
-  disabled=""
+  class="circuit-4 circuit-5"
 >
-  I cannot be selected
+  <input
+    class="circuit-0 circuit-1"
+    disabled=""
+    id="selector_42"
+    type="radio"
+    value=""
+  />
+  <label
+    class="circuit-2 circuit-3"
+    disabled=""
+    for="selector_42"
+  >
+    I cannot be selected
+  </label>
 </div>
 `;
 
 exports[`Storyshots Forms/Selector Selected 1`] = `
+.circuit-4 {
+  position: relative;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label::before {
+  border-width: 2px;
+}
+
+.circuit-0:checked + label {
+  background-color: #EDF4FC;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-0:checked + label::before {
+  border: 2px solid #3388FF;
+}
+
+.circuit-2 {
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  display: block;
   cursor: pointer;
   padding: 24px;
   border-radius: 5px;
-  border: 1px solid #D8DDE1;
   background-color: #FFFFFF;
-  margin-bottom: 16px;
-  border: 2px solid #3388FF;
-  background-color: #EDF4FC;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  text-align: center;
+}
+
+.circuit-2::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid #9DA7B1;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-2:hover::before {
+  border: 2px solid #9DA7B1;
 }
 
 <div
-  aria-selected="true"
-  class="circuit-0 circuit-1"
+  class="circuit-4 circuit-5"
 >
-  I am selected!
+  <input
+    checked=""
+    class="circuit-0 circuit-1"
+    id="selector_41"
+    type="radio"
+    value=""
+  />
+  <label
+    class="circuit-2 circuit-3"
+    for="selector_41"
+  >
+    I am selected!
+  </label>
+</div>
+`;
+
+exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
+.circuit-4 {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label::before {
+  border-width: 2px;
+}
+
+.circuit-0:checked + label {
+  background-color: #EDF4FC;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-0:checked + label::before {
+  border: 2px solid #3388FF;
+}
+
+.circuit-2 {
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  display: block;
+  cursor: pointer;
+  padding: 24px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+.circuit-2::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid #9DA7B1;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-2:hover::before {
+  border: 2px solid #9DA7B1;
+}
+
+<div
+  aria-label="Choose your favourite fruit"
+  role="group"
+>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_43"
+      name="selector-group"
+      type="radio"
+      value="apple"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_43"
+    >
+      Apple
+    </label>
+  </div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_44"
+      name="selector-group"
+      type="radio"
+      value="banana"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_44"
+    >
+      Banana
+    </label>
+  </div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_45"
+      name="selector-group"
+      type="radio"
+      value="mango"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_45"
+    >
+      Mango
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
+.circuit-4 {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label::before {
+  border-width: 2px;
+}
+
+.circuit-0:checked + label {
+  background-color: #EDF4FC;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-0:checked + label::before {
+  border: 2px solid #3388FF;
+}
+
+.circuit-2 {
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  display: block;
+  cursor: pointer;
+  padding: 24px;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+.circuit-2::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid #9DA7B1;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-2:hover::before {
+  border: 2px solid #9DA7B1;
+}
+
+<div
+  aria-label="Choose your favourite fruit"
+  role="group"
+>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_46"
+      name="selector-group"
+      type="checkbox"
+      value="apple"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_46"
+    >
+      Apple
+    </label>
+  </div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_47"
+      name="selector-group"
+      type="checkbox"
+      value="banana"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_47"
+    >
+      Banana
+    </label>
+  </div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_48"
+      name="selector-group"
+      type="checkbox"
+      value="mango"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_48"
+    >
+      Mango
+    </label>
+  </div>
 </div>
 `;
 
@@ -18779,7 +19084,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="41"
+  for="50"
 >
   Label
   <div
@@ -18788,7 +19093,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="41"
+      id="50"
       placeholder="Write your text here..."
     />
     <div
@@ -18870,7 +19175,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4 circuit-5"
-  for="45"
+  for="54"
 >
   Label
   <div
@@ -18881,7 +19186,7 @@ label + .circuit-2 {
       aria-invalid="false"
       class="circuit-0 circuit-1"
       disabled=""
-      id="45"
+      id="54"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -19040,7 +19345,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="42"
+  for="51"
 >
   Label
   <div
@@ -19049,7 +19354,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="true"
       class="circuit-0 circuit-1"
-      id="42"
+      id="51"
       placeholder="Write your text here..."
     />
     <div
@@ -19156,7 +19461,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="44"
+  for="53"
 >
   Label
   <div
@@ -19165,7 +19470,7 @@ label + .circuit-4 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="44"
+      id="53"
       placeholder="Write your text here..."
     />
     <div
@@ -19325,7 +19630,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="43"
+  for="52"
 >
   Label
   <div
@@ -19334,7 +19639,7 @@ label + .circuit-7 {
     <textarea
       aria-invalid="false"
       class="circuit-0 circuit-1"
-      id="43"
+      id="52"
       placeholder="Write your text here..."
     />
     <div
@@ -19449,9 +19754,9 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_47"
+    aria-labelledby="toggle-label_56"
     class="circuit-4 circuit-5"
-    id="toggle-switch_46"
+    id="toggle-switch_55"
     role="switch"
     type="button"
   >
@@ -19466,8 +19771,8 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   </button>
   <label
     class="circuit-9 circuit-10"
-    for="toggle-switch_46"
-    id="toggle-label_47"
+    for="toggle-switch_55"
+    id="toggle-label_56"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"
@@ -19587,9 +19892,9 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_49"
+    aria-labelledby="toggle-label_58"
     class="circuit-4 circuit-5"
-    id="toggle-switch_48"
+    id="toggle-switch_57"
     role="switch"
     type="button"
   >
@@ -19604,8 +19909,8 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-12 circuit-13"
-    for="toggle-switch_48"
-    id="toggle-label_49"
+    for="toggle-switch_57"
+    id="toggle-label_58"
   >
     <p
       class=" circuit-6 circuit-7 circuit-8"

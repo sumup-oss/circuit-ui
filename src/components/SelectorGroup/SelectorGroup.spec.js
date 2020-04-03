@@ -15,9 +15,9 @@
 
 import React from 'react';
 
-import RadioButtonGroup from '.';
+import SelectorGroup from '.';
 
-describe('RadioButtonGroup', () => {
+describe('SelectorGroup', () => {
   const options = [
     {
       children: 'Option 1',
@@ -37,7 +37,7 @@ describe('RadioButtonGroup', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<RadioButtonGroup {...{ options }} />);
+    const actual = create(<SelectorGroup {...{ options }} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -47,11 +47,21 @@ describe('RadioButtonGroup', () => {
   it('should check the selected option', () => {
     const value = 'second';
     const { getByLabelText } = render(
-      <RadioButtonGroup options={options} value={value} />
+      <SelectorGroup options={options} value={value} />
     );
     expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
     expect(getByLabelText('Option 2')).toHaveAttribute('checked');
     expect(getByLabelText('Option 3')).not.toHaveAttribute('checked');
+  });
+
+  it('should check the selected options', () => {
+    const value = ['second', 'third'];
+    const { getByLabelText } = render(
+      <SelectorGroup options={options} value={value} multiple />
+    );
+    expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
+    expect(getByLabelText('Option 2')).toHaveAttribute('checked');
+    expect(getByLabelText('Option 3')).toHaveAttribute('checked');
   });
 
   /**
@@ -60,7 +70,7 @@ describe('RadioButtonGroup', () => {
   it('should meet accessibility guidelines', async () => {
     const value = 'second';
     const wrapper = renderToHtml(
-      <RadioButtonGroup
+      <SelectorGroup
         options={options}
         value={value}
         label="Choose your favourite option"

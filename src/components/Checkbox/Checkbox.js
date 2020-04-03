@@ -151,7 +151,9 @@ const CheckboxTooltip = styled(Tooltip)`
  */
 const Checkbox = ({
   children,
+  value,
   id: customId,
+  name,
   disabled,
   validationHint,
   className,
@@ -160,7 +162,14 @@ const Checkbox = ({
   const id = customId || uniqueId('checkbox_');
   return (
     <CheckboxWrapper className={className}>
-      <CheckboxInput {...props} id={id} type="checkbox" disabled={disabled} />
+      <CheckboxInput
+        {...props}
+        id={id}
+        name={name}
+        value={value}
+        type="checkbox"
+        disabled={disabled}
+      />
       <CheckboxLabel {...props} htmlFor={id} disabled={disabled}>
         {children}
         <CheckedIcon aria-hidden="true" />
@@ -182,19 +191,19 @@ Checkbox.propTypes = {
   /**
    * Value string for input.
    */
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   /**
    * Child nodes to be rendered as the label.
    */
-  children: childrenPropType,
-  /**
-   * A unique ID used to link the input and label.
-   */
-  id: PropTypes.string,
+  children: childrenPropType.isRequired,
   /**
    * The name of the checkbox.
    */
   name: PropTypes.string.isRequired,
+  /**
+   * A unique ID used to link the input and label.
+   */
+  id: PropTypes.string,
   /**
    * Triggers checked styles on the component. This is also forwarded as
    * attribute to the <input> element.

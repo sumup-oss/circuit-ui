@@ -15,41 +15,42 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { includes } from 'lodash/fp';
 
 import { uniqueId } from '../../util/id';
 
-import RadioButton from '../RadioButton';
+import Selector from '../Selector';
 
 /**
- * A group of RadioButtons.
+ * A group of Selectors.
  */
-const RadioButtonGroup = ({
+const SelectorGroup = ({
   options,
   onChange,
   value: activeValue,
   name: customName,
   label,
+  multiple,
   ...props
 }) => {
-  const name = customName || uniqueId('radio-button-group_');
+  const name = customName || uniqueId('selector-group_');
   return (
     <div role="group" aria-label={label} {...props}>
       {options &&
-        options.map(({ children, value, className, ...rest }) => (
-          <div key={value} className={className}>
-            <RadioButton
-              {...{ ...rest, value, name, onChange }}
-              checked={value === activeValue}
-            >
-              {children}
-            </RadioButton>
-          </div>
+        options.map(({ children, value, ...rest }) => (
+          <Selector
+            key={value}
+            {...{ ...rest, value, name, onChange, multiple }}
+            checked={includes(value, activeValue)}
+          >
+            {children}
+          </Selector>
         ))}
     </div>
   );
 };
 
-RadioButtonGroup.propTypes = {
+SelectorGroup.propTypes = {
   /**
    * A collection of available options. Each option must have at least
    * a value and children.
@@ -58,18 +59,21 @@ RadioButtonGroup.propTypes = {
     PropTypes.shape({
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
         .isRequired,
-      children: PropTypes.string.isRequired,
+      children: PropTypes.any.isRequired,
       disabled: PropTypes.bool
     })
   ).isRequired,
   /**
-   * Controles/Toggles the checked state. Passed on to the RadioButtons.
+   * Controles/Toggles the checked state. Passed on to the Selectors.
    */
   onChange: PropTypes.func.isRequired,
   /**
-   * The value of the currently checked RadioButton.
+   * The value of the currently checked Selector.
    */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
+  ]).isRequired,
   /**
    * A unique name for the radio group.
    */
@@ -77,14 +81,19 @@ RadioButtonGroup.propTypes = {
   /**
    * A visually hidden description of the selector group for screen readers.
    */
-  label: PropTypes.string
+  label: PropTypes.string,
+  /**
+   * Whether the user can select multiple options.
+   */
+  multiple: PropTypes.bool
 };
 
-RadioButtonGroup.defaultProps = {
-  name: null
+SelectorGroup.defaultProps = {
+  name: null,
+  multiple: false
 };
 
 /**
  * @component
  */
-export default RadioButtonGroup;
+export default SelectorGroup;
