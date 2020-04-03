@@ -11385,6 +11385,21 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
 `;
 
 exports[`Storyshots Components/Tag Removable 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-4 {
   padding: 0;
   margin: 0;
@@ -11408,21 +11423,6 @@ exports[`Storyshots Components/Tag Removable 1`] = `
 .circuit-4 > svg {
   height: 100%;
   width: 100%;
-}
-
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 .circuit-6 {
@@ -16159,6 +16159,7 @@ label + .circuit-8 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -16388,7 +16389,7 @@ label + .circuit-3 {
         aria-invalid="false"
         autocomplete="off"
         class="circuit-1 circuit-2"
-        id="downshift-3-input"
+        id="downshift-4-input"
         placeholder="Search by email"
         role="combobox"
         type="text"
@@ -16481,6 +16482,21 @@ label + .circuit-3 {
   transition: color 200ms ease-in-out;
 }
 
+.circuit-7 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-16 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -16536,21 +16552,6 @@ label + .circuit-3 {
   width: 100%;
 }
 
-.circuit-7 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <div
   style="height: 20vh;"
 >
@@ -16571,7 +16572,7 @@ label + .circuit-3 {
         aria-invalid="false"
         autocomplete="off"
         class="circuit-1 circuit-2"
-        id="downshift-4-input"
+        id="downshift-5-input"
         placeholder="Search by email"
         role="combobox"
         type="text"
