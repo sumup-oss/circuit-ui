@@ -28,6 +28,6 @@
       }
     ]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "scripts/**/*"],
   "typeRoots": ["./node_modules/@types", "./src/types/"]
 }

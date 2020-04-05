@@ -103,7 +103,7 @@ const divide = (a, b) => a / b;
 
 const transformUnit = (values, transform, allowMultipleUnits = true) => {
   const getUnit = (value, otherUnit) => {
-    const [unit] = String(value).match(/[a-zA-Z]+/) || [];
+    const [unit] = /[a-zA-Z]+/.exec(value) || [];
 
     const multipleValuesWithUnit = !allowMultipleUnits && unit && otherUnit;
     if (multipleValuesWithUnit) {

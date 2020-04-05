@@ -13,9 +13,11 @@
  * limitations under the License.
  */
 
+import { includes } from 'lodash/fp';
+
 function charToRegex(value) {
   const escapeChars = "\\.+*?[^]$(){}=!<>|:-'";
-  if (escapeChars.indexOf(value) >= 0) {
+  if (includes(value, escapeChars)) {
     return `\\${value}`;
   }
   return value;
@@ -46,8 +48,8 @@ export function currencyToRegex(
     '|'
   );
 
-  const integerRegex = `(\\d{0,${thousandGroupNumbers -
-    1}}(?:(?:${thousandSeparatorsRegex})?\\d{${thousandGroupNumbers}})*)`;
+  // eslint-disable-next-line prettier/prettier
+  const integerRegex = `(\\d{0,${thousandGroupNumbers - 1}}(?:(?:${thousandSeparatorsRegex})?\\d{${thousandGroupNumbers}})*)`;
   const decimalRegex =
     decimalNumbers > 0
       ? `(?:(?:${decimalSeparatorsRegex})(\\d{0,${decimalNumbers}}))?`
