@@ -21,6 +21,7 @@
         "react-docgen"
       ],
       "presets": [
+        "@babel/preset-typescript",
         [
           "@babel/preset-env",
           {
