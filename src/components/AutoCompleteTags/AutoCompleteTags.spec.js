@@ -35,17 +35,17 @@ describe('AutoCompleteTags', () => {
   /**
    * Style tests.
    */
-  it.skip('should render with default styles', () => {
+  it('should render with default styles', () => {
     const actual = create(<AutoCompleteTags availableTags={[]} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should display selected tags ', () => {
-    const { getByTestId, findByText } = render(
+    const { getByTestId, getByText } = render(
       <AutoCompleteTags {...defaultProps} />
     );
-    expect(getByTestId('autocomplete-tags-selected')).toBeVisible();
-    expect(findByText('test1@sumup.com')).toBeVisible();
+    expect(getByTestId('autocomplete-tags-selected')).not.toBeNull();
+    expect(getByText('test1@sumup.com')).toBeVisible();
   });
 
   it('should handle changes in selected tags ', () => {
