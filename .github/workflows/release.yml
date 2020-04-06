@@ -28,9 +28,9 @@ jobs:
       - name: Check licenses
         run: yarn check:licenses
       - name: Lint
-        run: yarn test:lint
+        run: yarn lint:ci
       - name: Test
-        run: yarn test:unit:ci
+        run: yarn test:ci
       - name: Codecov
         uses: codecov/codecov-action@v1.0.3
         with:

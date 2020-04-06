@@ -7,6 +7,7 @@ package-lock.json
 node_modules
 jest-test-results.json
 __coverage__
+__reports__
 dist
 public
 lib

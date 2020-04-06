@@ -354,36 +354,4 @@ describe('useStep', () => {
 
     unmount();
   });
-
-  it('should support onPlay action handler props', () => {
-    const onPlay = jest.fn();
-    const onPause = jest.fn();
-    const onNext = jest.fn();
-    const onPrevious = jest.fn();
-    const { result, unmount } = renderHook(() =>
-      useStep({ onPlay, onPause, onNext, onPrevious })
-    );
-
-    act(() => {
-      result.current.actions.play();
-    });
-    expect(onPlay).toHaveBeenCalledTimes(1);
-
-    act(() => {
-      result.current.actions.pause();
-    });
-    expect(onPause).toHaveBeenCalledTimes(1);
-
-    act(() => {
-      result.current.actions.next();
-    });
-    expect(onNext).toHaveBeenCalledTimes(1);
-
-    act(() => {
-      result.current.actions.previous();
-    });
-    expect(onPrevious).toHaveBeenCalledTimes(1);
-
-    unmount();
-  });
 });
