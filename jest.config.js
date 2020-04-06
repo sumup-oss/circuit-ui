@@ -14,15 +14,16 @@
  */
 
 module.exports = {
+  preset: 'ts-jest',
   testURL: 'http://localhost',
   coverageDirectory: './__coverage__',
   rootDir: '.',
   roots: ['src', 'scripts'],
-  moduleFileExtensions: ['js', 'jsx', 'json'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   collectCoverageFrom: [
-    'src/@(components|util|styles)/**/*.{js,jsx}',
-    '!src/@(components|util|styles)/**/index.{js,jsx}',
-    '!src/@(components|util|styles)/**/*.story.{js,jsx}',
+    'src/@(components|util|styles)/**/*.{ts,tsx,js,jsx}',
+    '!src/@(components|util|styles)/**/index.{ts,tsx,js,jsx}',
+    '!src/@(components|util|styles)/**/*.story.{jts,tsx,s,jsx}',
     '!src/@(components|util|styles)/**/*.docs.mdx',
     '!**/node_modules/**'
   ],
