@@ -44,8 +44,8 @@ describe('AutoCompleteTags', () => {
     const { getByTestId, findByText } = render(
       <AutoCompleteTags {...defaultProps} />
     );
-    expect(getByTestId('autocomplete-tags-selected')).not.toBeNull();
-    expect(findByText('test1@sumup.com')).not.toBeNull();
+    expect(getByTestId('autocomplete-tags-selected')).toBeVisible();
+    expect(findByText('test1@sumup.com')).toBeVisible();
   });
 
   it('should handle changes in selected tags ', () => {
