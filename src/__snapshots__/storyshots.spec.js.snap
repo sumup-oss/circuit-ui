@@ -11400,16 +11400,6 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   width: 1px;
 }
 
-.circuit-6 {
-  border-radius: 4px;
-  font-size: 16px;
-  line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
-  padding: 4px 12px;
-  cursor: default;
-  display: inline-block;
-}
-
 .circuit-4 {
   padding: 0;
   margin: 0;
@@ -11433,6 +11423,16 @@ exports[`Storyshots Components/Tag Removable 1`] = `
 .circuit-4 > svg {
   height: 100%;
   width: 100%;
+}
+
+.circuit-6 {
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  padding: 4px 12px;
+  cursor: default;
+  display: inline-block;
 }
 
 <span
@@ -12687,6 +12687,7 @@ label + .circuit-14 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -12923,6 +12924,7 @@ HTMLCollection [
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -13216,6 +13218,7 @@ label + .circuit-14 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -13593,6 +13596,7 @@ HTMLCollection [
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -13697,6 +13701,7 @@ HTMLCollection [
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -13803,6 +13808,7 @@ HTMLCollection [
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -13911,6 +13917,7 @@ HTMLCollection [
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -14083,6 +14090,7 @@ HTMLCollection [
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -14362,6 +14370,7 @@ exports[`Storyshots Forms/Input Base 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -14461,6 +14470,7 @@ exports[`Storyshots Forms/Input Disabled 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -14544,6 +14554,7 @@ exports[`Storyshots Forms/Input Inline 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -14720,6 +14731,7 @@ label + .circuit-7 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -14855,6 +14867,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -14988,6 +15001,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   background-color: #FAFBFC;
   border-style: dashed;
   box-shadow: none;
@@ -15090,6 +15104,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   text-align: right;
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -15166,6 +15181,7 @@ HTMLCollection [
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -15322,6 +15338,7 @@ label + .circuit-7 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -15504,6 +15521,7 @@ label + .circuit-7 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -15639,6 +15657,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -15780,6 +15799,7 @@ label + .circuit-3 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -15899,6 +15919,7 @@ label + .circuit-3 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -16018,6 +16039,7 @@ label + .circuit-3 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -16137,6 +16159,7 @@ label + .circuit-8 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -16311,6 +16334,7 @@ label + .circuit-3 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -16346,27 +16370,241 @@ label + .circuit-3 {
 }
 
 <div
-  class="circuit-5 circuit-6"
+  style="height: 20vh;"
 >
   <div
-    class="circuit-3 circuit-4"
+    class="circuit-5 circuit-6"
   >
     <div
-      class="circuit-0"
+      class="circuit-3 circuit-4"
     >
-      search.svg
+      <div
+        class="circuit-0"
+      >
+        search.svg
+      </div>
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-invalid="false"
+        autocomplete="off"
+        class="circuit-1 circuit-2"
+        id="downshift-4-input"
+        placeholder="Search by email"
+        role="combobox"
+        type="text"
+        value=""
+      />
     </div>
-    <input
-      aria-autocomplete="list"
-      aria-expanded="false"
-      aria-invalid="false"
-      autocomplete="off"
-      class="circuit-1 circuit-2"
-      id="downshift-4-input"
-      role="combobox"
-      type="text"
-      value=""
-    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Forms/Input/AutoCompleteTags Selected 1`] = `
+.circuit-5 {
+  position: relative;
+  min-width: 150px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
+  pointer-events: none;
+}
+
+.circuit-1 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+}
+
+.circuit-1:focus,
+.circuit-1:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-7 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  margin-top: 12px;
+}
+
+.circuit-14 {
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  padding: 4px 12px;
+  cursor: default;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.circuit-14:first-of-type: {
+  margin-top: 0;
+}
+
+.circuit-11 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  overflow: initial;
+  height: 16px;
+  width: 16px;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+.circuit-11:focus,
+.circuit-11:active {
+  outline: none;
+}
+
+.circuit-11 > svg {
+  height: 100%;
+  width: 100%;
+}
+
+<div
+  style="height: 20vh;"
+>
+  <div
+    class="circuit-5 circuit-6"
+  >
+    <div
+      class="circuit-3 circuit-4"
+    >
+      <div
+        class="circuit-0"
+      >
+        search.svg
+      </div>
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-invalid="false"
+        autocomplete="off"
+        class="circuit-1 circuit-2"
+        id="downshift-5-input"
+        placeholder="Search by email"
+        role="combobox"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="circuit-16 circuit-17"
+    data-testid="autocomplete-tags-selected"
+  >
+    <span
+      class="circuit-13 circuit-14 circuit-15"
+    >
+      test4@sumup.com
+      <button
+        class="circuit-9 circuit-10 circuit-11 circuit-12"
+        data-testid="tag-close"
+        type="button"
+      >
+        <div
+          role="presentation"
+        >
+          close-icon.svg
+        </div>
+        <span
+          class="circuit-7 circuit-8"
+        >
+          remove
+        </span>
+      </button>
+    </span>
   </div>
 </div>
 `;
@@ -16403,6 +16641,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -16524,6 +16763,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -16615,6 +16855,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -16724,6 +16965,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -16841,6 +17083,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -16930,6 +17173,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -17024,6 +17268,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -17131,6 +17376,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
@@ -17200,6 +17446,7 @@ exports[`Storyshots Forms/Input/MaskedInput Base 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -17286,6 +17533,7 @@ exports[`Storyshots Forms/Input/RestrictedInput Base 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -17387,6 +17635,7 @@ exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -17488,6 +17737,7 @@ exports[`Storyshots Forms/Input/SearchInput Clearable 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -17589,6 +17839,7 @@ exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -18679,6 +18930,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -18770,6 +19022,7 @@ label + .circuit-2 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -18920,6 +19173,7 @@ label + .circuit-7 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -19053,6 +19307,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   background-color: #FAFBFC;
   border-style: dashed;
   box-shadow: none;
@@ -19205,6 +19460,7 @@ label + .circuit-7 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;

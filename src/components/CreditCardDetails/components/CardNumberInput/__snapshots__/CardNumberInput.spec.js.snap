@@ -80,6 +80,7 @@ label + .circuit-14 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -330,6 +331,7 @@ label + .circuit-14 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -546,6 +548,7 @@ HTMLCollection [
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
