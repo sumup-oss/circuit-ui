@@ -37,37 +37,60 @@ export interface Theme {
     black: string;
     // Neutrals
     n100: string;
+    n200: string;
     n300: string;
     n500: string;
     n700: string;
+    n800: string;
     n900: string;
     // Blues
     b100: string;
+    b200: string;
     b300: string;
+    b400: string;
     b500: string;
     b700: string;
     b900: string;
     // Greens
     g100: string;
+    g200: string;
     g300: string;
     g500: string;
     g700: string;
     g900: string;
+    // Violets
+    v100: string;
+    v200: string;
+    v300: string;
+    v500: string;
+    v700: string;
+    v900: string;
+    // Oranges
+    o100: string;
+    o200: string;
+    o300: string;
+    o500: string;
+    o700: string;
+    o900: string;
     // Yellows
     y100: string;
+    y200: string;
     y300: string;
     y500: string;
     y700: string;
     y900: string;
     // Reds
     r100: string;
+    r200: string;
     r300: string;
     r500: string;
     r700: string;
     r900: string;
     // Primary
     p100: string;
+    p200: string;
     p300: string;
+    p400: string;
     p500: string;
     p700: string;
     p900: string;
