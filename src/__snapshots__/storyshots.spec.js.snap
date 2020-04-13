@@ -20350,11 +20350,8 @@ exports[`Storyshots Layout/Grid/Grid Responsive Columns 1`] = `
 
 .circuit-8::before,
 .circuit-8::after {
-  content: '.';
-  display: block;
-  height: 0;
-  width: 0;
-  overflow: hidden;
+  content: ' ';
+  display: table;
 }
 
 .circuit-8::after {
@@ -20608,11 +20605,8 @@ exports[`Storyshots Layout/Grid/Grid Responsive Skipping 1`] = `
 
 .circuit-6::before,
 .circuit-6::after {
-  content: '.';
-  display: block;
-  height: 0;
-  width: 0;
-  overflow: hidden;
+  content: ' ';
+  display: table;
 }
 
 .circuit-6::after {
@@ -20978,11 +20972,8 @@ exports[`Storyshots Layout/Grid/Grid Skipping Columns 1`] = `
 
 .circuit-6::before,
 .circuit-6::after {
-  content: '.';
-  display: block;
-  height: 0;
-  width: 0;
-  overflow: hidden;
+  content: ' ';
+  display: table;
 }
 
 .circuit-6::after {
@@ -21327,11 +21318,8 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
 
 .circuit-12::before,
 .circuit-12::after {
-  content: '.';
-  display: block;
-  height: 0;
-  width: 0;
-  overflow: hidden;
+  content: ' ';
+  display: table;
 }
 
 .circuit-12::after {
@@ -21785,11 +21773,8 @@ exports[`Storyshots Layout/Grid/Row Base 1`] = `
 
 .circuit-6::before,
 .circuit-6::after {
-  content: '.';
-  display: block;
-  height: 0;
-  width: 0;
-  overflow: hidden;
+  content: ' ';
+  display: table;
 }
 
 .circuit-6::after {
@@ -21946,11 +21931,8 @@ exports[`Storyshots Layout/InlineElements Three Inline Elements 1`] = `
 
   .circuit-6::before,
   .circuit-6::after {
-    content: '.';
-    display: block;
-    height: 0;
-    width: 0;
-    overflow: hidden;
+    content: ' ';
+    display: table;
   }
 
   .circuit-6::after {
@@ -22056,11 +22038,8 @@ exports[`Storyshots Layout/InlineElements Three Inline Elements Inline On Mobile
 
   .circuit-6::before,
   .circuit-6::after {
-    content: '.';
-    display: block;
-    height: 0;
-    width: 0;
-    overflow: hidden;
+    content: ' ';
+    display: table;
   }
 
   .circuit-6::after {
@@ -22110,11 +22089,8 @@ exports[`Storyshots Layout/InlineElements Three Inline Elements Inline On Mobile
 
   .circuit-6::before,
   .circuit-6::after {
-    content: '.';
-    display: block;
-    height: 0;
-    width: 0;
-    overflow: hidden;
+    content: ' ';
+    display: table;
   }
 
   .circuit-6::after {
@@ -22193,11 +22169,8 @@ exports[`Storyshots Layout/InlineElements Two Inline Elements 1`] = `
 
   .circuit-4::before,
   .circuit-4::after {
-    content: '.';
-    display: block;
-    height: 0;
-    width: 0;
-    overflow: hidden;
+    content: ' ';
+    display: table;
   }
 
   .circuit-4::after {
@@ -22312,11 +22285,8 @@ exports[`Storyshots Layout/InlineElements Two Inline Elements With Ratios 1`] = 
 
   .circuit-4::before,
   .circuit-4::after {
-    content: '.';
-    display: block;
-    height: 0;
-    width: 0;
-    overflow: hidden;
+    content: ' ';
+    display: table;
   }
 
   .circuit-4::after {
@@ -22439,11 +22409,8 @@ exports[`Storyshots Layout/InlineElements Two Inline Elements With Ratios Inline
 
   .circuit-4::before,
   .circuit-4::after {
-    content: '.';
-    display: block;
-    height: 0;
-    width: 0;
-    overflow: hidden;
+    content: ' ';
+    display: table;
   }
 
   .circuit-4::after {
@@ -22509,11 +22476,8 @@ exports[`Storyshots Layout/InlineElements Two Inline Elements With Ratios Inline
 
   .circuit-4::before,
   .circuit-4::after {
-    content: '.';
-    display: block;
-    height: 0;
-    width: 0;
-    overflow: hidden;
+    content: ' ';
+    display: table;
   }
 
   .circuit-4::after {
