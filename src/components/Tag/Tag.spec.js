@@ -106,9 +106,40 @@ describe('Tag', () => {
     });
   });
 
-  describe('when has icon', () => {
+  describe('when it has s left icon', () => {
     const props = {
       icon: <DummyIcon data-testid="tag-icon" />
+    };
+
+    it('should render with icon', () => {
+      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
+      expect(getByTestId('tag-icon')).not.toBeNull();
+    });
+
+    it('gives priority to close button when a removable', () => {
+      const onRemove = jest.fn();
+
+      const { queryByTestId } = render(
+        <Tag {...{ onRemove, props }}>SomeTest</Tag>
+      );
+
+      expect(queryByTestId('tag-icon')).toBeNull();
+      expect(queryByTestId('tag-close')).not.toBeNull();
+    });
+
+    it('should warn when both the icon and onRemove prop are passed', () => {
+      jest.spyOn(console, 'error');
+      const onRemove = jest.fn();
+
+      render(<Tag {...{ onRemove, ...props }}>SomeTest</Tag>);
+
+      expect(console.error).toHaveBeenCalled();
+    });
+  });
+
+  describe('when it has a right icon', () => {
+    const props = {
+      rightIcon: <DummyIcon data-testid="tag-icon" />
     };
 
     it('should render with icon', () => {

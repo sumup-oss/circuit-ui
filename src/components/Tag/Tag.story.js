@@ -55,7 +55,9 @@ export const base = () => (
 
 export const selected = () => <Tag selected>Transactions</Tag>;
 
-export const withIcon = () => <Tag icon={<Icon />}>Transactions</Tag>;
+export const withLeftIcon = () => <Tag icon={<Icon />}>Transactions</Tag>;
+
+export const withRightIcon = () => <Tag rightIcon={<Icon />}>Transactions</Tag>;
 
 export const removable = () => (
   <Tag onRemove={action('Tag removed')} labelRemoveButton="Remove">

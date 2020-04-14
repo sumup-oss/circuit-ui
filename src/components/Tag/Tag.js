@@ -102,6 +102,14 @@ const iconStyles = ({ theme }) => css`
   }
 `;
 
+const rightIconStyles = ({ right, theme }) =>
+  right &&
+  css`
+    label: tag__icon--right;
+    margin-right: 0;
+    margin-left: ${theme.spacings.bit};
+  `;
+
 const iconSelectedStyles = ({ selected, theme }) =>
   selected &&
   css`
@@ -114,6 +122,7 @@ const iconSelectedStyles = ({ selected, theme }) =>
 
 const IconContainer = styled('span')`
   ${iconStyles};
+  ${rightIconStyles}
   ${iconSelectedStyles};
 `;
 const TagElement = styled('span')`
@@ -129,6 +138,7 @@ const TagElement = styled('span')`
 const Tag = ({
   children,
   icon,
+  rightIcon,
   onRemove,
   labelRemoveButton,
   selected,
@@ -139,6 +149,11 @@ const Tag = ({
       <IconContainer {...{ selected }}>{icon}</IconContainer>
     )}
     {children}
+    {!onRemove && rightIcon && (
+      <IconContainer right {...{ selected }}>
+        {rightIcon}
+      </IconContainer>
+    )}
     {onRemove && (
       <CloseButton
         onClick={onRemove}
@@ -159,6 +174,10 @@ Tag.propTypes = {
    * An optional  tag's icon.
    */
   icon: eitherOrPropType('icon', 'onRemove', PropTypes.element),
+  /**
+   * An optional  tag's right icon.
+   */
+  rightIcon: eitherOrPropType('icon', 'onRemove', PropTypes.element),
   /**
    * Renders a close button inside the tag and calls the provided function
    * when the button is clicked.
