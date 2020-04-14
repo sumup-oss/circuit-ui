@@ -106,7 +106,7 @@ describe('Tag', () => {
     });
   });
 
-  describe('when it has s left icon', () => {
+  describe('when it has a left icon', () => {
     const props = {
       icon: <DummyIcon data-testid="tag-icon" />
     };

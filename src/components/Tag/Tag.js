@@ -177,7 +177,7 @@ Tag.propTypes = {
   /**
    * An optional  tag's right icon.
    */
-  rightIcon: eitherOrPropType('icon', 'onRemove', PropTypes.element),
+  rightIcon: eitherOrPropType('rightIcon', 'onRemove', PropTypes.element),
   /**
    * Renders a close button inside the tag and calls the provided function
    * when the button is clicked.
