@@ -13997,7 +13997,7 @@ label + .circuit-4 {
 
 exports[`Storyshots Forms/CreditCardDetails/SecurityCodeInput With Modal Toggle 1`] = `
 HTMLCollection [
-  .circuit-2 {
+  .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -14012,7 +14012,7 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-6 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -14022,7 +14022,7 @@ HTMLCollection [
   display: flex;
 }
 
-.circuit-5 {
+.circuit-3 {
   padding: 0;
   margin: 0;
   display: inline-block;
@@ -14039,39 +14039,32 @@ HTMLCollection [
   width: 14px;
 }
 
-.circuit-5:focus,
-.circuit-5:active {
+.circuit-3:focus,
+.circuit-3:active {
   outline: none;
 }
 
-.circuit-5 > svg {
+.circuit-3 > svg {
   height: 100%;
   width: 100%;
 }
 
-.circuit-0 {
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  fill: #9DA7B1;
-}
-
 <label
-    class="circuit-7 circuit-8 circuit-9"
+    class="circuit-5 circuit-6 circuit-7"
     for="cui-cc-security-code"
   >
     Security code
     <button
-      class="circuit-4 circuit-5 circuit-6"
+      class="circuit-2 circuit-3 circuit-4"
       type="button"
     >
       <div
-        class="circuit-0 circuit-1"
         role="presentation"
       >
         info.svg
       </div>
       <span
-        class="circuit-2 circuit-3"
+        class="circuit-0 circuit-1"
       >
         Info
       </span>
@@ -20197,15 +20190,7 @@ exports[`Storyshots Icons/CardSchemes Base 1`] = `
 `;
 
 exports[`Storyshots Icons/InfoIcon Base 1`] = `
-.circuit-0 {
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  fill: #9DA7B1;
-}
-
-<div
-  class="circuit-0 circuit-1"
->
+<div>
   info.svg
 </div>
 `;
