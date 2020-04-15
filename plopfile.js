@@ -13,4 +13,4 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/plop')({ language: 'JavaScript' });
+module.exports = require('@sumup/foundry/plop')({ language: 'TypeScript' });

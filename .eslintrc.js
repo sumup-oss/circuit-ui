@@ -1,6 +1,6 @@
 module.exports = require('@sumup/foundry/eslint')(
   {
-    language: 'JavaScript',
+    language: 'TypeScript',
     environments: ['Browser'],
     frameworks: ['React', 'Emotion', 'Jest'],
     openSource: true
@@ -8,6 +8,9 @@ module.exports = require('@sumup/foundry/eslint')(
   {
     rules: {
       'arrow-parens': 'off'
+    },
+    parserOptions: {
+      project: ['./tsconfig.eslint.json']
     }
   }
 );

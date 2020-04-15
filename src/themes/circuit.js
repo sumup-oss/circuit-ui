@@ -293,7 +293,3 @@ export const zIndex = {
   sidebar: 800,
   modal: 1000
 };
-
-export const palette = {
-  divider: 'rgba(0, 0, 0, 0.12)'
-};

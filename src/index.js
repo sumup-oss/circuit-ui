@@ -147,3 +147,6 @@ const theme = {
 export { theme };
 
 export { styleHelpers, constants as styleConstants } from './styles';
+
+// Types
+export { Theme } from './types/theme';
