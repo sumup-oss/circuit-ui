@@ -11,14 +11,6 @@ module.exports = require('@sumup/foundry/eslint')(
     },
     parserOptions: {
       project: ['./tsconfig.eslint.json']
-    },
-    overrides: [
-      {
-        files: ['**/*.js', '**/*.jsx'],
-        rules: {
-          '@typescript-eslint/explicit-function-return-type': 'off'
-        }
-      }
-    ]
+    }
   }
 );

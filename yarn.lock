@@ -2352,10 +2352,10 @@
     telejson "^3.2.0"
     util-deprecate "^1.0.2"
 
-"@sumup/foundry@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sumup/foundry/-/foundry-2.0.0.tgz#3d61bc0e9a6a5f369d6c811b05ad954fc726c975"
-  integrity sha512-Khe3nAZfIKR8xCH+8GmE2m9q/rdKVIePdGKIne/3h0qQlImUyW2C6GcbRWLxauVdytHRYsr0NXql1vyqKNnDOg==
+"@sumup/foundry@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@sumup/foundry/-/foundry-2.1.0.tgz#b4f961cfef3b2b42aeb68c0cc3162aa52254832c"
+  integrity sha512-60WsfBjTlcd3XPdlPDfhE1uHTulha+5RSj8v003CUkC1XvdGBKHOteyT+j8PLdqJs05oy6OFmMCb2CC5EVqQbg==
   dependencies:
     "@semantic-release/commit-analyzer" "^7.0.0"
     "@semantic-release/github" "^6.0.0"

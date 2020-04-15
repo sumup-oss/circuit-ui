@@ -7,4 +7,8 @@ static/
 public/
 coverage/
 __coverage__/
-/*.js
+__reports__/
+/*.config.js
+/*rc.js
+/plopfile.js
+/jest.*.js
