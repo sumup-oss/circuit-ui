@@ -1758,13 +1758,20 @@ exports[`Storyshots Components/Button/LoadingButton Success 1`] = `
 
 exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
 .circuit-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -1776,23 +1783,30 @@ exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
 <div
   class="circuit-2 circuit-3"
 >
-  <span
+  <div
     class="circuit-0 circuit-1"
   >
     Dates
-  </span>
+  </div>
 </div>
 `;
 
 exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
 .circuit-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -1804,11 +1818,11 @@ exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
 <div
   class="circuit-2 circuit-3"
 >
-  <span
+  <div
     class="circuit-0 circuit-1"
   >
     Dates
-  </span>
+  </div>
 </div>
 `;
 
@@ -5190,6 +5204,29 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-5 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  overflow: initial;
+  height: 16px;
+  width: 16px;
+}
+
+.circuit-5:focus,
+.circuit-5:active {
+  outline: none;
+}
+
+.circuit-5 > svg {
+  height: 100%;
+  width: 100%;
+}
+
 .circuit-11 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -5257,29 +5294,6 @@ HTMLCollection [
     font-size: 16px;
     line-height: 24px;
   }
-}
-
-.circuit-5 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
-  height: 16px;
-  width: 16px;
-}
-
-.circuit-5:focus,
-.circuit-5:active {
-  outline: none;
-}
-
-.circuit-5 > svg {
-  height: 100%;
-  width: 100%;
 }
 
 <div
@@ -7627,6 +7641,29 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   width: 1px;
 }
 
+.circuit-5 {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  fill: #0F131A;
+  overflow: initial;
+  height: 16px;
+  width: 16px;
+}
+
+.circuit-5:focus,
+.circuit-5:active {
+  outline: none;
+}
+
+.circuit-5 > svg {
+  height: 100%;
+  width: 100%;
+}
+
 .circuit-7 {
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -7656,29 +7693,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
     font-size: 17px;
     line-height: 24px;
   }
-}
-
-.circuit-5 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
-  height: 16px;
-  width: 16px;
-}
-
-.circuit-5:focus,
-.circuit-5:active {
-  outline: none;
-}
-
-.circuit-5 > svg {
-  height: 100%;
-  width: 100%;
 }
 
 .circuit-9 {
@@ -11344,31 +11358,45 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 
 exports[`Storyshots Components/Tag Base 1`] = `
 .circuit-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  display: inline-block;
 }
 
-<span
+<div
   class="circuit-0 circuit-1"
 >
   Transactions
-</span>
+</div>
 `;
 
 exports[`Storyshots Components/Tag Clickable 1`] = `
 .circuit-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -11377,11 +11405,11 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
   box-shadow: 0px 0px 0px 1px #D8DDE1;
 }
 
-<span
+<div
   class="circuit-0 circuit-1"
 >
   Transactions
-</span>
+</div>
 `;
 
 exports[`Storyshots Components/Tag Removable 1`] = `
@@ -11400,7 +11428,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   width: 1px;
 }
 
-.circuit-4 {
+.circuit-3 {
   padding: 0;
   margin: 0;
   display: inline-block;
@@ -11411,105 +11439,159 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   overflow: initial;
   height: 16px;
   width: 16px;
-  margin-left: 12px;
-  vertical-align: middle;
 }
 
-.circuit-4:focus,
-.circuit-4:active {
+.circuit-3:focus,
+.circuit-3:active {
   outline: none;
 }
 
-.circuit-4 > svg {
+.circuit-3 > svg {
   height: 100%;
   width: 100%;
 }
 
-.circuit-6 {
+.circuit-7 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  display: inline-block;
-}
-
-<span
-  class="circuit-6 circuit-7"
->
-  Transactions
-  <button
-    class="circuit-2 circuit-3 circuit-4 circuit-5"
-    data-testid="tag-close"
-    type="button"
-  >
-    <div
-      role="presentation"
-    >
-      close-icon.svg
-    </div>
-    <span
-      class="circuit-0 circuit-1"
-    >
-      Remove
-    </span>
-  </button>
-</span>
-`;
-
-exports[`Storyshots Components/Tag Selected 1`] = `
-.circuit-0 {
-  border-radius: 4px;
-  font-size: 16px;
-  line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
-  padding: 4px 12px;
-  cursor: default;
-  display: inline-block;
   background-color: #3388FF;
   box-shadow: 0px 0px 0px 1px #3388FF;
   color: #FFFFFF;
 }
 
-<span
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+
+.circuit-5 > svg,
+.circuit-5 svg {
+  fill: #FFFFFF;
+}
+
+<div
+  class="circuit-7 circuit-8"
+>
+  Transactions
+  <div
+    class="circuit-5 circuit-6"
+  >
+    <button
+      class="circuit-2 circuit-3 circuit-4"
+      data-testid="tag-close"
+      type="button"
+    >
+      <div
+        role="presentation"
+      >
+        close-icon.svg
+      </div>
+      <span
+        class="circuit-0 circuit-1"
+      >
+        Remove
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/Tag Selected 1`] = `
+.circuit-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  padding: 4px 12px;
+  cursor: default;
+  background-color: #3388FF;
+  box-shadow: 0px 0px 0px 1px #3388FF;
+  color: #FFFFFF;
+}
+
+<div
   class="circuit-0 circuit-1"
 >
   Transactions
-</span>
+</div>
 `;
 
-exports[`Storyshots Components/Tag With Left Icon 1`] = `
+exports[`Storyshots Components/Tag With Prefix 1`] = `
 .circuit-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  display: inline-block;
+  background-color: #3388FF;
+  box-shadow: 0px 0px 0px 1px #3388FF;
+  color: #FFFFFF;
 }
 
 .circuit-0 {
-  margin-right: 4px;
-  display: inline-block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 16px;
   height: 16px;
-  vertical-align: middle;
+  margin-right: 8px;
 }
 
-.circuit-0 > svg {
-  vertical-align: top;
+.circuit-0 > svg,
+.circuit-0 svg {
+  fill: #FFFFFF;
 }
 
-<span
+<div
   class="circuit-2 circuit-3"
 >
-  <span
+  <div
     class="circuit-0 circuit-1"
   >
     <svg
-      fill="#000000"
       height="16"
       viewBox="0 0 24 24"
       width="16"
@@ -11523,45 +11605,51 @@ exports[`Storyshots Components/Tag With Left Icon 1`] = `
         d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
       />
     </svg>
-  </span>
+  </div>
   Transactions
-</span>
+</div>
 `;
 
-exports[`Storyshots Components/Tag With Right Icon 1`] = `
+exports[`Storyshots Components/Tag With Suffix 1`] = `
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+
 .circuit-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  display: inline-block;
 }
 
-.circuit-0 {
-  margin-right: 4px;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-  margin-right: 0;
-  margin-left: 4px;
-}
-
-.circuit-0 > svg {
-  vertical-align: top;
-}
-
-<span
+<div
   class="circuit-2 circuit-3"
 >
   Transactions
-  <span
+  <div
     class="circuit-0 circuit-1"
   >
     <svg
-      fill="#000000"
       height="16"
       viewBox="0 0 24 24"
       width="16"
@@ -11575,8 +11663,8 @@ exports[`Storyshots Components/Tag With Right Icon 1`] = `
         d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
       />
     </svg>
-  </span>
-</span>
+  </div>
+</div>
 `;
 
 exports[`Storyshots Components/Tooltip Base 1`] = `
@@ -16548,7 +16636,7 @@ label + .circuit-3 {
   width: 1px;
 }
 
-.circuit-16 {
+.circuit-17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -16563,22 +16651,43 @@ label + .circuit-3 {
   margin-top: 12px;
 }
 
-.circuit-14 {
+.circuit-15 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  display: inline-block;
   margin-top: 8px;
 }
 
-.circuit-14:first-of-type: {
+.circuit-15:first-of-type: {
   margin-top: 0;
 }
 
-.circuit-11 {
+.circuit-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+
+.circuit-10 {
   padding: 0;
   margin: 0;
   display: inline-block;
@@ -16589,16 +16698,14 @@ label + .circuit-3 {
   overflow: initial;
   height: 16px;
   width: 16px;
-  margin-left: 12px;
-  vertical-align: middle;
 }
 
-.circuit-11:focus,
-.circuit-11:active {
+.circuit-10:focus,
+.circuit-10:active {
   outline: none;
 }
 
-.circuit-11 > svg {
+.circuit-10 > svg {
   height: 100%;
   width: 100%;
 }
@@ -16632,30 +16739,34 @@ label + .circuit-3 {
     </div>
   </div>
   <div
-    class="circuit-16 circuit-17"
+    class="circuit-17 circuit-18"
     data-testid="autocomplete-tags-selected"
   >
-    <span
-      class="circuit-13 circuit-14 circuit-15"
+    <div
+      class="circuit-14 circuit-15 circuit-16"
     >
       test4@sumup.com
-      <button
-        class="circuit-9 circuit-10 circuit-11 circuit-12"
-        data-testid="tag-close"
-        type="button"
+      <div
+        class="circuit-12 circuit-13"
       >
-        <div
-          role="presentation"
+        <button
+          class="circuit-9 circuit-10 circuit-11"
+          data-testid="tag-close"
+          type="button"
         >
-          close-icon.svg
-        </div>
-        <span
-          class="circuit-7 circuit-8"
-        >
-          remove
-        </span>
-      </button>
-    </span>
+          <div
+            role="presentation"
+          >
+            close-icon.svg
+          </div>
+          <span
+            class="circuit-7 circuit-8"
+          >
+            remove
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;

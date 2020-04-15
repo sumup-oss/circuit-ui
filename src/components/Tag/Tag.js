@@ -20,42 +20,21 @@ import { css } from '@emotion/core';
 
 import {
   eitherOrPropType,
-  childrenPropType
+  childrenPropType,
+  deprecatedPropType
 } from '../../util/shared-prop-types';
 import { textMega, shadowBorder } from '../../styles/style-helpers';
-import DefaultCloseButton from '../CloseButton';
-
-const closeButtonStyles = ({ theme }) => css`
-  label: tag__close-button;
-  margin-left: ${theme.spacings.kilo};
-  vertical-align: middle;
-`;
-
-const closeButtonSelectedStyles = ({ selected, theme }) =>
-  selected &&
-  css`
-    label: tag__close-button--selected;
-
-    > svg {
-      fill: ${theme.colors.white};
-      vertical-align: inherit;
-    }
-  `;
-
-const CloseButton = styled(DefaultCloseButton)(
-  closeButtonStyles,
-  closeButtonSelectedStyles
-);
+import CloseButton from '../CloseButton';
 
 const tagStyles = ({ theme }) => css`
   label: tag;
+  display: inline-flex;
+  align-items: center;
   border-radius: ${theme.borderRadius.mega};
-
   ${textMega({ theme })};
   ${shadowBorder(theme.colors.n300)};
   padding: ${theme.spacings.bit} ${theme.spacings.kilo};
   cursor: default;
-  display: inline-block;
 `;
 
 const tagClickableStyles = ({ onClick, theme }) =>
@@ -83,6 +62,7 @@ const tagSelectedClickableStyles = ({ selected, onClick, theme }) =>
   selected &&
   onClick &&
   css`
+    label: tag--selected--clickable;
     &:hover {
       background-color: ${theme.colors.p500};
       ${shadowBorder(theme.colors.p500)};
@@ -91,41 +71,45 @@ const tagSelectedClickableStyles = ({ selected, onClick, theme }) =>
 
 const iconStyles = ({ theme }) => css`
   label: tag__icon;
-  margin-right: ${theme.spacings.bit};
-  display: inline-block;
+  display: flex;
+  align-items: center;
   width: ${theme.spacings.mega};
   height: ${theme.spacings.mega};
-  vertical-align: middle;
-
-  > svg {
-    vertical-align: top;
-  }
 `;
-
-const rightIconStyles = ({ right, theme }) =>
-  right &&
-  css`
-    label: tag__icon--right;
-    margin-right: 0;
-    margin-left: ${theme.spacings.bit};
-  `;
 
 const iconSelectedStyles = ({ selected, theme }) =>
   selected &&
   css`
     label: tag__icon--selected;
 
-    > svg {
+    > svg,
+    svg {
       fill: ${theme.colors.white};
     }
   `;
 
-const IconContainer = styled('span')`
+const prefixIconStyles = ({ theme, hasPrefix }) =>
+  hasPrefix &&
+  css`
+    label: tag__icon--prefix;
+    margin-right: ${theme.spacings.byte};
+  `;
+
+const suffixIconStyles = ({ theme, hasSuffix }) =>
+  hasSuffix &&
+  css`
+    label: tag__icon--suffix;
+    margin-left: ${theme.spacings.byte};
+  `;
+
+const IconContainer = styled('div')`
   ${iconStyles};
-  ${rightIconStyles}
   ${iconSelectedStyles};
+  ${prefixIconStyles};
+  ${suffixIconStyles};
 `;
-const TagElement = styled('span')`
+
+const TagElement = styled('div')`
   ${tagStyles};
   ${tagClickableStyles};
   ${tagSelectedStyles};
@@ -138,32 +122,48 @@ const TagElement = styled('span')`
 const Tag = ({
   children,
   icon,
-  rightIcon,
+  renderPrefix: RenderPrefix,
+  renderSuffix: RenderSuffix,
   onRemove,
   labelRemoveButton,
   selected,
   ...props
-}) => (
-  <TagElement {...{ selected, ...props }}>
-    {!onRemove && icon && (
-      <IconContainer {...{ selected }}>{icon}</IconContainer>
-    )}
-    {children}
-    {!onRemove && rightIcon && (
-      <IconContainer right {...{ selected }}>
-        {rightIcon}
-      </IconContainer>
-    )}
-    {onRemove && (
-      <CloseButton
-        onClick={onRemove}
-        selected={selected}
-        label={labelRemoveButton}
-        data-testid="tag-close"
-      />
-    )}
-  </TagElement>
-);
+}) => {
+  const prefix = RenderPrefix && <RenderPrefix />;
+  const suffix = RenderSuffix && <RenderSuffix />;
+
+  return (
+    <TagElement {...{ selected, ...props }}>
+      {!onRemove && icon && (
+        <IconContainer hasPrefix {...{ selected }}>
+          {icon}
+        </IconContainer>
+      )}
+
+      {!icon && prefix && !onRemove && (
+        <IconContainer hasPrefix {...{ selected }}>
+          {prefix}
+        </IconContainer>
+      )}
+
+      {children}
+
+      {(onRemove || suffix) && (
+        <IconContainer hasSuffix {...{ selected }}>
+          {onRemove ? (
+            <CloseButton
+              label={labelRemoveButton}
+              data-testid="tag-close"
+              onClick={onRemove}
+            />
+          ) : (
+            suffix
+          )}
+        </IconContainer>
+      )}
+    </TagElement>
+  );
+};
 
 Tag.propTypes = {
   /**
@@ -171,13 +171,20 @@ Tag.propTypes = {
    */
   children: childrenPropType,
   /**
+   * @deprecated
    * An optional  tag's icon.
    */
-  icon: eitherOrPropType('icon', 'onRemove', PropTypes.element),
+  icon: deprecatedPropType(
+    eitherOrPropType('icon', 'onRemove', PropTypes.element)
+  ),
   /**
-   * An optional  tag's right icon.
+   * Render prop that should render a left-aligned icon or element.
    */
-  rightIcon: eitherOrPropType('rightIcon', 'onRemove', PropTypes.element),
+  renderPrefix: eitherOrPropType('renderPrefix', 'onRemove', PropTypes.element),
+  /**
+   * Render prop that should render a right-aligned icon or element.
+   */
+  renderSuffix: eitherOrPropType('renderSuffix', 'onRemove', PropTypes.element),
   /**
    * Renders a close button inside the tag and calls the provided function
    * when the button is clicked.
@@ -197,6 +204,8 @@ Tag.propTypes = {
 Tag.defaultProps = {
   children: null,
   icon: null,
+  renderPrefix: null,
+  renderSuffix: null,
   onRemove: null,
   selected: false,
   labelRemoveButton: 'remove'
