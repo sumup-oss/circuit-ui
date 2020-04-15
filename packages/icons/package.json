@@ -1,18 +1,30 @@
 {
-  "name": "circuit-icons",
+  "name": "@sumup/circuit-icons",
   "version": "0.0.0-semantically-released",
   "description": "Icon library by SumUp",
-  "main": "dist/index.js",
   "repository": "git@github.com:sumup-oss/circuit-icons.git",
   "author": "Connor Bär <connor.baer@sumup.com>",
   "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "manifest.json",
+    "icons",
+    "dist"
+  ],
   "scripts": {
+    "build": "node ./scripts/node.js",
     "lint": "foundry run eslint . --ext .js,.jsx",
     "lint:fix": "yarn lint --fix",
     "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
+    "prerelease": "yarn build",
     "release": "foundry run semantic-release"
   },
   "devDependencies": {
-    "@sumup/foundry": "^2.1.0"
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@sumup/foundry": "^2.1.0",
+    "babel-plugin-inline-react-svg": "^1.1.1",
+    "dedent": "^0.7.0"
   }
 }
