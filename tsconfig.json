@@ -28,7 +28,7 @@
       }
     ]
   },
-  "include": ["src/**/*", "scripts/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["**/*.spec.*", "**/*.story.*"],
   "typeRoots": ["./node_modules/@types", "./src/types/"]
 }
