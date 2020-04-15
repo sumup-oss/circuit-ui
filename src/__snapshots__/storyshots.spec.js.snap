@@ -11428,6 +11428,20 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   width: 1px;
 }
 
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+
 .circuit-3 {
   padding: 0;
   margin: 0;
@@ -11466,28 +11480,6 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  background-color: #3388FF;
-  box-shadow: 0px 0px 0px 1px #3388FF;
-  color: #FFFFFF;
-}
-
-.circuit-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-}
-
-.circuit-5 > svg,
-.circuit-5 svg {
-  fill: #FFFFFF;
 }
 
 <div
@@ -11545,7 +11537,7 @@ exports[`Storyshots Components/Tag Selected 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components/Tag With Prefix 1`] = `
+exports[`Storyshots Components/Tag With Icon 1`] = `
 .circuit-2 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -11561,9 +11553,6 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  background-color: #3388FF;
-  box-shadow: 0px 0px 0px 1px #3388FF;
-  color: #FFFFFF;
 }
 
 .circuit-0 {
@@ -11580,9 +11569,62 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
   margin-right: 8px;
 }
 
-.circuit-0 > svg,
-.circuit-0 svg {
-  fill: #FFFFFF;
+<div
+  class="circuit-2 circuit-3"
+>
+  <div
+    class="circuit-0 circuit-1"
+  >
+    <svg
+      fill="#000000"
+      height="16"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+      />
+    </svg>
+  </div>
+  Transactions
+</div>
+`;
+
+exports[`Storyshots Components/Tag With Prefix 1`] = `
+.circuit-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  padding: 4px 12px;
+  cursor: default;
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
 }
 
 <div
@@ -11592,6 +11634,7 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
     class="circuit-0 circuit-1"
   >
     <svg
+      fill="#000000"
       height="16"
       viewBox="0 0 24 24"
       width="16"
@@ -11650,6 +11693,7 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
     class="circuit-0 circuit-1"
   >
     <svg
+      fill="#000000"
       height="16"
       viewBox="0 0 24 24"
       width="16"
