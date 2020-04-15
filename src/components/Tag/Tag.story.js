@@ -55,11 +55,9 @@ export const base = () => (
 
 export const selected = () => <Tag selected>Transactions</Tag>;
 
-export const withPrefix = () => (
-  <Tag selected renderPrefix={Icon}>
-    Transactions
-  </Tag>
-);
+export const withIcon = () => <Tag icon={<Icon />}>Transactions</Tag>;
+
+export const withPrefix = () => <Tag renderPrefix={Icon}>Transactions</Tag>;
 
 export const withSuffix = () => (
   <Tag renderSuffix={() => <Icon />}>Transactions</Tag>
