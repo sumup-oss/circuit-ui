@@ -29,10 +29,6 @@ jobs:
           yarn --pure-lockfile
       - name: Lint
         run: yarn lint:ci
-      - name: Upload code coverage
-        uses: codecov/codecov-action@v1.0.3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

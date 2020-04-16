@@ -1,12 +1,14 @@
 {
-  "name": "@sumup/circuit-icons",
+  "name": "@sumup/icons",
   "version": "0.0.0-semantically-released",
-  "description": "Icon library by SumUp",
+  "description": "A collection of icons by SumUp",
   "repository": "git@github.com:sumup-oss/circuit-icons.git",
   "author": "Connor Bär <connor.baer@sumup.com>",
   "license": "Apache-2.0",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "typings": "./dist/index.d.ts",
+  "sideEffects": false,
   "files": [
     "manifest.json",
     "icons",

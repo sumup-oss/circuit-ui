@@ -1,41 +1,84 @@
-![Code coverage](https://codecov.io/gh/sumup/foundry/branch/master/graph/badge.svg?token=<codecov-token>)
-[![License](https://img.shields.io/badge/license--lightgrey.svg)](https://github.com/sumup-oss/<repo-name>/LICENSE)
+[![License](https://img.shields.io/badge/license--lightgrey.svg)](https://github.com/sumup-oss/icons/LICENSE)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 <div align="center">
 
-# <Name of your project>
+# Icons by SumUp
 
-<Short paragraph to tell people what your project is about>
+A collection of icons for the web, part of the SumUp Design System.
 
 </div>
 
-> **TLDR;**
->
-> Something to get people started quickly
-
-##### Table of contents
+## Table of contents
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [API/CLI documentation](#api-cli-documentation)
+  - [Import as React component](#import-as-react-component)
+  - [Import as SVG file](#import-as-svg-file)
+- [Code of Conduct](#code-of-conduct)
 - [About SumUp](#about-sumup)
 
 ## Installation
 
-How to install this project?
+The SumUp icons can be installed as a node module:
 
-```bash
-# Example code to get people started
+```sh
+yarn add @sumup/icons
+# Or if you prefer npm:
+npm install @sumup/icons
 ```
 
 ## Usage
 
-- How do you use this?
-- If there’s a CLI, what are the commands?
-- What’s the public API of the project?
+### Import as React component
 
-## Code of conduct (CoC)
+The easiest way to use the icons in [React](https://reactjs.org/) is to import them as components. This approach works out of the box (no special loaders needed), is tree-shaking enabled, and has TypeScript typings included.
+
+```jsx
+import { Valid } from '@sumup/icons';
+
+const SuccessMessage = ({ description }) => (
+  <div>
+    <Valid fill="#37b24d" />
+    <span>{description}</span>
+  </div>
+);
+```
+
+Applying styles with a CSS-in-JS library:
+
+```jsx
+import styled from '@emotion/styled';
+import { Valid } from '@sumup/icons';
+
+const ValidIcon = styled(Valid)`
+  fill: #37b24d;
+`;
+
+const SuccessMessage = ({ description }) => (
+  <div>
+    <ValidIcon />
+    <span>{description}</span>
+  </div>
+);
+```
+
+### Import as SVG file
+
+Alternatively, it's possible to import the raw SVG files. Most bundlers require a special loader to make this work. For Webpack, we recommend the [file-loader](https://github.com/webpack-contrib/file-loader) which turns the import into a URL to the SVG.
+
+```jsx
+import valid from '@sumup/icons/icons/valid.svg';
+
+const SuccessMessage = ({ description }) => (
+  <div>
+    <img src={valid} alt="" aria-hidden="true" />
+    <span>{description}</span>
+  </div>
+);
+```
+
+## Code of conduct
 
 We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](CODE_OF_CONDUCT.md).
 
