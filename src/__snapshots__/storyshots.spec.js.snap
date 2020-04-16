@@ -19666,6 +19666,138 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 </div>
 `;
 
+exports[`Storyshots Forms/Toggle RTL 1`] = `
+.circuit-4 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  background-color: #D8DDE1;
+  border-radius: 24px;
+  position: relative;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  height: 24px;
+  width: 40px;
+  overflow: visible;
+}
+
+.circuit-4::-moz-focus-inner {
+  border-radius: 24px;
+}
+
+.circuit-0 {
+  display: block;
+  background-color: #FAFBFC;
+  box-shadow: 0 2px 0 0 #9DA7B1;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate3d(4px,-50%,0);
+  -ms-transform: translate3d(4px,-50%,0);
+  transform: translate3d(4px,-50%,0);
+  -webkit-transition: box-shadow 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+}
+
+.circuit-2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-9 {
+  display: block;
+  margin-left: 12px;
+}
+
+.circuit-7 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+@media (min-width:480px) {
+  .circuit-7 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+.circuit-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-align: flex-start;
+  -ms-flex-align: flex-start;
+  flex-align: flex-start;
+  margin-bottom: 16px;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.circuit-11 label {
+  margin-left: 0;
+  margin-right: 12px;
+}
+
+<div
+  class="circuit-11 circuit-12"
+>
+  <button
+    aria-checked="false"
+    aria-labelledby="toggle-label_52"
+    class="circuit-4 circuit-5"
+    id="toggle-switch_51"
+    role="switch"
+    type="button"
+  >
+    <span
+      class="circuit-0 circuit-1"
+    />
+    <span
+      class="circuit-2 circuit-3"
+    >
+      off
+    </span>
+  </button>
+  <label
+    class="circuit-9 circuit-10"
+    for="toggle-switch_51"
+    id="toggle-label_52"
+  >
+    <p
+      class=" circuit-6 circuit-7 circuit-8"
+    >
+      Short label
+    </p>
+  </label>
+</div>
+`;
+
 exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 .circuit-14 {
   display: -webkit-box;
