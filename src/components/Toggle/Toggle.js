@@ -80,7 +80,9 @@ const toggleWrapperRTLStyles = ({ theme, rtl }) =>
   `;
 
 const ToggleWrapper = styled('div')`
-  ${toggleWrapperStyles} ${toggleWrapperNoMarginStyles} ${toggleWrapperRTLStyles};
+  ${toggleWrapperStyles}
+  ${toggleWrapperNoMarginStyles}
+  ${toggleWrapperRTLStyles};
 `;
 
 /**
