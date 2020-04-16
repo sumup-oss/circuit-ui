@@ -69,18 +69,28 @@ const toggleWrapperNoMarginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
+const toggleWrapperRTL = ({ theme, rtl }) =>
+  rtl &&
+  css`
+    flex-direction: row-reverse;
+    label {
+      margin-left: 0;
+      margin-right: ${theme.spacings.kilo};
+    }
+  `;
+
 const ToggleWrapper = styled('div')`
-  ${toggleWrapperStyles} ${toggleWrapperNoMarginStyles};
+  ${toggleWrapperStyles} ${toggleWrapperNoMarginStyles} ${toggleWrapperRTL};
 `;
 
 /**
  * A toggle component with support for labels and additional explanations.
  */
-const Toggle = ({ label, explanation, noMargin, ...props }) => {
+const Toggle = ({ label, explanation, noMargin, rtl, ...props }) => {
   const switchId = uniqueId('toggle-switch_');
   const labelId = uniqueId('toggle-label_');
   return (
-    <ToggleWrapper {...{ noMargin }}>
+    <ToggleWrapper {...{ noMargin, rtl }}>
       <Switch {...props} aria-labelledby={labelId} id={switchId} />
       {(label || explanation) && (
         <ToggleTextWrapper id={labelId} htmlFor={switchId}>
@@ -112,13 +122,18 @@ Toggle.propTypes = {
   /**
    * Removes the default bottom margin from the input.
    */
-  noMargin: PropTypes.bool
+  noMargin: PropTypes.bool,
+  /**
+   * Adds the ability of the component to be right-aligned.
+   */
+  rtl: PropTypes.bool
 };
 
 Toggle.defaultProps = {
   label: null,
   explanation: null,
-  noMargin: false
+  noMargin: false,
+  rtl: false
 };
 
 /**

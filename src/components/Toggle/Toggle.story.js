@@ -46,3 +46,5 @@ export const withExplanation = () => (
     explanation="Some more detailed text of what this means"
   />
 );
+
+export const RTL = () => <ToggleWithState label="Short label" rtl />;
