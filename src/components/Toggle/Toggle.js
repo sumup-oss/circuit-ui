@@ -69,7 +69,7 @@ const toggleWrapperNoMarginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const toggleWrapperRTL = ({ theme, rtl }) =>
+const toggleWrapperRTLStyles = ({ theme, rtl }) =>
   rtl &&
   css`
     flex-direction: row-reverse;
@@ -80,7 +80,7 @@ const toggleWrapperRTL = ({ theme, rtl }) =>
   `;
 
 const ToggleWrapper = styled('div')`
-  ${toggleWrapperStyles} ${toggleWrapperNoMarginStyles} ${toggleWrapperRTL};
+  ${toggleWrapperStyles} ${toggleWrapperNoMarginStyles} ${toggleWrapperRTLStyles};
 `;
 
 /**
