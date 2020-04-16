@@ -10,8 +10,5 @@ _Describe how you solved the problem_
 
 ## Definition of done
 
-* [ ] Development completed
-* [ ] Reviewers assigned
-* [ ] Unit and integration tests
-* [ ] Meets minimum browser support
-* [ ] Meets accessibility requirements
+- [ ] Development completed
+- [ ] Reviewers assigned
