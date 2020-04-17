@@ -13,18 +13,35 @@
  * limitations under the License.
  */
 
-const fs = require('fs');
-const path = require('path');
-const dedent = require('dedent');
-const babel = require('@babel/core');
+import fs from 'fs';
+import path from 'path';
+import dedent from 'dedent';
+import { transformSync } from '@babel/core';
 
-const manifest = require('../manifest.json');
+import manifest from '../manifest.json';
 
 const BASE_DIR = path.join(__dirname, '..');
 const ICONS_DIR = path.join(BASE_DIR, 'icons');
 const DIST_DIR = path.join(BASE_DIR, 'dist');
 
-function getComponentName(name) {
+enum IconSize {
+  SMALL = 'small',
+  LARGE = 'large',
+}
+
+type Icon = {
+  name: string;
+  category: string;
+  size: IconSize;
+  full: boolean;
+};
+
+type File = {
+  filePath: string;
+  componentName: string;
+};
+
+function getComponentName(name: string): string {
   // Split on non-word characters
   const words = name.split(/\W/);
   // Uppercase the first letter and lowercase the rest
@@ -34,7 +51,7 @@ function getComponentName(name) {
   return pascalCased.join('');
 }
 
-function buildIndexFile(files) {
+function buildIndexFile(files: File[]): string {
   const importStatements = files.map(
     ({ componentName, filePath }) =>
       `import { ReactComponent as ${componentName} } from '${filePath}';`,
@@ -46,7 +63,7 @@ function buildIndexFile(files) {
   `;
 }
 
-function buildDeclarationFile(files) {
+function buildDeclarationFile(files: File[]): string {
   const importStatement = "import { FC, SVGProps } from 'react';";
   const declarationStatements = files.map(
     ({ componentName }) =>
@@ -60,7 +77,7 @@ function buildDeclarationFile(files) {
   `;
 }
 
-function writeFile(dir, fileName, fileContent) {
+function writeFile(dir: string, fileName: string, fileContent: string): void {
   const filePath = path.join(dir, fileName);
   const directory = path.dirname(filePath);
   if (directory && directory !== '.') {
@@ -73,7 +90,7 @@ function writeFile(dir, fileName, fileContent) {
   });
 }
 
-function main() {
+function main(): void {
   const files = manifest.icons.map(({ name }) => {
     const filePath = path.join(ICONS_DIR, `${name}.svg`);
     const componentName = getComponentName(name);
@@ -81,7 +98,7 @@ function main() {
   });
 
   const indexRaw = buildIndexFile(files);
-  const indexFile = babel.transformSync(indexRaw, {
+  const indexFile = transformSync(indexRaw, {
     cwd: BASE_DIR,
     filename: 'index.js',
     presets: [['@babel/preset-env', { modules: false }]],

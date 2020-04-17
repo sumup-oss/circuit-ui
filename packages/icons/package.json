@@ -15,8 +15,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "node ./scripts/node.js",
-    "lint": "foundry run eslint . --ext .js,.jsx",
+    "build": "ts-node ./scripts/node.ts",
+    "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "yarn lint --fix",
     "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
     "prerelease": "yarn build",
@@ -26,7 +26,11 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@sumup/foundry": "^2.1.0",
+    "@types/babel__core": "^7.1.7",
+    "@types/dedent": "^0.7.0",
     "babel-plugin-inline-react-svg": "^1.1.1",
-    "dedent": "^0.7.0"
+    "dedent": "^0.7.0",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3"
   }
 }

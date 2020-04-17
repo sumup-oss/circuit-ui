@@ -1,6 +1,6 @@
 module.exports = require('@sumup/foundry/eslint')(
   {
-    language: 'JavaScript',
+    language: 'TypeScript',
     environments: ['Node'],
     frameworks: ['React'],
     openSource: true,
