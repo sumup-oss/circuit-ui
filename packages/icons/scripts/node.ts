@@ -16,13 +16,19 @@
 import fs from 'fs';
 import path from 'path';
 import dedent from 'dedent';
+import { entries, flow, groupBy, map } from 'lodash/fp';
 import { transformSync } from '@babel/core';
 
 import manifest from '../manifest.json';
 
 const BASE_DIR = path.join(__dirname, '..');
-const ICONS_DIR = path.join(BASE_DIR, 'icons');
+const ICON_DIR = path.join(BASE_DIR, './icons');
 const DIST_DIR = path.join(BASE_DIR, 'dist');
+const BABEL_CONFIG = {
+  cwd: BASE_DIR,
+  presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+  plugins: ['inline-react-svg'],
+};
 
 enum IconSize {
   SMALL = 'small',
@@ -33,17 +39,16 @@ type Icon = {
   name: string;
   category: string;
   size: IconSize;
-  full: boolean;
 };
 
-type File = {
-  filePath: string;
-  componentName: string;
+type Component = {
+  name: string;
+  icons: Icon[];
 };
 
 function getComponentName(name: string): string {
   // Split on non-word characters
-  const words = name.split(/\W/);
+  const words = name.split(/[^a-z0-9]/i);
   // Uppercase the first letter and lowercase the rest
   const pascalCased = words.map(
     (part) => part.charAt(0).toUpperCase() + part.substr(1).toLowerCase(),
@@ -51,28 +56,68 @@ function getComponentName(name: string): string {
   return pascalCased.join('');
 }
 
-function buildIndexFile(files: File[]): string {
-  const importStatements = files.map(
-    ({ componentName, filePath }) =>
-      `import { ReactComponent as ${componentName} } from '${filePath}';`,
+function getFilePath(icon: Icon): string {
+  return path.join(ICON_DIR, `${icon.name}_${icon.size}.svg`);
+}
+
+function buildComponentFile(component: Component): string {
+  const icons = component.icons.map((icon) => ({
+    size: icon.size,
+    filePath: getFilePath(icon),
+    name: getComponentName(`${icon.name}-${icon.size}`),
+  }));
+
+  if (icons.length === 1) {
+    const icon = icons[0];
+    return dedent`
+      import { ReactComponent as ${component.name} } from '${icon.filePath}';
+
+      export { ${component.name} };
+    `;
+  }
+
+  const iconImports = icons.map(
+    (icon) =>
+      `import { ReactComponent as ${icon.name} } from '${icon.filePath}';`,
   );
-  const exportNames = files.map((file) => file.componentName);
+  const sizeMap = icons.map((icon) => `${icon.size}: ${icon.name},`);
   return dedent`
-    ${importStatements.join('\n')}
-    export { ${exportNames.join(', ')} };
+    import React from 'react';
+    ${iconImports.join('\n')}
+
+    const sizeMap = {
+      ${sizeMap.join('\n')}
+    }
+
+    export const ${component.name} = ({ size = 'large', ...props }) => {
+      const Icon = sizeMap[size];
+      return <Icon {...props} />;
+    };
   `;
 }
 
-function buildDeclarationFile(files: File[]): string {
-  const importStatement = "import { FC, SVGProps } from 'react';";
-  const declarationStatements = files.map(
-    ({ componentName }) =>
-      `declare const ${componentName}: FC<SVGProps<SVGSVGElement>>;`,
-  );
-  const exportNames = files.map((file) => file.componentName);
+function buildIndexFile(components: Component[]): string {
+  return components
+    .map(({ name }) => `export { ${name} } from './${name}.js';`)
+    .join('\n');
+}
+
+function buildDeclarationFile(components: Component[]): string {
+  const declarationStatements = components.map((component) => {
+    const hasMultipleSizes = component.icons.length === 1;
+    const PropType = hasMultipleSizes ? 'SVGProps<SVGSVGElement>' : 'IconProps';
+    return `declare const ${component.name}: FC<${PropType}>;`;
+  });
+  const exportNames = components.map((file) => file.name);
   return dedent`
-    ${importStatement};
+    import { FC, SVGProps } from 'react';
+
+    interface IconProps extends React.SVGProps<SVGSVGElement> {
+      size?: 'small' | 'large';
+    }
+
     ${declarationStatements.join('\n')}
+
     export { ${exportNames.join(', ')} };
   `;
 }
@@ -91,21 +136,28 @@ function writeFile(dir: string, fileName: string, fileContent: string): void {
 }
 
 function main(): void {
-  const files = manifest.icons.map(({ name }) => {
-    const filePath = path.join(ICONS_DIR, `${name}.svg`);
-    const componentName = getComponentName(name);
-    return { filePath, componentName };
-  });
+  const components = flow(
+    groupBy('name'),
+    entries,
+    map((group) => ({ name: getComponentName(group[0]), icons: group[1] })),
+  )(manifest.icons);
 
-  const indexRaw = buildIndexFile(files);
+  const indexRaw = buildIndexFile(components);
   const indexFile = transformSync(indexRaw, {
-    cwd: BASE_DIR,
+    ...BABEL_CONFIG,
     filename: 'index.js',
-    presets: [['@babel/preset-env', { modules: false }]],
-    plugins: ['inline-react-svg'],
   }).code;
+  const declarationFile = buildDeclarationFile(components);
 
-  const declarationFile = buildDeclarationFile(files);
+  components.forEach((component) => {
+    const componentFileName = `${component.name}.js`;
+    const componentRaw = buildComponentFile(component);
+    const componentFile = transformSync(componentRaw, {
+      ...BABEL_CONFIG,
+      filename: componentFileName,
+    }).code;
+    writeFile(DIST_DIR, componentFileName, componentFile);
+  });
 
   writeFile(DIST_DIR, 'index.js', indexFile);
   writeFile(DIST_DIR, 'index.d.ts', declarationFile);
