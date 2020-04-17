@@ -8,6 +8,7 @@ __reports__
 .eslintcache
 .yarn-integrity
 .env
+/*.svg
 
 # Packages #
 
