@@ -11,16 +11,17 @@
   "sideEffects": false,
   "files": [
     "manifest.json",
-    "icons",
-    "dist"
+    "dist",
+    "*.svg"
   ],
   "scripts": {
     "build": "ts-node ./scripts/node.ts",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "yarn lint --fix",
     "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
-    "prerelease": "yarn build",
-    "release": "foundry run semantic-release"
+    "prerelease": "yarn build && cp icons/* .",
+    "release": "foundry run semantic-release",
+    "postrelease": "rm -f *.svg"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
