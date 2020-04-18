@@ -1,5 +1,5 @@
-<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M21 10V5.23c0-.326-.126-.639-.352-.87-.224-.23-.53-.36-.848-.36H4.2c-.318 0-.623.13-.849.36A1.247 1.247 0 003 5.23v13.54c0 .326.126.639.351.87.226.23.53.36.849.36h5.2M3.5 8h17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 10V5.23c0-.326-.126-.639-.352-.87-.224-.23-.53-.36-.848-.36H4.2c-.318 0-.623.13-.849.36-.225.231-.351.544-.351.87v13.54c0 .326.126.639.351.87.226.23.53.36.849.36h5.2M3.5 8h17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M17 12c-.663 0-1.299.281-1.768.781a2.76 2.76 0 00-.732 1.886V16h5v-1.333a2.76 2.76 0 00-.732-1.886A2.424 2.424 0 0017 12v0z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M17 18a.5.5 0 100 1 .5.5 0 000-1z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
     <rect x="13" y="16" width="8" height="5" rx="1" stroke="currentColor" stroke-width="2"/>

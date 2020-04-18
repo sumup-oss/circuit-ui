@@ -1,4 +1,4 @@
-<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M5 4a1 1 0 000 2V4zm2 1l.949-.316L7.72 4H7v1zm10 11a1 1 0 100-2v2zm-9.638-1.724l.894.448-.894-.448zm11.457-6.914l.895.447-.895-.447zm-1.543 3.085L16.382 10l.894.447zM5 6h2V4H5v2zm4 6h7.382v-2H9v2zm9.17-1.106l1.543-3.085-1.788-.894L16.382 10l1.789.894zM6.052 5.316l.667 2 1.897-.632-.666-2-1.898.632zm.667 2l1.333 4 1.898-.632-1.334-4-1.897.632zM18.596 6H7.666v2h10.93V6zM7.808 16H17v-2H7.808v2zm.448-1.276l1.638-3.277-1.788-.894-1.639 3.276 1.79.895zM7.808 14a.5.5 0 01.448.724l-1.789-.895A1.5 1.5 0 007.808 16v-2zm11.905-6.191A1.25 1.25 0 0018.596 6v2a.75.75 0 01-.671-1.085l1.788.894zM16.383 12a2 2 0 001.789-1.106L16.382 10v2z" fill="currentColor"/>
     <circle cx="7.5" cy="18.5" r=".5" stroke="currentColor" stroke-width="2"/>
     <circle cx="16.5" cy="18.5" r=".5" stroke="currentColor" stroke-width="2" stroke-miterlimit="16"/>
