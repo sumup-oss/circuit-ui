@@ -1,8 +1,8 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <mask id="a" maskUnits="userSpaceOnUse" x="2" y="3" width="20" height="19">
+    <mask id="ec_large_svg__a" maskUnits="userSpaceOnUse" x="2" y="3" width="20" height="19">
         <path d="M21.608 3H2.392A.392.392 0 002 3.392v17.55c0 .216.175.391.392.391h19.216a.392.392 0 00.392-.391V3.392A.392.392 0 0021.608 3z" fill="#fff"/>
     </mask>
-    <g mask="url(#a)">
+    <g mask="url(#ec_large_svg__a)">
         <path d="M21.608 3H2.392A.392.392 0 002 3.392v17.55c0 .216.175.391.392.391h19.216a.392.392 0 00.392-.391V3.392A.392.392 0 0021.608 3z" stroke="#01509B" stroke-width="1.56"/>
     </g>
     <g opacity=".9">

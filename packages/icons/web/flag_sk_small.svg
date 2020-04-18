@@ -1,10 +1,10 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 6h13a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2V8a2 2 0 012-2zm0 .5A1.5 1.5 0 004 8v8a1.5 1.5 0 001.5 1.5h13A1.5 1.5 0 0020 16V8a1.5 1.5 0 00-1.5-1.5h-13z" fill="#D8DDE1"/>
-    <g clip-path="url(#clip0)">
-        <mask id="a" maskUnits="userSpaceOnUse" x="4" y="6" width="16" height="12">
+    <g clip-path="url(#flag_sk_small_svg__clip0)">
+        <mask id="flag_sk_small_svg__a" maskUnits="userSpaceOnUse" x="4" y="6" width="16" height="12">
             <path d="M18.48 6.5H5.52C4.68 6.5 4 7.188 4 8.037v7.926c0 .849.68 1.537 1.52 1.537h12.96c.84 0 1.52-.688 1.52-1.537V8.037c0-.849-.68-1.537-1.52-1.537z" fill="#fff"/>
         </mask>
-        <g mask="url(#a)" fill-rule="evenodd" clip-rule="evenodd">
+        <g mask="url(#flag_sk_small_svg__a)" fill-rule="evenodd" clip-rule="evenodd">
             <path d="M4 17.5h16v-11H4v11z" fill="#EE1C25"/>
             <path d="M4 13.833h16V6.5H4v7.333z" fill="#0B4EA2"/>
             <path d="M4 10.167h16V6.5H4v3.667z" fill="#fff"/>
@@ -15,7 +15,7 @@
         </g>
     </g>
     <defs>
-        <clipPath id="clip0">
+        <clipPath id="flag_sk_small_svg__clip0">
             <path fill="#fff" d="M4 6.5h16v11H4z"/>
         </clipPath>
     </defs>

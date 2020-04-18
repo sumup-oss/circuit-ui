@@ -4,6 +4,14 @@
       "convertColors": {
         "currentColor": "#212933"
       }
+    },
+    {
+      "removeViewBox": false
+    },
+    {
+      "prefixIds": {
+        "prefixIds": true
+      }
     }
   ]
 }
