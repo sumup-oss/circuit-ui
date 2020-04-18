@@ -27,7 +27,7 @@ const DIST_DIR = path.join(BASE_DIR, 'dist');
 const BABEL_CONFIG = {
   cwd: BASE_DIR,
   presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
-  plugins: ['inline-react-svg'],
+  plugins: [['inline-react-svg', { svgo: false }]],
 };
 
 enum IconSize {
