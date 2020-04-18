@@ -862,17 +862,17 @@
     },
     {
       "name": "file",
-      "category": "Navigation",
+      "category": "File",
       "size": "small"
     },
     {
       "name": "file_zip",
-      "category": "Navigation",
+      "category": "File",
       "size": "small"
     },
     {
       "name": "folder",
-      "category": "Navigation",
+      "category": "File",
       "size": "small"
     },
     {

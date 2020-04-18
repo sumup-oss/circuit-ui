@@ -1,13 +1,13 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 6h13a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2V8a2 2 0 012-2zm0 .5A1.5 1.5 0 004 8v8a1.5 1.5 0 001.5 1.5h13A1.5 1.5 0 0020 16V8a1.5 1.5 0 00-1.5-1.5h-13z" fill="#D8DDE1"/>
-    <g clip-path="url(#clip0)" fill-rule="evenodd" clip-rule="evenodd">
+    <g clip-path="url(#flag_cl_small_svg__clip0)" fill-rule="evenodd" clip-rule="evenodd">
         <path d="M20 8.117v3.885H4V8.117C4 7.224 4.716 6.5 5.6 6.5h12.8c.884 0 1.6.724 1.6 1.617z" fill="#fff"/>
         <path d="M20 15.883v-3.88H4v3.88c0 .893.716 1.617 1.6 1.617h12.8c.884 0 1.6-.724 1.6-1.617z" fill="#D52B1E"/>
         <path d="M5.594 6.5h3.848v5.502H4V8.117c0-.89.713-1.614 1.594-1.617z" fill="#0039A6"/>
         <path d="M6.685 7.894l-.3.939h-.97l.785.58-.3.939.785-.58.785.58-.3-.94.785-.58h-.97l-.3-.938z" fill="#fff"/>
     </g>
     <defs>
-        <clipPath id="clip0">
+        <clipPath id="flag_cl_small_svg__clip0">
             <path fill="#fff" d="M4 6.5h16v11H4z"/>
         </clipPath>
     </defs>

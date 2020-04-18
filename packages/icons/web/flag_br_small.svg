@@ -1,6 +1,6 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 6h13a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2V8a2 2 0 012-2zm0 .5A1.5 1.5 0 004 8v8a1.5 1.5 0 001.5 1.5h13A1.5 1.5 0 0020 16V8a1.5 1.5 0 00-1.5-1.5h-13z" fill="#D8DDE1"/>
-    <g clip-path="url(#clip0)" fill-rule="evenodd" clip-rule="evenodd">
+    <g clip-path="url(#flag_br_small_svg__clip0)" fill-rule="evenodd" clip-rule="evenodd">
         <path d="M4 15.883c0 .893.716 1.617 1.6 1.617h12.8c.884 0 1.6-.724 1.6-1.617V8.117c0-.893-.716-1.617-1.6-1.617H5.6c-.884 0-1.6.724-1.6 1.617v7.766z" fill="#009B3A"/>
         <path d="M18.457 12.028l-6.474 4.197-6.475-4.197 6.475-4.198 6.474 4.198z" fill="#FEDF00"/>
         <path d="M10.692 10.951c1.478 0 2.804.55 3.709 1.421a2.794 2.794 0 01.026-.344c0-1.365-1.095-2.472-2.445-2.472-1 0-1.857.607-2.237 1.475.307-.05.623-.08.947-.08" fill="#002776"/>
@@ -8,7 +8,7 @@
         <path d="M9.695 11.077a2.46 2.46 0 01.05-.127c-.018.042-.034.085-.05.127z" fill="#2880B9"/>
     </g>
     <defs>
-        <clipPath id="clip0">
+        <clipPath id="flag_br_small_svg__clip0">
             <path fill="#fff" d="M4 6.5h16v11H4z"/>
         </clipPath>
     </defs>

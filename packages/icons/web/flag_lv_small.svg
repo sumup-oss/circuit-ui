@@ -1,11 +1,11 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 6h13a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2V8a2 2 0 012-2zm0 .5A1.5 1.5 0 004 8v8a1.5 1.5 0 001.5 1.5h13A1.5 1.5 0 0020 16V8a1.5 1.5 0 00-1.5-1.5h-13z" fill="#D8DDE1"/>
-    <g clip-path="url(#clip0)" fill-rule="evenodd" clip-rule="evenodd">
+    <g clip-path="url(#flag_lv_small_svg__clip0)" fill-rule="evenodd" clip-rule="evenodd">
         <path d="M4 15.883c0 .893.716 1.617 1.6 1.617h12.8c.884 0 1.6-.724 1.6-1.617V8.117c0-.893-.716-1.617-1.6-1.617H5.6c-.884 0-1.6.724-1.6 1.617v7.766z" fill="#9F2E38"/>
         <path d="M4 13.047h16v-2.018H4v2.018z" fill="#fff"/>
     </g>
     <defs>
-        <clipPath id="clip0">
+        <clipPath id="flag_lv_small_svg__clip0">
             <path fill="#fff" d="M4 6.5h16v11H4z"/>
         </clipPath>
     </defs>
