@@ -15,7 +15,7 @@
     "*.svg"
   ],
   "scripts": {
-    "build": "ts-node ./scripts/node.ts",
+    "build": "ts-node ./scripts/web.ts",
     "optimize": "svgo --config svgo.config.json --pretty --folder web",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "yarn lint --fix",
