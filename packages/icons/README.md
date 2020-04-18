@@ -32,32 +32,45 @@ npm install @sumup/icons
 
 ### Import as React component
 
-The easiest way to use the icons in [React](https://reactjs.org/) is to import them as components. This approach works out of the box (no special loaders needed), is tree-shaking enabled, and has TypeScript typings included.
+The easiest way to use an icon in [React](https://reactjs.org/) is to import it as a component. This approach works out of the box (no special loaders needed), is tree-shaking enabled, and comes with TypeScript typings included.
 
 ```jsx
-import { Valid } from '@sumup/icons';
+import { Check } from '@sumup/icons';
 
 const SuccessMessage = ({ description }) => (
   <div>
-    <Valid fill="#37b24d" />
+    <Check />
     <span>{description}</span>
   </div>
 );
 ```
 
-Applying styles with a CSS-in-JS library:
+Some icons have multiple sizes. They default to the "large" size. Use the `size` prop to show the "small" size instead:
+
+```jsx
+import { CircleCheckmark } from '@sumup/icons';
+
+const SuccessMessage = ({ description }) => (
+  <div>
+    <CircleCheckmark size="size" />
+    <span>{description}</span>
+  </div>
+);
+```
+
+To change the color of an icon, simple set the color in CSS. The color will [cascade down](https://css-tricks.com/cascading-svg-fill-color/) since the `fill` and `stroke` attributes of most icons are set to `currentColor`. Here's an example with a CSS-in-JS library:
 
 ```jsx
 import styled from '@emotion/styled';
-import { Valid } from '@sumup/icons';
+import { Check } from '@sumup/icons';
 
-const ValidIcon = styled(Valid)`
-  fill: #37b24d;
+const GreenCheck = styled(Check)`
+  color: green;
 `;
 
 const SuccessMessage = ({ description }) => (
   <div>
-    <ValidIcon />
+    <GreenCheck />
     <span>{description}</span>
   </div>
 );
@@ -68,14 +81,28 @@ const SuccessMessage = ({ description }) => (
 Alternatively, it's possible to import the raw SVG files. Most bundlers require a special loader to make this work. For Webpack, we recommend the [file-loader](https://github.com/webpack-contrib/file-loader) which turns the import into a URL to the SVG.
 
 ```jsx
-import valid from '@sumup/icons/icons/valid.svg';
+import check from '@sumup/icons/check_small.svg';
 
 const SuccessMessage = ({ description }) => (
   <div>
-    <img src={valid} alt="" aria-hidden="true" />
+    <img src={check} alt="" aria-hidden="true" />
     <span>{description}</span>
   </div>
 );
+```
+
+### Load from a URL
+
+The latest version of the icon library is [automatically deployed](https://icons.sumup-oss.now.sh/) to [Zeit Now](https://zeit.co/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://icons.sumup-oss.now.sh/<name>_<size>.svg`. Below are some examples:
+
+```html
+<img src="https://icons.sumup-oss.now.sh/check_small.svg" alt="checkmark" />
+```
+
+```css
+.icon {
+  background-image: url('https://icons.sumup-oss.now.sh/check_small.svg');
+}
 ```
 
 ## Code of conduct
