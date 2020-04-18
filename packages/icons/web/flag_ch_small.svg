@@ -1,12 +1,12 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 6H18.5C19.6046 6 20.5 6.89543 20.5 8V16C20.5 17.1046 19.6046 18 18.5 18H5.5C4.39543 18 3.5 17.1046 3.5 16V8C3.5 6.89543 4.39543 6 5.5 6ZM5.5 6.5C4.67157 6.5 4 7.17157 4 8V16C4 16.8284 4.67157 17.5 5.5 17.5H18.5C19.3284 17.5 20 16.8284 20 16V8C20 7.17157 19.3284 6.5 18.5 6.5H5.5Z" fill="#D8DDE1"/>
-<g clip-path="url(#clip0)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M18.6402 6.5H5.35985C4.60896 6.5 4 7.12487 4 7.89536V16.1044C4 16.8752 4.60896 17.5 5.35985 17.5H18.6402C19.3911 17.5 20 16.8752 20 16.1044V7.89536C20 7.12487 19.3911 6.5 18.6402 6.5ZM15.7201 13.1451H13.1161V15.8172H10.8839V13.1451H8.27986V10.8547H10.8839V8.18255H13.1161V10.8547H15.7201V13.1451Z" fill="#F92728"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M13.1165 8.18286H10.8843V10.855H8.28027V13.1454H10.8843V15.8175H13.1165V13.1454H15.7205V10.855H13.1165V8.18286Z" fill="white"/>
-</g>
-<defs>
-<clipPath id="clip0">
-<rect x="4" y="6.5" width="16" height="11" fill="white"/>
-</clipPath>
-</defs>
+<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 6h13a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2V8a2 2 0 012-2zm0 .5A1.5 1.5 0 004 8v8a1.5 1.5 0 001.5 1.5h13A1.5 1.5 0 0020 16V8a1.5 1.5 0 00-1.5-1.5h-13z" fill="#D8DDE1"/>
+    <g clip-path="url(#clip0)" fill-rule="evenodd" clip-rule="evenodd">
+        <path d="M18.64 6.5H5.36C4.609 6.5 4 7.125 4 7.895v8.21c0 .77.609 1.395 1.36 1.395h13.28c.751 0 1.36-.625 1.36-1.396V7.895c0-.77-.609-1.395-1.36-1.395zm-2.92 6.645h-2.604v2.672h-2.232v-2.672H8.28v-2.29h2.604V8.183h2.232v2.672h2.604v2.29z" fill="#F92728"/>
+        <path d="M13.117 8.183h-2.233v2.672H8.28v2.29h2.604v2.673h2.232v-2.673h2.604v-2.29h-2.604V8.183z" fill="#fff"/>
+    </g>
+    <defs>
+        <clipPath id="clip0">
+            <path fill="#fff" d="M4 6.5h16v11H4z"/>
+        </clipPath>
+    </defs>
 </svg>

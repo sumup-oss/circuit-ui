@@ -1,5 +1,3 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5 8H19" stroke="#212933" stroke-width="2"/>
-<path d="M5 12H19" stroke="#212933" stroke-width="2"/>
-<path d="M5 16H19" stroke="#212933" stroke-width="2"/>
+<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 8h14M5 12h14M5 16h14" stroke="currentColor" stroke-width="2"/>
 </svg>
