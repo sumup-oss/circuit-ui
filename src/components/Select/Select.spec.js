@@ -88,6 +88,7 @@ describe('Select', () => {
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <Label htmlFor="select">
+        Label
         <Select {...{ options }} id="select" />
       </Label>
     );

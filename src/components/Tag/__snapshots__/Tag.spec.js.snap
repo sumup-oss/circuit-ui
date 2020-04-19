@@ -156,7 +156,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 `;
 
 exports[`Tag when is selected should change the given icon color 1`] = `
-.circuit-2 {
+.circuit-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -176,36 +176,25 @@ exports[`Tag when is selected should change the given icon color 1`] = `
   color: #FFFFFF;
 }
 
-.circuit-2 > svg {
+.circuit-1 > svg {
   fill: #FFFFFF;
 }
 
 .circuit-0 {
   margin-right: 4px;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
 }
 
-.circuit-0 > svg {
-  vertical-align: top;
-}
-
-.circuit-0 > svg {
+.circuit-0: svg {
   fill: #FFFFFF;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <span
-    class="circuit-0 circuit-1"
-  >
-    <div>
-      icon-tick.svg
-    </div>
-  </span>
+  <div
+    class="circuit-0"
+    data-testid="tag-icon"
+  />
   SomeTest
 </div>
 `;
