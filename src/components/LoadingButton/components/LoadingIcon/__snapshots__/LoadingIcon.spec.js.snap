@@ -15,54 +15,65 @@ exports[`LoadingIcon Style tests should have active LoadingIcon styles 1`] = `
   }
 }
 
-.circuit-0 {
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+.circuit-2 {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
 }
 
-.circuit-0 > path {
-  fill: #FFFFFF;
-}
-
-.circuit-0 > path {
+.circuit-0 {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-}
-
-.circuit-3 {
   opacity: 0;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   opacity: 1;
-  height: 16px;
-  width: 16px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
 }
 
 <div
-  aria-busy="true"
-  aria-live="assertive"
-  class="circuit-2 circuit-3 circuit-4"
-  role="alert"
+  class="circuit-2 circuit-3"
 >
   <div
+    aria-busy="true"
+    aria-live="assertive"
     class="circuit-0 circuit-1"
-    dark="0"
-  >
-    spinner.svg
-  </div>
+    role="alert"
+  />
 </div>
 `;
 
@@ -81,59 +92,55 @@ exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
   }
 }
 
-.circuit-3 {
-  opacity: 0;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+.circuit-2 {
   height: 16px;
   width: 16px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .circuit-0 {
-  width: 100%;
-  height: 100%;
-}
-
-.circuit-0 > path {
-  fill: #FFFFFF;
-}
-
-.circuit-0 > path {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 <div
-  aria-busy="true"
-  aria-live="assertive"
-  class="circuit-2 circuit-3 circuit-4"
-  role="alert"
+  class="circuit-2 circuit-3"
 >
   <div
+    aria-busy="true"
+    aria-live="assertive"
     class="circuit-0 circuit-1"
-    dark="0"
-  >
-    spinner.svg
-  </div>
+    role="alert"
+  />
 </div>
 `;
 
 exports[`LoadingIcon Style tests should have error LoadingIcon styles 1`] = `
-HTMLCollection [
-  @keyframes animation-0 {
+@keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
     -ms-transform: rotate3d(0,0,1,0deg);
@@ -147,55 +154,21 @@ HTMLCollection [
   }
 }
 
-.circuit-3 {
-  opacity: 0;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  height: 16px;
-  width: 16px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
 }
 
-.circuit-0 {
-  width: 100%;
-  height: 100%;
-}
-
-.circuit-0 > path {
-  fill: #FFFFFF;
-}
-
-.circuit-0 > path {
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-}
-
-<div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-2 circuit-3 circuit-4"
-    role="alert"
-  >
-    <div
-      class="circuit-0 circuit-1"
-      dark="0"
-    >
-      spinner.svg
-    </div>
-  </div>,
-  @keyframes animation-0 {
+@keyframes animation-1 {
   0% {
     opacity: 1;
     -webkit-transform: scale3d(0,0,0);
@@ -211,28 +184,53 @@ HTMLCollection [
   }
 }
 
-.circuit-2 {
+.circuit-3 {
   height: 16px;
   width: 16px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .circuit-0 {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-2 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
   -webkit-transform: scale3d(0,0,0);
   -ms-transform: scale3d(0,0,0);
   transform: scale3d(0,0,0);
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  height: 100%;
-  width: 100%;
-  -webkit-animation: animation-0 200ms ease-in-out;
-  animation: animation-0 200ms ease-in-out;
+  -webkit-animation: animation-1 200ms ease-in-out;
+  animation: animation-1 200ms ease-in-out;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   -webkit-animation-iteration-count: 1;
@@ -240,15 +238,30 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-2 circuit-3"
+  class="circuit-3 circuit-4"
+>
+  <div
+    aria-busy="true"
+    aria-live="assertive"
+    class="circuit-0 circuit-1"
+    role="alert"
+  />
+  <svg
+    class="circuit-2"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <div
-      class="circuit-0 circuit-1"
-    >
-      error.svg
-    </div>
-  </div>,
-]
+    <path
+      clip-rule="evenodd"
+      d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zM9.493 8.079a1 1 0 10-1.414 1.414L10.586 12l-2.507 2.507a1 1 0 101.414 1.414L12 13.414l2.507 2.507a1 1 0 001.414-1.414L13.414 12l2.507-2.507a1 1 0 00-1.414-1.414L12 10.586 9.493 8.079z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
 `;
 
 exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
@@ -266,53 +279,64 @@ exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
   }
 }
 
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
 .circuit-0 {
-  width: 100%;
-  height: 100%;
-}
-
-.circuit-0 > path {
-  fill: #FFFFFF;
-}
-
-.circuit-0 > path {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-}
-
-.circuit-3 {
   opacity: 0;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
+}
+
+.circuit-2 {
   height: 32px;
   width: 32px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
 }
 
 <div
-  aria-busy="true"
-  aria-live="assertive"
-  class="circuit-2 circuit-3 circuit-4"
-  role="alert"
+  class="circuit-2 circuit-3"
 >
   <div
+    aria-busy="true"
+    aria-live="assertive"
     class="circuit-0 circuit-1"
-    dark="0"
-  >
-    spinner.svg
-  </div>
+    role="alert"
+  />
 </div>
 `;
 
@@ -331,53 +355,64 @@ exports[`LoadingIcon Style tests should have kilo LoadingIcon styles 1`] = `
   }
 }
 
-.circuit-3 {
-  opacity: 0;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+.circuit-2 {
   height: 16px;
   width: 16px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .circuit-0 {
-  width: 100%;
-  height: 100%;
-}
-
-.circuit-0 > path {
-  fill: #FFFFFF;
-}
-
-.circuit-0 > path {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 <div
-  aria-busy="true"
-  aria-live="assertive"
-  class="circuit-2 circuit-3 circuit-4"
-  role="alert"
+  class="circuit-2 circuit-3"
 >
   <div
+    aria-busy="true"
+    aria-live="assertive"
     class="circuit-0 circuit-1"
-    dark="0"
-  >
-    spinner.svg
-  </div>
+    role="alert"
+  />
 </div>
 `;
 
@@ -396,59 +431,7 @@ exports[`LoadingIcon Style tests should have mega LoadingIcon styles 1`] = `
   }
 }
 
-.circuit-0 {
-  width: 100%;
-  height: 100%;
-}
-
-.circuit-0 > path {
-  fill: #FFFFFF;
-}
-
-.circuit-0 > path {
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-}
-
-.circuit-3 {
-  opacity: 0;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  height: 24px;
-  width: 24px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-}
-
-<div
-  aria-busy="true"
-  aria-live="assertive"
-  class="circuit-2 circuit-3 circuit-4"
-  role="alert"
->
-  <div
-    class="circuit-0 circuit-1"
-    dark="0"
-  >
-    spinner.svg
-  </div>
-</div>
-`;
-
-exports[`LoadingIcon Style tests should have success LoadingIcon styles 1`] = `
-HTMLCollection [
-  @keyframes animation-0 {
+@keyframes animation-0 {
   0% {
     -webkit-transform: rotate3d(0,0,1,0deg);
     -ms-transform: rotate3d(0,0,1,0deg);
@@ -462,55 +445,83 @@ HTMLCollection [
   }
 }
 
-.circuit-3 {
-  opacity: 0;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  height: 16px;
-  width: 16px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-}
-
 .circuit-0 {
-  width: 100%;
-  height: 100%;
-}
-
-.circuit-0 > path {
-  fill: #FFFFFF;
-}
-
-.circuit-0 > path {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-2 {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
 }
 
 <div
+  class="circuit-2 circuit-3"
+>
+  <div
     aria-busy="true"
     aria-live="assertive"
-    class="circuit-2 circuit-3 circuit-4"
+    class="circuit-0 circuit-1"
     role="alert"
-  >
-    <div
-      class="circuit-0 circuit-1"
-      dark="0"
-    >
-      spinner.svg
-    </div>
-  </div>,
-  @keyframes animation-0 {
+  />
+</div>
+`;
+
+exports[`LoadingIcon Style tests should have success LoadingIcon styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+@keyframes animation-1 {
   0% {
     opacity: 1;
     -webkit-transform: scale3d(0,0,0);
@@ -526,28 +537,53 @@ HTMLCollection [
   }
 }
 
-.circuit-2 {
+.circuit-3 {
   height: 16px;
   width: 16px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .circuit-0 {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-2 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
   -webkit-transform: scale3d(0,0,0);
   -ms-transform: scale3d(0,0,0);
   transform: scale3d(0,0,0);
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  height: 100%;
-  width: 100%;
-  -webkit-animation: animation-0 200ms ease-in-out;
-  animation: animation-0 200ms ease-in-out;
+  -webkit-animation: animation-1 200ms ease-in-out;
+  animation: animation-1 200ms ease-in-out;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   -webkit-animation-iteration-count: 1;
@@ -555,13 +591,28 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-2 circuit-3"
+  class="circuit-3 circuit-4"
+>
+  <div
+    aria-busy="true"
+    aria-live="assertive"
+    class="circuit-0 circuit-1"
+    role="alert"
+  />
+  <svg
+    class="circuit-2"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <div
-      class="circuit-0 circuit-1"
-    >
-      success.svg
-    </div>
-  </div>,
-]
+    <path
+      clip-rule="evenodd"
+      d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-5.322-2.549a1 1 0 00-1.562-1.249l-4.444 5.556-1.782-1.781a1 1 0 00-1.414 1.414l2.571 2.571a1 1 0 001.488-.082l5.143-6.429z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
 `;

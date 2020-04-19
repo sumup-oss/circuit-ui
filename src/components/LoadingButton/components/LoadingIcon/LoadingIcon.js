@@ -13,19 +13,17 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
 import { size as sizeMixin } from 'polished';
+import { CircleCheckmarkFilled, CircleCrossFilled } from '@sumup/icons';
 
 import { sizes } from '../../../../styles/constants';
 
-import PureSpinner from '../../../Spinner';
-import { ReactComponent as SuccessSvg } from '../../icons/success.svg';
-import { ReactComponent as ErrorSvg } from '../../icons/error.svg';
+import Spinner from '../../../Spinner';
 import { DISABLED, ACTIVE, SUCCESS, ERROR } from '../../constants';
-import { SIZE_PROP_TYPE } from '../../../Button/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
 
@@ -49,9 +47,9 @@ const iconEnter = keyframes`
  */
 const centeredStyles = () => css`
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const sizeStyles = label => ({ theme, size }) => {
@@ -69,62 +67,32 @@ const sizeStyles = label => ({ theme, size }) => {
   `;
 };
 
-/**
- * Icon styles
- */
-const Icon = styled.div`
-  label: loading-icon;
+const IconContainer = styled.div`
+  ${sizeStyles('loading-icon__status')};
+  ${centeredStyles};
+  width: 100%;
+`;
+
+const iconStyles = theme => css`
+  ${sizeMixin('100%')};
+  position: absolute;
   transform: scale3d(0, 0, 0);
   opacity: 0;
-  transition: opacity ${({ theme }) => theme.transitions.default};
-  ${sizeMixin('100%')};
-  animation: ${iconEnter} ${({ theme }) => theme.transitions.default};
+  transition: opacity ${theme.transitions.default};
+  animation: ${iconEnter} ${theme.transitions.default};
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 `;
-
-const IconContainer = styled.div(
-  sizeStyles('loading-icon__status'),
-  centeredStyles
-);
-
-/**
- * Direct sub-components
- */
-const Spinner = styled(PureSpinner)(
-  sizeStyles('loading-icon__spinner'),
-  centeredStyles
-);
-
-// TODO: add ARIA labels to icon.
-const StatusIcon = ({ as, size }) => (
-  <IconContainer size={size}>
-    <Icon as={as} />
-  </IconContainer>
-);
-
-StatusIcon.propTypes = {
-  as: PropTypes.oneOf([SuccessSvg, ErrorSvg]),
-  /**
-   * Size prop from the Button.
-   */
-  size: SIZE_PROP_TYPE
-};
-
-StatusIcon.defaultProps = {
-  as: SuccessSvg,
-  size: GIGA
-};
 
 /**
  * The components center themselves in the relatively positioned parent.
  */
 const LoadingIcon = ({ loadingState, size }) => (
-  <Fragment>
+  <IconContainer size={size}>
     <Spinner size={size} active={loadingState === ACTIVE} />
-    {loadingState === SUCCESS && <StatusIcon as={SuccessSvg} size={size} />}
-    {loadingState === ERROR && <StatusIcon as={ErrorSvg} size={size} />}
-  </Fragment>
+    {loadingState === SUCCESS && <CircleCheckmarkFilled css={iconStyles} />}
+    {loadingState === ERROR && <CircleCrossFilled css={iconStyles} />}
+  </IconContainer>
 );
 
 LoadingIcon.propTypes = {
@@ -137,6 +105,10 @@ LoadingIcon.propTypes = {
    * Size prop from the Button.
    */
   size: PropTypes.string.isRequired
+};
+
+LoadingIcon.defaultProps = {
+  size: GIGA
 };
 
 /**
