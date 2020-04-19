@@ -17,53 +17,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { ReactComponent as UpIcon } from './arrow.svg';
+import { ChevronUp, ChevronDown } from '@sumup/icons';
 
 import { ASCENDING, DESCENDING } from '../../constants';
 
 const baseStyles = ({ theme }) => css`
   display: flex;
   flex-direction: column;
-  height: 10px;
-  width: 5px;
-  left: ${theme.spacings.kilo};
-  opacity: 0;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
   position: absolute;
+  left: 0;
   top: 50%;
+  opacity: 0;
   transform: translateY(-50%);
   transition: opacity ${theme.transitions.default};
-  fill: ${theme.colors.p500};
+  color: ${theme.colors.p500};
 `;
 
-const condensedStyles = ({ condensed, theme }) =>
-  condensed &&
-  css`
-    left: ${theme.spacings.byte};
-  `;
+const Wrapper = styled.span(baseStyles);
 
-const Wrapper = styled('span')`
-  ${baseStyles};
-  ${condensedStyles};
-`;
-
-const DownIcon = styled(UpIcon)`
-  margin-top: 2px;
-  transform: rotate(180deg);
+const iconStyles = theme => css`
+  margin-top: -7px;
+  margin-bottom: -7px;
 `;
 
 /**
  * @private Arrow component for TableHeader sorting
  */
-const SortArrow = ({ direction = null, condensed = false }) => (
-  <Wrapper condensed={condensed}>
-    {direction !== ASCENDING && <DownIcon />}
-    {direction !== DESCENDING && <UpIcon />}
+const SortArrow = ({ direction = null }) => (
+  <Wrapper>
+    {direction !== ASCENDING && <ChevronUp css={iconStyles} />}
+    {direction !== DESCENDING && <ChevronDown css={iconStyles} />}
   </Wrapper>
 );
 
 SortArrow.propTypes = {
-  direction: PropTypes.oneOf([ASCENDING, DESCENDING]),
-  condensed: PropTypes.bool
+  direction: PropTypes.oneOf([ASCENDING, DESCENDING])
 };
 
 export default SortArrow;

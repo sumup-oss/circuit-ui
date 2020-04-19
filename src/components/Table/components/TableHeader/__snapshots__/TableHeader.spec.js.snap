@@ -140,25 +140,27 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 10px;
-  width: 5px;
-  left: 12px;
-  opacity: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
   position: absolute;
+  left: 0;
   top: 50%;
+  opacity: 0;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  fill: #3388FF;
+  color: #3388FF;
 }
 
 .circuit-0 {
-  margin-top: 2px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  margin-top: -7px;
+  margin-bottom: -7px;
 }
 
 <th
@@ -170,21 +172,45 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   <span
     class="circuit-2 circuit-3"
   >
-    <div
-      class="circuit-0 circuit-1"
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      arrow.svg
-    </div>
-    <div>
-      arrow.svg
-    </div>
+      <path
+        d="M8 14l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8 10l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </span>
   Foo
 </th>
 `;
 
 exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted ascending styles 1`] = `
-.circuit-0 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -192,21 +218,30 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 10px;
-  width: 5px;
-  left: 12px;
-  opacity: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
   position: absolute;
+  left: 0;
   top: 50%;
+  opacity: 0;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  fill: #3388FF;
+  color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-0 {
+  margin-top: -7px;
+  margin-bottom: -7px;
+}
+
+.circuit-3 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -227,38 +262,51 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   user-select: none;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-2:hover > span {
+.circuit-3:hover > span {
   opacity: 1;
 }
 
-.circuit-2 > span {
+.circuit-3 > span {
   opacity: 1;
 }
 
 <th
   aria-sort="ascending"
-  class="circuit-2 circuit-3"
+  class="circuit-3 circuit-4"
   data-testid="table-header"
   scope="col"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-1 circuit-2"
   >
-    <div>
-      arrow.svg
-    </div>
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8 10l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </span>
   Foo
 </th>
 `;
 
 exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted descending styles 1`] = `
-.circuit-2 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -266,28 +314,30 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 10px;
-  width: 5px;
-  left: 12px;
-  opacity: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
   position: absolute;
+  left: 0;
   top: 50%;
+  opacity: 0;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  fill: #3388FF;
+  color: #3388FF;
 }
 
 .circuit-0 {
-  margin-top: 2px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  margin-top: -7px;
+  margin-bottom: -7px;
 }
 
-.circuit-4 {
+.circuit-3 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -308,33 +358,44 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   user-select: none;
 }
 
-.circuit-4:hover {
+.circuit-3:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-4:hover > span {
+.circuit-3:hover > span {
   opacity: 1;
 }
 
-.circuit-4 > span {
+.circuit-3 > span {
   opacity: 1;
 }
 
 <th
   aria-sort="descending"
-  class="circuit-4 circuit-5"
+  class="circuit-3 circuit-4"
   data-testid="table-header"
   scope="col"
 >
   <span
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
   >
-    <div
-      class="circuit-0 circuit-1"
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      arrow.svg
-    </div>
+      <path
+        d="M8 14l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </span>
   Foo
 </th>
