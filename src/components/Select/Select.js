@@ -14,10 +14,11 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import PropTypes from 'prop-types';
 import { size } from 'polished';
+import { SelectExpand, CircleCross } from '@sumup/icons';
 
 import {
   eitherOrPropType,
@@ -25,8 +26,6 @@ import {
 } from '../../util/shared-prop-types';
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
-import { ReactComponent as ArrowsIcon } from '../../icons/arrows.svg';
-import { ReactComponent as ErrorIcon } from '../../icons/error.svg';
 import Tooltip from '../Tooltip';
 
 // HACK: Firefox includes the border-width in the overall height of the element
@@ -82,12 +81,12 @@ const selectInvalidStyles = ({ theme, invalid, disabled }) =>
 
 const suffixBaseStyles = ({ theme }) => css`
   label: select__icon;
-  fill: ${theme.colors.n700};
+  color: ${theme.colors.n700};
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  ${size(theme.spacings.mega)};
+  ${size(theme.iconSizes.kilo)};
   top: 1px;
   right: 1px;
   margin: ${theme.spacings.kilo};
@@ -146,7 +145,7 @@ const prefixStyles = theme => css`
   top: 1px;
   left: 1px;
   z-index: 40;
-  ${size(theme.spacings.mega)};
+  ${size(theme.iconSizes.kilo)};
   margin: ${theme.spacings.kilo};
   pointer-events: none;
 `;
@@ -178,13 +177,14 @@ const SelectElement = styled('select')`
   ${selectPrefixStyles};
 `;
 
-const SelectIcon = styled(ArrowsIcon)`
+const SelectIcon = styled(SelectExpand)`
   ${suffixBaseStyles};
   ${suffixInvalidStyles};
 `;
 
-const InvalidIcon = styled(ErrorIcon)`
+const InvalidIcon = styled(CircleCross)`
   ${suffixBaseStyles};
+  color: ${p => p.theme.colors.danger};
 `;
 
 const SelectTooltip = styled(Tooltip)`
