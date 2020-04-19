@@ -18,8 +18,8 @@ import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { hideVisually, size } from 'polished';
+import { Check } from '@sumup/icons';
 
-import { ReactComponent as CheckedIcon } from './checked-icon.svg';
 import { disableVisually } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
@@ -49,15 +49,15 @@ const labelBaseStyles = ({ theme }) => css`
   }
 
   svg {
-    ${size(10)};
+    ${size(theme.spacings.mega)};
     box-sizing: border-box;
-    fill: ${theme.colors.p500};
+    color: ${theme.colors.p500};
     display: block;
-    left: 3px;
     line-height: 0;
     opacity: 0;
     position: absolute;
     top: ${theme.spacings.kilo};
+    left: 0;
     transform: translateY(-50%) scale(0, 0);
     transition: transform 0.05s ease-in, opacity 0.05s ease-in;
   }
@@ -73,7 +73,7 @@ const labelInvalidStyles = ({ theme, invalid }) =>
     }
 
     &:not(:focus) svg {
-      fill: ${theme.colors.r500};
+      color: ${theme.colors.r500};
     }
   `;
 
@@ -91,7 +91,7 @@ const labelDisabledStyles = ({ theme, disabled }) =>
 
     & svg {
       ${disableVisually()};
-      fill: ${theme.colors.n500};
+      color: ${theme.colors.n500};
     }
   `;
 
@@ -172,7 +172,7 @@ const Checkbox = ({
       />
       <CheckboxLabel {...props} htmlFor={id} disabled={disabled}>
         {children}
-        <CheckedIcon aria-hidden="true" />
+        <Check aria-hidden="true" />
       </CheckboxLabel>
       {!disabled && validationHint && (
         <CheckboxTooltip position={Tooltip.TOP} align={Tooltip.RIGHT}>
