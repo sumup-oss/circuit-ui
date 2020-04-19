@@ -17,15 +17,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { size } from 'polished';
+import { Cross } from '@sumup/icons';
 
-import { svgKilo } from '../../styles/style-helpers';
 import IconButton from '../IconButton';
-import { ReactComponent as CloseIcon } from './close-icon.svg';
 
 const StyledIconButton = styled(IconButton)(
   ({ theme }) => css`
     label: close-button;
-    ${svgKilo({ theme })};
+    ${size(theme.iconSizes.kilo)};
   `
 );
 
@@ -34,7 +34,7 @@ const StyledIconButton = styled(IconButton)(
  */
 const CloseButton = props => (
   <StyledIconButton {...props}>
-    <CloseIcon />
+    <Cross />
   </StyledIconButton>
 );
 
