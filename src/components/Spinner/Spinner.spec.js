@@ -31,6 +31,11 @@ describe('Spinner', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with active styles', () => {
+    const actual = create(<Spinner active />);
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */
