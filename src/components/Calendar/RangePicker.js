@@ -15,13 +15,11 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
+import { ArrowRight, ArrowLeft, Cross } from '@sumup/icons';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';
-
-import { ReactComponent as CloseIcon } from './close.svg';
-import { ReactComponent as ArrowRightIcon } from './arrow-right.svg';
 
 const CustomArrow = styled('div')`
   color: ${({ theme }) => theme.colors.b500};
@@ -32,12 +30,12 @@ const RangePicker = props => (
     <DateRangePicker
       customArrowIcon={
         <CustomArrow>
-          <ArrowRightIcon />
+          <ArrowRight />
         </CustomArrow>
       }
-      navNext={<ArrowRightIcon />}
-      navPrev={<ArrowRightIcon />}
-      customCloseIcon={<CloseIcon />}
+      navNext={<ArrowRight />}
+      navPrev={<ArrowLeft />}
+      customCloseIcon={<Cross size="small" />}
       numberOfMonths={1}
       hideKeyboardShortcutsPanel
       {...props}

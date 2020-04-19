@@ -14,17 +14,17 @@
  */
 
 import React from 'react';
+import { ArrowRight, ArrowLeft } from '@sumup/icons';
 import { DayPickerRangeController } from 'react-dates';
 import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';
-import { ReactComponent as ArrowRightIcon } from './arrow-right.svg';
 
 const RangePickerController = props => (
   <CalendarWrapper>
     <DayPickerRangeController
-      navNext={<ArrowRightIcon />}
-      navPrev={<ArrowRightIcon />}
+      navNext={<ArrowRight />}
+      navPrev={<ArrowLeft />}
       numberOfMonths={1}
       hideKeyboardShortcutsPanel
       {...props}
