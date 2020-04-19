@@ -18,13 +18,13 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import { hideVisually } from 'polished';
-
-import { ReactComponent as CloseIcon } from './closeIcon.svg';
+import { Cross } from '@sumup/icons';
 
 const baseStyles = ({ theme }) => css`
   label: sidebar-close-button;
   cursor: pointer;
   outline: none;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,11 +57,7 @@ const FloatingButton = styled.button`
   ${visibleStyles};
 `;
 
-const labelStyles = () => css`
-  ${hideVisually()};
-`;
-
-const Label = styled('span')(labelStyles);
+const Label = styled('span')(hideVisually());
 
 const CloseButton = ({ visible, label, onClick, ...props }) => (
   <FloatingButton
@@ -70,7 +66,7 @@ const CloseButton = ({ visible, label, onClick, ...props }) => (
     {...props}
     aria-label={label}
   >
-    <CloseIcon role="presentation" />
+    <Cross role="presentation" />
     {label && <Label>{label}</Label>}
   </FloatingButton>
 );

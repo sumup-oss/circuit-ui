@@ -14,8 +14,9 @@
  */
 
 import React from 'react';
+import { Lock } from '@sumup/icons';
+
 import { hasSelectedChild, getIcon } from './utils';
-import { ReactComponent as Lock } from './lock.svg';
 
 describe('hasSelectedChild', () => {
   it('should return true for an array with a selected child', () => {

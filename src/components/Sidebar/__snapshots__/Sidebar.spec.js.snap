@@ -74,6 +74,7 @@ HTMLCollection [
   .circuit-0 {
   cursor: pointer;
   outline: none;
+  border: none;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -112,11 +113,21 @@ HTMLCollection [
     class="circuit-0 circuit-1"
     data-testid="sidebar-close-button"
   >
-    <div
+    <svg
+      fill="none"
+      height="24"
       role="presentation"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      closeIcon.svg
-    </div>
+      <path
+        d="M5 5l14 14m0-14L5 19"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </svg>
   </button>,
 ]
 `;
@@ -181,6 +192,7 @@ HTMLCollection [
   .circuit-0 {
   cursor: pointer;
   outline: none;
+  border: none;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -217,11 +229,21 @@ HTMLCollection [
     class="circuit-0 circuit-1"
     data-testid="sidebar-close-button"
   >
-    <div
+    <svg
+      fill="none"
+      height="24"
       role="presentation"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      closeIcon.svg
-    </div>
+      <path
+        d="M5 5l14 14m0-14L5 19"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </svg>
   </button>,
 ]
 `;

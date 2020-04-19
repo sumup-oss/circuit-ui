@@ -15,18 +15,20 @@
 
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { boolean } from '@storybook/addon-knobs/react';
+import {
+  House,
+  HouseFilled,
+  Person,
+  PersonFilled,
+  Transactions,
+  TransactionsFilled,
+  ShoppingCart,
+  ShoppingCartFilled
+} from '@sumup/icons';
 
 import docs from './Sidebar.docs.mdx';
 import Sidebar from '.';
 import Separator from './components/Separator';
-
-import { ReactComponent as HomeEmpty } from './icons/home-empty.svg';
-import { ReactComponent as ListEmpty } from './icons/list-empty.svg';
-import { ReactComponent as MeEmpty } from './icons/me-empty.svg';
-import { ReactComponent as HomeFull } from './icons/home-full.svg';
-import { ReactComponent as ListFull } from './icons/list-full.svg';
-import { ReactComponent as MeFull } from './icons/me-full.svg';
 
 const Viewport = styled.div`
   height: 100vh;
@@ -54,41 +56,49 @@ const SidebarWithState = () => {
             label="Home"
             selected={selected === 1}
             onClick={() => setSelected(1)}
-            defaultIcon={<HomeEmpty />}
-            selectedIcon={<HomeFull />}
+            defaultIcon={<House />}
+            selectedIcon={<HouseFilled />}
           />
           <Sidebar.Aggregator
             key="list"
             selected={selected === 2}
             label="List"
-            defaultIcon={<ListEmpty />}
-            selectedIcon={<ListFull />}
+            defaultIcon={<Transactions />}
+            selectedIcon={<TransactionsFilled />}
           >
             <Sidebar.NavItem
               label="First"
-              selected={selected === 4}
-              onClick={() => setSelected(4)}
+              selected={selected === 21}
+              onClick={() => setSelected(21)}
             />
             <Sidebar.NavItem
               label="Second"
-              selected={selected === 5}
-              onClick={() => setSelected(5)}
+              selected={selected === 22}
+              onClick={() => setSelected(22)}
             />
             <Sidebar.NavItem
               label="Third"
-              selected={selected === 6}
-              onClick={() => setSelected(6)}
+              selected={selected === 23}
+              onClick={() => setSelected(23)}
             />
           </Sidebar.Aggregator>
-          <Separator />
+          <Sidebar.NavItem
+            key="shop"
+            label="Shop"
+            disabled
+            selected={selected === 3}
+            defaultIcon={<ShoppingCart />}
+            selectedIcon={<ShoppingCartFilled />}
+            onClick={() => setSelected(3)}
+          />
+          <Separator key="separator" />
           <Sidebar.NavItem
             key="me"
             label="Me"
-            disabled={boolean('Disabled item', false)}
-            selected={selected === 3}
-            defaultIcon={<MeEmpty />}
-            selectedIcon={<MeFull />}
-            onClick={() => setSelected(3)}
+            selected={selected === 4}
+            defaultIcon={<Person />}
+            selectedIcon={<PersonFilled />}
+            onClick={() => setSelected(4)}
           />
         </Sidebar.NavList>
         <Sidebar.Footer>Footer</Sidebar.Footer>
