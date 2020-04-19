@@ -24,11 +24,6 @@ import manifest from '../manifest.json';
 const BASE_DIR = path.join(__dirname, '..');
 const ICON_DIR = path.join(BASE_DIR, './web');
 const DIST_DIR = path.join(BASE_DIR, 'dist');
-const BABEL_CONFIG = {
-  cwd: BASE_DIR,
-  presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
-  plugins: [['inline-react-svg', { svgo: false }]],
-};
 
 enum IconSize {
   SMALL = 'small',
@@ -122,6 +117,28 @@ function buildDeclarationFile(components: Component[]): string {
   `;
 }
 
+function transpileMain(fileName: string, code: string): void {
+  const distDir = path.join(DIST_DIR, 'cjs');
+  const output = transformSync(code, {
+    cwd: BASE_DIR,
+    presets: ['@babel/preset-env', '@babel/preset-react'],
+    plugins: [['inline-react-svg', { svgo: false }]],
+    filename: fileName,
+  }).code;
+  writeFile(distDir, fileName, output);
+}
+
+function transpileModule(fileName: string, code: string): void {
+  const distDir = path.join(DIST_DIR, 'es');
+  const output = transformSync(code, {
+    cwd: BASE_DIR,
+    presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+    plugins: [['inline-react-svg', { svgo: false }]],
+    filename: fileName,
+  }).code;
+  writeFile(distDir, fileName, output);
+}
+
 function writeFile(dir: string, fileName: string, fileContent: string): void {
   const filePath = path.join(dir, fileName);
   const directory = path.dirname(filePath);
@@ -143,23 +160,18 @@ function main(): void {
   )(manifest.icons);
 
   const indexRaw = buildIndexFile(components);
-  const indexFile = transformSync(indexRaw, {
-    ...BABEL_CONFIG,
-    filename: 'index.js',
-  }).code;
   const declarationFile = buildDeclarationFile(components);
 
   components.forEach((component) => {
     const componentFileName = `${component.name}.js`;
     const componentRaw = buildComponentFile(component);
-    const componentFile = transformSync(componentRaw, {
-      ...BABEL_CONFIG,
-      filename: componentFileName,
-    }).code;
-    writeFile(DIST_DIR, componentFileName, componentFile);
+    transpileMain(componentFileName, componentRaw);
+    transpileModule(componentFileName, componentRaw);
   });
 
-  writeFile(DIST_DIR, 'index.js', indexFile);
+  transpileMain('index.js', indexRaw);
+  transpileModule('index.js', indexRaw);
+
   writeFile(DIST_DIR, 'index.d.ts', declarationFile);
 }
 

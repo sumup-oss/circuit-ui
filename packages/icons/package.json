@@ -5,9 +5,9 @@
   "repository": "git@github.com:sumup-oss/circuit-icons.git",
   "author": "Connor Bär <connor.baer@sumup.com>",
   "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "types": "./dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "manifest.json",
