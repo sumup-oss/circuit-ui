@@ -106,6 +106,7 @@ label + .circuit-5 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #DB4D4D;
 }
 
 .circuit-0 {
@@ -205,12 +206,23 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      error.svg
-    </div>
+      <path
+        d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -246,6 +258,7 @@ label + .circuit-5 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #DB4D4D;
 }
 
 .circuit-0 {
@@ -328,12 +341,23 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      error.svg
-    </div>
+      <path
+        d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -1068,6 +1092,7 @@ label + .circuit-5 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #DB4D4D;
 }
 
 <div
@@ -1080,12 +1105,23 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      error.svg
-    </div>
+      <path
+        d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -1431,6 +1467,7 @@ label + .circuit-5 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #47995A;
 }
 
 <div
@@ -1443,12 +1480,30 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      valid.svg
-    </div>
+      <path
+        d="M8.183 12.684l2.571 2.571 5.143-6.428"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+      <path
+        d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -1551,6 +1606,7 @@ label + .circuit-5 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #D8A413;
 }
 
 <div
@@ -1563,12 +1619,23 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      warning.svg
-    </div>
+      <path
+        d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;
