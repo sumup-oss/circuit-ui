@@ -97,6 +97,7 @@
     "@storybook/react": "^5.2.0",
     "@storybook/source-loader": "^5.2.4",
     "@sumup/foundry": "^2.1.0",
+    "@sumup/icons": "^1.0.0-canary.7",
     "@svgr/webpack": "^4.3.3",
     "@testing-library/dom": "^6.5.0",
     "@testing-library/jest-dom": "^4.1.0",
@@ -114,7 +115,6 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-dev-expression": "^0.2.2",
     "babel-plugin-dynamic-import-node": "^2.2.0",
-    "babel-plugin-inline-react-svg": "^1.1.0",
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-react-docgen": "^3.0.0",
@@ -155,6 +155,7 @@
     "@emotion/is-prop-valid": "0.8.x",
     "@emotion/styled": "10.x",
     "@emotion/stylis": "0.8.x",
+    "@sumup/icons": "1.x",
     "emotion-theming": "10.x",
     "react": ">=16.8.0 < 17",
     "react-dom": ">=16.8.0 < 17"
