@@ -49,7 +49,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   }
 }
 
-.circuit-64 {
+.circuit-63 {
   width: 100%;
   height: auto;
   position: relative;
@@ -180,7 +180,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   z-index: -2;
 }
 
-.circuit-62 {
+.circuit-61 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -258,7 +258,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   height: 100%;
 }
 
-.circuit-60 {
+.circuit-59 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -275,7 +275,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-60 {
+  .circuit-59 {
     margin-left: 12px;
   }
 }
@@ -382,99 +382,9 @@ exports[`Carousel styles should render with children as a function 1`] = `
   align-items: center;
 }
 
-.circuit-53 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-  background-color: #D8DDE1;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-left: 8px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-.circuit-53:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-53:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
-}
-
-.circuit-53:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-53:hover,
-.circuit-53:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-}
-
-.circuit-53[href] {
-  display: inline-block;
-}
-
-.circuit-53:disabled,
-.circuit-53[disabled] {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-53:first-of-type {
-  margin-left: 0;
-}
-
-.circuit-53:active,
-.circuit-53:focus,
-.circuit-53:hover {
-  padding: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-53 {
-    width: 24px;
-    height: 24px;
-  }
-
-  .circuit-53 svg {
-    width: 25%;
-  }
-}
-
 <div
   aria-label="gallery"
-  class="circuit-64 circuit-65"
+  class="circuit-63 circuit-64"
 >
   <div
     class="circuit-36 circuit-37"
@@ -550,7 +460,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
     </div>
   </div>
   <div
-    class="circuit-62 circuit-63"
+    class="circuit-61 circuit-62"
   >
     <p
       class="circuit-38 circuit-39 circuit-40 circuit-41"
@@ -563,7 +473,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
       class="circuit-42 circuit-43"
     />
     <div
-      class="circuit-60 circuit-61"
+      class="circuit-59 circuit-60"
     >
       <button
         aria-label="pause"
@@ -572,21 +482,44 @@ exports[`Carousel styles should render with children as a function 1`] = `
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            pause.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 5l14 14m0-14L5 19"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
       <button
         aria-label="previous"
-        class="circuit-51 circuit-46 circuit-53 circuit-48"
+        class="circuit-46 circuit-47 circuit-48"
       >
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            arrow.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14 8l-4 4 4 4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
       <button
@@ -596,9 +529,21 @@ exports[`Carousel styles should render with children as a function 1`] = `
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            arrow.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 16l4-4-4-4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
     </div>
@@ -657,7 +602,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   }
 }
 
-.circuit-64 {
+.circuit-63 {
   width: 100%;
   height: auto;
   position: relative;
@@ -788,7 +733,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   z-index: -2;
 }
 
-.circuit-62 {
+.circuit-61 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -866,7 +811,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   height: 100%;
 }
 
-.circuit-60 {
+.circuit-59 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -883,7 +828,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-60 {
+  .circuit-59 {
     margin-left: 12px;
   }
 }
@@ -990,99 +935,9 @@ exports[`Carousel styles should render with children as a node 1`] = `
   align-items: center;
 }
 
-.circuit-53 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-  background-color: #D8DDE1;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-left: 8px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-.circuit-53:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-53:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
-}
-
-.circuit-53:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-53:hover,
-.circuit-53:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-}
-
-.circuit-53[href] {
-  display: inline-block;
-}
-
-.circuit-53:disabled,
-.circuit-53[disabled] {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-53:first-of-type {
-  margin-left: 0;
-}
-
-.circuit-53:active,
-.circuit-53:focus,
-.circuit-53:hover {
-  padding: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-53 {
-    width: 24px;
-    height: 24px;
-  }
-
-  .circuit-53 svg {
-    width: 25%;
-  }
-}
-
 <div
   aria-label="gallery"
-  class="circuit-64 circuit-65"
+  class="circuit-63 circuit-64"
 >
   <div
     class="circuit-36 circuit-37"
@@ -1158,7 +1013,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
     </div>
   </div>
   <div
-    class="circuit-62 circuit-63"
+    class="circuit-61 circuit-62"
   >
     <p
       class="circuit-38 circuit-39 circuit-40 circuit-41"
@@ -1171,7 +1026,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
       class="circuit-42 circuit-43"
     />
     <div
-      class="circuit-60 circuit-61"
+      class="circuit-59 circuit-60"
     >
       <button
         aria-label="pause"
@@ -1180,21 +1035,44 @@ exports[`Carousel styles should render with children as a node 1`] = `
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            pause.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 5l14 14m0-14L5 19"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
       <button
         aria-label="previous"
-        class="circuit-51 circuit-46 circuit-53 circuit-48"
+        class="circuit-46 circuit-47 circuit-48"
       >
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            arrow.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14 8l-4 4 4 4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
       <button
@@ -1204,9 +1082,21 @@ exports[`Carousel styles should render with children as a node 1`] = `
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            arrow.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 16l4-4-4-4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
     </div>
@@ -1264,7 +1154,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   }
 }
 
-.circuit-64 {
+.circuit-63 {
   width: 100%;
   height: auto;
   position: relative;
@@ -1395,7 +1285,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   z-index: -2;
 }
 
-.circuit-62 {
+.circuit-61 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1445,7 +1335,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   }
 }
 
-.circuit-60 {
+.circuit-59 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1462,7 +1352,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-60 {
+  .circuit-59 {
     margin-left: 12px;
   }
 }
@@ -1569,96 +1459,6 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   align-items: center;
 }
 
-.circuit-53 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-  background-color: #D8DDE1;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-left: 8px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-.circuit-53:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-53:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
-}
-
-.circuit-53:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-53:hover,
-.circuit-53:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-}
-
-.circuit-53[href] {
-  display: inline-block;
-}
-
-.circuit-53:disabled,
-.circuit-53[disabled] {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-53:first-of-type {
-  margin-left: 0;
-}
-
-.circuit-53:active,
-.circuit-53:focus,
-.circuit-53:hover {
-  padding: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-53 {
-    width: 24px;
-    height: 24px;
-  }
-
-  .circuit-53 svg {
-    width: 25%;
-  }
-}
-
 .circuit-42 {
   width: 100%;
   height: 2px;
@@ -1689,7 +1489,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 
 <div
   aria-label="gallery"
-  class="circuit-64 circuit-65"
+  class="circuit-63 circuit-64"
 >
   <div
     class="circuit-36 circuit-37"
@@ -1765,7 +1565,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
     </div>
   </div>
   <div
-    class="circuit-62 circuit-63"
+    class="circuit-61 circuit-62"
   >
     <p
       class="circuit-38 circuit-39 circuit-40 circuit-41"
@@ -1778,7 +1578,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
       class="circuit-42 circuit-43"
     />
     <div
-      class="circuit-60 circuit-61"
+      class="circuit-59 circuit-60"
     >
       <button
         aria-label="play"
@@ -1787,21 +1587,45 @@ exports[`Carousel styles should render with default paused styles 1`] = `
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            play.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 12.79L10 17l8-9"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
       <button
         aria-label="previous"
-        class="circuit-51 circuit-46 circuit-53 circuit-48"
+        class="circuit-46 circuit-47 circuit-48"
       >
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            arrow.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14 8l-4 4 4 4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
       <button
@@ -1811,9 +1635,21 @@ exports[`Carousel styles should render with default paused styles 1`] = `
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            arrow.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 16l4-4-4-4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
     </div>
@@ -1845,7 +1681,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   }
 }
 
-.circuit-64 {
+.circuit-63 {
   width: 100%;
   height: auto;
   position: relative;
@@ -1976,7 +1812,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   z-index: -2;
 }
 
-.circuit-62 {
+.circuit-61 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2054,7 +1890,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   height: 100%;
 }
 
-.circuit-60 {
+.circuit-59 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2071,7 +1907,7 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-60 {
+  .circuit-59 {
     margin-left: 12px;
   }
 }
@@ -2178,99 +2014,9 @@ exports[`Carousel styles should render with default styles 1`] = `
   align-items: center;
 }
 
-.circuit-53 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-  background-color: #D8DDE1;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-left: 8px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-.circuit-53:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-53:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
-}
-
-.circuit-53:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-53:hover,
-.circuit-53:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-}
-
-.circuit-53[href] {
-  display: inline-block;
-}
-
-.circuit-53:disabled,
-.circuit-53[disabled] {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-53:first-of-type {
-  margin-left: 0;
-}
-
-.circuit-53:active,
-.circuit-53:focus,
-.circuit-53:hover {
-  padding: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-53 {
-    width: 24px;
-    height: 24px;
-  }
-
-  .circuit-53 svg {
-    width: 25%;
-  }
-}
-
 <div
   aria-label="gallery"
-  class="circuit-64 circuit-65"
+  class="circuit-63 circuit-64"
 >
   <div
     class="circuit-36 circuit-37"
@@ -2346,7 +2092,7 @@ exports[`Carousel styles should render with default styles 1`] = `
     </div>
   </div>
   <div
-    class="circuit-62 circuit-63"
+    class="circuit-61 circuit-62"
   >
     <p
       class="circuit-38 circuit-39 circuit-40 circuit-41"
@@ -2359,7 +2105,7 @@ exports[`Carousel styles should render with default styles 1`] = `
       class="circuit-42 circuit-43"
     />
     <div
-      class="circuit-60 circuit-61"
+      class="circuit-59 circuit-60"
     >
       <button
         aria-label="pause"
@@ -2368,21 +2114,44 @@ exports[`Carousel styles should render with default styles 1`] = `
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            pause.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 5l14 14m0-14L5 19"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
       <button
         aria-label="previous"
-        class="circuit-51 circuit-46 circuit-53 circuit-48"
+        class="circuit-46 circuit-47 circuit-48"
       >
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            arrow.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14 8l-4 4 4 4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
       <button
@@ -2392,9 +2161,21 @@ exports[`Carousel styles should render with default styles 1`] = `
         <div
           class="circuit-44 circuit-45"
         >
-          <div>
-            arrow.svg
-          </div>
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 16l4-4-4-4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
       </button>
     </div>

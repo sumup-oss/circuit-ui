@@ -17,12 +17,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { ChevronLeft, ChevronRight, Cross, Check } from '@sumup/icons';
 
 import CircuitUIButton from '../../../Button';
-
-import { ReactComponent as PlayIcon } from './icons/play.svg';
-import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
-import { ReactComponent as PauseIcon } from './icons/pause.svg';
 
 const buttonListStyles = css`
   label: carousel__buttonlist;
@@ -74,21 +71,24 @@ const innerWrapperStyles = css`
 const InnerWrapper = styled('div')(innerWrapperStyles);
 
 export const NextButton = props => (
-  <Button {...props}>
+  <Button aria-label="next" {...props}>
     <InnerWrapper>
-      <ArrowIcon />
+      <ChevronRight />
     </InnerWrapper>
   </Button>
 );
 
-const prevButtonStyles = css`
-  transform: rotate(180deg);
-`;
-export const PrevButton = styled(NextButton)(prevButtonStyles);
+export const PrevButton = props => (
+  <Button aria-label="previous" {...props}>
+    <InnerWrapper>
+      <ChevronLeft />
+    </InnerWrapper>
+  </Button>
+);
 
 export const PlayButton = ({ paused, ...props }) => (
   <Button aria-label={paused ? 'play' : 'pause'} {...props}>
-    <InnerWrapper>{paused ? <PlayIcon /> : <PauseIcon />}</InnerWrapper>
+    <InnerWrapper>{paused ? <Check /> : <Cross />}</InnerWrapper>
   </Button>
 );
 

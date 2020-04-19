@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Buttons styles should render with default styles 1`] = `
-.circuit-21 {
+.circuit-20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -118,98 +118,8 @@ exports[`Buttons styles should render with default styles 1`] = `
   align-items: center;
 }
 
-.circuit-14 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-  background-color: #D8DDE1;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-left: 8px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-.circuit-14:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-14:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
-}
-
-.circuit-14:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-14:hover,
-.circuit-14:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-}
-
-.circuit-14[href] {
-  display: inline-block;
-}
-
-.circuit-14:disabled,
-.circuit-14[disabled] {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-14:first-of-type {
-  margin-left: 0;
-}
-
-.circuit-14:active,
-.circuit-14:focus,
-.circuit-14:hover {
-  padding: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-14 {
-    width: 24px;
-    height: 24px;
-  }
-
-  .circuit-14 svg {
-    width: 25%;
-  }
-}
-
 <div
-  class="circuit-21 circuit-22"
+  class="circuit-20 circuit-21"
 >
   <button
     aria-label="pause"
@@ -218,9 +128,20 @@ exports[`Buttons styles should render with default styles 1`] = `
     <div
       class="circuit-0 circuit-1"
     >
-      <div>
-        pause.svg
-      </div>
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M5 5l14 14m0-14L5 19"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="2"
+        />
+      </svg>
     </div>
   </button>
   <button
@@ -230,31 +151,69 @@ exports[`Buttons styles should render with default styles 1`] = `
     <div
       class="circuit-0 circuit-1"
     >
-      <div>
-        play.svg
-      </div>
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 12.79L10 17l8-9"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
     </div>
   </button>
   <button
-    class="circuit-12 circuit-2 circuit-14 circuit-4"
-  >
-    <div
-      class="circuit-0 circuit-1"
-    >
-      <div>
-        arrow.svg
-      </div>
-    </div>
-  </button>
-  <button
+    aria-label="previous"
     class="circuit-2 circuit-3 circuit-4"
   >
     <div
       class="circuit-0 circuit-1"
     >
-      <div>
-        arrow.svg
-      </div>
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14 8l-4 4 4 4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+  </button>
+  <button
+    aria-label="next"
+    class="circuit-2 circuit-3 circuit-4"
+  >
+    <div
+      class="circuit-0 circuit-1"
+    >
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 16l4-4-4-4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
     </div>
   </button>
 </div>
