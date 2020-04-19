@@ -17,10 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-
-import { ReactComponent as Success } from '../../notification-success.svg';
-import { ReactComponent as Error } from '../../notification-error.svg';
-import Warning from '../NotificationWarning';
+import { CircleCheckmark, CircleCross, CircleWarning } from '@sumup/icons';
 
 const ICON_TYPES = {
   SUCCESS: 'success',
@@ -29,9 +26,9 @@ const ICON_TYPES = {
 };
 
 const ICON_MAP = {
-  [ICON_TYPES.SUCCESS]: Success,
-  [ICON_TYPES.ERROR]: Error,
-  [ICON_TYPES.WARNING]: Warning
+  [ICON_TYPES.SUCCESS]: CircleCheckmark,
+  [ICON_TYPES.ERROR]: CircleCross,
+  [ICON_TYPES.WARNING]: CircleWarning
 };
 
 const baseStyles = ({ theme }) => css`
@@ -47,6 +44,11 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
+const iconColor = type => theme =>
+  css`
+    color: ${theme.colors[type]};
+  `;
+
 /**
  * Icon used in the Notification component. Used for styling and alignment
  * purposes only.
@@ -58,7 +60,7 @@ const NotificationIcon = ({ type, children }) => {
 
   return (
     <NotificationIconContainer>
-      {Icon ? <Icon /> : children}
+      {Icon ? <Icon css={iconColor(type)} /> : children}
     </NotificationIconContainer>
   );
 };

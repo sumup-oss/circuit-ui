@@ -15,6 +15,5 @@
 
 import Button from './Button/Button';
 import Icon from './Icon/Icon';
-import NotificationWarning from './NotificationWarning';
 
-export { Button, Icon, NotificationWarning };
+export { Button, Icon };
