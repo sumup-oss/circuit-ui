@@ -1,8 +1,8 @@
 # Contributing
 
-## Prerequisites
+## Contributor License Agreement (CLA)
 
-- **Signed and verified CLA**
+To start contributing to SumUp Open Source projects, please accept our [Contributor License Agreement](https://opensource.sumup.com/cla). Should you have any questions or concerns, please get in touch with [opensource@sumup.com](mailto:opensource@sumup.com).
 
 ## Code of Conduct (CoC)
 

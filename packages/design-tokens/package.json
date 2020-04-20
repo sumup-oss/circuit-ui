@@ -1,0 +1,19 @@
+{
+  "name": "design-tokens",
+  "version": "0.0.0-semantically-released",
+  "description": "Visual primitives such as typography, color, and spacing that are shared across platforms.",
+  "main": "dist/index.js",
+  "repository": "git@github.com:sumup-oss/design-tokens.git",
+  "author": "Connor Bär <connor.baer@sumup.com>",
+  "license": "Apache-2.0",
+  "private": false,
+  "scripts": {
+    "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "yarn lint --fix",
+    "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
+    "release": "foundry run semantic-release"
+  },
+  "devDependencies": {
+    "@sumup/foundry": "^2.1.0"
+  }
+}
