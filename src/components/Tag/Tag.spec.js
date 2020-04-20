@@ -143,7 +143,7 @@ describe('Tag', () => {
       renderPrefix: () => <DummyIcon data-testid="tag-icon" />
     };
 
-    it('should render with a suffix', () => {
+    it('should render with a prefix', () => {
       const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
       expect(getByTestId('tag-icon')).not.toBeNull();
     });
