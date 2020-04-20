@@ -175,7 +175,8 @@ Tag.propTypes = {
    * An optional  tag's icon.
    */
   icon: deprecatedPropType(
-    eitherOrPropType('icon', 'onRemove', PropTypes.element)
+    eitherOrPropType('icon', 'onRemove', PropTypes.element),
+    'The icon prop has been deprecated in favour of the renderPrefix prop.'
   ),
   /**
    * Render prop that should render a left-aligned icon or element.
