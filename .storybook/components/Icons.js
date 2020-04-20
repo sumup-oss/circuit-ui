@@ -77,6 +77,9 @@ const iconStyles = color => theme => css`
   width: 3rem;
   height: 3rem;
   color: ${theme.colors[color]};
+  background-color: ${color === 'white'
+    ? theme.colors.n900
+    : theme.colors.bodyBg};
 `;
 
 const Icons = () => {
@@ -102,10 +105,15 @@ const Icons = () => {
     { label: 'Large', value: 'large' }
   ];
 
-  const colorOptions = keys(themes.circuit.colors).map(color => ({
-    label: color,
-    value: color
-  }));
+  const colorOptions = [
+    { label: 'Dark gray', value: 'n900' },
+    { label: 'Gray', value: 'n500' },
+    { label: 'White', value: 'white' },
+    { label: 'Primary', value: 'p500' },
+    { label: 'Success', value: 'success' },
+    { label: 'Warning', value: 'warning' },
+    { label: 'Danger', value: 'danger' }
+  ];
 
   const activeIcons = icons.filter(
     icon =>
