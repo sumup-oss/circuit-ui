@@ -2,7 +2,7 @@
   "name": "@sumup/icons",
   "version": "0.0.0-semantically-released",
   "description": "A collection of icons by SumUp",
-  "repository": "git@github.com:sumup-oss/circuit-icons.git",
+  "repository": "git@github.com:sumup-oss/icons.git",
   "author": "Connor Bär <connor.baer@sumup.com>",
   "license": "Apache-2.0",
   "main": "dist/cjs/index.js",
