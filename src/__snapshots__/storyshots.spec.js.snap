@@ -11428,20 +11428,6 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   width: 1px;
 }
 
-.circuit-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-}
-
 .circuit-3 {
   padding: 0;
   margin: 0;
@@ -11465,7 +11451,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   width: 100%;
 }
 
-.circuit-7 {
+.circuit-5 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -11483,29 +11469,25 @@ exports[`Storyshots Components/Tag Removable 1`] = `
 }
 
 <div
-  class="circuit-7 circuit-8"
+  class="circuit-5 circuit-6"
 >
   Transactions
-  <div
-    class="circuit-5 circuit-6"
+  <button
+    class="circuit-2 circuit-3 circuit-4"
+    data-testid="tag-close"
+    type="button"
   >
-    <button
-      class="circuit-2 circuit-3 circuit-4"
-      data-testid="tag-close"
-      type="button"
+    <div
+      role="presentation"
     >
-      <div
-        role="presentation"
-      >
-        close-icon.svg
-      </div>
-      <span
-        class="circuit-0 circuit-1"
-      >
-        Remove
-      </span>
-    </button>
-  </div>
+      close-icon.svg
+    </div>
+    <span
+      class="circuit-0 circuit-1"
+    >
+      Remove
+    </span>
+  </button>
 </div>
 `;
 
@@ -11596,7 +11578,7 @@ exports[`Storyshots Components/Tag With Icon 1`] = `
 `;
 
 exports[`Storyshots Components/Tag With Prefix 1`] = `
-.circuit-2 {
+.circuit-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -11628,10 +11610,10 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <div
-    class="circuit-0 circuit-1"
+  <span
+    class="circuit-0"
   >
     <svg
       fill="#000000"
@@ -11648,27 +11630,13 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
         d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
       />
     </svg>
-  </div>
+  </span>
   Transactions
 </div>
 `;
 
 exports[`Storyshots Components/Tag With Suffix 1`] = `
-.circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-}
-
-.circuit-2 {
+.circuit-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -11685,12 +11653,26 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
   cursor: default;
 }
 
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+}
+
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
   Transactions
-  <div
-    class="circuit-0 circuit-1"
+  <span
+    class="circuit-0"
   >
     <svg
       fill="#000000"
@@ -11707,7 +11689,7 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
         d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
       />
     </svg>
-  </div>
+  </span>
 </div>
 `;
 
@@ -16680,7 +16662,7 @@ label + .circuit-3 {
   width: 1px;
 }
 
-.circuit-17 {
+.circuit-15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -16695,7 +16677,7 @@ label + .circuit-3 {
   margin-top: 12px;
 }
 
-.circuit-15 {
+.circuit-13 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -16713,22 +16695,8 @@ label + .circuit-3 {
   margin-top: 8px;
 }
 
-.circuit-15:first-of-type: {
+.circuit-13:first-of-type: {
   margin-top: 0;
-}
-
-.circuit-12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
 }
 
 .circuit-10 {
@@ -16783,33 +16751,29 @@ label + .circuit-3 {
     </div>
   </div>
   <div
-    class="circuit-17 circuit-18"
+    class="circuit-15 circuit-16"
     data-testid="autocomplete-tags-selected"
   >
     <div
-      class="circuit-14 circuit-15 circuit-16"
+      class="circuit-12 circuit-13 circuit-14"
     >
       test4@sumup.com
-      <div
-        class="circuit-12 circuit-13"
+      <button
+        class="circuit-9 circuit-10 circuit-11"
+        data-testid="tag-close"
+        type="button"
       >
-        <button
-          class="circuit-9 circuit-10 circuit-11"
-          data-testid="tag-close"
-          type="button"
+        <div
+          role="presentation"
         >
-          <div
-            role="presentation"
-          >
-            close-icon.svg
-          </div>
-          <span
-            class="circuit-7 circuit-8"
-          >
-            remove
-          </span>
-        </button>
-      </div>
+          close-icon.svg
+        </div>
+        <span
+          class="circuit-7 circuit-8"
+        >
+          remove
+        </span>
+      </button>
     </div>
   </div>
 </div>

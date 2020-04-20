@@ -82,8 +82,7 @@ const iconSelectedStyles = ({ selected, theme }) =>
   css`
     label: tag__icon--selected;
 
-    > svg,
-    svg {
+    > svg {
       fill: ${theme.colors.white};
     }
   `;
@@ -95,18 +94,28 @@ const prefixIconStyles = ({ theme, hasPrefix }) =>
     margin-right: ${theme.spacings.byte};
   `;
 
-const suffixIconStyles = ({ theme, hasSuffix }) =>
-  hasSuffix &&
+const suffixIconStyles = ({ theme }) =>
   css`
     label: tag__icon--suffix;
     margin-left: ${theme.spacings.byte};
   `;
 
+const prefixStyles = ({ theme, selected }) => css`
+  ${iconStyles({ theme })}
+  ${iconSelectedStyles({ theme, selected })}
+  ${prefixIconStyles({ theme, hasPrefix: true })}
+`;
+
+const suffixStyles = ({ theme, selected }) => css`
+  ${iconStyles({ theme })}
+  ${iconSelectedStyles({ theme, selected })}
+  ${suffixIconStyles({ theme })}
+`;
+
 const IconContainer = styled('div')`
   ${iconStyles};
   ${iconSelectedStyles};
   ${prefixIconStyles};
-  ${suffixIconStyles};
 `;
 
 const TagElement = styled('div')`
@@ -129,8 +138,12 @@ const Tag = ({
   selected,
   ...props
 }) => {
-  const prefix = RenderPrefix && <RenderPrefix />;
-  const suffix = RenderSuffix && <RenderSuffix />;
+  const prefix = RenderPrefix && (
+    <RenderPrefix css={theme => prefixStyles({ theme, selected })} />
+  );
+  const suffix = RenderSuffix && (
+    <RenderSuffix css={theme => suffixStyles({ theme, selected })} />
+  );
 
   return (
     <TagElement {...{ selected, ...props }}>
@@ -140,27 +153,19 @@ const Tag = ({
         </IconContainer>
       )}
 
-      {!icon && prefix && !onRemove && (
-        <IconContainer hasPrefix {...{ selected }}>
-          {prefix}
-        </IconContainer>
-      )}
+      {!icon && !onRemove && prefix}
 
       {children}
 
-      {(onRemove || suffix) && (
-        <IconContainer hasSuffix {...{ selected }}>
-          {onRemove ? (
-            <CloseButton
-              label={labelRemoveButton}
-              data-testid="tag-close"
-              onClick={onRemove}
-            />
-          ) : (
-            suffix
-          )}
-        </IconContainer>
+      {onRemove && (
+        <CloseButton
+          label={labelRemoveButton}
+          data-testid="tag-close"
+          onClick={onRemove}
+        />
       )}
+
+      {!onRemove && suffix}
     </TagElement>
   );
 };
@@ -181,11 +186,11 @@ Tag.propTypes = {
   /**
    * Render prop that should render a left-aligned icon or element.
    */
-  renderPrefix: eitherOrPropType('renderPrefix', 'onRemove', PropTypes.element),
+  renderPrefix: eitherOrPropType('renderPrefix', 'onRemove', PropTypes.func),
   /**
    * Render prop that should render a right-aligned icon or element.
    */
-  renderSuffix: eitherOrPropType('renderSuffix', 'onRemove', PropTypes.element),
+  renderSuffix: eitherOrPropType('renderSuffix', 'onRemove', PropTypes.func),
   /**
    * Renders a close button inside the tag and calls the provided function
    * when the button is clicked.

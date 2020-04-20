@@ -57,10 +57,28 @@ export const selected = () => <Tag selected>Transactions</Tag>;
 
 export const withIcon = () => <Tag icon={<Icon />}>Transactions</Tag>;
 
-export const withPrefix = () => <Tag renderPrefix={Icon}>Transactions</Tag>;
+export const withPrefix = () => (
+  <Tag
+    renderPrefix={({ className }) => (
+      <span className={className}>
+        <Icon />
+      </span>
+    )}
+  >
+    Transactions
+  </Tag>
+);
 
 export const withSuffix = () => (
-  <Tag renderSuffix={() => <Icon />}>Transactions</Tag>
+  <Tag
+    renderSuffix={({ className }) => (
+      <span className={className}>
+        <Icon />
+      </span>
+    )}
+  >
+    Transactions
+  </Tag>
 );
 
 export const removable = () => (
