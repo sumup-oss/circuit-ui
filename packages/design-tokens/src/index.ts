@@ -13,4 +13,11 @@
  * limitations under the License.
  */
 
-export const hello = 'Hello';
+import * as Types from './types';
+import * as lightBase from './themes/light';
+
+// HACK: Copy the theme, otherwise, it gets exported as 'module'.
+const light: Types.Theme = { ...lightBase };
+
+export type Theme = Types.Theme;
+export { light };

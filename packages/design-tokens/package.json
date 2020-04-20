@@ -1,5 +1,5 @@
 {
-  "name": "design-tokens",
+  "name": "@sumup/design-tokens",
   "version": "0.0.0-semantically-released",
   "description": "Visual primitives such as typography, color, and spacing that are shared across platforms.",
   "main": "dist/cjs/index.js",
