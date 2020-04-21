@@ -57,7 +57,7 @@ exports[`Tag when is default should render with default styles 1`] = `
 `;
 
 exports[`Tag when is selected should change the close icon color 1`] = `
-.circuit-5 {
+.circuit-6 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -77,7 +77,11 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   color: #FFFFFF;
 }
 
-.circuit-3 {
+.circuit-6 > svg {
+  fill: #FFFFFF;
+}
+
+.circuit-4 {
   padding: 0;
   margin: 0;
   display: inline-block;
@@ -88,16 +92,21 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   overflow: initial;
   height: 16px;
   width: 16px;
+  margin-left: 8px;
 }
 
-.circuit-3:focus,
-.circuit-3:active {
+.circuit-4:focus,
+.circuit-4:active {
   outline: none;
 }
 
-.circuit-3 > svg {
+.circuit-4 > svg {
   height: 100%;
   width: 100%;
+}
+
+.circuit-4 svg {
+  fill: #FFFFFF;
 }
 
 .circuit-0 {
@@ -116,11 +125,11 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 }
 
 <div
-  class="circuit-5 circuit-6"
+  class="circuit-6 circuit-7"
 >
   SomeTest
   <button
-    class="circuit-2 circuit-3 circuit-4"
+    class="circuit-2 circuit-3 circuit-4 circuit-5"
     data-testid="tag-close"
     type="button"
   >
@@ -159,18 +168,20 @@ exports[`Tag when is selected should change the given icon color 1`] = `
   color: #FFFFFF;
 }
 
+.circuit-2 > svg {
+  fill: #FFFFFF;
+}
+
 .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  margin-right: 4px;
+  display: inline-block;
   width: 16px;
   height: 16px;
-  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.circuit-0 > svg {
+  vertical-align: top;
 }
 
 .circuit-0 > svg {
@@ -180,16 +191,13 @@ exports[`Tag when is selected should change the given icon color 1`] = `
 <div
   class="circuit-2 circuit-3"
 >
-  <div
+  <span
     class="circuit-0 circuit-1"
   >
-    <svg
-      fill="#000000"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path />
-    </svg>
-  </div>
+    <div>
+      icon-tick.svg
+    </div>
+  </span>
   SomeTest
 </div>
 `;
@@ -213,6 +221,10 @@ exports[`Tag when is selected should render with selected styles 1`] = `
   background-color: #3388FF;
   box-shadow: 0px 0px 0px 1px #3388FF;
   color: #FFFFFF;
+}
+
+.circuit-0 > svg {
+  fill: #FFFFFF;
 }
 
 <div

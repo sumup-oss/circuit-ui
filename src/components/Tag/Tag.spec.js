@@ -16,14 +16,9 @@
 import React from 'react';
 
 import Tag from '.';
+import { ReactComponent as DummyIcon } from './icon-tick.svg';
 
 describe('Tag', () => {
-  const DummyIcon = props => (
-    <svg {...props} fill="#000000" xmlns="http://www.w3.org/2000/svg">
-      <path />
-    </svg>
-  );
-
   /**
    * Style tests.
    */
@@ -137,10 +132,10 @@ describe('Tag', () => {
     });
   });
 
-  describe('when it has a prefix render prop', () => {
+  describe('when a prefix prop is passed', () => {
     const props = {
       // eslint-disable-next-line
-      renderPrefix: () => <DummyIcon data-testid="tag-icon" />
+      prefix: ({ className }) => <DummyIcon className={className} data-testid="tag-icon" />
     };
 
     it('should render with a prefix', () => {
@@ -159,7 +154,7 @@ describe('Tag', () => {
       expect(queryByTestId('tag-close')).not.toBeNull();
     });
 
-    it('should warn when both the renderPrefix and onRemove prop are passed', () => {
+    it('should warn when both the prefix and onRemove prop are passed', () => {
       jest.spyOn(console, 'error');
       const onRemove = jest.fn();
 
@@ -169,10 +164,10 @@ describe('Tag', () => {
     });
   });
 
-  describe('when it has a suffix render prop', () => {
+  describe('when a suffix prop is passed', () => {
     const props = {
       // eslint-disable-next-line
-      renderSuffix: () => <DummyIcon data-testid="tag-icon" />
+      suffix: ({ className }) => <DummyIcon className={className} data-testid="tag-icon" />
     };
 
     it('should render with a suffix', () => {
@@ -191,7 +186,7 @@ describe('Tag', () => {
       expect(queryByTestId('tag-close')).not.toBeNull();
     });
 
-    it('should warn when both the renderSuffix and onRemove prop are passed', () => {
+    it('should warn when both the suffix and onRemove prop are passed', () => {
       jest.spyOn(console, 'error');
       const onRemove = jest.fn();
 

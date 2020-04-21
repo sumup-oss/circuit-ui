@@ -19,19 +19,7 @@ import { boolean } from '@storybook/addon-knobs/react';
 
 import docs from './Tag.docs.mdx';
 import Tag from './Tag';
-
-const Icon = () => (
-  <svg
-    fill="#000000"
-    height="16"
-    viewBox="0 0 24 24"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
-  </svg>
-);
+import { ReactComponent as Icon } from './icon-tick.svg';
 
 export default {
   title: 'Components/Tag',
@@ -55,31 +43,15 @@ export const base = () => (
 
 export const selected = () => <Tag selected>Transactions</Tag>;
 
-export const withIcon = () => <Tag icon={<Icon />}>Transactions</Tag>;
-
-export const withPrefix = () => (
-  <Tag
-    renderPrefix={({ className }) => (
-      <span className={className}>
-        <Icon />
-      </span>
-    )}
-  >
+export const withIcon = () => (
+  <Tag selected icon={<Icon />}>
     Transactions
   </Tag>
 );
 
-export const withSuffix = () => (
-  <Tag
-    renderSuffix={({ className }) => (
-      <span className={className}>
-        <Icon />
-      </span>
-    )}
-  >
-    Transactions
-  </Tag>
-);
+export const withPrefix = () => <Tag prefix={Icon}>Transactions</Tag>;
+
+export const withSuffix = () => <Tag suffix={Icon}>Transactions</Tag>;
 
 export const removable = () => (
   <Tag onRemove={action('Tag removed')} labelRemoveButton="Remove">

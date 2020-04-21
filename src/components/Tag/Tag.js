@@ -56,6 +56,10 @@ const tagSelectedStyles = ({ selected, theme }) =>
     background-color: ${theme.colors.p500};
     ${shadowBorder(theme.colors.p500)};
     color: ${theme.colors.white};
+
+    > svg {
+      fill: ${theme.colors.white};
+    }
   `;
 
 const tagSelectedClickableStyles = ({ selected, onClick, theme }) =>
@@ -69,60 +73,82 @@ const tagSelectedClickableStyles = ({ selected, onClick, theme }) =>
     }
   `;
 
+const TagElement = styled('div')`
+  ${tagStyles};
+  ${tagClickableStyles};
+  ${tagSelectedStyles};
+  ${tagSelectedClickableStyles};
+`;
+
+const prefixStyles = ({ theme, selected }) => css`
+  label: tag__prefix;
+  margin-right: ${theme.spacings.byte};
+  ${selected}: {
+    label: tag__prefix--selected;
+    svg {
+      fill: ${theme.colors.white};
+    }
+  }
+`;
+
+const suffixStyles = ({ theme, selected }) => css`
+  label: tag__suffix;
+  margin-left: ${theme.spacings.byte};
+  ${selected}: {
+    label: tag__suffix--selected;
+    svg {
+      fill: ${theme.colors.white};
+    }
+  }
+`;
+
+const closeButtonStyles = ({ theme }) => css`
+  label: tag__close-btn;
+  margin-left: ${theme.spacings.byte};
+`;
+
+const selectedCloseButtonStyles = ({ theme, selected }) =>
+  selected &&
+  css`
+    label: tag__close-btn--selected;
+    svg {
+      fill: ${theme.colors.white};
+    }
+  `;
+
+const StyledCloseButton = styled(CloseButton)`
+  ${closeButtonStyles};
+  ${selectedCloseButtonStyles};
+`;
+
+/* 
+  The IconContainer and its styles are left as they are for backwards compatibility.
+  They should be deleted in v2.0 when we remove the icon prop.
+*/
 const iconStyles = ({ theme }) => css`
   label: tag__icon;
-  display: flex;
-  align-items: center;
+  margin-right: ${theme.spacings.bit};
+  display: inline-block;
   width: ${theme.spacings.mega};
   height: ${theme.spacings.mega};
+  vertical-align: middle;
+  > svg {
+    vertical-align: top;
+  }
 `;
 
 const iconSelectedStyles = ({ selected, theme }) =>
   selected &&
   css`
     label: tag__icon--selected;
-
     > svg {
       fill: ${theme.colors.white};
     }
   `;
 
-const prefixIconStyles = ({ theme, hasPrefix }) =>
-  hasPrefix &&
-  css`
-    label: tag__icon--prefix;
-    margin-right: ${theme.spacings.byte};
-  `;
-
-const suffixIconStyles = ({ theme }) =>
-  css`
-    label: tag__icon--suffix;
-    margin-left: ${theme.spacings.byte};
-  `;
-
-const prefixStyles = ({ theme, selected }) => css`
-  ${iconStyles({ theme })}
-  ${iconSelectedStyles({ theme, selected })}
-  ${prefixIconStyles({ theme, hasPrefix: true })}
-`;
-
-const suffixStyles = ({ theme, selected }) => css`
-  ${iconStyles({ theme })}
-  ${iconSelectedStyles({ theme, selected })}
-  ${suffixIconStyles({ theme })}
-`;
-
-const IconContainer = styled('div')`
+const IconContainer = styled('span')`
   ${iconStyles};
   ${iconSelectedStyles};
-  ${prefixIconStyles};
-`;
-
-const TagElement = styled('div')`
-  ${tagStyles};
-  ${tagClickableStyles};
-  ${tagSelectedStyles};
-  ${tagSelectedClickableStyles};
 `;
 
 /**
@@ -131,41 +157,40 @@ const TagElement = styled('div')`
 const Tag = ({
   children,
   icon,
-  renderPrefix: RenderPrefix,
-  renderSuffix: RenderSuffix,
+  prefix: Prefix,
+  suffix: Suffix,
   onRemove,
   labelRemoveButton,
   selected,
   ...props
 }) => {
-  const prefix = RenderPrefix && (
-    <RenderPrefix css={theme => prefixStyles({ theme, selected })} />
+  const prefixElement = Prefix && (
+    <Prefix css={theme => prefixStyles({ theme, selected })} />
   );
-  const suffix = RenderSuffix && (
-    <RenderSuffix css={theme => suffixStyles({ theme, selected })} />
+  const suffixElement = Suffix && (
+    <Suffix css={theme => suffixStyles({ theme, selected })} />
   );
 
   return (
     <TagElement {...{ selected, ...props }}>
       {!onRemove && icon && (
-        <IconContainer hasPrefix {...{ selected }}>
-          {icon}
-        </IconContainer>
+        <IconContainer {...{ selected }}>{icon}</IconContainer>
       )}
 
-      {!icon && !onRemove && prefix}
+      {!icon && !onRemove && prefixElement}
 
       {children}
 
       {onRemove && (
-        <CloseButton
+        <StyledCloseButton
+          selected={selected}
           label={labelRemoveButton}
           data-testid="tag-close"
           onClick={onRemove}
         />
       )}
 
-      {!onRemove && suffix}
+      {!onRemove && !icon && suffixElement}
     </TagElement>
   );
 };
@@ -181,16 +206,16 @@ Tag.propTypes = {
    */
   icon: deprecatedPropType(
     eitherOrPropType('icon', 'onRemove', PropTypes.element),
-    'The icon prop has been deprecated in favour of the renderPrefix prop.'
+    'The icon prop has been deprecated in favour of the prefix prop.'
   ),
   /**
    * Render prop that should render a left-aligned icon or element.
    */
-  renderPrefix: eitherOrPropType('renderPrefix', 'onRemove', PropTypes.func),
+  prefix: eitherOrPropType('prefix', 'onRemove', PropTypes.func),
   /**
    * Render prop that should render a right-aligned icon or element.
    */
-  renderSuffix: eitherOrPropType('renderSuffix', 'onRemove', PropTypes.func),
+  suffix: eitherOrPropType('suffix', 'onRemove', PropTypes.func),
   /**
    * Renders a close button inside the tag and calls the provided function
    * when the button is clicked.
@@ -210,8 +235,8 @@ Tag.propTypes = {
 Tag.defaultProps = {
   children: null,
   icon: null,
-  renderPrefix: null,
-  renderSuffix: null,
+  prefix: null,
+  suffix: null,
   onRemove: null,
   selected: false,
   labelRemoveButton: 'remove'
