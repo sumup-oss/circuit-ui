@@ -69,8 +69,8 @@ const toggleWrapperNoMarginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const toggleWrapperRTLStyles = ({ theme, rtl }) =>
-  rtl &&
+const toggleWrapperReversedStyles = ({ theme, reversed }) =>
+  reversed &&
   css`
     flex-direction: row-reverse;
     label {
@@ -82,17 +82,17 @@ const toggleWrapperRTLStyles = ({ theme, rtl }) =>
 const ToggleWrapper = styled('div')`
   ${toggleWrapperStyles}
   ${toggleWrapperNoMarginStyles}
-  ${toggleWrapperRTLStyles};
+  ${toggleWrapperReversedStyles};
 `;
 
 /**
  * A toggle component with support for labels and additional explanations.
  */
-const Toggle = ({ label, explanation, noMargin, rtl, ...props }) => {
+const Toggle = ({ label, explanation, noMargin, reversed, ...props }) => {
   const switchId = uniqueId('toggle-switch_');
   const labelId = uniqueId('toggle-label_');
   return (
-    <ToggleWrapper {...{ noMargin, rtl }}>
+    <ToggleWrapper {...{ noMargin, reversed }}>
       <Switch {...props} aria-labelledby={labelId} id={switchId} />
       {(label || explanation) && (
         <ToggleTextWrapper id={labelId} htmlFor={switchId}>
@@ -128,14 +128,14 @@ Toggle.propTypes = {
   /**
    * Adds the ability of the component to be right-aligned.
    */
-  rtl: PropTypes.bool
+  reversed: PropTypes.bool
 };
 
 Toggle.defaultProps = {
   label: null,
   explanation: null,
   noMargin: false,
-  rtl: false
+  reversed: false
 };
 
 /**
