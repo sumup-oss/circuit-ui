@@ -59,7 +59,7 @@ import { Theme } from '@sumup/design-tokens';
 export default styled as CreateStyled<Theme>;
 ```
 
-## Code of Conduct (CoC)
+## Code of Conduct
 
 We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](CODE_OF_CONDUCT.md).
 
