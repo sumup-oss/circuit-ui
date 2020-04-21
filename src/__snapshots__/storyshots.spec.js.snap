@@ -19666,7 +19666,7 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms/Toggle RTL 1`] = `
+exports[`Storyshots Forms/Toggle Reversed 1`] = `
 .circuit-4 {
   margin: 0;
   padding: 0;
@@ -19766,6 +19766,7 @@ exports[`Storyshots Forms/Toggle RTL 1`] = `
 
 <div
   class="circuit-11 circuit-12"
+  reversed=""
 >
   <button
     aria-checked="false"
