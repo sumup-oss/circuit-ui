@@ -13,24 +13,53 @@ Visual primitives such as typography, color, and spacing that are shared across 
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [API/CLI documentation](#api-cli-documentation)
+- [Code of Conduct](#code-of-conduct)
 - [About SumUp](#about-sumup)
 
 ## Installation
 
-How to install this project?
+The SumUp design tokens can be installed as a node module. Depending on your preference, run one of the following in your terminal:
 
-```bash
-# Example code to get people started
+```sh
+# With Yarn
+$ yarn add @sumup/design-tokens
+
+# With npm
+$ npm install @sumup/design-tokens
 ```
 
 ## Usage
 
-- How do you use this?
-- If there’s a CLI, what are the commands?
-- What’s the public API of the project?
+The package currently exports a single `light` theme that is meant to be used in combination with the [`emotion-theming`](https://emotion.sh/docs/theming) package.
 
-## Code of conduct (CoC)
+```jsx
+import { light } from '@sumup/design-tokens';
+import { ThemeProvider } from 'emotion-theming';
+import styled from '@emotion/styled';
+
+const App = () => (
+  <ThemeProvider theme={light}>
+    <Bold>This styled component has access to the theme.</Bold>
+  </ThemeProvider>
+);
+
+const Bold = styled.strong`
+  font-weight: ${(p) => p.theme.fontWeight.bold};
+`;
+```
+
+### With TypeScript
+
+The package exports a `Theme` interface which can be used to type Emotion's `styled` function. Create a custom `styled` instance as described in the [Emotion docs](https://emotion.sh/docs/typescript):
+
+```tsx
+import styled, { CreateStyled } from '@emotion/styled';
+import { Theme } from '@sumup/design-tokens';
+
+export default styled as CreateStyled<Theme>;
+```
+
+## Code of Conduct (CoC)
 
 We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](CODE_OF_CONDUCT.md).
 
