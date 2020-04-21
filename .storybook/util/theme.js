@@ -1,35 +1,27 @@
 import { create } from '@storybook/theming';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
-import {
-  theme as themes,
-  BaseStyles,
-  Heading,
-  SubHeading,
-  Text,
-  List
-} from '../../src';
+import { BaseStyles, Heading, SubHeading, Text, List } from '../../src';
 
 import { Link } from '../components';
-
-const { circuit } = themes;
 
 export const theme = create({
   base: 'light',
   brandTitle: 'Circuit UI',
   brandUrl: 'https://github.com/sumup-oss/circuit-ui',
   brandImage: '/images/logo-name.svg',
-  fontBase: circuit.fontStack.default,
-  colorPrimary: circuit.colors.p500,
-  colorSecondary: circuit.colors.p500,
-  appBg: circuit.colors.n100
+  fontBase: light.fontStack.default,
+  colorPrimary: light.colors.p500,
+  colorSecondary: light.colors.p500,
+  appBg: light.colors.n100
 });
 
 // FIXME: BaseStyles should only be included once, however, I couldn't find
 //        any other way to add it to the Docs page.
 const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
-  <ThemeProvider theme={circuit}>
+  <ThemeProvider theme={light}>
     <BaseStyles />
     <Component {...baseProps} {...props} />
   </ThemeProvider>

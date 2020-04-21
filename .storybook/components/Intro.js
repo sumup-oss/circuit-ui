@@ -17,8 +17,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Text } from '../../src';
+import { Text } from '../../src';
 
 const StyledText = styled(Text)(
   ({ theme }) => css`
@@ -30,7 +31,7 @@ const StyledText = styled(Text)(
 );
 
 const Intro = ({ children, ...props }) => (
-  <ThemeProvider theme={themes.circuit}>
+  <ThemeProvider theme={light}>
     <StyledText size={Text.GIGA} {...props}>
       {children}
     </StyledText>

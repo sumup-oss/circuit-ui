@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-import { circuit } from '../../themes';
+import { light } from '@sumup/design-tokens';
+
 import { createBaseStyles } from './BaseStylesService';
 
 describe('BaseStylesService', () => {
   it('should return the global base styles', () => {
-    const actual = createBaseStyles(circuit);
+    const actual = createBaseStyles(light);
     expect(actual.styles).toMatchSnapshot();
   });
 });

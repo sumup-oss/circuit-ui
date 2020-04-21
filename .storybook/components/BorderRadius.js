@@ -17,8 +17,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Text } from '../../src';
+import { Text } from '../../src';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -51,14 +52,14 @@ const BorderRadiusName = styled(Text)`
   `};
 `;
 
-const BorderRadius = ({ size }) => (
+const BorderRadius = ({ size, ...props }) => (
   <Wrapper>
-    <Box size={size} />
+    <Box size={size} {...props} />
     <div>
       <Text as="span">{size}</Text>
       <BorderRadiusSize>
         <BorderRadiusName size={Text.KILO} as="span">
-          {themes.circuit.borderRadius[size]}
+          {light.borderRadius[size]}
         </BorderRadiusName>
       </BorderRadiusSize>
     </div>

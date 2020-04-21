@@ -15,8 +15,6 @@
 
 import { normalizeAmount, isValidAmount } from './components/CurrencyInput';
 
-import { circuit } from './themes';
-
 export {
   id as uniqueId,
   numbers as numbersUtils,
@@ -134,16 +132,4 @@ export {
   useComponents
 } from './components/ComponentsContext';
 
-// Theme
-const standard = { ...circuit }; // otherwise this get exported as a `Module`
-const theme = {
-  standard,
-  circuit: standard
-};
-
-export { theme };
-
 export { styleHelpers, constants as styleConstants } from './styles';
-
-// Types
-export { Theme } from './types/theme';

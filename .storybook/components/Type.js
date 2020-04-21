@@ -18,8 +18,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Text } from '../../src';
+import { Text } from '../../src';
 
 const TypePx = styled(Text)`
   ${({ theme: t }) => css`
@@ -30,12 +31,12 @@ const TypePx = styled(Text)`
 `;
 
 const Type = ({ size, component, name, fontWeight, ...props }) => {
-  const typeSetting = themes.circuit.typography[name][size];
+  const typeSetting = light.typography[name][size];
   const { fontSize, lineHeight } = typeSetting;
-  const weight = themes.circuit.fontWeight[fontWeight];
+  const weight = light.fontWeight[fontWeight];
 
   return (
-    <ThemeProvider theme={themes.circuit}>
+    <ThemeProvider theme={light}>
       {createElement(component, {
         children: (
           <Fragment>

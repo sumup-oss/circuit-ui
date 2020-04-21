@@ -15,8 +15,9 @@
 
 import React from 'react';
 import { withTheme, ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Table } from '../../src';
+import { Table } from '../../src';
 
 const HEADERS = ['Breakpoint name', 'Query'];
 
@@ -39,7 +40,7 @@ const TableWrapper = withTheme(({ theme }) => (
 ));
 
 const MediaQueriesTable = () => (
-  <ThemeProvider theme={themes.circuit}>
+  <ThemeProvider theme={light}>
     <TableWrapper />
   </ThemeProvider>
 );

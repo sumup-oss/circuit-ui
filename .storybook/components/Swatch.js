@@ -18,8 +18,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Text, styleHelpers } from '../../src';
+import { Text, styleHelpers } from '../../src';
 
 const SWATCH_WIDTH = '99px';
 const SWATCH_HEIGHT = '99px';
@@ -58,7 +59,7 @@ const ColorHex = styled(Text)`
 `;
 
 const Swatch = ({ colorName }) => (
-  <ThemeProvider theme={themes.circuit}>
+  <ThemeProvider theme={light}>
     <ColorWrapper>
       <Color colorName={colorName} />
       <ColorName>
@@ -66,7 +67,7 @@ const Swatch = ({ colorName }) => (
           {colorName}
         </Text>
         <ColorHex as="p" size="kilo" noMargin>
-          {themes.circuit.colors[colorName]}
+          {light.colors[colorName]}
         </ColorHex>
       </ColorName>
     </ColorWrapper>

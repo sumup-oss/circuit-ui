@@ -21,18 +21,19 @@ Theming is built into [Emotion](https://github.com/emotion-js/emotion), our CSS-
 
 ```jsx
 import { ThemeProvider } from 'emotion-theming';
-import { theme, Button } from '@sumup/circuit-ui';
+import { Button } from '@sumup/circuit-ui';
+import { light } from '@sumup/design-tokens';
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme.circuit}>
+    <ThemeProvider theme={light}>
       <Button primary>Click me</Button>
     </ThemeProvider>
   );
 }
 ```
 
-In most cases, the default SumUp theme should cover your needs. If you need to customize it, we recommend making a copy of the [default theme](https://github.com/sumup-oss/circuit-ui/blob/master/src/themes/circuit.js) to ensure that no values are missing.
+In most cases, the default SumUp theme should cover your needs. If you need to customize it, we recommend making a copy of the [default theme](https://github.com/sumup-oss/design-tokens/blob/master/src/themes) to ensure that no values are missing.
 
 Refer to the [Emotion theming](https://emotion.sh/docs/theming) documentation to learn how to use the theme in your own components.
 
@@ -48,90 +49,90 @@ When referring to a color that should be treated as _primary_ (such as a button 
 
 #### Primary
 
-<Swatch colorName="p100"/>
-<Swatch colorName="p200"/>
-<Swatch colorName="p300"/>
-<Swatch colorName="p400"/>
-<Swatch colorName="p500"/>
-<Swatch colorName="p700"/>
-<Swatch colorName="p900"/>
+<Swatch colorName="p100" />
+<Swatch colorName="p200" />
+<Swatch colorName="p300" />
+<Swatch colorName="p400" />
+<Swatch colorName="p500" />
+<Swatch colorName="p700" />
+<Swatch colorName="p900" />
 
 #### Neutrals
 
-<Swatch colorName="n100"/>
-<Swatch colorName="n200"/>
-<Swatch colorName="n300"/>
-<Swatch colorName="n500"/>
-<Swatch colorName="n700"/>
-<Swatch colorName="n800"/>
-<Swatch colorName="n900"/>
+<Swatch colorName="n100" />
+<Swatch colorName="n200" />
+<Swatch colorName="n300" />
+<Swatch colorName="n500" />
+<Swatch colorName="n700" />
+<Swatch colorName="n800" />
+<Swatch colorName="n900" />
 
 #### Blues
 
-<Swatch colorName="b100"/>
-<Swatch colorName="b200"/>
-<Swatch colorName="b300"/>
-<Swatch colorName="b400"/>
-<Swatch colorName="b500"/>
-<Swatch colorName="b700"/>
-<Swatch colorName="b900"/>
+<Swatch colorName="b100" />
+<Swatch colorName="b200" />
+<Swatch colorName="b300" />
+<Swatch colorName="b400" />
+<Swatch colorName="b500" />
+<Swatch colorName="b700" />
+<Swatch colorName="b900" />
 
 #### Greens
 
-<Swatch colorName="g100"/>
-<Swatch colorName="g200"/>
-<Swatch colorName="g300"/>
-<Swatch colorName="g500"/>
-<Swatch colorName="g700"/>
-<Swatch colorName="g900"/>
+<Swatch colorName="g100" />
+<Swatch colorName="g200" />
+<Swatch colorName="g300" />
+<Swatch colorName="g500" />
+<Swatch colorName="g700" />
+<Swatch colorName="g900" />
 
 #### Yellows
 
-<Swatch colorName="y100"/>
-<Swatch colorName="y200"/>
-<Swatch colorName="y300"/>
-<Swatch colorName="y500"/>
-<Swatch colorName="y700"/>
-<Swatch colorName="y900"/>
+<Swatch colorName="y100" />
+<Swatch colorName="y200" />
+<Swatch colorName="y300" />
+<Swatch colorName="y500" />
+<Swatch colorName="y700" />
+<Swatch colorName="y900" />
 
 #### Oranges
 
-<Swatch colorName="o100"/>
-<Swatch colorName="o200"/>
-<Swatch colorName="o300"/>
-<Swatch colorName="o500"/>
-<Swatch colorName="o700"/>
-<Swatch colorName="o900"/>
+<Swatch colorName="o100" />
+<Swatch colorName="o200" />
+<Swatch colorName="o300" />
+<Swatch colorName="o500" />
+<Swatch colorName="o700" />
+<Swatch colorName="o900" />
 
 #### Reds
 
-<Swatch colorName="r100"/>
-<Swatch colorName="r200"/>
-<Swatch colorName="r300"/>
-<Swatch colorName="r500"/>
-<Swatch colorName="r700"/>
-<Swatch colorName="r900"/>
+<Swatch colorName="r100" />
+<Swatch colorName="r200" />
+<Swatch colorName="r300" />
+<Swatch colorName="r500" />
+<Swatch colorName="r700" />
+<Swatch colorName="r900" />
 
 #### Violets
 
-<Swatch colorName="v100"/>
-<Swatch colorName="v200"/>
-<Swatch colorName="v300"/>
-<Swatch colorName="v500"/>
-<Swatch colorName="v700"/>
-<Swatch colorName="v900"/>
+<Swatch colorName="v100" />
+<Swatch colorName="v200" />
+<Swatch colorName="v300" />
+<Swatch colorName="v500" />
+<Swatch colorName="v700" />
+<Swatch colorName="v900" />
 
 #### Application colors
 
-<Swatch colorName="bodyBg"/>
-<Swatch colorName="bodyColor"/>
-<Swatch colorName="shadow"/>
+<Swatch colorName="bodyBg" />
+<Swatch colorName="bodyColor" />
+<Swatch colorName="shadow" />
 
 #### Semantic colors
 
-<Swatch colorName="danger"/>
-<Swatch colorName="success"/>
-<Swatch colorName="warning"/>
+<Swatch colorName="danger" />
+<Swatch colorName="success" />
+<Swatch colorName="warning" />
 
 ### Spacings
 
@@ -156,11 +157,10 @@ Use spacings for gutters, margins, and paddings. Don't use it for border width, 
 ### Icon sizes
 
 ```
-theme.iconSizes.[byte|kilo|mega|giga]
+theme.iconSizes.[kilo|mega|giga]
 ```
 
 <Preview>
-  <IconSize size="byte" />
   <IconSize size="kilo" />
   <IconSize size="mega" />
   <IconSize size="giga" />
@@ -169,13 +169,15 @@ theme.iconSizes.[byte|kilo|mega|giga]
 ### Border radius
 
 ```
-theme.borderRadius.[kilo|mega|giga]
+theme.borderRadius.[kilo|mega|giga|circle|pill]
 ```
 
 <Preview>
   <BorderRadius size="kilo" />
   <BorderRadius size="mega" />
   <BorderRadius size="giga" />
+  <BorderRadius size="circle" />
+  <BorderRadius size="pill" style={{ height: '16px' }} />
 </Preview>
 
 ### Border width
@@ -261,8 +263,8 @@ Refer to the [grid](Advanced/Grid) documentation for an overview of the grid sys
 ### Breakpoints and media queries
 
 ```
-theme.mq.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera|afterTera]
-theme.breakpoints.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera|afterTera]
+theme.mq.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera]
+theme.breakpoints.[untilKilo|kilo|kiloToMega|mega|untilMega|megaToGiga|giga|gigaToTera|tera]
 ```
 
 Avoid using `theme.breakpoints` directly, instead use the named media query helpers. The following media queries are available:

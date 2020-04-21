@@ -19,8 +19,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
 import { css } from '@emotion/core';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Badge, Text } from '../../src';
+import { Badge, Text } from '../../src';
 
 const variants = {
   stable: { color: Badge.SUCCESS, label: 'Stable' },
@@ -33,7 +34,7 @@ const Status = ({ variant = 'stable' }) => {
   const { color, label } = variants[variant];
 
   return (
-    <ThemeProvider theme={themes.circuit}>
+    <ThemeProvider theme={light}>
       <Badge
         color={color}
         css={theme => css`
@@ -47,7 +48,7 @@ const Status = ({ variant = 'stable' }) => {
 };
 
 Status.Description = ({ children }) => (
-  <ThemeProvider theme={themes.circuit}>
+  <ThemeProvider theme={light}>
     <Text size={Text.KILO} as="span" italic>
       {' '}
       {children}
