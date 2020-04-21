@@ -20,11 +20,17 @@
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
     "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
+    "test": "jest --watch",
+    "test:ci": "jest --ci --json --runInBand --coverage --outputFile=__reports__/jest-results.json",
     "prerelease": "yarn build",
     "release": "foundry run semantic-release"
   },
   "devDependencies": {
     "@sumup/foundry": "^2.1.0",
+    "@types/jest": "^25.2.1",
+    "jest": "^25.4.0",
+    "jest-extended": "^0.11.5",
+    "ts-jest": "^25.4.0",
     "typescript": "^3.8.3"
   }
 }
