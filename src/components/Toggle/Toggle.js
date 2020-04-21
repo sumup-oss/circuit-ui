@@ -73,6 +73,7 @@ const toggleWrapperReversedStyles = ({ theme, reversed }) =>
   reversed &&
   css`
     flex-direction: row-reverse;
+    justify-content: space-between;
     label {
       margin-left: 0;
       margin-right: ${theme.spacings.kilo};
