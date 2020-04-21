@@ -3,7 +3,7 @@
 
 <div align="center">
 
-# Icons by SumUp
+# SumUp Icons
 
 A collection of icons for the web, part of the SumUp Design System.
 
@@ -20,11 +20,13 @@ A collection of icons for the web, part of the SumUp Design System.
 
 ## Installation
 
-The SumUp icons can be installed as a node module:
+The SumUp icons can be installed as a node module. Depending on your preference, run one of the following in your terminal:
 
 ```sh
+# With Yarn
 yarn add @sumup/icons
-# Or if you prefer npm:
+
+# With npm
 npm install @sumup/icons
 ```
 
@@ -105,7 +107,7 @@ The latest version of the icon library is [automatically deployed](https://icons
 }
 ```
 
-## Code of conduct
+## Code of Conduct
 
 We want to foster an inclusive and friendly community around our Open Source efforts. Like all SumUp Open Source projects, this project follows the Contributor Covenant Code of Conduct. Please, [read it and follow it](CODE_OF_CONDUCT.md).
 
