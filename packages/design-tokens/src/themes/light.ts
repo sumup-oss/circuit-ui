@@ -97,8 +97,8 @@ const primary = {
 
 const misc = {
   shadow: '#0C0F14',
-  bodyBg: neutrals.n900,
-  bodyColor: white,
+  bodyBg: neutrals.n100,
+  bodyColor: black,
   danger: reds.r500,
   success: greens.g700,
   warning: yellows.y500,
