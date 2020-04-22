@@ -82,7 +82,7 @@ const TagElement = styled('div')`
 
 const prefixStyles = ({ theme, selected }) => css`
   label: tag__prefix;
-  margin-right: ${theme.spacings.byte};
+  margin-right: ${theme.spacings.bit};
   ${selected}: {
     label: tag__prefix--selected;
     svg {
@@ -93,7 +93,7 @@ const prefixStyles = ({ theme, selected }) => css`
 
 const suffixStyles = ({ theme, selected }) => css`
   label: tag__suffix;
-  margin-left: ${theme.spacings.byte};
+  margin-left: ${theme.spacings.bit};
   ${selected}: {
     label: tag__suffix--selected;
     svg {
@@ -104,7 +104,7 @@ const suffixStyles = ({ theme, selected }) => css`
 
 const closeButtonStyles = ({ theme }) => css`
   label: tag__close-btn;
-  margin-left: ${theme.spacings.byte};
+  margin-left: ${theme.spacings.bit};
 `;
 
 const selectedCloseButtonStyles = ({ theme, selected }) =>
@@ -165,10 +165,16 @@ const Tag = ({
   ...props
 }) => {
   const prefixElement = Prefix && (
-    <Prefix css={theme => prefixStyles({ theme, selected })} />
+    <Prefix
+      selected={selected}
+      css={theme => prefixStyles({ theme, selected })}
+    />
   );
   const suffixElement = Suffix && (
-    <Suffix css={theme => suffixStyles({ theme, selected })} />
+    <Suffix
+      selected={selected}
+      css={theme => suffixStyles({ theme, selected })}
+    />
   );
 
   return (

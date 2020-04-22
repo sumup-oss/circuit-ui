@@ -11439,7 +11439,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   overflow: initial;
   height: 16px;
   width: 16px;
-  margin-left: 8px;
+  margin-left: 4px;
 }
 
 .circuit-4:focus,
@@ -11598,7 +11598,7 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
 }
 
 .circuit-0 {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 .circuit-0: svg {
@@ -11636,7 +11636,7 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
 }
 
 .circuit-0 {
-  margin-left: 8px;
+  margin-left: 4px;
 }
 
 .circuit-0: svg {
@@ -16665,7 +16665,7 @@ label + .circuit-3 {
   overflow: initial;
   height: 16px;
   width: 16px;
-  margin-left: 8px;
+  margin-left: 4px;
 }
 
 .circuit-11:focus,
