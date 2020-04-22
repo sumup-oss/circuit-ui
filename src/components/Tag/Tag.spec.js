@@ -16,14 +16,9 @@
 import React from 'react';
 
 import Tag from '.';
+import { ReactComponent as DummyIcon } from './icon-tick.svg';
 
 describe('Tag', () => {
-  const DummyIcon = props => (
-    <svg {...props} fill="#000000" xmlns="http://www.w3.org/2000/svg">
-      <path />
-    </svg>
-  );
-
   /**
    * Style tests.
    */
@@ -106,7 +101,7 @@ describe('Tag', () => {
     });
   });
 
-  describe('when has icon', () => {
+  describe('when it has an icon', () => {
     const props = {
       icon: <DummyIcon data-testid="tag-icon" />
     };
@@ -128,6 +123,70 @@ describe('Tag', () => {
     });
 
     it('should warn when both the icon and onRemove prop are passed', () => {
+      jest.spyOn(console, 'error');
+      const onRemove = jest.fn();
+
+      render(<Tag {...{ onRemove, ...props }}>SomeTest</Tag>);
+
+      expect(console.error).toHaveBeenCalled();
+    });
+  });
+
+  describe('when a prefix prop is passed', () => {
+    const props = {
+      // eslint-disable-next-line
+      prefix: ({ className }) => <DummyIcon className={className} data-testid="tag-icon" />
+    };
+
+    it('should render with a prefix', () => {
+      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
+      expect(getByTestId('tag-icon')).not.toBeNull();
+    });
+
+    it(`gives priority to close button when it's removable`, () => {
+      const onRemove = jest.fn();
+
+      const { queryByTestId } = render(
+        <Tag {...{ onRemove, props }}>SomeTest</Tag>
+      );
+
+      expect(queryByTestId('tag-icon')).toBeNull();
+      expect(queryByTestId('tag-close')).not.toBeNull();
+    });
+
+    it('should warn when both the prefix and onRemove prop are passed', () => {
+      jest.spyOn(console, 'error');
+      const onRemove = jest.fn();
+
+      render(<Tag {...{ onRemove, ...props }}>SomeTest</Tag>);
+
+      expect(console.error).toHaveBeenCalled();
+    });
+  });
+
+  describe('when a suffix prop is passed', () => {
+    const props = {
+      // eslint-disable-next-line
+      suffix: ({ className }) => <DummyIcon className={className} data-testid="tag-icon" />
+    };
+
+    it('should render with a suffix', () => {
+      const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
+      expect(getByTestId('tag-icon')).not.toBeNull();
+    });
+
+    it(`gives priority to close button when it's removable`, () => {
+      const onRemove = jest.fn();
+
+      const { queryByTestId } = render(
+        <Tag {...{ onRemove, props }}>SomeTest</Tag>
+      );
+
+      expect(queryByTestId('tag-icon')).toBeNull();
+      expect(queryByTestId('tag-close')).not.toBeNull();
+    });
+
+    it('should warn when both the suffix and onRemove prop are passed', () => {
       jest.spyOn(console, 'error');
       const onRemove = jest.fn();
 
