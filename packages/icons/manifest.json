@@ -116,6 +116,11 @@
       "size": "large"
     },
     {
+      "name": "elv",
+      "category": "Card scheme",
+      "size": "large"
+    },
+    {
       "name": "google_pay",
       "category": "Card scheme",
       "size": "large"
@@ -746,7 +751,17 @@
       "size": "small"
     },
     {
+      "name": "pause",
+      "category": "Action",
+      "size": "small"
+    },
+    {
       "name": "pen_stroke",
+      "category": "Action",
+      "size": "small"
+    },
+    {
+      "name": "play",
       "category": "Action",
       "size": "small"
     },
