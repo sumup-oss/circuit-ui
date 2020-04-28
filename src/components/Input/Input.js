@@ -159,9 +159,10 @@ const prefixStyles = theme => css`
   position: absolute;
   top: 1px;
   left: 1px;
-  ${size(theme.spacings.peta)};
-  padding: ${theme.spacings.kilo};
+  margin: ${theme.spacings.byte};
   pointer-events: none;
+  color: ${theme.colors.n700};
+  ${size(theme.iconSizes.mega)};
 `;
 
 /**
@@ -173,9 +174,10 @@ const suffixStyles = theme => css`
   position: absolute;
   top: 1px;
   right: 1px;
-  ${size(theme.spacings.peta)};
-  padding: ${theme.spacings.kilo};
+  margin: ${theme.spacings.byte};
   pointer-events: none;
+  color: ${theme.colors.n700};
+  ${size(theme.iconSizes.mega)};
 `;
 
 const tooltipBaseStyles = css`

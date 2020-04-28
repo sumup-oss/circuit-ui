@@ -60,7 +60,7 @@ const NotificationIcon = ({ type, children }) => {
 
   return (
     <NotificationIconContainer>
-      {Icon ? <Icon css={iconColor(type)} /> : children}
+      {Icon ? <Icon css={iconColor(type)} size="large" /> : children}
     </NotificationIconContainer>
   );
 };

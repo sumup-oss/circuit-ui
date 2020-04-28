@@ -8,8 +8,12 @@ exports[`IconButton should render with the default styles 1`] = `
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
+  color: #5C656F;
+}
+
+.circuit-2:hover {
+  color: #212933;
 }
 
 .circuit-2:focus,
@@ -37,6 +41,7 @@ exports[`IconButton should render with the default styles 1`] = `
 
 <button
   class="circuit-2 circuit-3"
+  title="A fake SVG"
   type="button"
 >
   <div

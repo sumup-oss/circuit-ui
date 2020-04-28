@@ -49,7 +49,7 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M5 5l14 14m0-14L5 19"
+      d="M7 7l10 10m0-10L7 17"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-width="2"
@@ -109,7 +109,7 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M5 5l14 14m0-14L5 19"
+      d="M7 7l10 10m0-10L7 17"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-width="2"

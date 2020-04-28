@@ -59,7 +59,7 @@ describe('hasSelectedChild', () => {
 describe('getIcon', () => {
   const mockDefaultIcon = 'mock-default-icon.svg';
   const mockSelectedIcon = 'mock-selected-icon.svg';
-  const disabledIcon = <Lock />;
+  const disabledIcon = <Lock size="large" />;
 
   describe('if there is no default icon', () => {
     it('should not return an icon', () => {

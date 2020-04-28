@@ -56,15 +56,15 @@ const SidebarWithState = () => {
             label="Home"
             selected={selected === 1}
             onClick={() => setSelected(1)}
-            defaultIcon={<House />}
-            selectedIcon={<HouseFilled />}
+            defaultIcon={<House size="large" />}
+            selectedIcon={<HouseFilled size="large" />}
           />
           <Sidebar.Aggregator
             key="list"
             selected={selected === 2}
             label="List"
-            defaultIcon={<Transactions />}
-            selectedIcon={<TransactionsFilled />}
+            defaultIcon={<Transactions size="large" />}
+            selectedIcon={<TransactionsFilled size="large" />}
           >
             <Sidebar.NavItem
               label="First"
@@ -87,8 +87,8 @@ const SidebarWithState = () => {
             label="Shop"
             disabled
             selected={selected === 3}
-            defaultIcon={<ShoppingCart />}
-            selectedIcon={<ShoppingCartFilled />}
+            defaultIcon={<ShoppingCart size="large" />}
+            selectedIcon={<ShoppingCartFilled size="large" />}
             onClick={() => setSelected(3)}
           />
           <Separator key="separator" />
@@ -96,8 +96,8 @@ const SidebarWithState = () => {
             key="me"
             label="Me"
             selected={selected === 4}
-            defaultIcon={<Person />}
-            selectedIcon={<PersonFilled />}
+            defaultIcon={<Person size="large" />}
+            selectedIcon={<PersonFilled size="large" />}
             onClick={() => setSelected(4)}
           />
         </Sidebar.NavList>

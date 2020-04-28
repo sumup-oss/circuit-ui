@@ -17,7 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { ChevronLeft, ChevronRight, Cross, Check } from '@sumup/icons';
+import { ChevronLeft, ChevronRight, Pause, Play } from '@sumup/icons';
 
 import CircuitUIButton from '../../../Button';
 
@@ -88,7 +88,7 @@ export const PrevButton = props => (
 
 export const PlayButton = ({ paused, ...props }) => (
   <Button aria-label={paused ? 'play' : 'pause'} {...props}>
-    <InnerWrapper>{paused ? <Check /> : <Cross />}</InnerWrapper>
+    <InnerWrapper>{paused ? <Play /> : <Pause />}</InnerWrapper>
   </Button>
 );
 

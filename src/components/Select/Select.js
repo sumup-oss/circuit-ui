@@ -86,10 +86,10 @@ const suffixBaseStyles = ({ theme }) => css`
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  ${size(theme.iconSizes.kilo)};
+  ${size(theme.iconSizes.mega)};
   top: 1px;
   right: 1px;
-  margin: ${theme.spacings.kilo};
+  margin: ${theme.spacings.byte};
 `;
 
 const suffixInvalidStyles = ({ theme, invalid }) =>

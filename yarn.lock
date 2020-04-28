@@ -2394,9 +2394,9 @@
     yargs "^12.0.5"
 
 "@sumup/icons@^1.0.0-canary.7":
-  version "1.0.0-canary.7"
-  resolved "https://registry.yarnpkg.com/@sumup/icons/-/icons-1.0.0-canary.7.tgz#cd5dec9029e9c2a0d9fd0c6053fdd23705233604"
-  integrity sha512-IQWI5dtHCezfKybmp9PdQcxa+/IXs6k09UAXGVO7hYTJWcElMwDZfZuSI4FQGpmUev9pFDpGD0tyIVvgVRKvZQ==
+  version "1.0.0-canary.11"
+  resolved "https://registry.yarnpkg.com/@sumup/icons/-/icons-1.0.0-canary.11.tgz#7d5ccac8b73b6fbdb79e1491fcad5405d82ca8f6"
+  integrity sha512-IQygnwpwTM50dnPDmhaFNoBLrPJatTWg9aXMc8FLY2quBX7Ywy5bVVw4+zlIZZPyVmeix/7umU5PFq+z7dk2QQ==
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"

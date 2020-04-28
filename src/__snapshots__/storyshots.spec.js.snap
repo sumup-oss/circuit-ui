@@ -1193,10 +1193,14 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
-  height: 16px;
-  width: 16px;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
+.circuit-3:hover {
+  color: #212933;
 }
 
 .circuit-3:focus,
@@ -1211,6 +1215,7 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
 
 <button
   class="circuit-2 circuit-3 circuit-4"
+  title="Close"
   type="button"
 >
   <svg
@@ -1222,7 +1227,7 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M5 5l14 14m0-14L5 19"
+      d="M7 7l10 10m0-10L7 17"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-width="2"
@@ -1257,8 +1262,12 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
+  color: #5C656F;
+}
+
+.circuit-2:hover {
+  color: #212933;
 }
 
 .circuit-2:focus,
@@ -1273,33 +1282,29 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
 
 <button
   class="circuit-2 circuit-3"
+  title="Download"
   type="button"
 >
   <svg
-    class="feather feather-eye"
     fill="none"
     height="24"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2"
+    role="presentation"
     viewBox="0 0 24 24"
     width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-    />
-    <circle
-      cx="12"
-      cy="12"
-      r="3"
+      d="M19 16v3H5v-3m7-11v9m0 0l4-4m-4 4l-4-4"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
     />
   </svg>
   <span
     class="circuit-0 circuit-1"
   >
-    Eye
+    Download
   </span>
 </button>
 `;
@@ -1863,11 +1868,11 @@ exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
 `;
 
 exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
-.circuit-2 .PresetDateRangePicker_panel {
+.circuit-4 .PresetDateRangePicker_panel {
   padding: 0 22px 11px;
 }
 
-.circuit-2 .PresetDateRangePicker_button {
+.circuit-4 .PresetDateRangePicker_button {
   position: relative;
   height: 100%;
   text-align: center;
@@ -1885,41 +1890,41 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   cursor: pointer;
 }
 
-.circuit-2 .PresetDateRangePicker_button:active {
+.circuit-4 .PresetDateRangePicker_button:active {
   outline: 0;
 }
 
-.circuit-2 .PresetDateRangePicker_button__selected {
+.circuit-4 .PresetDateRangePicker_button__selected {
   color: #fff;
   background: #00a699;
 }
 
-.circuit-2 .SingleDatePickerInput {
+.circuit-4 .SingleDatePickerInput {
   display: inline-block;
   background-color: #fff;
 }
 
-.circuit-2 .SingleDatePickerInput__withBorder {
+.circuit-4 .SingleDatePickerInput__withBorder {
   border: 1px solid #dbdbdb;
 }
 
-.circuit-2 .SingleDatePickerInput__rtl {
+.circuit-4 .SingleDatePickerInput__rtl {
   direction: rtl;
 }
 
-.circuit-2 .SingleDatePickerInput__disabled {
+.circuit-4 .SingleDatePickerInput__disabled {
   background-color: #f2f2f2;
 }
 
-.circuit-2 .SingleDatePickerInput__block {
+.circuit-4 .SingleDatePickerInput__block {
   display: block;
 }
 
-.circuit-2 .SingleDatePickerInput__showClearDate {
+.circuit-4 .SingleDatePickerInput__showClearDate {
   padding-right: 30px;
 }
 
-.circuit-2 .SingleDatePickerInput_clearDate {
+.circuit-4 .SingleDatePickerInput_clearDate {
   background: 0 0;
   border: 0;
   color: inherit;
@@ -1939,32 +1944,32 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   transform: translateY(-50%);
 }
 
-.circuit-2 .SingleDatePickerInput_clearDate__default:focus,
-.circuit-2 .SingleDatePickerInput_clearDate__default:hover {
+.circuit-4 .SingleDatePickerInput_clearDate__default:focus,
+.circuit-4 .SingleDatePickerInput_clearDate__default:hover {
   background: #dbdbdb;
   border-radius: 50%;
 }
 
-.circuit-2 .SingleDatePickerInput_clearDate__small {
+.circuit-4 .SingleDatePickerInput_clearDate__small {
   padding: 6px;
 }
 
-.circuit-2 .SingleDatePickerInput_clearDate__hide {
+.circuit-4 .SingleDatePickerInput_clearDate__hide {
   visibility: hidden;
 }
 
-.circuit-2 .SingleDatePickerInput_clearDate_svg {
+.circuit-4 .SingleDatePickerInput_clearDate_svg {
   fill: #82888a;
   height: 12px;
   width: 15px;
   vertical-align: middle;
 }
 
-.circuit-2 .SingleDatePickerInput_clearDate_svg__small {
+.circuit-4 .SingleDatePickerInput_clearDate_svg__small {
   height: 9px;
 }
 
-.circuit-2 .SingleDatePickerInput_calendarIcon {
+.circuit-4 .SingleDatePickerInput_calendarIcon {
   background: 0 0;
   border: 0;
   color: inherit;
@@ -1978,41 +1983,41 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   margin: 0 5px 0 10px;
 }
 
-.circuit-2 .SingleDatePickerInput_calendarIcon_svg {
+.circuit-4 .SingleDatePickerInput_calendarIcon_svg {
   fill: #82888a;
   height: 15px;
   width: 14px;
   vertical-align: middle;
 }
 
-.circuit-2 .SingleDatePicker {
+.circuit-4 .SingleDatePicker {
   position: relative;
   display: inline-block;
 }
 
-.circuit-2 .SingleDatePicker__block {
+.circuit-4 .SingleDatePicker__block {
   display: block;
 }
 
-.circuit-2 .SingleDatePicker_picker {
+.circuit-4 .SingleDatePicker_picker {
   z-index: 1;
   background-color: #fff;
   position: absolute;
 }
 
-.circuit-2 .SingleDatePicker_picker__rtl {
+.circuit-4 .SingleDatePicker_picker__rtl {
   direction: rtl;
 }
 
-.circuit-2 .SingleDatePicker_picker__directionLeft {
+.circuit-4 .SingleDatePicker_picker__directionLeft {
   left: 0;
 }
 
-.circuit-2 .SingleDatePicker_picker__directionRight {
+.circuit-4 .SingleDatePicker_picker__directionRight {
   right: 0;
 }
 
-.circuit-2 .SingleDatePicker_picker__portal {
+.circuit-4 .SingleDatePicker_picker__portal {
   background-color: rgba(0,0,0,0.3);
   position: fixed;
   top: 0;
@@ -2021,11 +2026,11 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   width: 100%;
 }
 
-.circuit-2 .SingleDatePicker_picker__fullScreenPortal {
+.circuit-4 .SingleDatePicker_picker__fullScreenPortal {
   background-color: #fff;
 }
 
-.circuit-2 .SingleDatePicker_closeButton {
+.circuit-4 .SingleDatePicker_closeButton {
   background: 0 0;
   border: 0;
   color: inherit;
@@ -2040,20 +2045,20 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   z-index: 2;
 }
 
-.circuit-2 .SingleDatePicker_closeButton:focus,
-.circuit-2 .SingleDatePicker_closeButton:hover {
+.circuit-4 .SingleDatePicker_closeButton:focus,
+.circuit-4 .SingleDatePicker_closeButton:hover {
   color: darken(#cacccd,10%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.circuit-2 .SingleDatePicker_closeButton_svg {
+.circuit-4 .SingleDatePicker_closeButton_svg {
   height: 15px;
   width: 15px;
   fill: #cacccd;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_buttonReset {
+.circuit-4 .DayPickerKeyboardShortcuts_buttonReset {
   background: 0 0;
   border: 0;
   border-radius: 0;
@@ -2066,70 +2071,70 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   font-size: 14px;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_buttonReset:active {
+.circuit-4 .DayPickerKeyboardShortcuts_buttonReset:active {
   outline: 0;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_show {
+.circuit-4 .DayPickerKeyboardShortcuts_show {
   width: 22px;
   position: absolute;
   z-index: 2;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_show__bottomRight {
+.circuit-4 .DayPickerKeyboardShortcuts_show__bottomRight {
   border-top: 26px solid transparent;
   border-right: 33px solid #00a699;
   bottom: 0;
   right: 0;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_show__bottomRight:hover {
+.circuit-4 .DayPickerKeyboardShortcuts_show__bottomRight:hover {
   border-right: 33px solid #008489;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_show__topRight {
+.circuit-4 .DayPickerKeyboardShortcuts_show__topRight {
   border-bottom: 26px solid transparent;
   border-right: 33px solid #00a699;
   top: 0;
   right: 0;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_show__topRight:hover {
+.circuit-4 .DayPickerKeyboardShortcuts_show__topRight:hover {
   border-right: 33px solid #008489;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_show__topLeft {
+.circuit-4 .DayPickerKeyboardShortcuts_show__topLeft {
   border-bottom: 26px solid transparent;
   border-left: 33px solid #00a699;
   top: 0;
   left: 0;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_show__topLeft:hover {
+.circuit-4 .DayPickerKeyboardShortcuts_show__topLeft:hover {
   border-left: 33px solid #008489;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_showSpan {
+.circuit-4 .DayPickerKeyboardShortcuts_showSpan {
   color: #fff;
   position: absolute;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_showSpan__bottomRight {
+.circuit-4 .DayPickerKeyboardShortcuts_showSpan__bottomRight {
   bottom: 0;
   right: -28px;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_showSpan__topRight {
+.circuit-4 .DayPickerKeyboardShortcuts_showSpan__topRight {
   top: 1px;
   right: -28px;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_showSpan__topLeft {
+.circuit-4 .DayPickerKeyboardShortcuts_showSpan__topLeft {
   top: 1px;
   left: -28px;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_panel {
+.circuit-4 .DayPickerKeyboardShortcuts_panel {
   overflow: auto;
   background: #fff;
   border: 1px solid #dbdbdb;
@@ -2144,41 +2149,41 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   margin: 33px;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_title {
+.circuit-4 .DayPickerKeyboardShortcuts_title {
   font-size: 16px;
   font-weight: 700;
   margin: 0;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_list {
+.circuit-4 .DayPickerKeyboardShortcuts_list {
   list-style: none;
   padding: 0;
   font-size: 14px;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_close {
+.circuit-4 .DayPickerKeyboardShortcuts_close {
   position: absolute;
   right: 22px;
   top: 22px;
   z-index: 2;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_close:active {
+.circuit-4 .DayPickerKeyboardShortcuts_close:active {
   outline: 0;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_closeSvg {
+.circuit-4 .DayPickerKeyboardShortcuts_closeSvg {
   height: 15px;
   width: 15px;
   fill: #cacccd;
 }
 
-.circuit-2 .DayPickerKeyboardShortcuts_closeSvg:focus,
-.circuit-2 .DayPickerKeyboardShortcuts_closeSvg:hover {
+.circuit-4 .DayPickerKeyboardShortcuts_closeSvg:focus,
+.circuit-4 .DayPickerKeyboardShortcuts_closeSvg:hover {
   fill: #82888a;
 }
 
-.circuit-2 .CalendarDay {
+.circuit-4 .CalendarDay {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   cursor: pointer;
@@ -2186,116 +2191,116 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   text-align: center;
 }
 
-.circuit-2 .CalendarDay:active {
+.circuit-4 .CalendarDay:active {
   outline: 0;
 }
 
-.circuit-2 .CalendarDay__defaultCursor {
+.circuit-4 .CalendarDay__defaultCursor {
   cursor: default;
 }
 
-.circuit-2 .CalendarDay__default {
+.circuit-4 .CalendarDay__default {
   border: 1px solid #e4e7e7;
   color: #565a5c;
   background: #fff;
 }
 
-.circuit-2 .CalendarDay__default:hover {
+.circuit-4 .CalendarDay__default:hover {
   background: #e4e7e7;
   border: 1px double #e4e7e7;
   color: inherit;
 }
 
-.circuit-2 .CalendarDay__hovered_offset {
+.circuit-4 .CalendarDay__hovered_offset {
   background: #f4f5f5;
   border: 1px double #e4e7e7;
   color: inherit;
 }
 
-.circuit-2 .CalendarDay__outside {
+.circuit-4 .CalendarDay__outside {
   border: 0;
   background: #fff;
   color: #565a5c;
 }
 
-.circuit-2 .CalendarDay__blocked_minimum_nights {
+.circuit-4 .CalendarDay__blocked_minimum_nights {
   background: #fff;
   border: 1px solid #eceeee;
   color: #cacccd;
 }
 
-.circuit-2 .CalendarDay__blocked_minimum_nights:active,
-.circuit-2 .CalendarDay__blocked_minimum_nights:hover {
+.circuit-4 .CalendarDay__blocked_minimum_nights:active,
+.circuit-4 .CalendarDay__blocked_minimum_nights:hover {
   background: #fff;
   color: #cacccd;
 }
 
-.circuit-2 .CalendarDay__highlighted_calendar {
+.circuit-4 .CalendarDay__highlighted_calendar {
   background: #ffe8bc;
   color: #565a5c;
 }
 
-.circuit-2 .CalendarDay__highlighted_calendar:active,
-.circuit-2 .CalendarDay__highlighted_calendar:hover {
+.circuit-4 .CalendarDay__highlighted_calendar:active,
+.circuit-4 .CalendarDay__highlighted_calendar:hover {
   background: #ffce71;
   color: #565a5c;
 }
 
-.circuit-2 .CalendarDay__selected_span {
+.circuit-4 .CalendarDay__selected_span {
   background: #66e2da;
   border: 1px solid #33dacd;
   color: #fff;
 }
 
-.circuit-2 .CalendarDay__selected_span:active,
-.circuit-2 .CalendarDay__selected_span:hover {
+.circuit-4 .CalendarDay__selected_span:active,
+.circuit-4 .CalendarDay__selected_span:hover {
   background: #33dacd;
   border: 1px solid #33dacd;
   color: #fff;
 }
 
-.circuit-2 .CalendarDay__last_in_range {
+.circuit-4 .CalendarDay__last_in_range {
   border-right: #00a699;
 }
 
-.circuit-2 .CalendarDay__selected,
-.circuit-2 .CalendarDay__selected:active,
-.circuit-2 .CalendarDay__selected:hover {
+.circuit-4 .CalendarDay__selected,
+.circuit-4 .CalendarDay__selected:active,
+.circuit-4 .CalendarDay__selected:hover {
   background: #00a699;
   border: 1px solid #00a699;
   color: #fff;
 }
 
-.circuit-2 .CalendarDay__hovered_span,
-.circuit-2 .CalendarDay__hovered_span:hover {
+.circuit-4 .CalendarDay__hovered_span,
+.circuit-4 .CalendarDay__hovered_span:hover {
   background: #b2f1ec;
   border: 1px solid #80e8e0;
   color: #007a87;
 }
 
-.circuit-2 .CalendarDay__hovered_span:active {
+.circuit-4 .CalendarDay__hovered_span:active {
   background: #80e8e0;
   border: 1px solid #80e8e0;
   color: #007a87;
 }
 
-.circuit-2 .CalendarDay__blocked_calendar,
-.circuit-2 .CalendarDay__blocked_calendar:active,
-.circuit-2 .CalendarDay__blocked_calendar:hover {
+.circuit-4 .CalendarDay__blocked_calendar,
+.circuit-4 .CalendarDay__blocked_calendar:active,
+.circuit-4 .CalendarDay__blocked_calendar:hover {
   background: #cacccd;
   border: 1px solid #cacccd;
   color: #82888a;
 }
 
-.circuit-2 .CalendarDay__blocked_out_of_range,
-.circuit-2 .CalendarDay__blocked_out_of_range:active,
-.circuit-2 .CalendarDay__blocked_out_of_range:hover {
+.circuit-4 .CalendarDay__blocked_out_of_range,
+.circuit-4 .CalendarDay__blocked_out_of_range:active,
+.circuit-4 .CalendarDay__blocked_out_of_range:hover {
   background: #fff;
   border: 1px solid #e4e7e7;
   color: #cacccd;
 }
 
-.circuit-2 .CalendarMonth {
+.circuit-4 .CalendarMonth {
   background: #fff;
   text-align: center;
   padding: 0 13px;
@@ -2309,16 +2314,16 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   user-select: none;
 }
 
-.circuit-2 .CalendarMonth_table {
+.circuit-4 .CalendarMonth_table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-.circuit-2 .CalendarMonth_verticalSpacing {
+.circuit-4 .CalendarMonth_verticalSpacing {
   border-collapse: separate;
 }
 
-.circuit-2 .CalendarMonth_caption {
+.circuit-4 .CalendarMonth_caption {
   color: #565a5c;
   font-size: 18px;
   text-align: center;
@@ -2327,58 +2332,58 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   caption-side: initial;
 }
 
-.circuit-2 .CalendarMonth_caption__verticalScrollable {
+.circuit-4 .CalendarMonth_caption__verticalScrollable {
   padding-top: 12px;
   padding-bottom: 7px;
 }
 
-.circuit-2 .CalendarMonthGrid {
+.circuit-4 .CalendarMonthGrid {
   background: #fff;
   text-align: left;
   z-index: 0;
 }
 
-.circuit-2 .CalendarMonthGrid__animating {
+.circuit-4 .CalendarMonthGrid__animating {
   z-index: 1;
 }
 
-.circuit-2 .CalendarMonthGrid__horizontal {
+.circuit-4 .CalendarMonthGrid__horizontal {
   position: absolute;
   left: 9px;
 }
 
-.circuit-2 .CalendarMonthGrid__vertical {
+.circuit-4 .CalendarMonthGrid__vertical {
   margin: 0 auto;
 }
 
-.circuit-2 .CalendarMonthGrid__vertical_scrollable {
+.circuit-4 .CalendarMonthGrid__vertical_scrollable {
   margin: 0 auto;
   overflow-y: scroll;
 }
 
-.circuit-2 .CalendarMonthGrid_month__horizontal {
+.circuit-4 .CalendarMonthGrid_month__horizontal {
   display: inline-block;
   vertical-align: top;
   min-height: 100%;
 }
 
-.circuit-2 .CalendarMonthGrid_month__hideForAnimation {
+.circuit-4 .CalendarMonthGrid_month__hideForAnimation {
   position: absolute;
   z-index: -1;
   opacity: 0;
   pointer-events: none;
 }
 
-.circuit-2 .CalendarMonthGrid_month__hidden {
+.circuit-4 .CalendarMonthGrid_month__hidden {
   visibility: hidden;
 }
 
-.circuit-2 .DayPickerNavigation_container {
+.circuit-4 .DayPickerNavigation_container {
   position: relative;
   z-index: 2;
 }
 
-.circuit-2 .DayPickerNavigation_container__vertical {
+.circuit-4 .DayPickerNavigation_container__vertical {
   background: #fff;
   box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
   position: absolute;
@@ -2388,11 +2393,11 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   width: 100%;
 }
 
-.circuit-2 .DayPickerNavigation_container__verticalScrollable {
+.circuit-4 .DayPickerNavigation_container__verticalScrollable {
   position: relative;
 }
 
-.circuit-2 .DayPickerNavigation_button {
+.circuit-4 .DayPickerNavigation_button {
   cursor: pointer;
   line-height: 0.78;
   -webkit-user-select: none;
@@ -2404,120 +2409,120 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   user-select: none;
 }
 
-.circuit-2 .DayPickerNavigation_button__default {
+.circuit-4 .DayPickerNavigation_button__default {
   border: 1px solid #e4e7e7;
   background-color: #fff;
   color: #757575;
 }
 
-.circuit-2 .DayPickerNavigation_button__default:focus,
-.circuit-2 .DayPickerNavigation_button__default:hover {
+.circuit-4 .DayPickerNavigation_button__default:focus,
+.circuit-4 .DayPickerNavigation_button__default:hover {
   border: 1px solid #c4c4c4;
 }
 
-.circuit-2 .DayPickerNavigation_button__default:active {
+.circuit-4 .DayPickerNavigation_button__default:active {
   background: #f2f2f2;
 }
 
-.circuit-2 .DayPickerNavigation_button__horizontal {
+.circuit-4 .DayPickerNavigation_button__horizontal {
   border-radius: 3px;
   padding: 6px 9px;
   top: 18px;
   position: absolute;
 }
 
-.circuit-2 .DayPickerNavigation_leftButton__horizontal {
+.circuit-4 .DayPickerNavigation_leftButton__horizontal {
   left: 22px;
 }
 
-.circuit-2 .DayPickerNavigation_rightButton__horizontal {
+.circuit-4 .DayPickerNavigation_rightButton__horizontal {
   right: 22px;
 }
 
-.circuit-2 .DayPickerNavigation_button__vertical {
+.circuit-4 .DayPickerNavigation_button__vertical {
   display: inline-block;
   position: relative;
   height: 100%;
   width: 50%;
 }
 
-.circuit-2 .DayPickerNavigation_button__vertical__default {
+.circuit-4 .DayPickerNavigation_button__vertical__default {
   padding: 5px;
 }
 
-.circuit-2 .DayPickerNavigation_nextButton__vertical__default {
+.circuit-4 .DayPickerNavigation_nextButton__vertical__default {
   border-left: 0;
 }
 
-.circuit-2 .DayPickerNavigation_nextButton__verticalScrollable {
+.circuit-4 .DayPickerNavigation_nextButton__verticalScrollable {
   width: 100%;
 }
 
-.circuit-2 .DayPickerNavigation_svg__horizontal {
+.circuit-4 .DayPickerNavigation_svg__horizontal {
   height: 19px;
   width: 19px;
   fill: #82888a;
 }
 
-.circuit-2 .DayPickerNavigation_svg__vertical {
+.circuit-4 .DayPickerNavigation_svg__vertical {
   height: 42px;
   width: 42px;
   fill: #565a5c;
 }
 
-.circuit-2 .DayPicker {
+.circuit-4 .DayPicker {
   background: #fff;
   position: relative;
   text-align: left;
 }
 
-.circuit-2 .DayPicker__horizontal {
+.circuit-4 .DayPicker__horizontal {
   background: #fff;
 }
 
-.circuit-2 .DayPicker__verticalScrollable {
+.circuit-4 .DayPicker__verticalScrollable {
   height: 100%;
 }
 
-.circuit-2 .DayPicker__hidden {
+.circuit-4 .DayPicker__hidden {
   visibility: hidden;
 }
 
-.circuit-2 .DayPicker__withBorder {
+.circuit-4 .DayPicker__withBorder {
   box-shadow: 0 2px 6px rgba(0,0,0,0.05),0 0 0 1px rgba(0,0,0,0.07);
   border-radius: 3px;
 }
 
-.circuit-2 .DayPicker_portal__horizontal {
+.circuit-4 .DayPicker_portal__horizontal {
   box-shadow: none;
   position: absolute;
   left: 50%;
   top: 50%;
 }
 
-.circuit-2 .DayPicker_portal__vertical {
+.circuit-4 .DayPicker_portal__vertical {
   position: initial;
 }
 
-.circuit-2 .DayPicker_focusRegion {
+.circuit-4 .DayPicker_focusRegion {
   outline: 0;
 }
 
-.circuit-2 .DayPicker_calendarInfo__horizontal,
-.circuit-2 .DayPicker_wrapper__horizontal {
+.circuit-4 .DayPicker_calendarInfo__horizontal,
+.circuit-4 .DayPicker_wrapper__horizontal {
   display: inline-block;
   vertical-align: top;
 }
 
-.circuit-2 .DayPicker_weekHeaders {
+.circuit-4 .DayPicker_weekHeaders {
   position: relative;
 }
 
-.circuit-2 .DayPicker_weekHeaders__horizontal {
+.circuit-4 .DayPicker_weekHeaders__horizontal {
   margin-left: 9px;
 }
 
-.circuit-2 .DayPicker_weekHeader {
+.circuit-4 .DayPicker_weekHeader {
   color: #757575;
   position: absolute;
   top: 62px;
@@ -2526,11 +2531,11 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   text-align: left;
 }
 
-.circuit-2 .DayPicker_weekHeader__vertical {
+.circuit-4 .DayPicker_weekHeader__vertical {
   left: 50%;
 }
 
-.circuit-2 .DayPicker_weekHeader__verticalScrollable {
+.circuit-4 .DayPicker_weekHeader__verticalScrollable {
   top: 0;
   display: table-row;
   border-bottom: 1px solid #dbdbdb;
@@ -2541,7 +2546,7 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   text-align: center;
 }
 
-.circuit-2 .DayPicker_weekHeader_ul {
+.circuit-4 .DayPicker_weekHeader_ul {
   list-style: none;
   margin: 1px 0;
   padding-left: 0;
@@ -2549,29 +2554,29 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   font-size: 14px;
 }
 
-.circuit-2 .DayPicker_weekHeader_li {
+.circuit-4 .DayPicker_weekHeader_li {
   display: inline-block;
   text-align: center;
 }
 
-.circuit-2 .DayPicker_transitionContainer {
+.circuit-4 .DayPicker_transitionContainer {
   position: relative;
   overflow: hidden;
   border-radius: 3px;
 }
 
-.circuit-2 .DayPicker_transitionContainer__horizontal {
+.circuit-4 .DayPicker_transitionContainer__horizontal {
   -webkit-transition: height 0.2s ease-in-out;
   -moz-transition: height 0.2s ease-in-out;
   -webkit-transition: height 0.2s ease-in-out;
   transition: height 0.2s ease-in-out;
 }
 
-.circuit-2 .DayPicker_transitionContainer__vertical {
+.circuit-4 .DayPicker_transitionContainer__vertical {
   width: 100%;
 }
 
-.circuit-2 .DayPicker_transitionContainer__verticalScrollable {
+.circuit-4 .DayPicker_transitionContainer__verticalScrollable {
   padding-top: 20px;
   height: 100%;
   position: absolute;
@@ -2582,7 +2587,7 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   overflow-y: scroll;
 }
 
-.circuit-2 .DateInput {
+.circuit-4 .DateInput {
   margin: 0;
   padding: 0;
   background: #fff;
@@ -2592,20 +2597,20 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   vertical-align: middle;
 }
 
-.circuit-2 .DateInput__small {
+.circuit-4 .DateInput__small {
   width: 90px;
 }
 
-.circuit-2 .DateInput__block {
+.circuit-4 .DateInput__block {
   width: 100%;
 }
 
-.circuit-2 .DateInput__disabled {
+.circuit-4 .DateInput__disabled {
   background: #f2f2f2;
   color: #dbdbdb;
 }
 
-.circuit-2 .DateInput_input {
+.circuit-4 .DateInput_input {
   font-weight: 200;
   font-size: 18px;
   line-height: 24px;
@@ -2620,17 +2625,17 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   border-left: 0;
 }
 
-.circuit-2 .DateInput_input__small {
+.circuit-4 .DateInput_input__small {
   font-size: 14px;
   line-height: 18px;
   padding: 8px 8px 6px;
 }
 
-.circuit-2 .DateInput_input__regular {
+.circuit-4 .DateInput_input__regular {
   font-weight: auto;
 }
 
-.circuit-2 .DateInput_input__readOnly {
+.circuit-4 .DateInput_input__readOnly {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -2640,7 +2645,7 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   user-select: none;
 }
 
-.circuit-2 .DateInput_input__focused {
+.circuit-4 .DateInput_input__focused {
   outline: 0;
   background: #fff;
   border: 0;
@@ -2650,12 +2655,12 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   border-left: 0;
 }
 
-.circuit-2 .DateInput_input__disabled {
+.circuit-4 .DateInput_input__disabled {
   background: #f2f2f2;
   font-style: italic;
 }
 
-.circuit-2 .DateInput_screenReaderMessage {
+.circuit-4 .DateInput_screenReaderMessage {
   border: 0;
   -webkit-clip: rect(0,0,0,0);
   clip: rect(0,0,0,0);
@@ -2667,7 +2672,7 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   width: 1px;
 }
 
-.circuit-2 .DateInput_fang {
+.circuit-4 .DateInput_fang {
   position: absolute;
   width: 20px;
   height: 10px;
@@ -2675,58 +2680,58 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   z-index: 2;
 }
 
-.circuit-2 .DateInput_fangShape {
+.circuit-4 .DateInput_fangShape {
   fill: #fff;
 }
 
-.circuit-2 .DateInput_fangStroke {
+.circuit-4 .DateInput_fangStroke {
   stroke: #dbdbdb;
   fill: transparent;
 }
 
-.circuit-2 .DateRangePickerInput {
+.circuit-4 .DateRangePickerInput {
   background-color: #fff;
   display: inline-block;
 }
 
-.circuit-2 .DateRangePickerInput__disabled {
+.circuit-4 .DateRangePickerInput__disabled {
   background: #f2f2f2;
 }
 
-.circuit-2 .DateRangePickerInput__withBorder {
+.circuit-4 .DateRangePickerInput__withBorder {
   border: 1px solid #cacccd;
 }
 
-.circuit-2 .DateRangePickerInput__rtl {
+.circuit-4 .DateRangePickerInput__rtl {
   direction: rtl;
 }
 
-.circuit-2 .DateRangePickerInput__block {
+.circuit-4 .DateRangePickerInput__block {
   display: block;
 }
 
-.circuit-2 .DateRangePickerInput__showClearDates {
+.circuit-4 .DateRangePickerInput__showClearDates {
   padding-right: 30px;
 }
 
-.circuit-2 .DateRangePickerInput_arrow {
+.circuit-4 .DateRangePickerInput_arrow {
   display: inline-block;
   vertical-align: middle;
 }
 
-.circuit-2 .DateRangePickerInput_arrow_svg {
+.circuit-4 .DateRangePickerInput_arrow_svg {
   vertical-align: middle;
   fill: #565a5c;
   height: 24px;
   width: 24px;
 }
 
-.circuit-2 .DateRangePickerInput_arrow_svg__small {
+.circuit-4 .DateRangePickerInput_arrow_svg__small {
   height: 19px;
   width: 19px;
 }
 
-.circuit-2 .DateRangePickerInput_clearDates {
+.circuit-4 .DateRangePickerInput_clearDates {
   background: 0 0;
   border: 0;
   color: inherit;
@@ -2746,32 +2751,32 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   transform: translateY(-50%);
 }
 
-.circuit-2 .DateRangePickerInput_clearDates__small {
+.circuit-4 .DateRangePickerInput_clearDates__small {
   padding: 6px;
 }
 
-.circuit-2 .DateRangePickerInput_clearDates_default:focus,
-.circuit-2 .DateRangePickerInput_clearDates_default:hover {
+.circuit-4 .DateRangePickerInput_clearDates_default:focus,
+.circuit-4 .DateRangePickerInput_clearDates_default:hover {
   background: #dbdbdb;
   border-radius: 50%;
 }
 
-.circuit-2 .DateRangePickerInput_clearDates__hide {
+.circuit-4 .DateRangePickerInput_clearDates__hide {
   visibility: hidden;
 }
 
-.circuit-2 .DateRangePickerInput_clearDates_svg {
+.circuit-4 .DateRangePickerInput_clearDates_svg {
   fill: #82888a;
   height: 12px;
   width: 15px;
   vertical-align: middle;
 }
 
-.circuit-2 .DateRangePickerInput_clearDates_svg__small {
+.circuit-4 .DateRangePickerInput_clearDates_svg__small {
   height: 9px;
 }
 
-.circuit-2 .DateRangePickerInput_calendarIcon {
+.circuit-4 .DateRangePickerInput_calendarIcon {
   background: 0 0;
   border: 0;
   color: inherit;
@@ -2785,41 +2790,41 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   margin: 0 5px 0 10px;
 }
 
-.circuit-2 .DateRangePickerInput_calendarIcon_svg {
+.circuit-4 .DateRangePickerInput_calendarIcon_svg {
   fill: #82888a;
   height: 15px;
   width: 14px;
   vertical-align: middle;
 }
 
-.circuit-2 .DateRangePicker {
+.circuit-4 .DateRangePicker {
   position: relative;
   display: inline-block;
 }
 
-.circuit-2 .DateRangePicker__block {
+.circuit-4 .DateRangePicker__block {
   display: block;
 }
 
-.circuit-2 .DateRangePicker_picker {
+.circuit-4 .DateRangePicker_picker {
   z-index: 1;
   background-color: #fff;
   position: absolute;
 }
 
-.circuit-2 .DateRangePicker_picker__rtl {
+.circuit-4 .DateRangePicker_picker__rtl {
   direction: rtl;
 }
 
-.circuit-2 .DateRangePicker_picker__directionLeft {
+.circuit-4 .DateRangePicker_picker__directionLeft {
   left: 0;
 }
 
-.circuit-2 .DateRangePicker_picker__directionRight {
+.circuit-4 .DateRangePicker_picker__directionRight {
   right: 0;
 }
 
-.circuit-2 .DateRangePicker_picker__portal {
+.circuit-4 .DateRangePicker_picker__portal {
   background-color: rgba(0,0,0,0.3);
   position: fixed;
   top: 0;
@@ -2828,11 +2833,11 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   width: 100%;
 }
 
-.circuit-2 .DateRangePicker_picker__fullScreenPortal {
+.circuit-4 .DateRangePicker_picker__fullScreenPortal {
   background-color: #fff;
 }
 
-.circuit-2 .DateRangePicker_closeButton {
+.circuit-4 .DateRangePicker_closeButton {
   background: 0 0;
   border: 0;
   color: inherit;
@@ -2847,76 +2852,76 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   z-index: 2;
 }
 
-.circuit-2 .DateRangePicker_closeButton:focus,
-.circuit-2 .DateRangePicker_closeButton:hover {
+.circuit-4 .DateRangePicker_closeButton:focus,
+.circuit-4 .DateRangePicker_closeButton:hover {
   color: darken(#cacccd,10%);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.circuit-2 .DateRangePicker_closeButton_svg {
+.circuit-4 .DateRangePicker_closeButton_svg {
   height: 15px;
   width: 15px;
   fill: #cacccd;
 }
 
-.circuit-2 .CalendarDay__default {
+.circuit-4 .CalendarDay__default {
   border: 1px solid #D8DDE1;
   color: #212933;
   background: #FFFFFF;
   vertical-align: middle;
 }
 
-.circuit-2 .CalendarDay__default:hover {
+.circuit-4 .CalendarDay__default:hover {
   background: #D8DDE1;
   border: 1px double #D8DDE1;
   color: inherit;
 }
 
-.circuit-2 .CalendarDay__hovered_span,
-.circuit-2 .CalendarDay__hovered_span:hover {
+.circuit-4 .CalendarDay__hovered_span,
+.circuit-4 .CalendarDay__hovered_span:hover {
   background: #EDF4FC;
   border: 1px solid #3388FF;
 }
 
-.circuit-2 .CalendarDay__hovered_span:active {
+.circuit-4 .CalendarDay__hovered_span:active {
   background: #EDF4FC;
   border: 1px solid #3388FF;
 }
 
-.circuit-2 .CalendarDay__selected_span {
+.circuit-4 .CalendarDay__selected_span {
   background: #EDF4FC;
   border: 1px solid #AFD0FE;
 }
 
-.circuit-2 .CalendarDay__selected_span:hover {
+.circuit-4 .CalendarDay__selected_span:hover {
   color: #FFFFFF;
   background: #AFD0FE;
   border: 1px solid #AFD0FE;
 }
 
-.circuit-2 .CalendarDay__last_in_range {
+.circuit-4 .CalendarDay__last_in_range {
   border-right: #00a699;
 }
 
-.circuit-2 .CalendarDay__selected,
-.circuit-2 .CalendarDay__selected:active,
-.circuit-2 .CalendarDay__selected:hover {
+.circuit-4 .CalendarDay__selected,
+.circuit-4 .CalendarDay__selected:active,
+.circuit-4 .CalendarDay__selected:hover {
   background: #3388FF;
   border: 1px solid #AFD0FE;
   color: #FFFFFF;
 }
 
-.circuit-2 .CalendarDay__blocked_out_of_range,
-.circuit-2 .CalendarDay__blocked_out_of_range:active,
-.circuit-2 .CalendarDay__blocked_out_of_range:hover {
+.circuit-4 .CalendarDay__blocked_out_of_range,
+.circuit-4 .CalendarDay__blocked_out_of_range:active,
+.circuit-4 .CalendarDay__blocked_out_of_range:hover {
   background: #fff;
   border: 1px solid #D8DDE1;
   color: #D8DDE1;
 }
 
-.circuit-2 .DateRangePickerInput,
-.circuit-2 .SingleDatePickerInput {
+.circuit-4 .DateRangePickerInput,
+.circuit-4 .SingleDatePickerInput {
   background-color: #FFFFFF;
   padding: 8px 12px;
   -webkit-transition: border-color 200ms ease-in-out;
@@ -2926,37 +2931,37 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   line-height: 24px;
 }
 
-.circuit-2 .DateRangePickerInput.DateRangePickerInput__withBorder,
-.circuit-2 .SingleDatePickerInput.DateRangePickerInput__withBorder,
-.circuit-2 .DateRangePickerInput.SingleDatePickerInput__withBorder,
-.circuit-2 .SingleDatePickerInput.SingleDatePickerInput__withBorder {
+.circuit-4 .DateRangePickerInput.DateRangePickerInput__withBorder,
+.circuit-4 .SingleDatePickerInput.DateRangePickerInput__withBorder,
+.circuit-4 .DateRangePickerInput.SingleDatePickerInput__withBorder,
+.circuit-4 .SingleDatePickerInput.SingleDatePickerInput__withBorder {
   border-width: 1px;
   border-style: solid;
   border-color: #D8DDE1;
   border-radius: 4px;
 }
 
-.circuit-2 .DateRangePickerInput.DateRangePickerInput__showClearDates,
-.circuit-2 .SingleDatePickerInput.DateRangePickerInput__showClearDates {
+.circuit-4 .DateRangePickerInput.DateRangePickerInput__showClearDates,
+.circuit-4 .SingleDatePickerInput.DateRangePickerInput__showClearDates {
   padding-right: 30px;
 }
 
-.circuit-2 .DateRangePickerInput__disabled {
+.circuit-4 .DateRangePickerInput__disabled {
   background: #f2f2f2;
 }
 
-.circuit-2 .DateRangePickerInput_arrow {
+.circuit-4 .DateRangePickerInput_arrow {
   margin: 0 12px;
   width: 24px;
   height: 24px;
 }
 
-.circuit-2 .DateInput {
+.circuit-4 .DateInput {
   width: 85px;
   vertical-align: inherit;
 }
 
-.circuit-2 .DateInput_input {
+.circuit-4 .DateInput_input {
   color: #212933;
   font-size: 16px;
   line-height: 24px;
@@ -2967,35 +2972,35 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   border: none;
 }
 
-.circuit-2 .DateInput_input::-webkit-input-placeholder {
+.circuit-4 .DateInput_input::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2 .DateInput_input::-moz-placeholder {
+.circuit-4 .DateInput_input::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2 .DateInput_input:-ms-input-placeholder {
+.circuit-4 .DateInput_input:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2 .DateInput_input::placeholder {
+.circuit-4 .DateInput_input::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2 .DateInput_fang {
+.circuit-4 .DateInput_fang {
   margin-top: -8px;
 }
 
-.circuit-2 .DayPickerNavigation_button__horizontal {
+.circuit-4 .DayPickerNavigation_button__horizontal {
   background: #FFFFFF;
   border: 1px solid #D8DDE1;
   color: #212933;
@@ -3004,24 +3009,24 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   height: 32px;
 }
 
-.circuit-2 .DayPickerNavigation_button__horizontal > svg {
+.circuit-4 .DayPickerNavigation_button__horizontal > svg {
   vertical-align: middle;
 }
 
-.circuit-2 .DayPickerNavigation_leftButton__horizontal {
+.circuit-4 .DayPickerNavigation_leftButton__horizontal {
   -webkit-transform: scale(-1,1);
   -ms-transform: scale(-1,1);
   transform: scale(-1,1);
 }
 
-.circuit-2 .DateRangePickerInput_clearDates {
+.circuit-4 .DateRangePickerInput_clearDates {
   margin: 0;
   width: 32px;
   height: 32px;
   padding: 4px;
 }
 
-.circuit-2 .CalendarMonth_caption {
+.circuit-4 .CalendarMonth_caption {
   color: #212933;
   font-size: 18px;
   text-align: center;
@@ -3030,7 +3035,7 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   caption-side: initial;
 }
 
-.circuit-2 .DayPicker_weekHeader {
+.circuit-4 .DayPicker_weekHeader {
   color: #212933;
   position: absolute;
   top: 67px;
@@ -3039,7 +3044,7 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   text-align: left;
 }
 
-.circuit-2 .DayPicker_weekHeader .DayPicker_weekHeader_ul {
+.circuit-4 .DayPicker_weekHeader .DayPicker_weekHeader_ul {
   font-size: 13px;
   line-height: 20px;
 }
@@ -3048,8 +3053,12 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
   color: #3388FF;
 }
 
+.circuit-2 {
+  color: #5C656F;
+}
+
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-4 circuit-5"
 >
   <div
     class="DateRangePicker DateRangePicker_1"
@@ -3084,25 +3093,22 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
           class="DateRangePickerInput_arrow DateRangePickerInput_arrow_1"
           role="presentation"
         >
-          <div
+          <svg
             class="circuit-0 circuit-1"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 12h10m0 0l-5-5m5 5l-5 5"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              />
-            </svg>
-          </div>
+            <path
+              d="M6 12h10m0 0l-5-5m5 5l-5 5"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
         </div>
         <div
           class="DateInput DateInput_1"
@@ -3131,6 +3137,7 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
           type="button"
         >
           <svg
+            class="circuit-2 circuit-3"
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -5334,10 +5341,14 @@ HTMLCollection [
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
-  height: 16px;
-  width: 16px;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
+.circuit-5:hover {
+  color: #212933;
 }
 
 .circuit-5:focus,
@@ -5365,6 +5376,7 @@ HTMLCollection [
       <button
         class="circuit-4 circuit-5 circuit-6"
         data-testid="header-close"
+        title="Close"
         type="button"
       >
         <svg
@@ -5376,7 +5388,7 @@ HTMLCollection [
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M5 5l14 14m0-14L5 19"
+            d="M7 7l10 10m0-10L7 17"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-width="2"
@@ -6425,7 +6437,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M5 5l14 14m0-14L5 19"
+                d="M8.5 7v10M15.5 7v10"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-width="2"
@@ -6623,7 +6635,7 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M5 5l14 14m0-14L5 19"
+          d="M8.5 7v10M15.5 7v10"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-width="2"
@@ -6646,7 +6658,7 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M6 12.79L10 17l8-9"
+          d="M17 12l-9 5V7l9 5z"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -8444,10 +8456,14 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
-  height: 16px;
-  width: 16px;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
+.circuit-5:hover {
+  color: #212933;
 }
 
 .circuit-5:focus,
@@ -8517,6 +8533,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
     <button
       class="circuit-4 circuit-5 circuit-6"
       data-testid="header-close"
+      title="Close"
       type="button"
     >
       <svg
@@ -8528,7 +8545,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M5 5l14 14m0-14L5 19"
+          d="M7 7l10 10m0-10L7 17"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-width="2"
@@ -10830,7 +10847,7 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M5 5l14 14m0-14L5 19"
+        d="M7 7l10 10m0-10L7 17"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-width="2"
@@ -11088,10 +11105,11 @@ label + .circuit-14 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-4 {
@@ -13910,11 +13928,15 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
-  height: 16px;
-  width: 16px;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
   margin-left: 4px;
+}
+
+.circuit-4:hover {
+  color: #212933;
 }
 
 .circuit-4:focus,
@@ -13951,6 +13973,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   <button
     class="circuit-2 circuit-3 circuit-4 circuit-5"
     data-testid="tag-close"
+    title="Remove"
     type="button"
   >
     <svg
@@ -13962,7 +13985,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M5 5l14 14m0-14L5 19"
+        d="M7 7l10 10m0-10L7 17"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-width="2"
@@ -13998,10 +14021,6 @@ exports[`Storyshots Components/Tag Selected 1`] = `
   color: #FFFFFF;
 }
 
-.circuit-0 > svg {
-  fill: #FFFFFF;
-}
-
 <div
   class="circuit-0 circuit-1"
 >
@@ -14031,18 +14050,25 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
   margin-right: 4px;
 }
 
-.circuit-0: svg {
-  fill: #FFFFFF;
-}
-
 <div
   class="circuit-1 circuit-2"
 >
-  <div
+  <svg
     class="circuit-0"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    icon-tick.svg
-  </div>
+    <path
+      d="M6 12.79L10 17l8-9"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
   Transactions
 </div>
 `;
@@ -14069,19 +14095,26 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
   margin-left: 4px;
 }
 
-.circuit-0: svg {
-  fill: #FFFFFF;
-}
-
 <div
   class="circuit-1 circuit-2"
 >
   Transactions
-  <div
+  <svg
     class="circuit-0"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    icon-tick.svg
-  </div>
+    <path
+      d="M6 12.79L10 17l8-9"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;
 
@@ -14153,20 +14186,16 @@ exports[`Storyshots Components/Tooltip Base 1`] = `
   <svg
     fill="none"
     height="24"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2"
     viewBox="0 0 24 24"
     width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-    />
-    <circle
-      cx="12"
-      cy="12"
-      r="3"
+      d="M12 8.5V8m0 7.5v-4m0 7.5a7 7 0 100-14 7 7 0 000 14z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
     />
   </svg>
 </div>
@@ -14235,20 +14264,16 @@ exports[`Storyshots Components/Tooltip Bottom Right 1`] = `
   <svg
     fill="none"
     height="24"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2"
     viewBox="0 0 24 24"
     width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-    />
-    <circle
-      cx="12"
-      cy="12"
-      r="3"
+      d="M12 8.5V8m0 7.5v-4m0 7.5a7 7 0 100-14 7 7 0 000 14z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
     />
   </svg>
 </div>
@@ -14322,20 +14347,16 @@ exports[`Storyshots Components/Tooltip Left Center 1`] = `
   <svg
     fill="none"
     height="24"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2"
     viewBox="0 0 24 24"
     width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-    />
-    <circle
-      cx="12"
-      cy="12"
-      r="3"
+      d="M12 8.5V8m0 7.5v-4m0 7.5a7 7 0 100-14 7 7 0 000 14z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
     />
   </svg>
 </div>
@@ -14404,20 +14425,16 @@ exports[`Storyshots Components/Tooltip Top Left 1`] = `
   <svg
     fill="none"
     height="24"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2"
     viewBox="0 0 24 24"
     width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-    />
-    <circle
-      cx="12"
-      cy="12"
-      r="3"
+      d="M12 8.5V8m0 7.5v-4m0 7.5a7 7 0 100-14 7 7 0 000 14z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
     />
   </svg>
 </div>
@@ -15463,10 +15480,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 <label
@@ -15635,10 +15653,11 @@ exports[`Storyshots Forms/Input Inline 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-4 {
@@ -15711,10 +15730,11 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-5 {
@@ -15859,7 +15879,7 @@ label + .circuit-7 {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+            d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -15900,10 +15920,11 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-0 {
@@ -16007,7 +16028,7 @@ label + .circuit-5 {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+            d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -16046,10 +16067,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-0 {
@@ -16149,10 +16171,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-0 {
@@ -16299,10 +16322,11 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-2 {
@@ -16380,14 +16404,14 @@ label + .circuit-7 {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8.183 12.684l2.571 2.571 5.143-6.428"
+            d="M9.031 12.532l2 2 4-5"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
           />
           <path
-            d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+            d="M12 19a7 7 0 100-14 7 7 0 000 14z"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -16475,10 +16499,11 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-2 {
@@ -16515,14 +16540,14 @@ label + .circuit-5 {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8.183 12.684l2.571 2.571 5.143-6.428"
+            d="M9.031 12.532l2 2 4-5"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
           />
           <path
-            d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+            d="M12 19a7 7 0 100-14 7 7 0 000 14z"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -16563,10 +16588,11 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-5 {
@@ -16711,7 +16737,7 @@ label + .circuit-7 {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
+            d="M12 12.5V8m0 8v-.5m0 3.5a7 7 0 100-14 7 7 0 000 14z"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -16752,10 +16778,11 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-0 {
@@ -16859,7 +16886,7 @@ label + .circuit-5 {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
+            d="M12 12.5V8m0 8v-.5m0 3.5a7 7 0 100-14 7 7 0 000 14z"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -16906,10 +16933,11 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -16984,7 +17012,7 @@ label + .circuit-3 {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+          d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -17040,10 +17068,11 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -17118,7 +17147,7 @@ label + .circuit-3 {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+          d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -17174,10 +17203,11 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -17252,7 +17282,7 @@ label + .circuit-3 {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+          d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -17308,10 +17338,11 @@ label + .circuit-8 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -17369,17 +17400,22 @@ label + .circuit-8 {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
+  color: #5C656F;
   pointer-events: all !important;
   cursor: pointer !important;
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
+.circuit-6:hover {
+  color: #212933;
 }
 
 .circuit-6:focus,
@@ -17429,7 +17465,7 @@ label + .circuit-8 {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+          d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -17449,6 +17485,7 @@ label + .circuit-8 {
       <button
         class="circuit-5 circuit-6 circuit-7"
         data-testid="input-clear"
+        title="Clear"
         type="button"
       >
         <svg
@@ -17460,7 +17497,7 @@ label + .circuit-8 {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M5 5l14 14m0-14L5 19"
+            d="M7 7l10 10m0-10L7 17"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-width="2"
@@ -17505,10 +17542,11 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -17581,7 +17619,7 @@ label + .circuit-3 {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+          d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -17632,10 +17670,11 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -17743,11 +17782,15 @@ label + .circuit-3 {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
-  height: 16px;
-  width: 16px;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
   margin-left: 4px;
+}
+
+.circuit-11:hover {
+  color: #212933;
 }
 
 .circuit-11:focus,
@@ -17782,7 +17825,7 @@ label + .circuit-3 {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+          d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -17813,6 +17856,7 @@ label + .circuit-3 {
       <button
         class="circuit-9 circuit-10 circuit-11 circuit-12"
         data-testid="tag-close"
+        title="remove"
         type="button"
       >
         <svg
@@ -17824,7 +17868,7 @@ label + .circuit-3 {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M5 5l14 14m0-14L5 19"
+            d="M7 7l10 10m0-10L7 17"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-width="2"
@@ -17878,7 +17922,7 @@ label + .circuit-4 {
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
   padding-right: 48px;
-  padding-right: calc(24px + 1ch);
+  padding-right: calc(16px + 1ch);
 }
 
 .circuit-0:focus,
@@ -17914,14 +17958,27 @@ label + .circuit-4 {
 .circuit-2 {
   color: #1760CE;
   line-height: 16px;
-  width: 1ch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 1ch;
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 <label
@@ -17972,14 +18029,27 @@ label + .circuit-4 {
 .circuit-0 {
   color: #1760CE;
   line-height: 16px;
-  width: 1ch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 1ch;
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-2 {
@@ -18000,7 +18070,7 @@ label + .circuit-4 {
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
   padding-left: 48px;
-  padding-left: calc(24px + 1ch);
+  padding-left: calc(16px + 1ch);
 }
 
 .circuit-2:focus,
@@ -18092,7 +18162,7 @@ label + .circuit-4 {
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
   padding-right: 48px;
-  padding-right: calc(24px + 4ch);
+  padding-right: calc(16px + 4ch);
 }
 
 .circuit-0:focus,
@@ -18128,14 +18198,27 @@ label + .circuit-4 {
 .circuit-2 {
   color: #1760CE;
   line-height: 16px;
-  width: 4ch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 4ch;
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 <label
@@ -18202,7 +18285,7 @@ label + .circuit-4 {
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
   padding-right: 48px;
-  padding-right: calc(24px + 1ch);
+  padding-right: calc(16px + 1ch);
 }
 
 .circuit-0:focus,
@@ -18238,14 +18321,27 @@ label + .circuit-4 {
 .circuit-2 {
   color: #1760CE;
   line-height: 16px;
-  width: 1ch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 1ch;
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 <label
@@ -18292,14 +18388,27 @@ label + .circuit-4 {
 .circuit-0 {
   color: #1760CE;
   line-height: 16px;
-  width: 1ch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 1ch;
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-2 {
@@ -18320,7 +18429,7 @@ label + .circuit-4 {
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
   padding-left: 48px;
-  padding-left: calc(24px + 1ch);
+  padding-left: calc(16px + 1ch);
 }
 
 .circuit-2:focus,
@@ -18410,7 +18519,7 @@ label + .circuit-4 {
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
   padding-right: 48px;
-  padding-right: calc(24px + 1ch);
+  padding-right: calc(16px + 1ch);
 }
 
 .circuit-0:focus,
@@ -18446,14 +18555,27 @@ label + .circuit-4 {
 .circuit-2 {
   color: #1760CE;
   line-height: 16px;
-  width: 1ch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 1ch;
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 <div
@@ -18505,7 +18627,7 @@ label + .circuit-4 {
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
   padding-right: 48px;
-  padding-right: calc(24px + 3ch);
+  padding-right: calc(16px + 3ch);
 }
 
 .circuit-0:focus,
@@ -18541,14 +18663,27 @@ label + .circuit-4 {
 .circuit-2 {
   color: #1760CE;
   line-height: 16px;
-  width: 3ch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 3ch;
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 <div
@@ -18585,14 +18720,27 @@ label + .circuit-4 {
 .circuit-0 {
   color: #1760CE;
   line-height: 16px;
-  width: 1ch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-width: 1ch;
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-2 {
@@ -18613,7 +18761,7 @@ label + .circuit-4 {
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
   padding-left: 48px;
-  padding-left: calc(24px + 1ch);
+  padding-left: calc(16px + 1ch);
 }
 
 .circuit-2:focus,
@@ -18675,10 +18823,11 @@ exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -18758,7 +18907,7 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+        d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -18788,10 +18937,11 @@ exports[`Storyshots Forms/Input/SearchInput Clearable 1`] = `
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -18871,7 +19021,7 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+        d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -18901,10 +19051,11 @@ exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -18988,7 +19139,7 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+        d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -19535,11 +19686,11 @@ label + .circuit-4 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 <label
@@ -19656,11 +19807,11 @@ label + .circuit-8 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
   right: calc(1px + 24px);
 }
 
@@ -19670,11 +19821,11 @@ label + .circuit-8 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
   color: #DB4D4D;
 }
 
@@ -19772,7 +19923,7 @@ label + .circuit-8 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+        d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -19813,11 +19964,11 @@ label + .circuit-5 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-0 {
@@ -20493,10 +20644,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-0 {
@@ -20689,10 +20841,11 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-5 {
@@ -20839,7 +20992,7 @@ label + .circuit-7 {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+          d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -20882,10 +21035,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-0 {
@@ -20988,10 +21142,11 @@ label + .circuit-7 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-5 {
@@ -21138,7 +21293,7 @@ label + .circuit-7 {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
+          d="M12 12.5V8m0 8v-.5m0 3.5a7 7 0 100-14 7 7 0 000 14z"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"

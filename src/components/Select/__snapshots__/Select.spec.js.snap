@@ -45,11 +45,11 @@ exports[`Select should not render with invalid styles when also passed the disab
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {
@@ -134,11 +134,11 @@ label + .circuit-5 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-0 {
@@ -299,11 +299,11 @@ label + .circuit-6 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {
@@ -455,11 +455,11 @@ label + .circuit-4 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 <div
@@ -553,11 +553,11 @@ exports[`Select should render with disabled styles when passed the disabled prop
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {
@@ -668,11 +668,11 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {
@@ -794,11 +794,11 @@ label + .circuit-6 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
   right: calc(1px + 24px);
 }
 
@@ -808,11 +808,11 @@ label + .circuit-6 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
   color: #DB4D4D;
 }
 
@@ -868,7 +868,7 @@ label + .circuit-6 {
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+      d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -923,11 +923,11 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {

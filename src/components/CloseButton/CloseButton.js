@@ -25,7 +25,7 @@ import IconButton from '../IconButton';
 const StyledIconButton = styled(IconButton)(
   ({ theme }) => css`
     label: close-button;
-    ${size(theme.iconSizes.kilo)};
+    ${size(theme.iconSizes.mega)};
   `
 );
 

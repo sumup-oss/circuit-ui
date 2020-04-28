@@ -28,10 +28,11 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-1 {
@@ -101,7 +102,7 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M11 18a7 7 0 100-14 7 7 0 000 14zm10 3l-4.35-4.35"
+        d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"

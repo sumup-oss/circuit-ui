@@ -490,7 +490,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M5 5l14 14m0-14L5 19"
+              d="M8.5 7v10M15.5 7v10"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-width="2"
@@ -1043,7 +1043,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M5 5l14 14m0-14L5 19"
+              d="M8.5 7v10M15.5 7v10"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-width="2"
@@ -1595,7 +1595,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M6 12.79L10 17l8-9"
+              d="M17 12l-9 5V7l9 5z"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -2122,7 +2122,7 @@ exports[`Carousel styles should render with default styles 1`] = `
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M5 5l14 14m0-14L5 19"
+              d="M8.5 7v10M15.5 7v10"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-width="2"
