@@ -84,7 +84,7 @@ function buildComponentFile(component: Component): string {
       ${sizeMap.join('\n')}
     }
 
-    export const ${component.name} = ({ size = 'large', ...props }) => {
+    export const ${component.name} = ({ size = 'small', ...props }) => {
       const Icon = sizeMap[size];
       return <Icon {...props} />;
     };
