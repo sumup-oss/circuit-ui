@@ -47,20 +47,20 @@ const SuccessMessage = ({ description }) => (
 );
 ```
 
-Some icons have multiple sizes. They default to the "large" size. Use the `size` prop to show the "small" size instead:
+Some icons have multiple sizes. They default to the "small" size. Use the `size` prop to show the "large" size instead:
 
 ```jsx
 import { CircleCheckmark } from '@sumup/icons';
 
 const SuccessMessage = ({ description }) => (
   <div>
-    <CircleCheckmark size="size" />
+    <CircleCheckmark size="large" />
     <span>{description}</span>
   </div>
 );
 ```
 
-To change the color of an icon, simple set the color in CSS. The color will [cascade down](https://css-tricks.com/cascading-svg-fill-color/) since the `fill` and `stroke` attributes of most icons are set to `currentColor`. Here's an example with a CSS-in-JS library:
+To change the color of an icon, set the `color` property in CSS. The color will [cascade down](https://css-tricks.com/cascading-svg-fill-color/) since the `fill` and `stroke` attributes of most icons are set to `currentColor`. Here's an example with a CSS-in-JS library:
 
 ```jsx
 import styled from '@emotion/styled';
@@ -83,11 +83,11 @@ const SuccessMessage = ({ description }) => (
 Alternatively, it's possible to import the raw SVG files. Most bundlers require a special loader to make this work. For Webpack, we recommend the [file-loader](https://github.com/webpack-contrib/file-loader) which turns the import into a URL to the SVG.
 
 ```jsx
-import check from '@sumup/icons/check_small.svg';
+import checkIcon from '@sumup/icons/check_small.svg';
 
 const SuccessMessage = ({ description }) => (
   <div>
-    <img src={check} alt="" aria-hidden="true" />
+    <img src={checkIcon} alt="" aria-hidden="true" />
     <span>{description}</span>
   </div>
 );
@@ -95,7 +95,7 @@ const SuccessMessage = ({ description }) => (
 
 ### Load from a URL
 
-The latest version of the icon library is [automatically deployed](https://icons.sumup-oss.now.sh/) to [Zeit Now](https://zeit.co/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://icons.sumup-oss.now.sh/<name>_<size>.svg`. Below are some examples:
+The latest version of the icon library is [automatically deployed](https://icons.sumup-oss.now.sh/) to [Vercel Now](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://icons.sumup-oss.now.sh/<name>_<size>.svg`. Below are some examples:
 
 ```html
 <img src="https://icons.sumup-oss.now.sh/check_small.svg" alt="checkmark" />
@@ -103,7 +103,7 @@ The latest version of the icon library is [automatically deployed](https://icons
 
 ```css
 .icon {
-  background-image: url('https://icons.sumup-oss.now.sh/check_small.svg');
+  background-image: url('https://icons.sumup-oss.now.sh/circle_checkmark_filled_large.svg');
 }
 ```
 
