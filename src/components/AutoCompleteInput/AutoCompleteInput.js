@@ -23,10 +23,7 @@ import { includes, isString, isEmpty } from 'lodash/fp';
 import SearchInput from '../SearchInput';
 import Card from '../Card';
 import Text from '../Text';
-import {
-  childrenPropType,
-  deprecatedPropType
-} from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 
 const MIN_INPUT_LENGTH = 2;
 
@@ -116,8 +113,8 @@ export default class AutoCompleteInput extends Component {
      */
     onInputValueChange: PropTypes.func,
     /**
-     * A function that receives all items and the current input value
-     * and returns the filtered items.
+     * A function that receives all options and the current input value
+     * and returns the filtered options.
      */
     filterOptions: PropTypes.func,
     /**
@@ -137,29 +134,9 @@ export default class AutoCompleteInput extends Component {
      */
     defaultInputValue: PropTypes.string,
     /**
-     * Pass an item or an array of items that should be selected by default.
+     * Pass an option or an array of options that should be selected by default.
      */
-    initialSelectedItem: PropTypes.string,
-    /**
-     * @deprecated
-     */
-    showClear: deprecatedPropType(
-      PropTypes.bool,
-      [
-        'The "showClear" prop has been deprecated.',
-        `Use the "onClear" callback prop instead.`
-      ].join(' ')
-    ),
-    /**
-     * @deprecated
-     */
-    items: deprecatedPropType(
-      optionsPropType,
-      [
-        'The "items" prop has been deprecated.',
-        `Use the "options" prop instead.`
-      ].join(' ')
-    )
+    initialSelectedItem: PropTypes.string
   };
 
   static defaultProps = {
@@ -195,8 +172,7 @@ export default class AutoCompleteInput extends Component {
 
   render() {
     const {
-      items,
-      options = items,
+      options,
       onChange,
       clearOnSelect,
       onInputValueChange,
@@ -205,11 +181,10 @@ export default class AutoCompleteInput extends Component {
       defaultInputValue,
       initialSelectedItem,
       onClear,
-      showClear,
       ...inputProps
     } = this.props;
 
-    const handleClear = showClear || onClear ? this.handleClear : null;
+    const handleClear = onClear ? this.handleClear : null;
 
     return (
       <Downshift

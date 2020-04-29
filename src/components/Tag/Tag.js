@@ -20,8 +20,7 @@ import { css } from '@emotion/core';
 
 import {
   eitherOrPropType,
-  childrenPropType,
-  deprecatedPropType
+  childrenPropType
 } from '../../util/shared-prop-types';
 import { textMega, shadowBorder } from '../../styles/style-helpers';
 import CloseButton from '../CloseButton';
@@ -121,42 +120,11 @@ const StyledCloseButton = styled(CloseButton)`
   ${selectedCloseButtonStyles};
 `;
 
-/*
-  The IconContainer and its styles are left as they are for backwards compatibility.
-  They should be deleted in v2.0 when we remove the icon prop.
-*/
-const iconStyles = ({ theme }) => css`
-  label: tag__icon;
-  margin-right: ${theme.spacings.bit};
-  display: inline-block;
-  width: ${theme.spacings.mega};
-  height: ${theme.spacings.mega};
-  vertical-align: middle;
-  > svg {
-    vertical-align: top;
-  }
-`;
-
-const iconSelectedStyles = ({ selected, theme }) =>
-  selected &&
-  css`
-    label: tag__icon--selected;
-    > svg {
-      fill: ${theme.colors.white};
-    }
-  `;
-
-const IconContainer = styled('span')`
-  ${iconStyles};
-  ${iconSelectedStyles};
-`;
-
 /**
  * Tag component
  */
 const Tag = ({
   children,
-  icon,
   prefix: Prefix,
   suffix: Suffix,
   onRemove,
@@ -179,11 +147,7 @@ const Tag = ({
 
   return (
     <TagElement {...{ selected, ...props }}>
-      {!onRemove && icon && (
-        <IconContainer {...{ selected }}>{icon}</IconContainer>
-      )}
-
-      {!icon && !onRemove && prefixElement}
+      {prefixElement}
 
       {children}
 
@@ -196,7 +160,7 @@ const Tag = ({
         />
       )}
 
-      {!onRemove && !icon && suffixElement}
+      {!onRemove && suffixElement}
     </TagElement>
   );
 };
@@ -207,17 +171,9 @@ Tag.propTypes = {
    */
   children: childrenPropType,
   /**
-   * @deprecated
-   * An optional  tag's icon.
-   */
-  icon: deprecatedPropType(
-    eitherOrPropType('icon', 'onRemove', PropTypes.element),
-    'The icon prop has been deprecated in favour of the prefix prop.'
-  ),
-  /**
    * Render prop that should render a left-aligned icon or element.
    */
-  prefix: eitherOrPropType('prefix', 'onRemove', PropTypes.func),
+  prefix: PropTypes.func,
   /**
    * Render prop that should render a right-aligned icon or element.
    */
@@ -226,7 +182,7 @@ Tag.propTypes = {
    * Renders a close button inside the tag and calls the provided function
    * when the button is clicked.
    */
-  onRemove: eitherOrPropType('icon', 'onRemove', PropTypes.func),
+  onRemove: eitherOrPropType('suffix', 'onRemove', PropTypes.func),
   /**
    * Text label for the remove icon for screen readers.
    * Important for accessibility.
@@ -240,7 +196,6 @@ Tag.propTypes = {
 
 Tag.defaultProps = {
   children: null,
-  icon: null,
   prefix: null,
   suffix: null,
   onRemove: null,

@@ -34,7 +34,8 @@ export const base = () => (
   <Tag
     selected={boolean('Selected', false)}
     onRemove={boolean('Removable', false) ? action('Tag removed') : null}
-    icon={boolean('With Icon', false) ? <Icon /> : null}
+    prefix={boolean('Prefix', false) ? <Icon /> : null}
+    suffix={boolean('Suffix', false) ? <Icon /> : null}
     onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
   >
     Transactions
@@ -42,12 +43,6 @@ export const base = () => (
 );
 
 export const selected = () => <Tag selected>Transactions</Tag>;
-
-export const withIcon = () => (
-  <Tag selected icon={<Icon />}>
-    Transactions
-  </Tag>
-);
 
 export const withPrefix = () => <Tag prefix={Icon}>Transactions</Tag>;
 

@@ -54,7 +54,7 @@ describe('Tag', () => {
 
     it('should change the given icon color', () => {
       const component = create(
-        <Tag {...{ icon: <DummyIcon />, ...props }}>SomeTest</Tag>
+        <Tag {...{ prefix: <DummyIcon />, ...props }}>SomeTest</Tag>
       );
       expect(component).toMatchSnapshot();
     });
@@ -103,7 +103,7 @@ describe('Tag', () => {
 
   describe('when it has an icon', () => {
     const props = {
-      icon: <DummyIcon data-testid="tag-icon" />
+      prefix: <DummyIcon data-testid="tag-icon" />
     };
 
     it('should render with icon', () => {
@@ -136,7 +136,9 @@ describe('Tag', () => {
   describe('when a prefix prop is passed', () => {
     const props = {
       // eslint-disable-next-line
-      prefix: ({ className }) => <DummyIcon className={className} data-testid="tag-icon" />
+      prefix: ({ className }) => (
+        <DummyIcon className={className} data-testid="tag-icon" />
+      )
     };
 
     it('should render with a prefix', () => {
@@ -168,7 +170,9 @@ describe('Tag', () => {
   describe('when a suffix prop is passed', () => {
     const props = {
       // eslint-disable-next-line
-      suffix: ({ className }) => <DummyIcon className={className} data-testid="tag-icon" />
+      suffix: ({ className }) => (
+        <DummyIcon className={className} data-testid="tag-icon" />
+      )
     };
 
     it('should render with a suffix', () => {
