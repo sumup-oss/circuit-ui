@@ -22,7 +22,7 @@ import { transformSync } from '@babel/core';
 import manifest from '../manifest.json';
 
 const BASE_DIR = path.join(__dirname, '..');
-const ICON_DIR = path.join(BASE_DIR, './web');
+const ICON_DIR = path.join(BASE_DIR, './web/v1');
 const DIST_DIR = path.join(BASE_DIR, 'dist');
 
 enum IconSize {
