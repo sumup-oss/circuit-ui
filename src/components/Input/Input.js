@@ -77,6 +77,7 @@ const inputBaseStyles = ({ theme }) => css`
   transition: border-color ${theme.transitions.default};
   width: 100%;
   ${textMega({ theme })};
+  margin: 0;
 
   &:focus,
   &:active {
@@ -161,8 +162,8 @@ const prefixStyles = theme => css`
   position: absolute;
   top: 1px;
   left: 1px;
-  ${size(theme.spacings.mega)};
-  margin: ${theme.spacings.kilo};
+  ${size(theme.spacings.peta)};
+  padding: ${theme.spacings.kilo};
   pointer-events: none;
 `;
 
@@ -175,8 +176,8 @@ const suffixStyles = theme => css`
   position: absolute;
   top: 1px;
   right: 1px;
-  ${size(theme.spacings.mega)};
-  margin: ${theme.spacings.kilo};
+  ${size(theme.spacings.peta)};
+  padding: ${theme.spacings.kilo};
   pointer-events: none;
 `;
 

@@ -18,29 +18,22 @@ import { action } from '@storybook/addon-actions';
 
 import LoadingButton from '.';
 
+const DEFAULT = 'default';
+
 // eslint-disable-next-line react/prop-types
 const LoadingButtonWithState = ({ exitAnimation, ...props }) => {
-  // get loading button status animation or set as default
-  const variation = exitAnimation || 'DEFAULT';
+  const variation = exitAnimation || DEFAULT;
 
   const [loading, setLoading] = useState({
-    DEFAULT: false,
-    SUCCESS: false,
-    ERROR: false
+    [LoadingButton.SUCCESS]: false,
+    [LoadingButton.ERROR]: false,
+    [DEFAULT]: false
   });
 
   const handleClick = () => {
-    // trigger loading state
-    setLoading({
-      ...loading,
-      [variation]: true
-    });
-    // reset loading
+    setLoading({ ...loading, [variation]: true });
     setTimeout(() => {
-      setLoading({
-        ...loading,
-        [variation]: false
-      });
+      setLoading({ ...loading, [variation]: false });
     }, 1000);
   };
 
@@ -48,7 +41,7 @@ const LoadingButtonWithState = ({ exitAnimation, ...props }) => {
     <LoadingButton
       {...props}
       isLoading={loading[variation]}
-      exitAnimation={exitAnimation && LoadingButton[exitAnimation]}
+      exitAnimation={exitAnimation}
       onClick={handleClick}
     />
   );
@@ -62,31 +55,31 @@ export default {
   }
 };
 
-export const successAnimation = () => (
+export const base = () => (
+  <LoadingButtonWithState
+    onAnimationComplete={action('animation completed')}
+    primary
+  >
+    Things take time
+  </LoadingButtonWithState>
+);
+
+export const success = () => (
   <LoadingButtonWithState
     onAnimationComplete={action('animation completed')}
     exitAnimation={LoadingButton.SUCCESS}
     primary
   >
-    Click me
+    I am a success!
   </LoadingButtonWithState>
 );
 
-export const errorAnimation = () => (
+export const error = () => (
   <LoadingButtonWithState
     onAnimationComplete={action('animation completed')}
     exitAnimation={LoadingButton.ERROR}
     primary
   >
-    Click me
-  </LoadingButtonWithState>
-);
-
-export const noExitAnimation = () => (
-  <LoadingButtonWithState
-    onAnimationComplete={action('animation completed')}
-    primary
-  >
-    Click me
+    I will fail.
   </LoadingButtonWithState>
 );

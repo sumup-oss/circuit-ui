@@ -14,6 +14,7 @@
  */
 
 import React from 'react';
+import { identity } from 'lodash/fp';
 
 import SearchInput from '.';
 import Label from '../Label';
@@ -30,6 +31,15 @@ describe('SearchInput', () => {
   it('should grey out icon when disabled', () => {
     const actual = create(<SearchInput disabled />);
     expect(actual).toMatchSnapshot();
+  });
+
+  it('should display a clear icon when not empty and an onClear callback is provided', () => {
+    const onClear = jest.fn(identity);
+
+    const { getByTestId } = render(
+      <SearchInput value="search value" onClear={onClear} />
+    );
+    expect(getByTestId('input-clear')).toBeVisible();
   });
 
   /**

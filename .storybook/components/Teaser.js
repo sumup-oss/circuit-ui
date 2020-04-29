@@ -20,6 +20,10 @@ import { ThemeProvider } from 'emotion-theming';
 
 import { theme as themes, Heading, Text, Card } from '../../src';
 
+// HACK: This prevents the cards from awkwardly wrapping if one of them
+//       only has one line of text.
+const CARD_HEIGHT = '185px';
+
 const Wrapper = styled(Card)(
   ({ theme }) => css`
     width: 100%;
@@ -29,6 +33,7 @@ const Wrapper = styled(Card)(
     ${theme.mq.mega} {
       width: calc(50% - ${theme.spacings.giga});
       margin-right: ${theme.spacings.giga};
+      min-height: ${CARD_HEIGHT};
     }
   `
 );

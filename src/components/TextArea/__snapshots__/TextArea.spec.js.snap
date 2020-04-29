@@ -14,6 +14,7 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -97,9 +98,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -122,6 +123,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -238,9 +240,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -263,6 +265,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   background-color: #FAFBFC;
   border-style: dashed;
   box-shadow: none;
@@ -367,6 +370,7 @@ label + .circuit-6 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -409,9 +413,9 @@ label + .circuit-6 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -500,6 +504,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -542,9 +547,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -587,6 +592,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -629,9 +635,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -674,6 +680,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -716,9 +723,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -749,6 +756,7 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -825,6 +833,7 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -867,9 +876,9 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -921,9 +930,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -940,6 +949,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -1035,6 +1045,7 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -1077,9 +1088,9 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -1129,9 +1140,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -1148,6 +1159,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   background-color: #FAFBFC;
   border-style: dashed;
   box-shadow: none;
@@ -1225,6 +1237,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -1268,9 +1281,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -1326,6 +1339,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   overflow: auto;
   resize: vertical;
@@ -1389,9 +1403,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 

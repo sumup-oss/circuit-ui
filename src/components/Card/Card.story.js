@@ -80,14 +80,14 @@ export const spacings = () => (
 
 export const withHeader = () => (
   <Fragment>
-    <Card>
+    <Card css={cardStyles}>
       <CardHeader>
         <Header />
       </CardHeader>
       <Content />
     </Card>
 
-    <Card>
+    <Card css={cardStyles}>
       <CardHeader onClose={action('CloseButton clicked')}>
         <Header />
       </CardHeader>
@@ -98,7 +98,7 @@ export const withHeader = () => (
 
 export const withFooter = () => (
   <Fragment>
-    <Card>
+    <Card css={cardStyles}>
       <Content />
       <CardFooter>
         <ButtonGroup>
@@ -108,7 +108,7 @@ export const withFooter = () => (
       </CardFooter>
     </Card>
 
-    <Card>
+    <Card css={cardStyles}>
       <Content />
       <CardFooter align="left">
         <ButtonGroup align="left">

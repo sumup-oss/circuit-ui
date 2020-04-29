@@ -1,15 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InfoIcon should render with default styles 1`] = `
-.circuit-0 {
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  fill: #9DA7B1;
-}
-
-<div
-  class="circuit-0 circuit-1"
->
+<div>
   info.svg
 </div>
 `;

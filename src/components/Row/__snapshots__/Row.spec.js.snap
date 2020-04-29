@@ -7,11 +7,8 @@ exports[`Row should render with default styles 1`] = `
 
 .circuit-0::before,
 .circuit-0::after {
-  content: '.';
-  display: block;
-  height: 0;
-  width: 0;
-  overflow: hidden;
+  content: ' ';
+  display: table;
 }
 
 .circuit-0::after {

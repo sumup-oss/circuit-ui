@@ -18,72 +18,83 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Downshift from 'downshift';
-import { includes, isString } from 'lodash/fp';
+import { includes, isString, isEmpty } from 'lodash/fp';
 
 import SearchInput from '../SearchInput';
 import Card from '../Card';
-import { textMega } from '../../styles/style-helpers';
+import Text from '../Text';
+import {
+  childrenPropType,
+  deprecatedPropType
+} from '../../util/shared-prop-types';
 
-const MIN_INPUT_FILTER = 2;
-const SUGGESTIONS_LIMIT = 7;
+const MIN_INPUT_LENGTH = 2;
 
-const AutoCompleteWrapper = styled('div')`
-  label: input__container
+const autoCompleteWrapperStyles = ({ theme }) => css`
+  label: input__container;
   position: relative;
   min-width: 150px;
+
+  label > &,
+  label + & {
+    margin-top: ${theme.spacings.bit};
+  }
 `;
 
-const baseItemsWrapperStyles = ({ theme }) => css`
-  position: relative;
-  height: 0px;
-  overflow: visible;
-  margin-top: ${theme.spacings.bit};
-  z-index: ${theme.zIndex.popover};
-`;
+const AutoCompleteWrapper = styled('div')(autoCompleteWrapperStyles);
 
-const ItemsWrapper = styled('div')(baseItemsWrapperStyles);
-
-const itemsBaseStyles = ({ theme }) => css`
-  padding: ${theme.spacings.kilo} ${theme.spacings.mega};
+const optionsStyles = ({ theme }) => css`
+  label: input__options;
   position: absolute;
-  top: 0;
+  top: calc(100% + ${theme.spacings.bit});
   left: 0;
   right: 0;
+  z-index: ${theme.zIndex.popover};
+  padding: ${theme.spacings.bit} 0;
 `;
 
-const Items = styled(Card)(itemsBaseStyles);
+const Options = styled(Card)(optionsStyles);
 
-Items.defaultProps = Card.defaultProps;
+Options.defaultProps = Card.defaultProps;
 
-const itemBaseStyles = ({ theme }) => css`
+const optionBaseStyles = ({ theme }) => css`
+  label: input__option;
   cursor: pointer;
   margin: 0;
   text-overflow: ellipsis;
   overflow: hidden;
-  ${textMega({ theme })};
-  padding: 0 0 ${theme.spacings.byte} 0;
-
-  &:last-of-type {
-    padding-bottom: 0;
-  }
+  padding: ${theme.spacings.byte} ${theme.spacings.mega};
 `;
 
-const itemHighlight = ({ selected, theme }) =>
+const optionSelectedStyles = ({ selected, theme }) =>
   selected &&
   css`
+    label: input__option--selected;
     color: ${theme.colors.p500};
+    background-color: ${theme.colors.n100};
   `;
 
-const Item = styled('div')(itemBaseStyles, itemHighlight);
+const Option = styled(Text)(optionBaseStyles, optionSelectedStyles);
 
-const filterItems = inputValue => item => {
-  const value = isString(item) ? item : item.value;
-  return (
-    !inputValue ||
-    inputValue.length < MIN_INPUT_FILTER ||
-    includes(inputValue.toLowerCase(), value.toLowerCase())
-  );
+const defaultFilterOptions = (options, inputValue) => {
+  if (!inputValue || inputValue.length < MIN_INPUT_LENGTH) {
+    return options;
+  }
+  return options.filter(option => {
+    const value = isString(option) ? option : option.value;
+    return includes(inputValue.toLowerCase(), value.toLowerCase());
+  });
 };
+
+const optionsPropType = PropTypes.arrayOf(
+  PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      value: PropTypes.string,
+      children: childrenPropType
+    })
+  ])
+);
 
 /**
  * Basic AutoCompleteInput input with styled suggestions list
@@ -91,22 +102,69 @@ const filterItems = inputValue => item => {
 export default class AutoCompleteInput extends Component {
   static propTypes = {
     /**
-     * handleChange function that will receive the input
+     * A collection of options that can be selected. An option can be a string
+     * or an object with a `value` and an optional `children` property.
+     * Additional properties are spread on the option element.
+     */
+    options: optionsPropType.isRequired,
+    /**
+     * Callback function that is called when the user selects a value
      */
     onChange: PropTypes.func.isRequired,
-
     /**
-     * If true, will clean the input after a value ie selected
+     * Callback function that is called as the user is typing
+     */
+    onInputValueChange: PropTypes.func,
+    /**
+     * A function that receives all items and the current input value
+     * and returns the filtered items.
+     */
+    filterOptions: PropTypes.func,
+    /**
+     * The maximum number of suggestions to show to the user
+     */
+    maxNumberOfOptions: PropTypes.number,
+    /**
+     * Whether to clean the input after a value is selected
      */
     clearOnSelect: PropTypes.bool,
-
     /**
-     * Array of items (strings) the can be selected
+     * Callback function that is called when the user clears the input
      */
-    items: PropTypes.arrayOf(PropTypes.string).isRequired
+    onClear: PropTypes.func,
+    /**
+     * This is the initial input value.
+     */
+    defaultInputValue: PropTypes.string,
+    /**
+     * Pass an item or an array of items that should be selected by default.
+     */
+    initialSelectedItem: PropTypes.string,
+    /**
+     * @deprecated
+     */
+    showClear: deprecatedPropType(
+      PropTypes.bool,
+      [
+        'The "showClear" prop has been deprecated.',
+        `Use the "onClear" callback prop instead.`
+      ].join(' ')
+    ),
+    /**
+     * @deprecated
+     */
+    items: deprecatedPropType(
+      optionsPropType,
+      [
+        'The "items" prop has been deprecated.',
+        `Use the "options" prop instead.`
+      ].join(' ')
+    )
   };
 
   static defaultProps = {
+    filterOptions: defaultFilterOptions,
+    maxNumberOfOptions: 7,
     clearOnSelect: false
   };
 
@@ -116,9 +174,18 @@ export default class AutoCompleteInput extends Component {
     if (value) {
       onChange(value);
 
-      if (clearOnSelect && this.downshiftRef) {
-        this.downshiftRef.clearSelection();
+      if (clearOnSelect) {
+        this.handleClear();
       }
+    }
+  };
+
+  handleClear = () => {
+    if (this.downshiftRef) {
+      this.downshiftRef.clearSelection();
+    }
+    if (this.props.onClear) {
+      this.props.onClear();
     }
   };
 
@@ -127,10 +194,31 @@ export default class AutoCompleteInput extends Component {
   };
 
   render() {
-    const { items, onChange, clearOnSelect, ...inputProps } = this.props;
+    const {
+      items,
+      options = items,
+      onChange,
+      clearOnSelect,
+      onInputValueChange,
+      filterOptions,
+      maxNumberOfOptions,
+      defaultInputValue,
+      initialSelectedItem,
+      onClear,
+      showClear,
+      ...inputProps
+    } = this.props;
+
+    const handleClear = showClear || onClear ? this.handleClear : null;
 
     return (
-      <Downshift ref={this.handleDownShiftRef} onSelect={this.handleChange}>
+      <Downshift
+        ref={this.handleDownShiftRef}
+        onSelect={this.handleChange}
+        onInputValueChange={onInputValueChange}
+        initialSelectedItem={initialSelectedItem}
+        defaultInputValue={defaultInputValue}
+      >
         {({
           getRootProps,
           getInputProps,
@@ -139,39 +227,34 @@ export default class AutoCompleteInput extends Component {
           isOpen,
           highlightedIndex
         }) => {
-          const filteredItems = items
-            .filter(filterItems(inputValue))
-            .slice(0, SUGGESTIONS_LIMIT);
+          const filteredOptions = filterOptions(options, inputValue);
+          const maxOptions = filteredOptions.slice(0, maxNumberOfOptions);
 
           return (
             <AutoCompleteWrapper {...getRootProps({ refKey: 'ref' })}>
               <SearchInput
-                {...getInputProps({ ...inputProps })}
+                {...getInputProps(inputProps)}
+                onClear={handleClear}
                 noMargin
-                renderSuffix={() => null}
               />
-              {isOpen && !!filteredItems.length && (
-                <ItemsWrapper>
-                  <Items spacing={Card.MEGA}>
-                    {filteredItems.map((item, index) => {
-                      const { value, children = value, ...rest } = isString(
-                        item
-                      )
-                        ? { value: item, children: item }
-                        : item;
-                      return (
-                        <Item
-                          {...getItemProps({ item: value })}
-                          key={value}
-                          selected={index === highlightedIndex}
-                          {...rest}
-                        >
-                          {children}
-                        </Item>
-                      );
-                    })}
-                  </Items>
-                </ItemsWrapper>
+              {isOpen && !isEmpty(maxOptions) && (
+                <Options spacing={Card.MEGA}>
+                  {maxOptions.map((option, index) => {
+                    const item = isString(option) ? { value: option } : option;
+                    const { value, children = value, ...rest } = item;
+                    return (
+                      <Option
+                        {...getItemProps({ item: value })}
+                        key={value}
+                        selected={index === highlightedIndex}
+                        noMargin
+                        {...rest}
+                      >
+                        {children}
+                      </Option>
+                    );
+                  })}
+                </Options>
               )}
             </AutoCompleteWrapper>
           );

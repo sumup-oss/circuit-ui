@@ -14,15 +14,49 @@
  */
 
 import React from 'react';
+import { cleanup, fireEvent } from '@testing-library/react';
 
 import AutoCompleteTags from '.';
 
+const defaultProps = {
+  availableTags: [
+    'test1@sumup.com',
+    'test2@sumup.com',
+    'test3@sumup.com',
+    'test4@sumup.com'
+  ],
+  placeholder: 'Search by email',
+  selectedTags: ['test1@sumup.com'],
+  onChange: jest.fn()
+};
+
 describe('AutoCompleteTags', () => {
+  afterEach(cleanup);
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
     const actual = create(<AutoCompleteTags availableTags={[]} />);
     expect(actual).toMatchSnapshot();
+  });
+
+  it('should display selected tags ', () => {
+    const { getByTestId, getByText } = render(
+      <AutoCompleteTags {...defaultProps} />
+    );
+    expect(getByTestId('autocomplete-tags-selected')).not.toBeNull();
+    expect(getByText('test1@sumup.com')).toBeVisible();
+  });
+
+  it('should handle changes in selected tags ', () => {
+    const { getByTestId, queryByTestId } = render(
+      <AutoCompleteTags {...defaultProps} />
+    );
+    const closeIcon = getByTestId('tag-close');
+
+    fireEvent.click(closeIcon);
+
+    expect(defaultProps.onChange).toHaveBeenCalledWith([]);
+    expect(queryByTestId('autocomplete-tags-selected')).toBeNull();
   });
 });

@@ -2,13 +2,20 @@
 
 exports[`CalendarTag should render with default styles 1`] = `
 .circuit-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0px 0px 0px 1px #D8DDE1;
   padding: 4px 12px;
   cursor: default;
-  display: inline-block;
   cursor: pointer;
 }
 
@@ -18,10 +25,10 @@ exports[`CalendarTag should render with default styles 1`] = `
 }
 
 <div>
-  <span
+  <div
     class="circuit-0 circuit-1"
   >
     Dates
-  </span>
+  </div>
 </div>
 `;

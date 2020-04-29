@@ -14,20 +14,41 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import styled from '@emotion/styled';
 
 import Input from '../Input';
-import { ReactComponent as SearchIcon } from './search.svg';
+import IconButton from '../IconButton';
+import { ReactComponent as SearchIcon } from './icons/search.svg';
+import { ReactComponent as ClearIcon } from './icons/clear.svg';
+
+const ClearButton = styled(IconButton)`
+  pointer-events: all !important;
+  cursor: pointer !important;
+`;
 
 /**
  * SearchInput component for forms.
  */
-const SearchInput = ({ children, ...props }) => (
+const SearchInput = ({ children, value, onClear, clearLabel, ...props }) => (
   <Input
+    value={value}
+    type="text"
+    renderPrefix={renderProps => <SearchIcon {...renderProps} />}
+    renderSuffix={renderProps =>
+      value && onClear ? (
+        <ClearButton
+          onClick={onClear}
+          label={clearLabel}
+          data-testid="input-clear"
+          {...renderProps}
+        >
+          <ClearIcon />
+        </ClearButton>
+      ) : null
+    }
     {...props}
-    type="search"
-    renderPrefix={({ className }) => <SearchIcon {...{ className }} />}
   >
     {children}
   </Input>
@@ -35,11 +56,20 @@ const SearchInput = ({ children, ...props }) => (
 
 SearchInput.propTypes = {
   ...Input.propTypes,
-  children: childrenPropType
+  /**
+   * Callback function when the user clears the field.
+   */
+  onClear: PropTypes.func,
+  /**
+   * Visually hidden text label on the clear button for screen readers.
+   * Crucial for accessibility.
+   */
+  clearLabel: PropTypes.string
 };
 
 SearchInput.defaultProps = {
-  children: null
+  onClear: null,
+  clearLabel: 'Clear'
 };
 
 /**

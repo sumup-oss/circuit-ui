@@ -2,7 +2,13 @@
 
 exports[`AutoCompleteTags should render with default styles 1`] = `
 .circuit-5 {
+  position: relative;
   min-width: 150px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
 }
 
 .circuit-3 {
@@ -22,9 +28,9 @@ label + .circuit-3 {
   position: absolute;
   top: 1px;
   left: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -41,6 +47,7 @@ label + .circuit-3 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -97,7 +104,7 @@ label + .circuit-3 {
       autocomplete="off"
       class="circuit-1 circuit-2"
       id="downshift-0-input"
-      type="search"
+      type="text"
       value=""
     />
   </div>

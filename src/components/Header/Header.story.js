@@ -17,7 +17,7 @@ import React from 'react';
 import { boolean } from '@storybook/addon-knobs';
 
 import Header from '.';
-import Hamburguer from '../Hamburger';
+import Hamburger from '../Hamburger';
 
 export default {
   title: 'Components/Header',
@@ -29,6 +29,6 @@ export default {
 
 export const base = () => (
   <Header title="Title" mobileOnly={boolean('mobileOnly')}>
-    <Hamburguer light />
+    <Hamburger light />
   </Header>
 );

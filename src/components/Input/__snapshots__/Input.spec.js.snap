@@ -14,6 +14,7 @@ exports[`Input should prioritize disabled over error styles 1`] = `
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -95,9 +96,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -120,6 +121,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -234,9 +236,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -259,6 +261,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   background-color: #FAFBFC;
   border-style: dashed;
   box-shadow: none;
@@ -361,6 +364,7 @@ label + .circuit-6 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -401,9 +405,9 @@ label + .circuit-6 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -486,9 +490,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -505,6 +509,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -581,6 +586,7 @@ label + .circuit-2 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -635,9 +641,9 @@ exports[`Input should render with custom styles 1`] = `
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -667,6 +673,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
   color: red;
 }
@@ -740,6 +747,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -780,9 +788,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -813,6 +821,7 @@ exports[`Input should render with disabled styles when passed the disabled prop 
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -887,6 +896,7 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -927,9 +937,9 @@ exports[`Input should render with inline styles when passed the inline prop 1`] 
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -981,9 +991,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -1000,6 +1010,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -1093,6 +1104,7 @@ exports[`Input should render with no margin styles when passed the noMargin prop
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -1133,9 +1145,9 @@ exports[`Input should render with no margin styles when passed the noMargin prop
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -1185,9 +1197,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -1204,6 +1216,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   background-color: #FAFBFC;
   border-style: dashed;
   box-shadow: none;
@@ -1273,9 +1286,9 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -1292,6 +1305,7 @@ label + .circuit-4 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   text-align: right;
   padding-right: calc( 12px + 16px + 12px );
 }
@@ -1365,6 +1379,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -1406,9 +1421,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -1464,6 +1479,7 @@ label + .circuit-5 {
   width: 100%;
   font-size: 16px;
   line-height: 24px;
+  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
 }
 
@@ -1525,9 +1541,9 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 

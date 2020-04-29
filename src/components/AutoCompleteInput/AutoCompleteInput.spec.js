@@ -17,10 +17,10 @@ import React from 'react';
 
 import AutoCompleteInput from './AutoCompleteInput';
 
-const items = [
-  { value: '1111111111111', 'data-testid': 'autocomplete-input-item' },
-  { value: '2222222222222', 'data-testid': 'autocomplete-input-item' },
-  { value: '3333333333333', 'data-testid': 'autocomplete-input-item' }
+const options = [
+  { value: 'Apple', 'data-testid': 'autocomplete-input-option' },
+  { value: 'Mango', 'data-testid': 'autocomplete-input-option' },
+  { value: 'Banana', 'data-testid': 'autocomplete-input-option' }
 ];
 
 describe('AutoCompleteInput', () => {
@@ -29,7 +29,7 @@ describe('AutoCompleteInput', () => {
    */
   it('should render with default styles', () => {
     const actual = create(
-      <AutoCompleteInput onChange={() => {}} items={items} />
+      <AutoCompleteInput onChange={() => {}} options={options} />
     );
     expect(actual).toMatchSnapshot();
   });
@@ -37,12 +37,14 @@ describe('AutoCompleteInput', () => {
   /**
    * Logic tests.
    */
-  it('should filter items when input is changed', () => {
+  it('should filter options as the user types', () => {
     const onChange = jest.fn();
+    const onInputValueChange = jest.fn();
     const { getByTestId } = render(
       <AutoCompleteInput
         onChange={onChange}
-        items={items}
+        onInputValueChange={onInputValueChange}
+        options={options}
         data-testid="autocomplete-input"
       />
     );
@@ -50,11 +52,92 @@ describe('AutoCompleteInput', () => {
     const inputEl = getByTestId('autocomplete-input');
 
     act(() => {
-      userEvent.type(inputEl, '222');
+      userEvent.type(inputEl, 'app');
     });
 
-    const itemEl = getByTestId('autocomplete-input-item');
+    const optionEl = getByTestId('autocomplete-input-option');
 
-    expect(itemEl).toHaveTextContent('2222222222222');
+    expect(optionEl).toHaveTextContent('Apple');
+    expect(onChange).not.toHaveBeenCalled();
+    expect(onInputValueChange).toHaveBeenCalledTimes(3);
+  });
+
+  it('should select on option from the list', () => {
+    const onChange = jest.fn();
+    const { getByTestId, getAllByTestId } = render(
+      <AutoCompleteInput
+        onChange={onChange}
+        options={options}
+        data-testid="autocomplete-input"
+      />
+    );
+
+    const inputEl = getByTestId('autocomplete-input');
+
+    act(() => {
+      userEvent.type(inputEl, 'an');
+    });
+
+    const optionEls = getAllByTestId('autocomplete-input-option');
+
+    expect(optionEls).toHaveLength(2);
+
+    act(() => {
+      userEvent.click(optionEls[0]);
+    });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('Mango');
+  });
+
+  it('should reset the value when the user clears the field', () => {
+    const onChange = jest.fn();
+    const onClear = jest.fn();
+    const { getByTestId, getAllByTestId } = render(
+      <AutoCompleteInput
+        onChange={onChange}
+        onClear={onClear}
+        options={options}
+        data-testid="autocomplete-input"
+      />
+    );
+
+    const inputEl = getByTestId('autocomplete-input');
+
+    act(() => {
+      userEvent.type(inputEl, 'an');
+    });
+
+    const optionEls = getAllByTestId('autocomplete-input-option');
+    const clearEl = getByTestId('input-clear');
+
+    expect(optionEls).toHaveLength(2);
+
+    act(() => {
+      userEvent.click(optionEls[0]);
+      userEvent.click(clearEl);
+    });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onClear).toHaveBeenCalledTimes(1);
+  });
+
+  it('should initialize the selected option', () => {
+    const onChange = jest.fn();
+    const onClear = jest.fn();
+    const initialSelectedItem = options[0].value;
+    const { getByTestId } = render(
+      <AutoCompleteInput
+        initialSelectedItem={initialSelectedItem}
+        onChange={onChange}
+        onClear={onClear}
+        options={options}
+        data-testid="autocomplete-input"
+      />
+    );
+
+    const inputEl = getByTestId('autocomplete-input');
+
+    expect(inputEl.value).toBe(initialSelectedItem);
   });
 });
