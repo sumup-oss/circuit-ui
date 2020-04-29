@@ -16,11 +16,10 @@
   ],
   "scripts": {
     "build": "ts-node ./scripts/web.ts",
-    "optimize": "svgo --config svgo.config.json --pretty --folder web",
     "lint": "foundry run eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "yarn lint --fix",
     "lint:ci": "yarn lint --format junit -o __reports__/eslint-results.xml",
-    "prerelease": "yarn build && cp web/* .",
+    "prerelease": "yarn build && cp web/v1/* .",
     "release": "foundry run semantic-release",
     "postrelease": "rm -f *.svg"
   },
