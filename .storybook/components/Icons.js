@@ -74,8 +74,9 @@ const Size = styled.p`
 `;
 
 const iconStyles = color => theme => css`
-  width: 3rem;
   height: 3rem;
+  width: auto;
+  max-width: 6rem;
   color: ${theme.colors[color]};
   background-color: ${color === 'white'
     ? theme.colors.n900
