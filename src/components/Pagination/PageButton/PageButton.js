@@ -17,7 +17,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import Button from '../../Button';
-import { calculatePadding } from '../../../styles/style-helpers'; // eslint-disable-line max-len
 
 const baseStyles = ({ theme }) => css`
   label: pagination__button;
@@ -29,7 +28,7 @@ const baseStyles = ({ theme }) => css`
   &:focus {
     border-color: ${theme.colors.n300};
     border-width: ${theme.borderWidth.kilo};
-    padding: ${calculatePadding({ theme, size: 'kilo' })()};
+    padding: ${theme.spacings.bit} ${theme.spacings.mega};
   }
 
   &:hover {
