@@ -8,10 +8,14 @@ exports[`CloseButton should render with default styles 1`] = `
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
-  height: 16px;
-  width: 16px;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
+.circuit-3:hover {
+  color: #212933;
 }
 
 .circuit-3:focus,
@@ -39,13 +43,24 @@ exports[`CloseButton should render with default styles 1`] = `
 
 <button
   class="circuit-2 circuit-3 circuit-4"
+  title="Close"
   type="button"
 >
-  <div
+  <svg
+    fill="none"
+    height="24"
     role="presentation"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    close-icon.svg
-  </div>
+    <path
+      d="M7 7l10 10m0-10L7 17"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-width="2"
+    />
+  </svg>
   <span
     class="circuit-0 circuit-1"
   >

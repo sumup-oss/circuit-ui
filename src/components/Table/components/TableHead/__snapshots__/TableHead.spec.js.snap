@@ -48,25 +48,27 @@ tbody .circuit-10:last-child td {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 10px;
-  width: 5px;
-  left: 12px;
-  opacity: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
   position: absolute;
+  left: 0;
   top: 50%;
+  opacity: 0;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  fill: #3388FF;
+  color: #3388FF;
 }
 
 .circuit-0 {
-  margin-top: 2px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  margin-top: -7px;
+  margin-bottom: -7px;
 }
 
 .circuit-6 {
@@ -99,14 +101,38 @@ tbody .circuit-10:last-child td {
       <span
         class="circuit-2 circuit-3"
       >
-        <div
-          class="circuit-0 circuit-1"
+        <svg
+          class="circuit-0"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          arrow.svg
-        </div>
-        <div>
-          arrow.svg
-        </div>
+          <path
+            d="M8 14l4-4 4 4"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+        <svg
+          class="circuit-0"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 10l4 4 4-4"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
       </span>
       Foo
     </th>
@@ -176,25 +202,27 @@ tbody .circuit-10:last-child td {
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 10px;
-  width: 5px;
-  left: 12px;
-  opacity: 0;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
   position: absolute;
+  left: 0;
   top: 50%;
+  opacity: 0;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  fill: #3388FF;
+  color: #3388FF;
 }
 
 .circuit-0 {
-  margin-top: 2px;
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
+  margin-top: -7px;
+  margin-bottom: -7px;
 }
 
 .circuit-6 {
@@ -227,14 +255,38 @@ tbody .circuit-10:last-child td {
       <span
         class="circuit-2 circuit-3"
       >
-        <div
-          class="circuit-0 circuit-1"
+        <svg
+          class="circuit-0"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          arrow.svg
-        </div>
-        <div>
-          arrow.svg
-        </div>
+          <path
+            d="M8 14l4-4 4 4"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+        <svg
+          class="circuit-0"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 10l4 4 4-4"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
       </span>
       Foo
     </th>

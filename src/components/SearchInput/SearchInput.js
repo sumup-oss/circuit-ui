@@ -15,13 +15,12 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Search, Cross } from '@sumup/icons';
 
 import styled from '@emotion/styled';
 
 import Input from '../Input';
 import IconButton from '../IconButton';
-import { ReactComponent as SearchIcon } from './icons/search.svg';
-import { ReactComponent as ClearIcon } from './icons/clear.svg';
 
 const ClearButton = styled(IconButton)`
   pointer-events: all !important;
@@ -35,7 +34,7 @@ const SearchInput = ({ children, value, onClear, clearLabel, ...props }) => (
   <Input
     value={value}
     type="text"
-    renderPrefix={renderProps => <SearchIcon {...renderProps} />}
+    renderPrefix={renderProps => <Search {...renderProps} />}
     renderSuffix={renderProps =>
       value && onClear ? (
         <ClearButton
@@ -44,7 +43,7 @@ const SearchInput = ({ children, value, onClear, clearLabel, ...props }) => (
           data-testid="input-clear"
           {...renderProps}
         >
-          <ClearIcon />
+          <Cross />
         </ClearButton>
       ) : null
     }

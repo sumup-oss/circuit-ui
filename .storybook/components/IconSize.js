@@ -69,8 +69,6 @@ const IconSize = ({ size }) => (
 );
 
 IconSize.propTypes = {
-  // eslint-disable-next-line
-  theme: PropTypes.object.isRequired,
   size: PropTypes.string.isRequired
 };
 

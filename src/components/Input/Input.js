@@ -19,16 +19,13 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { find, identity } from 'lodash/fp';
 import { size } from 'polished';
+import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
 
 import { textMega, disableVisually } from '../../styles/style-helpers';
 import { directions } from '../../styles/constants';
 import { childrenPropType } from '../../util/shared-prop-types';
 
 import Tooltip from '../Tooltip';
-
-import { ReactComponent as ErrorIcon } from '../../icons/error.svg';
-import { ReactComponent as WarningIcon } from '../../icons/warning.svg';
-import { ReactComponent as ValidIcon } from '../../icons/valid.svg';
 
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;
@@ -162,9 +159,10 @@ const prefixStyles = theme => css`
   position: absolute;
   top: 1px;
   left: 1px;
-  ${size(theme.spacings.peta)};
-  padding: ${theme.spacings.kilo};
+  margin: ${theme.spacings.byte};
   pointer-events: none;
+  color: ${theme.colors.n700};
+  ${size(theme.iconSizes.mega)};
 `;
 
 /**
@@ -176,9 +174,10 @@ const suffixStyles = theme => css`
   position: absolute;
   top: 1px;
   right: 1px;
-  ${size(theme.spacings.peta)};
-  padding: ${theme.spacings.kilo};
+  margin: ${theme.spacings.byte};
   pointer-events: none;
+  color: ${theme.colors.n700};
+  ${size(theme.iconSizes.mega)};
 `;
 
 const tooltipBaseStyles = css`
@@ -223,11 +222,18 @@ const ValidationIconWrapper = styled('div')(
   validationIconActiveStyles
 );
 
-const iconStyles = type => css`
+const colorMap = {
+  error: 'danger',
+  warning: 'warning',
+  valid: 'success'
+};
+
+const iconStyles = type => theme => css`
   label: ${`input__validation-${type}`};
   display: block;
   height: 100%;
   width: 100%;
+  color: ${theme.colors[colorMap[type]]};
 `;
 
 /* eslint-disable react/prop-types */
@@ -243,9 +249,9 @@ const ValidationIcon = ({
   }
 
   const icons = [
-    invalid && <ErrorIcon role="img" css={iconStyles('error')} />,
-    hasWarning && <WarningIcon role="img" css={iconStyles('warning')} />,
-    showValid && <ValidIcon role="img" css={iconStyles('valid')} />
+    invalid && <CircleCross role="img" css={iconStyles('error')} />,
+    hasWarning && <CircleWarning role="img" css={iconStyles('warning')} />,
+    showValid && <CircleCheckmark role="img" css={iconStyles('valid')} />
   ];
 
   const icon = find(identity, icons);

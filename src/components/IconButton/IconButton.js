@@ -27,8 +27,12 @@ const buttonStyles = ({ theme }) => css`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: ${theme.colors.black};
   overflow: initial;
+  color: ${theme.colors.n700};
+
+  &:hover {
+    color: ${theme.colors.n900};
+  }
 
   &:focus,
   &:active {
@@ -58,7 +62,7 @@ const IconButton = ({ children, label, ...props }) => {
   const iconChild = Children.only(children);
   const icon = cloneElement(iconChild, { role: 'presentation' });
   return (
-    <Button type="button" {...props}>
+    <Button type="button" title={label} {...props}>
       {icon}
       {label && <Label>{label}</Label>}
     </Button>

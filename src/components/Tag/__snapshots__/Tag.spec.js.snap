@@ -77,10 +77,6 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   color: #FFFFFF;
 }
 
-.circuit-6 > svg {
-  fill: #FFFFFF;
-}
-
 .circuit-4 {
   padding: 0;
   margin: 0;
@@ -88,11 +84,16 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   background-color: transparent;
   border: none;
   cursor: pointer;
-  fill: #0F131A;
   overflow: initial;
-  height: 16px;
-  width: 16px;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
   margin-left: 4px;
+  color: #FFFFFF;
+}
+
+.circuit-4:hover {
+  color: #212933;
 }
 
 .circuit-4:focus,
@@ -103,10 +104,6 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 .circuit-4 > svg {
   height: 100%;
   width: 100%;
-}
-
-.circuit-4 svg {
-  fill: #FFFFFF;
 }
 
 .circuit-0 {
@@ -129,13 +126,24 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   <button
     class="circuit-2 circuit-3 circuit-4 circuit-5"
     data-testid="tag-close"
+    title="remove"
     type="button"
   >
-    <div
+    <svg
+      fill="none"
+      height="24"
       role="presentation"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      close-icon.svg
-    </div>
+      <path
+        d="M7 7l10 10m0-10L7 17"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </svg>
     <span
       class="circuit-0 circuit-1"
     >
@@ -146,7 +154,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 `;
 
 exports[`Tag when is selected should change the given icon color 1`] = `
-.circuit-2 {
+.circuit-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -166,36 +174,17 @@ exports[`Tag when is selected should change the given icon color 1`] = `
   color: #FFFFFF;
 }
 
-.circuit-2 > svg {
-  fill: #FFFFFF;
-}
-
 .circuit-0 {
   margin-right: 4px;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-}
-
-.circuit-0 > svg {
-  vertical-align: top;
-}
-
-.circuit-0 > svg {
-  fill: #FFFFFF;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <span
-    class="circuit-0 circuit-1"
-  >
-    <div>
-      icon-tick.svg
-    </div>
-  </span>
+  <div
+    class="circuit-0"
+    data-testid="tag-icon"
+  />
   SomeTest
 </div>
 `;
@@ -219,10 +208,6 @@ exports[`Tag when is selected should render with selected styles 1`] = `
   background-color: #3388FF;
   box-shadow: 0px 0px 0px 1px #3388FF;
   color: #FFFFFF;
-}
-
-.circuit-0 > svg {
-  fill: #FFFFFF;
 }
 
 <div

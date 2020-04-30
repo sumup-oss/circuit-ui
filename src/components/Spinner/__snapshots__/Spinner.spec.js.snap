@@ -1,5 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Spinner should render with active styles 1`] = `
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+@keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate3d(0,0,1,0deg);
+    -ms-transform: rotate3d(0,0,1,0deg);
+    transform: rotate3d(0,0,1,0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate3d(0,0,1,360deg);
+    -ms-transform: rotate3d(0,0,1,360deg);
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+.circuit-0 {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
+  -webkit-animation: animation-0 1s infinite linear;
+  animation: animation-0 1s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
+}
+
+<div
+  aria-busy="true"
+  aria-live="assertive"
+  class="circuit-0 circuit-1"
+  role="alert"
+/>
+`;
+
 exports[`Spinner should render with dark styles 1`] = `
 @keyframes animation-0 {
   0% {
@@ -29,51 +83,31 @@ exports[`Spinner should render with dark styles 1`] = `
   }
 }
 
-.circuit-2 {
-  opacity: 0;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
 .circuit-0 {
-  width: 100%;
-  height: 100%;
-}
-
-.circuit-0 > path {
-  fill: #FFFFFF;
-}
-
-.circuit-0 > path {
-  fill: #212933;
-}
-
-.circuit-0 > path {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
+  border-color: #212933;
+  border-top-color: transparent;
 }
 
 <div
   aria-busy="true"
   aria-live="assertive"
-  class="circuit-2 circuit-3"
+  class="circuit-0 circuit-1"
   role="alert"
->
-  <div
-    class="circuit-0 circuit-1"
-    dark="1"
-  >
-    spinner.svg
-  </div>
-</div>
+/>
 `;
 
 exports[`Spinner should render with default styles 1`] = `
@@ -91,45 +125,27 @@ exports[`Spinner should render with default styles 1`] = `
   }
 }
 
-.circuit-2 {
-  opacity: 0;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  position: relative;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
 .circuit-0 {
-  width: 100%;
-  height: 100%;
-}
-
-.circuit-0 > path {
-  fill: #FFFFFF;
-}
-
-.circuit-0 > path {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 2px solid #FFFFFF;
+  border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  opacity: 1;
 }
 
 <div
   aria-busy="true"
   aria-live="assertive"
-  class="circuit-2 circuit-3"
+  class="circuit-0 circuit-1"
   role="alert"
->
-  <div
-    class="circuit-0 circuit-1"
-    dark="0"
-  >
-    spinner.svg
-  </div>
-</div>
+/>
 `;

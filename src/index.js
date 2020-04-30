@@ -114,9 +114,6 @@ export { default as AutoCompleteTags } from './components/AutoCompleteTags';
 
 export { TableRow, TableCell, TableHeader } from './components/Table';
 export { default as Table } from './components/Table';
-export { default as CardSchemes } from './components/CardSchemes';
-// eslint-disable-next-line prettier/prettier, max-len
-export { default as PaymentMethodIcon } from './components/CardSchemes/components/PaymentMethodIcon';
 
 export { default as Sidebar } from './components/Sidebar';
 export {

@@ -55,10 +55,6 @@ const tagSelectedStyles = ({ selected, theme }) =>
     background-color: ${theme.colors.p500};
     ${shadowBorder(theme.colors.p500)};
     color: ${theme.colors.white};
-
-    > svg {
-      fill: ${theme.colors.white};
-    }
   `;
 
 const tagSelectedClickableStyles = ({ selected, onClick, theme }) =>
@@ -79,26 +75,14 @@ const TagElement = styled('div')`
   ${tagSelectedClickableStyles};
 `;
 
-const prefixStyles = ({ theme, selected }) => css`
+const prefixStyles = ({ theme }) => css`
   label: tag__prefix;
   margin-right: ${theme.spacings.bit};
-  ${selected}: {
-    label: tag__prefix--selected;
-    svg {
-      fill: ${theme.colors.white};
-    }
-  }
 `;
 
-const suffixStyles = ({ theme, selected }) => css`
+const suffixStyles = ({ theme }) => css`
   label: tag__suffix;
   margin-left: ${theme.spacings.bit};
-  ${selected}: {
-    label: tag__suffix--selected;
-    svg {
-      fill: ${theme.colors.white};
-    }
-  }
 `;
 
 const closeButtonStyles = ({ theme }) => css`
@@ -110,9 +94,7 @@ const selectedCloseButtonStyles = ({ theme, selected }) =>
   selected &&
   css`
     label: tag__close-btn--selected;
-    svg {
-      fill: ${theme.colors.white};
-    }
+    color: ${theme.colors.white};
   `;
 
 const StyledCloseButton = styled(CloseButton)`

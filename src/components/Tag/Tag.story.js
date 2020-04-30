@@ -16,10 +16,10 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs/react';
+import { Check } from '@sumup/icons';
 
 import docs from './Tag.docs.mdx';
 import Tag from './Tag';
-import { ReactComponent as Icon } from './icon-tick.svg';
 
 export default {
   title: 'Components/Tag',
@@ -34,8 +34,8 @@ export const base = () => (
   <Tag
     selected={boolean('Selected', false)}
     onRemove={boolean('Removable', false) ? action('Tag removed') : null}
-    prefix={boolean('Prefix', false) ? <Icon /> : null}
-    suffix={boolean('Suffix', false) ? <Icon /> : null}
+    prefix={boolean('Prefix', false) ? <Check /> : null}
+    suffix={boolean('Suffix', false) ? <Check /> : null}
     onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
   >
     Transactions
@@ -44,9 +44,9 @@ export const base = () => (
 
 export const selected = () => <Tag selected>Transactions</Tag>;
 
-export const withPrefix = () => <Tag prefix={Icon}>Transactions</Tag>;
+export const withPrefix = () => <Tag prefix={Check}>Transactions</Tag>;
 
-export const withSuffix = () => <Tag suffix={Icon}>Transactions</Tag>;
+export const withSuffix = () => <Tag suffix={Check}>Transactions</Tag>;
 
 export const removable = () => (
   <Tag onRemove={action('Tag removed')} labelRemoveButton="Remove">

@@ -18,29 +18,21 @@ import { action } from '@storybook/addon-actions';
 
 import LoadingButton from '.';
 
-const DEFAULT = 'default';
-
 // eslint-disable-next-line react/prop-types
 const LoadingButtonWithState = ({ exitAnimation, ...props }) => {
-  const variation = exitAnimation || DEFAULT;
-
-  const [loading, setLoading] = useState({
-    [LoadingButton.SUCCESS]: false,
-    [LoadingButton.ERROR]: false,
-    [DEFAULT]: false
-  });
+  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
-    setLoading({ ...loading, [variation]: true });
+    setLoading(true);
     setTimeout(() => {
-      setLoading({ ...loading, [variation]: false });
+      setLoading(false);
     }, 1000);
   };
 
   return (
     <LoadingButton
       {...props}
-      isLoading={loading[variation]}
+      isLoading={loading}
       exitAnimation={exitAnimation}
       onClick={handleClick}
     />

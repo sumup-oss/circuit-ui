@@ -13,12 +13,9 @@
  * limitations under the License.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
-
-import { ReactComponent as SpinnerSvg } from './icons/spinner.svg';
 
 const spin = keyframes`
   0% {
@@ -29,70 +26,41 @@ const spin = keyframes`
   }
 `;
 
-/**
- * Icon components
- */
-
-const baseIconStyles = ({ theme }) => css`
-  width: 100%;
-  height: 100%;
-  & > path {
-    fill: ${theme.colors.white};
-  }
-`;
-
-const darkIconStyles = ({ theme, dark }) =>
-  dark &&
-  css`
-    & > path {
-      fill: ${theme.colors.n900};
-    }
-  `;
-
-const baseSpinStyles = css`
+const baseStyles = ({ theme }) => css`
   label: spinner;
-  & > path {
-    animation: ${spin} 1s infinite linear;
-    transform-origin: 50% 50%;
-  }
-`;
-
-const SpinnerIcon = styled(SpinnerSvg)`
-  ${baseIconStyles};
-  ${darkIconStyles};
-  ${baseSpinStyles};
-`;
-
-/**
- * Container component
- */
-
-const baseContainerStyles = css`
+  width: ${theme.iconSizes.mega};
+  height: ${theme.iconSizes.mega};
+  border-radius: ${theme.borderRadius.circle};
+  border: ${theme.borderWidth.mega} solid ${theme.colors.white};
+  border-top-color: transparent;
+  animation: ${spin} 1s infinite linear;
+  transform-origin: 50% 50%;
   opacity: 0;
-  max-width: fit-content;
-  position: relative;
   transition: opacity 200ms ease-in-out;
 `;
 
-const activeContainerStyles = ({ active }) =>
+const activeStyles = ({ active }) =>
   active &&
   css`
     opacity: 1;
   `;
 
-const SpinnerContainer = styled('div')(
-  baseContainerStyles,
-  activeContainerStyles
-);
+const darkStyles = ({ theme, dark }) =>
+  dark &&
+  css`
+    label: spinner--dark;
+    border-color: ${theme.colors.n900};
+    border-top-color: transparent;
+  `;
 
 /**
  * A loading spinner with ARIA labels support.
  */
-const Spinner = ({ dark, active, ...props }) => (
-  <SpinnerContainer {...{ active, ...props }}>
-    <SpinnerIcon dark={dark ? 1 : 0} />
-  </SpinnerContainer>
-);
+const Spinner = styled.div`
+  ${baseStyles};
+  ${activeStyles};
+  ${darkStyles};
+`;
 
 Spinner.propTypes = {
   /**

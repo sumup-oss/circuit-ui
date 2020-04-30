@@ -15,6 +15,7 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
+import { CircleInfo } from '@sumup/icons';
 
 import docs from './Tooltip.docs.mdx';
 import Tooltip from './Tooltip';
@@ -27,22 +28,6 @@ export default {
     jest: ['Tooltip']
   }
 };
-
-const Icon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-    <circle cx="12" cy="12" r="3" />
-  </svg>
-);
 
 const TooltipContainer = styled('div')`
   position: relative;
@@ -58,7 +43,7 @@ const TooltipContainer = styled('div')`
 const TooltipWithContainer = props => (
   <TooltipContainer>
     <Tooltip {...props}>I am a teeny, tiny tooltip.</Tooltip>
-    <Icon />
+    <CircleInfo />
   </TooltipContainer>
 );
 

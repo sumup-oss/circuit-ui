@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { boolean, select } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs/react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
@@ -41,17 +41,6 @@ export default {
 
 export const base = () => (
   <Container>
-    <Spinner
-      dark={boolean('Show dark variant', false)}
-      size={select(
-        'Size',
-        {
-          [Spinner.MEGA]: 'Mega',
-          [Spinner.KILO]: 'Kilo',
-          [Spinner.GIGA]: 'Giga'
-        },
-        Spinner.GIGA
-      )}
-    />
+    <Spinner dark={boolean('Dark', false)} active={boolean('Active', true)} />
   </Container>
 );

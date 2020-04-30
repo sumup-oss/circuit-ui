@@ -14,7 +14,7 @@
  */
 
 import { css } from '@emotion/core';
-import { size, stripUnit, transparentize } from 'polished';
+import { stripUnit, transparentize } from 'polished';
 
 import { mapValues } from '../util/fp';
 import { sizes } from './constants';
@@ -78,13 +78,6 @@ export const textKilo = createTypeHelper('text', 'kilo');
 export const textMega = createTypeHelper('text', 'mega');
 export const textGiga = createTypeHelper('text', 'giga');
 export const textTera = createTypeHelper('text', 'tera');
-
-/**
- * SVGs
- */
-
-export const svgKilo = ({ theme }) => size(theme.iconSizes.kilo);
-export const svgMega = ({ theme }) => size(theme.iconSizes.mega);
 
 /**
  * Utilities

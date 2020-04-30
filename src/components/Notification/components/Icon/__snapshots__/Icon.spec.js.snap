@@ -55,7 +55,7 @@ exports[`NotificationIcon should render with default styles 1`] = `
 `;
 
 exports[`NotificationIcon should render with error icon 1`] = `
-.circuit-0 {
+.circuit-1 {
   display: block;
   margin: 0 0 16px 0;
   -webkit-box-flex: 0;
@@ -69,22 +69,35 @@ exports[`NotificationIcon should render with error icon 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-0 {
+  .circuit-1 {
     margin: 0 16px 0 0;
   }
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-1 circuit-2"
 >
-  <div>
-    notification-error.svg
-  </div>
+  <svg
+    class="circuit-0"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;
 
 exports[`NotificationIcon should render with warning icon 1`] = `
-.circuit-2 {
+.circuit-1 {
   display: block;
   margin: 0 0 16px 0;
   -webkit-box-flex: 0;
@@ -98,22 +111,33 @@ exports[`NotificationIcon should render with warning icon 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-2 {
+  .circuit-1 {
     margin: 0 16px 0 0;
   }
 }
 
-.circuit-0 rect {
-  fill: #D8A413;
+.circuit-0 {
+  color: #D8A413;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <div
-    class="circuit-0 circuit-1"
+  <svg
+    class="circuit-0"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    notification-success.svg
-  </div>
+    <path
+      d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;

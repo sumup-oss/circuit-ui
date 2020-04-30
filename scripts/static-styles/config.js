@@ -181,8 +181,9 @@ export default {
       size: [SubHeading.KILO, SubHeading.MEGA]
     }),
     getComponentInfo(Tag, {
-      icon: PropTypes.element,
-      onRemove: PropTypes.func
+      onRemove: PropTypes.func,
+      prefix: PropTypes.element,
+      suffix: PropTypes.element
     }),
     getComponentInfo(Text, {
       size: [Text.KILO, Text.MEGA, Text.GIGA]

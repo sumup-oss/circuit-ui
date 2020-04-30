@@ -33,9 +33,6 @@ const baseStyles = ({ theme }) => css`
   padding: ${theme.spacings.bit};
   cursor: pointer;
   color: ${theme.colors.n500};
-  * {
-    fill: ${theme.colors.n500};
-  }
 `;
 
 const hoverStyles = ({ theme, disabled, selected }) =>
@@ -45,9 +42,6 @@ const hoverStyles = ({ theme, disabled, selected }) =>
     label: nav-aggregator--hover;
     &:hover {
       color: ${theme.colors.n300};
-      * {
-        fill: ${theme.colors.n300};
-      }
     }
   `;
 
@@ -56,9 +50,6 @@ const selectedStyles = ({ theme, selected }) =>
   css`
     label: nav-aggregator--active;
     color: ${theme.colors.n100};
-    * {
-      fill: ${theme.colors.n100};
-    }
   `;
 
 const disabledStyles = ({ theme, disabled }) =>
@@ -67,9 +58,6 @@ const disabledStyles = ({ theme, disabled }) =>
     label: nav-item--disabled;
     cursor: not-allowed;
     color: ${theme.colors.n700};
-    * {
-      fill: ${theme.colors.n700};
-    }
   `;
 
 const AggregatorContainer = styled.div(
