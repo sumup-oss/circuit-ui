@@ -67,7 +67,7 @@ exports[`PageButton styles should render with default styles 1`] = `
 .circuit-1:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-1:hover {

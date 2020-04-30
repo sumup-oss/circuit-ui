@@ -170,7 +170,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
 .circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-4:hover {
@@ -253,7 +253,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
 .circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-7:hover {
@@ -550,7 +550,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
 .circuit-16:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-16:hover {
@@ -633,7 +633,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
 .circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-4:hover {
@@ -773,7 +773,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
 .circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-7:hover {
@@ -1018,7 +1018,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 .circuit-19:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-19:hover {
@@ -1101,7 +1101,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 .circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-4:hover {
@@ -1241,7 +1241,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 .circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-7:hover {
@@ -1487,7 +1487,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
 .circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-7:hover {
@@ -1570,7 +1570,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
 .circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-4:hover {
@@ -1710,7 +1710,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
 .circuit-16:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-16:hover {
@@ -1955,7 +1955,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
 .circuit-13:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-13:hover {
@@ -2038,7 +2038,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
 .circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-4:hover {
@@ -2178,7 +2178,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
 .circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-7:hover {
@@ -2429,7 +2429,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
 .circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-4:hover {
@@ -2512,7 +2512,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
 .circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-7:hover {
@@ -2652,7 +2652,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
 .circuit-16:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-16:hover {

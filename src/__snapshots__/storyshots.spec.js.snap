@@ -9357,7 +9357,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   flex-direction: column;
   width: 400px;
   max-width: 90vw;
-  max-width: calc(100vw - 48px);
+  max-width: calc(100vw - (24px * 2));
 }
 
 .circuit-9 > * {
@@ -9612,7 +9612,7 @@ HTMLCollection [
 .circuit-4:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-4:hover {
@@ -9695,7 +9695,7 @@ HTMLCollection [
 .circuit-7:focus {
   border-color: #D8DDE1;
   border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  padding: 4px 16px;
 }
 
 .circuit-7:hover {
@@ -9953,7 +9953,7 @@ exports[`Storyshots Components/ProgressBar Base 1`] = `
   background-color: #3388FF;
   border: 1px solid #1760CE;
   box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: 3px 0 0 3px;
+  border-radius: calc(4px - 1px) 0 0 calc(4px - 1px);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
 }
@@ -10027,7 +10027,7 @@ HTMLCollection [
   background-color: #3388FF;
   border: 1px solid #1760CE;
   box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: 3px 0 0 3px;
+  border-radius: calc(4px - 1px) 0 0 calc(4px - 1px);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
 }
@@ -10093,7 +10093,7 @@ HTMLCollection [
   background-color: #3388FF;
   border: 1px solid #1760CE;
   box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: 3px 0 0 3px;
+  border-radius: calc(4px - 1px) 0 0 calc(4px - 1px);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
 }
@@ -10159,7 +10159,7 @@ HTMLCollection [
   background-color: #3388FF;
   border: 1px solid #1760CE;
   box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: 3px 0 0 3px;
+  border-radius: calc(4px - 1px) 0 0 calc(4px - 1px);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
 }
@@ -10229,7 +10229,7 @@ exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
   background-color: #3388FF;
   border: 1px solid #1760CE;
   box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: 3px 0 0 3px;
+  border-radius: calc(4px - 1px) 0 0 calc(4px - 1px);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
 }
@@ -10298,7 +10298,7 @@ exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
   background-color: #3388FF;
   border: 1px solid #1760CE;
   box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: 3px 0 0 3px;
+  border-radius: calc(4px - 1px) 0 0 calc(4px - 1px);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
 }
@@ -11157,7 +11157,7 @@ label + .circuit-14 {
   background-color: #3388FF;
   border: 1px solid #1760CE;
   box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: 3px 0 0 3px;
+  border-radius: calc(4px - 1px) 0 0 calc(4px - 1px);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
 }

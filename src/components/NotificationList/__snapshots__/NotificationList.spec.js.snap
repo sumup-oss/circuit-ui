@@ -11,7 +11,7 @@ exports[`NotificationList should render with default styles 1`] = `
   flex-direction: column;
   width: 400px;
   max-width: 90vw;
-  max-width: calc(100vw - 48px);
+  max-width: calc(100vw - (24px * 2));
 }
 
 .circuit-2 > * {

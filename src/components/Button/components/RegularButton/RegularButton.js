@@ -18,7 +18,26 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
-import { textMega, calculatePadding } from '../../../../styles/style-helpers';
+import { textMega } from '../../../../styles/style-helpers';
+import { sizes } from '../../../../styles/constants';
+
+const { KILO, MEGA, GIGA } = sizes;
+
+const calculatePadding = ({ theme, size: buttonSize }) => (diff = '0px') => {
+  const sizeMap = {
+    /* eslint-disable max-len */
+    [KILO]: `calc(${theme.spacings.bit} - ${diff}) calc(${theme.spacings.mega} - ${diff})`,
+    [MEGA]: `calc(${theme.spacings.byte} - ${diff}) calc(${theme.spacings.giga} - ${diff})`,
+    [GIGA]: `calc(${theme.spacings.kilo} - ${diff}) calc(${theme.spacings.tera} - ${diff})`
+    /* eslint-enable max-len */
+  };
+
+  if (!sizeMap[buttonSize] && buttonSize) {
+    return null;
+  }
+
+  return sizeMap[buttonSize] || sizeMap.mega;
+};
 
 const baseStyles = ({ theme, ...props }) => css`
   label: button;

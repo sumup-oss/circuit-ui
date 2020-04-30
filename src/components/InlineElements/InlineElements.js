@@ -41,7 +41,7 @@ const fallbackBaseStyles = ({ children, theme }) => {
         );
       }
 
-      ${clearfix};
+      ${clearfix()};
     }
   `;
 };
@@ -111,7 +111,7 @@ const fallbackInlineMobileStyles = ({ theme, inlineMobile, children }) => {
         );
       }
 
-      ${clearfix};
+      ${clearfix()};
     }
   `;
 };

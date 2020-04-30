@@ -37,7 +37,7 @@ const baseStyles = ({ theme }) => css`
   label: row;
 
   position: relative;
-  ${clearfix};
+  ${clearfix()};
 
   ${getBreakPointStyles(theme, 'untilKilo')};
   ${getBreakPointStyles(theme, 'kilo')};

@@ -13,55 +13,202 @@
  * limitations under the License.
  */
 
+import { light } from '@sumup/design-tokens';
+
 import * as StyleHelpers from './style-helpers';
 
 describe('Style helpers', () => {
-  describe('CSS unit calculations', () => {
-    const a = '25px';
-    const b = '5px';
-    const c = 5;
-    const d = '2rem';
-
-    it('should add values of the same unit', () => {
-      const actual = StyleHelpers.addUnit(a, b, c);
-      const expected = '35px';
-      expect(actual).toBe(expected);
+  describe('shadowBorder', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.shadowBorder(light.colors.black);
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          box-shadow: 0px 0px 0px 1px #0F131A;
+        "
+      `);
     });
+  });
 
-    it('should subtract values of the same unit', () => {
-      const actual = StyleHelpers.subtractUnit(a, b, c);
-      const expected = '15px';
-      expect(actual).toBe(expected);
+  describe('shadowSingle', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.shadowSingle({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
+            0 0 1px 0 rgba(12,15,20,0.06),
+            0 2px 2px 0 rgba(12,15,20,0.06);
+        "
+      `);
     });
+  });
 
-    it('should multiply values of the same unit', () => {
-      const actual = StyleHelpers.multiplyUnit(a, c);
-      const expected = '125px';
-      expect(actual).toBe(expected);
+  describe('shadowDouble', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.shadowDouble({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
+            0 2px 2px 0 rgba(12,15,20,0.06),
+            0 4px 4px 0 rgba(12,15,20,0.06);
+        "
+      `);
     });
+  });
 
-    it('should divide values of the same unit', () => {
-      const actual = StyleHelpers.divideUnit(a, c);
-      const expected = '5px';
-      expect(actual).toBe(expected);
+  describe('shadowTriple', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.shadowTriple({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
+            0 4px 4px 0 rgba(12,15,20,0.06),
+            0 8px 8px 0 rgba(12,15,20,0.06);
+        "
+      `);
     });
+  });
 
-    it('should add values without a unit', () => {
-      const actual = StyleHelpers.addUnit(a, b, c);
-      const expected = '35px';
-      expect(actual).toBe(expected);
+  describe('headingKilo', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.headingKilo({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 17px;
+              line-height: 24px;
+            "
+      `);
     });
+  });
 
-    it('should return undefined when values do not have the same unit', () => {
-      const actual = StyleHelpers.addUnit(a, b, d);
-      const expected = '32undefined';
-      expect(actual).toBe(expected);
+  describe('headingMega', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.headingMega({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 19px;
+              line-height: 24px;
+            "
+      `);
     });
+  });
 
-    it('should return undefined when multiple values have a unit', () => {
-      const actual = StyleHelpers.multiplyUnit(a, b);
-      const expected = '125undefined';
-      expect(actual).toBe(expected);
+  describe('headingGiga', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.headingGiga({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 22px;
+              line-height: 24px;
+            "
+      `);
+    });
+  });
+
+  describe('headingTera', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.headingTera({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 24px;
+              line-height: 32px;
+            "
+      `);
+    });
+  });
+
+  describe('headingPeta', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.headingPeta({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 28px;
+              line-height: 32px;
+            "
+      `);
+    });
+  });
+
+  describe('headingExa', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.headingExa({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 36px;
+              line-height: 44px;
+            "
+      `);
+    });
+  });
+
+  describe('headingZetta', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.headingZetta({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 42px;
+              line-height: 48px;
+            "
+      `);
+    });
+  });
+
+  describe('subHeadingKilo', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.subHeadingKilo({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 12px;
+              line-height: 20px;
+            "
+      `);
+    });
+  });
+
+  describe('subHeadingMega', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.subHeadingMega({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 14px;
+              line-height: 18px;
+            "
+      `);
+    });
+  });
+
+  describe('textKilo', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.textKilo({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 13px;
+              line-height: 20px;
+            "
+      `);
+    });
+  });
+
+  describe('textMega', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.textMega({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 16px;
+              line-height: 24px;
+            "
+      `);
+    });
+  });
+
+  describe('textGiga', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.textGiga({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+              font-size: 18px;
+              line-height: 28px;
+            "
+      `);
     });
   });
 });
