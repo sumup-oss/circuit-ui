@@ -13,50 +13,56 @@
  * limitations under the License.
  */
 
-import { css } from '@emotion/core';
+import { css, SerializedStyles } from '@emotion/core';
 import { transparentize } from 'polished';
+import { Theme } from '@sumup/design-tokens';
 
-/**
- * Shadows
- */
+interface StyleArgs {
+  theme: Theme;
+}
 
-export const shadowBorder = (color, borderSize = '1px') => css`
+export const shadowBorder = (
+  color: string,
+  borderSize = '1px'
+): SerializedStyles => css`
   box-shadow: 0px 0px 0px ${borderSize} ${color};
 `;
 
-export const shadowGround = ({ theme }) => css`
-  box-shadow: 0 0 0 2px ${transparentize(0.97, theme.colors.shadow)};
-`;
-
-export const shadowSingle = ({ theme }) => css`
+export const shadowSingle = ({ theme }: StyleArgs): SerializedStyles => css`
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 0 1px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
-export const shadowDouble = ({ theme }) => css`
+export const shadowDouble = ({ theme }: StyleArgs): SerializedStyles => css`
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
-export const shadowTriple = ({ theme }) => css`
+export const shadowTriple = ({ theme }: StyleArgs): SerializedStyles => css`
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 8px 8px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
-/**
- * Typography
- */
-
-const createTypeHelper = (type, name) => ({ theme }) => {
-  const { fontSize, lineHeight } = theme.typography[type][name];
-  return css`
-    font-size: ${fontSize};
-    line-height: ${lineHeight};
-  `;
-};
+function createTypeHelper<T extends 'headings' | 'subHeadings' | 'text'>(
+  type: T,
+  size: keyof Theme['typography'][T]
+) {
+  return ({ theme }: StyleArgs): SerializedStyles => {
+    const { fontSize, lineHeight } = (theme.typography[type][
+      size
+    ] as unknown) as {
+      fontSize: string;
+      lineHeight: string;
+    };
+    return css`
+      font-size: ${fontSize};
+      line-height: ${lineHeight};
+    `;
+  };
+}
 
 export const headingKilo = createTypeHelper('headings', 'kilo');
 export const headingMega = createTypeHelper('headings', 'mega');
@@ -72,33 +78,26 @@ export const subHeadingMega = createTypeHelper('subHeadings', 'mega');
 export const textKilo = createTypeHelper('text', 'kilo');
 export const textMega = createTypeHelper('text', 'mega');
 export const textGiga = createTypeHelper('text', 'giga');
-export const textTera = createTypeHelper('text', 'tera');
 
 /**
- * Utilities
+ * Visually communicate to the user that an element is disabled
+ * and prevent user interactions.
  */
-
-export const disableVisually = () => css`
+export const disableVisually = (): SerializedStyles => css`
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 `;
 
 /**
- * Taken from https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/
- *
- * 1. The space content is one way to avoid an Opera bug when the
- *    contenteditable attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that are clearfixed.
- * 2. The use of table rather than "block" is only necessary if using
- *    ":before" to contain the top-margins of child elements.
+ * A CSS hack to force an element to self-clear its floated children.
+ * Taken from [CSS Tricks](https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/).
  */
-export const clearfix = () => css`
+export const clearfix = (): SerializedStyles => css`
   &::before,
   &::after {
-    content: ' '; /* 1 */
-    display: table; /* 2 */
+    content: ' ';
+    display: table;
   }
   &::after {
     clear: both;
