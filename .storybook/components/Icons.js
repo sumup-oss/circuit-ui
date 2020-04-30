@@ -19,11 +19,11 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
 import { keys, entries, includes, isEmpty, groupBy, sortBy } from 'lodash/fp';
+import { light } from '@sumup/design-tokens';
 import * as iconComponents from '@sumup/icons';
 import { icons } from '@sumup/icons/manifest.json';
 
 import {
-  theme as themes,
   Heading,
   Text,
   InlineElements,
@@ -122,7 +122,7 @@ const Icons = () => {
   );
 
   return (
-    <ThemeProvider theme={themes.circuit}>
+    <ThemeProvider theme={light}>
       <Filters>
         <Label htmlFor="search-icon">
           Filter icons by name
