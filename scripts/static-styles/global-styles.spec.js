@@ -13,13 +13,11 @@
  * limitations under the License.
  */
 
-import { theme as themes } from '../../src';
+import { light as theme } from '@sumup/design-tokens';
 
 import globalStyles from './global-styles';
 
 describe('Global styles', () => {
-  const { circuit: theme } = themes;
-
   // FIXME: For some reason, the `insert` function is never called.
   it.skip('should return the global styles', () => {
     const actual = globalStyles({ theme });

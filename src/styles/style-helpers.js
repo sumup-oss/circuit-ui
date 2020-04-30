@@ -130,17 +130,6 @@ export const subtractUnit = (...args) => transformUnit(args, subtract);
 export const multiplyUnit = (...args) => transformUnit(args, multiply, false);
 export const divideUnit = (...args) => transformUnit(args, divide, false);
 
-export const createMediaQueries = mapValues(mediaExpression => {
-  const { prefix = '', suffix = '' } =
-    typeof mediaExpression === 'string'
-      ? {}
-      : { prefix: '(min-width: ', suffix: 'px)' };
-
-  const enhancedExpression = prefix + mediaExpression + suffix;
-
-  return `@media ${enhancedExpression}`;
-});
-
 export const clearfix = css`
   /*
  * For modern browsers

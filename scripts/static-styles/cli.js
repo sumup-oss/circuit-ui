@@ -27,7 +27,7 @@ function main() {
     .option('theme', {
       desc: 'The name of the theme to use.',
       choices: themeOpts,
-      default: 'circuit'
+      default: 'light'
     })
     .option('components', {
       desc:

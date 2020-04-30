@@ -17,8 +17,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Image as BaseImage } from '../../src';
+import { Image as BaseImage } from '../../src';
 
 const FULL_WIDTH = 'full-width';
 
@@ -34,7 +35,7 @@ const fullWidthStyles = ({ theme, variant }) =>
 const StyledImage = styled(BaseImage)(fullWidthStyles);
 
 const Image = ({ children, ...props }) => (
-  <ThemeProvider theme={themes.circuit}>
+  <ThemeProvider theme={light}>
     <StyledImage {...props} />
   </ThemeProvider>
 );

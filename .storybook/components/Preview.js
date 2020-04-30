@@ -16,13 +16,12 @@
 import React from 'react';
 import { Preview as StorybookPreview } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from 'emotion-theming';
-
-import { theme as themes } from '../../src';
+import { light } from '@sumup/design-tokens';
 
 // eslint-disable-next-line react/prop-types
 const Preview = ({ children, ...props }) => (
   <StorybookPreview {...props}>
-    <ThemeProvider theme={themes.circuit}>{children}</ThemeProvider>
+    <ThemeProvider theme={light}>{children}</ThemeProvider>
   </StorybookPreview>
 );
 

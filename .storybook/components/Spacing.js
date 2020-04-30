@@ -18,8 +18,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Text } from '../../src';
+import { Text } from '../../src';
 
 const Box = styled('div')`
   ${({ theme, spacingName }) => css`
@@ -53,14 +54,14 @@ const SpacingName = styled(Text)`
 `;
 
 const Spacing = ({ spacingName }) => (
-  <ThemeProvider theme={themes.circuit}>
+  <ThemeProvider theme={light}>
     <Wrapper>
       <Box spacingName={spacingName} />
       <div>
         <Text as="span">{spacingName}</Text>
         <SpacingSize>
           <SpacingName size={Text.KILO} as="span">
-            {themes.circuit.spacings[spacingName]}
+            {light.spacings[spacingName]}
           </SpacingName>
         </SpacingSize>
       </div>

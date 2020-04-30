@@ -15,13 +15,11 @@
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes } from '../../src';
 import render from './render';
 
 describe('Render', () => {
-  const { circuit } = themes;
-
   const styles = ({ theme }) => css`
     color: ${theme.colors.red};
   `;
@@ -32,7 +30,7 @@ describe('Render', () => {
   it('should render the component', () => {
     const insert = jest.fn();
     const insertFactory = jest.fn(() => insert);
-    const renderFn = render(circuit, insertFactory);
+    const renderFn = render(light, insertFactory);
     const actual = renderFn(Component, name);
     expect(actual).toContain('div');
   });
@@ -41,7 +39,7 @@ describe('Render', () => {
     const props = { children: 'Foo' };
     const insert = jest.fn();
     const insertFactory = jest.fn(() => insert);
-    const renderFn = render(circuit, insertFactory);
+    const renderFn = render(light, insertFactory);
     const actual = renderFn(Component, props, name);
     expect(actual).toContain('Foo');
   });
@@ -49,7 +47,7 @@ describe('Render', () => {
   it('should insert the styles', () => {
     const insert = jest.fn();
     const insertFactory = jest.fn(() => insert);
-    const renderFn = render(circuit, insertFactory);
+    const renderFn = render(light, insertFactory);
 
     renderFn(Component, name);
 

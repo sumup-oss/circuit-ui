@@ -40,7 +40,7 @@ const baseStyles = ({ theme }) => css`
   ${getBreakPointStyles(theme, 'kilo')};
   ${getBreakPointStyles(theme, 'mega')};
   ${getBreakPointStyles(theme, 'giga')};
-  ${getBreakPointStyles(theme, 'afterTera')};
+  ${getBreakPointStyles(theme, 'tera')};
 `;
 
 /**

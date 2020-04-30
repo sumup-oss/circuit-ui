@@ -21,16 +21,16 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import { render, fireEvent, wait, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
 import ComponentsContext, {
   defaultComponents
 } from './src/components/ComponentsContext';
-import { circuit } from './src/themes';
 
 // eslint-disable-next-line react/prop-types
 const WithProviders = ({ children }) => (
   <ComponentsContext.Provider value={defaultComponents}>
-    <ThemeProvider theme={circuit}>{children}</ThemeProvider>
+    <ThemeProvider theme={light}>{children}</ThemeProvider>
   </ComponentsContext.Provider>
 );
 

@@ -2352,6 +2352,11 @@
     telejson "^3.2.0"
     util-deprecate "^1.0.2"
 
+"@sumup/design-tokens@^1.0.0-alpha.2":
+  version "1.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.0-alpha.2.tgz#43356cc7c3742f9530aeb7f3598c8bfcf07c5a9c"
+  integrity sha512-9OUL3WqpN48IS04Cj9HAYWZR09DoxFNY8jG6pn+B/nrxDWnOO0fpa1Wq/UqCZ583NKuMoiSA2v4JJ0Bo8kBhRQ==
+
 "@sumup/foundry@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@sumup/foundry/-/foundry-2.1.0.tgz#b4f961cfef3b2b42aeb68c0cc3162aa52254832c"

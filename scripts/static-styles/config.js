@@ -15,6 +15,7 @@
 
 import React from 'react';
 import { entries, values, isFunction, kebabCase } from 'lodash/fp';
+import { light } from '@sumup/design-tokens';
 
 import {
   Badge,
@@ -38,11 +39,9 @@ import {
   Text,
   TextArea,
   Toggle,
-  theme,
   styleConstants
 } from '../../src';
 
-const { circuit } = theme;
 const { colorNames, sizes } = styleConstants;
 const { KILO, MEGA, GIGA } = sizes;
 
@@ -119,7 +118,7 @@ export function getComponentInfo(component, propOverrides = {}) {
 }
 
 export default {
-  themes: { circuit },
+  themes: { light },
   components: [
     {
       name: 'badge',
