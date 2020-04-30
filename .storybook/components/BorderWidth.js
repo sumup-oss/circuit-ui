@@ -61,7 +61,7 @@ const BorderWidth = ({ size }) => (
       <div>
         <Text as="span">{size}</Text>
         <BorderWidthSize>
-          <BorderWidthName size={Text.KILO} as="span">
+          <BorderWidthName size="kilo" as="span">
             {light.borderWidth[size]}
           </BorderWidthName>
         </BorderWidthSize>

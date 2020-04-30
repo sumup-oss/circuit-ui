@@ -60,7 +60,7 @@ const IconSize = ({ size }) => (
       <div>
         <Text as="span">{size}</Text>
         <IconSizeSize>
-          <IconSizeName size={Text.KILO} as="span">
+          <IconSizeName size="kilo" as="span">
             {light.iconSizes[size]}
           </IconSizeName>
         </IconSizeSize>

@@ -27,7 +27,7 @@ const withThemeProvider = (Component, baseProps = {}) => (props = {}) => (
   </ThemeProvider>
 );
 
-const TEXT_SIZE = Text.MEGA;
+const TEXT_SIZE = 'mega';
 
 const headingStyles = theme => css`
   *:not(h1):not(h2):not(h3) + & {

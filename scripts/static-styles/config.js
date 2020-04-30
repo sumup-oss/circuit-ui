@@ -35,7 +35,6 @@ import {
   Selector,
   SubHeading,
   Tag,
-  Text,
   TextArea,
   Toggle,
   styleConstants
@@ -188,9 +187,10 @@ export default {
       prefix: PropTypes.element,
       suffix: PropTypes.element
     }),
-    getComponentInfo(Text, {
-      size: [Text.KILO, Text.MEGA, Text.GIGA]
-    }),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(Text, {
+    //   size: ['kilo', 'mega', 'giga']
+    // }),
     getComponentInfo(TextArea),
     getComponentInfo(Toggle)
   ]
