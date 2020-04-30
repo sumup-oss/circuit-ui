@@ -20,7 +20,6 @@ import { light } from '@sumup/design-tokens';
 import {
   Badge,
   Blockquote,
-  Button,
   ButtonGroup,
   Card,
   Checkbox,
@@ -42,8 +41,7 @@ import {
   styleConstants
 } from '../../src';
 
-const { colorNames, sizes } = styleConstants;
-const { KILO, MEGA, GIGA } = sizes;
+const { colorNames } = styleConstants;
 
 const element = props => <div {...props} />;
 
@@ -133,7 +131,8 @@ export default {
         circle: PropTypes.bool
       }
     },
-    getComponentInfo(Button, { size: [KILO, MEGA, GIGA] }),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(Button, { size: [KILO, MEGA, GIGA] }),
     getComponentInfo(Blockquote, {
       size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
     }),

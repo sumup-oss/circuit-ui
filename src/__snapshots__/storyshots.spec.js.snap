@@ -237,82 +237,7 @@ HTMLCollection [
 `;
 
 exports[`Storyshots Components/Blockquote Base 1`] = `
-.circuit-1 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
-  font-style: italic;
-  padding-left: 12px;
-  border-left: 2px solid #3388FF;
-}
-
-@media (min-width:480px) {
-  .circuit-1 {
-    font-size: 13px;
-    line-height: 20px;
-  }
-}
-
-<blockquote
-  class=" circuit-0 circuit-1 circuit-2"
->
-  
-Lorem ipsum dolor amet echo park activated charcoal banjo deep
-crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
-kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape
-tbh adaptogen green juice lo-fi kombucha.
-
-</blockquote>
-`;
-
-exports[`Storyshots Components/Blockquote Size 1`] = `
-HTMLCollection [
-  .circuit-1 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
-  font-style: italic;
-  padding-left: 12px;
-  border-left: 2px solid #3388FF;
-}
-
-@media (min-width:480px) {
-  .circuit-1 {
-    font-size: 13px;
-    line-height: 20px;
-  }
-}
-
-<blockquote
-    class=" circuit-0 circuit-1 circuit-2"
-  >
-    Kilo - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
-  </blockquote>,
-  .circuit-1 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  font-style: italic;
-  padding-left: 12px;
-  border-left: 2px solid #3388FF;
-}
-
-@media (min-width:480px) {
-  .circuit-1 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<blockquote
-    class=" circuit-0 circuit-1 circuit-2"
-  >
-    Mega - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
-  </blockquote>,
-  .circuit-1 {
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -325,14 +250,95 @@ HTMLCollection [
 }
 
 @media (min-width:480px) {
-  .circuit-1 {
-    font-size: 18px;
-    line-height: 28px;
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
 <blockquote
-    class=" circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1"
+>
+  
+Lorem ipsum dolor amet echo park activated charcoal banjo deep
+crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
+kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape
+tbh adaptogen green juice lo-fi kombucha.
+
+</blockquote>
+`;
+
+exports[`Storyshots Components/Blockquote Size 1`] = `
+HTMLCollection [
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid #3388FF;
+  padding-left: 16px;
+  border-left: 3px solid #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+<blockquote
+    class="circuit-0 circuit-1"
+  >
+    Kilo - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
+  </blockquote>,
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid #3388FF;
+  padding-left: 16px;
+  border-left: 3px solid #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+<blockquote
+    class="circuit-0 circuit-1"
+  >
+    Mega - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
+  </blockquote>,
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid #3388FF;
+  padding-left: 16px;
+  border-left: 3px solid #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+<blockquote
+    class="circuit-0 circuit-1"
   >
     Giga - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
   </blockquote>,
@@ -4574,7 +4580,7 @@ HTMLCollection [
 
 exports[`Storyshots Components/Card With Footer 1`] = `
 HTMLCollection [
-  .circuit-2 {
+  .circuit-1 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -4600,36 +4606,36 @@ HTMLCollection [
   color: #5C656F;
 }
 
-.circuit-2:active {
+.circuit-1:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-2:focus {
+.circuit-1:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-2:hover,
-.circuit-2:active {
+.circuit-1:hover,
+.circuit-1:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-2[href] {
+.circuit-1[href] {
   display: inline-block;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -4638,48 +4644,48 @@ HTMLCollection [
   user-selectable: none;
 }
 
-.circuit-2:active {
+.circuit-1:active {
   background-color: transparent;
   border-color: #212933;
   border-width: 0;
   box-shadow: none;
 }
 
-.circuit-2:focus {
+.circuit-1:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: transparent;
   border-width: 0;
   border-color: #212933;
 }
 
-.circuit-2:active,
-.circuit-2:hover,
-.circuit-2:hover:focus,
-.circuit-2:active:focus {
+.circuit-1:active,
+.circuit-1:hover,
+.circuit-1:hover:focus,
+.circuit-1:active:focus {
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-2:active,
-.circuit-2:hover,
-.circuit-2:focus {
+.circuit-1:active,
+.circuit-1:hover,
+.circuit-1:focus {
   color: #212933;
 }
 
-.circuit-2:active:focus,
-.circuit-2:hover:focus {
+.circuit-1:active:focus,
+.circuit-1:hover:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
-.circuit-4 {
+.circuit-3 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -4700,36 +4706,36 @@ HTMLCollection [
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-4:active {
+.circuit-3:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-4:focus {
+.circuit-3:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-4:hover {
+.circuit-3:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-4:hover,
-.circuit-4:active {
+.circuit-3:hover,
+.circuit-3:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-4[href] {
+.circuit-3[href] {
   display: inline-block;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -4738,7 +4744,7 @@ HTMLCollection [
   user-selectable: none;
 }
 
-.circuit-6 {
+.circuit-5 {
   list-style-type: none;
   width: 100%;
   -webkit-box-pack: end;
@@ -4747,16 +4753,16 @@ HTMLCollection [
   justify-content: flex-end;
 }
 
-.circuit-6 > li:not(:last-of-type) {
+.circuit-5 > li:not(:last-of-type) {
   margin-bottom: 16px;
 }
 
-.circuit-6 > li > * {
+.circuit-5 > li > * {
   width: 100%;
 }
 
 @media (min-width:480px) {
-  .circuit-6 {
+  .circuit-5 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -4766,13 +4772,13 @@ HTMLCollection [
     flex-wrap: nowrap;
   }
 
-  .circuit-6 > li:not(:last-of-type) {
+  .circuit-5 > li:not(:last-of-type) {
     margin-bottom: 0;
     margin-right: 16px;
   }
 }
 
-.circuit-10 {
+.circuit-9 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -4810,14 +4816,14 @@ HTMLCollection [
   }
 }
 
-.circuit-8 {
+.circuit-7 {
   display: block;
   width: 100%;
   margin-top: 24px;
 }
 
 @media (min-width:480px) {
-  .circuit-8 {
+  .circuit-7 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -4831,7 +4837,7 @@ HTMLCollection [
 }
 
 @media (min-width:480px) {
-  .circuit-8 {
+  .circuit-7 {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -4840,30 +4846,30 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-10 circuit-11"
+    class="circuit-9 circuit-10"
     spacing="giga"
   >
     <p
-      class=" circuit-0 circuit-1"
+      class="circuit-0"
     >
       This is some text showing in my card
     </p>
     <footer
-      class="circuit-8 circuit-9"
+      class="circuit-7 circuit-8"
     >
       <ul
-        class="circuit-6 circuit-7"
+        class="circuit-5 circuit-6"
       >
         <li>
           <button
-            class="circuit-2 circuit-3"
+            class="circuit-1 circuit-2"
           >
             Cancel
           </button>
         </li>
         <li>
           <button
-            class="circuit-4 circuit-3"
+            class="circuit-3 circuit-2"
           >
             Confirm
           </button>
@@ -4871,7 +4877,7 @@ HTMLCollection [
       </ul>
     </footer>
   </div>,
-  .circuit-2 {
+  .circuit-1 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -4897,36 +4903,36 @@ HTMLCollection [
   color: #5C656F;
 }
 
-.circuit-2:active {
+.circuit-1:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-2:focus {
+.circuit-1:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-2:hover,
-.circuit-2:active {
+.circuit-1:hover,
+.circuit-1:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-2[href] {
+.circuit-1[href] {
   display: inline-block;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -4935,48 +4941,48 @@ HTMLCollection [
   user-selectable: none;
 }
 
-.circuit-2:active {
+.circuit-1:active {
   background-color: transparent;
   border-color: #212933;
   border-width: 0;
   box-shadow: none;
 }
 
-.circuit-2:focus {
+.circuit-1:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: transparent;
   border-width: 0;
   border-color: #212933;
 }
 
-.circuit-2:active,
-.circuit-2:hover,
-.circuit-2:hover:focus,
-.circuit-2:active:focus {
+.circuit-1:active,
+.circuit-1:hover,
+.circuit-1:hover:focus,
+.circuit-1:active:focus {
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-2:active,
-.circuit-2:hover,
-.circuit-2:focus {
+.circuit-1:active,
+.circuit-1:hover,
+.circuit-1:focus {
   color: #212933;
 }
 
-.circuit-2:active:focus,
-.circuit-2:hover:focus {
+.circuit-1:active:focus,
+.circuit-1:hover:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
-.circuit-4 {
+.circuit-3 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -4997,36 +5003,36 @@ HTMLCollection [
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-4:active {
+.circuit-3:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-4:focus {
+.circuit-3:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-4:hover {
+.circuit-3:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-4:hover,
-.circuit-4:active {
+.circuit-3:hover,
+.circuit-3:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-4[href] {
+.circuit-3[href] {
   display: inline-block;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -5035,7 +5041,7 @@ HTMLCollection [
   user-selectable: none;
 }
 
-.circuit-10 {
+.circuit-9 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -5073,14 +5079,14 @@ HTMLCollection [
   }
 }
 
-.circuit-8 {
+.circuit-7 {
   display: block;
   width: 100%;
   margin-top: 24px;
 }
 
 @media (min-width:480px) {
-  .circuit-8 {
+  .circuit-7 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -5093,7 +5099,7 @@ HTMLCollection [
   }
 }
 
-.circuit-6 {
+.circuit-5 {
   list-style-type: none;
   width: 100%;
   -webkit-box-pack: start;
@@ -5102,16 +5108,16 @@ HTMLCollection [
   justify-content: flex-start;
 }
 
-.circuit-6 > li:not(:last-of-type) {
+.circuit-5 > li:not(:last-of-type) {
   margin-bottom: 16px;
 }
 
-.circuit-6 > li > * {
+.circuit-5 > li > * {
   width: 100%;
 }
 
 @media (min-width:480px) {
-  .circuit-6 {
+  .circuit-5 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -5121,37 +5127,37 @@ HTMLCollection [
     flex-wrap: nowrap;
   }
 
-  .circuit-6 > li:not(:last-of-type) {
+  .circuit-5 > li:not(:last-of-type) {
     margin-bottom: 0;
     margin-right: 16px;
   }
 }
 
 <div
-    class="circuit-10 circuit-11"
+    class="circuit-9 circuit-10"
     spacing="giga"
   >
     <p
-      class=" circuit-0 circuit-1"
+      class="circuit-0"
     >
       This is some text showing in my card
     </p>
     <footer
-      class="circuit-8 circuit-9"
+      class="circuit-7 circuit-8"
     >
       <ul
-        class="circuit-6 circuit-7"
+        class="circuit-5 circuit-6"
       >
         <li>
           <button
-            class="circuit-2 circuit-3"
+            class="circuit-1 circuit-2"
           >
             Cancel
           </button>
         </li>
         <li>
           <button
-            class="circuit-4 circuit-3"
+            class="circuit-3 circuit-2"
           >
             Confirm
           </button>
@@ -5164,7 +5170,7 @@ HTMLCollection [
 
 exports[`Storyshots Components/Card With Header 1`] = `
 HTMLCollection [
-  .circuit-6 {
+  .circuit-5 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -5234,7 +5240,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-6 circuit-7"
+    class="circuit-5 circuit-6"
     spacing="giga"
   >
     <header
@@ -5247,7 +5253,7 @@ HTMLCollection [
       </h2>
     </header>
     <p
-      class=" circuit-4 circuit-5"
+      class="circuit-4"
     >
       This is some text showing in my card
     </p>
@@ -5265,7 +5271,7 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-11 {
+.circuit-10 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -5362,7 +5368,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-11 circuit-12"
+    class="circuit-10 circuit-11"
     spacing="giga"
   >
     <header
@@ -5402,7 +5408,7 @@ HTMLCollection [
       </button>
     </header>
     <p
-      class=" circuit-9 circuit-10"
+      class="circuit-9"
     >
       This is some text showing in my card
     </p>
@@ -5531,7 +5537,7 @@ exports[`Storyshots Components/Card/CardList Base 1`] = `
 `;
 
 exports[`Storyshots Components/Carousel Composed 1`] = `
-.circuit-55 {
+.circuit-54 {
   width: 100%;
   height: auto;
   position: relative;
@@ -5644,7 +5650,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   z-index: -2;
 }
 
-.circuit-53 {
+.circuit-52 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -5781,7 +5787,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   background: #FAFBFC;
 }
 
-.circuit-51 {
+.circuit-50 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5796,7 +5802,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   justify-content: center;
 }
 
-.circuit-44 {
+.circuit-43 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -5806,14 +5812,14 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-44 {
+  .circuit-43 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-44 {
+  .circuit-43 {
     font-size: 13px;
     line-height: 20px;
   }
@@ -5823,7 +5829,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   style="width: 50vw;"
 >
   <div
-    class="circuit-55 circuit-56"
+    class="circuit-54 circuit-55"
   >
     <div
       class="circuit-36 circuit-37"
@@ -5902,10 +5908,10 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
       </div>
     </div>
     <div
-      class="circuit-53 circuit-54"
+      class="circuit-52 circuit-53"
     >
       <div
-        class="circuit-51 circuit-52"
+        class="circuit-50 circuit-51"
       >
         <button
           aria-label="previous"
@@ -5932,7 +5938,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
           </div>
         </button>
         <p
-          class=" circuit-43 circuit-44 circuit-45"
+          class="circuit-43 circuit-44"
           style="margin-left: 8px;"
         >
           1
@@ -5993,7 +5999,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   }
 }
 
-.circuit-63 {
+.circuit-62 {
   width: 100%;
   height: auto;
   position: relative;
@@ -6124,7 +6130,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   z-index: -2;
 }
 
-.circuit-61 {
+.circuit-60 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -6141,7 +6147,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   margin-top: 16px;
 }
 
-.circuit-40 {
+.circuit-39 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -6155,26 +6161,26 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-40 {
+  .circuit-39 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-40 {
+  .circuit-39 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-40 {
+  .circuit-39 {
     margin-right: 12px;
   }
 }
 
-.circuit-42 {
+.circuit-41 {
   width: 100%;
   height: 2px;
   overflow: hidden;
@@ -6185,7 +6191,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   flex: 1 1 auto;
 }
 
-.circuit-42:after {
+.circuit-41:after {
   content: '';
   display: block;
   background-color: #0F131A;
@@ -6202,7 +6208,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   height: 100%;
 }
 
-.circuit-59 {
+.circuit-58 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6219,12 +6225,12 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-59 {
+  .circuit-58 {
     margin-left: 12px;
   }
 }
 
-.circuit-47 {
+.circuit-46 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -6252,36 +6258,36 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   margin-left: 8px;
 }
 
-.circuit-47:active {
+.circuit-46:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-47:focus {
+.circuit-46:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-47:hover {
+.circuit-46:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-47:hover,
-.circuit-47:active {
+.circuit-46:hover,
+.circuit-46:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-47[href] {
+.circuit-46[href] {
   display: inline-block;
 }
 
-.circuit-47:disabled,
-.circuit-47[disabled] {
+.circuit-46:disabled,
+.circuit-46[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -6290,28 +6296,28 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   user-selectable: none;
 }
 
-.circuit-47:first-of-type {
+.circuit-46:first-of-type {
   margin-left: 0;
 }
 
-.circuit-47:active,
-.circuit-47:focus,
-.circuit-47:hover {
+.circuit-46:active,
+.circuit-46:focus,
+.circuit-46:hover {
   padding: 0;
 }
 
 @media (max-width:479px) {
-  .circuit-47 {
+  .circuit-46 {
     width: 24px;
     height: 24px;
   }
 
-  .circuit-47 svg {
+  .circuit-46 svg {
     width: 25%;
   }
 }
 
-.circuit-44 {
+.circuit-43 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6331,7 +6337,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 >
   <div
     aria-label="gallery"
-    class="circuit-63 circuit-64"
+    class="circuit-62 circuit-63"
   >
     <div
       class="circuit-36 circuit-37"
@@ -6407,27 +6413,27 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
       </div>
     </div>
     <div
-      class="circuit-61 circuit-62"
+      class="circuit-60 circuit-61"
     >
       <p
-        class="circuit-38 circuit-39 circuit-40 circuit-41"
+        class="circuit-38 circuit-39 circuit-40"
       >
         1
          / 
         3
       </p>
       <div
-        class="circuit-42 circuit-43"
+        class="circuit-41 circuit-42"
       />
       <div
-        class="circuit-59 circuit-60"
+        class="circuit-58 circuit-59"
       >
         <button
           aria-label="pause"
-          class="circuit-46 circuit-47 circuit-48"
+          class="circuit-45 circuit-46 circuit-47"
         >
           <div
-            class="circuit-44 circuit-45"
+            class="circuit-43 circuit-44"
           >
             <svg
               fill="none"
@@ -6447,10 +6453,10 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
         </button>
         <button
           aria-label="previous"
-          class="circuit-46 circuit-47 circuit-48"
+          class="circuit-45 circuit-46 circuit-47"
         >
           <div
-            class="circuit-44 circuit-45"
+            class="circuit-43 circuit-44"
           >
             <svg
               fill="none"
@@ -6471,10 +6477,10 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
         </button>
         <button
           aria-label="next"
-          class="circuit-46 circuit-47 circuit-48"
+          class="circuit-45 circuit-46 circuit-47"
         >
           <div
-            class="circuit-44 circuit-45"
+            class="circuit-43 circuit-44"
           >
             <svg
               fill="none"
@@ -6953,7 +6959,7 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
 `;
 
 exports[`Storyshots Components/Carousel/Status Base 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -6963,21 +6969,21 @@ exports[`Storyshots Components/Carousel/Status Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-1 {
+  .circuit-0 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-1 {
+  .circuit-0 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 <p
-  class=" circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1"
 >
   1
    / 
@@ -7873,13 +7879,13 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
   }
 }
 
-.circuit-8 {
+.circuit-7 {
   width: 100%;
   padding: 0;
   height: 50vh;
 }
 
-.circuit-6 {
+.circuit-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7899,7 +7905,7 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
   background: #fff;
 }
 
-.circuit-2 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7916,36 +7922,36 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
   padding: 24px 18px;
 }
 
-.circuit-4 {
+.circuit-3 {
   height: 100%;
   width: 50%;
   background: no-repeat center / cover url('https://source.unsplash.com/random');
 }
 
 <div
-  class="circuit-8"
+  class="circuit-7"
 >
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-5 circuit-6"
   >
     <div
-      class="circuit-2 circuit-3"
+      class="circuit-1 circuit-2"
     >
       <p
-        class=" circuit-0 circuit-1"
+        class="circuit-0"
       >
         A nice custom modal for special cases.
       </p>
     </div>
     <div
-      class="circuit-4 circuit-5"
+      class="circuit-3 circuit-4"
     />
   </div>
 </div>
 `;
 
 exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
-.circuit-8 {
+.circuit-7 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -7969,36 +7975,36 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-8:active {
+.circuit-7:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-8:focus {
+.circuit-7:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-8:hover {
+.circuit-7:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-8:hover,
-.circuit-8:active {
+.circuit-7:hover,
+.circuit-7:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-8[href] {
+.circuit-7[href] {
   display: inline-block;
 }
 
-.circuit-8:disabled,
-.circuit-8[disabled] {
+.circuit-7:disabled,
+.circuit-7[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -8007,25 +8013,25 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   user-selectable: none;
 }
 
-.circuit-8:active {
+.circuit-7:active {
   background-color: #1760CE;
   border-color: #003C8B;
 }
 
-.circuit-8:focus {
+.circuit-7:focus {
   border-color: #1760CE;
 }
 
-.circuit-8:hover {
+.circuit-7:hover {
   background-color: #1760CE;
 }
 
-.circuit-8:hover,
-.circuit-8:active {
+.circuit-7:hover,
+.circuit-7:active {
   border-color: #003C8B;
 }
 
-.circuit-6 {
+.circuit-5 {
   background-color: #FAFBFC;
   border-color: #D8DDE1;
   border-radius: 4px;
@@ -8051,36 +8057,36 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   color: #5C656F;
 }
 
-.circuit-6:active {
+.circuit-5:active {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
   box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
 }
 
-.circuit-6:focus {
+.circuit-5:focus {
   border-color: #9DA7B1;
   border-width: 2px;
   outline: 0;
   padding: calc(8px - 1px) calc(24px - 1px);
 }
 
-.circuit-6:hover {
+.circuit-5:hover {
   background-color: #D8DDE1;
 }
 
-.circuit-6:hover,
-.circuit-6:active {
+.circuit-5:hover,
+.circuit-5:active {
   border-color: #9DA7B1;
   border-width: 1px;
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-6[href] {
+.circuit-5[href] {
   display: inline-block;
 }
 
-.circuit-6:disabled,
-.circuit-6[disabled] {
+.circuit-5:disabled,
+.circuit-5[disabled] {
   opacity: 0.4;
   pointer-events: none;
   -webkit-user-selectable: none;
@@ -8089,48 +8095,48 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   user-selectable: none;
 }
 
-.circuit-6:active {
+.circuit-5:active {
   background-color: transparent;
   border-color: #212933;
   border-width: 0;
   box-shadow: none;
 }
 
-.circuit-6:focus {
+.circuit-5:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
-.circuit-6:hover {
+.circuit-5:hover {
   background-color: transparent;
   border-width: 0;
   border-color: #212933;
 }
 
-.circuit-6:active,
-.circuit-6:hover,
-.circuit-6:hover:focus,
-.circuit-6:active:focus {
+.circuit-5:active,
+.circuit-5:hover,
+.circuit-5:hover:focus,
+.circuit-5:active:focus {
   padding: calc(8px - 0px) calc(24px - 0px);
 }
 
-.circuit-6:active,
-.circuit-6:hover,
-.circuit-6:focus {
+.circuit-5:active,
+.circuit-5:hover,
+.circuit-5:focus {
   color: #212933;
 }
 
-.circuit-6:active:focus,
-.circuit-6:hover:focus {
+.circuit-5:active:focus,
+.circuit-5:hover:focus {
   border-color: #212933;
   border-width: 2px;
   box-shadow: none;
   padding: calc(8px - 2px) calc(24px - 2px);
 }
 
-.circuit-10 {
+.circuit-9 {
   list-style-type: none;
   width: 100%;
   -webkit-box-pack: end;
@@ -8139,16 +8145,16 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   justify-content: flex-end;
 }
 
-.circuit-10 > li:not(:last-of-type) {
+.circuit-9 > li:not(:last-of-type) {
   margin-bottom: 16px;
 }
 
-.circuit-10 > li > * {
+.circuit-9 > li > * {
   width: 100%;
 }
 
 @media (min-width:480px) {
-  .circuit-10 {
+  .circuit-9 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -8158,7 +8164,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
     flex-wrap: nowrap;
   }
 
-  .circuit-10 > li:not(:last-of-type) {
+  .circuit-9 > li:not(:last-of-type) {
     margin-bottom: 0;
     margin-right: 16px;
   }
@@ -8195,14 +8201,14 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
-.circuit-12 {
+.circuit-11 {
   display: block;
   width: 100%;
   margin-top: 24px;
 }
 
 @media (min-width:480px) {
-  .circuit-12 {
+  .circuit-11 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -8216,7 +8222,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-12 {
+  .circuit-11 {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -8238,7 +8244,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
-.circuit-14 {
+.circuit-13 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -8258,7 +8264,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-14 {
+  .circuit-13 {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
@@ -8267,7 +8273,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 <div
-  class="circuit-14 circuit-15"
+  class="circuit-13 circuit-14"
   spacing="giga"
 >
   <header
@@ -8280,26 +8286,26 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
     </h2>
   </header>
   <p
-    class=" circuit-4 circuit-5"
+    class="circuit-4"
   >
     Some text in the modal body.
   </p>
   <footer
-    class="circuit-12 circuit-13"
+    class="circuit-11 circuit-12"
   >
     <ul
-      class="circuit-10 circuit-11"
+      class="circuit-9 circuit-10"
     >
       <li>
         <button
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
         >
           Cancel
         </button>
       </li>
       <li>
         <button
-          class="circuit-8 circuit-7"
+          class="circuit-7 circuit-6"
         >
           Confirm
         </button>
@@ -8355,7 +8361,7 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
   }
 }
 
-.circuit-6 {
+.circuit-5 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -8375,7 +8381,7 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 {
+  .circuit-5 {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
@@ -8384,7 +8390,7 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 }
 
 <div
-  class="circuit-6 circuit-7"
+  class="circuit-5 circuit-6"
   spacing="giga"
 >
   <header
@@ -8397,7 +8403,7 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
     </h2>
   </header>
   <p
-    class=" circuit-4 circuit-5"
+    class="circuit-4"
   >
     Hello world!
   </p>
@@ -8490,7 +8496,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   }
 }
 
-.circuit-11 {
+.circuit-10 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -8510,7 +8516,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 @media (max-width:479px) {
-  .circuit-11 {
+  .circuit-10 {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
@@ -8519,7 +8525,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 <div
-  class="circuit-11 circuit-12"
+  class="circuit-10 circuit-11"
   spacing="giga"
 >
   <header
@@ -8559,7 +8565,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
     </button>
   </header>
   <p
-    class=" circuit-9 circuit-10"
+    class="circuit-9"
   >
     Some text in the modal body.
   </p>
@@ -8581,7 +8587,7 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
   }
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -8601,7 +8607,7 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-2 {
+  .circuit-1 {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
@@ -8610,11 +8616,11 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
   spacing="giga"
 >
   <p
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     Some text in the modal body.
   </p>
@@ -8835,7 +8841,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8854,7 +8860,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-4 {
+  .circuit-3 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -8862,7 +8868,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-3 circuit-4"
 >
   <div>
     <h4
@@ -8871,7 +8877,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
       New Feature — Intelligent Reporting
     </h4>
     <p
-      class=" circuit-2 circuit-3"
+      class="circuit-2"
     >
       Get automatic insights into your business statistics with one click.
     </p>
@@ -9200,7 +9206,7 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9219,49 +9225,49 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-4 {
+  .circuit-3 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
   }
 }
 
-.circuit-11 {
+.circuit-10 {
   min-height: 5rem;
 }
 
-.circuit-10 {
+.circuit-9 {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 }
 
-.circuit-8 {
+.circuit-7 {
   width: 100%;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-6 {
+.circuit-5 {
   padding: 16px 24px;
 }
 
 <div
-  class="circuit-11"
+  class="circuit-10"
 >
   <div
-    class="circuit-10"
+    class="circuit-9"
   >
     <div
       aria-live="polite"
-      class="circuit-8 circuit-9"
+      class="circuit-7 circuit-8"
     >
       <div
-        class="circuit-6 circuit-7"
+        class="circuit-5 circuit-6"
       >
         <div
-          class="circuit-4 circuit-5"
+          class="circuit-3 circuit-4"
         >
           <div>
             <h4
@@ -9270,7 +9276,7 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
               New Feature — Intelligent Reporting
             </h4>
             <p
-              class=" circuit-2 circuit-3"
+              class="circuit-2"
             >
               Get automatic insights into your business statistics with one click.
             </p>
@@ -15254,7 +15260,7 @@ exports[`Storyshots Forms/InlineMessage Alert 1`] = `
 `;
 
 exports[`Storyshots Forms/InlineMessage Base 1`] = `
-.circuit-4 {
+.circuit-3 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -15306,7 +15312,7 @@ exports[`Storyshots Forms/InlineMessage Base 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-3 circuit-4"
   spacing="giga"
 >
   <p
@@ -15316,7 +15322,7 @@ exports[`Storyshots Forms/InlineMessage Base 1`] = `
     Something might go terribly wrong.
   </p>
   <p
-    class=" circuit-2 circuit-3"
+    class="circuit-2"
   >
     Sorry that is how it is.
   </p>
@@ -21311,7 +21317,7 @@ label + .circuit-7 {
 `;
 
 exports[`Storyshots Forms/Toggle Base 1`] = `
-.circuit-11 {
+.circuit-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21377,29 +21383,29 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   width: 1px;
 }
 
-.circuit-9 {
+.circuit-8 {
   display: block;
   margin-left: 12px;
 }
 
-.circuit-7 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   margin-bottom: 0;
   padding-top: 2px;
 }
 
 @media (min-width:480px) {
-  .circuit-7 {
-    font-size: 13px;
-    line-height: 20px;
+  .circuit-6 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
 <div
-  class="circuit-11 circuit-12"
+  class="circuit-10 circuit-11"
 >
   <button
     aria-checked="false"
@@ -21419,12 +21425,12 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
     </span>
   </button>
   <label
-    class="circuit-9 circuit-10"
+    class="circuit-8 circuit-9"
     for="toggle-switch_59"
     id="toggle-label_60"
   >
     <p
-      class=" circuit-6 circuit-7 circuit-8"
+      class="circuit-6 circuit-7"
     >
       Short label
     </p>
@@ -21488,28 +21494,28 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
   width: 1px;
 }
 
-.circuit-9 {
+.circuit-8 {
   display: block;
   margin-left: 12px;
 }
 
-.circuit-7 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   margin-bottom: 0;
   padding-top: 2px;
 }
 
 @media (min-width:480px) {
-  .circuit-7 {
-    font-size: 13px;
-    line-height: 20px;
+  .circuit-6 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
-.circuit-11 {
+.circuit-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21521,7 +21527,7 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-11 {
+  .circuit-10 {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
@@ -21531,14 +21537,14 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
     justify-content: space-between;
   }
 
-  .circuit-11 label {
+  .circuit-10 label {
     margin-left: 0;
     margin-right: 12px;
   }
 }
 
 <div
-  class="circuit-11 circuit-12"
+  class="circuit-10 circuit-11"
   reversed=""
 >
   <button
@@ -21559,12 +21565,12 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
     </span>
   </button>
   <label
-    class="circuit-9 circuit-10"
+    class="circuit-8 circuit-9"
     for="toggle-switch_63"
     id="toggle-label_64"
   >
     <p
-      class=" circuit-6 circuit-7 circuit-8"
+      class="circuit-6 circuit-7"
     >
       Short label
     </p>
@@ -21573,7 +21579,7 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
 `;
 
 exports[`Storyshots Forms/Toggle With Explanation 1`] = `
-.circuit-14 {
+.circuit-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21639,45 +21645,45 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   width: 1px;
 }
 
-.circuit-12 {
+.circuit-10 {
   display: block;
   margin-left: 12px;
 }
 
-.circuit-7 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   margin-bottom: 0;
   padding-top: 2px;
 }
 
 @media (min-width:480px) {
-  .circuit-7 {
-    font-size: 13px;
-    line-height: 20px;
+  .circuit-6 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
-.circuit-10 {
+.circuit-8 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   margin-bottom: 0;
   color: #9DA7B1;
 }
 
 @media (min-width:480px) {
-  .circuit-10 {
-    font-size: 13px;
-    line-height: 20px;
+  .circuit-8 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
 <div
-  class="circuit-14 circuit-15"
+  class="circuit-12 circuit-13"
 >
   <button
     aria-checked="false"
@@ -21697,17 +21703,17 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
     </span>
   </button>
   <label
-    class="circuit-12 circuit-13"
+    class="circuit-10 circuit-11"
     for="toggle-switch_61"
     id="toggle-label_62"
   >
     <p
-      class=" circuit-6 circuit-7 circuit-8"
+      class="circuit-6 circuit-7"
     >
       Short label
     </p>
     <p
-      class=" circuit-9 circuit-10 circuit-8"
+      class="circuit-8 circuit-9"
     >
       Some more detailed text of what this means
     </p>
@@ -24709,6 +24715,7 @@ exports[`Storyshots Typography/Text Base 1`] = `
   margin-bottom: 16px;
   font-size: 13px;
   line-height: 20px;
+  margin-bottom: 0;
 }
 
 @media (min-width:480px) {
@@ -24719,7 +24726,7 @@ exports[`Storyshots Typography/Text Base 1`] = `
 }
 
 <p
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.
 </p>
@@ -24742,7 +24749,7 @@ exports[`Storyshots Typography/Text Bold 1`] = `
 }
 
 <p
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.
 </p>
@@ -24764,7 +24771,7 @@ exports[`Storyshots Typography/Text Custom Element 1`] = `
 }
 
 <span
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.
 </span>
@@ -24787,7 +24794,7 @@ exports[`Storyshots Typography/Text Italic 1`] = `
 }
 
 <p
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.
 </p>
@@ -24810,7 +24817,7 @@ HTMLCollection [
 }
 
 <p
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     kilo
@@ -24832,7 +24839,7 @@ HTMLCollection [
 }
 
 <p
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     mega
@@ -24854,7 +24861,7 @@ HTMLCollection [
 }
 
 <p
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     giga
@@ -24882,7 +24889,7 @@ exports[`Storyshots Typography/Text Strike 1`] = `
 }
 
 <p
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.
 </p>

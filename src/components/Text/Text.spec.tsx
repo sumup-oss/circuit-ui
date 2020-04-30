@@ -15,7 +15,9 @@
 
 import React from 'react';
 
-import Text from '.';
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
+import { Text, TextProps } from './Text';
 
 describe('Text', () => {
   /**
@@ -31,7 +33,7 @@ describe('Text', () => {
     });
   });
 
-  const sizes = ['kilo', 'mega', 'giga'];
+  const sizes: TextProps['size'][] = ['kilo', 'mega', 'giga'];
   sizes.forEach(size => {
     it(`should render with size ${size}, when passed "${size}" for the size prop`, () => {
       const heading = create(<Text {...{ size }}>{`${size} heading`}</Text>);
