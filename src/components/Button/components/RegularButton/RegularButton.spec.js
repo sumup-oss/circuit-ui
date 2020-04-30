@@ -46,20 +46,6 @@ describe('RegularButton', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should have flat button styles', () => {
-    const actual = create(<Button flat>Flat button</Button>);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should have flat disabled button styles', () => {
-    const actual = create(
-      <Button flat disabled>
-        Flat button
-      </Button>
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
   it('should have secondary button styles', () => {
     const actual = create(<Button secondary>Secondary button</Button>);
     expect(actual).toMatchSnapshot();
@@ -69,15 +55,6 @@ describe('RegularButton', () => {
     const actual = create(
       <Button secondary disabled>
         Secondary disabled button
-      </Button>
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should have secondary flat button styles', () => {
-    const actual = create(
-      <Button secondary flat>
-        Secondary flat button
       </Button>
     );
     expect(actual).toMatchSnapshot();

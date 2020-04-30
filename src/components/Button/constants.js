@@ -29,10 +29,6 @@ export const BUTTON_PROP_TYPES = {
    */
   disabled: PropTypes.bool,
   /**
-   * Button has a 'flat' variation, triggered with this prop.
-   */
-  flat: PropTypes.bool,
-  /**
    * URL the Button should lead to. Causes the Button to render an <a> tag.
    */
   href: PropTypes.string,
@@ -49,8 +45,7 @@ export const BUTTON_PROP_TYPES = {
    */
   size: SIZE_PROP_TYPE,
   /**
-   * Renders a secondary button. Secondary buttons look the same for
-   * primary (default) and flat buttons.
+   * Renders a secondary button.
    */
   secondary: PropTypes.bool,
   /**
@@ -65,7 +60,6 @@ export const BUTTON_PROP_TYPES = {
 
 export const BUTTON_DEFAULT_PROPS = {
   disabled: false,
-  flat: false,
   href: null,
   plain: false,
   primary: false,
@@ -78,7 +72,6 @@ export const BUTTON_DEFAULT_PROPS = {
 export const REGULAR_BUTTON_ONLY_PROPS = [
   'deepRef',
   'as',
-  'flat',
   'secondary',
   'stretch'
 ];

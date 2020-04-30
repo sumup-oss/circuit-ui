@@ -128,36 +128,7 @@ const stretchStyles = ({ stretch }) =>
     display: block;
   `;
 
-const flatStyles = ({ theme, flat, secondary, ...props }) =>
-  flat &&
-  !secondary &&
-  css`
-    label: button--flat;
-    border-width: 0px;
-    box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.02),
-      0 2px 2px 0 rgba(12, 15, 20, 0.06), 0 4px 4px 0 rgba(12, 15, 20, 0.06);
-
-    &:active {
-      box-shadow: inset 0 4px 8px 0 rgba(12, 15, 20, 0.3);
-    }
-
-    &:hover {
-      border-width: 0;
-    }
-
-    &:active:focus,
-    &:hover:focus {
-      border-width: 0;
-      padding: ${calculatePadding({ theme, flat, secondary, ...props })()};
-    }
-
-    &:focus {
-      border-width: 2px;
-      padding: ${calculatePadding({ theme, flat, secondary, ...props })('2px')};
-    }
-  `;
-
-const secondaryStyles = ({ theme, secondary, flat, ...props }) =>
+const secondaryStyles = ({ theme, secondary, ...props }) =>
   secondary &&
   css`
     label: button--secondary;
@@ -178,7 +149,7 @@ const secondaryStyles = ({ theme, secondary, flat, ...props }) =>
       border-color: ${theme.colors.n900};
       border-width: 2px;
       box-shadow: none;
-      padding: ${calculatePadding({ theme, flat, secondary, ...props })('2px')};
+      padding: ${calculatePadding({ theme, ...props })('2px')};
     }
 
     &:hover {
@@ -191,7 +162,7 @@ const secondaryStyles = ({ theme, secondary, flat, ...props }) =>
     &:hover,
     &:hover:focus,
     &:active:focus {
-      padding: ${calculatePadding({ theme, flat, secondary, ...props })()};
+      padding: ${calculatePadding({ theme, ...props })()};
     }
 
     &:active,
@@ -205,7 +176,7 @@ const secondaryStyles = ({ theme, secondary, flat, ...props }) =>
       border-color: ${theme.colors.n900};
       border-width: 2px;
       box-shadow: none;
-      padding: ${calculatePadding({ theme, flat, secondary, ...props })('2px')};
+      padding: ${calculatePadding({ theme, ...props })('2px')};
     }
   `;
 
@@ -235,7 +206,6 @@ const ButtonElement = styled('button', {
   ${baseStyles};
   ${primaryStyles};
   ${sizeStyles};
-  ${flatStyles};
   ${secondaryStyles};
   ${stretchStyles};
   ${buttonLoadingStyles};

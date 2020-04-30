@@ -33,7 +33,6 @@ export const base = () => (
     primary={boolean('Primary', false)}
     disabled={boolean('Disabled', false)}
     secondary={boolean('Secondary', false)}
-    flat={boolean('Flat', false)}
     href={boolean('Link', false) ? '#' : undefined}
     target={boolean('Link', false) ? '_blank' : undefined}
     stretch={boolean('Stretched', false)}
@@ -49,10 +48,6 @@ export const primary = () => (
 
 export const secondary = () => (
   <Button secondary>{text('Button Label', 'Secondary Button')}</Button>
-);
-
-export const flat = () => (
-  <Button flat>{text('Button Label', 'Flat Button')}</Button>
 );
 
 export const plain = () => (

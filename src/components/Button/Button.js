@@ -39,7 +39,6 @@ export const BUTTON_PROPS = [
   ...SHARED_PROPS,
   'deepRef',
   'as',
-  'flat',
   'secondary',
   'size',
   'stretch',
@@ -48,13 +47,7 @@ export const BUTTON_PROPS = [
 
 export const PLAIN_BUTTON_PROPS = [...SHARED_PROPS, 'size', 'target'];
 
-const REGULAR_BUTTON_ONLY_PROPS = [
-  'deepRef',
-  'as',
-  'flat',
-  'secondary',
-  'stretch'
-];
+const REGULAR_BUTTON_ONLY_PROPS = ['deepRef', 'as', 'secondary', 'stretch'];
 
 /**
  * A button component with support for the anchor and button
@@ -77,10 +70,6 @@ Button.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * Button has a 'flat' variation, triggered with this prop.
-   */
-  flat: PropTypes.bool,
-  /**
    * URL the Button should lead to. Causes the Button to render an <a> tag.
    */
   href: PropTypes.string,
@@ -97,8 +86,7 @@ Button.propTypes = {
    */
   size: PropTypes.oneOf([Button.KILO, Button.MEGA, Button.GIGA]),
   /**
-   * Renders a secondary button. Secondary buttons look the same for
-   * primary (default) and flat buttons.
+   * Renders a secondary button.
    */
   secondary: PropTypes.bool,
   /**
@@ -113,7 +101,6 @@ Button.propTypes = {
 
 Button.defaultProps = {
   disabled: false,
-  flat: false,
   href: null,
   plain: false,
   primary: false,
