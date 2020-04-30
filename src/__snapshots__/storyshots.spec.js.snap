@@ -240,19 +240,17 @@ exports[`Storyshots Components/Blockquote Base 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   font-style: italic;
   padding-left: 12px;
   border-left: 2px solid #3388FF;
-  padding-left: 16px;
-  border-left: 3px solid #3388FF;
 }
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 13px;
+    line-height: 20px;
   }
 }
 
@@ -273,19 +271,17 @@ HTMLCollection [
   .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   font-style: italic;
   padding-left: 12px;
   border-left: 2px solid #3388FF;
-  padding-left: 16px;
-  border-left: 3px solid #3388FF;
 }
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 13px;
+    line-height: 20px;
   }
 }
 
@@ -302,8 +298,6 @@ HTMLCollection [
   font-style: italic;
   padding-left: 12px;
   border-left: 2px solid #3388FF;
-  padding-left: 16px;
-  border-left: 3px solid #3388FF;
 }
 
 @media (min-width:480px) {
@@ -332,8 +326,8 @@ HTMLCollection [
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 28px;
   }
 }
 
@@ -21391,16 +21385,16 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 .circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   margin-bottom: 0;
   padding-top: 2px;
 }
 
 @media (min-width:480px) {
   .circuit-6 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 13px;
+    line-height: 20px;
   }
 }
 
@@ -21502,16 +21496,16 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
 .circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   margin-bottom: 0;
   padding-top: 2px;
 }
 
 @media (min-width:480px) {
   .circuit-6 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 13px;
+    line-height: 20px;
   }
 }
 
@@ -21653,32 +21647,32 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 .circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   margin-bottom: 0;
   padding-top: 2px;
 }
 
 @media (min-width:480px) {
   .circuit-6 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 13px;
+    line-height: 20px;
   }
 }
 
 .circuit-8 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   margin-bottom: 0;
   color: #9DA7B1;
 }
 
 @media (min-width:480px) {
   .circuit-8 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 13px;
+    line-height: 20px;
   }
 }
 
