@@ -18,7 +18,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import { multiplyUnit } from '../../styles/style-helpers';
 import Card from '../Card';
 
 // The first max-width rule is a fallback for old versions of Android
@@ -29,7 +28,7 @@ const baseStyles = ({ theme }) => css`
   flex-direction: column;
   width: 400px;
   max-width: 90vw;
-  max-width: calc(100vw - ${multiplyUnit(theme.spacings.giga, 2)});
+  max-width: calc(100vw - (${theme.spacings.giga} * 2));
 
   > * {
     margin-top: ${theme.spacings.mega};

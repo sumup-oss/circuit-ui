@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import { textKilo, subtractUnit } from '../../styles/style-helpers';
+import { textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import { sizes } from '../../styles/constants';
 
@@ -44,10 +44,7 @@ const wrapperStyles = ({ theme }) => css`
 const progressStyles = ({ theme, size, value, max }) => {
   const outerBorderWidth = '1px';
   const outerBorderRadius = theme.borderRadius.mega;
-  const innerBorderRadiusLeft = `${subtractUnit(
-    outerBorderRadius,
-    outerBorderWidth
-  )}`;
+  const innerBorderRadiusLeft = `calc(${outerBorderRadius} - ${outerBorderWidth})`;
   const innerBorderRadiusRight =
     value && max && (value / max) * 100 === 100 ? innerBorderRadiusLeft : 0;
   const width = value && max ? (value / max) * 100 : 0;
