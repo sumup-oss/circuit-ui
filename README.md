@@ -61,7 +61,7 @@ yarn lint:fix
 ## Testing
 
 ```
-yarn test:watch
+yarn test
 ```
 
 ```javascript

@@ -107,14 +107,19 @@ function getRequiredProps(props) {
 }
 
 export function getComponentInfo(component, propOverrides = {}) {
-  // eslint-disable-next-line no-underscore-dangle
-  const { displayName, props } = component.__docgenInfo;
-  return {
-    component,
-    name: kebabCase(displayName),
-    props: getProps(props, propOverrides),
-    requiredProps: getRequiredProps(props)
-  };
+  try {
+    // eslint-disable-next-line no-underscore-dangle
+    const { displayName, props } = component.__docgenInfo;
+    return {
+      component,
+      name: kebabCase(displayName),
+      props: getProps(props, propOverrides),
+      requiredProps: getRequiredProps(props)
+    };
+  } catch (error) {
+    console.error(component);
+    throw error;
+  }
 }
 
 export default {

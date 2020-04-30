@@ -14,50 +14,31 @@
  */
 
 import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
 import { createSerializer } from 'jest-emotion';
-import { axe, toHaveNoViolations } from 'jest-axe';
-import { render, fireEvent, wait, act } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { ThemeProvider } from 'emotion-theming';
-import { light } from '@sumup/design-tokens';
+import { toHaveNoViolations } from 'jest-axe';
+import { fireEvent } from '@testing-library/react';
 
-import ComponentsContext, {
-  defaultComponents
-} from './src/components/ComponentsContext';
-
-// eslint-disable-next-line react/prop-types
-const WithProviders = ({ children }) => (
-  <ComponentsContext.Provider value={defaultComponents}>
-    <ThemeProvider theme={light}>{children}</ThemeProvider>
-  </ComponentsContext.Provider>
-);
-
-const renderWithProviders = renderFn => (component, ...rest) =>
-  renderFn(<WithProviders>{component}</WithProviders>, rest);
+import {
+  create,
+  render,
+  renderToHtml,
+  renderHook,
+  act,
+  actHook,
+  userEvent,
+  wait,
+  axe
+} from './src/util/test-utils';
 
 global.axe = axe;
 global.act = act;
 global.wait = wait;
 global.fireEvent = fireEvent;
 global.userEvent = userEvent;
-global.render = (component, options) =>
-  render(component, { wrapper: WithProviders, ...options });
-global.renderToHtml = renderWithProviders(renderToStaticMarkup);
-global.create = (...args) => {
-  const { container } = global.render(...args);
-  return container.children.length > 1
-    ? container.children
-    : container.firstChild;
-};
-
-// This is defined by webpack in storybook builds using the DefinePlugin plugin.
-global.STORYBOOK = false;
-
-global.__DEV__ = false;
-global.__PRODUCTION__ = false;
-global.__TEST__ = true;
+global.render = render;
+global.renderToHtml = renderToHtml;
+global.create = create;
 
 // react-popper relies on document.createRange
 if (global.document) {
