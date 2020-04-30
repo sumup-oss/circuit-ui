@@ -20,27 +20,27 @@ import { transparentize } from 'polished';
  * Shadows
  */
 
-export const shadowBorder = (color, borderSize = '1px') => `
+export const shadowBorder = (color, borderSize = '1px') => css`
   box-shadow: 0px 0px 0px ${borderSize} ${color};
 `;
 
-export const shadowGround = ({ theme }) => `
+export const shadowGround = ({ theme }) => css`
   box-shadow: 0 0 0 2px ${transparentize(0.97, theme.colors.shadow)};
 `;
 
-export const shadowSingle = ({ theme }) => `
+export const shadowSingle = ({ theme }) => css`
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 0 1px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
-export const shadowDouble = ({ theme }) => `
+export const shadowDouble = ({ theme }) => css`
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
-export const shadowTriple = ({ theme }) => `
+export const shadowTriple = ({ theme }) => css`
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 8px 8px 0 ${transparentize(0.94, theme.colors.shadow)};
@@ -52,7 +52,7 @@ export const shadowTriple = ({ theme }) => `
 
 const createTypeHelper = (type, name) => ({ theme }) => {
   const { fontSize, lineHeight } = theme.typography[type][name];
-  return `
+  return css`
     font-size: ${fontSize};
     line-height: ${lineHeight};
   `;
@@ -78,22 +78,23 @@ export const textTera = createTypeHelper('text', 'tera');
  * Utilities
  */
 
-export const disableVisually = () => `
+export const disableVisually = () => css`
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 `;
 
-export const clearfix = css`
-  /*
- * For modern browsers
+/**
+ * Taken from https://css-tricks.com/clearfix-a-lesson-in-web-development-evolution/
+ *
  * 1. The space content is one way to avoid an Opera bug when the
- *  contenteditable attribute is included anywhere else in the document.
- *  Otherwise it causes space to appear at the top and bottom of elements
- *  that are clearfixed.
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
  * 2. The use of table rather than "block" is only necessary if using
- * ":before" to contain the top-margins of child elements.
+ *    ":before" to contain the top-margins of child elements.
  */
+export const clearfix = () => css`
   &::before,
   &::after {
     content: ' '; /* 1 */
