@@ -36,7 +36,7 @@ export const base = () => (
     )}
     inlineMobile={boolean('Display inline on mobile', false)}
   >
-    <Button secondary>Cancel</Button>
-    <Button primary>Confirm</Button>
+    <Button variant="secondary">Cancel</Button>
+    <Button variant="primary">Confirm</Button>
   </ButtonGroup>
 );

@@ -63,10 +63,3 @@ export const BUTTON_DEFAULT_PROPS = {
   stretch: false,
   target: null
 };
-
-export const REGULAR_BUTTON_ONLY_PROPS = [
-  'deepRef',
-  'as',
-  'secondary',
-  'stretch'
-];

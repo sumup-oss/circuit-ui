@@ -16,64 +16,62 @@ exports[`LoadingButton Style tests should render with default styles 1`] = `
 }
 
 .circuit-7 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: auto;
   height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
   position: relative;
   overflow: hidden;
 }
 
-.circuit-7:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
 .circuit-7:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
   outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-7:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-7:hover,
-.circuit-7:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-}
-
-.circuit-7[href] {
-  display: inline-block;
+.circuit-7:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.4;
+  opacity: 0.5;
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
+  box-shadow: none;
+}
+
+.circuit-7:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-7:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 .circuit-2 {
@@ -123,7 +121,7 @@ exports[`LoadingButton Style tests should render with default styles 1`] = `
 }
 
 <button
-  class="circuit-6 circuit-7 circuit-8"
+  class="circuit-6 circuit-7"
 >
   <div
     class="circuit-2 circuit-3"
@@ -171,64 +169,62 @@ exports[`LoadingButton Style tests should render with default styles after loadi
 }
 
 .circuit-7 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: auto;
   height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
   position: relative;
   overflow: hidden;
 }
 
-.circuit-7:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
 .circuit-7:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
   outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-7:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-7:hover,
-.circuit-7:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-}
-
-.circuit-7[href] {
-  display: inline-block;
+.circuit-7:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-7:disabled,
 .circuit-7[disabled] {
-  opacity: 0.4;
+  opacity: 0.5;
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
+  box-shadow: none;
+}
+
+.circuit-7:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-7:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 .circuit-2 {
@@ -278,7 +274,7 @@ exports[`LoadingButton Style tests should render with default styles after loadi
 }
 
 <button
-  class="circuit-6 circuit-7 circuit-8"
+  class="circuit-6 circuit-7"
 >
   <div
     class="circuit-2 circuit-3"
@@ -325,6 +321,65 @@ exports[`LoadingButton Style tests should render with loading styles 1`] = `
   }
 }
 
+.circuit-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-7:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-7:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-7:disabled,
+.circuit-7[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-7:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-7:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
+}
+
 .circuit-2 {
   height: 24px;
   width: 24px;
@@ -342,69 +397,6 @@ exports[`LoadingButton Style tests should render with loading styles 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   width: 100%;
-}
-
-.circuit-7 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
-  width: auto;
-  height: auto;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-  overflow-y: hidden;
-  pointer-events: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-7:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-7:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
-  outline: 0;
-  padding: calc(8px - 1px) calc(24px - 1px);
-}
-
-.circuit-7:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-7:hover,
-.circuit-7:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(8px - 0px) calc(24px - 0px);
-}
-
-.circuit-7[href] {
-  display: inline-block;
-}
-
-.circuit-7:disabled,
-.circuit-7[disabled] {
-  opacity: 0.4;
-  pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
 }
 
 .circuit-0 {
@@ -440,7 +432,7 @@ exports[`LoadingButton Style tests should render with loading styles 1`] = `
 }
 
 <button
-  class="circuit-6 circuit-7 circuit-8"
+  class="circuit-6 circuit-7"
 >
   <div
     class="circuit-2 circuit-3"

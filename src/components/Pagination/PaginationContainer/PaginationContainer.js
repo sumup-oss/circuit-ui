@@ -66,7 +66,7 @@ const PaginationContainer = ({
   <Fragment>
     <Container {...rest}>
       <NavigationButtonPrevious
-        size={Button.KILO}
+        size="kilo"
         onClick={() => onChange(page - 1)}
         disabled={page === 1}
         data-testid="pagination-button-previous"
@@ -75,7 +75,7 @@ const PaginationContainer = ({
       </NavigationButtonPrevious>
       {children}
       <NavigationButtonNext
-        size={Button.KILO}
+        size="kilo"
         onClick={() => onChange(page + 1)}
         disabled={page === totalPages}
         isLast

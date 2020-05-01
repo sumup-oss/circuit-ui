@@ -91,7 +91,7 @@ const CarouselSlider = ({ images = [], ...stepProps }) => (
             &larr; Prev
           </SliderButton>
           <SliderButton
-            primary
+            variant="primary"
             {...(state.paused ? getPlayControlProps() : getPauseControlProps())}
           >
             {state.paused ? 'Play' : 'Pause'}

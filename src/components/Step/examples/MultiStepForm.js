@@ -35,7 +35,7 @@ const FormOne = ({ onNextClick }) => (
     <Input placeholder="John" id="first" />
     <Label htmlFor="second">Second Name</Label>
     <Input placeholder="Doe" id="second" />
-    <Button primary onClick={() => onNextClick()}>
+    <Button variant="primary" onClick={() => onNextClick()}>
       Next
     </Button>
   </section>
@@ -57,7 +57,7 @@ const FormTwo = ({ onNextClick, onBackClick }) => (
     <Label htmlFor="postal">Postal Code</Label>
     <Input placeholder="10179" id="postal" />
     <ButtonGroup align={ButtonGroup.LEFT}>
-      <Button primary onClick={() => onNextClick()}>
+      <Button variant="primary" onClick={() => onNextClick()}>
         Submit
       </Button>
       <Button onClick={() => onBackClick()}>Back</Button>

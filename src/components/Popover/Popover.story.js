@@ -43,7 +43,7 @@ const PopoverWithState = props => {
       {...restProps}
       renderPopover={() => <Card>Popover Content</Card>}
       renderReference={() => (
-        <Button size={Button.KILO} onClick={() => setOpen(prev => !prev)}>
+        <Button size="kilo" onClick={() => setOpen(prev => !prev)}>
           {open ? 'Hide' : 'Show'}
         </Button>
       )}

@@ -50,7 +50,7 @@ export default {
 export const base = () => (
   <LoadingButtonWithState
     onAnimationComplete={action('animation completed')}
-    primary
+    variant="primary"
   >
     Things take time
   </LoadingButtonWithState>
@@ -60,7 +60,7 @@ export const success = () => (
   <LoadingButtonWithState
     onAnimationComplete={action('animation completed')}
     exitAnimation={LoadingButton.SUCCESS}
-    primary
+    variant="primary"
   >
     I am a success!
   </LoadingButtonWithState>
@@ -70,7 +70,7 @@ export const error = () => (
   <LoadingButtonWithState
     onAnimationComplete={action('animation completed')}
     exitAnimation={LoadingButton.ERROR}
-    primary
+    variant="primary"
   >
     I will fail.
   </LoadingButtonWithState>

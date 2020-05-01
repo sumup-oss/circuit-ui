@@ -61,7 +61,7 @@ export const warning = () => (
     </Heading>
     <NotificationButton>
       <Button
-        size={Button.KILO}
+        size="kilo"
         onClick={e => {
           action('Button clicked')(e);
         }}
@@ -80,7 +80,7 @@ export const alert = () => (
     </Heading>
     <NotificationButton>
       <Button
-        size={Button.KILO}
+        size="kilo"
         onClick={e => {
           action('Button clicked')(e);
         }}
