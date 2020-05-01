@@ -15,7 +15,9 @@
 
 import React from 'react';
 
-import Spinner from './Spinner';
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
+import { Spinner } from './Spinner';
 
 describe('Spinner', () => {
   /**
@@ -23,16 +25,6 @@ describe('Spinner', () => {
    */
   it('should render with default styles', () => {
     const actual = create(<Spinner />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with dark styles', () => {
-    const actual = create(<Spinner dark />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should render with active styles', () => {
-    const actual = create(<Spinner active />);
     expect(actual).toMatchSnapshot();
   });
 

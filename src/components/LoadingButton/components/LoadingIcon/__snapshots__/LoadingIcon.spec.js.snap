@@ -3,33 +3,19 @@
 exports[`LoadingIcon Style tests should have active LoadingIcon styles 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
-  }
-}
-
-.circuit-2 {
+.circuit-1 {
   height: 16px;
   width: 16px;
   position: absolute;
@@ -49,30 +35,24 @@ exports[`LoadingIcon Style tests should have active LoadingIcon styles 1`] = `
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-0 circuit-1"
-    role="alert"
+  <span
+    class="circuit-0"
   />
 </div>
 `;
@@ -80,19 +60,19 @@ exports[`LoadingIcon Style tests should have active LoadingIcon styles 1`] = `
 exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-.circuit-2 {
+.circuit-1 {
   height: 16px;
   width: 16px;
   position: absolute;
@@ -112,29 +92,24 @@ exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-0 circuit-1"
-    role="alert"
+  <span
+    class="circuit-0"
   />
 </div>
 `;
@@ -142,29 +117,15 @@ exports[`LoadingIcon Style tests should have disabled LoadingIcon styles 1`] = `
 exports[`LoadingIcon Style tests should have error LoadingIcon styles 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -184,7 +145,7 @@ exports[`LoadingIcon Style tests should have error LoadingIcon styles 1`] = `
   }
 }
 
-.circuit-3 {
+.circuit-2 {
   height: 16px;
   width: 16px;
   position: absolute;
@@ -204,22 +165,20 @@ exports[`LoadingIcon Style tests should have error LoadingIcon styles 1`] = `
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-1 {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -238,16 +197,13 @@ exports[`LoadingIcon Style tests should have error LoadingIcon styles 1`] = `
 }
 
 <div
-  class="circuit-3 circuit-4"
+  class="circuit-2 circuit-3"
 >
-  <div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-0 circuit-1"
-    role="alert"
+  <span
+    class="circuit-0"
   />
   <svg
-    class="circuit-2"
+    class="circuit-1"
     fill="none"
     height="24"
     viewBox="0 0 24 24"
@@ -267,49 +223,33 @@ exports[`LoadingIcon Style tests should have error LoadingIcon styles 1`] = `
 exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-1 {
   height: 32px;
   width: 32px;
   position: absolute;
@@ -329,13 +269,10 @@ exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-0 circuit-1"
-    role="alert"
+  <span
+    class="circuit-0"
   />
 </div>
 `;
@@ -343,33 +280,19 @@ exports[`LoadingIcon Style tests should have giga LoadingIcon styles 1`] = `
 exports[`LoadingIcon Style tests should have kilo LoadingIcon styles 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
-  }
-}
-
-.circuit-2 {
+.circuit-1 {
   height: 16px;
   width: 16px;
   position: absolute;
@@ -389,29 +312,24 @@ exports[`LoadingIcon Style tests should have kilo LoadingIcon styles 1`] = `
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-0 circuit-1"
-    role="alert"
+  <span
+    class="circuit-0"
   />
 </div>
 `;
@@ -419,49 +337,33 @@ exports[`LoadingIcon Style tests should have kilo LoadingIcon styles 1`] = `
 exports[`LoadingIcon Style tests should have mega LoadingIcon styles 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-1 {
   height: 24px;
   width: 24px;
   position: absolute;
@@ -481,13 +383,10 @@ exports[`LoadingIcon Style tests should have mega LoadingIcon styles 1`] = `
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-0 circuit-1"
-    role="alert"
+  <span
+    class="circuit-0"
   />
 </div>
 `;
@@ -495,29 +394,15 @@ exports[`LoadingIcon Style tests should have mega LoadingIcon styles 1`] = `
 exports[`LoadingIcon Style tests should have success LoadingIcon styles 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
-  }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -537,7 +422,7 @@ exports[`LoadingIcon Style tests should have success LoadingIcon styles 1`] = `
   }
 }
 
-.circuit-3 {
+.circuit-2 {
   height: 16px;
   width: 16px;
   position: absolute;
@@ -557,22 +442,20 @@ exports[`LoadingIcon Style tests should have success LoadingIcon styles 1`] = `
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
-.circuit-2 {
+.circuit-1 {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -591,16 +474,13 @@ exports[`LoadingIcon Style tests should have success LoadingIcon styles 1`] = `
 }
 
 <div
-  class="circuit-3 circuit-4"
+  class="circuit-2 circuit-3"
 >
-  <div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-0 circuit-1"
-    role="alert"
+  <span
+    class="circuit-0"
   />
   <svg
-    class="circuit-2"
+    class="circuit-1"
     fill="none"
     height="24"
     viewBox="0 0 24 24"

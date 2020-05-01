@@ -14,22 +14,9 @@
  */
 
 import React from 'react';
-import { boolean } from '@storybook/addon-knobs/react';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Spinner from './Spinner';
-
-const Container = styled('div')(
-  ({ theme }) => css`
-    align-items: center;
-    background-color: ${theme.colors.n500};
-    display: flex;
-    height: 50px;
-    justify-content: center;
-    width: 50px;
-  `
-);
+import Spinner from '.';
 
 export default {
   title: 'Components/Spinner',
@@ -39,8 +26,12 @@ export default {
   }
 };
 
-export const base = () => (
-  <Container>
-    <Spinner dark={boolean('Dark', false)} active={boolean('Active', true)} />
-  </Container>
+export const Base = () => (
+  <Spinner
+    css={theme =>
+      css`
+        color: ${theme.colors.n900};
+      `
+    }
+  />
 );

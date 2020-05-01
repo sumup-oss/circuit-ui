@@ -1011,19 +1011,19 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
 exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-.circuit-7 {
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1056,33 +1056,33 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   overflow: hidden;
 }
 
-.circuit-7:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-7:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7:disabled,
-.circuit-7[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-7:hover {
+.circuit-6:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-7:active {
+.circuit-6:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
 
-.circuit-2 {
+.circuit-1 {
   height: 24px;
   width: 24px;
   position: absolute;
@@ -1102,22 +1102,20 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: inline-block;
   opacity: 1;
   -webkit-transform: translate(0,0);
@@ -1129,20 +1127,17 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
 }
 
 <button
-  class="circuit-6 circuit-7"
+  class="circuit-5 circuit-6"
 >
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
   >
-    <div
-      aria-busy="true"
-      aria-live="assertive"
-      class="circuit-0 circuit-1"
-      role="alert"
+    <span
+      class="circuit-0"
     />
   </div>
   <span
-    class="circuit-4 circuit-5"
+    class="circuit-3 circuit-4"
   >
     Things take time
   </span>
@@ -1152,19 +1147,19 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
 exports[`Storyshots Components/Button/LoadingButton Error 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-.circuit-7 {
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1197,33 +1192,33 @@ exports[`Storyshots Components/Button/LoadingButton Error 1`] = `
   overflow: hidden;
 }
 
-.circuit-7:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-7:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7:disabled,
-.circuit-7[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-7:hover {
+.circuit-6:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-7:active {
+.circuit-6:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
 
-.circuit-2 {
+.circuit-1 {
   height: 24px;
   width: 24px;
   position: absolute;
@@ -1243,22 +1238,20 @@ exports[`Storyshots Components/Button/LoadingButton Error 1`] = `
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: inline-block;
   opacity: 1;
   -webkit-transform: translate(0,0);
@@ -1270,20 +1263,17 @@ exports[`Storyshots Components/Button/LoadingButton Error 1`] = `
 }
 
 <button
-  class="circuit-6 circuit-7"
+  class="circuit-5 circuit-6"
 >
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
   >
-    <div
-      aria-busy="true"
-      aria-live="assertive"
-      class="circuit-0 circuit-1"
-      role="alert"
+    <span
+      class="circuit-0"
     />
   </div>
   <span
-    class="circuit-4 circuit-5"
+    class="circuit-3 circuit-4"
   >
     I will fail.
   </span>
@@ -1293,19 +1283,19 @@ exports[`Storyshots Components/Button/LoadingButton Error 1`] = `
 exports[`Storyshots Components/Button/LoadingButton Success 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-.circuit-7 {
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1338,33 +1328,33 @@ exports[`Storyshots Components/Button/LoadingButton Success 1`] = `
   overflow: hidden;
 }
 
-.circuit-7:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-7:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7:disabled,
-.circuit-7[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-7:hover {
+.circuit-6:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-7:active {
+.circuit-6:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
 
-.circuit-2 {
+.circuit-1 {
   height: 24px;
   width: 24px;
   position: absolute;
@@ -1384,22 +1374,20 @@ exports[`Storyshots Components/Button/LoadingButton Success 1`] = `
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: inline-block;
   opacity: 1;
   -webkit-transform: translate(0,0);
@@ -1411,20 +1399,17 @@ exports[`Storyshots Components/Button/LoadingButton Success 1`] = `
 }
 
 <button
-  class="circuit-6 circuit-7"
+  class="circuit-5 circuit-6"
 >
   <div
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
   >
-    <div
-      aria-busy="true"
-      aria-live="assertive"
-      class="circuit-0 circuit-1"
-      role="alert"
+    <span
+      class="circuit-0"
     />
   </div>
   <span
-    class="circuit-4 circuit-5"
+    class="circuit-3 circuit-4"
   >
     I am a success!
   </span>
@@ -9911,77 +9896,35 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
 exports[`Storyshots Components/Spinner Base 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-}
-
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
-  }
-}
-
-.circuit-2 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #9DA7B1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 50px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 50px;
 }
 
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
 }
 
-<div
-  class="circuit-2 circuit-3"
->
-  <div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-0 circuit-1"
-    role="alert"
-  />
-</div>
+<span
+  class="circuit-0"
+/>
 `;
 
 exports[`Storyshots Components/Step Form 1`] = `
