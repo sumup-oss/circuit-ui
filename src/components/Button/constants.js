@@ -33,10 +33,6 @@ export const BUTTON_PROP_TYPES = {
    */
   href: PropTypes.string,
   /**
-   * Makes the button look and behave like a text link.
-   */
-  plain: PropTypes.bool,
-  /**
    * Renders a primary button using the brand color.
    */
   primary: PropTypes.bool,
@@ -61,7 +57,6 @@ export const BUTTON_PROP_TYPES = {
 export const BUTTON_DEFAULT_PROPS = {
   disabled: false,
   href: null,
-  plain: false,
   primary: false,
   secondary: false,
   size: MEGA,

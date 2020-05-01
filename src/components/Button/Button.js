@@ -13,52 +13,18 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { omit } from 'lodash/fp';
 import PropTypes from 'prop-types';
 
-import PlainButton from './components/PlainButton';
 import RegularButton from './components/RegularButton';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
 
-const SHARED_PROPS = [
-  'children',
-  'className',
-  'data-selector',
-  'disabled',
-  'href',
-  'onClick',
-  'primary',
-  'size',
-  'type'
-];
-
-export const BUTTON_PROPS = [
-  ...SHARED_PROPS,
-  'deepRef',
-  'as',
-  'secondary',
-  'size',
-  'stretch',
-  'target'
-];
-
-export const PLAIN_BUTTON_PROPS = [...SHARED_PROPS, 'size', 'target'];
-
-const REGULAR_BUTTON_ONLY_PROPS = ['deepRef', 'as', 'secondary', 'stretch'];
-
 /**
  * A button component with support for the anchor and button
  * element as well as a button-looking button and a text link.
  */
-const Button = ({ plain, ...props }) =>
-  plain ? (
-    <PlainButton {...omit(REGULAR_BUTTON_ONLY_PROPS, props)} />
-  ) : (
-    <RegularButton {...props} />
-  );
+const Button = RegularButton;
 
 Button.KILO = KILO;
 Button.MEGA = MEGA;
@@ -73,10 +39,6 @@ Button.propTypes = {
    * URL the Button should lead to. Causes the Button to render an <a> tag.
    */
   href: PropTypes.string,
-  /**
-   * Makes the button look and behave like a text link.
-   */
-  plain: PropTypes.bool,
   /**
    * Renders a primary button using the brand color.
    */
@@ -102,7 +64,6 @@ Button.propTypes = {
 Button.defaultProps = {
   disabled: false,
   href: null,
-  plain: false,
   primary: false,
   secondary: false,
   size: Button.MEGA,

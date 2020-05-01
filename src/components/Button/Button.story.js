@@ -50,12 +50,6 @@ export const secondary = () => (
   <Button secondary>{text('Button Label', 'Secondary Button')}</Button>
 );
 
-export const plain = () => (
-  <Button plain href={boolean('href', false) ? 'http://sumup.com' : null}>
-    {text('Button Label', 'Plain Button')}
-  </Button>
-);
-
 export const size = () => (
   <Fragment>
     <Button size={Button.KILO}>Button kilo</Button>

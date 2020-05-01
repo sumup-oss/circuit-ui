@@ -17,11 +17,6 @@ import React from 'react';
 import Button from './Button';
 
 describe('Button', () => {
-  it('should render a plain button', () => {
-    const wrapper = create(<Button plain>Plain Button</Button>);
-    expect(wrapper).toMatchSnapshot();
-  });
-
   it('should render a regular button', () => {
     const wrapper = create(<Button>Regular Button</Button>);
     expect(wrapper).toMatchSnapshot();

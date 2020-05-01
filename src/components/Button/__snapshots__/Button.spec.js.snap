@@ -1,45 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should render a plain button 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 0;
-  box-shadow: none;
-  border: none;
-  background: none;
-  font-weight: normal;
-  padding: 0;
-  color: #9DA7B1;
-  cursor: pointer;
-  outline: none;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-.circuit-0:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.circuit-0:active {
-  color: #212933;
-}
-
-<button
-  class="circuit-0 circuit-1"
->
-  Plain Button
-</button>
-`;
-
 exports[`Button should render a regular button 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
