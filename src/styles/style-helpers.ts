@@ -91,6 +91,7 @@ export const disableVisually = (): SerializedStyles => css`
  * Visually communicates to the user that an element is focused.
  */
 export const focusOutline = ({ theme }: StyleProps): SerializedStyles => css`
+  outline: 0;
   box-shadow: 0 0 0 4px ${theme.colors.p300};
 
   &::-moz-focus-inner {

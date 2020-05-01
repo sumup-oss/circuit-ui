@@ -230,6 +230,7 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.focusOutline({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
+          outline: 0;
           box-shadow: 0 0 0 4px #AFD0FE;
 
           &::-moz-focus-inner {
