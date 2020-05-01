@@ -236,109 +236,6 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components/Blockquote Base 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
-  font-style: italic;
-  padding-left: 12px;
-  border-left: 2px solid #3388FF;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 13px;
-    line-height: 20px;
-  }
-}
-
-<blockquote
-  class="circuit-0 circuit-1"
->
-  
-Lorem ipsum dolor amet echo park activated charcoal banjo deep
-crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
-kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape
-tbh adaptogen green juice lo-fi kombucha.
-
-</blockquote>
-`;
-
-exports[`Storyshots Components/Blockquote Size 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
-  font-style: italic;
-  padding-left: 12px;
-  border-left: 2px solid #3388FF;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 13px;
-    line-height: 20px;
-  }
-}
-
-<blockquote
-    class="circuit-0 circuit-1"
-  >
-    Kilo - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
-  </blockquote>,
-  .circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  font-style: italic;
-  padding-left: 12px;
-  border-left: 2px solid #3388FF;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-<blockquote
-    class="circuit-0 circuit-1"
-  >
-    Mega - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
-  </blockquote>,
-  .circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-  font-style: italic;
-  padding-left: 12px;
-  border-left: 2px solid #3388FF;
-  padding-left: 16px;
-  border-left: 3px solid #3388FF;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 18px;
-    line-height: 28px;
-  }
-}
-
-<blockquote
-    class="circuit-0 circuit-1"
-  >
-    Giga - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
-  </blockquote>,
-]
-`;
-
 exports[`Storyshots Components/Button Base 1`] = `
 .circuit-0 {
   background-color: #FAFBFC;
@@ -7222,195 +7119,6 @@ exports[`Storyshots Components/Image Base 1`] = `
   class="circuit-0 circuit-1"
   src="https://source.unsplash.com/random"
 />
-`;
-
-exports[`Storyshots Components/List Base 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
-}
-
-.circuit-0 ul,
-.circuit-0 ol {
-  margin-left: 4px;
-}
-
-<ul
-  class="circuit-0 circuit-1"
->
-  <li>
-    This is a list
-  </li>
-  <li>
-    A very fine list
-  </li>
-</ul>
-`;
-
-exports[`Storyshots Components/List Nested 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
-}
-
-.circuit-0 ul,
-.circuit-0 ol {
-  margin-left: 4px;
-}
-
-<ul
-  class="circuit-0 circuit-1"
->
-  <li>
-    This is a list
-  </li>
-  <li>
-    A very fine list
-  </li>
-  <ul
-    class="circuit-0 circuit-1"
-  >
-    <li>
-      Sometimes a nested list
-    </li>
-  </ul>
-</ul>
-`;
-
-exports[`Storyshots Components/List Ordered 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
-}
-
-.circuit-0 ul,
-.circuit-0 ol {
-  margin-left: 4px;
-}
-
-<ol
-  class="circuit-0 circuit-1"
->
-  <li>
-    This is a list
-  </li>
-  <li>
-    A very fine list
-  </li>
-</ol>
-`;
-
-exports[`Storyshots Components/List Size 1`] = `
-HTMLCollection [
-  .circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
-}
-
-.circuit-0 ul,
-.circuit-0 ol {
-  margin-left: 4px;
-}
-
-<ul
-    class="circuit-0 circuit-1"
-  >
-    <li>
-      This is a list
-    </li>
-    <li>
-      A very fine list
-    </li>
-  </ul>,
-  .circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  padding-left: 12px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.circuit-0 li {
-  margin-bottom: 8px;
-  margin-left: 12px;
-}
-
-.circuit-0 ul,
-.circuit-0 ol {
-  margin-left: 12px;
-}
-
-<ul
-    class="circuit-0 circuit-1"
-  >
-    <li>
-      This is a list
-    </li>
-    <li>
-      A very fine list
-    </li>
-  </ul>,
-  .circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  padding-left: 16px;
-  font-size: 18px;
-  line-height: 28px;
-}
-
-.circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 12px;
-}
-
-.circuit-0 ul,
-.circuit-0 ol {
-  margin-left: 12px;
-}
-
-<ul
-    class="circuit-0 circuit-1"
-  >
-    <li>
-      This is a list
-    </li>
-    <li>
-      A very fine list
-    </li>
-  </ul>,
-]
 `;
 
 exports[`Storyshots Components/Modal Base 1`] = `
@@ -24599,6 +24307,109 @@ exports[`Storyshots Typography/Anchor As Link 1`] = `
 </a>
 `;
 
+exports[`Storyshots Typography/Blockquote Base 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+<blockquote
+  class="circuit-0 circuit-1"
+>
+  
+Lorem ipsum dolor amet echo park activated charcoal banjo deep
+crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
+kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape
+tbh adaptogen green juice lo-fi kombucha.
+
+</blockquote>
+`;
+
+exports[`Storyshots Typography/Blockquote Size 1`] = `
+HTMLCollection [
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+<blockquote
+    class="circuit-0 circuit-1"
+  >
+    Kilo - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
+  </blockquote>,
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+<blockquote
+    class="circuit-0 circuit-1"
+  >
+    Mega - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
+  </blockquote>,
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid #3388FF;
+  padding-left: 16px;
+  border-left: 3px solid #3388FF;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+<blockquote
+    class="circuit-0 circuit-1"
+  >
+    Giga - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
+  </blockquote>,
+]
+`;
+
 exports[`Storyshots Typography/Heading Base 1`] = `
 .circuit-0 {
   font-weight: 700;
@@ -24770,6 +24581,195 @@ HTMLCollection [
     kilo
      heading
   </h2>,
+]
+`;
+
+exports[`Storyshots Typography/List Base 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 4px;
+}
+
+<ul
+  class="circuit-0 circuit-1"
+>
+  <li>
+    This is a list
+  </li>
+  <li>
+    A very fine list
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Typography/List Nested 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 4px;
+}
+
+<ul
+  class="circuit-0 circuit-1"
+>
+  <li>
+    This is a list
+  </li>
+  <li>
+    A very fine list
+  </li>
+  <ul
+    class="circuit-0 circuit-1"
+  >
+    <li>
+      Sometimes a nested list
+    </li>
+  </ul>
+</ul>
+`;
+
+exports[`Storyshots Typography/List Ordered 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 4px;
+}
+
+<ol
+  class="circuit-0 circuit-1"
+>
+  <li>
+    This is a list
+  </li>
+  <li>
+    A very fine list
+  </li>
+</ol>
+`;
+
+exports[`Storyshots Typography/List Size 1`] = `
+HTMLCollection [
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 4px;
+}
+
+<ul
+    class="circuit-0 circuit-1"
+  >
+    <li>
+      This is a list
+    </li>
+    <li>
+      A very fine list
+    </li>
+  </ul>,
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+    class="circuit-0 circuit-1"
+  >
+    <li>
+      This is a list
+    </li>
+    <li>
+      A very fine list
+    </li>
+  </ul>,
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+    class="circuit-0 circuit-1"
+  >
+    <li>
+      This is a list
+    </li>
+    <li>
+      A very fine list
+    </li>
+  </ul>,
 ]
 `;
 
