@@ -73,6 +73,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   border-radius: ${theme.borderRadius.giga};
   border-width: ${BORDER_WIDTH};
   border-style: solid;
+  transition: opacity ${theme.transitions.default};
 
   &:focus {
     ${focusOutline({ theme })};

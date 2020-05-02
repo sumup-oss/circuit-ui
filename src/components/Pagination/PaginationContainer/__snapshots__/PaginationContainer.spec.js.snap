@@ -39,6 +39,8 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -104,6 +106,8 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -193,6 +197,8 @@ exports[`PaginationContainer styles when the current page is not the first and l
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -258,6 +264,8 @@ exports[`PaginationContainer styles when the current page is not the first and l
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -346,6 +354,8 @@ exports[`PaginationContainer styles when the current page is the last page shoul
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -411,6 +421,8 @@ exports[`PaginationContainer styles when the current page is the last page shoul
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
