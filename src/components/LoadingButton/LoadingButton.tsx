@@ -42,13 +42,16 @@ const buttonStyles = css`
 const spinnerBaseStyles = ({ theme }: StyleProps) => css`
   position: absolute;
   opacity: 0;
-  transition: opacity ${theme.transitions.default};
+  visibility: hidden;
+  transition: opacity ${theme.transitions.default},
+    visibility ${theme.transitions.default};
 `;
 
 const spinnerLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
   isLoading &&
   css`
     opacity: 1;
+    visibility: visible;
   `;
 
 const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
@@ -60,15 +63,18 @@ const LoadingLabel = styled.span(hideVisually);
 
 const childrenStyles = ({ theme }: StyleProps) => css`
   opacity: 1;
+  visibility: visible;
   transform: scale3d(1, 1, 1);
   transition: opacity ${theme.transitions.default},
-    transform ${theme.transitions.default};
+    transform ${theme.transitions.default},
+    visibility ${theme.transitions.default};
 `;
 
 const childrenLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
   isLoading &&
   css`
     opacity: 0;
+    visibility: hidden;
     transform: scale3d(0, 0, 0);
   `;
 
@@ -90,11 +96,9 @@ export const LoadingButton: FC<LoadingButtonProps> = ({
     aria-busy={isLoading}
     {...props}
   >
-    <LoadingIcon isLoading={isLoading} aria-hidden={!isLoading}>
+    <LoadingIcon isLoading={isLoading}>
       <LoadingLabel>{loadingLabel}</LoadingLabel>
     </LoadingIcon>
-    <Children isLoading={isLoading} aria-hidden={isLoading}>
-      {children}
-    </Children>
+    <Children isLoading={isLoading}>{children}</Children>
   </Button>
 );

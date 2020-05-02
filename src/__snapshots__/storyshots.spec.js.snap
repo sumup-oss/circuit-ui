@@ -1114,8 +1114,9 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   transform-origin: 50% 50%;
   position: absolute;
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  visibility: hidden;
+  -webkit-transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
 }
 
 .circuit-0 {
@@ -1133,12 +1134,13 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
 
 .circuit-2 {
   opacity: 1;
+  visibility: visible;
   -webkit-transform: scale3d(1,1,1);
   -ms-transform: scale3d(1,1,1);
   transform: scale3d(1,1,1);
-  -webkit-transition: opacity 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
-  -webkit-transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out, -webkit-transform 200ms ease-in-out, visibility 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 200ms ease-in-out;
 }
 
 <button
@@ -1147,7 +1149,6 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   class="circuit-3"
 >
   <span
-    aria-hidden="true"
     class="circuit-1"
   >
     <span
@@ -1157,7 +1158,6 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
     </span>
   </span>
   <span
-    aria-hidden="false"
     class="circuit-2"
   >
     Things take time
