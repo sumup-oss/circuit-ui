@@ -14,6 +14,7 @@
  */
 
 import React from 'react';
+import { ThumbUp } from '@sumup/icons';
 
 import {
   create,
@@ -78,6 +79,11 @@ describe('Button', () => {
 
     it('should render a stretched button', () => {
       const wrapper = renderButton(create, { ...baseProps, stretch: true });
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render a button with icon', () => {
+      const wrapper = renderButton(create, { ...baseProps, icon: ThumbUp });
       expect(wrapper).toMatchSnapshot();
     });
   });

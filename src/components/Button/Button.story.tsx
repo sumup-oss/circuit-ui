@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { css } from '@emotion/core';
 import { select, boolean, text } from '@storybook/addon-knobs';
 import { ThumbUp } from '@sumup/icons';
 
@@ -62,14 +61,11 @@ export const Sizes = () => (
 );
 
 export const WithIcon = () => (
-  <Button>
-    <ThumbUp
-      role="img"
-      aria-hidden
-      css={theme => css`
-        margin-right: ${theme.spacings.bit};
-      `}
-    />
+  <Button
+    icon={ThumbUp}
+    variant={select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}
+    size={select('Size', ['kilo', 'mega', 'giga'], 'mega')}
+  >
     Like
   </Button>
 );

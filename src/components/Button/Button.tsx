@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ReactNode, ReactElement } from 'react';
+import React, { HTMLProps, ReactNode, ReactElement, FC, SVGProps } from 'react';
 import { css } from '@emotion/core';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -42,6 +43,10 @@ export interface BaseProps {
    * Stretch the button across the full width of its parent.
    */
   stretch?: boolean;
+  /**
+   * Display an icon in addition to the text to help to identify the action.
+   */
+  icon?: FC<SVGProps<SVGSVGElement>>;
 }
 
 type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'type'>;
@@ -163,6 +168,12 @@ const stretchStyles = ({ stretch }: ButtonProps) =>
     width: 100%;
   `;
 
+const iconStyles = (theme: Theme) => css`
+  label: button__icon;
+  margin-right: ${theme.spacings.bit};
+  margin-left: -${theme.spacings.bit};
+`;
+
 const BaseButton = styled('button')<ButtonProps>(
   baseStyles,
   primaryStyles,
@@ -178,8 +189,18 @@ const BaseButton = styled('button')<ButtonProps>(
  */
 export function Button(props: BaseProps & LinkElProps): ReturnType;
 export function Button(props: BaseProps & ButtonElProps): ReturnType;
-export function Button(props: ButtonProps): ReturnType {
+export function Button({
+  children,
+  icon: Icon,
+  ...props
+}: ButtonProps): ReturnType {
   const { Link } = useComponents();
   const LinkButton = BaseButton.withComponent(Link);
-  return props.href ? <LinkButton {...props} /> : <BaseButton {...props} />;
+  const ButtonElement = props.href ? LinkButton : BaseButton;
+  return (
+    <ButtonElement {...props}>
+      {Icon && <Icon css={iconStyles} role="presentation" />}
+      {children}
+    </ButtonElement>
+  );
 }
