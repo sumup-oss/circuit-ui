@@ -14,20 +14,29 @@
  */
 
 import React from 'react';
+import { select, boolean, text } from '@storybook/addon-knobs';
 import { Download } from '@sumup/icons';
 
-import IconButton from './IconButton';
+import docs from '../Button/Button.docs.mdx';
+import { IconButton } from './IconButton';
 
 export default {
   title: 'Components/Button/IconButton',
   component: IconButton,
   parameters: {
+    docs: { page: docs },
     jest: ['IconButton']
   }
 };
 
-export const base = () => (
-  <IconButton label="Download">
+export const Base = () => (
+  <IconButton
+    label={text('Label', 'Download')}
+    variant={select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}
+    size={select('Size', ['kilo', 'mega', 'giga'], 'mega')}
+    stretch={boolean('Stretched', false)}
+    disabled={boolean('Disabled', false)}
+  >
     <Download />
   </IconButton>
 );

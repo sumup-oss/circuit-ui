@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CloseButton styles should render and match snapshot when not visible 1`] = `
-.circuit-0 {
-  cursor: pointer;
-  outline: none;
-  border: none;
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17,10 +14,24 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: #FAFBFC;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border: 0;
+  border-radius: 100%;
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -31,14 +42,54 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   z-index: 800;
 }
 
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
+}
+
 @media (min-width:960px) {
-  .circuit-0 {
+  .circuit-2 {
     visibility: hidden;
   }
 }
 
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 <button
-  class="circuit-0 circuit-1"
+  class="circuit-1 circuit-2"
+  title="Close"
 >
   <svg
     fill="none"
@@ -55,14 +106,29 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
       stroke-width="2"
     />
   </svg>
+  <span
+    class="circuit-0"
+  >
+    Close
+  </span>
 </button>
 `;
 
 exports[`CloseButton styles should render and match snapshot when visible 1`] = `
 .circuit-0 {
-  cursor: pointer;
-  outline: none;
-  border: none;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -75,10 +141,24 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: #FAFBFC;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border: 0;
+  border-radius: 100%;
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -91,14 +171,41 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   opacity: 1;
 }
 
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
+}
+
 @media (min-width:960px) {
-  .circuit-0 {
+  .circuit-2 {
     visibility: hidden;
   }
 }
 
 <button
-  class="circuit-0 circuit-1"
+  class="circuit-1 circuit-2"
+  title="Close"
 >
   <svg
     fill="none"
@@ -115,5 +222,10 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
       stroke-width="2"
     />
   </svg>
+  <span
+    class="circuit-0"
+  >
+    Close
+  </span>
 </button>
 `;
