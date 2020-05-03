@@ -1,7 +1,5 @@
 import React from 'react';
 import { addDecorator, addParameters } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { withA11y } from '@storybook/addon-a11y';
 import { action } from '@storybook/addon-actions';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
@@ -44,6 +42,10 @@ addParameters({
   docs: { components },
 });
 
+export const parameters = {
+  actions: { argTypesRegex: '^on.*' },
+};
+
 const Story = styled.div`
   display: flex;
   flex-direction: column;
@@ -67,8 +69,6 @@ const withThemeProvider = (storyFn) => (
   </ThemeProvider>
 );
 
-addDecorator(withA11y);
-addDecorator(withKnobs);
 addDecorator(withStoryStyles);
 addDecorator(withThemeProvider);
 

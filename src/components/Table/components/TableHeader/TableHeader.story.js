@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { boolean, text, select } from '@storybook/addon-knobs/react';
+import { boolean, text, select } from '@storybook/addon-knobs';
 
 import TableHeader from '.';
 

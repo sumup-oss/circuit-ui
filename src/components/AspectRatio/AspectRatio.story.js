@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { number } from '@storybook/addon-knobs/react';
+import { number } from '@storybook/addon-knobs';
 import styled from '@emotion/styled';
 
 import AspectRatio from './AspectRatio';

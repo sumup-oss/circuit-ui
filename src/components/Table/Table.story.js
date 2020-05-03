@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { boolean } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import Badge from '../Badge';
