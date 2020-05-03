@@ -26,13 +26,6 @@ function isTheme(args: ThemeArgs): args is Theme {
 export const getTheme = (args: ThemeArgs): Theme =>
   isTheme(args) ? args : args.theme;
 
-export const shadowBorder = (
-  color: string,
-  borderSize = '1px'
-): SerializedStyles => css`
-  box-shadow: 0px 0px 0px ${borderSize} ${color};
-`;
-
 export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
   return css`

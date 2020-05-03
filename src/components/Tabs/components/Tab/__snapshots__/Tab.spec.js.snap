@@ -40,11 +40,6 @@ exports[`Tab styles should render with default styles 1`] = `
   border: 0;
 }
 
-.circuit-0:focus:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
 <button
   aria-selected="false"
   class="circuit-0 circuit-1"
@@ -95,11 +90,6 @@ exports[`Tab styles should render with selected styles 1`] = `
 
 .circuit-0:focus::-moz-focus-inner {
   border: 0;
-}
-
-.circuit-0:focus:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
 }
 
 .circuit-0::after {

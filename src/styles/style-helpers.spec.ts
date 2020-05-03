@@ -18,17 +18,6 @@ import { light } from '@sumup/design-tokens';
 import * as StyleHelpers from './style-helpers';
 
 describe('Style helpers', () => {
-  describe('shadowBorder', () => {
-    it('should match the snapshot', () => {
-      const { styles } = StyleHelpers.shadowBorder(light.colors.black);
-      expect(styles).toMatchInlineSnapshot(`
-        "
-          box-shadow: 0px 0px 0px 1px #0F131A;
-        "
-      `);
-    });
-  });
-
   describe('shadowSingle', () => {
     it('should match the snapshot', () => {
       const { styles } = StyleHelpers.shadowSingle({ theme: light });
