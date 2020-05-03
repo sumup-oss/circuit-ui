@@ -27,7 +27,7 @@ const defaultTabStyles = ({ theme }) => css`
   color: ${theme.colors.n700};
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: ${theme.colors.white};
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -37,6 +37,14 @@ const defaultTabStyles = ({ theme }) => css`
   flex-direction: column;
   justify-content: center;
   outline: none;
+
+  &:hover {
+    background-color: ${theme.colors.n100};
+  }
+
+  &:active {
+    background-color: ${theme.colors.n200};
+  }
 
   &:focus {
     ${focusOutline({ theme })};

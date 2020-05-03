@@ -45,6 +45,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {
@@ -138,6 +139,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {
@@ -232,6 +234,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -344,6 +347,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {

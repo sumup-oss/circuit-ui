@@ -27,6 +27,7 @@ const textWrapperStyles = ({ theme }) => css`
   label: toggle__text-wrapper;
   display: block;
   margin-left: ${theme.spacings.kilo};
+  cursor: pointer;
 `;
 
 const ToggleTextWrapper = styled('label')(textWrapperStyles);

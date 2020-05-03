@@ -31,6 +31,7 @@ const labelBaseStyles = ({ theme }) => css`
   display: inline-block;
   padding-left: ${theme.spacings.giga};
   position: relative;
+  cursor: pointer;
 
   &::before {
     ${size(theme.spacings.mega)};

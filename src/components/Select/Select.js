@@ -36,6 +36,7 @@ const MAX_HEIGHT = '42px';
 const selectBaseStyles = ({ theme }) => css`
   label: select;
   appearance: none;
+  cursor: pointer;
   background-color: ${theme.colors.white};
   border-width: 1px;
   border-style: solid;

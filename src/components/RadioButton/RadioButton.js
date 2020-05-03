@@ -28,6 +28,7 @@ const labelBaseStyles = ({ theme }) => css`
   color: ${theme.colors.n700};
   padding-left: ${theme.spacings.giga};
   position: relative;
+  cursor: pointer;
 
   &::before {
     box-sizing: border-box;

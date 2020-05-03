@@ -42,6 +42,7 @@ const trackBaseStyles = ({ theme }) => css`
   transition: background-color ${ANIMATION_TIMING};
   ${size(TRACK_HEIGHT, TRACK_WIDTH)};
   overflow: visible;
+  cursor: pointer;
 
   &:focus {
     ${focusOutline({ theme })};

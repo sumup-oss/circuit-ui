@@ -20,6 +20,7 @@ exports[`Switch should have the correct default styles 1`] = `
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
 }
 
 .circuit-4:focus {
@@ -110,6 +111,7 @@ exports[`Switch should have the correct on styles 1`] = `
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
   background-color: #3388FF;
 }
 

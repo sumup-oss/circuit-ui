@@ -31,6 +31,7 @@ exports[`Toggle should render with default styles 1`] = `
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
 }
 
 .circuit-4:focus {
@@ -74,6 +75,7 @@ exports[`Toggle should render with default styles 1`] = `
 .circuit-10 {
   display: block;
   margin-left: 12px;
+  cursor: pointer;
 }
 
 .circuit-6 {
@@ -167,6 +169,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
 }
 
 .circuit-4:focus {
@@ -210,6 +213,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
 .circuit-10 {
   display: block;
   margin-left: 12px;
+  cursor: pointer;
 }
 
 .circuit-6 {
