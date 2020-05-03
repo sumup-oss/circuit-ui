@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { textMega } from '../../../../styles/style-helpers';
+import { textMega, focusOutline } from '../../../../styles/style-helpers';
 
 const defaultTabStyles = ({ theme }) => css`
   label: tab;
@@ -29,7 +29,6 @@ const defaultTabStyles = ({ theme }) => css`
   cursor: pointer;
   background-color: transparent;
   border: none;
-
   white-space: nowrap;
   height: 100%;
   align-items: center;
@@ -38,6 +37,10 @@ const defaultTabStyles = ({ theme }) => css`
   flex-direction: column;
   justify-content: center;
   outline: none;
+
+  &:focus {
+    ${focusOutline({ theme })};
+  }
 `;
 
 const selectedTabStyles = ({ theme, selected }) =>
