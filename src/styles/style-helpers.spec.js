@@ -34,10 +34,10 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.shadowSingle({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
-          box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
-            0 0 1px 0 rgba(12,15,20,0.06),
-            0 2px 2px 0 rgba(12,15,20,0.06);
-        "
+            box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
+              0 0 1px 0 rgba(12,15,20,0.06),
+              0 2px 2px 0 rgba(12,15,20,0.06);
+          "
       `);
     });
   });
@@ -47,10 +47,10 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.shadowDouble({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
-          box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
-            0 2px 2px 0 rgba(12,15,20,0.06),
-            0 4px 4px 0 rgba(12,15,20,0.06);
-        "
+            box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
+              0 2px 2px 0 rgba(12,15,20,0.06),
+              0 4px 4px 0 rgba(12,15,20,0.06);
+          "
       `);
     });
   });
@@ -60,10 +60,10 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.shadowTriple({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
-          box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
-            0 4px 4px 0 rgba(12,15,20,0.06),
-            0 8px 8px 0 rgba(12,15,20,0.06);
-        "
+            box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
+              0 4px 4px 0 rgba(12,15,20,0.06),
+              0 8px 8px 0 rgba(12,15,20,0.06);
+          "
       `);
     });
   });
@@ -230,13 +230,13 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.focusOutline({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
-          outline: 0;
-          box-shadow: 0 0 0 4px #AFD0FE;
+            outline: 0;
+            box-shadow: 0 0 0 4px #AFD0FE;
 
-          &::-moz-focus-inner {
-            border: 0;
-          }
-        "
+            &::-moz-focus-inner {
+              border: 0;
+            }
+          "
       `);
     });
   });

@@ -17,7 +17,14 @@ import { css, SerializedStyles } from '@emotion/core';
 import { transparentize } from 'polished';
 import { Theme } from '@sumup/design-tokens';
 
-import { StyleProps } from './styled';
+type ThemeArgs = Theme | { theme: Theme };
+
+function isTheme(args: ThemeArgs): args is Theme {
+  return (args as { theme: Theme }).theme === undefined;
+}
+
+export const getTheme = (args: ThemeArgs): Theme =>
+  isTheme(args) ? args : args.theme;
 
 export const shadowBorder = (
   color: string,
@@ -26,29 +33,39 @@ export const shadowBorder = (
   box-shadow: 0px 0px 0px ${borderSize} ${color};
 `;
 
-export const shadowSingle = ({ theme }: StyleProps): SerializedStyles => css`
-  box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
-    0 0 1px 0 ${transparentize(0.94, theme.colors.shadow)},
-    0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)};
-`;
+export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
+  const theme = getTheme(args);
+  return css`
+    box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
+      0 0 1px 0 ${transparentize(0.94, theme.colors.shadow)},
+      0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)};
+  `;
+};
 
-export const shadowDouble = ({ theme }: StyleProps): SerializedStyles => css`
-  box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
-    0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)},
-    0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)};
-`;
+export const shadowDouble = (args: ThemeArgs): SerializedStyles => {
+  const theme = getTheme(args);
+  return css`
+    box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
+      0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)},
+      0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)};
+  `;
+};
 
-export const shadowTriple = ({ theme }: StyleProps): SerializedStyles => css`
-  box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
-    0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)},
-    0 8px 8px 0 ${transparentize(0.94, theme.colors.shadow)};
-`;
+export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
+  const theme = getTheme(args);
+  return css`
+    box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
+      0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)},
+      0 8px 8px 0 ${transparentize(0.94, theme.colors.shadow)};
+  `;
+};
 
 function createTypeHelper<T extends 'headings' | 'subHeadings' | 'text'>(
   type: T,
   size: keyof Theme['typography'][T]
 ) {
-  return ({ theme }: StyleProps): SerializedStyles => {
+  return (args: ThemeArgs): SerializedStyles => {
+    const theme = getTheme(args);
     const { fontSize, lineHeight } = (theme.typography[type][
       size
     ] as unknown) as {
@@ -90,14 +107,17 @@ export const disableVisually = (): SerializedStyles => css`
 /**
  * Visually communicates to the user that an element is focused.
  */
-export const focusOutline = ({ theme }: StyleProps): SerializedStyles => css`
-  outline: 0;
-  box-shadow: 0 0 0 4px ${theme.colors.p300};
+export const focusOutline = (args: ThemeArgs): SerializedStyles => {
+  const theme = getTheme(args);
+  return css`
+    outline: 0;
+    box-shadow: 0 0 0 4px ${theme.colors.p300};
 
-  &::-moz-focus-inner {
-    border: 0;
-  }
-`;
+    &::-moz-focus-inner {
+      border: 0;
+    }
+  `;
+};
 
 /**
  * A CSS hack to force an element to self-clear its floated children.
