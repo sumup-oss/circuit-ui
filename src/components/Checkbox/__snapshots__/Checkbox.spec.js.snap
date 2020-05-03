@@ -30,6 +30,11 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   border: 0;
 }
 
+.circuit-0:focus + label::before:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
 .circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
@@ -197,6 +202,11 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   border: 0;
 }
 
+.circuit-0:focus + label::before:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
 .circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
@@ -319,6 +329,11 @@ exports[`Checkbox should render with default styles 1`] = `
   border: 0;
 }
 
+.circuit-0:focus + label::before:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
 .circuit-0:checked + label > svg {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
@@ -438,6 +453,11 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 
 .circuit-0:focus + label::before::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus + label::before:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
 }
 
 .circuit-0:checked + label > svg {
@@ -579,6 +599,11 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 
 .circuit-0:focus + label::before::-moz-focus-inner {
   border: 0;
+}
+
+.circuit-0:focus + label::before:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
 }
 
 .circuit-0:checked + label > svg {
