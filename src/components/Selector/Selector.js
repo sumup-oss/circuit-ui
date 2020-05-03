@@ -20,7 +20,11 @@ import { css } from '@emotion/core';
 import { hideVisually } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import { shadowSingle, shadowDouble } from '../../styles/style-helpers';
+import {
+  shadowSingle,
+  shadowDouble,
+  focusOutline
+} from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 
 const wrapperStyles = ({ theme }) => css`
@@ -84,10 +88,8 @@ const inputStyles = ({ theme }) => css`
   label: selector__input;
   ${hideVisually()};
 
-  &:focus + label {
-    &::before {
-      border-width: ${theme.borderWidth.mega};
-    }
+  &:focus + label::before {
+    ${focusOutline({ theme })};
   }
 
   &:checked + label {
