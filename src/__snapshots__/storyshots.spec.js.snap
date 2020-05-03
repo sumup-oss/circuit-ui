@@ -45,9 +45,8 @@ exports[`Storyshots Components/AspectRatio Base 1`] = `
 
 exports[`Storyshots Components/Badge Base 1`] = `
 .circuit-0 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -72,9 +71,8 @@ exports[`Storyshots Components/Badge Base 1`] = `
 
 exports[`Storyshots Components/Badge Circular 1`] = `
 .circuit-0 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -111,12 +109,56 @@ exports[`Storyshots Components/Badge Circular 1`] = `
 </div>
 `;
 
+exports[`Storyshots Components/Badge Clickable 1`] = `
+.circuit-0 {
+  border-radius: 999999px;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: center;
+  background-color: #3388FF;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.circuit-0:hover {
+  background-color: #1760CE;
+}
+
+.circuit-0:active {
+  background-color: #003C8B;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+<button
+  class="circuit-0 circuit-1"
+  color="primary"
+>
+  Click me
+</button>
+`;
+
 exports[`Storyshots Components/Badge Colors 1`] = `
 HTMLCollection [
   .circuit-0 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -138,9 +180,8 @@ HTMLCollection [
     Neutral
   </div>,
   .circuit-0 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -162,9 +203,8 @@ HTMLCollection [
     Primary
   </div>,
   .circuit-0 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -186,9 +226,8 @@ HTMLCollection [
     Success
   </div>,
   .circuit-0 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -210,9 +249,8 @@ HTMLCollection [
     Warning
   </div>,
   .circuit-0 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -1711,15 +1749,25 @@ exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   cursor: pointer;
+  outline: 0;
+  background: transparent;
 }
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #9DA7B1;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
 }
 
 <div>
@@ -1744,15 +1792,25 @@ exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   cursor: pointer;
+  outline: 0;
+  background: transparent;
 }
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #9DA7B1;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
 }
 
 <div>
@@ -11346,36 +11404,49 @@ exports[`Storyshots Components/Step Swiper 1`] = `
 `;
 
 exports[`Storyshots Components/Table Base 1`] = `
-.circuit-62 {
+.circuit-2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-66 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-60 {
+.circuit-64 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-60 {
+  .circuit-64 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-58 {
+.circuit-62 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-58 {
+  .circuit-62 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-58:after {
+  .circuit-62:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -11386,16 +11457,16 @@ exports[`Storyshots Components/Table Base 1`] = `
   }
 }
 
-.circuit-18 {
+.circuit-22 {
   vertical-align: middle;
 }
 
-tbody .circuit-18:last-child th,
-tbody .circuit-18:last-child td {
+tbody .circuit-22:last-child th,
+tbody .circuit-22:last-child td {
   border-bottom: none;
 }
 
-.circuit-4 {
+.circuit-6 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -11417,7 +11488,7 @@ tbody .circuit-18:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-4 {
+  .circuit-6 {
     left: 0;
     top: auto;
     position: absolute;
@@ -11426,16 +11497,36 @@ tbody .circuit-18:last-child td {
   }
 }
 
-.circuit-4:hover {
+.circuit-6:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-6:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-6:focus-within,
+.circuit-6:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-4:hover > span {
+.circuit-6:focus-within > button,
+.circuit-6:hover > button {
   opacity: 1;
 }
 
-.circuit-2 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11459,6 +11550,20 @@ tbody .circuit-18:last-child td {
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   color: #3388FF;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-4:focus {
+  opacity: 1;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -11466,7 +11571,7 @@ tbody .circuit-18:last-child td {
   margin-bottom: -7px;
 }
 
-.circuit-6 {
+.circuit-8 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -11482,7 +11587,7 @@ tbody .circuit-18:last-child td {
 }
 
 @media (max-width:767px) {
-  .circuit-6 {
+  .circuit-8 {
     display: table-cell;
     min-width: 145px;
     white-space: unset;
@@ -11490,7 +11595,7 @@ tbody .circuit-18:last-child td {
   }
 }
 
-.circuit-12 {
+.circuit-16 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -11511,16 +11616,36 @@ tbody .circuit-18:last-child td {
   user-select: none;
 }
 
-.circuit-12:hover {
+.circuit-16:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-16:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-16:focus-within,
+.circuit-16:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-12:hover > span {
+.circuit-16:focus-within > button,
+.circuit-16:hover > button {
   opacity: 1;
 }
 
-.circuit-14 {
+.circuit-18 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -11535,7 +11660,7 @@ tbody .circuit-18:last-child td {
   vertical-align: middle;
 }
 
-.circuit-16 {
+.circuit-20 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -11550,20 +11675,1029 @@ tbody .circuit-18:last-child td {
   vertical-align: middle;
 }
 
-.circuit-32 {
+.circuit-36 {
   vertical-align: middle;
   cursor: pointer;
+  position: relative;
 }
 
-tbody .circuit-32:last-child th,
-tbody .circuit-32:last-child td {
+tbody .circuit-36:last-child th,
+tbody .circuit-36:last-child td {
   border-bottom: none;
 }
 
-tbody .circuit-32:hover td,
-tbody .circuit-32:hover th {
+.circuit-36:focus::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-36:focus::after::-moz-focus-inner {
+  border: 0;
+}
+
+tbody .circuit-36:focus td,
+tbody .circuit-36:hover td,
+tbody .circuit-36:focus th,
+tbody .circuit-36:hover th {
   color: #3388FF;
   background-color: #FAFBFC;
+}
+
+.circuit-26 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+@media (max-width:767px) {
+  .circuit-26 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-28 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-28 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-30 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.circuit-34 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: right;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+<div
+  class="circuit-66 circuit-67"
+>
+  <div
+    class="circuit-64 circuit-65"
+  >
+    <table
+      class="circuit-62 circuit-63"
+    >
+      <thead
+        class="circuit-24 circuit-25"
+      >
+        <tr
+          class="circuit-22 circuit-23"
+        >
+          <th
+            aria-sort="none"
+            class="circuit-6 circuit-7"
+            data-testid="table-header"
+            scope="col"
+          >
+            <button
+              class="circuit-4 circuit-5"
+              role="button"
+              title="Sort"
+            >
+              <svg
+                class="circuit-0"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 14l4-4 4 4"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <svg
+                class="circuit-0"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 10l4 4 4-4"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <span
+                class="circuit-2 circuit-3"
+              >
+                Sort
+              </span>
+            </button>
+            Name
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-8 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Name
+          </td>
+          <th
+            aria-sort="none"
+            class="circuit-16 circuit-7"
+            data-testid="table-header"
+            scope="col"
+          >
+            <button
+              class="circuit-4 circuit-5"
+              role="button"
+              title="Sort"
+            >
+              <svg
+                class="circuit-0"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 14l4-4 4 4"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <svg
+                class="circuit-0"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 10l4 4 4-4"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <span
+                class="circuit-2 circuit-3"
+              >
+                Sort
+              </span>
+            </button>
+            Created at
+          </th>
+          <th
+            class="circuit-18 circuit-7"
+            data-testid="table-header"
+            scope="col"
+          >
+            Permissions
+          </th>
+          <th
+            class="circuit-20 circuit-7"
+            data-testid="table-header"
+            scope="col"
+          >
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="circuit-36 circuit-23"
+          data-selector="item-1"
+          data-testid="table-row"
+          tabindex="0"
+        >
+          <th
+            class="circuit-26 circuit-7"
+            data-testid="table-header"
+            scope="row"
+          >
+            Lorem ipsum dolor
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-28 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Lorem ipsum dolor
+          </td>
+          <td
+            class="circuit-30 circuit-9"
+            data-selector="item-1-cell-date-12/01/2017"
+            data-testid="table-cell"
+          >
+            12/01/2017
+          </td>
+          <td
+            class="circuit-30 circuit-9"
+            data-testid="table-cell"
+          >
+            -
+          </td>
+          <td
+            class="circuit-34 circuit-9"
+            data-testid="table-cell"
+          >
+            Disabled
+          </td>
+        </tr>
+        <tr
+          class="circuit-36 circuit-23"
+          data-testid="table-row"
+          tabindex="0"
+        >
+          <th
+            class="circuit-26 circuit-7"
+            data-testid="table-header"
+            scope="row"
+          >
+            Ipsum dolor sit amet
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-28 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Ipsum dolor sit amet
+          </td>
+          <td
+            class="circuit-30 circuit-9"
+            data-testid="table-cell"
+          >
+            13/01/2017
+          </td>
+          <td
+            class="circuit-30 circuit-9"
+            data-testid="table-cell"
+          >
+            Virtual Terminal
+          </td>
+          <td
+            class="circuit-34 circuit-9"
+            data-testid="table-cell"
+          >
+            Enabled
+          </td>
+        </tr>
+        <tr
+          class="circuit-36 circuit-23"
+          data-testid="table-row"
+          tabindex="0"
+        >
+          <th
+            class="circuit-26 circuit-7"
+            data-testid="table-header"
+            scope="row"
+          >
+            Dolor sit amet, consectetur adipiscing
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-28 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Dolor sit amet, consectetur adipiscing
+          </td>
+          <td
+            class="circuit-30 circuit-9"
+            data-testid="table-cell"
+          >
+            14/01/2017
+          </td>
+          <td
+            class="circuit-30 circuit-9"
+            data-testid="table-cell"
+          >
+            -
+          </td>
+          <td
+            class="circuit-34 circuit-9"
+            data-testid="table-cell"
+          >
+            Disabled
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/Table Custom Sort 1`] = `
+.circuit-2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-48 {
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-46 {
+  border-radius: 4px;
+}
+
+@media (max-width:767px) {
+  .circuit-46 {
+    height: unset;
+    margin-left: 145px;
+    overflow-x: auto;
+  }
+}
+
+.circuit-44 {
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  width: 100%;
+}
+
+@media (max-width:767px) {
+  .circuit-44 {
+    margin-left: -145px;
+    width: calc(100% + 145px);
+  }
+
+  .circuit-44:after {
+    content: '';
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    height: 100%;
+    left: 145px;
+    position: absolute;
+    top: 0;
+    width: 6px;
+  }
+}
+
+.circuit-10 {
+  vertical-align: middle;
+}
+
+tbody .circuit-10:last-child th,
+tbody .circuit-10:last-child td {
+  border-bottom: none;
+}
+
+.circuit-6 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (max-width:767px) {
+  .circuit-6 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-6:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-6:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-6:focus-within,
+.circuit-6:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-6:focus-within > button,
+.circuit-6:hover > button {
+  opacity: 1;
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  color: #3388FF;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-4:focus {
+  opacity: 1;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0 {
+  margin-top: -7px;
+  margin-bottom: -7px;
+}
+
+.circuit-8 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+}
+
+@media (max-width:767px) {
+  .circuit-8 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-14 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+@media (max-width:767px) {
+  .circuit-14 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-16 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (max-width:767px) {
+  .circuit-16 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+<div
+  class="circuit-48 circuit-49"
+>
+  <div
+    class="circuit-46 circuit-47"
+  >
+    <table
+      class="circuit-44 circuit-45"
+    >
+      <thead
+        class="circuit-12 circuit-13"
+      >
+        <tr
+          class="circuit-10 circuit-11"
+        >
+          <th
+            aria-sort="none"
+            class="circuit-6 circuit-7"
+            data-testid="table-header"
+            scope="col"
+          >
+            <button
+              class="circuit-4 circuit-5"
+              role="button"
+              title="Sort"
+            >
+              <svg
+                class="circuit-0"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 14l4-4 4 4"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <svg
+                class="circuit-0"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 10l4 4 4-4"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <span
+                class="circuit-2 circuit-3"
+              >
+                Sort
+              </span>
+            </button>
+            Country
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-8 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Country
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="circuit-10 circuit-11"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-14 circuit-7"
+            data-testid="table-header"
+            scope="row"
+          >
+            Schweiz
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-16 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Schweiz
+          </td>
+        </tr>
+        <tr
+          class="circuit-10 circuit-11"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-14 circuit-7"
+            data-testid="table-header"
+            scope="row"
+          >
+            Österreich
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-16 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Österreich
+          </td>
+        </tr>
+        <tr
+          class="circuit-10 circuit-11"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-14 circuit-7"
+            data-testid="table-header"
+            scope="row"
+          >
+            Deutschland
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-16 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Deutschland
+          </td>
+        </tr>
+        <tr
+          class="circuit-10 circuit-11"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-14 circuit-7"
+            data-testid="table-header"
+            scope="row"
+          >
+            Liechtenstein
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-16 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Liechtenstein
+          </td>
+        </tr>
+        <tr
+          class="circuit-10 circuit-11"
+          data-testid="table-row"
+        >
+          <th
+            class="circuit-14 circuit-7"
+            data-testid="table-header"
+            scope="row"
+          >
+            Italien
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-16 circuit-9"
+            data-testid="table-cell"
+            role="presentation"
+          >
+            Italien
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/Table Sortable 1`] = `
+.circuit-2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-50 {
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+}
+
+.circuit-48 {
+  border-radius: 4px;
+}
+
+@media (max-width:767px) {
+  .circuit-48 {
+    height: unset;
+    margin-left: 145px;
+    overflow-x: auto;
+  }
+}
+
+.circuit-46 {
+  background-color: #FFFFFF;
+  border-collapse: separate;
+  width: 100%;
+}
+
+@media (max-width:767px) {
+  .circuit-46 {
+    margin-left: -145px;
+    width: calc(100% + 145px);
+  }
+
+  .circuit-46:after {
+    content: '';
+    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
+    height: 100%;
+    left: 145px;
+    position: absolute;
+    top: 0;
+    width: 6px;
+  }
+}
+
+.circuit-18 {
+  vertical-align: middle;
+}
+
+tbody .circuit-18:last-child th,
+tbody .circuit-18:last-child td {
+  border-bottom: none;
+}
+
+.circuit-6 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (max-width:767px) {
+  .circuit-6 {
+    left: 0;
+    top: auto;
+    position: absolute;
+    width: 145px;
+    white-space: unset;
+  }
+}
+
+.circuit-6:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-6:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-6:focus-within,
+.circuit-6:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-6:focus-within > button,
+.circuit-6:hover > button {
+  opacity: 1;
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 20px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  color: #3388FF;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-4:focus {
+  opacity: 1;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0 {
+  margin-top: -7px;
+  margin-bottom: -7px;
+}
+
+.circuit-8 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+}
+
+@media (max-width:767px) {
+  .circuit-8 {
+    display: table-cell;
+    min-width: 145px;
+    white-space: unset;
+    width: 145px;
+  }
+}
+
+.circuit-16 {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D8DDE1;
+  padding: 24px;
+  text-align: left;
+  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  white-space: nowrap;
+  color: #5C656F;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 24px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circuit-16:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-16:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-16:focus-within,
+.circuit-16:hover {
+  background-color: #FAFBFC;
+  color: #3388FF;
+}
+
+.circuit-16:focus-within > button,
+.circuit-16:hover > button {
+  opacity: 1;
 }
 
 .circuit-22 {
@@ -11618,25 +12752,14 @@ tbody .circuit-32:hover th {
   white-space: nowrap;
 }
 
-.circuit-30 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: right;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
 <div
-  class="circuit-62 circuit-63"
+  class="circuit-50 circuit-51"
 >
   <div
-    class="circuit-60 circuit-61"
+    class="circuit-48 circuit-49"
   >
     <table
-      class="circuit-58 circuit-59"
+      class="circuit-46 circuit-47"
     >
       <thead
         class="circuit-20 circuit-21"
@@ -11646,51 +12769,58 @@ tbody .circuit-32:hover th {
         >
           <th
             aria-sort="none"
-            class="circuit-4 circuit-5"
-            data-testid="table-header"
-            scope="col"
-          >
-            <span
-              class="circuit-2 circuit-3"
-            >
-              <svg
-                class="circuit-0"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 14l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-              <svg
-                class="circuit-0"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 10l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-            </span>
-            Name
-          </th>
-          <td
-            aria-hidden="true"
             class="circuit-6 circuit-7"
+            data-testid="table-header"
+            scope="col"
+          >
+            <button
+              class="circuit-4 circuit-5"
+              role="button"
+              title="Sort"
+            >
+              <svg
+                class="circuit-0"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 14l4-4 4 4"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <svg
+                class="circuit-0"
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 10l4 4 4-4"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <span
+                class="circuit-2 circuit-3"
+              >
+                Sort
+              </span>
+            </button>
+            Name
+          </th>
+          <td
+            aria-hidden="true"
+            class="circuit-8 circuit-9"
             data-testid="table-cell"
             role="presentation"
           >
@@ -11698,12 +12828,14 @@ tbody .circuit-32:hover th {
           </td>
           <th
             aria-sort="none"
-            class="circuit-12 circuit-5"
+            class="circuit-16 circuit-7"
             data-testid="table-header"
             scope="col"
           >
-            <span
-              class="circuit-2 circuit-3"
+            <button
+              class="circuit-4 circuit-5"
+              role="button"
+              title="Sort"
             >
               <svg
                 class="circuit-0"
@@ -11737,857 +12869,23 @@ tbody .circuit-32:hover th {
                   stroke-width="2"
                 />
               </svg>
-            </span>
-            Created at
-          </th>
-          <th
-            class="circuit-14 circuit-5"
-            data-testid="table-header"
-            scope="col"
-          >
-            Permissions
-          </th>
-          <th
-            class="circuit-16 circuit-5"
-            data-testid="table-header"
-            scope="col"
-          >
-            Status
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          class="circuit-32 circuit-19"
-          data-selector="item-1"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-22 circuit-5"
-            data-testid="table-header"
-            scope="row"
-          >
-            Lorem ipsum dolor
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-24 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Lorem ipsum dolor
-          </td>
-          <td
-            class="circuit-26 circuit-7"
-            data-selector="item-1-cell-date-12/01/2017"
-            data-testid="table-cell"
-          >
-            12/01/2017
-          </td>
-          <td
-            class="circuit-26 circuit-7"
-            data-testid="table-cell"
-          >
-            -
-          </td>
-          <td
-            class="circuit-30 circuit-7"
-            data-testid="table-cell"
-          >
-            Disabled
-          </td>
-        </tr>
-        <tr
-          class="circuit-32 circuit-19"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-22 circuit-5"
-            data-testid="table-header"
-            scope="row"
-          >
-            Ipsum dolor sit amet
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-24 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Ipsum dolor sit amet
-          </td>
-          <td
-            class="circuit-26 circuit-7"
-            data-testid="table-cell"
-          >
-            13/01/2017
-          </td>
-          <td
-            class="circuit-26 circuit-7"
-            data-testid="table-cell"
-          >
-            Virtual Terminal
-          </td>
-          <td
-            class="circuit-30 circuit-7"
-            data-testid="table-cell"
-          >
-            Enabled
-          </td>
-        </tr>
-        <tr
-          class="circuit-32 circuit-19"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-22 circuit-5"
-            data-testid="table-header"
-            scope="row"
-          >
-            Dolor sit amet, consectetur adipiscing
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-24 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Dolor sit amet, consectetur adipiscing
-          </td>
-          <td
-            class="circuit-26 circuit-7"
-            data-testid="table-cell"
-          >
-            14/01/2017
-          </td>
-          <td
-            class="circuit-26 circuit-7"
-            data-testid="table-cell"
-          >
-            -
-          </td>
-          <td
-            class="circuit-30 circuit-7"
-            data-testid="table-cell"
-          >
-            Disabled
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components/Table Custom Sort 1`] = `
-.circuit-46 {
-  position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
-}
-
-.circuit-44 {
-  border-radius: 4px;
-}
-
-@media (max-width:767px) {
-  .circuit-44 {
-    height: unset;
-    margin-left: 145px;
-    overflow-x: auto;
-  }
-}
-
-.circuit-42 {
-  background-color: #FFFFFF;
-  border-collapse: separate;
-  width: 100%;
-}
-
-@media (max-width:767px) {
-  .circuit-42 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-42:after {
-    content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
-}
-
-.circuit-8 {
-  vertical-align: middle;
-}
-
-tbody .circuit-8:last-child th,
-tbody .circuit-8:last-child td {
-  border-bottom: none;
-}
-
-.circuit-4 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-@media (max-width:767px) {
-  .circuit-4 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-4:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-4:hover > span {
-  opacity: 1;
-}
-
-.circuit-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 40px;
-  width: 20px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  opacity: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  color: #3388FF;
-}
-
-.circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
-}
-
-.circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-}
-
-@media (max-width:767px) {
-  .circuit-6 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-.circuit-12 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-}
-
-@media (max-width:767px) {
-  .circuit-12 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-14 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-}
-
-@media (max-width:767px) {
-  .circuit-14 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-<div
-  class="circuit-46 circuit-47"
->
-  <div
-    class="circuit-44 circuit-45"
-  >
-    <table
-      class="circuit-42 circuit-43"
-    >
-      <thead
-        class="circuit-10 circuit-11"
-      >
-        <tr
-          class="circuit-8 circuit-9"
-        >
-          <th
-            aria-sort="none"
-            class="circuit-4 circuit-5"
-            data-testid="table-header"
-            scope="col"
-          >
-            <span
-              class="circuit-2 circuit-3"
-            >
-              <svg
-                class="circuit-0"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
+              <span
+                class="circuit-2 circuit-3"
               >
-                <path
-                  d="M8 14l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-              <svg
-                class="circuit-0"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 10l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-            </span>
-            Country
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-6 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Country
-          </td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          class="circuit-8 circuit-9"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-12 circuit-5"
-            data-testid="table-header"
-            scope="row"
-          >
-            Schweiz
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-14 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Schweiz
-          </td>
-        </tr>
-        <tr
-          class="circuit-8 circuit-9"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-12 circuit-5"
-            data-testid="table-header"
-            scope="row"
-          >
-            Österreich
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-14 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Österreich
-          </td>
-        </tr>
-        <tr
-          class="circuit-8 circuit-9"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-12 circuit-5"
-            data-testid="table-header"
-            scope="row"
-          >
-            Deutschland
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-14 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Deutschland
-          </td>
-        </tr>
-        <tr
-          class="circuit-8 circuit-9"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-12 circuit-5"
-            data-testid="table-header"
-            scope="row"
-          >
-            Liechtenstein
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-14 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Liechtenstein
-          </td>
-        </tr>
-        <tr
-          class="circuit-8 circuit-9"
-          data-testid="table-row"
-        >
-          <th
-            class="circuit-12 circuit-5"
-            data-testid="table-header"
-            scope="row"
-          >
-            Italien
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-14 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Italien
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components/Table Sortable 1`] = `
-.circuit-46 {
-  position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
-}
-
-.circuit-44 {
-  border-radius: 4px;
-}
-
-@media (max-width:767px) {
-  .circuit-44 {
-    height: unset;
-    margin-left: 145px;
-    overflow-x: auto;
-  }
-}
-
-.circuit-42 {
-  background-color: #FFFFFF;
-  border-collapse: separate;
-  width: 100%;
-}
-
-@media (max-width:767px) {
-  .circuit-42 {
-    margin-left: -145px;
-    width: calc(100% + 145px);
-  }
-
-  .circuit-42:after {
-    content: '';
-    background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
-    height: 100%;
-    left: 145px;
-    position: absolute;
-    top: 0;
-    width: 6px;
-  }
-}
-
-.circuit-14 {
-  vertical-align: middle;
-}
-
-tbody .circuit-14:last-child th,
-tbody .circuit-14:last-child td {
-  border-bottom: none;
-}
-
-.circuit-4 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-@media (max-width:767px) {
-  .circuit-4 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-4:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-4:hover > span {
-  opacity: 1;
-}
-
-.circuit-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 40px;
-  width: 20px;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  opacity: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  color: #3388FF;
-}
-
-.circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
-}
-
-.circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-}
-
-@media (max-width:767px) {
-  .circuit-6 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-.circuit-12 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-  color: #5C656F;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 8px 24px;
-  vertical-align: middle;
-  cursor: pointer;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.circuit-12:hover {
-  background-color: #FAFBFC;
-  color: #3388FF;
-}
-
-.circuit-12:hover > span {
-  opacity: 1;
-}
-
-.circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  white-space: nowrap;
-}
-
-@media (max-width:767px) {
-  .circuit-18 {
-    left: 0;
-    top: auto;
-    position: absolute;
-    width: 145px;
-    white-space: unset;
-  }
-}
-
-.circuit-20 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-  display: none;
-}
-
-@media (max-width:767px) {
-  .circuit-20 {
-    display: table-cell;
-    min-width: 145px;
-    white-space: unset;
-    width: 145px;
-  }
-}
-
-.circuit-22 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
-  padding: 24px;
-  text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-<div
-  class="circuit-46 circuit-47"
->
-  <div
-    class="circuit-44 circuit-45"
-  >
-    <table
-      class="circuit-42 circuit-43"
-    >
-      <thead
-        class="circuit-16 circuit-17"
-      >
-        <tr
-          class="circuit-14 circuit-15"
-        >
-          <th
-            aria-sort="none"
-            class="circuit-4 circuit-5"
-            data-testid="table-header"
-            scope="col"
-          >
-            <span
-              class="circuit-2 circuit-3"
-            >
-              <svg
-                class="circuit-0"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 14l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-              <svg
-                class="circuit-0"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 10l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-            </span>
-            Name
-          </th>
-          <td
-            aria-hidden="true"
-            class="circuit-6 circuit-7"
-            data-testid="table-cell"
-            role="presentation"
-          >
-            Name
-          </td>
-          <th
-            aria-sort="none"
-            class="circuit-12 circuit-5"
-            data-testid="table-header"
-            scope="col"
-          >
-            <span
-              class="circuit-2 circuit-3"
-            >
-              <svg
-                class="circuit-0"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 14l4-4 4 4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-              <svg
-                class="circuit-0"
-                fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 10l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                />
-              </svg>
-            </span>
+                Sort
+              </span>
+            </button>
             Date added
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-18 circuit-19"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-5"
+            class="circuit-22 circuit-7"
             data-testid="table-header"
             scope="row"
           >
@@ -12595,25 +12893,25 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-7"
+            class="circuit-24 circuit-9"
             data-testid="table-cell"
             role="presentation"
           >
             Apple
           </td>
           <td
-            class="circuit-22 circuit-7"
+            class="circuit-26 circuit-9"
             data-testid="table-cell"
           >
             12/12/18
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-18 circuit-19"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-5"
+            class="circuit-22 circuit-7"
             data-testid="table-header"
             scope="row"
           >
@@ -12621,25 +12919,25 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-7"
+            class="circuit-24 circuit-9"
             data-testid="table-cell"
             role="presentation"
           >
             Broccoli
           </td>
           <td
-            class="circuit-22 circuit-7"
+            class="circuit-26 circuit-9"
             data-testid="table-cell"
           >
             12/13/18
           </td>
         </tr>
         <tr
-          class="circuit-14 circuit-15"
+          class="circuit-18 circuit-19"
           data-testid="table-row"
         >
           <th
-            class="circuit-18 circuit-5"
+            class="circuit-22 circuit-7"
             data-testid="table-header"
             scope="row"
           >
@@ -12647,14 +12945,14 @@ tbody .circuit-14:last-child td {
           </th>
           <td
             aria-hidden="true"
-            class="circuit-20 circuit-7"
+            class="circuit-24 circuit-9"
             data-testid="table-cell"
             role="presentation"
           >
             Chickpeas
           </td>
           <td
-            class="circuit-22 circuit-7"
+            class="circuit-26 circuit-9"
             data-testid="table-cell"
           >
             12/14/18
@@ -12668,9 +12966,8 @@ tbody .circuit-14:last-child td {
 
 exports[`Storyshots Components/Table With Component Rows 1`] = `
 .circuit-24 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -12686,9 +12983,8 @@ exports[`Storyshots Components/Table With Component Rows 1`] = `
 }
 
 .circuit-34 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -12704,9 +13000,8 @@ exports[`Storyshots Components/Table With Component Rows 1`] = `
 }
 
 .circuit-14 {
-  border-radius: 100px;
+  border-radius: 999999px;
   color: #FFFFFF;
-  cursor: default;
   display: inline-block;
   padding: 0 8px;
   font-size: 12px;
@@ -13104,7 +13399,7 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -13129,6 +13424,22 @@ HTMLCollection [
   color: #212933;
 }
 
+.circuit-0:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-0:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .circuit-0::after {
   content: ' ';
   position: absolute;
@@ -13148,7 +13459,7 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -13169,6 +13480,22 @@ HTMLCollection [
   -ms-flex-pack: center;
   justify-content: center;
   outline: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-2:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 <div
@@ -13297,7 +13624,7 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -13322,6 +13649,22 @@ HTMLCollection [
   color: #212933;
 }
 
+.circuit-0:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-0:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .circuit-0::after {
   content: ' ';
   position: absolute;
@@ -13341,7 +13684,7 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -13362,6 +13705,22 @@ HTMLCollection [
   -ms-flex-pack: center;
   justify-content: center;
   outline: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-2:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 <div
@@ -13431,7 +13790,7 @@ exports[`Storyshots Components/Tabs Links 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -13456,6 +13815,22 @@ exports[`Storyshots Components/Tabs Links 1`] = `
   color: #212933;
 }
 
+.circuit-0:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-0:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .circuit-0::after {
   content: ' ';
   position: absolute;
@@ -13475,7 +13850,7 @@ exports[`Storyshots Components/Tabs Links 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -13496,6 +13871,22 @@ exports[`Storyshots Components/Tabs Links 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   outline: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-2:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-6 {
@@ -13572,7 +13963,7 @@ exports[`Storyshots Components/Tag Base 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
 }
@@ -13597,22 +13988,32 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   cursor: pointer;
+  outline: 0;
+  background: transparent;
 }
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #9DA7B1;
 }
 
-<div
+.circuit-0:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+<button
   class="circuit-0 circuit-1"
 >
   Transactions
-</div>
+</button>
 `;
 
 exports[`Storyshots Components/Tag Removable 1`] = `
@@ -13669,7 +14070,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
 }
@@ -13721,11 +14122,11 @@ exports[`Storyshots Components/Tag Selected 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   background-color: #3388FF;
-  box-shadow: 0px 0px 0px 1px #3388FF;
+  border: 1px solid #3388FF;
   color: #FFFFFF;
 }
 
@@ -13749,7 +14150,7 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
 }
@@ -13794,7 +14195,7 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
 }
@@ -14171,8 +14572,11 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -14191,6 +14595,7 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -14290,8 +14695,11 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -14310,6 +14718,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -14429,8 +14838,11 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -14449,6 +14861,7 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -14604,8 +15017,11 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -14624,6 +15040,7 @@ HTMLCollection [
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -14720,8 +15137,11 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -14740,6 +15160,7 @@ HTMLCollection [
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -14836,8 +15257,11 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -14856,6 +15280,7 @@ HTMLCollection [
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -17473,7 +17898,7 @@ label + .circuit-3 {
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   margin-top: 8px;
@@ -18911,8 +19336,11 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label::before {
@@ -18937,6 +19365,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {
@@ -19004,8 +19433,11 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label::before {
@@ -19031,6 +19463,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -19117,8 +19550,11 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label::before {
@@ -19143,6 +19579,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {
@@ -19218,8 +19655,11 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label::before {
@@ -19237,6 +19677,7 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -19354,6 +19795,7 @@ label + .circuit-4 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -19473,6 +19915,7 @@ label + .circuit-8 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -19695,6 +20138,7 @@ label + .circuit-5 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -19846,7 +20290,11 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label {
@@ -19928,7 +20376,11 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label {
@@ -20019,7 +20471,11 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label {
@@ -20102,7 +20558,11 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label {
@@ -20224,7 +20684,11 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label {
@@ -21049,10 +21513,15 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
 }
 
-.circuit-4::-moz-focus-inner {
-  border-radius: 24px;
+.circuit-4:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -21088,6 +21557,7 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 .circuit-8 {
   display: block;
   margin-left: 12px;
+  cursor: pointer;
 }
 
 .circuit-6 {
@@ -21160,10 +21630,15 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
 }
 
-.circuit-4::-moz-focus-inner {
-  border-radius: 24px;
+.circuit-4:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -21199,6 +21674,7 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
 .circuit-8 {
   display: block;
   margin-left: 12px;
+  cursor: pointer;
 }
 
 .circuit-6 {
@@ -21311,10 +21787,15 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
 }
 
-.circuit-4::-moz-focus-inner {
-  border-radius: 24px;
+.circuit-4:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -21350,6 +21831,7 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 .circuit-10 {
   display: block;
   margin-left: 12px;
+  cursor: pointer;
 }
 
 .circuit-6 {
