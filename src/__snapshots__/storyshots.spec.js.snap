@@ -6237,62 +6237,6 @@ exports[`Storyshots Components/Carousel/Status Base 1`] = `
 `;
 
 exports[`Storyshots Components/Hamburger Base 1`] = `
-.circuit-4 {
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: 1px solid #D8DDE1;
-  border-radius: 50%;
-  position: relative;
-}
-
-.circuit-0 {
-  top: 50%;
-  width: 12px;
-}
-
-.circuit-0,
-.circuit-0::after,
-.circuit-0::before {
-  background-color: #212933;
-  border-radius: 1px;
-  display: block;
-  height: 1px;
-  position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-}
-
-.circuit-0::before,
-.circuit-0::after {
-  top: 0;
-  content: '';
-}
-
-.circuit-0::before {
-  -webkit-transform: translateY(-4px);
-  -ms-transform: translateY(-4px);
-  transform: translateY(-4px);
-  width: 12px;
-}
-
-.circuit-0::after {
-  -webkit-transform: translateY(4px);
-  -ms-transform: translateY(4px);
-  transform: translateY(4px);
-  width: 12px;
-}
-
 .circuit-2 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -6306,14 +6250,142 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   width: 1px;
 }
 
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border-radius: 100%;
+}
+
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-3:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
+}
+
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  transform: translateY(-1px);
+}
+
+.circuit-0 {
+  top: 50%;
+  width: 14px;
+}
+
+.circuit-0,
+.circuit-0::after,
+.circuit-0::before {
+  background-color: currentColor;
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  position: absolute;
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, -webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+}
+
+.circuit-0::before,
+.circuit-0::after {
+  top: 0;
+  content: '';
+}
+
+.circuit-0::before {
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+  width: 14px;
+}
+
+.circuit-0::after {
+  -webkit-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
+  width: 14px;
+}
+
 <button
-  class="circuit-4 circuit-5"
+  class="circuit-3"
+  title="Open menu"
 >
   <span
-    class="circuit-0 circuit-1"
-  />
+    class="circuit-1"
+    role="presentation"
+  >
+    <span
+      class="circuit-0"
+    />
+  </span>
   <span
-    class="circuit-2 circuit-3"
+    class="circuit-2"
   >
     Open menu
   </span>
@@ -6334,7 +6406,129 @@ exports[`Storyshots Components/Header Base 1`] = `
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border-radius: 100%;
+}
+
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-3:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
+}
+
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  -webkit-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  transform: translateY(-1px);
+}
+
+.circuit-0 {
+  top: 50%;
+  width: 14px;
+}
+
+.circuit-0,
+.circuit-0::after,
+.circuit-0::before {
+  background-color: currentColor;
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  position: absolute;
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, -webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in, transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
+}
+
+.circuit-0::before,
+.circuit-0::after {
+  top: 0;
+  content: '';
+}
+
+.circuit-0::before {
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+  width: 14px;
+}
+
+.circuit-0::after {
+  -webkit-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
+  width: 14px;
+}
+
+.circuit-6 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -6353,69 +6547,6 @@ exports[`Storyshots Components/Header Base 1`] = `
 }
 
 .circuit-4 {
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: 1px solid #D8DDE1;
-  border-radius: 50%;
-  position: relative;
-  border: 1px solid #5C656F;
-}
-
-.circuit-0 {
-  top: 50%;
-  width: 12px;
-}
-
-.circuit-0,
-.circuit-0::after,
-.circuit-0::before {
-  background-color: #212933;
-  border-radius: 1px;
-  display: block;
-  height: 1px;
-  position: absolute;
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,-webkit-transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  -webkit-transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-  transition: width 0.2s ease-out 0.15s,opacity 0.1s ease-in,transform 0.3s cubic-bezier(0.55,0.055,0.675,0.19);
-}
-
-.circuit-0::before,
-.circuit-0::after {
-  top: 0;
-  content: '';
-}
-
-.circuit-0::before {
-  -webkit-transform: translateY(-4px);
-  -ms-transform: translateY(-4px);
-  transform: translateY(-4px);
-  width: 12px;
-}
-
-.circuit-0::after {
-  -webkit-transform: translateY(4px);
-  -ms-transform: translateY(4px);
-  transform: translateY(4px);
-  width: 12px;
-}
-
-.circuit-0,
-.circuit-0::after,
-.circuit-0::before {
-  background-color: #FAFBFC;
-}
-
-.circuit-6 {
   font-size: 17px;
   line-height: 24px;
   font-weight: 700;
@@ -6424,22 +6555,28 @@ exports[`Storyshots Components/Header Base 1`] = `
 }
 
 <div
-  class="circuit-8 circuit-9"
+  class="circuit-6 circuit-7"
 >
   <button
-    class="circuit-4 circuit-5"
+    class="circuit-3"
+    title="Open menu"
   >
     <span
-      class="circuit-0 circuit-1"
-    />
+      class="circuit-1"
+      role="presentation"
+    >
+      <span
+        class="circuit-0"
+      />
+    </span>
     <span
-      class="circuit-2 circuit-3"
+      class="circuit-2"
     >
       Open menu
     </span>
   </button>
   <h1
-    class="circuit-6 circuit-7"
+    class="circuit-4 circuit-5"
   >
     Title
   </h1>
