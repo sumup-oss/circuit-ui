@@ -236,11 +236,6 @@ describe('Style helpers', () => {
             &::-moz-focus-inner {
               border: 0;
             }
-
-            &:-moz-focusring {
-              color: transparent;
-              text-shadow: 0 0 0 #000;
-            }
           "
       `);
     });

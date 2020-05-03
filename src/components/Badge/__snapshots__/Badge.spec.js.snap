@@ -133,11 +133,6 @@ exports[`Badge should have hover/active styles only when the onClick handler is 
   border: 0;
 }
 
-.circuit-0:focus:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
 <div
   class="circuit-0 circuit-1"
   color="neutral"

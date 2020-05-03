@@ -116,11 +116,6 @@ export const focusOutline = (args: ThemeArgs): SerializedStyles => {
     &::-moz-focus-inner {
       border: 0;
     }
-
-    &:-moz-focusring {
-      color: transparent;
-      text-shadow: 0 0 0 #000;
-    }
   `;
 };
 
