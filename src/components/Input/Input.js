@@ -32,6 +32,7 @@ import Tooltip from '../Tooltip';
 import { ReactComponent as ErrorIcon } from '../../icons/error.svg';
 import { ReactComponent as WarningIcon } from '../../icons/warning.svg';
 import { ReactComponent as ValidIcon } from '../../icons/valid.svg';
+import Label from '../Label';
 
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;
@@ -282,6 +283,8 @@ const StyledInput = ({
   deepRef,
   element,
   as,
+  label,
+  labelVisuallyHidden,
   ...props
 }) => {
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
@@ -295,39 +298,47 @@ const StyledInput = ({
   );
 
   return (
-    <InputContainer
-      {...{
-        noMargin,
-        inline,
-        disabled,
-        className: wrapperClassName,
-        css: wrapperStyles
-      }}
-    >
-      {prefix}
-      <InputElement
+    <>
+      {label ? (
+        <Label htmlFor={props.id} visuallyHidden={labelVisuallyHidden}>
+          {label}
+        </Label>
+      ) : null}
+      <InputContainer
         {...{
-          ...props,
-          invalid,
+          noMargin,
+          inline,
           disabled,
-          hasWarning,
-          ref: deepRef,
-          as: element || as,
-          hasPrefix: !!prefix,
-          hasSuffix: !!suffix,
-          className: inputClassName,
-          css: inputStyles
+          className: wrapperClassName,
+          css: wrapperStyles
         }}
-        aria-invalid={invalid}
-      />
-      {suffix}
-      {!disabled && validationHint && (
-        <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
-          {validationHint}
-        </InputTooltip>
-      )}
-      {children}
-    </InputContainer>
+      >
+        {prefix}
+
+        <InputElement
+          {...{
+            ...props,
+            invalid,
+            disabled,
+            hasWarning,
+            ref: deepRef,
+            as: element || as,
+            hasPrefix: !!prefix,
+            hasSuffix: !!suffix,
+            className: inputClassName,
+            css: inputStyles
+          }}
+          aria-invalid={invalid}
+        />
+        {suffix}
+        {!disabled && validationHint && (
+          <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+            {validationHint}
+          </InputTooltip>
+        )}
+        {children}
+      </InputContainer>
+    </>
   );
 };
 
@@ -438,7 +449,19 @@ Input.propTypes = {
    * DOM node to be forwarded to the actual input being rendered by
    * styled.
    */
-  deepRef: PropTypes.func
+  deepRef: PropTypes.func,
+  /**
+   * A string that will become the label for the input.
+   */
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+  /**
+   * Defines whether the label should be hidden or not.
+   */
+  labelVisuallyHidden: PropTypes.bool,
+  /**
+   * Sets the label for the input, needed for a11y.
+   */
+  id: PropTypes.string.isRequired
 };
 
 StyledInput.propTypes = Input.propTypes;
@@ -458,7 +481,10 @@ Input.defaultProps = {
   inline: false,
   noMargin: false,
   deepRef: undefined,
-  textAlign: Input.LEFT
+  textAlign: Input.LEFT,
+  label: '',
+  labelVisuallyHidden: false,
+  id: undefined
 };
 
 /**

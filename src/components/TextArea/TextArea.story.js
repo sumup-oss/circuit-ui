@@ -19,7 +19,6 @@ import { uniqueId } from '../../util/id';
 
 import TextArea from './TextArea';
 import docs from './TextArea.docs.mdx';
-import Label from '../Label';
 
 export default {
   title: 'Forms/TextArea',
@@ -34,10 +33,15 @@ export default {
 const TextAreaWithLabel = props => {
   const id = uniqueId();
   return (
-    <Label htmlFor={id}>
-      Label
-      <TextArea placeholder="Write your text here..." {...props} id={id} />
-    </Label>
+    <div>
+      {' '}
+      <TextArea
+        placeholder="Write your text here..."
+        {...props}
+        id={id}
+        label="Label"
+      />
+    </div>
   );
 };
 
@@ -61,4 +65,8 @@ export const disabled = () => (
     value="You cannot edit the text because the textarea is disabled"
     disabled
   />
+);
+
+export const withVisuallyHiddenLabel = () => (
+  <TextAreaWithLabel labelVisuallyHidden />
 );

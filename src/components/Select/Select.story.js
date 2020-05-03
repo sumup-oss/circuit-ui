@@ -19,7 +19,7 @@ import { boolean, text } from '@storybook/addon-knobs/react';
 
 import docs from './Select.docs.mdx';
 import Select from './Select';
-import Label from '../Label';
+import { uniqueId } from '../../util/id';
 
 import { ReactComponent as DE } from './flags/de.svg';
 import { ReactComponent as US } from './flags/us.svg';
@@ -50,31 +50,42 @@ const options = [
 ];
 const flagIconMap = { DE, US, FR };
 
-export const base = (value, onChange) => (
-  <Select
-    name="select"
-    options={options}
-    value={value}
-    onChange={e => {
-      action('Option selected')(e);
-      onChange(e.target.value);
-    }}
-    disabled={boolean('Disabled', false)}
-    invalid={boolean('Invalid', false)}
-    validationHint={text('Validation hint', '')}
-  />
+const BaseSelect = props => (
+  <div>
+    <Select
+      name="select"
+      options={options}
+      // onChange={e => {
+      //   action('Option selected')(e);
+      //   props.onChange(e.target.value);
+      // }}
+      disabled={boolean('Disabled', false)}
+      invalid={boolean('Invalid', false)}
+      validationHint={text('Validation hint', '')}
+      id={uniqueId()}
+      {...props}
+    />
+  </div>
 );
 
 // Selects always need labels for accessibility.
-const SelectWithLabelAndState = () => {
+const SelectWithLabelAndState = props => {
   const [value, setValue] = useState('US');
+
   return (
-    <Label>
-      Country
-      {base(value, setValue)}
-    </Label>
+    <BaseSelect
+      label="Country"
+      value={value}
+      onChange={e => {
+        action('Option selected')(e);
+        setValue(e.target.value);
+      }}
+      {...props}
+    />
   );
 };
+
+export const base = () => <BaseSelect />;
 
 export const invalid = () => (
   <SelectWithLabelAndState
@@ -91,4 +102,8 @@ export const withPrefix = () => (
       return <Icon {...{ className }} />;
     }}
   />
+);
+
+export const withVisuallyHiddenLabel = () => (
+  <SelectWithLabelAndState labelVisuallyHidden />
 );

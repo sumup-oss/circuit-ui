@@ -19,7 +19,6 @@ import { uniqueId } from '../../util/id';
 
 import docs from './CurrencyInput.docs.mdx';
 import CurrencyInput from './CurrencyInput';
-import Label from '../Label';
 
 export default {
   title: 'Forms/Input/CurrencyInput',
@@ -34,10 +33,9 @@ export default {
 const CurrencyInputWithLabel = props => {
   const id = uniqueId();
   return (
-    <Label htmlFor={id}>
-      Amount
-      <CurrencyInput placeholder="123.45" {...props} id={id} />
-    </Label>
+    <div>
+      <CurrencyInput placeholder="123.45" {...props} id={id} label="Amount" />
+    </div>
   );
 };
 

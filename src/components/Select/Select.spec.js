@@ -16,7 +16,6 @@
 import React from 'react';
 
 import Select from '.';
-import Label from '../Label';
 
 describe('Select', () => {
   const options = [
@@ -87,9 +86,7 @@ describe('Select', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <Label htmlFor="select">
-        <Select {...{ options }} id="select" />
-      </Label>
+      <Select {...{ options }} id="select" label="Label" />
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

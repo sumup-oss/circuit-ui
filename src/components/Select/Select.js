@@ -28,6 +28,7 @@ import { textMega, disableVisually } from '../../styles/style-helpers';
 import { ReactComponent as ArrowsIcon } from '../../icons/arrows.svg';
 import { ReactComponent as ErrorIcon } from '../../icons/error.svg';
 import Tooltip from '../Tooltip';
+import Label from '../Label';
 
 // HACK: Firefox includes the border-width in the overall height of the element
 //       (despite box-sizing: border-box), so we have to force the height.
@@ -205,6 +206,8 @@ const Select = ({
   children,
   renderPrefix: RenderPrefix,
   validationHint,
+  label,
+  labelVisuallyHidden,
   ...props
 }) => {
   const prefix = RenderPrefix && (
@@ -213,38 +216,45 @@ const Select = ({
   const showInvalid = !disabled && invalid;
 
   return (
-    <SelectContainer {...{ noMargin, inline, disabled }}>
-      {prefix}
-      <SelectElement
-        {...{
-          ...props,
-          invalid,
-          value,
-          disabled,
-          hasPrefix: !!prefix
-        }}
-      >
-        {!value && (
-          <option key="placeholder" value="">
-            {placeholder}
-          </option>
+    <>
+      {label ? (
+        <Label htmlFor={props.id} visuallyHidden={labelVisuallyHidden}>
+          {label}
+        </Label>
+      ) : null}
+      <SelectContainer {...{ noMargin, inline, disabled }}>
+        {prefix}
+        <SelectElement
+          {...{
+            ...props,
+            invalid,
+            value,
+            disabled,
+            hasPrefix: !!prefix
+          }}
+        >
+          {!value && (
+            <option key="placeholder" value="">
+              {placeholder}
+            </option>
+          )}
+          {children ||
+            (options &&
+              options.map(({ label: labelValue, ...rest }) => (
+                <option key={rest.value} {...rest}>
+                  {labelValue}
+                </option>
+              )))}
+        </SelectElement>
+        <SelectIcon invalid={showInvalid} />
+        {showInvalid && <InvalidIcon />}
+        {!disabled && validationHint && (
+          <SelectTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+            {validationHint}
+          </SelectTooltip>
         )}
-        {children ||
-          (options &&
-            options.map(({ label, ...rest }) => (
-              <option key={rest.value} {...rest}>
-                {label}
-              </option>
-            )))}
-      </SelectElement>
-      <SelectIcon invalid={showInvalid} />
-      {showInvalid && <InvalidIcon />}
-      {!disabled && validationHint && (
-        <SelectTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
-          {validationHint}
-        </SelectTooltip>
-      )}
-    </SelectContainer>
+      </SelectContainer>
+    </>
   );
 };
 
@@ -311,7 +321,19 @@ Select.propTypes = {
   /**
    * Warning or error message, displayed in a tooltip.
    */
-  validationHint: PropTypes.string
+  validationHint: PropTypes.string,
+  /**
+   * A string that will become the label for the input.
+   */
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /**
+   * Defines whether the label should be hidden or not.
+   */
+  labelVisuallyHidden: PropTypes.bool,
+  /**
+   * Sets the label for the input, needed for a11y.
+   */
+  id: PropTypes.string.isRequired
 };
 
 Select.defaultProps = {
@@ -322,7 +344,10 @@ Select.defaultProps = {
   placeholder: 'Select an option',
   inline: false,
   noMargin: false,
-  renderPrefix: null
+  renderPrefix: null,
+  label: '',
+  labelVisuallyHidden: false,
+  id: undefined
 };
 
 /**
