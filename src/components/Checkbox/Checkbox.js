@@ -20,7 +20,7 @@ import styled from '@emotion/styled';
 import { hideVisually, size } from 'polished';
 import { Check } from '@sumup/icons';
 
-import { disableVisually } from '../../styles/style-helpers';
+import { disableVisually, focusOutline } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
@@ -100,8 +100,7 @@ const inputStyles = ({ theme }) => css`
   ${hideVisually()};
 
   &:focus + label::before {
-    border-width: 2px;
-    border-color: ${theme.colors.p500};
+    ${focusOutline({ theme })};
   }
 
   &:checked + label > svg {
