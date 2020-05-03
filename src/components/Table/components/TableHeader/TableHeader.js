@@ -18,13 +18,24 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import SortArrow from '../SortArrow';
+import { focusOutline } from '../../../../styles/style-helpers';
 import { directions } from '../../../../styles/constants';
 import { childrenPropType } from '../../../../util/shared-prop-types';
+import { isFunction } from '../../../../util/type-check';
 import { ASCENDING, DESCENDING, COL, ROW } from '../../constants';
+import SortArrow from '../SortArrow';
 
 const getAriaSort = (sortable, sortDirection) =>
   sortable ? sortDirection || 'none' : null;
+
+const getLabelSort = (sortable, sortDirection, sortLabel) => {
+  if (!sortable) {
+    return null;
+  }
+  return isFunction(sortLabel)
+    ? sortLabel({ direction: sortDirection })
+    : sortLabel;
+};
 
 const baseStyles = ({ theme, align }) => css`
   label: table-header;
@@ -76,11 +87,26 @@ const sortableStyles = ({ theme, sortable }) =>
     position: relative;
     user-select: none;
 
+    &:focus-within::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      ${focusOutline({ theme })};
+    }
+
+    &:focus-within,
     &:hover {
       background-color: ${theme.colors.n100};
       color: ${theme.colors.b500};
 
-      & > span {
+      & > button {
         opacity: 1;
       }
     }
@@ -90,7 +116,7 @@ const sortableActiveStyles = ({ sortable, isSorted }) =>
   sortable &&
   isSorted &&
   css`
-    & > span {
+    & > button {
       opacity: 1;
     }
   `;
@@ -128,22 +154,31 @@ const StyledHeader = styled.th`
  * directly, the Table handles it
  */
 const TableHeader = ({
+  sortLabel,
   sortable,
   children,
   sortDirection,
   condensed,
+  onClick,
   ...props
-}) => (
-  <StyledHeader
-    sortable={sortable}
-    condensed={condensed}
-    aria-sort={getAriaSort(sortable, sortDirection)}
-    {...props}
-  >
-    {sortable && <SortArrow condensed={condensed} direction={sortDirection} />}
-    {children}
-  </StyledHeader>
-);
+}) => {
+  const label = getLabelSort(sortable, sortDirection, sortLabel);
+  return (
+    <StyledHeader
+      sortable={sortable}
+      condensed={condensed}
+      aria-sort={getAriaSort(sortable, sortDirection)}
+      aria-label={label}
+      onClick={onClick}
+      {...props}
+    >
+      {sortable && (
+        <SortArrow label={label} direction={sortDirection} onClick={onClick} />
+      )}
+      {children}
+    </StyledHeader>
+  );
+};
 
 TableHeader.LEFT = directions.LEFT;
 TableHeader.RIGHT = directions.RIGHT;
@@ -179,6 +214,11 @@ TableHeader.propTypes = {
    * Defines whether or not the Header is sortable
    */
   sortable: PropTypes.bool,
+  /**
+   * Visually hidden label for the sort button for visually impaired users.
+   * When passed as a function, it is called with the sort `{ direction }`.
+   */
+  sortLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /**
    * @private Adds active style to the Header if it is currently hovered by
    * sort.

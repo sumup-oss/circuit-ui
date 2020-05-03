@@ -13,8 +13,12 @@
  * limitations under the License.
  */
 
+import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+
+import { isEnter, isSpacebar } from '../../../../util/key-codes';
+import { focusOutline } from '../../../../styles/style-helpers';
 
 const baseStyles = () => css`
   label: table-row;
@@ -35,8 +39,24 @@ const clickableStyles = ({ theme, onClick }) =>
   css`
     label: table-row--clickable;
     cursor: pointer;
+    position: relative;
+
+    &:focus::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      ${focusOutline({ theme })};
+    }
 
     tbody & {
+      &:focus,
       &:hover {
         td,
         th {
@@ -47,9 +67,22 @@ const clickableStyles = ({ theme, onClick }) =>
     }
   `;
 
-const TableRow = styled.tr`
-  ${baseStyles};
-  ${clickableStyles};
-`;
+const Tr = styled.tr(baseStyles, clickableStyles);
+
+const TableRow = ({ onClick, ...props }) => {
+  const handleKeyDown = event => {
+    if (isEnter(event) || isSpacebar(event)) {
+      onClick();
+    }
+  };
+  return (
+    <Tr
+      onClick={onClick}
+      onKeyDown={onClick ? handleKeyDown : null}
+      tabIndex={onClick ? '0' : undefined}
+      {...props}
+    />
+  );
+};
 
 export default TableRow;

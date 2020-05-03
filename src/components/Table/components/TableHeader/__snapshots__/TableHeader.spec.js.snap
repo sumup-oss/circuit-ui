@@ -102,7 +102,7 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
 `;
 
 exports[`TableHeader Style tests should render with sortable styles 1`] = `
-.circuit-4 {
+.circuit-6 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -123,16 +123,36 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   user-select: none;
 }
 
-.circuit-4:hover {
+.circuit-6:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-6:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-6:focus-within,
+.circuit-6:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-4:hover > span {
+.circuit-6:focus-within > button,
+.circuit-6:hover > button {
   opacity: 1;
 }
 
-.circuit-2 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -156,6 +176,20 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   color: #3388FF;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-4:focus {
+  opacity: 1;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -163,14 +197,30 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   margin-bottom: -7px;
 }
 
+.circuit-2 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 <th
+  aria-label="Sort by Foo in ascending order"
   aria-sort="none"
-  class="circuit-4 circuit-5"
+  class="circuit-6 circuit-7"
   data-testid="table-header"
   scope="col"
 >
-  <span
-    class="circuit-2 circuit-3"
+  <button
+    class="circuit-4 circuit-5"
+    role="button"
+    title="Sort by Foo in ascending order"
   >
     <svg
       class="circuit-0"
@@ -204,13 +254,18 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
         stroke-width="2"
       />
     </svg>
-  </span>
+    <span
+      class="circuit-2 circuit-3"
+    >
+      Sort by Foo in ascending order
+    </span>
+  </button>
   Foo
 </th>
 `;
 
 exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted ascending styles 1`] = `
-.circuit-1 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -234,6 +289,20 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   color: #3388FF;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-3:focus {
+  opacity: 1;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -241,7 +310,20 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   margin-bottom: -7px;
 }
 
-.circuit-3 {
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-5 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -262,27 +344,49 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   user-select: none;
 }
 
-.circuit-3:hover {
+.circuit-5:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus-within,
+.circuit-5:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-3:hover > span {
+.circuit-5:focus-within > button,
+.circuit-5:hover > button {
   opacity: 1;
 }
 
-.circuit-3 > span {
+.circuit-5 > button {
   opacity: 1;
 }
 
 <th
   aria-sort="ascending"
-  class="circuit-3 circuit-4"
+  class="circuit-5 circuit-6"
   data-testid="table-header"
   scope="col"
 >
-  <span
-    class="circuit-1 circuit-2"
+  <button
+    class="circuit-3 circuit-4"
+    role="button"
+    title="Sort"
   >
     <svg
       class="circuit-0"
@@ -300,13 +404,18 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
         stroke-width="2"
       />
     </svg>
-  </span>
+    <span
+      class="circuit-1 circuit-2"
+    >
+      Sort
+    </span>
+  </button>
   Foo
 </th>
 `;
 
 exports[`TableHeader Style tests sortable + sorted should render with sortable + sorted descending styles 1`] = `
-.circuit-1 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -330,6 +439,20 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   color: #3388FF;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.circuit-3:focus {
+  opacity: 1;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -337,7 +460,20 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   margin-bottom: -7px;
 }
 
-.circuit-3 {
+.circuit-1 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-5 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -358,27 +494,49 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   user-select: none;
 }
 
-.circuit-3:hover {
+.circuit-5:focus-within::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus-within::after::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:focus-within,
+.circuit-5:hover {
   background-color: #FAFBFC;
   color: #3388FF;
 }
 
-.circuit-3:hover > span {
+.circuit-5:focus-within > button,
+.circuit-5:hover > button {
   opacity: 1;
 }
 
-.circuit-3 > span {
+.circuit-5 > button {
   opacity: 1;
 }
 
 <th
   aria-sort="descending"
-  class="circuit-3 circuit-4"
+  class="circuit-5 circuit-6"
   data-testid="table-header"
   scope="col"
 >
-  <span
-    class="circuit-1 circuit-2"
+  <button
+    class="circuit-3 circuit-4"
+    role="button"
+    title="Sort"
   >
     <svg
       class="circuit-0"
@@ -396,7 +554,12 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
         stroke-width="2"
       />
     </svg>
-  </span>
+    <span
+      class="circuit-1 circuit-2"
+    >
+      Sort
+    </span>
+  </button>
   Foo
 </th>
 `;

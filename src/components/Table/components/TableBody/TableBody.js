@@ -16,9 +16,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import TableRow from '../TableRow';
-import TableHeader from '../TableHeader';
-import TableCell from '../TableCell';
 import {
   mapRowProps,
   mapCellProps,
@@ -26,6 +23,9 @@ import {
   RowPropType
 } from '../../utils';
 import { TR_KEY_PREFIX, TD_KEY_PREFIX } from '../../constants';
+import TableRow from '../TableRow';
+import TableHeader from '../TableHeader';
+import TableCell from '../TableCell';
 
 const getRowKey = index => `${TR_KEY_PREFIX}-${index}`;
 const getCellKey = (rowIndex, cellIndex) =>
@@ -39,7 +39,7 @@ const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
         <TableRow
           key={getRowKey(rowIndex)}
           data-testid="table-row"
-          onClick={onRowClick && (() => onRowClick(rowIndex))}
+          onClick={onRowClick ? () => onRowClick(rowIndex) : null}
           {...props}
         >
           {cells.map((cell, cellIndex) =>
