@@ -55,5 +55,7 @@ export const removable = () => (
 );
 
 export const clickable = () => (
-  <Tag onClick={action('Tag clicked')}>Transactions</Tag>
+  <Tag onClick={action('Tag clicked')} as="button">
+    Transactions
+  </Tag>
 );
