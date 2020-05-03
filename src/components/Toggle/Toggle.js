@@ -29,18 +29,15 @@ const textWrapperStyles = ({ theme }) => css`
   margin-left: ${theme.spacings.kilo};
 `;
 
-const ToggleTextWrapper = styled('label')`
-  ${textWrapperStyles};
-`;
+const ToggleTextWrapper = styled('label')(textWrapperStyles);
 
 const labelStyles = css`
   label: toggle__label;
   padding-top: 2px;
 `;
 
-const ToggleLabel = styled(Text)`
-  ${labelStyles};
-`;
+const ToggleLabel = styled(Text)(labelStyles);
+
 ToggleLabel.propTypes = Text.propTypes;
 ToggleLabel.defaultProps = Text.defaultProps;
 
@@ -49,9 +46,8 @@ const explanationStyles = ({ theme }) => css`
   color: ${theme.colors.n500};
 `;
 
-const ToggleExplanation = styled(Text)`
-  ${explanationStyles};
-`;
+const ToggleExplanation = styled(Text)(explanationStyles);
+
 ToggleExplanation.propTypes = Text.propTypes;
 ToggleExplanation.defaultProps = Text.defaultProps;
 
@@ -82,11 +78,11 @@ const toggleWrapperReversedStyles = ({ theme, reversed }) =>
     }
   `;
 
-const ToggleWrapper = styled('div')`
-  ${toggleWrapperStyles}
-  ${toggleWrapperNoMarginStyles}
-  ${toggleWrapperReversedStyles};
-`;
+const ToggleWrapper = styled('div')(
+  toggleWrapperStyles,
+  toggleWrapperNoMarginStyles,
+  toggleWrapperReversedStyles
+);
 
 /**
  * A toggle component with support for labels and additional explanations.

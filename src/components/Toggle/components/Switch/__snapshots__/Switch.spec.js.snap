@@ -22,8 +22,12 @@ exports[`Switch should have the correct default styles 1`] = `
   overflow: visible;
 }
 
-.circuit-4::-moz-focus-inner {
-  border-radius: 24px;
+.circuit-4:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -109,8 +113,12 @@ exports[`Switch should have the correct on styles 1`] = `
   background-color: #3388FF;
 }
 
-.circuit-4::-moz-focus-inner {
-  border-radius: 24px;
+.circuit-4:focus {
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
