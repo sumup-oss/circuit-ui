@@ -29,10 +29,10 @@ const currencyAmountUtils = {
 
 // Typography
 export { default as Heading } from './components/Heading';
-export { default as List } from './components/List';
-
 export { default as SubHeading } from './components/SubHeading';
 export { default as Text } from './components/Text';
+export { default as Anchor } from './components/Anchor';
+export { default as List } from './components/List';
 export { default as Blockquote } from './components/Blockquote';
 
 // Forms

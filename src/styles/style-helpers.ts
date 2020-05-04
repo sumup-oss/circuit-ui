@@ -17,9 +17,7 @@ import { css, SerializedStyles } from '@emotion/core';
 import { transparentize } from 'polished';
 import { Theme } from '@sumup/design-tokens';
 
-interface StyleArgs {
-  theme: Theme;
-}
+import { StyleProps } from './styled';
 
 export const shadowBorder = (
   color: string,
@@ -28,19 +26,19 @@ export const shadowBorder = (
   box-shadow: 0px 0px 0px ${borderSize} ${color};
 `;
 
-export const shadowSingle = ({ theme }: StyleArgs): SerializedStyles => css`
+export const shadowSingle = ({ theme }: StyleProps): SerializedStyles => css`
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 0 1px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
-export const shadowDouble = ({ theme }: StyleArgs): SerializedStyles => css`
+export const shadowDouble = ({ theme }: StyleProps): SerializedStyles => css`
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)};
 `;
 
-export const shadowTriple = ({ theme }: StyleArgs): SerializedStyles => css`
+export const shadowTriple = ({ theme }: StyleProps): SerializedStyles => css`
   box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
     0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)},
     0 8px 8px 0 ${transparentize(0.94, theme.colors.shadow)};
@@ -50,7 +48,7 @@ function createTypeHelper<T extends 'headings' | 'subHeadings' | 'text'>(
   type: T,
   size: keyof Theme['typography'][T]
 ) {
-  return ({ theme }: StyleArgs): SerializedStyles => {
+  return ({ theme }: StyleProps): SerializedStyles => {
     const { fontSize, lineHeight } = (theme.typography[type][
       size
     ] as unknown) as {
@@ -80,13 +78,25 @@ export const textMega = createTypeHelper('text', 'mega');
 export const textGiga = createTypeHelper('text', 'giga');
 
 /**
- * Visually communicate to the user that an element is disabled
+ * Visually communicates to the user that an element is disabled
  * and prevent user interactions.
  */
 export const disableVisually = (): SerializedStyles => css`
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
+`;
+
+/**
+ * Visually communicates to the user that an element is focused.
+ */
+export const focusOutline = ({ theme }: StyleProps): SerializedStyles => css`
+  outline: 0;
+  box-shadow: 0 0 0 4px ${theme.colors.p300};
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
 `;
 
 /**

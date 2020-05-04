@@ -211,4 +211,51 @@ describe('Style helpers', () => {
       `);
     });
   });
+
+  describe('disableVisually', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.disableVisually();
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          opacity: 0.5;
+          pointer-events: none;
+          box-shadow: none;
+        "
+      `);
+    });
+  });
+
+  describe('focusOutline', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.focusOutline({ theme: light });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          outline: 0;
+          box-shadow: 0 0 0 4px #AFD0FE;
+
+          &::-moz-focus-inner {
+            border: 0;
+          }
+        "
+      `);
+    });
+  });
+
+  describe('clearfix', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.clearfix();
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          &::before,
+          &::after {
+            content: ' ';
+            display: table;
+          }
+          &::after {
+            clear: both;
+          }
+        "
+      `);
+    });
+  });
 });
