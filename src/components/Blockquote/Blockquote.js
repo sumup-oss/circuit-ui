@@ -28,7 +28,7 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const gigaStyles = ({ theme, size }) =>
-  size === Text.GIGA &&
+  size === 'giga' &&
   css`
     label: blockquote--giga;
     padding-left: ${theme.spacings.mega};
@@ -52,9 +52,9 @@ const Blockquote = ({ children, ...props }) => (
 // Satisfy react docgen
 // const Blockquote = props => <Quote {...props} />;
 
-Blockquote.KILO = Text.KILO;
-Blockquote.MEGA = Text.MEGA;
-Blockquote.GIGA = Text.GIGA;
+Blockquote.KILO = 'kilo';
+Blockquote.MEGA = 'mega';
+Blockquote.GIGA = 'giga';
 
 Blockquote.propTypes = {
   /**

@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import Text from './Text';
-
-export { StyledText } from './Text';
+import { Text } from './Text';
 
 export default Text;

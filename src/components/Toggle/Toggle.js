@@ -100,12 +100,12 @@ const Toggle = ({ label, explanation, noMargin, reversed, ...props }) => {
       {(label || explanation) && (
         <ToggleTextWrapper id={labelId} htmlFor={switchId}>
           {label && (
-            <ToggleLabel size={Text.KILO} noMargin>
+            <ToggleLabel size="kilo" noMargin>
               {label}
             </ToggleLabel>
           )}
           {explanation && (
-            <ToggleExplanation size={Text.KILO} noMargin>
+            <ToggleExplanation size="kilo" noMargin>
               {explanation}
             </ToggleExplanation>
           )}

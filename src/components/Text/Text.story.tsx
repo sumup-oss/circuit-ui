@@ -20,7 +20,7 @@ import Text from '.';
 import docs from './Text.docs.mdx';
 
 const elements = ['p', 'article', 'div', 'span', 'strong', 'em'];
-const sizes = [Text.KILO, Text.MEGA, Text.GIGA];
+const sizes: ['kilo', 'mega', 'giga'] = ['kilo', 'mega', 'giga'];
 
 const content =
   'An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.';
@@ -38,10 +38,10 @@ export const base = () => (
   <Text
     as={select('Element', elements, elements[0])}
     size={select('Size', sizes, sizes[0])}
-    noMargin={boolean('No margin')}
-    bold={boolean('Bold')}
-    italic={boolean('Italic')}
-    strike={boolean('Strike through')}
+    noMargin={boolean('No margin', true)}
+    bold={boolean('Bold', false)}
+    italic={boolean('Italic', false)}
+    strike={boolean('Strike through', false)}
   >
     {content}
   </Text>

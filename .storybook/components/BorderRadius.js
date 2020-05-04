@@ -58,7 +58,7 @@ const BorderRadius = ({ size, ...props }) => (
     <div>
       <Text as="span">{size}</Text>
       <BorderRadiusSize>
-        <BorderRadiusName size={Text.KILO} as="span">
+        <BorderRadiusName size="kilo" as="span">
           {light.borderRadius[size]}
         </BorderRadiusName>
       </BorderRadiusSize>

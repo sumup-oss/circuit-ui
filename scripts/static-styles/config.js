@@ -20,7 +20,6 @@ import { light } from '@sumup/design-tokens';
 import {
   Badge,
   Blockquote,
-  Button,
   ButtonGroup,
   Card,
   Checkbox,
@@ -36,14 +35,12 @@ import {
   Selector,
   SubHeading,
   Tag,
-  Text,
   TextArea,
   Toggle,
   styleConstants
 } from '../../src';
 
-const { colorNames, sizes } = styleConstants;
-const { KILO, MEGA, GIGA } = sizes;
+const { colorNames } = styleConstants;
 
 const element = props => <div {...props} />;
 
@@ -133,7 +130,8 @@ export default {
         circle: PropTypes.bool
       }
     },
-    getComponentInfo(Button, { size: [KILO, MEGA, GIGA] }),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(Button, { size: [KILO, MEGA, GIGA] }),
     getComponentInfo(Blockquote, {
       size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
     }),
@@ -189,9 +187,10 @@ export default {
       prefix: PropTypes.element,
       suffix: PropTypes.element
     }),
-    getComponentInfo(Text, {
-      size: [Text.KILO, Text.MEGA, Text.GIGA]
-    }),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(Text, {
+    //   size: ['kilo', 'mega', 'giga']
+    // }),
     getComponentInfo(TextArea),
     getComponentInfo(Toggle)
   ]

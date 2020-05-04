@@ -18,7 +18,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
-import { StyledText } from '../../../Text';
+import Text from '../../../Text';
 
 const baseStyles = ({ theme }) => css`
   label: button__link;
@@ -50,7 +50,7 @@ const primaryStyles = ({ theme, primary }) =>
     }
   `;
 
-const ButtonLinkWrapper = styled(StyledText, {
+const ButtonLinkWrapper = styled(Text, {
   shouldForwardProp: isPropValid
 })(baseStyles, primaryStyles).withComponent('button');
 

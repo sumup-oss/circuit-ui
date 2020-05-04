@@ -32,14 +32,14 @@ const StyledText = styled(Text)(
 
 const Intro = ({ children, ...props }) => (
   <ThemeProvider theme={light}>
-    <StyledText size={Text.GIGA} {...props}>
+    <StyledText size="giga" {...props}>
       {children}
     </StyledText>
   </ThemeProvider>
 );
 
-Intro.KILO = Text.KILO;
-Intro.MEGA = Text.MEGA;
-Intro.GIGA = Text.GIGA;
+Intro.KILO = 'kilo';
+Intro.MEGA = 'mega';
+Intro.GIGA = 'giga';
 
 export default Intro;

@@ -82,7 +82,7 @@ export const customOptions = () => {
   const options = items.map(value => ({
     value,
     children: (
-      <Text size={Text.GIGA} noMargin>
+      <Text size="giga" noMargin>
         {icons[value]} {value}
       </Text>
     )
