@@ -27,6 +27,7 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
 }
 
 .circuit-0:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 

@@ -24,6 +24,7 @@ exports[`Switch should have the correct default styles 1`] = `
 }
 
 .circuit-4:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -116,6 +117,7 @@ exports[`Switch should have the correct on styles 1`] = `
 }
 
 .circuit-4:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 

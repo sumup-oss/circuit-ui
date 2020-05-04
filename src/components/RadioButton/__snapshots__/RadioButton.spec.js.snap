@@ -16,6 +16,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -111,6 +112,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -205,6 +207,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -319,6 +322,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 

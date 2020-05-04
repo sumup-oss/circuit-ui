@@ -126,6 +126,7 @@ exports[`Badge should have hover/active styles only when the onClick handler is 
 }
 
 .circuit-0:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 

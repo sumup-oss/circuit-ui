@@ -92,6 +92,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -224,6 +225,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -615,6 +617,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -747,6 +750,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -1248,6 +1252,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -1334,6 +1339,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -1774,6 +1780,7 @@ tbody .circuit-18:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -2150,6 +2157,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -2282,6 +2290,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -2696,6 +2705,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -2828,6 +2838,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -3237,6 +3248,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -3369,6 +3381,7 @@ tbody .circuit-20:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 

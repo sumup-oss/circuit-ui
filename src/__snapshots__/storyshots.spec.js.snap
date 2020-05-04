@@ -139,6 +139,7 @@ exports[`Storyshots Components/Badge Clickable 1`] = `
 }
 
 .circuit-0:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -1763,6 +1764,7 @@ exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
 }
 
 .circuit-0:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -1806,6 +1808,7 @@ exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
 }
 
 .circuit-0:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -11508,6 +11511,7 @@ tbody .circuit-22:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -11627,6 +11631,7 @@ tbody .circuit-22:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -11697,6 +11702,7 @@ tbody .circuit-36:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -12147,6 +12153,7 @@ tbody .circuit-10:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -12563,6 +12570,7 @@ tbody .circuit-18:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -12682,6 +12690,7 @@ tbody .circuit-18:last-child td {
   bottom: 0;
   left: 0;
   z-index: 1;
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -13433,6 +13442,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -13491,6 +13501,7 @@ HTMLCollection [
 }
 
 .circuit-2:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -13658,6 +13669,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -13716,6 +13728,7 @@ HTMLCollection [
 }
 
 .circuit-2:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -13824,6 +13837,7 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 }
 
 .circuit-0:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -13882,6 +13896,7 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 }
 
 .circuit-2:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -14002,6 +14017,7 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
 }
 
 .circuit-0:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -14572,6 +14588,7 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -14695,6 +14712,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -14838,6 +14856,7 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -15017,6 +15036,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -15137,6 +15157,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -15257,6 +15278,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -19336,6 +19358,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -19433,6 +19456,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -19550,6 +19574,7 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -19655,6 +19680,7 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -20290,6 +20316,7 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -20376,6 +20403,7 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -20471,6 +20499,7 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -20558,6 +20587,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -20684,6 +20714,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
 }
 
 .circuit-0:focus + label::before {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -21517,6 +21548,7 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 }
 
 .circuit-4:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -21634,6 +21666,7 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
 }
 
 .circuit-4:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
@@ -21791,6 +21824,7 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 }
 
 .circuit-4:focus {
+  outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
