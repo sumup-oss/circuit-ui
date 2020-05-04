@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2020, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,16 +13,7 @@
  * limitations under the License.
  */
 
-const { basename } = require('path');
-
-module.exports = {
-  process(src, filename) {
-    const name = basename(filename);
-    return `
-      const React = require('react')
-      module.exports = {
-        ReactComponent: props => React.createElement('div', props, '${name}')
-      }
-    `;
-  }
-};
+declare module '*.mdx' {
+  const MDXComponent: (props: any) => JSX.Element;
+  export default MDXComponent;
+}

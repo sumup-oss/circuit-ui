@@ -23,12 +23,11 @@
       {
         "name": "typescript-styled-plugin",
         "lint": {
-          "validProperties": "label"
+          "validProperties": ["label"]
         }
       }
     ]
   },
   "include": ["src/**/*"],
-  "exclude": ["**/*.spec.*", "**/*.story.*"],
   "typeRoots": ["./node_modules/@types", "./src/types/"]
 }

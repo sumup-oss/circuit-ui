@@ -34,9 +34,20 @@ module.exports = {
       'react-syntax-highlighter/dist/cjs/$1'
   },
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
-    '^.+\\.svg$': '<rootDir>/jest.fileTransformer.js',
-    '^.+\\.mdx?$': '<rootDir>/jest.mdxTransformer.js'
+    '^.+\\.(js|jsx)$': 'babel-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js'
   },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  globals: {
+    STORYBOOK: false,
+    __DEV__: false,
+    __PRODUCTION__: false,
+    __TEST__: true,
+    'ts-jest': {
+      tsConfig: {
+        jsx: 'react'
+      }
+    }
+  }
 };
