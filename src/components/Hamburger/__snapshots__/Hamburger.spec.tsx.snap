@@ -30,7 +30,7 @@ exports[`Hamburger should render with active styles when passed the isActive pro
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
-  border-radius: 100%;
+  border: 0;
 }
 
 .circuit-3:focus {
@@ -57,15 +57,6 @@ exports[`Hamburger should render with active styles when passed the isActive pro
 .circuit-3:active {
   background-color: #EEF0F2;
   border-color: #5C656F;
-}
-
-.circuit-3:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-3:focus::-moz-focus-inner {
-  border: 0;
 }
 
 .circuit-1 {
@@ -211,7 +202,7 @@ exports[`Hamburger should render with default styles 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
-  border-radius: 100%;
+  border: 0;
 }
 
 .circuit-3:focus {
@@ -238,15 +229,6 @@ exports[`Hamburger should render with default styles 1`] = `
 .circuit-3:active {
   background-color: #EEF0F2;
   border-color: #5C656F;
-}
-
-.circuit-3:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-3:focus::-moz-focus-inner {
-  border: 0;
 }
 
 .circuit-1 {

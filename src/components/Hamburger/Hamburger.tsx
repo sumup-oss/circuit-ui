@@ -17,7 +17,6 @@ import React, { FC, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { focusOutline } from '../../styles/style-helpers';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
 
 export type HamburgerRef = HTMLButtonElement;
@@ -42,13 +41,9 @@ export interface HamburgerProps
 const LAYER_HEIGHT = '2px';
 const HAMBURGER_WIDTH = '14px';
 
-const buttonStyles = ({ theme }: StyleProps) => css`
+const buttonStyles = () => css`
   label: hamburger;
-  border-radius: ${theme.borderRadius.circle};
-
-  &:focus {
-    ${focusOutline({ theme })};
-  }
+  border: 0;
 `;
 
 const Button = styled(IconButton)<IconButtonProps>(buttonStyles);
