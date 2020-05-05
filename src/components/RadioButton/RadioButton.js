@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { hideVisually, size } from 'polished';
 
-import { disableVisually } from '../../styles/style-helpers';
+import { disableVisually, focusOutline } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 
@@ -28,6 +28,7 @@ const labelBaseStyles = ({ theme }) => css`
   color: ${theme.colors.n700};
   padding-left: ${theme.spacings.giga};
   position: relative;
+  cursor: pointer;
 
   &::before {
     box-sizing: border-box;
@@ -95,11 +96,9 @@ const labelDisabledStyles = ({ theme, disabled }) =>
 
 const inputStyles = ({ theme }) => css`
   label: radio-button__input;
-  ${hideVisually()};
 
   &:focus + label::before {
-    border-width: 2px;
-    border-color: ${theme.colors.p500};
+    ${focusOutline({ theme })}
   }
 
   &:checked + label {
@@ -114,15 +113,13 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const RadioButtonInput = styled('input')`
-  ${inputStyles};
-`;
+const RadioButtonInput = styled('input')(hideVisually, inputStyles);
 
-const RadioButtonLabel = styled('label')`
-  ${labelBaseStyles};
-  ${labelDisabledStyles};
-  ${labelInvalidStyles};
-`;
+const RadioButtonLabel = styled('label')(
+  labelBaseStyles,
+  labelDisabledStyles,
+  labelInvalidStyles
+);
 
 /**
  * RadioButton component for forms.

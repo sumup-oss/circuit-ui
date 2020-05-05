@@ -23,8 +23,12 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -43,6 +47,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -187,8 +192,12 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -207,6 +216,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -306,8 +316,12 @@ exports[`Checkbox should render with default styles 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -326,6 +340,7 @@ exports[`Checkbox should render with default styles 1`] = `
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -424,8 +439,12 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -444,6 +463,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -562,8 +582,12 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -582,6 +606,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {

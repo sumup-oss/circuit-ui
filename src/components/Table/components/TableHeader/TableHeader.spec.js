@@ -35,7 +35,15 @@ describe('TableHeader', () => {
     });
 
     it('should render with sortable styles', () => {
-      const actual = create(<TableHeader sortable>{children}</TableHeader>);
+      const sortLabel = ({ direction }) => {
+        const order = direction === 'ascending' ? 'descending' : 'ascending';
+        return `Sort by Foo in ${order} order`;
+      };
+      const actual = create(
+        <TableHeader sortable sortLabel={sortLabel}>
+          {children}
+        </TableHeader>
+      );
       expect(actual).toMatchSnapshot();
     });
 
@@ -73,7 +81,9 @@ describe('TableHeader', () => {
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
-        <TableHeader sortable>{children}</TableHeader>
+        <TableHeader sortable sortLabel="Sort by Foo">
+          {children}
+        </TableHeader>
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

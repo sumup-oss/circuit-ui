@@ -13,15 +13,26 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   cursor: pointer;
+  outline: 0;
+  background: transparent;
 }
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #9DA7B1;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
 }
 
 <div>

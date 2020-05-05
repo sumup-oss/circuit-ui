@@ -22,7 +22,6 @@ import { setStatic } from 'recompose';
 import withKeyboardEvents from '../../../../util/withKeyboardEvents';
 import withAriaSelected from '../../../../util/withAriaSelected';
 import { sizes } from '../../../../styles/constants';
-import { shadowBorder } from '../../../../styles/style-helpers';
 
 const { KILO, MEGA, GIGA } = sizes;
 
@@ -61,7 +60,7 @@ const getBorderStyles = theme => css`
     height: 100%;
     left: 0;
     top: 0;
-    ${shadowBorder(theme.colors.b500, theme.borderWidth.mega)};
+    box-shadow: 0px 0px 0px ${theme.borderWidth.mega} ${theme.colors.b500};
     border-radius: ${theme.borderRadius.mega};
   }
 `;

@@ -15,6 +15,7 @@
 
 import React, { Fragment } from 'react';
 import { select, boolean } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 import { values } from 'lodash/fp';
 
 import { colorNames } from '../../styles/constants';
@@ -48,5 +49,11 @@ export const colors = () => (
 export const circular = () => (
   <Badge color={Badge.PRIMARY} circle={boolean('Circular', true)}>
     42
+  </Badge>
+);
+
+export const clickable = () => (
+  <Badge color={Badge.PRIMARY} onClick={action('onClick')} as="button">
+    Click me
   </Badge>
 );

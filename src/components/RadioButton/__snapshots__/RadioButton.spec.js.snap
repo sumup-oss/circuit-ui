@@ -16,8 +16,12 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label::before {
@@ -42,6 +46,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {
@@ -107,8 +112,12 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label::before {
@@ -132,6 +141,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {
@@ -197,8 +207,12 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label::before {
@@ -223,6 +237,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -307,8 +322,12 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label::before {
@@ -332,6 +351,7 @@ HTMLCollection [
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {

@@ -36,6 +36,19 @@ describe('SortArrow', () => {
     });
   });
 
+  describe('Logic tests', () => {
+    it('should call the onClick callback', () => {
+      const onClick = jest.fn();
+      const { getByTestId } = render(
+        <SortArrow onClick={onClick} data-testid="sort" />
+      );
+      act(() => {
+        userEvent.click(getByTestId('sort'));
+      });
+      expect(onClick).toHaveBeenCalledTimes(1);
+    });
+  });
+
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(<SortArrow />);

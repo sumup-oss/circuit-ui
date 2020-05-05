@@ -22,7 +22,7 @@ import {
   eitherOrPropType,
   childrenPropType
 } from '../../util/shared-prop-types';
-import { textMega, shadowBorder } from '../../styles/style-helpers';
+import { textMega, focusOutline } from '../../styles/style-helpers';
 import CloseButton from '../CloseButton';
 
 const tagStyles = ({ theme }) => css`
@@ -31,7 +31,7 @@ const tagStyles = ({ theme }) => css`
   align-items: center;
   border-radius: ${theme.borderRadius.mega};
   ${textMega({ theme })};
-  ${shadowBorder(theme.colors.n300)};
+  border: 1px solid ${theme.colors.n300};
   padding: ${theme.spacings.bit} ${theme.spacings.kilo};
   cursor: default;
 `;
@@ -41,10 +41,16 @@ const tagClickableStyles = ({ onClick, theme }) =>
   css`
     label: tag--clickable;
     cursor: pointer;
+    outline: 0;
+    background: transparent;
 
     &:hover {
       background-color: ${theme.colors.n300};
-      ${shadowBorder(theme.colors.n300)};
+      border: 1px solid ${theme.colors.n500};
+    }
+
+    &:focus {
+      ${focusOutline({ theme })};
     }
   `;
 
@@ -53,7 +59,7 @@ const tagSelectedStyles = ({ selected, theme }) =>
   css`
     label: tag--selected;
     background-color: ${theme.colors.p500};
-    ${shadowBorder(theme.colors.p500)};
+    border: 1px solid ${theme.colors.p500};
     color: ${theme.colors.white};
   `;
 
@@ -64,16 +70,16 @@ const tagSelectedClickableStyles = ({ selected, onClick, theme }) =>
     label: tag--selected--clickable;
     &:hover {
       background-color: ${theme.colors.p500};
-      ${shadowBorder(theme.colors.p500)};
+      border: 1px solid ${theme.colors.p500};
     }
   `;
 
-const TagElement = styled('div')`
-  ${tagStyles};
-  ${tagClickableStyles};
-  ${tagSelectedStyles};
-  ${tagSelectedClickableStyles};
-`;
+const TagElement = styled('div')(
+  tagStyles,
+  tagClickableStyles,
+  tagSelectedStyles,
+  tagSelectedClickableStyles
+);
 
 const prefixStyles = ({ theme }) => css`
   label: tag__prefix;

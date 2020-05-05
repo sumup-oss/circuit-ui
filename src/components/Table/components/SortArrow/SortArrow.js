@@ -17,6 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { hideVisually } from 'polished';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
 import { ASCENDING, DESCENDING } from '../../constants';
@@ -34,27 +35,45 @@ const baseStyles = ({ theme }) => css`
   transform: translateY(-50%);
   transition: opacity ${theme.transitions.default};
   color: ${theme.colors.p500};
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+
+  &:focus {
+    opacity: 1;
+
+    &::-moz-focus-inner {
+      border: 0;
+    }
+  }
 `;
 
-const Wrapper = styled.span(baseStyles);
+const Wrapper = styled.button(baseStyles);
 
-const iconStyles = theme => css`
+const iconStyles = () => css`
   margin-top: -7px;
   margin-bottom: -7px;
 `;
 
+const Label = styled('span')(hideVisually);
+
 /**
  * @private Arrow component for TableHeader sorting
  */
-const SortArrow = ({ direction = null }) => (
-  <Wrapper>
+const SortArrow = ({ label = 'Sort', direction = null, ...props }) => (
+  <Wrapper role="button" title={label} {...props}>
     {direction !== ASCENDING && <ChevronUp css={iconStyles} />}
     {direction !== DESCENDING && <ChevronDown css={iconStyles} />}
+    <Label>{label}</Label>
   </Wrapper>
 );
 
 SortArrow.propTypes = {
-  direction: PropTypes.oneOf([ASCENDING, DESCENDING])
+  direction: PropTypes.oneOf([ASCENDING, DESCENDING]),
+  label: PropTypes.string
 };
 
 export default SortArrow;
