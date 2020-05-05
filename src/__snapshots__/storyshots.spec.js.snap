@@ -262,6 +262,8 @@ exports[`Storyshots Components/Button Primary 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -327,6 +329,8 @@ exports[`Storyshots Components/Button Secondary 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -393,6 +397,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -455,6 +461,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -517,6 +525,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -583,6 +593,8 @@ exports[`Storyshots Components/Button Tertiary 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3388FF;
@@ -646,6 +658,8 @@ exports[`Storyshots Components/Button With Icon 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -728,6 +742,8 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -785,6 +801,8 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -1011,19 +1029,19 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
 exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-.circuit-7 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1048,385 +1066,101 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
 }
 
-.circuit-7:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-7:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-7:disabled,
-.circuit-7[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-7:hover {
+.circuit-3:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-7:active {
+.circuit-3:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
 
-.circuit-2 {
-  height: 24px;
-  width: 24px;
-  position: absolute;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.circuit-0 {
+.circuit-1 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  position: absolute;
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  visibility: hidden;
+  -webkit-transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
 }
 
-.circuit-4 {
-  display: inline-block;
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
   opacity: 1;
-  -webkit-transform: translate(0,0);
-  -ms-transform: translate(0,0);
-  transform: translate(0,0);
-  -webkit-transition: opacity 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
-  -webkit-transition: opacity 200ms ease-in-out,transform 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,transform 200ms ease-in-out;
+  visibility: visible;
+  -webkit-transform: scale3d(1,1,1);
+  -ms-transform: scale3d(1,1,1);
+  transform: scale3d(1,1,1);
+  -webkit-transition: opacity 200ms ease-in-out, -webkit-transform 200ms ease-in-out, visibility 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 200ms ease-in-out;
 }
 
 <button
-  class="circuit-6 circuit-7"
+  aria-busy="false"
+  aria-live="polite"
+  class="circuit-3"
 >
-  <div
-    class="circuit-2 circuit-3"
-  >
-    <div
-      aria-busy="true"
-      aria-live="assertive"
-      class="circuit-0 circuit-1"
-      role="alert"
-    />
-  </div>
   <span
-    class="circuit-4 circuit-5"
+    class="circuit-1"
+  >
+    <span
+      class="circuit-0"
+    >
+      Loading
+    </span>
+  </span>
+  <span
+    class="circuit-2"
   >
     Things take time
-  </span>
-</button>
-`;
-
-exports[`Storyshots Components/Button/LoadingButton Error 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
-  }
-}
-
-.circuit-7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: solid;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
-  padding: 8px calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-7:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-7:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-7:disabled,
-.circuit-7[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-7:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
-}
-
-.circuit-7:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
-}
-
-.circuit-2 {
-  height: 24px;
-  width: 24px;
-  position: absolute;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.circuit-0 {
-  width: 24px;
-  height: 24px;
-  border-radius: 100%;
-  border: 2px solid #FFFFFF;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-.circuit-4 {
-  display: inline-block;
-  opacity: 1;
-  -webkit-transform: translate(0,0);
-  -ms-transform: translate(0,0);
-  transform: translate(0,0);
-  -webkit-transition: opacity 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
-  -webkit-transition: opacity 200ms ease-in-out,transform 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,transform 200ms ease-in-out;
-}
-
-<button
-  class="circuit-6 circuit-7"
->
-  <div
-    class="circuit-2 circuit-3"
-  >
-    <div
-      aria-busy="true"
-      aria-live="assertive"
-      class="circuit-0 circuit-1"
-      role="alert"
-    />
-  </div>
-  <span
-    class="circuit-4 circuit-5"
-  >
-    I will fail.
-  </span>
-</button>
-`;
-
-exports[`Storyshots Components/Button/LoadingButton Success 1`] = `
-@keyframes animation-0 {
-  0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
-  }
-
-  100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
-  }
-}
-
-.circuit-7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: solid;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
-  padding: 8px calc(24px - 1px);
-  position: relative;
-  overflow: hidden;
-}
-
-.circuit-7:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-7:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-7:disabled,
-.circuit-7[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-7:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
-}
-
-.circuit-7:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
-}
-
-.circuit-2 {
-  height: 24px;
-  width: 24px;
-  position: absolute;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.circuit-0 {
-  width: 24px;
-  height: 24px;
-  border-radius: 100%;
-  border: 2px solid #FFFFFF;
-  border-top-color: transparent;
-  -webkit-animation: animation-0 1s infinite linear;
-  animation: animation-0 1s infinite linear;
-  -webkit-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-.circuit-4 {
-  display: inline-block;
-  opacity: 1;
-  -webkit-transform: translate(0,0);
-  -ms-transform: translate(0,0);
-  transform: translate(0,0);
-  -webkit-transition: opacity 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
-  -webkit-transition: opacity 200ms ease-in-out,transform 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,transform 200ms ease-in-out;
-}
-
-<button
-  class="circuit-6 circuit-7"
->
-  <div
-    class="circuit-2 circuit-3"
-  >
-    <div
-      aria-busy="true"
-      aria-live="assertive"
-      class="circuit-0 circuit-1"
-      role="alert"
-    />
-  </div>
-  <span
-    class="circuit-4 circuit-5"
-  >
-    I am a success!
   </span>
 </button>
 `;
@@ -4229,6 +3963,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -4419,6 +4155,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -5102,6 +4840,8 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -5663,6 +5403,8 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -5937,6 +5679,8 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -6660,6 +6404,8 @@ exports[`Storyshots Components/Modal Base 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -6726,6 +6472,8 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -6792,6 +6540,8 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -6858,6 +6608,8 @@ exports[`Storyshots Components/Modal With Header 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -6924,6 +6676,8 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -6990,6 +6744,8 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -7179,6 +6935,8 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -7728,6 +7486,8 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -8087,6 +7847,8 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -8558,6 +8320,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -8623,6 +8387,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -8706,6 +8472,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -8782,6 +8550,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -8909,6 +8679,8 @@ exports[`Storyshots Components/Popover Base 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -9372,6 +9144,19 @@ exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
 `;
 
 exports[`Storyshots Components/Sidebar Base 1`] = `
+.circuit-48 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-52 {
   height: 100vh;
 }
@@ -9684,19 +9469,6 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   }
 }
 
-.circuit-48 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 <div
   class="circuit-52 circuit-53"
 >
@@ -9911,77 +9683,49 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
 exports[`Storyshots Components/Spinner Base 1`] = `
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes animation-0 {
   0% {
-    -webkit-transform: rotate3d(0,0,1,0deg);
-    -ms-transform: rotate3d(0,0,1,0deg);
-    transform: rotate3d(0,0,1,0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate3d(0,0,1,360deg);
-    -ms-transform: rotate3d(0,0,1,360deg);
-    transform: rotate3d(0,0,1,360deg);
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
-.circuit-2 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #9DA7B1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 50px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 50px;
-}
-
 .circuit-0 {
+  display: block;
   width: 24px;
   height: 24px;
   border-radius: 100%;
-  border: 2px solid #FFFFFF;
+  border: 2px solid currentColor;
   border-top-color: transparent;
   -webkit-animation: animation-0 1s infinite linear;
   animation: animation-0 1s infinite linear;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
 }
 
-<div
-  class="circuit-2 circuit-3"
->
-  <div
-    aria-busy="true"
-    aria-live="assertive"
-    class="circuit-0 circuit-1"
-    role="alert"
-  />
-</div>
+<span
+  class="circuit-0"
+/>
 `;
 
 exports[`Storyshots Components/Step Form 1`] = `
@@ -10016,6 +9760,8 @@ exports[`Storyshots Components/Step Form 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -10340,6 +10086,8 @@ exports[`Storyshots Components/Step Slider 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -10457,6 +10205,8 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -23119,6 +22869,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -23189,6 +22941,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -23256,6 +23010,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -23318,6 +23074,8 @@ HTMLCollection [
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;

@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import LoadingIcon from './LoadingIcon';
+import { Spinner } from './Spinner';
 
-export default LoadingIcon;
+export default Spinner;

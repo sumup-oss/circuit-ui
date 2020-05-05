@@ -305,6 +305,8 @@ exports[`Carousel styles should render with children as a function 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -856,6 +858,8 @@ exports[`Carousel styles should render with children as a node 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -1378,6 +1382,8 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -1931,6 +1937,8 @@ exports[`Carousel styles should render with default styles 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;

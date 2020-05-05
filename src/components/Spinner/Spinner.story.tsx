@@ -13,6 +13,25 @@
  * limitations under the License.
  */
 
-import LoadingButton from './LoadingButton';
+import React from 'react';
+import { css } from '@emotion/core';
 
-export default LoadingButton;
+import Spinner from '.';
+
+export default {
+  title: 'Components/Spinner',
+  component: Spinner,
+  parameters: {
+    jest: ['Spinner']
+  }
+};
+
+export const Base = () => (
+  <Spinner
+    css={theme =>
+      css`
+        color: ${theme.colors.n900};
+      `
+    }
+  />
+);
