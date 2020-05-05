@@ -40,8 +40,8 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const primaryStyles = ({ theme, primary }) =>
-  primary &&
+const primaryStyles = ({ theme, variant = 'primary' }) =>
+  variant === 'primary' &&
   css`
     font-weight: bold;
     pointer-events: none;
@@ -65,7 +65,7 @@ const disabledStyles = ({ theme, disabled }) =>
 const PageButton = styled(Button)(baseStyles, primaryStyles, disabledStyles);
 
 PageButton.defaultProps = {
-  size: Button.KILO
+  size: 'kilo'
 };
 
 /**

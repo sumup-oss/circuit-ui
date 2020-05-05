@@ -25,13 +25,6 @@ describe('PaginationButton', () => {
       );
       expect(actual).toMatchSnapshot();
     });
-
-    it('should render with plain styles', () => {
-      const actual = create(
-        <PaginationButton currentPage={1} onClick={jest.fn()} plain />
-      );
-      expect(actual).toMatchSnapshot();
-    });
   });
 
   describe('interactions', () => {

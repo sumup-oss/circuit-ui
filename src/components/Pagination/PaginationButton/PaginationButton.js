@@ -20,7 +20,7 @@ import PageButton from '../PageButton';
 const PaginationButton = ({ currentPage, onClick, active, ...props }) => (
   <PageButton
     {...props}
-    primary={active}
+    variant={active ? 'primary' : 'secondary'}
     name={currentPage}
     onClick={() => onClick(currentPage)}
   >

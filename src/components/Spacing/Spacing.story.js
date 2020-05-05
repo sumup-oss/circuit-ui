@@ -29,7 +29,7 @@ export default {
 export const bottomSpacing = () => (
   <Fragment>
     <Spacing bottom>
-      <Button primary>Spacing bottom</Button>
+      <Button variant="primary">Spacing bottom</Button>
     </Spacing>
     <Button>No spacing</Button>
   </Fragment>
@@ -39,7 +39,7 @@ export const topSpacing = () => (
   <Fragment>
     <Button>No spacing</Button>
     <Spacing top>
-      <Button primary>Spacing top</Button>
+      <Button variant="primary">Spacing top</Button>
     </Spacing>
   </Fragment>
 );

@@ -2,126 +2,64 @@
 
 exports[`PaginationButton styles should render with default styles 1`] = `
 .circuit-1 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: auto;
   height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 4px calc(16px - 1px);
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
   border-color: #D8DDE1;
 }
 
-.circuit-1:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
 .circuit-1:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
   outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-1:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-1:hover,
-.circuit-1:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-1[href] {
-  display: inline-block;
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.4;
+  opacity: 0.5;
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
-}
-
-.circuit-1:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: 4px 16px;
-}
-
-.circuit-1:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-1:hover:focus {
   box-shadow: none;
 }
 
-<button
-  class="circuit-0 circuit-1 circuit-2"
-  name="1"
->
-  1
-</button>
-`;
-
-exports[`PaginationButton styles should render with plain styles 1`] = `
-.circuit-1 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
-  margin-bottom: 0;
-  box-shadow: none;
-  border: none;
-  background: none;
-  font-weight: normal;
-  padding: 0;
-  color: #9DA7B1;
-  cursor: pointer;
-  outline: none;
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-}
-
-@media (min-width:480px) {
-  .circuit-1 {
-    font-size: 13px;
-    line-height: 20px;
-  }
-}
-
 .circuit-1:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  color: #212933;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-1:focus {
@@ -140,7 +78,7 @@ exports[`PaginationButton styles should render with plain styles 1`] = `
 }
 
 <button
-  class="circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1"
   name="1"
 >
   1

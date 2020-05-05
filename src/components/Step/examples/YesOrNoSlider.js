@@ -85,13 +85,13 @@ const YesOrNoSlider = ({ images, ...stepProps }) => {
           </Swipeable>
           <ButtonGroup align={ButtonGroup.CENTER}>
             <Button
-              primary={swipe.dir === LEFT_DIRECTION}
+              variant={swipe.dir === LEFT_DIRECTION ? 'primary' : 'secondary'}
               {...getPreviousControlProps()}
             >
               No
             </Button>
             <Button
-              primary={swipe.dir === RIGHT_DIRECTION}
+              variant={swipe.dir === RIGHT_DIRECTION ? 'primary' : 'secondary'}
               {...getNextControlProps()}
             >
               Yes
