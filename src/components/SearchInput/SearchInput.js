@@ -23,6 +23,10 @@ import Input from '../Input';
 import IconButton from '../IconButton';
 
 const ClearButton = styled(IconButton)`
+  border: none;
+  margin: 0 !important;
+  width: auto !important;
+  height: calc(100% - 2px) !important;
   pointer-events: all !important;
   cursor: pointer !important;
 `;
@@ -40,6 +44,7 @@ const SearchInput = ({ children, value, onClear, clearLabel, ...props }) => (
         <ClearButton
           onClick={onClear}
           label={clearLabel}
+          variant="secondary"
           data-testid="input-clear"
           {...renderProps}
         >

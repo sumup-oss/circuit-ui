@@ -903,37 +903,69 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   width: 1px;
 }
 
-.circuit-3 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   cursor: pointer;
-  overflow: initial;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border: 0;
 }
 
-.circuit-3:hover {
-  color: #212933;
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus,
-.circuit-3:active {
-  outline: none;
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-3 > svg {
-  height: 100%;
-  width: 100%;
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-1:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
-  class="circuit-2 circuit-3 circuit-4"
+  class="circuit-1"
   title="Close"
-  type="button"
 >
   <svg
     fill="none"
@@ -951,7 +983,7 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
     />
   </svg>
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Close
   </span>
@@ -972,35 +1004,68 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   width: 1px;
 }
 
-.circuit-2 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   cursor: pointer;
-  overflow: initial;
-  color: #5C656F;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
 }
 
-.circuit-2:hover {
-  color: #212933;
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  outline: none;
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-2 > svg {
-  height: 100%;
-  width: 100%;
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-1:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 <button
-  class="circuit-2 circuit-3"
+  class="circuit-1"
   title="Download"
-  type="button"
 >
   <svg
     fill="none"
@@ -1019,7 +1084,7 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
     />
   </svg>
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Download
   </span>
@@ -1039,6 +1104,19 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
     -ms-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .circuit-3 {
@@ -1117,19 +1195,6 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   visibility: hidden;
   -webkit-transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
   transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
-}
-
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 .circuit-2 {
@@ -4419,7 +4484,7 @@ HTMLCollection [
   width: 1px;
 }
 
-.circuit-10 {
+.circuit-7 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -4442,7 +4507,7 @@ HTMLCollection [
   margin-bottom: 16px;
 }
 
-.circuit-7 {
+.circuit-4 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -4473,7 +4538,7 @@ HTMLCollection [
   }
 }
 
-.circuit-9 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -4482,45 +4547,78 @@ HTMLCollection [
 }
 
 @media (min-width:480px) {
-  .circuit-9 {
+  .circuit-6 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-5 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   cursor: pointer;
-  overflow: initial;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border: 0;
 }
 
-.circuit-5:hover {
-  color: #212933;
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus,
-.circuit-5:active {
-  outline: none;
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-5 > svg {
-  height: 100%;
-  width: 100%;
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-3:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <div
-    class="circuit-10 circuit-11"
+    class="circuit-7 circuit-8"
     spacing="giga"
   >
     <header
-      class="circuit-7 circuit-8"
+      class="circuit-4 circuit-5"
     >
       <h2
         class=" circuit-0 circuit-1"
@@ -4528,10 +4626,9 @@ HTMLCollection [
         Card heading
       </h2>
       <button
-        class="circuit-4 circuit-5 circuit-6"
+        class="circuit-3"
         data-testid="header-close"
         title="Close"
-        type="button"
       >
         <svg
           fill="none"
@@ -4549,14 +4646,14 @@ HTMLCollection [
           />
         </svg>
         <span
-          class="circuit-2 circuit-3"
+          class="circuit-2"
         >
           Close
         </span>
       </button>
     </header>
     <p
-      class="circuit-9"
+      class="circuit-6"
     >
       This is some text showing in my card
     </p>
@@ -7257,7 +7354,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   width: 1px;
 }
 
-.circuit-7 {
+.circuit-4 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -7288,34 +7385,67 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   }
 }
 
-.circuit-5 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   cursor: pointer;
-  overflow: initial;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border: 0;
 }
 
-.circuit-5:hover {
-  color: #212933;
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus,
-.circuit-5:active {
-  outline: none;
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-5 > svg {
-  height: 100%;
-  width: 100%;
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
 }
 
-.circuit-9 {
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-3:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
+}
+
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -7323,13 +7453,13 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 @media (min-width:480px) {
-  .circuit-9 {
+  .circuit-6 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-10 {
+.circuit-7 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -7349,7 +7479,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 @media (max-width:479px) {
-  .circuit-10 {
+  .circuit-7 {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
@@ -7358,11 +7488,11 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 <div
-  class="circuit-10 circuit-11"
+  class="circuit-7 circuit-8"
   spacing="giga"
 >
   <header
-    class="circuit-7 circuit-8"
+    class="circuit-4 circuit-5"
   >
     <h2
       class=" circuit-0 circuit-1"
@@ -7370,10 +7500,9 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
       A modal
     </h2>
     <button
-      class="circuit-4 circuit-5 circuit-6"
+      class="circuit-3"
       data-testid="header-close"
       title="Close"
-      type="button"
     >
       <svg
         fill="none"
@@ -7391,14 +7520,14 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
         />
       </svg>
       <span
-        class="circuit-2 circuit-3"
+        class="circuit-2"
       >
         Close
       </span>
     </button>
   </header>
   <p
-    class="circuit-9"
+    class="circuit-6"
   >
     Some text in the modal body.
   </p>
@@ -9157,8 +9286,9 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   width: 1px;
 }
 
-.circuit-52 {
+.circuit-51 {
   height: 100vh;
+  width: 100vw;
 }
 
 .circuit-44 {
@@ -9432,9 +9562,6 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
 }
 
 .circuit-50 {
-  cursor: pointer;
-  outline: none;
-  border: none;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9447,10 +9574,26 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: #FAFBFC;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border: 0;
+  border-radius: 100%;
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -9463,6 +9606,32 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   opacity: 1;
 }
 
+.circuit-50:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-50:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-50:disabled,
+.circuit-50[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-50:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-50:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
+}
+
 @media (min-width:960px) {
   .circuit-50 {
     visibility: hidden;
@@ -9470,7 +9639,7 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
 }
 
 <div
-  class="circuit-52 circuit-53"
+  class="circuit-51 circuit-52"
 >
   <nav
     class="circuit-44 circuit-45"
@@ -9652,9 +9821,9 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
     data-testid="sidebar-backdrop"
   />
   <button
-    aria-label="close-button"
-    class="circuit-50 circuit-51"
+    class="circuit-49 circuit-50"
     data-testid="sidebar-close-button"
+    title="close-button"
   >
     <svg
       fill="none"
@@ -9672,7 +9841,7 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
       />
     </svg>
     <span
-      class="circuit-48 circuit-49"
+      class="circuit-48"
     >
       close-button
     </span>
@@ -12609,35 +12778,70 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   width: 1px;
 }
 
-.circuit-4 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   cursor: pointer;
-  overflow: initial;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border: 0;
   margin-left: 4px;
+  margin-right: -4px;
+  padding: 0;
 }
 
-.circuit-4:hover {
-  color: #212933;
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus,
-.circuit-4:active {
-  outline: none;
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-4 > svg {
-  height: 100%;
-  width: 100%;
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
 }
 
-.circuit-6 {
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
+}
+
+.circuit-3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -12655,14 +12859,13 @@ exports[`Storyshots Components/Tag Removable 1`] = `
 }
 
 <div
-  class="circuit-6 circuit-7"
+  class="circuit-3 circuit-4"
 >
   Transactions
   <button
-    class="circuit-2 circuit-3 circuit-4 circuit-5"
+    class="circuit-1 circuit-2"
     data-testid="tag-close"
     title="Remove"
-    type="button"
   >
     <svg
       fill="none"
@@ -12680,7 +12883,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
       />
     </svg>
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       Remove
     </span>
@@ -12735,6 +12938,7 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
 }
 
 .circuit-0 {
+  margin-left: -4px;
   margin-right: 4px;
 }
 
@@ -12781,6 +12985,7 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
 
 .circuit-0 {
   margin-left: 4px;
+  margin-right: -4px;
 }
 
 <div
@@ -15993,23 +16198,23 @@ label + .circuit-3 {
 `;
 
 exports[`Storyshots Forms/Input/AutoCompleteInput Preselected 1`] = `
-.circuit-12 {
+.circuit-10 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-10 {
+.circuit-8 {
   position: relative;
   min-width: 150px;
 }
 
-label > .circuit-10,
-label + .circuit-10 {
+label > .circuit-8,
+label + .circuit-8 {
   margin-top: 4px;
 }
 
-.circuit-8 {
+.circuit-6 {
   color: #212933;
   display: block;
   position: relative;
@@ -16017,8 +16222,8 @@ label + .circuit-10 {
   margin-bottom: 0;
 }
 
-label > .circuit-8,
-label + .circuit-8 {
+label > .circuit-6,
+label + .circuit-6 {
   margin-top: 4px;
 }
 
@@ -16081,15 +16286,41 @@ label + .circuit-8 {
   transition: color 200ms ease-in-out;
 }
 
-.circuit-6 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   cursor: pointer;
-  overflow: initial;
-  color: #5C656F;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border: none;
+  margin: 0 !important;
+  width: auto !important;
+  height: calc(100% - 2px) !important;
   pointer-events: all !important;
   cursor: pointer !important;
   position: absolute;
@@ -16102,18 +16333,30 @@ label + .circuit-8 {
   width: 24px;
 }
 
-.circuit-6:hover {
-  color: #212933;
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-6:focus,
-.circuit-6:active {
-  outline: none;
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-6 > svg {
-  height: 100%;
-  width: 100%;
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-5:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-3 {
@@ -16130,7 +16373,7 @@ label + .circuit-8 {
 }
 
 <label
-  class="circuit-12 circuit-13"
+  class="circuit-10 circuit-11"
   for="3"
 >
   What's your favourite fruit?
@@ -16138,11 +16381,11 @@ label + .circuit-8 {
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-labelledby="downshift-2-label"
-    class="circuit-10 circuit-11"
+    class="circuit-8 circuit-9"
     role="combobox"
   >
     <div
-      class="circuit-8 circuit-9"
+      class="circuit-6 circuit-7"
     >
       <svg
         class="circuit-0"
@@ -16171,10 +16414,9 @@ label + .circuit-8 {
         value="Apple"
       />
       <button
-        class="circuit-5 circuit-6 circuit-7"
+        class="circuit-4 circuit-5"
         data-testid="input-clear"
         title="Clear"
-        type="button"
       >
         <svg
           fill="none"
@@ -16192,7 +16434,7 @@ label + .circuit-8 {
           />
         </svg>
         <span
-          class="circuit-3 circuit-4"
+          class="circuit-3"
         >
           Clear
         </span>
@@ -16426,7 +16668,7 @@ label + .circuit-3 {
   width: 1px;
 }
 
-.circuit-16 {
+.circuit-13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -16441,7 +16683,7 @@ label + .circuit-3 {
   margin-top: 12px;
 }
 
-.circuit-14 {
+.circuit-11 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -16459,36 +16701,71 @@ label + .circuit-3 {
   margin-top: 8px;
 }
 
-.circuit-14:first-of-type: {
+.circuit-11:first-of-type: {
   margin-top: 0;
 }
 
-.circuit-11 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
+.circuit-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   cursor: pointer;
-  overflow: initial;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border: 0;
   margin-left: 4px;
+  margin-right: -4px;
+  padding: 0;
 }
 
-.circuit-11:hover {
-  color: #212933;
+.circuit-9:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-11:focus,
-.circuit-11:active {
-  outline: none;
+.circuit-9:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-11 > svg {
-  height: 100%;
-  width: 100%;
+.circuit-9:disabled,
+.circuit-9[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-9:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-9:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <div
@@ -16534,18 +16811,17 @@ label + .circuit-3 {
     </div>
   </div>
   <div
-    class="circuit-16 circuit-17"
+    class="circuit-13 circuit-14"
     data-testid="autocomplete-tags-selected"
   >
     <div
-      class="circuit-13 circuit-14 circuit-15"
+      class="circuit-10 circuit-11 circuit-12"
     >
       test4@sumup.com
       <button
-        class="circuit-9 circuit-10 circuit-11 circuit-12"
+        class="circuit-8 circuit-9"
         data-testid="tag-close"
         title="remove"
-        type="button"
       >
         <svg
           fill="none"
@@ -16563,7 +16839,7 @@ label + .circuit-3 {
           />
         </svg>
         <span
-          class="circuit-7 circuit-8"
+          class="circuit-7"
         >
           remove
         </span>

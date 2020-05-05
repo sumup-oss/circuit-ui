@@ -77,30 +77,22 @@ const TagElement = styled('div')`
 
 const prefixStyles = ({ theme }) => css`
   label: tag__prefix;
+  margin-left: -${theme.spacings.bit};
   margin-right: ${theme.spacings.bit};
 `;
 
 const suffixStyles = ({ theme }) => css`
   label: tag__suffix;
   margin-left: ${theme.spacings.bit};
+  margin-right: -${theme.spacings.bit};
 `;
 
-const closeButtonStyles = ({ theme }) => css`
-  label: tag__close-btn;
-  margin-left: ${theme.spacings.bit};
+const closeButtonStyles = () => css`
+  label: tag__close-button;
+  padding: 0;
 `;
 
-const selectedCloseButtonStyles = ({ theme, selected }) =>
-  selected &&
-  css`
-    label: tag__close-btn--selected;
-    color: ${theme.colors.white};
-  `;
-
-const StyledCloseButton = styled(CloseButton)`
-  ${closeButtonStyles};
-  ${selectedCloseButtonStyles};
-`;
+const RemoveButton = styled(CloseButton)(suffixStyles, closeButtonStyles);
 
 /**
  * Tag component
@@ -134,10 +126,12 @@ const Tag = ({
       {children}
 
       {onRemove && (
-        <StyledCloseButton
+        <RemoveButton
+          variant={selected ? 'primary' : 'secondary'}
           selected={selected}
           label={labelRemoveButton}
           data-testid="tag-close"
+          size="kilo"
           onClick={onRemove}
         />
       )}

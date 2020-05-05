@@ -15,7 +15,9 @@
 
 import React from 'react';
 
-import IconButton from '.';
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
+import { IconButton } from './IconButton';
 
 describe('IconButton', () => {
   /**
