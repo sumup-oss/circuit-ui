@@ -23,7 +23,6 @@ import {
   ButtonGroup,
   Card,
   Checkbox,
-  Hamburger,
   Heading,
   Hr,
   Image,
@@ -147,7 +146,8 @@ export default {
       }
     },
     getComponentInfo(Checkbox),
-    getComponentInfo(Hamburger),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(Hamburger),
     getComponentInfo(Heading, {
       size: [
         Heading.KILO,

@@ -26,6 +26,8 @@ exports[`IconButton should render with the default styles 1`] = `
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;

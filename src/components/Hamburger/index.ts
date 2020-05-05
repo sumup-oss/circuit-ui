@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Hamburger from './Hamburger';
+import { Hamburger } from './Hamburger';
 
 export default Hamburger;

@@ -15,19 +15,38 @@
 
 import React from 'react';
 
-import Hamburger from './Hamburger';
+import {
+  create,
+  renderToHtml,
+  axe,
+  render,
+  act,
+  userEvent,
+  RenderFn
+} from '../../util/test-utils';
+
+import { Hamburger, HamburgerProps } from './Hamburger';
 
 describe('Hamburger', () => {
+  function renderHamburger(renderFn: RenderFn, props: HamburgerProps) {
+    return renderFn(<Hamburger {...props} />);
+  }
+
+  const baseProps = {
+    labelActive: 'Close menu',
+    labelInActive: 'Open menu'
+  };
+
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Hamburger />);
+    const actual = renderHamburger(create, baseProps);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with active styles when passed the isActive prop', () => {
-    const actual = create(<Hamburger isActive />);
+    const actual = renderHamburger(create, { ...baseProps, isActive: true });
     expect(actual).toMatchSnapshot();
   });
 
@@ -35,23 +54,25 @@ describe('Hamburger', () => {
    * Logic tests.
    */
   it('should call the onClick prop when clicked', () => {
-    const onClickMock = jest.fn();
-    const { getByTestId } = render(
-      <Hamburger onClick={onClickMock} data-testid="hamburger" />
-    );
-
-    act(() => {
-      fireEvent.click(getByTestId('hamburger'));
+    const onClick = jest.fn();
+    const { getByTestId } = renderHamburger(render, {
+      ...baseProps,
+      onClick,
+      'data-testid': 'hamburger'
     });
 
-    expect(onClickMock).toHaveBeenCalledTimes(1);
+    act(() => {
+      userEvent.click(getByTestId('hamburger'));
+    });
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Hamburger />);
+    const wrapper = renderHamburger(renderToHtml, baseProps);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
