@@ -429,15 +429,16 @@ Input.propTypes = {
    */
   deepRef: PropTypes.func,
   /**
-   * A string that will become the label for the input.
+   * A clear and concise description of the input purpose.
    */
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /**
-   * Defines whether the label should be hidden or not.
+   * Visually hide the label. This should only be used in rare cases and only if the
+   * purpose of the field can be inferred from other context.
    */
   labelVisuallyHidden: PropTypes.bool,
   /**
-   * Sets the label for the input, needed for a11y.
+   * A unique identifier for the input field. If not defined, a randomly generated id is used.
    */
   id: PropTypes.string
 };
