@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { find, identity } from 'lodash/fp';
-import { size } from 'polished';
+import { size, hideVisually } from 'polished';
 import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
 
 import { textMega, disableVisually } from '../../styles/style-helpers';
@@ -27,6 +27,7 @@ import { childrenPropType } from '../../util/shared-prop-types';
 
 import Tooltip from '../Tooltip';
 import Label from '../Label';
+import { uniqueId } from '../../util/id';
 
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;
@@ -186,6 +187,11 @@ const tooltipBaseStyles = css`
   right: 1px;
 `;
 
+const labelTextStyles = ({ visuallyHidden }) =>
+  visuallyHidden && hideVisually();
+
+const LabelText = styled('span')(labelTextStyles);
+
 const InputContainer = styled('div')`
   ${containerBaseStyles};
   ${containerNoMarginStyles};
@@ -288,8 +294,11 @@ const StyledInput = ({
   as,
   label,
   labelVisuallyHidden,
+  id: customId,
   ...props
 }) => {
+  const id = customId || uniqueId('input_');
+
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
   const suffix = RenderSuffix ? (
     <RenderSuffix css={suffixStyles} />
@@ -301,11 +310,9 @@ const StyledInput = ({
   );
 
   return (
-    <>
+    <Label htmlFor={id}>
       {label ? (
-        <Label htmlFor={props.id} visuallyHidden={labelVisuallyHidden}>
-          {label}
-        </Label>
+        <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
       ) : null}
       <InputContainer
         {...{
@@ -329,7 +336,8 @@ const StyledInput = ({
             hasPrefix: !!prefix,
             hasSuffix: !!suffix,
             className: inputClassName,
-            css: inputStyles
+            css: inputStyles,
+            id
           }}
           aria-invalid={invalid}
         />
@@ -341,7 +349,7 @@ const StyledInput = ({
         )}
         {children}
       </InputContainer>
-    </>
+    </Label>
   );
 };
 
@@ -423,7 +431,7 @@ Input.propTypes = {
   /**
    * A string that will become the label for the input.
    */
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /**
    * Defines whether the label should be hidden or not.
    */
@@ -431,7 +439,7 @@ Input.propTypes = {
   /**
    * Sets the label for the input, needed for a11y.
    */
-  id: PropTypes.string.isRequired
+  id: PropTypes.string
 };
 
 StyledInput.propTypes = Input.propTypes;
@@ -451,10 +459,7 @@ Input.defaultProps = {
   inline: false,
   noMargin: false,
   deepRef: undefined,
-  textAlign: Input.LEFT,
-  label: '',
-  labelVisuallyHidden: false,
-  id: undefined
+  textAlign: Input.LEFT
 };
 
 /**

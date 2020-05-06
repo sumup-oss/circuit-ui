@@ -33,9 +33,7 @@ export default {
 const CurrencyInputWithLabel = props => {
   const id = uniqueId();
   return (
-    <div>
-      <CurrencyInput placeholder="123.45" {...props} id={id} label="Amount" />
-    </div>
+    <CurrencyInput placeholder="123.45" {...props} id={id} label="Amount" />
   );
 };
 

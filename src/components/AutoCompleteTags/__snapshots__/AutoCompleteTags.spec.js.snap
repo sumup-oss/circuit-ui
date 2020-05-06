@@ -1,14 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AutoCompleteTags should render with default styles 1`] = `
-.circuit-5 {
+.circuit-7 {
   position: relative;
   min-width: 150px;
 }
 
-label > .circuit-5,
-label + .circuit-5 {
+label > .circuit-7,
+label + .circuit-7 {
   margin-top: 4px;
+}
+
+.circuit-5 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
 }
 
 .circuit-3 {
@@ -87,38 +93,43 @@ label + .circuit-3 {
   aria-expanded="false"
   aria-haspopup="listbox"
   aria-labelledby="downshift-0-label"
-  class="circuit-5 circuit-6"
+  class="circuit-7 circuit-8"
   role="combobox"
 >
-  <div
-    class="circuit-3 circuit-4"
+  <label
+    class="circuit-5 circuit-6"
+    for="downshift-0-input"
   >
-    <svg
-      class="circuit-0"
-      fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="circuit-3 circuit-4"
     >
-      <path
-        d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+      <svg
+        class="circuit-0"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <input
+        aria-autocomplete="list"
+        aria-invalid="false"
+        aria-labelledby="downshift-0-label"
+        autocomplete="off"
+        class="circuit-1 circuit-2"
+        id="downshift-0-input"
+        type="text"
+        value=""
       />
-    </svg>
-    <input
-      aria-autocomplete="list"
-      aria-invalid="false"
-      aria-labelledby="downshift-0-label"
-      autocomplete="off"
-      class="circuit-1 circuit-2"
-      id="downshift-0-input"
-      type="text"
-      value=""
-    />
-  </div>
+    </div>
+  </label>
 </div>
 `;

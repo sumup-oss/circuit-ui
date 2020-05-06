@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchInput should grey out icon when disabled 1`] = `
+.circuit-5 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-0 {
   position: absolute;
   top: 1px;
@@ -75,37 +81,49 @@ label + .circuit-3 {
   margin-top: 4px;
 }
 
-<div
-  class="circuit-3 circuit-4"
-  disabled=""
+<label
+  class="circuit-5 circuit-6"
+  for="input_2"
 >
-  <svg
-    class="circuit-0"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-  <input
-    aria-invalid="false"
-    class="circuit-1 circuit-2"
+  <div
+    class="circuit-3 circuit-4"
     disabled=""
-    type="text"
-    value=""
-  />
-</div>
+  >
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <input
+      aria-invalid="false"
+      class="circuit-1 circuit-2"
+      disabled=""
+      id="input_2"
+      type="text"
+      value=""
+    />
+  </div>
+</label>
 `;
 
 exports[`SearchInput should render with default styles 1`] = `
+.circuit-5 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-3 {
   color: #212933;
   display: block;
@@ -177,30 +195,36 @@ label + .circuit-3 {
   transition: color 200ms ease-in-out;
 }
 
-<div
-  class="circuit-3 circuit-4"
+<label
+  class="circuit-5 circuit-6"
+  for="input_1"
 >
-  <svg
-    class="circuit-0"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
+  <div
+    class="circuit-3 circuit-4"
   >
-    <path
-      d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <input
+      aria-invalid="false"
+      class="circuit-1 circuit-2"
+      id="input_1"
+      type="text"
+      value=""
     />
-  </svg>
-  <input
-    aria-invalid="false"
-    class="circuit-1 circuit-2"
-    type="text"
-    value=""
-  />
-</div>
+  </div>
+</label>
 `;

@@ -33,15 +33,12 @@ export default {
 const TextAreaWithLabel = props => {
   const id = uniqueId();
   return (
-    <div>
-      {' '}
-      <TextArea
-        placeholder="Write your text here..."
-        {...props}
-        id={id}
-        label="Label"
-      />
-    </div>
+    <TextArea
+      placeholder="Write your text here..."
+      {...props}
+      id={id}
+      label="Label"
+    />
   );
 };
 

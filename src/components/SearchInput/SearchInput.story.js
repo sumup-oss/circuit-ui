@@ -34,9 +34,7 @@ export default {
 const SearchInputWithLabel = props => {
   const id = uniqueId();
   return (
-    <div>
-      <SearchInput placeholder="Search..." {...props} id={id} label="Search" />
-    </div>
+    <SearchInput placeholder="Search..." {...props} id={id} label="Search" />
   );
 };
 

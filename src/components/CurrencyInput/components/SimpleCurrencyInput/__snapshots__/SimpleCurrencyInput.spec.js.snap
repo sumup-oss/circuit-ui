@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SimpleCurrencyInput should adjust input padding and postfix width to match currency symbol width 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-4 {
   color: #212933;
   display: block;
@@ -90,25 +96,37 @@ label + .circuit-4 {
   width: 24px;
 }
 
-<div
-  class="circuit-4 circuit-5"
+<label
+  class="circuit-6 circuit-7"
+  for="input_6"
 >
-  <input
-    aria-invalid="false"
-    class="circuit-0 circuit-1"
-    placeholder="123,45"
-    type="text"
-    value=""
-  />
-  <span
-    class="circuit-2 circuit-3"
+  <div
+    class="circuit-4 circuit-5"
   >
-    CHF
-  </span>
-</div>
+    <input
+      aria-invalid="false"
+      class="circuit-0 circuit-1"
+      id="input_6"
+      placeholder="123,45"
+      type="text"
+      value=""
+    />
+    <span
+      class="circuit-2 circuit-3"
+    >
+      CHF
+    </span>
+  </div>
+</label>
 `;
 
 exports[`SimpleCurrencyInput should prioritize disabled over error styles 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-4 {
   color: #212933;
   display: block;
@@ -201,25 +219,37 @@ label + .circuit-4 {
   width: 24px;
 }
 
-<div
-  class="circuit-4 circuit-5"
-  disabled=""
+<label
+  class="circuit-6 circuit-7"
+  for="input_4"
 >
-  <input
-    aria-invalid="true"
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-4 circuit-5"
     disabled=""
-    type="text"
-    value=""
-  />
-  <span
-    class="circuit-2 circuit-3"
-    disabled=""
-  />
-</div>
+  >
+    <input
+      aria-invalid="true"
+      class="circuit-0 circuit-1"
+      disabled=""
+      id="input_4"
+      type="text"
+      value=""
+    />
+    <span
+      class="circuit-2 circuit-3"
+      disabled=""
+    />
+  </div>
+</label>
 `;
 
 exports[`SimpleCurrencyInput should prioritize disabled over warning styles 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-4 {
   color: #212933;
   display: block;
@@ -357,22 +387,34 @@ label + .circuit-4 {
   color: #EA7A7A;
 }
 
-<div
-  class="circuit-4 circuit-5"
+<label
+  class="circuit-6 circuit-7"
+  for="input_5"
 >
-  <input
-    aria-invalid="true"
-    class="circuit-0 circuit-1"
-    type="text"
-    value=""
-  />
-  <span
-    class="circuit-2 circuit-3"
-  />
-</div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      aria-invalid="true"
+      class="circuit-0 circuit-1"
+      id="input_5"
+      type="text"
+      value=""
+    />
+    <span
+      class="circuit-2 circuit-3"
+    />
+  </div>
+</label>
 `;
 
 exports[`SimpleCurrencyInput should render with default styles 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-4 {
   color: #212933;
   display: block;
@@ -462,24 +504,36 @@ label + .circuit-4 {
   width: 24px;
 }
 
-<div
-  class="circuit-4 circuit-5"
+<label
+  class="circuit-6 circuit-7"
+  for="input_1"
 >
-  <input
-    aria-invalid="false"
-    class="circuit-0 circuit-1"
-    type="text"
-    value=""
-  />
-  <span
-    class="circuit-2 circuit-3"
+  <div
+    class="circuit-4 circuit-5"
   >
-    €
-  </span>
-</div>
+    <input
+      aria-invalid="false"
+      class="circuit-0 circuit-1"
+      id="input_1"
+      type="text"
+      value=""
+    />
+    <span
+      class="circuit-2 circuit-3"
+    >
+      €
+    </span>
+  </div>
+</label>
 `;
 
 exports[`SimpleCurrencyInput should render with error styles 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-4 {
   color: #212933;
   display: block;
@@ -593,24 +647,36 @@ label + .circuit-4 {
   color: #EA7A7A;
 }
 
-<div
-  class="circuit-4 circuit-5"
+<label
+  class="circuit-6 circuit-7"
+  for="input_3"
 >
-  <input
-    aria-invalid="true"
-    class="circuit-0 circuit-1"
-    type="text"
-    value=""
-  />
-  <span
-    class="circuit-2 circuit-3"
+  <div
+    class="circuit-4 circuit-5"
   >
-    €
-  </span>
-</div>
+    <input
+      aria-invalid="true"
+      class="circuit-0 circuit-1"
+      id="input_3"
+      type="text"
+      value=""
+    />
+    <span
+      class="circuit-2 circuit-3"
+    >
+      €
+    </span>
+  </div>
+</label>
 `;
 
 exports[`SimpleCurrencyInput should render with warning styles 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-4 {
   color: #212933;
   display: block;
@@ -724,24 +790,36 @@ label + .circuit-4 {
   color: #D8A413;
 }
 
-<div
-  class="circuit-4 circuit-5"
+<label
+  class="circuit-6 circuit-7"
+  for="input_2"
 >
-  <input
-    aria-invalid="false"
-    class="circuit-0 circuit-1"
-    type="text"
-    value=""
-  />
-  <span
-    class="circuit-2 circuit-3"
+  <div
+    class="circuit-4 circuit-5"
   >
-    €
-  </span>
-</div>
+    <input
+      aria-invalid="false"
+      class="circuit-0 circuit-1"
+      id="input_2"
+      type="text"
+      value=""
+    />
+    <span
+      class="circuit-2 circuit-3"
+    >
+      €
+    </span>
+  </div>
+</label>
 `;
 
 exports[`SimpleCurrencyInput should support rendering symbols on the left 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-4 {
   color: #212933;
   display: block;
@@ -831,20 +909,26 @@ label + .circuit-4 {
   transition: color 200ms ease-in-out;
 }
 
-<div
-  class="circuit-4 circuit-5"
+<label
+  class="circuit-6 circuit-7"
+  for="input_7"
 >
-  <span
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-4 circuit-5"
   >
-    $
-  </span>
-  <input
-    aria-invalid="false"
-    class="circuit-2 circuit-3"
-    placeholder="123.45"
-    type="text"
-    value=""
-  />
-</div>
+    <span
+      class="circuit-0 circuit-1"
+    >
+      $
+    </span>
+    <input
+      aria-invalid="false"
+      class="circuit-2 circuit-3"
+      id="input_7"
+      placeholder="123.45"
+      type="text"
+      value=""
+    />
+  </div>
+</label>
 `;

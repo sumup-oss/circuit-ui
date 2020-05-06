@@ -57,14 +57,12 @@ const icons = {
 const AutoCompleteInputWithLabel = props => {
   const id = uniqueId();
   return (
-    <div>
-      <AutoCompleteInput
-        clearOnSelect={boolean('clearOnSelect', false)}
-        {...props}
-        id={id}
-        label="What's your favourite fruit?"
-      />
-    </div>
+    <AutoCompleteInput
+      clearOnSelect={boolean('clearOnSelect', false)}
+      {...props}
+      id={id}
+      label="What's your favourite fruit?"
+    />
   );
 };
 

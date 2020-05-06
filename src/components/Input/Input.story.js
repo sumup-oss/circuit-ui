@@ -32,11 +32,7 @@ export default {
 // Inputs always need labels for accessibility.
 const InputWithLabel = props => {
   const id = uniqueId();
-  return (
-    <div>
-      <Input placeholder="Placeholder" {...props} id={id} label="Label" />
-    </div>
-  );
+  return <Input placeholder="Placeholder" {...props} id={id} label="Label" />;
 };
 
 export const base = () => <InputWithLabel />;

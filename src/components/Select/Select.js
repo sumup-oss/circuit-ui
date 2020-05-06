@@ -17,7 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { size } from 'polished';
+import { size, hideVisually } from 'polished';
 import { SelectExpand, CircleCross } from '@sumup/icons';
 
 import {
@@ -28,6 +28,7 @@ import { textMega, disableVisually } from '../../styles/style-helpers';
 
 import Tooltip from '../Tooltip';
 import Label from '../Label';
+import { uniqueId } from '../../util/id';
 
 // HACK: Firefox includes the border-width in the overall height of the element
 //       (despite box-sizing: border-box), so we have to force the height.
@@ -166,6 +167,11 @@ const tooltipBaseStyles = css`
   right: 1px;
 `;
 
+const labelTextStyles = ({ visuallyHidden }) =>
+  visuallyHidden && hideVisually();
+
+const LabelText = styled('span')(labelTextStyles);
+
 const SelectContainer = styled('div')`
   ${containerBaseStyles};
   ${containerNoMarginStyles};
@@ -209,19 +215,20 @@ const Select = ({
   validationHint,
   label,
   labelVisuallyHidden,
+  id: customId,
   ...props
 }) => {
+  const id = customId || uniqueId('select_');
+
   const prefix = RenderPrefix && (
     <RenderPrefix css={prefixStyles} value={value} />
   );
   const showInvalid = !disabled && invalid;
 
   return (
-    <>
+    <Label htmlFor={props.id}>
       {label ? (
-        <Label htmlFor={props.id} visuallyHidden={labelVisuallyHidden}>
-          {label}
-        </Label>
+        <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
       ) : null}
       <SelectContainer {...{ noMargin, inline, disabled }}>
         {prefix}
@@ -255,7 +262,7 @@ const Select = ({
           </SelectTooltip>
         )}
       </SelectContainer>
-    </>
+    </Label>
   );
 };
 
@@ -345,10 +352,7 @@ Select.defaultProps = {
   placeholder: 'Select an option',
   inline: false,
   noMargin: false,
-  renderPrefix: null,
-  label: '',
-  labelVisuallyHidden: false,
-  id: undefined
+  renderPrefix: null
 };
 
 /**

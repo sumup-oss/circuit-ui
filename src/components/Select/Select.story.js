@@ -54,22 +54,21 @@ const SelectWithLabelAndState = props => {
   const [value, setValue] = useState('US');
 
   return (
-    <Label htmlFor={id}>
-      <Select
-        id={id}
-        name="select"
-        options={options}
-        value={value}
-        onChange={e => {
-          action('Option selected')(e);
-          setValue(e.target.value);
-        }}
-        disabled={boolean('Disabled', false)}
-        invalid={boolean('Invalid', false)}
-        validationHint={text('Validation hint', '')}
-        {...props}
-      />
-    </Label>
+    <Select
+      id={id}
+      name="select"
+      options={options}
+      value={value}
+      onChange={e => {
+        action('Option selected')(e);
+        setValue(e.target.value);
+      }}
+      disabled={boolean('Disabled', false)}
+      invalid={boolean('Invalid', false)}
+      validationHint={text('Validation hint', '')}
+      label="Countries"
+      {...props}
+    />
   );
 };
 
