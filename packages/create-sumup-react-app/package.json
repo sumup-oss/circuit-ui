@@ -27,10 +27,10 @@
     "chalk": "^2.4.2",
     "esm": "^3.2.25",
     "listr": "^0.14.3",
-    "listr-verbose-renderer": "^0.5.0"
+    "listr-verbose-renderer": "^0.5.0",
+    "@sumup/foundry": "^2.2.0"
   },
   "devDependencies": {
-    "@sumup/foundry": "^2.0.0-beta",
     "license-checker": "^25.0.1"
   },
   "husky": {

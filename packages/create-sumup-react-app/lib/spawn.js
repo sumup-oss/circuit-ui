@@ -23,7 +23,7 @@ const IS_DEBUGGING = util.isDebugging();
 const DEFAULT_OPTIONS = {
   cwd: process.cwd(),
   detached: true,
-  stdio: IS_DEBUGGING ? 'inherit' : 'pipe'
+  stdio: IS_DEBUGGING ? 'inherit' : 'pipe',
 };
 
 function getBufferContent(chunks) {
@@ -38,22 +38,22 @@ export default function asyncSpawn(cmd, args, options) {
   logger.debug(
     `Spawning: "${cmd} ${args.join(' ')}" in working directory "${
       options.cwd
-    }".`
+    }".`,
   );
 
   return new Promise((resolve, reject) => {
     const child = spawn(cmd, args, {
       ...DEFAULT_OPTIONS,
-      ...options
+      ...options,
     });
 
     if (child.stdout) {
-      child.stdout.on('data', chunk => {
+      child.stdout.on('data', (chunk) => {
         stdout.push(chunk);
       });
     }
 
-    child.on('close', code => {
+    child.on('close', (code) => {
       if (code !== 0) {
         // eslint-disable-next-line no-console
         const err = new Error(`${cmd} exited with an error (code ${code}).`);
@@ -65,9 +65,8 @@ export default function asyncSpawn(cmd, args, options) {
       resolve(getBufferContent(stdout));
     });
 
-    child.on('error', err => {
+    child.on('error', (err) => {
       logger.error(err);
-      process.exit(1);
       // eslint-disable-next-line no-param-reassign
       err.log = getBufferContent(stdout);
       reject(err);

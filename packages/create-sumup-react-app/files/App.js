@@ -8,7 +8,7 @@ import {
   List,
   Text,
   theme as themes,
-  BaseStyles
+  BaseStyles,
 } from '@sumup/circuit-ui';
 import { ReactComponent as LogoIcon } from './assets/logo.svg';
 

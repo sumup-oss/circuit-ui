@@ -19,9 +19,9 @@ import * as util from './util';
 
 const IS_DEBUGGING = util.isDebugging();
 
-const getMessage = arg => (Array.isArray(arg) ? arg.join('\n') : arg);
+const getMessage = (arg) => (Array.isArray(arg) ? arg.join('\n') : arg);
 
-const error = arg => {
+const error = (arg) => {
   const msg = getMessage(arg);
 
   /* eslint-disable no-console */
@@ -32,13 +32,13 @@ const error = arg => {
   /* eslint-enable no-console */
 };
 
-const log = arg => {
+const log = (arg) => {
   const msg = getMessage(arg);
   // eslint-disable-next-line no-console
   console.log(`\n${msg}`);
 };
 
-const debug = arg => {
+const debug = (arg) => {
   if (!IS_DEBUGGING) {
     return;
   }

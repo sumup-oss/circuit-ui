@@ -33,26 +33,26 @@ const APP_NAME = process.argv[2];
 const APP_PATH = resolve(WORKING_DIR, APP_NAME || '');
 const DEPENDENCIES = [
   // Our beautiful component library 💄
-  '@sumup/circuit-ui@^1.0.0',
+  '@sumup/circuit-ui@^1.8.0',
   // CSS-in-JS 🚀
   '@emotion/core@^10.0.10',
   'emotion-theming@^10.0.10',
-  '@emotion/styled@^10.0.10'
+  '@emotion/styled@^10.0.10',
 ];
 const DEV_DEPENDENCIES = [
   // React ⚛️
   'prop-types',
   // The toolkit 🛠
-  '@sumup/foundry@^1.0.0',
+  '@sumup/foundry@^2.2.0',
   // Testing 📏
-  '@testing-library/react@^9.0.0',
+  '@testing-library/react@^10.0.0',
   'jest-emotion@^10.0.11',
-  '@testing-library/jest-dom@^4.2.0'
+  '@testing-library/jest-dom@^5.5.0',
 ];
 
 const listrOptions = util.isDebugging()
   ? {
-      renderer: VerboseRenderer
+      renderer: VerboseRenderer,
     }
   : {};
 
@@ -60,11 +60,11 @@ const tasks = new Listr(
   [
     {
       title: 'Running Create React App',
-      task: () => runCreateReactApp(APP_NAME)
+      task: () => runCreateReactApp(APP_NAME),
     },
     {
       title: 'Install additional dependencies',
-      task: () => addDependencies()
+      task: () => addDependencies(),
     },
     {
       title: 'Customize experience',
@@ -72,25 +72,25 @@ const tasks = new Listr(
         new Listr([
           {
             title: 'Set up SumUp Foundry',
-            task: () => setUpFoundry(APP_PATH)
+            task: () => setUpFoundry(APP_PATH),
           },
           {
             title: 'Replace Create React App files',
             task: () =>
-              Promise.all([deleteCraFiles(APP_PATH), copyReactFiles(APP_PATH)])
+              Promise.all([deleteCraFiles(APP_PATH), copyReactFiles(APP_PATH)]),
           },
           {
             title: 'Customize package.json',
-            task: () => updatePackageJson(APP_PATH)
+            task: () => updatePackageJson(APP_PATH),
           },
           {
             title: 'Update initial commit',
-            task: () => updateInitialCommit(APP_PATH)
-          }
-        ])
-    }
+            task: () => updateInitialCommit(APP_PATH),
+          },
+        ]),
+    },
   ],
-  listrOptions
+  listrOptions,
 );
 
 run();
@@ -101,9 +101,9 @@ async function run() {
       'Please pass a name for your app. For example, try',
       '\n',
       chalk`  yarn create sumup-react-app {italic.bold my-app}`,
-      '\n'
+      '\n',
     ]);
-    process.exit(1);
+    throw new Error('App name undefined');
   }
 
   logger.log(`
@@ -136,7 +136,7 @@ function runCreateReactApp(appName) {
 async function addDependencies({
   dependencies = DEPENDENCIES,
   devDepenencies = DEV_DEPENDENCIES,
-  cwd = APP_PATH
+  cwd = APP_PATH,
 } = {}) {
   const cmd = 'yarn';
   const args = ['add', ...dependencies];
@@ -161,7 +161,7 @@ function setUpFoundry(appPath, childProcessOptions = {}) {
     '--plop',
     'react',
     '--lint-staged',
-    '--husky'
+    '--husky',
   ];
   return spawn(cmd, args, { cwd: appPath, ...childProcessOptions });
 }
@@ -174,9 +174,9 @@ function deleteCraFiles(appPath) {
     'App.test.js',
     'App.css',
     'index.js',
-    'index.css'
+    'index.css',
   ];
-  const args = ['-rf', ...filesToDelete.map(file => `src/${file}`)];
+  const args = ['-rf', ...filesToDelete.map((file) => `src/${file}`)];
   return spawn(cmd, args, { cwd: appPath });
 }
 
@@ -187,12 +187,12 @@ function copyReactFiles(appPath, sourcePath = FILES_PATH) {
     'App.spec.js',
     'setupTests.js',
     'index.js',
-    'assets'
+    'assets',
   ];
   const args = [
     '-r',
-    ...filesToCopy.map(file => resolve(sourcePath, file)),
-    `${appPath}/src`
+    ...filesToCopy.map((file) => resolve(sourcePath, file)),
+    `${appPath}/src`,
   ];
   return spawn(cmd, args, { cwd: appPath });
 }
@@ -202,14 +202,14 @@ async function updatePackageJson(appPath) {
   const { default: packageJson } = await import(filepath);
   const scripts = {
     lint: "foundry run eslint 'src/**/*.js'",
-    'create-component': 'foundry run plop component'
+    'create-component': 'foundry run plop component',
   };
   const updatedPackageJson = {
     ...packageJson,
     scripts: {
       ...packageJson.scripts,
-      ...scripts
-    }
+      ...scripts,
+    },
   };
 
   const fileContent = JSON.stringify(updatedPackageJson, null, 2);
@@ -225,7 +225,7 @@ async function updateInitialCommit(appPath) {
   return spawn(
     'git',
     ['commit', '--amend', '--no-verify', '-m', commitMsg],
-    options
+    options,
   );
 }
 
@@ -235,5 +235,5 @@ function handleErrors(err) {
     logger.log('\n');
     logger.log(err.log);
   }
-  process.exit(1);
+  throw err;
 }
