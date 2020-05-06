@@ -76,6 +76,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
+  for="select_4"
 >
   <div
     class="circuit-4 circuit-5"
@@ -84,6 +85,7 @@ label + .circuit-4 {
     <select
       class="circuit-0 circuit-1"
       disabled=""
+      id="select_4"
     >
       <option
         value=""
@@ -212,6 +214,7 @@ label + .circuit-5 {
 
 <label
   class="circuit-7 circuit-8"
+  for="select_8"
 >
   <div
     class="circuit-5 circuit-6"
@@ -222,6 +225,7 @@ label + .circuit-5 {
     />
     <select
       class="circuit-1 circuit-2"
+      id="select_8"
     >
       <option
         value=""
@@ -378,12 +382,14 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
+  for="select_7"
 >
   <div
     class="circuit-6 circuit-7"
   >
     <select
       class="circuit-0 circuit-1"
+      id="select_7"
     >
       <option
         value=""
@@ -504,12 +510,14 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
+  for="select_1"
 >
   <div
     class="circuit-4 circuit-5"
   >
     <select
       class="circuit-0 circuit-1"
+      id="select_1"
     >
       <option
         value=""
@@ -628,6 +636,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
+  for="select_2"
 >
   <div
     class="circuit-4 circuit-5"
@@ -636,6 +645,7 @@ label + .circuit-4 {
     <select
       class="circuit-0 circuit-1"
       disabled=""
+      id="select_2"
     >
       <option
         value=""
@@ -753,12 +763,14 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
+  for="select_5"
 >
   <div
     class="circuit-4 circuit-5"
   >
     <select
       class="circuit-0 circuit-1"
+      id="select_5"
     >
       <option
         value=""
@@ -891,12 +903,14 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
+  for="select_3"
 >
   <div
     class="circuit-6 circuit-7"
   >
     <select
       class="circuit-0 circuit-1"
+      id="select_3"
     >
       <option
         value=""
@@ -1029,12 +1043,14 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
+  for="select_6"
 >
   <div
     class="circuit-4 circuit-5"
   >
     <select
       class="circuit-0 circuit-1"
+      id="select_6"
     >
       <option
         value=""

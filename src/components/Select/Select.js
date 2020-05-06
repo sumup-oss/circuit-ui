@@ -226,7 +226,7 @@ const Select = ({
   const showInvalid = !disabled && invalid;
 
   return (
-    <Label htmlFor={props.id}>
+    <Label htmlFor={id}>
       {label ? (
         <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
       ) : null}
@@ -238,7 +238,8 @@ const Select = ({
             invalid,
             value,
             disabled,
-            hasPrefix: !!prefix
+            hasPrefix: !!prefix,
+            id
           }}
         >
           {!value && (
