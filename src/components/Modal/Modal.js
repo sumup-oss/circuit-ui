@@ -147,7 +147,7 @@ const Modal = ({
   contentLabel,
   theme,
   appElement,
-  ...otherProps
+  ...props
 }) => {
   ReactModal.setAppElement(appElement);
   const getClassValues = mapValues(styleFn => styleFn({ theme }));
@@ -163,7 +163,7 @@ const Modal = ({
           onAfterClose: () => IS_IOS && noScroll.off(),
           onRequestClose: onClose,
           closeTimeoutMS: TRANSITION_DURATION,
-          ...otherProps
+          ...props
         };
         return (
           <ReactModal {...reactModalProps}>

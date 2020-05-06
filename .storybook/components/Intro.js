@@ -17,8 +17,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Text } from '../../src';
+import { Text } from '../../src';
 
 const StyledText = styled(Text)(
   ({ theme }) => css`
@@ -30,15 +31,15 @@ const StyledText = styled(Text)(
 );
 
 const Intro = ({ children, ...props }) => (
-  <ThemeProvider theme={themes.circuit}>
-    <StyledText size={Text.GIGA} {...props}>
+  <ThemeProvider theme={light}>
+    <StyledText size="giga" {...props}>
       {children}
     </StyledText>
   </ThemeProvider>
 );
 
-Intro.KILO = Text.KILO;
-Intro.MEGA = Text.MEGA;
-Intro.GIGA = Text.GIGA;
+Intro.KILO = 'kilo';
+Intro.MEGA = 'mega';
+Intro.GIGA = 'giga';
 
 export default Intro;

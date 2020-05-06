@@ -20,10 +20,16 @@ exports[`Switch should have the correct default styles 1`] = `
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
 }
 
-.circuit-4::-moz-focus-inner {
-  border-radius: 24px;
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -47,8 +53,6 @@ exports[`Switch should have the correct default styles 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -80,8 +84,6 @@ exports[`Switch should have the correct on styles 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -110,11 +112,17 @@ exports[`Switch should have the correct on styles 1`] = `
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
   background-color: #3388FF;
 }
 
-.circuit-4::-moz-focus-inner {
-  border-radius: 24px;
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {

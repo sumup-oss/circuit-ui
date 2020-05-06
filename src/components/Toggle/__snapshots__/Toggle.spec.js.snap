@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggle should render with default styles 1`] = `
-.circuit-14 {
+.circuit-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31,10 +31,16 @@ exports[`Toggle should render with default styles 1`] = `
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
 }
 
-.circuit-4::-moz-focus-inner {
-  border-radius: 24px;
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -58,8 +64,6 @@ exports[`Toggle should render with default styles 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -69,12 +73,13 @@ exports[`Toggle should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-12 {
+.circuit-10 {
   display: block;
   margin-left: 12px;
+  cursor: pointer;
 }
 
-.circuit-7 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 13px;
@@ -84,13 +89,13 @@ exports[`Toggle should render with default styles 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-7 {
+  .circuit-6 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
-.circuit-10 {
+.circuit-8 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 13px;
@@ -100,14 +105,14 @@ exports[`Toggle should render with default styles 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-10 {
+  .circuit-8 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 <div
-  class="circuit-14 circuit-15"
+  class="circuit-12 circuit-13"
 >
   <button
     aria-checked="false"
@@ -127,17 +132,17 @@ exports[`Toggle should render with default styles 1`] = `
     </span>
   </button>
   <label
-    class="circuit-12 circuit-13"
+    class="circuit-10 circuit-11"
     for="toggle-switch_1"
     id="toggle-label_2"
   >
     <p
-      class=" circuit-6 circuit-7 circuit-8"
+      class="circuit-6 circuit-7"
     >
       Label
     </p>
     <p
-      class=" circuit-9 circuit-10 circuit-8"
+      class="circuit-8 circuit-9"
     >
       A longer explanation
     </p>
@@ -165,10 +170,16 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   height: 24px;
   width: 40px;
   overflow: visible;
+  cursor: pointer;
 }
 
-.circuit-4::-moz-focus-inner {
-  border-radius: 24px;
+.circuit-4:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-4:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0 {
@@ -192,8 +203,6 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -203,12 +212,13 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   width: 1px;
 }
 
-.circuit-12 {
+.circuit-10 {
   display: block;
   margin-left: 12px;
+  cursor: pointer;
 }
 
-.circuit-7 {
+.circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 13px;
@@ -218,13 +228,13 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
 }
 
 @media (min-width:480px) {
-  .circuit-7 {
+  .circuit-6 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
-.circuit-10 {
+.circuit-8 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 13px;
@@ -234,13 +244,13 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
 }
 
 @media (min-width:480px) {
-  .circuit-10 {
+  .circuit-8 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
-.circuit-14 {
+.circuit-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -253,7 +263,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
 }
 
 <div
-  class="circuit-14 circuit-15"
+  class="circuit-12 circuit-13"
 >
   <button
     aria-checked="false"
@@ -273,17 +283,17 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
     </span>
   </button>
   <label
-    class="circuit-12 circuit-13"
+    class="circuit-10 circuit-11"
     for="toggle-switch_3"
     id="toggle-label_4"
   >
     <p
-      class=" circuit-6 circuit-7 circuit-8"
+      class="circuit-6 circuit-7"
     >
       Label
     </p>
     <p
-      class=" circuit-9 circuit-10 circuit-8"
+      class="circuit-8 circuit-9"
     >
       A longer explanation
     </p>

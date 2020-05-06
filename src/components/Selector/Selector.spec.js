@@ -17,17 +17,87 @@ import React from 'react';
 
 import Selector from '.';
 
+const defaultProps = {
+  name: 'name',
+  value: 'value',
+  onChange: jest.fn()
+};
+
 describe('Selector', () => {
-  it('should render a default selector appropriately', () => {
-    const actual = create(<Selector />);
+  /**
+   * Style tests.
+   */
+  it('should render a default selector', () => {
+    const actual = create(<Selector {...defaultProps}>Label</Selector>);
     expect(actual).toMatchSnapshot();
   });
-  it('should render a disabled selector appropriately', () => {
-    const actual = create(<Selector disabled />);
+  it('should render a disabled selector', () => {
+    const actual = create(
+      <Selector {...defaultProps} disabled>
+        Label
+      </Selector>
+    );
     expect(actual).toMatchSnapshot();
   });
-  it('should render a selected selector appropriately', () => {
-    const actual = create(<Selector selected />);
+  it('should render a checked selector', () => {
+    const actual = create(
+      <Selector {...defaultProps} checked>
+        Label
+      </Selector>
+    );
     expect(actual).toMatchSnapshot();
+  });
+
+  it('should render a radio input by default', () => {
+    const { getByLabelText } = render(
+      <Selector {...defaultProps}>Label</Selector>
+    );
+    expect(getByLabelText('Label')).toHaveAttribute('type', 'radio');
+  });
+
+  it('should render a checkbox input when multiple options can be selected', () => {
+    const { getByLabelText } = render(
+      <Selector {...defaultProps} multiple>
+        Label
+      </Selector>
+    );
+    expect(getByLabelText('Label')).toHaveAttribute('type', 'checkbox');
+  });
+
+  /**
+   * Logic tests.
+   */
+  it('should be unchecked by default', () => {
+    const { getByLabelText } = render(
+      <Selector {...defaultProps}>Label</Selector>
+    );
+    const inputEl = getByLabelText('Label', {
+      exact: false
+    });
+    expect(inputEl).not.toHaveAttribute('checked');
+  });
+
+  it('should call the change handler when clicked', () => {
+    const { getByLabelText } = render(
+      <Selector {...defaultProps}>Label</Selector>
+    );
+    const inputEl = getByLabelText('Label', {
+      exact: false
+    });
+
+    act(() => {
+      fireEvent.click(inputEl);
+    });
+
+    expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<Selector {...defaultProps}>Label</Selector>);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
   });
 });

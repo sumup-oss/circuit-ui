@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Blockquote should render with default styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 13px;
@@ -12,14 +12,14 @@ exports[`Blockquote should render with default styles 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-1 {
+  .circuit-0 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 <blockquote
-  class=" circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1"
 >
   
   Lorem ipsum dolor amet echo park activated charcoal banjo deep
@@ -30,7 +30,7 @@ exports[`Blockquote should render with default styles 1`] = `
 `;
 
 exports[`Blockquote should render with giga styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -43,14 +43,14 @@ exports[`Blockquote should render with giga styles 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-1 {
+  .circuit-0 {
     font-size: 18px;
     line-height: 28px;
   }
 }
 
 <blockquote
-  class=" circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1"
 >
   
   Lorem ipsum dolor amet echo park activated charcoal banjo deep
@@ -61,7 +61,7 @@ exports[`Blockquote should render with giga styles 1`] = `
 `;
 
 exports[`Blockquote should render with mega styles 1`] = `
-.circuit-1 {
+.circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -72,14 +72,14 @@ exports[`Blockquote should render with mega styles 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-1 {
+  .circuit-0 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 <blockquote
-  class=" circuit-0 circuit-1 circuit-2"
+  class="circuit-0 circuit-1"
 >
   
   Lorem ipsum dolor amet echo park activated charcoal banjo deep

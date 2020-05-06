@@ -4,12 +4,11 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, BaseStyles } from '../src';
+import { BaseStyles } from '../src';
 import { components } from './util/theme';
 import { sortStories } from './util/story-helpers';
-
-const { circuit } = themes;
 
 // Add group and story names to the sort order to explicitly order them.
 // Items that are not included in the list are shown below the sorted items.
@@ -21,7 +20,14 @@ const SORT_ORDER = {
     'Contributing',
     'Code of Conduct'
   ],
-  Advanced: ['Static CSS', 'Base Components', 'Theme', 'Grid', 'Fonts'],
+  Advanced: [
+    'Static CSS',
+    'Base Components',
+    'Theme',
+    'Grid',
+    'Icons',
+    'Fonts'
+  ],
   Typography: ['Heading', 'SubHeading', 'Text'],
   Layout: [],
   Forms: [],
@@ -54,7 +60,7 @@ const withStoryStyles = storyFn => {
 };
 
 const withThemeProvider = storyFn => (
-  <ThemeProvider theme={circuit}>
+  <ThemeProvider theme={light}>
     <BaseStyles />
     {storyFn()}
   </ThemeProvider>

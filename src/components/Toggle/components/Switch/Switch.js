@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { hideVisually, size } from 'polished';
 
-import { deprecatedPropType } from '../../../../util/shared-prop-types';
+import { focusOutline } from '../../../../styles/style-helpers';
 
 const TRACK_WIDTH = 40;
 const TRACK_HEIGHT = 24;
@@ -42,9 +42,10 @@ const trackBaseStyles = ({ theme }) => css`
   transition: background-color ${ANIMATION_TIMING};
   ${size(TRACK_HEIGHT, TRACK_WIDTH)};
   overflow: visible;
+  cursor: pointer;
 
-  &::-moz-focus-inner {
-    border-radius: ${TRACK_HEIGHT}px;
+  &:focus {
+    ${focusOutline({ theme })};
   }
 `;
 
@@ -55,9 +56,7 @@ const trackOnStyles = ({ theme, on }) =>
     background-color: ${theme.colors.p500};
   `;
 
-const SwitchTrack = styled('button')`
-  ${trackBaseStyles} ${trackOnStyles};
-`;
+const SwitchTrack = styled('button')(trackBaseStyles, trackOnStyles);
 
 const knobBaseStyles = ({ theme }) => css`
   label: toggle__switch-knob;
@@ -86,25 +85,20 @@ const knobOnStyles = ({ theme, on }) =>
 
 const labelBaseStyles = () => css`
   label: toggle__switch-label;
-  ${hideVisually()};
 `;
 
-const SwitchKnob = styled('span')`
-  ${knobBaseStyles} ${knobOnStyles};
-`;
+const SwitchKnob = styled('span')(knobBaseStyles, knobOnStyles);
 
 // Important for accessibility
-const SwitchLabel = styled('span')`
-  ${labelBaseStyles};
-`;
+const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
 
 /**
  * A simple Switch component.
  */
-const Switch = ({ on, onToggle, onChange, labelOn, labelOff, ...rest }) => (
+const Switch = ({ on, onChange, labelOn, labelOff, ...rest }) => (
   <SwitchTrack
     type="button"
-    onClick={onToggle || onChange}
+    onClick={onChange}
     on={on}
     role="switch"
     aria-checked={on}
@@ -120,17 +114,6 @@ Switch.propTypes = {
    * Is the Switch on?
    */
   on: PropTypes.bool,
-  /**
-   * @deprecated
-   * Callback used when the user toggles the switch.
-   */
-  onToggle: deprecatedPropType(
-    PropTypes.func,
-    [
-      'The "onToggle" prop is deprecated.',
-      'Use the "onChange" prop instead.'
-    ].join(' ')
-  ),
   /**
    * Callback used when the user toggles the switch.
    */

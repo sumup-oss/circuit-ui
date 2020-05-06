@@ -16,14 +16,12 @@
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs/react';
+import { FlagDe, FlagUs, FlagFr } from '@sumup/icons';
 
-import docs from './Select.docs.mdx';
-import Select from './Select';
 import { uniqueId } from '../../util/id';
-
-import { ReactComponent as DE } from './flags/de.svg';
-import { ReactComponent as US } from './flags/us.svg';
-import { ReactComponent as FR } from './flags/fr.svg';
+import Label from '../Label';
+import Select from './Select';
+import docs from './Select.docs.mdx';
 
 export default {
   title: 'Forms/Select',
@@ -48,44 +46,34 @@ const options = [
     value: 'FR'
   }
 ];
-const flagIconMap = { DE, US, FR };
-
-const BaseSelect = props => (
-  <div>
-    <Select
-      name="select"
-      options={options}
-      // onChange={e => {
-      //   action('Option selected')(e);
-      //   props.onChange(e.target.value);
-      // }}
-      disabled={boolean('Disabled', false)}
-      invalid={boolean('Invalid', false)}
-      validationHint={text('Validation hint', '')}
-      id={uniqueId()}
-      {...props}
-    />
-  </div>
-);
+const flagIconMap = { DE: FlagDe, US: FlagUs, FR: FlagFr };
 
 // Selects always need labels for accessibility.
 const SelectWithLabelAndState = props => {
+  const id = uniqueId();
   const [value, setValue] = useState('US');
 
   return (
-    <BaseSelect
-      label="Country"
-      value={value}
-      onChange={e => {
-        action('Option selected')(e);
-        setValue(e.target.value);
-      }}
-      {...props}
-    />
+    <Label htmlFor={id}>
+      <Select
+        id={id}
+        name="select"
+        options={options}
+        value={value}
+        onChange={e => {
+          action('Option selected')(e);
+          setValue(e.target.value);
+        }}
+        disabled={boolean('Disabled', false)}
+        invalid={boolean('Invalid', false)}
+        validationHint={text('Validation hint', '')}
+        {...props}
+      />
+    </Label>
   );
 };
 
-export const base = () => <BaseSelect />;
+export const base = () => <SelectWithLabelAndState />;
 
 export const invalid = () => (
   <SelectWithLabelAndState

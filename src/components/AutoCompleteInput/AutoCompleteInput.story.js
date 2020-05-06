@@ -81,7 +81,7 @@ export const customOptions = () => {
   const options = items.map(value => ({
     value,
     children: (
-      <Text size={Text.GIGA} noMargin>
+      <Text size="giga" noMargin>
         {icons[value]} {value}
       </Text>
     )
@@ -98,7 +98,7 @@ export const customOptions = () => {
 
 export const preselected = () => (
   <AutoCompleteInputWithLabel
-    defaultSelectedItem={items[0]}
+    initialSelectedItem={items[0]}
     options={items}
     onChange={action('onChange')}
     onInputValueChange={action('onInputValueChange')}

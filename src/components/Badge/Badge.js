@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { size } from 'polished';
 
-import { subHeadingKilo } from '../../styles/style-helpers';
+import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
 import { colorNames } from '../../styles/constants';
 
 const COLOR_MAP = {
@@ -49,35 +49,10 @@ const COLOR_MAP = {
     active: 'n900'
   }
 };
-
-const colorStyles = ({ theme, color, onClick }) => {
-  const currentColor = COLOR_MAP[color];
-
-  if (!currentColor) {
-    return null;
-  }
-
-  return css`
-    label: ${`badge--${color}`};
-    background-color: ${theme.colors[currentColor.default]};
-    ${onClick &&
-      `
-      &:hover {
-        background-color: ${theme.colors[currentColor.hover]};
-      }
-
-      &:active {
-        background-color: ${theme.colors[currentColor.active]};
-      }
-    `};
-  `;
-};
-
-const baseStyles = ({ theme, onClick }) => css`
+const baseStyles = ({ theme }) => css`
   label: badge;
-  border-radius: 100px;
+  border-radius: ${theme.borderRadius.pill};
   color: ${theme.colors.white};
-  cursor: ${onClick ? 'pointer' : 'default'};
   display: inline-block;
   padding: 0 ${theme.spacings.byte};
   ${subHeadingKilo({ theme })};
@@ -86,6 +61,17 @@ const baseStyles = ({ theme, onClick }) => css`
   user-select: none;
   text-align: center;
 `;
+
+const colorStyles = ({ theme, color }) => {
+  const currentColor = COLOR_MAP[color];
+  if (!currentColor) {
+    return null;
+  }
+  return css`
+    label: ${`badge--${color}`};
+    background-color: ${theme.colors[currentColor.default]};
+  `;
+};
 
 const circleStyles = ({ circle }) =>
   circle &&
@@ -97,11 +83,37 @@ const circleStyles = ({ circle }) =>
     ${size(24)};
   `;
 
-const StyledBadge = styled('div')`
-  ${baseStyles};
-  ${colorStyles};
-  ${circleStyles};
-`;
+const clickableStyles = ({ theme, onClick, color }) => {
+  const currentColor = COLOR_MAP[color];
+  if (!onClick || !currentColor) {
+    return null;
+  }
+  return css`
+    label: badge--clickable;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: ${theme.colors[currentColor.hover]};
+    }
+
+    &:active {
+      background-color: ${theme.colors[currentColor.active]};
+    }
+
+    &:focus {
+      ${focusOutline({ theme })};
+    }
+  `;
+};
+
+const StyledBadge = styled('div')(
+  baseStyles,
+  colorStyles,
+  circleStyles,
+  clickableStyles
+);
 
 /**
  * A badge for displaying update notifications etc.

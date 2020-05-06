@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-// event.keyCode has been deprecated and replaced by event.key,
-// however not all browsers implement it yet.
+// `event.keyCode` has been deprecated and replaced by `event.key`,
+// however, not all browsers implement it yet.
 
 export const isEnter = event =>
   'key' in event ? event.key === 'Enter' : event.keyCode === 13;

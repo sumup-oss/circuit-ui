@@ -13,15 +13,26 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   cursor: pointer;
+  outline: 0;
+  background: transparent;
 }
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #9DA7B1;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
 }
 
 <div
@@ -44,7 +55,7 @@ exports[`Tag when is default should render with default styles 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
 }
@@ -57,7 +68,7 @@ exports[`Tag when is default should render with default styles 1`] = `
 `;
 
 exports[`Tag when is selected should change the close icon color 1`] = `
-.circuit-6 {
+.circuit-3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -69,52 +80,81 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   background-color: #3388FF;
-  box-shadow: 0px 0px 0px 1px #3388FF;
+  border: 1px solid #3388FF;
   color: #FFFFFF;
 }
 
-.circuit-6 > svg {
-  fill: #FFFFFF;
-}
-
-.circuit-4 {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  background-color: transparent;
-  border: none;
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
   cursor: pointer;
-  fill: #0F131A;
-  overflow: initial;
-  height: 16px;
-  width: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
+  border: 0;
   margin-left: 4px;
+  margin-right: -4px;
+  padding: 0;
 }
 
-.circuit-4:focus,
-.circuit-4:active {
-  outline: none;
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4 > svg {
-  height: 100%;
-  width: 100%;
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-4 svg {
-  fill: #FFFFFF;
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-2:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -125,21 +165,31 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 }
 
 <div
-  class="circuit-6 circuit-7"
+  class="circuit-3 circuit-4"
 >
   SomeTest
   <button
-    class="circuit-2 circuit-3 circuit-4 circuit-5"
+    class="circuit-1 circuit-2"
     data-testid="tag-close"
-    type="button"
+    title="remove"
   >
-    <div
+    <svg
+      fill="none"
+      height="24"
       role="presentation"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      close-icon.svg
-    </div>
+      <path
+        d="M7 7l10 10m0-10L7 17"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </svg>
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       remove
     </span>
@@ -148,7 +198,7 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 `;
 
 exports[`Tag when is selected should change the given icon color 1`] = `
-.circuit-2 {
+.circuit-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -160,44 +210,26 @@ exports[`Tag when is selected should change the given icon color 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   background-color: #3388FF;
-  box-shadow: 0px 0px 0px 1px #3388FF;
+  border: 1px solid #3388FF;
   color: #FFFFFF;
 }
 
-.circuit-2 > svg {
-  fill: #FFFFFF;
-}
-
 .circuit-0 {
+  margin-left: -4px;
   margin-right: 4px;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-}
-
-.circuit-0 > svg {
-  vertical-align: top;
-}
-
-.circuit-0 > svg {
-  fill: #FFFFFF;
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-1 circuit-2"
 >
-  <span
-    class="circuit-0 circuit-1"
-  >
-    <div>
-      icon-tick.svg
-    </div>
-  </span>
+  <div
+    class="circuit-0"
+    data-testid="tag-icon"
+  />
   SomeTest
 </div>
 `;
@@ -215,16 +247,12 @@ exports[`Tag when is selected should render with selected styles 1`] = `
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0px 0px 0px 1px #D8DDE1;
+  border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
   background-color: #3388FF;
-  box-shadow: 0px 0px 0px 1px #3388FF;
+  border: 1px solid #3388FF;
   color: #FFFFFF;
-}
-
-.circuit-0 > svg {
-  fill: #FFFFFF;
 }
 
 <div

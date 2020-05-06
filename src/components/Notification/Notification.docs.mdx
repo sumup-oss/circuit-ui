@@ -1,0 +1,74 @@
+import { Status, Props, Story } from '../../../.storybook/components';
+import Notification, { NotificationIcon, NotificationButton } from '.';
+import NotificationBanner from '../NotificationBanner';
+import NotificationList from '../NotificationList';
+
+# Notification
+
+<Status.Stable />
+
+Notifications are a quick and subtle way of providing contextual feedback for our users through floating
+or fixed cards with a semantical meaning (either success, danger or attention).
+
+<Story id="components-notification--base" />
+
+<Props of={Notification} />
+<Props of={NotificationIcon} />
+<Props of={NotificationButton} />
+
+## When to use it
+
+Notifications are used to serve our users with subtle informative snippets or feedback
+on a given action.
+
+## Usage guidelines
+
+- **Do** allow users to dismiss all notifications unless immediate action is required.
+- **Do** direct users to the relevant place with a CTA if action is required.
+- **Do** use feedback notifications to validate an action has been completed.
+- **Do** use the correct badge colour to signify sentiment of a notification.
+- **Do not** use attention notifications unless a vital action is required.
+- **Do not** use the notifications component if our feedback for the user is super critical,
+  such as an order's payment confirmation. Its subtle aspect could make it hard for them to have
+  a strong confirmation of what just happened.
+
+## Component variations
+
+### Feedback notifications
+
+Used to provide feedback to a user after an action
+has been taken. These notifications disappear automatically.
+
+<Story id="components-notification--success" />
+
+### Informative notifications
+
+Can contain information which isn't essential but may
+be useful to the user. (e.g. New feature announcement) It is recommended
+to use a call to action.
+
+<Story id="components-notification--warning" />
+
+### Attention notifications
+
+When action is required by the user, attention
+notifications should be used and should clearly highlight which action is
+required. **A call to action must be displayed.**
+
+<Story id="components-notification--alert" />
+
+## NotificationBanner
+
+You can display a banner with a notification with `NotificationBanner`, and position it at the top or bottom of a view.
+
+<Story id="components-notification-notificationbanner--base" />
+
+<Props of={NotificationBanner} />
+
+## NotificationList
+
+You can display a list of notifications with `NotificationList`.
+
+<Story id="components-notification-notificationlist--base" />
+
+<Props of={NotificationList} />

@@ -34,6 +34,42 @@ describe('TableHeader', () => {
     });
   });
 
+  describe('Logic tests', () => {
+    it('should call the onClick when clicked', () => {
+      const onClick = jest.fn();
+      const { getByTestId } = render(
+        <TableRow onClick={onClick} data-testid="row">
+          {children}
+        </TableRow>
+      );
+      const rowEl = getByTestId('row');
+
+      act(() => {
+        rowEl.focus();
+        fireEvent.keyDown(rowEl, { key: 'Enter', code: 'Enter' });
+      });
+      expect(onClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call the onClick when navigating with the keyboard', () => {
+      const onClick = jest.fn();
+      const { getByTestId } = render(
+        <TableRow onClick={onClick} data-testid="row">
+          {children}
+        </TableRow>
+      );
+      const rowEl = getByTestId('row');
+
+      act(() => {
+        rowEl.focus();
+        fireEvent.keyDown(rowEl, { key: 'Enter', code: 'Enter' });
+        fireEvent.keyDown(rowEl, { key: ' ', code: 'Spacebar' });
+      });
+
+      expect(onClick).toHaveBeenCalledTimes(2);
+    });
+  });
+
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(<TableRow>{children}</TableRow>);

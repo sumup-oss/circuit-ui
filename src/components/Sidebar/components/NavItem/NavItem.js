@@ -34,9 +34,6 @@ const baseStyles = ({ theme }) => css`
   cursor: pointer;
   color: ${theme.colors.n500};
   text-decoration: none;
-  * {
-    fill: ${theme.colors.n500};
-  }
 `;
 
 const secondaryStyles = ({ theme, secondary }) =>
@@ -55,9 +52,6 @@ const hoverStyles = ({ theme, selected, disabled }) =>
     label: nav-item--hover;
     &:hover {
       color: ${theme.colors.n300};
-      * {
-        fill: ${theme.colors.n300};
-      }
     }
   `;
 
@@ -67,9 +61,6 @@ const selectedStyles = ({ theme, selected }) =>
     label: nav-item--active;
     font-weight: ${theme.fontWeight.bold};
     color: ${theme.colors.n100};
-    * {
-      fill: ${theme.colors.n100};
-    }
   `;
 
 const disabledStyles = ({ theme, disabled }) =>
@@ -78,9 +69,6 @@ const disabledStyles = ({ theme, disabled }) =>
     label: nav-item--disabled;
     cursor: not-allowed;
     color: ${theme.colors.n700};
-    * {
-      fill: ${theme.colors.n700};
-    }
   `;
 
 const StyledLink = styled('a', {
@@ -97,7 +85,7 @@ const NavItem = ({
   disabled,
   onClick,
   components,
-  ...rest
+  ...props
 }) => {
   const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
   const Link = StyledLink.withComponent(components.Link);
@@ -115,7 +103,7 @@ const NavItem = ({
         secondary={secondary}
         visible={visible}
         disabled={disabled}
-        {...rest}
+        {...props}
       >
         {icon}
         <NavLabel secondary={secondary} visible={visible}>

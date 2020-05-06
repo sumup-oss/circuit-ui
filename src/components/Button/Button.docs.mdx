@@ -1,23 +1,21 @@
 import { Status, Props, Story } from '../../../.storybook/components';
 
-import Button from './Button';
+import Button from '.';
 import ButtonGroup from '../ButtonGroup';
 import LoadingButton from '../LoadingButton';
 
 # Button
 
-<Status.InReview />
+<Status.Stable />
 
-A button allows us to highlight actions in the product and make them easily
-perceived and achievable through just one click.
+A button allows us to highlight actions in the product and make them easily perceived and achievable through just one click.
 
-<Story id="components-button--base" />
-
+<Story id="components-button--primary" />
 <Props of={Button} />
 
 ## When to use it
 
-Use buttons when users need to either navigate through a product or perform a specific task.
+Use buttons when users need to either navigate through a product or perform a specific action.
 
 ## Usage guidelines
 
@@ -37,67 +35,47 @@ Use buttons when users need to either navigate through a product or perform a sp
 
 ## Component variations
 
-### Primary button
+### Primary
 
-Used to highlight the most important action in a certain page. In most cases, there should be only one primary button visible
-at a time.
+The **primary button** should be used for the most important actions. There should always be just one primary button visible at a time on the screen.
 
 <Story id="components-button--primary" />
 
-### Default button
+### Secondary
 
-Used to highlight secondary actions to be takes, specially when there's already a primary action on the page.
-
-<Story id="components-button--base" />
-
-### Secondary button
-
-Only use secondary buttons when paired to a primary button, placed in the left side of it. They are used to
-signal opposite actions from the primary button, such as "Cancel order".
+The **secondary button** should be used for secondary actions to compliment a primary action, or when multiple actions of equal importance are required.
 
 <Story id="components-button--secondary" />
 
-### Flat button
+### Tertiary
 
-Used only in the marketing website when you need to position an action over a dark background. It has a
-primary and secondary version.
+The **tertiary button** should be used for supportive actions, and can be paired with the primary or the secondary button.
 
-<Story id="components-button--flat" />
+<Story id="components-button--tertiary" />
 
-### Plain button
+### Sizes
 
-Used when you want to highlight an action within a body text. It should always open in the same window unless
-it links to an external source (such as a link to a complete study about card acceptance within a blog post).
+The button component supports 3 different sizes:
 
-<Story id="components-button--plain" />
+- **mega**, the default size
+- **kilo**, used when there are sizing constraints
+- **giga**, used for extreme cases when there is no constraint on the button's size
 
-### Button sizes
+<Story id="components-button--sizes" />
 
-The button component also supports three different sizes: Mega, the best suitable for most cases; Kilo, used
-when there is sizing constraints in the button position; and Giga, used for extreme cases when there's little
-or no constraint on the button's placement.
+## ButtonGroup
 
-<Story id="components-button--size" />
-
-## Button group
-
-Used when our user has two opposites actions to be taken in a certain step of a flow. It is generally used aligned to the right,
+Used when users have two opposite actions to be taken in a certain step of a flow. It is generally used aligned to the right,
 with a primary button for the expected action and a secondary button on its left.
 
 <Story id="components-button-buttongroup--base" />
-
 <Props of={ButtonGroup} />
 
 - **Do** use the same verb tenses for both actions
 
-## Loading button
+## LoadingButton
 
-When the button's action is inputting/saving information or it takes more than 3 seconds to take the user to the next step/page, you can indicate a loading state with `LoadingButton`, as well as visually notify the user of success or an error after loading. You should only use it on primary buttons.
+When the button's action is inputting/saving information or it takes more than 3 seconds to take the user to the next step/page, you can indicate a loading state with `LoadingButton`.
 
-<Story id="components-button-loadingbutton--success-animation" />
-
-<Story id="components-button-loadingbutton--error-animation" />
-
-<Story id="components-button-loadingbutton--no-exit-animation" />
-
+<Story id="components-button-loadingbutton--base" />
 <Props of={LoadingButton} />

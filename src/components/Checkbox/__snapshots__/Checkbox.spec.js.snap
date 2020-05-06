@@ -13,8 +13,6 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -25,8 +23,12 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -45,6 +47,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -68,16 +71,16 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 }
 
 .circuit-2 svg {
-  height: 10px;
-  width: 10px;
+  height: 16px;
+  width: 16px;
   box-sizing: border-box;
-  fill: #3388FF;
+  color: #3388FF;
   display: block;
-  left: 3px;
   line-height: 0;
   opacity: 0;
   position: absolute;
   top: 12px;
+  left: 0;
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
@@ -140,14 +143,23 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   <label
     class="circuit-2 circuit-3"
     for="checkbox_5"
-    name="name"
-    value=""
   >
-    <div
+    <svg
       aria-hidden="true"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      checked-icon.svg
-    </div>
+      <path
+        d="M6 12.79L10 17l8-9"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </label>
   <div
     class="circuit-4 circuit-5"
@@ -170,8 +182,6 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -182,8 +192,12 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -202,6 +216,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -225,16 +240,16 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 }
 
 .circuit-2 svg {
-  height: 10px;
-  width: 10px;
+  height: 16px;
+  width: 16px;
   box-sizing: border-box;
-  fill: #3388FF;
+  color: #3388FF;
   display: block;
-  left: 3px;
   line-height: 0;
   opacity: 0;
   position: absolute;
   top: 12px;
+  left: 0;
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
@@ -257,14 +272,23 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   <label
     class="circuit-2 circuit-3"
     for="checkbox_2"
-    name="name"
-    value=""
   >
-    <div
+    <svg
       aria-hidden="true"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      checked-icon.svg
-    </div>
+      <path
+        d="M6 12.79L10 17l8-9"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </label>
 </div>
 `;
@@ -282,8 +306,6 @@ exports[`Checkbox should render with default styles 1`] = `
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -294,8 +316,12 @@ exports[`Checkbox should render with default styles 1`] = `
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -314,6 +340,7 @@ exports[`Checkbox should render with default styles 1`] = `
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -337,16 +364,16 @@ exports[`Checkbox should render with default styles 1`] = `
 }
 
 .circuit-2 svg {
-  height: 10px;
-  width: 10px;
+  height: 16px;
+  width: 16px;
   box-sizing: border-box;
-  fill: #3388FF;
+  color: #3388FF;
   display: block;
-  left: 3px;
   line-height: 0;
   opacity: 0;
   position: absolute;
   top: 12px;
+  left: 0;
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
@@ -368,14 +395,23 @@ exports[`Checkbox should render with default styles 1`] = `
   <label
     class="circuit-2 circuit-3"
     for="checkbox_1"
-    name="name"
-    value=""
   >
-    <div
+    <svg
       aria-hidden="true"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      checked-icon.svg
-    </div>
+      <path
+        d="M6 12.79L10 17l8-9"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </label>
 </div>
 `;
@@ -393,8 +429,6 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -405,8 +439,12 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -425,6 +463,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -451,16 +490,16 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 }
 
 .circuit-2 svg {
-  height: 10px;
-  width: 10px;
+  height: 16px;
+  width: 16px;
   box-sizing: border-box;
-  fill: #3388FF;
+  color: #3388FF;
   display: block;
-  left: 3px;
   line-height: 0;
   opacity: 0;
   position: absolute;
   top: 12px;
+  left: 0;
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
@@ -481,7 +520,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  fill: #9DA7B1;
+  color: #9DA7B1;
 }
 
 <div
@@ -499,14 +538,23 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
     class="circuit-2 circuit-3"
     disabled=""
     for="checkbox_3"
-    name="name"
-    value=""
   >
-    <div
+    <svg
       aria-hidden="true"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      checked-icon.svg
-    </div>
+      <path
+        d="M6 12.79L10 17l8-9"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </label>
 </div>
 `;
@@ -524,8 +572,6 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -536,8 +582,12 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-0:checked + label > svg {
@@ -556,6 +606,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   display: inline-block;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -579,16 +630,16 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 }
 
 .circuit-2 svg {
-  height: 10px;
-  width: 10px;
+  height: 16px;
+  width: 16px;
   box-sizing: border-box;
-  fill: #3388FF;
+  color: #3388FF;
   display: block;
-  left: 3px;
   line-height: 0;
   opacity: 0;
   position: absolute;
   top: 12px;
+  left: 0;
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
@@ -603,7 +654,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 }
 
 .circuit-2:not(:focus) svg {
-  fill: #DB4D4D;
+  color: #DB4D4D;
 }
 
 <div
@@ -619,14 +670,23 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   <label
     class="circuit-2 circuit-3"
     for="checkbox_4"
-    name="name"
-    value=""
   >
-    <div
+    <svg
       aria-hidden="true"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      checked-icon.svg
-    </div>
+      <path
+        d="M6 12.79L10 17l8-9"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </label>
 </div>
 `;

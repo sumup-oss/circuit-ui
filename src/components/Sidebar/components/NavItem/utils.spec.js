@@ -14,8 +14,9 @@
  */
 
 import React from 'react';
+import { Lock } from '@sumup/icons';
+
 import { hasSelectedChild, getIcon } from './utils';
-import { ReactComponent as Lock } from './lock.svg';
 
 describe('hasSelectedChild', () => {
   it('should return true for an array with a selected child', () => {
@@ -58,7 +59,7 @@ describe('hasSelectedChild', () => {
 describe('getIcon', () => {
   const mockDefaultIcon = 'mock-default-icon.svg';
   const mockSelectedIcon = 'mock-selected-icon.svg';
-  const disabledIcon = <Lock />;
+  const disabledIcon = <Lock size="large" />;
 
   describe('if there is no default icon', () => {
     it('should not return an icon', () => {

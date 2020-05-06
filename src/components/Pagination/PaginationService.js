@@ -31,10 +31,7 @@ import {
 } from 'lodash/fp';
 
 export const calculatePages = (totalItems, perPage) =>
-  compose(
-    ceil,
-    divide(totalItems)
-  )(perPage);
+  compose(ceil, divide(totalItems))(perPage);
 
 const availablePreviousPages = (page, totalPages) => {
   if (page === totalPages) {

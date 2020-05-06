@@ -18,8 +18,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ThemeProvider } from 'emotion-theming';
+import { light } from '@sumup/design-tokens';
 
-import { theme as themes, Text } from '../../src';
+import { Text } from '../../src';
 
 const Box = styled('div')`
   ${({ theme, size }) => css`
@@ -53,14 +54,14 @@ const IconSizeName = styled(Text)`
 `;
 
 const IconSize = ({ size }) => (
-  <ThemeProvider theme={themes.circuit}>
+  <ThemeProvider theme={light}>
     <Wrapper>
       <Box size={size} />
       <div>
         <Text as="span">{size}</Text>
         <IconSizeSize>
-          <IconSizeName size={Text.KILO} as="span">
-            {themes.circuit.iconSizes[size]}
+          <IconSizeName size="kilo" as="span">
+            {light.iconSizes[size]}
           </IconSizeName>
         </IconSizeSize>
       </div>
@@ -69,8 +70,6 @@ const IconSize = ({ size }) => (
 );
 
 IconSize.propTypes = {
-  // eslint-disable-next-line
-  theme: PropTypes.object.isRequired,
   size: PropTypes.string.isRequired
 };
 

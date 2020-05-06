@@ -61,7 +61,7 @@ export const withFooter = () => (
         <Button secondary onClick={action('Cancel button clicked')}>
           Cancel
         </Button>
-        <Button primary onClick={action('Confirm button clicked')}>
+        <Button variant="primary" onClick={action('Confirm button clicked')}>
           Confirm
         </Button>
       </ButtonGroup>

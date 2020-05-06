@@ -18,9 +18,9 @@ import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { hideVisually, size } from 'polished';
+import { Check } from '@sumup/icons';
 
-import { ReactComponent as CheckedIcon } from './checked-icon.svg';
-import { disableVisually } from '../../styles/style-helpers';
+import { disableVisually, focusOutline } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
@@ -31,6 +31,7 @@ const labelBaseStyles = ({ theme }) => css`
   display: inline-block;
   padding-left: ${theme.spacings.giga};
   position: relative;
+  cursor: pointer;
 
   &::before {
     ${size(theme.spacings.mega)};
@@ -49,15 +50,15 @@ const labelBaseStyles = ({ theme }) => css`
   }
 
   svg {
-    ${size(10)};
+    ${size(theme.spacings.mega)};
     box-sizing: border-box;
-    fill: ${theme.colors.p500};
+    color: ${theme.colors.p500};
     display: block;
-    left: 3px;
     line-height: 0;
     opacity: 0;
     position: absolute;
     top: ${theme.spacings.kilo};
+    left: 0;
     transform: translateY(-50%) scale(0, 0);
     transition: transform 0.05s ease-in, opacity 0.05s ease-in;
   }
@@ -73,7 +74,7 @@ const labelInvalidStyles = ({ theme, invalid }) =>
     }
 
     &:not(:focus) svg {
-      fill: ${theme.colors.r500};
+      color: ${theme.colors.r500};
     }
   `;
 
@@ -91,7 +92,7 @@ const labelDisabledStyles = ({ theme, disabled }) =>
 
     & svg {
       ${disableVisually()};
-      fill: ${theme.colors.n500};
+      color: ${theme.colors.n500};
     }
   `;
 
@@ -100,8 +101,7 @@ const inputStyles = ({ theme }) => css`
   ${hideVisually()};
 
   &:focus + label::before {
-    border-width: 2px;
-    border-color: ${theme.colors.p500};
+    ${focusOutline({ theme })};
   }
 
   &:checked + label > svg {
@@ -151,7 +151,9 @@ const CheckboxTooltip = styled(Tooltip)`
  */
 const Checkbox = ({
   children,
+  value,
   id: customId,
+  name,
   disabled,
   validationHint,
   className,
@@ -160,10 +162,17 @@ const Checkbox = ({
   const id = customId || uniqueId('checkbox_');
   return (
     <CheckboxWrapper className={className}>
-      <CheckboxInput {...props} id={id} type="checkbox" disabled={disabled} />
+      <CheckboxInput
+        {...props}
+        id={id}
+        name={name}
+        value={value}
+        type="checkbox"
+        disabled={disabled}
+      />
       <CheckboxLabel {...props} htmlFor={id} disabled={disabled}>
         {children}
-        <CheckedIcon aria-hidden="true" />
+        <Check aria-hidden="true" />
       </CheckboxLabel>
       {!disabled && validationHint && (
         <CheckboxTooltip position={Tooltip.TOP} align={Tooltip.RIGHT}>
@@ -182,19 +191,19 @@ Checkbox.propTypes = {
   /**
    * Value string for input.
    */
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   /**
    * Child nodes to be rendered as the label.
    */
-  children: childrenPropType,
-  /**
-   * A unique ID used to link the input and label.
-   */
-  id: PropTypes.string,
+  children: childrenPropType.isRequired,
   /**
    * The name of the checkbox.
    */
   name: PropTypes.string.isRequired,
+  /**
+   * A unique ID used to link the input and label.
+   */
+  id: PropTypes.string,
   /**
    * Triggers checked styles on the component. This is also forwarded as
    * attribute to the <input> element.

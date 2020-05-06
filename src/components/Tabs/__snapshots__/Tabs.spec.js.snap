@@ -43,7 +43,7 @@ exports[`Tabs styles should render with default styles 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -66,6 +66,23 @@ exports[`Tabs styles should render with default styles 1`] = `
   outline: none;
 }
 
+.circuit-0:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-0:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .circuit-2 {
   font-size: 16px;
   line-height: 24px;
@@ -74,7 +91,7 @@ exports[`Tabs styles should render with default styles 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -97,6 +114,23 @@ exports[`Tabs styles should render with default styles 1`] = `
   outline: none;
   position: relative;
   color: #212933;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-2::after {
@@ -156,7 +190,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -179,6 +213,23 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   outline: none;
 }
 
+.circuit-0:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-0:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
 .circuit-2 {
   font-size: 16px;
   line-height: 24px;
@@ -187,7 +238,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFFFFF;
   border: none;
   white-space: nowrap;
   height: 100%;
@@ -210,6 +261,23 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   outline: none;
   position: relative;
   color: #212933;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-2::after {

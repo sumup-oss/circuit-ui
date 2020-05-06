@@ -84,10 +84,7 @@ const createBreakpointStyles = curry((theme, current) => {
  * Return the default styles for each breakpoint provided by the config
  */
 export const getBreakPointStyles = theme =>
-  compose(
-    values,
-    mapValues(createBreakpointStyles(theme))
-  )(theme.grid);
+  compose(values, mapValues(createBreakpointStyles(theme)))(theme.grid);
 
 /**
  * Sort the key/value based on the breakpoint priority

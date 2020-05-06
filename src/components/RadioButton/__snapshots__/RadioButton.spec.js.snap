@@ -6,8 +6,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -18,8 +16,23 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:checked + label::before {
   border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
 }
 
 <input
@@ -27,11 +40,13 @@ HTMLCollection [
     class="circuit-0 circuit-1"
     id="radio-button_2"
     type="radio"
+    value=""
   />,
   .circuit-0 {
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {
@@ -74,17 +89,6 @@ HTMLCollection [
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-.circuit-0::before {
-  border-color: #3388FF;
-}
-
-.circuit-0::after {
-  -webkit-transform: translateY(-50%) scale(1,1);
-  -ms-transform: translateY(-50%) scale(1,1);
-  transform: translateY(-50%) scale(1,1);
-  opacity: 1;
-}
-
 <label
     class="circuit-0 circuit-1"
     for="radio-button_2"
@@ -98,8 +102,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -110,19 +112,36 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:checked + label::before {
   border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
 }
 
 <input
     class="circuit-0 circuit-1"
     id="radio-button_1"
     type="radio"
+    value=""
   />,
   .circuit-0 {
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {
@@ -178,8 +197,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -190,8 +207,23 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:checked + label::before {
   border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
 }
 
 <input
@@ -199,11 +231,13 @@ HTMLCollection [
     disabled=""
     id="radio-button_3"
     type="radio"
+    value=""
   />,
   .circuit-0 {
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -278,8 +312,6 @@ HTMLCollection [
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -290,19 +322,36 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:checked + label::before {
   border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
 }
 
 <input
     class="circuit-0 circuit-1"
     id="radio-button_4"
     type="radio"
+    value=""
   />,
   .circuit-0 {
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-0::before {

@@ -18,10 +18,10 @@ import { css } from '@emotion/core';
 
 import NotificationBanner from './NotificationBanner';
 
-import { base as Message } from '../Message/Message.story';
+import { base as Notification } from '../Notification/Notification.story';
 
 export default {
-  title: 'Components/Message/NotificationBanner',
+  title: 'Components/Notification/NotificationBanner',
   component: NotificationBanner,
   parameters: {
     jest: ['NotificationBanner']
@@ -43,7 +43,7 @@ export const base = () => (
       `}
     >
       <NotificationBanner>
-        <Message />
+        <Notification />
       </NotificationBanner>
     </div>
   </div>

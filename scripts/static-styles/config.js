@@ -15,15 +15,14 @@
 
 import React from 'react';
 import { entries, values, isFunction, kebabCase } from 'lodash/fp';
+import { light } from '@sumup/design-tokens';
 
 import {
   Badge,
   Blockquote,
-  Button,
   ButtonGroup,
   Card,
   Checkbox,
-  Hamburger,
   Heading,
   Hr,
   Image,
@@ -35,16 +34,12 @@ import {
   Selector,
   SubHeading,
   Tag,
-  Text,
   TextArea,
   Toggle,
-  theme,
   styleConstants
 } from '../../src';
 
-const { circuit } = theme;
-const { colorNames, sizes } = styleConstants;
-const { KILO, MEGA, GIGA } = sizes;
+const { colorNames } = styleConstants;
 
 const element = props => <div {...props} />;
 
@@ -108,18 +103,23 @@ function getRequiredProps(props) {
 }
 
 export function getComponentInfo(component, propOverrides = {}) {
-  // eslint-disable-next-line no-underscore-dangle
-  const { displayName, props } = component.__docgenInfo;
-  return {
-    component,
-    name: kebabCase(displayName),
-    props: getProps(props, propOverrides),
-    requiredProps: getRequiredProps(props)
-  };
+  try {
+    // eslint-disable-next-line no-underscore-dangle
+    const { displayName, props } = component.__docgenInfo;
+    return {
+      component,
+      name: kebabCase(displayName),
+      props: getProps(props, propOverrides),
+      requiredProps: getRequiredProps(props)
+    };
+  } catch (error) {
+    console.error(component);
+    throw error;
+  }
 }
 
 export default {
-  themes: { circuit },
+  themes: { light },
   components: [
     {
       name: 'badge',
@@ -129,7 +129,8 @@ export default {
         circle: PropTypes.bool
       }
     },
-    getComponentInfo(Button, { size: [KILO, MEGA, GIGA] }),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(Button, { size: [KILO, MEGA, GIGA] }),
     getComponentInfo(Blockquote, {
       size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
     }),
@@ -145,7 +146,8 @@ export default {
       }
     },
     getComponentInfo(Checkbox),
-    getComponentInfo(Hamburger),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(Hamburger),
     getComponentInfo(Heading, {
       size: [
         Heading.KILO,
@@ -181,12 +183,14 @@ export default {
       size: [SubHeading.KILO, SubHeading.MEGA]
     }),
     getComponentInfo(Tag, {
-      icon: PropTypes.element,
-      onRemove: PropTypes.func
+      onRemove: PropTypes.func,
+      prefix: PropTypes.element,
+      suffix: PropTypes.element
     }),
-    getComponentInfo(Text, {
-      size: [Text.KILO, Text.MEGA, Text.GIGA]
-    }),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(Text, {
+    //   size: ['kilo', 'mega', 'giga']
+    // }),
     getComponentInfo(TextArea),
     getComponentInfo(Toggle)
   ]

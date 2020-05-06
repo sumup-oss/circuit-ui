@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PaginationContainer styles when the current page is 1 should render with default styles 1`] = `
-.circuit-6 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15,65 +15,65 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
 }
 
 .circuit-1 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: auto;
   height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 4px calc(16px - 1px);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
 }
 
-.circuit-1:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
 .circuit-1:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
   outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-1:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-1:hover,
-.circuit-1:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-1[href] {
-  display: inline-block;
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.4;
+  opacity: 0.5;
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-1:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 .circuit-1:hover {
@@ -81,85 +81,85 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
   z-index: 1;
 }
 
-.circuit-4 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: auto;
   height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 4px calc(16px - 1px);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.circuit-4:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-4:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
+.circuit-3:focus {
   outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:hover {
-  background-color: #D8DDE1;
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-4:hover,
-.circuit-4:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-4[href] {
-  display: inline-block;
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  opacity: 0.4;
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-3:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 <div
-  class="circuit-6 circuit-7"
+  class="circuit-4 circuit-5"
 >
   <button
-    class="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1"
     data-testid="pagination-button-previous"
     disabled=""
   />
   Children Element
   <button
-    class="circuit-3 circuit-4 circuit-2"
+    class="circuit-2 circuit-3"
     data-testid="pagination-button-next"
   />
 </div>
 `;
 
 exports[`PaginationContainer styles when the current page is not the first and last page should render with default styles 1`] = `
-.circuit-6 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -173,65 +173,65 @@ exports[`PaginationContainer styles when the current page is not the first and l
 }
 
 .circuit-1 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: auto;
   height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 4px calc(16px - 1px);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
 }
 
-.circuit-1:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
 .circuit-1:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
   outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-1:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-1:hover,
-.circuit-1:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-1[href] {
-  display: inline-block;
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.4;
+  opacity: 0.5;
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-1:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 .circuit-1:hover {
@@ -239,84 +239,84 @@ exports[`PaginationContainer styles when the current page is not the first and l
   z-index: 1;
 }
 
-.circuit-4 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: auto;
   height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 4px calc(16px - 1px);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.circuit-4:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-4:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
+.circuit-3:focus {
   outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:hover {
-  background-color: #D8DDE1;
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-4:hover,
-.circuit-4:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-4[href] {
-  display: inline-block;
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  opacity: 0.4;
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-3:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 <div
-  class="circuit-6 circuit-7"
+  class="circuit-4 circuit-5"
 >
   <button
-    class="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1"
     data-testid="pagination-button-previous"
   />
   Children Element
   <button
-    class="circuit-3 circuit-4 circuit-2"
+    class="circuit-2 circuit-3"
     data-testid="pagination-button-next"
   />
 </div>
 `;
 
 exports[`PaginationContainer styles when the current page is the last page should render with default styles 1`] = `
-.circuit-6 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -330,65 +330,65 @@ exports[`PaginationContainer styles when the current page is the last page shoul
 }
 
 .circuit-1 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: auto;
   height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 4px calc(16px - 1px);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
 }
 
-.circuit-1:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
 .circuit-1:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
   outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-1:hover {
-  background-color: #D8DDE1;
-}
-
-.circuit-1:hover,
-.circuit-1:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-1[href] {
-  display: inline-block;
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
 }
 
 .circuit-1:disabled,
 .circuit-1[disabled] {
-  opacity: 0.4;
+  opacity: 0.5;
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-1:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 .circuit-1:hover {
@@ -396,77 +396,77 @@ exports[`PaginationContainer styles when the current page is the last page shoul
   z-index: 1;
 }
 
-.circuit-4 {
-  background-color: #FAFBFC;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: inset 0 1px 0 1px rgba(255,255,255,0.06);
-  display: block;
-  color: #5C656F;
-  cursor: pointer;
-  font-weight: 700;
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: auto;
   height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   -webkit-text-decoration: none;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 24px;
-  padding: calc(4px - 0px) calc(16px - 0px);
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 4px calc(16px - 1px);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.circuit-4:active {
-  background-color: #D8DDE1;
-  border-color: #9DA7B1;
-  box-shadow: inset 0 4px 8px 0 rgba(12,15,20,0.3);
-}
-
-.circuit-4:focus {
-  border-color: #9DA7B1;
-  border-width: 2px;
+.circuit-3:focus {
   outline: 0;
-  padding: calc(4px - 1px) calc(16px - 1px);
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:hover {
-  background-color: #D8DDE1;
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
 }
 
-.circuit-4:hover,
-.circuit-4:active {
-  border-color: #9DA7B1;
-  border-width: 1px;
-  padding: calc(4px - 0px) calc(16px - 0px);
-}
-
-.circuit-4[href] {
-  display: inline-block;
-}
-
-.circuit-4:disabled,
-.circuit-4[disabled] {
-  opacity: 0.4;
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
   pointer-events: none;
-  -webkit-user-selectable: none;
-  -moz-user-selectable: none;
-  -ms-user-selectable: none;
-  user-selectable: none;
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-3:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
 }
 
 <div
-  class="circuit-6 circuit-7"
+  class="circuit-4 circuit-5"
 >
   <button
-    class="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1"
     data-testid="pagination-button-previous"
   />
   Children Element
   <button
-    class="circuit-3 circuit-4 circuit-2"
+    class="circuit-2 circuit-3"
     data-testid="pagination-button-next"
     disabled=""
   />

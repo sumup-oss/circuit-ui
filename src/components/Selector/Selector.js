@@ -13,79 +13,174 @@
  * limitations under the License.
  */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import withAriaSelected from '../../util/withAriaSelected';
-import { shadowSingle } from '../../styles/style-helpers';
+import { hideVisually } from 'polished';
+
+import { childrenPropType } from '../../util/shared-prop-types';
+import {
+  shadowSingle,
+  shadowDouble,
+  focusOutline
+} from '../../styles/style-helpers';
+import { uniqueId } from '../../util/id';
+
+const wrapperStyles = ({ theme }) => css`
+  label: selector;
+  position: relative;
+  margin-bottom: ${theme.spacings.mega};
+`;
+
+const SelectorWrapper = styled.div(wrapperStyles);
 
 const baseStyles = ({ theme }) => css`
-  label: selector;
+  label: selector__label;
+  ${shadowSingle({ theme })};
+  display: block;
   cursor: pointer;
   padding: ${theme.spacings.giga};
   border-radius: ${theme.borderRadius.giga};
-  border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
   background-color: ${theme.colors.white};
-  margin-bottom: ${theme.spacings.mega};
   fill: ${theme.colors.n400};
-`;
+  text-align: center;
 
-const hoverStyles = ({ selected, theme }) =>
-  !selected &&
-  css`
-    label: selector--hover;
-    &:hover {
-      border: ${theme.borderWidth.mega} solid ${theme.colors.n300};
-      background-color: ${theme.colors.n100};
+  &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: ${theme.borderRadius.giga};
+    border: ${theme.borderWidth.kilo} solid ${theme.colors.n500};
+  }
+
+  &:hover {
+    background-color: ${theme.colors.n100};
+
+    &::before {
+      border: ${theme.borderWidth.mega} solid ${theme.colors.n500};
     }
-  `;
-
-const selectedStyles = ({ selected, theme }) =>
-  selected &&
-  css`
-    label: selector--selected;
-    border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
-    background-color: ${theme.colors.b100};
-    ${shadowSingle({ theme })};
-  `;
+  }
+`;
 
 const disabledStyles = ({ disabled, theme }) =>
   disabled &&
   css`
-    label: selector--disabled;
+    label: selector__label--disabled;
     color: ${theme.colors.n500};
     cursor: default;
     pointer-events: none;
+
+    &::before {
+      border-color: ${theme.colors.n300};
+    }
   `;
+
+const SelectorLabel = styled.label(baseStyles, disabledStyles);
+
+const inputStyles = ({ theme }) => css`
+  label: selector__input;
+  ${hideVisually()};
+
+  &:focus + label::before {
+    ${focusOutline({ theme })};
+  }
+
+  &:checked + label {
+    background-color: ${theme.colors.b100};
+    ${shadowDouble({ theme })};
+
+    &::before {
+      border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
+    }
+  }
+`;
+
+const SelectorInput = styled.input(inputStyles);
 
 /**
  * A selector allows users to choose between several mutually-exlusive choices,
  * accompanied by descriptions, possibly with tabular data.
  */
-const Selector = styled.div(
-  baseStyles,
-  hoverStyles,
-  selectedStyles,
-  disabledStyles
-);
+const Selector = ({
+  children,
+  value,
+  id,
+  name,
+  disabled,
+  multiple,
+  checked,
+  onChange,
+  ...props
+}) => {
+  const inputId = id || uniqueId('selector_');
+  const type = multiple ? 'checkbox' : 'radio';
+  return (
+    <SelectorWrapper {...props}>
+      <SelectorInput
+        type={type}
+        id={inputId}
+        name={name}
+        value={value}
+        checked={checked}
+        disabled={disabled}
+        onClick={onChange}
+      />
+      <SelectorLabel htmlFor={inputId} disabled={disabled}>
+        {children}
+      </SelectorLabel>
+    </SelectorWrapper>
+  );
+};
 
 Selector.propTypes = {
   /**
+   * Controles/Toggles the checked state.
+   */
+  onChange: PropTypes.func.isRequired,
+  /**
+   * Value string for input.
+   */
+  value: PropTypes.string.isRequired,
+  /**
+   * Child nodes to be rendered as the label.
+   */
+  children: childrenPropType.isRequired,
+  /**
+   * The name of the selector.
+   */
+  name: PropTypes.string.isRequired,
+  /**
+   * A unique ID used to link the input and label.
+   */
+  id: PropTypes.string,
+  /**
    * Whether the selector is selected or not.
    */
-  selected: PropTypes.bool,
+  checked: PropTypes.bool,
   /**
    * Whether the selector is disabled or not.
    */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /**
+   * Whether the user can select multiple options.
+   */
+  multiple: PropTypes.bool
 };
 
 Selector.defaultProps = {
-  selected: false,
-  disabled: false
+  checked: false,
+  disabled: false,
+  multiple: false
 };
 
 /**
  * @component
  */
-export default withAriaSelected(Selector);
+export default Selector;

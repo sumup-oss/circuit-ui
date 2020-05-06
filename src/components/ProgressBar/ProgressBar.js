@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import { textKilo, subtractUnit } from '../../styles/style-helpers';
+import { textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import { sizes } from '../../styles/constants';
 
@@ -44,10 +44,7 @@ const wrapperStyles = ({ theme }) => css`
 const progressStyles = ({ theme, size, value, max }) => {
   const outerBorderWidth = '1px';
   const outerBorderRadius = theme.borderRadius.mega;
-  const innerBorderRadiusLeft = `${subtractUnit(
-    outerBorderRadius,
-    outerBorderWidth
-  )}`;
+  const innerBorderRadiusLeft = `calc(${outerBorderRadius} - ${outerBorderWidth})`;
   const innerBorderRadiusRight =
     value && max && (value / max) * 100 === 100 ? innerBorderRadiusLeft : 0;
   const width = value && max ? (value / max) * 100 : 0;
@@ -98,17 +95,19 @@ const ProgressBarLabel = styled('span')`
 /**
  * Progress bar component to indicate progress
  */
-const ProgressBar = ({ children, max, value, ...props }) => {
+const ProgressBar = ({ children, max, value, size, ...props }) => {
   const ariaId = uniqueId('progress-bar_');
   return (
-    <ProgressBarWrapper>
+    <ProgressBarWrapper {...props}>
       <ProgressBarProgress
         role="progressbar"
         aria-valuenow={value}
         aria-valuemin="0"
         aria-valuemax={max}
         aria-labelledby={ariaId}
-        {...{ ...props, max, value }}
+        size={size}
+        max={max}
+        value={value}
       />
       <ProgressBarLabel id={ariaId}>{children}</ProgressBarLabel>
     </ProgressBarWrapper>
@@ -141,7 +140,7 @@ ProgressBar.propTypes = {
 
 ProgressBar.defaultProps = {
   size: ProgressBar.KILO,
-  max: 1.0,
+  max: 1,
   value: 0,
   children: null
 };

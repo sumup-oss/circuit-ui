@@ -5,6 +5,7 @@ exports[`Select should not render with invalid styles when also passed the disab
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -40,16 +41,16 @@ exports[`Select should not render with invalid styles when also passed the disab
 }
 
 .circuit-2 {
-  fill: #5C656F;
+  color: #5C656F;
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {
@@ -96,11 +97,22 @@ label + .circuit-4 {
       Option 3
     </option>
   </select>
-  <div
+  <svg
     class="circuit-2 circuit-3"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    arrows.svg
-  </div>
+    <path
+      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;
 
@@ -118,16 +130,16 @@ label + .circuit-5 {
 }
 
 .circuit-3 {
-  fill: #5C656F;
+  color: #5C656F;
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-0 {
@@ -146,6 +158,7 @@ label + .circuit-5 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -212,11 +225,22 @@ label + .circuit-5 {
       Option 3
     </option>
   </select>
-  <div
+  <svg
     class="circuit-3 circuit-4"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    arrows.svg
-  </div>
+    <path
+      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;
 
@@ -237,6 +261,7 @@ label + .circuit-6 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -272,16 +297,16 @@ label + .circuit-6 {
 }
 
 .circuit-2 {
-  fill: #5C656F;
+  color: #5C656F;
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {
@@ -352,11 +377,22 @@ label + .circuit-6 {
       Option 3
     </option>
   </select>
-  <div
+  <svg
     class="circuit-2 circuit-3"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    arrows.svg
-  </div>
+    <path
+      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
   <div
     class="circuit-4 circuit-5"
   >
@@ -382,6 +418,7 @@ label + .circuit-4 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -417,16 +454,16 @@ label + .circuit-4 {
 }
 
 .circuit-2 {
-  fill: #5C656F;
+  color: #5C656F;
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 <div
@@ -456,11 +493,22 @@ label + .circuit-4 {
       Option 3
     </option>
   </select>
-  <div
+  <svg
     class="circuit-2 circuit-3"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    arrows.svg
-  </div>
+    <path
+      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;
 
@@ -469,6 +517,7 @@ exports[`Select should render with disabled styles when passed the disabled prop
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -504,16 +553,16 @@ exports[`Select should render with disabled styles when passed the disabled prop
 }
 
 .circuit-2 {
-  fill: #5C656F;
+  color: #5C656F;
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {
@@ -560,11 +609,22 @@ label + .circuit-4 {
       Option 3
     </option>
   </select>
-  <div
+  <svg
     class="circuit-2 circuit-3"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    arrows.svg
-  </div>
+    <path
+      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;
 
@@ -573,6 +633,7 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -608,16 +669,16 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
 }
 
 .circuit-2 {
-  fill: #5C656F;
+  color: #5C656F;
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {
@@ -661,11 +722,22 @@ label + .circuit-4 {
       Option 3
     </option>
   </select>
-  <div
+  <svg
     class="circuit-2 circuit-3"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    arrows.svg
-  </div>
+    <path
+      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;
 
@@ -686,6 +758,7 @@ label + .circuit-6 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -723,30 +796,31 @@ label + .circuit-6 {
 }
 
 .circuit-2 {
-  fill: #5C656F;
+  color: #5C656F;
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
   right: calc(1px + 24px);
 }
 
 .circuit-4 {
-  fill: #5C656F;
+  color: #5C656F;
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
+  color: #DB4D4D;
 }
 
 <div
@@ -776,16 +850,38 @@ label + .circuit-6 {
       Option 3
     </option>
   </select>
-  <div
+  <svg
     class="circuit-2 circuit-3"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    arrows.svg
-  </div>
-  <div
+    <path
+      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
+  <svg
     class="circuit-4 circuit-5"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    error.svg
-  </div>
+    <path
+      d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;
 
@@ -794,6 +890,7 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -829,16 +926,16 @@ exports[`Select should render with no margin styles when passed the noMargin pro
 }
 
 .circuit-2 {
-  fill: #5C656F;
+  color: #5C656F;
   display: block;
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   top: 1px;
   right: 1px;
-  margin: 12px;
+  margin: 8px;
 }
 
 .circuit-4 {
@@ -881,10 +978,21 @@ label + .circuit-4 {
       Option 3
     </option>
   </select>
-  <div
+  <svg
     class="circuit-2 circuit-3"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    arrows.svg
-  </div>
+    <path
+      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
 </div>
 `;

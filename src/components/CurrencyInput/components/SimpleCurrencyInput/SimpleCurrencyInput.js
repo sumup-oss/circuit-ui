@@ -18,14 +18,18 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
+import TextMaskInput from 'react-text-mask';
 
 import { themePropType } from '../../../../util/shared-prop-types';
-import MaskedInput from '../../../MaskedInput';
+import Input from '../../../Input';
 
 const iconBaseStyles = ({ theme }) => css`
   label: simple-currency-input__symbol;
   color: ${theme.colors.b700};
   line-height: ${theme.spacings.mega};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const iconWarningStyles = ({ theme, hasWarning, disabled }) =>
   !disabled &&
@@ -49,8 +53,8 @@ const iconInvalidStyles = ({ theme, invalid, disabled }) =>
 
 // This is dymanic and cannot be done in pure CSS. No need for
 // a label.
-const iconOverrideWidthStyles = ({ symbol = '' }) => `
-  width: ${symbol.length}ch;
+const iconOverrideWidthStyles = ({ symbol = '' }) => css`
+  min-width: ${symbol.length}ch;
 `;
 
 const CurrencyIcon = styled('span')`
@@ -69,15 +73,15 @@ const inputPrependStyles = ({ theme, symbol = '', prependSymbol }) =>
   css`
     label: currency-input__input--prepend-symbol;
     padding-left: ${theme.spacings.exa};
-    padding-left: calc(${theme.spacings.giga} + ${symbol.length}ch);
+    padding-left: calc(${theme.spacings.mega} + ${symbol.length}ch);
   `;
 
 const inputAppendStyles = ({ theme, symbol = '', prependSymbol }) =>
   !prependSymbol &&
   css`
-    label: currency-input__input--prepend-symbol;
+    label: currency-input__input--append-symbol;
     padding-right: ${theme.spacings.exa};
-    padding-right: calc(${theme.spacings.giga} + ${symbol.length}ch);
+    padding-right: calc(${theme.spacings.mega} + ${symbol.length}ch);
   `;
 
 /**
@@ -93,7 +97,11 @@ const SimpleCurrencyInput = ({
   numberMask,
   ...props
 }) => (
-  <MaskedInput
+  <TextMaskInput
+    guide={false}
+    render={(ref, { defaultValue, ...renderProps }) => (
+      <Input value={defaultValue} {...renderProps} deepRef={ref} />
+    )}
     inputStyles={css([
       inputBaseStyles(),
       inputPrependStyles({
@@ -111,9 +119,7 @@ const SimpleCurrencyInput = ({
       prependSymbol && (
         <CurrencyIcon
           {...{ hasWarning, invalid, disabled }}
-          css={css`
-            ${iconOverrideWidthStyles({ symbol })};
-          `}
+          css={iconOverrideWidthStyles({ symbol })}
           className={className}
           symbol={symbol}
         >
@@ -125,9 +131,7 @@ const SimpleCurrencyInput = ({
       !prependSymbol && (
         <CurrencyIcon
           {...{ hasWarning, invalid, disabled }}
-          css={css`
-            ${iconOverrideWidthStyles({ symbol })};
-          `}
+          css={iconOverrideWidthStyles({ symbol })}
           className={className}
           symbol={symbol}
         >
@@ -153,7 +157,7 @@ SimpleCurrencyInput.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * A mask function for the MaskedInput. Typically created,
+   * A mask function for react-text-mask. Typically created,
    * via the CurrencyInputService.
    */
   numberMask: PropTypes.func.isRequired,

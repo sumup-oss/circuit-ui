@@ -4,6 +4,10 @@ module.exports = {
     '../docs/**/*.(stories|story).(js|ts|tsx|mdx)'
   ],
   addons: [
+    {
+      name: '@storybook/preset-typescript',
+      options: { transpileManager: true }
+    },
     '@storybook/addon-docs/',
     '@storybook/addon-storysource',
     '@storybook/addon-actions',

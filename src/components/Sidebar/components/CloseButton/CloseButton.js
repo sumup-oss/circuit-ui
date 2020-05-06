@@ -13,25 +13,15 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import PropTypes from 'prop-types';
 
-import { hideVisually } from 'polished';
-import { ReactComponent as CloseIcon } from './closeIcon.svg';
+import BaseButton from '../../../CloseButton';
 
 const baseStyles = ({ theme }) => css`
   label: sidebar-close-button;
-  cursor: pointer;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: ${theme.colors.n100};
+  border-radius: ${theme.borderRadius.circle};
   position: absolute;
   bottom: ${theme.spacings.mega};
   right: ${theme.spacings.mega};
@@ -52,40 +42,16 @@ const visibleStyles = ({ visible }) =>
     opacity: 1;
   `;
 
-const AccessibilityLabel = styled.span`
-  ${hideVisually()};
-`;
-
-const FloatingButton = styled.button`
+const CloseButton = styled(BaseButton)`
   ${baseStyles};
   ${visibleStyles};
 `;
-
-const CloseButton = ({ visible, closeButtonLabel, onClick, ...props }) => (
-  <FloatingButton visible={visible} onClick={onClick} {...props}>
-    <AccessibilityLabel>{closeButtonLabel}</AccessibilityLabel>
-    <CloseIcon aria-hidden="true" />
-  </FloatingButton>
-);
 
 CloseButton.propTypes = {
   /**
    * Tells if the CloseButton is visible
    */
-  visible: PropTypes.bool,
-  /**
-   * Accessibility label for the CloseButton
-   */
-  closeButtonLabel: PropTypes.string.isRequired,
-  /**
-   * A function to handle the the click on the CloseButton
-   */
-  onClick: PropTypes.func
-};
-
-CloseButton.defaultProps = {
-  visible: false,
-  onClick: null
+  visible: PropTypes.bool
 };
 
 export default CloseButton;

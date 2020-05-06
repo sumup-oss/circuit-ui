@@ -1,13 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButtonGroup should render with default styles 1`] = `
-HTMLCollection [
-  .circuit-0 {
+.circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -18,14 +15,30 @@ HTMLCollection [
 }
 
 .circuit-0:focus + label::before {
-  border-width: 2px;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:checked + label::before {
   border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
 }
 
 .circuit-2 {
   color: #5C656F;
   padding-left: 24px;
   position: relative;
+  cursor: pointer;
 }
 
 .circuit-2::before {
@@ -68,7 +81,10 @@ HTMLCollection [
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-<div>
+<div
+  role="group"
+>
+  <div>
     <input
       class="circuit-0 circuit-1"
       id="radio-button_2"
@@ -79,79 +95,11 @@ HTMLCollection [
     <label
       class="circuit-2 circuit-3"
       for="radio-button_2"
-      name="radio-button-group_1"
-      value="first"
     >
       Option 1
     </label>
-  </div>,
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
-}
-
-.circuit-2 {
-  color: #5C656F;
-  padding-left: 24px;
-  position: relative;
-}
-
-.circuit-2::before {
-  box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
-}
-
-.circuit-2::after {
-  box-sizing: border-box;
-  height: 8px;
-  width: 8px;
-  background-color: #3388FF;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 4px;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-}
-
-<div>
+  </div>
+  <div>
     <input
       class="circuit-0 circuit-1"
       id="radio-button_3"
@@ -162,79 +110,11 @@ HTMLCollection [
     <label
       class="circuit-2 circuit-3"
       for="radio-button_3"
-      name="radio-button-group_1"
-      value="second"
     >
       Option 2
     </label>
-  </div>,
-  .circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-0:focus + label::before {
-  border-width: 2px;
-  border-color: #3388FF;
-}
-
-.circuit-2 {
-  color: #5C656F;
-  padding-left: 24px;
-  position: relative;
-}
-
-.circuit-2::before {
-  box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
-}
-
-.circuit-2::after {
-  box-sizing: border-box;
-  height: 8px;
-  width: 8px;
-  background-color: #3388FF;
-  border-radius: 100%;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 4px;
-  -webkit-transform: translateY(-50%) scale(0,0);
-  -ms-transform: translateY(-50%) scale(0,0);
-  transform: translateY(-50%) scale(0,0);
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-}
-
-<div>
+  </div>
+  <div>
     <input
       class="circuit-0 circuit-1"
       id="radio-button_4"
@@ -245,11 +125,9 @@ HTMLCollection [
     <label
       class="circuit-2 circuit-3"
       for="radio-button_4"
-      name="radio-button-group_1"
-      value="third"
     >
       Option 3
     </label>
-  </div>,
-]
+  </div>
+</div>
 `;

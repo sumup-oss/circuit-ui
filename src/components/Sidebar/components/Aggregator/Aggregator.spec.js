@@ -63,7 +63,7 @@ describe('Aggregator', () => {
       expect(actual).toMatchSnapshot();
     });
 
-    it('should render and match snapshot when open', async () => {
+    it('should render and match snapshot when open', () => {
       const { container, getByTestId } = render(
         <Aggregator {...props}>
           <div data-testid="child">child</div>
@@ -133,7 +133,7 @@ describe('Aggregator', () => {
       expect(childEl).toBeVisible();
     });
 
-    it('should not toggle when clicking again on the aggregator with a selected child', async () => {
+    it('should not toggle when clicking again on the aggregator with a selected child', () => {
       const onClick = jest.fn();
       const { getByTestId } = render(
         <Aggregator {...props} onClick={onClick}>
@@ -161,7 +161,7 @@ describe('Aggregator', () => {
       expect(childEl).toBeVisible();
     });
 
-    it('should close when there are no selected children', async () => {
+    it('should close when there are no selected children', () => {
       const onClick = jest.fn();
       const { getByTestId } = render(<MockedNavigation onClick={onClick} />);
       const aggregatorEl = getByTestId('aggregator');

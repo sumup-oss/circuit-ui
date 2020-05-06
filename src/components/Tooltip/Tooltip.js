@@ -60,8 +60,10 @@ const positionMap = {
 
 const getPositionStyles = ({ theme, position }) => {
   const absolutePosition = positionMap[position];
+
+  // The first absolute position rule is a fallback.
   return `
-    ${absolutePosition}: 100%; ${'' /* Fallback  */}
+    ${absolutePosition}: 100%;
     ${absolutePosition}: calc(100% + ${theme.spacings.kilo});
 
     &::after {
@@ -103,9 +105,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
   /* eslint-disable max-len */
   return `
     ${absolutePosition}: 50%;
-    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${
-    theme.spacings.bit
-  }));
+    ${absolutePosition}: calc(50% - (${theme.spacings.mega} + ${theme.spacings.bit}));
 
     &::after {
       ${absolutePosition}: ${theme.spacings.kilo};

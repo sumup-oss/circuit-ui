@@ -17,14 +17,24 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 
 import { START_DATE } from 'react-dates/constants';
 
 import { RangePickerController } from '../Calendar';
 import Tag from '../Tag';
 
+const CalendarWrap = styled.div`
+  margin-top: ${({ theme }) => theme.spacings.byte};
+`;
+
 class CalendarTag extends Component {
+  static propTypes = {
+    /**
+     * Callback to receive the set of dates when the user selects them.
+     */
+    onDatesRangeChange: PropTypes.func.isRequired
+  };
+
   state = { startDate: null, endDate: null, focusedInput: null };
 
   buttonRef = null; // eslint-disable-line react/sort-comp
@@ -75,11 +85,12 @@ class CalendarTag extends Component {
   };
 
   render() {
+    const { onDatesRangeChange, ...props } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
     const isOpen = focusedInput !== null;
 
     return (
-      <CalendarButtonWrap>
+      <div {...props}>
         <Tag
           selected={isOpen}
           ref={this.handleButtonRef}
@@ -99,33 +110,10 @@ class CalendarTag extends Component {
             />
           </CalendarWrap>
         )}
-      </CalendarButtonWrap>
+      </div>
     );
   }
 }
-
-const baseStyles = () => css`
-  label: button_calendar;
-`;
-
-const CalendarWrap = styled.div`
-  margin-top: ${({ theme }) => theme.spacings.byte};
-`;
-
-const CalendarButtonWrap = styled('div')`
-  ${baseStyles};
-`;
-
-/**
- * Describe your component here.
- */
-
-CalendarTag.propTypes = {
-  /**
-   * Callback to receive the set of dates when the user selects them.
-   */
-  onDatesRangeChange: PropTypes.func.isRequired
-};
 
 /**
  * @component

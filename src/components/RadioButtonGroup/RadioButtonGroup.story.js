@@ -27,16 +27,16 @@ export default {
 
 const options = [
   {
-    label: 'Option 1',
-    value: 'First'
+    children: 'Apple',
+    value: 'apple'
   },
   {
-    label: 'Option 2',
-    value: 'Second'
+    children: 'Banana',
+    value: 'banana'
   },
   {
-    label: 'Option 3',
-    value: 'Third'
+    children: 'Mango',
+    value: 'mango'
   }
 ];
 
@@ -44,10 +44,16 @@ const options = [
 const RadioButtonGroupWithState = ({ value: initial, children, ...props }) => {
   const [value, setValue] = useState(initial);
   const handleChange = e => {
-    e.persist();
     setValue(e.target.value);
   };
-  return <RadioButtonGroup {...props} value={value} onChange={handleChange} />;
+  return (
+    <RadioButtonGroup
+      {...props}
+      value={value}
+      onChange={handleChange}
+      label="Choose your favourite fruit"
+    />
+  );
 };
 
 export const base = () => (

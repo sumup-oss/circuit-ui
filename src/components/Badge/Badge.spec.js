@@ -49,7 +49,7 @@ describe('Badge', () => {
   });
 
   it('should have hover/active styles only when the onClick handler is provided', () => {
-    const actual = create(<Badge onClick={() => {}} />);
+    const actual = create(<Badge onClick={jest.fn()} />);
     expect(actual).toMatchSnapshot();
   });
 

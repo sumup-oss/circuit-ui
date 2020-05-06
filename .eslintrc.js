@@ -1,49 +1,16 @@
-const {
-  react: baseConfig,
-  overwritePresets
-} = require('@sumup/foundry/eslint');
-
-const customConfig = {
-  rules: {
-    'import/prefer-default-export': 'warn',
-    'emotion/jsx-import': 'off'
+module.exports = require('@sumup/foundry/eslint')(
+  {
+    language: 'TypeScript',
+    environments: ['Browser'],
+    frameworks: ['React', 'Emotion', 'Jest'],
+    openSource: true
   },
-  overrides: [
-    {
-      files: ['src/**/*Service.js', 'src/**/constants.js'],
-      rules: {
-        'import/prefer-default-export': 'off'
-      }
+  {
+    rules: {
+      'arrow-parens': 'off'
     },
-    {
-      files: ['src/**/*spec.js'],
-      rules: {
-        'max-len': [
-          'error',
-          {
-            code: 80,
-            tabWidth: 2,
-            ignorePattern: '^\\s*it\\(',
-            ignoreComments: true,
-            ignoreUrls: true
-          }
-        ]
-      },
-      globals: {
-        create: true,
-        render: true,
-        renderToHtml: true,
-        axe: true,
-        act: true,
-        fireEvent: true,
-        userEvent: true,
-        wait: true
-      },
-      env: {
-        'jest/globals': true
-      }
+    parserOptions: {
+      project: ['./tsconfig.eslint.json']
     }
-  ]
-};
-
-module.exports = overwritePresets(baseConfig, customConfig);
+  }
+);

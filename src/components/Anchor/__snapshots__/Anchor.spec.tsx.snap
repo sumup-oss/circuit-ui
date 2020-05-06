@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor styles should render as a \`button\` when an onClick is passed 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  display: inline-block;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  border: 0;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  color: #1760CE;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-0:hover,
+.circuit-0:active {
+  color: #003C8B;
+  cursor: pointer;
+}
+
+.circuit-0:visited {
+  color: #8928A2;
+}
+
+.circuit-0:visited:hover,
+.circuit-0:visited:active {
+  color: #5F1D6B;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-radius: 5px;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+<button
+  class="circuit-0"
+>
+  Anchor
+</button>
+`;
+
+exports[`Anchor styles should render as a \`span\` when neither href nor onClick is passed 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+<span
+  class="circuit-0"
+>
+  Anchor
+</span>
+`;
+
+exports[`Anchor styles should render as an \`a\` when an href (and onClick) is passed 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  display: inline-block;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  border: 0;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  color: #1760CE;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-0:hover,
+.circuit-0:active {
+  color: #003C8B;
+  cursor: pointer;
+}
+
+.circuit-0:visited {
+  color: #8928A2;
+}
+
+.circuit-0:visited:hover,
+.circuit-0:visited:active {
+  color: #5F1D6B;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+  border-radius: 5px;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+<a
+  class="circuit-0"
+  href="https://sumup.com"
+>
+  Anchor
+</a>
+`;

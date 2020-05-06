@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationButton should render alignment styles when passed the align prop 1`] = `
+.circuit-0 {
+  display: block;
+  padding-left: 24px;
+  margin-top: 16px;
+  margin-left: auto;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    margin-top: 0;
+  }
+}
+
+<div
+  class="circuit-0 circuit-1"
+/>
+`;
+
+exports[`NotificationButton should render with default styles 1`] = `
+.circuit-0 {
+  display: block;
+  padding-left: 24px;
+  margin-top: 16px;
+  margin-left: auto;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    margin-top: 0;
+  }
+}
+
+<div
+  class="circuit-0 circuit-1"
+/>
+`;

@@ -4,6 +4,7 @@ exports[`TableHeader Style tests should render with clickable styles 1`] = `
 .circuit-0 {
   vertical-align: middle;
   cursor: pointer;
+  position: relative;
 }
 
 tbody .circuit-0:last-child th,
@@ -11,7 +12,28 @@ tbody .circuit-0:last-child td {
   border-bottom: none;
 }
 
+.circuit-0:focus::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::after::-moz-focus-inner {
+  border: 0;
+}
+
+tbody .circuit-0:focus td,
 tbody .circuit-0:hover td,
+tbody .circuit-0:focus th,
 tbody .circuit-0:hover th {
   color: #3388FF;
   background-color: #FAFBFC;
@@ -19,6 +41,7 @@ tbody .circuit-0:hover th {
 
 <tr
   class="circuit-0 circuit-1"
+  tabindex="0"
 >
   Foo
 </tr>

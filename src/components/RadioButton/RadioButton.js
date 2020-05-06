@@ -13,17 +13,14 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { hideVisually, size } from 'polished';
 
-import { disableVisually } from '../../styles/style-helpers';
-import {
-  childrenPropType,
-  deprecatedPropType
-} from '../../util/shared-prop-types';
+import { disableVisually, focusOutline } from '../../styles/style-helpers';
+import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 
 const labelBaseStyles = ({ theme }) => css`
@@ -31,6 +28,7 @@ const labelBaseStyles = ({ theme }) => css`
   color: ${theme.colors.n700};
   padding-left: ${theme.spacings.giga};
   position: relative;
+  cursor: pointer;
 
   &::before {
     box-sizing: border-box;
@@ -63,21 +61,6 @@ const labelBaseStyles = ({ theme }) => css`
     transition: transform 0.05s ease-in, opacity 0.05s ease-in;
   }
 `;
-
-const labelCheckedStyles = ({ theme, checked }) =>
-  checked &&
-  css`
-    label: radio-button--active;
-
-    &::before {
-      border-color: ${theme.colors.p500};
-    }
-
-    &::after {
-      transform: translateY(-50%) scale(1, 1);
-      opacity: 1;
-    }
-  `;
 
 const labelInvalidStyles = ({ theme, invalid }) =>
   invalid &&
@@ -113,61 +96,67 @@ const labelDisabledStyles = ({ theme, disabled }) =>
 
 const inputStyles = ({ theme }) => css`
   label: radio-button__input;
-  ${hideVisually()};
 
   &:focus + label::before {
-    border-width: 2px;
-    border-color: ${theme.colors.p500};
+    ${focusOutline({ theme })}
+  }
+
+  &:checked + label {
+    &::before {
+      border-color: ${theme.colors.p500};
+    }
+
+    &::after {
+      transform: translateY(-50%) scale(1, 1);
+      opacity: 1;
+    }
   }
 `;
 
-const RadioButtonInput = styled('input')`
-  ${inputStyles};
-`;
+const RadioButtonInput = styled('input')(hideVisually, inputStyles);
 
-const RadioButtonLabel = styled('label')`
-  ${labelBaseStyles};
-  ${labelCheckedStyles};
-  ${labelDisabledStyles};
-  ${labelInvalidStyles};
-`;
+const RadioButtonLabel = styled('label')(
+  labelBaseStyles,
+  labelDisabledStyles,
+  labelInvalidStyles
+);
 
 /**
  * RadioButton component for forms.
  */
-const RadioButton = ({ onToggle, onChange, children, id, ...props }) => {
+const RadioButton = ({
+  onChange,
+  children,
+  id,
+  name,
+  value,
+  checked,
+  ...props
+}) => {
   const inputId = id || uniqueId('radio-button_');
   return (
-    <Fragment>
+    <>
       <RadioButtonInput
         {...props}
         type="radio"
-        onClick={onToggle || onChange}
+        name={name}
         id={inputId}
+        value={value}
+        checked={checked}
+        onClick={onChange}
       />
       <RadioButtonLabel {...props} htmlFor={inputId}>
         {children}
       </RadioButtonLabel>
-    </Fragment>
+    </>
   );
 };
 
 RadioButton.propTypes = {
   /**
-   * @deprecated
-   * Callback used when the user toggles the switch.
-   */
-  onToggle: deprecatedPropType(
-    PropTypes.func,
-    [
-      'The "onToggle" prop is deprecated.',
-      'Use the "onChange" prop instead.'
-    ].join(' ')
-  ),
-  /**
    * Callback used when the user toggles the radio button.
    */
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   /**
    * Value string for input.
    */
@@ -175,15 +164,15 @@ RadioButton.propTypes = {
   /**
    * Child nodes to be rendered as the label.
    */
-  children: childrenPropType,
-  /**
-   * A unique ID used to link the input and label.
-   */
-  id: PropTypes.string,
+  children: childrenPropType.isRequired,
   /**
    * The name of the radio group that the radio button belongs to.
    */
   name: PropTypes.string.isRequired,
+  /**
+   * A unique ID used to link the input and label.
+   */
+  id: PropTypes.string,
   /**
    * Triggers checked styles on the component. This is also forwarded as
    * attribute to the <input> element.

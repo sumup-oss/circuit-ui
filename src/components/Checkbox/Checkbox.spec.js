@@ -17,39 +17,38 @@ import React from 'react';
 
 import Checkbox from '.';
 
-const name = 'name';
-const onChange = jest.fn();
+const defaultProps = {
+  name: 'name',
+  onChange: jest.fn()
+};
 
 describe('Checkbox', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<Checkbox {...{ name, onChange }} />);
+    const actual = create(<Checkbox {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with checked styles when passed the checked prop', () => {
-    const actual = create(<Checkbox checked {...{ name, onChange }} />);
+    const actual = create(<Checkbox checked {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styles when passed the disabled prop', () => {
-    const actual = create(<Checkbox disabled {...{ name, onChange }} />);
+    const actual = create(<Checkbox disabled {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with invalid styles when passed the invalid prop', () => {
-    const actual = create(<Checkbox invalid {...{ name, onChange }} />);
+    const actual = create(<Checkbox invalid {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with a tooltip when passed a validation hint', () => {
     const actual = create(
-      <Checkbox
-        validationHint="This field is required."
-        {...{ name, onChange }}
-      />
+      <Checkbox validationHint="This field is required." {...defaultProps} />
     );
     expect(actual).toMatchSnapshot();
   });
@@ -59,7 +58,7 @@ describe('Checkbox', () => {
    */
   it('should be unchecked by default', () => {
     const { getByLabelText } = render(
-      <Checkbox {...{ name, onChange }}>Label</Checkbox>
+      <Checkbox {...defaultProps}>Label</Checkbox>
     );
     const inputEl = getByLabelText('Label', {
       exact: false
@@ -69,7 +68,7 @@ describe('Checkbox', () => {
 
   it('should call the change handler when clicked', () => {
     const { getByLabelText } = render(
-      <Checkbox {...{ name, onChange }}>Label</Checkbox>
+      <Checkbox {...defaultProps}>Label</Checkbox>
     );
     const inputEl = getByLabelText('Label', {
       exact: false
@@ -79,7 +78,7 @@ describe('Checkbox', () => {
       fireEvent.click(inputEl);
     });
 
-    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
   });
 
   /**
@@ -88,7 +87,7 @@ describe('Checkbox', () => {
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <div>
-        <Checkbox {...{ name, onChange }}>Label</Checkbox>
+        <Checkbox {...defaultProps}>Label</Checkbox>
       </div>
     );
     const actual = await axe(wrapper);

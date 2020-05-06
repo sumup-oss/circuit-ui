@@ -141,10 +141,7 @@ function addSymbol(amount, symbol, { addSpace = true, prepend = false } = {}) {
 }
 
 export function getCurrencyFormat(currency, locale) {
-  const symbol = compose(
-    defaultTo(currency),
-    get(currency)
-  )(CURRENCY_SYMBOLS);
+  const symbol = compose(defaultTo(currency), get(currency))(CURRENCY_SYMBOLS);
 
   const { decimal: decimalSep, thousand: thousandSep } = getNumberFormat(
     locale

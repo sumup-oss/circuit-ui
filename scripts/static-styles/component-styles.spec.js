@@ -13,13 +13,11 @@
  * limitations under the License.
  */
 
-import { theme as themes } from '../../src';
+import { light as theme } from '@sumup/design-tokens';
 
 import componentStyles from './component-styles';
 import config, { getComponentInfo, PropTypes } from './config';
 import * as fixtures from './__fixtures__';
-
-const { circuit: theme } = themes;
 
 describe('Component styles', () => {
   it('should extract the component styles', () => {

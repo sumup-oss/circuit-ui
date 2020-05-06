@@ -14,15 +14,16 @@
  */
 
 module.exports = {
+  preset: 'ts-jest',
   testURL: 'http://localhost',
   coverageDirectory: './__coverage__',
   rootDir: '.',
   roots: ['src', 'scripts'],
-  moduleFileExtensions: ['js', 'jsx', 'json'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   collectCoverageFrom: [
-    'src/@(components|util|styles)/**/*.{js,jsx}',
-    '!src/@(components|util|styles)/**/index.{js,jsx}',
-    '!src/@(components|util|styles)/**/*.story.{js,jsx}',
+    'src/@(components|util|styles)/**/*.{ts,tsx,js,jsx}',
+    '!src/@(components|util|styles)/**/index.{ts,tsx,js,jsx}',
+    '!src/@(components|util|styles)/**/*.story.{ts,tsx,js,jsx}',
     '!src/@(components|util|styles)/**/*.docs.mdx',
     '!**/node_modules/**'
   ],
@@ -33,9 +34,20 @@ module.exports = {
       'react-syntax-highlighter/dist/cjs/$1'
   },
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
-    '^.+\\.svg$': '<rootDir>/jest.fileTransformer.js',
-    '^.+\\.mdx?$': '<rootDir>/jest.mdxTransformer.js'
+    '^.+\\.(js|jsx)$': 'babel-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js'
   },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  globals: {
+    STORYBOOK: false,
+    __DEV__: false,
+    __PRODUCTION__: false,
+    __TEST__: true,
+    'ts-jest': {
+      tsConfig: {
+        jsx: 'react'
+      }
+    }
+  }
 };

@@ -98,16 +98,18 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-2 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #DB4D4D;
 }
 
 .circuit-0 {
@@ -209,12 +211,23 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      error.svg
-    </div>
+      <path
+        d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -240,16 +253,18 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-2 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #DB4D4D;
 }
 
 .circuit-0 {
@@ -334,12 +349,23 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      error.svg
-    </div>
+      <path
+        d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -413,10 +439,11 @@ label + .circuit-6 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-4 {
@@ -547,10 +574,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 <div
@@ -635,10 +663,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 <div
@@ -723,10 +752,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 <div
@@ -876,10 +906,11 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-4 {
@@ -930,10 +961,11 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-0 {
@@ -1009,6 +1041,7 @@ label + .circuit-5 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #DB4D4D;
 }
 
 <div
@@ -1021,12 +1054,23 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      error.svg
-    </div>
+      <path
+        d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -1088,10 +1132,11 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-4 {
@@ -1140,10 +1185,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-0 {
@@ -1281,16 +1327,18 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-2 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #47995A;
 }
 
 <div
@@ -1303,12 +1351,30 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      valid.svg
-    </div>
+      <path
+        d="M9.031 12.532l2 2 4-5"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+      <path
+        d="M12 19a7 7 0 100-14 7 7 0 000 14z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -1403,16 +1469,18 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  height: 40px;
-  width: 40px;
-  padding: 12px;
+  margin: 8px;
   pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-2 {
   display: block;
   height: 100%;
   width: 100%;
+  color: #D8A413;
 }
 
 <div
@@ -1425,12 +1493,23 @@ label + .circuit-5 {
   <div
     class="circuit-3 circuit-4"
   >
-    <div
+    <svg
       class="circuit-2"
+      fill="none"
+      height="24"
       role="img"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      warning.svg
-    </div>
+      <path
+        d="M12 12.5V8m0 8v-.5m0 3.5a7 7 0 100-14 7 7 0 000 14z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
   </div>
 </div>
 `;

@@ -122,7 +122,7 @@ export const withFooter = () => (
                 Cancel
               </Button>
               <Button
-                primary
+                variant="primary"
                 onClick={e => {
                   action('Confirm button clicked')(e);
                   onClose(e);

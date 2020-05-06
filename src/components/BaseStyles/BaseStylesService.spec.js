@@ -13,25 +13,13 @@
  * limitations under the License.
  */
 
-import { circuit } from '../../themes';
+import { light } from '@sumup/design-tokens';
+
 import { createBaseStyles } from './BaseStylesService';
 
 describe('BaseStylesService', () => {
   it('should return the global base styles', () => {
-    const actual = createBaseStyles(circuit);
-    expect(actual.styles).toMatchSnapshot();
-  });
-
-  /**
-   * @deprecated
-   */
-  it('should accept custom global styles', () => {
-    const custom = `
-      p {
-        color: red;
-      }
-    `;
-    const actual = createBaseStyles(circuit, custom);
+    const actual = createBaseStyles(light);
     expect(actual.styles).toMatchSnapshot();
   });
 });

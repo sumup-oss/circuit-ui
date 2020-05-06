@@ -15,8 +15,9 @@
 
 import React from 'react';
 import { isEmpty } from 'lodash/fp';
+import { Lock } from '@sumup/icons';
+
 import { isArray } from '../../../../util/type-check';
-import { ReactComponent as Lock } from './lock.svg';
 
 export const hasSelectedChild = children => {
   if (children) {
@@ -28,7 +29,7 @@ export const hasSelectedChild = children => {
 };
 
 export const getIcon = ({ defaultIcon, selected, selectedIcon, disabled }) => {
-  const disabledIcon = <Lock />;
+  const disabledIcon = <Lock size="large" />;
   const hasIcon = !!defaultIcon;
 
   if (hasIcon && disabled) {

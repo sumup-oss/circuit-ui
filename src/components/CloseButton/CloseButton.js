@@ -14,36 +14,23 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { Cross } from '@sumup/icons';
 
-import { svgKilo } from '../../styles/style-helpers';
 import IconButton from '../IconButton';
-import { ReactComponent as CloseIcon } from './close-icon.svg';
 
-const StyledIconButton = styled(IconButton)(
-  ({ theme }) => css`
-    label: close-button;
-    ${svgKilo({ theme })};
-  `
-);
+const buttonStyles = () => css`
+  border: 0;
+`;
 
 /**
  * A generic close button.
  */
 const CloseButton = props => (
-  <StyledIconButton {...props}>
-    <CloseIcon />
-  </StyledIconButton>
+  <IconButton variant="secondary" css={buttonStyles} {...props}>
+    <Cross />
+  </IconButton>
 );
-
-CloseButton.propTypes = {
-  /**
-   * Text label for screen readers. Important for accessibility.
-   */
-  label: PropTypes.string
-};
 
 CloseButton.defaultProps = {
   label: 'Close'

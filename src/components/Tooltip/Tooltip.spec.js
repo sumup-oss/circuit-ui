@@ -47,7 +47,7 @@ describe('Tooltip', () => {
     });
   });
 
-  it(`should override alignment styles with position styles`, () => {
+  it('should override alignment styles with position styles', () => {
     const component = create(
       <Tooltip align={Tooltip.LEFT} position={Tooltip.LEFT}>
         Tooltip content

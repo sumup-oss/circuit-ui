@@ -19,10 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
-import {
-  childrenPropType,
-  deprecatedPropType
-} from '../../util/shared-prop-types';
+import { childrenPropType } from '../../util/shared-prop-types';
 import { sizes } from '../../styles/constants';
 
 const { KILO, MEGA, GIGA, TERA, PETA, EXA, ZETTA } = sizes;
@@ -74,9 +71,7 @@ const HeadingElement = styled('h2', {
 /**
  * A flexible heading component capable of rendering using any HTML heading tag.
  */
-const Heading = ({ element, as, ...restProps }) => (
-  <HeadingElement {...restProps} as={element || as} />
-);
+const Heading = props => <HeadingElement {...props} />;
 
 Heading.KILO = KILO;
 Heading.MEGA = MEGA;
@@ -114,18 +109,7 @@ Heading.propTypes = {
   /**
    * The HTML heading element to render.
    */
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-  /**
-   * @deprecated
-   * The HTML input element to render.
-   */
-  element: deprecatedPropType(
-    PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-    [
-      'Emotion 10 introduced the ability to change the HTML element.',
-      'Use the "as" prop instead.'
-    ].join(' ')
-  )
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
 };
 
 Heading.defaultProps = {
