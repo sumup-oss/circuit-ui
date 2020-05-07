@@ -731,12 +731,7 @@
       "size": "small"
     },
     {
-      "name": "hamburger_1",
-      "category": "Action",
-      "size": "small"
-    },
-    {
-      "name": "hamburger_2",
+      "name": "hamburger",
       "category": "Action",
       "size": "small"
     },
@@ -831,12 +826,7 @@
       "size": "small"
     },
     {
-      "name": "spinner_above",
-      "category": "Miscellaneous",
-      "size": "small"
-    },
-    {
-      "name": "spinner_below",
+      "name": "spinner",
       "category": "Miscellaneous",
       "size": "small"
     },
