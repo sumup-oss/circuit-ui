@@ -919,6 +919,11 @@
       "name": "circle_warning",
       "category": "Notification",
       "size": "small"
+    },
+    {
+      "name": "sumup_logo",
+      "category": "Brand",
+      "size": "large"
     }
   ]
 }
