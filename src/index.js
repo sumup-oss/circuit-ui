@@ -13,19 +13,11 @@
  * limitations under the License.
  */
 
-import { normalizeAmount, isValidAmount } from './components/CurrencyInput';
-
 export {
   id as uniqueId,
   numbers as numbersUtils,
-  currency as currencyUtils,
   sharedPropTypes
 } from './util';
-
-const currencyAmountUtils = {
-  normalizeAmount,
-  isValidAmount
-};
 
 // Typography
 export { default as Heading } from './components/Heading';
@@ -52,12 +44,8 @@ export { default as RadioButtonGroup } from './components/RadioButtonGroup';
 export { default as SearchInput } from './components/SearchInput';
 export { default as Select } from './components/Select';
 export { default as TextArea } from './components/TextArea';
-export {
-  default as CurrencyInput,
-  SimpleCurrencyInput
-} from './components/CurrencyInput';
+export { default as CurrencyInput } from './components/CurrencyInput';
 export { default as InlineMessage } from './components/InlineMessage';
-export { currencyAmountUtils };
 
 // Actions
 export { default as Button } from './components/Button';

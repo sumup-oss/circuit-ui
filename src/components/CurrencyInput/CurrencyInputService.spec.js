@@ -14,87 +14,14 @@
  */
 
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-import { keys } from 'lodash/fp';
 
-import {
-  normalizeAmount,
-  createCurrencyMask,
-  isValidAmount
-} from './CurrencyInputService';
-
-import { NUMBER_SEPARATORS } from '../../util/numbers';
+import { createCurrencyMask } from './CurrencyInputService';
 
 jest.mock('text-mask-addons/dist/createNumberMask', () => jest.fn());
 
 describe('CurrencyInputService', () => {
-  const locales = keys(NUMBER_SEPARATORS);
-
   beforeEach(() => {
     jest.resetAllMocks();
-  });
-
-  describe('normalizing values', () => {
-    it('should normalize integers to a decimal number', () => {
-      locales.forEach(locale => {
-        const { thousand } = NUMBER_SEPARATORS[locale];
-        const value = `1${thousand}000`;
-        const expected = 1000.0;
-        const actual = normalizeAmount(value);
-        expect(actual).toBe(expected);
-      });
-    });
-
-    it('should normalize decimals with only one decimal digit to a decimal number', () => {
-      locales.forEach(locale => {
-        const { thousand, decimal } = NUMBER_SEPARATORS[locale];
-        const value = `1${thousand}000${decimal}5`;
-        const expected = 1000.5;
-        const actual = normalizeAmount(value);
-        expect(actual).toBe(expected);
-      });
-    });
-
-    it('should normalize decimal values to a decimal number', () => {
-      locales.forEach(locale => {
-        const { thousand, decimal } = NUMBER_SEPARATORS[locale];
-        const value = `1${thousand}000${decimal}50`;
-        const expected = 1000.5;
-        const actual = normalizeAmount(value);
-        expect(actual).toBe(expected);
-      });
-    });
-
-    it('should correctly normalize values ending in "00"', () => {
-      locales.forEach(locale => {
-        const { thousand, decimal } = NUMBER_SEPARATORS[locale];
-        const value = `1${thousand}000${decimal}00`;
-        const expected = 1000.0;
-        const actual = normalizeAmount(value);
-        expect(actual).toBe(expected);
-      });
-    });
-  });
-
-  describe('validating currency values', () => {
-    // These tests are not testing all the possible combinations,
-    // because that is already done in modules currency.js and regex.js.
-    it('should validate a valid amount', () => {
-      const formattedValue = '123.232,00';
-      const actual = isValidAmount('EUR', 'de-DE', formattedValue);
-      expect(actual).toBeTruthy();
-    });
-
-    it('should detect values with invalid thousand separators', () => {
-      const formattedValue = '123,232,00';
-      const actual = isValidAmount('EUR', 'de-DE', formattedValue);
-      expect(actual).toBeFalsy();
-    });
-
-    it('should detect values with invalid decimal separators', () => {
-      const formattedValue = '123,232.00';
-      const actual = isValidAmount('EUR', 'de-DE', formattedValue);
-      expect(actual).toBeFalsy();
-    });
   });
 
   describe('creating currency masks', () => {
