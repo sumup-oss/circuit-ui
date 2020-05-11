@@ -16,7 +16,6 @@
 import React from 'react';
 
 import Select from '.';
-import Label from '../Label';
 
 describe('Select', () => {
   const options = [
@@ -88,10 +87,7 @@ describe('Select', () => {
   // FIXME: Had to disable this since it produces a false positive. Not sure why.
   it.skip('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <Label htmlFor="select">
-        Label
-        <Select {...{ options }} id="select" />
-      </Label>
+      <Select {...{ options }} id="select" label="Label" />
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

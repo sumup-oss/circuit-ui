@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select should not render with invalid styles when also passed the disabled prop 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -68,55 +74,67 @@ label + .circuit-4 {
   margin-top: 4px;
 }
 
-<div
-  class="circuit-4 circuit-5"
-  disabled=""
+<label
+  class="circuit-6 circuit-7"
+  for="select_4"
 >
-  <select
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-4 circuit-5"
     disabled=""
   >
-    <option
-      value=""
+    <select
+      class="circuit-0 circuit-1"
+      disabled=""
+      id="select_4"
     >
-      Select an option
-    </option>
-    <option
-      value="1"
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-2 circuit-3"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      Option 1
-    </option>
-    <option
-      value="2"
-    >
-      Option 2
-    </option>
-    <option
-      value="3"
-    >
-      Option 3
-    </option>
-  </select>
-  <svg
-    class="circuit-2 circuit-3"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-</div>
+      <path
+        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</label>
 `;
 
 exports[`Select should render with a prefix when passed the prefix prop 1`] = `
+.circuit-7 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-5 {
   color: #212933;
   display: block;
@@ -194,57 +212,69 @@ label + .circuit-5 {
   text-shadow: 0 0 0 #000;
 }
 
-<div
-  class="circuit-5 circuit-6"
+<label
+  class="circuit-7 circuit-8"
+  for="select_8"
 >
   <div
-    class="circuit-0"
-    style="width: 24px; height: 24px;"
-  />
-  <select
-    class="circuit-1 circuit-2"
+    class="circuit-5 circuit-6"
   >
-    <option
-      value=""
-    >
-      Select an option
-    </option>
-    <option
-      value="1"
-    >
-      Option 1
-    </option>
-    <option
-      value="2"
-    >
-      Option 2
-    </option>
-    <option
-      value="3"
-    >
-      Option 3
-    </option>
-  </select>
-  <svg
-    class="circuit-3 circuit-4"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+    <div
+      class="circuit-0"
+      style="width: 24px; height: 24px;"
     />
-  </svg>
-</div>
+    <select
+      class="circuit-1 circuit-2"
+      id="select_8"
+    >
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-3 circuit-4"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</label>
 `;
 
 exports[`Select should render with a tooltip when passed a validation hint 1`] = `
+.circuit-8 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-6 {
   color: #212933;
   display: block;
@@ -350,58 +380,70 @@ label + .circuit-6 {
   border-top-color: #212933;
 }
 
-<div
-  class="circuit-6 circuit-7"
+<label
+  class="circuit-8 circuit-9"
+  for="select_7"
 >
-  <select
-    class="circuit-0 circuit-1"
-  >
-    <option
-      value=""
-    >
-      Select an option
-    </option>
-    <option
-      value="1"
-    >
-      Option 1
-    </option>
-    <option
-      value="2"
-    >
-      Option 2
-    </option>
-    <option
-      value="3"
-    >
-      Option 3
-    </option>
-  </select>
-  <svg
-    class="circuit-2 circuit-3"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-6 circuit-7"
   >
-    This field is required.
+    <select
+      class="circuit-0 circuit-1"
+      id="select_7"
+    >
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-2 circuit-3"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <div
+      class="circuit-4 circuit-5"
+    >
+      This field is required.
+    </div>
   </div>
-</div>
+</label>
 `;
 
 exports[`Select should render with default styles 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-4 {
   color: #212933;
   display: block;
@@ -466,53 +508,65 @@ label + .circuit-4 {
   margin: 8px;
 }
 
-<div
-  class="circuit-4 circuit-5"
+<label
+  class="circuit-6 circuit-7"
+  for="select_1"
 >
-  <select
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-4 circuit-5"
   >
-    <option
-      value=""
+    <select
+      class="circuit-0 circuit-1"
+      id="select_1"
     >
-      Select an option
-    </option>
-    <option
-      value="1"
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-2 circuit-3"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      Option 1
-    </option>
-    <option
-      value="2"
-    >
-      Option 2
-    </option>
-    <option
-      value="3"
-    >
-      Option 3
-    </option>
-  </select>
-  <svg
-    class="circuit-2 circuit-3"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-</div>
+      <path
+        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</label>
 `;
 
 exports[`Select should render with disabled styles when passed the disabled prop 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -580,55 +634,67 @@ label + .circuit-4 {
   margin-top: 4px;
 }
 
-<div
-  class="circuit-4 circuit-5"
-  disabled=""
+<label
+  class="circuit-6 circuit-7"
+  for="select_2"
 >
-  <select
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-4 circuit-5"
     disabled=""
   >
-    <option
-      value=""
+    <select
+      class="circuit-0 circuit-1"
+      disabled=""
+      id="select_2"
     >
-      Select an option
-    </option>
-    <option
-      value="1"
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-2 circuit-3"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      Option 1
-    </option>
-    <option
-      value="2"
-    >
-      Option 2
-    </option>
-    <option
-      value="3"
-    >
-      Option 3
-    </option>
-  </select>
-  <svg
-    class="circuit-2 circuit-3"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-</div>
+      <path
+        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</label>
 `;
 
 exports[`Select should render with inline styles when passed the inline prop 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -695,53 +761,65 @@ label + .circuit-4 {
   margin-top: 4px;
 }
 
-<div
-  class="circuit-4 circuit-5"
+<label
+  class="circuit-6 circuit-7"
+  for="select_5"
 >
-  <select
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-4 circuit-5"
   >
-    <option
-      value=""
+    <select
+      class="circuit-0 circuit-1"
+      id="select_5"
     >
-      Select an option
-    </option>
-    <option
-      value="1"
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-2 circuit-3"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      Option 1
-    </option>
-    <option
-      value="2"
-    >
-      Option 2
-    </option>
-    <option
-      value="3"
-    >
-      Option 3
-    </option>
-  </select>
-  <svg
-    class="circuit-2 circuit-3"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-</div>
+      <path
+        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</label>
 `;
 
 exports[`Select should render with invalid styles when passed the invalid prop 1`] = `
+.circuit-8 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-6 {
   color: #212933;
   display: block;
@@ -823,69 +901,81 @@ label + .circuit-6 {
   color: #DB4D4D;
 }
 
-<div
-  class="circuit-6 circuit-7"
+<label
+  class="circuit-8 circuit-9"
+  for="select_3"
 >
-  <select
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-6 circuit-7"
   >
-    <option
-      value=""
+    <select
+      class="circuit-0 circuit-1"
+      id="select_3"
     >
-      Select an option
-    </option>
-    <option
-      value="1"
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-2 circuit-3"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      Option 1
-    </option>
-    <option
-      value="2"
+      <path
+        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-4 circuit-5"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      Option 2
-    </option>
-    <option
-      value="3"
-    >
-      Option 3
-    </option>
-  </select>
-  <svg
-    class="circuit-2 circuit-3"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-  <svg
-    class="circuit-4 circuit-5"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-</div>
+      <path
+        d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</label>
 `;
 
 exports[`Select should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -951,48 +1041,54 @@ label + .circuit-4 {
   margin-top: 4px;
 }
 
-<div
-  class="circuit-4 circuit-5"
+<label
+  class="circuit-6 circuit-7"
+  for="select_6"
 >
-  <select
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-4 circuit-5"
   >
-    <option
-      value=""
+    <select
+      class="circuit-0 circuit-1"
+      id="select_6"
     >
-      Select an option
-    </option>
-    <option
-      value="1"
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-2 circuit-3"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      Option 1
-    </option>
-    <option
-      value="2"
-    >
-      Option 2
-    </option>
-    <option
-      value="3"
-    >
-      Option 3
-    </option>
-  </select>
-  <svg
-    class="circuit-2 circuit-3"
-    fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-</div>
+      <path
+        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</label>
 `;

@@ -22,7 +22,6 @@ import { uniqueId } from '../../util/id';
 
 import docs from './AutoCompleteInput.docs.mdx';
 import AutoCompleteInput from './AutoCompleteInput';
-import Label from '../Label';
 import Text from '../Text';
 
 export default {
@@ -58,14 +57,12 @@ const icons = {
 const AutoCompleteInputWithLabel = props => {
   const id = uniqueId();
   return (
-    <Label htmlFor={id}>
-      {"What's your favourite fruit?"}
-      <AutoCompleteInput
-        clearOnSelect={boolean('clearOnSelect', false)}
-        {...props}
-        id={id}
-      />
-    </Label>
+    <AutoCompleteInput
+      clearOnSelect={boolean('clearOnSelect', false)}
+      {...props}
+      id={id}
+      label="What's your favourite fruit?"
+    />
   );
 };
 

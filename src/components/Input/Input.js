@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { find, identity } from 'lodash/fp';
-import { size } from 'polished';
+import { size, hideVisually } from 'polished';
 import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
 
 import { textMega, disableVisually } from '../../styles/style-helpers';
@@ -26,6 +26,8 @@ import { directions } from '../../styles/constants';
 import { childrenPropType } from '../../util/shared-prop-types';
 
 import Tooltip from '../Tooltip';
+import Label from '../Label';
+import { uniqueId } from '../../util/id';
 
 const containerBaseStyles = ({ theme }) => css`
   label: input__container;
@@ -185,6 +187,11 @@ const tooltipBaseStyles = css`
   right: 1px;
 `;
 
+const labelTextStyles = ({ visuallyHidden }) =>
+  visuallyHidden && hideVisually();
+
+const LabelText = styled('span')(labelTextStyles);
+
 const InputContainer = styled('div')`
   ${containerBaseStyles};
   ${containerNoMarginStyles};
@@ -285,8 +292,13 @@ const StyledInput = ({
   deepRef,
   element,
   as,
+  label,
+  labelVisuallyHidden,
+  id: customId,
   ...props
 }) => {
+  const id = customId || uniqueId('input_');
+
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
   const suffix = RenderSuffix ? (
     <RenderSuffix css={suffixStyles} />
@@ -298,39 +310,46 @@ const StyledInput = ({
   );
 
   return (
-    <InputContainer
-      {...{
-        noMargin,
-        inline,
-        disabled,
-        className: wrapperClassName,
-        css: wrapperStyles
-      }}
-    >
-      {prefix}
-      <InputElement
+    <Label htmlFor={id}>
+      {label ? (
+        <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
+      ) : null}
+      <InputContainer
         {...{
-          ...props,
-          invalid,
+          noMargin,
+          inline,
           disabled,
-          hasWarning,
-          ref: deepRef,
-          as: element || as,
-          hasPrefix: !!prefix,
-          hasSuffix: !!suffix,
-          className: inputClassName,
-          css: inputStyles
+          className: wrapperClassName,
+          css: wrapperStyles
         }}
-        aria-invalid={invalid}
-      />
-      {suffix}
-      {!disabled && validationHint && (
-        <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
-          {validationHint}
-        </InputTooltip>
-      )}
-      {children}
-    </InputContainer>
+      >
+        {prefix}
+
+        <InputElement
+          {...{
+            ...props,
+            invalid,
+            disabled,
+            hasWarning,
+            ref: deepRef,
+            as: element || as,
+            hasPrefix: !!prefix,
+            hasSuffix: !!suffix,
+            className: inputClassName,
+            css: inputStyles,
+            id
+          }}
+          aria-invalid={invalid}
+        />
+        {suffix}
+        {!disabled && validationHint && (
+          <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+            {validationHint}
+          </InputTooltip>
+        )}
+        {children}
+      </InputContainer>
+    </Label>
   );
 };
 
@@ -408,7 +427,20 @@ Input.propTypes = {
    * DOM node to be forwarded to the actual input being rendered by
    * styled.
    */
-  deepRef: PropTypes.func
+  deepRef: PropTypes.func,
+  /**
+   * A clear and concise description of the input purpose.
+   */
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /**
+   * Visually hide the label. This should only be used in rare cases and only if the
+   * purpose of the field can be inferred from other context.
+   */
+  labelVisuallyHidden: PropTypes.bool,
+  /**
+   * A unique identifier for the input field. If not defined, a randomly generated id is used.
+   */
+  id: PropTypes.string
 };
 
 StyledInput.propTypes = Input.propTypes;

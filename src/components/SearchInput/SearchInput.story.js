@@ -20,7 +20,6 @@ import { uniqueId } from '../../util/id';
 
 import SearchInput from './SearchInput';
 import docs from './SearchInput.docs.mdx';
-import Label from '../Label';
 
 export default {
   title: 'Forms/Input/SearchInput',
@@ -35,10 +34,7 @@ export default {
 const SearchInputWithLabel = props => {
   const id = uniqueId();
   return (
-    <Label htmlFor={id}>
-      Search
-      <SearchInput placeholder="Search..." {...props} id={id} />
-    </Label>
+    <SearchInput placeholder="Search..." {...props} id={id} label="Search" />
   );
 };
 
@@ -55,8 +51,7 @@ const SearchInputWithClear = props => {
   };
 
   return (
-    <Label htmlFor={id}>
-      Label
+    <div>
       <SearchInput
         {...props}
         id={id}
@@ -64,8 +59,9 @@ const SearchInputWithClear = props => {
         onClear={handleClear}
         onChange={handleChange}
         placeholder="Search..."
+        label="Label"
       />
-    </Label>
+    </div>
   );
 };
 

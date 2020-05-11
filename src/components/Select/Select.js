@@ -17,7 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { size } from 'polished';
+import { size, hideVisually } from 'polished';
 import { SelectExpand, CircleCross } from '@sumup/icons';
 
 import {
@@ -27,6 +27,8 @@ import {
 import { textMega, disableVisually } from '../../styles/style-helpers';
 
 import Tooltip from '../Tooltip';
+import Label from '../Label';
+import { uniqueId } from '../../util/id';
 
 // HACK: Firefox includes the border-width in the overall height of the element
 //       (despite box-sizing: border-box), so we have to force the height.
@@ -165,6 +167,11 @@ const tooltipBaseStyles = css`
   right: 1px;
 `;
 
+const labelTextStyles = ({ visuallyHidden }) =>
+  visuallyHidden && hideVisually();
+
+const LabelText = styled('span')(labelTextStyles);
+
 const SelectContainer = styled('div')`
   ${containerBaseStyles};
   ${containerNoMarginStyles};
@@ -206,46 +213,57 @@ const Select = ({
   children,
   renderPrefix: RenderPrefix,
   validationHint,
+  label,
+  labelVisuallyHidden,
+  id: customId,
   ...props
 }) => {
+  const id = customId || uniqueId('select_');
+
   const prefix = RenderPrefix && (
     <RenderPrefix css={prefixStyles} value={value} />
   );
   const showInvalid = !disabled && invalid;
 
   return (
-    <SelectContainer {...{ noMargin, inline, disabled }}>
-      {prefix}
-      <SelectElement
-        {...{
-          ...props,
-          invalid,
-          value,
-          disabled,
-          hasPrefix: !!prefix
-        }}
-      >
-        {!value && (
-          <option key="placeholder" value="">
-            {placeholder}
-          </option>
+    <Label htmlFor={id}>
+      {label ? (
+        <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
+      ) : null}
+      <SelectContainer {...{ noMargin, inline, disabled }}>
+        {prefix}
+        <SelectElement
+          {...{
+            ...props,
+            invalid,
+            value,
+            disabled,
+            hasPrefix: !!prefix,
+            id
+          }}
+        >
+          {!value && (
+            <option key="placeholder" value="">
+              {placeholder}
+            </option>
+          )}
+          {children ||
+            (options &&
+              options.map(({ label: labelValue, ...rest }) => (
+                <option key={rest.value} {...rest}>
+                  {labelValue}
+                </option>
+              )))}
+        </SelectElement>
+        <SelectIcon invalid={showInvalid} />
+        {showInvalid && <InvalidIcon />}
+        {!disabled && validationHint && (
+          <SelectTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+            {validationHint}
+          </SelectTooltip>
         )}
-        {children ||
-          (options &&
-            options.map(({ label, ...rest }) => (
-              <option key={rest.value} {...rest}>
-                {label}
-              </option>
-            )))}
-      </SelectElement>
-      <SelectIcon invalid={showInvalid} />
-      {showInvalid && <InvalidIcon />}
-      {!disabled && validationHint && (
-        <SelectTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
-          {validationHint}
-        </SelectTooltip>
-      )}
-    </SelectContainer>
+      </SelectContainer>
+    </Label>
   );
 };
 
@@ -312,7 +330,20 @@ Select.propTypes = {
   /**
    * Warning or error message, displayed in a tooltip.
    */
-  validationHint: PropTypes.string
+  validationHint: PropTypes.string,
+  /**
+   * A clear and concise description of the input purpose.
+   */
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /**
+   * Visually hide the label. This should only be used in rare cases and only if the
+   * purpose of the field can be inferred from other context.
+   */
+  labelVisuallyHidden: PropTypes.bool,
+  /**
+   * A unique identifier for the input field. If not defined, a randomly generated id is used.
+   */
+  id: PropTypes.string.isRequired
 };
 
 Select.defaultProps = {

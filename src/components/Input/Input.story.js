@@ -19,7 +19,6 @@ import { uniqueId } from '../../util/id';
 
 import docs from './Input.docs.mdx';
 import Input from './Input';
-import Label from '../Label';
 
 export default {
   title: 'Forms/Input',
@@ -33,12 +32,7 @@ export default {
 // Inputs always need labels for accessibility.
 const InputWithLabel = props => {
   const id = uniqueId();
-  return (
-    <Label htmlFor={id}>
-      Label
-      <Input placeholder="Placeholder" {...props} id={id} />
-    </Label>
-  );
+  return <Input placeholder="Placeholder" {...props} id={id} label="Label" />;
 };
 
 export const base = () => <InputWithLabel />;
@@ -75,4 +69,13 @@ export const inline = () => (
     <Input placeholder="First" inline />
     <Input placeholder="Second" inline />
   </div>
+);
+
+export const withVisuallyHiddenLabel = props => (
+  <Input
+    placeholder="Placeholder"
+    {...props}
+    label="Label"
+    labelVisuallyHidden
+  />
 );

@@ -16,7 +16,6 @@
 import React from 'react';
 
 import TextArea from '.';
-import Label from '../Label';
 
 const DummyElement = () => <div style={{ width: '24px', height: '24px' }} />;
 
@@ -106,12 +105,7 @@ describe('TextArea', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <Label htmlFor="textarea">
-        <TextArea id="textarea" />
-        Text area
-      </Label>
-    );
+    const wrapper = renderToHtml(<TextArea id="textarea" label="Text area" />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

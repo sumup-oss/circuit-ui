@@ -17,7 +17,6 @@ import React from 'react';
 import { css } from '@emotion/core';
 
 import Input from '.';
-import Label from '../Label';
 
 const DummyElement = () => <div style={{ width: '24px', height: '24px' }} />;
 
@@ -126,12 +125,7 @@ describe('Input', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(
-      <Label htmlFor="input">
-        Label
-        <Input id="input" />
-      </Label>
-    );
+    const wrapper = renderToHtml(<Input id="input" label="Label" />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
