@@ -16,7 +16,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { keys } from '../../util/fp';
+import { keys } from 'lodash/fp';
 import { themePropType, localePropType } from '../../util/shared-prop-types';
 import { shouldPrependSymbol, CURRENCY_SYMBOLS } from '../../util/currency';
 

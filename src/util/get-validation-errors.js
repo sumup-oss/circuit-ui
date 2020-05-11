@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { identity, keys, pickBy } from './fp';
+import { identity, keys, pickBy } from 'lodash/fp';
 
 const getValidationErrors = errors => {
   const activeErrors = pickBy(identity, errors);

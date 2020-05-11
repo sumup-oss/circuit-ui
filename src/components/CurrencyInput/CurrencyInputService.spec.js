@@ -14,6 +14,7 @@
  */
 
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+import { keys } from 'lodash/fp';
 
 import {
   normalizeAmount,
@@ -21,7 +22,6 @@ import {
   isValidAmount
 } from './CurrencyInputService';
 
-import { keys } from '../../util/fp';
 import { NUMBER_SEPARATORS } from '../../util/numbers';
 
 jest.mock('text-mask-addons/dist/createNumberMask', () => jest.fn());

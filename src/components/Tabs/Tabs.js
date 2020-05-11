@@ -15,8 +15,8 @@
 
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { range } from 'lodash/fp';
 
-import { range } from '../../util/fp';
 import { isArrowLeft, isArrowRight, isArrowDown } from '../../util/key-codes';
 
 import TabList from './components/TabList';
