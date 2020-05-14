@@ -9099,7 +9099,7 @@ exports[`Storyshots Components/ProgressBar Base 1`] = `
   class="circuit-4 circuit-5"
 >
   <span
-    aria-labelledby="progress-bar_27"
+    aria-labelledby="progress-bar_24"
     aria-valuemax="10"
     aria-valuemin="0"
     aria-valuenow="3"
@@ -9110,7 +9110,7 @@ exports[`Storyshots Components/ProgressBar Base 1`] = `
   />
   <span
     class="circuit-2 circuit-3"
-    id="progress-bar_27"
+    id="progress-bar_24"
   />
 </div>
 `;
@@ -9167,7 +9167,7 @@ HTMLCollection [
     class="circuit-4 circuit-5"
   >
     <span
-      aria-labelledby="progress-bar_30"
+      aria-labelledby="progress-bar_27"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="7"
@@ -9178,7 +9178,7 @@ HTMLCollection [
     />
     <span
       class="circuit-2 circuit-3"
-      id="progress-bar_30"
+      id="progress-bar_27"
     >
       70%
     </span>
@@ -9233,7 +9233,7 @@ HTMLCollection [
     class="circuit-4 circuit-5"
   >
     <span
-      aria-labelledby="progress-bar_31"
+      aria-labelledby="progress-bar_28"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="7"
@@ -9244,7 +9244,7 @@ HTMLCollection [
     />
     <span
       class="circuit-2 circuit-3"
-      id="progress-bar_31"
+      id="progress-bar_28"
     >
       70%
     </span>
@@ -9299,7 +9299,7 @@ HTMLCollection [
     class="circuit-4 circuit-5"
   >
     <span
-      aria-labelledby="progress-bar_32"
+      aria-labelledby="progress-bar_29"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="7"
@@ -9310,7 +9310,7 @@ HTMLCollection [
     />
     <span
       class="circuit-2 circuit-3"
-      id="progress-bar_32"
+      id="progress-bar_29"
     >
       70%
     </span>
@@ -9369,7 +9369,7 @@ exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
   class="circuit-4 circuit-5"
 >
   <span
-    aria-labelledby="progress-bar_28"
+    aria-labelledby="progress-bar_25"
     aria-valuemax="10"
     aria-valuemin="0"
     aria-valuenow="7"
@@ -9380,7 +9380,7 @@ exports[`Storyshots Components/ProgressBar With Fraction 1`] = `
   />
   <span
     class="circuit-2 circuit-3"
-    id="progress-bar_28"
+    id="progress-bar_25"
   >
     7/10
   </span>
@@ -9438,7 +9438,7 @@ exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
   class="circuit-4 circuit-5"
 >
   <span
-    aria-labelledby="progress-bar_29"
+    aria-labelledby="progress-bar_26"
     aria-valuemax="10"
     aria-valuemin="0"
     aria-valuenow="7"
@@ -9449,7 +9449,7 @@ exports[`Storyshots Components/ProgressBar With Percentage 1`] = `
   />
   <span
     class="circuit-2 circuit-3"
-    id="progress-bar_29"
+    id="progress-bar_26"
   >
     70%
   </span>
@@ -10159,6 +10159,20 @@ label + .circuit-14 {
   margin-top: 4px;
 }
 
+.circuit-12 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  margin: 8px;
+  pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -10218,20 +10232,6 @@ label + .circuit-14 {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
-}
-
-.circuit-12 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  margin: 8px;
-  pointer-events: none;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
 }
 
 .circuit-4 {
@@ -10299,7 +10299,7 @@ label + .circuit-14 {
     class="circuit-6 circuit-7"
   >
     <span
-      aria-labelledby="progress-bar_55"
+      aria-labelledby="progress-bar_52"
       aria-valuemax="3"
       aria-valuemin="0"
       aria-valuenow="1"
@@ -10310,7 +10310,7 @@ label + .circuit-14 {
     />
     <span
       class="circuit-4 circuit-5"
-      id="progress-bar_55"
+      id="progress-bar_52"
     />
   </div>
   <section>
@@ -14899,6 +14899,20 @@ label + .circuit-6 {
   margin-top: 4px;
 }
 
+.circuit-4 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  margin: 8px;
+  pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
 .circuit-2 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -14946,23 +14960,9 @@ label + .circuit-6 {
   transition: color 200ms ease-in-out;
 }
 
-.circuit-4 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  margin: 8px;
-  pointer-events: none;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
-}
-
 <label
   class="circuit-8 circuit-9"
-  for="15"
+  for="12"
 >
   <span
     class="circuit-0 circuit-1"
@@ -14975,7 +14975,7 @@ label + .circuit-6 {
     <input
       aria-invalid="false"
       class="circuit-2 circuit-3"
-      id="15"
+      id="12"
       placeholder="Placeholder"
     />
     <div
@@ -15056,7 +15056,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="23"
+  for="20"
 >
   <span
     class="circuit-0 circuit-1"
@@ -15071,7 +15071,7 @@ label + .circuit-4 {
       aria-invalid="false"
       class="circuit-2 circuit-3"
       disabled=""
-      id="23"
+      id="20"
       placeholder="Placeholder"
       value="Some value"
     />
@@ -15084,6 +15084,20 @@ exports[`Storyshots Forms/Input Inline 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  margin: 8px;
+  pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
 }
 
 .circuit-0 {
@@ -15133,20 +15147,6 @@ exports[`Storyshots Forms/Input Inline 1`] = `
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  margin: 8px;
-  pointer-events: none;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
-}
-
 .circuit-4 {
   color: #212933;
   display: block;
@@ -15164,7 +15164,7 @@ label + .circuit-4 {
 <div>
   <label
     class="circuit-6 circuit-7"
-    for="input_25"
+    for="input_22"
   >
     <div
       class="circuit-4 circuit-5"
@@ -15172,7 +15172,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="input_25"
+        id="input_22"
         placeholder="First"
       />
       <div
@@ -15182,7 +15182,7 @@ label + .circuit-4 {
   </label>
   <label
     class="circuit-6 circuit-7"
-    for="input_26"
+    for="input_23"
   >
     <div
       class="circuit-4 circuit-5"
@@ -15190,7 +15190,7 @@ label + .circuit-4 {
       <input
         aria-invalid="false"
         class="circuit-0 circuit-1"
-        id="input_26"
+        id="input_23"
         placeholder="Second"
       />
       <div
@@ -15353,7 +15353,7 @@ label + .circuit-9 {
 
 <label
     class="circuit-11 circuit-12"
-    for="18"
+    for="15"
   >
     <span
       class="circuit-0 circuit-1"
@@ -15366,7 +15366,7 @@ label + .circuit-9 {
       <input
         aria-invalid="true"
         class="circuit-2 circuit-3"
-        id="18"
+        id="15"
         placeholder="Placeholder"
       />
       <div
@@ -15506,7 +15506,7 @@ label + .circuit-7 {
 
 <label
     class="circuit-9 circuit-10"
-    for="19"
+    for="16"
   >
     <span
       class="circuit-0 circuit-1"
@@ -15519,7 +15519,7 @@ label + .circuit-7 {
       <input
         aria-invalid="true"
         class="circuit-2 circuit-3"
-        id="19"
+        id="16"
         placeholder="Placeholder"
       />
       <div
@@ -15633,7 +15633,7 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
-  for="22"
+  for="19"
 >
   <span
     class="circuit-0 circuit-1"
@@ -15646,7 +15646,7 @@ label + .circuit-6 {
     <input
       aria-invalid="false"
       class="circuit-2 circuit-3"
-      id="22"
+      id="19"
       placeholder="Placeholder"
     />
     <div
@@ -15739,7 +15739,7 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
-  for="24"
+  for="21"
 >
   <span
     class="circuit-0 circuit-1"
@@ -15752,7 +15752,7 @@ label + .circuit-6 {
     <input
       aria-invalid="false"
       class="circuit-2 circuit-3"
-      id="24"
+      id="21"
       placeholder="Placeholder"
     />
     <div
@@ -15894,7 +15894,7 @@ label + .circuit-9 {
 
 <label
     class="circuit-11 circuit-12"
-    for="16"
+    for="13"
   >
     <span
       class="circuit-0 circuit-1"
@@ -15907,7 +15907,7 @@ label + .circuit-9 {
       <input
         aria-invalid="false"
         class="circuit-2 circuit-3"
-        id="16"
+        id="13"
         placeholder="Placeholder"
       />
       <div
@@ -16034,7 +16034,7 @@ label + .circuit-7 {
 
 <label
     class="circuit-9 circuit-10"
-    for="17"
+    for="14"
   >
     <span
       class="circuit-0 circuit-1"
@@ -16047,7 +16047,7 @@ label + .circuit-7 {
       <input
         aria-invalid="false"
         class="circuit-2 circuit-3"
-        id="17"
+        id="14"
         placeholder="Placeholder"
       />
       <div
@@ -16235,7 +16235,7 @@ label + .circuit-9 {
 
 <label
     class="circuit-11 circuit-12"
-    for="20"
+    for="17"
   >
     <span
       class="circuit-0 circuit-1"
@@ -16248,7 +16248,7 @@ label + .circuit-9 {
       <input
         aria-invalid="false"
         class="circuit-2 circuit-3"
-        id="20"
+        id="17"
         placeholder="Placeholder"
       />
       <div
@@ -16388,7 +16388,7 @@ label + .circuit-7 {
 
 <label
     class="circuit-9 circuit-10"
-    for="21"
+    for="18"
   >
     <span
       class="circuit-0 circuit-1"
@@ -16401,7 +16401,7 @@ label + .circuit-7 {
       <input
         aria-invalid="false"
         class="circuit-2 circuit-3"
-        id="21"
+        id="18"
         placeholder="Placeholder"
       />
       <div
@@ -16462,6 +16462,20 @@ label + .circuit-6 {
   margin-top: 4px;
 }
 
+.circuit-4 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  margin: 8px;
+  pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
 .circuit-2 {
   background-color: #FFFFFF;
   border-width: 1px;
@@ -16507,20 +16521,6 @@ label + .circuit-6 {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
-}
-
-.circuit-4 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  margin: 8px;
-  pointer-events: none;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
 }
 
 <label
@@ -16583,11 +16583,9 @@ label + .circuit-6 {
   font-size: 16px;
   line-height: 24px;
   margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
-  padding-right: 48px;
-  padding-right: calc(16px + 1ch);
+  padding-right: calc(16px + 18px);
 }
 
 .circuit-2:focus,
@@ -16621,7 +16619,6 @@ label + .circuit-6 {
 }
 
 .circuit-4 {
-  color: #1760CE;
   line-height: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -16635,7 +16632,7 @@ label + .circuit-6 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  min-width: 1ch;
+  width: 18px !important;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -16648,12 +16645,12 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
-  for="7"
+  for="input_7"
 >
   <span
     class="circuit-0 circuit-1"
   >
-    Amount
+    Amount (de-DE, EUR)
   </span>
   <div
     class="circuit-6 circuit-7"
@@ -16661,7 +16658,7 @@ label + .circuit-6 {
     <input
       aria-invalid="false"
       class="circuit-2 circuit-3"
-      id="7"
+      id="input_7"
       placeholder="123,45"
       type="text"
       value=""
@@ -16677,26 +16674,25 @@ label + .circuit-6 {
 
 exports[`Storyshots Forms/Input/CurrencyInput Currencies 1`] = `
 HTMLCollection [
-  .circuit-8 {
+  .circuit-10 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-6 {
+.circuit-8 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
-label + .circuit-6 {
+label > .circuit-8,
+label + .circuit-8 {
   margin-top: 4px;
 }
 
 .circuit-2 {
-  color: #1760CE;
   line-height: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -16710,7 +16706,7 @@ label + .circuit-6 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  min-width: 1ch;
+  width: 18px !important;
   position: absolute;
   top: 1px;
   left: 1px;
@@ -16738,8 +16734,158 @@ label + .circuit-6 {
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
-  padding-left: 48px;
-  padding-left: calc(16px + 1ch);
+  padding-right: calc(16px + 18px);
+}
+
+.circuit-4:focus,
+.circuit-4:active {
+  border: 1px solid #3388FF;
+  outline: none;
+}
+
+.circuit-4::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-4::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-4:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-4::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-6 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  margin: 8px;
+  pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
+<label
+    class="circuit-10 circuit-11"
+    for="input_8"
+  >
+    <span
+      class="circuit-0 circuit-1"
+    >
+      Amount (pt-BR, BRL)
+    </span>
+    <div
+      class="circuit-8 circuit-9"
+    >
+      <span
+        class="circuit-2 circuit-3"
+      >
+        R$
+      </span>
+      <input
+        aria-invalid="false"
+        class="circuit-4 circuit-5"
+        id="input_8"
+        placeholder="1.234,50"
+        type="text"
+        value=""
+      />
+      <div
+        class="circuit-6 circuit-7"
+      />
+    </div>
+  </label>,
+  .circuit-10 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-8 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-8,
+label + .circuit-8 {
+  margin-top: 4px;
+}
+
+.circuit-6 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  margin: 8px;
+  pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
+.circuit-2 {
+  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 27px !important;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  margin: 8px;
+  pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
+.circuit-4 {
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  padding: 8px 12px;
+  -webkit-transition: border-color 200ms ease-in-out;
+  transition: border-color 200ms ease-in-out;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  text-align: right;
+  padding-right: calc(16px + 27px);
 }
 
 .circuit-4:focus,
@@ -16773,152 +16919,33 @@ label + .circuit-6 {
 }
 
 <label
-    class="circuit-8 circuit-9"
-    for="8"
+    class="circuit-10 circuit-11"
+    for="input_9"
   >
     <span
       class="circuit-0 circuit-1"
     >
-      Amount
+      Amount (pt-BR, USD)
     </span>
     <div
-      class="circuit-6 circuit-7"
+      class="circuit-8 circuit-9"
     >
       <span
         class="circuit-2 circuit-3"
       >
-        $
+        US$
       </span>
       <input
         aria-invalid="false"
         class="circuit-4 circuit-5"
-        id="8"
-        placeholder="1,234.50"
+        id="input_9"
+        placeholder="1.234,50"
         type="text"
         value=""
       />
-    </div>
-  </label>,
-  .circuit-8 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-6 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-6,
-label + .circuit-6 {
-  margin-top: 4px;
-}
-
-.circuit-2 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: 48px;
-  padding-right: calc(16px + 4ch);
-}
-
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4 {
-  color: #1760CE;
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  min-width: 4ch;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  margin: 8px;
-  pointer-events: none;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
-}
-
-<label
-    class="circuit-8 circuit-9"
-    for="9"
-  >
-    <span
-      class="circuit-0 circuit-1"
-    >
-      Amount
-    </span>
-    <div
-      class="circuit-6 circuit-7"
-    >
-      <input
-        aria-invalid="false"
-        class="circuit-2 circuit-3"
-        id="9"
-        placeholder="1 234,50"
-        type="text"
-        value=""
+      <div
+        class="circuit-6 circuit-7"
       />
-      <span
-        class="circuit-4 circuit-5"
-      >
-        руб.
-      </span>
     </div>
   </label>,
 ]
@@ -16958,11 +16985,9 @@ label + .circuit-6 {
   font-size: 16px;
   line-height: 24px;
   margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
-  padding-right: 48px;
-  padding-right: calc(16px + 1ch);
+  padding-right: calc(16px + 18px);
 }
 
 .circuit-2:focus,
@@ -16996,7 +17021,6 @@ label + .circuit-6 {
 }
 
 .circuit-4 {
-  color: #1760CE;
   line-height: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -17010,7 +17034,7 @@ label + .circuit-6 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  min-width: 1ch;
+  width: 18px !important;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -17023,12 +17047,12 @@ label + .circuit-6 {
 
 <label
     class="circuit-8 circuit-9"
-    for="10"
+    for="input_10"
   >
     <span
       class="circuit-0 circuit-1"
     >
-      Amount
+      Amount (de-DE, EUR)
     </span>
     <div
       class="circuit-6 circuit-7"
@@ -17036,7 +17060,7 @@ label + .circuit-6 {
       <input
         aria-invalid="false"
         class="circuit-2 circuit-3"
-        id="10"
+        id="input_10"
         placeholder="1.234,50"
         type="text"
         value=""
@@ -17048,26 +17072,25 @@ label + .circuit-6 {
       </span>
     </div>
   </label>,
-  .circuit-8 {
+  .circuit-10 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-6 {
+.circuit-8 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
-label + .circuit-6 {
+label > .circuit-8,
+label + .circuit-8 {
   margin-top: 4px;
 }
 
 .circuit-2 {
-  color: #1760CE;
   line-height: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -17081,7 +17104,7 @@ label + .circuit-6 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  min-width: 1ch;
+  width: 18px !important;
   position: absolute;
   top: 1px;
   left: 1px;
@@ -17109,8 +17132,7 @@ label + .circuit-6 {
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   text-align: right;
-  padding-left: 48px;
-  padding-left: calc(16px + 1ch);
+  padding-right: calc(16px + 18px);
 }
 
 .circuit-4:focus,
@@ -17143,17 +17165,31 @@ label + .circuit-6 {
   transition: color 200ms ease-in-out;
 }
 
+.circuit-6 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  margin: 8px;
+  pointer-events: none;
+  color: #5C656F;
+  height: 24px;
+  width: 24px;
+}
+
 <label
-    class="circuit-8 circuit-9"
-    for="11"
+    class="circuit-10 circuit-11"
+    for="input_11"
   >
     <span
       class="circuit-0 circuit-1"
     >
-      Amount
+      Amount (en-IE, EUR)
     </span>
     <div
-      class="circuit-6 circuit-7"
+      class="circuit-8 circuit-9"
     >
       <span
         class="circuit-2 circuit-3"
@@ -17163,374 +17199,17 @@ label + .circuit-6 {
       <input
         aria-invalid="false"
         class="circuit-4 circuit-5"
-        id="11"
+        id="input_11"
         placeholder="1,234.50"
         type="text"
         value=""
       />
+      <div
+        class="circuit-6 circuit-7"
+      />
     </div>
   </label>,
 ]
-`;
-
-exports[`Storyshots Forms/Input/CurrencyInput/SimpleCurrencyInput Base 1`] = `
-.circuit-6 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: 48px;
-  padding-right: calc(16px + 1ch);
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  color: #1760CE;
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  min-width: 1ch;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  margin: 8px;
-  pointer-events: none;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
-}
-
-<label
-  class="circuit-6 circuit-7"
-  for="input_12"
->
-  <div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      aria-invalid="false"
-      class="circuit-0 circuit-1"
-      id="input_12"
-      placeholder="123.45"
-      type="text"
-      value=""
-    />
-    <span
-      class="circuit-2 circuit-3"
-    >
-      €
-    </span>
-  </div>
-</label>
-`;
-
-exports[`Storyshots Forms/Input/CurrencyInput/SimpleCurrencyInput For Right Aligned CHF 1`] = `
-.circuit-6 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: 48px;
-  padding-right: calc(16px + 3ch);
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2 {
-  color: #1760CE;
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  min-width: 3ch;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  margin: 8px;
-  pointer-events: none;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
-}
-
-<label
-  class="circuit-6 circuit-7"
-  for="input_14"
->
-  <div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      aria-invalid="false"
-      class="circuit-0 circuit-1"
-      id="input_14"
-      placeholder="1,234.45"
-      type="text"
-      value=""
-    />
-    <span
-      class="circuit-2 circuit-3"
-    >
-      CHF
-    </span>
-  </div>
-</label>
-`;
-
-exports[`Storyshots Forms/Input/CurrencyInput/SimpleCurrencyInput For Usd 1`] = `
-.circuit-6 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  color: #1760CE;
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  min-width: 1ch;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  margin: 8px;
-  pointer-events: none;
-  color: #5C656F;
-  height: 24px;
-  width: 24px;
-}
-
-.circuit-2 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-left: 48px;
-  padding-left: calc(16px + 1ch);
-}
-
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-<label
-  class="circuit-6 circuit-7"
-  for="input_13"
->
-  <div
-    class="circuit-4 circuit-5"
-  >
-    <span
-      class="circuit-0 circuit-1"
-    >
-      $
-    </span>
-    <input
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
-      id="input_13"
-      placeholder="1,234.45"
-      type="text"
-      value=""
-    />
-  </div>
-</label>
 `;
 
 exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
@@ -17613,7 +17292,7 @@ label + .circuit-5 {
 
 <label
   class="circuit-7 circuit-8"
-  for="39"
+  for="36"
 >
   <span
     class="circuit-0 circuit-1"
@@ -17642,7 +17321,7 @@ label + .circuit-5 {
     <input
       aria-invalid="false"
       class="circuit-3 circuit-4"
-      id="39"
+      id="36"
       placeholder="Search..."
       type="text"
       value=""
@@ -17732,7 +17411,7 @@ label + .circuit-5 {
 <div>
   <label
     class="circuit-7 circuit-8"
-    for="41"
+    for="38"
   >
     <span
       class="circuit-0 circuit-1"
@@ -17761,7 +17440,7 @@ label + .circuit-5 {
       <input
         aria-invalid="false"
         class="circuit-3 circuit-4"
-        id="41"
+        id="38"
         placeholder="Search..."
         type="text"
         value=""
@@ -17854,7 +17533,7 @@ label + .circuit-5 {
 
 <label
   class="circuit-7 circuit-8"
-  for="40"
+  for="37"
 >
   <span
     class="circuit-0 circuit-1"
@@ -17885,7 +17564,7 @@ label + .circuit-5 {
       aria-invalid="false"
       class="circuit-3 circuit-4"
       disabled=""
-      id="40"
+      id="37"
       placeholder="Search..."
       type="text"
       value=""
@@ -17959,7 +17638,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_33"
+    id="radio-button_30"
     name="radio"
     type="radio"
     value="radio"
@@ -18013,7 +17692,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_33"
+    for="radio-button_30"
   >
     Unchecked
   </label>,
@@ -18058,7 +17737,7 @@ HTMLCollection [
 <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="radio-button_35"
+    id="radio-button_32"
     name="disabled"
     type="radio"
     value="disabled"
@@ -18131,7 +17810,7 @@ HTMLCollection [
 <label
     class="circuit-0 circuit-1"
     disabled=""
-    for="radio-button_35"
+    for="radio-button_32"
   >
     Disabled
   </label>,
@@ -18175,7 +17854,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_34"
+    id="radio-button_31"
     name="invalid"
     type="radio"
     value="invalid"
@@ -18238,7 +17917,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_34"
+    for="radio-button_31"
   >
     Error
   </label>,
@@ -18333,14 +18012,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_36"
+      id="radio-button_33"
       name="radio-button-group"
       type="radio"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_36"
+      for="radio-button_33"
     >
       Apple
     </label>
@@ -18348,14 +18027,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_37"
+      id="radio-button_34"
       name="radio-button-group"
       type="radio"
       value="banana"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_37"
+      for="radio-button_34"
     >
       Banana
     </label>
@@ -18363,14 +18042,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_38"
+      id="radio-button_35"
       name="radio-button-group"
       type="radio"
       value="mango"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_38"
+      for="radio-button_35"
     >
       Mango
     </label>
@@ -18451,7 +18130,7 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
-  for="42"
+  for="39"
 >
   <span
     class="circuit-0 circuit-1"
@@ -18463,7 +18142,7 @@ label + .circuit-6 {
   >
     <select
       class="circuit-2 circuit-3"
-      id="42"
+      id="39"
       name="select"
     >
       <option
@@ -18634,7 +18313,7 @@ label + .circuit-10 {
 
 <label
   class="circuit-12 circuit-13"
-  for="43"
+  for="40"
 >
   <span
     class="circuit-0 circuit-1"
@@ -18646,7 +18325,7 @@ label + .circuit-10 {
   >
     <select
       class="circuit-2 circuit-3"
-      id="43"
+      id="40"
       name="select"
     >
       <option
@@ -18792,7 +18471,7 @@ label + .circuit-7 {
 
 <label
   class="circuit-9 circuit-10"
-  for="44"
+  for="41"
 >
   <span
     class="circuit-0 circuit-1"
@@ -18851,7 +18530,7 @@ label + .circuit-7 {
     </svg>
     <select
       class="circuit-3 circuit-4"
-      id="44"
+      id="41"
       name="country_select"
     >
       <option
@@ -18977,7 +18656,7 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
-  for="45"
+  for="42"
 >
   <span
     class="circuit-0 circuit-1"
@@ -18989,7 +18668,7 @@ label + .circuit-6 {
   >
     <select
       class="circuit-2 circuit-3"
-      id="45"
+      id="42"
       name="select"
     >
       <option
@@ -19103,13 +18782,13 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 >
   <input
     class="circuit-0 circuit-1"
-    id="selector_46"
+    id="selector_43"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
-    for="selector_46"
+    for="selector_43"
   >
     Select me!
   </label>
@@ -19198,14 +18877,14 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="selector_48"
+    id="selector_45"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
     disabled=""
-    for="selector_48"
+    for="selector_45"
   >
     I cannot be selected
   </label>
@@ -19287,13 +18966,13 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   <input
     checked=""
     class="circuit-0 circuit-1"
-    id="selector_47"
+    id="selector_44"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
-    for="selector_47"
+    for="selector_44"
   >
     I am selected!
   </label>
@@ -19378,14 +19057,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_49"
+      id="selector_46"
       name="selector-group"
       type="radio"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_49"
+      for="selector_46"
     >
       Apple
     </label>
@@ -19395,14 +19074,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_50"
+      id="selector_47"
       name="selector-group"
       type="radio"
       value="banana"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_50"
+      for="selector_47"
     >
       Banana
     </label>
@@ -19412,14 +19091,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_51"
+      id="selector_48"
       name="selector-group"
       type="radio"
       value="mango"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_51"
+      for="selector_48"
     >
       Mango
     </label>
@@ -19505,14 +19184,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_52"
+      id="selector_49"
       name="selector-group"
       type="checkbox"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_52"
+      for="selector_49"
     >
       Apple
     </label>
@@ -19522,14 +19201,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_53"
+      id="selector_50"
       name="selector-group"
       type="checkbox"
       value="banana"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_53"
+      for="selector_50"
     >
       Banana
     </label>
@@ -19539,14 +19218,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_54"
+      id="selector_51"
       name="selector-group"
       type="checkbox"
       value="mango"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_54"
+      for="selector_51"
     >
       Mango
     </label>
@@ -19638,7 +19317,7 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
-  for="56"
+  for="53"
 >
   <span
     class="circuit-0 circuit-1"
@@ -19651,7 +19330,7 @@ label + .circuit-6 {
     <textarea
       aria-invalid="false"
       class="circuit-2 circuit-3"
-      id="56"
+      id="53"
       placeholder="Write your text here..."
     />
     <div
@@ -19734,7 +19413,7 @@ label + .circuit-4 {
 
 <label
   class="circuit-6 circuit-7"
-  for="60"
+  for="57"
 >
   <span
     class="circuit-0 circuit-1"
@@ -19749,7 +19428,7 @@ label + .circuit-4 {
       aria-invalid="false"
       class="circuit-2 circuit-3"
       disabled=""
-      id="60"
+      id="57"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -19911,7 +19590,7 @@ label + .circuit-9 {
 
 <label
   class="circuit-11 circuit-12"
-  for="57"
+  for="54"
 >
   <span
     class="circuit-0 circuit-1"
@@ -19924,7 +19603,7 @@ label + .circuit-9 {
     <textarea
       aria-invalid="true"
       class="circuit-2 circuit-3"
-      id="57"
+      id="54"
       placeholder="Write your text here..."
     />
     <div
@@ -20044,7 +19723,7 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
-  for="59"
+  for="56"
 >
   <span
     class="circuit-0 circuit-1"
@@ -20057,7 +19736,7 @@ label + .circuit-6 {
     <textarea
       aria-invalid="false"
       class="circuit-2 circuit-3"
-      id="59"
+      id="56"
       placeholder="Write your text here..."
     />
     <div
@@ -20220,7 +19899,7 @@ label + .circuit-9 {
 
 <label
   class="circuit-11 circuit-12"
-  for="58"
+  for="55"
 >
   <span
     class="circuit-0 circuit-1"
@@ -20233,7 +19912,7 @@ label + .circuit-9 {
     <textarea
       aria-invalid="false"
       class="circuit-2 circuit-3"
-      id="58"
+      id="55"
       placeholder="Write your text here..."
     />
     <div
@@ -20363,7 +20042,7 @@ label + .circuit-6 {
 
 <label
   class="circuit-8 circuit-9"
-  for="61"
+  for="58"
 >
   <span
     class="circuit-0 circuit-1"
@@ -20376,7 +20055,7 @@ label + .circuit-6 {
     <textarea
       aria-invalid="false"
       class="circuit-2 circuit-3"
-      id="61"
+      id="58"
       placeholder="Write your text here..."
     />
     <div
@@ -20486,9 +20165,9 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_63"
+    aria-labelledby="toggle-label_60"
     class="circuit-4 circuit-5"
-    id="toggle-switch_62"
+    id="toggle-switch_59"
     role="switch"
     type="button"
   >
@@ -20503,8 +20182,8 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   </button>
   <label
     class="circuit-8 circuit-9"
-    for="toggle-switch_62"
-    id="toggle-label_63"
+    for="toggle-switch_59"
+    id="toggle-label_60"
   >
     <p
       class="circuit-6 circuit-7"
@@ -20633,9 +20312,9 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_67"
+    aria-labelledby="toggle-label_64"
     class="circuit-4 circuit-5"
-    id="toggle-switch_66"
+    id="toggle-switch_63"
     role="switch"
     type="button"
   >
@@ -20650,8 +20329,8 @@ exports[`Storyshots Forms/Toggle Reversed 1`] = `
   </button>
   <label
     class="circuit-8 circuit-9"
-    for="toggle-switch_66"
-    id="toggle-label_67"
+    for="toggle-switch_63"
+    id="toggle-label_64"
   >
     <p
       class="circuit-6 circuit-7"
@@ -20778,9 +20457,9 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_65"
+    aria-labelledby="toggle-label_62"
     class="circuit-4 circuit-5"
-    id="toggle-switch_64"
+    id="toggle-switch_61"
     role="switch"
     type="button"
   >
@@ -20795,8 +20474,8 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-10 circuit-11"
-    for="toggle-switch_64"
-    id="toggle-label_65"
+    for="toggle-switch_61"
+    id="toggle-label_62"
   >
     <p
       class="circuit-6 circuit-7"

@@ -13,11 +13,7 @@
  * limitations under the License.
  */
 
-export {
-  id as uniqueId,
-  numbers as numbersUtils,
-  sharedPropTypes
-} from './util';
+import * as sharedPropTypes from './util/shared-prop-types';
 
 // Typography
 export { default as Heading } from './components/Heading';
@@ -119,3 +115,5 @@ export {
 } from './components/ComponentsContext';
 
 export { styleHelpers, constants as styleConstants } from './styles';
+export { sharedPropTypes };
+export { uniqueId } from './util/id';
