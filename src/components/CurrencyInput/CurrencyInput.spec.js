@@ -22,7 +22,7 @@ describe('CurrencyInput', () => {
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CurrencyInput />);
+    const actual = create(<CurrencyInput currency="USD" />);
     expect(actual).toMatchSnapshot();
   });
 

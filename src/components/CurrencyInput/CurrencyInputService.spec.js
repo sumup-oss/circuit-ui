@@ -60,8 +60,8 @@ describe('CurrencyInputService', () => {
   describe('formatPlaceholder', () => {
     it('should format a numeric placeholder', () => {
       const placeholder = 1234.56;
-      const actual = formatPlaceholder(placeholder, 'de-DE');
-      const expected = '1.234,56';
+      const actual = formatPlaceholder(placeholder, 'en-US');
+      const expected = '1,234.56';
       expect(actual).toBe(expected);
     });
 
