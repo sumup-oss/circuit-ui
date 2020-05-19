@@ -47,6 +47,10 @@ export interface BaseProps {
    * Display an icon in addition to the text to help to identify the action.
    */
   icon?: FC<SVGProps<SVGSVGElement>>;
+  /**
+   * The ref to the html dom element, it can be an anchor or a button
+   */
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
 }
 
 type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'type'>;
@@ -188,20 +192,23 @@ const BaseButton = styled('button')<ButtonProps>(
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-export function Button(props: BaseProps & LinkElProps): ReturnType;
-export function Button(props: BaseProps & ButtonElProps): ReturnType;
-export function Button({
-  children,
-  icon: Icon,
-  ...props
-}: ButtonProps): ReturnType {
-  const { Link } = useComponents();
-  const LinkButton = BaseButton.withComponent(Link);
-  const ButtonElement = props.href ? LinkButton : BaseButton;
-  return (
-    <ButtonElement {...props}>
-      {Icon && <Icon css={iconStyles} role="presentation" />}
-      {children}
-    </ButtonElement>
-  );
-}
+// export function Button(props: BaseProps & LinkElProps): ReturnType;
+// export function Button(props: BaseProps & ButtonElProps): ReturnType;
+export const Button = React.forwardRef(
+  (
+    { children, icon: Icon, ...props }: ButtonProps,
+    ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+  ): ReturnType => {
+    const { Link } = useComponents();
+    const LinkButton = BaseButton.withComponent(Link);
+    const ButtonElement = props.href ? LinkButton : BaseButton;
+    return (
+      <ButtonElement {...props} ref={ref}>
+        {Icon && <Icon css={iconStyles} role="presentation" />}
+        {children}
+      </ButtonElement>
+    );
+  }
+);
+
+Button.displayName = 'Button';

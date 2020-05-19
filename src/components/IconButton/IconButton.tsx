@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import React, { Children, cloneElement, FC, ReactElement } from 'react';
-import { css } from '@emotion/core';
+import React, { Children, cloneElement, ReactElement } from 'react';
+import { css, SerializedStyles } from '@emotion/core';
 import { hideVisually } from 'polished';
 import { Theme } from '@sumup/design-tokens';
 
@@ -37,7 +37,7 @@ const Label = styled('span')(hideVisually);
 
 const sizeStyles = (size: IconButtonProps['size'] = 'mega') => (
   theme: Theme
-) => {
+): SerializedStyles => {
   const sizeMap = {
     kilo: theme.spacings.bit,
     mega: theme.spacings.byte,
@@ -54,18 +54,18 @@ const sizeStyles = (size: IconButtonProps['size'] = 'mega') => (
  * The IconButton component displays a button with a single icon
  * as its only child.
  */
-export const IconButton: FC<IconButtonProps> = ({
-  children,
-  label,
-  size,
-  ...props
-}) => {
-  const child = Children.only(children);
-  const icon = cloneElement(child, { role: 'presentation' });
-  return (
-    <Button title={label} css={sizeStyles(size)} {...props}>
-      {icon}
-      <Label>{label}</Label>
-    </Button>
-  );
-};
+export const IconButton = React.forwardRef(
+  (
+    { children, label, size, ...props }: IconButtonProps,
+    ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+  ) => {
+    const child = Children.only(children);
+    const icon = cloneElement(child, { role: 'presentation' });
+    return (
+      <Button title={label} css={sizeStyles(size)} {...props} ref={ref}>
+        {icon}
+        <Label>{label}</Label>
+      </Button>
+    );
+  }
+);
