@@ -31,6 +31,13 @@ export interface IconButtonProps extends ButtonProps {
    * on hover, and accessible to screen readers.
    */
   label: string;
+
+  /**
+   * Optional additional references
+   */
+  additionalReferences?: {
+    iconRef?: React.RefObject<HTMLElement>;
+  };
 }
 
 const Label = styled('span')(hideVisually);
@@ -56,11 +63,18 @@ const sizeStyles = (size: IconButtonProps['size'] = 'mega') => (
  */
 export const IconButton = React.forwardRef(
   (
-    { children, label, size, ...props }: IconButtonProps,
+    {
+      children,
+      label,
+      size,
+      additionalReferences = {},
+      ...props
+    }: IconButtonProps,
     ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
   ) => {
+    const { iconRef } = additionalReferences;
     const child = Children.only(children);
-    const icon = cloneElement(child, { role: 'presentation' });
+    const icon = cloneElement(child, { role: 'presentation', ref: iconRef });
     return (
       <Button title={label} css={sizeStyles(size)} {...props} ref={ref}>
         {icon}

@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import { create, renderToHtml, axe } from '../../util/test-utils';
+import { create, renderToHtml, render, axe } from '../../util/test-utils';
 
 import { IconButton } from './IconButton';
 
@@ -30,6 +30,20 @@ describe('IconButton', () => {
       </IconButton>
     );
     expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Should accept additional references
+   */
+  it('should accept working additional references', () => {
+    const tref = React.createRef<HTMLElement>();
+    const { container } = render(
+      <IconButton label="test" additionalReferences={{ iconRef: tref }}>
+        <div>SVG here</div>
+      </IconButton>
+    );
+    const icon = container.querySelector('div');
+    expect(tref.current).toBe(icon);
   });
 
   /**
