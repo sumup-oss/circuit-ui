@@ -15,74 +15,59 @@
 
 import React from 'react';
 
-import List from '.';
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
+import { List, ListProps } from './List';
 
 describe('List', () => {
   /**
    * Style tests.
    */
-  it('should render a default unordered List', () => {
-    const list = create(
+  it('should render with default styles', () => {
+    const actual = create(
       <List>
-        <li>Hi there</li>
+        <li>List</li>
       </List>
     );
-    expect(list).toMatchSnapshot();
+    expect(actual).toMatchSnapshot();
   });
 
-  it('should render a kilo unordered List', () => {
-    const list = create(
-      <List size={List.KILO}>
-        <li>Hi there</li>
+  const variants: ListProps['variant'][] = ['ordered', 'unordered'];
+  it.each(variants)('should render the %s variant', variant => {
+    const actual = create(
+      <List variant={variant}>
+        <li>{variant}</li>
       </List>
     );
-    expect(list).toMatchSnapshot();
+    expect(actual).toMatchSnapshot();
   });
 
-  it('should render a mega unordered List', () => {
-    const list = create(
-      <List size={List.MEGA}>
-        <li>Hi there</li>
+  const sizes: ListProps['size'][] = ['kilo', 'mega', 'giga'];
+  it.each(sizes)('should render with size %s', size => {
+    const actual = create(
+      <List size={size}>
+        <li>{size}</li>
       </List>
     );
-    expect(list).toMatchSnapshot();
+    expect(actual).toMatchSnapshot();
   });
 
-  it('should render a giga unordered List', () => {
-    const list = create(
-      <List size={List.GIGA}>
-        <li>Hi there</li>
-      </List>
-    );
-    expect(list).toMatchSnapshot();
-  });
-
-  it('should render nested unordered lists', () => {
-    const list = create(
+  it('should a render nested list', () => {
+    const actual = create(
       <List>
-        <li>Hi there</li>
+        <li>First level</li>
         <List>
-          <li>Hi there</li>
+          <li>Second level</li>
         </List>
       </List>
     );
-    expect(list).toMatchSnapshot();
-  });
-
-  it('should render an ordered list', () => {
-    const list = create(
-      <List ordered>
-        <li>Hi</li>
-        <li>It is me</li>
-      </List>
-    );
-    expect(list).toMatchSnapshot();
+    expect(actual).toMatchSnapshot();
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
     const actual = create(
       <List noMargin>
-        <li>Hi</li>
+        <li>no margin</li>
       </List>
     );
     expect(actual).toMatchSnapshot();
@@ -94,7 +79,7 @@ describe('List', () => {
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <List>
-        <li>Hi there</li>
+        <li>List</li>
       </List>
     );
     const actual = await axe(wrapper);

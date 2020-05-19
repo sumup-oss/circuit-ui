@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List should a render nested list 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  class="circuit-0"
+>
+  <li>
+    First level
+  </li>
+  <ul
+    class="circuit-0"
+  >
+    <li>
+      Second level
+    </li>
+  </ul>
+</ul>
+`;
+
+exports[`List should render the ordered variant 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ol
+  class="circuit-0"
+>
+  <li>
+    ordered
+  </li>
+</ol>
+`;
+
+exports[`List should render the unordered variant 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  class="circuit-0"
+>
+  <li>
+    unordered
+  </li>
+</ul>
+`;
+
+exports[`List should render with default styles 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  class="circuit-0"
+>
+  <li>
+    List
+  </li>
+</ul>
+`;
+
+exports[`List should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  class="circuit-0"
+>
+  <li>
+    no margin
+  </li>
+</ul>
+`;
+
+exports[`List should render with size giga 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  class="circuit-0"
+>
+  <li>
+    giga
+  </li>
+</ul>
+`;
+
+exports[`List should render with size kilo 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.circuit-0 li {
+  margin-bottom: 12px;
+  margin-left: 4px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 4px;
+}
+
+<ul
+  class="circuit-0"
+>
+  <li>
+    kilo
+  </li>
+</ul>
+`;
+
+exports[`List should render with size mega 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+  class="circuit-0"
+>
+  <li>
+    mega
+  </li>
+</ul>
+`;

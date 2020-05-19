@@ -23,22 +23,22 @@ describe('Text', () => {
   /**
    * Style tests.
    */
+
+  it('should render with default styles', () => {
+    const actual = create(<Text>Text</Text>);
+    expect(actual).toMatchSnapshot();
+  });
+
   const elements = ['p', 'article', 'div'];
-  elements.forEach(as => {
-    it(`should render as ${as} element, when passed "${as}" for the element prop`, () => {
-      const heading = create(
-        <Text as={as}>{`${as.toUpperCase()} heading`}</Text>
-      );
-      expect(heading).toMatchSnapshot();
-    });
+  it.each(elements)('should render as %s element', as => {
+    const actual = create(<Text as={as}>{`${as.toUpperCase()} text`}</Text>);
+    expect(actual).toMatchSnapshot();
   });
 
   const sizes: TextProps['size'][] = ['kilo', 'mega', 'giga'];
-  sizes.forEach(size => {
-    it(`should render with size ${size}, when passed "${size}" for the size prop`, () => {
-      const heading = create(<Text {...{ size }}>{`${size} heading`}</Text>);
-      expect(heading).toMatchSnapshot();
-    });
+  it.each(sizes)('should render with size %s', size => {
+    const actual = create(<Text size={size}>{`${size} text`}</Text>);
+    expect(actual).toMatchSnapshot();
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
