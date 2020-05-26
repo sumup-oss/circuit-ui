@@ -17,8 +17,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import ownerDocument from '../../util/ownerDocument';
-
 function getContainer(container, defaultContainer) {
   const customContainer =
     typeof container === 'function' ? container() : container;
@@ -28,7 +26,8 @@ function getContainer(container, defaultContainer) {
 
 function getOwnerDocument(element) {
   // eslint-disable-next-line react/no-find-dom-node
-  return ownerDocument(ReactDOM.findDOMNode(element));
+  const node = ReactDOM.findDOMNode(element);
+  return (node && node.ownerDocument) || document;
 }
 
 /**

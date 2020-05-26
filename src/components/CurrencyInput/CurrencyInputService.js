@@ -14,37 +14,15 @@
  */
 
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+import { clamp } from 'lodash/fp';
+import { format } from '@sumup/intl';
 
-import { getCurrencyFormat } from '../../util/currency';
-import { curry } from '../../util/fp';
-import { currencyToRegex } from '../../util/regex';
-
-export const normalizeAmount = value => {
-  if (!value || !value.length) {
-    return value;
-  }
-
-  const matches = value.match(/[^\d](\d{1,2})$/) || [];
-  const [, decimals] = matches;
-
-  const digits = value.replace(/[^\d]/g, '');
-
-  if (digits === '') {
-    return '0.00';
-  }
-
-  const integers =
-    decimals === undefined ? digits : digits.slice(0, -decimals.length);
-  const numberString = `${integers}.${decimals}`;
-  return parseFloat(numberString);
-};
-
-export const createCurrencyMask = (currency, locale, options = {}) => {
+export const createCurrencyMask = (currencyFormat, options = {}) => {
   const {
-    decimalSep: decimalSymbol = '.',
-    thousandSep: thousandsSeparatorSymbol = ',',
-    currencyPrecision: decimalLimit
-  } = getCurrencyFormat(currency, locale);
+    maximumFractionDigits: decimalLimit,
+    decimalDelimiter: decimalSymbol = '.',
+    groupDelimiter: thousandsSeparatorSymbol = ','
+  } = currencyFormat;
 
   return createNumberMask({
     prefix: '',
@@ -57,14 +35,15 @@ export const createCurrencyMask = (currency, locale, options = {}) => {
   });
 };
 
-export const isValidAmount = curry((currency, locale, value) => {
-  const { decimalSep, thousandSep, currencyPrecision } = getCurrencyFormat(
-    currency,
-    locale
-  );
-  const pattern = currencyToRegex([thousandSep], currencyPrecision, [
-    decimalSep
-  ]);
-  const regex = new RegExp(pattern);
-  return regex.test(value);
-});
+export function formatPlaceholder(placeholder, locale, options) {
+  return typeof placeholder === 'number'
+    ? format(placeholder, locale, options)
+    : placeholder;
+}
+
+const CHAR_WIDTH = 9; // Average length of a character in pixels
+
+export function getSymbolLength(symbol = '') {
+  const length = clamp(2, symbol.length, 5);
+  return length * CHAR_WIDTH;
+}
