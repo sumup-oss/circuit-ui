@@ -2607,10 +2607,10 @@
   resolved "https://registry.yarnpkg.com/@sumup/icons/-/icons-1.0.0-canary.13.tgz#51253d7a6c277b04e1bd9b83bfee33f46aa90f3a"
   integrity sha512-wBe1clg+qRPbhMTyneilZPPkfHAgsn2YSNmnAuT/n4n04yYUiYbmgADFApCqI6wslIYHAYJcxbeTaIe8IQVv3A==
 
-"@sumup/intl@^1.0.0-alpha.7":
-  version "1.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.0.0-alpha.7.tgz#8e1a089fdefdc7ed676d5d913dd1f5ea695af999"
-  integrity sha512-CSev9VDtYLKq8sTW76eqfQ6s2SXPNC0XNjp2IN/VaM+n2FkEq2+jsjttqOJFQHHL8ld3qu6pDCRATFyTPCJ2rQ==
+"@sumup/intl@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.0.0.tgz#24f1f625c3778eed555c1f4333768bd933964fc1"
+  integrity sha512-q21HE+FDuHS5TZpaf7pqX1KvE+S8dOsyJpxuhkht0nktZt8Ap3vqdarE8Hd2lXHJ51Kq8EBkwtdHetJoSduijQ==
   dependencies:
     intl-format-cache "^4.2.27"
 

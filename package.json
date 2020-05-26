@@ -97,7 +97,7 @@
     "@sumup/design-tokens": "^1.0.0-alpha.2",
     "@sumup/foundry": "^2.1.0",
     "@sumup/icons": "^1.0.0-canary.7",
-    "@sumup/intl": "^1.0.0-alpha.7",
+    "@sumup/intl": "^1.0.0",
     "@svgr/webpack": "^4.3.3",
     "@testing-library/dom": "^6.5.0",
     "@testing-library/jest-dom": "^4.1.0",
