@@ -28,7 +28,6 @@ import {
   Image,
   Input,
   Label,
-  List,
   RadioButton,
   Select,
   Selector,
@@ -167,9 +166,10 @@ export default {
       textAlign: [Input.LEFT, Input.RIGHT]
     }),
     getComponentInfo(Label),
-    getComponentInfo(List, {
-      size: [List.KILO, List.MEGA, List.GIGA]
-    }),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(List, {
+    //   size: [List.KILO, List.MEGA, List.GIGA]
+    // }),
     // TODO: Need to eliminate dynamic styles.
     // getComponentInfo(ProgressBar, {
     //   size: [ProgressBar.KILO, ProgressBar.MEGA, ProgressBar.GIGA]

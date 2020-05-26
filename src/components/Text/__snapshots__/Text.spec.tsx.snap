@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text should render as article element, when passed "article" for the element prop 1`] = `
+exports[`Text should render as article element 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -18,11 +18,11 @@ exports[`Text should render as article element, when passed "article" for the el
 <article
   class="circuit-0"
 >
-  ARTICLE heading
+  ARTICLE text
 </article>
 `;
 
-exports[`Text should render as div element, when passed "div" for the element prop 1`] = `
+exports[`Text should render as div element 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -40,11 +40,11 @@ exports[`Text should render as div element, when passed "div" for the element pr
 <div
   class="circuit-0"
 >
-  DIV heading
+  DIV text
 </div>
 `;
 
-exports[`Text should render as p element, when passed "p" for the element prop 1`] = `
+exports[`Text should render as p element 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -62,7 +62,7 @@ exports[`Text should render as p element, when passed "p" for the element prop 1
 <p
   class="circuit-0"
 >
-  P heading
+  P text
 </p>
 `;
 
@@ -130,6 +130,28 @@ exports[`Text should render struck through text when passed the strike prop 1`] 
 />
 `;
 
+exports[`Text should render with default styles 1`] = `
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+<p
+  class="circuit-0"
+>
+  Text
+</p>
+`;
+
 exports[`Text should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   font-weight: 400;
@@ -151,7 +173,7 @@ exports[`Text should render with no margin styles when passed the noMargin prop 
 />
 `;
 
-exports[`Text should render with size giga, when passed "giga" for the size prop 1`] = `
+exports[`Text should render with size giga 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -169,11 +191,11 @@ exports[`Text should render with size giga, when passed "giga" for the size prop
 <p
   class="circuit-0"
 >
-  giga heading
+  giga text
 </p>
 `;
 
-exports[`Text should render with size kilo, when passed "kilo" for the size prop 1`] = `
+exports[`Text should render with size kilo 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -191,11 +213,11 @@ exports[`Text should render with size kilo, when passed "kilo" for the size prop
 <p
   class="circuit-0"
 >
-  kilo heading
+  kilo text
 </p>
 `;
 
-exports[`Text should render with size mega, when passed "mega" for the size prop 1`] = `
+exports[`Text should render with size mega 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -213,6 +235,6 @@ exports[`Text should render with size mega, when passed "mega" for the size prop
 <p
   class="circuit-0"
 >
-  mega heading
+  mega text
 </p>
 `;

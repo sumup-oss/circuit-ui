@@ -23651,22 +23651,22 @@ exports[`Storyshots Typography/List Base 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
+  margin-bottom: 8px;
+  margin-left: 12px;
 }
 
 .circuit-0 ul,
 .circuit-0 ol {
-  margin-left: 4px;
+  margin-left: 12px;
 }
 
 <ul
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   <li>
     This is a list
@@ -23682,22 +23682,22 @@ exports[`Storyshots Typography/List Nested 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
+  margin-bottom: 8px;
+  margin-left: 12px;
 }
 
 .circuit-0 ul,
 .circuit-0 ol {
-  margin-left: 4px;
+  margin-left: 12px;
 }
 
 <ul
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   <li>
     This is a list
@@ -23706,44 +23706,13 @@ exports[`Storyshots Typography/List Nested 1`] = `
     A very fine list
   </li>
   <ul
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <li>
       Sometimes a nested list
     </li>
   </ul>
 </ul>
-`;
-
-exports[`Storyshots Typography/List Ordered 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
-}
-
-.circuit-0 ul,
-.circuit-0 ol {
-  margin-left: 4px;
-}
-
-<ol
-  class="circuit-0 circuit-1"
->
-  <li>
-    This is a list
-  </li>
-  <li>
-    A very fine list
-  </li>
-</ol>
 `;
 
 exports[`Storyshots Typography/List Size 1`] = `
@@ -23767,7 +23736,7 @@ HTMLCollection [
 }
 
 <ul
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <li>
       This is a list
@@ -23795,7 +23764,7 @@ HTMLCollection [
 }
 
 <ul
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <li>
       This is a list
@@ -23823,7 +23792,7 @@ HTMLCollection [
 }
 
 <ul
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <li>
       This is a list
@@ -23832,6 +23801,67 @@ HTMLCollection [
       A very fine list
     </li>
   </ul>,
+]
+`;
+
+exports[`Storyshots Typography/List Variant 1`] = `
+HTMLCollection [
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+    class="circuit-0"
+  >
+    <li>
+      This is a list
+    </li>
+    <li>
+      A very fine list
+    </li>
+  </ul>,
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ol
+    class="circuit-0"
+  >
+    <li>
+      This is a list
+    </li>
+    <li>
+      A very fine list
+    </li>
+  </ol>,
 ]
 `;
 

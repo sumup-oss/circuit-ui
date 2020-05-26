@@ -1,5 +1,5 @@
 import { Status, Props, Story } from '../../../.storybook/components';
-import List from './List';
+import { List } from './List';
 
 # List
 
@@ -8,7 +8,6 @@ import List from './List';
 At its core, the list component allows you to easily display a related content grouped together and organized vertically. They should be used to present simple pieces of information. For more complex sets of data, consider using a Data Table.
 
 <Story id="components-list--base" />
-
 <Props of={List} />
 
 ## When to use it
@@ -26,19 +25,15 @@ Use it when you want to display a list of text-only related items.
 
 ## Component Variants
 
-### Ordered list
+### Variants
 
-Use ordered lists to imply sequence and order. They are commonly used when giving a set of instructions.
-
-<Story id="components-list--ordered" />
-
-### Unordered list
+Use an ordered list to imply sequence and order. Ordered lists are commonly used when providing a set of instructions.
 
 Use an unordered list to present content of equal status or value.
 
-<Story id="components-list--base" />
+<Story id="components-list--variant" />
 
-### Size
+### Sizes
 
 The size of the list should be the same as the surrounding content.
 
