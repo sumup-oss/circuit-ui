@@ -41,7 +41,7 @@ export function formatPlaceholder(placeholder, locale, options) {
     : placeholder;
 }
 
-const CHAR_WIDTH = 9;
+const CHAR_WIDTH = 9; // Average length of a character in pixels
 
 export function getSymbolLength(symbol = '') {
   const length = clamp(2, symbol.length, 5);
