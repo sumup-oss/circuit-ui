@@ -14,7 +14,6 @@
  */
 
 import { css } from '@emotion/core';
-
 import {
   isEqual,
   isString,
@@ -26,7 +25,8 @@ import {
   map,
   mapValues,
   values
-} from '../../util/fp';
+} from 'lodash/fp';
+
 import { MIN_COL_SPAN, MAX_COL_WIDTH, DEFAULT_BREAKPOINT } from './constants';
 
 export const isDefault = isEqual(DEFAULT_BREAKPOINT);

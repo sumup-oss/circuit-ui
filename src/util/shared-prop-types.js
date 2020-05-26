@@ -199,8 +199,8 @@ export const localePropType = isRequired => (
 
   if (!/[a-z]{2}-[A-Z]{2}/.test(prop)) {
     return new Error(
-      `Invalid prop \`${propName}\` supplied to` +
-        ` \`${componentName}\`. Validation failed.`
+      `Invalid prop \`${propName}\` (\`${prop}\`)  supplied to` +
+        ` \`${componentName}\`. Please provide a valid locale.`
     );
   }
 

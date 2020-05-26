@@ -19,10 +19,10 @@ import ReactModal from 'react-modal';
 import { ClassNames } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import noScroll from 'no-scroll';
-
 import { transparentize } from 'polished';
+import { mapValues } from 'lodash/fp';
+
 import { themePropType } from '../../util/shared-prop-types';
-import { mapValues } from '../../util/fp';
 import { isFunction } from '../../util/type-check';
 import IS_IOS from '../../util/ios';
 
