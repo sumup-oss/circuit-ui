@@ -52,7 +52,7 @@ describe('List', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should a render nested list', () => {
+  it('should render a nested list', () => {
     const actual = create(
       <List>
         <li>First level</li>

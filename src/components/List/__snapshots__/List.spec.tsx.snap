@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List should a render nested list 1`] = `
+exports[`List should render a nested list 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
