@@ -17,6 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useClickTrigger } from '@sumup/collector';
 
 import CloseButton from '../../../CloseButton';
 import { childrenPropType } from '../../../../util/shared-prop-types';
@@ -45,18 +46,32 @@ const CardHeaderContainer = styled('header')`
   ${noHeadingStyles};
 `;
 
-const CardHeader = ({ onClose, children, labelCloseButton, ...props }) => (
-  <CardHeaderContainer {...props}>
-    {children}
-    {onClose && (
-      <CloseButton
-        onClick={onClose}
-        label={labelCloseButton}
-        data-testid="header-close"
-      />
-    )}
-  </CardHeaderContainer>
-);
+const CardHeader = ({
+  onClose,
+  children,
+  labelCloseButton,
+  trackingLabel,
+  ...props
+}) => {
+  const dispatch = useClickTrigger();
+  const handler = e => {
+    dispatch({ label: trackingLabel, component: 'close-button' });
+    onClose(e);
+  };
+
+  return (
+    <CardHeaderContainer {...props}>
+      {children}
+      {onClose && (
+        <CloseButton
+          onClick={handler}
+          label={labelCloseButton}
+          data-testid="header-close"
+        />
+      )}
+    </CardHeaderContainer>
+  );
+};
 
 CardHeader.propTypes = {
   /**
@@ -72,7 +87,11 @@ CardHeader.propTypes = {
    * Text label for the close button for screen readers.
    * Important for accessibility.
    */
-  labelCloseButton: PropTypes.string
+  labelCloseButton: PropTypes.string,
+  /**
+   * Tracking Label. It will be treated as label payload for tracking event.
+   */
+  trackingLabel: PropTypes.string
 };
 
 CardHeader.defaultProps = {

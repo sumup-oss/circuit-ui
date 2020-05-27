@@ -15,6 +15,8 @@
 
 import React, { useState } from 'react';
 import { text, boolean } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
+import { TrackingRoot, TrackingView } from '@sumup/collector';
 
 import Hamburger from './Hamburger';
 
@@ -26,12 +28,12 @@ export default {
   }
 };
 
-const HamburderWithState = () => {
+const HamburderWithState = props => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive(prev => !prev);
   };
-  return <Hamburger isActive={active} onClick={handleClick} />;
+  return <Hamburger isActive={active} onClick={handleClick} {...props} />;
 };
 
 export const base = () => (
@@ -40,4 +42,14 @@ export const base = () => (
     labelInActive={text('Label inactive', 'Open menu')}
     light={boolean('light', false)}
   />
+);
+
+export const tracking = () => (
+  <TrackingRoot name="app-root" onDispatch={action('tracking event')}>
+    <TrackingView name="app-view">
+      <HamburderWithState
+        trackingLabel={text('Tracking Label', 'trackingId')}
+      />
+    </TrackingView>
+  </TrackingRoot>
 );

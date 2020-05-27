@@ -15,6 +15,8 @@
 
 import React, { Fragment } from 'react';
 import { select, boolean, text } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
+import { TrackingRoot, TrackingView } from '@sumup/collector';
 
 import docs from './Button.docs.mdx';
 import Button from './Button';
@@ -67,4 +69,18 @@ export const size = () => (
     <Button size={Button.MEGA}>Button mega</Button>
     <Button size={Button.GIGA}>Button giga</Button>
   </Fragment>
+);
+
+export const tracking = () => (
+  <TrackingRoot name="app-root" onDispatch={action('tracking event')}>
+    <TrackingView name="app-view">
+      <Button
+        primary
+        trackingLabel={text('Tracking Label', 'trackingId')}
+        onClick={action('clicking event')}
+      >
+        Click
+      </Button>
+    </TrackingView>
+  </TrackingRoot>
 );

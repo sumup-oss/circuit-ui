@@ -16,6 +16,7 @@
 import React from 'react';
 import { omit } from 'lodash/fp';
 import PropTypes from 'prop-types';
+import { useClickTrigger } from '@sumup/collector';
 
 import PlainButton from './components/PlainButton';
 import RegularButton from './components/RegularButton';
@@ -60,12 +61,25 @@ const REGULAR_BUTTON_ONLY_PROPS = [
  * A button component with support for the anchor and button
  * element as well as a button-looking button and a text link.
  */
-const Button = ({ plain, ...props }) =>
-  plain ? (
-    <PlainButton {...omit(REGULAR_BUTTON_ONLY_PROPS, props)} />
+const Button = ({ plain, trackingLabel, onClick, ...props }) => {
+  const dispatch = useClickTrigger();
+  const handler = e => {
+    dispatch({ label: trackingLabel, component: 'button' });
+
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
+  return plain ? (
+    <PlainButton
+      {...omit(REGULAR_BUTTON_ONLY_PROPS, props)}
+      onClick={handler}
+    />
   ) : (
-    <RegularButton {...props} />
+    <RegularButton {...props} onClick={handler} />
   );
+};
 
 Button.KILO = KILO;
 Button.MEGA = MEGA;
@@ -108,7 +122,15 @@ Button.propTypes = {
   /**
    * Link target. Should only be passed, if href is passed, too.
    */
-  target: PropTypes.string
+  target: PropTypes.string,
+  /**
+   * Tracking Label. It will be treated as label payload for tracking event.
+   */
+  trackingLabel: PropTypes.string,
+  /**
+   * Function that is called with the event when the button is clicked.
+   */
+  onClick: PropTypes.func
 };
 
 Button.defaultProps = {
@@ -120,7 +142,9 @@ Button.defaultProps = {
   secondary: false,
   size: Button.MEGA,
   stretch: false,
-  target: null
+  target: null,
+  trackingLabel: undefined,
+  onClick: () => {}
 };
 
 /**

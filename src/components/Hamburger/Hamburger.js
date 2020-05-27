@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { hideVisually } from 'polished';
+import { useClickTrigger } from '@sumup/collector';
 
 const LAYER_HEIGHT = '1px';
 const HAMBURGER_WIDTH = '12px';
@@ -139,13 +140,28 @@ const Hamburger = ({
   labelActive,
   labelInActive,
   light,
+  trackingLabel,
   ...rest
-}) => (
-  <HamburgerButton {...rest} onClick={onClick} light={light}>
-    <HamburgerLayers isActive={isActive} light={light} />
-    <HamburgerLabel>{isActive ? labelActive : labelInActive}</HamburgerLabel>
-  </HamburgerButton>
-);
+}) => {
+  const dispatch = useClickTrigger();
+  const label = trackingLabel
+    ? `${trackingLabel}-${isActive ? 'inactive' : 'active'}`
+    : undefined;
+  const handler = e => {
+    dispatch({ label, component: 'hamburger' });
+
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
+  return (
+    <HamburgerButton {...rest} onClick={handler} light={light}>
+      <HamburgerLayers isActive={isActive} light={light} />
+      <HamburgerLabel>{isActive ? labelActive : labelInActive}</HamburgerLabel>
+    </HamburgerButton>
+  );
+};
 
 Hamburger.propTypes = {
   /**
@@ -168,6 +184,10 @@ Hamburger.propTypes = {
    * A Boolean to select the Light or Dark (default) version of the Hamburger.
    */
   light: PropTypes.bool,
+  /**
+   * Tracking Label. It will be treated as label payload for tracking event.
+   */
+  trackingLabel: PropTypes.string,
   className: PropTypes.string
 };
 
