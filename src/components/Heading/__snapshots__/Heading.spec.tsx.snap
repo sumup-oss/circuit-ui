@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Heading should render as h1 element, when passed "%s" for the element prop 1`] = `
+exports[`Heading should render as h1 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -22,7 +22,7 @@ exports[`Heading should render as h1 element, when passed "%s" for the element p
 </h1>
 `;
 
-exports[`Heading should render as h2 element, when passed "%s" for the element prop 1`] = `
+exports[`Heading should render as h2 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -44,7 +44,7 @@ exports[`Heading should render as h2 element, when passed "%s" for the element p
 </h2>
 `;
 
-exports[`Heading should render as h3 element, when passed "%s" for the element prop 1`] = `
+exports[`Heading should render as h3 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -66,7 +66,7 @@ exports[`Heading should render as h3 element, when passed "%s" for the element p
 </h3>
 `;
 
-exports[`Heading should render as h4 element, when passed "%s" for the element prop 1`] = `
+exports[`Heading should render as h4 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -88,7 +88,7 @@ exports[`Heading should render as h4 element, when passed "%s" for the element p
 </h4>
 `;
 
-exports[`Heading should render as h5 element, when passed "%s" for the element prop 1`] = `
+exports[`Heading should render as h5 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -110,7 +110,7 @@ exports[`Heading should render as h5 element, when passed "%s" for the element p
 </h5>
 `;
 
-exports[`Heading should render as h6 element, when passed "%s" for the element prop 1`] = `
+exports[`Heading should render as h6 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -153,7 +153,7 @@ exports[`Heading should render with no margin styles when passed the noMargin pr
 />
 `;
 
-exports[`Heading should render with size exa, when passed "%s" for the size prop 1`] = `
+exports[`Heading should render with size exa 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -175,7 +175,7 @@ exports[`Heading should render with size exa, when passed "%s" for the size prop
 </h2>
 `;
 
-exports[`Heading should render with size giga, when passed "%s" for the size prop 1`] = `
+exports[`Heading should render with size giga 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -197,7 +197,7 @@ exports[`Heading should render with size giga, when passed "%s" for the size pro
 </h2>
 `;
 
-exports[`Heading should render with size kilo, when passed "%s" for the size prop 1`] = `
+exports[`Heading should render with size kilo 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -219,7 +219,7 @@ exports[`Heading should render with size kilo, when passed "%s" for the size pro
 </h2>
 `;
 
-exports[`Heading should render with size mega, when passed "%s" for the size prop 1`] = `
+exports[`Heading should render with size mega 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -241,7 +241,7 @@ exports[`Heading should render with size mega, when passed "%s" for the size pro
 </h2>
 `;
 
-exports[`Heading should render with size peta, when passed "%s" for the size prop 1`] = `
+exports[`Heading should render with size peta 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -263,7 +263,7 @@ exports[`Heading should render with size peta, when passed "%s" for the size pro
 </h2>
 `;
 
-exports[`Heading should render with size tera, when passed "%s" for the size prop 1`] = `
+exports[`Heading should render with size tera 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -285,7 +285,7 @@ exports[`Heading should render with size tera, when passed "%s" for the size pro
 </h2>
 `;
 
-exports[`Heading should render with size zetta, when passed "%s" for the size prop 1`] = `
+exports[`Heading should render with size zetta 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;

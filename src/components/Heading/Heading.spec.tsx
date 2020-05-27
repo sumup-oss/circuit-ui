@@ -24,15 +24,12 @@ describe('Heading', () => {
    * Style tests.
    */
   const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-  it.each(elements)(
-    `should render as %s element, when passed "%s" for the element prop`,
-    element => {
-      const heading = create(
-        <Heading as={element}>{`${element.toUpperCase()} heading`}</Heading>
-      );
-      expect(heading).toMatchSnapshot();
-    }
-  );
+  it.each(elements)(`should render as %s element`, element => {
+    const heading = create(
+      <Heading as={element}>{`${element.toUpperCase()} heading`}</Heading>
+    );
+    expect(heading).toMatchSnapshot();
+  });
 
   const sizes = [
     'kilo',
@@ -43,15 +40,12 @@ describe('Heading', () => {
     'exa',
     'zetta'
   ] as const;
-  it.each(sizes)(
-    `should render with size %s, when passed "%s" for the size prop`,
-    size => {
-      const heading = create(
-        <Heading {...{ size }}>{`${size} heading`}</Heading>
-      );
-      expect(heading).toMatchSnapshot();
-    }
-  );
+  it.each(sizes)(`should render with size %s`, size => {
+    const heading = create(
+      <Heading {...{ size }}>{`${size} heading`}</Heading>
+    );
+    expect(heading).toMatchSnapshot();
+  });
 
   it('should render with no margin styles when passed the noMargin prop', () => {
     const actual = create(<Heading noMargin />);
