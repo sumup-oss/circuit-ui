@@ -51,9 +51,7 @@ export const textAndImage = () => (
   <div style={{ width: '50vw' }}>
     <Slide>
       <Image src="https://placedog.net/800/600" alt="random puppy" />
-      <StyledHeading size={Heading.EXA}>
-        Get The SumUp Card Reader Today!
-      </StyledHeading>
+      <StyledHeading size="exa">Get The SumUp Card Reader Today!</StyledHeading>
     </Slide>
   </div>
 );

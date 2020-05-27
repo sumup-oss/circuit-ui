@@ -160,7 +160,7 @@ const Icons = () => {
       ) : (
         group('category', activeIcons).map(({ category, items }) => (
           <Category key={category}>
-            <Heading as="h3" size={Heading.GIGA}>
+            <Heading as="h3" size="giga">
               {category}
             </Heading>
             <List>

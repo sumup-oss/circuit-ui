@@ -15,30 +15,36 @@
 
 import React from 'react';
 
-import Heading from '.';
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
+import { Heading } from './Heading';
 
 describe('Heading', () => {
   /**
    * Style tests.
    */
   const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-  elements.forEach(as => {
-    it(`should render as ${as} element, when passed "${as}" for the element prop`, () => {
-      const heading = create(
-        <Heading as={as}>{`${as.toUpperCase()} heading`}</Heading>
-      );
-      expect(heading).toMatchSnapshot();
-    });
+  it.each(elements)(`should render as %s element`, element => {
+    const heading = create(
+      <Heading as={element}>{`${element.toUpperCase()} heading`}</Heading>
+    );
+    expect(heading).toMatchSnapshot();
   });
 
-  const sizes = ['kilo', 'mega', 'giga', 'tera', 'peta', 'exa', 'zetta'];
-  sizes.forEach(size => {
-    it(`should render with size ${size}, when passed "${size}" for the size prop`, () => {
-      const heading = create(
-        <Heading {...{ size }}>{`${size} heading`}</Heading>
-      );
-      expect(heading).toMatchSnapshot();
-    });
+  const sizes = [
+    'kilo',
+    'mega',
+    'giga',
+    'tera',
+    'peta',
+    'exa',
+    'zetta'
+  ] as const;
+  it.each(sizes)(`should render with size %s`, size => {
+    const heading = create(
+      <Heading {...{ size }}>{`${size} heading`}</Heading>
+    );
+    expect(heading).toMatchSnapshot();
   });
 
   it('should render with no margin styles when passed the noMargin prop', () => {

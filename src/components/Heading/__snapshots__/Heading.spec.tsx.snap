@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Heading should render as h1 element, when passed "h1" for the element prop 1`] = `
+exports[`Heading should render as h1 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -16,13 +16,13 @@ exports[`Heading should render as h1 element, when passed "h1" for the element p
 }
 
 <h1
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   H1 heading
 </h1>
 `;
 
-exports[`Heading should render as h2 element, when passed "h2" for the element prop 1`] = `
+exports[`Heading should render as h2 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -38,13 +38,13 @@ exports[`Heading should render as h2 element, when passed "h2" for the element p
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   H2 heading
 </h2>
 `;
 
-exports[`Heading should render as h3 element, when passed "h3" for the element prop 1`] = `
+exports[`Heading should render as h3 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -60,13 +60,13 @@ exports[`Heading should render as h3 element, when passed "h3" for the element p
 }
 
 <h3
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   H3 heading
 </h3>
 `;
 
-exports[`Heading should render as h4 element, when passed "h4" for the element prop 1`] = `
+exports[`Heading should render as h4 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -82,13 +82,13 @@ exports[`Heading should render as h4 element, when passed "h4" for the element p
 }
 
 <h4
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   H4 heading
 </h4>
 `;
 
-exports[`Heading should render as h5 element, when passed "h5" for the element prop 1`] = `
+exports[`Heading should render as h5 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -104,13 +104,13 @@ exports[`Heading should render as h5 element, when passed "h5" for the element p
 }
 
 <h5
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   H5 heading
 </h5>
 `;
 
-exports[`Heading should render as h6 element, when passed "h6" for the element prop 1`] = `
+exports[`Heading should render as h6 element 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -126,7 +126,7 @@ exports[`Heading should render as h6 element, when passed "h6" for the element p
 }
 
 <h6
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   H6 heading
 </h6>
@@ -149,11 +149,11 @@ exports[`Heading should render with no margin styles when passed the noMargin pr
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;
 
-exports[`Heading should render with size exa, when passed "exa" for the size prop 1`] = `
+exports[`Heading should render with size exa 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -169,13 +169,13 @@ exports[`Heading should render with size exa, when passed "exa" for the size pro
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   exa heading
 </h2>
 `;
 
-exports[`Heading should render with size giga, when passed "giga" for the size prop 1`] = `
+exports[`Heading should render with size giga 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -191,13 +191,13 @@ exports[`Heading should render with size giga, when passed "giga" for the size p
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   giga heading
 </h2>
 `;
 
-exports[`Heading should render with size kilo, when passed "kilo" for the size prop 1`] = `
+exports[`Heading should render with size kilo 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -213,13 +213,13 @@ exports[`Heading should render with size kilo, when passed "kilo" for the size p
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   kilo heading
 </h2>
 `;
 
-exports[`Heading should render with size mega, when passed "mega" for the size prop 1`] = `
+exports[`Heading should render with size mega 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -235,13 +235,13 @@ exports[`Heading should render with size mega, when passed "mega" for the size p
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   mega heading
 </h2>
 `;
 
-exports[`Heading should render with size peta, when passed "peta" for the size prop 1`] = `
+exports[`Heading should render with size peta 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -257,13 +257,13 @@ exports[`Heading should render with size peta, when passed "peta" for the size p
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   peta heading
 </h2>
 `;
 
-exports[`Heading should render with size tera, when passed "tera" for the size prop 1`] = `
+exports[`Heading should render with size tera 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -279,13 +279,13 @@ exports[`Heading should render with size tera, when passed "tera" for the size p
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   tera heading
 </h2>
 `;
 
-exports[`Heading should render with size zetta, when passed "zetta" for the size prop 1`] = `
+exports[`Heading should render with size zetta 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -301,7 +301,7 @@ exports[`Heading should render with size zetta, when passed "zetta" for the size
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   zetta heading
 </h2>

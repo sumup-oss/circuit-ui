@@ -34,7 +34,7 @@ export default {
 export const base = () => (
   <Notification>
     <div>
-      <Heading as="h4" size={Heading.KILO} noMargin>
+      <Heading as="h4" size="kilo" noMargin>
         New Feature — Intelligent Reporting
       </Heading>
       <Text noMargin>
@@ -47,7 +47,7 @@ export const base = () => (
 export const success = () => (
   <Notification>
     <NotificationIcon type={NotificationIcon.SUCCESS} />
-    <Heading size={Heading.KILO} as="h4" noMargin>
+    <Heading size="kilo" as="h4" noMargin>
       Transaction successfully refunded
     </Heading>
   </Notification>
@@ -56,7 +56,7 @@ export const success = () => (
 export const warning = () => (
   <Notification>
     <NotificationIcon type={NotificationIcon.WARNING} />
-    <Heading size={Heading.KILO} as="h4" noMargin>
+    <Heading size="kilo" as="h4" noMargin>
       You still need to verify your account
     </Heading>
     <NotificationButton>
@@ -75,7 +75,7 @@ export const warning = () => (
 export const alert = () => (
   <Notification>
     <NotificationIcon type={NotificationIcon.ERROR} />
-    <Heading size={Heading.KILO} as="h4" noMargin>
+    <Heading size="kilo" as="h4" noMargin>
       Your transaction has failed
     </Heading>
     <NotificationButton>
