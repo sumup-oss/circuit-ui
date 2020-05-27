@@ -22,7 +22,7 @@ import Heading from '../../../Heading';
 const ModalHeader = ({ title, onClose, labelCloseButton }) => (
   <CardHeader onClose={onClose} labelCloseButton={labelCloseButton}>
     {title && (
-      <Heading size={Heading.KILO} noMargin>
+      <Heading size="kilo" noMargin>
         {title}
       </Heading>
     )}
