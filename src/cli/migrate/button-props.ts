@@ -13,20 +13,21 @@
  * limitations under the License.
  */
 
-import { Transform } from 'jscodeshift';
+import { Transform, JSCodeshift, Collection } from 'jscodeshift';
 
 import { findImportsByPath, findStyledComponentNames } from './utils';
 
-const transform: Transform = (file, api) => {
-  const j = api.jscodeshift;
-  const root = j(file.source);
-
+function transformFactory(
+  j: JSCodeshift,
+  root: Collection,
+  buttonName: string
+): void {
   const imports = findImportsByPath(j, root, '@sumup/circuit-ui');
 
-  const buttonImport = imports.find(i => i.name === 'Button');
+  const buttonImport = imports.find(i => i.name === buttonName);
 
   if (!buttonImport) {
-    return null;
+    return;
   }
 
   const localName = buttonImport.local;
@@ -66,6 +67,14 @@ const transform: Transform = (file, api) => {
 
     // TODO: Replace flat variant with Anchor component
   });
+}
+
+const transform: Transform = (file, api) => {
+  const j = api.jscodeshift;
+  const root = j(file.source);
+
+  transformFactory(j, root, 'Button');
+  transformFactory(j, root, 'LoadingButton');
 
   return root.toSource();
 };

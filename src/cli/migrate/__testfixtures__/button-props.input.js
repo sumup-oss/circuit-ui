@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Button, Text } from '@sumup/circuit-ui';
+import { Button, LoadingButton, Text } from '@sumup/circuit-ui';
 
 const Primary = () => <Button primary>primary</Button>;
 
@@ -22,7 +22,13 @@ const Styled = () => (
   <>
     <RedButton secondary>Secondary red</RedButton>
     <BlueButton primary>Primary blue</BlueButton>
+    <Text secondary>Text</Text>
+    <BlueText secondary>Text blue</BlueText>
   </>
 );
 
 const Flat = () => <Button flat>Flat</Button>;
+
+const Loading = () => (
+  <LoadingButton secondary>Secondary Loading Button</LoadingButton>
+);
