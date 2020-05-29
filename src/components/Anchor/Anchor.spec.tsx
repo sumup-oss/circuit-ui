@@ -88,6 +88,42 @@ describe('Anchor', () => {
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
     });
+
+    /**
+     * Should accept a working ref for "button"
+     */
+    it('should accept a working ref for a "button"', () => {
+      const tref = React.createRef<any>();
+      const { container } = render(
+        <Anchor ref={tref}>This is a span as button</Anchor>
+      );
+      const button = container.querySelector('span');
+      expect(tref.current).toBe(button);
+    });
+
+    /**
+     * Should accept a working ref for link
+     */
+    it('should accept a working ref for a link', () => {
+      const tref = React.createRef<any>();
+      const { container } = render(
+        <Anchor href="http://sumup.com" ref={tref}>
+          Link button
+        </Anchor>
+      );
+      const anchor = container.querySelector('a');
+      expect(tref.current).toBe(anchor);
+    });
+
+    /**
+     * Should accept a working ref for span
+     */
+    it('should accept a working ref for a span', () => {
+      const tref = React.createRef<any>();
+      const { container } = render(<Anchor ref={tref}>Text button</Anchor>);
+      const span = container.querySelector('span');
+      expect(tref.current).toBe(span);
+    });
   });
 
   describe('accessibility', () => {
