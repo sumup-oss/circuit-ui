@@ -14,8 +14,10 @@
  */
 
 import React, { Fragment } from 'react';
+import { boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { css } from '@emotion/core';
+import { TrackingRoot, TrackingView } from '@sumup/collector';
 
 import docs from './Card.docs.mdx';
 import Card, { CardHeader, CardFooter } from '.';
@@ -79,7 +81,7 @@ export const spacings = () => (
 );
 
 export const withHeader = () => (
-  <Fragment>
+  <TrackingRoot name="root" onDispatch={action('Tracking event')}>
     <Card css={cardStyles}>
       <CardHeader>
         <Header />
@@ -87,13 +89,18 @@ export const withHeader = () => (
       <Content />
     </Card>
 
-    <Card css={cardStyles}>
-      <CardHeader onClose={action('CloseButton clicked')}>
-        <Header />
-      </CardHeader>
-      <Content />
-    </Card>
-  </Fragment>
+    <TrackingView name="view">
+      <Card css={cardStyles}>
+        <CardHeader
+          onClose={action('CloseButton clicked')}
+          enableTracking={boolean('Enable Tracking?', true)}
+        >
+          <Header />
+        </CardHeader>
+        <Content />
+      </Card>
+    </TrackingView>
+  </TrackingRoot>
 );
 
 export const withFooter = () => (

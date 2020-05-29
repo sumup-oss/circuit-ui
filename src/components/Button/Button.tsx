@@ -13,9 +13,17 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ReactNode, ReactElement, FC, SVGProps } from 'react';
+import React, {
+  HTMLProps,
+  ReactNode,
+  ReactElement,
+  FC,
+  SVGProps,
+  MouseEvent
+} from 'react';
 import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
+import { useClickTrigger } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -24,8 +32,9 @@ import {
   focusOutline
 } from '../../styles/style-helpers';
 import { useComponents } from '../ComponentsContext';
+import { TrackingProps } from '../../types/types';
 
-export interface BaseProps {
+export interface BaseProps extends Partial<TrackingProps> {
   children: ReactNode;
   /**
    * Choose from 3 style variants. Default: 'primary'.
@@ -198,8 +207,29 @@ export function Button({
   const { Link } = useComponents();
   const LinkButton = BaseButton.withComponent(Link);
   const ButtonElement = props.href ? LinkButton : BaseButton;
+
+  /** Set default value for tracking dispatch */
+  const { label = undefined, component = 'button', data = undefined } =
+    props.trackingPayload || {};
+  const shouldTracking = label || props.enableTracking || false;
+
+  const dispatch = useClickTrigger();
+  const handler = (e: MouseEvent<any>): void => {
+    dispatch({
+      label,
+      component,
+      data
+    });
+    if (props.onClick) {
+      props.onClick(e);
+    }
+  };
+
   return (
-    <ButtonElement {...props}>
+    <ButtonElement
+      {...props}
+      onClick={shouldTracking ? handler : props.onClick}
+    >
       {Icon && <Icon css={iconStyles} role="presentation" />}
       {children}
     </ButtonElement>

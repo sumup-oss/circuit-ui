@@ -14,7 +14,9 @@
  */
 
 import React, { useState } from 'react';
-import { text } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { TrackingRoot, TrackingView } from '@sumup/collector';
 
 import { Hamburger, HamburgerProps } from './Hamburger';
 
@@ -39,4 +41,19 @@ export const Base = () => (
     labelActive={text('Label active', 'Close menu')}
     labelInActive={text('Label inactive', 'Open menu')}
   />
+);
+
+export const Tracking = () => (
+  <TrackingRoot name="root" onDispatch={action('Tracking event')}>
+    <TrackingView name="view">
+      <HamburgerWithState
+        labelActive="Close menu"
+        labelInActive="Open menu"
+        enableTracking={boolean('Enable Tracking?', false)}
+        trackingPayload={{
+          label: text('Tracking Label', 'trackingId')
+        }}
+      />
+    </TrackingView>
+  </TrackingRoot>
 );

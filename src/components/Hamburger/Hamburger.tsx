@@ -131,15 +131,27 @@ export const Hamburger: FC<HamburgerProps> = ({
   labelActive = 'Close menu',
   labelInActive = 'Open menu',
   ...props
-}: HamburgerProps) => (
-  <Button
-    label={isActive ? labelActive : labelInActive}
-    variant="secondary"
-    size="kilo"
-    {...props}
-  >
-    <Box>
-      <Layers isActive={isActive} />
-    </Box>
-  </Button>
-);
+}: HamburgerProps) => {
+  const { label = undefined, component = 'hamburger', data = undefined } =
+    props.trackingPayload || {};
+
+  return (
+    <Button
+      label={isActive ? labelActive : labelInActive}
+      variant="secondary"
+      size="kilo"
+      {...props}
+      trackingPayload={{
+        label: label
+          ? `${label}-${isActive ? 'inactive' : 'active'}`
+          : undefined,
+        component,
+        data
+      }}
+    >
+      <Box>
+        <Layers isActive={isActive} />
+      </Box>
+    </Button>
+  );
+};

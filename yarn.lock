@@ -2352,6 +2352,11 @@
     telejson "^3.2.0"
     util-deprecate "^1.0.2"
 
+"@sumup/collector@file:.yalc/@sumup/collector":
+  version "0.0.1-1cb84aba"
+  dependencies:
+    tti-polyfill "^0.2.2"
+
 "@sumup/design-tokens@^1.0.0-alpha.2":
   version "1.0.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.0-alpha.2.tgz#43356cc7c3742f9530aeb7f3598c8bfcf07c5a9c"
@@ -16372,6 +16377,11 @@ tsutils@^3.17.1:
   integrity sha512-kzeQ5B8H3w60nFY2g8cJIuH7JDpsALXySGtwGJ0p2LSjLgay3NdIpqq5SoOBe46bKDW2iq25irHCr8wjomUS2g==
   dependencies:
     tslib "^1.8.1"
+
+tti-polyfill@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/tti-polyfill/-/tti-polyfill-0.2.2.tgz#f7bbf71b13afa9edf60c8bb0d0c05f134e1513b9"
+  integrity sha512-URIoJxvsHThbQEJij29hIBUDHx9UNoBBCQVjy7L8PnzkqY8N6lsAI6h8JrT1Wt2lA0avus/DkuiJxd9qpfCpqw==
 
 tty-browserify@0.0.0:
   version "0.0.0"

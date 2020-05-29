@@ -54,6 +54,7 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui#readme",
   "dependencies": {
+    "@sumup/collector": "file:.yalc/@sumup/collector",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "no-scroll": "^2.1.1",
