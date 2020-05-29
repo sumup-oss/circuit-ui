@@ -192,23 +192,29 @@ const BaseButton = styled('button')<ButtonProps>(
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-// export function Button(props: BaseProps & LinkElProps): ReturnType;
-// export function Button(props: BaseProps & ButtonElProps): ReturnType;
-export const Button = React.forwardRef(
-  (
-    { children, icon: Icon, ...props }: ButtonProps,
-    ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
-  ): ReturnType => {
-    const { Link } = useComponents();
-    const LinkButton = BaseButton.withComponent(Link);
-    const ButtonElement = props.href ? LinkButton : BaseButton;
-    return (
-      <ButtonElement {...props} ref={ref}>
-        {Icon && <Icon css={iconStyles} role="presentation" />}
-        {children}
-      </ButtonElement>
-    );
-  }
-);
+export function ButtonComponent(
+  props: BaseProps & LinkElProps,
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+): ReturnType;
+export function ButtonComponent(
+  props: BaseProps & ButtonElProps,
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+): ReturnType;
+export function ButtonComponent(
+  { children, icon: Icon, ...props }: ButtonProps,
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+): ReturnType {
+  const { Link } = useComponents();
+  const LinkButton = BaseButton.withComponent(Link);
+  const ButtonElement = props.href ? LinkButton : BaseButton;
+  return (
+    <ButtonElement {...props} ref={ref}>
+      {Icon && <Icon css={iconStyles} role="presentation" />}
+      {children}
+    </ButtonElement>
+  );
+}
+
+export const Button = React.forwardRef(ButtonComponent);
 
 Button.displayName = 'Button';
