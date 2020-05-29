@@ -30,22 +30,22 @@ yargs
       yrgs
         .option('transform', {
           alias: 't',
-          desc:
-            'A preset configures a group of tools that solve a common problem',
+          desc: 'The transform to be applied to the source code',
           choices: listTransforms(),
           type: 'string',
           required: true
         })
         .option('language', {
           alias: 'l',
-          desc: 'The programming language the project uses',
+          desc: 'The programming language of the files to be transformed',
           choices: ['TypeScript', 'JavaScript'],
           type: 'string',
           required: true
         })
         .option('path', {
           alias: 'p',
-          desc: 'The programming language the project uses',
+          desc:
+            'A path to the folder that contains the files to be transformed',
           type: 'string',
           default: '.'
         }),
