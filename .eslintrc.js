@@ -21,7 +21,8 @@ module.exports = require('@sumup/foundry/eslint')(
         rules: {
           'import/no-unresolved': 'off',
           'notice/notice': 'off',
-          '@typescript-eslint/no-unused-vars': 'off'
+          '@typescript-eslint/no-unused-vars': 'off',
+          'prettier/prettier': 'off'
         }
       },
       {

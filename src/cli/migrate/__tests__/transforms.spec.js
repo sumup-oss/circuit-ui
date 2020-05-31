@@ -22,3 +22,4 @@ defineTest(__dirname, 'list-variant-enum');
 defineTest(__dirname, 'onchange-prop');
 defineTest(__dirname, 'as-prop');
 defineTest(__dirname, 'selector-props');
+defineTest(__dirname, 'exit-animations');
