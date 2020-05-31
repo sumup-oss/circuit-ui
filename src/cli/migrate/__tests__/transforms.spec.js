@@ -18,3 +18,4 @@ import { defineTest } from 'jscodeshift/dist/testUtils';
 jest.autoMockOff();
 
 defineTest(__dirname, 'button-variant-enum');
+defineTest(__dirname, 'list-variant-enum');
