@@ -339,9 +339,9 @@ exports[`Carousel styles should render with children as a function 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
   background-color: #D8DDE1;
   width: 32px;
@@ -369,13 +369,13 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 .circuit-48:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-48:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-48:first-of-type {
@@ -934,9 +934,9 @@ exports[`Carousel styles should render with children as a node 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
   background-color: #D8DDE1;
   width: 32px;
@@ -964,13 +964,13 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 .circuit-48:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-48:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-48:first-of-type {
@@ -1488,9 +1488,9 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
   background-color: #D8DDE1;
   width: 32px;
@@ -1518,13 +1518,13 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 .circuit-48:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-48:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-48:first-of-type {
@@ -2097,9 +2097,9 @@ exports[`Carousel styles should render with default styles 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
   background-color: #D8DDE1;
   width: 32px;
@@ -2127,13 +2127,13 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 .circuit-48:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-48:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-48:first-of-type {

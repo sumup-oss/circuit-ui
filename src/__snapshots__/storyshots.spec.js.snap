@@ -438,9 +438,9 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
 }
 
@@ -461,13 +461,13 @@ HTMLCollection [
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -502,9 +502,9 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -525,13 +525,13 @@ HTMLCollection [
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -566,9 +566,9 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 12px calc(32px - 1px);
 }
 
@@ -589,13 +589,13 @@ HTMLCollection [
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -4104,9 +4104,9 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -4127,13 +4127,13 @@ HTMLCollection [
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-3 {
@@ -4296,9 +4296,9 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -4319,13 +4319,13 @@ HTMLCollection [
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-7 {
@@ -5013,9 +5013,9 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
   background-color: #D8DDE1;
   width: 32px;
@@ -5043,13 +5043,13 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
 }
 
 .circuit-41:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-41:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-41:first-of-type {
@@ -5608,9 +5608,9 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
   background-color: #D8DDE1;
   width: 32px;
@@ -5638,13 +5638,13 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 }
 
 .circuit-48:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-48:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-48:first-of-type {
@@ -5894,9 +5894,9 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
   background-color: #D8DDE1;
   width: 32px;
@@ -5924,13 +5924,13 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
 }
 
 .circuit-3:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-3:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-3:first-of-type {
@@ -6661,9 +6661,9 @@ exports[`Storyshots Components/Modal Base 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -6684,13 +6684,13 @@ exports[`Storyshots Components/Modal Base 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -6729,9 +6729,9 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -6752,13 +6752,13 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -6797,9 +6797,9 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -6820,13 +6820,13 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -6865,9 +6865,9 @@ exports[`Storyshots Components/Modal With Header 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -6888,13 +6888,13 @@ exports[`Storyshots Components/Modal With Header 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -6933,9 +6933,9 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -6956,13 +6956,13 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -7001,9 +7001,9 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -7024,13 +7024,13 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -7165,7 +7165,7 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
 `;
 
 exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
-.circuit-4 {
+.circuit-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7198,6 +7198,65 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   padding: 8px calc(24px - 1px);
 }
 
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-5:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+}
+
 .circuit-4:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -7215,13 +7274,13 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-4:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-6 {
@@ -7393,7 +7452,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
       </li>
       <li>
         <button
-          class="circuit-4"
+          class="circuit-5"
         >
           Confirm
         </button>
@@ -7775,9 +7834,9 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
 }
 
@@ -7798,13 +7857,13 @@ exports[`Storyshots Components/Notification Alert 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-4:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-3 {
@@ -8136,9 +8195,9 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
 }
 
@@ -8159,13 +8218,13 @@ exports[`Storyshots Components/Notification Warning 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-4:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-3 {
@@ -8609,9 +8668,9 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -8635,13 +8694,13 @@ HTMLCollection [
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-1:hover {
@@ -8839,9 +8898,9 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -8864,13 +8923,13 @@ HTMLCollection [
 }
 
 .circuit-13:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-13:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <div
@@ -8968,9 +9027,9 @@ exports[`Storyshots Components/Popover Base 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
 }
 
@@ -8991,13 +9050,13 @@ exports[`Storyshots Components/Popover Base 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 .circuit-1 {
@@ -10700,9 +10759,9 @@ exports[`Storyshots Components/Step Slider 1`] = `
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
   margin: 8px;
 }
@@ -10724,11 +10783,71 @@ exports[`Storyshots Components/Step Slider 1`] = `
 }
 
 .circuit-18:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-18:active {
+  background-color: #EEF0F2;
+  border-color: #5C656F;
+}
+
+.circuit-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
+  margin: 8px;
+}
+
+.circuit-20:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-20:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-20:disabled,
+.circuit-20[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-20:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-18:active {
+.circuit-20:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
@@ -10777,7 +10896,7 @@ exports[`Storyshots Components/Step Slider 1`] = `
     </button>
     <button
       aria-label="play"
-      class="circuit-17 circuit-18"
+      class="circuit-17 circuit-20"
     >
       Play
     </button>
@@ -23470,9 +23589,9 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -23493,13 +23612,13 @@ HTMLCollection [
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button
@@ -23539,9 +23658,9 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
 }
 
@@ -23562,13 +23681,13 @@ HTMLCollection [
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #5C656F;
 }
 
 <button

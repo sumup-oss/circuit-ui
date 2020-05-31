@@ -44,7 +44,6 @@ const SearchInput = ({ children, value, onClear, clearLabel, ...props }) => (
         <ClearButton
           onClick={onClear}
           label={clearLabel}
-          variant="secondary"
           data-testid="input-clear"
           {...renderProps}
         >

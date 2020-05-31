@@ -27,7 +27,7 @@ const buttonStyles = () => css`
  * A generic close button.
  */
 const CloseButton = props => (
-  <IconButton variant="secondary" css={buttonStyles} {...props}>
+  <IconButton css={buttonStyles} {...props}>
     <Cross />
   </IconButton>
 );

@@ -87,7 +87,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const primaryStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'secondary'
 }: ButtonProps & StyleProps) =>
   variant === 'primary' &&
   css`
@@ -109,7 +109,7 @@ const primaryStyles = ({
 
 const secondaryStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'secondary'
 }: ButtonProps & StyleProps) =>
   variant === 'secondary' &&
   css`
@@ -131,7 +131,7 @@ const secondaryStyles = ({
 
 const tertiaryStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'secondary'
 }: ButtonProps & StyleProps) =>
   variant === 'tertiary' &&
   css`
