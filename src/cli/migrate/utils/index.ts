@@ -113,3 +113,22 @@ export function findLocalNames(
   return [localName, ...styledButtons];
 }
 
+export function renameJSXAttribute(
+  j: JSCodeshift,
+  root: Collection,
+  componentName: string,
+  fromName: string,
+  toName: string
+): void {
+  root
+    .findJSXElements(componentName)
+    .find(j.JSXAttribute, {
+      name: {
+        type: 'JSXIdentifier',
+        name: fromName
+      }
+    })
+    .replaceWith(nodePath =>
+      j.jsxAttribute(j.jsxIdentifier(toName), nodePath.node.value)
+    );
+}
