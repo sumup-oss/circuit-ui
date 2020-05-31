@@ -132,7 +132,7 @@ export const Hamburger: FC<HamburgerProps> = ({
   labelInActive = 'Open menu',
   ...props
 }: HamburgerProps) => (
-  <Button label={isActive ? labelActive : labelInActive} size="kilo" {...props}>
+  <Button label={isActive ? labelActive : labelInActive} {...props}>
     <Box>
       <Layers isActive={isActive} />
     </Box>
