@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2020, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,26 +13,14 @@
  * limitations under the License.
  */
 
-import { withProps } from 'recompose';
-
-import { isEnter, isSpacebar } from './key-codes';
-
-export const createOnKeyDown = onClick => {
-  if (!onClick) {
-    return null;
+export function getDisplayName(Component: any): string | undefined {
+  if (typeof Component === 'string') {
+    return Component;
   }
 
-  return event => {
-    // Most clickable HTML elements can also be triggered by pressing the
-    // spacebar or enter key.
-    if (isEnter(event) || isSpacebar(event)) {
-      onClick(event);
-    }
-  };
-};
+  if (!Component) {
+    return undefined;
+  }
 
-export default withProps(({ onClick, ...props }) => ({
-  onKeyDown: createOnKeyDown(onClick),
-  onClick,
-  ...props
-}));
+  return Component.displayName || Component.name || 'Component';
+}

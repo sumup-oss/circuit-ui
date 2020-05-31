@@ -27,11 +27,7 @@ class CardListStory extends Component {
 
   render() {
     const { selected } = this.state;
-    const padding = knobs.select(
-      'padding',
-      [CardList.Item.KILO, CardList.Item.MEGA, CardList.Item.GIGA],
-      CardList.Item.GIGA
-    );
+    const padding = knobs.select('padding', ['kilo', 'mega', 'giga'], 'giga');
 
     return (
       <CardList>
