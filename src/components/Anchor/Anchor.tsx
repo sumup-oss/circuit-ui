@@ -77,15 +77,17 @@ function AnchorComponent(props: AnchorProps, ref?: React.Ref<any>): ReturnType {
   const AnchorLink = BaseAnchor.withComponent(Link);
 
   if (!props.href && !props.onClick) {
-    return <Text as="span" {...props} ref={ref} />;
+    return <Text as="span" {...props} ref={ref} noMargin />;
   }
 
   if (props.href) {
     // typing issues with with
-    return <AnchorLink {...props} ref={ref as React.Ref<any>} />;
+    return <AnchorLink {...props} ref={ref as React.Ref<any>} noMargin />;
   }
 
-  return <BaseAnchor as="button" {...props} ref={ref as React.Ref<any>} />;
+  return (
+    <BaseAnchor as="button" {...props} ref={ref as React.Ref<any>} noMargin />
+  );
 }
 
 /**

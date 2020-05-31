@@ -23559,6 +23559,7 @@ exports[`Storyshots Typography/Anchor As Button 1`] = `
   margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
+  margin-bottom: 0;
   display: inline-block;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -23619,6 +23620,7 @@ exports[`Storyshots Typography/Anchor As Link 1`] = `
   margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
+  margin-bottom: 0;
   display: inline-block;
   -webkit-text-decoration: underline;
   text-decoration: underline;
