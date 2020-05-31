@@ -15,25 +15,17 @@
 
 import { Transform } from 'jscodeshift';
 
-import { findImportsByPath, findStyledComponentNames } from './utils';
+import { findLocalNames } from './utils';
 
 const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  const imports = findImportsByPath(j, root, '@sumup/circuit-ui');
+  const components = findLocalNames(j, root, 'List');
 
-  const listImport = imports.find(i => i.name === 'List');
-
-  if (!listImport) {
-    return;
+  if (!components) {
+    return null;
   }
-
-  const localName = listImport.local;
-
-  const styledList = findStyledComponentNames(j, root, localName);
-
-  const components = [localName, ...styledList];
 
   components.forEach(component => {
     // Change variants from boolean to enum prop

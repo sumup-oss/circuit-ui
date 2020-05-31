@@ -15,26 +15,18 @@
 
 import { Transform, JSCodeshift, Collection } from 'jscodeshift';
 
-import { findImportsByPath, findStyledComponentNames } from './utils';
+import { findLocalNames } from './utils';
 
 function transformFactory(
   j: JSCodeshift,
   root: Collection,
   buttonName: string
 ): void {
-  const imports = findImportsByPath(j, root, '@sumup/circuit-ui');
+  const components = findLocalNames(j, root, buttonName);
 
-  const buttonImport = imports.find(i => i.name === buttonName);
-
-  if (!buttonImport) {
+  if (!components) {
     return;
   }
-
-  const localName = buttonImport.local;
-
-  const styledButtons = findStyledComponentNames(j, root, localName);
-
-  const components = [localName, ...styledButtons];
 
   components.forEach(component => {
     // Change variants from boolean to enum prop
