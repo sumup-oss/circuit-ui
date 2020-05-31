@@ -27,7 +27,7 @@ const Styled = () => (
   </>
 );
 
-const Flat = () => <Button variant="secondary">Flat</Button>;
+const Flat = () => <Button>Flat</Button>;
 
 const Loading = () => (
   <LoadingButton variant="secondary">Secondary Loading Button</LoadingButton>

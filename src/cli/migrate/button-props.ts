@@ -52,7 +52,7 @@ function transformFactory(
         );
     });
 
-    // Replace flat with secondary variant
+    // Remove flat variant
     root
       .findJSXElements(component)
       .find(j.JSXAttribute, {
@@ -61,11 +61,9 @@ function transformFactory(
           name: 'flat'
         }
       })
-      .replaceWith(() =>
-        j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral('secondary'))
-      );
+      .remove();
 
-    // TODO: Replace flat variant with Anchor component
+    // TODO: Replace plain variant with Anchor component
   });
 }
 
