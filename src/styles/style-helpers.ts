@@ -89,7 +89,7 @@ export const textGiga = createTypeHelper('text', 'giga');
 
 /**
  * Visually communicates to the user that an element is disabled
- * and prevent user interactions.
+ * and prevents user interactions.
  */
 export const disableVisually = (): SerializedStyles => css`
   opacity: 0.5;

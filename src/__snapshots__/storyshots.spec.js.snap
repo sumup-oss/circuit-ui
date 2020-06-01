@@ -4444,7 +4444,7 @@ HTMLCollection [
 
 exports[`Storyshots Components/Card With Header 1`] = `
 HTMLCollection [
-  .circuit-5 {
+  .circuit-4 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -4467,7 +4467,7 @@ HTMLCollection [
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-1 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -4498,7 +4498,7 @@ HTMLCollection [
   }
 }
 
-.circuit-4 {
+.circuit-3 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -4507,32 +4507,32 @@ HTMLCollection [
 }
 
 @media (min-width:480px) {
-  .circuit-4 {
+  .circuit-3 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 <div
-    class="circuit-5 circuit-6"
+    class="circuit-4 circuit-5"
     spacing="giga"
   >
     <header
-      class="circuit-2 circuit-3"
+      class="circuit-1 circuit-2"
     >
       <h2
-        class=" circuit-0 circuit-1"
+        class="circuit-0"
       >
         Card heading
       </h2>
     </header>
     <p
-      class="circuit-4"
+      class="circuit-3"
     >
       This is some text showing in my card
     </p>
   </div>,
-  .circuit-7 {
+  .circuit-6 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -4555,7 +4555,7 @@ HTMLCollection [
   margin-bottom: 16px;
 }
 
-.circuit-4 {
+.circuit-3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -4586,7 +4586,7 @@ HTMLCollection [
   }
 }
 
-.circuit-6 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -4595,13 +4595,13 @@ HTMLCollection [
 }
 
 @media (min-width:480px) {
-  .circuit-6 {
+  .circuit-5 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-3 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4635,33 +4635,33 @@ HTMLCollection [
   border: 0;
 }
 
-.circuit-3:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:disabled,
-.circuit-3[disabled] {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-3:active {
+.circuit-2:active {
   background-color: #EEF0F2;
   border-color: #5C656F;
 }
 
-.circuit-2 {
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -4675,19 +4675,19 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-7 circuit-8"
+    class="circuit-6 circuit-7"
     spacing="giga"
   >
     <header
-      class="circuit-4 circuit-5"
+      class="circuit-3 circuit-4"
     >
       <h2
-        class=" circuit-0 circuit-1"
+        class="circuit-0"
       >
         Card heading
       </h2>
       <button
-        class="circuit-3"
+        class="circuit-2"
         data-testid="header-close"
         title="Close"
       >
@@ -4707,14 +4707,14 @@ HTMLCollection [
           />
         </svg>
         <span
-          class="circuit-2"
+          class="circuit-1"
         >
           Close
         </span>
       </button>
     </header>
     <p
-      class="circuit-6"
+      class="circuit-5"
     >
       This is some text showing in my card
     </p>
@@ -6176,7 +6176,7 @@ exports[`Storyshots Components/Carousel/Slide Only Image 1`] = `
 `;
 
 exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
-.circuit-9 {
+.circuit-8 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -6197,11 +6197,11 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
   z-index: 0;
 }
 
-.circuit-5 {
+.circuit-4 {
   width: 100%;
 }
 
-.circuit-7 {
+.circuit-6 {
   box-shadow: 0 0 1px rgba(0,0,0,0.05);
   overflow: hidden;
   will-change: width;
@@ -6214,7 +6214,7 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
   width: 100%;
 }
 
-.circuit-3 {
+.circuit-2 {
   font-weight: 700;
   margin-bottom: 24px;
   font-size: 28px;
@@ -6228,7 +6228,7 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-3 {
+  .circuit-2 {
     font-size: 36px;
     line-height: 44px;
   }
@@ -6238,14 +6238,14 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
   style="width: 50vw;"
 >
   <div
-    class="circuit-9 circuit-10"
+    class="circuit-8 circuit-9"
     width="100%"
   >
     <div
-      class="circuit-7 circuit-8"
+      class="circuit-6 circuit-7"
     >
       <div
-        class="circuit-5 circuit-6"
+        class="circuit-4 circuit-5"
         width="100%"
       >
         <img
@@ -6254,7 +6254,7 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
           src="https://placedog.net/800/600"
         />
         <h2
-          class=" circuit-2 circuit-3 circuit-4"
+          class="circuit-2 circuit-3"
         >
           Get The SumUp Card Reader Today!
         </h2>
@@ -7191,7 +7191,7 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
 `;
 
 exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
-.circuit-5 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7224,33 +7224,33 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   padding: 8px calc(24px - 1px);
 }
 
-.circuit-5:focus {
+.circuit-4:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-4:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover {
+.circuit-4:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-5:active {
+.circuit-4:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
 
-.circuit-7 {
+.circuit-6 {
   list-style-type: none;
   width: 100%;
   -webkit-box-pack: end;
@@ -7259,16 +7259,16 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   justify-content: flex-end;
 }
 
-.circuit-7 > li:not(:last-of-type) {
+.circuit-6 > li:not(:last-of-type) {
   margin-bottom: 16px;
 }
 
-.circuit-7 > li > * {
+.circuit-6 > li > * {
   width: 100%;
 }
 
 @media (min-width:480px) {
-  .circuit-7 {
+  .circuit-6 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -7278,13 +7278,13 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
     flex-wrap: nowrap;
   }
 
-  .circuit-7 > li:not(:last-of-type) {
+  .circuit-6 > li:not(:last-of-type) {
     margin-bottom: 0;
     margin-right: 16px;
   }
 }
 
-.circuit-2 {
+.circuit-1 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -7315,14 +7315,14 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
-.circuit-9 {
+.circuit-8 {
   display: block;
   width: 100%;
   margin-top: 24px;
 }
 
 @media (min-width:480px) {
-  .circuit-9 {
+  .circuit-8 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -7336,7 +7336,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-9 {
+  .circuit-8 {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -7344,7 +7344,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-3 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -7352,13 +7352,13 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-4 {
+  .circuit-3 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-11 {
+.circuit-10 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -7378,7 +7378,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-11 {
+  .circuit-10 {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
@@ -7387,39 +7387,39 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 <div
-  class="circuit-11 circuit-12"
+  class="circuit-10 circuit-11"
   spacing="giga"
 >
   <header
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
   >
     <h2
-      class=" circuit-0 circuit-1"
+      class="circuit-0"
     >
       A modal
     </h2>
   </header>
   <p
-    class="circuit-4"
+    class="circuit-3"
   >
     Some text in the modal body.
   </p>
   <footer
-    class="circuit-9 circuit-10"
+    class="circuit-8 circuit-9"
   >
     <ul
-      class="circuit-7 circuit-8"
+      class="circuit-6 circuit-7"
     >
       <li>
         <button
-          class="circuit-5"
+          class="circuit-4"
         >
           Cancel
         </button>
       </li>
       <li>
         <button
-          class="circuit-5"
+          class="circuit-4"
         >
           Confirm
         </button>
@@ -7430,102 +7430,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 `;
 
 exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
-.circuit-2 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-4 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-4 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-.circuit-5 {
-  background-color: #FFFFFF;
-  border-radius: 4px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 4px 4px 0 rgba(12,15,20,0.06), 0 8px 8px 0 rgba(12,15,20,0.06);
-  padding: 16px 24px;
-  width: 100%;
-}
-
-@media (max-width:479px) {
-  .circuit-5 {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    min-width: initial;
-    position: relative;
-  }
-}
-
-<div
-  class="circuit-5 circuit-6"
-  spacing="giga"
->
-  <header
-    class="circuit-2 circuit-3"
-  >
-    <h2
-      class=" circuit-0 circuit-1"
-    >
-      A title
-    </h2>
-  </header>
-  <p
-    class="circuit-4"
-  >
-    Hello world!
-  </p>
-</div>
-`;
-
-exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = `
-.circuit-4 {
+.circuit-1 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -7557,6 +7462,101 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 .circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-4 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 4px 4px 0 rgba(12,15,20,0.06), 0 8px 8px 0 rgba(12,15,20,0.06);
+  padding: 16px 24px;
+  width: 100%;
+}
+
+@media (max-width:479px) {
+  .circuit-4 {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    min-width: initial;
+    position: relative;
+  }
+}
+
+<div
+  class="circuit-4 circuit-5"
+  spacing="giga"
+>
+  <header
+    class="circuit-1 circuit-2"
+  >
+    <h2
+      class="circuit-0"
+    >
+      A title
+    </h2>
+  </header>
+  <p
+    class="circuit-3"
+  >
+    Hello world!
+  </p>
+</div>
+`;
+
+exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = `
+.circuit-3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7590,33 +7590,33 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   border: 0;
 }
 
-.circuit-3:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:disabled,
-.circuit-3[disabled] {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-3:active {
+.circuit-2:active {
   background-color: #EEF0F2;
   border-color: #5C656F;
 }
 
-.circuit-2 {
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -7629,7 +7629,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   width: 1px;
 }
 
-.circuit-6 {
+.circuit-5 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -7637,13 +7637,13 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 @media (min-width:480px) {
-  .circuit-6 {
+  .circuit-5 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-7 {
+.circuit-6 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -7663,7 +7663,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 @media (max-width:479px) {
-  .circuit-7 {
+  .circuit-6 {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
@@ -7672,19 +7672,19 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 <div
-  class="circuit-7 circuit-8"
+  class="circuit-6 circuit-7"
   spacing="giga"
 >
   <header
-    class="circuit-4 circuit-5"
+    class="circuit-3 circuit-4"
   >
     <h2
-      class=" circuit-0 circuit-1"
+      class="circuit-0"
     >
       A modal
     </h2>
     <button
-      class="circuit-3"
+      class="circuit-2"
       data-testid="header-close"
       title="Close"
     >
@@ -7704,14 +7704,14 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
         />
       </svg>
       <span
-        class="circuit-2"
+        class="circuit-1"
       >
         Close
       </span>
     </button>
   </header>
   <p
-    class="circuit-6"
+    class="circuit-5"
   >
     Some text in the modal body.
   </p>
@@ -7774,7 +7774,7 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 `;
 
 exports[`Storyshots Components/Notification Alert 1`] = `
-.circuit-5 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7807,28 +7807,28 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   padding: 4px calc(16px - 1px);
 }
 
-.circuit-5:focus {
+.circuit-4:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-4:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover {
+.circuit-4:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-5:active {
+.circuit-4:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
@@ -7848,7 +7848,7 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   }
 }
 
-.circuit-8 {
+.circuit-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7867,7 +7867,7 @@ exports[`Storyshots Components/Notification Alert 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-8 {
+  .circuit-7 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -7893,7 +7893,7 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   }
 }
 
-.circuit-6 {
+.circuit-5 {
   display: block;
   padding-left: 24px;
   margin-top: 16px;
@@ -7911,13 +7911,13 @@ exports[`Storyshots Components/Notification Alert 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-6 {
+  .circuit-5 {
     margin-top: 0;
   }
 }
 
 <div
-  class="circuit-8 circuit-9"
+  class="circuit-7 circuit-8"
 >
   <div
     class="circuit-1 circuit-2"
@@ -7940,15 +7940,15 @@ exports[`Storyshots Components/Notification Alert 1`] = `
     </svg>
   </div>
   <h4
-    class=" circuit-3 circuit-4"
+    class="circuit-3"
   >
     Your transaction has failed
   </h4>
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-5 circuit-6"
   >
     <button
-      class="circuit-5"
+      class="circuit-4"
     >
       Try again
     </button>
@@ -7972,7 +7972,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
   }
 }
 
-.circuit-2 {
+.circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -7981,13 +7981,13 @@ exports[`Storyshots Components/Notification Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-2 {
+  .circuit-1 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-3 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8006,7 +8006,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-3 {
+  .circuit-2 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -8014,16 +8014,16 @@ exports[`Storyshots Components/Notification Base 1`] = `
 }
 
 <div
-  class="circuit-3 circuit-4"
+  class="circuit-2 circuit-3"
 >
   <div>
     <h4
-      class=" circuit-0 circuit-1"
+      class="circuit-0"
     >
       New Feature — Intelligent Reporting
     </h4>
     <p
-      class="circuit-2"
+      class="circuit-1"
     >
       Get automatic insights into your business statistics with one click.
     </p>
@@ -8047,7 +8047,7 @@ exports[`Storyshots Components/Notification Success 1`] = `
   }
 }
 
-.circuit-5 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8066,7 +8066,7 @@ exports[`Storyshots Components/Notification Success 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-5 {
+  .circuit-4 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -8097,7 +8097,7 @@ exports[`Storyshots Components/Notification Success 1`] = `
 }
 
 <div
-  class="circuit-5 circuit-6"
+  class="circuit-4 circuit-5"
 >
   <div
     class="circuit-1 circuit-2"
@@ -8127,7 +8127,7 @@ exports[`Storyshots Components/Notification Success 1`] = `
     </svg>
   </div>
   <h4
-    class=" circuit-3 circuit-4"
+    class="circuit-3"
   >
     Transaction successfully refunded
   </h4>
@@ -8135,7 +8135,7 @@ exports[`Storyshots Components/Notification Success 1`] = `
 `;
 
 exports[`Storyshots Components/Notification Warning 1`] = `
-.circuit-5 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8168,28 +8168,28 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   padding: 4px calc(16px - 1px);
 }
 
-.circuit-5:focus {
+.circuit-4:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-4:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-4:disabled,
+.circuit-4[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover {
+.circuit-4:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-5:active {
+.circuit-4:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
@@ -8209,7 +8209,7 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   }
 }
 
-.circuit-8 {
+.circuit-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8228,7 +8228,7 @@ exports[`Storyshots Components/Notification Warning 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-8 {
+  .circuit-7 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -8258,7 +8258,7 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   color: #D8A413;
 }
 
-.circuit-6 {
+.circuit-5 {
   display: block;
   padding-left: 24px;
   margin-top: 16px;
@@ -8276,13 +8276,13 @@ exports[`Storyshots Components/Notification Warning 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-6 {
+  .circuit-5 {
     margin-top: 0;
   }
 }
 
 <div
-  class="circuit-8 circuit-9"
+  class="circuit-7 circuit-8"
 >
   <div
     class="circuit-1 circuit-2"
@@ -8305,15 +8305,15 @@ exports[`Storyshots Components/Notification Warning 1`] = `
     </svg>
   </div>
   <h4
-    class=" circuit-3 circuit-4"
+    class="circuit-3"
   >
     You still need to verify your account
   </h4>
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-5 circuit-6"
   >
     <button
-      class="circuit-5"
+      class="circuit-4"
     >
       Verify account
     </button>
@@ -8337,7 +8337,7 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   }
 }
 
-.circuit-2 {
+.circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -8346,13 +8346,13 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-2 {
+  .circuit-1 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-3 {
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8371,58 +8371,58 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-3 {
+  .circuit-2 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
   }
 }
 
-.circuit-10 {
+.circuit-9 {
   min-height: 5rem;
 }
 
-.circuit-9 {
+.circuit-8 {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 }
 
-.circuit-7 {
+.circuit-6 {
   width: 100%;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
 }
 
-.circuit-5 {
+.circuit-4 {
   padding: 16px 24px;
 }
 
 <div
-  class="circuit-10"
+  class="circuit-9"
 >
   <div
-    class="circuit-9"
+    class="circuit-8"
   >
     <div
       aria-live="polite"
-      class="circuit-7 circuit-8"
+      class="circuit-6 circuit-7"
     >
       <div
-        class="circuit-5 circuit-6"
+        class="circuit-4 circuit-5"
       >
         <div
-          class="circuit-3 circuit-4"
+          class="circuit-2 circuit-3"
         >
           <div>
             <h4
-              class=" circuit-0 circuit-1"
+              class="circuit-0"
             >
               New Feature — Intelligent Reporting
             </h4>
             <p
-              class="circuit-2"
+              class="circuit-1"
             >
               Get automatic insights into your business statistics with one click.
             </p>
@@ -8450,7 +8450,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   }
 }
 
-.circuit-5 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8469,7 +8469,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-5 {
+  .circuit-4 {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -8499,7 +8499,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   color: #47995A;
 }
 
-.circuit-9 {
+.circuit-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8512,22 +8512,22 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   max-width: calc(100vw - (24px * 2));
 }
 
-.circuit-9 > * {
+.circuit-8 > * {
   margin-top: 16px;
 }
 
-.circuit-9 > *:first-child {
+.circuit-8 > *:first-child {
   margin-top: 0;
 }
 
 @media (max-width:767px) {
-  .circuit-9 {
+  .circuit-8 {
     max-width: none;
     width: 100%;
   }
 }
 
-.circuit-7 {
+.circuit-6 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -8547,14 +8547,14 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 
 <ul
   aria-live="polite"
-  class="circuit-9 circuit-10"
+  class="circuit-8 circuit-9"
 >
   <li
-    class="circuit-7 circuit-8"
+    class="circuit-6 circuit-7"
     spacing="mega"
   >
     <div
-      class="circuit-5 circuit-6"
+      class="circuit-4 circuit-5"
     >
       <div
         class="circuit-1 circuit-2"
@@ -8584,7 +8584,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
         </svg>
       </div>
       <h4
-        class=" circuit-3 circuit-4"
+        class="circuit-3"
       >
         Transaction successfully refunded
       </h4>
@@ -10082,7 +10082,7 @@ exports[`Storyshots Components/Spinner Base 1`] = `
 `;
 
 exports[`Storyshots Components/Step Form 1`] = `
-.circuit-28 {
+.circuit-27 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10115,51 +10115,51 @@ exports[`Storyshots Components/Step Form 1`] = `
   padding: 8px calc(24px - 1px);
 }
 
-.circuit-28:focus {
+.circuit-27:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-28:focus::-moz-focus-inner {
+.circuit-27:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-28:disabled,
-.circuit-28[disabled] {
+.circuit-27:disabled,
+.circuit-27[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-28:hover {
+.circuit-27:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-28:active {
+.circuit-27:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
 
-.circuit-8 {
+.circuit-7 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-14 {
+.circuit-13 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-14,
-label + .circuit-14 {
+label > .circuit-13,
+label + .circuit-13 {
   margin-top: 4px;
 }
 
-.circuit-12 {
+.circuit-11 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -10187,7 +10187,7 @@ label + .circuit-14 {
   }
 }
 
-.circuit-10 {
+.circuit-9 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -10204,49 +10204,49 @@ label + .circuit-14 {
   padding-right: calc( 12px + 16px + 12px );
 }
 
-.circuit-10:focus,
-.circuit-10:active {
+.circuit-9:focus,
+.circuit-9:active {
   border: 1px solid #3388FF;
   outline: none;
 }
 
-.circuit-10::-webkit-input-placeholder {
+.circuit-9::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-10::-moz-placeholder {
+.circuit-9::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-10:-ms-input-placeholder {
+.circuit-9:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-10::placeholder {
+.circuit-9::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-4 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   margin-left: 8px;
 }
 
-.circuit-29 {
+.circuit-28 {
   margin: 0 auto;
   width: 90%;
   max-width: 300px;
 }
 
-.circuit-6 {
+.circuit-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10258,7 +10258,7 @@ label + .circuit-14 {
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FAFBFC;
   border: 1px solid #D8DDE1;
   border-radius: 4px;
@@ -10268,7 +10268,7 @@ label + .circuit-14 {
   overflow: hidden;
 }
 
-.circuit-2::after {
+.circuit-1::after {
   content: '';
   display: block;
   position: absolute;
@@ -10285,10 +10285,10 @@ label + .circuit-14 {
 }
 
 <div
-  class="circuit-29 circuit-30"
+  class="circuit-28 circuit-29"
 >
   <h2
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     Step 
     1
@@ -10296,74 +10296,74 @@ label + .circuit-14 {
     3
   </h2>
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-5 circuit-6"
   >
     <span
       aria-labelledby="progress-bar_52"
       aria-valuemax="3"
       aria-valuemin="0"
       aria-valuenow="1"
-      class="circuit-2 circuit-3"
+      class="circuit-1 circuit-2"
       max="3"
       role="progressbar"
       value="1"
     />
     <span
-      class="circuit-4 circuit-5"
+      class="circuit-3 circuit-4"
       id="progress-bar_52"
     />
   </div>
   <section>
     <label
-      class="circuit-8 circuit-9"
+      class="circuit-7 circuit-8"
       for="first"
     >
       First Name
     </label>
     <label
-      class="circuit-8 circuit-9"
+      class="circuit-7 circuit-8"
       for="first"
     >
       <div
-        class="circuit-14 circuit-15"
+        class="circuit-13 circuit-14"
       >
         <input
           aria-invalid="false"
-          class="circuit-10 circuit-11"
+          class="circuit-9 circuit-10"
           id="first"
           placeholder="John"
         />
         <div
-          class="circuit-12 circuit-13"
+          class="circuit-11 circuit-12"
         />
       </div>
     </label>
     <label
-      class="circuit-8 circuit-9"
+      class="circuit-7 circuit-8"
       for="second"
     >
       Second Name
     </label>
     <label
-      class="circuit-8 circuit-9"
+      class="circuit-7 circuit-8"
       for="second"
     >
       <div
-        class="circuit-14 circuit-15"
+        class="circuit-13 circuit-14"
       >
         <input
           aria-invalid="false"
-          class="circuit-10 circuit-11"
+          class="circuit-9 circuit-10"
           id="second"
           placeholder="Doe"
         />
         <div
-          class="circuit-12 circuit-13"
+          class="circuit-11 circuit-12"
         />
       </div>
     </label>
     <button
-      class="circuit-28"
+      class="circuit-27"
     >
       Next
     </button>
@@ -23488,7 +23488,7 @@ exports[`Storyshots Typography/Heading Base 1`] = `
 }
 
 <h1
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   This is a heading
 </h1>
@@ -23511,7 +23511,7 @@ HTMLCollection [
 }
 
 <h2
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     zetta
@@ -23532,7 +23532,7 @@ HTMLCollection [
 }
 
 <h2
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     exa
@@ -23553,7 +23553,7 @@ HTMLCollection [
 }
 
 <h2
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     peta
@@ -23574,7 +23574,7 @@ HTMLCollection [
 }
 
 <h2
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     tera
@@ -23595,7 +23595,7 @@ HTMLCollection [
 }
 
 <h2
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     giga
@@ -23616,7 +23616,7 @@ HTMLCollection [
 }
 
 <h2
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     mega
@@ -23637,7 +23637,7 @@ HTMLCollection [
 }
 
 <h2
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     kilo
@@ -23651,22 +23651,22 @@ exports[`Storyshots Typography/List Base 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
+  margin-bottom: 8px;
+  margin-left: 12px;
 }
 
 .circuit-0 ul,
 .circuit-0 ol {
-  margin-left: 4px;
+  margin-left: 12px;
 }
 
 <ul
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   <li>
     This is a list
@@ -23682,22 +23682,22 @@ exports[`Storyshots Typography/List Nested 1`] = `
   font-weight: 400;
   margin-bottom: 16px;
   padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
+  margin-bottom: 8px;
+  margin-left: 12px;
 }
 
 .circuit-0 ul,
 .circuit-0 ol {
-  margin-left: 4px;
+  margin-left: 12px;
 }
 
 <ul
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   <li>
     This is a list
@@ -23706,44 +23706,13 @@ exports[`Storyshots Typography/List Nested 1`] = `
     A very fine list
   </li>
   <ul
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <li>
       Sometimes a nested list
     </li>
   </ul>
 </ul>
-`;
-
-exports[`Storyshots Typography/List Ordered 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  padding-left: 12px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.circuit-0 li {
-  margin-bottom: 12px;
-  margin-left: 4px;
-}
-
-.circuit-0 ul,
-.circuit-0 ol {
-  margin-left: 4px;
-}
-
-<ol
-  class="circuit-0 circuit-1"
->
-  <li>
-    This is a list
-  </li>
-  <li>
-    A very fine list
-  </li>
-</ol>
 `;
 
 exports[`Storyshots Typography/List Size 1`] = `
@@ -23767,7 +23736,7 @@ HTMLCollection [
 }
 
 <ul
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <li>
       This is a list
@@ -23795,7 +23764,7 @@ HTMLCollection [
 }
 
 <ul
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <li>
       This is a list
@@ -23823,7 +23792,7 @@ HTMLCollection [
 }
 
 <ul
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     <li>
       This is a list
@@ -23832,6 +23801,67 @@ HTMLCollection [
       A very fine list
     </li>
   </ul>,
+]
+`;
+
+exports[`Storyshots Typography/List Variant 1`] = `
+HTMLCollection [
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ul
+    class="circuit-0"
+  >
+    <li>
+      This is a list
+    </li>
+    <li>
+      A very fine list
+    </li>
+  </ul>,
+  .circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-0 li {
+  margin-bottom: 8px;
+  margin-left: 12px;
+}
+
+.circuit-0 ul,
+.circuit-0 ol {
+  margin-left: 12px;
+}
+
+<ol
+    class="circuit-0"
+  >
+    <li>
+      This is a list
+    </li>
+    <li>
+      A very fine list
+    </li>
+  </ol>,
 ]
 `;
 

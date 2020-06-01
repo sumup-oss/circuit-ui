@@ -20,7 +20,7 @@ import Text from '.';
 import docs from './Text.docs.mdx';
 
 const elements = ['p', 'article', 'div', 'span', 'strong', 'em'];
-const sizes: ['kilo', 'mega', 'giga'] = ['kilo', 'mega', 'giga'];
+const sizes = ['kilo', 'mega', 'giga'] as const;
 
 const content =
   'An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.';

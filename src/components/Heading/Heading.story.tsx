@@ -14,21 +14,13 @@
  */
 
 import React from 'react';
-import { select, boolean, text } from '@storybook/addon-knobs/react';
+import { select, boolean, text } from '@storybook/addon-knobs';
 
-import Heading from './Heading';
+import { Heading } from './Heading';
 import docs from './Heading.docs.mdx';
 
 const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-const sizes = [
-  Heading.ZETTA,
-  Heading.EXA,
-  Heading.PETA,
-  Heading.TERA,
-  Heading.GIGA,
-  Heading.MEGA,
-  Heading.KILO
-];
+const sizes = ['zetta', 'exa', 'peta', 'tera', 'giga', 'mega', 'kilo'] as const;
 
 export default {
   title: 'Typography/Heading',

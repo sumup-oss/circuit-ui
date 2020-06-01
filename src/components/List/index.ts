@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Heading from './Heading';
+import { List } from './List';
 
-export default Heading;
+export default List;
