@@ -3,8 +3,8 @@
   "sideEffects": false,
   "version": "0.0.0-semantically-released",
   "description": "SumUp's React UI component library",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
   "files": [
     "dist",
     "README.md"
@@ -13,7 +13,7 @@
     "commit": "git-cz",
     "start": "start-storybook -p 6006 -s .storybook/public",
     "dev": "tsc --watch",
-    "build": "tsc",
+    "build": "tsc && tsc --project tsconfig.cjs.json",
     "create:component": "foundry run plop component",
     "static-styles": "cross-env BABEL_ENV=static babel-node --extensions '.js,.ts,.tsx' ./scripts/static-styles/cli.js",
     "build:docs": "yarn build:storybook && yarn build:stylesheets",
