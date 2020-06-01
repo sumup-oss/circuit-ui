@@ -58,7 +58,7 @@ export function migrate({ transform, language, path }: MigrateArgs): void {
 export function listTransforms(): string[] {
   return fs
     .readdirSync(TRANSFORM_DIR)
-    .filter(fname => fname.endsWith('.js'))
-    .filter(fname => fname !== 'index.js')
-    .map(fname => fname.replace('.js', ''));
+    .filter(filename => filename.endsWith('.js'))
+    .filter(filename => filename !== 'index.js')
+    .map(filename => filename.replace('.js', ''));
 }
