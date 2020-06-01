@@ -63,7 +63,6 @@ exports[`Storyshots Components/Badge Base 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  color="neutral"
 >
   Badge
 </div>
@@ -103,7 +102,6 @@ exports[`Storyshots Components/Badge Circular 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  color="primary"
 >
   42
 </div>
@@ -149,7 +147,6 @@ exports[`Storyshots Components/Badge Clickable 1`] = `
 
 <button
   class="circuit-0 circuit-1"
-  color="primary"
 >
   Click me
 </button>
@@ -176,7 +173,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="neutral"
   >
     Neutral
   </div>,
@@ -199,7 +195,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="primary"
   >
     Primary
   </div>,
@@ -222,7 +217,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="success"
   >
     Success
   </div>,
@@ -245,7 +239,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="warning"
   >
     Warning
   </div>,
@@ -268,7 +261,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="danger"
   >
     Danger
   </div>,
@@ -3842,7 +3834,6 @@ exports[`Storyshots Components/Card Base 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -3873,7 +3864,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    spacing="giga"
   />,
   .circuit-0 {
   background-color: #FFFFFF;
@@ -3900,7 +3890,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    spacing="giga"
   />,
   .circuit-0 {
   background-color: #FFFFFF;
@@ -3927,7 +3916,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    spacing="giga"
   />,
 ]
 `;
@@ -3965,7 +3953,6 @@ HTMLCollection [
 
 <div
     class="circuit-1 circuit-2"
-    spacing="mega"
   >
     <div
       class="circuit-0"
@@ -4002,7 +3989,6 @@ HTMLCollection [
 
 <div
     class="circuit-1 circuit-2"
-    spacing="giga"
   >
     <div
       class="circuit-0"
@@ -4175,7 +4161,6 @@ HTMLCollection [
 
 <div
     class="circuit-7 circuit-8"
-    spacing="giga"
   >
     <p
       class="circuit-0"
@@ -4358,7 +4343,6 @@ HTMLCollection [
 
 <div
     class="circuit-7 circuit-8"
-    spacing="giga"
   >
     <p
       class="circuit-0"
@@ -4464,7 +4448,6 @@ HTMLCollection [
 
 <div
     class="circuit-4 circuit-5"
-    spacing="giga"
   >
     <header
       class="circuit-1 circuit-2"
@@ -4625,7 +4608,6 @@ HTMLCollection [
 
 <div
     class="circuit-6 circuit-7"
-    spacing="giga"
   >
     <header
       class="circuit-3 circuit-4"
@@ -4746,7 +4728,6 @@ exports[`Storyshots Components/Card/CardList Base 1`] = `
 
 <div
   class="circuit-10 circuit-11"
-  spacing="giga"
 >
   <div
     aria-selected="false"
@@ -6954,7 +6935,6 @@ exports[`Storyshots Components/Modal/Embedded Base 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 >
   Hello World!
 </div>
@@ -7303,7 +7283,6 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 
 <div
   class="circuit-10 circuit-11"
-  spacing="giga"
 >
   <header
     class="circuit-1 circuit-2"
@@ -7420,7 +7399,6 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 
 <div
   class="circuit-4 circuit-5"
-  spacing="giga"
 >
   <header
     class="circuit-1 circuit-2"
@@ -7588,7 +7566,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 
 <div
   class="circuit-6 circuit-7"
-  spacing="giga"
 >
   <header
     class="circuit-3 circuit-4"
@@ -7678,7 +7655,6 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 
 <div
   class="circuit-1 circuit-2"
-  spacing="giga"
 >
   <p
     class="circuit-0"
@@ -8470,7 +8446,6 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 >
   <li
     class="circuit-6 circuit-7"
-    spacing="mega"
   >
     <div
       class="circuit-4 circuit-5"
@@ -12791,7 +12766,6 @@ tbody .circuit-6:last-child td {
           >
             <div
               class="circuit-14 circuit-15"
-              color="danger"
             >
               Fruit
             </div>
@@ -12822,7 +12796,6 @@ tbody .circuit-6:last-child td {
           >
             <div
               class="circuit-24 circuit-15"
-              color="success"
             >
               Vegetable
             </div>
@@ -12853,7 +12826,6 @@ tbody .circuit-6:last-child td {
           >
             <div
               class="circuit-34 circuit-15"
-              color="warning"
             >
               Legume
             </div>
@@ -15092,7 +15064,6 @@ exports[`Storyshots Forms/InlineMessage Base 1`] = `
 
 <div
   class="circuit-3 circuit-4"
-  spacing="giga"
 >
   <p
     class="circuit-0 circuit-1"
@@ -20894,7 +20865,6 @@ exports[`Storyshots Layout/Grid/Col Col 1`] = `
 >
   <div
     class="circuit-0 circuit-1"
-    span="12"
   >
     Column
   </div>
@@ -21168,7 +21138,6 @@ exports[`Storyshots Layout/Grid/Grid Responsive Columns 1`] = `
       </div>
       <div
         class="circuit-12 circuit-1"
-        span="6"
       >
         half
       </div>
@@ -21542,19 +21511,16 @@ exports[`Storyshots Layout/Grid/Grid Responsive Skipping 1`] = `
     >
       <div
         class="circuit-0 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-4 circuit-1"
-        span="3"
       >
         skip mobile
       </div>
@@ -21564,13 +21530,11 @@ exports[`Storyshots Layout/Grid/Grid Responsive Skipping 1`] = `
     >
       <div
         class="circuit-8 circuit-1"
-        span="6"
       >
         first column
       </div>
       <div
         class="circuit-10 circuit-1"
-        span="6"
       >
         second column
       </div>
@@ -21923,19 +21887,16 @@ exports[`Storyshots Layout/Grid/Grid Skipping Columns 1`] = `
     >
       <div
         class="circuit-0 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-4 circuit-1"
-        span="3"
       >
         Col 3
       </div>
@@ -21945,13 +21906,11 @@ exports[`Storyshots Layout/Grid/Grid Skipping Columns 1`] = `
     >
       <div
         class="circuit-8 circuit-1"
-        span="6"
       >
         First column
       </div>
       <div
         class="circuit-10 circuit-1"
-        span="6"
       >
         Second Column
       </div>
@@ -22363,37 +22322,31 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
@@ -22403,25 +22356,21 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 3
       </div>
@@ -22431,19 +22380,16 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-24 circuit-1"
-        span="4"
       >
         Col 4
       </div>
       <div
         class="circuit-24 circuit-1"
-        span="4"
       >
         Col 4
       </div>
       <div
         class="circuit-24 circuit-1"
-        span="4"
       >
         Col 4
       </div>
@@ -22453,31 +22399,26 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-24 circuit-1"
-        span="4"
       >
         Col 4
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-38 circuit-1"
-        span="1"
       >
         1
       </div>
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 4
       </div>
@@ -22487,13 +22428,11 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-44 circuit-1"
-        span="6"
       >
         Col 6
       </div>
       <div
         class="circuit-44 circuit-1"
-        span="6"
       >
         Col 6
       </div>
@@ -22618,19 +22557,16 @@ exports[`Storyshots Layout/Grid/Row Base 1`] = `
 >
   <div
     class="circuit-0 circuit-1"
-    span="4"
   >
     Col 4
   </div>
   <div
     class="circuit-0 circuit-1"
-    span="4"
   >
     Col 4
   </div>
   <div
     class="circuit-0 circuit-1"
-    span="4"
   >
     Col 4
   </div>

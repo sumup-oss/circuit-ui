@@ -15,6 +15,7 @@
 
 import React, { HTMLProps, ReactNode, ReactElement } from 'react';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-helpers';
@@ -70,7 +71,9 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const BaseAnchor = styled(Text)<AnchorProps>(baseStyles);
+const BaseAnchor = styled(Text, {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+})<AnchorProps>(baseStyles);
 
 function AnchorComponent(props: AnchorProps, ref?: React.Ref<any>): ReturnType {
   const { Link } = useComponents();

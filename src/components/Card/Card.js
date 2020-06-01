@@ -16,6 +16,7 @@
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import {
@@ -73,11 +74,9 @@ const spacingStyles = ({ theme, spacing }) => {
 /**
  * Card component that is used for displaying content on a grid.
  */
-const Card = styled('div')`
-  ${baseStyles};
-  ${shadowStyles};
-  ${spacingStyles};
-`;
+const Card = styled('div', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'spacing'
+})(baseStyles, shadowStyles, spacingStyles);
 
 Card.SINGLE = SINGLE;
 Card.DOUBLE = DOUBLE;

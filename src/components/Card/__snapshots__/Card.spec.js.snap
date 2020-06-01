@@ -21,7 +21,6 @@ exports[`Card should render with default styles 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -46,7 +45,6 @@ exports[`Card should render with shadow styles 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -71,7 +69,6 @@ exports[`Card should render with shadow styles 2`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -96,7 +93,6 @@ exports[`Card should render with shadow styles 3`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -121,7 +117,6 @@ exports[`Card should render with spacing styles 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="mega"
 />
 `;
 
@@ -146,6 +141,5 @@ exports[`Card should render with spacing styles 2`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
