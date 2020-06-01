@@ -13,7 +13,7 @@
 
 ## 🤖 Codemods
 
-Some of the changes in this guide can be automated with _codemods_, small scripts that modify the source code automatically. Changes that can be codemodded are marked with a robot emoji (🤖) and the name of the transform (e.g. _button-props_). The codemods are built with [jscodeshift](https://github.com/facebook/jscodeshift) and can be run through the Circuit UI CLI. Here is an overview of all available options (you can view this help menu by running `yarn circuit-ui migrate --help`):
+Some of the changes in this guide can be automated with _codemods_, small scripts that modify your app's source code automatically. Changes that can be codemodded are marked with a robot emoji (🤖) and the name of the transform (e.g. _button-variant-enum_). The codemods are built with [jscodeshift](https://github.com/facebook/jscodeshift) and can be run through the CLI that ships with Circuit UI. Here is an overview of all available options (you can view this help menu by running `yarn circuit-ui migrate --help`):
 
 ```sh
 yarn circuit-ui migrate
@@ -21,8 +21,6 @@ yarn circuit-ui migrate
 Automatically transforms your source code to Circuit UI's latest APIs
 
 Options:
-  --help           Show help                                           [boolean]
-  --version        Show version number                                 [boolean]
   --transform, -t  The transform to be applied to the source code
                                    [string] [required] [choices: "button-props"]
   --language, -l   The programming language of the files to be transformed
@@ -99,21 +97,21 @@ React [`ref`s](https://reactjs.org/docs/refs-and-the-dom.html) allow you to acce
 ### Changed components
 
 - The **GlobalStyles** component no longer accepts a `custom` prop. Use Emotion's [Global](https://emotion.sh/docs/globals) component instead.
-- 🤖 The **RadioButton** and **Switch** components no longer accept the `onToggle` prop. Use the `onChange` prop instead.
+- The **RadioButton** and **Switch** components no longer accept the `onToggle` prop. Use the `onChange` prop instead (🤖 _onchange-prop_)
 - The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead.
-- 🤖 The **Heading**, **SubHeading**, **Text**, and **Input** components no longer accept the `element` prop. Emotion 10 introduced the ability to change the HTML element. Use the `as` prop instead.
-- 🤖 The **Selector** component no longer accepts the `onClick` and `selected` props. Use the `onChange` and `checked` props instead. The `value` and `name` have been added as required props.
+- The **Heading**, **SubHeading**, **Text**, and **Input** components no longer accept the `element` prop. Emotion 10 introduced the ability to change the HTML element. Use the `as` prop instead (🤖 _as-prop_)
+- The **Selector** component no longer accepts the `onClick` and `selected` props. Use the `onChange` and `checked` props instead (🤖 _selector-props_). The `value` and `name` have been added as required props.
 - The **RadioButtonGroup** component's `label` property inside the `options` prop has been renamed to `children`.
 - The **Hamburger** component's `light` prop has been removed. Set the color through CSS instead.
-- The **LoadingButton**'s exit animations have been removed. An action's success or error result should be communicated outside the button.
-- 🤖 The `flat` **Button** variant has been removed (🤖 _button props_)
+- The `primary` and `secondary` **Button** boolean props have been removed. Use the `variant` enum prop instead (🤖 _button-variant-enum_)
 - The `plain` **Button** prop has been removed. Use the new Anchor component or the `tertiary` Button variant instead.
+- The `flat` **Button** variant has been removed (🤖 _button-variant-enum_)
+- The **LoadingButton**'s exit animations have been removed. An action's success or error result should be communicated outside the button (🤖 _exit-animations_)
 - The **Button** component doesn't have static properties anymore ...
-- The `primary` and `secondary` **Button** boolean props have been removed. Use the `variant` enum prop instead (🤖 _button props_)
 - combine label with form input components
-- 🤖 The **List** component's `ordered` prop has been replaced by the `variant` enum prop.
+- The **List** component's `ordered` prop has been replaced by the `variant` enum prop (🤖 _list-variant-enum_)
 - The **List** component's default size is now `mega` to match the Text component.
-- 🤖 The Heading component doesn't export sizes anymore. Instead of writing `size={Heading.GIGA}`, write `size="giga"`. Button, Text ...
+- 🤖 The **Heading** component doesn't export sizes anymore. Instead of writing `size={Heading.GIGA}`, write `size="giga"`. Button, Text ...
 
 ### Utilities
 
