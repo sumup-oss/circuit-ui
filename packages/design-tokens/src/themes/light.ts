@@ -96,7 +96,8 @@ const primary = {
 };
 
 const misc = {
-  shadow: '#0C0F14',
+  shadow: 'rgba(12, 15, 20, 0.07)',
+  overlay: 'rgba(12, 15, 20, 0.21)',
   bodyBg: neutrals.n100,
   bodyColor: black,
   danger: reds.r500,

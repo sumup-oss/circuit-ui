@@ -77,6 +77,7 @@ export type Colors = {
   p900: string;
   // Misc
   shadow: string;
+  overlay: string;
   bodyBg: string;
   bodyColor: string;
   danger: string;
