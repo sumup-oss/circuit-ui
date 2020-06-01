@@ -3,7 +3,7 @@
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -551,7 +551,7 @@ tbody .circuit-20:last-child td {
 exports[`Table Style tests should render a collapsed table 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -1100,7 +1100,7 @@ tbody .circuit-20:last-child td {
 exports[`Table Style tests should render a condensed table 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -1828,7 +1828,7 @@ tbody .circuit-18:last-child td {
 .circuit-50 {
   position: relative;
   height: 100%;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 @media (max-width:767px) {
@@ -2068,7 +2068,7 @@ tbody .circuit-18:last-child td {
 exports[`Table Style tests should render with default styles 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -2616,7 +2616,7 @@ tbody .circuit-20:last-child td {
 exports[`Table Style tests should render with rowHeader styles 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -3469,7 +3469,7 @@ tbody .circuit-20:last-child td {
 
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   box-shadow: none;
 }
 

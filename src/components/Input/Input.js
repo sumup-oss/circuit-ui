@@ -18,10 +18,14 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { find, identity } from 'lodash/fp';
-import { size, hideVisually } from 'polished';
+
 import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
 
-import { textMega, disableVisually } from '../../styles/style-helpers';
+import {
+  textMega,
+  disableVisually,
+  hideVisually
+} from '../../styles/style-helpers';
 import { directions } from '../../styles/constants';
 import { childrenPropType } from '../../util/shared-prop-types';
 
@@ -164,7 +168,8 @@ const prefixStyles = theme => css`
   pointer-events: none;
   color: ${theme.colors.n700};
   padding: ${theme.spacings.kilo};
-  ${size(theme.spacings.peta)};
+  height: ${theme.spacings.peta};
+  width: ${theme.spacings.peta};
 `;
 
 /**
@@ -179,7 +184,8 @@ const suffixStyles = theme => css`
   pointer-events: none;
   color: ${theme.colors.n700};
   padding: ${theme.spacings.kilo};
-  ${size(theme.spacings.peta)};
+  height: ${theme.spacings.peta};
+  width: ${theme.spacings.peta};
 `;
 
 const tooltipBaseStyles = css`

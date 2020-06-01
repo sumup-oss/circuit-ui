@@ -17,13 +17,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { hideVisually } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import {
   shadowSingle,
   shadowDouble,
-  focusOutline
+  focusOutline,
+  hideVisually
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 
@@ -58,6 +58,7 @@ const baseStyles = ({ theme }) => css`
     height: 100%;
     border-radius: ${theme.borderRadius.giga};
     border: ${theme.borderWidth.kilo} solid ${theme.colors.n500};
+    transition: border 0.1s ease-in-out;
   }
 
   &:hover {

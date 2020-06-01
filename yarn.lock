@@ -2564,10 +2564,10 @@
     telejson "^3.2.0"
     util-deprecate "^1.0.2"
 
-"@sumup/design-tokens@^1.0.0-alpha.2":
-  version "1.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.0-alpha.2.tgz#43356cc7c3742f9530aeb7f3598c8bfcf07c5a9c"
-  integrity sha512-9OUL3WqpN48IS04Cj9HAYWZR09DoxFNY8jG6pn+B/nrxDWnOO0fpa1Wq/UqCZ583NKuMoiSA2v4JJ0Bo8kBhRQ==
+"@sumup/design-tokens@^1.0.0-alpha.3":
+  version "1.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.0-alpha.3.tgz#d1c490c3692da63ab6131c135a45f4a125af5bad"
+  integrity sha512-Cbbzu5rsHfZSPzpCHbOEx/SMF+cv8ejHy7cF0PtkGSyylB/yBmuHScEH0Ga9jVqg9GoZ8OKMfQoOGY/1r0brKg==
 
 "@sumup/foundry@^2.1.0":
   version "2.1.0"
@@ -13196,7 +13196,7 @@ pnp-webpack-plugin@1.5.0:
   dependencies:
     ts-pnp "^1.1.2"
 
-polished@^3.1.0, polished@^3.3.1:
+polished@^3.3.1:
   version "3.4.4"
   resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.4.tgz#ac8cd6e704887398f3b802718f9d389b9ea4307b"
   integrity sha512-x9PKeExyI9AhWrJP3Q57I1k7GInujjiVBJMPFmycj9hX1yCOo/X9eu9eZwxgOziiXge3WbFQ5XOmkzunOntBSA==

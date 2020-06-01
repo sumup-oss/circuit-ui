@@ -17,10 +17,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { hideVisually, size } from 'polished';
 import { Check } from '@sumup/icons';
 
-import { disableVisually, focusOutline } from '../../styles/style-helpers';
+import {
+  disableVisually,
+  hideVisually,
+  focusOutline
+} from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
@@ -34,7 +37,8 @@ const labelBaseStyles = ({ theme }) => css`
   cursor: pointer;
 
   &::before {
-    ${size(theme.spacings.mega)};
+    height: ${theme.spacings.mega};
+    width: ${theme.spacings.mega};
     box-sizing: border-box;
     box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
     background-color: ${theme.colors.white};
@@ -50,7 +54,8 @@ const labelBaseStyles = ({ theme }) => css`
   }
 
   svg {
-    ${size(theme.spacings.mega)};
+    height: ${theme.spacings.mega};
+    width: ${theme.spacings.mega};
     padding: 2px;
     box-sizing: border-box;
     color: ${theme.colors.p500};

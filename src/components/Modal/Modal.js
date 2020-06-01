@@ -19,7 +19,6 @@ import ReactModal from 'react-modal';
 import { ClassNames } from '@emotion/core';
 import { withTheme } from 'emotion-theming';
 import noScroll from 'no-scroll';
-import { transparentize } from 'polished';
 import { mapValues } from 'lodash/fp';
 
 import { themePropType } from '../../util/shared-prop-types';
@@ -36,7 +35,6 @@ export const APP_ELEMENT_PROP_TYPE = PropTypes.oneOfType([
 const TOP_MARGIN = '10vh';
 const TRANSFORM_Y_FLOATING = '10vh';
 const FLOATING_TRANSITION = `${TRANSITION_DURATION}ms ease-in-out`;
-// eslint-disable-next-line max-len
 const FIXED_TRANSITION = `${TRANSITION_DURATION}ms cubic-bezier(0, 0.37, 0.64, 1)`;
 
 /**
@@ -92,7 +90,6 @@ const modalClassName = css => ({
       transform: translateY(0);
     }
   `,
-  /* eslint-disable max-len */
   beforeClose: ({ theme }) => css`
     label: modal--before-close;
     ${theme.mq.untilKilo} {
@@ -104,13 +101,12 @@ const modalClassName = css => ({
       transform: translateY(${TRANSFORM_Y_FLOATING});
     }
   `
-  /* eslint-enable max-len */
 });
 
 const overlayClassName = css => ({
   base: ({ theme }) => css`
     label: modal__overlay;
-    background: ${transparentize(0.84, theme.colors.shadow)};
+    background: ${theme.colors.overlay};
     bottom: 0;
     left: 0;
     opacity: 0;
