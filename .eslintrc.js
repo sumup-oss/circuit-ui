@@ -15,8 +15,8 @@ module.exports = require('@sumup/foundry/eslint')(
     overrides: [
       {
         files: [
-          '**/__testfixtures__/**/*.input.*',
-          '**/__testfixtures__/**/*.output.*'
+          'src/cli/migrate/__testfixtures__/**/*.input.*',
+          'src/cli/migrate/__testfixtures__/**/*.output.*'
         ],
         rules: {
           'import/no-unresolved': 'off',
