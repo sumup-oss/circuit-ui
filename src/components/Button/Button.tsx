@@ -215,7 +215,7 @@ export function Button({
   // When there's no label provided, we can still dispath
   // tracking event by set enableTracking to true.
   const hasTracking = !!label || enableTracking;
-  console.log('props.tracking', props.tracking);
+
   const dispatch = useClickTrigger();
   const handleClick = hasTracking
     ? (e: MouseEvent<any>): void => {
