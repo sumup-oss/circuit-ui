@@ -13,25 +13,8 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import ModalWrapper from './ModalWrapper';
+import { ModalHeader } from './ModalHeader/ModalHeader';
 
-import ModalHeader from '.';
-
-describe('ModalHeader', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<ModalHeader />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<ModalHeader />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
-  });
-});
+export { ModalWrapper, ModalHeader };
+export { CardFooter as ModalFooter } from '../../Card';
