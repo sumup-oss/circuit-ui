@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
-import BaseStyles from './BaseStyles';
+import React from 'react';
+import { Global } from '@emotion/core';
 
-export default BaseStyles;
+import { createBaseStyles } from './BaseStylesService';
+
+export const BaseStyles = () => (
+  <Global styles={theme => createBaseStyles({ theme })} />
+);
