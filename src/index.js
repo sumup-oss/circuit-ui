@@ -86,6 +86,7 @@ export { default as BaseStyles } from './components/BaseStyles';
 export {
   default as Modal,
   DEFAULT_APP_ELEMENT,
+  useModal,
   ModalContext,
   ModalConsumer,
   ModalProvider,
