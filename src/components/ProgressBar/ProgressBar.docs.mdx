@@ -1,7 +1,7 @@
 import { Status, Props, Story } from '../../../.storybook/components';
-import ProgressBar from './ProgressBar';
+import { ProgressBar } from './ProgressBar';
 
-# Progress bar
+# ProgressBar
 
 <Status.Stable />
 
@@ -10,7 +10,6 @@ operation. The visual element is always combined with a label describing a
 status value either in percentage or fraction format.
 
 <Story id="components-progressbar--base" />
-
 <Props of={ProgressBar} />
 
 ## When to use it
@@ -33,7 +32,6 @@ When you specify the label for the progress bar, it should only be shown
 as either a fraction (e.g. _1/3_) or percentage (e.g. _33%_).
 
 <Story id="components-progressbar--with-fraction" />
-
 <Story id="components-progressbar--with-percentage" />
 
 ### Sizes

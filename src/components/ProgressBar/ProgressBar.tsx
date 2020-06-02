@@ -13,35 +13,58 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { FC } from 'react';
 import { css } from '@emotion/core';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import styled, { StyleProps } from '../../styles/styled';
 import { textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
-import { sizes } from '../../styles/constants';
 
-const { KILO, MEGA, GIGA } = sizes;
+type Size = 'kilo' | 'mega' | 'giga';
 
-const calculateSize = ({ theme, size }) => {
+export interface ProgressBarProps {
+  /**
+   * A number greater than zero, indicating how much work the task requires.
+   */
+  max?: number;
+  /**
+   * A number between 0 and max, indicating how much of the task has been
+   * completed.
+   */
+  value?: number;
+  /**
+   * TODO: Add proper explanation
+   */
+  size?: Size;
+}
+
+const calculateSize = ({
+  theme,
+  size = 'kilo'
+}: StyleProps & Pick<ProgressBarProps, 'size'>) => {
   const sizeMap = {
-    [KILO]: theme.spacings.byte,
-    [MEGA]: theme.spacings.mega,
-    [GIGA]: theme.spacings.tera
+    kilo: theme.spacings.byte,
+    mega: theme.spacings.mega,
+    giga: theme.spacings.tera
   };
   return sizeMap[size];
 };
 
-const wrapperStyles = ({ theme }) => css`
+const wrapperStyles = ({ theme }: StyleProps) => css`
   label: progress-bar;
   display: flex;
   align-items: center;
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const progressStyles = ({ theme, size, value, max }) => {
+const ProgressBarWrapper = styled('div')<{}>(wrapperStyles);
+
+const progressStyles = ({
+  theme,
+  size,
+  value,
+  max
+}: StyleProps & ProgressBarProps) => {
   const outerBorderWidth = '1px';
   const outerBorderRadius = theme.borderRadius.mega;
   const innerBorderRadiusLeft = `calc(${outerBorderRadius} - ${outerBorderWidth})`;
@@ -76,33 +99,33 @@ const progressStyles = ({ theme, size, value, max }) => {
   `;
 };
 
-const labelStyles = ({ theme }) => css`
+const ProgressBarProgress = styled('span')<ProgressBarProps>(progressStyles);
+
+const labelStyles = ({ theme }: StyleProps) => css`
   label: progress-bar__label;
   ${textKilo({ theme })};
   margin-left: ${theme.spacings.byte};
 `;
 
-const ProgressBarWrapper = styled('div')`
-  ${wrapperStyles};
-`;
-const ProgressBarProgress = styled('span')`
-  ${progressStyles};
-`;
-const ProgressBarLabel = styled('span')`
-  ${labelStyles};
-`;
+const ProgressBarLabel = styled('span')<{}>(labelStyles);
 
 /**
  * Progress bar component to indicate progress
  */
-const ProgressBar = ({ children, max, value, size, ...props }) => {
+export const ProgressBar: FC<ProgressBarProps> = ({
+  children,
+  max = 1,
+  value = 0,
+  size = 'kilo',
+  ...props
+}) => {
   const ariaId = uniqueId('progress-bar_');
   return (
     <ProgressBarWrapper {...props}>
       <ProgressBarProgress
         role="progressbar"
         aria-valuenow={value}
-        aria-valuemin="0"
+        aria-valuemin={0}
         aria-valuemax={max}
         aria-labelledby={ariaId}
         size={size}
@@ -113,39 +136,3 @@ const ProgressBar = ({ children, max, value, size, ...props }) => {
     </ProgressBarWrapper>
   );
 };
-
-ProgressBar.KILO = KILO;
-ProgressBar.MEGA = MEGA;
-ProgressBar.GIGA = GIGA;
-
-ProgressBar.propTypes = {
-  /**
-   * A number greater than zero, indicating how much work the task requires.
-   */
-  max: PropTypes.number,
-  /**
-   * A number between 0 and max, indicating how much of the task has been
-   * completed.
-   */
-  value: PropTypes.number,
-  /**
-   * Size
-   */
-  size: PropTypes.oneOf([ProgressBar.KILO, ProgressBar.MEGA, ProgressBar.GIGA]),
-  /**
-   * Child nodes to be rendered as the label.
-   */
-  children: childrenPropType
-};
-
-ProgressBar.defaultProps = {
-  size: ProgressBar.KILO,
-  max: 1,
-  value: 0,
-  children: null
-};
-
-/**
- * @component
- */
-export default ProgressBar;

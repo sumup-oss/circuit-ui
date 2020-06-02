@@ -14,11 +14,11 @@
  */
 
 import React, { Fragment } from 'react';
-import { select, number } from '@storybook/addon-knobs/react';
+import { select, number } from '@storybook/addon-knobs';
 import { css } from '@emotion/core';
 
 import docs from './ProgressBar.docs.mdx';
-import ProgressBar from './ProgressBar';
+import { ProgressBar } from './ProgressBar';
 
 export default {
   title: 'Components/ProgressBar',
@@ -38,11 +38,11 @@ export const base = () => {
   const size = select(
     'Size',
     {
-      kilo: ProgressBar.KILO,
-      mega: ProgressBar.MEGA,
-      giga: ProgressBar.GIGA
+      kilo: 'kilo',
+      mega: 'mega',
+      giga: 'giga'
     },
-    ProgressBar.KILO
+    'kilo'
   );
   const max = number('Maximum value', 10);
   const value = number('Value', 3);
@@ -80,7 +80,7 @@ export const size = () => {
   return (
     <Fragment>
       <ProgressBar
-        size={ProgressBar.KILO}
+        size={'kilo'}
         value={value}
         max={max}
         css={progressBarStyles}
@@ -88,7 +88,7 @@ export const size = () => {
         {children}
       </ProgressBar>
       <ProgressBar
-        size={ProgressBar.MEGA}
+        size={'mega'}
         value={value}
         max={max}
         css={progressBarStyles}
@@ -96,7 +96,7 @@ export const size = () => {
         {children}
       </ProgressBar>
       <ProgressBar
-        size={ProgressBar.GIGA}
+        size={'giga'}
         value={value}
         max={max}
         css={progressBarStyles}
