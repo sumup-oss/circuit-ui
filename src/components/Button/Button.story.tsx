@@ -14,10 +14,8 @@
  */
 
 import React from 'react';
-import { select, boolean, text } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
+import { select, boolean, text, object } from '@storybook/addon-knobs';
 import { ThumbUp } from '@sumup/icons';
-import { TrackingRoot, TrackingView } from '@sumup/collector';
 
 import docs from './Button.docs.mdx';
 import Button from '.';
@@ -73,16 +71,13 @@ export const WithIcon = () => (
 );
 
 export const Tracking = () => (
-  <TrackingRoot name="root" onDispatch={action('Tracking event')}>
-    <TrackingView name="view">
-      <Button
-        enableTracking={boolean('Enable Tracking?', false)}
-        trackingPayload={{
-          label: text('Tracking Label', 'trackingId')
-        }}
-      >
-        {'Click'}
-      </Button>
-    </TrackingView>
-  </TrackingRoot>
+  <Button
+    enableTracking={boolean('Enable Tracking?', true)}
+    tracking={{
+      label: text('Tracking Label', 'trackingId'),
+      customParameters: object('Custom Parameters', { custom1: 'data' })
+    }}
+  >
+    {'Click'}
+  </Button>
 );

@@ -2,9 +2,11 @@ import React from 'react';
 import { addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withA11y } from '@storybook/addon-a11y';
+import { action } from '@storybook/addon-actions';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 import { light } from '@sumup/design-tokens';
+import { TrackingRoot, TrackingView } from '@sumup/collector';
 
 import { BaseStyles } from '../src';
 import { components } from './util/theme';
@@ -77,3 +79,11 @@ if (!__TEST__) {
 }
 
 addDecorator(withThemeProvider);
+
+const withTrackingAction = storyFn => (
+  <TrackingRoot name="tracking-root" onDispatch={action('Tracking event')}>
+    <TrackingView name="tracking-view">{storyFn()}</TrackingView>
+  </TrackingRoot>
+);
+
+addDecorator(withTrackingAction);

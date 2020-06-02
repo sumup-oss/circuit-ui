@@ -202,34 +202,37 @@ export function Button(props: BaseProps & ButtonElProps): ReturnType;
 export function Button({
   children,
   icon: Icon,
+  enableTracking = true,
   ...props
 }: ButtonProps): ReturnType {
   const { Link } = useComponents();
   const LinkButton = BaseButton.withComponent(Link);
   const ButtonElement = props.href ? LinkButton : BaseButton;
 
-  /** Set default value for tracking dispatch */
-  const { label = undefined, component = 'button', data = undefined } =
-    props.trackingPayload || {};
-  const hasTracking = !!label || props.enableTracking;
+  // Set default value for tracking dispatch
+  const { label, component = 'button', customParameters } =
+    props.tracking || {};
+  // When there's no label provided, we can still dispath
+  // tracking event by set enableTracking to true.
+  const hasTracking = !!label || enableTracking;
 
   const dispatch = useClickTrigger();
-  const handler = (e: MouseEvent<any>): void => {
-    dispatch({
-      label,
-      component,
-      data
-    });
-    if (props.onClick) {
-      props.onClick(e);
-    }
-  };
+  const handleClick = hasTracking
+    ? (e: MouseEvent<any>): void => {
+        dispatch({
+          label,
+          component,
+          customParameters
+        });
+
+        if (props.onClick) {
+          props.onClick(e);
+        }
+      }
+    : props.onClick;
 
   return (
-    <ButtonElement
-      {...props}
-      onClick={shouldTracking ? handler : props.onClick}
-    >
+    <ButtonElement {...props} onClick={handleClick}>
       {Icon && <Icon css={iconStyles} role="presentation" />}
       {children}
     </ButtonElement>
