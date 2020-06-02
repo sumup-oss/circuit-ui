@@ -34,7 +34,7 @@ import {
 import { useComponents } from '../ComponentsContext';
 import { TrackingProps } from '../../types/types';
 
-export interface BaseProps extends Partial<TrackingProps> {
+export interface BaseProps extends TrackingProps {
   children: ReactNode;
   /**
    * Choose from 3 style variants. Default: 'primary'.
@@ -215,7 +215,7 @@ export function Button({
   // When there's no label provided, we can still dispath
   // tracking event by set enableTracking to true.
   const hasTracking = !!label || enableTracking;
-
+  console.log('props.tracking', props.tracking);
   const dispatch = useClickTrigger();
   const handleClick = hasTracking
     ? (e: MouseEvent<any>): void => {

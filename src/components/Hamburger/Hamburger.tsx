@@ -140,12 +140,12 @@ export const Hamburger: FC<HamburgerProps> = ({
       label={isActive ? labelActive : labelInActive}
       variant="secondary"
       size="kilo"
+      {...props}
       tracking={{
         label,
         component,
         customParameters
       }}
-      {...props}
     >
       <Box>
         <Layers isActive={isActive} />

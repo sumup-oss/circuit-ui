@@ -17,7 +17,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { TrackingZone } from '@sumup/collector';
 
 import CloseButton from '../../../CloseButton';
 import { childrenPropType } from '../../../../util/shared-prop-types';
@@ -46,8 +45,11 @@ const CardHeaderContainer = styled('header')`
   ${noHeadingStyles};
 `;
 
-const CardHeader = ({ onClose, children, labelCloseButton, ...props }) => (
-  <TrackingZone name="card-header">
+const CardHeader = ({ onClose, children, labelCloseButton, ...props }) => {
+  const { label, component = 'close-button', customParameters } =
+    props.tracking || {};
+
+  return (
     <CardHeaderContainer {...props}>
       {children}
       {onClose && (
@@ -56,15 +58,16 @@ const CardHeader = ({ onClose, children, labelCloseButton, ...props }) => (
           label={labelCloseButton}
           data-testid="header-close"
           enableTracking={props.enableTracking}
-          trackingPayload={{
-            ...props.trackingPayload,
-            component: 'close-button'
+          tracking={{
+            label,
+            component,
+            customParameters
           }}
         />
       )}
     </CardHeaderContainer>
-  </TrackingZone>
-);
+  );
+};
 
 CardHeader.propTypes = {
   /**

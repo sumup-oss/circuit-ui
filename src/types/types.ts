@@ -19,9 +19,9 @@ export interface TrackingProps {
   /**
    * Whether to dispatch a tracking event when a user interacts with the component. Default: true.
    */
-  enableTracking: boolean;
+  enableTracking?: boolean;
   /**
    * Additional data that is dispatched with the tracking event.
    */
-  tracking: Dispatch;
+  tracking?: Dispatch;
 }
