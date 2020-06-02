@@ -87,20 +87,37 @@ const inputAppendStyles = ({ theme, symbol = '', prependSymbol }) =>
 /**
  * A simple currency input for forms.
  */
-const SimpleCurrencyInput = ({
-  prependSymbol,
-  theme,
-  symbol,
-  hasWarning,
-  invalid,
-  disabled,
-  numberMask,
-  ...props
-}) => (
+const SimpleCurrencyInputComponent = (
+  {
+    prependSymbol,
+    theme,
+    symbol,
+    hasWarning,
+    invalid,
+    disabled,
+    numberMask,
+    ...props
+  },
+  ref
+) => (
   <TextMaskInput
     guide={false}
-    render={(ref, { defaultValue, ...renderProps }) => (
-      <Input value={defaultValue} {...renderProps} deepRef={ref} />
+    render={(setRef, { defaultValue, ...renderProps }) => (
+      <Input
+        value={defaultValue}
+        {...renderProps}
+        ref={el => {
+          setRef(el);
+          if (ref) {
+            if (typeof ref === 'function') {
+              ref(el);
+            } else {
+              // eslint-disable-next-line no-param-reassign
+              ref.current = el;
+            }
+          }
+        }}
+      />
     )}
     inputStyles={css([
       inputBaseStyles(),
@@ -145,6 +162,8 @@ const SimpleCurrencyInput = ({
   />
 );
 
+const SimpleCurrencyInput = React.forwardRef(SimpleCurrencyInputComponent);
+
 SimpleCurrencyInput.propTypes = {
   theme: themePropType.isRequired,
   /**
@@ -173,14 +192,24 @@ SimpleCurrencyInput.propTypes = {
    * Should the symbol be put on the left side
    * of the input?
    */
-  prependSymbol: PropTypes.bool
+  prependSymbol: PropTypes.bool,
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+    })
+  ])
 };
 
 SimpleCurrencyInput.defaultProps = {
   prependSymbol: false,
   disabled: false,
   invalid: false,
-  hasWarning: false
+  hasWarning: false,
+  ref: undefined
 };
 
 /**

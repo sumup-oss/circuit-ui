@@ -72,6 +72,18 @@ describe('SimpleCurrencyInput', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<SimpleCurrencyInput ref={tref} />);
+      const input = container.querySelector('input');
+      expect(tref.current).toBe(input);
+    });
+  });
+
   /**
    * Accessibility tests.
    */

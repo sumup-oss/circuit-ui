@@ -28,20 +28,34 @@ import { SimpleCurrencyInput } from './components';
  * symbols and places the symbol according to the locale. The corresponding
  * service exports a parser for formatting values automatically.
  */
-const CurrencyInput = ({ locale, currency, ...props }) => {
+const CurrencyInputComponent = ({ locale, currency, ...props }, ref) => {
   const prependSymbol = shouldPrependSymbol(currency, locale);
   const symbol = CURRENCY_SYMBOLS[currency] || '';
   const numberMask = createCurrencyMask(currency, locale);
 
   return (
-    <SimpleCurrencyInput {...{ ...props, prependSymbol, symbol, numberMask }} />
+    <SimpleCurrencyInput
+      {...{ ...props, prependSymbol, symbol, numberMask }}
+      ref={ref}
+    />
   );
 };
+
+const CurrencyInput = React.forwardRef(CurrencyInputComponent);
 
 CurrencyInput.propTypes = {
   theme: themePropType.isRequired,
   locale: localePropType(true),
-  currency: PropTypes.oneOf(keys(CURRENCY_SYMBOLS)).isRequired
+  currency: PropTypes.oneOf(keys(CURRENCY_SYMBOLS)).isRequired,
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+    })
+  ])
 };
 
 /**
