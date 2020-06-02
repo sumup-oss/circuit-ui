@@ -121,6 +121,28 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref for input
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<Input ref={tref} />);
+      const input = container.querySelector('input');
+      expect(tref.current).toBe(input);
+    });
+
+    /**
+     * Should accept a working ref for textarea
+     */
+    it('should accept a working ref also for textarea', () => {
+      const tref = React.createRef();
+      const { container } = render(<Input as="textarea" ref={tref} />);
+      const textarea = container.querySelector('textarea');
+      expect(tref.current).toBe(textarea);
+    });
+  });
+
   /**
    * Accessibility tests.
    */
