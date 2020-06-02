@@ -13,7 +13,18 @@
  * limitations under the License.
  */
 
-export const isFunction = val => typeof val === 'function';
-export const isString = val => typeof val === 'string';
-export const isArray = value =>
-  value && typeof value === 'object' && value.constructor === Array;
+import { ModalContext, ModalProvider, ModalConsumer } from './ModalProvider';
+import { Modal, DEFAULT_APP_ELEMENT } from './Modal';
+import { ModalWrapper, ModalHeader, ModalFooter } from './components';
+
+export {
+  DEFAULT_APP_ELEMENT,
+  ModalContext,
+  ModalConsumer,
+  ModalProvider,
+  ModalWrapper,
+  ModalHeader,
+  ModalFooter
+};
+
+export default Modal;
