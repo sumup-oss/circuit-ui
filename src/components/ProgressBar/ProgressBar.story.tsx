@@ -44,7 +44,7 @@ const BaseProgressBar = (props: ProgressBarProps) => (
   />
 );
 
-export const Task = () => (
+export const Steps = () => (
   <BaseProgressBar
     value={number('Value', 3)}
     max={number('Maximum value', 10)}

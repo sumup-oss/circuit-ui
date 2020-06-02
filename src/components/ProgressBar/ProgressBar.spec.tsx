@@ -20,7 +20,7 @@ import { create, renderToHtml, axe } from '../../util/test-utils';
 import ProgressBar from '.';
 
 describe('ProgressBar', () => {
-  describe('task', () => {
+  describe('step-based', () => {
     /**
      * Style tests.
      */
@@ -40,7 +40,7 @@ describe('ProgressBar', () => {
     });
   });
 
-  describe('timer', () => {
+  describe('time-based', () => {
     /**
      * Style tests.
      */

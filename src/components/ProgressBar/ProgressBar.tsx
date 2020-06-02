@@ -32,7 +32,7 @@ interface BaseProps {
   size?: 'byte' | 'kilo' | 'mega';
 }
 
-interface TaskProgressProps {
+interface StepProgressProps {
   /**
    * A number greater than zero, indicating how much work the task requires.
    */
@@ -60,7 +60,7 @@ interface TimeProgressProps {
 }
 
 export type ProgressBarProps = BaseProps &
-  TaskProgressProps &
+  StepProgressProps &
   TimeProgressProps;
 
 type ReturnType = ReactElement<any, any> | null;
@@ -94,7 +94,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const taskStyles = ({ value = 0, max = 1 }: TaskProgressProps) => {
+const taskStyles = ({ value = 0, max = 1 }: StepProgressProps) => {
   const width = value && max ? (value / max) * 100 : 0;
   return css`
     &::after {
@@ -173,7 +173,7 @@ const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & BaseProps) => {
   });
 };
 
-const TaskProgress = styled('span')<BaseProps & TaskProgressProps>(
+const TaskProgress = styled('span')<BaseProps & StepProgressProps>(
   baseStyles,
   variantStyles,
   sizeStyles,
@@ -199,7 +199,7 @@ const ProgressBarLabel = styled('span')<{}>(labelStyles);
  * The ProgressBar component communicates the progress of a task or timer
  * to the user.
  */
-export function ProgressBar(props: BaseProps & TaskProgressProps): ReturnType;
+export function ProgressBar(props: BaseProps & StepProgressProps): ReturnType;
 export function ProgressBar(props: BaseProps & TimeProgressProps): ReturnType;
 export function ProgressBar({
   children,

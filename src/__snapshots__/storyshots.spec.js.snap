@@ -9359,7 +9359,7 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Components/ProgressBar Task 1`] = `
+exports[`Storyshots Components/ProgressBar Steps 1`] = `
 .circuit-1 {
   font-size: 13px;
   line-height: 20px;
