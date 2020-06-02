@@ -202,22 +202,25 @@ const SelectTooltip = styled(Tooltip)`
 /**
  * A native select component.
  */
-const Select = ({
-  value,
-  placeholder,
-  disabled,
-  noMargin,
-  inline,
-  invalid,
-  options,
-  children,
-  renderPrefix: RenderPrefix,
-  validationHint,
-  label,
-  labelVisuallyHidden,
-  id: customId,
-  ...props
-}) => {
+const SelectComponent = (
+  {
+    value,
+    placeholder,
+    disabled,
+    noMargin,
+    inline,
+    invalid,
+    options,
+    children,
+    renderPrefix: RenderPrefix,
+    validationHint,
+    label,
+    labelVisuallyHidden,
+    id: customId,
+    ...props
+  },
+  ref
+) => {
   const id = customId || uniqueId('select_');
 
   const prefix = RenderPrefix && (
@@ -239,7 +242,8 @@ const Select = ({
             value,
             disabled,
             hasPrefix: !!prefix,
-            id
+            id,
+            ref
           }}
         >
           {!value && (
@@ -266,6 +270,8 @@ const Select = ({
     </Label>
   );
 };
+
+const Select = React.forwardRef(SelectComponent);
 
 Select.propTypes = {
   /**
@@ -343,7 +349,16 @@ Select.propTypes = {
   /**
    * A unique identifier for the input field. If not defined, a randomly generated id is used.
    */
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLSelectElement)])
+    })
+  ])
 };
 
 Select.defaultProps = {
@@ -354,6 +369,7 @@ Select.defaultProps = {
   placeholder: 'Select an option',
   inline: false,
   noMargin: false,
+  ref: undefined,
   renderPrefix: null
 };
 

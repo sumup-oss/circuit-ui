@@ -142,4 +142,16 @@ describe('Select', () => {
     const selectEl = getByTestId('select-element');
     expect(selectEl.firstChild).not.toHaveTextContent(placeholder);
   });
+
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<Select ref={tref} />);
+      const select = container.querySelector('select');
+      expect(tref.current).toBe(select);
+    });
+  });
 });
