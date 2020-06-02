@@ -27,9 +27,11 @@ const textAreaStyles = css`
 /**
  * TextArea component for forms.
  */
-const TextArea = props => (
-  <Input {...props} inputStyles={textAreaStyles} as="textarea" />
+const TextAreaComponent = (props, ref) => (
+  <Input {...props} inputStyles={textAreaStyles} as="textarea" ref={ref} />
 );
+
+const TextArea = React.forwardRef(TextAreaComponent);
 
 TextArea.LEFT = Input.LEFT;
 TextArea.RIGHT = Input.RIGHT;
