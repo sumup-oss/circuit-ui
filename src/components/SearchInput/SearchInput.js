@@ -34,7 +34,10 @@ const ClearButton = styled(IconButton)`
 /**
  * SearchInput component for forms.
  */
-const SearchInput = ({ children, value, onClear, clearLabel, ...props }) => (
+const SearchInputComponent = (
+  { children, value, onClear, clearLabel, ...props },
+  ref
+) => (
   <Input
     value={value}
     type="text"
@@ -53,10 +56,13 @@ const SearchInput = ({ children, value, onClear, clearLabel, ...props }) => (
       ) : null
     }
     {...props}
+    ref={ref}
   >
     {children}
   </Input>
 );
+
+const SearchInput = React.forwardRef(SearchInputComponent);
 
 SearchInput.propTypes = {
   ...Input.propTypes,
@@ -73,7 +79,8 @@ SearchInput.propTypes = {
 
 SearchInput.defaultProps = {
   onClear: null,
-  clearLabel: 'Clear'
+  clearLabel: 'Clear',
+  ref: undefined
 };
 
 /**
