@@ -15,7 +15,9 @@
 
 import React from 'react';
 
-import ModalWrapper from '.';
+import { create, renderToHtml, axe } from '../../../../util/test-utils';
+
+import { ModalWrapper } from './ModalWrapper';
 
 describe('ModalWrapper', () => {
   /**

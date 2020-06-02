@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ModalWrapper from './ModalWrapper';
+import { ModalWrapper } from './ModalWrapper/ModalWrapper';
 import { ModalHeader } from './ModalHeader/ModalHeader';
 
 export { ModalWrapper, ModalHeader };

@@ -25,4 +25,5 @@ export {
   ModalHeader,
   ModalFooter
 };
+
 export default Modal;

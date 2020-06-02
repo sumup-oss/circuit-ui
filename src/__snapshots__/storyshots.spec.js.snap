@@ -6934,7 +6934,7 @@ exports[`Storyshots Components/Modal/Embedded Base 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Hello World!
 </div>
@@ -7282,7 +7282,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 <div
-  class="circuit-10 circuit-11"
+  class="circuit-10"
 >
   <header
     class="circuit-1 circuit-2"
@@ -7398,7 +7398,7 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-4"
 >
   <header
     class="circuit-1 circuit-2"
@@ -7565,7 +7565,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 <div
-  class="circuit-6 circuit-7"
+  class="circuit-6"
 >
   <header
     class="circuit-3 circuit-4"
@@ -7654,7 +7654,7 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 }
 
 <div
-  class="circuit-1 circuit-2"
+  class="circuit-1"
 >
   <p
     class="circuit-0"
