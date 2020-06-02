@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
-import { select, number } from '@storybook/addon-knobs';
+import React from 'react';
+import { select, number, boolean } from '@storybook/addon-knobs';
 import { css } from '@emotion/core';
 
 import docs from './ProgressBar.docs.mdx';
-import { ProgressBar } from './ProgressBar';
+import { ProgressBar, ProgressBarProps } from './ProgressBar';
 
 export default {
   title: 'Components/ProgressBar',
@@ -29,79 +29,69 @@ export default {
   }
 };
 
-const progressBarStyles = css`
-  min-width: 500px;
-  max-width: 90%;
-`;
+const variants = ['primary', 'secondary'] as const;
+const sizes = ['byte', 'kilo', 'mega'] as const;
 
-export const base = () => {
-  const size = select('Size', ['kilo', 'mega', 'giga'], 'kilo');
+const BaseProgressBar = (props: ProgressBarProps) => (
+  <ProgressBar
+    variant={select('Variant', variants, 'primary')}
+    size={select('Size', sizes, 'kilo')}
+    css={css`
+      min-width: 500px;
+      max-width: 90%;
+    `}
+    {...props}
+  />
+);
+
+export const Task = () => (
+  <BaseProgressBar
+    value={number('Value', 3)}
+    max={number('Maximum value', 10)}
+  />
+);
+
+export const Timer = () => (
+  <BaseProgressBar
+    duration={number('Duration', 3000)}
+    paused={boolean('Paused', false)}
+    loop={boolean('Loop', true)}
+  />
+);
+
+export const Labelled = () => {
   const max = number('Maximum value', 10);
   const value = number('Value', 3);
-  const variant = select('Variant', ['primary', 'secondary'], 'primary');
+  const fraction = `${value}/${max}`;
+  const percentage = `${(value / max) * 100}%`;
   return (
-    <ProgressBar
-      value={value}
-      max={max}
-      size={size}
-      variant={variant}
-      css={progressBarStyles}
-    />
+    <>
+      <BaseProgressBar value={value} max={max}>
+        {fraction}
+      </BaseProgressBar>
+      <BaseProgressBar value={value} max={max}>
+        {percentage}
+      </BaseProgressBar>
+    </>
   );
 };
 
-export const withFraction = () => {
-  const max = 10;
-  const value = 7;
-  const children = `${value}/${max}`;
-  return (
-    <ProgressBar value={value} max={max} css={progressBarStyles}>
-      {children}
-    </ProgressBar>
-  );
+export const Variants = () => {
+  const max = number('Maximum value', 10);
+  const value = number('Value', 3);
+  return variants.map(variant => (
+    <BaseProgressBar key={variant} variant={variant} value={value} max={max}>
+      {variant}
+    </BaseProgressBar>
+  ));
 };
 
-export const withPercentage = () => {
-  const max = 10;
-  const value = 7;
-  const children = `${(value / max) * 100}%`;
-  return (
-    <ProgressBar value={value} max={max} css={progressBarStyles}>
-      {children}
-    </ProgressBar>
-  );
-};
-
-export const size = () => {
-  const max = 10;
-  const value = 7;
-  const children = `${(value / max) * 100}%`;
-  return (
-    <Fragment>
-      <ProgressBar
-        size={'kilo'}
-        value={value}
-        max={max}
-        css={progressBarStyles}
-      >
-        {children}
-      </ProgressBar>
-      <ProgressBar
-        size={'mega'}
-        value={value}
-        max={max}
-        css={progressBarStyles}
-      >
-        {children}
-      </ProgressBar>
-      <ProgressBar
-        size={'giga'}
-        value={value}
-        max={max}
-        css={progressBarStyles}
-      >
-        {children}
-      </ProgressBar>
-    </Fragment>
-  );
+export const Sizes = () => {
+  const max = number('Maximum value', 10);
+  const value = number('Value', 3);
+  return sizes.map(size => (
+    <BaseProgressBar key={size} size={size} value={value} max={max}>
+      {size}
+    </BaseProgressBar>
+  ));
 };

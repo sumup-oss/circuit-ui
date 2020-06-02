@@ -20,25 +20,52 @@ import { create, renderToHtml, axe } from '../../util/test-utils';
 import ProgressBar from '.';
 
 describe('ProgressBar', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<ProgressBar />);
-    expect(actual).toMatchSnapshot();
+  describe('task', () => {
+    /**
+     * Style tests.
+     */
+
+    it('should render with default styles', () => {
+      const actual = create(<ProgressBar max={1} value={0.5} />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    /**
+     * Accessibility tests.
+     */
+    it('should meet accessibility guidelines', async () => {
+      const wrapper = renderToHtml(<ProgressBar max={1} value={0.5} />);
+      const actual = await axe(wrapper);
+      expect(actual).toHaveNoViolations();
+    });
   });
 
-  it('should render with progress styles', () => {
-    const actual = create(<ProgressBar value={0.5} />);
-    expect(actual).toMatchSnapshot();
-  });
+  describe('timer', () => {
+    /**
+     * Style tests.
+     */
+    it('should render with default styles', () => {
+      const actual = create(<ProgressBar />);
+      expect(actual).toMatchSnapshot();
+    });
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<ProgressBar />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
+    it('should render with paused styles', () => {
+      const actual = create(<ProgressBar paused />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with loop styles', () => {
+      const actual = create(<ProgressBar loop />);
+      expect(actual).toMatchSnapshot();
+    });
+
+    /**
+     * Accessibility tests.
+     */
+    it('should meet accessibility guidelines', async () => {
+      const wrapper = renderToHtml(<ProgressBar />);
+      const actual = await axe(wrapper);
+      expect(actual).toHaveNoViolations();
+    });
   });
 });
