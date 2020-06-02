@@ -290,7 +290,6 @@ const StyledInput = (
     wrapperStyles,
     inputClassName,
     inputStyles,
-    deepRef,
     element,
     as,
     label,
@@ -334,7 +333,7 @@ const StyledInput = (
             invalid,
             disabled,
             hasWarning,
-            ref: ref || deepRef,
+            ref,
             as: element || as,
             hasPrefix: !!prefix,
             hasSuffix: !!suffix,
@@ -427,10 +426,8 @@ Input.propTypes = {
    */
   wrapperStyles: PropTypes.object,
   /**
-   * DOM node to be forwarded to the actual input being rendered by
-   * styled.
+   * The ref to the html dom element
    */
-  deepRef: PropTypes.func,
   ref: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
@@ -471,7 +468,6 @@ Input.defaultProps = {
   disabled: false,
   inline: false,
   noMargin: false,
-  deepRef: undefined,
   ref: undefined,
   textAlign: Input.LEFT
 };
