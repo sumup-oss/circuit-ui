@@ -13,6 +13,27 @@
  * limitations under the License.
  */
 
-export { ModalWrapper } from './ModalWrapper/ModalWrapper';
-export { ModalHeader } from './ModalHeader/ModalHeader';
-export { ModalFooter } from './ModalFooter/ModalFooter';
+import React from 'react';
+
+import { create, renderToHtml, axe } from '../../../../util/test-utils';
+
+import { ModalFooter } from './ModalFooter';
+
+describe('ModalFooter', () => {
+  /**
+   * Style tests.
+   */
+  it('should render with default styles', () => {
+    const actual = create(<ModalFooter />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<ModalFooter />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+});

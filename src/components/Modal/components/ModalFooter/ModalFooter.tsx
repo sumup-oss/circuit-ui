@@ -13,6 +13,20 @@
  * limitations under the License.
  */
 
-export { ModalWrapper } from './ModalWrapper/ModalWrapper';
-export { ModalHeader } from './ModalHeader/ModalHeader';
-export { ModalFooter } from './ModalFooter/ModalFooter';
+import { css } from '@emotion/core';
+
+import styled, { StyleProps } from '../../../../styles/styled';
+
+import { CardFooter } from '../../../Card';
+
+const footerStyles = ({ theme }: StyleProps) => css`
+  position: sticky;
+  bottom: 0;
+  margin-top: 0;
+  padding-top: ${theme.spacings.giga};
+  padding-bottom: ${theme.spacings.kilo};
+  background: ${theme.colors.white};
+`;
+
+// FIXME: Remove any typecast once the Card has been migrated to TypeScript.
+export const ModalFooter = styled(CardFooter as any)(footerStyles);
