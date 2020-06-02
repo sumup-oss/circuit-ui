@@ -14,8 +14,7 @@ exports[`ProgressBar should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: #FAFBFC;
-  border: 1px solid #D8DDE1;
+  background-color: #EEF0F2;
   border-radius: 4px;
   position: relative;
   width: 100%;
@@ -32,11 +31,12 @@ exports[`ProgressBar should render with default styles 1`] = `
   left: 0;
   width: 0%;
   background-color: #3388FF;
-  border: 1px solid #1760CE;
-  box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: calc(4px - 1px) 0 0 calc(4px - 1px);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
+}
+
+.circuit-0::after {
+  background-color: #3388FF;
 }
 
 .circuit-1 {
@@ -85,8 +85,7 @@ exports[`ProgressBar should render with progress styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: #FAFBFC;
-  border: 1px solid #D8DDE1;
+  background-color: #EEF0F2;
   border-radius: 4px;
   position: relative;
   width: 100%;
@@ -103,11 +102,12 @@ exports[`ProgressBar should render with progress styles 1`] = `
   left: 0;
   width: 50%;
   background-color: #3388FF;
-  border: 1px solid #1760CE;
-  box-shadow: inset 0 1px 0 0 #AFD0FE;
-  border-radius: calc(4px - 1px) 0 0 calc(4px - 1px);
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
+}
+
+.circuit-0::after {
+  background-color: #3388FF;
 }
 
 <div

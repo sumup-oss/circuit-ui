@@ -35,19 +35,18 @@ const progressBarStyles = css`
 `;
 
 export const base = () => {
-  const size = select(
-    'Size',
-    {
-      kilo: 'kilo',
-      mega: 'mega',
-      giga: 'giga'
-    },
-    'kilo'
-  );
+  const size = select('Size', ['kilo', 'mega', 'giga'], 'kilo');
   const max = number('Maximum value', 10);
   const value = number('Value', 3);
+  const variant = select('Variant', ['primary', 'secondary'], 'primary');
   return (
-    <ProgressBar value={value} max={max} size={size} css={progressBarStyles} />
+    <ProgressBar
+      value={value}
+      max={max}
+      size={size}
+      variant={variant}
+      css={progressBarStyles}
+    />
   );
 };
 

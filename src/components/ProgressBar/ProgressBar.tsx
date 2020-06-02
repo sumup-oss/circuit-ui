@@ -21,6 +21,7 @@ import { textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 
 type Size = 'kilo' | 'mega' | 'giga';
+type Variant = 'primary' | 'secondary';
 
 export interface ProgressBarProps {
   /**
@@ -36,6 +37,10 @@ export interface ProgressBarProps {
    * TODO: Add proper explanation
    */
   size?: Size;
+  /**
+   * TODO: Add proper explanation
+   */
+  variant?: Variant;
 }
 
 const calculateSize = ({
@@ -59,23 +64,17 @@ const wrapperStyles = ({ theme }: StyleProps) => css`
 
 const ProgressBarWrapper = styled('div')<{}>(wrapperStyles);
 
-const progressStyles = ({
+const progressBaseStyles = ({
   theme,
   size,
   value,
   max
 }: StyleProps & ProgressBarProps) => {
-  const outerBorderWidth = '1px';
-  const outerBorderRadius = theme.borderRadius.mega;
-  const innerBorderRadiusLeft = `calc(${outerBorderRadius} - ${outerBorderWidth})`;
-  const innerBorderRadiusRight =
-    value && max && (value / max) * 100 === 100 ? innerBorderRadiusLeft : 0;
   const width = value && max ? (value / max) * 100 : 0;
   return css`
     label: progress-bar__progress;
-    background-color: ${theme.colors.n100};
-    border: ${outerBorderWidth} solid ${theme.colors.n300};
-    border-radius: ${outerBorderRadius};
+    background-color: ${theme.colors.n200};
+    border-radius: ${theme.borderRadius.mega};
     position: relative;
     width: 100%;
     height: ${calculateSize({ theme, size })};
@@ -90,16 +89,32 @@ const progressStyles = ({
       left: 0;
       width: ${width}%;
       background-color: ${theme.colors.p500};
-      border: 1px solid ${theme.colors.p700};
-      box-shadow: inset 0 1px 0 0 ${theme.colors.p300};
-      border-radius: ${innerBorderRadiusLeft} ${innerBorderRadiusRight}
-        ${innerBorderRadiusRight} ${innerBorderRadiusLeft};
       transition: width 0.05s ease-out;
     }
   `;
 };
 
-const ProgressBarProgress = styled('span')<ProgressBarProps>(progressStyles);
+const progressVariantStyles = ({
+  theme,
+  variant = 'primary'
+}: StyleProps & ProgressBarProps) => {
+  const variantMap = {
+    primary: theme.colors.p500,
+    secondary: theme.colors.n900
+  };
+  return css`
+    label: progress-bar__progress;
+
+    &::after {
+      background-color: ${variantMap[variant]};
+    }
+  `;
+};
+
+const ProgressBarProgress = styled('span')<ProgressBarProps>(
+  progressBaseStyles,
+  progressVariantStyles
+);
 
 const labelStyles = ({ theme }: StyleProps) => css`
   label: progress-bar__label;
@@ -117,6 +132,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({
   max = 1,
   value = 0,
   size = 'kilo',
+  variant = 'primary',
   ...props
 }) => {
   const ariaId = uniqueId('progress-bar_');
@@ -131,6 +147,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({
         size={size}
         max={max}
         value={value}
+        variant={variant}
       />
       <ProgressBarLabel id={ariaId}>{children}</ProgressBarLabel>
     </ProgressBarWrapper>
