@@ -211,7 +211,7 @@ export function Button({
   /** Set default value for tracking dispatch */
   const { label = undefined, component = 'button', data = undefined } =
     props.trackingPayload || {};
-  const shouldTracking = label || props.enableTracking || false;
+  const hasTracking = !!label || props.enableTracking;
 
   const dispatch = useClickTrigger();
   const handler = (e: MouseEvent<any>): void => {
