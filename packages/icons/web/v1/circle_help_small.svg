@@ -1,4 +1,10 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6a6 6 0 100 12 6 6 0 000-12zm-8 6a8 8 0 1116 0 8 8 0 01-16 0z" fill="currentColor"/>
-    <path d="M10 9.777c0-.325.1-.645.291-.924.191-.278.464-.504.79-.654a2.213 2.213 0 012.074.127c.3.188.535.446.68.745.146.3.196.628.146.951-.05.323-.2.627-.431.88a2.016 2.016 0 01-.883.552.997.997 0 00-.484.325.823.823 0 00-.183.513M12 15v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#circle_help_small_svg__clip0)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm-.501 5.107a1.213 1.213 0 011.124.066.84.84 0 01.313.336.6.6 0 01.057.359.688.688 0 01-.18.357 1.017 1.017 0 01-.446.275c-.373.117-.714.34-.966.657C7.147 7.474 7 7.872 7 8.293a1 1 0 001.994.106c.493-.16.941-.439 1.292-.821.359-.39.6-.874.683-1.402a2.6 2.6 0 00-.235-1.543A2.838 2.838 0 009.687 3.48a3.213 3.213 0 00-3.024-.19c-.48.22-.897.562-1.197.999-.3.438-.466.953-.466 1.488a1 1 0 102 0c0-.116.036-.24.117-.359a.929.929 0 01.382-.31zM9 11a1 1 0 10-2 0v.5a1 1 0 102 0V11z" fill="currentColor"/>
+    </g>
+    <defs>
+        <clipPath id="circle_help_small_svg__clip0">
+            <path d="M0 0h16v16H0V0z" fill="#fff"/>
+        </clipPath>
+    </defs>
 </svg>
