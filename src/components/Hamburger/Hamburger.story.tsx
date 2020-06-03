@@ -14,7 +14,7 @@
  */
 
 import React, { useState } from 'react';
-import { text, boolean } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 
 import { Hamburger, HamburgerProps } from './Hamburger';
 
@@ -45,7 +45,6 @@ export const Tracking = () => (
   <HamburgerWithState
     labelActive="Close menu"
     labelInActive="Open menu"
-    enableTracking={boolean('Enable Tracking?', true)}
     tracking={{
       label: text('Tracking Label', 'trackingId')
     }}

@@ -57,7 +57,6 @@ const CardHeader = ({ onClose, children, labelCloseButton, ...props }) => {
           onClick={onClose}
           label={labelCloseButton}
           data-testid="header-close"
-          enableTracking={props.enableTracking}
           tracking={{
             label,
             component,

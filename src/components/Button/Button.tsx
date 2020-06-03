@@ -24,6 +24,7 @@ import React, {
 import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 import { useClickTrigger } from '@sumup/collector';
+import { Dispatch as TrackingProps } from '@sumup/collector/build/types';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -32,9 +33,8 @@ import {
   focusOutline
 } from '../../styles/style-helpers';
 import { useComponents } from '../ComponentsContext';
-import { TrackingProps } from '../../types/types';
 
-export interface BaseProps extends TrackingProps {
+export interface BaseProps {
   children: ReactNode;
   /**
    * Choose from 3 style variants. Default: 'primary'.
@@ -56,6 +56,10 @@ export interface BaseProps extends TrackingProps {
    * Display an icon in addition to the text to help to identify the action.
    */
   icon?: FC<SVGProps<SVGSVGElement>>;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
 }
 
 type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'type'>;
@@ -202,7 +206,6 @@ export function Button(props: BaseProps & ButtonElProps): ReturnType;
 export function Button({
   children,
   icon: Icon,
-  enableTracking = true,
   ...props
 }: ButtonProps): ReturnType {
   const { Link } = useComponents();
@@ -212,12 +215,9 @@ export function Button({
   // Set default value for tracking dispatch
   const { label, component = 'button', customParameters } =
     props.tracking || {};
-  // When there's no label provided, we can still dispath
-  // tracking event by set enableTracking to true.
-  const hasTracking = !!label || enableTracking;
 
   const dispatch = useClickTrigger();
-  const handleClick = hasTracking
+  const handleClick = label
     ? (e: MouseEvent<any>): void => {
         dispatch({
           label,

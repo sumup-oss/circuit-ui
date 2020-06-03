@@ -72,7 +72,6 @@ export const WithIcon = () => (
 
 export const Tracking = () => (
   <Button
-    enableTracking={boolean('Enable Tracking?', true)}
     tracking={{
       label: text('Tracking Label', 'trackingId'),
       customParameters: object('Custom Parameters', { custom1: 'data' })
