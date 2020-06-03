@@ -44,4 +44,16 @@ describe('Switch', () => {
     });
     expect(onChange).toHaveBeenCalledTimes(1);
   });
+
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<Switch ref={tref} />);
+      const button = container.querySelector('button');
+      expect(tref.current).toBe(button);
+    });
+  });
 });

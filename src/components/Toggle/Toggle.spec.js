@@ -36,6 +36,18 @@ describe('Toggle', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<Toggle ref={tref} />);
+      const button = container.querySelector('button');
+      expect(tref.current).toBe(button);
+    });
+  });
+
   /**
    * Accessibility tests.
    * See https://inclusive-components.design/toggle-button/

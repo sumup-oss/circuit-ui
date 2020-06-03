@@ -95,19 +95,24 @@ const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
 /**
  * A simple Switch component.
  */
-const Switch = ({ on, onChange, labelOn, labelOff, ...rest }) => (
-  <SwitchTrack
-    type="button"
-    onClick={onChange}
-    on={on}
-    role="switch"
-    aria-checked={on}
-    {...rest}
-  >
-    <SwitchKnob {...{ on }} />
-    <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
-  </SwitchTrack>
+const Switch = React.forwardRef(
+  ({ on, onChange, labelOn, labelOff, ...rest }, ref) => (
+    <SwitchTrack
+      type="button"
+      onClick={onChange}
+      on={on}
+      role="switch"
+      aria-checked={on}
+      {...rest}
+      ref={ref}
+    >
+      <SwitchKnob {...{ on }} />
+      <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
+    </SwitchTrack>
+  )
 );
+
+Switch.displayName = 'Switch';
 
 Switch.propTypes = {
   /**
@@ -125,7 +130,16 @@ Switch.propTypes = {
   /**
    * Label for the 'off' state. Important for accessibility.
    */
-  labelOff: PropTypes.string
+  labelOff: PropTypes.string,
+  /**
+   * The ref to the html button dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLButtonElement)])
+    })
+  ])
 };
 
 Switch.defaultProps = {
