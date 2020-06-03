@@ -31,9 +31,6 @@ const ClearButton = styled(IconButton)`
   cursor: pointer !important;
 `;
 
-/**
- * SearchInput component for forms.
- */
 const SearchInputComponent = (
   { children, value, onClear, clearLabel, ...props },
   ref
@@ -62,6 +59,9 @@ const SearchInputComponent = (
   </Input>
 );
 
+/**
+ * SearchInput component for forms.
+ */
 const SearchInput = React.forwardRef(SearchInputComponent);
 
 SearchInput.propTypes = {

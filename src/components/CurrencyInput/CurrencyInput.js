@@ -23,11 +23,6 @@ import { shouldPrependSymbol, CURRENCY_SYMBOLS } from '../../util/currency';
 import { createCurrencyMask } from './CurrencyInputService';
 import { SimpleCurrencyInput } from './components';
 
-/**
- * CurrencyInput component for forms. Automatically looks up
- * symbols and places the symbol according to the locale. The corresponding
- * service exports a parser for formatting values automatically.
- */
 const CurrencyInputComponent = ({ locale, currency, ...props }, ref) => {
   const prependSymbol = shouldPrependSymbol(currency, locale);
   const symbol = CURRENCY_SYMBOLS[currency] || '';
@@ -41,6 +36,11 @@ const CurrencyInputComponent = ({ locale, currency, ...props }, ref) => {
   );
 };
 
+/**
+ * CurrencyInput component for forms. Automatically looks up
+ * symbols and places the symbol according to the locale. The corresponding
+ * service exports a parser for formatting values automatically.
+ */
 const CurrencyInput = React.forwardRef(CurrencyInputComponent);
 
 CurrencyInput.propTypes = {

@@ -72,10 +72,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const BaseAnchor = styled(Text)<AnchorProps>(baseStyles);
 
-/**
- * The Anchor is used to display a link or button that visually looks like
- * a hyperlink. Based on the Text component, so it also supports its props.
- */
 function AnchorComponent(props: AnchorProps, ref?: React.Ref<any>): ReturnType {
   const { Link } = useComponents();
   const AnchorLink = BaseAnchor.withComponent(Link);
@@ -92,4 +88,8 @@ function AnchorComponent(props: AnchorProps, ref?: React.Ref<any>): ReturnType {
   return <BaseAnchor as="button" {...props} ref={ref as React.Ref<any>} />;
 }
 
+/**
+ * The Anchor is used to display a link or button that visually looks like
+ * a hyperlink. Based on the Text component, so it also supports its props.
+ */
 export const Anchor = React.forwardRef(AnchorComponent);

@@ -271,9 +271,6 @@ const ValidationIcon = ({
 };
 /* eslint-enable react/prop-types */
 
-/**
- * Input component for forms. Takes optional prefix and suffix as render props.
- */
 const StyledInput = (
   {
     children,
@@ -355,6 +352,9 @@ const StyledInput = (
   );
 };
 
+/**
+ * Input component for forms. Takes optional prefix and suffix as render props.
+ */
 const Input = React.forwardRef(StyledInput);
 
 Input.LEFT = directions.LEFT;

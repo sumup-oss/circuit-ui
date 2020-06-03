@@ -188,10 +188,6 @@ const BaseButton = styled('button')<ButtonProps>(
   stretchStyles
 );
 
-/**
- * The Button component enables the user to perform an action or navigate
- * to a different screen.
- */
 export function ButtonComponent(
   props: BaseProps & LinkElProps,
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
@@ -215,6 +211,10 @@ export function ButtonComponent(
   );
 }
 
+/**
+ * The Button component enables the user to perform an action or navigate
+ * to a different screen.
+ */
 export const Button = React.forwardRef(ButtonComponent);
 
 Button.displayName = 'Button';

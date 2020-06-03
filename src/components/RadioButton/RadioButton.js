@@ -121,9 +121,6 @@ const RadioButtonLabel = styled('label')(
   labelInvalidStyles
 );
 
-/**
- * RadioButton component for forms.
- */
 const RadioButtonComponent = (
   { onChange, children, id, name, value, checked, ...props },
   ref
@@ -148,6 +145,9 @@ const RadioButtonComponent = (
   );
 };
 
+/**
+ * RadioButton component for forms.
+ */
 const RadioButton = React.forwardRef(RadioButtonComponent);
 
 RadioButton.propTypes = {

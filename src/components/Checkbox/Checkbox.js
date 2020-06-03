@@ -146,9 +146,6 @@ const CheckboxTooltip = styled(Tooltip)`
   ${tooltipBaseStyles};
 `;
 
-/**
- * Checkbox component for forms.
- */
 const CheckboxComponent = (
   {
     children,
@@ -187,6 +184,9 @@ const CheckboxComponent = (
   );
 };
 
+/**
+ * Checkbox component for forms.
+ */
 const Checkbox = React.forwardRef(CheckboxComponent);
 
 Checkbox.propTypes = {

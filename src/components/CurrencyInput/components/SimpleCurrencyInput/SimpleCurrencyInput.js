@@ -84,9 +84,6 @@ const inputAppendStyles = ({ theme, symbol = '', prependSymbol }) =>
     padding-right: calc(${theme.spacings.mega} + ${symbol.length}ch);
   `;
 
-/**
- * A simple currency input for forms.
- */
 const SimpleCurrencyInputComponent = (
   {
     prependSymbol,
@@ -162,6 +159,9 @@ const SimpleCurrencyInputComponent = (
   />
 );
 
+/**
+ * A simple currency input for forms.
+ */
 const SimpleCurrencyInput = React.forwardRef(SimpleCurrencyInputComponent);
 
 SimpleCurrencyInput.propTypes = {

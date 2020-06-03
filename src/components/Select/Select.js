@@ -199,9 +199,6 @@ const SelectTooltip = styled(Tooltip)`
   ${tooltipBaseStyles};
 `;
 
-/**
- * A native select component.
- */
 const SelectComponent = (
   {
     value,
@@ -271,6 +268,9 @@ const SelectComponent = (
   );
 };
 
+/**
+ * A native select component.
+ */
 const Select = React.forwardRef(SelectComponent);
 
 Select.propTypes = {
