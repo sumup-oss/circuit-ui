@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+import ProgressBar from '../ProgressBar';
 import Step from '../Step';
 import {
   childrenPropType,
@@ -30,7 +31,6 @@ import Slide from './components/Slide';
 import SlideImage from './components/SlideImage';
 import Controls from './components/Controls';
 import Status from './components/Status';
-import Progress from './components/Progress';
 import {
   ButtonList,
   NextButton,
@@ -56,10 +56,9 @@ const statusAlignment = ({ theme }) => css`
 `;
 const StyledStatus = styled(Status)(statusAlignment);
 
-const progressAlignment = css`
+const StyledProgressBar = styled(ProgressBar)`
   flex: 1 1 auto;
 `;
-const StyledProgress = styled(Progress)(progressAlignment);
 
 const buttonsAlignment = ({ theme }) => css`
   margin-left: ${theme.spacings.exa};
@@ -138,10 +137,13 @@ const Carousel = ({
             <Controls>
               <StyledStatus step={state.step} total={slidesTotal} />
 
-              <StyledProgress
+              <StyledProgressBar
                 key={state.step}
+                size="byte"
+                variant="secondary"
+                loop
                 paused={state.paused}
-                animationDuration={Math.round(
+                duration={Math.round(
                   state.stepDuration + state.animationDuration
                 )}
               />

@@ -171,7 +171,7 @@ export default {
     // }),
     // TODO: Need to eliminate dynamic styles.
     // getComponentInfo(ProgressBar, {
-    //   size: [ProgressBar.KILO, ProgressBar.MEGA, ProgressBar.GIGA]
+    //   size: ['kilo', 'mega', 'giga']
     // }),
     getComponentInfo(RadioButton),
     getComponentInfo(Select, {

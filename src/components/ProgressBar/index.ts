@@ -13,26 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { boolean, number } from '@storybook/addon-knobs/react';
+import { ProgressBar } from './ProgressBar';
 
-import Progress from './Progress';
-import { SLIDE_DURATION } from '../../constants';
-
-export default {
-  title: 'Components/Carousel/Progress',
-  component: Progress,
-  parameters: {
-    jest: ['Carousel/Progress']
-  }
-};
-
-export const base = () => (
-  <div style={{ width: '60vw' }}>
-    <Progress
-      paused={boolean('Paused', false)}
-      cycle={boolean('Cycle', true)}
-      animationDuration={number('Animation duration', SLIDE_DURATION)}
-    />
-  </div>
-);
+export default ProgressBar;
