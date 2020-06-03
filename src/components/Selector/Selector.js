@@ -104,21 +104,20 @@ const inputStyles = ({ theme }) => css`
 
 const SelectorInput = styled.input(inputStyles);
 
-/**
- * A selector allows users to choose between several mutually-exlusive choices,
- * accompanied by descriptions, possibly with tabular data.
- */
-const Selector = ({
-  children,
-  value,
-  id,
-  name,
-  disabled,
-  multiple,
-  checked,
-  onChange,
-  ...props
-}) => {
+const SelectorComponent = (
+  {
+    children,
+    value,
+    id,
+    name,
+    disabled,
+    multiple,
+    checked,
+    onChange,
+    ...props
+  },
+  ref
+) => {
   const inputId = id || uniqueId('selector_');
   const type = multiple ? 'checkbox' : 'radio';
   return (
@@ -131,6 +130,7 @@ const Selector = ({
         checked={checked}
         disabled={disabled}
         onClick={onChange}
+        ref={ref}
       />
       <SelectorLabel htmlFor={inputId} disabled={disabled}>
         {children}
@@ -138,6 +138,12 @@ const Selector = ({
     </SelectorWrapper>
   );
 };
+
+/**
+ * A selector allows users to choose between several mutually-exlusive choices,
+ * accompanied by descriptions, possibly with tabular data.
+ */
+const Selector = React.forwardRef(SelectorComponent);
 
 Selector.propTypes = {
   /**
@@ -171,7 +177,16 @@ Selector.propTypes = {
   /**
    * Whether the user can select multiple options.
    */
-  multiple: PropTypes.bool
+  multiple: PropTypes.bool,
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+    })
+  ])
 };
 
 Selector.defaultProps = {
