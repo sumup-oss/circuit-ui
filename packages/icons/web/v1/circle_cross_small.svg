@@ -1,3 +1,10 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#circle_cross_small_svg__clip0)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z" fill="currentColor"/>
+    </g>
+    <defs>
+        <clipPath id="circle_cross_small_svg__clip0">
+            <path d="M0 0h16v16H0V0z" fill="#fff"/>
+        </clipPath>
+    </defs>
 </svg>

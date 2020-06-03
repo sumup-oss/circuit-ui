@@ -1,12 +1,12 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 6h13a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2V8a2 2 0 012-2zm0 .5A1.5 1.5 0 004 8v8a1.5 1.5 0 001.5 1.5h13A1.5 1.5 0 0020 16V8a1.5 1.5 0 00-1.5-1.5h-13z" fill="#D8DDE1"/>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path opacity=".16" fill-rule="evenodd" clip-rule="evenodd" d="M1.882 2h12.236C15.158 2 16 2.843 16 3.882v7.53c0 1.04-.843 1.882-1.882 1.882H1.882A1.882 1.882 0 010 11.412v-7.53C0 2.842.843 2 1.882 2zm0 .47c-.78 0-1.411.633-1.411 1.412v7.53c0 .78.632 1.411 1.411 1.411h12.236c.78 0 1.411-.632 1.411-1.411v-7.53c0-.78-.632-1.411-1.411-1.411H1.882z" fill="#D8DDE1"/>
     <g clip-path="url(#flag_gr_small_svg__clip0)">
-        <path d="M18.4 6.5H5.6c-.884 0-1.6.724-1.6 1.618v7.764c0 .894.716 1.618 1.6 1.618h12.8c.884 0 1.6-.724 1.6-1.618V8.118c0-.894-.716-1.618-1.6-1.618z" fill="#0D5EAF"/>
-        <path d="M7.023 6.5v6.725M4 9.557h6.047m0-1.223h9.952m-9.952 2.446h9.952M4 13.225h15.999M4 15.67h15.999" stroke="#fff" stroke-width="1.051"/>
+        <path d="M14 2.5H2c-.828 0-1.5.679-1.5 1.517v7.279c0 .838.672 1.517 1.5 1.517h12c.828 0 1.5-.68 1.5-1.517v-7.28c0-.837-.672-1.516-1.5-1.516z" fill="#0D5EAF"/>
+        <path d="M3.334 2.5v6.305M.5 5.365h5.669m0-1.146h9.33m-9.33 2.293h9.33M.5 8.805h14.999M.5 11.097h14.999" stroke="#fff" stroke-width="1.051"/>
     </g>
     <defs>
         <clipPath id="flag_gr_small_svg__clip0">
-            <path fill="#fff" d="M4 6.5h16v11H4z"/>
+            <path fill="#fff" d="M0 2.5h16v11H0z"/>
         </clipPath>
     </defs>
 </svg>

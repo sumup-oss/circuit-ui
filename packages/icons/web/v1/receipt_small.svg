@@ -1,4 +1,3 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9 12h6M9 9h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M6 5V4a1 1 0 00-1 1h1zm0 14H5a1 1 0 001.481.877L6 19zm3-1.647l.481-.877a1 1 0 00-.962 0l.481.877zM12 19l-.481.877a1 1 0 00.962 0L12 19zm3-1.647l.481-.877a1 1 0 00-.962 0l.481.877zM18 19l-.481.877A1 1 0 0019 19h-1zm0-14h1a1 1 0 00-1-1v1zM5 5v14h2V5H5zm1.481 14.877l3-1.647-.962-1.754-3 1.647.962 1.754zM8.52 18.23l3 1.647.962-1.754-3-1.647-.962 1.754zm3.962 1.647l3-1.647-.962-1.754-3 1.647.962 1.754zm2.038-1.647l3 1.647.962-1.754-3-1.647-.962 1.754zM19 19V5h-2v14h2zM18 4H6v2h12V4z" fill="currentColor"/>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M2 0a1 1 0 00-1 1v14a1 1 0 001.481.877L5 14.494l2.519 1.383a1 1 0 00.962 0L11 14.494l2.519 1.383A1 1 0 0015 15V1a1 1 0 00-1-1H2zm1 13.31V2h10v11.31l-1.519-.834a1 1 0 00-.962 0L8 13.86l-2.519-1.383a1 1 0 00-.962 0L3 13.31zM4 5a1 1 0 011-1h6a1 1 0 110 2H5a1 1 0 01-1-1zm0 3a1 1 0 011-1h6a1 1 0 110 2H5a1 1 0 01-1-1z" fill="currentColor"/>
 </svg>

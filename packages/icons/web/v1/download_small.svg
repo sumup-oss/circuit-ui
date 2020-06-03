@@ -1,3 +1,10 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M19 16v3H5v-3m7-11v9m0 0l4-4m-4 4l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#download_small_svg__clip0)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9 1a1 1 0 00-2 0v6.586L4.707 5.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L9 7.586V1zM2 12a1 1 0 10-2 0v3a1 1 0 001 1h14a1 1 0 001-1v-3a1 1 0 10-2 0v2H2v-2z" fill="currentColor"/>
+    </g>
+    <defs>
+        <clipPath id="download_small_svg__clip0">
+            <path d="M0 0h16v16H0V0z" fill="#fff"/>
+        </clipPath>
+    </defs>
 </svg>

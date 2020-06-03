@@ -1,4 +1,10 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 14.124a6.495 6.495 0 002.405 3.556 6.676 6.676 0 004.129 1.319 6.668 6.668 0 004.068-1.488 6.483 6.483 0 002.252-3.652 6.407 6.407 0 00-.537-4.239 6.556 6.556 0 00-3.095-2.995 6.702 6.702 0 00-4.316-.458 6.619 6.619 0 00-3.672 2.277L6 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M5.5 6.5v4H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#refresh_small_svg__clip0)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.807 14.481a7.677 7.677 0 004.747 1.517 7.669 7.669 0 004.68-1.711 7.484 7.484 0 002.597-4.216 7.407 7.407 0 00-.62-4.9 7.556 7.556 0 00-3.567-3.452 7.702 7.702 0 00-4.96-.527A7.62 7.62 0 002.5 3.762V2.5a1 1 0 10-2 0v4a1 1 0 001 1H5a1 1 0 100-2H3.673l.34-.43a5.619 5.619 0 013.115-1.928 5.702 5.702 0 013.671.39 5.556 5.556 0 012.624 2.537c.557 1.11.716 2.37.454 3.578a5.483 5.483 0 01-1.906 3.088 5.668 5.668 0 01-3.458 1.264 5.676 5.676 0 01-3.51-1.12A5.495 5.495 0 012.967 9.87a1 1 0 00-1.934.508 7.495 7.495 0 002.774 4.103z" fill="currentColor"/>
+    </g>
+    <defs>
+        <clipPath id="refresh_small_svg__clip0">
+            <path d="M0 0h16v16H0V0z" fill="#fff"/>
+        </clipPath>
+    </defs>
 </svg>

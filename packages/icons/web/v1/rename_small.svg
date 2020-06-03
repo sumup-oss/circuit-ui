@@ -1,4 +1,3 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 5v7.5" stroke="currentColor" stroke-width="2"/>
-    <path d="M9 4a1 1 0 000 2V4zm0 2h2V4H9v2zm6 0a1 1 0 100-2v2zm-2 0h2V4h-2v2zm-4 5.5a1 1 0 100 2v-2zm0 2h2v-2H9v2zm6 0a1 1 0 100-2v2zm-2 0h2v-2h-2v2zm3-6a1 1 0 100 2v-2zm-8 2a1 1 0 000-2v2zm10 7H6v2h12v-2zm-12 0v-7H4v7h2zm12-7v7h2v-7h-2zm-2 0h2v-2h-2v2zm-10 0h2v-2H6v2zm14 0a2 2 0 00-2-2v2h2zm-14 7H4a2 2 0 002 2v-2zm12 2a2 2 0 002-2h-2v2zm-12-9v-2a2 2 0 00-2 2h2z" fill="currentColor"/>
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M5 0a1 1 0 000 2h2v5.5H5a1 1 0 000 2h2v-1h2v1h2a1 1 0 100-2H9V2h2a1 1 0 100-2H9v1H7V0H5zM2 3.5a2 2 0 00-2 2v7a2 2 0 002 2h12a2 2 0 002-2v-7a2 2 0 00-2-2h-2a1 1 0 100 2h2v7H2v-7h2a1 1 0 000-2H2z" fill="currentColor"/>
 </svg>
