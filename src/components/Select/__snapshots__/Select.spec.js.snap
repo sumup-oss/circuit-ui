@@ -52,11 +52,11 @@ exports[`Select should not render with invalid styles when also passed the disab
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   top: 1px;
   right: 1px;
-  margin: 8px;
+  padding: 12px;
 }
 
 .circuit-4 {
@@ -111,17 +111,16 @@ label + .circuit-4 {
     <svg
       class="circuit-2 circuit-3"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
   </div>
@@ -153,11 +152,11 @@ label + .circuit-5 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   top: 1px;
   right: 1px;
-  margin: 8px;
+  padding: 12px;
 }
 
 .circuit-0 {
@@ -166,9 +165,9 @@ label + .circuit-5 {
   top: 1px;
   left: 1px;
   z-index: 40;
-  height: 16px;
-  width: 16px;
-  margin: 12px;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
   pointer-events: none;
 }
 
@@ -194,7 +193,7 @@ label + .circuit-5 {
   white-space: nowrap;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
+  padding-left: 40px;
 }
 
 .circuit-1:focus,
@@ -251,17 +250,16 @@ label + .circuit-5 {
     <svg
       class="circuit-3 circuit-4"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
   </div>
@@ -332,11 +330,11 @@ label + .circuit-6 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   top: 1px;
   right: 1px;
-  margin: 8px;
+  padding: 12px;
 }
 
 .circuit-4 {
@@ -415,17 +413,16 @@ label + .circuit-6 {
     <svg
       class="circuit-2 circuit-3"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
     <div
@@ -501,11 +498,11 @@ label + .circuit-4 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   top: 1px;
   right: 1px;
-  margin: 8px;
+  padding: 12px;
 }
 
 <label
@@ -543,17 +540,16 @@ label + .circuit-4 {
     <svg
       class="circuit-2 circuit-3"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
   </div>
@@ -612,11 +608,11 @@ exports[`Select should render with disabled styles when passed the disabled prop
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   top: 1px;
   right: 1px;
-  margin: 8px;
+  padding: 12px;
 }
 
 .circuit-4 {
@@ -671,17 +667,16 @@ label + .circuit-4 {
     <svg
       class="circuit-2 circuit-3"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
   </div>
@@ -740,11 +735,11 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   top: 1px;
   right: 1px;
-  margin: 8px;
+  padding: 12px;
 }
 
 .circuit-4 {
@@ -796,17 +791,16 @@ label + .circuit-4 {
     <svg
       class="circuit-2 circuit-3"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
   </div>
@@ -879,11 +873,11 @@ label + .circuit-6 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   top: 1px;
   right: 1px;
-  margin: 8px;
+  padding: 12px;
   right: calc(1px + 24px);
 }
 
@@ -893,11 +887,11 @@ label + .circuit-6 {
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   top: 1px;
   right: 1px;
-  margin: 8px;
+  padding: 12px;
   color: #DB4D4D;
 }
 
@@ -936,34 +930,46 @@ label + .circuit-6 {
     <svg
       class="circuit-2 circuit-3"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
     <svg
       class="circuit-4 circuit-5"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-      />
+      <g
+        clip-path="url(#circle_cross_small_svg__clip0)"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clippath
+          id="circle_cross_small_svg__clip0"
+        >
+          <path
+            d="M0 0h16v16H0V0z"
+            fill="#fff"
+          />
+        </clippath>
+      </defs>
     </svg>
   </div>
 </label>
@@ -1021,11 +1027,11 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  height: 24px;
-  width: 24px;
+  height: 40px;
+  width: 40px;
   top: 1px;
   right: 1px;
-  margin: 8px;
+  padding: 12px;
 }
 
 .circuit-4 {
@@ -1076,17 +1082,16 @@ label + .circuit-4 {
     <svg
       class="circuit-2 circuit-3"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
   </div>

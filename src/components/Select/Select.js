@@ -89,10 +89,10 @@ const suffixBaseStyles = ({ theme }) => css`
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  ${size(theme.iconSizes.mega)};
+  ${size(theme.spacings.peta)};
   top: 1px;
   right: 1px;
-  margin: ${theme.spacings.byte};
+  padding: ${theme.spacings.kilo};
 `;
 
 const suffixInvalidStyles = ({ theme, invalid }) =>
@@ -148,8 +148,8 @@ const prefixStyles = theme => css`
   top: 1px;
   left: 1px;
   z-index: 40;
-  ${size(theme.iconSizes.kilo)};
-  margin: ${theme.spacings.kilo};
+  ${size(theme.spacings.peta)};
+  padding: ${theme.spacings.kilo};
   pointer-events: none;
 `;
 
@@ -157,9 +157,7 @@ const selectPrefixStyles = ({ theme, hasPrefix }) =>
   hasPrefix &&
   css`
     label: select--prefix;
-    padding-left: calc(
-      ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
-    );
+    padding-left: ${theme.spacings.peta};
   `;
 
 const tooltipBaseStyles = css`

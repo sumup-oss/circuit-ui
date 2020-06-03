@@ -73,10 +73,11 @@ const Size = styled.p`
   font-style: italic;
 `;
 
-const iconStyles = color => theme => css`
+const iconStyles = (color, size) => theme => css`
   height: 3rem;
   width: auto;
   max-width: 6rem;
+  padding: ${size === 'small' ? '0.5rem' : '0'};
   color: ${theme.colors[color]};
   background-color: ${color === 'white'
     ? theme.colors.n900
@@ -170,7 +171,11 @@ const Icons = () => {
                 const Icon = iconComponents[componentName];
                 return (
                   <Wrapper key={id}>
-                    <Icon id={id} size={icon.size} css={iconStyles(color)} />
+                    <Icon
+                      id={id}
+                      size={icon.size}
+                      css={iconStyles(color, icon.size)}
+                    />
                     <Label htmlFor="id">
                       {icon.name}
                       {size === 'all' && <Size>{icon.size}</Size>}

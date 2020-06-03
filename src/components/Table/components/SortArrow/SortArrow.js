@@ -54,8 +54,8 @@ const baseStyles = ({ theme }) => css`
 const Wrapper = styled.button(baseStyles);
 
 const iconStyles = () => css`
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 `;
 
 const Label = styled('span')(hideVisually);

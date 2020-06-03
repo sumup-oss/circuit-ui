@@ -102,8 +102,8 @@ tbody .circuit-12:last-child td {
 }
 
 .circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .circuit-2 {
@@ -154,13 +154,13 @@ tbody .circuit-12:last-child td {
         <svg
           class="circuit-0"
           fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8 14l4-4 4 4"
+            d="M4 10l4-4 4 4"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -170,13 +170,13 @@ tbody .circuit-12:last-child td {
         <svg
           class="circuit-0"
           fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8 10l4 4 4-4"
+            d="M4 6l4 4 4-4"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -311,8 +311,8 @@ tbody .circuit-12:last-child td {
 }
 
 .circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .circuit-2 {
@@ -363,13 +363,13 @@ tbody .circuit-12:last-child td {
         <svg
           class="circuit-0"
           fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8 14l4-4 4 4"
+            d="M4 10l4-4 4 4"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -379,13 +379,13 @@ tbody .circuit-12:last-child td {
         <svg
           class="circuit-0"
           fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8 10l4 4 4-4"
+            d="M4 6l4 4 4-4"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"

@@ -171,8 +171,7 @@ const stretchStyles = ({ stretch }: ButtonProps) =>
 
 const iconStyles = (theme: Theme) => css`
   label: button__icon;
-  margin-right: ${theme.spacings.bit};
-  margin-left: -${theme.spacings.bit};
+  margin-right: ${theme.spacings.byte};
 `;
 
 const BaseButton = styled('button')<ButtonProps>(

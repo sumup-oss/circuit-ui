@@ -1225,13 +1225,13 @@ exports[`RangePicker should render with default styles 1`] = `
           <svg
             class="circuit-0 circuit-1"
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M6 12h10m0 0l-5-5m5 5l-5 5"
+              d="M2 8h10m0 0L7 3m5 5l-5 5"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"

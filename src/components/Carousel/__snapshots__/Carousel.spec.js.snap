@@ -549,13 +549,13 @@ exports[`Carousel styles should render with children as a function 1`] = `
         >
           <svg
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M14 8l-4 4 4 4"
+              d="M10 4L6 8l4 4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -573,13 +573,13 @@ exports[`Carousel styles should render with children as a function 1`] = `
         >
           <svg
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M10 16l4-4-4-4"
+              d="M6 12l4-4-4-4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1144,13 +1144,13 @@ exports[`Carousel styles should render with children as a node 1`] = `
         >
           <svg
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M14 8l-4 4 4 4"
+              d="M10 4L6 8l4 4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1168,13 +1168,13 @@ exports[`Carousel styles should render with children as a node 1`] = `
         >
           <svg
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M10 16l4-4-4-4"
+              d="M6 12l4-4-4-4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1739,13 +1739,13 @@ exports[`Carousel styles should render with default paused styles 1`] = `
         >
           <svg
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M14 8l-4 4 4 4"
+              d="M10 4L6 8l4 4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -1763,13 +1763,13 @@ exports[`Carousel styles should render with default paused styles 1`] = `
         >
           <svg
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M10 16l4-4-4-4"
+              d="M6 12l4-4-4-4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -2307,13 +2307,13 @@ exports[`Carousel styles should render with default styles 1`] = `
         >
           <svg
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M14 8l-4 4 4 4"
+              d="M10 4L6 8l4 4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -2331,13 +2331,13 @@ exports[`Carousel styles should render with default styles 1`] = `
         >
           <svg
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M10 16l4-4-4-4"
+              d="M6 12l4-4-4-4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"

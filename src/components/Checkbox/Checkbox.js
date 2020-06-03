@@ -51,6 +51,7 @@ const labelBaseStyles = ({ theme }) => css`
 
   svg {
     ${size(theme.spacings.mega)};
+    padding: 2px;
     box-sizing: border-box;
     color: ${theme.colors.p500};
     display: block;
