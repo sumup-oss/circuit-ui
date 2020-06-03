@@ -14,10 +14,19 @@
  */
 
 import React from 'react';
-import { Global } from '@emotion/core';
 
+import { render } from '../../util/test-utils';
+
+import { BaseStyles } from './BaseStyles';
 import { createBaseStyles } from './BaseStylesService';
 
-const BaseStyles = () => <Global styles={theme => createBaseStyles(theme)} />;
+jest.mock('./BaseStylesService', () => ({
+  createBaseStyles: jest.fn()
+}));
 
-export default BaseStyles;
+describe('BaseStyles', () => {
+  it('should create the global base stylesheet', () => {
+    render(<BaseStyles />);
+    expect(createBaseStyles).toHaveBeenCalled();
+  });
+});

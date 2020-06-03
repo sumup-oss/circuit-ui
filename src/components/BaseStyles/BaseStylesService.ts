@@ -15,16 +15,38 @@
 
 import { css } from '@emotion/core';
 
+import { StyleProps } from '../../styles/styled';
 import { textMega } from '../../styles/style-helpers';
 
-export const createBaseStyles = theme => css`
+const FONTS_BASE_URL = 'https://static.sumup.com/fonts/latin-greek-cyrillic';
+
+export const createBaseStyles = ({ theme }: StyleProps) => css`
+  /**
+   * Start downloading custom fonts as soon as possible.
+   */
+  @font-face {
+    font-family: 'aktiv-grotesk';
+    font-weight: 400;
+    font-display: swap;
+    src: url('${FONTS_BASE_URL}/aktiv-grotest-400.woff2') format('woff2'),
+      url('${FONTS_BASE_URL}/aktiv-grotest-400.woff') format('woff'),
+      url('${FONTS_BASE_URL}/aktiv-grotest-400.eot') format('embedded-opentype');
+  }
+  @font-face {
+    font-family: 'aktiv-grotesk';
+    font-weight: 700;
+    font-display: swap;
+    src: url('${FONTS_BASE_URL}/aktiv-grotest-700.woff2') format('woff2'), 
+      url('${FONTS_BASE_URL}/aktiv-grotest-700.woff') format('woff'),
+      url('${FONTS_BASE_URL}/aktiv-grotest-700.eot') format('embedded-opentype');
+  }
+
   /**
    * reset.css
    * http://meyerweb.com/eric/tools/css/reset/
    * v2.0 | 20110126
    * License: none (public domain)
    */
-
   html,
   body,
   div,
@@ -134,10 +156,10 @@ export const createBaseStyles = theme => css`
   q {
     quotes: none;
   }
-  blockquote:before,
-  blockquote:after,
-  q:before,
-  q:after {
+  blockquote::before,
+  blockquote::after,
+  q::before,
+  q::after {
     content: '';
     content: none;
   }

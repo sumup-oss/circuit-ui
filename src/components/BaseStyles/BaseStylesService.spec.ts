@@ -19,7 +19,7 @@ import { createBaseStyles } from './BaseStylesService';
 
 describe('BaseStylesService', () => {
   it('should return the global base styles', () => {
-    const actual = createBaseStyles(light);
+    const actual = createBaseStyles({ theme: light });
     expect(actual.styles).toMatchSnapshot();
   });
 });

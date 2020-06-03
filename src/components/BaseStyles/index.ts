@@ -13,19 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { BaseStyles } from './BaseStyles';
 
-import BaseStyles from './BaseStyles';
-
-import { createBaseStyles } from './BaseStylesService';
-
-jest.mock('./BaseStylesService', () => ({
-  createBaseStyles: jest.fn()
-}));
-
-describe('BaseStyles', () => {
-  it('should create the global base stylesheet', () => {
-    render(<BaseStyles />);
-    expect(createBaseStyles).toHaveBeenCalled();
-  });
-});
+export default BaseStyles;
