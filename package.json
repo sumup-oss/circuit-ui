@@ -34,7 +34,7 @@
     "check:licenses": "license-checker --production --summary --failOn=GPLv3",
     "predeploy": "rm -rf ./public && yarn build:docs && cp ./src/CNAME ./public/CNAME",
     "deploy": "gh-pages -d public",
-    "now-build": "yarn build:docs",
+    "now-build": "yarn build:storybook",
     "prepublishOnly": "yarn build",
     "release": "semantic-release"
   },
