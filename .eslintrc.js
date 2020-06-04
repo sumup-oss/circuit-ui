@@ -21,7 +21,16 @@ module.exports = require('@sumup/foundry/eslint')(
         rules: {
           'import/no-unresolved': 'off',
           'notice/notice': 'off',
-          '@typescript-eslint/no-unused-vars': 'off'
+          '@typescript-eslint/no-unused-vars': 'off',
+          'prettier/prettier': 'off'
+        }
+      },
+      {
+        files: ['src/cli/migrate/*.ts'],
+        rules: {
+          // jscodeshift expect no return value for files
+          // that should not be transformed.
+          'consistent-return': 'off'
         }
       }
     ]

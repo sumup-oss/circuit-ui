@@ -92,3 +92,43 @@ export function findStyledComponentNames(
 
   return styledComponents;
 }
+
+export function findLocalNames(
+  j: JSCodeshift,
+  root: Collection,
+  componentName: string
+): string[] | null {
+  const imports = findImportsByPath(j, root, '@sumup/circuit-ui');
+
+  const buttonImport = imports.find(i => i.name === componentName);
+
+  if (!buttonImport) {
+    return null;
+  }
+
+  const localName = buttonImport.local;
+
+  const styledButtons = findStyledComponentNames(j, root, localName);
+
+  return [localName, ...styledButtons];
+}
+
+export function renameJSXAttribute(
+  j: JSCodeshift,
+  root: Collection,
+  componentName: string,
+  fromName: string,
+  toName: string
+): void {
+  root
+    .findJSXElements(componentName)
+    .find(j.JSXAttribute, {
+      name: {
+        type: 'JSXIdentifier',
+        name: fromName
+      }
+    })
+    .replaceWith(nodePath =>
+      j.jsxAttribute(j.jsxIdentifier(toName), nodePath.node.value)
+    );
+}

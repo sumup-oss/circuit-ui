@@ -13,24 +13,23 @@
  * limitations under the License.
  */
 
-import { Transform, JSCodeshift, Collection } from 'jscodeshift';
+import { Transform } from 'jscodeshift';
 
 import { findLocalNames } from './utils';
 
-function transformFactory(
-  j: JSCodeshift,
-  root: Collection,
-  buttonName: string
-): void {
-  const components = findLocalNames(j, root, buttonName);
+const transform: Transform = (file, api) => {
+  const j = api.jscodeshift;
+  const root = j(file.source);
+
+  const components = findLocalNames(j, root, 'List');
 
   if (!components) {
-    return;
+    return null;
   }
 
   components.forEach(component => {
     // Change variants from boolean to enum prop
-    ['primary', 'secondary'].forEach(variant => {
+    ['ordered', 'unordered'].forEach(variant => {
       root
         .findJSXElements(component)
         .find(j.JSXAttribute, {
@@ -43,28 +42,7 @@ function transformFactory(
           j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral(variant))
         );
     });
-
-    // Remove flat variant
-    root
-      .findJSXElements(component)
-      .find(j.JSXAttribute, {
-        name: {
-          type: 'JSXIdentifier',
-          name: 'flat'
-        }
-      })
-      .remove();
-
-    // TODO: Replace plain variant with Anchor component
   });
-}
-
-const transform: Transform = (file, api) => {
-  const j = api.jscodeshift;
-  const root = j(file.source);
-
-  transformFactory(j, root, 'Button');
-  transformFactory(j, root, 'LoadingButton');
 
   return root.toSource();
 };

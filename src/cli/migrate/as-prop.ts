@@ -15,47 +15,21 @@
 
 import { Transform, JSCodeshift, Collection } from 'jscodeshift';
 
-import { findLocalNames } from './utils';
+import { renameJSXAttribute, findLocalNames } from './utils';
 
 function transformFactory(
   j: JSCodeshift,
   root: Collection,
-  buttonName: string
+  componentName: string
 ): void {
-  const components = findLocalNames(j, root, buttonName);
+  const components = findLocalNames(j, root, componentName);
 
   if (!components) {
     return;
   }
 
   components.forEach(component => {
-    // Change variants from boolean to enum prop
-    ['primary', 'secondary'].forEach(variant => {
-      root
-        .findJSXElements(component)
-        .find(j.JSXAttribute, {
-          name: {
-            type: 'JSXIdentifier',
-            name: variant
-          }
-        })
-        .replaceWith(() =>
-          j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral(variant))
-        );
-    });
-
-    // Remove flat variant
-    root
-      .findJSXElements(component)
-      .find(j.JSXAttribute, {
-        name: {
-          type: 'JSXIdentifier',
-          name: 'flat'
-        }
-      })
-      .remove();
-
-    // TODO: Replace plain variant with Anchor component
+    renameJSXAttribute(j, root, component, 'element', 'as');
   });
 }
 
@@ -63,8 +37,9 @@ const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  transformFactory(j, root, 'Button');
-  transformFactory(j, root, 'LoadingButton');
+  ['Heading', 'SubHeading', 'Text', 'Input'].forEach(componentName => {
+    transformFactory(j, root, componentName);
+  });
 
   return root.toSource();
 };
