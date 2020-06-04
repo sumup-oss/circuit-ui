@@ -26,11 +26,11 @@ label + .circuit-6 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-0 {
@@ -51,11 +51,11 @@ label + .circuit-6 {
   position: absolute;
   top: 1px;
   left: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -172,11 +172,11 @@ label + .circuit-6 {
   position: absolute;
   top: 1px;
   left: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -236,11 +236,11 @@ label + .circuit-6 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 <label

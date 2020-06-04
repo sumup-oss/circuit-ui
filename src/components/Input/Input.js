@@ -161,10 +161,10 @@ const prefixStyles = theme => css`
   position: absolute;
   top: 1px;
   left: 1px;
-  margin: ${theme.spacings.byte};
   pointer-events: none;
   color: ${theme.colors.n700};
-  ${size(theme.iconSizes.mega)};
+  padding: ${theme.spacings.kilo};
+  ${size(theme.spacings.peta)};
 `;
 
 /**
@@ -176,10 +176,10 @@ const suffixStyles = theme => css`
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: ${theme.spacings.byte};
   pointer-events: none;
   color: ${theme.colors.n700};
-  ${size(theme.iconSizes.mega)};
+  padding: ${theme.spacings.kilo};
+  ${size(theme.spacings.peta)};
 `;
 
 const tooltipBaseStyles = css`

@@ -65,15 +65,15 @@ exports[`Button styles should render a button with icon 1`] = `
 >
   <svg
     fill="none"
-    height="24"
+    height="16"
     role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
       clip-rule="evenodd"
-      d="M13.316 9.2V6.8c0-.994-.819-1.8-1.829-1.8l-2.439 5.4V17h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM9.048 17H7.22A1.21 1.21 0 016 15.8v-4.2c0-.663.546-1.2 1.22-1.2h1.828V17z"
+      d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"

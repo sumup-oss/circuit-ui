@@ -73,6 +73,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 .circuit-2 svg {
   height: 16px;
   width: 16px;
+  padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
   display: block;
@@ -147,13 +148,13 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
     <svg
       aria-hidden="true"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 12.79L10 17l8-9"
+        d="M2 8.79L6 13l8-9"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -242,6 +243,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 .circuit-2 svg {
   height: 16px;
   width: 16px;
+  padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
   display: block;
@@ -276,13 +278,13 @@ exports[`Checkbox should render with checked styles when passed the checked prop
     <svg
       aria-hidden="true"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 12.79L10 17l8-9"
+        d="M2 8.79L6 13l8-9"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -366,6 +368,7 @@ exports[`Checkbox should render with default styles 1`] = `
 .circuit-2 svg {
   height: 16px;
   width: 16px;
+  padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
   display: block;
@@ -399,13 +402,13 @@ exports[`Checkbox should render with default styles 1`] = `
     <svg
       aria-hidden="true"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 12.79L10 17l8-9"
+        d="M2 8.79L6 13l8-9"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -492,6 +495,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 .circuit-2 svg {
   height: 16px;
   width: 16px;
+  padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
   display: block;
@@ -542,13 +546,13 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
     <svg
       aria-hidden="true"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 12.79L10 17l8-9"
+        d="M2 8.79L6 13l8-9"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -632,6 +636,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 .circuit-2 svg {
   height: 16px;
   width: 16px;
+  padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
   display: block;
@@ -674,13 +679,13 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
     <svg
       aria-hidden="true"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 12.79L10 17l8-9"
+        d="M2 8.79L6 13l8-9"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
