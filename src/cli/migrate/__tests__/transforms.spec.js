@@ -24,3 +24,4 @@ defineTest(__dirname, 'as-prop');
 defineTest(__dirname, 'selector-props');
 defineTest(__dirname, 'exit-animations');
 defineTest(__dirname, 'input-deepref-prop');
+defineTest(__dirname, 'component-names-v2');
