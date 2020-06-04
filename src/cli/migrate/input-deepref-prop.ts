@@ -13,14 +13,25 @@
  * limitations under the License.
  */
 
-import { defineTest } from 'jscodeshift/dist/testUtils';
+import { Transform } from 'jscodeshift';
 
-jest.autoMockOff();
+import { renameJSXAttribute, findLocalNames } from './utils';
 
-defineTest(__dirname, 'button-variant-enum');
-defineTest(__dirname, 'list-variant-enum');
-defineTest(__dirname, 'onchange-prop');
-defineTest(__dirname, 'as-prop');
-defineTest(__dirname, 'selector-props');
-defineTest(__dirname, 'exit-animations');
-defineTest(__dirname, 'input-deepref-prop');
+const transform: Transform = (file, api) => {
+  const j = api.jscodeshift;
+  const root = j(file.source);
+
+  const components = findLocalNames(j, root, 'Input');
+
+  if (!components) {
+    return;
+  }
+
+  components.forEach(component => {
+    renameJSXAttribute(j, root, component, 'deepRef', 'ref');
+  });
+
+  return root.toSource();
+};
+
+export default transform;
