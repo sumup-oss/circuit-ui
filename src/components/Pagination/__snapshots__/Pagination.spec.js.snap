@@ -36,15 +36,15 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -67,13 +67,13 @@ exports[`Pagination styles With 5 or less pages should render only the number of
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -103,7 +103,6 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -112,6 +111,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -188,7 +188,6 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -197,6 +196,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -226,7 +226,7 @@ exports[`Pagination styles With 5 or less pages should render only the number of
 
 .circuit-5:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-5:focus {
@@ -266,15 +266,15 @@ exports[`Pagination styles With 5 or less pages should render only the number of
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -296,13 +296,13 @@ exports[`Pagination styles With 5 or less pages should render only the number of
 }
 
 .circuit-13:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-13:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <div
@@ -395,15 +395,15 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -426,13 +426,13 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -462,7 +462,6 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -471,6 +470,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -547,7 +547,6 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -556,6 +555,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -585,7 +585,7 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-3:focus {
@@ -625,15 +625,15 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -655,13 +655,13 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
 }
 
 .circuit-15:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-15:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-5 {
@@ -686,21 +686,20 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
   border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
+  opacity: 1 !important;
 }
 
 .circuit-5:focus {
@@ -720,13 +719,13 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
 }
 
 .circuit-5:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-5:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-5:focus {
@@ -745,12 +744,6 @@ exports[`Pagination styles With more than 5 pages when user is last but one page
 }
 
 .circuit-5:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-  opacity: 1 !important;
-}
-
-.circuit-5:hover:hover {
   border-color: #D8DDE1;
 }
 
@@ -849,15 +842,15 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -880,13 +873,13 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -916,7 +909,6 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -925,6 +917,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -1001,7 +994,6 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -1010,6 +1002,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -1039,7 +1032,7 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-3:focus {
@@ -1079,15 +1072,15 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -1109,13 +1102,13 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 }
 
 .circuit-15:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-15:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-5 {
@@ -1140,21 +1133,20 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
   border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
+  opacity: 1 !important;
 }
 
 .circuit-5:focus {
@@ -1174,13 +1166,13 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 }
 
 .circuit-5:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-5:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-5:focus {
@@ -1199,12 +1191,6 @@ exports[`Pagination styles With more than 5 pages when user is on last page shou
 }
 
 .circuit-5:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-  opacity: 1 !important;
-}
-
-.circuit-5:hover:hover {
   border-color: #D8DDE1;
 }
 
@@ -1304,15 +1290,15 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -1335,13 +1321,13 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -1371,7 +1357,6 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -1380,6 +1365,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -1456,7 +1442,6 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -1465,6 +1450,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -1494,7 +1480,7 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-3:focus {
@@ -1534,15 +1520,15 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -1564,13 +1550,13 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
 }
 
 .circuit-15:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-15:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-11 {
@@ -1595,21 +1581,20 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
   border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
+  opacity: 1 !important;
 }
 
 .circuit-11:focus {
@@ -1629,13 +1614,13 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
 }
 
 .circuit-11:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-11:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-11:focus {
@@ -1654,12 +1639,6 @@ exports[`Pagination styles With more than 5 pages when user is on page 2 should 
 }
 
 .circuit-11:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-  opacity: 1 !important;
-}
-
-.circuit-11:hover:hover {
   border-color: #D8DDE1;
 }
 
@@ -1758,15 +1737,15 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -1789,13 +1768,13 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -1825,7 +1804,6 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -1834,6 +1812,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -1910,7 +1889,6 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -1919,6 +1897,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -1948,7 +1927,7 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-3:focus {
@@ -1988,15 +1967,15 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -2018,13 +1997,13 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
 }
 
 .circuit-17:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-17:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-5 {
@@ -2049,21 +2028,20 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
   border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
+  opacity: 1 !important;
 }
 
 .circuit-5:focus {
@@ -2083,13 +2061,13 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
 }
 
 .circuit-5:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-5:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-5:focus {
@@ -2108,12 +2086,6 @@ exports[`Pagination styles With more than 5 pages when user is on page in the mi
 }
 
 .circuit-5:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-  opacity: 1 !important;
-}
-
-.circuit-5:hover:hover {
   border-color: #D8DDE1;
 }
 
@@ -2218,15 +2190,15 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -2249,13 +2221,13 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -2285,7 +2257,6 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -2294,6 +2265,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -2370,7 +2342,6 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -2379,6 +2350,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -2408,7 +2380,7 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
 
 .circuit-5:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-5:focus {
@@ -2448,15 +2420,15 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -2478,13 +2450,13 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
 }
 
 .circuit-15:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-15:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-11 {
@@ -2509,21 +2481,20 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
   border-color: #D8DDE1;
-  font-weight: bold;
-  pointer-events: none;
+  opacity: 1 !important;
 }
 
 .circuit-11:focus {
@@ -2543,13 +2514,13 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
 }
 
 .circuit-11:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-11:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-11:focus {
@@ -2568,12 +2539,6 @@ exports[`Pagination styles With more than 5 pages when user is on page one shoul
 }
 
 .circuit-11:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
-  opacity: 1 !important;
-}
-
-.circuit-11:hover:hover {
   border-color: #D8DDE1;
 }
 

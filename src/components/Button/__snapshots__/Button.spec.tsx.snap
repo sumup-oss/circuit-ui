@@ -23,15 +23,15 @@ exports[`Button styles should render a button with icon 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -51,13 +51,13 @@ exports[`Button styles should render a button with icon 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -107,15 +107,15 @@ exports[`Button styles should render a disabled button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -135,85 +135,18 @@ exports[`Button styles should render a disabled button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
   class="circuit-0"
   disabled=""
->
-  Button
-</button>
-`;
-
-exports[`Button styles should render a giga button 1`] = `
-.circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
-  padding: 12px calc(32px - 1px);
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
-}
-
-.circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
-}
-
-<button
-  class="circuit-0"
 >
   Button
 </button>
@@ -242,15 +175,15 @@ exports[`Button styles should render a kilo button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-0:focus {
@@ -270,13 +203,13 @@ exports[`Button styles should render a kilo button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -309,15 +242,15 @@ exports[`Button styles should render a mega button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -337,13 +270,13 @@ exports[`Button styles should render a mega button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -376,15 +309,15 @@ exports[`Button styles should render a primary button by default 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -404,13 +337,13 @@ exports[`Button styles should render a primary button by default 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -443,7 +376,6 @@ exports[`Button styles should render a secondary button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -452,6 +384,7 @@ exports[`Button styles should render a secondary button 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -477,7 +410,7 @@ exports[`Button styles should render a secondary button 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -510,15 +443,15 @@ exports[`Button styles should render a stretched button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   width: 100%;
 }
 
@@ -539,13 +472,13 @@ exports[`Button styles should render a stretched button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -578,7 +511,6 @@ exports[`Button styles should render a tertiary button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -587,6 +519,7 @@ exports[`Button styles should render a tertiary button 1`] = `
   border-color: transparent;
   color: #3388FF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {

@@ -32,7 +32,7 @@ export default {
 export const Primary = () => (
   <Button
     variant={select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}
-    size={select('Size', ['kilo', 'mega', 'giga'], 'mega')}
+    size={select('Size', ['kilo', 'mega'], 'mega')}
     href={boolean('Link', false) ? '#' : undefined}
     target={boolean('Link', false) ? '_blank' : undefined}
     stretch={boolean('Stretched', false)}
@@ -56,7 +56,6 @@ export const Sizes = () => (
   <>
     <Button size="kilo">Button kilo</Button>
     <Button size="mega">Button mega</Button>
-    <Button size="giga">Button giga</Button>
   </>
 );
 
@@ -64,7 +63,7 @@ export const WithIcon = () => (
   <Button
     icon={ThumbUp}
     variant={select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}
-    size={select('Size', ['kilo', 'mega', 'giga'], 'mega')}
+    size={select('Size', ['kilo', 'mega'], 'mega')}
   >
     Like
   </Button>

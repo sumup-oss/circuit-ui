@@ -34,7 +34,7 @@ export interface BaseProps {
   /**
    * Choose from 3 sizes. Default: 'mega'.
    */
-  size?: 'kilo' | 'mega' | 'giga';
+  size?: 'kilo' | 'mega';
   /**
    * Visually and functionally disable the button.
    */
@@ -70,7 +70,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
   text-align: center;
   text-decoration: none;
   font-weight: ${theme.fontWeight.bold};
-  border-radius: ${theme.borderRadius.giga};
   border-width: ${BORDER_WIDTH};
   border-style: solid;
   transition: opacity ${theme.transitions.default};
@@ -87,7 +86,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const primaryStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'secondary'
 }: ButtonProps & StyleProps) =>
   variant === 'primary' &&
   css`
@@ -109,7 +108,7 @@ const primaryStyles = ({
 
 const secondaryStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'secondary'
 }: ButtonProps & StyleProps) =>
   variant === 'secondary' &&
   css`
@@ -125,13 +124,13 @@ const secondaryStyles = ({
 
     &:active {
       background-color: ${theme.colors.n200};
-      border-color: ${theme.colors.n700};
+      border-color: ${theme.colors.n800};
     }
   `;
 
 const tertiaryStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'secondary'
 }: ButtonProps & StyleProps) =>
   variant === 'tertiary' &&
   css`
@@ -151,14 +150,19 @@ const tertiaryStyles = ({
 
 const sizeStyles = ({ theme, size = 'mega' }: ButtonProps & StyleProps) => {
   const sizeMap = {
-    kilo: `${theme.spacings.bit} calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
-    mega: `${theme.spacings.byte} calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
-    giga: `${theme.spacings.kilo} calc(${theme.spacings.tera} - ${BORDER_WIDTH})`
+    kilo: {
+      padding: `${theme.spacings.bit} calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
+      borderRadius: '6px'
+    },
+    mega: {
+      padding: `${theme.spacings.byte} calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
+      borderRadius: '8px'
+    }
   };
 
   return css({
     label: `button--${size}`,
-    padding: sizeMap[size]
+    ...sizeMap[size]
   });
 };
 

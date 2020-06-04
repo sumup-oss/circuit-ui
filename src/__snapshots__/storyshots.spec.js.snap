@@ -298,7 +298,6 @@ exports[`Storyshots Components/Button Primary 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -307,6 +306,7 @@ exports[`Storyshots Components/Button Primary 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -365,7 +365,6 @@ exports[`Storyshots Components/Button Secondary 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -374,6 +373,7 @@ exports[`Storyshots Components/Button Secondary 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -399,7 +399,7 @@ exports[`Storyshots Components/Button Secondary 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -433,15 +433,15 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-0:focus {
@@ -461,13 +461,13 @@ HTMLCollection [
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -497,15 +497,15 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -525,83 +525,19 @@ HTMLCollection [
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
     class="circuit-0"
   >
     Button mega
-  </button>,
-  .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
-  padding: 12px calc(32px - 1px);
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
-}
-
-.circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
-}
-
-<button
-    class="circuit-0"
-  >
-    Button giga
   </button>,
 ]
 `;
@@ -629,7 +565,6 @@ exports[`Storyshots Components/Button Tertiary 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -638,6 +573,7 @@ exports[`Storyshots Components/Button Tertiary 1`] = `
   border-color: transparent;
   color: #3388FF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -694,7 +630,6 @@ exports[`Storyshots Components/Button With Icon 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -703,6 +638,7 @@ exports[`Storyshots Components/Button With Icon 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -778,7 +714,6 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -787,6 +722,7 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -837,7 +773,6 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -846,6 +781,7 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -871,7 +807,7 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-2 {
@@ -951,7 +887,6 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -960,6 +895,7 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -986,7 +922,7 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
 
 .circuit-1:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-0 {
@@ -1052,7 +988,6 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -1061,6 +996,7 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -1180,7 +1116,6 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -1189,6 +1124,7 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-3:focus {
@@ -4099,15 +4035,15 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -4127,13 +4063,13 @@ HTMLCollection [
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-3 {
@@ -4291,15 +4227,15 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -4319,13 +4255,13 @@ HTMLCollection [
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-7 {
@@ -4636,7 +4572,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -4645,6 +4580,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -4671,7 +4607,7 @@ HTMLCollection [
 
 .circuit-2:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -4856,7 +4792,20 @@ exports[`Storyshots Components/Card/CardList Base 1`] = `
 `;
 
 exports[`Storyshots Components/Carousel Composed 1`] = `
-.circuit-52 {
+.circuit-38 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-50 {
   width: 100%;
   height: auto;
   position: relative;
@@ -4969,7 +4918,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   z-index: -2;
 }
 
-.circuit-50 {
+.circuit-48 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -4986,7 +4935,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   margin-top: 16px;
 }
 
-.circuit-41 {
+.circuit-40 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5008,84 +4957,46 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
-  background-color: #D8DDE1;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
+  border-radius: 8px;
   margin-left: 8px;
 }
 
-.circuit-41:focus {
+.circuit-40:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-41:focus::-moz-focus-inner {
+.circuit-40:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-41:disabled,
-.circuit-41[disabled] {
+.circuit-40:disabled,
+.circuit-40[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-41:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+.circuit-40:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
-.circuit-41:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+.circuit-40:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
-.circuit-41:first-of-type {
+.circuit-40:first-of-type {
   margin-left: 0;
-}
-
-.circuit-41:active,
-.circuit-41:focus,
-.circuit-41:hover {
-  padding: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-41 {
-    width: 24px;
-    height: 24px;
-  }
-
-  .circuit-41 svg {
-    width: 25%;
-  }
-}
-
-.circuit-38 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .circuit-8 {
@@ -5106,7 +5017,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   background: #FAFBFC;
 }
 
-.circuit-48 {
+.circuit-46 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5121,7 +5032,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   justify-content: center;
 }
 
-.circuit-42 {
+.circuit-41 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -5131,14 +5042,14 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-42 {
+  .circuit-41 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-42 {
+  .circuit-41 {
     font-size: 13px;
     line-height: 20px;
   }
@@ -5148,7 +5059,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   style="width: 50vw;"
 >
   <div
-    class="circuit-52 circuit-53"
+    class="circuit-50 circuit-51"
   >
     <div
       class="circuit-36 circuit-37"
@@ -5227,37 +5138,39 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
       </div>
     </div>
     <div
-      class="circuit-50 circuit-51"
+      class="circuit-48 circuit-49"
     >
       <div
-        class="circuit-48 circuit-49"
+        class="circuit-46 circuit-47"
       >
         <button
-          aria-label="previous"
-          class="circuit-40 circuit-41"
+          class="circuit-39 circuit-40"
+          title="Previous"
         >
-          <div
-            class="circuit-38 circuit-39"
+          <svg
+            fill="none"
+            height="16"
+            role="presentation"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              fill="none"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10 4L6 8l4 4"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              />
-            </svg>
-          </div>
+            <path
+              d="M10 4L6 8l4 4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="circuit-38"
+          >
+            Previous
+          </span>
         </button>
         <p
-          class="circuit-42 circuit-43"
+          class="circuit-41 circuit-42"
           style="margin-left: 8px;"
         >
           1
@@ -5265,28 +5178,30 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
           3
         </p>
         <button
-          aria-label="next"
-          class="circuit-40 circuit-41"
+          class="circuit-39 circuit-40"
+          title="Next"
         >
-          <div
-            class="circuit-38 circuit-39"
+          <svg
+            fill="none"
+            height="16"
+            role="presentation"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              fill="none"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 12l4-4-4-4"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              />
-            </svg>
-          </div>
+            <path
+              d="M6 12l4-4-4-4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="circuit-38"
+          >
+            Next
+          </span>
         </button>
       </div>
     </div>
@@ -5318,7 +5233,20 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   }
 }
 
-.circuit-61 {
+.circuit-45 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-58 {
   width: 100%;
   height: auto;
   position: relative;
@@ -5449,7 +5377,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   z-index: -2;
 }
 
-.circuit-59 {
+.circuit-56 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -5559,7 +5487,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   margin-left: 8px;
 }
 
-.circuit-57 {
+.circuit-54 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5576,12 +5504,12 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-57 {
+  .circuit-54 {
     margin-left: 12px;
   }
 }
 
-.circuit-48 {
+.circuit-47 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5603,84 +5531,46 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
-  background-color: #D8DDE1;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
+  border-radius: 8px;
   margin-left: 8px;
 }
 
-.circuit-48:focus {
+.circuit-47:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-48:focus::-moz-focus-inner {
+.circuit-47:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-48:disabled,
-.circuit-48[disabled] {
+.circuit-47:disabled,
+.circuit-47[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-48:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+.circuit-47:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
-.circuit-48:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+.circuit-47:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
-.circuit-48:first-of-type {
+.circuit-47:first-of-type {
   margin-left: 0;
-}
-
-.circuit-48:active,
-.circuit-48:focus,
-.circuit-48:hover {
-  padding: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-48 {
-    width: 24px;
-    height: 24px;
-  }
-
-  .circuit-48 svg {
-    width: 25%;
-  }
-}
-
-.circuit-45 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 <div
@@ -5688,7 +5578,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 >
   <div
     aria-label="gallery"
-    class="circuit-61 circuit-62"
+    class="circuit-58 circuit-59"
   >
     <div
       class="circuit-36 circuit-37"
@@ -5764,7 +5654,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
       </div>
     </div>
     <div
-      class="circuit-59 circuit-60"
+      class="circuit-56 circuit-57"
     >
       <p
         class="circuit-38 circuit-39 circuit-40"
@@ -5787,78 +5677,87 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
         />
       </div>
       <div
-        class="circuit-57 circuit-58"
+        class="circuit-54 circuit-55"
       >
         <button
           aria-label="pause"
-          class="circuit-47 circuit-48"
+          class="circuit-46 circuit-47"
+          title="Pause"
         >
-          <div
-            class="circuit-45 circuit-46"
+          <svg
+            fill="none"
+            height="16"
+            role="presentation"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.5 7v10M15.5 7v10"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-width="2"
-              />
-            </svg>
-          </div>
+            <path
+              d="M4.5 3v10M11.5 3v10"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="circuit-45"
+          >
+            Pause
+          </span>
         </button>
         <button
           aria-label="previous"
-          class="circuit-47 circuit-48"
+          class="circuit-46 circuit-47"
+          title="Previous"
         >
-          <div
-            class="circuit-45 circuit-46"
+          <svg
+            fill="none"
+            height="16"
+            role="presentation"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              fill="none"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10 4L6 8l4 4"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              />
-            </svg>
-          </div>
+            <path
+              d="M10 4L6 8l4 4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="circuit-45"
+          >
+            Previous
+          </span>
         </button>
         <button
           aria-label="next"
-          class="circuit-47 circuit-48"
+          class="circuit-46 circuit-47"
+          title="Next"
         >
-          <div
-            class="circuit-45 circuit-46"
+          <svg
+            fill="none"
+            height="16"
+            role="presentation"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              fill="none"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 12l4-4-4-4"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              />
-            </svg>
-          </div>
+            <path
+              d="M6 12l4-4-4-4"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+          <span
+            class="circuit-45"
+          >
+            Next
+          </span>
         </button>
       </div>
     </div>
@@ -5867,7 +5766,20 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 `;
 
 exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
-.circuit-3 {
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5889,87 +5801,49 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
-  background-color: #D8DDE1;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
+  border-radius: 8px;
   margin-left: 8px;
 }
 
-.circuit-3:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-3:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-3:disabled,
-.circuit-3[disabled] {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-3:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
-.circuit-3:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+.circuit-2:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
-.circuit-3:first-of-type {
+.circuit-2:first-of-type {
   margin-left: 0;
 }
 
-.circuit-3:active,
-.circuit-3:focus,
-.circuit-3:hover {
-  padding: 0;
-}
-
-@media (max-width:479px) {
-  .circuit-3 {
-    width: 24px;
-    height: 24px;
-  }
-
-  .circuit-3 svg {
-    width: 25%;
-  }
-}
-
-.circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.circuit-16 {
+.circuit-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5985,102 +5859,110 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
 }
 
 <div
-  class="circuit-16 circuit-17"
+  class="circuit-12 circuit-13"
 >
   <button
-    aria-label="pause"
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
+    title="Pause"
   >
-    <div
-      class="circuit-0 circuit-1"
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8.5 7v10M15.5 7v10"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-width="2"
-        />
-      </svg>
-    </div>
+      <path
+        d="M4.5 3v10M11.5 3v10"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Pause
+    </span>
   </button>
   <button
-    aria-label="play"
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
+    title="Play"
   >
-    <div
-      class="circuit-0 circuit-1"
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M17 12l-9 5V7l9 5z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-    </div>
+      <path
+        d="M13 8l-9 5V3l9 5z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Play
+    </span>
   </button>
   <button
-    aria-label="previous"
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
+    title="Previous"
   >
-    <div
-      class="circuit-0 circuit-1"
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10 4L6 8l4 4"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-    </div>
+      <path
+        d="M10 4L6 8l4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Previous
+    </span>
   </button>
   <button
-    aria-label="next"
-    class="circuit-2 circuit-3"
+    class="circuit-1 circuit-2"
+    title="Next"
   >
-    <div
-      class="circuit-0 circuit-1"
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="16"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M6 12l4-4-4-4"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-    </div>
+      <path
+        d="M6 12l4-4-4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Next
+    </span>
   </button>
 </div>
 `;
@@ -6307,7 +6189,6 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6316,6 +6197,7 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -6342,7 +6224,7 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -6456,7 +6338,6 @@ exports[`Storyshots Components/Header Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6465,6 +6346,7 @@ exports[`Storyshots Components/Header Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -6491,7 +6373,7 @@ exports[`Storyshots Components/Header Base 1`] = `
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -6656,15 +6538,15 @@ exports[`Storyshots Components/Modal Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6684,13 +6566,13 @@ exports[`Storyshots Components/Modal Base 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -6724,15 +6606,15 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6752,13 +6634,13 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -6792,15 +6674,15 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6820,13 +6702,13 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -6860,15 +6742,15 @@ exports[`Storyshots Components/Modal With Header 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6888,13 +6770,13 @@ exports[`Storyshots Components/Modal With Header 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -6928,15 +6810,15 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6956,13 +6838,13 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -6996,15 +6878,15 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -7024,13 +6906,13 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -7165,6 +7047,65 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
 `;
 
 exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-5:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
+}
+
 .circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7187,15 +7128,15 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-4:focus {
@@ -7215,13 +7156,13 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-4:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-6 {
@@ -7393,7 +7334,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
       </li>
       <li>
         <button
-          class="circuit-4"
+          class="circuit-5"
         >
           Confirm
         </button>
@@ -7552,7 +7493,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -7561,6 +7501,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -7587,7 +7528,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 
 .circuit-2:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -7770,15 +7711,15 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-4:focus {
@@ -7798,13 +7739,13 @@ exports[`Storyshots Components/Notification Alert 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-4:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-3 {
@@ -8131,15 +8072,15 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-4:focus {
@@ -8159,13 +8100,13 @@ exports[`Storyshots Components/Notification Warning 1`] = `
 }
 
 .circuit-4:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-4:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-3 {
@@ -8604,15 +8545,15 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -8635,13 +8576,13 @@ HTMLCollection [
 }
 
 .circuit-1:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-1:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -8671,7 +8612,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -8680,6 +8620,7 @@ HTMLCollection [
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -8756,7 +8697,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -8765,6 +8705,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -8794,7 +8735,7 @@ HTMLCollection [
 
 .circuit-5:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-5:focus {
@@ -8834,15 +8775,15 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -8864,13 +8805,13 @@ HTMLCollection [
 }
 
 .circuit-13:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-13:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <div
@@ -8963,15 +8904,15 @@ exports[`Storyshots Components/Popover Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-0:focus {
@@ -8991,13 +8932,13 @@ exports[`Storyshots Components/Popover Base 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -10012,7 +9953,6 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -10021,6 +9961,7 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
   border-radius: 100%;
   position: absolute;
@@ -10058,7 +9999,7 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
 
 .circuit-50:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 @media (min-width:960px) {
@@ -10349,7 +10290,6 @@ exports[`Storyshots Components/Step Form 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -10358,6 +10298,7 @@ exports[`Storyshots Components/Step Form 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-24:focus {
@@ -10695,15 +10636,15 @@ exports[`Storyshots Components/Step Slider 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   margin: 8px;
 }
 
@@ -10724,11 +10665,71 @@ exports[`Storyshots Components/Step Slider 1`] = `
 }
 
 .circuit-18:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-18:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
+}
+
+.circuit-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.circuit-20:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-20:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-20:disabled,
+.circuit-20[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-20:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-18:active {
+.circuit-20:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
@@ -10777,7 +10778,7 @@ exports[`Storyshots Components/Step Slider 1`] = `
     </button>
     <button
       aria-label="play"
-      class="circuit-17 circuit-18"
+      class="circuit-17 circuit-20"
     >
       Play
     </button>
@@ -10814,7 +10815,6 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -10823,6 +10823,7 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-3:focus {
@@ -10848,7 +10849,7 @@ exports[`Storyshots Components/Step Swiper 1`] = `
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-7 {
@@ -13616,7 +13617,6 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -13625,6 +13625,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
   margin-left: 4px;
   margin-right: -4px;
@@ -13654,7 +13655,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
 
 .circuit-2:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <div
@@ -23403,7 +23404,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -23412,6 +23412,7 @@ HTMLCollection [
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -23475,15 +23476,15 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -23503,13 +23504,13 @@ HTMLCollection [
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -23544,15 +23545,15 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -23572,13 +23573,13 @@ HTMLCollection [
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #FAFBFC;
+  border-color: #5C656F;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <button
@@ -23608,7 +23609,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -23617,6 +23617,7 @@ HTMLCollection [
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {

@@ -128,7 +128,7 @@ export default {
       }
     },
     // TODO: Make React DocGen work with TypeScript
-    // getComponentInfo(Button, { size: [KILO, MEGA, GIGA] }),
+    // getComponentInfo(Button, { size: [KILO, MEGA] }),
     getComponentInfo(Blockquote, {
       size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
     }),

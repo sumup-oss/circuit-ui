@@ -40,8 +40,7 @@ const sizeStyles = (size: IconButtonProps['size'] = 'mega') => (
 ) => {
   const sizeMap = {
     kilo: theme.spacings.byte,
-    mega: theme.spacings.kilo,
-    giga: theme.spacings.mega
+    mega: theme.spacings.kilo
   };
 
   return css({
