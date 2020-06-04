@@ -17,9 +17,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { hideVisually } from 'polished';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
+import { hideVisually } from '../../../../styles/style-helpers';
 import { ASCENDING, DESCENDING } from '../../constants';
 
 const baseStyles = ({ theme }) => css`
@@ -54,8 +54,8 @@ const baseStyles = ({ theme }) => css`
 const Wrapper = styled.button(baseStyles);
 
 const iconStyles = () => css`
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 `;
 
 const Label = styled('span')(hideVisually);

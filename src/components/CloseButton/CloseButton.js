@@ -27,7 +27,7 @@ const buttonStyles = () => css`
  * A generic close button.
  */
 const CloseButton = React.forwardRef((props, ref) => (
-  <IconButton variant="secondary" css={buttonStyles} {...props} ref={ref}>
+  <IconButton css={buttonStyles} {...props} ref={ref}>
     <Cross />
   </IconButton>
 ));

@@ -19,7 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { ChevronLeft, ChevronRight, Pause, Play } from '@sumup/icons';
 
-import CircuitUIButton from '../../../Button';
+import IconButton from '../../../IconButton';
 
 const buttonListStyles = css`
   label: carousel__buttonlist;
@@ -27,68 +27,39 @@ const buttonListStyles = css`
   align-items: center;
   justify-content: center;
 `;
+
 export const ButtonList = styled('div')(buttonListStyles);
 
-const baseButtonStyles = ({ theme }) => css`
+const buttonStyles = ({ theme }) => css`
   label: carousel__button;
-  background-color: ${theme.colors.n300};
-  width: ${theme.iconSizes.giga};
-  height: ${theme.iconSizes.giga};
-  padding: 0;
-  overflow: hidden;
-  border-radius: 50%;
-
   margin-left: ${theme.spacings.byte};
 
   &:first-of-type {
     margin-left: 0;
   }
-  &:active,
-  &:focus,
-  &:hover {
-    padding: 0;
-  }
-
-  ${theme.mq.untilKilo} {
-    width: ${theme.iconSizes.mega};
-    height: ${theme.iconSizes.mega};
-
-    svg {
-      width: 25%;
-    }
-  }
 `;
-export const Button = styled(CircuitUIButton)(baseButtonStyles);
 
-// wrapping button content due to flex bug in Safari 10.1
-// via https://github.com/philipwalton/flexbugs/issues/236
-const innerWrapperStyles = css`
-  label: carousel__button--innerwrapper;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const InnerWrapper = styled('div')(innerWrapperStyles);
+export const Button = styled(IconButton)(buttonStyles);
+
+Button.defaultProps = {
+  size: 'kilo'
+};
 
 export const NextButton = props => (
-  <Button aria-label="next" {...props}>
-    <InnerWrapper>
-      <ChevronRight />
-    </InnerWrapper>
+  <Button label="Next" {...props}>
+    <ChevronRight />
   </Button>
 );
 
 export const PrevButton = props => (
-  <Button aria-label="previous" {...props}>
-    <InnerWrapper>
-      <ChevronLeft />
-    </InnerWrapper>
+  <Button label="Previous" {...props}>
+    <ChevronLeft />
   </Button>
 );
 
 export const PlayButton = ({ paused, ...props }) => (
-  <Button aria-label={paused ? 'play' : 'pause'} {...props}>
-    <InnerWrapper>{paused ? <Play /> : <Pause />}</InnerWrapper>
+  <Button label={paused ? 'Play' : 'Pause'} {...props}>
+    {paused ? <Play /> : <Pause />}
   </Button>
 );
 

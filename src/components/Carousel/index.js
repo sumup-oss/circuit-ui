@@ -15,7 +15,6 @@
 
 import Container from './components/Container';
 import Controls from './components/Controls';
-import Progress from './components/Progress';
 import Slide from './components/Slide';
 import Slides from './components/Slides';
 import SlideImage from './components/SlideImage';
@@ -32,7 +31,6 @@ import Carousel from './Carousel';
 export const CarouselComposer = {
   Container,
   Controls,
-  Progress,
   Slide,
   Slides,
   SlideImage,

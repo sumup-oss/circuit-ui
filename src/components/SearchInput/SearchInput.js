@@ -44,7 +44,6 @@ const SearchInputComponent = (
         <ClearButton
           onClick={onClear}
           label={clearLabel}
-          variant="secondary"
           data-testid="input-clear"
           {...renderProps}
         >

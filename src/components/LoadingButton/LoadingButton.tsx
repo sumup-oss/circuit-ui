@@ -15,9 +15,9 @@
 
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
-import { hideVisually } from 'polished';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { hideVisually } from '../../styles/style-helpers';
 import Button from '../Button';
 import { ButtonProps } from '../Button/Button';
 import Spinner from '../Spinner';

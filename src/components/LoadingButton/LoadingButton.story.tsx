@@ -48,7 +48,7 @@ const StatefulLoadingButton = (props: Partial<LoadingButtonProps>) => {
         ['primary', 'secondary', 'tertiary'],
         'primary'
       )}
-      size={select('Size', ['kilo', 'mega', 'giga'], 'mega')}
+      size={select('Size', ['kilo', 'mega'], 'mega')}
       {...props}
     >
       Things take time

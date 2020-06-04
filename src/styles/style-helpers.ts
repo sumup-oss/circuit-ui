@@ -14,7 +14,6 @@
  */
 
 import { css, SerializedStyles } from '@emotion/core';
-import { transparentize } from 'polished';
 import { Theme } from '@sumup/design-tokens';
 
 type ThemeArgs = Theme | { theme: Theme };
@@ -29,27 +28,24 @@ export const getTheme = (args: ThemeArgs): Theme =>
 export const shadowSingle = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
   return css`
-    box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
-      0 0 1px 0 ${transparentize(0.94, theme.colors.shadow)},
-      0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)};
+    box-shadow: 0 0 0 1px ${theme.colors.shadow},
+      0 0 1px 0 ${theme.colors.shadow}, 0 2px 2px 0 ${theme.colors.shadow};
   `;
 };
 
 export const shadowDouble = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
   return css`
-    box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
-      0 2px 2px 0 ${transparentize(0.94, theme.colors.shadow)},
-      0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)};
+    box-shadow: 0 0 0 1px ${theme.colors.shadow},
+      0 2px 2px 0 ${theme.colors.shadow}, 0 4px 4px 0 ${theme.colors.shadow};
   `;
 };
 
 export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
   const theme = getTheme(args);
   return css`
-    box-shadow: 0 0 0 1px ${transparentize(0.98, theme.colors.shadow)},
-      0 4px 4px 0 ${transparentize(0.94, theme.colors.shadow)},
-      0 8px 8px 0 ${transparentize(0.94, theme.colors.shadow)};
+    box-shadow: 0 0 0 1px ${theme.colors.shadow},
+      0 4px 4px 0 ${theme.colors.shadow}, 0 8px 8px 0 ${theme.colors.shadow};
   `;
 };
 
@@ -89,12 +85,28 @@ export const textGiga = createTypeHelper('text', 'giga');
 
 /**
  * Visually communicates to the user that an element is disabled
- * and prevent user interactions.
+ * and prevents user interactions.
  */
 export const disableVisually = (): SerializedStyles => css`
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
+`;
+
+/**
+ * Visually hides an element while keeping it accessible to users
+ * who rely on a screen reader.
+ */
+export const hideVisually = (): SerializedStyles => css`
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 `;
 
 /**

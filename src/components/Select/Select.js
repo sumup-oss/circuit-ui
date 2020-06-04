@@ -17,14 +17,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { size, hideVisually } from 'polished';
 import { SelectExpand, CircleCross } from '@sumup/icons';
 
 import {
   eitherOrPropType,
   childrenPropType
 } from '../../util/shared-prop-types';
-import { textMega, disableVisually } from '../../styles/style-helpers';
+import {
+  textMega,
+  disableVisually,
+  hideVisually
+} from '../../styles/style-helpers';
 
 import Tooltip from '../Tooltip';
 import Label from '../Label';
@@ -89,10 +92,11 @@ const suffixBaseStyles = ({ theme }) => css`
   z-index: 40;
   pointer-events: none;
   position: absolute;
-  ${size(theme.iconSizes.mega)};
+  height: ${theme.spacings.peta};
+  width: ${theme.spacings.peta};
   top: 1px;
   right: 1px;
-  margin: ${theme.spacings.byte};
+  padding: ${theme.spacings.kilo};
 `;
 
 const suffixInvalidStyles = ({ theme, invalid }) =>
@@ -148,8 +152,9 @@ const prefixStyles = theme => css`
   top: 1px;
   left: 1px;
   z-index: 40;
-  ${size(theme.iconSizes.kilo)};
-  margin: ${theme.spacings.kilo};
+  height: ${theme.spacings.peta};
+  width: ${theme.spacings.peta};
+  padding: ${theme.spacings.kilo};
   pointer-events: none;
 `;
 
@@ -157,9 +162,7 @@ const selectPrefixStyles = ({ theme, hasPrefix }) =>
   hasPrefix &&
   css`
     label: select--prefix;
-    padding-left: calc(
-      ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
-    );
+    padding-left: ${theme.spacings.peta};
   `;
 
 const tooltipBaseStyles = css`

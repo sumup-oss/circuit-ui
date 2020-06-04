@@ -29,6 +29,6 @@ export default {
 
 export const base = () => (
   <Header title="Title" mobileOnly={boolean('mobileOnly')}>
-    <Hamburger light />
+    <Hamburger size="kilo" />
   </Header>
 );

@@ -13,14 +13,12 @@
  * limitations under the License.
  */
 
+import React from 'react';
 import PropTypes from 'prop-types';
-import { flow } from 'lodash/fp';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { setStatic } from 'recompose';
 
-import withKeyboardEvents from '../../../../util/withKeyboardEvents';
-import withAriaSelected from '../../../../util/withAriaSelected';
+import { isEnter, isSpacebar } from '../../../../util/key-codes';
 import { sizes } from '../../../../styles/constants';
 
 const { KILO, MEGA, GIGA } = sizes;
@@ -93,11 +91,33 @@ const hoverStyles = ({ theme }) => css`
   }
 `;
 
-const Item = styled('div')(
+const BaseItem = styled('div')(
   baseStyles,
   paddingStyles,
   selectedStyles,
   hoverStyles
+);
+
+const createOnKeyDown = onClick => {
+  if (!onClick) {
+    return null;
+  }
+
+  return event => {
+    // Most clickable HTML elements can also be triggered by pressing the
+    // spacebar or enter key.
+    if (isEnter(event) || isSpacebar(event)) {
+      onClick(event);
+    }
+  };
+};
+
+const Item = props => (
+  <BaseItem
+    aria-selected={props.selected}
+    onKeyDown={createOnKeyDown(props.onClick)}
+    {...props}
+  />
 );
 
 Item.propTypes = {
@@ -124,10 +144,4 @@ Item.defaultProps = {
 /**
  * @component
  */
-export default flow(
-  withKeyboardEvents,
-  withAriaSelected,
-  setStatic('KILO', KILO),
-  setStatic('MEGA', MEGA),
-  setStatic('GIGA', GIGA)
-)(Item);
+export default Item;

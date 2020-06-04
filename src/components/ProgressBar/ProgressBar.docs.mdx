@@ -1,22 +1,18 @@
 import { Status, Props, Story } from '../../../.storybook/components';
-import ProgressBar from './ProgressBar';
+import { ProgressBar } from './ProgressBar';
 
-# Progress bar
+# ProgressBar
 
 <Status.Stable />
 
-A progress bar is a UI element used to visualise the progression of a task or
-operation. The visual element is always combined with a label describing a
-status value either in percentage or fraction format.
+A progress bar is a UI element used to visualise the progression of a task or operation. The visual element is always combined with a label describing a status value either in percentage or fraction format.
 
-<Story id="components-progressbar--base" />
-
+<Story id="components-progressbar--steps" />
 <Props of={ProgressBar} />
 
 ## When to use it
 
-The progress bar should be used to indicate the amount of time left to complete
-a task. It should not however, be used to indicate the time needed to load a page.
+The progress bar should be used to indicate the amount of steps or time left to complete a task. It should not however, be used to indicate the time needed to load a page.
 
 ## Usage guidelines
 
@@ -27,17 +23,27 @@ a task. It should not however, be used to indicate the time needed to load a pag
 
 ## Component variations
 
-### Percentage or fraction completion
+### Step or time-based
 
-When you specify the label for the progress bar, it should only be shown
-as either a fraction (e.g. _1/3_) or percentage (e.g. _33%_).
+A progress bar can be used to display the progression of steps in a task or a fixed amount of time. The component adapts automatically based on the props it is passed: when you pass the `max` or `value` props, it renders statically. When you pass the `duration`, `pause`, or `loop` props, it smoothly animates the progress bar from empty to complete.
 
-<Story id="components-progressbar--with-fraction" />
+<Story id="components-progressbar--steps" />
+<Story id="components-progressbar--timer" />
 
-<Story id="components-progressbar--with-percentage" />
+### Percentage or fraction label
+
+When you specify the label for the progress bar, it should only be shown as either a fraction (e.g. _1/3_) or percentage (e.g. _33%_).
+
+<Story id="components-progressbar--labelled" />
+
+### Variants
+
+You can use the progress bar in two variants: `primary` or `secondary`.
+
+<Story id="components-progressbar--variants" />
 
 ### Sizes
 
-You can use the progress bar in a variety of sizes: `ProgressBar.KILO`, `ProgressBar.MEGA`, or `ProgressBar.GIGA`.
+You can use the progress bar in one of three sizes: `byte`, `kilo`, or `mega`.
 
-<Story id="components-progressbar--size" />
+<Story id="components-progressbar--sizes" />

@@ -16,12 +16,22 @@
 import React from 'react';
 
 import CurrencyInput from '.';
-import Label from '../Label';
 
 describe('CurrencyInput', () => {
   /**
    * Style tests.
    */
+  it('should render with default styles', () => {
+    const actual = create(<CurrencyInput currency="USD" />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should adjust input padding and suffix width to match currency symbol width', () => {
+    const actual = create(
+      <CurrencyInput placeholder="123,45" currency="CHF" />
+    );
+    expect(actual).toMatchSnapshot();
+  });
 
   describe('business logic', () => {
     /**
@@ -42,10 +52,7 @@ describe('CurrencyInput', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <Label htmlFor="id">
-        Label
-        <CurrencyInput id="id" locale="de-DE" currency="EUR" />
-      </Label>
+      <CurrencyInput locale="de-DE" currency="EUR" />
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

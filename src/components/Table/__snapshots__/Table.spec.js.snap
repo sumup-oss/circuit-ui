@@ -3,7 +3,7 @@
 exports[`Table Style tests should not render a scrollable table if the rowHeaders prop is true 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -152,8 +152,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .circuit-2 {
@@ -340,13 +340,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -356,13 +356,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -399,13 +399,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -415,13 +415,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -551,7 +551,7 @@ tbody .circuit-20:last-child td {
 exports[`Table Style tests should render a collapsed table 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -677,8 +677,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .circuit-2 {
@@ -889,13 +889,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -905,13 +905,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -948,13 +948,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -964,13 +964,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1100,7 +1100,7 @@ tbody .circuit-20:last-child td {
 exports[`Table Style tests should render a condensed table 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -1188,8 +1188,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .circuit-2 {
@@ -1472,13 +1472,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1488,13 +1488,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1531,13 +1531,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1547,13 +1547,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1731,8 +1731,8 @@ tbody .circuit-18:last-child td {
 }
 
 .circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .circuit-2 {
@@ -1828,7 +1828,7 @@ tbody .circuit-18:last-child td {
 .circuit-50 {
   position: relative;
   height: 100%;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 @media (max-width:767px) {
@@ -1892,13 +1892,13 @@ tbody .circuit-18:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1908,13 +1908,13 @@ tbody .circuit-18:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1943,13 +1943,13 @@ tbody .circuit-18:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1959,13 +1959,13 @@ tbody .circuit-18:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -2068,7 +2068,7 @@ tbody .circuit-18:last-child td {
 exports[`Table Style tests should render with default styles 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -2217,8 +2217,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .circuit-2 {
@@ -2405,13 +2405,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -2421,13 +2421,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -2464,13 +2464,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -2480,13 +2480,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -2616,7 +2616,7 @@ tbody .circuit-20:last-child td {
 exports[`Table Style tests should render with rowHeader styles 1`] = `
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-56 {
@@ -2765,8 +2765,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .circuit-2 {
@@ -2953,13 +2953,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -2969,13 +2969,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3012,13 +3012,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3028,13 +3028,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3308,8 +3308,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-0 {
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .circuit-2 {
@@ -3469,7 +3469,7 @@ tbody .circuit-20:last-child td {
 
 .circuit-58 {
   position: relative;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   box-shadow: none;
 }
 
@@ -3502,13 +3502,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3518,13 +3518,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3561,13 +3561,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3577,13 +3577,13 @@ tbody .circuit-20:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"

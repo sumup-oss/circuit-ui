@@ -15,9 +15,9 @@
 
 import React, { Children, cloneElement, ReactElement } from 'react';
 import { css, SerializedStyles } from '@emotion/core';
-import { hideVisually } from 'polished';
 import { Theme } from '@sumup/design-tokens';
 
+import { hideVisually } from '../../styles/style-helpers';
 import styled from '../../styles/styled';
 import { Button, ButtonProps } from '../Button/Button';
 
@@ -39,9 +39,8 @@ const sizeStyles = (size: IconButtonProps['size'] = 'mega') => (
   theme: Theme
 ): SerializedStyles => {
   const sizeMap = {
-    kilo: theme.spacings.bit,
-    mega: theme.spacings.byte,
-    giga: theme.spacings.kilo
+    kilo: theme.spacings.byte,
+    mega: theme.spacings.kilo
   };
 
   return css({

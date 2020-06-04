@@ -17,9 +17,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { hideVisually } from 'polished';
 
-import { textKilo } from '../../styles/style-helpers';
+import { textKilo, hideVisually } from '../../styles/style-helpers';
 
 const visuallyHiddenStyles = ({ visuallyHidden }) =>
   visuallyHidden &&

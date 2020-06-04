@@ -20,14 +20,7 @@ const SORT_ORDER = {
     'Contributing',
     'Code of Conduct'
   ],
-  Advanced: [
-    'Static CSS',
-    'Base Components',
-    'Theme',
-    'Grid',
-    'Icons',
-    'Fonts'
-  ],
+  Advanced: ['Static CSS', 'Base Components', 'Theme', 'Grid', 'Icons'],
   Typography: ['Heading', 'SubHeading', 'Text'],
   Layout: [],
   Forms: [],

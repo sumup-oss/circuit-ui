@@ -23,9 +23,8 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.shadowSingle({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
-            box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
-              0 0 1px 0 rgba(12,15,20,0.06),
-              0 2px 2px 0 rgba(12,15,20,0.06);
+            box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
+              0 0 1px 0 rgba(12, 15, 20, 0.07), 0 2px 2px 0 rgba(12, 15, 20, 0.07);
           "
       `);
     });
@@ -36,9 +35,8 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.shadowDouble({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
-            box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
-              0 2px 2px 0 rgba(12,15,20,0.06),
-              0 4px 4px 0 rgba(12,15,20,0.06);
+            box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
+              0 2px 2px 0 rgba(12, 15, 20, 0.07), 0 4px 4px 0 rgba(12, 15, 20, 0.07);
           "
       `);
     });
@@ -49,9 +47,8 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.shadowTriple({ theme: light });
       expect(styles).toMatchInlineSnapshot(`
         "
-            box-shadow: 0 0 0 1px rgba(12,15,20,0.02),
-              0 4px 4px 0 rgba(12,15,20,0.06),
-              0 8px 8px 0 rgba(12,15,20,0.06);
+            box-shadow: 0 0 0 1px rgba(12, 15, 20, 0.07),
+              0 4px 4px 0 rgba(12, 15, 20, 0.07), 0 8px 8px 0 rgba(12, 15, 20, 0.07);
           "
       `);
     });
@@ -209,6 +206,25 @@ describe('Style helpers', () => {
           opacity: 0.5;
           pointer-events: none;
           box-shadow: none;
+        "
+      `);
+    });
+  });
+
+  describe('hideVisually', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.hideVisually();
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          white-space: nowrap;
+          width: 1px;
         "
       `);
     });

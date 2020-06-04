@@ -18,10 +18,14 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { find, identity } from 'lodash/fp';
-import { size, hideVisually } from 'polished';
+
 import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
 
-import { textMega, disableVisually } from '../../styles/style-helpers';
+import {
+  textMega,
+  disableVisually,
+  hideVisually
+} from '../../styles/style-helpers';
 import { directions } from '../../styles/constants';
 import { childrenPropType } from '../../util/shared-prop-types';
 
@@ -161,10 +165,11 @@ const prefixStyles = theme => css`
   position: absolute;
   top: 1px;
   left: 1px;
-  margin: ${theme.spacings.byte};
   pointer-events: none;
   color: ${theme.colors.n700};
-  ${size(theme.iconSizes.mega)};
+  padding: ${theme.spacings.kilo};
+  height: ${theme.spacings.peta};
+  width: ${theme.spacings.peta};
 `;
 
 /**
@@ -176,10 +181,11 @@ const suffixStyles = theme => css`
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: ${theme.spacings.byte};
   pointer-events: none;
   color: ${theme.colors.n700};
-  ${size(theme.iconSizes.mega)};
+  padding: ${theme.spacings.kilo};
+  height: ${theme.spacings.peta};
+  width: ${theme.spacings.peta};
 `;
 
 const tooltipBaseStyles = css`
