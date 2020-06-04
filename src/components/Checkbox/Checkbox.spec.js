@@ -81,6 +81,18 @@ describe('Checkbox', () => {
     expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<Checkbox ref={tref} />);
+      const checkbox = container.querySelector('input');
+      expect(tref.current).toBe(checkbox);
+    });
+  });
+
   /**
    * Accessibility tests.
    */

@@ -118,7 +118,11 @@ const StyledBadge = styled('div')(
 /**
  * A badge for displaying update notifications etc.
  */
-const Badge = props => <StyledBadge {...props} />;
+const Badge = React.forwardRef((props, ref) => (
+  <StyledBadge {...props} ref={ref} />
+));
+
+Badge.displayName = 'Badge';
 
 Badge.NEUTRAL = colorNames.NEUTRAL;
 Badge.PRIMARY = colorNames.PRIMARY;
@@ -141,12 +145,22 @@ Badge.propTypes = {
     Badge.SUCCESS,
     Badge.WARNING,
     Badge.DANGER
+  ]),
+  /**
+   * The ref to the html button dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLDivElement)])
+    })
   ])
 };
 
 Badge.defaultProps = {
   circle: false,
-  color: Badge.NEUTRAL
+  color: Badge.NEUTRAL,
+  ref: undefined
 };
 
 /**

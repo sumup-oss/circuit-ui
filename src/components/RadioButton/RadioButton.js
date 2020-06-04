@@ -126,18 +126,10 @@ const RadioButtonLabel = styled('label')(
   labelInvalidStyles
 );
 
-/**
- * RadioButton component for forms.
- */
-const RadioButton = ({
-  onChange,
-  children,
-  id,
-  name,
-  value,
-  checked,
-  ...props
-}) => {
+const RadioButtonComponent = (
+  { onChange, children, id, name, value, checked, ...props },
+  ref
+) => {
   const inputId = id || uniqueId('radio-button_');
   return (
     <>
@@ -149,6 +141,7 @@ const RadioButton = ({
         value={value}
         checked={checked}
         onClick={onChange}
+        ref={ref}
       />
       <RadioButtonLabel {...props} htmlFor={inputId}>
         {children}
@@ -156,6 +149,11 @@ const RadioButton = ({
     </>
   );
 };
+
+/**
+ * RadioButton component for forms.
+ */
+const RadioButton = React.forwardRef(RadioButtonComponent);
 
 RadioButton.propTypes = {
   /**
@@ -191,7 +189,16 @@ RadioButton.propTypes = {
    * Triggers disabled styles on the component. This is also forwarded as
    * attribute to the <input> element.
    */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+    })
+  ])
 };
 
 RadioButton.defaultProps = {
@@ -199,7 +206,8 @@ RadioButton.defaultProps = {
   checked: false,
   invalid: false,
   disabled: false,
-  children: null
+  children: null,
+  ref: undefined
 };
 
 /**

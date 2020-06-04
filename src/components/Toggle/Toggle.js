@@ -88,29 +88,33 @@ const ToggleWrapper = styled('div')(
 /**
  * A toggle component with support for labels and additional explanations.
  */
-const Toggle = ({ label, explanation, noMargin, reversed, ...props }) => {
-  const switchId = uniqueId('toggle-switch_');
-  const labelId = uniqueId('toggle-label_');
-  return (
-    <ToggleWrapper {...{ noMargin, reversed }}>
-      <Switch {...props} aria-labelledby={labelId} id={switchId} />
-      {(label || explanation) && (
-        <ToggleTextWrapper id={labelId} htmlFor={switchId}>
-          {label && (
-            <ToggleLabel size="kilo" noMargin>
-              {label}
-            </ToggleLabel>
-          )}
-          {explanation && (
-            <ToggleExplanation size="kilo" noMargin>
-              {explanation}
-            </ToggleExplanation>
-          )}
-        </ToggleTextWrapper>
-      )}
-    </ToggleWrapper>
-  );
-};
+const Toggle = React.forwardRef(
+  ({ label, explanation, noMargin, reversed, ...props }, ref) => {
+    const switchId = uniqueId('toggle-switch_');
+    const labelId = uniqueId('toggle-label_');
+    return (
+      <ToggleWrapper {...{ noMargin, reversed }}>
+        <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
+        {(label || explanation) && (
+          <ToggleTextWrapper id={labelId} htmlFor={switchId}>
+            {label && (
+              <ToggleLabel size="kilo" noMargin>
+                {label}
+              </ToggleLabel>
+            )}
+            {explanation && (
+              <ToggleExplanation size="kilo" noMargin>
+                {explanation}
+              </ToggleExplanation>
+            )}
+          </ToggleTextWrapper>
+        )}
+      </ToggleWrapper>
+    );
+  }
+);
+
+Toggle.displayName = 'Toggle';
 
 Toggle.propTypes = {
   /**
@@ -128,7 +132,16 @@ Toggle.propTypes = {
   /**
    * Adds the ability of the component to be right-aligned.
    */
-  reversed: PropTypes.bool
+  reversed: PropTypes.bool,
+  /**
+   * The ref to the html button dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLButtonElement)])
+    })
+  ])
 };
 
 Toggle.defaultProps = {

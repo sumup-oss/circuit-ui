@@ -42,6 +42,18 @@ describe('SearchInput', () => {
     expect(getByTestId('input-clear')).toBeVisible();
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<SearchInput ref={tref} />);
+      const input = container.querySelector('input');
+      expect(tref.current).toBe(input);
+    });
+  });
+
   /**
    * Accessibility tests.
    */

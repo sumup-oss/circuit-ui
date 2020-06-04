@@ -26,6 +26,22 @@ describe('Link', () => {
     'data-testid': 'link'
   };
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref for button
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(
+        <Link {...defaultProps} ref={tref}>
+          This is a link
+        </Link>
+      );
+      const link = container.querySelector('a');
+      expect(tref.current).toBe(link);
+    });
+  });
+
   describe('styles', () => {
     it('should render with the attributes it receives', () => {
       const { getByTestId } = render(<Link {...defaultProps} />);

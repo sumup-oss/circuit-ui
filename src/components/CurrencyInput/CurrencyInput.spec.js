@@ -33,6 +33,20 @@ describe('CurrencyInput', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(
+        <CurrencyInput id="id" locale="de-DE" currency="EUR" ref={tref} />
+      );
+      const input = container.querySelector('input');
+      expect(tref.current).toBe(input);
+    });
+  });
+
   /**
    * Accessibility tests.
    */

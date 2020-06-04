@@ -152,19 +152,19 @@ const CheckboxTooltip = styled(Tooltip)`
   ${tooltipBaseStyles};
 `;
 
-/**
- * Checkbox component for forms.
- */
-const Checkbox = ({
-  children,
-  value,
-  id: customId,
-  name,
-  disabled,
-  validationHint,
-  className,
-  ...props
-}) => {
+const CheckboxComponent = (
+  {
+    children,
+    value,
+    id: customId,
+    name,
+    disabled,
+    validationHint,
+    className,
+    ...props
+  },
+  ref
+) => {
   const id = customId || uniqueId('checkbox_');
   return (
     <CheckboxWrapper className={className}>
@@ -175,6 +175,7 @@ const Checkbox = ({
         value={value}
         type="checkbox"
         disabled={disabled}
+        ref={ref}
       />
       <CheckboxLabel {...props} htmlFor={id} disabled={disabled}>
         {children}
@@ -188,6 +189,11 @@ const Checkbox = ({
     </CheckboxWrapper>
   );
 };
+
+/**
+ * Checkbox component for forms.
+ */
+const Checkbox = React.forwardRef(CheckboxComponent);
 
 Checkbox.propTypes = {
   /**
@@ -231,7 +237,16 @@ Checkbox.propTypes = {
   /**
    * Override styles for the Checkbox component.
    */
-  className: PropTypes.string
+  className: PropTypes.string,
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+    })
+  ])
 };
 
 Checkbox.defaultProps = {
@@ -242,7 +257,8 @@ Checkbox.defaultProps = {
   invalid: false,
   disabled: false,
   children: null,
-  className: ''
+  className: '',
+  ref: undefined
 };
 
 /**

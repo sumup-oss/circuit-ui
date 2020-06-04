@@ -103,49 +103,57 @@ const RemoveButton = styled(CloseButton)(suffixStyles, closeButtonStyles);
 /**
  * Tag component
  */
-const Tag = ({
-  children,
-  prefix: Prefix,
-  suffix: Suffix,
-  onRemove,
-  labelRemoveButton,
-  selected,
-  ...props
-}) => {
-  const prefixElement = Prefix && (
-    <Prefix
-      selected={selected}
-      css={theme => prefixStyles({ theme, selected })}
-    />
-  );
-  const suffixElement = Suffix && (
-    <Suffix
-      selected={selected}
-      css={theme => suffixStyles({ theme, selected })}
-    />
-  );
+const Tag = React.forwardRef(
+  (
+    {
+      children,
+      prefix: Prefix,
+      suffix: Suffix,
+      onRemove,
+      labelRemoveButton,
+      selected,
+      ...props
+    },
+    ref
+  ) => {
+    const prefixElement = Prefix && (
+      <Prefix
+        selected={selected}
+        css={theme => prefixStyles({ theme, selected })}
+      />
+    );
+    const suffixElement = Suffix && (
+      <Suffix
+        selected={selected}
+        css={theme => suffixStyles({ theme, selected })}
+      />
+    );
 
-  return (
-    <TagElement {...{ selected, ...props }}>
-      {prefixElement}
+    return (
+      <TagElement {...{ selected, ...props }}>
+        {prefixElement}
 
-      {children}
+        {children}
 
-      {onRemove && (
-        <RemoveButton
-          variant={selected ? 'primary' : 'secondary'}
-          selected={selected}
-          label={labelRemoveButton}
-          data-testid="tag-close"
-          size="kilo"
-          onClick={onRemove}
-        />
-      )}
+        {onRemove && (
+          <RemoveButton
+            variant={selected ? 'primary' : 'secondary'}
+            selected={selected}
+            label={labelRemoveButton}
+            data-testid="tag-close"
+            size="kilo"
+            onClick={onRemove}
+            ref={ref}
+          />
+        )}
 
-      {!onRemove && suffixElement}
-    </TagElement>
-  );
-};
+        {!onRemove && suffixElement}
+      </TagElement>
+    );
+  }
+);
+
+Tag.displayName = 'Tag';
 
 Tag.propTypes = {
   /**
@@ -173,7 +181,16 @@ Tag.propTypes = {
   /**
    * Triggers selected styles on the tag.
    */
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  /**
+   * The ref to the html button dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLButtonElement)])
+    })
+  ])
 };
 
 Tag.defaultProps = {
@@ -182,7 +199,8 @@ Tag.defaultProps = {
   suffix: null,
   onRemove: null,
   selected: false,
-  labelRemoveButton: 'remove'
+  labelRemoveButton: 'remove',
+  ref: undefined
 };
 
 /**

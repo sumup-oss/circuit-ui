@@ -46,6 +46,10 @@ export interface TextProps {
    * Render the text using any HTML element.
    */
   as?: string;
+  /**
+   * The ref to the html dom element, it can be an anchor or a button
+   */
+  ref?: React.Ref<HTMLParagraphElement>;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`

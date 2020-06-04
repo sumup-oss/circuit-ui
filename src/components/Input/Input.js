@@ -277,32 +277,31 @@ const ValidationIcon = ({
 };
 /* eslint-enable react/prop-types */
 
-/**
- * Input component for forms. Takes optional prefix and suffix as render props.
- */
-const StyledInput = ({
-  children,
-  renderPrefix: RenderPrefix,
-  renderSuffix: RenderSuffix,
-  validationHint,
-  invalid,
-  hasWarning,
-  showValid,
-  noMargin,
-  inline,
-  disabled,
-  wrapperClassName,
-  wrapperStyles,
-  inputClassName,
-  inputStyles,
-  deepRef,
-  element,
-  as,
-  label,
-  labelVisuallyHidden,
-  id: customId,
-  ...props
-}) => {
+const StyledInput = (
+  {
+    children,
+    renderPrefix: RenderPrefix,
+    renderSuffix: RenderSuffix,
+    validationHint,
+    invalid,
+    hasWarning,
+    showValid,
+    noMargin,
+    inline,
+    disabled,
+    wrapperClassName,
+    wrapperStyles,
+    inputClassName,
+    inputStyles,
+    element,
+    as,
+    label,
+    labelVisuallyHidden,
+    id: customId,
+    ...props
+  },
+  ref
+) => {
   const id = customId || uniqueId('input_');
 
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
@@ -337,7 +336,7 @@ const StyledInput = ({
             invalid,
             disabled,
             hasWarning,
-            ref: deepRef,
+            ref,
             as: element || as,
             hasPrefix: !!prefix,
             hasSuffix: !!suffix,
@@ -359,7 +358,10 @@ const StyledInput = ({
   );
 };
 
-const Input = props => <StyledInput {...props} />;
+/**
+ * Input component for forms. Takes optional prefix and suffix as render props.
+ */
+const Input = React.forwardRef(StyledInput);
 
 Input.LEFT = directions.LEFT;
 Input.RIGHT = directions.RIGHT;
@@ -430,10 +432,17 @@ Input.propTypes = {
    */
   wrapperStyles: PropTypes.object,
   /**
-   * DOM node to be forwarded to the actual input being rendered by
-   * styled.
+   * The ref to the html dom element
    */
-  deepRef: PropTypes.func,
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([
+        PropTypes.instanceOf(HTMLInputElement),
+        PropTypes.instanceOf(HTMLTextAreaElement)
+      ])
+    })
+  ]),
   /**
    * A clear and concise description of the input purpose.
    */
@@ -465,7 +474,7 @@ Input.defaultProps = {
   disabled: false,
   inline: false,
   noMargin: false,
-  deepRef: undefined,
+  ref: undefined,
   textAlign: Input.LEFT
 };
 

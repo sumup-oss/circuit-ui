@@ -24,12 +24,14 @@ const textAreaStyles = css`
   resize: vertical;
 `;
 
+const TextAreaComponent = (props, ref) => (
+  <Input {...props} inputStyles={textAreaStyles} as="textarea" ref={ref} />
+);
+
 /**
  * TextArea component for forms.
  */
-const TextArea = props => (
-  <Input {...props} inputStyles={textAreaStyles} as="textarea" />
-);
+const TextArea = React.forwardRef(TextAreaComponent);
 
 TextArea.LEFT = Input.LEFT;
 TextArea.RIGHT = Input.RIGHT;

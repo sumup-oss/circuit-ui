@@ -62,12 +62,10 @@ const inputAppendStyles = ({ theme, symbolLength, prependSymbol }) =>
     padding-right: calc(${theme.spacings.mega} + ${symbolLength}px);
   `;
 
-/**
- * CurrencyInput component for forms. Automatically looks up
- * symbols and places the symbol according to the locale. The corresponding
- * service exports a parser for formatting values automatically.
- */
-const CurrencyInput = ({ locale, currency, placeholder, ...props }) => {
+const CurrencyInputComponent = (
+  { locale, currency, placeholder, ...props },
+  ref
+) => {
   const theme = useTheme();
 
   const currencyFormat = resolveCurrencyFormat(locale, currency);
@@ -100,8 +98,22 @@ const CurrencyInput = ({ locale, currency, placeholder, ...props }) => {
   return (
     <TextMaskInput
       guide={false}
-      render={(ref, { defaultValue, ...renderProps }) => (
-        <Input value={defaultValue} {...renderProps} deepRef={ref} />
+      render={(setRef, { defaultValue, ...renderProps }) => (
+        <Input
+          value={defaultValue}
+          {...renderProps}
+          ref={el => {
+            setRef(el);
+            if (ref) {
+              if (typeof ref === 'function') {
+                ref(el);
+              } else {
+                // eslint-disable-next-line no-param-reassign
+                ref.current = el;
+              }
+            }
+          }}
+        />
       )}
       inputStyles={css([
         inputBaseStyles(),
@@ -117,6 +129,13 @@ const CurrencyInput = ({ locale, currency, placeholder, ...props }) => {
     />
   );
 };
+
+/**
+ * CurrencyInput component for forms. Automatically looks up
+ * symbols and places the symbol according to the locale. The corresponding
+ * service exports a parser for formatting values automatically.
+ */
+const CurrencyInput = React.forwardRef(CurrencyInputComponent);
 
 CurrencyInput.propTypes = {
   ...Input.propTypes,
@@ -135,7 +154,16 @@ CurrencyInput.propTypes = {
    * If the placeholder is a number, it is formatted in the local
    * currency format.
    */
-  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+    })
+  ])
 };
 
 /**
