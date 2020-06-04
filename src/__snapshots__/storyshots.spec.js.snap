@@ -298,7 +298,6 @@ exports[`Storyshots Components/Button Primary 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -307,6 +306,7 @@ exports[`Storyshots Components/Button Primary 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -365,7 +365,6 @@ exports[`Storyshots Components/Button Secondary 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -374,6 +373,7 @@ exports[`Storyshots Components/Button Secondary 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -399,7 +399,7 @@ exports[`Storyshots Components/Button Secondary 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -433,7 +433,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -442,6 +441,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-0:focus {
@@ -467,7 +467,7 @@ HTMLCollection [
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -497,7 +497,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -506,6 +505,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -531,77 +531,13 @@ HTMLCollection [
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
     class="circuit-0"
   >
     Button mega
-  </button>,
-  .circuit-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
-  padding: 12px calc(32px - 1px);
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:disabled,
-.circuit-0[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-0:hover {
-  background-color: #FAFBFC;
-  border-color: #5C656F;
-}
-
-.circuit-0:active {
-  background-color: #EEF0F2;
-  border-color: #5C656F;
-}
-
-<button
-    class="circuit-0"
-  >
-    Button giga
   </button>,
 ]
 `;
@@ -629,7 +565,6 @@ exports[`Storyshots Components/Button Tertiary 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -638,6 +573,7 @@ exports[`Storyshots Components/Button Tertiary 1`] = `
   border-color: transparent;
   color: #3388FF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -694,7 +630,6 @@ exports[`Storyshots Components/Button With Icon 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -703,6 +638,7 @@ exports[`Storyshots Components/Button With Icon 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -736,15 +672,15 @@ exports[`Storyshots Components/Button With Icon 1`] = `
 >
   <svg
     fill="none"
-    height="24"
+    height="16"
     role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
       clip-rule="evenodd"
-      d="M13.316 9.2V6.8c0-.994-.819-1.8-1.829-1.8l-2.439 5.4V17h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM9.048 17H7.22A1.21 1.21 0 016 15.8v-4.2c0-.663.546-1.2 1.22-1.2h1.828V17z"
+      d="M9.316 5.2V2.8c0-.994-.819-1.8-1.829-1.8L5.048 6.4V13h6.877a1.214 1.214 0 001.22-1.02l.841-5.4a1.187 1.187 0 00-.285-.968 1.228 1.228 0 00-.934-.412h-3.45zM5.048 13H3.22A1.21 1.21 0 012 11.8V7.6c0-.663.546-1.2 1.22-1.2h1.828V13z"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -778,7 +714,6 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -787,6 +722,7 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -837,7 +773,6 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -846,6 +781,7 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -871,7 +807,7 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-2 {
@@ -951,7 +887,6 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -960,6 +895,7 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -986,7 +922,7 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
 
 .circuit-1:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-0 {
@@ -1008,14 +944,14 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
 >
   <svg
     fill="none"
-    height="24"
+    height="16"
     role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M7 7l10 10m0-10L7 17"
+      d="M3 3l10 10m0-10L3 13"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-width="2"
@@ -1052,7 +988,6 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -1061,6 +996,7 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -1108,19 +1044,32 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
 >
   <svg
     fill="none"
-    height="24"
+    height="16"
     role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M19 16v3H5v-3m7-11v9m0 0l4-4m-4 4l-4-4"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
+    <g
+      clip-path="url(#download_small_svg__clip0)"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9 1a1 1 0 00-2 0v6.586L4.707 5.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L9 7.586V1zM2 12a1 1 0 10-2 0v3a1 1 0 001 1h14a1 1 0 001-1v-3a1 1 0 10-2 0v2H2v-2z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </g>
+    <defs>
+      <clippath
+        id="download_small_svg__clip0"
+      >
+        <path
+          d="M0 0h16v16H0V0z"
+          fill="#fff"
+        />
+      </clippath>
+    </defs>
   </svg>
   <span
     class="circuit-0"
@@ -1167,7 +1116,6 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -1176,6 +1124,7 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-3:focus {
@@ -2586,13 +2535,13 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
           <svg
             class="circuit-0 circuit-1"
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M6 12h10m0 0l-5-5m5 5l-5 5"
+              d="M2 8h10m0 0L7 3m5 5l-5 5"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -2629,13 +2578,13 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
           <svg
             class="circuit-2 circuit-3"
             fill="none"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M7 7l10 10m0-10L7 17"
+              d="M3 3l10 10m0-10L3 13"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-width="2"
@@ -4086,7 +4035,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -4095,6 +4043,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -4120,7 +4069,7 @@ HTMLCollection [
 
 .circuit-1:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-3 {
@@ -4278,7 +4227,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -4287,6 +4235,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -4312,7 +4261,7 @@ HTMLCollection [
 
 .circuit-1:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-7 {
@@ -4623,7 +4572,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -4632,6 +4580,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -4658,7 +4607,7 @@ HTMLCollection [
 
 .circuit-2:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -4693,14 +4642,14 @@ HTMLCollection [
       >
         <svg
           fill="none"
-          height="24"
+          height="16"
           role="presentation"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M7 7l10 10m0-10L7 17"
+            d="M3 3l10 10m0-10L3 13"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-width="2"
@@ -5008,7 +4957,6 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -5017,6 +4965,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   margin-left: 8px;
 }
 
@@ -5043,7 +4992,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
 
 .circuit-40:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-40:first-of-type {
@@ -5200,14 +5149,14 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="16"
             role="presentation"
-            viewBox="0 0 24 24"
-            width="24"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M14 8l-4 4 4 4"
+              d="M10 4L6 8l4 4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -5234,14 +5183,14 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="16"
             role="presentation"
-            viewBox="0 0 24 24"
-            width="24"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M10 16l4-4-4-4"
+              d="M6 12l4-4-4-4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -5582,7 +5531,6 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -5591,6 +5539,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   margin-left: 8px;
 }
 
@@ -5617,7 +5566,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 
 .circuit-47:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-47:first-of-type {
@@ -5763,14 +5712,14 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="16"
             role="presentation"
-            viewBox="0 0 24 24"
-            width="24"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M14 8l-4 4 4 4"
+              d="M10 4L6 8l4 4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -5790,14 +5739,14 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="16"
             role="presentation"
-            viewBox="0 0 24 24"
-            width="24"
+            viewBox="0 0 16 16"
+            width="16"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M10 16l4-4-4-4"
+              d="M6 12l4-4-4-4"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -5852,7 +5801,6 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -5861,6 +5809,7 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   margin-left: 8px;
 }
 
@@ -5887,7 +5836,7 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
 
 .circuit-2:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-2:first-of-type {
@@ -5969,14 +5918,14 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   >
     <svg
       fill="none"
-      height="24"
+      height="16"
       role="presentation"
-      viewBox="0 0 24 24"
-      width="24"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M14 8l-4 4 4 4"
+        d="M10 4L6 8l4 4"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -5995,14 +5944,14 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   >
     <svg
       fill="none"
-      height="24"
+      height="16"
       role="presentation"
-      viewBox="0 0 24 24"
-      width="24"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M10 16l4-4-4-4"
+        d="M6 12l4-4-4-4"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -6240,7 +6189,6 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6249,6 +6197,7 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -6275,7 +6224,7 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -6389,7 +6338,6 @@ exports[`Storyshots Components/Header Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6398,6 +6346,7 @@ exports[`Storyshots Components/Header Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -6424,7 +6373,7 @@ exports[`Storyshots Components/Header Base 1`] = `
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -6589,7 +6538,6 @@ exports[`Storyshots Components/Modal Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6598,6 +6546,7 @@ exports[`Storyshots Components/Modal Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6623,7 +6572,7 @@ exports[`Storyshots Components/Modal Base 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -6657,7 +6606,6 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6666,6 +6614,7 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6691,7 +6640,7 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -6725,7 +6674,6 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6734,6 +6682,7 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6759,7 +6708,7 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -6793,7 +6742,6 @@ exports[`Storyshots Components/Modal With Header 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6802,6 +6750,7 @@ exports[`Storyshots Components/Modal With Header 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6827,7 +6776,7 @@ exports[`Storyshots Components/Modal With Header 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -6861,7 +6810,6 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6870,6 +6818,7 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6895,7 +6844,7 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -6929,7 +6878,6 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -6938,6 +6886,7 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -6963,7 +6912,7 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -7120,7 +7069,6 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -7129,6 +7077,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-5:focus {
@@ -7179,7 +7128,6 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -7188,6 +7136,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-4:focus {
@@ -7213,7 +7162,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 
 .circuit-4:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-6 {
@@ -7544,7 +7493,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -7553,6 +7501,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
 }
 
@@ -7579,7 +7528,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 
 .circuit-2:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -7656,14 +7605,14 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
     >
       <svg
         fill="none"
-        height="24"
+        height="16"
         role="presentation"
-        viewBox="0 0 24 24"
-        width="24"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M7 7l10 10m0-10L7 17"
+          d="M3 3l10 10m0-10L3 13"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-width="2"
@@ -7762,7 +7711,6 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -7771,6 +7719,7 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-4:focus {
@@ -7796,7 +7745,7 @@ exports[`Storyshots Components/Notification Alert 1`] = `
 
 .circuit-4:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-3 {
@@ -8123,7 +8072,6 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -8132,6 +8080,7 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-4:focus {
@@ -8157,7 +8106,7 @@ exports[`Storyshots Components/Notification Warning 1`] = `
 
 .circuit-4:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-3 {
@@ -8596,7 +8545,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -8605,6 +8553,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -8633,7 +8582,7 @@ HTMLCollection [
 
 .circuit-1:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -8663,7 +8612,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -8672,6 +8620,7 @@ HTMLCollection [
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -8748,7 +8697,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -8757,6 +8705,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-radius: 0;
   border-right: 0;
   font-weight: 400;
@@ -8786,7 +8735,7 @@ HTMLCollection [
 
 .circuit-5:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-5:focus {
@@ -8826,7 +8775,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -8835,6 +8783,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -8862,7 +8811,7 @@ HTMLCollection [
 
 .circuit-13:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <div
@@ -8955,7 +8904,6 @@ exports[`Storyshots Components/Popover Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -8964,6 +8912,7 @@ exports[`Storyshots Components/Popover Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-0:focus {
@@ -8989,7 +8938,7 @@ exports[`Storyshots Components/Popover Base 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -10004,7 +9953,6 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -10013,6 +9961,7 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
   border-radius: 100%;
   position: absolute;
@@ -10050,7 +9999,7 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
 
 .circuit-50:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 @media (min-width:960px) {
@@ -10248,14 +10197,14 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   >
     <svg
       fill="none"
-      height="24"
+      height="16"
       role="presentation"
-      viewBox="0 0 24 24"
-      width="24"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M7 7l10 10m0-10L7 17"
+        d="M3 3l10 10m0-10L3 13"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-width="2"
@@ -10341,7 +10290,6 @@ exports[`Storyshots Components/Step Form 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -10350,6 +10298,7 @@ exports[`Storyshots Components/Step Form 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-24:focus {
@@ -10687,7 +10636,6 @@ exports[`Storyshots Components/Step Slider 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -10696,6 +10644,7 @@ exports[`Storyshots Components/Step Slider 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   margin: 8px;
 }
 
@@ -10722,7 +10671,7 @@ exports[`Storyshots Components/Step Slider 1`] = `
 
 .circuit-18:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-20 {
@@ -10747,7 +10696,6 @@ exports[`Storyshots Components/Step Slider 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -10756,6 +10704,7 @@ exports[`Storyshots Components/Step Slider 1`] = `
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   margin: 8px;
 }
 
@@ -10866,7 +10815,6 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -10875,6 +10823,7 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-3:focus {
@@ -10900,7 +10849,7 @@ exports[`Storyshots Components/Step Swiper 1`] = `
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-7 {
@@ -11393,13 +11342,13 @@ tbody .circuit-36:hover th {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -11409,13 +11358,13 @@ tbody .circuit-36:hover th {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -11452,13 +11401,13 @@ tbody .circuit-36:hover th {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -11468,13 +11417,13 @@ tbody .circuit-36:hover th {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -11894,13 +11843,13 @@ tbody .circuit-10:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -11910,13 +11859,13 @@ tbody .circuit-10:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -12373,13 +12322,13 @@ tbody .circuit-18:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -12389,13 +12338,13 @@ tbody .circuit-18:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -12432,13 +12381,13 @@ tbody .circuit-18:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 14l4-4 4 4"
+                  d="M4 10l4-4 4 4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -12448,13 +12397,13 @@ tbody .circuit-18:last-child td {
               <svg
                 class="circuit-0"
                 fill="none"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M8 10l4 4 4-4"
+                  d="M4 6l4 4 4-4"
                   stroke="currentColor"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -13668,7 +13617,6 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -13677,6 +13625,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
   margin-left: 4px;
   margin-right: -4px;
@@ -13706,7 +13655,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
 
 .circuit-2:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <div
@@ -13720,14 +13669,14 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   >
     <svg
       fill="none"
-      height="24"
+      height="16"
       role="presentation"
-      viewBox="0 0 24 24"
-      width="24"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M7 7l10 10m0-10L7 17"
+        d="M3 3l10 10m0-10L3 13"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-width="2"
@@ -13799,13 +13748,13 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
   <svg
     class="circuit-0"
     fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M6 12.79L10 17l8-9"
+      d="M2 8.79L6 13l8-9"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -13846,13 +13795,13 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
   <svg
     class="circuit-0"
     fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M6 12.79L10 17l8-9"
+      d="M2 8.79L6 13l8-9"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -13929,18 +13878,31 @@ exports[`Storyshots Components/Tooltip Base 1`] = `
   </div>
   <svg
     fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M12 8.5V8m0 7.5v-4m0 7.5a7 7 0 100-14 7 7 0 000 14z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
+    <g
+      clip-path="url(#circle_info_small_svg__clip0)"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v.5a1 1 0 002 0V4zm0 3.5a1 1 0 00-2 0v4a1 1 0 102 0v-4z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </g>
+    <defs>
+      <clippath
+        id="circle_info_small_svg__clip0"
+      >
+        <path
+          d="M0 0h16v16H0V0z"
+          fill="#fff"
+        />
+      </clippath>
+    </defs>
   </svg>
 </div>
 `;
@@ -14007,18 +13969,31 @@ exports[`Storyshots Components/Tooltip Bottom Right 1`] = `
   </div>
   <svg
     fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M12 8.5V8m0 7.5v-4m0 7.5a7 7 0 100-14 7 7 0 000 14z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
+    <g
+      clip-path="url(#circle_info_small_svg__clip0)"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v.5a1 1 0 002 0V4zm0 3.5a1 1 0 00-2 0v4a1 1 0 102 0v-4z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </g>
+    <defs>
+      <clippath
+        id="circle_info_small_svg__clip0"
+      >
+        <path
+          d="M0 0h16v16H0V0z"
+          fill="#fff"
+        />
+      </clippath>
+    </defs>
   </svg>
 </div>
 `;
@@ -14090,18 +14065,31 @@ exports[`Storyshots Components/Tooltip Left Center 1`] = `
   </div>
   <svg
     fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M12 8.5V8m0 7.5v-4m0 7.5a7 7 0 100-14 7 7 0 000 14z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
+    <g
+      clip-path="url(#circle_info_small_svg__clip0)"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v.5a1 1 0 002 0V4zm0 3.5a1 1 0 00-2 0v4a1 1 0 102 0v-4z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </g>
+    <defs>
+      <clippath
+        id="circle_info_small_svg__clip0"
+      >
+        <path
+          d="M0 0h16v16H0V0z"
+          fill="#fff"
+        />
+      </clippath>
+    </defs>
   </svg>
 </div>
 `;
@@ -14168,18 +14156,31 @@ exports[`Storyshots Components/Tooltip Top Left 1`] = `
   </div>
   <svg
     fill="none"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M12 8.5V8m0 7.5v-4m0 7.5a7 7 0 100-14 7 7 0 000 14z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
+    <g
+      clip-path="url(#circle_info_small_svg__clip0)"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v.5a1 1 0 002 0V4zm0 3.5a1 1 0 00-2 0v4a1 1 0 102 0v-4z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </g>
+    <defs>
+      <clippath
+        id="circle_info_small_svg__clip0"
+      >
+        <path
+          d="M0 0h16v16H0V0z"
+          fill="#fff"
+        />
+      </clippath>
+    </defs>
   </svg>
 </div>
 `;
@@ -14292,13 +14293,13 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
     <svg
       aria-hidden="true"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 12.79L10 17l8-9"
+        d="M2 8.79L6 13l8-9"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -14437,13 +14438,13 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
     <svg
       aria-hidden="true"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 12.79L10 17l8-9"
+        d="M2 8.79L6 13l8-9"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -14612,13 +14613,13 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
     <svg
       aria-hidden="true"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 12.79L10 17l8-9"
+        d="M2 8.79L6 13l8-9"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -14743,13 +14744,13 @@ HTMLCollection [
       <svg
         aria-hidden="true"
         fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M6 12.79L10 17l8-9"
+          d="M2 8.79L6 13l8-9"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -14865,13 +14866,13 @@ HTMLCollection [
       <svg
         aria-hidden="true"
         fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M6 12.79L10 17l8-9"
+          d="M2 8.79L6 13l8-9"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -14987,13 +14988,13 @@ HTMLCollection [
       <svg
         aria-hidden="true"
         fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M6 12.79L10 17l8-9"
+          d="M2 8.79L6 13l8-9"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -15682,19 +15683,32 @@ label + .circuit-9 {
         <svg
           class="circuit-4"
           fill="none"
-          height="24"
+          height="16"
           role="img"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
+          <g
+            clip-path="url(#circle_cross_small_svg__clip0)"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+          <defs>
+            <clippath
+              id="circle_cross_small_svg__clip0"
+            >
+              <path
+                d="M0 0h16v16H0V0z"
+                fill="#fff"
+              />
+            </clippath>
+          </defs>
         </svg>
       </div>
       <div
@@ -15835,19 +15849,32 @@ label + .circuit-7 {
         <svg
           class="circuit-4"
           fill="none"
-          height="24"
+          height="16"
           role="img"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
+          <g
+            clip-path="url(#circle_cross_small_svg__clip0)"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+          <defs>
+            <clippath
+              id="circle_cross_small_svg__clip0"
+            >
+              <path
+                d="M0 0h16v16H0V0z"
+                fill="#fff"
+              />
+            </clippath>
+          </defs>
         </svg>
       </div>
     </div>
@@ -16223,26 +16250,32 @@ label + .circuit-9 {
         <svg
           class="circuit-4"
           fill="none"
-          height="24"
+          height="16"
           role="img"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M9.031 12.532l2 2 4-5"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-          <path
-            d="M12 19a7 7 0 100-14 7 7 0 000 14z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
+          <g
+            clip-path="url(#circle_checkmark_small_svg__clip0)"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+          <defs>
+            <clippath
+              id="circle_checkmark_small_svg__clip0"
+            >
+              <path
+                d="M0 0h16v16H0V0z"
+                fill="#fff"
+              />
+            </clippath>
+          </defs>
         </svg>
       </div>
       <div
@@ -16363,26 +16396,32 @@ label + .circuit-7 {
         <svg
           class="circuit-4"
           fill="none"
-          height="24"
+          height="16"
           role="img"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M9.031 12.532l2 2 4-5"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-          <path
-            d="M12 19a7 7 0 100-14 7 7 0 000 14z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
+          <g
+            clip-path="url(#circle_checkmark_small_svg__clip0)"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+          <defs>
+            <clippath
+              id="circle_checkmark_small_svg__clip0"
+            >
+              <path
+                d="M0 0h16v16H0V0z"
+                fill="#fff"
+              />
+            </clippath>
+          </defs>
         </svg>
       </div>
     </div>
@@ -16564,19 +16603,32 @@ label + .circuit-9 {
         <svg
           class="circuit-4"
           fill="none"
-          height="24"
+          height="16"
           role="img"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M12 12.5V8m0 8v-.5m0 3.5a7 7 0 100-14 7 7 0 000 14z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
+          <g
+            clip-path="url(#circle_warning_small_svg__clip0)"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+          <defs>
+            <clippath
+              id="circle_warning_small_svg__clip0"
+            >
+              <path
+                d="M0 0h16v16H0V0z"
+                fill="#fff"
+              />
+            </clippath>
+          </defs>
         </svg>
       </div>
       <div
@@ -16717,19 +16769,32 @@ label + .circuit-7 {
         <svg
           class="circuit-4"
           fill="none"
-          height="24"
+          height="16"
           role="img"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
-            d="M12 12.5V8m0 8v-.5m0 3.5a7 7 0 100-14 7 7 0 000 14z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
+          <g
+            clip-path="url(#circle_warning_small_svg__clip0)"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+          <defs>
+            <clippath
+              id="circle_warning_small_svg__clip0"
+            >
+              <path
+                d="M0 0h16v16H0V0z"
+                fill="#fff"
+              />
+            </clippath>
+          </defs>
         </svg>
       </div>
     </div>
@@ -17648,17 +17713,16 @@ label + .circuit-5 {
     <svg
       class="circuit-2"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
     <input
@@ -17767,17 +17831,16 @@ label + .circuit-5 {
       <svg
         class="circuit-2"
         fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          clip-rule="evenodd"
+          d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
+          fill="currentColor"
+          fill-rule="evenodd"
         />
       </svg>
       <input
@@ -17890,17 +17953,16 @@ label + .circuit-5 {
     <svg
       class="circuit-2"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M11 17a6 6 0 100-12 6 6 0 000 12zm4.5-1.5L19 19"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
     <input
@@ -18507,17 +18569,16 @@ label + .circuit-6 {
     <svg
       class="circuit-4 circuit-5"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
     
@@ -18690,34 +18751,46 @@ label + .circuit-10 {
     <svg
       class="circuit-4 circuit-5"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
     <svg
       class="circuit-6 circuit-7"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-      />
+      <g
+        clip-path="url(#circle_cross_small_svg__clip0)"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clippath
+          id="circle_cross_small_svg__clip0"
+        >
+          <path
+            d="M0 0h16v16H0V0z"
+            fill="#fff"
+          />
+        </clippath>
+      </defs>
     </svg>
     <div
       class="circuit-8 circuit-9"
@@ -18827,14 +18900,14 @@ label + .circuit-7 {
     <svg
       class="circuit-2"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         clip-rule="evenodd"
-        d="M5.5 6h13a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2V8a2 2 0 012-2zm0 .5A1.5 1.5 0 004 8v8a1.5 1.5 0 001.5 1.5h13A1.5 1.5 0 0020 16V8a1.5 1.5 0 00-1.5-1.5h-13z"
+        d="M1.882 2h12.236C15.158 2 16 2.843 16 3.882v7.53c0 1.04-.843 1.882-1.882 1.882H1.882A1.882 1.882 0 010 11.412v-7.53C0 2.842.843 2 1.882 2zm0 .47c-.78 0-1.411.633-1.411 1.412v7.53c0 .78.632 1.411 1.411 1.411h12.236c.78 0 1.411-.632 1.411-1.411v-7.53c0-.78-.632-1.411-1.411-1.411H1.882z"
         fill="#D8DDE1"
         fill-rule="evenodd"
       />
@@ -18844,19 +18917,19 @@ label + .circuit-7 {
         fill-rule="evenodd"
       >
         <path
-          d="M5.6 6.5h12.72c.928 0 1.68.76 1.68 1.699v7.603a1.69 1.69 0 01-1.68 1.698H5.68A1.69 1.69 0 014 15.802V8.117C4 7.224 4.716 6.5 5.6 6.5z"
+          d="M2 2.5h11.925c.87 0 1.575.713 1.575 1.592v7.128c0 .88-.705 1.592-1.575 1.592H2.075C1.205 12.813.5 12.1.5 11.22V4.017C.5 3.179 1.172 2.5 2 2.5z"
           fill="#fff"
         />
         <path
-          d="M19.786 7.309H12V6.5h6.4c.592 0 1.11.325 1.386.809zM12 8.986h8v-.81h-8v.81zm0 1.702h8V9.88h-8v.808zm0 1.703h8v-.808h-8v.808zm-8 1.703h16v-.809H4v.81zm0 1.703h16v-.809H4v.81zm15.786.894H4.214c.276.484.794.809 1.386.809h12.8c.593 0 1.11-.325 1.386-.809z"
+          d="M15.3 3.258H8V2.5h6c.555 0 1.04.305 1.3.758zM8 4.83h7.5v-.758H8v.758zm0 1.597h7.5v-.759H8v.759zm0 1.596h7.5v-.758H8v.758zM.5 9.62h15V8.86H.5v.759zm0 1.596h15v-.758H.5v.758zm14.8.838H.7c.26.454.745.758 1.3.758h12c.556 0 1.04-.304 1.3-.758z"
           fill="#FF2B2D"
         />
         <path
-          d="M4 12.391h8V6.5H5.6c-.884 0-1.6.724-1.6 1.618v4.273z"
+          d="M.5 8.023H8V2.5H2C1.17 2.5.5 3.179.5 4.017v4.006z"
           fill="#1A3179"
         />
         <path
-          d="M5.18 7.273a.18.18 0 01-.052.127.177.177 0 01-.304-.127.18.18 0 01.054-.124.177.177 0 01.302.124zm1.166 0a.18.18 0 01-.053.125.177.177 0 01-.302-.125.18.18 0 01.053-.124.177.177 0 01.302.124zm1.244 0a.18.18 0 01-.052.127.177.177 0 01-.304-.127.18.18 0 01.053-.124.177.177 0 01.303.124zm1.183 0a.18.18 0 01-.052.127.177.177 0 01-.303-.127.18.18 0 01.053-.124.177.177 0 01.302.124zm1.243 0a.18.18 0 01-.052.127.177.177 0 01-.303-.127.18.18 0 01.053-.124.177.177 0 01.303.124zm1.167 0a.18.18 0 01-.178.18.177.177 0 01-.125-.053.18.18 0 01.125-.306c.099 0 .178.08.178.18zm-5.378.513a.18.18 0 01-.053.125.177.177 0 01-.302-.125c0-.1.08-.18.178-.18.098 0 .177.08.177.18zm1.243 0a.18.18 0 01-.053.125.177.177 0 01-.302-.125c0-.1.08-.18.178-.18.098 0 .177.08.177.18zm1.184 0a.18.18 0 01-.053.125.177.177 0 01-.303-.125.178.178 0 11.355 0zm1.243 0a.181.181 0 01-.109.17.176.176 0 01-.234-.1.181.181 0 01-.012-.07.18.18 0 01.052-.127.177.177 0 01.303.127zm1.167 0a.18.18 0 01-.053.125.177.177 0 01-.303-.125c0-.1.08-.18.178-.18.098 0 .178.08.178.18zM5.18 8.36a.181.181 0 01-.11.166.176.176 0 01-.194-.04.18.18 0 01.126-.306c.098 0 .178.08.178.18zm1.166 0a.18.18 0 01-.053.125.177.177 0 01-.302-.125.18.18 0 01.052-.127.177.177 0 01.303.127zm1.244 0a.181.181 0 01-.11.166.176.176 0 01-.194-.04.18.18 0 01.126-.306c.098 0 .178.08.178.18zm1.183 0a.181.181 0 01-.11.166.176.176 0 01-.193-.04.18.18 0 01.125-.306.18.18 0 01.178.18zm1.243 0a.182.182 0 01-.11.166.176.176 0 01-.193-.04.18.18 0 01.126-.306.18.18 0 01.177.18zm1.167 0a.18.18 0 01-.178.18.175.175 0 01-.164-.111.18.18 0 01-.013-.07.182.182 0 01.109-.169.176.176 0 01.234.1.18.18 0 01.012.07zm-5.378.513a.18.18 0 01-.053.125.177.177 0 01-.302-.125c0-.1.08-.18.178-.18.098 0 .177.08.177.18zm1.243 0a.18.18 0 01-.053.125.177.177 0 01-.302-.125.181.181 0 01.109-.17.176.176 0 01.234.1.181.181 0 01.012.07zm1.184 0a.18.18 0 01-.053.125.177.177 0 01-.303-.125.178.178 0 11.355 0zm1.243 0a.182.182 0 01-.109.17.176.176 0 01-.234-.1.181.181 0 01-.012-.07.18.18 0 01.052-.127.177.177 0 01.303.127zm1.167 0a.18.18 0 01-.053.125.177.177 0 01-.303-.125c0-.1.08-.18.178-.18.098 0 .178.08.178.18zm-5.462.573a.181.181 0 01-.11.165.176.176 0 01-.232-.097.181.181 0 01.039-.196.177.177 0 01.303.128zm1.166 0a.18.18 0 01-.053.124.177.177 0 01-.302-.124c0-.1.08-.18.178-.18.098 0 .177.08.177.18zm1.244 0a.18.18 0 01-.053.127.177.177 0 01-.303-.128.18.18 0 01.052-.127.177.177 0 01.304.128zm1.183 0a.181.181 0 01-.11.165.176.176 0 01-.232-.097.181.181 0 01.04-.196.177.177 0 01.302.128zm1.243 0a.18.18 0 01-.052.127.177.177 0 01-.303-.128.18.18 0 01.052-.127.177.177 0 01.303.128zm1.167 0a.18.18 0 01-.178.179.175.175 0 01-.164-.11.18.18 0 01.164-.25.176.176 0 01.165.112.182.182 0 01.013.069zm-5.378.513a.178.178 0 01-.276.149.179.179 0 01-.076-.184.18.18 0 01.14-.141.176.176 0 01.182.076c.02.03.03.064.03.1zm1.243 0a.178.178 0 01-.276.149.179.179 0 01-.076-.184.18.18 0 01.14-.141.176.176 0 01.182.076c.02.03.03.064.03.1zm1.184 0a.181.181 0 01-.11.166.175.175 0 01-.194-.04.179.179 0 01-.052-.126.18.18 0 01.052-.128.177.177 0 01.304.128zm1.243 0a.181.181 0 01-.11.166.176.176 0 01-.193-.04.18.18 0 01.125-.306c.098 0 .178.08.178.18zm1.167 0a.18.18 0 01-.052.127.177.177 0 01-.252 0 .18.18 0 01.126-.307c.047 0 .092.019.126.052a.18.18 0 01.052.128zm-5.462.572a.18.18 0 01-.052.127.177.177 0 01-.252 0 .18.18 0 01-.052-.127.177.177 0 01.355 0zm1.166 0a.18.18 0 01-.053.125.177.177 0 01-.249 0 .18.18 0 01-.053-.125.177.177 0 01.355 0zm1.244 0a.18.18 0 01-.052.127.177.177 0 01-.252 0 .18.18 0 01-.052-.127.177.177 0 01.355 0zm1.183 0a.18.18 0 01-.052.127.177.177 0 01-.251 0 .18.18 0 01-.052-.127.177.177 0 01.355 0zm1.243 0a.18.18 0 01-.052.127.177.177 0 01-.25 0 .18.18 0 01-.053-.127.177.177 0 01.355 0zm1.167 0a.18.18 0 01-.11.166.176.176 0 01-.193-.039.18.18 0 01.125-.306.177.177 0 01.165.11.18.18 0 01.013.07zm-5.378.513a.18.18 0 01-.053.125.177.177 0 01-.249 0 .18.18 0 01-.053-.125c0-.1.08-.18.178-.18.098 0 .177.08.177.18zm1.243 0a.18.18 0 01-.053.125.177.177 0 01-.249 0 .18.18 0 01-.053-.125c0-.1.08-.18.178-.18.098 0 .177.08.177.18zm1.184 0a.177.177 0 01-.303.127.18.18 0 01.126-.306c.098 0 .177.08.177.18zm1.243 0a.18.18 0 01-.054.124.177.177 0 01-.247 0 .18.18 0 01-.054-.124.178.178 0 01.245-.166.177.177 0 01.097.098.18.18 0 01.013.068zm1.167 0c0 .1-.08.18-.178.18a.177.177 0 01-.125-.053.18.18 0 01.125-.306c.098 0 .178.08.178.18zm-5.462.573a.18.18 0 01-.054.124.177.177 0 01-.248 0 .18.18 0 01-.054-.124.18.18 0 01.052-.127.177.177 0 01.126-.053c.098 0 .178.08.178.18zm1.166 0a.18.18 0 01-.053.124.177.177 0 01-.249 0 .18.18 0 01-.053-.124c0-.1.08-.18.178-.18a.18.18 0 01.177.18zm1.244 0a.18.18 0 01-.054.124.177.177 0 01-.248 0 .18.18 0 01-.054-.124.18.18 0 01.052-.127.177.177 0 01.126-.053c.098 0 .178.08.178.18zm1.183 0a.18.18 0 01-.053.124.177.177 0 01-.249 0 .18.18 0 01-.053-.124.18.18 0 01.052-.127.177.177 0 01.125-.053c.098 0 .178.08.178.18zm1.243 0a.18.18 0 01-.054.123.177.177 0 11-.123-.303c.098 0 .177.08.177.18zm1.167 0a.18.18 0 01-.178.18.176.176 0 01-.125-.053.18.18 0 010-.254.176.176 0 01.29.058.18.18 0 01.013.069z"
+          d="M1.606 3.225a.17.17 0 01-.049.12.166.166 0 01-.284-.12.17.17 0 01.05-.117.166.166 0 01.283.117zm1.094 0a.17.17 0 01-.05.117.166.166 0 01-.283-.117.17.17 0 01.05-.117.166.166 0 01.283.117zm1.165 0a.17.17 0 01-.049.12.166.166 0 01-.284-.12.17.17 0 01.05-.117.166.166 0 01.283.117zm1.11 0a.17.17 0 01-.049.12.166.166 0 01-.284-.12.17.17 0 01.05-.117.166.166 0 01.283.117zm1.165 0a.17.17 0 01-.048.12.166.166 0 01-.285-.12.17.17 0 01.05-.117.166.166 0 01.283.117zm1.094 0a.17.17 0 01-.103.156.165.165 0 01-.181-.037.17.17 0 01.118-.287c.092 0 .166.075.166.168zm-5.042.481a.17.17 0 01-.05.117.166.166 0 01-.283-.117c0-.093.075-.168.167-.168.092 0 .166.075.166.168zm1.166 0a.17.17 0 01-.05.117.166.166 0 01-.283-.117c0-.093.074-.168.166-.168.092 0 .167.075.167.168zm1.11 0a.17.17 0 01-.05.117.166.166 0 01-.284-.117c0-.093.075-.168.167-.168.092 0 .166.075.166.168zm1.165 0a.17.17 0 01-.102.159.165.165 0 01-.22-.094.17.17 0 01-.011-.065.17.17 0 01.049-.12.166.166 0 01.235.001.17.17 0 01.049.12zm1.094 0a.17.17 0 01-.05.117.166.166 0 01-.283-.117c0-.093.074-.168.166-.168.092 0 .167.075.167.168zm-5.121.537a.17.17 0 01-.103.155.165.165 0 01-.181-.036.169.169 0 01.117-.288c.092 0 .167.076.167.169zm1.094 0a.17.17 0 01-.05.117.166.166 0 01-.283-.117.17.17 0 01.048-.12.166.166 0 01.285.12zm1.165 0a.17.17 0 01-.103.155.165.165 0 01-.181-.036.169.169 0 01.118-.288c.091 0 .166.076.166.169zm1.11 0a.17.17 0 01-.103.155.165.165 0 01-.181-.036.17.17 0 01.117-.288c.092 0 .167.076.167.169zm1.165 0a.17.17 0 01-.103.155.165.165 0 01-.181-.036.169.169 0 01.118-.288c.092 0 .166.076.166.169zm1.094 0a.17.17 0 01-.103.155.165.165 0 01-.181-.036.168.168 0 01-.049-.12.17.17 0 01.102-.158.165.165 0 01.22.093.17.17 0 01.011.066zm-5.042.48a.17.17 0 01-.05.118.166.166 0 01-.283-.117c0-.093.075-.169.167-.169.092 0 .166.076.166.169zm1.166 0a.17.17 0 01-.05.118.166.166 0 01-.283-.117.17.17 0 01.102-.16.165.165 0 01.22.094.17.17 0 01.01.066zm1.11 0a.17.17 0 01-.05.118.166.166 0 01-.284-.117c0-.093.075-.169.167-.169.092 0 .166.076.166.169zm1.165 0a.17.17 0 01-.102.16.165.165 0 01-.22-.094.17.17 0 01-.011-.066.17.17 0 01.049-.119.166.166 0 01.235 0 .17.17 0 01.049.12zm1.094 0a.17.17 0 01-.05.118.166.166 0 01-.283-.117c0-.093.074-.169.166-.169.092 0 .167.076.167.169zm-5.121.538a.17.17 0 01-.103.155.165.165 0 01-.218-.091.17.17 0 01.037-.184.166.166 0 01.235 0 .17.17 0 01.049.12zm1.094 0a.17.17 0 01-.05.117.166.166 0 01-.283-.117c0-.094.074-.169.166-.169.092 0 .167.075.167.169zm1.165 0a.17.17 0 01-.049.119.166.166 0 01-.284-.12.17.17 0 01.05-.119.166.166 0 01.235 0 .17.17 0 01.048.12zm1.11 0a.17.17 0 01-.103.155.165.165 0 01-.218-.091.17.17 0 01.037-.184.166.166 0 01.284.12zm1.165 0a.17.17 0 01-.049.119.166.166 0 01-.284-.12.17.17 0 01.05-.119.166.166 0 01.283.12zm1.094 0a.17.17 0 01-.103.155.165.165 0 01-.181-.036.168.168 0 01-.049-.12.167.167 0 01.23-.155.166.166 0 01.103.156zm-5.042.48a.167.167 0 01-.259.14.168.168 0 01-.07-.172.169.169 0 01.13-.132.165.165 0 01.171.071.17.17 0 01.028.094zm1.166 0a.167.167 0 01-.26.14.168.168 0 01-.07-.172.169.169 0 01.13-.132.165.165 0 01.172.071.17.17 0 01.028.094zm1.11 0a.17.17 0 01-.103.156.165.165 0 01-.218-.09.17.17 0 01.036-.185.166.166 0 01.284.12zm1.165 0a.17.17 0 01-.103.156.165.165 0 01-.181-.036.17.17 0 01.117-.288c.092 0 .167.076.167.169zm1.094 0a.17.17 0 01-.05.12.166.166 0 01-.284-.12.17.17 0 01.05-.119.166.166 0 01.284.12zm-5.121.538a.17.17 0 01-.049.119.166.166 0 01-.284-.12.17.17 0 01.05-.116.166.166 0 01.283.117zm1.094 0a.17.17 0 01-.05.116.166.166 0 01-.283-.116.17.17 0 01.05-.117.166.166 0 01.283.117zm1.165 0a.17.17 0 01-.049.119.166.166 0 01-.284-.12.17.17 0 01.05-.116.166.166 0 01.283.117zm1.11 0a.17.17 0 01-.049.119.166.166 0 01-.284-.12.17.17 0 01.05-.116.166.166 0 01.283.117zm1.165 0a.17.17 0 01-.048.119.166.166 0 01-.285-.12.17.17 0 01.05-.116.166.166 0 01.283.117zm1.094 0a.17.17 0 01-.103.155.165.165 0 01-.181-.037.17.17 0 01.118-.287.165.165 0 01.154.104.17.17 0 01.012.065zm-5.042.48a.17.17 0 01-.05.117.166.166 0 01-.283-.117c0-.093.075-.168.167-.168.092 0 .166.075.166.168zm1.166 0a.17.17 0 01-.05.117.166.166 0 01-.283-.117c0-.093.074-.168.166-.168.092 0 .167.075.167.168zm1.11 0a.166.166 0 01-.284.119.17.17 0 01.117-.287c.092 0 .166.075.166.168zm1.165 0a.17.17 0 01-.05.116.166.166 0 11.037-.18.17.17 0 01.013.064zm1.094 0a.166.166 0 01-.284.119.17.17 0 01.117-.287c.092 0 .167.075.167.168zm-5.121.537a.17.17 0 01-.05.117.166.166 0 01-.283-.117.17.17 0 01.048-.119.166.166 0 01.118-.05c.092 0 .167.076.167.17zm1.094 0a.17.17 0 01-.05.117.166.166 0 01-.283-.117.166.166 0 01.285-.119.17.17 0 01.048.12zm1.165 0a.17.17 0 01-.05.117.166.166 0 01-.283-.117.17.17 0 01.049-.119.166.166 0 01.118-.05c.091 0 .166.076.166.17zm1.11 0a.17.17 0 01-.05.117.166.166 0 01-.283-.117.17.17 0 01.048-.119.166.166 0 01.118-.05c.092 0 .167.076.167.17zm1.165 0a.17.17 0 01-.05.116.166.166 0 11-.116-.284c.092 0 .166.075.166.168zm1.094 0a.167.167 0 01-.166.168.166.166 0 01-.118-.049.17.17 0 01.118-.287.165.165 0 01.154.104.17.17 0 01.012.064z"
           fill="#fff"
         />
       </g>
@@ -18865,7 +18938,7 @@ label + .circuit-7 {
           id="flag_us_small_svg__clip0"
         >
           <path
-            d="M4 6.5h16v11H4z"
+            d="M.5 2.5h15v10.313H.5z"
             fill="#fff"
           />
         </clippath>
@@ -18895,17 +18968,16 @@ label + .circuit-7 {
     <svg
       class="circuit-5 circuit-6"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
     
@@ -19033,17 +19105,16 @@ label + .circuit-6 {
     <svg
       class="circuit-4 circuit-5"
       fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M9 9l3-3 3 3m-6 6l3 3 3-3"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
       />
     </svg>
     
@@ -19955,19 +20026,32 @@ label + .circuit-9 {
       <svg
         class="circuit-4"
         fill="none"
-        height="24"
+        height="16"
         role="img"
-        viewBox="0 0 24 24"
-        width="24"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
+        <g
+          clip-path="url(#circle_cross_small_svg__clip0)"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_cross_small_svg__clip0"
+          >
+            <path
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
+            />
+          </clippath>
+        </defs>
       </svg>
     </div>
     <div
@@ -20264,19 +20348,32 @@ label + .circuit-9 {
       <svg
         class="circuit-4"
         fill="none"
-        height="24"
+        height="16"
         role="img"
-        viewBox="0 0 24 24"
-        width="24"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M12 12.5V8m0 8v-.5m0 3.5a7 7 0 100-14 7 7 0 000 14z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
+        <g
+          clip-path="url(#circle_warning_small_svg__clip0)"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_warning_small_svg__clip0"
+          >
+            <path
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
+            />
+          </clippath>
+        </defs>
       </svg>
     </div>
     <div
@@ -23297,7 +23394,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -23306,6 +23402,7 @@ HTMLCollection [
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -23369,7 +23466,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -23378,6 +23474,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -23403,7 +23500,7 @@ HTMLCollection [
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -23438,7 +23535,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -23447,6 +23543,7 @@ HTMLCollection [
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -23472,7 +23569,7 @@ HTMLCollection [
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -23502,7 +23599,6 @@ HTMLCollection [
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -23511,6 +23607,7 @@ HTMLCollection [
   border-color: #3388FF;
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
