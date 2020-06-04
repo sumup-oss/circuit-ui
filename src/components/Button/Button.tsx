@@ -34,7 +34,7 @@ export interface BaseProps {
   /**
    * Choose from 3 sizes. Default: 'mega'.
    */
-  size?: 'kilo' | 'mega' | 'giga';
+  size?: 'kilo' | 'mega';
   /**
    * Visually and functionally disable the button.
    */
@@ -152,8 +152,7 @@ const tertiaryStyles = ({
 const sizeStyles = ({ theme, size = 'mega' }: ButtonProps & StyleProps) => {
   const sizeMap = {
     kilo: `${theme.spacings.bit} calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
-    mega: `${theme.spacings.byte} calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
-    giga: `${theme.spacings.kilo} calc(${theme.spacings.tera} - ${BORDER_WIDTH})`
+    mega: `${theme.spacings.byte} calc(${theme.spacings.giga} - ${BORDER_WIDTH})`
   };
 
   return css({

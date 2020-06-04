@@ -33,7 +33,7 @@ export const Base = () => (
   <IconButton
     label={text('Label', 'Download')}
     variant={select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}
-    size={select('Size', ['kilo', 'mega', 'giga'], 'mega')}
+    size={select('Size', ['kilo', 'mega'], 'mega')}
     stretch={boolean('Stretched', false)}
     disabled={boolean('Disabled', false)}
   >
