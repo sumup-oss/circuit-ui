@@ -216,5 +216,3 @@ export function ButtonComponent(
  * to a different screen.
  */
 export const Button = React.forwardRef(ButtonComponent);
-
-Button.displayName = 'Button';
