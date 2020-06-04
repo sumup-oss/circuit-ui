@@ -74,6 +74,10 @@ exports[`NotificationIcon should render with error icon 1`] = `
   }
 }
 
+.circuit-0 {
+  color: #DB4D4D;
+}
+
 <div
   class="circuit-1 circuit-2"
 >

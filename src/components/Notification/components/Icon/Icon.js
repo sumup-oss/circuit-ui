@@ -21,7 +21,7 @@ import { CircleCheckmark, CircleCross, CircleWarning } from '@sumup/icons';
 
 const ICON_TYPES = {
   SUCCESS: 'success',
-  ERROR: 'error',
+  ERROR: 'danger',
   WARNING: 'warning'
 };
 

@@ -12,6 +12,18 @@ exports[`Toggle should render with default styles 1`] = `
   margin-bottom: 16px;
 }
 
+@media (max-width:479px) {
+  .circuit-12 {
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
 .circuit-4 {
   margin: 0;
   padding: 0;
@@ -77,6 +89,13 @@ exports[`Toggle should render with default styles 1`] = `
   display: block;
   margin-left: 12px;
   cursor: pointer;
+}
+
+@media (max-width:479px) {
+  .circuit-10 {
+    margin-left: 0;
+    margin-right: 12px;
+  }
 }
 
 .circuit-6 {
@@ -218,6 +237,13 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   cursor: pointer;
 }
 
+@media (max-width:479px) {
+  .circuit-10 {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+}
+
 .circuit-6 {
   font-weight: 400;
   margin-bottom: 16px;
@@ -260,6 +286,18 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   flex-align: flex-start;
   margin-bottom: 16px;
   margin-bottom: 0;
+}
+
+@media (max-width:479px) {
+  .circuit-12 {
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
 }
 
 <div

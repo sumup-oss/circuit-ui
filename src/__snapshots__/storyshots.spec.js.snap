@@ -63,7 +63,6 @@ exports[`Storyshots Components/Badge Base 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  color="neutral"
 >
   Badge
 </div>
@@ -103,7 +102,6 @@ exports[`Storyshots Components/Badge Circular 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  color="primary"
 >
   42
 </div>
@@ -149,7 +147,6 @@ exports[`Storyshots Components/Badge Clickable 1`] = `
 
 <button
   class="circuit-0 circuit-1"
-  color="primary"
 >
   Click me
 </button>
@@ -176,7 +173,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="neutral"
   >
     Neutral
   </div>,
@@ -199,7 +195,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="primary"
   >
     Primary
   </div>,
@@ -222,7 +217,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="success"
   >
     Success
   </div>,
@@ -245,7 +239,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="warning"
   >
     Warning
   </div>,
@@ -268,7 +261,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    color="danger"
   >
     Danger
   </div>,
@@ -3842,7 +3834,6 @@ exports[`Storyshots Components/Card Base 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -3873,7 +3864,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    spacing="giga"
   />,
   .circuit-0 {
   background-color: #FFFFFF;
@@ -3900,7 +3890,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    spacing="giga"
   />,
   .circuit-0 {
   background-color: #FFFFFF;
@@ -3927,7 +3916,6 @@ HTMLCollection [
 
 <div
     class="circuit-0 circuit-1"
-    spacing="giga"
   />,
 ]
 `;
@@ -3965,7 +3953,6 @@ HTMLCollection [
 
 <div
     class="circuit-1 circuit-2"
-    spacing="mega"
   >
     <div
       class="circuit-0"
@@ -4002,7 +3989,6 @@ HTMLCollection [
 
 <div
     class="circuit-1 circuit-2"
-    spacing="giga"
   >
     <div
       class="circuit-0"
@@ -4175,7 +4161,6 @@ HTMLCollection [
 
 <div
     class="circuit-7 circuit-8"
-    spacing="giga"
   >
     <p
       class="circuit-0"
@@ -4358,7 +4343,6 @@ HTMLCollection [
 
 <div
     class="circuit-7 circuit-8"
-    spacing="giga"
   >
     <p
       class="circuit-0"
@@ -4464,7 +4448,6 @@ HTMLCollection [
 
 <div
     class="circuit-4 circuit-5"
-    spacing="giga"
   >
     <header
       class="circuit-1 circuit-2"
@@ -4625,7 +4608,6 @@ HTMLCollection [
 
 <div
     class="circuit-6 circuit-7"
-    spacing="giga"
   >
     <header
       class="circuit-3 circuit-4"
@@ -4746,7 +4728,6 @@ exports[`Storyshots Components/Card/CardList Base 1`] = `
 
 <div
   class="circuit-10 circuit-11"
-  spacing="giga"
 >
   <div
     aria-selected="false"
@@ -6954,7 +6935,6 @@ exports[`Storyshots Components/Modal/Embedded Base 1`] = `
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 >
   Hello World!
 </div>
@@ -7303,7 +7283,6 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 
 <div
   class="circuit-10 circuit-11"
-  spacing="giga"
 >
   <header
     class="circuit-1 circuit-2"
@@ -7420,7 +7399,6 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 
 <div
   class="circuit-4 circuit-5"
-  spacing="giga"
 >
   <header
     class="circuit-1 circuit-2"
@@ -7588,7 +7566,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 
 <div
   class="circuit-6 circuit-7"
-  spacing="giga"
 >
   <header
     class="circuit-3 circuit-4"
@@ -7678,7 +7655,6 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 
 <div
   class="circuit-1 circuit-2"
-  spacing="giga"
 >
   <p
     class="circuit-0"
@@ -7829,6 +7805,10 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   .circuit-5 {
     margin-top: 0;
   }
+}
+
+.circuit-0 {
+  color: #DB4D4D;
 }
 
 <div
@@ -8466,7 +8446,6 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 >
   <li
     class="circuit-6 circuit-7"
-    spacing="mega"
   >
     <div
       class="circuit-4 circuit-5"
@@ -12787,7 +12766,6 @@ tbody .circuit-6:last-child td {
           >
             <div
               class="circuit-14 circuit-15"
-              color="danger"
             >
               Fruit
             </div>
@@ -12818,7 +12796,6 @@ tbody .circuit-6:last-child td {
           >
             <div
               class="circuit-24 circuit-15"
-              color="success"
             >
               Vegetable
             </div>
@@ -12849,7 +12826,6 @@ tbody .circuit-6:last-child td {
           >
             <div
               class="circuit-34 circuit-15"
-              color="warning"
             >
               Legume
             </div>
@@ -15088,7 +15064,6 @@ exports[`Storyshots Forms/InlineMessage Base 1`] = `
 
 <div
   class="circuit-3 circuit-4"
-  spacing="giga"
 >
   <p
     class="circuit-0 circuit-1"
@@ -20527,6 +20502,18 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   margin-bottom: 16px;
 }
 
+@media (max-width:479px) {
+  .circuit-10 {
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
 .circuit-4 {
   margin: 0;
   padding: 0;
@@ -20592,6 +20579,13 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   display: block;
   margin-left: 12px;
   cursor: pointer;
+}
+
+@media (max-width:479px) {
+  .circuit-8 {
+    margin-left: 0;
+    margin-right: 12px;
+  }
 }
 
 .circuit-6 {
@@ -20644,153 +20638,6 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 </div>
 `;
 
-exports[`Storyshots Forms/Toggle Reversed 1`] = `
-.circuit-4 {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  background-color: #D8DDE1;
-  border-radius: 24px;
-  position: relative;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-  height: 24px;
-  width: 40px;
-  overflow: visible;
-  cursor: pointer;
-}
-
-.circuit-4:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-4:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0 {
-  display: block;
-  background-color: #FAFBFC;
-  box-shadow: 0 2px 0 0 #9DA7B1;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translate3d(4px,-50%,0);
-  -ms-transform: translate3d(4px,-50%,0);
-  transform: translate3d(4px,-50%,0);
-  -webkit-transition: box-shadow 200ms ease-in-out,-webkit-transform 200ms ease-in-out;
-  -webkit-transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
-  height: 16px;
-  width: 16px;
-  border-radius: 16px;
-}
-
-.circuit-2 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-8 {
-  display: block;
-  margin-left: 12px;
-  cursor: pointer;
-}
-
-.circuit-6 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
-  margin-bottom: 0;
-  padding-top: 2px;
-}
-
-@media (min-width:480px) {
-  .circuit-6 {
-    font-size: 13px;
-    line-height: 20px;
-  }
-}
-
-.circuit-10 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-align: flex-start;
-  -ms-flex-align: flex-start;
-  flex-align: flex-start;
-  margin-bottom: 16px;
-}
-
-@media (max-width:479px) {
-  .circuit-10 {
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-  }
-
-  .circuit-10 label {
-    margin-left: 0;
-    margin-right: 12px;
-  }
-}
-
-<div
-  class="circuit-10 circuit-11"
-  reversed=""
->
-  <button
-    aria-checked="false"
-    aria-labelledby="toggle-label_69"
-    class="circuit-4 circuit-5"
-    id="toggle-switch_68"
-    role="switch"
-    type="button"
-  >
-    <span
-      class="circuit-0 circuit-1"
-    />
-    <span
-      class="circuit-2 circuit-3"
-    >
-      off
-    </span>
-  </button>
-  <label
-    class="circuit-8 circuit-9"
-    for="toggle-switch_68"
-    id="toggle-label_69"
-  >
-    <p
-      class="circuit-6 circuit-7"
-    >
-      Short label
-    </p>
-  </label>
-</div>
-`;
-
 exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 .circuit-12 {
   display: -webkit-box;
@@ -20803,6 +20650,18 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   margin-bottom: 16px;
 }
 
+@media (max-width:479px) {
+  .circuit-12 {
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
 .circuit-4 {
   margin: 0;
   padding: 0;
@@ -20868,6 +20727,13 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   display: block;
   margin-left: 12px;
   cursor: pointer;
+}
+
+@media (max-width:479px) {
+  .circuit-10 {
+    margin-left: 0;
+    margin-right: 12px;
+  }
 }
 
 .circuit-6 {
@@ -20999,7 +20865,6 @@ exports[`Storyshots Layout/Grid/Col Col 1`] = `
 >
   <div
     class="circuit-0 circuit-1"
-    span="12"
   >
     Column
   </div>
@@ -21273,7 +21138,6 @@ exports[`Storyshots Layout/Grid/Grid Responsive Columns 1`] = `
       </div>
       <div
         class="circuit-12 circuit-1"
-        span="6"
       >
         half
       </div>
@@ -21647,19 +21511,16 @@ exports[`Storyshots Layout/Grid/Grid Responsive Skipping 1`] = `
     >
       <div
         class="circuit-0 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-4 circuit-1"
-        span="3"
       >
         skip mobile
       </div>
@@ -21669,13 +21530,11 @@ exports[`Storyshots Layout/Grid/Grid Responsive Skipping 1`] = `
     >
       <div
         class="circuit-8 circuit-1"
-        span="6"
       >
         first column
       </div>
       <div
         class="circuit-10 circuit-1"
-        span="6"
       >
         second column
       </div>
@@ -22028,19 +21887,16 @@ exports[`Storyshots Layout/Grid/Grid Skipping Columns 1`] = `
     >
       <div
         class="circuit-0 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-4 circuit-1"
-        span="3"
       >
         Col 3
       </div>
@@ -22050,13 +21906,11 @@ exports[`Storyshots Layout/Grid/Grid Skipping Columns 1`] = `
     >
       <div
         class="circuit-8 circuit-1"
-        span="6"
       >
         First column
       </div>
       <div
         class="circuit-10 circuit-1"
-        span="6"
       >
         Second Column
       </div>
@@ -22468,37 +22322,31 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
@@ -22508,25 +22356,21 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 3
       </div>
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 3
       </div>
@@ -22536,19 +22380,16 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-24 circuit-1"
-        span="4"
       >
         Col 4
       </div>
       <div
         class="circuit-24 circuit-1"
-        span="4"
       >
         Col 4
       </div>
       <div
         class="circuit-24 circuit-1"
-        span="4"
       >
         Col 4
       </div>
@@ -22558,31 +22399,26 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-24 circuit-1"
-        span="4"
       >
         Col 4
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-0 circuit-1"
-        span="2"
       >
         Col 2
       </div>
       <div
         class="circuit-38 circuit-1"
-        span="1"
       >
         1
       </div>
       <div
         class="circuit-14 circuit-1"
-        span="3"
       >
         Col 4
       </div>
@@ -22592,13 +22428,11 @@ exports[`Storyshots Layout/Grid/Grid Static Columns 1`] = `
     >
       <div
         class="circuit-44 circuit-1"
-        span="6"
       >
         Col 6
       </div>
       <div
         class="circuit-44 circuit-1"
-        span="6"
       >
         Col 6
       </div>
@@ -22723,19 +22557,16 @@ exports[`Storyshots Layout/Grid/Row Base 1`] = `
 >
   <div
     class="circuit-0 circuit-1"
-    span="4"
   >
     Col 4
   </div>
   <div
     class="circuit-0 circuit-1"
-    span="4"
   >
     Col 4
   </div>
   <div
     class="circuit-0 circuit-1"
-    span="4"
   >
     Col 4
   </div>
@@ -23668,6 +23499,7 @@ exports[`Storyshots Typography/Anchor As Button 1`] = `
   margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
+  margin-bottom: 0;
   display: inline-block;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -23728,6 +23560,7 @@ exports[`Storyshots Typography/Anchor As Link 1`] = `
   margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
+  margin-bottom: 0;
   display: inline-block;
   -webkit-text-decoration: underline;
   text-decoration: underline;

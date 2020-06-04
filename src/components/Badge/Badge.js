@@ -17,6 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
 import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
 import { colorNames } from '../../styles/constants';
@@ -108,12 +109,9 @@ const clickableStyles = ({ theme, onClick, color }) => {
   `;
 };
 
-const StyledBadge = styled('div')(
-  baseStyles,
-  colorStyles,
-  circleStyles,
-  clickableStyles
-);
+const StyledBadge = styled('div', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color'
+})(baseStyles, colorStyles, circleStyles, clickableStyles);
 
 /**
  * A badge for displaying update notifications etc.
