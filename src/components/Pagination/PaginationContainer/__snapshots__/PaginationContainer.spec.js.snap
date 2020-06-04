@@ -36,7 +36,6 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -45,6 +44,7 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -73,7 +73,7 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
 
 .circuit-1:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -103,7 +103,6 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -112,6 +111,7 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -139,7 +139,7 @@ exports[`PaginationContainer styles when the current page is 1 should render wit
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <div
@@ -194,7 +194,6 @@ exports[`PaginationContainer styles when the current page is not the first and l
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -203,6 +202,7 @@ exports[`PaginationContainer styles when the current page is not the first and l
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -231,7 +231,7 @@ exports[`PaginationContainer styles when the current page is not the first and l
 
 .circuit-1:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -261,7 +261,6 @@ exports[`PaginationContainer styles when the current page is not the first and l
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -270,6 +269,7 @@ exports[`PaginationContainer styles when the current page is not the first and l
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -297,7 +297,7 @@ exports[`PaginationContainer styles when the current page is not the first and l
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <div
@@ -351,7 +351,6 @@ exports[`PaginationContainer styles when the current page is the last page shoul
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -360,6 +359,7 @@ exports[`PaginationContainer styles when the current page is the last page shoul
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: 0;
@@ -388,7 +388,7 @@ exports[`PaginationContainer styles when the current page is the last page shoul
 
 .circuit-1:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 .circuit-1:hover {
@@ -418,7 +418,6 @@ exports[`PaginationContainer styles when the current page is the last page shoul
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -427,6 +426,7 @@ exports[`PaginationContainer styles when the current page is the last page shoul
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -454,7 +454,7 @@ exports[`PaginationContainer styles when the current page is the last page shoul
 
 .circuit-3:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <div

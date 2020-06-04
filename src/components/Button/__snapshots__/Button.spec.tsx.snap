@@ -23,7 +23,6 @@ exports[`Button styles should render a button with icon 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -32,6 +31,7 @@ exports[`Button styles should render a button with icon 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -57,7 +57,7 @@ exports[`Button styles should render a button with icon 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -107,7 +107,6 @@ exports[`Button styles should render a disabled button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -116,6 +115,7 @@ exports[`Button styles should render a disabled button 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -141,7 +141,7 @@ exports[`Button styles should render a disabled button 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -175,7 +175,6 @@ exports[`Button styles should render a kilo button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -184,6 +183,7 @@ exports[`Button styles should render a kilo button 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-0:focus {
@@ -209,7 +209,7 @@ exports[`Button styles should render a kilo button 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -242,7 +242,6 @@ exports[`Button styles should render a mega button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -251,6 +250,7 @@ exports[`Button styles should render a mega button 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -276,7 +276,7 @@ exports[`Button styles should render a mega button 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -309,7 +309,6 @@ exports[`Button styles should render a primary button by default 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -318,6 +317,7 @@ exports[`Button styles should render a primary button by default 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -343,7 +343,7 @@ exports[`Button styles should render a primary button by default 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -376,7 +376,6 @@ exports[`Button styles should render a secondary button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -385,6 +384,7 @@ exports[`Button styles should render a secondary button 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
@@ -410,7 +410,7 @@ exports[`Button styles should render a secondary button 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -443,7 +443,6 @@ exports[`Button styles should render a stretched button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -452,6 +451,7 @@ exports[`Button styles should render a stretched button 1`] = `
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   width: 100%;
 }
 
@@ -478,7 +478,7 @@ exports[`Button styles should render a stretched button 1`] = `
 
 .circuit-0:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 <button
@@ -511,7 +511,6 @@ exports[`Button styles should render a tertiary button 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -520,6 +519,7 @@ exports[`Button styles should render a tertiary button 1`] = `
   border-color: transparent;
   color: #3388FF;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-0:focus {
