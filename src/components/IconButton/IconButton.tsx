@@ -15,9 +15,9 @@
 
 import React, { Children, cloneElement, FC, ReactElement } from 'react';
 import { css } from '@emotion/core';
-import { hideVisually } from 'polished';
 import { Theme } from '@sumup/design-tokens';
 
+import { hideVisually } from '../../styles/style-helpers';
 import styled from '../../styles/styled';
 import { Button, ButtonProps } from '../Button/Button';
 

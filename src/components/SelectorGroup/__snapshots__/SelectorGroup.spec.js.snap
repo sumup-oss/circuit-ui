@@ -30,7 +30,7 @@ exports[`SelectorGroup should render with default styles 1`] = `
 
 .circuit-0:checked + label {
   background-color: #EDF4FC;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-0:checked + label::before {
@@ -38,7 +38,7 @@ exports[`SelectorGroup should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
   padding: 24px;
@@ -59,6 +59,8 @@ exports[`SelectorGroup should render with default styles 1`] = `
   height: 100%;
   border-radius: 5px;
   border: 1px solid #9DA7B1;
+  -webkit-transition: border 0.1s ease-in-out;
+  transition: border 0.1s ease-in-out;
 }
 
 .circuit-2:hover {

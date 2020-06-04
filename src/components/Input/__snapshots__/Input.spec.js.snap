@@ -521,7 +521,7 @@ label + .circuit-6 {
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   right: 50%;
   right: calc(50% - (16px + 4px));
   bottom: 100%;

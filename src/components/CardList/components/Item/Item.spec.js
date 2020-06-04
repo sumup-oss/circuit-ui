@@ -27,7 +27,7 @@ describe('Item', () => {
   });
 
   it('should render with all paddings', () => {
-    [Item.KILO, Item.MEGA, Item.GIGA].forEach(padding => {
+    ['kilo', 'mega', 'giga'].forEach(padding => {
       expect(
         create(<Item padding={padding}>List item</Item>)
       ).toMatchSnapshot();

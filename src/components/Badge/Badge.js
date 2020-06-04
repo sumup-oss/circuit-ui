@@ -17,7 +17,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { size } from 'polished';
 
 import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
 import { colorNames } from '../../styles/constants';
@@ -80,7 +79,8 @@ const circleStyles = ({ circle }) =>
     display: flex;
     align-items: center;
     justify-content: center;
-    ${size(24)};
+    height: 24px;
+    width: 24px;
   `;
 
 const clickableStyles = ({ theme, onClick, color }) => {
