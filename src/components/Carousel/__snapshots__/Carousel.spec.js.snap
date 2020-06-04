@@ -499,14 +499,14 @@ exports[`Carousel styles should render with children as a function 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="16"
           role="presentation"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8.5 7v10M15.5 7v10"
+            d="M4.5 3v10M11.5 3v10"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-width="2"
@@ -1078,14 +1078,14 @@ exports[`Carousel styles should render with children as a node 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="16"
           role="presentation"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8.5 7v10M15.5 7v10"
+            d="M4.5 3v10M11.5 3v10"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-width="2"
@@ -1656,14 +1656,14 @@ exports[`Carousel styles should render with default paused styles 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="16"
           role="presentation"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M17 12l-9 5V7l9 5z"
+            d="M13 8l-9 5V3l9 5z"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -2209,14 +2209,14 @@ exports[`Carousel styles should render with default styles 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="16"
           role="presentation"
-          viewBox="0 0 24 24"
-          width="24"
+          viewBox="0 0 16 16"
+          width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M8.5 7v10M15.5 7v10"
+            d="M4.5 3v10M11.5 3v10"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-width="2"
