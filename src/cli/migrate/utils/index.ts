@@ -100,17 +100,21 @@ export function findLocalNames(
 ): string[] | null {
   const imports = findImportsByPath(j, root, '@sumup/circuit-ui');
 
-  const buttonImport = imports.find(i => i.name === componentName);
+  const [baseName, subName] = componentName.split('.');
 
-  if (!buttonImport) {
+  const componentImport = imports.find(i => i.name === baseName);
+
+  if (!componentImport) {
     return null;
   }
 
-  const localName = buttonImport.local;
+  const localName = subName
+    ? `${componentImport.local}.${subName}`
+    : componentImport.local;
 
-  const styledButtons = findStyledComponentNames(j, root, localName);
+  const styledComponents = findStyledComponentNames(j, root, localName);
 
-  return [localName, ...styledButtons];
+  return [localName, ...styledComponents];
 }
 
 export function renameJSXAttribute(
@@ -131,4 +135,23 @@ export function renameJSXAttribute(
     .replaceWith(nodePath =>
       j.jsxAttribute(j.jsxIdentifier(toName), nodePath.node.value)
     );
+}
+
+export function findProperty(
+  j: JSCodeshift,
+  root: Collection,
+  path: string
+): Collection {
+  const [parent, ...properties] = path.split('.');
+  const query = properties.reduce(
+    (acc, property) => ({
+      type: 'MemberExpression',
+      object: acc,
+      property: {
+        name: property
+      }
+    }),
+    { name: parent } as any
+  );
+  return root.find(j.MemberExpression, query);
 }
