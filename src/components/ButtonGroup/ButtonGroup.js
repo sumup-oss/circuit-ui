@@ -19,7 +19,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import { directions } from '../../styles/constants';
 
 const getInlineStyles = theme => css`
   display: flex;
@@ -52,9 +51,9 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const alignmentMap = {
-  [directions.LEFT]: 'flex-start',
-  [directions.CENTER]: 'center',
-  [directions.RIGHT]: 'flex-end'
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end'
 };
 
 const alignmentStyles = ({ align }) => {
@@ -95,10 +94,6 @@ const ButtonGroup = ({ children, ...props }) => (
   </ButtonGroupList>
 );
 
-ButtonGroup.LEFT = directions.LEFT;
-ButtonGroup.CENTER = directions.CENTER;
-ButtonGroup.RIGHT = directions.RIGHT;
-
 ButtonGroup.propTypes = {
   /**
    * Buttons to group.
@@ -107,11 +102,7 @@ ButtonGroup.propTypes = {
   /**
    * Direction to align the content. Either left/right
    */
-  align: PropTypes.oneOf([
-    ButtonGroup.LEFT,
-    ButtonGroup.CENTER,
-    ButtonGroup.RIGHT
-  ]),
+  align: PropTypes.oneOf(['left', 'center', 'right']),
   /**
    * Whether to display buttons inline on mobile.
    */
@@ -119,7 +110,7 @@ ButtonGroup.propTypes = {
 };
 
 ButtonGroup.defaultProps = {
-  align: ButtonGroup.RIGHT,
+  align: 'right',
   inlineMobile: false
 };
 

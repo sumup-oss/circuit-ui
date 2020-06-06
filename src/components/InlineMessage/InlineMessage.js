@@ -16,10 +16,6 @@
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { sizes, colorNames } from '../../styles/constants';
-
-const { SUCCESS, DANGER, WARNING } = colorNames;
-const { MEGA, GIGA } = sizes;
 
 const baseStyles = css`
   label: inline-message;
@@ -34,15 +30,15 @@ const marginStyles = ({ noMargin }) =>
 
 const createLeftBorderStyles = colorName => ({ theme, size, type }) => {
   const colors = {
-    [DANGER]: theme.colors.danger,
-    [SUCCESS]: theme.colors.success,
-    [WARNING]: theme.colors.warning
+    danger: theme.colors.danger,
+    success: theme.colors.success,
+    warning: theme.colors.warning
   };
 
   const textColors = {
-    [DANGER]: theme.colors.danger,
-    [SUCCESS]: theme.colors.black,
-    [WARNING]: theme.colors.black
+    danger: theme.colors.danger,
+    success: theme.colors.black,
+    warning: theme.colors.black
   };
 
   return (
@@ -69,9 +65,9 @@ const createLeftBorderStyles = colorName => ({ theme, size, type }) => {
   );
 };
 
-const successStyles = createLeftBorderStyles(SUCCESS);
-const warningStyles = createLeftBorderStyles(WARNING);
-const dangerStyles = createLeftBorderStyles(DANGER);
+const successStyles = createLeftBorderStyles('success');
+const warningStyles = createLeftBorderStyles('warning');
+const dangerStyles = createLeftBorderStyles('danger');
 
 /**
  * An inline message displayed inside a Card.
@@ -84,26 +80,15 @@ const InlineMessage = styled('p')(
   marginStyles
 );
 
-InlineMessage.DANGER = DANGER;
-InlineMessage.SUCCESS = SUCCESS;
-InlineMessage.WARNING = WARNING;
-
-InlineMessage.MEGA = MEGA;
-InlineMessage.GIGA = GIGA;
-
 InlineMessage.propTypes = {
   /**
    * Indicates the color of the left border and text in the message.
    */
-  type: PropTypes.oneOf([
-    InlineMessage.DANGER,
-    InlineMessage.SUCCESS,
-    InlineMessage.WARNING
-  ]),
+  type: PropTypes.oneOf(['danger', 'success', 'warning']),
   /**
    * Should correspond to the size provided to the surrounding Card component.
    */
-  size: PropTypes.oneOf([InlineMessage.MEGA, InlineMessage.GIGA]),
+  size: PropTypes.oneOf(['mega', 'giga']),
   /**
    * Removes the default bottom margin from the text.
    */
@@ -111,7 +96,7 @@ InlineMessage.propTypes = {
 };
 
 InlineMessage.defaultProps = {
-  size: InlineMessage.GIGA,
+  size: 'giga',
   noMargin: false
 };
 

@@ -21,8 +21,6 @@ import Badge from '../Badge';
 
 import docs from './Table.docs.mdx';
 import Table from './Table';
-import TableHeader from './components/TableHeader';
-import TableCell from './components/TableCell';
 
 export default {
   title: 'Components/Table',
@@ -39,7 +37,7 @@ export const base = () => (
       { children: 'Name', sortable: true },
       { children: 'Created at', sortable: true },
       'Permissions',
-      { children: 'Status', align: TableHeader.RIGHT }
+      { children: 'Status', align: 'right' }
     ]}
     rows={[
       {
@@ -51,7 +49,7 @@ export const base = () => (
             'data-selector': 'item-1-cell-date-12/01/2017'
           },
           '-',
-          { children: 'Disabled', align: TableCell.RIGHT }
+          { children: 'Disabled', align: 'right' }
         ],
         'data-selector': 'item-1'
       },
@@ -59,13 +57,13 @@ export const base = () => (
         'Ipsum dolor sit amet',
         { children: '13/01/2017', sortByValue: 1 },
         'Virtual Terminal',
-        { children: 'Enabled', align: TableCell.RIGHT }
+        { children: 'Enabled', align: 'right' }
       ],
       [
         'Dolor sit amet, consectetur adipiscing',
         { children: '14/01/2017', sortByValue: 2 },
         '-',
-        { children: 'Disabled', align: TableCell.RIGHT }
+        { children: 'Disabled', align: 'right' }
       ]
     ]}
     rowHeaders={boolean('Mobile rows', true)}
@@ -81,14 +79,14 @@ export const withComponentRows = () => (
   <Table
     headers={['Name', 'Type']}
     rows={[
-      ['Apple', { children: <Badge color={Badge.DANGER}>Fruit</Badge> }],
+      ['Apple', { children: <Badge color={'danger'}>Fruit</Badge> }],
       [
         'Broccoli',
         {
-          children: <Badge color={Badge.SUCCESS}>Vegetable</Badge>
+          children: <Badge color={'success'}>Vegetable</Badge>
         }
       ],
-      ['Chickpeas', { children: <Badge color={Badge.WARNING}>Legume</Badge> }]
+      ['Chickpeas', { children: <Badge color={'warning'}>Legume</Badge> }]
     ]}
   />
 );

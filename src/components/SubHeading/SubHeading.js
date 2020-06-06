@@ -19,9 +19,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { childrenPropType } from '../../util/shared-prop-types';
-import { sizes } from '../../styles/constants';
-
-const { KILO, MEGA } = sizes;
 
 const baseStyles = ({ theme }) => css`
   label: sub-heading;
@@ -54,9 +51,6 @@ const SubHeadingElement = styled('h3')(baseStyles, sizeStyles, noMarginStyles);
 
 const SubHeading = props => <SubHeadingElement {...props} />;
 
-SubHeading.KILO = KILO;
-SubHeading.MEGA = MEGA;
-
 SubHeading.propTypes = {
   /**
    * Child nodes to be rendered.
@@ -65,7 +59,7 @@ SubHeading.propTypes = {
   /**
    * A Circuit UI sub-heading size.
    */
-  size: PropTypes.oneOf([SubHeading.KILO, SubHeading.MEGA]),
+  size: PropTypes.oneOf(['kilo', 'mega']),
   /**
    * Optional additional className string to overwrite styles.
    */
@@ -81,7 +75,7 @@ SubHeading.propTypes = {
 };
 
 SubHeading.defaultProps = {
-  size: SubHeading.KILO,
+  size: 'kilo',
   className: '',
   noMargin: false,
   children: null

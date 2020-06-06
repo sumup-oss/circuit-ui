@@ -17,10 +17,8 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { directions } from '../../../../styles/constants';
-
 const alignmentStyles = ({ theme, align }) =>
-  align === directions.RIGHT &&
+  align === 'right' &&
   css`
     label: card__footer--right;
     ${theme.mq.kilo} {
@@ -47,9 +45,6 @@ const baseStyles = ({ theme }) => css`
  */
 const ModalFooter = styled('footer')(baseStyles, alignmentStyles);
 
-ModalFooter.LEFT = directions.LEFT;
-ModalFooter.RIGHT = directions.RIGHT;
-
 ModalFooter.propTypes = {
   /**
    * Buttons wrapped in a ButtonGroup.
@@ -58,11 +53,11 @@ ModalFooter.propTypes = {
   /**
    * Direction to align the content. Either left/right
    */
-  align: PropTypes.oneOf([ModalFooter.LEFT, ModalFooter.RIGHT])
+  align: PropTypes.oneOf(['left', 'right'])
 };
 
 ModalFooter.defaultProps = {
-  align: ModalFooter.RIGHT
+  align: 'right'
 };
 
 /**

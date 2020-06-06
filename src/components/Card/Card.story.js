@@ -61,18 +61,18 @@ export const base = () => <Card css={cardStyles} />;
 
 export const shadows = () => (
   <Fragment>
-    <Card shadow={Card.SINGLE} css={cardStyles} />
-    <Card shadow={Card.DOUBLE} css={cardStyles} />
-    <Card shadow={Card.TRIPLE} css={cardStyles} />
+    <Card shadow={'single'} css={cardStyles} />
+    <Card shadow={'double'} css={cardStyles} />
+    <Card shadow={'triple'} css={cardStyles} />
   </Fragment>
 );
 
 export const spacings = () => (
   <Fragment>
-    <Card spacing={Card.MEGA} css={cardStyles}>
+    <Card spacing={'mega'} css={cardStyles}>
       <div css={contentStyles} />
     </Card>
-    <Card spacing={Card.GIGA} css={cardStyles}>
+    <Card spacing={'giga'} css={cardStyles}>
       <div css={contentStyles} />
     </Card>
   </Fragment>

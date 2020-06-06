@@ -262,7 +262,7 @@ const SelectComponent = (
         <SelectIcon invalid={showInvalid} />
         {showInvalid && <InvalidIcon />}
         {!disabled && validationHint && (
-          <SelectTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+          <SelectTooltip position={'top'} align={'left'}>
             {validationHint}
           </SelectTooltip>
         )}

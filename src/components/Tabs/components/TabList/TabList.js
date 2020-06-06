@@ -17,7 +17,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { styleHelpers } from '../../../../styles';
+
+import { shadowDouble } from '../../../../styles/style-helpers';
 
 import { StyledTab } from '../Tab';
 
@@ -27,7 +28,7 @@ const DEFAULT_HEIGHT = '80px';
 const Wrapper = styled.div(
   ({ theme }) => css`
     background: ${theme.colors.white};
-    ${styleHelpers.shadowDouble({ theme })};
+    ${shadowDouble({ theme })};
     height: ${DEFAULT_HEIGHT};
     display: flex;
     overflow-x: auto;

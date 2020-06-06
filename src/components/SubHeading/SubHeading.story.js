@@ -20,7 +20,7 @@ import SubHeading from './SubHeading';
 import docs from './SubHeading.docs.mdx';
 
 const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
-const sizes = [SubHeading.MEGA, SubHeading.KILO];
+const sizes = ['mega', 'kilo'];
 
 export default {
   title: 'Typography/SubHeading',
