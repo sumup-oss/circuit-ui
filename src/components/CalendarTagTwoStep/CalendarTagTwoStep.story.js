@@ -27,5 +27,8 @@ export default {
 };
 
 export const base = () => (
-  <CalendarTagTwoStep onDatesRangeChange={action('onDatesRangeChange')} />
+  <CalendarTagTwoStep
+    onDatesRangeChange={action('onDatesRangeChange')}
+    tracking={{ label: 'calendar-tag-two-step' }}
+  />
 );

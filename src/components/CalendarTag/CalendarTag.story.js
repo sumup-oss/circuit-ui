@@ -27,5 +27,8 @@ export default {
 };
 
 export const base = () => (
-  <CalendarTag onDatesRangeChange={action('onDatesRangeChange')} />
+  <CalendarTag
+    onDatesRangeChange={action('onDatesRangeChange')}
+    tracking={{ label: 'calendar-tag' }}
+  />
 );

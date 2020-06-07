@@ -1,0 +1,67 @@
+import { Meta, Intro, Story } from '../../.storybook/components';
+
+<Meta title="Advanced/Build-in Tracking" />
+
+# Build-in Tracking
+
+<Intro>
+  Working along with{' '}
+  <a href="https://github.com/sumup-oss/collector">Collector</a>, button-like
+  components and meanful UI operation in Circuit UI will come along with
+  build-in tracking method. Components like Button, Tag and Hambuger will invoke
+  a pre-set dispatch function to trigger tracking event. For more detail
+  concept, please refer to our collector project.
+</Intro>
+
+## Configuring tracking dispatch
+
+1. Wrap your application in root level with `TrackingRoot` and provide a dispatch function for your tracking event.
+2. Add `TrackingView` to the viewport that make sense to your application. (For more concept explanation about `TrackingRoot and TrackingView`, please refer to [Collector](https://github.com/sumup-oss/collector).)
+3. For better data quality, Collector set `label` as a mandatory field. Component will invoke dispatch function only when a label is provided.
+4. When user clicks a button, a pre-set dispatch function will be invoked with parametres.
+
+```jsx
+import { TrackingRoot, TrackingView } from '@sumup/collector';
+
+export default function App() {
+  const sendTracking = payload => sendGA(payload);
+
+  return (
+    <TrackingRoot name="tracking-root" onDispatch={sendTracking)}>
+      <TrackingView name="tracking-view">
+        <Button
+          tracking={{
+            label: 'trackingId',
+            component: 'button',
+            customParameters: { custom1: 'data' }
+          }}
+        >
+          {'Click'}
+        </Button>
+      </TrackingView>
+    </TrackingRoot>
+  );
+}
+```
+
+## Components with build-in tracking
+
+### Button Click
+
+<Story id="components-button--tracking" />
+
+### Clickable/Removable Tag
+
+<Story id="components-tag--clickable" />
+
+### Hambuger open/close
+
+<Story id="components-hamburger--tracking" />
+
+### Calendar Tag
+
+<Story id="components-calendar-calendartag--base" />
+
+### Calendar Tag Two Step
+
+<Story id="components-calendar-calendartagtwostep--base" />

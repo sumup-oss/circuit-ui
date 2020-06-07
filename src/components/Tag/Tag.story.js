@@ -49,13 +49,23 @@ export const withPrefix = () => <Tag prefix={Check}>Transactions</Tag>;
 export const withSuffix = () => <Tag suffix={Check}>Transactions</Tag>;
 
 export const removable = () => (
-  <Tag onRemove={action('Tag removed')} labelRemoveButton="Remove">
+  <Tag
+    onRemove={action('Tag removed')}
+    labelRemoveButton="Remove"
+    tracking={{ label: 'removable' }}
+  >
     Transactions
   </Tag>
 );
 
 export const clickable = () => (
-  <Tag onClick={action('Tag clicked')} as="button">
+  <Tag
+    onClick={action('Tag clicked')}
+    as="button"
+    tracking={{
+      label: 'clickable'
+    }}
+  >
     Transactions
   </Tag>
 );

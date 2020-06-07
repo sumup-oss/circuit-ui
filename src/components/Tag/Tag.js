@@ -17,6 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useClickTrigger } from '@sumup/collector';
 
 import {
   eitherOrPropType,
@@ -125,8 +126,23 @@ const Tag = ({
     />
   );
 
+  const { label, component, customParameters } = props.tracking || {};
+  const dispatch = useClickTrigger();
+  const handleClick =
+    props.onClick && label
+      ? e => {
+          dispatch({
+            label,
+            component: component || 'tag',
+            customParameters
+          });
+
+          props.onClick(e);
+        }
+      : props.onClick;
+
   return (
-    <TagElement {...{ selected, ...props }}>
+    <TagElement {...{ selected, ...props }} onClick={handleClick}>
       {prefixElement}
 
       {children}
@@ -139,6 +155,11 @@ const Tag = ({
           data-testid="tag-close"
           size="kilo"
           onClick={onRemove}
+          tracking={{
+            label,
+            component: component || 'remove-button',
+            customParameters
+          }}
         />
       )}
 
@@ -173,7 +194,15 @@ Tag.propTypes = {
   /**
    * Triggers selected styles on the tag.
    */
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  /**
+   * Data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 Tag.defaultProps = {
@@ -182,7 +211,8 @@ Tag.defaultProps = {
   suffix: null,
   onRemove: null,
   selected: false,
-  labelRemoveButton: 'remove'
+  labelRemoveButton: 'remove',
+  tracking: {}
 };
 
 /**

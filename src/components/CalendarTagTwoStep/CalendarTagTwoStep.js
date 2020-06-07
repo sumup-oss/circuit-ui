@@ -67,12 +67,21 @@ export default class CalendarTagTwoStep extends Component {
     /**
      * Text for the confirm button
      */
-    confirmText: PropTypes.string
+    confirmText: PropTypes.string,
+    /**
+     * Data that is dispatched with the tracking event.
+     */
+    tracking: PropTypes.shape({
+      label: PropTypes.string,
+      component: PropTypes.string,
+      customParameters: PropTypes.object
+    })
   };
 
   static defaultProps = {
     clearText: 'Clear',
-    confirmText: 'Apply'
+    confirmText: 'Apply',
+    tracking: {}
   };
 
   state = { startDate: null, endDate: null, focusedInput: null };
@@ -135,8 +144,19 @@ export default class CalendarTagTwoStep extends Component {
   };
 
   render() {
-    const { clearText, confirmText, onDatesRangeChange, ...props } = this.props;
+    const {
+      clearText,
+      confirmText,
+      onDatesRangeChange,
+      tracking,
+      ...props
+    } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
+    const {
+      label,
+      component = 'calendar-tag-two-step',
+      customParameters
+    } = tracking;
     const isOpen = focusedInput !== null;
     const isFilled = !!(startDate && endDate);
 
@@ -146,6 +166,7 @@ export default class CalendarTagTwoStep extends Component {
           selected={isOpen || isFilled}
           ref={this.handleButtonRef}
           onClick={this.handleButtonClick}
+          tracking={{ label, component, customParameters }}
         >
           {this.getDateRangePreview()}
         </Tag>
