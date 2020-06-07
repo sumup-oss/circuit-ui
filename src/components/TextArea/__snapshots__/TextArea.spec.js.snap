@@ -116,11 +116,11 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -237,19 +237,32 @@ label + .circuit-5 {
       <svg
         class="circuit-2"
         fill="none"
-        height="24"
+        height="16"
         role="img"
-        viewBox="0 0 24 24"
-        width="24"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
+        <g
+          clip-path="url(#circle_cross_small_svg__clip0)"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_cross_small_svg__clip0"
+          >
+            <path
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
+            />
+          </clippath>
+        </defs>
       </svg>
     </div>
   </div>
@@ -283,11 +296,11 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -387,19 +400,32 @@ label + .circuit-5 {
       <svg
         class="circuit-2"
         fill="none"
-        height="24"
+        height="16"
         role="img"
-        viewBox="0 0 24 24"
-        width="24"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
+        <g
+          clip-path="url(#circle_cross_small_svg__clip0)"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_cross_small_svg__clip0"
+          >
+            <path
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
+            />
+          </clippath>
+        </defs>
       </svg>
     </div>
   </div>
@@ -481,11 +507,11 @@ label + .circuit-6 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-4 {
@@ -503,7 +529,7 @@ label + .circuit-6 {
   transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   right: 50%;
   right: calc(50% - (16px + 4px));
   bottom: 100%;
@@ -628,11 +654,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 <label
@@ -729,11 +755,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 <label
@@ -830,11 +856,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 <label
@@ -1008,11 +1034,11 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-4 {
@@ -1075,11 +1101,11 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-0 {
@@ -1176,19 +1202,32 @@ label + .circuit-5 {
       <svg
         class="circuit-2"
         fill="none"
-        height="24"
+        height="16"
         role="img"
-        viewBox="0 0 24 24"
-        width="24"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M9.5 14.5l5-5m-5 0l5 5M12 19a7 7 0 100-14 7 7 0 000 14z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
+        <g
+          clip-path="url(#circle_cross_small_svg__clip0)"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_cross_small_svg__clip0"
+          >
+            <path
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
+            />
+          </clippath>
+        </defs>
       </svg>
     </div>
   </div>
@@ -1258,11 +1297,11 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-4 {
@@ -1323,11 +1362,11 @@ label + .circuit-4 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-0 {
@@ -1477,11 +1516,11 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -1509,26 +1548,32 @@ label + .circuit-5 {
       <svg
         class="circuit-2"
         fill="none"
-        height="24"
+        height="16"
         role="img"
-        viewBox="0 0 24 24"
-        width="24"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M9.031 12.532l2 2 4-5"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <path
-          d="M12 19a7 7 0 100-14 7 7 0 000 14z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
+        <g
+          clip-path="url(#circle_checkmark_small_svg__clip0)"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_checkmark_small_svg__clip0"
+          >
+            <path
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
+            />
+          </clippath>
+        </defs>
       </svg>
     </div>
   </div>
@@ -1631,11 +1676,11 @@ label + .circuit-5 {
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: 8px;
   pointer-events: none;
   color: #5C656F;
-  height: 24px;
-  width: 24px;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -1663,19 +1708,32 @@ label + .circuit-5 {
       <svg
         class="circuit-2"
         fill="none"
-        height="24"
+        height="16"
         role="img"
-        viewBox="0 0 24 24"
-        width="24"
+        viewBox="0 0 16 16"
+        width="16"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          d="M12 12.5V8m0 8v-.5m0 3.5a7 7 0 100-14 7 7 0 000 14z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
+        <g
+          clip-path="url(#circle_warning_small_svg__clip0)"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_warning_small_svg__clip0"
+          >
+            <path
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
+            />
+          </clippath>
+        </defs>
       </svg>
     </div>
   </div>

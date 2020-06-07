@@ -42,17 +42,17 @@ const subHeadingStyles = theme => css`
 export const components = {
   h1: withThemeProvider(Heading, {
     as: 'h1',
-    size: Heading.ZETTA,
+    size: 'zetta',
     css: headingStyles
   }),
   h2: withThemeProvider(Heading, {
     as: 'h2',
-    size: Heading.PETA,
+    size: 'peta',
     css: headingStyles
   }),
   h3: withThemeProvider(Heading, {
     as: 'h3',
-    size: Heading.GIGA,
+    size: 'giga',
     css: headingStyles
   }),
   h4: withThemeProvider(SubHeading, {

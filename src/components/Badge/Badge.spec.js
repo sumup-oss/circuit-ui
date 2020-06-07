@@ -58,6 +58,18 @@ describe('Badge', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<Badge ref={tref} />);
+      const div = container.querySelector('div');
+      expect(tref.current).toBe(div);
+    });
+  });
+
   /**
    * Accessibility tests.
    */

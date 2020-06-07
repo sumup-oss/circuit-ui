@@ -55,6 +55,7 @@ exports[`Item should render with all paddings 1`] = `
 }
 
 <div
+  aria-selected="false"
   class="circuit-0 circuit-1"
   tabindex="0"
 >
@@ -117,6 +118,7 @@ exports[`Item should render with all paddings 2`] = `
 }
 
 <div
+  aria-selected="false"
   class="circuit-0 circuit-1"
   tabindex="0"
 >
@@ -179,6 +181,7 @@ exports[`Item should render with all paddings 3`] = `
 }
 
 <div
+  aria-selected="false"
   class="circuit-0 circuit-1"
   tabindex="0"
 >
@@ -241,6 +244,7 @@ exports[`Item should render with default styles 1`] = `
 }
 
 <div
+  aria-selected="false"
   class="circuit-0 circuit-1"
   tabindex="0"
 >
@@ -303,6 +307,7 @@ exports[`Item should render with selected styles 1`] = `
 }
 
 <div
+  aria-selected="false"
   class="circuit-0 circuit-1"
   tabindex="0"
 >

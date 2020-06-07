@@ -101,6 +101,18 @@ describe('TextArea', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<TextArea ref={tref} />);
+      const textarea = container.querySelector('textarea');
+      expect(tref.current).toBe(textarea);
+    });
+  });
+
   /**
    * Accessibility tests.
    */

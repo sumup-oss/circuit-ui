@@ -17,13 +17,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { hideVisually, size } from 'polished';
 
-import { focusOutline } from '../../../../styles/style-helpers';
+import { focusOutline, hideVisually } from '../../../../styles/style-helpers';
 
-const TRACK_WIDTH = 40;
-const TRACK_HEIGHT = 24;
-const KNOB_SIZE = 16;
+const TRACK_WIDTH = '40px';
+const TRACK_HEIGHT = '24px';
+const KNOB_SIZE = '16px';
 const ANIMATION_TIMING = '200ms ease-in-out';
 
 const knobShadow = color => `0 2px 0 0 ${color}`;
@@ -35,12 +34,13 @@ const trackBaseStyles = ({ theme }) => css`
   border: 0;
   outline: 0;
   appearance: none;
-  flex: 0 0 ${TRACK_WIDTH}px;
+  flex: 0 0 ${TRACK_WIDTH};
   background-color: ${theme.colors.n300};
-  border-radius: ${TRACK_HEIGHT}px;
+  border-radius: ${TRACK_HEIGHT};
   position: relative;
   transition: background-color ${ANIMATION_TIMING};
-  ${size(TRACK_HEIGHT, TRACK_WIDTH)};
+  height: ${TRACK_HEIGHT};
+  width: ${TRACK_WIDTH};
   overflow: visible;
   cursor: pointer;
 
@@ -67,8 +67,9 @@ const knobBaseStyles = ({ theme }) => css`
   top: 50%;
   transform: translate3d(${theme.spacings.bit}, -50%, 0);
   transition: box-shadow ${ANIMATION_TIMING}, transform ${ANIMATION_TIMING};
-  ${size(KNOB_SIZE)};
-  border-radius: ${KNOB_SIZE}px;
+  height: ${KNOB_SIZE};
+  width: ${KNOB_SIZE};
+  border-radius: ${KNOB_SIZE};
 `;
 
 const knobOnStyles = ({ theme, on }) =>
@@ -77,7 +78,7 @@ const knobOnStyles = ({ theme, on }) =>
     label: toggle__switch-knob--on;
     box-shadow: ${knobShadow(theme.colors.p700)};
     transform: translate3d(
-      calc(${TRACK_WIDTH - KNOB_SIZE}px - ${theme.spacings.bit}),
+      calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
       -50%,
       0
     );
@@ -95,19 +96,24 @@ const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
 /**
  * A simple Switch component.
  */
-const Switch = ({ on, onChange, labelOn, labelOff, ...rest }) => (
-  <SwitchTrack
-    type="button"
-    onClick={onChange}
-    on={on}
-    role="switch"
-    aria-checked={on}
-    {...rest}
-  >
-    <SwitchKnob {...{ on }} />
-    <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
-  </SwitchTrack>
+const Switch = React.forwardRef(
+  ({ on, onChange, labelOn, labelOff, ...rest }, ref) => (
+    <SwitchTrack
+      type="button"
+      onClick={onChange}
+      on={on}
+      role="switch"
+      aria-checked={on}
+      {...rest}
+      ref={ref}
+    >
+      <SwitchKnob {...{ on }} />
+      <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
+    </SwitchTrack>
+  )
 );
+
+Switch.displayName = 'Switch';
 
 Switch.propTypes = {
   /**
@@ -125,7 +131,16 @@ Switch.propTypes = {
   /**
    * Label for the 'off' state. Important for accessibility.
    */
-  labelOff: PropTypes.string
+  labelOff: PropTypes.string,
+  /**
+   * The ref to the html button dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLButtonElement)])
+    })
+  ])
 };
 
 Switch.defaultProps = {

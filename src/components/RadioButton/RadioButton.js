@@ -17,9 +17,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { hideVisually, size } from 'polished';
 
-import { disableVisually, focusOutline } from '../../styles/style-helpers';
+import {
+  disableVisually,
+  hideVisually,
+  focusOutline
+} from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 
@@ -32,7 +35,8 @@ const labelBaseStyles = ({ theme }) => css`
 
   &::before {
     box-sizing: border-box;
-    ${size(theme.spacings.mega)};
+    height: ${theme.spacings.mega};
+    width: ${theme.spacings.mega};
     box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
@@ -48,7 +52,8 @@ const labelBaseStyles = ({ theme }) => css`
 
   &::after {
     box-sizing: border-box;
-    ${size(theme.spacings.byte)};
+    height: ${theme.spacings.byte};
+    width: ${theme.spacings.byte};
     background-color: ${theme.colors.p500};
     border-radius: 100%;
     content: '';
@@ -121,18 +126,10 @@ const RadioButtonLabel = styled('label')(
   labelInvalidStyles
 );
 
-/**
- * RadioButton component for forms.
- */
-const RadioButton = ({
-  onChange,
-  children,
-  id,
-  name,
-  value,
-  checked,
-  ...props
-}) => {
+const RadioButtonComponent = (
+  { onChange, children, id, name, value, checked, ...props },
+  ref
+) => {
   const inputId = id || uniqueId('radio-button_');
   return (
     <>
@@ -144,6 +141,7 @@ const RadioButton = ({
         value={value}
         checked={checked}
         onClick={onChange}
+        ref={ref}
       />
       <RadioButtonLabel {...props} htmlFor={inputId}>
         {children}
@@ -151,6 +149,11 @@ const RadioButton = ({
     </>
   );
 };
+
+/**
+ * RadioButton component for forms.
+ */
+const RadioButton = React.forwardRef(RadioButtonComponent);
 
 RadioButton.propTypes = {
   /**
@@ -186,7 +189,16 @@ RadioButton.propTypes = {
    * Triggers disabled styles on the component. This is also forwarded as
    * attribute to the <input> element.
    */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+    })
+  ])
 };
 
 RadioButton.defaultProps = {
@@ -194,7 +206,8 @@ RadioButton.defaultProps = {
   checked: false,
   invalid: false,
   disabled: false,
-  children: null
+  children: null,
+  ref: undefined
 };
 
 /**

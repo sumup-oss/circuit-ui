@@ -15,13 +15,12 @@ exports[`Card should render with default styles 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
 }
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -40,13 +39,12 @@ exports[`Card should render with shadow styles 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
 }
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -65,13 +63,12 @@ exports[`Card should render with shadow styles 2`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 2px 2px 0 rgba(12,15,20,0.06), 0 4px 4px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
 }
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -90,13 +87,12 @@ exports[`Card should render with shadow styles 3`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 4px 4px 0 rgba(12,15,20,0.06), 0 8px 8px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 4px 4px 0 rgba(12,15,20,0.07),0 8px 8px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
 }
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;
 
@@ -115,13 +111,12 @@ exports[`Card should render with spacing styles 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 16px;
 }
 
 <div
   class="circuit-0 circuit-1"
-  spacing="mega"
 />
 `;
 
@@ -140,12 +135,11 @@ exports[`Card should render with spacing styles 2`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.02), 0 0 1px 0 rgba(12,15,20,0.06), 0 2px 2px 0 rgba(12,15,20,0.06);
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
 }
 
 <div
   class="circuit-0 circuit-1"
-  spacing="giga"
 />
 `;

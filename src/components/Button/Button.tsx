@@ -22,6 +22,7 @@ import React, {
   MouseEvent
 } from 'react';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
 import { useClickTrigger } from '@sumup/collector';
 import { Dispatch as TrackingProps } from '@sumup/collector/build/types';
@@ -43,7 +44,7 @@ export interface BaseProps {
   /**
    * Choose from 3 sizes. Default: 'mega'.
    */
-  size?: 'kilo' | 'mega' | 'giga';
+  size?: 'kilo' | 'mega';
   /**
    * Visually and functionally disable the button.
    */
@@ -60,6 +61,10 @@ export interface BaseProps {
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
+  /**
+   The ref to the html dom element, it can be an anchor or a button
+   */
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
 }
 
 type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'type'>;
@@ -83,7 +88,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
   text-align: center;
   text-decoration: none;
   font-weight: ${theme.fontWeight.bold};
-  border-radius: ${theme.borderRadius.giga};
   border-width: ${BORDER_WIDTH};
   border-style: solid;
   transition: opacity ${theme.transitions.default};
@@ -100,7 +104,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const primaryStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'secondary'
 }: ButtonProps & StyleProps) =>
   variant === 'primary' &&
   css`
@@ -122,7 +126,7 @@ const primaryStyles = ({
 
 const secondaryStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'secondary'
 }: ButtonProps & StyleProps) =>
   variant === 'secondary' &&
   css`
@@ -138,13 +142,13 @@ const secondaryStyles = ({
 
     &:active {
       background-color: ${theme.colors.n200};
-      border-color: ${theme.colors.n700};
+      border-color: ${theme.colors.n800};
     }
   `;
 
 const tertiaryStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'secondary'
 }: ButtonProps & StyleProps) =>
   variant === 'tertiary' &&
   css`
@@ -164,14 +168,19 @@ const tertiaryStyles = ({
 
 const sizeStyles = ({ theme, size = 'mega' }: ButtonProps & StyleProps) => {
   const sizeMap = {
-    kilo: `${theme.spacings.bit} calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
-    mega: `${theme.spacings.byte} calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
-    giga: `${theme.spacings.kilo} calc(${theme.spacings.tera} - ${BORDER_WIDTH})`
+    kilo: {
+      padding: `${theme.spacings.bit} calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
+      borderRadius: '6px'
+    },
+    mega: {
+      padding: `${theme.spacings.byte} calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
+      borderRadius: '8px'
+    }
   };
 
   return css({
     label: `button--${size}`,
-    padding: sizeMap[size]
+    ...sizeMap[size]
   });
 };
 
@@ -184,11 +193,12 @@ const stretchStyles = ({ stretch }: ButtonProps) =>
 
 const iconStyles = (theme: Theme) => css`
   label: button__icon;
-  margin-right: ${theme.spacings.bit};
-  margin-left: -${theme.spacings.bit};
+  margin-right: ${theme.spacings.byte};
 `;
 
-const BaseButton = styled('button')<ButtonProps>(
+const BaseButton = styled('button', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+})<ButtonProps>(
   baseStyles,
   primaryStyles,
   secondaryStyles,
@@ -197,17 +207,18 @@ const BaseButton = styled('button')<ButtonProps>(
   stretchStyles
 );
 
-/**
- * The Button component enables the user to perform an action or navigate
- * to a different screen.
- */
-export function Button(props: BaseProps & LinkElProps): ReturnType;
-export function Button(props: BaseProps & ButtonElProps): ReturnType;
-export function Button({
-  children,
-  icon: Icon,
-  ...props
-}: ButtonProps): ReturnType {
+export function ButtonComponent(
+  props: BaseProps & LinkElProps,
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+): ReturnType;
+export function ButtonComponent(
+  props: BaseProps & ButtonElProps,
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+): ReturnType;
+export function ButtonComponent(
+  { children, icon: Icon, ...props }: ButtonProps,
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+): ReturnType {
   const { Link } = useComponents();
   const LinkButton = BaseButton.withComponent(Link);
   const ButtonElement = props.href ? LinkButton : BaseButton;
@@ -232,9 +243,15 @@ export function Button({
     : props.onClick;
 
   return (
-    <ButtonElement {...props} onClick={handleClick}>
+    <ButtonElement {...props} ref={ref} onClick={handleClick}>
       {Icon && <Icon css={iconStyles} role="presentation" />}
       {children}
     </ButtonElement>
   );
 }
+
+/**
+ * The Button component enables the user to perform an action or navigate
+ * to a different screen.
+ */
+export const Button = React.forwardRef(ButtonComponent);

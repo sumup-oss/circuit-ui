@@ -14,16 +14,23 @@
  */
 
 import React from 'react';
+import { oneOfType, func, shape, instanceOf } from 'prop-types';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 
 /**
  * A barebones Link component that's basically just an `<a>` tag
  */
-const Link = ({ children, ...props }) => <a {...props}>{children}</a>;
+const LinkComponent = ({ children, ...props }, ref) => (
+  <a {...props} ref={ref}>
+    {children}
+  </a>
+);
+const Link = React.forwardRef(LinkComponent);
 
 Link.propTypes = {
-  children: childrenPropType
+  children: childrenPropType,
+  ref: oneOfType([func, shape({ current: instanceOf(HTMLAnchorElement) })])
 };
 
 /**

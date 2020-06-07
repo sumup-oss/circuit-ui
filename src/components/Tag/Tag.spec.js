@@ -69,6 +69,18 @@ describe('Tag', () => {
     });
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<Tag ref={tref} onRemove={() => 1} />);
+      const button = container.querySelector('button');
+      expect(tref.current).toBe(button);
+    });
+  });
+
   /**
    * Accessibility tests.
    */

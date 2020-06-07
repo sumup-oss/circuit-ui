@@ -67,11 +67,6 @@ describe('Button', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it('should render a giga button', () => {
-      const wrapper = renderButton(create, { ...baseProps, size: 'giga' });
-      expect(wrapper).toMatchSnapshot();
-    });
-
     it('should render a disabled button', () => {
       const wrapper = renderButton(create, { ...baseProps, disabled: true });
       expect(wrapper).toMatchSnapshot();
@@ -115,6 +110,32 @@ describe('Button', () => {
       });
 
       expect(props.onClick).toHaveBeenCalledTimes(1);
+    });
+
+    /**
+     * Should accept a working ref for button
+     */
+    it('should accept a working ref for a button', () => {
+      const tref = React.createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const { container } = render(
+        <Button ref={tref}>This is a button</Button>
+      );
+      const button = container.querySelector('button');
+      expect(tref.current).toBe(button);
+    });
+
+    /**
+     * Should accept a working ref for link
+     */
+    it('should accept a working ref for a link', () => {
+      const tref = React.createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const { container } = render(
+        <Button href="http://sumup.com" ref={tref}>
+          Link button
+        </Button>
+      );
+      const button = container.querySelector('a');
+      expect(tref.current).toBe(button);
     });
   });
 

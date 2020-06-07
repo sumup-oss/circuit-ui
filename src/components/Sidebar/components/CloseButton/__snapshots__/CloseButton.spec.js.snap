@@ -23,7 +23,6 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -32,6 +31,7 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
   border-radius: 100%;
   position: absolute;
@@ -67,7 +67,7 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
 
 .circuit-2:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 @media (min-width:960px) {
@@ -95,14 +95,14 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
 >
   <svg
     fill="none"
-    height="24"
+    height="16"
     role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M7 7l10 10m0-10L7 17"
+      d="M3 3l10 10m0-10L3 13"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-width="2"
@@ -152,7 +152,6 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
-  border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -161,6 +160,7 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   border-color: #9DA7B1;
   color: #323E49;
   padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   border: 0;
   border-radius: 100%;
   position: absolute;
@@ -198,7 +198,7 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
 
 .circuit-2:active {
   background-color: #EEF0F2;
-  border-color: #5C656F;
+  border-color: #323E49;
 }
 
 @media (min-width:960px) {
@@ -213,14 +213,14 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
 >
   <svg
     fill="none"
-    height="24"
+    height="16"
     role="presentation"
-    viewBox="0 0 24 24"
-    width="24"
+    viewBox="0 0 16 16"
+    width="16"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M7 7l10 10m0-10L7 17"
+      d="M3 3l10 10m0-10L3 13"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-width="2"

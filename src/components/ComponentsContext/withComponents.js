@@ -14,29 +14,20 @@
  */
 
 import React from 'react';
-import { wrapDisplayName } from 'recompose';
 
-import ComponentsContext from './ComponentsContext';
-import * as defaultComponents from './components';
+import { getDisplayName } from '../../util/get-display-name';
+import useComponents from './useComponents';
 
 /**
  * Subscribe to the components context with a HOC.
  */
 const withComponents = Component => {
   function WrappedComponent(props) {
-    return (
-      <ComponentsContext.Consumer>
-        {(components = {}) => (
-          <Component
-            {...props}
-            components={{ ...defaultComponents, ...components }}
-          />
-        )}
-      </ComponentsContext.Consumer>
-    );
+    const components = useComponents();
+    return <Component {...props} components={components} />;
   }
 
-  WrappedComponent.displayName = wrapDisplayName(Component, 'withComponents');
+  WrappedComponent.displayName = `withComponents(${getDisplayName(Component)})`;
 
   return WrappedComponent;
 };

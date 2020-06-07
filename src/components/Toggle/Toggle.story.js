@@ -46,5 +46,3 @@ export const withExplanation = () => (
     explanation="Some more detailed text of what this means"
   />
 );
-
-export const Reversed = () => <ToggleWithState label="Short label" reversed />;

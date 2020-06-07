@@ -49,7 +49,7 @@ const contentStyles = theme => css`
 `;
 
 const Header = () => (
-  <Heading size={Heading.KILO} noMargin>
+  <Heading size="kilo" noMargin>
     Card heading
   </Heading>
 );

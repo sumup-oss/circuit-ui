@@ -26,6 +26,18 @@ describe('CloseButton', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<CloseButton ref={tref} />);
+      const button = container.querySelector('button');
+      expect(tref.current).toBe(button);
+    });
+  });
+
   /**
    * Accessibility tests.
    */

@@ -104,69 +104,76 @@ const RemoveButton = styled(CloseButton)(suffixStyles, closeButtonStyles);
 /**
  * Tag component
  */
-const Tag = ({
-  children,
-  prefix: Prefix,
-  suffix: Suffix,
-  onRemove,
-  labelRemoveButton,
-  selected,
-  ...props
-}) => {
-  const prefixElement = Prefix && (
-    <Prefix
-      selected={selected}
-      css={theme => prefixStyles({ theme, selected })}
-    />
-  );
-  const suffixElement = Suffix && (
-    <Suffix
-      selected={selected}
-      css={theme => suffixStyles({ theme, selected })}
-    />
-  );
+const Tag = React.forwardRef(
+  (
+    {
+      children,
+      prefix: Prefix,
+      suffix: Suffix,
+      onRemove,
+      labelRemoveButton,
+      selected,
+      ...props
+    },
+    ref
+  ) => {
+    const prefixElement = Prefix && (
+      <Prefix
+        selected={selected}
+        css={theme => prefixStyles({ theme, selected })}
+      />
+    );
+    const suffixElement = Suffix && (
+      <Suffix
+        selected={selected}
+        css={theme => suffixStyles({ theme, selected })}
+      />
+    );
+    const { label, component, customParameters } = props.tracking || {};
+    const dispatch = useClickTrigger();
+    const handleClick =
+      props.onClick && label
+        ? e => {
+            dispatch({
+              label,
+              component: component || 'tag',
+              customParameters
+            });
 
-  const { label, component, customParameters } = props.tracking || {};
-  const dispatch = useClickTrigger();
-  const handleClick =
-    props.onClick && label
-      ? e => {
-          dispatch({
-            label,
-            component: component || 'tag',
-            customParameters
-          });
+            props.onClick(e);
+          }
+        : props.onClick;
 
-          props.onClick(e);
-        }
-      : props.onClick;
+    return (
+      <TagElement {...{ selected, ...props }} onClick={handleClick}>
+        {prefixElement}
 
-  return (
-    <TagElement {...{ selected, ...props }} onClick={handleClick}>
-      {prefixElement}
+        {children}
 
-      {children}
+        {onRemove && (
+          <RemoveButton
+            variant={selected ? 'primary' : 'secondary'}
+            selected={selected}
+            label={labelRemoveButton}
+            data-testid="tag-close"
+            size="kilo"
+            onClick={onRemove}
+            ref={ref}
+            tracking={{
+              label,
+              component: component || 'remove-button',
+              customParameters
+            }}
+          />
+        )}
 
-      {onRemove && (
-        <RemoveButton
-          variant={selected ? 'primary' : 'secondary'}
-          selected={selected}
-          label={labelRemoveButton}
-          data-testid="tag-close"
-          size="kilo"
-          onClick={onRemove}
-          tracking={{
-            label,
-            component: component || 'remove-button',
-            customParameters
-          }}
-        />
-      )}
+        {!onRemove && suffixElement}
+      </TagElement>
+    );
+  }
+);
 
-      {!onRemove && suffixElement}
-    </TagElement>
-  );
-};
+Tag.displayName = 'Tag';
 
 Tag.propTypes = {
   /**
@@ -202,7 +209,16 @@ Tag.propTypes = {
     label: PropTypes.string,
     component: PropTypes.string,
     customParameters: PropTypes.object
-  })
+  }),
+  /**
+   *  The ref to the html button dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLButtonElement)])
+    })
+  ])
 };
 
 Tag.defaultProps = {
@@ -212,7 +228,8 @@ Tag.defaultProps = {
   onRemove: null,
   selected: false,
   labelRemoveButton: 'remove',
-  tracking: {}
+  tracking: {},
+  ref: undefined
 };
 
 /**

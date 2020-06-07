@@ -17,10 +17,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { hideVisually, size } from 'polished';
 import { Check } from '@sumup/icons';
 
-import { disableVisually, focusOutline } from '../../styles/style-helpers';
+import {
+  disableVisually,
+  hideVisually,
+  focusOutline
+} from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
@@ -34,7 +37,8 @@ const labelBaseStyles = ({ theme }) => css`
   cursor: pointer;
 
   &::before {
-    ${size(theme.spacings.mega)};
+    height: ${theme.spacings.mega};
+    width: ${theme.spacings.mega};
     box-sizing: border-box;
     box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
     background-color: ${theme.colors.white};
@@ -50,7 +54,9 @@ const labelBaseStyles = ({ theme }) => css`
   }
 
   svg {
-    ${size(theme.spacings.mega)};
+    height: ${theme.spacings.mega};
+    width: ${theme.spacings.mega};
+    padding: 2px;
     box-sizing: border-box;
     color: ${theme.colors.p500};
     display: block;
@@ -146,19 +152,19 @@ const CheckboxTooltip = styled(Tooltip)`
   ${tooltipBaseStyles};
 `;
 
-/**
- * Checkbox component for forms.
- */
-const Checkbox = ({
-  children,
-  value,
-  id: customId,
-  name,
-  disabled,
-  validationHint,
-  className,
-  ...props
-}) => {
+const CheckboxComponent = (
+  {
+    children,
+    value,
+    id: customId,
+    name,
+    disabled,
+    validationHint,
+    className,
+    ...props
+  },
+  ref
+) => {
   const id = customId || uniqueId('checkbox_');
   return (
     <CheckboxWrapper className={className}>
@@ -169,6 +175,7 @@ const Checkbox = ({
         value={value}
         type="checkbox"
         disabled={disabled}
+        ref={ref}
       />
       <CheckboxLabel {...props} htmlFor={id} disabled={disabled}>
         {children}
@@ -182,6 +189,11 @@ const Checkbox = ({
     </CheckboxWrapper>
   );
 };
+
+/**
+ * Checkbox component for forms.
+ */
+const Checkbox = React.forwardRef(CheckboxComponent);
 
 Checkbox.propTypes = {
   /**
@@ -225,7 +237,16 @@ Checkbox.propTypes = {
   /**
    * Override styles for the Checkbox component.
    */
-  className: PropTypes.string
+  className: PropTypes.string,
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+    })
+  ])
 };
 
 Checkbox.defaultProps = {
@@ -236,7 +257,8 @@ Checkbox.defaultProps = {
   invalid: false,
   disabled: false,
   children: null,
-  className: ''
+  className: '',
+  ref: undefined
 };
 
 /**

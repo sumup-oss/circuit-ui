@@ -28,6 +28,11 @@ const textWrapperStyles = ({ theme }) => css`
   display: block;
   margin-left: ${theme.spacings.kilo};
   cursor: pointer;
+
+  ${theme.mq.untilKilo} {
+    margin-left: 0;
+    margin-right: ${theme.spacings.kilo};
+  }
 `;
 
 const ToggleTextWrapper = styled('label')(textWrapperStyles);
@@ -57,6 +62,11 @@ const toggleWrapperStyles = ({ theme }) => css`
   display: flex;
   flex-align: flex-start;
   margin-bottom: ${theme.spacings.mega};
+
+  ${theme.mq.untilKilo} {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
 `;
 
 const toggleWrapperNoMarginStyles = ({ noMargin }) =>
@@ -66,51 +76,41 @@ const toggleWrapperNoMarginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const toggleWrapperReversedStyles = ({ theme, reversed }) =>
-  reversed &&
-  css`
-    ${theme.mq.untilKilo} {
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      label {
-        margin-left: 0;
-        margin-right: ${theme.spacings.kilo};
-      }
-    }
-  `;
-
 const ToggleWrapper = styled('div')(
   toggleWrapperStyles,
-  toggleWrapperNoMarginStyles,
-  toggleWrapperReversedStyles
+  toggleWrapperNoMarginStyles
 );
 
 /**
  * A toggle component with support for labels and additional explanations.
  */
-const Toggle = ({ label, explanation, noMargin, reversed, ...props }) => {
-  const switchId = uniqueId('toggle-switch_');
-  const labelId = uniqueId('toggle-label_');
-  return (
-    <ToggleWrapper {...{ noMargin, reversed }}>
-      <Switch {...props} aria-labelledby={labelId} id={switchId} />
-      {(label || explanation) && (
-        <ToggleTextWrapper id={labelId} htmlFor={switchId}>
-          {label && (
-            <ToggleLabel size="kilo" noMargin>
-              {label}
-            </ToggleLabel>
-          )}
-          {explanation && (
-            <ToggleExplanation size="kilo" noMargin>
-              {explanation}
-            </ToggleExplanation>
-          )}
-        </ToggleTextWrapper>
-      )}
-    </ToggleWrapper>
-  );
-};
+const Toggle = React.forwardRef(
+  ({ label, explanation, noMargin, ...props }, ref) => {
+    const switchId = uniqueId('toggle-switch_');
+    const labelId = uniqueId('toggle-label_');
+    return (
+      <ToggleWrapper {...{ noMargin }}>
+        <Switch {...props} aria-labelledby={labelId} id={switchId} ref={ref} />
+        {(label || explanation) && (
+          <ToggleTextWrapper id={labelId} htmlFor={switchId}>
+            {label && (
+              <ToggleLabel size="kilo" noMargin>
+                {label}
+              </ToggleLabel>
+            )}
+            {explanation && (
+              <ToggleExplanation size="kilo" noMargin>
+                {explanation}
+              </ToggleExplanation>
+            )}
+          </ToggleTextWrapper>
+        )}
+      </ToggleWrapper>
+    );
+  }
+);
+
+Toggle.displayName = 'Toggle';
 
 Toggle.propTypes = {
   /**
@@ -126,16 +126,20 @@ Toggle.propTypes = {
    */
   noMargin: PropTypes.bool,
   /**
-   * Adds the ability of the component to be right-aligned.
+   * The ref to the html button dom element
    */
-  reversed: PropTypes.bool
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLButtonElement)])
+    })
+  ])
 };
 
 Toggle.defaultProps = {
   label: null,
   explanation: null,
-  noMargin: false,
-  reversed: false
+  noMargin: false
 };
 
 /**

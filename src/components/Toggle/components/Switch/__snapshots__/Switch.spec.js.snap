@@ -141,9 +141,9 @@ exports[`Switch should have the correct on styles 1`] = `
   width: 16px;
   border-radius: 16px;
   box-shadow: 0 2px 0 0 #1760CE;
-  -webkit-transform: translate3d( calc(24px - 4px),-50%,0 );
-  -ms-transform: translate3d( calc(24px - 4px),-50%,0 );
-  transform: translate3d( calc(24px - 4px),-50%,0 );
+  -webkit-transform: translate3d( calc(40px - 16px - 4px),-50%,0 );
+  -ms-transform: translate3d( calc(40px - 16px - 4px),-50%,0 );
+  transform: translate3d( calc(40px - 16px - 4px),-50%,0 );
 }
 
 <button

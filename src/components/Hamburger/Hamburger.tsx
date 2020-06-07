@@ -138,8 +138,6 @@ export const Hamburger: FC<HamburgerProps> = ({
   return (
     <Button
       label={isActive ? labelActive : labelInActive}
-      variant="secondary"
-      size="kilo"
       {...props}
       tracking={{
         label,

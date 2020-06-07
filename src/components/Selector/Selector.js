@@ -17,13 +17,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { hideVisually } from 'polished';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import {
   shadowSingle,
   shadowDouble,
-  focusOutline
+  focusOutline,
+  hideVisually
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 
@@ -58,6 +58,7 @@ const baseStyles = ({ theme }) => css`
     height: 100%;
     border-radius: ${theme.borderRadius.giga};
     border: ${theme.borderWidth.kilo} solid ${theme.colors.n500};
+    transition: border 0.1s ease-in-out;
   }
 
   &:hover {
@@ -104,21 +105,20 @@ const inputStyles = ({ theme }) => css`
 
 const SelectorInput = styled.input(inputStyles);
 
-/**
- * A selector allows users to choose between several mutually-exlusive choices,
- * accompanied by descriptions, possibly with tabular data.
- */
-const Selector = ({
-  children,
-  value,
-  id,
-  name,
-  disabled,
-  multiple,
-  checked,
-  onChange,
-  ...props
-}) => {
+const SelectorComponent = (
+  {
+    children,
+    value,
+    id,
+    name,
+    disabled,
+    multiple,
+    checked,
+    onChange,
+    ...props
+  },
+  ref
+) => {
   const inputId = id || uniqueId('selector_');
   const type = multiple ? 'checkbox' : 'radio';
   return (
@@ -131,6 +131,7 @@ const Selector = ({
         checked={checked}
         disabled={disabled}
         onClick={onChange}
+        ref={ref}
       />
       <SelectorLabel htmlFor={inputId} disabled={disabled}>
         {children}
@@ -138,6 +139,12 @@ const Selector = ({
     </SelectorWrapper>
   );
 };
+
+/**
+ * A selector allows users to choose between several mutually-exlusive choices,
+ * accompanied by descriptions, possibly with tabular data.
+ */
+const Selector = React.forwardRef(SelectorComponent);
 
 Selector.propTypes = {
   /**
@@ -171,7 +178,16 @@ Selector.propTypes = {
   /**
    * Whether the user can select multiple options.
    */
-  multiple: PropTypes.bool
+  multiple: PropTypes.bool,
+  /**
+   * The ref to the html dom element
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+    })
+  ])
 };
 
 Selector.defaultProps = {

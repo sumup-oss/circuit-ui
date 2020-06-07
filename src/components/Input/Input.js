@@ -18,10 +18,14 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { find, identity } from 'lodash/fp';
-import { size, hideVisually } from 'polished';
+
 import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
 
-import { textMega, disableVisually } from '../../styles/style-helpers';
+import {
+  textMega,
+  disableVisually,
+  hideVisually
+} from '../../styles/style-helpers';
 import { directions } from '../../styles/constants';
 import { childrenPropType } from '../../util/shared-prop-types';
 
@@ -161,10 +165,11 @@ const prefixStyles = theme => css`
   position: absolute;
   top: 1px;
   left: 1px;
-  margin: ${theme.spacings.byte};
   pointer-events: none;
   color: ${theme.colors.n700};
-  ${size(theme.iconSizes.mega)};
+  padding: ${theme.spacings.kilo};
+  height: ${theme.spacings.peta};
+  width: ${theme.spacings.peta};
 `;
 
 /**
@@ -176,10 +181,11 @@ const suffixStyles = theme => css`
   position: absolute;
   top: 1px;
   right: 1px;
-  margin: ${theme.spacings.byte};
   pointer-events: none;
   color: ${theme.colors.n700};
-  ${size(theme.iconSizes.mega)};
+  padding: ${theme.spacings.kilo};
+  height: ${theme.spacings.peta};
+  width: ${theme.spacings.peta};
 `;
 
 const tooltipBaseStyles = css`
@@ -271,32 +277,31 @@ const ValidationIcon = ({
 };
 /* eslint-enable react/prop-types */
 
-/**
- * Input component for forms. Takes optional prefix and suffix as render props.
- */
-const StyledInput = ({
-  children,
-  renderPrefix: RenderPrefix,
-  renderSuffix: RenderSuffix,
-  validationHint,
-  invalid,
-  hasWarning,
-  showValid,
-  noMargin,
-  inline,
-  disabled,
-  wrapperClassName,
-  wrapperStyles,
-  inputClassName,
-  inputStyles,
-  deepRef,
-  element,
-  as,
-  label,
-  labelVisuallyHidden,
-  id: customId,
-  ...props
-}) => {
+const StyledInput = (
+  {
+    children,
+    renderPrefix: RenderPrefix,
+    renderSuffix: RenderSuffix,
+    validationHint,
+    invalid,
+    hasWarning,
+    showValid,
+    noMargin,
+    inline,
+    disabled,
+    wrapperClassName,
+    wrapperStyles,
+    inputClassName,
+    inputStyles,
+    element,
+    as,
+    label,
+    labelVisuallyHidden,
+    id: customId,
+    ...props
+  },
+  ref
+) => {
   const id = customId || uniqueId('input_');
 
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
@@ -331,7 +336,7 @@ const StyledInput = ({
             invalid,
             disabled,
             hasWarning,
-            ref: deepRef,
+            ref,
             as: element || as,
             hasPrefix: !!prefix,
             hasSuffix: !!suffix,
@@ -353,7 +358,10 @@ const StyledInput = ({
   );
 };
 
-const Input = props => <StyledInput {...props} />;
+/**
+ * Input component for forms. Takes optional prefix and suffix as render props.
+ */
+const Input = React.forwardRef(StyledInput);
 
 Input.LEFT = directions.LEFT;
 Input.RIGHT = directions.RIGHT;
@@ -424,10 +432,17 @@ Input.propTypes = {
    */
   wrapperStyles: PropTypes.object,
   /**
-   * DOM node to be forwarded to the actual input being rendered by
-   * styled.
+   * The ref to the html dom element
    */
-  deepRef: PropTypes.func,
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.oneOf([
+        PropTypes.instanceOf(HTMLInputElement),
+        PropTypes.instanceOf(HTMLTextAreaElement)
+      ])
+    })
+  ]),
   /**
    * A clear and concise description of the input purpose.
    */
@@ -459,7 +474,7 @@ Input.defaultProps = {
   disabled: false,
   inline: false,
   noMargin: false,
-  deepRef: undefined,
+  ref: undefined,
   textAlign: Input.LEFT
 };
 

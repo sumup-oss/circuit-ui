@@ -15,6 +15,7 @@
 
 import React, { HTMLProps, ReactNode, ReactElement } from 'react';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-helpers';
@@ -24,8 +25,11 @@ import { useComponents } from '../ComponentsContext';
 
 interface BaseProps extends TextProps {
   children: ReactNode;
+  /**
+   * The ref to the html dom element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
+   */
+  ref?: React.Ref<any>;
 }
-
 type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size'>;
 type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
 
@@ -67,25 +71,30 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const BaseAnchor = styled(Text)<AnchorProps>(baseStyles);
+const BaseAnchor = styled(Text, {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+})<AnchorProps>(baseStyles);
+
+function AnchorComponent(props: AnchorProps, ref?: React.Ref<any>): ReturnType {
+  const { Link } = useComponents();
+  const AnchorLink = BaseAnchor.withComponent(Link);
+
+  if (!props.href && !props.onClick) {
+    return <Text as="span" {...props} ref={ref} noMargin />;
+  }
+
+  if (props.href) {
+    // typing issues with with
+    return <AnchorLink {...props} ref={ref as React.Ref<any>} noMargin />;
+  }
+
+  return (
+    <BaseAnchor as="button" {...props} ref={ref as React.Ref<any>} noMargin />
+  );
+}
 
 /**
  * The Anchor is used to display a link or button that visually looks like
  * a hyperlink. Based on the Text component, so it also supports its props.
  */
-export function Anchor(props: BaseProps & LinkElProps): ReturnType;
-export function Anchor(props: BaseProps & ButtonElProps): ReturnType;
-export function Anchor(props: AnchorProps): ReturnType {
-  const { Link } = useComponents();
-  const AnchorLink = BaseAnchor.withComponent(Link);
-
-  if (!props.href && !props.onClick) {
-    return <Text as="span" {...props} />;
-  }
-
-  if (props.href) {
-    return <AnchorLink {...props} />;
-  }
-
-  return <BaseAnchor as="button" {...props} />;
-}
+export const Anchor = React.forwardRef(AnchorComponent);

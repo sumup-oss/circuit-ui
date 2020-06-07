@@ -40,7 +40,7 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const primaryStyles = ({ theme, variant = 'primary' }) =>
+const primaryStyles = ({ theme, variant = 'secondary' }) =>
   variant === 'primary' &&
   css`
     font-weight: bold;

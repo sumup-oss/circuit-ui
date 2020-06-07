@@ -23,12 +23,10 @@ import {
   ButtonGroup,
   Card,
   Checkbox,
-  Heading,
   Hr,
   Image,
   Input,
   Label,
-  List,
   RadioButton,
   Select,
   Selector,
@@ -130,7 +128,7 @@ export default {
       }
     },
     // TODO: Make React DocGen work with TypeScript
-    // getComponentInfo(Button, { size: [KILO, MEGA, GIGA] }),
+    // getComponentInfo(Button, { size: [KILO, MEGA] }),
     getComponentInfo(Blockquote, {
       size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
     }),
@@ -148,17 +146,17 @@ export default {
     getComponentInfo(Checkbox),
     // TODO: Make React DocGen work with TypeScript
     // getComponentInfo(Hamburger),
-    getComponentInfo(Heading, {
-      size: [
-        Heading.KILO,
-        Heading.MEGA,
-        Heading.GIGA,
-        Heading.TERA,
-        Heading.PETA,
-        Heading.EXA,
-        Heading.ZETTA
-      ]
-    }),
+    // getComponentInfo(Heading, {
+    //   size: [
+    //     "kilo",
+    //     "mega",
+    //     "giga",
+    //     "tera",
+    //     "peta",
+    //     "exa",
+    //     "zetta"
+    //   ]
+    // }),
     { name: 'hr', component: Hr },
     { name: 'image', component: Image },
     getComponentInfo(Input, {
@@ -167,12 +165,13 @@ export default {
       textAlign: [Input.LEFT, Input.RIGHT]
     }),
     getComponentInfo(Label),
-    getComponentInfo(List, {
-      size: [List.KILO, List.MEGA, List.GIGA]
-    }),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(List, {
+    //   size: [List.KILO, List.MEGA, List.GIGA]
+    // }),
     // TODO: Need to eliminate dynamic styles.
     // getComponentInfo(ProgressBar, {
-    //   size: [ProgressBar.KILO, ProgressBar.MEGA, ProgressBar.GIGA]
+    //   size: ['kilo', 'mega', 'giga']
     // }),
     getComponentInfo(RadioButton),
     getComponentInfo(Select, {
