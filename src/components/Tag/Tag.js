@@ -206,7 +206,7 @@ Tag.propTypes = {
    * Data that is dispatched with the tracking event.
    */
   tracking: PropTypes.shape({
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
     component: PropTypes.string,
     customParameters: PropTypes.object
   }),
