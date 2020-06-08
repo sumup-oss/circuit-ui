@@ -19,7 +19,8 @@ import React, {
   useState,
   useContext,
   MouseEvent,
-  KeyboardEvent
+  KeyboardEvent,
+  useCallback
 } from 'react';
 import { Global, css } from '@emotion/core';
 
@@ -48,25 +49,28 @@ export const ModalProvider: FC<Pick<ModalProps, 'appElement'>> = props => {
     setOpen(false);
   };
 
-  const openModal = (newModal: ModalProps): void => {
+  const openModal = useCallback((newModal: ModalProps): void => {
     window.onpopstate = closeModal;
     setModal(newModal);
     setOpen(true);
-  };
+  }, []);
 
   const { onClose, children, ...modalProps } = modal || {};
 
-  const handleClose = (event: MouseEvent | KeyboardEvent): void => {
-    if (onClose) {
-      onClose(event);
-    }
-    closeModal();
-  };
+  const handleClose = useCallback(
+    (event: MouseEvent | KeyboardEvent): void => {
+      if (onClose) {
+        onClose(event);
+      }
+      closeModal();
+    },
+    [onClose]
+  );
+
+  const getModal = useCallback(() => modal, [modal]);
 
   return (
-    <ModalContext.Provider
-      value={{ setModal: openModal, getModal: () => modal }}
-    >
+    <ModalContext.Provider value={{ setModal: openModal, getModal }}>
       {props.children}
 
       {modal && (
