@@ -37,9 +37,7 @@ const Wrapper = styled(Card)`
 
 Wrapper.defaultProps = Card.defaultProps;
 
-const ModalWrapper = ({ ...props }) => (
-  <Wrapper shadow={Card.TRIPLE} {...props} />
-);
+const ModalWrapper = ({ ...props }) => <Wrapper shadow={'triple'} {...props} />;
 
 ModalWrapper.propTypes = {
   /*

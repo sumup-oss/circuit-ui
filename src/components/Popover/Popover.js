@@ -20,16 +20,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import Portal from '../Portal';
-
-import {
-  TOP,
-  BOTTOM,
-  LEFT,
-  RIGHT,
-  START,
-  END,
-  CENTER
-} from '../../util/constants';
 import { positionPropType, alignPropType } from '../../util/shared-prop-types';
 import { toPopperPlacement, popperModifiers } from './PopoverService';
 
@@ -89,10 +79,10 @@ const arrowRightStyles = css`
 `;
 
 const oppositeDirection = {
-  [LEFT]: 'right',
-  [RIGHT]: 'left',
-  [TOP]: 'down',
-  [BOTTOM]: 'up'
+  left: 'right',
+  right: 'left',
+  top: 'down',
+  bottom: 'up'
 };
 
 const arrowStyles = {
@@ -103,20 +93,6 @@ const arrowStyles = {
 };
 
 class Popover extends Component {
-  static TOP = TOP;
-
-  static BOTTOM = BOTTOM;
-
-  static LEFT = LEFT;
-
-  static RIGHT = RIGHT;
-
-  static START = START;
-
-  static END = END;
-
-  static CENTER = CENTER;
-
   static propTypes = {
     /**
      * isOpen controlled prop
@@ -160,8 +136,8 @@ class Popover extends Component {
 
   static defaultProps = {
     isOpen: false,
-    position: Popover.BOTTOM,
-    align: Popover.START,
+    position: 'bottom',
+    align: 'start',
     zIndex: null,
     onClose: () => {},
     usePortal: false,

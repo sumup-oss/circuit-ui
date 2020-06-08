@@ -33,16 +33,12 @@ describe('Blockquote', () => {
   });
 
   it('should render with mega styles', () => {
-    const actual = create(
-      <Blockquote size={Blockquote.MEGA}>{quote}</Blockquote>
-    );
+    const actual = create(<Blockquote size={'mega'}>{quote}</Blockquote>);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with giga styles', () => {
-    const actual = create(
-      <Blockquote size={Blockquote.GIGA}>{quote}</Blockquote>
-    );
+    const actual = create(<Blockquote size={'giga'}>{quote}</Blockquote>);
     expect(actual).toMatchSnapshot();
   });
 

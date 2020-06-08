@@ -48,17 +48,17 @@ const TooltipWithContainer = props => (
 );
 
 export const base = () => (
-  <TooltipWithContainer position={Tooltip.RIGHT} align={Tooltip.CENTER} />
+  <TooltipWithContainer position={'right'} align={'center'} />
 );
 
 export const topLeft = () => (
-  <TooltipWithContainer position={Tooltip.TOP} align={Tooltip.LEFT} />
+  <TooltipWithContainer position={'top'} align={'left'} />
 );
 
 export const bottomRight = () => (
-  <TooltipWithContainer position={Tooltip.BOTTOM} align={Tooltip.RIGHT} />
+  <TooltipWithContainer position={'bottom'} align={'right'} />
 );
 
 export const leftCenter = () => (
-  <TooltipWithContainer position={Tooltip.LEFT} align={Tooltip.CENTER} />
+  <TooltipWithContainer position={'left'} align={'center'} />
 );

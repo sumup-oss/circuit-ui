@@ -26,7 +26,7 @@ kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape
 tbh adaptogen green juice lo-fi kombucha.
 `;
 
-const sizes = [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA];
+const sizes = ['kilo', 'mega', 'giga'];
 
 export default {
   title: 'Typography/Blockquote',
@@ -45,17 +45,17 @@ export const base = () => (
 
 export const size = () => (
   <Fragment>
-    <Blockquote size={Blockquote.KILO}>
+    <Blockquote size={'kilo'}>
       Kilo - The ability to accept credit card payments that are EMV-compliant
       is essentially an insurance policy against fraud and an impressively
       economical one at that.
     </Blockquote>
-    <Blockquote size={Blockquote.MEGA}>
+    <Blockquote size={'mega'}>
       Mega - The ability to accept credit card payments that are EMV-compliant
       is essentially an insurance policy against fraud and an impressively
       economical one at that.
     </Blockquote>
-    <Blockquote size={Blockquote.GIGA}>
+    <Blockquote size={'giga'}>
       Giga - The ability to accept credit card payments that are EMV-compliant
       is essentially an insurance policy against fraud and an impressively
       economical one at that.

@@ -28,22 +28,22 @@ describe('Badge', () => {
 
   describe('rendering color variations', () => {
     it('should render with success colors', () => {
-      const actual = create(<Badge color={Badge.SUCCESS} />);
+      const actual = create(<Badge color={'success'} />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with warning colors', () => {
-      const actual = create(<Badge color={Badge.WARNING} />);
+      const actual = create(<Badge color={'warning'} />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with danger colors', () => {
-      const actual = create(<Badge color={Badge.DANGER} />);
+      const actual = create(<Badge color={'danger'} />);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render with primary colors', () => {
-      const actual = create(<Badge color={Badge.PRIMARY} />);
+      const actual = create(<Badge color={'primary'} />);
       expect(actual).toMatchSnapshot();
     });
   });

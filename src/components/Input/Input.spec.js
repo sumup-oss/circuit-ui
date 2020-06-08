@@ -68,7 +68,7 @@ describe('Input', () => {
   });
 
   it('should render with right aligned text', () => {
-    const actual = create(<Input textAlign={Input.RIGHT} />);
+    const actual = create(<Input textAlign={'right'} />);
     expect(actual).toMatchSnapshot();
   });
 

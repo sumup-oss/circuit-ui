@@ -19,7 +19,6 @@ import { css } from '@emotion/core';
 import { includes } from 'lodash/fp';
 
 import { textKilo, shadowSingle } from '../../styles/style-helpers';
-import { CENTER, TOP, RIGHT, BOTTOM, LEFT } from '../../util/constants';
 import {
   positionPropType,
   childrenPropType
@@ -52,10 +51,10 @@ const baseStyles = ({ theme }) => css`
 `;
 
 const positionMap = {
-  [TOP]: 'bottom',
-  [RIGHT]: 'left',
-  [BOTTOM]: 'top',
-  [LEFT]: 'right'
+  top: 'bottom',
+  right: 'left',
+  bottom: 'top',
+  left: 'right'
 };
 
 const getPositionStyles = ({ theme, position }) => {
@@ -74,9 +73,9 @@ const getPositionStyles = ({ theme, position }) => {
 };
 
 const getAlignmentStyles = ({ theme, position, align }) => {
-  const isHorizontal = includes(position, [TOP, BOTTOM]);
+  const isHorizontal = includes(position, ['top', 'bottom']);
 
-  if (isHorizontal && includes(align, [TOP, BOTTOM, CENTER])) {
+  if (isHorizontal && includes(align, ['top', 'bottom', 'center'])) {
     return `
       left: 50%;
       transform: translateX(-50%);
@@ -88,7 +87,7 @@ const getAlignmentStyles = ({ theme, position, align }) => {
     `;
   }
 
-  if (!isHorizontal && includes(align, [LEFT, RIGHT, CENTER])) {
+  if (!isHorizontal && includes(align, ['left', 'right', 'center'])) {
     return `
       top: 50%;
       transform: translateY(-50%);
@@ -128,12 +127,6 @@ const Tooltip = styled('div')`
   ${positionAndAlignStyles};
 `;
 
-Tooltip.CENTER = CENTER;
-Tooltip.TOP = TOP;
-Tooltip.RIGHT = RIGHT;
-Tooltip.BOTTOM = BOTTOM;
-Tooltip.LEFT = LEFT;
-
 Tooltip.propTypes = {
   /**
    * The content of the tooltip.
@@ -146,18 +139,12 @@ Tooltip.propTypes = {
   /**
    * The alignment of the tooltip relative to its position.
    */
-  align: PropTypes.oneOf([
-    Tooltip.TOP,
-    Tooltip.RIGHT,
-    Tooltip.BOTTOM,
-    Tooltip.LEFT,
-    Tooltip.CENTER
-  ])
+  align: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'center'])
 };
 
 Tooltip.defaultProps = {
-  position: Tooltip.RIGHT,
-  align: Tooltip.CENTER
+  position: 'right',
+  align: 'center'
 };
 
 /**

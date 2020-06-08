@@ -49,13 +49,6 @@ const Blockquote = ({ children, ...props }) => (
   </StyledText>
 );
 
-// Satisfy react docgen
-// const Blockquote = props => <Quote {...props} />;
-
-Blockquote.KILO = 'kilo';
-Blockquote.MEGA = 'mega';
-Blockquote.GIGA = 'giga';
-
 Blockquote.propTypes = {
   /**
    * Child nodes to be rendered.
@@ -64,12 +57,11 @@ Blockquote.propTypes = {
   /**
    * A Circuit UI body text size.
    */
-  size: PropTypes.oneOf([Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA])
-    .isRequired
+  size: PropTypes.oneOf(['kilo', 'mega', 'giga']).isRequired
 };
 
 Blockquote.defaultProps = {
-  size: Blockquote.KILO
+  size: 'kilo'
 };
 
 /**

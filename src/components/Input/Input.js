@@ -26,7 +26,6 @@ import {
   disableVisually,
   hideVisually
 } from '../../styles/style-helpers';
-import { directions } from '../../styles/constants';
 import { childrenPropType } from '../../util/shared-prop-types';
 
 import Tooltip from '../Tooltip';
@@ -132,7 +131,7 @@ const inputOptionalStyles = ({ theme, optional }) =>
   `;
 
 const inputTextAlignRightStyles = ({ textAlign }) =>
-  textAlign === directions.RIGHT &&
+  textAlign === 'right' &&
   css`
     label: input--right;
     text-align: right;
@@ -348,7 +347,7 @@ const StyledInput = (
         />
         {suffix}
         {!disabled && validationHint && (
-          <InputTooltip position={Tooltip.TOP} align={Tooltip.LEFT}>
+          <InputTooltip position={'top'} align={'left'}>
             {validationHint}
           </InputTooltip>
         )}
@@ -362,9 +361,6 @@ const StyledInput = (
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
 const Input = React.forwardRef(StyledInput);
-
-Input.LEFT = directions.LEFT;
-Input.RIGHT = directions.RIGHT;
 
 Input.propTypes = {
   children: childrenPropType,
@@ -422,7 +418,7 @@ Input.propTypes = {
   /**
    * Aligns text in the input
    */
-  textAlign: PropTypes.oneOf([Input.LEFT, Input.RIGHT]),
+  textAlign: PropTypes.oneOf(['left', 'right']),
   /**
    * Emotion style object to overwrite the <input> element styles.
    */
@@ -475,7 +471,7 @@ Input.defaultProps = {
   inline: false,
   noMargin: false,
   ref: undefined,
-  textAlign: Input.LEFT
+  textAlign: 'left'
 };
 
 /**

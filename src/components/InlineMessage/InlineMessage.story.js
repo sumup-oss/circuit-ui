@@ -31,7 +31,7 @@ export default {
 
 export const base = () => (
   <Card>
-    <InlineMessage type={InlineMessage.WARNING} size={InlineMessage.GIGA}>
+    <InlineMessage type={'warning'} size={'giga'}>
       Something might go terribly wrong.
     </InlineMessage>
     <Text>Sorry that is how it is.</Text>
@@ -39,25 +39,23 @@ export const base = () => (
 );
 
 export const success = () => (
-  <InlineMessage type={InlineMessage.SUCCESS}>
+  <InlineMessage type={'success'}>
     Something has gone wonderfully right.
   </InlineMessage>
 );
 
 export const warning = () => (
-  <InlineMessage type={InlineMessage.WARNING}>
-    Something might go sideways.
-  </InlineMessage>
+  <InlineMessage type={'warning'}>Something might go sideways.</InlineMessage>
 );
 
 export const alert = () => (
-  <InlineMessage type={InlineMessage.DANGER}>
+  <InlineMessage type={'danger'}>
     Something has gone terribly wrong.
   </InlineMessage>
 );
 
 export const size = () => (
-  <InlineMessage type={InlineMessage.WARNING} size={InlineMessage.MEGA}>
+  <InlineMessage type={'warning'} size={'mega'}>
     Something might go terribly wrong with a bigger card.
   </InlineMessage>
 );

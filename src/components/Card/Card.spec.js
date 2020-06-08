@@ -27,18 +27,18 @@ describe('Card', () => {
   });
 
   it('should render with shadow styles', () => {
-    const actualSingle = create(<Card shadow={Card.SINGLE} />);
+    const actualSingle = create(<Card shadow={'single'} />);
     expect(actualSingle).toMatchSnapshot();
-    const actualDouble = create(<Card shadow={Card.DOUBLE} />);
+    const actualDouble = create(<Card shadow={'double'} />);
     expect(actualDouble).toMatchSnapshot();
-    const actualTriple = create(<Card shadow={Card.TRIPLE} />);
+    const actualTriple = create(<Card shadow={'triple'} />);
     expect(actualTriple).toMatchSnapshot();
   });
 
   it('should render with spacing styles', () => {
-    const actualMega = create(<Card spacing={Card.MEGA} />);
+    const actualMega = create(<Card spacing={'mega'} />);
     expect(actualMega).toMatchSnapshot();
-    const actualGiga = create(<Card spacing={Card.GIGA} />);
+    const actualGiga = create(<Card spacing={'giga'} />);
     expect(actualGiga).toMatchSnapshot();
   });
 

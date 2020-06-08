@@ -182,7 +182,7 @@ const CheckboxComponent = (
         <Check aria-hidden="true" />
       </CheckboxLabel>
       {!disabled && validationHint && (
-        <CheckboxTooltip position={Tooltip.TOP} align={Tooltip.RIGHT}>
+        <CheckboxTooltip position={'top'} align={'right'}>
           {validationHint}
         </CheckboxTooltip>
       )}

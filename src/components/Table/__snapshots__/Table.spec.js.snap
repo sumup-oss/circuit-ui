@@ -330,7 +330,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -389,7 +388,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-16 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -439,7 +437,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-18 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             Words
           </th>
@@ -453,7 +450,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             b
           </th>
@@ -485,7 +481,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             a
           </th>
@@ -517,7 +512,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             c
           </th>
@@ -879,7 +873,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -938,7 +931,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-16 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -988,7 +980,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-18 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             Words
           </th>
@@ -1002,7 +993,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             b
           </th>
@@ -1034,7 +1024,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             a
           </th>
@@ -1066,7 +1055,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             c
           </th>
@@ -1462,7 +1450,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -1521,7 +1508,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-16 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -1571,7 +1557,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-18 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             Words
           </th>
@@ -1585,7 +1570,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             b
           </th>
@@ -1617,7 +1601,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             a
           </th>
@@ -1649,7 +1632,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             c
           </th>
@@ -1882,7 +1864,6 @@ tbody .circuit-18:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -1933,7 +1914,6 @@ tbody .circuit-18:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -1983,7 +1963,6 @@ tbody .circuit-18:last-child td {
           <th
             class="circuit-16 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             Words
           </th>
@@ -2395,7 +2374,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -2454,7 +2432,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-16 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -2504,7 +2481,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-18 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             Words
           </th>
@@ -2518,7 +2494,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             b
           </th>
@@ -2550,7 +2525,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             a
           </th>
@@ -2582,7 +2556,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             c
           </th>
@@ -2943,7 +2916,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -3002,7 +2974,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-16 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -3052,7 +3023,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-18 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             Words
           </th>
@@ -3066,7 +3036,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             b
           </th>
@@ -3098,7 +3067,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             a
           </th>
@@ -3130,7 +3098,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             c
           </th>
@@ -3492,7 +3459,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -3551,7 +3517,6 @@ tbody .circuit-20:last-child td {
             aria-sort="none"
             class="circuit-16 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -3601,7 +3566,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-18 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             Words
           </th>
@@ -3615,7 +3579,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             b
           </th>
@@ -3647,7 +3610,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             a
           </th>
@@ -3679,7 +3641,6 @@ tbody .circuit-20:last-child td {
           <th
             class="circuit-24 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             c
           </th>
