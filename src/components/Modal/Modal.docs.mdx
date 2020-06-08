@@ -5,9 +5,7 @@ import { ModalWrapper, ModalHeader, ModalFooter } from '.';
 
 <Status.Stable />
 
-Modals are floating cards which overlay the primary UI. All content in a single
-modal should be related to completing one single task. Modals are heavy UI
-elements which obscure the primary user interface — avoid them where possible.
+Modals are floating cards which overlay the primary UI. All content in a single modal should be related to completing one single task. Modals are heavy UI elements which obscure the primary user interface — avoid them where possible.
 
 <Story id="components-modal--base" />
 <Props of={ModalWrapper} />
@@ -16,7 +14,7 @@ elements which obscure the primary user interface — avoid them where possible.
 
 ## When to use it
 
-Use it when you want the user to focus on a single and perhaps more complex task
+Use it when you want the user to focus on a single and perhaps more complex task.
 
 ## Usage guidelines
 
@@ -51,73 +49,76 @@ There are a number of ways to use a modal in code. In some codebases, you
 may opt to create a helper higher-order component that complements the
 `ModalConsumer`.
 
-### Using the modal provider and consumer
+### Using the ModalProvider
 
-The benefit of using the modal provider and consumer is that the modal provider
-can be delcared once at the application root, and you do not need to manage
-to open/closed state of the modal yourself.
+The benefit of using the ModalProvider is that it can be declared once at the application root, and you do not need to manage the open/closed state of the modal yourself.
 
-```javascript
-import React, { Component } from 'react';
-import { ModalProvider, ModalConsumer, ModalWrapper } from '@sumup/circuit-ui';
+```js
+import React from 'react';
+import {
+  useModal,
+  ModalProvider,
+  ModalWrapper,
+  ModalHeader,
+  Button
+} from '@sumup/circuit-ui';
 
-class MyComponent extends Component {
-  trigger(setModal) {
+const SayHello = ({ name }) => {
+  const { setModal } = useModal();
+  const showModal = () => {
     setModal({
-      children: ({ onClose }) => <ModalWrapper>I am in a modal!</ModalWrapper>
+      children: ({ onClose }) => (
+        <ModalWrapper>
+          <ModalHeader title="This is a modal" onClose={onClose} />
+          Hello {name}
+        </ModalWrapper>
+      )
     });
-  }
+  };
+  return <Button onClick={showModal}>Say hello</Button>;
+};
 
-  render() {
-    return (
-      <ModalProvider>
-        <ModalConsumer>
-          {({ setModal }) => (
-            <Button onClick={() => this.trigger(setModal)}>
-              Trigger modal
-            </Button>
-          )}
-        </ModalConsumer>
-      </ModalProvider>
-    );
-  }
-}
+const Page = () => {
+  return (
+    <ModalProvider>
+      <SayHello name="World" />
+    </ModalProvider>
+  );
+};
 ```
 
 - `ModalWrapper` This is the wrapper for the body of a modal.
 - `ModalHeader` This contains the title and the `X` close button.
-- `ModalFooter` This component right-aligns its content.
+- `ModalFooter` This component aligns its content.
 
 ### Embedding the modal in code
 
-If you prefer to embed the code declaratively inside the component, you can
-do it as such:
+If you prefer to embed the code declaratively inside the component, you can do it as such:
 
-```javascript
-import React, { Component } from 'react';
-import { Modal } from '@sumup/circuit-ui';
+```js
+import React from 'react';
+import { Modal, ModalWrapper, ModalHeader, Button } from '@sumup/circuit-ui';
 
-class Page extends Component {
-  constructor() {
-    this.state = { isModalOpen: false };
-  }
+const Page = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  toggleModal = () => {
-    this.setState(state => ({ isModalOpen: !state.isModalOpen }));
+  const toggleModal = () => {
+    setModalOpen(prev => !prev);
   };
 
-  render() {
-    return (
-      <div>
-        <a href="#" onClick={() => this.toggleModal()} />
-        {this.state.isModalOpen && (
-          <Modal>
-            <ModalHeader onClose={() => this.toggleModal()} title="Hello" />
+  return (
+    <>
+      <Button onClick={toggleModal}>Open modal</Button>
+
+      {isModalOpen && (
+        <Modal>
+          <ModalWrapper>
+            <ModalHeader onClose={toggleModal} title="Hello" />
             The modal is open!
-          </Modal>
-        )}
-      </div>
-    );
-  }
-}
+          </ModalWrapper>
+        </Modal>
+      )}
+    </>
+  );
+};
 ```

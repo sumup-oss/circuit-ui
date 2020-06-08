@@ -24,7 +24,7 @@ import Text from '../Text';
 
 import docs from './Modal.docs.mdx';
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
-import { ModalConsumer, ModalProvider } from './ModalProvider';
+import { ModalConsumer, ModalProvider } from './ModalContext';
 import { Modal, ModalProps } from './Modal';
 
 export default {
