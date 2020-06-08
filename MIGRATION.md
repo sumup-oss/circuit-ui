@@ -10,7 +10,7 @@
   - [Renamed components](#renamed-components)
   - [Changed components](#changed-components)
   - [Utilities](#utilities)
-  - [Changes to the theme](#changes-to-the-theme)
+  - [Theme changes](#theme-changes)
 
 ## 🤖 Codemods
 
@@ -130,31 +130,26 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead.
 - The **Selector** component no longer accepts the `onClick` and `selected` props. Use the `onChange` and `checked` props instead (🤖 _selector-props_). The `value` and `name` have been added as required props.
 - The **RadioButtonGroup** component's `label` property inside the `options` prop has been renamed to `children`.
+- The **IconButton** component's dimensions and style have changed. It is now consistent with the Button component.
+- The **Hamburger** component's default size has been increased to match the IconButton component.
 - The **Hamburger** component's `light` prop has been removed. Set the color through CSS instead.
+- The **Spinner** component's `dark` prop has been removed. Set the color through CSS instead.
 - (_in writing_) combine label with form input components
 
 ### Utilities
 
 (_in writing_)
 
-- The `currencyUtils` and `currencyAmountUtils` have been removed. Use [@sumup/intl](https://www.npmjs.com/package/@sumup/intl) instead.
-- The `shadowGround` and `textTera` style helpers have been removed.
-- The `shadowBorder` style helper has been removed. Use the [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) CSS property instead.
-- The unit style helpers have been removed. Use the CSS [`calc`](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) function instead.
+- The `currencyAmountUtils` have been removed. There is not replacement, we suggest you copy the [old implementation](https://github.com/sumup-oss/circuit-ui/blob/b3d89f43ac54ef1f7c0c2ff6f4edce92e2bd937d/src/components/CurrencyInput/CurrencyInputService.js) to your application.
+- The `currencyUtils` have been removed. Use [@sumup/intl](https://www.npmjs.com/package/@sumup/intl) instead (🤖 _TODO_)
+- The `textTera` style helper has been removed. Use the `textGiga` style helper instead.
+- The `shadowGround` and `shadowBorder` style helpers have been removed. Use the [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) CSS property instead.
+- The unit style helpers (`addUnit`, `subtractUnit`, `multiplyUnit`, `divideUnit` ) have been removed. Use the CSS [`calc`](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) function instead.
 
-### Changes to the theme
-
-(_in writing_)
-
-- 🤖? The themes have been moved to [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens). Import them from there instead.
-- 🤖 The `iconSizes.byte` theme value has been removed. Use `iconSizes.kilo` instead.
-- 🤖 The `grid.afterTera` theme value has been renamed to `grid.tera`.
-
----
-
-## New features
+### Theme changes
 
 (_in writing_)
 
-components: Carousel and Step components (#482)
-components: add Anchor component (#583)
+- The themes have been moved to [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens). Import them from there instead (🤖 _TODO_)
+- The `iconSizes.byte` theme value has been removed. Use `iconSizes.kilo` instead (🤖 _TODO_)
+- The `grid.afterTera` theme value has been renamed to `grid.tera` (🤖 _TODO_)
