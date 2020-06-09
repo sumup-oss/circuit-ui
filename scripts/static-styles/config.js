@@ -30,7 +30,6 @@ import {
   RadioButton,
   Select,
   Selector,
-  SubHeading,
   Tag,
   TextArea,
   Toggle,
@@ -178,9 +177,10 @@ export default {
       renderPrefix: PropTypes.element
     }),
     { name: 'selector', component: Selector },
-    getComponentInfo(SubHeading, {
-      size: [SubHeading.KILO, SubHeading.MEGA]
-    }),
+    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(SubHeading, {
+    //   size: ['kilo', 'mega']
+    // }),
     getComponentInfo(Tag, {
       onRemove: PropTypes.func,
       prefix: PropTypes.element,
