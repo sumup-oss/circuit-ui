@@ -24098,7 +24098,7 @@ exports[`Storyshots Typography/SubHeading Base 1`] = `
 }
 
 <h2
-  class=" circuit-0 circuit-1"
+  class="circuit-0"
 >
   This is a subheading
 </h2>
@@ -24115,7 +24115,7 @@ HTMLCollection [
 }
 
 <h3
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     mega
@@ -24130,7 +24130,7 @@ HTMLCollection [
 }
 
 <h3
-    class=" circuit-0 circuit-1"
+    class="circuit-0"
   >
     This is a 
     kilo

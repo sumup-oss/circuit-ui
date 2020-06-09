@@ -57,12 +57,12 @@ export const components = {
   }),
   h4: withThemeProvider(SubHeading, {
     as: 'h4',
-    size: SubHeading.MEGA,
+    size: 'mega',
     css: subHeadingStyles
   }),
   h5: withThemeProvider(SubHeading, {
     as: 'h5',
-    size: SubHeading.KILO,
+    size: 'kilo',
     css: subHeadingStyles
   }),
   p: withThemeProvider(Text, { as: 'p', size: TEXT_SIZE }),

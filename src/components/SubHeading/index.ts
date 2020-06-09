@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import SubHeading from './SubHeading';
+import { SubHeading } from './SubHeading';
 
 export default SubHeading;
