@@ -15,6 +15,8 @@
 
 import React from 'react';
 
+import { create, renderToHtml, axe, render } from '../../util/test-utils';
+
 import Select from '.';
 
 describe('Select', () => {
@@ -69,7 +71,7 @@ describe('Select', () => {
   });
 
   it('should render with a prefix when passed the prefix prop', () => {
-    const DummyElement = props => (
+    const DummyElement = (props: { className?: string }) => (
       <div style={{ width: '24px', height: '24px' }} {...props} />
     );
     const actual = create(
@@ -148,7 +150,7 @@ describe('Select', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
+      const tref = React.createRef<HTMLSelectElement>();
       const { container } = render(<Select ref={tref} />);
       const select = container.querySelector('select');
       expect(tref.current).toBe(select);

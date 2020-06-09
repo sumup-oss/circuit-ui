@@ -28,7 +28,7 @@ import {
   Input,
   // Label,
   RadioButton,
-  Select,
+  // Select,
   Selector,
   SubHeading,
   Tag,
@@ -169,9 +169,9 @@ export default {
     //   size: ['kilo', 'mega', 'giga']
     // }),
     getComponentInfo(RadioButton),
-    getComponentInfo(Select, {
-      renderPrefix: PropTypes.element
-    }),
+    // getComponentInfo(Select, {
+    //   renderPrefix: PropTypes.element
+    // }),
     { name: 'selector', component: Selector },
     getComponentInfo(SubHeading, {
       size: [SubHeading.KILO, SubHeading.MEGA]
