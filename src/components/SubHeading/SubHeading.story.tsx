@@ -14,13 +14,13 @@
  */
 
 import React from 'react';
-import { select, boolean, text } from '@storybook/addon-knobs/react';
+import { select, boolean, text } from '@storybook/addon-knobs';
 
-import SubHeading from './SubHeading';
+import { SubHeading } from './SubHeading';
 import docs from './SubHeading.docs.mdx';
 
 const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
-const sizes = [SubHeading.MEGA, SubHeading.KILO];
+const sizes = ['mega', 'kilo'] as const;
 
 export default {
   title: 'Typography/SubHeading',
