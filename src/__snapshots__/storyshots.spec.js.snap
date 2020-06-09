@@ -18450,35 +18450,26 @@ label + .circuit-3 {
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-}
-
-.circuit-1:focus,
-.circuit-1:hover,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-1:-moz-focusring {
@@ -18486,10 +18477,22 @@ label + .circuit-3 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
 .circuit-2 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -18577,37 +18580,27 @@ label + .circuit-5 {
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  border-color: #EA7A7A;
   padding-right: 56px;
-}
-
-.circuit-1:focus,
-.circuit-1:hover,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
 .circuit-1:-moz-focusring {
@@ -18615,10 +18608,22 @@ label + .circuit-5 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #DB4D4D;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #DB4D4D;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #DB4D4D;
+}
+
 .circuit-2 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -18626,13 +18631,13 @@ label + .circuit-5 {
   top: 1px;
   right: 1px;
   padding: 12px;
-  right: calc(1px + 24px);
+  right: 24px;
 }
 
 .circuit-3 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -18644,44 +18649,11 @@ label + .circuit-5 {
 }
 
 .circuit-4 {
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 31;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  right: 50%;
-  right: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  right: 1px;
-}
-
-.circuit-4::after {
   display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-4::after {
-  right: 12px;
-}
-
-.circuit-4::after {
-  top: 100%;
-  border-top-color: #212933;
+  margin-top: 4px;
+  color: #DB4D4D;
 }
 
 <label
@@ -18761,11 +18733,11 @@ label + .circuit-5 {
         </clippath>
       </defs>
     </svg>
-    <div
+    <span
       class="circuit-4"
     >
       This field is required
-    </div>
+    </span>
   </div>
 </label>
 `;
@@ -18792,7 +18764,7 @@ label + .circuit-3 {
 .circuit-2 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -18808,41 +18780,44 @@ label + .circuit-3 {
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   padding-left: 40px;
-}
-
-.circuit-1:focus,
-.circuit-1:hover,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
@@ -18982,35 +18957,26 @@ label + .circuit-3 {
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-}
-
-.circuit-1:focus,
-.circuit-1:hover,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-1:-moz-focusring {
@@ -19018,10 +18984,22 @@ label + .circuit-3 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
 .circuit-2 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;

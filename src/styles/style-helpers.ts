@@ -138,3 +138,53 @@ export const clearfix = (): SerializedStyles => css`
     clear: both;
   }
 `;
+
+/**
+ * Visually communicates to the user that an input is hovered, focused,
+ * or active.
+ */
+export const inputOutline = (
+  args: Theme | { theme: Theme; invalid?: boolean }
+): SerializedStyles => {
+  const theme = getTheme(args);
+  const options = isTheme(args) ? { invalid: false } : args;
+
+  let colors;
+
+  switch (true) {
+    case options.invalid: {
+      colors = {
+        default: theme.colors.r500,
+        hover: theme.colors.r500,
+        focus: theme.colors.r500,
+        active: theme.colors.r500
+      };
+      break;
+    }
+    default: {
+      colors = {
+        default: theme.colors.n500,
+        hover: theme.colors.n700,
+        focus: theme.colors.p500,
+        active: theme.colors.p500
+      };
+      break;
+    }
+  }
+
+  return css`
+    box-shadow: 0 0 0 1px ${colors.default};
+
+    &:hover {
+      box-shadow: 0 0 0 1px ${colors.hover};
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px ${colors.focus};
+    }
+
+    &:active {
+      box-shadow: 0 0 0 1px ${colors.active};
+    }
+  `;
+};

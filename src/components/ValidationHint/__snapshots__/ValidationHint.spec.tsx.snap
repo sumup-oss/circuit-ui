@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidationHint styles should render with default styles 1`] = `
+.circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  margin-top: 4px;
+}
+
+<span
+  class="circuit-0"
+/>
+`;
+
+exports[`ValidationHint styles should render with invalid styles 1`] = `
+.circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  margin-top: 4px;
+  color: #DB4D4D;
+}
+
+<span
+  class="circuit-0"
+/>
+`;

@@ -1,52 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select should not render with invalid styles when also passed the disabled prop 1`] = `
-.circuit-0 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  color: #212933;
-  padding-top: 8px;
-  padding-right: 32px;
-  padding-bottom: 8px;
-  padding-left: 12px;
-  max-height: 42px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
-}
-
-.circuit-0:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
 .circuit-1 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -69,6 +27,51 @@ exports[`Select should not render with invalid styles when also passed the disab
 label > .circuit-2,
 label + .circuit-2 {
   margin-top: 4px;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #212933;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #DB4D4D;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #DB4D4D;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #DB4D4D;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
 <div
@@ -138,35 +141,26 @@ label + .circuit-3 {
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-}
-
-.circuit-1:focus,
-.circuit-1:hover,
-.circuit-1:active {
-  outline: none;
-}
-
-.circuit-1:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-1:-moz-focusring {
@@ -174,10 +168,22 @@ label + .circuit-3 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
 .circuit-2 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -265,7 +271,7 @@ label + .circuit-2 {
 .circuit-1 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -281,41 +287,44 @@ label + .circuit-2 {
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   padding-left: 40px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-0:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 <div
@@ -386,35 +395,26 @@ label + .circuit-3 {
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-0:-moz-focusring {
@@ -422,10 +422,22 @@ label + .circuit-3 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
 .circuit-1 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -436,44 +448,10 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 31;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  right: 50%;
-  right: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  right: 1px;
-}
-
-.circuit-2::after {
   display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-2::after {
-  right: 12px;
-}
-
-.circuit-2::after {
-  top: 100%;
-  border-top-color: #212933;
+  margin-top: 4px;
 }
 
 <div
@@ -519,11 +497,11 @@ label + .circuit-3 {
       fill-rule="evenodd"
     />
   </svg>
-  <div
+  <span
     class="circuit-2"
   >
     This field is required.
-  </div>
+  </span>
 </div>
 `;
 
@@ -546,35 +524,26 @@ label + .circuit-2 {
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-0:-moz-focusring {
@@ -582,10 +551,22 @@ label + .circuit-2 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
 .circuit-1 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -648,35 +629,26 @@ exports[`Select should render with disabled styles when passed the disabled prop
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-0:-moz-focusring {
@@ -684,10 +656,22 @@ exports[`Select should render with disabled styles when passed the disabled prop
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
 .circuit-1 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -767,35 +751,26 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-0:-moz-focusring {
@@ -803,10 +778,22 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
 .circuit-1 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -895,37 +882,27 @@ label + .circuit-3 {
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  border-color: #EA7A7A;
   padding-right: 56px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
 .circuit-0:-moz-focusring {
@@ -933,10 +910,22 @@ label + .circuit-3 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #DB4D4D;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #DB4D4D;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #DB4D4D;
+}
+
 .circuit-1 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -944,13 +933,13 @@ label + .circuit-3 {
   top: 1px;
   right: 1px;
   padding: 12px;
-  right: calc(1px + 24px);
+  right: 24px;
 }
 
 .circuit-2 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;
@@ -1043,35 +1032,26 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   appearance: none;
   cursor: pointer;
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: #212933;
-  padding-top: 8px;
+  padding-top: calc(8px + 1px);
   padding-right: 32px;
-  padding-bottom: 8px;
+  padding-bottom: calc(8px + 1px);
   padding-left: 12px;
-  max-height: 42px;
   position: relative;
   width: 100%;
   z-index: 20;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-}
-
-.circuit-0:focus,
-.circuit-0:hover,
-.circuit-0:active {
-  outline: none;
-}
-
-.circuit-0:focus {
-  border-color: #3388FF;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-0:-moz-focusring {
@@ -1079,10 +1059,22 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
 .circuit-1 {
   color: #5C656F;
   display: block;
-  z-index: 40;
+  z-index: 21;
   pointer-events: none;
   position: absolute;
   height: 40px;

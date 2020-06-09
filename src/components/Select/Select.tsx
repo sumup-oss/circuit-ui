@@ -19,17 +19,18 @@ import { SelectExpand, CircleCross } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import { uniqueId } from '../../util/id';
+import deprecate from '../../util/deprecate';
 import styled, { StyleProps } from '../../styles/styled';
 import {
   textMega,
   disableVisually,
-  hideVisually
+  hideVisually,
+  inputOutline
 } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
 
-import Tooltip from '../Tooltip';
 import Label from '../Label';
-import deprecate from '../../util/deprecate';
+import ValidationHint from '../ValidationHint';
 
 type Option = {
   value: string | number;
@@ -107,8 +108,6 @@ export interface SelectProps
   ref?: Ref<HTMLSelectElement>;
 }
 
-type SelectElProps = Omit<SelectProps, 'options'> & { hasPrefix: boolean };
-
 type ContainerElProps = Pick<SelectProps, 'noMargin' | 'disabled' | 'inline'>;
 
 const containerBaseStyles = ({ theme }: StyleProps) => css`
@@ -156,44 +155,30 @@ const SelectContainer = styled('div')<ContainerElProps>(
   containerInlineStyles
 );
 
-// HACK: Firefox includes the border-width in the overall height of the element
-//       (despite box-sizing: border-box), so we have to force the height.
-//       line-height + 2px + (vertical padding * 2) + (border-width * 2)
-const MAX_HEIGHT = '42px';
+type SelectElProps = Omit<SelectProps, 'options'> & { hasPrefix: boolean };
 
 const selectBaseStyles = ({ theme }: StyleProps) => css`
   label: select;
   appearance: none;
   cursor: pointer;
   background-color: ${theme.colors.white};
-  border-width: 1px;
-  border-style: solid;
-  border-color: ${theme.colors.n300};
-  border-radius: ${theme.borderRadius.mega};
-  box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
   color: ${theme.colors.n900};
-  padding-top: ${theme.spacings.byte};
+  padding-top: calc(${theme.spacings.byte} + 1px);
   padding-right: ${theme.spacings.tera};
-  padding-bottom: ${theme.spacings.byte};
+  padding-bottom: calc(${theme.spacings.byte} + 1px);
   padding-left: ${theme.spacings.kilo};
-  max-height: ${MAX_HEIGHT};
   position: relative;
   width: 100%;
   z-index: ${theme.zIndex.select};
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: all ${theme.transitions.default};
   ${textMega({ theme })};
-
-  &:focus,
-  &:hover,
-  &:active {
-    outline: none;
-  }
-
-  &:focus {
-    border-color: ${theme.colors.p500};
-  }
 
   &:-moz-focusring {
     color: transparent;
@@ -210,7 +195,6 @@ const selectInvalidStyles = ({
   !disabled &&
   css`
     label: select--invalid;
-    border-color: ${theme.colors.r300};
     padding-right: ${theme.spacings.zetta};
   `;
 
@@ -221,15 +205,11 @@ const selectPrefixStyles = ({ theme, hasPrefix }: StyleProps & SelectElProps) =>
     padding-left: ${theme.spacings.peta};
   `;
 
-const tooltipBaseStyles = css`
-  label: select__tooltip;
-  right: 1px;
-`;
-
 const SelectElement = styled.select<SelectElProps>(
   selectBaseStyles,
   selectInvalidStyles,
-  selectPrefixStyles
+  selectPrefixStyles,
+  inputOutline
 );
 
 const labelTextStyles = ({ visuallyHidden }: { visuallyHidden?: boolean }) =>
@@ -247,7 +227,7 @@ const prefixStyles = (theme: Theme) => css`
   position: absolute;
   top: 1px;
   left: 1px;
-  z-index: 40;
+  z-index: ${theme.zIndex.select + 1};
   height: ${theme.spacings.peta};
   width: ${theme.spacings.peta};
   padding: ${theme.spacings.kilo};
@@ -260,7 +240,7 @@ const suffixBaseStyles = ({ theme }: StyleProps) => css`
   label: select__icon;
   color: ${theme.colors.n700};
   display: block;
-  z-index: 40;
+  z-index: ${theme.zIndex.select + 1};
   pointer-events: none;
   position: absolute;
   height: ${theme.spacings.peta};
@@ -274,7 +254,7 @@ const suffixInvalidStyles = ({ theme, invalid }: StyleProps & SuffixElProps) =>
   invalid &&
   css`
     label: select__icon--invalid;
-    right: calc(1px + ${theme.spacings.giga});
+    right: ${theme.spacings.giga};
   `;
 
 const SelectIcon = styled(SelectExpand)<SuffixElProps>(
@@ -286,9 +266,6 @@ const InvalidIcon = styled(CircleCross)<SuffixElProps>`
   ${suffixBaseStyles};
   color: ${p => p.theme.colors.danger};
 `;
-
-// FIXME: Remove any typecast once Tooltip has been migrated to TypeScript.
-const SelectTooltip = styled(Tooltip as any)(tooltipBaseStyles);
 
 function SelectComponent(
   {
@@ -357,9 +334,7 @@ function SelectComponent(
       <SelectIcon invalid={showInvalid} />
       {showInvalid && <InvalidIcon />}
       {!disabled && validationHint && (
-        <SelectTooltip position={'top'} align={'left'}>
-          {validationHint}
-        </SelectTooltip>
+        <ValidationHint invalid={invalid}>{validationHint}</ValidationHint>
       )}
     </SelectContainer>
   );
