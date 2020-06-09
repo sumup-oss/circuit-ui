@@ -68,6 +68,7 @@ const SidebarWithState = () => {
           open={open}
           onClose={() => setOpen(false)}
           closeButtonLabel="close-button"
+          tracking={{ label: 'trackingId-sidebar' }}
         >
           <Sidebar.Header>Header</Sidebar.Header>
           <Sidebar.NavList>
@@ -78,6 +79,7 @@ const SidebarWithState = () => {
               onClick={() => setSelected(1)}
               defaultIcon={<House size="large" />}
               selectedIcon={<HouseFilled size="large" />}
+              tracking={{ label: 'trackingId-home' }}
             />
             <Sidebar.Aggregator
               key="list"

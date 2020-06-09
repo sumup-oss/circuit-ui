@@ -15,6 +15,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useClickTrigger } from '@sumup/collector';
+
 import * as PaginationService from './PaginationService';
 import PaginationContainer from './PaginationContainer';
 import PaginationButton from './PaginationButton';
@@ -64,8 +66,23 @@ const Pagination = ({
   nextLabel,
   previousLabel,
   footer,
+  tracking,
   ...props
 }) => {
+  const { label, component = 'pagination', customParameters } = tracking || {};
+  const dispatch = useClickTrigger();
+  const handleChange =
+    onChange && label
+      ? clickedPage => {
+          dispatch({
+            label,
+            component: `${component}-${clickedPage}`,
+            customParameters
+          });
+
+          onChange(clickedPage);
+        }
+      : onChange;
   const totalPages = PaginationService.calculatePages(total, perPage);
 
   if (totalPages < 2) {
@@ -77,7 +94,7 @@ const Pagination = ({
       <PaginationContainer
         page={page}
         totalPages={totalPages}
-        onChange={onChange}
+        onChange={handleChange}
         nextLabel={nextLabel}
         previousLabel={previousLabel}
         footer={footer}
@@ -88,7 +105,7 @@ const Pagination = ({
             key={item}
             currentPage={index + 1}
             page={page}
-            onChange={onChange}
+            onChange={handleChange}
           />
         ))}
       </PaginationContainer>
@@ -123,7 +140,7 @@ const Pagination = ({
       <PaginationButtonContainer
         currentPage={1}
         page={page}
-        onChange={onChange}
+        onChange={handleChange}
       />
       {hasOmittedPreviousPages && (
         <PageButton disabled>{Separator()}</PageButton>
@@ -133,7 +150,7 @@ const Pagination = ({
           key={item}
           currentPage={item}
           page={page}
-          onChange={onChange}
+          onChange={handleChange}
         />
       ))}
       {!isFirstOrLastPage && (
@@ -141,7 +158,7 @@ const Pagination = ({
           key={page}
           currentPage={page}
           page={page}
-          onChange={onChange}
+          onChange={handleChange}
         />
       )}
       {nextValues.map(item => (
@@ -149,14 +166,14 @@ const Pagination = ({
           key={item}
           currentPage={item}
           page={page}
-          onChange={onChange}
+          onChange={handleChange}
         />
       ))}
       {hasOmittedNextPages && <PageButton disabled>{Separator()}</PageButton>}
       <PaginationButtonContainer
         currentPage={totalPages}
         page={page}
-        onChange={onChange}
+        onChange={handleChange}
       />
     </PaginationContainer>
   );
@@ -188,13 +205,37 @@ Pagination.propTypes = {
    */
   nextLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
+   * Data that is dispatched when next button is clicked
+   */
+  nextLabelTracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  }),
+  /**
    * Label to be used on button of previous
    */
   previousLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
+   * Data that is dispatched when previous button is clicked
+   */
+  previousLabelTracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  }),
+  /**
    * Text to be shown on the pagination footer
    */
-  footer: PropTypes.string
+  footer: PropTypes.string,
+  /**
+   * Data that is dispatched when a page number is clicked
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 Pagination.defaultProps = {
@@ -202,8 +243,11 @@ Pagination.defaultProps = {
   perPage: PAGINATION.ITEMS_PER_PAGE,
   pagesToShow: PAGINATION.PAGES_TO_SHOW,
   nextLabel: PAGINATION.LABEL_NEXT,
+  nextLabelTracking: {},
   previousLabel: PAGINATION.LABEL_PREVIOUS,
-  footer: PAGINATION.FOOTER
+  previousLabelTracking: {},
+  footer: PAGINATION.FOOTER,
+  tracking: {}
 };
 
 /**

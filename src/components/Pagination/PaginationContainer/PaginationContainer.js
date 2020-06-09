@@ -59,7 +59,9 @@ const PaginationContainer = ({
   totalPages,
   onChange,
   nextLabel,
+  nextLabelTracking = {},
   previousLabel,
+  previousLabelTracking = {},
   footer,
   ...rest
 }) => (
@@ -70,6 +72,12 @@ const PaginationContainer = ({
         onClick={() => onChange(page - 1)}
         disabled={page === 1}
         data-testid="pagination-button-previous"
+        tracking={{
+          label: previousLabelTracking.label,
+          component:
+            previousLabelTracking.component || 'pagination-previous-button',
+          customParameters: previousLabelTracking.customParameters
+        }}
       >
         {previousLabel}
       </NavigationButtonPrevious>
@@ -81,6 +89,11 @@ const PaginationContainer = ({
         isLast
         isFirst={false}
         data-testid="pagination-button-next"
+        tracking={{
+          label: nextLabelTracking.label,
+          component: nextLabelTracking.component || 'pagination-next-button',
+          customParameters: nextLabelTracking.customParameters
+        }}
       >
         {nextLabel}
       </NavigationButtonNext>
@@ -96,8 +109,18 @@ PaginationContainer.propTypes = {
   onChange: PropTypes.func.isRequired,
   nextLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
+  nextLabelTracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  }),
   previousLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     .isRequired,
+  previousLabelTracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  }),
   footer: PropTypes.string
 };
 

@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
+import { useClickTrigger } from '@sumup/collector';
 
 import { componentsPropType } from '../../../../util/shared-prop-types';
 import NavLabel from '../NavLabel';
@@ -85,10 +86,29 @@ const NavItem = ({
   disabled,
   onClick,
   components,
+  tracking,
   ...props
 }) => {
   const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
   const Link = StyledLink.withComponent(components.Link);
+  const {
+    label: trackingLabel,
+    component = 'sidebar-nav-item',
+    customParameters
+  } = tracking || {};
+  const dispatch = useClickTrigger();
+  const handleClick =
+    onClick && trackingLabel
+      ? e => {
+          dispatch({
+            label: trackingLabel,
+            component,
+            customParameters
+          });
+
+          onClick(e);
+        }
+      : onClick;
 
   return (
     <li
@@ -98,7 +118,7 @@ const NavItem = ({
       `}
     >
       <Link
-        onClick={disabled ? null : onClick}
+        onClick={disabled ? null : handleClick}
         selected={selected}
         secondary={secondary}
         visible={visible}
@@ -147,7 +167,15 @@ NavItem.propTypes = {
    * The onClick method to handle the click event on NavItems
    */
   onClick: PropTypes.func,
-  components: componentsPropType
+  components: componentsPropType,
+  /**
+   * Data that is dispatched with click tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 NavItem.defaultProps = {

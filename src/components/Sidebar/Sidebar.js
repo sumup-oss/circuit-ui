@@ -17,6 +17,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useClickTrigger } from '@sumup/collector';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -58,20 +59,48 @@ const openStyles = ({ theme, open }) =>
 
 const Drawer = styled('nav')(baseStyles, openStyles);
 
-const Sidebar = ({ children, open, closeButtonLabel, onClose, ...props }) => (
-  <Fragment>
-    <Drawer open={open} {...props}>
-      {children}
-    </Drawer>
-    <Backdrop visible={open} onClick={onClose} data-testid="sidebar-backdrop" />
-    <CloseButton
-      visible={open}
-      label={closeButtonLabel}
-      onClick={onClose}
-      data-testid="sidebar-close-button"
-    />
-  </Fragment>
-);
+const Sidebar = ({
+  children,
+  open,
+  closeButtonLabel,
+  onClose,
+  tracking,
+  ...props
+}) => {
+  const { label, component, customParameters } = tracking || {};
+  const dispatch = useClickTrigger();
+  const handleClose =
+    onClose && label
+      ? e => {
+          dispatch({
+            label,
+            component: component || 'sidebar-close',
+            customParameters
+          });
+
+          onClose(e);
+        }
+      : onClose;
+
+  return (
+    <Fragment>
+      <Drawer open={open} {...props}>
+        {children}
+      </Drawer>
+      <Backdrop
+        visible={open}
+        onClick={handleClose}
+        data-testid="sidebar-backdrop"
+      />
+      <CloseButton
+        visible={open}
+        label={closeButtonLabel}
+        onClick={handleClose}
+        data-testid="sidebar-close-button"
+      />
+    </Fragment>
+  );
+};
 
 Sidebar.propTypes = {
   /**
@@ -89,7 +118,15 @@ Sidebar.propTypes = {
   /**
    * A function to handle the sidebar close
    */
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  /**
+   * Data that is dispatched with the close tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 Sidebar.defaultProps = {
