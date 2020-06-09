@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-// NOTE: Related issue https://github.com/facebook/react/issues/5867
+export const isFunction = (value?: any): value is Function =>
+  typeof value === 'function';
 
-let idCounter = 0;
+export const isString = (value?: any): value is string =>
+  typeof value === 'string';
 
-export const uniqueId = (prefix = '') => {
-  idCounter += 1;
-  return `${prefix}${idCounter}`;
-};
+export const isArray = (value?: any): value is [] =>
+  value && typeof value === 'object' && value.constructor === Array;

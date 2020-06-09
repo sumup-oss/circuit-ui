@@ -13,17 +13,11 @@
  * limitations under the License.
  */
 
-import warning from 'tiny-warning';
+// NOTE: Related issue https://github.com/facebook/react/issues/5867
 
-const warned = {};
+let idCounter = 0;
 
-export default function deprecate(explanation = '') {
-  if (__DEV__) {
-    const message = `DEPRECATION: ${explanation}`;
-
-    if (!warned[message]) {
-      warning(false, message);
-      warned[message] = true;
-    }
-  }
+export function uniqueId(prefix = ''): string {
+  idCounter += 1;
+  return `${prefix}${idCounter}`;
 }

@@ -13,7 +13,13 @@
  * limitations under the License.
  */
 
-export const isFunction = val => typeof val === 'function';
-export const isString = val => typeof val === 'string';
-export const isArray = value =>
-  value && typeof value === 'object' && value.constructor === Array;
+const isIos = ((): boolean => {
+  // For SSR compatibility
+  if (typeof window === 'undefined') {
+    return false;
+  }
+  const { platform } = window.navigator || {};
+  return !!platform && /iPad|iPhone|iPod/.test(platform);
+})();
+
+export default isIos;

@@ -13,13 +13,17 @@
  * limitations under the License.
  */
 
-const isIos = (() => {
-  // For SSR compatibility
-  if (typeof window === 'undefined') {
-    return undefined;
-  }
-  const { platform } = window.navigator || {};
-  return !!platform && /iPad|iPhone|iPod/.test(platform);
-})();
+import warning from 'tiny-warning';
 
-export default isIos;
+const warned: { [key: string]: true } = {};
+
+export default function deprecate(explanation = ''): void {
+  if (__DEV__) {
+    const message = `DEPRECATION: ${explanation}`;
+
+    if (!warned[message]) {
+      warning(false, message);
+      warned[message] = true;
+    }
+  }
+}
