@@ -13,53 +13,38 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { HTMLProps } from 'react';
 import { css } from '@emotion/core';
 
+import styled, { StyleProps } from '../../styles/styled';
 import { textKilo, hideVisually } from '../../styles/style-helpers';
 
-const visuallyHiddenStyles = ({ visuallyHidden }) =>
+export interface LabelProps extends HTMLProps<HTMLLabelElement> {
+  /**
+   * The identifier of the corresponding form element.
+   */
+  htmlFor: string;
+  /**
+   * Visually hides the label, but keeps it available to screen readers.
+   * Useful to add a label to purely visual elements.
+   */
+  visuallyHidden?: boolean;
+}
+
+const visuallyHiddenStyles = ({ visuallyHidden }: LabelProps) =>
   visuallyHidden &&
   css`
     label: label--hidden;
     ${hideVisually()};
   `;
 
-const baseStyles = ({ theme }) => css`
+const baseStyles = ({ theme }: StyleProps) => css`
   label: label;
   ${textKilo({ theme })};
   display: block;
 `;
 
 /**
- * Label component for forms.
+ * Label component for form inputs.
  */
-const StyledLabel = styled('label')`
-  ${baseStyles};
-  ${visuallyHiddenStyles};
-`;
-
-const Label = props => <StyledLabel {...props} />;
-
-Label.propTypes = {
-  /**
-   * The identifier of the corresponding form element.
-   */
-  htmlFor: PropTypes.string.isRequired,
-  /**
-   * Visually hides the label, but keeps it available to screen readers.
-   * Useful to add a label to purely visual elements.
-   */
-  visuallyHidden: PropTypes.bool
-};
-
-Label.defaultProps = {
-  visuallyHidden: false
-};
-
-/**
- * @component
- */
-export default Label;
+export const Label = styled.label<LabelProps>(baseStyles, visuallyHiddenStyles);

@@ -15,6 +15,8 @@
 
 import React from 'react';
 
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
 import Label from '.';
 
 describe('Label', () => {
@@ -39,7 +41,7 @@ describe('Label', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Label />);
+    const wrapper = renderToHtml(<Label htmlFor="some-id" />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

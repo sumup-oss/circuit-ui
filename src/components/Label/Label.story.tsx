@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import Label from './Label';
+import { Label } from './Label';
 import docs from './Label.docs.mdx';
 
 export default {
@@ -27,8 +27,10 @@ export default {
   }
 };
 
-export const base = () => <Label>An input label</Label>;
+export const base = () => <Label htmlFor="some-id">An input label</Label>;
 
-export const forAccessibilityOnly = () => (
-  <Label accessibleOnly>Only visible for screen readers</Label>
+export const visuallyHidden = () => (
+  <Label htmlFor="some-id" visuallyHidden>
+    Only visible for screen readers
+  </Label>
 );

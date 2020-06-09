@@ -26,7 +26,7 @@ import {
   Hr,
   Image,
   Input,
-  Label,
+  // Label,
   RadioButton,
   Select,
   Selector,
@@ -113,6 +113,7 @@ export function getComponentInfo(component, propOverrides = {}) {
   }
 }
 
+// TODO: Make React DocGen work with TypeScript
 export default {
   themes: { light },
   components: [
@@ -124,7 +125,6 @@ export default {
         circle: PropTypes.bool
       }
     },
-    // TODO: Make React DocGen work with TypeScript
     // getComponentInfo(Button, { size: [KILO, MEGA] }),
     getComponentInfo(Blockquote, {
       size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
@@ -141,7 +141,6 @@ export default {
       }
     },
     getComponentInfo(Checkbox),
-    // TODO: Make React DocGen work with TypeScript
     // getComponentInfo(Hamburger),
     // getComponentInfo(Heading, {
     //   size: [
@@ -161,8 +160,7 @@ export default {
       renderSuffix: PropTypes.element,
       textAlign: [Input.LEFT, Input.RIGHT]
     }),
-    getComponentInfo(Label),
-    // TODO: Make React DocGen work with TypeScript
+    // getComponentInfo(Label),
     // getComponentInfo(List, {
     //   size: [List.KILO, List.MEGA, List.GIGA]
     // }),
@@ -183,7 +181,6 @@ export default {
       prefix: PropTypes.element,
       suffix: PropTypes.element
     }),
-    // TODO: Make React DocGen work with TypeScript
     // getComponentInfo(Text, {
     //   size: ['kilo', 'mega', 'giga']
     // }),

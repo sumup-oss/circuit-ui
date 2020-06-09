@@ -10247,7 +10247,7 @@ exports[`Storyshots Components/Spinner Base 1`] = `
 `;
 
 exports[`Storyshots Components/Step Form 1`] = `
-.circuit-24 {
+.circuit-20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10280,28 +10280,28 @@ exports[`Storyshots Components/Step Form 1`] = `
   border-radius: 8px;
 }
 
-.circuit-24:focus {
+.circuit-20:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-24:focus::-moz-focus-inner {
+.circuit-20:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-24:disabled,
-.circuit-24[disabled] {
+.circuit-20:disabled,
+.circuit-20[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-24:hover {
+.circuit-20:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-24:active {
+.circuit-20:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
@@ -10318,19 +10318,19 @@ exports[`Storyshots Components/Step Form 1`] = `
   display: block;
 }
 
-.circuit-10 {
+.circuit-9 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-10,
-label + .circuit-10 {
+label > .circuit-9,
+label + .circuit-9 {
   margin-top: 4px;
 }
 
-.circuit-8 {
+.circuit-7 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
@@ -10358,7 +10358,7 @@ label + .circuit-10 {
   }
 }
 
-.circuit-6 {
+.circuit-5 {
   background-color: #FFFFFF;
   border-width: 1px;
   border-style: solid;
@@ -10375,31 +10375,31 @@ label + .circuit-10 {
   padding-right: calc( 12px + 16px + 12px );
 }
 
-.circuit-6:focus,
-.circuit-6:active {
+.circuit-5:focus,
+.circuit-5:active {
   border: 1px solid #3388FF;
   outline: none;
 }
 
-.circuit-6::-webkit-input-placeholder {
+.circuit-5::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-6::-moz-placeholder {
+.circuit-5::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-6:-ms-input-placeholder {
+.circuit-5:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-6::placeholder {
+.circuit-5::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
@@ -10416,7 +10416,7 @@ label + .circuit-10 {
   align-items: center;
 }
 
-.circuit-25 {
+.circuit-21 {
   margin: 0 auto;
   width: 90%;
   max-width: 300px;
@@ -10454,7 +10454,7 @@ label + .circuit-10 {
 }
 
 <div
-  class="circuit-25 circuit-26"
+  class="circuit-21 circuit-22"
 >
   <h2
     class="circuit-0"
@@ -10484,55 +10484,55 @@ label + .circuit-10 {
   </div>
   <section>
     <label
-      class="circuit-4 circuit-5"
+      class="circuit-4"
       for="first"
     >
       First Name
     </label>
     <label
-      class="circuit-4 circuit-5"
+      class="circuit-4"
       for="first"
     >
       <div
-        class="circuit-10 circuit-11"
+        class="circuit-9 circuit-10"
       >
         <input
           aria-invalid="false"
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           id="first"
           placeholder="John"
         />
         <div
-          class="circuit-8 circuit-9"
+          class="circuit-7 circuit-8"
         />
       </div>
     </label>
     <label
-      class="circuit-4 circuit-5"
+      class="circuit-4"
       for="second"
     >
       Second Name
     </label>
     <label
-      class="circuit-4 circuit-5"
+      class="circuit-4"
       for="second"
     >
       <div
-        class="circuit-10 circuit-11"
+        class="circuit-9 circuit-10"
       >
         <input
           aria-invalid="false"
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           id="second"
           placeholder="Doe"
         />
         <div
-          class="circuit-8 circuit-9"
+          class="circuit-7 circuit-8"
         />
       </div>
     </label>
     <button
-      class="circuit-24"
+      class="circuit-20"
     >
       Next
     </button>
@@ -15220,7 +15220,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="14"
 >
   <span
@@ -15314,7 +15314,7 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-6 circuit-7"
+  class="circuit-6"
   for="22"
 >
   <span
@@ -15422,7 +15422,7 @@ label + .circuit-4 {
 
 <div>
   <label
-    class="circuit-6 circuit-7"
+    class="circuit-6"
     for="input_24"
   >
     <div
@@ -15440,7 +15440,7 @@ label + .circuit-4 {
     </div>
   </label>
   <label
-    class="circuit-6 circuit-7"
+    class="circuit-6"
     for="input_25"
   >
     <div
@@ -15611,7 +15611,7 @@ label + .circuit-9 {
 }
 
 <label
-    class="circuit-11 circuit-12"
+    class="circuit-11"
     for="17"
   >
     <span
@@ -15777,7 +15777,7 @@ label + .circuit-7 {
 }
 
 <label
-    class="circuit-9 circuit-10"
+    class="circuit-9"
     for="18"
   >
     <span
@@ -15917,7 +15917,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="21"
 >
   <span
@@ -16023,7 +16023,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="23"
 >
   <span
@@ -16178,7 +16178,7 @@ label + .circuit-9 {
 }
 
 <label
-    class="circuit-11 circuit-12"
+    class="circuit-11"
     for="15"
   >
     <span
@@ -16324,7 +16324,7 @@ label + .circuit-7 {
 }
 
 <label
-    class="circuit-9 circuit-10"
+    class="circuit-9"
     for="16"
   >
     <span
@@ -16531,7 +16531,7 @@ label + .circuit-9 {
 }
 
 <label
-    class="circuit-11 circuit-12"
+    class="circuit-11"
     for="19"
   >
     <span
@@ -16697,7 +16697,7 @@ label + .circuit-7 {
 }
 
 <label
-    class="circuit-9 circuit-10"
+    class="circuit-9"
     for="20"
   >
     <span
@@ -16847,7 +16847,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="forms-input--with-visually-hidden-label"
 >
   <span
@@ -16982,7 +16982,7 @@ label + .circuit-8 {
 }
 
 <label
-  class="circuit-10 circuit-11"
+  class="circuit-10"
   for="input_9"
 >
   <span
@@ -17123,7 +17123,7 @@ label + .circuit-8 {
 }
 
 <label
-    class="circuit-10 circuit-11"
+    class="circuit-10"
     for="input_10"
   >
     <span
@@ -17260,7 +17260,7 @@ label + .circuit-8 {
 }
 
 <label
-    class="circuit-10 circuit-11"
+    class="circuit-10"
     for="input_11"
   >
     <span
@@ -17402,7 +17402,7 @@ label + .circuit-8 {
 }
 
 <label
-    class="circuit-10 circuit-11"
+    class="circuit-10"
     for="input_12"
   >
     <span
@@ -17539,7 +17539,7 @@ label + .circuit-8 {
 }
 
 <label
-    class="circuit-10 circuit-11"
+    class="circuit-10"
     for="input_13"
   >
     <span
@@ -17650,7 +17650,7 @@ label + .circuit-5 {
 }
 
 <label
-  class="circuit-7 circuit-8"
+  class="circuit-7"
   for="41"
 >
   <span
@@ -17768,7 +17768,7 @@ label + .circuit-5 {
 
 <div>
   <label
-    class="circuit-7 circuit-8"
+    class="circuit-7"
     for="43"
   >
     <span
@@ -17889,7 +17889,7 @@ label + .circuit-5 {
 }
 
 <label
-  class="circuit-7 circuit-8"
+  class="circuit-7"
   for="42"
 >
   <span
@@ -17937,21 +17937,33 @@ exports[`Storyshots Forms/Label Base 1`] = `
 }
 
 <label
-  class="circuit-0 circuit-1"
+  class="circuit-0"
+  for="some-id"
 >
   An input label
 </label>
 `;
 
-exports[`Storyshots Forms/Label For Accessibility Only 1`] = `
+exports[`Storyshots Forms/Label Visually Hidden 1`] = `
 .circuit-0 {
   font-size: 13px;
   line-height: 20px;
   display: block;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 <label
-  class="circuit-0 circuit-1"
+  class="circuit-0"
+  for="some-id"
 >
   Only visible for screen readers
 </label>
@@ -18485,7 +18497,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="44"
 >
   <span
@@ -18667,7 +18679,7 @@ label + .circuit-10 {
 }
 
 <label
-  class="circuit-12 circuit-13"
+  class="circuit-12"
   for="45"
 >
   <span
@@ -18837,7 +18849,7 @@ label + .circuit-7 {
 }
 
 <label
-  class="circuit-9 circuit-10"
+  class="circuit-9"
   for="46"
 >
   <span
@@ -19021,7 +19033,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="47"
 >
   <span
@@ -19691,7 +19703,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="58"
 >
   <span
@@ -19787,7 +19799,7 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-6 circuit-7"
+  class="circuit-6"
   for="62"
 >
   <span
@@ -19964,7 +19976,7 @@ label + .circuit-9 {
 }
 
 <label
-  class="circuit-11 circuit-12"
+  class="circuit-11"
   for="59"
 >
   <span
@@ -20110,7 +20122,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="61"
 >
   <span
@@ -20286,7 +20298,7 @@ label + .circuit-9 {
 }
 
 <label
-  class="circuit-11 circuit-12"
+  class="circuit-11"
   for="60"
 >
   <span
@@ -20442,7 +20454,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="63"
 >
   <span

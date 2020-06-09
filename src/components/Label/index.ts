@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Label from './Label';
+import { Label } from './Label';
 
 export default Label;

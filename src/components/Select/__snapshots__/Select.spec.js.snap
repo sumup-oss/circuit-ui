@@ -75,7 +75,7 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-6 circuit-7"
+  class="circuit-6"
   for="select_4"
 >
   <div
@@ -212,7 +212,7 @@ label + .circuit-5 {
 }
 
 <label
-  class="circuit-7 circuit-8"
+  class="circuit-7"
   for="select_8"
 >
   <div
@@ -379,7 +379,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="select_7"
 >
   <div
@@ -506,7 +506,7 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-6 circuit-7"
+  class="circuit-6"
   for="select_1"
 >
   <div
@@ -631,7 +631,7 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-6 circuit-7"
+  class="circuit-6"
   for="select_2"
 >
   <div
@@ -757,7 +757,7 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-6 circuit-7"
+  class="circuit-6"
   for="select_5"
 >
   <div
@@ -896,7 +896,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="select_3"
 >
   <div
@@ -1048,7 +1048,7 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-6 circuit-7"
+  class="circuit-6"
   for="select_6"
 >
   <div
