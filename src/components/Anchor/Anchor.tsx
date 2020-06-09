@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ReactNode, ReactElement } from 'react';
+import React, { HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-helpers';
+import { ReturnType } from '../../types/return-type';
 import Text from '../Text';
 import { TextProps } from '../Text/Text';
 import { useComponents } from '../ComponentsContext';
@@ -34,8 +35,6 @@ type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size'>;
 type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
 
 export type AnchorProps = BaseProps & LinkElProps & ButtonElProps;
-
-type ReturnType = ReactElement<any, any> | null;
 
 const baseStyles = ({ theme }: StyleProps) => css`
   display: inline-block;
