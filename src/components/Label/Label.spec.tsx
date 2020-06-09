@@ -28,9 +28,18 @@ describe('Label', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should be visually hidden when used as accessible only label', () => {
+  it('should render with visually-hidden styles', () => {
     const actual = create(
       <Label visuallyHidden htmlFor="some-id">
+        Label
+      </Label>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with inline styles', () => {
+    const actual = create(
+      <Label inline htmlFor="some-id">
         Label
       </Label>
     );

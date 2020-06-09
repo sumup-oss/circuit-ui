@@ -29,7 +29,17 @@ export interface LabelProps extends HTMLProps<HTMLLabelElement> {
    * Useful to add a label to purely visual elements.
    */
   visuallyHidden?: boolean;
+  /**
+   * Trigger inline styles on the component.
+   */
+  inline?: boolean;
 }
+
+const baseStyles = ({ theme }: StyleProps) => css`
+  label: label;
+  ${textKilo({ theme })};
+  display: block;
+`;
 
 const visuallyHiddenStyles = ({ visuallyHidden }: LabelProps) =>
   visuallyHidden &&
@@ -38,13 +48,18 @@ const visuallyHiddenStyles = ({ visuallyHidden }: LabelProps) =>
     ${hideVisually()};
   `;
 
-const baseStyles = ({ theme }: StyleProps) => css`
-  label: label;
-  ${textKilo({ theme })};
-  display: block;
-`;
+const inlineStyles = ({ inline }: LabelProps) =>
+  inline &&
+  css`
+    label: label--inline;
+    display: block;
+  `;
 
 /**
  * Label component for form inputs.
  */
-export const Label = styled.label<LabelProps>(baseStyles, visuallyHiddenStyles);
+export const Label = styled.label<LabelProps>(
+  baseStyles,
+  visuallyHiddenStyles,
+  inlineStyles
+);

@@ -365,7 +365,7 @@ function SelectComponent(
   );
 
   return label ? (
-    <Label htmlFor={id}>
+    <Label htmlFor={id} inline={inline}>
       <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
       {main}
     </Label>
