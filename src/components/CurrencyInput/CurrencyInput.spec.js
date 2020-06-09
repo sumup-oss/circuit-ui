@@ -52,7 +52,7 @@ describe('CurrencyInput', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <CurrencyInput locale="de-DE" currency="EUR" />
+      <CurrencyInput locale="de-DE" currency="EUR" label="Product price" />
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

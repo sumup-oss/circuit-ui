@@ -8997,7 +8997,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_28"
+      aria-labelledby="progress-bar_29"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9008,7 +9008,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_28"
+      id="progress-bar_29"
     >
       3/10
     </span>
@@ -9065,7 +9065,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_29"
+      aria-labelledby="progress-bar_30"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9076,7 +9076,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_29"
+      id="progress-bar_30"
     >
       30%
     </span>
@@ -9138,7 +9138,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_32"
+      aria-labelledby="progress-bar_33"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9149,7 +9149,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_32"
+      id="progress-bar_33"
     >
       byte
     </span>
@@ -9206,7 +9206,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_33"
+      aria-labelledby="progress-bar_34"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9217,7 +9217,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_33"
+      id="progress-bar_34"
     >
       kilo
     </span>
@@ -9274,7 +9274,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_34"
+      aria-labelledby="progress-bar_35"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9285,7 +9285,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_34"
+      id="progress-bar_35"
     >
       mega
     </span>
@@ -9346,7 +9346,7 @@ exports[`Storyshots Components/ProgressBar Steps 1`] = `
   class="circuit-2"
 >
   <span
-    aria-labelledby="progress-bar_26"
+    aria-labelledby="progress-bar_27"
     aria-valuemax="10"
     aria-valuemin="0"
     aria-valuenow="3"
@@ -9357,7 +9357,7 @@ exports[`Storyshots Components/ProgressBar Steps 1`] = `
   />
   <span
     class="circuit-1"
-    id="progress-bar_26"
+    id="progress-bar_27"
   />
 </div>
 `;
@@ -9470,13 +9470,13 @@ exports[`Storyshots Components/ProgressBar Timer 1`] = `
   class="circuit-2"
 >
   <span
-    aria-labelledby="progress-bar_27"
+    aria-labelledby="progress-bar_28"
     class="circuit-0"
     loop=""
   />
   <span
     class="circuit-1"
-    id="progress-bar_27"
+    id="progress-bar_28"
   />
 </div>
 `;
@@ -9535,7 +9535,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_30"
+      aria-labelledby="progress-bar_31"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9546,7 +9546,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_30"
+      id="progress-bar_31"
     >
       primary
     </span>
@@ -9603,7 +9603,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_31"
+      aria-labelledby="progress-bar_32"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9614,7 +9614,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_31"
+      id="progress-bar_32"
     >
       secondary
     </span>
@@ -10248,7 +10248,7 @@ exports[`Storyshots Components/Spinner Base 1`] = `
 `;
 
 exports[`Storyshots Components/Step Form 1`] = `
-.circuit-20 {
+.circuit-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10281,28 +10281,28 @@ exports[`Storyshots Components/Step Form 1`] = `
   border-radius: 8px;
 }
 
-.circuit-20:focus {
+.circuit-12:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-20:focus::-moz-focus-inner {
+.circuit-12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-20:disabled,
-.circuit-20[disabled] {
+.circuit-12:disabled,
+.circuit-12[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-20:hover {
+.circuit-12:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-20:active {
+.circuit-12:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
@@ -10319,30 +10319,22 @@ exports[`Storyshots Components/Step Form 1`] = `
   display: block;
 }
 
-.circuit-9 {
+.circuit-7 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-9,
-label + .circuit-9 {
+label > .circuit-7,
+label + .circuit-7 {
   margin-top: 4px;
 }
 
-.circuit-7 {
+.circuit-6 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
 .circuit-0 {
@@ -10361,25 +10353,17 @@ label + .circuit-9 {
 
 .circuit-5 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-5:focus,
-.circuit-5:active {
-  border: 1px solid #3388FF;
-  outline: none;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-5::-webkit-input-placeholder {
@@ -10406,6 +10390,18 @@ label + .circuit-9 {
   transition: color 200ms ease-in-out;
 }
 
+.circuit-5:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-5:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-5:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
 .circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10417,7 +10413,7 @@ label + .circuit-9 {
   align-items: center;
 }
 
-.circuit-21 {
+.circuit-13 {
   margin: 0 auto;
   width: 90%;
   max-width: 300px;
@@ -10455,7 +10451,7 @@ label + .circuit-9 {
 }
 
 <div
-  class="circuit-21 circuit-22"
+  class="circuit-13 circuit-14"
 >
   <h2
     class="circuit-0"
@@ -10469,7 +10465,7 @@ label + .circuit-9 {
     class="circuit-3"
   >
     <span
-      aria-labelledby="progress-bar_57"
+      aria-labelledby="progress-bar_58"
       aria-valuemax="3"
       aria-valuemin="0"
       aria-valuenow="1"
@@ -10480,7 +10476,7 @@ label + .circuit-9 {
     />
     <span
       class="circuit-2"
-      id="progress-bar_57"
+      id="progress-bar_58"
     />
   </div>
   <section>
@@ -10490,50 +10486,38 @@ label + .circuit-9 {
     >
       First Name
     </label>
-    <label
-      class="circuit-4"
-      for="first"
+    <div
+      class="circuit-7"
     >
+      <input
+        class="circuit-5"
+        id="first"
+        placeholder="John"
+      />
       <div
-        class="circuit-9 circuit-10"
-      >
-        <input
-          aria-invalid="false"
-          class="circuit-5 circuit-6"
-          id="first"
-          placeholder="John"
-        />
-        <div
-          class="circuit-7 circuit-8"
-        />
-      </div>
-    </label>
+        class="circuit-6"
+      />
+    </div>
     <label
       class="circuit-4"
       for="second"
     >
       Second Name
     </label>
-    <label
-      class="circuit-4"
-      for="second"
+    <div
+      class="circuit-7"
     >
+      <input
+        class="circuit-5"
+        id="second"
+        placeholder="Doe"
+      />
       <div
-        class="circuit-9 circuit-10"
-      >
-        <input
-          aria-invalid="false"
-          class="circuit-5 circuit-6"
-          id="second"
-          placeholder="Doe"
-        />
-        <div
-          class="circuit-7 circuit-8"
-        />
-      </div>
-    </label>
+        class="circuit-6"
+      />
+    </div>
     <button
-      class="circuit-20"
+      class="circuit-12"
     >
       Next
     </button>
@@ -15141,165 +15125,164 @@ exports[`Storyshots Forms/InlineMessage Warning 1`] = `
 `;
 
 exports[`Storyshots Forms/Input Base 1`] = `
-.circuit-8 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
-label + .circuit-6 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-4 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
-  class="circuit-8"
+  class="circuit-4"
   for="14"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-3"
   >
     <input
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       id="14"
       placeholder="Placeholder"
     />
     <div
-      class="circuit-4 circuit-5"
+      class="circuit-2"
     />
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/Input Disabled 1`] = `
-.circuit-6 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-4 {
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
@@ -15309,27 +15292,26 @@ exports[`Storyshots Forms/Input Disabled 1`] = `
   box-shadow: none;
 }
 
-label > .circuit-4,
-label + .circuit-4 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
 <label
-  class="circuit-6"
+  class="circuit-3"
   for="22"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
     disabled=""
   >
     <input
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       disabled=""
       id="22"
       placeholder="Placeholder"
@@ -15340,47 +15322,25 @@ label + .circuit-4 {
 `;
 
 exports[`Storyshots Forms/Input Inline 1`] = `
-.circuit-6 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-2 {
+.circuit-1 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
 .circuit-0 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-0:focus,
-.circuit-0:active {
-  border: 1px solid #3388FF;
-  outline: none;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -15407,7 +15367,19 @@ exports[`Storyshots Forms/Input Inline 1`] = `
   transition: color 200ms ease-in-out;
 }
 
-.circuit-4 {
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
@@ -15416,87 +15388,67 @@ exports[`Storyshots Forms/Input Inline 1`] = `
   margin-right: 16px;
 }
 
-label > .circuit-4,
-label + .circuit-4 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
 <div>
-  <label
-    class="circuit-6"
-    for="input_24"
+  <div
+    class="circuit-2"
   >
+    <input
+      class="circuit-0"
+      id="input_24"
+      placeholder="First"
+    />
     <div
-      class="circuit-4 circuit-5"
-    >
-      <input
-        aria-invalid="false"
-        class="circuit-0 circuit-1"
-        id="input_24"
-        placeholder="First"
-      />
-      <div
-        class="circuit-2 circuit-3"
-      />
-    </div>
-  </label>
-  <label
-    class="circuit-6"
-    for="input_25"
+      class="circuit-1"
+    />
+  </div>
+  <div
+    class="circuit-2"
   >
+    <input
+      class="circuit-0"
+      id="input_25"
+      placeholder="Second"
+    />
     <div
-      class="circuit-4 circuit-5"
-    >
-      <input
-        aria-invalid="false"
-        class="circuit-0 circuit-1"
-        id="input_25"
-        placeholder="Second"
-      />
-      <div
-        class="circuit-2 circuit-3"
-      />
-    </div>
-  </label>
+      class="circuit-1"
+    />
+  </div>
 </div>
 `;
 
 exports[`Storyshots Forms/Input Invalid 1`] = `
 HTMLCollection [
-  .circuit-11 {
+  .circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-9 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-9,
-label + .circuit-9 {
+label > .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
-.circuit-5 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   opacity: 1;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-7 {
+.circuit-3 {
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -15519,7 +15471,7 @@ label + .circuit-9 {
   right: 1px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   display: block;
   content: '';
   width: 0;
@@ -15528,112 +15480,104 @@ label + .circuit-9 {
   border: 8px solid transparent;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   right: 12px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   top: 100%;
   border-top-color: #212933;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:not(:focus) {
-  border-color: #EA7A7A;
-}
-
-.circuit-2:not(:focus)::-webkit-input-placeholder {
+.circuit-1:not(:focus)::-webkit-input-placeholder {
   color: #EA7A7A;
 }
 
-.circuit-2:not(:focus)::-moz-placeholder {
+.circuit-1:not(:focus)::-moz-placeholder {
   color: #EA7A7A;
 }
 
-.circuit-2:not(:focus):-ms-input-placeholder {
+.circuit-1:not(:focus):-ms-input-placeholder {
   color: #EA7A7A;
 }
 
-.circuit-2:not(:focus)::placeholder {
+.circuit-1:not(:focus)::placeholder {
   color: #EA7A7A;
 }
 
-.circuit-4 {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: #DB4D4D;
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #B22828;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #DB4D4D;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
 <label
-    class="circuit-11"
+    class="circuit-5"
     for="17"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       Label
     </span>
     <div
-      class="circuit-9 circuit-10"
+      class="circuit-4"
     >
       <input
         aria-invalid="true"
-        class="circuit-2 circuit-3"
+        class="circuit-1"
         id="17"
         placeholder="Placeholder"
       />
       <div
-        class="circuit-5 circuit-6"
+        class="circuit-2"
       >
         <svg
-          class="circuit-4"
           fill="none"
           height="16"
           role="img"
@@ -15664,142 +15608,126 @@ label + .circuit-9 {
         </svg>
       </div>
       <div
-        class="circuit-7 circuit-8"
+        class="circuit-3"
       >
         This field is required.
       </div>
     </div>
   </label>,
-  .circuit-9 {
+  .circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-7 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-7,
-label + .circuit-7 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-5 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   opacity: 1;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:not(:focus) {
-  border-color: #EA7A7A;
-}
-
-.circuit-2:not(:focus)::-webkit-input-placeholder {
+.circuit-1:not(:focus)::-webkit-input-placeholder {
   color: #EA7A7A;
 }
 
-.circuit-2:not(:focus)::-moz-placeholder {
+.circuit-1:not(:focus)::-moz-placeholder {
   color: #EA7A7A;
 }
 
-.circuit-2:not(:focus):-ms-input-placeholder {
+.circuit-1:not(:focus):-ms-input-placeholder {
   color: #EA7A7A;
 }
 
-.circuit-2:not(:focus)::placeholder {
+.circuit-1:not(:focus)::placeholder {
   color: #EA7A7A;
 }
 
-.circuit-4 {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: #DB4D4D;
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #B22828;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #DB4D4D;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
 <label
-    class="circuit-9"
+    class="circuit-4"
     for="18"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       Label
     </span>
     <div
-      class="circuit-7 circuit-8"
+      class="circuit-3"
     >
       <input
         aria-invalid="true"
-        class="circuit-2 circuit-3"
+        class="circuit-1"
         id="18"
         placeholder="Placeholder"
       />
       <div
-        class="circuit-5 circuit-6"
+        class="circuit-2"
       >
         <svg
-          class="circuit-4"
           fill="none"
           height="16"
           role="img"
@@ -15835,214 +15763,202 @@ label + .circuit-7 {
 `;
 
 exports[`Storyshots Forms/Input Optional 1`] = `
-.circuit-8 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
-label + .circuit-6 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-4 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   background-color: #FAFBFC;
-  border-style: dashed;
-  box-shadow: none;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
-  class="circuit-8"
+  class="circuit-4"
   for="21"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-3"
   >
     <input
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       id="21"
       placeholder="Placeholder"
     />
     <div
-      class="circuit-4 circuit-5"
+      class="circuit-2"
     />
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/Input Right Aligned 1`] = `
-.circuit-8 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
-label + .circuit-6 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-4 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   text-align: right;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
-  class="circuit-8"
+  class="circuit-4"
   for="23"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-3"
   >
     <input
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       id="23"
       placeholder="Placeholder"
     />
     <div
-      class="circuit-4 circuit-5"
+      class="circuit-2"
     />
   </div>
 </label>
@@ -16050,94 +15966,83 @@ label + .circuit-6 {
 
 exports[`Storyshots Forms/Input Valid 1`] = `
 HTMLCollection [
-  .circuit-11 {
+  .circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-9 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-9,
-label + .circuit-9 {
+label > .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-5 {
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   opacity: 1;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-4 {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: #47995A;
-}
-
-.circuit-7 {
+.circuit-3 {
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -16160,7 +16065,7 @@ label + .circuit-9 {
   right: 1px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   display: block;
   content: '';
   width: 0;
@@ -16169,38 +16074,36 @@ label + .circuit-9 {
   border: 8px solid transparent;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   right: 12px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   top: 100%;
   border-top-color: #212933;
 }
 
 <label
-    class="circuit-11"
+    class="circuit-5"
     for="15"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       Label
     </span>
     <div
-      class="circuit-9 circuit-10"
+      class="circuit-4"
     >
       <input
-        aria-invalid="false"
-        class="circuit-2 circuit-3"
+        class="circuit-1"
         id="15"
         placeholder="Placeholder"
       />
       <div
-        class="circuit-5 circuit-6"
+        class="circuit-2"
       >
         <svg
-          class="circuit-4"
           fill="none"
           height="16"
           role="img"
@@ -16231,122 +16134,109 @@ label + .circuit-9 {
         </svg>
       </div>
       <div
-        class="circuit-7 circuit-8"
+        class="circuit-3"
       >
         That's correct.
       </div>
     </div>
   </label>,
-  .circuit-9 {
+  .circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-7 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-7,
-label + .circuit-7 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-5 {
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   opacity: 1;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-.circuit-4 {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: #47995A;
 }
 
 <label
-    class="circuit-9"
+    class="circuit-4"
     for="16"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       Label
     </span>
     <div
-      class="circuit-7 circuit-8"
+      class="circuit-3"
     >
       <input
-        aria-invalid="false"
-        class="circuit-2 circuit-3"
+        class="circuit-1"
         id="16"
         placeholder="Placeholder"
       />
       <div
-        class="circuit-5 circuit-6"
+        class="circuit-2"
       >
         <svg
-          class="circuit-4"
           fill="none"
           height="16"
           role="img"
@@ -16383,40 +16273,32 @@ label + .circuit-7 {
 
 exports[`Storyshots Forms/Input Warning 1`] = `
 HTMLCollection [
-  .circuit-11 {
+  .circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-9 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-9,
-label + .circuit-9 {
+label > .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
-.circuit-5 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   opacity: 1;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-7 {
+.circuit-3 {
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -16439,7 +16321,7 @@ label + .circuit-9 {
   right: 1px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   display: block;
   content: '';
   width: 0;
@@ -16448,112 +16330,103 @@ label + .circuit-9 {
   border: 8px solid transparent;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   right: 12px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   top: 100%;
   border-top-color: #212933;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #D8A413;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:not(:focus) {
-  border-color: #D8A413;
-}
-
-.circuit-2:not(:focus)::-webkit-input-placeholder {
+.circuit-1:not(:focus)::-webkit-input-placeholder {
   color: #D8A413;
 }
 
-.circuit-2:not(:focus)::-moz-placeholder {
+.circuit-1:not(:focus)::-moz-placeholder {
   color: #D8A413;
 }
 
-.circuit-2:not(:focus):-ms-input-placeholder {
+.circuit-1:not(:focus):-ms-input-placeholder {
   color: #D8A413;
 }
 
-.circuit-2:not(:focus)::placeholder {
+.circuit-1:not(:focus)::placeholder {
   color: #D8A413;
 }
 
-.circuit-4 {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: #D8A413;
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #AD7A14;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #D8A413;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #D8A413;
 }
 
 <label
-    class="circuit-11"
+    class="circuit-5"
     for="19"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       Label
     </span>
     <div
-      class="circuit-9 circuit-10"
+      class="circuit-4"
     >
       <input
-        aria-invalid="false"
-        class="circuit-2 circuit-3"
+        class="circuit-1"
         id="19"
         placeholder="Placeholder"
       />
       <div
-        class="circuit-5 circuit-6"
+        class="circuit-2"
       >
         <svg
-          class="circuit-4"
           fill="none"
           height="16"
           role="img"
@@ -16584,142 +16457,125 @@ label + .circuit-9 {
         </svg>
       </div>
       <div
-        class="circuit-7 circuit-8"
+        class="circuit-3"
       >
         This does not look right.
       </div>
     </div>
   </label>,
-  .circuit-9 {
+  .circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-7 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-7,
-label + .circuit-7 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-5 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   opacity: 1;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #D8A413;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:not(:focus) {
-  border-color: #D8A413;
-}
-
-.circuit-2:not(:focus)::-webkit-input-placeholder {
+.circuit-1:not(:focus)::-webkit-input-placeholder {
   color: #D8A413;
 }
 
-.circuit-2:not(:focus)::-moz-placeholder {
+.circuit-1:not(:focus)::-moz-placeholder {
   color: #D8A413;
 }
 
-.circuit-2:not(:focus):-ms-input-placeholder {
+.circuit-1:not(:focus):-ms-input-placeholder {
   color: #D8A413;
 }
 
-.circuit-2:not(:focus)::placeholder {
+.circuit-1:not(:focus)::placeholder {
   color: #D8A413;
 }
 
-.circuit-4 {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: #D8A413;
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #AD7A14;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #D8A413;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #D8A413;
 }
 
 <label
-    class="circuit-9"
+    class="circuit-4"
     for="20"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       Label
     </span>
     <div
-      class="circuit-7 circuit-8"
+      class="circuit-3"
     >
       <input
-        aria-invalid="false"
-        class="circuit-2 circuit-3"
+        class="circuit-1"
         id="20"
         placeholder="Placeholder"
       />
       <div
-        class="circuit-5 circuit-6"
+        class="circuit-2"
       >
         <svg
-          class="circuit-4"
           fill="none"
           height="16"
           role="img"
@@ -16768,59 +16624,761 @@ exports[`Storyshots Forms/Input With Visually Hidden Label 1`] = `
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
-label + .circuit-6 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
+}
+
+.circuit-2 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-1 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<label
+  class="circuit-4"
+  for="input_26"
+>
+  <span
+    class="circuit-0"
+  >
+    Label
+  </span>
+  <div
+    class="circuit-3"
+  >
+    <input
+      class="circuit-1"
+      id="input_26"
+      placeholder="Placeholder"
+    />
+    <div
+      class="circuit-2"
+    />
+  </div>
+</label>
+`;
+
+exports[`Storyshots Forms/Input/CurrencyInput Base 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-5 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 18px !important;
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-3::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-3:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-3:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 .circuit-4 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
+}
+
+<label
+  class="circuit-6"
+  for="input_9"
+>
+  <span
+    class="circuit-0"
+  >
+    Amount (de-DE, EUR)
+  </span>
+  <div
+    class="circuit-5"
+  >
+    <span
+      class="circuit-1 circuit-2"
+    >
+      €
+    </span>
+    <input
+      class="circuit-3"
+      id="input_9"
+      placeholder="123.45"
+      type="text"
+      value=""
+    />
+    <div
+      class="circuit-4"
+    />
+  </div>
+</label>
+`;
+
+exports[`Storyshots Forms/Input/CurrencyInput Currencies 1`] = `
+HTMLCollection [
+  .circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-5 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 18px !important;
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-3::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-3:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-3:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-4 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+<label
+    class="circuit-6"
+    for="input_10"
+  >
+    <span
+      class="circuit-0"
+    >
+      Amount (pt-BR, BRL)
+    </span>
+    <div
+      class="circuit-5"
+    >
+      <span
+        class="circuit-1 circuit-2"
+      >
+        R$
+      </span>
+      <input
+        class="circuit-3"
+        id="input_10"
+        placeholder="1,234.50"
+        type="text"
+        value=""
+      />
+      <div
+        class="circuit-4"
+      />
+    </div>
+  </label>,
+  .circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-5 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 18px !important;
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-3::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-3:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-3:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-4 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+<label
+    class="circuit-6"
+    for="input_11"
+  >
+    <span
+      class="circuit-0"
+    >
+      Amount (pt-BR, USD)
+    </span>
+    <div
+      class="circuit-5"
+    >
+      <span
+        class="circuit-1 circuit-2"
+      >
+        $
+      </span>
+      <input
+        class="circuit-3"
+        id="input_11"
+        placeholder="1,234.50"
+        type="text"
+        value=""
+      />
+      <div
+        class="circuit-4"
+      />
+    </div>
+  </label>,
+]
+`;
+
+exports[`Storyshots Forms/Input/CurrencyInput Locales 1`] = `
+HTMLCollection [
+  .circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-5 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 18px !important;
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-3::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-3:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-3:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-4 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+<label
+    class="circuit-6"
+    for="input_12"
+  >
+    <span
+      class="circuit-0"
+    >
+      Amount (de-DE, EUR)
+    </span>
+    <div
+      class="circuit-5"
+    >
+      <span
+        class="circuit-1 circuit-2"
+      >
+        €
+      </span>
+      <input
+        class="circuit-3"
+        id="input_12"
+        placeholder="1,234.50"
+        type="text"
+        value=""
+      />
+      <div
+        class="circuit-4"
+      />
+    </div>
+  </label>,
+  .circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-5 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-5,
+label + .circuit-5 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 18px !important;
+}
+
+.circuit-3 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-3::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-3:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-3:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-3:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-4 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+<label
+    class="circuit-6"
+    for="input_13"
+  >
+    <span
+      class="circuit-0"
+    >
+      Amount (en-IE, EUR)
+    </span>
+    <div
+      class="circuit-5"
+    >
+      <span
+        class="circuit-1 circuit-2"
+      >
+        €
+      </span>
+      <input
+        class="circuit-3"
+        id="input_13"
+        placeholder="1,234.50"
+        type="text"
+        value=""
+      />
+      <div
+        class="circuit-4"
+      />
+    </div>
+  </label>,
+]
+`;
+
+exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
 }
 
 .circuit-2 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
+  padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-2::-webkit-input-placeholder {
@@ -16847,823 +17405,43 @@ label + .circuit-6 {
   transition: color 200ms ease-in-out;
 }
 
+.circuit-2:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-2:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-2:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-1 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
+}
+
 <label
-  class="circuit-8"
-  for="forms-input--with-visually-hidden-label"
+  class="circuit-4"
+  for="42"
 >
   <span
-    class="circuit-0 circuit-1"
-  >
-    Label
-  </span>
-  <div
-    class="circuit-6 circuit-7"
-  >
-    <input
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
-      id="forms-input--with-visually-hidden-label"
-      kind="Forms/Input"
-      name="With Visually Hidden Label"
-      placeholder="Placeholder"
-    />
-    <div
-      class="circuit-4 circuit-5"
-    />
-  </div>
-</label>
-`;
-
-exports[`Storyshots Forms/Input/CurrencyInput Base 1`] = `
-.circuit-10 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-8 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-8,
-label + .circuit-8 {
-  margin-top: 4px;
-}
-
-.circuit-2 {
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 18px !important;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-.circuit-4 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: calc(16px + 18px);
-}
-
-.circuit-4:focus,
-.circuit-4:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-4::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-6 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-<label
-  class="circuit-10"
-  for="input_9"
->
-  <span
-    class="circuit-0 circuit-1"
-  >
-    Amount (de-DE, EUR)
-  </span>
-  <div
-    class="circuit-8 circuit-9"
-  >
-    <span
-      class="circuit-2 circuit-3"
-    >
-      €
-    </span>
-    <input
-      aria-invalid="false"
-      class="circuit-4 circuit-5"
-      id="input_9"
-      placeholder="123.45"
-      type="text"
-      value=""
-    />
-    <div
-      class="circuit-6 circuit-7"
-    />
-  </div>
-</label>
-`;
-
-exports[`Storyshots Forms/Input/CurrencyInput Currencies 1`] = `
-HTMLCollection [
-  .circuit-10 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-8 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-8,
-label + .circuit-8 {
-  margin-top: 4px;
-}
-
-.circuit-2 {
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 18px !important;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-.circuit-4 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: calc(16px + 18px);
-}
-
-.circuit-4:focus,
-.circuit-4:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-4::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-6 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-<label
-    class="circuit-10"
-    for="input_10"
-  >
-    <span
-      class="circuit-0 circuit-1"
-    >
-      Amount (pt-BR, BRL)
-    </span>
-    <div
-      class="circuit-8 circuit-9"
-    >
-      <span
-        class="circuit-2 circuit-3"
-      >
-        R$
-      </span>
-      <input
-        aria-invalid="false"
-        class="circuit-4 circuit-5"
-        id="input_10"
-        placeholder="1,234.50"
-        type="text"
-        value=""
-      />
-      <div
-        class="circuit-6 circuit-7"
-      />
-    </div>
-  </label>,
-  .circuit-10 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-8 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-8,
-label + .circuit-8 {
-  margin-top: 4px;
-}
-
-.circuit-2 {
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 18px !important;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-.circuit-4 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: calc(16px + 18px);
-}
-
-.circuit-4:focus,
-.circuit-4:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-4::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-6 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-<label
-    class="circuit-10"
-    for="input_11"
-  >
-    <span
-      class="circuit-0 circuit-1"
-    >
-      Amount (pt-BR, USD)
-    </span>
-    <div
-      class="circuit-8 circuit-9"
-    >
-      <span
-        class="circuit-2 circuit-3"
-      >
-        $
-      </span>
-      <input
-        aria-invalid="false"
-        class="circuit-4 circuit-5"
-        id="input_11"
-        placeholder="1,234.50"
-        type="text"
-        value=""
-      />
-      <div
-        class="circuit-6 circuit-7"
-      />
-    </div>
-  </label>,
-]
-`;
-
-exports[`Storyshots Forms/Input/CurrencyInput Locales 1`] = `
-HTMLCollection [
-  .circuit-10 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-8 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-8,
-label + .circuit-8 {
-  margin-top: 4px;
-}
-
-.circuit-2 {
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 18px !important;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-.circuit-4 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: calc(16px + 18px);
-}
-
-.circuit-4:focus,
-.circuit-4:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-4::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-6 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-<label
-    class="circuit-10"
-    for="input_12"
-  >
-    <span
-      class="circuit-0 circuit-1"
-    >
-      Amount (de-DE, EUR)
-    </span>
-    <div
-      class="circuit-8 circuit-9"
-    >
-      <span
-        class="circuit-2 circuit-3"
-      >
-        €
-      </span>
-      <input
-        aria-invalid="false"
-        class="circuit-4 circuit-5"
-        id="input_12"
-        placeholder="1,234.50"
-        type="text"
-        value=""
-      />
-      <div
-        class="circuit-6 circuit-7"
-      />
-    </div>
-  </label>,
-  .circuit-10 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-8 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-8,
-label + .circuit-8 {
-  margin-top: 4px;
-}
-
-.circuit-2 {
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 18px !important;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-.circuit-4 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-  text-align: right;
-  padding-right: calc(16px + 18px);
-}
-
-.circuit-4:focus,
-.circuit-4:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-4::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-4::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-6 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-<label
-    class="circuit-10"
-    for="input_13"
-  >
-    <span
-      class="circuit-0 circuit-1"
-    >
-      Amount (en-IE, EUR)
-    </span>
-    <div
-      class="circuit-8 circuit-9"
-    >
-      <span
-        class="circuit-2 circuit-3"
-      >
-        €
-      </span>
-      <input
-        aria-invalid="false"
-        class="circuit-4 circuit-5"
-        id="input_13"
-        placeholder="1,234.50"
-        type="text"
-        value=""
-      />
-      <div
-        class="circuit-6 circuit-7"
-      />
-    </div>
-  </label>,
-]
-`;
-
-exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
-.circuit-7 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-5 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-5,
-label + .circuit-5 {
-  margin-top: 4px;
-}
-
-.circuit-2 {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-.circuit-3 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-3:focus,
-.circuit-3:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-3::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-3::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-3:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-3::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-<label
-  class="circuit-7"
-  for="41"
->
-  <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Search
   </span>
   <div
-    class="circuit-5 circuit-6"
+    class="circuit-3"
   >
     <svg
-      class="circuit-2"
+      class="circuit-1"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -17678,9 +17456,8 @@ label + .circuit-5 {
       />
     </svg>
     <input
-      aria-invalid="false"
-      class="circuit-3 circuit-4"
-      id="41"
+      class="circuit-2"
+      id="42"
       placeholder="Search..."
       type="text"
       value=""
@@ -17690,25 +17467,77 @@ label + .circuit-5 {
 `;
 
 exports[`Storyshots Forms/Input/SearchInput Clearable 1`] = `
-.circuit-7 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-5 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-5,
-label + .circuit-5 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
 .circuit-2 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-2::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-2:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-2:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-1 {
   position: absolute;
   top: 1px;
   left: 1px;
@@ -17719,69 +17548,21 @@ label + .circuit-5 {
   width: 40px;
 }
 
-.circuit-3 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-3:focus,
-.circuit-3:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-3::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-3::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-3:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-3::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
 <div>
   <label
-    class="circuit-7"
-    for="43"
+    class="circuit-4"
+    for="44"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       Label
     </span>
     <div
-      class="circuit-5 circuit-6"
+      class="circuit-3"
     >
       <svg
-        class="circuit-2"
+        class="circuit-1"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -17796,9 +17577,8 @@ label + .circuit-5 {
         />
       </svg>
       <input
-        aria-invalid="false"
-        class="circuit-3 circuit-4"
-        id="43"
+        class="circuit-2"
+        id="44"
         placeholder="Search..."
         type="text"
         value=""
@@ -17809,13 +17589,80 @@ label + .circuit-5 {
 `;
 
 exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
-.circuit-7 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
 .circuit-2 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-2::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-2:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-2:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-2:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
   position: absolute;
   top: 1px;
   left: 1px;
@@ -17826,84 +17673,21 @@ exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
   width: 40px;
 }
 
-.circuit-5 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-label > .circuit-5,
-label + .circuit-5 {
-  margin-top: 4px;
-}
-
-.circuit-3 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-3:focus,
-.circuit-3:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-3::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-3::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-3:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-3::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
 <label
-  class="circuit-7"
-  for="42"
+  class="circuit-4"
+  for="43"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Search
   </span>
   <div
-    class="circuit-5 circuit-6"
+    class="circuit-3"
     disabled=""
   >
     <svg
-      class="circuit-2"
+      class="circuit-1"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -17918,10 +17702,9 @@ label + .circuit-5 {
       />
     </svg>
     <input
-      aria-invalid="false"
-      class="circuit-3 circuit-4"
+      class="circuit-2"
       disabled=""
-      id="42"
+      id="43"
       placeholder="Search..."
       type="text"
       value=""
@@ -18007,7 +17790,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_35"
+    id="radio-button_36"
     name="radio"
     type="radio"
     value="radio"
@@ -18061,7 +17844,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_35"
+    for="radio-button_36"
   >
     Unchecked
   </label>,
@@ -18106,7 +17889,7 @@ HTMLCollection [
 <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="radio-button_37"
+    id="radio-button_38"
     name="disabled"
     type="radio"
     value="disabled"
@@ -18179,7 +17962,7 @@ HTMLCollection [
 <label
     class="circuit-0 circuit-1"
     disabled=""
-    for="radio-button_37"
+    for="radio-button_38"
   >
     Disabled
   </label>,
@@ -18223,7 +18006,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_36"
+    id="radio-button_37"
     name="invalid"
     type="radio"
     value="invalid"
@@ -18286,7 +18069,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_36"
+    for="radio-button_37"
   >
     Error
   </label>,
@@ -18381,31 +18164,16 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_38"
+      id="radio-button_39"
       name="radio-button-group"
       type="radio"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_38"
-    >
-      Apple
-    </label>
-  </div>
-  <div>
-    <input
-      class="circuit-0 circuit-1"
-      id="radio-button_39"
-      name="radio-button-group"
-      type="radio"
-      value="banana"
-    />
-    <label
-      class="circuit-2 circuit-3"
       for="radio-button_39"
     >
-      Banana
+      Apple
     </label>
   </div>
   <div>
@@ -18414,11 +18182,26 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
       id="radio-button_40"
       name="radio-button-group"
       type="radio"
-      value="mango"
+      value="banana"
     />
     <label
       class="circuit-2 circuit-3"
       for="radio-button_40"
+    >
+      Banana
+    </label>
+  </div>
+  <div>
+    <input
+      class="circuit-0 circuit-1"
+      id="radio-button_41"
+      name="radio-button-group"
+      type="radio"
+      value="mango"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="radio-button_41"
     >
       Mango
     </label>
@@ -18505,7 +18288,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
-  for="44"
+  for="45"
 >
   <span
     class="circuit-0"
@@ -18518,7 +18301,7 @@ label + .circuit-3 {
     <select
       aria-invalid="false"
       class="circuit-1"
-      id="44"
+      id="45"
       name="select"
     >
       <option
@@ -18623,7 +18406,7 @@ label + .circuit-3 {
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #DB4D4D;
+  box-shadow: 0 0 0 1px #B22828;
 }
 
 .circuit-1:focus {
@@ -18667,7 +18450,7 @@ label + .circuit-3 {
     <select
       aria-invalid="true"
       class="circuit-1"
-      id="45"
+      id="46"
       name="select"
     >
       <option
@@ -18819,7 +18602,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
-  for="46"
+  for="47"
 >
   <span
     class="circuit-0"
@@ -18878,7 +18661,7 @@ label + .circuit-3 {
     <select
       aria-invalid="false"
       class="circuit-1"
-      id="46"
+      id="47"
       name="country_select"
     >
       <option
@@ -19008,7 +18791,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
-  for="47"
+  for="48"
 >
   <span
     class="circuit-0"
@@ -19021,7 +18804,7 @@ label + .circuit-3 {
     <select
       aria-invalid="false"
       class="circuit-1"
-      id="47"
+      id="48"
       name="select"
     >
       <option
@@ -19135,13 +18918,13 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 >
   <input
     class="circuit-0 circuit-1"
-    id="selector_48"
+    id="selector_49"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
-    for="selector_48"
+    for="selector_49"
   >
     Select me!
   </label>
@@ -19232,14 +19015,14 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="selector_50"
+    id="selector_51"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
     disabled=""
-    for="selector_50"
+    for="selector_51"
   >
     I cannot be selected
   </label>
@@ -19323,13 +19106,13 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   <input
     checked=""
     class="circuit-0 circuit-1"
-    id="selector_49"
+    id="selector_50"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
-    for="selector_49"
+    for="selector_50"
   >
     I am selected!
   </label>
@@ -19416,33 +19199,16 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_51"
+      id="selector_52"
       name="selector-group"
       type="radio"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_51"
-    >
-      Apple
-    </label>
-  </div>
-  <div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      class="circuit-0 circuit-1"
-      id="selector_52"
-      name="selector-group"
-      type="radio"
-      value="banana"
-    />
-    <label
-      class="circuit-2 circuit-3"
       for="selector_52"
     >
-      Banana
+      Apple
     </label>
   </div>
   <div
@@ -19453,11 +19219,28 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
       id="selector_53"
       name="selector-group"
       type="radio"
-      value="mango"
+      value="banana"
     />
     <label
       class="circuit-2 circuit-3"
       for="selector_53"
+    >
+      Banana
+    </label>
+  </div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_54"
+      name="selector-group"
+      type="radio"
+      value="mango"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_54"
     >
       Mango
     </label>
@@ -19545,33 +19328,16 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_54"
+      id="selector_55"
       name="selector-group"
       type="checkbox"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_54"
-    >
-      Apple
-    </label>
-  </div>
-  <div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      class="circuit-0 circuit-1"
-      id="selector_55"
-      name="selector-group"
-      type="checkbox"
-      value="banana"
-    />
-    <label
-      class="circuit-2 circuit-3"
       for="selector_55"
     >
-      Banana
+      Apple
     </label>
   </div>
   <div
@@ -19582,11 +19348,28 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
       id="selector_56"
       name="selector-group"
       type="checkbox"
-      value="mango"
+      value="banana"
     />
     <label
       class="circuit-2 circuit-3"
       for="selector_56"
+    >
+      Banana
+    </label>
+  </div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_57"
+      name="selector-group"
+      type="checkbox"
+      value="mango"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_57"
     >
       Mango
     </label>
@@ -19595,120 +19378,164 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
 `;
 
 exports[`Storyshots Forms/TextArea Base 1`] = `
-.circuit-8 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
-label + .circuit-6 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-4 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
-  overflow: auto;
-  resize: vertical;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
-  class="circuit-8"
-  for="58"
+  class="circuit-4"
+  for="59"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-3"
   >
     <textarea
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
-      id="58"
+      class="circuit-1"
+      id="59"
       placeholder="Write your text here..."
     />
     <div
-      class="circuit-4 circuit-5"
+      class="circuit-2"
     />
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/TextArea Disabled 1`] = `
-.circuit-6 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-4 {
+.circuit-1 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
@@ -19718,78 +19545,28 @@ exports[`Storyshots Forms/TextArea Disabled 1`] = `
   box-shadow: none;
 }
 
-label > .circuit-4,
-label + .circuit-4 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-2 {
-  background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
-  padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
-  width: 100%;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 0;
-  padding-right: calc( 12px + 16px + 12px );
-  overflow: auto;
-  resize: vertical;
-}
-
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-2::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
 <label
-  class="circuit-6"
-  for="62"
+  class="circuit-3"
+  for="63"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
     disabled=""
   >
     <textarea
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       disabled=""
-      id="62"
+      id="63"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -19799,40 +19576,32 @@ label + .circuit-4 {
 `;
 
 exports[`Storyshots Forms/TextArea Invalid 1`] = `
-.circuit-11 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-9 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-9,
-label + .circuit-9 {
+label > .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
-.circuit-5 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   opacity: 1;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-7 {
+.circuit-3 {
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -19855,7 +19624,7 @@ label + .circuit-9 {
   right: 1px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   display: block;
   content: '';
   width: 0;
@@ -19864,114 +19633,104 @@ label + .circuit-9 {
   border: 8px solid transparent;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   right: 12px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   top: 100%;
   border-top-color: #212933;
 }
 
-.circuit-4 {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: #DB4D4D;
-}
-
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
-  overflow: auto;
-  resize: vertical;
+  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:not(:focus) {
-  border-color: #EA7A7A;
-}
-
-.circuit-2:not(:focus)::-webkit-input-placeholder {
+.circuit-1:not(:focus)::-webkit-input-placeholder {
   color: #EA7A7A;
 }
 
-.circuit-2:not(:focus)::-moz-placeholder {
+.circuit-1:not(:focus)::-moz-placeholder {
   color: #EA7A7A;
 }
 
-.circuit-2:not(:focus):-ms-input-placeholder {
+.circuit-1:not(:focus):-ms-input-placeholder {
   color: #EA7A7A;
 }
 
-.circuit-2:not(:focus)::placeholder {
+.circuit-1:not(:focus)::placeholder {
   color: #EA7A7A;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #B22828;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #DB4D4D;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
 <label
-  class="circuit-11"
-  for="59"
+  class="circuit-5"
+  for="60"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-9 circuit-10"
+    class="circuit-4"
   >
     <textarea
       aria-invalid="true"
-      class="circuit-2 circuit-3"
-      id="59"
+      class="circuit-1"
+      id="60"
       placeholder="Write your text here..."
     />
     <div
-      class="circuit-5 circuit-6"
+      class="circuit-2"
     >
       <svg
-        class="circuit-4"
         fill="none"
         height="16"
         role="img"
@@ -20002,7 +19761,7 @@ label + .circuit-9 {
       </svg>
     </div>
     <div
-      class="circuit-7 circuit-8"
+      class="circuit-3"
     >
       Please fill in this field.
     </div>
@@ -20011,150 +19770,133 @@ label + .circuit-9 {
 `;
 
 exports[`Storyshots Forms/TextArea Optional 1`] = `
-.circuit-8 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
-label + .circuit-6 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-4 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   background-color: #FAFBFC;
-  border-style: dashed;
-  box-shadow: none;
   padding-right: calc( 12px + 16px + 12px );
-  overflow: auto;
-  resize: vertical;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
-  class="circuit-8"
-  for="61"
+  class="circuit-4"
+  for="62"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-3"
   >
     <textarea
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
-      id="61"
+      class="circuit-1"
+      id="62"
       placeholder="Write your text here..."
     />
     <div
-      class="circuit-4 circuit-5"
+      class="circuit-2"
     />
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/TextArea Warning 1`] = `
-.circuit-11 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-9 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-9,
-label + .circuit-9 {
+label > .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
-.circuit-5 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
   opacity: 1;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-7 {
+.circuit-3 {
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -20177,7 +19919,7 @@ label + .circuit-9 {
   right: 1px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   display: block;
   content: '';
   width: 0;
@@ -20186,114 +19928,103 @@ label + .circuit-9 {
   border: 8px solid transparent;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   right: 12px;
 }
 
-.circuit-7::after {
+.circuit-3::after {
   top: 100%;
   border-top-color: #212933;
 }
 
-.circuit-4 {
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: #D8A413;
-}
-
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
-  overflow: auto;
-  resize: vertical;
+  box-shadow: 0 0 0 1px #D8A413;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:not(:focus) {
-  border-color: #D8A413;
-}
-
-.circuit-2:not(:focus)::-webkit-input-placeholder {
+.circuit-1:not(:focus)::-webkit-input-placeholder {
   color: #D8A413;
 }
 
-.circuit-2:not(:focus)::-moz-placeholder {
+.circuit-1:not(:focus)::-moz-placeholder {
   color: #D8A413;
 }
 
-.circuit-2:not(:focus):-ms-input-placeholder {
+.circuit-1:not(:focus):-ms-input-placeholder {
   color: #D8A413;
 }
 
-.circuit-2:not(:focus)::placeholder {
+.circuit-1:not(:focus)::placeholder {
   color: #D8A413;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #AD7A14;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #D8A413;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #D8A413;
 }
 
 <label
-  class="circuit-11"
-  for="60"
+  class="circuit-5"
+  for="61"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-9 circuit-10"
+    class="circuit-4"
   >
     <textarea
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
-      id="60"
+      class="circuit-1"
+      id="61"
       placeholder="Write your text here..."
     />
     <div
-      class="circuit-5 circuit-6"
+      class="circuit-2"
     >
       <svg
-        class="circuit-4"
         fill="none"
         height="16"
         role="img"
@@ -20324,7 +20055,7 @@ label + .circuit-9 {
       </svg>
     </div>
     <div
-      class="circuit-7 circuit-8"
+      class="circuit-3"
     >
       We recommend that you fill in this field.
     </div>
@@ -20346,107 +20077,100 @@ exports[`Storyshots Forms/TextArea With Visually Hidden Label 1`] = `
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-6 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
-label + .circuit-6 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-4 {
+.circuit-2 {
   opacity: 0;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-right: calc( 12px + 16px + 12px );
-  overflow: auto;
-  resize: vertical;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2:focus,
-.circuit-2:active {
-  border: 1px solid #3388FF;
-  outline: none;
-}
-
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
-  class="circuit-8"
-  for="63"
+  class="circuit-4"
+  for="64"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Label
   </span>
   <div
-    class="circuit-6 circuit-7"
+    class="circuit-3"
   >
     <textarea
-      aria-invalid="false"
-      class="circuit-2 circuit-3"
-      id="63"
+      class="circuit-1"
+      id="64"
       placeholder="Write your text here..."
     />
     <div
-      class="circuit-4 circuit-5"
+      class="circuit-2"
     />
   </div>
 </label>
@@ -20571,9 +20295,9 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_65"
+    aria-labelledby="toggle-label_66"
     class="circuit-4 circuit-5"
-    id="toggle-switch_64"
+    id="toggle-switch_65"
     role="switch"
     type="button"
   >
@@ -20588,8 +20312,8 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   </button>
   <label
     class="circuit-8 circuit-9"
-    for="toggle-switch_64"
-    id="toggle-label_65"
+    for="toggle-switch_65"
+    id="toggle-label_66"
   >
     <p
       class="circuit-6 circuit-7"
@@ -20735,9 +20459,9 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_67"
+    aria-labelledby="toggle-label_68"
     class="circuit-4 circuit-5"
-    id="toggle-switch_66"
+    id="toggle-switch_67"
     role="switch"
     type="button"
   >
@@ -20752,8 +20476,8 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-10 circuit-11"
-    for="toggle-switch_66"
-    id="toggle-label_67"
+    for="toggle-switch_67"
+    id="toggle-label_68"
   >
     <p
       class="circuit-6 circuit-7"

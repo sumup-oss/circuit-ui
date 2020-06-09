@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Input from './Input';
+import { Input } from './Input';
 
 export default Input;

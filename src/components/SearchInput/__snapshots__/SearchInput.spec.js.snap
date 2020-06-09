@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchInput should grey out icon when disabled 1`] = `
-.circuit-5 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-0 {
   position: absolute;
   top: 1px;
@@ -20,26 +14,18 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 
 .circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-1:focus,
-.circuit-1:active {
-  border: 1px solid #3388FF;
-  outline: none;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -66,7 +52,19 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3 {
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
@@ -76,62 +74,50 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   box-shadow: none;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
-<label
-  class="circuit-5"
-  for="input_2"
+<div
+  class="circuit-2"
+  disabled=""
 >
-  <div
-    class="circuit-3 circuit-4"
-    disabled=""
+  <svg
+    class="circuit-0"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <svg
-      class="circuit-0"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-    <input
-      aria-invalid="false"
-      class="circuit-1 circuit-2"
-      disabled=""
-      id="input_2"
-      type="text"
-      value=""
+    <path
+      clip-rule="evenodd"
+      d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
+      fill="currentColor"
+      fill-rule="evenodd"
     />
-  </div>
-</label>
+  </svg>
+  <input
+    class="circuit-1"
+    disabled=""
+    id="input_2"
+    type="text"
+    value=""
+  />
+</div>
 `;
 
 exports[`SearchInput should render with default styles 1`] = `
-.circuit-5 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-3 {
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
@@ -148,26 +134,18 @@ label + .circuit-3 {
 
 .circuit-1 {
   background-color: #FFFFFF;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #D8DDE1;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  border: none;
+  border-radius: 8px;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
+  margin: 0;
   font-size: 16px;
   line-height: 24px;
-  margin: 0;
   padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
-}
-
-.circuit-1:focus,
-.circuit-1:active {
-  border: 1px solid #3388FF;
-  outline: none;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -194,35 +172,41 @@ label + .circuit-3 {
   transition: color 200ms ease-in-out;
 }
 
-<label
-  class="circuit-5"
-  for="input_1"
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<div
+  class="circuit-2"
 >
-  <div
-    class="circuit-3 circuit-4"
+  <svg
+    class="circuit-0"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <svg
-      class="circuit-0"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-    <input
-      aria-invalid="false"
-      class="circuit-1 circuit-2"
-      id="input_1"
-      type="text"
-      value=""
+    <path
+      clip-rule="evenodd"
+      d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
+      fill="currentColor"
+      fill-rule="evenodd"
     />
-  </div>
-</label>
+  </svg>
+  <input
+    class="circuit-1"
+    id="input_1"
+    type="text"
+    value=""
+  />
+</div>
 `;

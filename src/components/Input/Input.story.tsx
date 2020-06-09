@@ -18,7 +18,7 @@ import React from 'react';
 import { uniqueId } from '../../util/id';
 
 import docs from './Input.docs.mdx';
-import Input from './Input';
+import { Input, InputProps } from './Input';
 
 export default {
   title: 'Forms/Input',
@@ -29,7 +29,7 @@ export default {
 };
 
 // Inputs always need labels for accessibility.
-const InputWithLabel = props => {
+const InputWithLabel = (props: Partial<InputProps>) => {
   const id = uniqueId();
   return <Input placeholder="Placeholder" {...props} id={id} label="Label" />;
 };
@@ -70,11 +70,6 @@ export const inline = () => (
   </div>
 );
 
-export const withVisuallyHiddenLabel = props => (
-  <Input
-    placeholder="Placeholder"
-    {...props}
-    label="Label"
-    labelVisuallyHidden
-  />
+export const withVisuallyHiddenLabel = () => (
+  <Input placeholder="Placeholder" label="Label" labelVisuallyHidden />
 );

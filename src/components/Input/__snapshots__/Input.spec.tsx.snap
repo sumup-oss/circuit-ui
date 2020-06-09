@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextArea should prioritize disabled over error styles 1`] = `
+exports[`Input should prioritize disabled over error styles 1`] = `
 .circuit-1 {
   color: #212933;
   display: block;
@@ -71,16 +71,16 @@ label + .circuit-1 {
   class="circuit-1"
   disabled=""
 >
-  <textarea
+  <input
     aria-invalid="true"
     class="circuit-0"
     disabled=""
-    id="input_11"
+    id="input_12"
   />
 </div>
 `;
 
-exports[`TextArea should prioritize disabled over warning styles 1`] = `
+exports[`Input should prioritize disabled over warning styles 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
@@ -186,10 +186,10 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
     aria-invalid="true"
     class="circuit-0"
-    id="input_12"
+    id="input_13"
   />
   <div
     class="circuit-1"
@@ -227,7 +227,7 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should prioritize error over optional styles 1`] = `
+exports[`Input should prioritize error over optional styles 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
@@ -318,10 +318,10 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
     aria-invalid="true"
     class="circuit-0"
-    id="input_10"
+    id="input_11"
   />
   <div
     class="circuit-1"
@@ -359,7 +359,7 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should render with a Tooltip when passed the validationHint prop 1`] = `
+exports[`Input should render with a Tooltip when passed the validationHint prop 1`] = `
 .circuit-3 {
   color: #212933;
   display: block;
@@ -473,7 +473,7 @@ label + .circuit-3 {
 <div
   class="circuit-3"
 >
-  <textarea
+  <input
     class="circuit-0"
     id="input_4"
   />
@@ -488,7 +488,7 @@ label + .circuit-3 {
 </div>
 `;
 
-exports[`TextArea should render with a prefix when passed the prefix prop 1`] = `
+exports[`Input should render with a prefix when passed the prefix prop 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
@@ -499,6 +499,12 @@ exports[`TextArea should render with a prefix when passed the prefix prop 1`] = 
 label > .circuit-2,
 label + .circuit-2 {
   margin-top: 4px;
+}
+
+.circuit-1 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 
 .circuit-0 {
@@ -512,6 +518,7 @@ label + .circuit-2 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  padding-left: calc( 12px + 16px + 12px );
   padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
@@ -552,16 +559,13 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
 <div
   class="circuit-2"
 >
-  <textarea
+  <div
+    style="width: 24px; height: 24px;"
+  />
+  <input
     class="circuit-0"
     id="input_2"
   />
@@ -571,7 +575,84 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should render with a suffix when passed the suffix prop 1`] = `
+exports[`Input should render with a suffix when passed the suffix prop 1`] = `
+.circuit-1 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-1,
+label + .circuit-1 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<div
+  class="circuit-1"
+>
+  <input
+    class="circuit-0"
+    id="input_3"
+  />
+  <div
+    style="width: 24px; height: 24px;"
+  />
+</div>
+`;
+
+exports[`Input should render with custom styles 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
@@ -644,9 +725,9 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
     class="circuit-0"
-    id="input_3"
+    id="input_16"
   />
   <div
     class="circuit-1"
@@ -654,7 +735,7 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should render with default styles 1`] = `
+exports[`Input should render with default styles 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
@@ -727,7 +808,7 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
     class="circuit-0"
     id="input_1"
   />
@@ -737,7 +818,7 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should render with disabled styled when passed the disabled prop 1`] = `
+exports[`Input should render with disabled styles when passed the disabled prop 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
@@ -808,15 +889,15 @@ label + .circuit-1 {
   class="circuit-1"
   disabled=""
 >
-  <textarea
+  <input
     class="circuit-0"
     disabled=""
-    id="input_9"
+    id="input_10"
   />
 </div>
 `;
 
-exports[`TextArea should render with inline styles when passed the inline prop 1`] = `
+exports[`Input should render with inline styles when passed the inline prop 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
@@ -891,9 +972,9 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
     class="circuit-0"
-    id="input_13"
+    id="input_14"
   />
   <div
     class="circuit-1"
@@ -901,7 +982,7 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
+exports[`Input should render with invalid styles when passed the invalid prop 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
@@ -991,7 +1072,7 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
     aria-invalid="true"
     class="circuit-0"
     id="input_6"
@@ -1032,7 +1113,7 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should render with no margin styles when passed the noMargin prop 1`] = `
+exports[`Input should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
@@ -1106,9 +1187,9 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
     class="circuit-0"
-    id="input_14"
+    id="input_15"
   />
   <div
     class="circuit-1"
@@ -1116,7 +1197,7 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should render with optional styles when passed the optional prop 1`] = `
+exports[`Input should render with optional styles when passed the optional prop 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
@@ -1190,7 +1271,91 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
+    class="circuit-0"
+    id="input_9"
+  />
+  <div
+    class="circuit-1"
+  />
+</div>
+`;
+
+exports[`Input should render with right aligned text 1`] = `
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-2,
+label + .circuit-2 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  padding-right: calc( 12px + 16px + 12px );
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<div
+  class="circuit-2"
+>
+  <input
     class="circuit-0"
     id="input_8"
   />
@@ -1200,7 +1365,7 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should render with valid styles when passed the showValid prop 1`] = `
+exports[`Input should render with valid styles when passed the showValid prop 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
@@ -1274,7 +1439,7 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
     class="circuit-0"
     id="input_7"
   />
@@ -1314,7 +1479,7 @@ label + .circuit-2 {
 </div>
 `;
 
-exports[`TextArea should render with warning styles when passed the hasWarning prop 1`] = `
+exports[`Input should render with warning styles when passed the hasWarning prop 1`] = `
 .circuit-2 {
   color: #212933;
   display: block;
@@ -1404,7 +1569,7 @@ label + .circuit-2 {
 <div
   class="circuit-2"
 >
-  <textarea
+  <input
     class="circuit-0"
     id="input_5"
   />
