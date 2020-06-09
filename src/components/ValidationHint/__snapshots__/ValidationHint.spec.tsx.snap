@@ -6,6 +6,7 @@ exports[`ValidationHint styles should render with default styles 1`] = `
   line-height: 20px;
   display: block;
   margin-top: 4px;
+  color: #5C656F;
 }
 
 <span
@@ -19,6 +20,7 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
   line-height: 20px;
   display: block;
   margin-top: 4px;
+  color: #5C656F;
   color: #DB4D4D;
 }
 

@@ -177,7 +177,8 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: all ${theme.transitions.default};
+  transition: box-shadow ${theme.transitions.default},
+    padding ${theme.transitions.default};
   ${textMega({ theme })};
 
   &:-moz-focusring {
@@ -333,7 +334,7 @@ function SelectComponent(
       </SelectElement>
       <SelectIcon invalid={showInvalid} />
       {showInvalid && <InvalidIcon />}
-      {!disabled && validationHint && (
+      {validationHint && (
         <ValidationHint invalid={invalid}>{validationHint}</ValidationHint>
       )}
     </SelectContainer>

@@ -50,8 +50,8 @@ label + .circuit-2 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #DB4D4D;
@@ -156,8 +156,8 @@ label + .circuit-3 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
@@ -302,8 +302,8 @@ label + .circuit-2 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   padding-left: 40px;
@@ -410,8 +410,8 @@ label + .circuit-3 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
@@ -452,6 +452,7 @@ label + .circuit-3 {
   line-height: 20px;
   display: block;
   margin-top: 4px;
+  color: #5C656F;
 }
 
 <div
@@ -539,8 +540,8 @@ label + .circuit-2 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
@@ -644,8 +645,8 @@ exports[`Select should render with disabled styles when passed the disabled prop
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
@@ -766,8 +767,8 @@ exports[`Select should render with inline styles when passed the inline prop 1`]
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
@@ -897,8 +898,8 @@ label + .circuit-3 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   padding-right: 56px;
@@ -1047,8 +1048,8 @@ exports[`Select should render with no margin styles when passed the noMargin pro
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
