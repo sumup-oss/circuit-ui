@@ -46,7 +46,7 @@ export const base = () => (
 
 export const success = () => (
   <Notification>
-    <NotificationIcon type={NotificationIcon.SUCCESS} />
+    <NotificationIcon type={'success'} />
     <Heading size="kilo" as="h4" noMargin>
       Transaction successfully refunded
     </Heading>
@@ -55,7 +55,7 @@ export const success = () => (
 
 export const warning = () => (
   <Notification>
-    <NotificationIcon type={NotificationIcon.WARNING} />
+    <NotificationIcon type={'warning'} />
     <Heading size="kilo" as="h4" noMargin>
       You still need to verify your account
     </Heading>
@@ -74,7 +74,7 @@ export const warning = () => (
 
 export const alert = () => (
   <Notification>
-    <NotificationIcon type={NotificationIcon.ERROR} />
+    <NotificationIcon type={'error'} />
     <Heading size="kilo" as="h4" noMargin>
       Your transaction has failed
     </Heading>

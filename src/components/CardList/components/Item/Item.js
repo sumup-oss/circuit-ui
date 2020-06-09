@@ -19,15 +19,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { isEnter, isSpacebar } from '../../../../util/key-codes';
-import { sizes } from '../../../../styles/constants';
-
-const { KILO, MEGA, GIGA } = sizes;
-
-const sizeMap = {
-  [KILO]: 'kilo',
-  [MEGA]: 'mega',
-  [GIGA]: 'giga'
-};
 
 const baseStyles = ({ theme }) => css`
   label: cardlist__item;
@@ -66,7 +57,7 @@ const getBorderStyles = theme => css`
 const paddingStyles = ({ theme, padding }) =>
   padding &&
   css`
-    padding: ${theme.spacings[sizeMap[padding]]};
+    padding: ${theme.spacings[padding]};
   `;
 
 const selectedStyles = ({ theme, selected }) =>
@@ -128,7 +119,7 @@ Item.propTypes = {
   /**
    * A Circuit UI spacings size.
    */
-  padding: PropTypes.oneOf([KILO, MEGA, GIGA]),
+  padding: PropTypes.oneOf(['kilo', 'mega', 'giga']),
   /**
    * Content of the list item.
    */
@@ -136,7 +127,7 @@ Item.propTypes = {
 };
 
 Item.defaultProps = {
-  padding: GIGA,
+  padding: 'giga',
   selected: false,
   tabIndex: 0
 };

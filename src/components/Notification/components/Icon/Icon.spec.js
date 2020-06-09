@@ -27,12 +27,12 @@ describe('NotificationIcon', () => {
   });
 
   it('should render with error icon', () => {
-    const actual = create(<NotificationIcon type={NotificationIcon.ERROR} />);
+    const actual = create(<NotificationIcon type={'error'} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with warning icon', () => {
-    const actual = create(<NotificationIcon type={NotificationIcon.WARNING} />);
+    const actual = create(<NotificationIcon type={'warning'} />);
     expect(actual).toMatchSnapshot();
   });
 

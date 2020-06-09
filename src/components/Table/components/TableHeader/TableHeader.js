@@ -17,12 +17,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
 import { focusOutline } from '../../../../styles/style-helpers';
-import { directions } from '../../../../styles/constants';
 import { childrenPropType } from '../../../../util/shared-prop-types';
 import { isFunction } from '../../../../util/type-check';
-import { ASCENDING, DESCENDING, COL, ROW } from '../../constants';
+import { ASCENDING, DESCENDING } from '../../constants';
 import SortArrow from '../SortArrow';
 
 const getAriaSort = (sortable, sortDirection) =>
@@ -56,7 +56,7 @@ const hoveredStyles = ({ theme, isHovered }) =>
   `;
 
 const colStyles = ({ theme, scope }) =>
-  scope === COL &&
+  scope === 'col' &&
   css`
     label: table-header--col;
     color: ${theme.colors.n700};
@@ -132,13 +132,15 @@ const condensedStyles = ({ condensed, theme }) =>
 
 const condensedColStyles = ({ condensed, scope, theme }) =>
   condensed &&
-  scope === COL &&
+  scope === 'col' &&
   css`
     label: table-header-condensed--col;
     padding: ${theme.spacings.byte} ${theme.spacings.mega};
   `;
 
-const StyledHeader = styled.th`
+const StyledHeader = styled('th', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'scope'
+})`
   ${baseStyles};
   ${hoveredStyles};
   ${fixedStyles};
@@ -180,26 +182,16 @@ const TableHeader = ({
   );
 };
 
-TableHeader.LEFT = directions.LEFT;
-TableHeader.RIGHT = directions.RIGHT;
-TableHeader.CENTER = directions.CENTER;
-TableHeader.COL = COL;
-TableHeader.ROW = ROW;
-
 TableHeader.propTypes = {
   /**
    * Aligns the content of the Header with text-align
    */
-  align: PropTypes.oneOf([
-    TableHeader.LEFT,
-    TableHeader.RIGHT,
-    TableHeader.CENTER
-  ]),
+  align: PropTypes.oneOf(['left', 'right', 'center']),
   /**
    * @private Adds ROL or COL styles based on the provided Scope.
    * Handled internally
    */
-  scope: PropTypes.oneOf([TableHeader.COL, TableHeader.ROW]),
+  scope: PropTypes.oneOf(['col', 'row']),
   /**
    * @private Adds sticky style to the Header based on rowHeader definition.
    * Handled internally
@@ -235,8 +227,8 @@ TableHeader.propTypes = {
 };
 
 TableHeader.defaultProps = {
-  align: TableHeader.LEFT,
-  scope: TableHeader.COL,
+  align: 'left',
+  scope: 'col',
   fixed: false,
   sortable: false,
   isHovered: false,

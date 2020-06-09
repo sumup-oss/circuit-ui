@@ -11311,7 +11311,6 @@ tbody .circuit-36:hover th {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -11370,7 +11369,6 @@ tbody .circuit-36:hover th {
             aria-sort="none"
             class="circuit-16 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -11420,14 +11418,12 @@ tbody .circuit-36:hover th {
           <th
             class="circuit-18 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             Permissions
           </th>
           <th
             class="circuit-20 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             Status
           </th>
@@ -11443,7 +11439,6 @@ tbody .circuit-36:hover th {
           <th
             class="circuit-26 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Lorem ipsum dolor
           </th>
@@ -11483,7 +11478,6 @@ tbody .circuit-36:hover th {
           <th
             class="circuit-26 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Ipsum dolor sit amet
           </th>
@@ -11522,7 +11516,6 @@ tbody .circuit-36:hover th {
           <th
             class="circuit-26 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Dolor sit amet, consectetur adipiscing
           </th>
@@ -11812,7 +11805,6 @@ tbody .circuit-10:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -11877,7 +11869,6 @@ tbody .circuit-10:last-child td {
           <th
             class="circuit-14 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Schweiz
           </th>
@@ -11897,7 +11888,6 @@ tbody .circuit-10:last-child td {
           <th
             class="circuit-14 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Österreich
           </th>
@@ -11917,7 +11907,6 @@ tbody .circuit-10:last-child td {
           <th
             class="circuit-14 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Deutschland
           </th>
@@ -11937,7 +11926,6 @@ tbody .circuit-10:last-child td {
           <th
             class="circuit-14 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Liechtenstein
           </th>
@@ -11957,7 +11945,6 @@ tbody .circuit-10:last-child td {
           <th
             class="circuit-14 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Italien
           </th>
@@ -12291,7 +12278,6 @@ tbody .circuit-18:last-child td {
             aria-sort="none"
             class="circuit-6 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -12350,7 +12336,6 @@ tbody .circuit-18:last-child td {
             aria-sort="none"
             class="circuit-16 circuit-7"
             data-testid="table-header"
-            scope="col"
           >
             <button
               class="circuit-4 circuit-5"
@@ -12407,7 +12392,6 @@ tbody .circuit-18:last-child td {
           <th
             class="circuit-22 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Apple
           </th>
@@ -12433,7 +12417,6 @@ tbody .circuit-18:last-child td {
           <th
             class="circuit-22 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Broccoli
           </th>
@@ -12459,7 +12442,6 @@ tbody .circuit-18:last-child td {
           <th
             class="circuit-22 circuit-7"
             data-testid="table-header"
-            scope="row"
           >
             Chickpeas
           </th>
@@ -12719,7 +12701,6 @@ tbody .circuit-6:last-child td {
           <th
             class="circuit-0 circuit-1"
             data-testid="table-header"
-            scope="col"
           >
             Name
           </th>
@@ -12734,7 +12715,6 @@ tbody .circuit-6:last-child td {
           <th
             class="circuit-4 circuit-1"
             data-testid="table-header"
-            scope="col"
           >
             Type
           </th>
@@ -12748,7 +12728,6 @@ tbody .circuit-6:last-child td {
           <th
             class="circuit-10 circuit-1"
             data-testid="table-header"
-            scope="row"
           >
             Apple
           </th>
@@ -12778,7 +12757,6 @@ tbody .circuit-6:last-child td {
           <th
             class="circuit-10 circuit-1"
             data-testid="table-header"
-            scope="row"
           >
             Broccoli
           </th>
@@ -12808,7 +12786,6 @@ tbody .circuit-6:last-child td {
           <th
             class="circuit-10 circuit-1"
             data-testid="table-header"
-            scope="row"
           >
             Chickpeas
           </th>
@@ -12877,7 +12854,6 @@ exports[`Storyshots Components/Table/TableHeader Base 1`] = `
 <th
   class="circuit-0 circuit-1"
   data-testid="table-header"
-  scope="col"
   style="width: 300px; align-self: center;"
 >
   Header

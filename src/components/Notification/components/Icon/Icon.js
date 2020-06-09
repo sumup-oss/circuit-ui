@@ -19,16 +19,16 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { CircleCheckmark, CircleCross, CircleWarning } from '@sumup/icons';
 
-const ICON_TYPES = {
-  SUCCESS: 'success',
-  ERROR: 'danger',
-  WARNING: 'warning'
+const colorMap = {
+  success: 'success',
+  error: 'danger',
+  warning: 'warning'
 };
 
-const ICON_MAP = {
-  [ICON_TYPES.SUCCESS]: CircleCheckmark,
-  [ICON_TYPES.ERROR]: CircleCross,
-  [ICON_TYPES.WARNING]: CircleWarning
+const iconMap = {
+  success: CircleCheckmark,
+  error: CircleCross,
+  warning: CircleWarning
 };
 
 const baseStyles = ({ theme }) => css`
@@ -46,7 +46,7 @@ const baseStyles = ({ theme }) => css`
 
 const iconColor = type => theme =>
   css`
-    color: ${theme.colors[type]};
+    color: ${theme.colors[colorMap[type]]};
   `;
 
 /**
@@ -56,7 +56,7 @@ const iconColor = type => theme =>
 const NotificationIconContainer = styled('div')(baseStyles);
 
 const NotificationIcon = ({ type, children }) => {
-  const Icon = ICON_MAP[type];
+  const Icon = iconMap[type];
 
   return (
     <NotificationIconContainer>
@@ -64,10 +64,6 @@ const NotificationIcon = ({ type, children }) => {
     </NotificationIconContainer>
   );
 };
-
-NotificationIcon.SUCCESS = ICON_TYPES.SUCCESS;
-NotificationIcon.ERROR = ICON_TYPES.ERROR;
-NotificationIcon.WARNING = ICON_TYPES.WARNING;
 
 NotificationIcon.propTypes = {
   /**
@@ -77,11 +73,7 @@ NotificationIcon.propTypes = {
   /**
    * The icon type. Overrides a custom icon.
    */
-  type: PropTypes.oneOf([
-    NotificationIcon.SUCCESS,
-    NotificationIcon.ERROR,
-    NotificationIcon.WARNING
-  ])
+  type: PropTypes.oneOf(['success', 'error', 'warning'])
 };
 
 /**

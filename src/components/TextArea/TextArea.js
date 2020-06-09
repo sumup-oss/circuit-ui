@@ -33,9 +33,6 @@ const TextAreaComponent = (props, ref) => (
  */
 const TextArea = React.forwardRef(TextAreaComponent);
 
-TextArea.LEFT = Input.LEFT;
-TextArea.RIGHT = Input.RIGHT;
-
 TextArea.propTypes = Input.propTypes;
 
 /**

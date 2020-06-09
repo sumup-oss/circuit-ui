@@ -28,7 +28,7 @@ exports[`InlineMessage should render with danger styles 1`] = `
 
 exports[`InlineMessage should render with default styles 1`] = `
 <p
-  class="css-42hztf-inline-message circuit-0"
+  class="css-11rncos-inline-message circuit-0"
 />
 `;
 

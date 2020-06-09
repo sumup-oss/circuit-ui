@@ -21,7 +21,7 @@ describe('Tooltip', () => {
   /**
    * Style tests.
    */
-  const positions = [Tooltip.TOP, Tooltip.RIGHT, Tooltip.BOTTOM, Tooltip.LEFT];
+  const positions = ['top', 'right', 'bottom', 'left'];
   positions.forEach(position => {
     it(`should render with position ${position}, when passed "${position}" for the position prop`, () => {
       const component = create(
@@ -31,13 +31,7 @@ describe('Tooltip', () => {
     });
   });
 
-  const alignments = [
-    Tooltip.RIGHT,
-    Tooltip.LEFT,
-    Tooltip.TOP,
-    Tooltip.BOTTOM,
-    Tooltip.CENTER
-  ];
+  const alignments = ['right', 'left', 'top', 'bottom', 'center'];
   alignments.forEach(align => {
     it(`should render with align ${align}, when passed "${align}" for the align prop`, () => {
       const component = create(
@@ -49,7 +43,7 @@ describe('Tooltip', () => {
 
   it('should override alignment styles with position styles', () => {
     const component = create(
-      <Tooltip align={Tooltip.LEFT} position={Tooltip.LEFT}>
+      <Tooltip align={'left'} position={'left'}>
         Tooltip content
       </Tooltip>
     );
@@ -61,7 +55,7 @@ describe('Tooltip', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <Tooltip align={Tooltip.CENTER} content="Tooltip">
+      <Tooltip align={'center'} content="Tooltip">
         Text
       </Tooltip>
     );

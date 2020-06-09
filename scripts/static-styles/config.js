@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { entries, values, isFunction, kebabCase } from 'lodash/fp';
+import { entries, isFunction, kebabCase } from 'lodash/fp';
 import { light } from '@sumup/design-tokens';
 
 import {
@@ -32,11 +32,8 @@ import {
   Selector,
   Tag,
   TextArea,
-  Toggle,
-  styleConstants
+  Toggle
 } from '../../src';
-
-const { colorNames } = styleConstants;
 
 const element = props => <div {...props} />;
 
@@ -122,7 +119,7 @@ export default {
       name: 'badge',
       component: Badge,
       props: {
-        color: values(colorNames),
+        color: ['neutral', 'primary', 'success', 'warning', 'danger'],
         circle: PropTypes.bool
       }
     },
