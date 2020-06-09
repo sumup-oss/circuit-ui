@@ -1,12 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select should not render with invalid styles when also passed the disabled prop 1`] = `
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -77,18 +71,143 @@ label + .circuit-2 {
   margin-top: 4px;
 }
 
-<label
-  class="circuit-3"
-  for="select_4"
+<div
+  class="circuit-2"
+  disabled=""
 >
-  <div
-    class="circuit-2"
+  <select
+    class="circuit-0"
     disabled=""
+    id="select_5"
+  >
+    <option
+      value=""
+    >
+      Select an option
+    </option>
+    <option
+      value="1"
+    >
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Select should render with a label 1`] = `
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #D8DDE1;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  color: #212933;
+  padding-top: 8px;
+  padding-right: 32px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  max-height: 42px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.circuit-1:focus,
+.circuit-1:hover,
+.circuit-1:active {
+  outline: none;
+}
+
+.circuit-1:focus {
+  border-color: #3388FF;
+}
+
+.circuit-1:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 40;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+<label
+  class="circuit-4"
+  for="select_2"
+>
+  <span
+    class="circuit-0"
+  >
+    Label
+  </span>
+  <div
+    class="circuit-3"
   >
     <select
-      class="circuit-0"
-      disabled=""
-      id="select_4"
+      class="circuit-1"
+      id="select_2"
     >
       <option
         value=""
@@ -112,7 +231,7 @@ label + .circuit-2 {
       </option>
     </select>
     <svg
-      class="circuit-1"
+      class="circuit-2"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -131,12 +250,6 @@ label + .circuit-2 {
 `;
 
 exports[`Select should render with a prefix when passed the prefix prop 1`] = `
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-2 {
   color: #212933;
   display: block;
@@ -205,67 +318,56 @@ label + .circuit-2 {
   text-shadow: 0 0 0 #000;
 }
 
-<label
-  class="circuit-3"
-  for="select_8"
+<div
+  class="circuit-2"
 >
   <div
-    class="circuit-2"
+    style="width: 24px; height: 24px;"
+  />
+  <select
+    class="circuit-0"
+    id="select_9"
   >
-    <div
-      style="width: 24px; height: 24px;"
+    <option
+      value=""
+    >
+      Select an option
+    </option>
+    <option
+      value="1"
+    >
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+      fill="currentColor"
+      fill-rule="evenodd"
     />
-    <select
-      class="circuit-0"
-      id="select_8"
-    >
-      <option
-        value=""
-      >
-        Select an option
-      </option>
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-1"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </div>
-</label>
+  </svg>
+</div>
 `;
 
 exports[`Select should render with a tooltip when passed a validation hint 1`] = `
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-3 {
   color: #212933;
   display: block;
@@ -374,69 +476,58 @@ label + .circuit-3 {
   border-top-color: #212933;
 }
 
-<label
-  class="circuit-4"
-  for="select_7"
+<div
+  class="circuit-3"
 >
-  <div
-    class="circuit-3"
+  <select
+    class="circuit-0"
+    id="select_8"
   >
-    <select
-      class="circuit-0"
-      id="select_7"
+    <option
+      value=""
     >
-      <option
-        value=""
-      >
-        Select an option
-      </option>
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-1"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+      Select an option
+    </option>
+    <option
+      value="1"
     >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-    <div
-      class="circuit-2"
+      Option 1
+    </option>
+    <option
+      value="2"
     >
-      This field is required.
-    </div>
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+  <div
+    class="circuit-2"
+  >
+    This field is required.
   </div>
-</label>
+</div>
 `;
 
 exports[`Select should render with default styles 1`] = `
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-2 {
   color: #212933;
   display: block;
@@ -504,64 +595,53 @@ label + .circuit-2 {
   padding: 12px;
 }
 
-<label
-  class="circuit-3"
-  for="select_1"
+<div
+  class="circuit-2"
 >
-  <div
-    class="circuit-2"
+  <select
+    class="circuit-0"
+    id="select_1"
   >
-    <select
-      class="circuit-0"
-      id="select_1"
+    <option
+      value=""
     >
-      <option
-        value=""
-      >
-        Select an option
-      </option>
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-1"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+      Select an option
+    </option>
+    <option
+      value="1"
     >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </div>
-</label>
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
 `;
 
 exports[`Select should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -632,66 +712,55 @@ label + .circuit-2 {
   margin-top: 4px;
 }
 
-<label
-  class="circuit-3"
-  for="select_2"
+<div
+  class="circuit-2"
+  disabled=""
 >
-  <div
-    class="circuit-2"
+  <select
+    class="circuit-0"
     disabled=""
+    id="select_3"
   >
-    <select
-      class="circuit-0"
-      disabled=""
-      id="select_2"
+    <option
+      value=""
     >
-      <option
-        value=""
-      >
-        Select an option
-      </option>
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-1"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+      Select an option
+    </option>
+    <option
+      value="1"
     >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </div>
-</label>
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
 `;
 
 exports[`Select should render with inline styles when passed the inline prop 1`] = `
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -761,64 +830,53 @@ label + .circuit-2 {
   margin-top: 4px;
 }
 
-<label
-  class="circuit-3"
-  for="select_5"
+<div
+  class="circuit-2"
 >
-  <div
-    class="circuit-2"
+  <select
+    class="circuit-0"
+    id="select_6"
   >
-    <select
-      class="circuit-0"
-      id="select_5"
+    <option
+      value=""
     >
-      <option
-        value=""
-      >
-        Select an option
-      </option>
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-1"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+      Select an option
+    </option>
+    <option
+      value="1"
     >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </div>
-</label>
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
 `;
 
 exports[`Select should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-3 {
   color: #212933;
   display: block;
@@ -903,93 +961,82 @@ label + .circuit-3 {
   color: #DB4D4D;
 }
 
-<label
-  class="circuit-4"
-  for="select_3"
+<div
+  class="circuit-3"
 >
-  <div
-    class="circuit-3"
+  <select
+    class="circuit-0"
+    id="select_4"
   >
-    <select
-      class="circuit-0"
-      id="select_3"
+    <option
+      value=""
     >
-      <option
-        value=""
-      >
-        Select an option
-      </option>
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-1"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+      Select an option
+    </option>
+    <option
+      value="1"
+    >
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+  <svg
+    class="circuit-2"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      clip-path="url(#circle_cross_small_svg__clip0)"
     >
       <path
         clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
         fill="currentColor"
         fill-rule="evenodd"
       />
-    </svg>
-    <svg
-      class="circuit-2"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        clip-path="url(#circle_cross_small_svg__clip0)"
+    </g>
+    <defs>
+      <clippath
+        id="circle_cross_small_svg__clip0"
       >
         <path
-          clip-rule="evenodd"
-          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-          fill="currentColor"
-          fill-rule="evenodd"
+          d="M0 0h16v16H0V0z"
+          fill="#fff"
         />
-      </g>
-      <defs>
-        <clippath
-          id="circle_cross_small_svg__clip0"
-        >
-          <path
-            d="M0 0h16v16H0V0z"
-            fill="#fff"
-          />
-        </clippath>
-      </defs>
-    </svg>
-  </div>
-</label>
+      </clippath>
+    </defs>
+  </svg>
+</div>
 `;
 
 exports[`Select should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1058,53 +1105,48 @@ label + .circuit-2 {
   margin-top: 4px;
 }
 
-<label
-  class="circuit-3"
-  for="select_6"
+<div
+  class="circuit-2"
 >
-  <div
-    class="circuit-2"
+  <select
+    class="circuit-0"
+    id="select_7"
   >
-    <select
-      class="circuit-0"
-      id="select_6"
+    <option
+      value=""
     >
-      <option
-        value=""
-      >
-        Select an option
-      </option>
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-1"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+      Select an option
+    </option>
+    <option
+      value="1"
     >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </div>
-</label>
+      Option 1
+    </option>
+    <option
+      value="2"
+    >
+      Option 2
+    </option>
+    <option
+      value="3"
+    >
+      Option 3
+    </option>
+  </select>
+  <svg
+    class="circuit-1"
+    fill="none"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+      fill="currentColor"
+      fill-rule="evenodd"
+    />
+  </svg>
+</div>
 `;

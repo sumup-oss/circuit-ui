@@ -29,6 +29,7 @@ import { ReturnType } from '../../types/return-type';
 
 import Tooltip from '../Tooltip';
 import Label from '../Label';
+import deprecate from '../../util/deprecate';
 
 type Option = {
   value: string | number;
@@ -315,46 +316,61 @@ function SelectComponent(
   );
   const showInvalid = !disabled && invalid;
 
-  return (
-    <Label htmlFor={id}>
-      {label ? (
-        <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
-      ) : null}
-      <SelectContainer {...{ noMargin, inline, disabled }}>
-        {prefix}
-        <SelectElement
-          {...{
-            ...props,
-            invalid,
-            value,
-            disabled,
-            hasPrefix: Boolean(prefix),
-            id,
-            ref
-          }}
-        >
-          {!value && (
-            <option key="placeholder" value="">
-              {placeholder}
-            </option>
-          )}
-          {children ||
-            (options &&
-              options.map(({ label: labelValue, ...rest }) => (
-                <option key={rest.value} {...rest}>
-                  {labelValue}
-                </option>
-              )))}
-        </SelectElement>
-        <SelectIcon invalid={showInvalid} />
-        {showInvalid && <InvalidIcon />}
-        {!disabled && validationHint && (
-          <SelectTooltip position={'top'} align={'left'}>
-            {validationHint}
-          </SelectTooltip>
+  if (!label) {
+    deprecate(
+      [
+        'The label is now built into the Select component.',
+        'Use the `label` prop to pass in the label content and',
+        'remove the Label component from your code.',
+        'The label will become required in the next major version'
+      ].join(' ')
+    );
+  }
+
+  const main = (
+    <SelectContainer {...{ noMargin, inline, disabled }}>
+      {prefix}
+      <SelectElement
+        {...{
+          ...props,
+          invalid,
+          value,
+          disabled,
+          hasPrefix: Boolean(prefix),
+          id,
+          ref
+        }}
+      >
+        {!value && (
+          <option key="placeholder" value="">
+            {placeholder}
+          </option>
         )}
-      </SelectContainer>
+        {children ||
+          (options &&
+            options.map(({ label: labelValue, ...rest }) => (
+              <option key={rest.value} {...rest}>
+                {labelValue}
+              </option>
+            )))}
+      </SelectElement>
+      <SelectIcon invalid={showInvalid} />
+      {showInvalid && <InvalidIcon />}
+      {!disabled && validationHint && (
+        <SelectTooltip position={'top'} align={'left'}>
+          {validationHint}
+        </SelectTooltip>
+      )}
+    </SelectContainer>
+  );
+
+  return label ? (
+    <Label htmlFor={id}>
+      <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
+      {main}
     </Label>
+  ) : (
+    main
   );
 }
 

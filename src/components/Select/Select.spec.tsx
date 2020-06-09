@@ -38,6 +38,11 @@ describe('Select', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with a label', () => {
+    const actual = create(<Select {...{ options }} label="Label" />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with disabled styles when passed the disabled prop', () => {
     const actual = create(<Select {...{ options }} disabled />);
     expect(actual).toMatchSnapshot();
@@ -87,7 +92,7 @@ describe('Select', () => {
    * Accessibility tests.
    */
   // FIXME: Had to disable this since it produces a false positive. Not sure why.
-  it.skip('should meet accessibility guidelines', async () => {
+  it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
       <Select {...{ options }} id="select" label="Label" />
     );
