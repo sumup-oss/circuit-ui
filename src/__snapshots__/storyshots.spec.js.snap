@@ -15346,6 +15346,112 @@ label + .circuit-3 {
 </label>
 `;
 
+exports[`Storyshots Forms/Input Hidden Label 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-2,
+label + .circuit-2 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: calc(8px + 1px) 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<label
+  class="circuit-3"
+  for="input_23"
+>
+  <span
+    class="circuit-0"
+  >
+    Email
+  </span>
+  <div
+    class="circuit-2"
+  >
+    <input
+      aria-invalid="false"
+      class="circuit-1"
+      id="input_23"
+      placeholder="Email"
+      type="email"
+      value=""
+    />
+  </div>
+</label>
+`;
+
 exports[`Storyshots Forms/Input Inline 1`] = `
 .circuit-3 {
   color: #212933;
@@ -16178,112 +16284,6 @@ label + .circuit-3 {
       </svg>
       This does not look right.
     </span>
-  </div>
-</label>
-`;
-
-exports[`Storyshots Forms/Input With Visually Hidden Label 1`] = `
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-2,
-label + .circuit-2 {
-  margin-top: 4px;
-}
-
-.circuit-1 {
-  background-color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
-}
-
-.circuit-1::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
-}
-
-<label
-  class="circuit-3"
-  for="input_23"
->
-  <span
-    class="circuit-0"
-  >
-    Email
-  </span>
-  <div
-    class="circuit-2"
-  >
-    <input
-      aria-invalid="false"
-      class="circuit-1"
-      id="input_23"
-      placeholder="Email"
-      type="email"
-      value=""
-    />
   </div>
 </label>
 `;
@@ -18009,6 +18009,148 @@ label + .circuit-3 {
 </label>
 `;
 
+exports[`Storyshots Forms/Select Hidden Label 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #212933;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-1:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+<label
+  class="circuit-4"
+  for="45"
+>
+  <span
+    class="circuit-0"
+  >
+    Countries
+  </span>
+  <div
+    class="circuit-3"
+  >
+    <select
+      aria-invalid="false"
+      class="circuit-1"
+      id="45"
+      name="select"
+    >
+      <option
+        value="US"
+      >
+        United States
+      </option>
+      <option
+        value="DE"
+      >
+        Germany
+      </option>
+      <option
+        value="FR"
+      >
+        France
+      </option>
+    </select>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+</label>
+`;
+
 exports[`Storyshots Forms/Select Invalid 1`] = `
 .circuit-5 {
   font-size: 13px;
@@ -18041,8 +18183,8 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   position: relative;
 }
 
-label .circuit-3,
-label + .circuit-3 {
+label > .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
@@ -18115,7 +18257,7 @@ label + .circuit-3 {
     Countries
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <select
       aria-invalid="true"
@@ -18154,41 +18296,41 @@ label + .circuit-3 {
         fill-rule="evenodd"
       />
     </svg>
-  </div>
-  <span
-    class="circuit-4"
-  >
-    <svg
-      fill="none"
-      height="16"
-      role="presentation"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
+    <span
+      class="circuit-3"
     >
-      <g
-        clip-path="url(#circle_cross_small_svg__clip0)"
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          clip-rule="evenodd"
-          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </g>
-      <defs>
-        <clippath
-          id="circle_cross_small_svg__clip0"
+        <g
+          clip-path="url(#circle_cross_small_svg__clip0)"
         >
           <path
-            d="M0 0h16v16H0V0z"
-            fill="#fff"
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+            fill="currentColor"
+            fill-rule="evenodd"
           />
-        </clippath>
-      </defs>
-    </svg>
-    This field is required
-  </span>
+        </g>
+        <defs>
+          <clippath
+            id="circle_cross_small_svg__clip0"
+          >
+            <path
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
+            />
+          </clippath>
+        </defs>
+      </svg>
+      This field is required
+    </span>
+  </div>
 </label>
 `;
 
@@ -18333,149 +18475,6 @@ label + .circuit-3 {
       class="circuit-1"
       id="44"
       name="country_select"
-    >
-      <option
-        value="US"
-      >
-        United States
-      </option>
-      <option
-        value="DE"
-      >
-        Germany
-      </option>
-      <option
-        value="FR"
-      >
-        France
-      </option>
-    </select>
-    <svg
-      class="circuit-2"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </div>
-</label>
-`;
-
-exports[`Storyshots Forms/Select With Visually Hidden Label 1`] = `
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
-}
-
-.circuit-1 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: #FFFFFF;
-  outline: none;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #212933;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
-}
-
-.circuit-1:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
-}
-
-.circuit-2 {
-  color: #5C656F;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
-}
-
-<label
-  class="circuit-4"
-  for="45"
->
-  <span
-    class="circuit-0"
-  >
-    Countries
-  </span>
-  <div
-    class="circuit-3"
-  >
-    <select
-      aria-invalid="false"
-      class="circuit-1"
-      id="45"
-      name="select"
     >
       <option
         value="US"
@@ -19234,6 +19233,109 @@ label + .circuit-2 {
 </label>
 `;
 
+exports[`Storyshots Forms/TextArea Hidden Label 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-2 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-2,
+label + .circuit-2 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: calc(8px + 1px) 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<label
+  class="circuit-3"
+  for="61"
+>
+  <span
+    class="circuit-0"
+  >
+    Label
+  </span>
+  <div
+    class="circuit-2"
+  >
+    <textarea
+      class="circuit-1"
+      id="61"
+      placeholder="Write your text here..."
+    />
+  </div>
+</label>
+`;
+
 exports[`Storyshots Forms/TextArea Invalid 1`] = `
 .circuit-4 {
   font-size: 13px;
@@ -19637,109 +19739,6 @@ label + .circuit-3 {
       </svg>
       We recommend that you fill in this field.
     </span>
-  </div>
-</label>
-`;
-
-exports[`Storyshots Forms/TextArea With Visually Hidden Label 1`] = `
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-2,
-label + .circuit-2 {
-  margin-top: 4px;
-}
-
-.circuit-1 {
-  background-color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
-}
-
-.circuit-1::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
-}
-
-<label
-  class="circuit-3"
-  for="61"
->
-  <span
-    class="circuit-0"
-  >
-    Label
-  </span>
-  <div
-    class="circuit-2"
-  >
-    <textarea
-      class="circuit-1"
-      id="61"
-      placeholder="Write your text here..."
-    />
   </div>
 </label>
 `;

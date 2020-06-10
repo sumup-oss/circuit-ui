@@ -89,7 +89,7 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    * Visually hide the label. This should only be used in rare cases and only if the
    * purpose of the field can be inferred from other context.
    */
-  labelVisuallyHidden?: boolean;
+  hideLabel?: boolean;
   /**
    * Emotion style object to overwrite the <input> element styles.
    */
@@ -269,8 +269,8 @@ const suffixStyles = (theme: Theme, hasValidationIcon = false) => css`
   transition: right ${theme.transitions.default};
 `;
 
-const labelTextStyles = ({ visuallyHidden }: { visuallyHidden?: boolean }) =>
-  visuallyHidden && hideVisually();
+const labelTextStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
+  hideLabel && hideVisually();
 
 const LabelText = styled('span')(labelTextStyles);
 
@@ -291,7 +291,7 @@ function InputComponent(
     inputStyles,
     as,
     label,
-    labelVisuallyHidden,
+    hideLabel,
     id: customId,
     ...props
   }: InputProps,
@@ -313,7 +313,6 @@ function InputComponent(
       css={wrapperStyles}
     >
       {prefix}
-
       <InputElement
         as={as}
         id={id}
@@ -341,7 +340,7 @@ function InputComponent(
 
   return label ? (
     <Label htmlFor={id} inline={inline}>
-      <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
+      <LabelText hideLabel={hideLabel}>{label}</LabelText>
       {main}
     </Label>
   ) : (

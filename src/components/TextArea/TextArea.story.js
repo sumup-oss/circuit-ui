@@ -63,6 +63,4 @@ export const disabled = () => (
   />
 );
 
-export const withVisuallyHiddenLabel = () => (
-  <TextAreaWithLabel labelVisuallyHidden />
-);
+export const hiddenLabel = () => <TextAreaWithLabel hideLabel />;

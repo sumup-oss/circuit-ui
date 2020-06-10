@@ -75,9 +75,9 @@ export const inline = () => (
   </div>
 );
 
-export const withVisuallyHiddenLabel = () => (
+export const hiddenLabel = () => (
   <BaseInput
-    labelVisuallyHidden
+    hideLabel
     label="Email"
     placeholder="Email"
     type="email"
