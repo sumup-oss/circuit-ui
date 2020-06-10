@@ -46,6 +46,15 @@ describe('Label', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with disabled styles', () => {
+    const actual = create(
+      <Label disabled htmlFor="some-id">
+        Label
+      </Label>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
   /**
    * Accessibility tests.
    */

@@ -23,7 +23,6 @@ import deprecate from '../../util/deprecate';
 import styled, { StyleProps } from '../../styles/styled';
 import {
   textMega,
-  disableVisually,
   hideVisually,
   inputOutline
 } from '../../styles/style-helpers';
@@ -42,6 +41,11 @@ type Option = {
 export interface SelectProps
   extends Omit<HTMLProps<HTMLSelectElement>, 'label'> {
   children?: ReactNode;
+  /**
+   * A clear and concise description of the select purpose.
+   * Will become required in the next major version of Circuit UI.
+   */
+  label?: ReactNode;
   /**
    * onChange handler, called when the selection changes.
    */
@@ -90,10 +94,6 @@ export interface SelectProps
    */
   validationHint?: string;
   /**
-   * A clear and concise description of the input purpose.
-   */
-  label?: ReactNode;
-  /**
    * Visually hide the label. This should only be used in rare cases and only if the
    * purpose of the field can be inferred from other context.
    */
@@ -108,52 +108,30 @@ export interface SelectProps
   ref?: Ref<HTMLSelectElement>;
 }
 
-type ContainerElProps = Pick<SelectProps, 'noMargin' | 'disabled' | 'inline'>;
-
-const containerBaseStyles = ({ theme }: StyleProps) => css`
+const containerStyles = ({ theme }: StyleProps) => css`
   label: select__container;
   color: ${theme.colors.n900};
   display: block;
   position: relative;
-  margin-bottom: ${theme.spacings.mega};
 
-  label > &,
+  label &,
   label + & {
     margin-top: ${theme.spacings.bit};
   }
 `;
 
-const containerDisabledStyles = ({ disabled }: ContainerElProps) =>
-  disabled &&
+const SelectContainer = styled('div')<{}>(containerStyles);
+
+type LabelElProps = Pick<SelectProps, 'noMargin'>;
+
+const labelStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
+  !noMargin &&
   css`
-    label: select__container--disabled;
-    ${disableVisually()};
+    label: input__label--margin;
+    margin-bottom: ${theme.spacings.mega};
   `;
 
-const containerInlineStyles = ({
-  theme,
-  inline
-}: StyleProps & ContainerElProps) =>
-  inline &&
-  css`
-    label: select__container--inline;
-    display: inline-block;
-    margin-right: ${theme.spacings.mega};
-  `;
-
-const containerNoMarginStyles = ({ noMargin }: ContainerElProps) =>
-  noMargin &&
-  css`
-    label: select__container--no-margin;
-    margin-bottom: 0;
-  `;
-
-const SelectContainer = styled('div')<ContainerElProps>(
-  containerBaseStyles,
-  containerNoMarginStyles,
-  containerDisabledStyles,
-  containerInlineStyles
-);
+const SelectLabel = styled(Label)<LabelElProps>(labelStyles);
 
 type SelectElProps = Omit<SelectProps, 'options'> & { hasPrefix: boolean };
 
@@ -288,52 +266,50 @@ function SelectComponent(
     );
   }
 
-  const main = (
-    <SelectContainer
-      noMargin={noMargin}
-      inline={!label && inline}
+  return (
+    <SelectLabel
+      htmlFor={id}
+      inline={inline}
       disabled={disabled}
+      noMargin={noMargin}
+      as={label ? 'label' : 'span'}
     >
-      {prefix}
-      <SelectElement
-        id={id}
-        value={value}
-        ref={ref}
-        invalid={invalid}
-        aria-invalid={invalid}
-        disabled={disabled}
-        hasPrefix={hasPrefix}
-        {...props}
-      >
-        {!value && (
-          <option key="placeholder" value="">
-            {placeholder}
-          </option>
-        )}
-        {children ||
-          (options &&
-            options.map(({ label: labelValue, ...rest }) => (
-              <option key={rest.value} {...rest}>
-                {labelValue}
-              </option>
-            )))}
-      </SelectElement>
-      <SelectIcon />
+      {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
+
+      <SelectContainer>
+        {prefix}
+        <SelectElement
+          id={id}
+          value={value}
+          ref={ref}
+          invalid={invalid}
+          aria-invalid={invalid}
+          disabled={disabled}
+          hasPrefix={hasPrefix}
+          {...props}
+        >
+          {!value && (
+            <option key="placeholder" value="">
+              {placeholder}
+            </option>
+          )}
+          {children ||
+            (options &&
+              options.map(({ label: labelValue, ...rest }) => (
+                <option key={rest.value} {...rest}>
+                  {labelValue}
+                </option>
+              )))}
+        </SelectElement>
+        <SelectIcon />
+      </SelectContainer>
+
       <ValidationHint
         disabled={disabled}
         invalid={invalid}
         validationHint={validationHint}
       />
-    </SelectContainer>
-  );
-
-  return label ? (
-    <Label htmlFor={id} inline={inline}>
-      <LabelText hideLabel={hideLabel}>{label}</LabelText>
-      {main}
-    </Label>
-  ) : (
-    main
+    </SelectLabel>
   );
 }
 

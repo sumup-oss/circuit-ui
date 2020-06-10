@@ -18430,16 +18430,16 @@ exports[`Storyshots Forms/Select Base 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
 }
 
 .circuit-3 {
   color: #212933;
   display: block;
   position: relative;
-  margin-bottom: 16px;
 }
 
-label > .circuit-3,
+label .circuit-3,
 label + .circuit-3 {
   margin-top: 4px;
 }
@@ -18560,17 +18560,17 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-4,
-label + .circuit-4 {
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -18633,7 +18633,7 @@ label + .circuit-4 {
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -18661,7 +18661,7 @@ label + .circuit-4 {
     Countries
   </span>
   <div
-    class="circuit-4"
+    class="circuit-3"
   >
     <select
       aria-invalid="true"
@@ -18700,41 +18700,41 @@ label + .circuit-4 {
         fill-rule="evenodd"
       />
     </svg>
-    <span
-      class="circuit-3"
+  </div>
+  <span
+    class="circuit-4"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <g
+        clip-path="url(#circle_cross_small_svg__clip0)"
       >
-        <g
-          clip-path="url(#circle_cross_small_svg__clip0)"
+        <path
+          clip-rule="evenodd"
+          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clippath
+          id="circle_cross_small_svg__clip0"
         >
           <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-            fill="currentColor"
-            fill-rule="evenodd"
+            d="M0 0h16v16H0V0z"
+            fill="#fff"
           />
-        </g>
-        <defs>
-          <clippath
-            id="circle_cross_small_svg__clip0"
-          >
-            <path
-              d="M0 0h16v16H0V0z"
-              fill="#fff"
-            />
-          </clippath>
-        </defs>
-      </svg>
-      This field is required
-    </span>
-  </div>
+        </clippath>
+      </defs>
+    </svg>
+    This field is required
+  </span>
 </label>
 `;
 
@@ -18743,16 +18743,16 @@ exports[`Storyshots Forms/Select With Prefix 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
 }
 
 .circuit-3 {
   color: #212933;
   display: block;
   position: relative;
-  margin-bottom: 16px;
 }
 
-label > .circuit-3,
+label .circuit-3,
 label + .circuit-3 {
   margin-top: 4px;
 }
@@ -18933,16 +18933,16 @@ exports[`Storyshots Forms/Select With Visually Hidden Label 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
 }
 
 .circuit-3 {
   color: #212933;
   display: block;
   position: relative;
-  margin-bottom: 16px;
 }
 
-label > .circuit-3,
+label .circuit-3,
 label + .circuit-3 {
   margin-top: 4px;
 }

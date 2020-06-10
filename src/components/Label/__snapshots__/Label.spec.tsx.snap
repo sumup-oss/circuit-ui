@@ -15,6 +15,25 @@ exports[`Label should render with default styles 1`] = `
 </label>
 `;
 
+exports[`Label should render with disabled styles 1`] = `
+.circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+<label
+  class="circuit-0"
+  disabled=""
+  for="some-id"
+>
+  Label
+</label>
+`;
+
 exports[`Label should render with inline styles 1`] = `
 .circuit-0 {
   font-size: 13px;

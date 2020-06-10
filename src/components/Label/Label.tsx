@@ -17,7 +17,11 @@ import { HTMLProps } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { textKilo, hideVisually } from '../../styles/style-helpers';
+import {
+  textKilo,
+  hideVisually,
+  disableVisually
+} from '../../styles/style-helpers';
 
 export interface LabelProps extends HTMLProps<HTMLLabelElement> {
   /**
@@ -33,6 +37,10 @@ export interface LabelProps extends HTMLProps<HTMLLabelElement> {
    * Trigger inline styles on the component.
    */
   inline?: boolean;
+  /**
+   * Trigger inline styles on the component.
+   */
+  disabled?: boolean;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
@@ -56,11 +64,19 @@ const inlineStyles = ({ theme, inline }: StyleProps & LabelProps) =>
     margin-right: ${theme.spacings.mega};
   `;
 
+const disabledStyles = ({ disabled }: LabelProps) =>
+  disabled &&
+  css`
+    label: input__label--disabled;
+    ${disableVisually()};
+  `;
+
 /**
  * Label component for form inputs.
  */
 export const Label = styled.label<LabelProps>(
   baseStyles,
   visuallyHiddenStyles,
-  inlineStyles
+  inlineStyles,
+  disabledStyles
 );
