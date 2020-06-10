@@ -74,7 +74,7 @@ label + .circuit-1 {
 <div
   class="circuit-2"
   disabled=""
-  for="input_11"
+  for="input_10"
 >
   <div
     class="circuit-1"
@@ -83,7 +83,7 @@ label + .circuit-1 {
       aria-invalid="true"
       class="circuit-0"
       disabled=""
-      id="input_11"
+      id="input_10"
     />
   </div>
 </div>
@@ -190,7 +190,7 @@ label + .circuit-1 {
 
 <div
   class="circuit-2"
-  for="input_12"
+  for="input_11"
 >
   <div
     class="circuit-1"
@@ -198,106 +198,7 @@ label + .circuit-1 {
     <textarea
       aria-invalid="true"
       class="circuit-0"
-      id="input_12"
-    />
-  </div>
-</div>
-`;
-
-exports[`TextArea should prioritize error over optional styles 1`] = `
-.circuit-2 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.circuit-1 {
-  position: relative;
-}
-
-label .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  box-shadow: 0 0 0 1px #DB4D4D;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-0:not(:focus)::-moz-placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-0:not(:focus):-ms-input-placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-0:not(:focus)::placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #B22828;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #DB4D4D;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #DB4D4D;
-}
-
-<div
-  class="circuit-2"
-  for="input_10"
->
-  <div
-    class="circuit-1"
-  >
-    <textarea
-      aria-invalid="true"
-      class="circuit-0"
-      id="input_10"
+      id="input_11"
     />
   </div>
 </div>
@@ -435,6 +336,7 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -481,6 +383,9 @@ label + .circuit-1 {
   <div
     class="circuit-1"
   >
+    <div
+      style="width: 24px; height: 24px;"
+    />
     <textarea
       class="circuit-0"
       id="input_2"
@@ -517,6 +422,7 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  padding-right: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -566,6 +472,9 @@ label + .circuit-1 {
     <textarea
       class="circuit-0"
       id="input_3"
+    />
+    <div
+      style="width: 24px; height: 24px;"
     />
   </div>
 </div>
@@ -812,14 +721,14 @@ label + .circuit-1 {
 
 <div
   class="circuit-2"
-  for="input_13"
+  for="input_12"
 >
   <div
     class="circuit-1"
   >
     <textarea
       class="circuit-0"
-      id="input_13"
+      id="input_12"
     />
   </div>
 </div>
@@ -992,20 +901,20 @@ label + .circuit-1 {
 
 <div
   class="circuit-2"
-  for="input_14"
+  for="input_13"
 >
   <div
     class="circuit-1"
   >
     <textarea
       class="circuit-0"
-      id="input_14"
+      id="input_13"
     />
   </div>
 </div>
 `;
 
-exports[`TextArea should render with optional styles when passed the optional prop 1`] = `
+exports[`TextArea should render with readonly styles when passed the readonly prop 1`] = `
 .circuit-2 {
   font-size: 13px;
   line-height: 20px;
@@ -1033,6 +942,7 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -1082,6 +992,7 @@ label + .circuit-1 {
     <textarea
       class="circuit-0"
       id="input_8"
+      readonly=""
     />
   </div>
 </div>

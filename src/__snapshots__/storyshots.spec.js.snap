@@ -19472,7 +19472,7 @@ label + .circuit-2 {
 </label>
 `;
 
-exports[`Storyshots Forms/TextArea Optional 1`] = `
+exports[`Storyshots Forms/TextArea Readonly 1`] = `
 .circuit-3 {
   font-size: 13px;
   line-height: 20px;
@@ -19500,6 +19500,7 @@ label + .circuit-2 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -19555,6 +19556,7 @@ label + .circuit-2 {
       class="circuit-1"
       id="59"
       placeholder="Write your text here..."
+      readonly=""
     />
   </div>
 </label>

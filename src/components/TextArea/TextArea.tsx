@@ -13,6 +13,27 @@
  * limitations under the License.
  */
 
-import TextArea from './TextArea';
+import React from 'react';
+import { css } from '@emotion/core';
 
-export default TextArea;
+import Input from '../Input';
+import { InputProps } from '../Input/Input';
+
+export type TextAreaProps = InputProps;
+
+const textAreaStyles = css`
+  label: text-area;
+  overflow: auto;
+  resize: vertical;
+`;
+
+function TextAreaComponent(props: TextAreaProps, ref: TextAreaProps['ref']) {
+  return (
+    <Input {...props} inputStyles={textAreaStyles} as="textarea" ref={ref} />
+  );
+}
+
+/**
+ * TextArea component for forms.
+ */
+export const TextArea = React.forwardRef(TextAreaComponent);

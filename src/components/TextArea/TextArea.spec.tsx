@@ -15,9 +15,13 @@
 
 import React from 'react';
 
+import { create, render, renderToHtml, axe } from '../../util/test-utils';
+
 import TextArea from '.';
 
-const DummyElement = () => <div style={{ width: '24px', height: '24px' }} />;
+const DummyElement = (props: { className?: string }) => (
+  <div style={{ width: '24px', height: '24px' }} {...props} />
+);
 
 describe('TextArea', () => {
   /**
@@ -31,7 +35,7 @@ describe('TextArea', () => {
   it('should render with a prefix when passed the prefix prop', () => {
     const actual = create(
       <TextArea
-        prefix={({ className }) => <DummyElement {...{ className }} />}
+        renderPrefix={({ className }) => <DummyElement {...{ className }} />}
       />
     );
     expect(actual).toMatchSnapshot();
@@ -40,7 +44,7 @@ describe('TextArea', () => {
   it('should render with a suffix when passed the suffix prop', () => {
     const actual = create(
       <TextArea
-        suffix={({ className }) => <DummyElement {...{ className }} />}
+        renderSuffix={({ className }) => <DummyElement {...{ className }} />}
       />
     );
     expect(actual).toMatchSnapshot();
@@ -66,18 +70,13 @@ describe('TextArea', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with optional styles when passed the optional prop', () => {
-    const actual = create(<TextArea optional />);
+  it('should render with readonly styles when passed the readonly prop', () => {
+    const actual = create(<TextArea readOnly />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styled when passed the disabled prop', () => {
     const actual = create(<TextArea disabled />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should prioritize error over optional styles', () => {
-    const actual = create(<TextArea invalid optional />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -106,7 +105,7 @@ describe('TextArea', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
+      const tref = React.createRef<HTMLInputElement & HTMLTextAreaElement>();
       const { container } = render(<TextArea ref={tref} />);
       const textarea = container.querySelector('textarea');
       expect(tref.current).toBe(textarea);

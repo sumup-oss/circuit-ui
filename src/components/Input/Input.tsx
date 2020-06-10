@@ -47,12 +47,12 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    * Render prop that should render a left-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderPrefix?: FC<{ value?: string | number; className?: string }>;
+  renderPrefix?: FC<{ className?: string }>;
   /**
    * Render prop that should render a right-aligned overlay icon or element.
    * Receives a className prop.
    */
-  renderSuffix?: FC<{ value?: string | number; className?: string }>;
+  renderSuffix?: FC<{ className?: string }>;
   /**
    * Warning or error message, displayed in a tooltip.
    */
