@@ -2,18 +2,22 @@
 
 exports[`TextArea should prioritize disabled over error styles 1`] = `
 .circuit-1 {
-  color: #212933;
-  display: block;
   position: relative;
-  margin-bottom: 16px;
+}
+
+label .circuit-1,
+label + .circuit-1 {
+  margin-top: 4px;
+}
+
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-}
-
-label > .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
+  margin-bottom: 16px;
 }
 
 .circuit-0 {
@@ -27,6 +31,7 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
@@ -67,27 +72,36 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
   disabled=""
+  for="input_11"
 >
-  <textarea
-    aria-invalid="true"
-    class="circuit-0"
-    disabled=""
-    id="input_11"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      aria-invalid="true"
+      class="circuit-0"
+      disabled=""
+      id="input_11"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should prioritize disabled over warning styles 1`] = `
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-1,
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
 label + .circuit-1 {
   margin-top: 4px;
 }
@@ -175,25 +189,34 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_12"
 >
-  <textarea
-    aria-invalid="true"
-    class="circuit-0"
-    id="input_12"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      aria-invalid="true"
+      class="circuit-0"
+      id="input_12"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should prioritize error over optional styles 1`] = `
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-1,
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
 label + .circuit-1 {
   margin-top: 4px;
 }
@@ -209,7 +232,6 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #FAFBFC;
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
@@ -266,26 +288,35 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_10"
 >
-  <textarea
-    aria-invalid="true"
-    class="circuit-0"
-    id="input_10"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      aria-invalid="true"
+      class="circuit-0"
+      id="input_10"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with a Tooltip when passed the validationHint prop 1`] = `
-.circuit-2 {
-  color: #212933;
+.circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
@@ -339,7 +370,7 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
+.circuit-2 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -357,14 +388,19 @@ label + .circuit-2 {
 }
 
 <div
-  class="circuit-2"
+  class="circuit-3"
+  for="input_4"
 >
-  <textarea
-    class="circuit-0"
-    id="input_4"
-  />
-  <span
+  <div
     class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      id="input_4"
+    />
+  </div>
+  <span
+    class="circuit-2"
   >
     Validation hint
   </span>
@@ -372,14 +408,18 @@ label + .circuit-2 {
 `;
 
 exports[`TextArea should render with a prefix when passed the prefix prop 1`] = `
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-1,
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
 label + .circuit-1 {
   margin-top: 4px;
 }
@@ -435,24 +475,33 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_2"
 >
-  <textarea
-    class="circuit-0"
-    id="input_2"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      id="input_2"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with a suffix when passed the suffix prop 1`] = `
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-1,
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
 label + .circuit-1 {
   margin-top: 4px;
 }
@@ -508,24 +557,33 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_3"
 >
-  <textarea
-    class="circuit-0"
-    id="input_3"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      id="input_3"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with default styles 1`] = `
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-1,
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
 label + .circuit-1 {
   margin-top: 4px;
 }
@@ -581,16 +639,40 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_1"
 >
-  <textarea
-    class="circuit-0"
-    id="input_1"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      id="input_1"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with disabled styled when passed the disabled prop 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
+label + .circuit-1 {
+  margin-top: 4px;
+}
+
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
@@ -602,6 +684,7 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -641,34 +724,33 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-label > .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
-}
-
 <div
-  class="circuit-1"
+  class="circuit-2"
   disabled=""
+  for="input_9"
 >
-  <textarea
-    class="circuit-0"
-    disabled=""
-    id="input_9"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      disabled=""
+      id="input_9"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with inline styles when passed the inline prop 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
+label + .circuit-1 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
@@ -719,39 +801,43 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
-  margin-bottom: 16px;
   display: inline-block;
   margin-right: 16px;
-}
-
-label > .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
+  margin-bottom: 16px;
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_13"
 >
-  <textarea
-    class="circuit-0"
-    id="input_13"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      id="input_13"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-1,
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
 label + .circuit-1 {
   margin-top: 4px;
 }
@@ -823,17 +909,31 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_6"
 >
-  <textarea
-    aria-invalid="true"
-    class="circuit-0"
-    id="input_6"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      aria-invalid="true"
+      class="circuit-0"
+      id="input_6"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
+label + .circuit-1 {
+  margin-top: 4px;
+}
+
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
@@ -884,38 +984,40 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
-  margin-bottom: 16px;
-  margin-bottom: 0;
-}
-
-label > .circuit-1,
-label + .circuit-1 {
-  margin-top: 4px;
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_14"
 >
-  <textarea
-    class="circuit-0"
-    id="input_14"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      id="input_14"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with optional styles when passed the optional prop 1`] = `
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-1,
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
 label + .circuit-1 {
   margin-top: 4px;
 }
@@ -931,7 +1033,6 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #FAFBFC;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -972,24 +1073,33 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_8"
 >
-  <textarea
-    class="circuit-0"
-    id="input_8"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      id="input_8"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with valid styles when passed the showValid prop 1`] = `
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-1,
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
 label + .circuit-1 {
   margin-top: 4px;
 }
@@ -1045,24 +1155,33 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_7"
 >
-  <textarea
-    class="circuit-0"
-    id="input_7"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      id="input_7"
+    />
+  </div>
 </div>
 `;
 
 exports[`TextArea should render with warning styles when passed the hasWarning prop 1`] = `
-.circuit-1 {
-  color: #212933;
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-1,
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
 label + .circuit-1 {
   margin-top: 4px;
 }
@@ -1134,11 +1253,16 @@ label + .circuit-1 {
 }
 
 <div
-  class="circuit-1"
+  class="circuit-2"
+  for="input_5"
 >
-  <textarea
-    class="circuit-0"
-    id="input_5"
-  />
+  <div
+    class="circuit-1"
+  >
+    <textarea
+      class="circuit-0"
+      id="input_5"
+    />
+  </div>
 </div>
 `;

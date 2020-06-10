@@ -20,7 +20,6 @@ import { Theme } from '@sumup/design-tokens';
 import styled, { StyleProps } from '../../styles/styled';
 import {
   textMega,
-  disableVisually,
   hideVisually,
   inputOutline
 } from '../../styles/style-helpers';
@@ -33,6 +32,7 @@ import { ReturnType } from '../../types/return-type';
 export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   /**
    * A clear and concise description of the input purpose.
+   * Will become required in the next major version of Circuit UI.
    */
   label?: ReactNode;
   /**
@@ -70,9 +70,9 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    */
   showValid?: boolean;
   /**
-   * Triggers optional styles on the component.
+   * Triggers readonly styles on the component.
    */
-  optional?: boolean;
+  readOnly?: boolean;
   /**
    * Trigger inline styles on the component.
    */
@@ -95,56 +95,37 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
    */
   inputStyles?: InterpolationWithTheme<Theme>;
   /**
-   * Emotion style object to overwrite the input wrapper element styles.
+   * Emotion style object to overwrite the input label element styles.
    */
-  wrapperStyles?: InterpolationWithTheme<Theme>;
+  labelStyles?: InterpolationWithTheme<Theme>;
   /**
    * The ref to the html dom element
    */
   ref?: React.Ref<HTMLInputElement & HTMLTextAreaElement>;
 }
 
-const containerBaseStyles = ({ theme }: StyleProps) => css`
+const containerStyles = ({ theme }: StyleProps) => css`
   label: input__container;
-  color: ${theme.colors.n900};
-  display: block;
   position: relative;
-  margin-bottom: ${theme.spacings.mega};
 
-  label > &,
+  label &,
   label + & {
     margin-top: ${theme.spacings.bit};
   }
 `;
 
-const containerDisabledStyles = ({ disabled }: InputProps) =>
-  disabled &&
+const InputContainer = styled('div')<{}>(containerStyles);
+
+type LabelElProps = Pick<InputProps, 'noMargin'>;
+
+const labelCustomStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
+  !noMargin &&
   css`
-    label: input__container--disabled;
-    ${disableVisually()};
+    label: input__label--margin;
+    margin-bottom: ${theme.spacings.mega};
   `;
 
-const containerInlineStyles = ({ theme, inline }: StyleProps & InputProps) =>
-  inline &&
-  css`
-    label: input__container--inline;
-    display: inline-block;
-    margin-right: ${theme.spacings.mega};
-  `;
-
-const containerNoMarginStyles = ({ noMargin }: InputProps) =>
-  noMargin &&
-  css`
-    label: input__container--no-margin;
-    margin-bottom: 0;
-  `;
-
-const InputContainer = styled('div')<InputProps>(
-  containerBaseStyles,
-  containerNoMarginStyles,
-  containerDisabledStyles,
-  containerInlineStyles
-);
+const InputLabel = styled(Label)<LabelElProps>(labelCustomStyles);
 
 type InputElProps = InputProps & {
   hasPrefix: boolean;
@@ -197,11 +178,18 @@ const inputInvalidStyles = ({
     }
   `;
 
-const inputOptionalStyles = ({ theme, optional }: StyleProps & InputElProps) =>
-  optional &&
+const inputReadonlyStyles = ({ theme, readOnly }: StyleProps & InputElProps) =>
+  readOnly &&
   css`
-    label: input--optional;
-    background-color: ${theme.colors.n100};
+    label: input--readonly;
+    background-color: ${theme.colors.n200};
+  `;
+
+const inputDisabledStyles = ({ theme, disabled }: StyleProps & InputElProps) =>
+  disabled &&
+  css`
+    label: input--disabled;
+    background-color: ${theme.colors.n200};
   `;
 
 const inputTextAlignRightStyles = ({ textAlign }: InputElProps) =>
@@ -227,10 +215,11 @@ const inputSuffixStyles = ({ hasSuffix }: StyleProps & InputElProps) =>
 
 const InputElement = styled('input')<InputElProps>(
   inputBaseStyles,
-  inputOptionalStyles,
   inputWarningStyles,
   inputInvalidStyles,
   inputTextAlignRightStyles,
+  inputReadonlyStyles,
+  inputDisabledStyles,
   inputPrefixStyles,
   inputSuffixStyles,
   inputOutline
@@ -276,7 +265,6 @@ const LabelText = styled('span')(labelTextStyles);
 
 function InputComponent(
   {
-    children,
     value,
     renderPrefix: RenderPrefix,
     renderSuffix: RenderSuffix,
@@ -287,7 +275,7 @@ function InputComponent(
     noMargin,
     inline,
     disabled,
-    wrapperStyles,
+    labelStyles,
     inputStyles,
     as,
     label,
@@ -305,29 +293,35 @@ function InputComponent(
   const hasPrefix = Boolean(prefix);
   const hasSuffix = Boolean(suffix);
 
-  const main = (
-    <InputContainer
-      noMargin={noMargin}
-      inline={!label && inline}
+  return (
+    <InputLabel
+      htmlFor={id}
+      inline={inline}
       disabled={disabled}
-      css={wrapperStyles}
+      noMargin={noMargin}
+      as={label ? 'label' : 'div'}
     >
-      {prefix}
-      <InputElement
-        as={as}
-        id={id}
-        value={value}
-        ref={ref}
-        invalid={invalid}
-        aria-invalid={invalid}
-        disabled={disabled}
-        hasWarning={hasWarning}
-        hasPrefix={hasPrefix}
-        hasSuffix={hasSuffix}
-        css={inputStyles}
-        {...props}
-      />
-      {suffix}
+      {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
+
+      <InputContainer css={labelStyles}>
+        {prefix}
+        <InputElement
+          as={as}
+          id={id}
+          value={value}
+          ref={ref}
+          invalid={invalid}
+          aria-invalid={invalid}
+          disabled={disabled}
+          hasWarning={hasWarning}
+          hasPrefix={hasPrefix}
+          hasSuffix={hasSuffix}
+          css={inputStyles}
+          {...props}
+        />
+        {suffix}
+      </InputContainer>
+
       <ValidationHint
         disabled={disabled}
         invalid={invalid}
@@ -335,16 +329,7 @@ function InputComponent(
         showValid={showValid}
         validationHint={validationHint}
       />
-    </InputContainer>
-  );
-
-  return label ? (
-    <Label htmlFor={id} inline={inline}>
-      <LabelText hideLabel={hideLabel}>{label}</LabelText>
-      {main}
-    </Label>
-  ) : (
-    main
+    </InputLabel>
   );
 }
 

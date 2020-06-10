@@ -76,18 +76,13 @@ describe('Input', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with optional styles when passed the optional prop', () => {
-    const actual = create(<Input optional />);
+  it('should render with readonly styles when passed the readOnly prop', () => {
+    const actual = create(<Input readOnly />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with disabled styles when passed the disabled prop', () => {
     const actual = create(<Input disabled />);
-    expect(actual).toMatchSnapshot();
-  });
-
-  it('should prioritize error over optional styles', () => {
-    const actual = create(<Input invalid optional />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -114,7 +109,7 @@ describe('Input', () => {
   it('should render with custom styles', () => {
     const actual = create(
       <Input
-        wrapperStyles={css`
+        labelStyles={css`
           border: 1px solid red;
         `}
         inputStyles={css`

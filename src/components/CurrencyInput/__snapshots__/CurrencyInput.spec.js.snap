@@ -1,14 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CurrencyInput should adjust input padding and suffix width to match currency symbol width 1`] = `
-.circuit-3 {
-  color: #212933;
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
+.circuit-3 {
+  position: relative;
+}
+
+label .circuit-3,
 label + .circuit-3 {
   margin-top: 4px;
 }
@@ -89,32 +93,41 @@ label + .circuit-3 {
 }
 
 <div
-  class="circuit-3"
+  class="circuit-4"
+  for="input_2"
 >
-  <span
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-3"
   >
-    CHF
-  </span>
-  <input
-    class="circuit-2"
-    id="input_2"
-    placeholder="123,45"
-    type="text"
-    value=""
-  />
+    <span
+      class="circuit-0 circuit-1"
+    >
+      CHF
+    </span>
+    <input
+      class="circuit-2"
+      id="input_2"
+      placeholder="123,45"
+      type="text"
+      value=""
+    />
+  </div>
 </div>
 `;
 
 exports[`CurrencyInput should render with default styles 1`] = `
-.circuit-3 {
-  color: #212933;
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
+.circuit-3 {
+  position: relative;
+}
+
+label .circuit-3,
 label + .circuit-3 {
   margin-top: 4px;
 }
@@ -195,18 +208,23 @@ label + .circuit-3 {
 }
 
 <div
-  class="circuit-3"
+  class="circuit-4"
+  for="input_1"
 >
-  <span
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-3"
   >
-    $
-  </span>
-  <input
-    class="circuit-2"
-    id="input_1"
-    type="text"
-    value=""
-  />
+    <span
+      class="circuit-0 circuit-1"
+    >
+      $
+    </span>
+    <input
+      class="circuit-2"
+      id="input_1"
+      type="text"
+      value=""
+    />
+  </div>
 </div>
 `;

@@ -10248,7 +10248,7 @@ exports[`Storyshots Components/Spinner Base 1`] = `
 `;
 
 exports[`Storyshots Components/Step Form 1`] = `
-.circuit-10 {
+.circuit-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10281,28 +10281,28 @@ exports[`Storyshots Components/Step Form 1`] = `
   border-radius: 8px;
 }
 
-.circuit-10:focus {
+.circuit-12:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-10:focus::-moz-focus-inner {
+.circuit-12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-10:disabled,
-.circuit-10[disabled] {
+.circuit-12:disabled,
+.circuit-12[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-10:hover {
+.circuit-12:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-10:active {
+.circuit-12:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
@@ -10313,20 +10313,18 @@ exports[`Storyshots Components/Step Form 1`] = `
   margin-left: 8px;
 }
 
-.circuit-4 {
+.circuit-7 {
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-6 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-6,
+.circuit-6 {
+  position: relative;
+}
+
+label .circuit-6,
 label + .circuit-6 {
   margin-top: 4px;
 }
@@ -10395,6 +10393,12 @@ label + .circuit-6 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10406,7 +10410,7 @@ label + .circuit-6 {
   align-items: center;
 }
 
-.circuit-11 {
+.circuit-13 {
   margin: 0 auto;
   width: 90%;
   max-width: 300px;
@@ -10444,7 +10448,7 @@ label + .circuit-6 {
 }
 
 <div
-  class="circuit-11 circuit-12"
+  class="circuit-13 circuit-14"
 >
   <h2
     class="circuit-0"
@@ -10480,14 +10484,19 @@ label + .circuit-6 {
       First Name
     </label>
     <div
-      class="circuit-6"
+      class="circuit-7"
+      for="first"
     >
-      <input
-        class="circuit-5"
-        id="first"
-        placeholder="John"
-        value=""
-      />
+      <div
+        class="circuit-6"
+      >
+        <input
+          class="circuit-5"
+          id="first"
+          placeholder="John"
+          value=""
+        />
+      </div>
     </div>
     <label
       class="circuit-4"
@@ -10496,17 +10505,22 @@ label + .circuit-6 {
       Second Name
     </label>
     <div
-      class="circuit-6"
+      class="circuit-7"
+      for="second"
     >
-      <input
-        class="circuit-5"
-        id="second"
-        placeholder="Doe"
-        value=""
-      />
+      <div
+        class="circuit-6"
+      >
+        <input
+          class="circuit-5"
+          id="second"
+          placeholder="Doe"
+          value=""
+        />
+      </div>
     </div>
     <button
-      class="circuit-10"
+      class="circuit-12"
     >
       Next
     </button>
@@ -15118,21 +15132,19 @@ exports[`Storyshots Forms/Input Base 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -15209,7 +15221,7 @@ label + .circuit-3 {
     First name
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <input
       aria-invalid="false"
@@ -15218,23 +15230,26 @@ label + .circuit-3 {
       placeholder="Jane"
       value=""
     />
-    <span
-      class="circuit-2"
-    >
-      Maximum 100 characters
-    </span>
   </div>
+  <span
+    class="circuit-3"
+  >
+    Maximum 100 characters
+  </span>
 </label>
 `;
 
 exports[`Storyshots Forms/Input Disabled 1`] = `
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
+.circuit-2 {
+  position: relative;
 }
 
-.circuit-2 {
+label .circuit-2,
+label + .circuit-2 {
+  margin-top: 4px;
+}
+
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -15251,6 +15266,16 @@ exports[`Storyshots Forms/Input Disabled 1`] = `
   transition: color 200ms ease-in-out;
 }
 
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  margin-bottom: 16px;
+}
+
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
@@ -15262,6 +15287,7 @@ exports[`Storyshots Forms/Input Disabled 1`] = `
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -15301,23 +15327,9 @@ exports[`Storyshots Forms/Input Disabled 1`] = `
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-label > .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
-}
-
 <label
   class="circuit-4"
+  disabled=""
   for="input_19"
 >
   <span
@@ -15326,8 +15338,7 @@ label + .circuit-3 {
     First name
   </span>
   <div
-    class="circuit-3"
-    disabled=""
+    class="circuit-2"
   >
     <input
       aria-invalid="false"
@@ -15337,12 +15348,12 @@ label + .circuit-3 {
       placeholder="Jane"
       value="Some value"
     />
-    <span
-      class="circuit-2"
-    >
-      Maximum 100 characters
-    </span>
   </div>
+  <span
+    class="circuit-3"
+  >
+    Maximum 100 characters
+  </span>
 </label>
 `;
 
@@ -15364,16 +15375,14 @@ exports[`Storyshots Forms/Input Hidden Label 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
 label + .circuit-2 {
   margin-top: 4px;
 }
@@ -15453,19 +15462,16 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/Input Inline 1`] = `
-.circuit-3 {
-  color: #212933;
-  display: block;
+.circuit-2 {
   position: relative;
-  margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -15538,6 +15544,7 @@ label + .circuit-3 {
   display: block;
   display: inline-block;
   margin-right: 16px;
+  margin-bottom: 16px;
 }
 
 <div>
@@ -15551,7 +15558,7 @@ label + .circuit-3 {
       First name
     </span>
     <div
-      class="circuit-3"
+      class="circuit-2"
     >
       <input
         aria-invalid="false"
@@ -15560,12 +15567,12 @@ label + .circuit-3 {
         placeholder="First name"
         value=""
       />
-      <span
-        class="circuit-2"
-      >
-        Maximum 100 characters
-      </span>
     </div>
+    <span
+      class="circuit-3"
+    >
+      Maximum 100 characters
+    </span>
   </label>
   <label
     class="circuit-4"
@@ -15577,7 +15584,7 @@ label + .circuit-3 {
       First name
     </span>
     <div
-      class="circuit-3"
+      class="circuit-2"
     >
       <input
         aria-invalid="false"
@@ -15586,12 +15593,12 @@ label + .circuit-3 {
         placeholder="Last name"
         value=""
       />
-      <span
-        class="circuit-2"
-      >
-        Maximum 100 characters
-      </span>
     </div>
+    <span
+      class="circuit-3"
+    >
+      Maximum 100 characters
+    </span>
   </label>
 </div>
 `;
@@ -15601,17 +15608,15 @@ exports[`Storyshots Forms/Input Invalid 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
@@ -15681,7 +15686,7 @@ label + .circuit-3 {
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -15709,7 +15714,7 @@ label + .circuit-3 {
     First name
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <input
       aria-invalid="true"
@@ -15718,64 +15723,62 @@ label + .circuit-3 {
       placeholder="Jane"
       value=""
     />
-    <span
-      class="circuit-2"
+  </div>
+  <span
+    class="circuit-3"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <g
+        clip-path="url(#circle_cross_small_svg__clip0)"
       >
-        <g
-          clip-path="url(#circle_cross_small_svg__clip0)"
+        <path
+          clip-rule="evenodd"
+          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clippath
+          id="circle_cross_small_svg__clip0"
         >
           <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-            fill="currentColor"
-            fill-rule="evenodd"
+            d="M0 0h16v16H0V0z"
+            fill="#fff"
           />
-        </g>
-        <defs>
-          <clippath
-            id="circle_cross_small_svg__clip0"
-          >
-            <path
-              d="M0 0h16v16H0V0z"
-              fill="#fff"
-            />
-          </clippath>
-        </defs>
-      </svg>
-      This field is required.
-    </span>
-  </div>
+        </clippath>
+      </defs>
+    </svg>
+    This field is required.
+  </span>
 </label>
 `;
 
-exports[`Storyshots Forms/Input Optional 1`] = `
+exports[`Storyshots Forms/Input Readonly 1`] = `
 .circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -15803,7 +15806,7 @@ label + .circuit-3 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #FAFBFC;
+  background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -15853,21 +15856,22 @@ label + .circuit-3 {
     First name
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <input
       aria-invalid="false"
       class="circuit-1"
       id="input_18"
       placeholder="Jane"
-      value=""
+      readonly=""
+      value="Copy me"
     />
-    <span
-      class="circuit-2"
-    >
-      Maximum 100 characters
-    </span>
   </div>
+  <span
+    class="circuit-3"
+  >
+    Maximum 100 characters
+  </span>
 </label>
 `;
 
@@ -15876,21 +15880,19 @@ exports[`Storyshots Forms/Input Right Aligned 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -15968,7 +15970,7 @@ label + .circuit-3 {
     First name
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <input
       aria-invalid="false"
@@ -15977,12 +15979,12 @@ label + .circuit-3 {
       placeholder="Jane"
       value=""
     />
-    <span
-      class="circuit-2"
-    >
-      Maximum 100 characters
-    </span>
   </div>
+  <span
+    class="circuit-3"
+  >
+    Maximum 100 characters
+  </span>
 </label>
 `;
 
@@ -15991,21 +15993,19 @@ exports[`Storyshots Forms/Input Valid 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16082,7 +16082,7 @@ label + .circuit-3 {
     Username
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <input
       aria-invalid="false"
@@ -16091,41 +16091,41 @@ label + .circuit-3 {
       placeholder="Jane"
       value=""
     />
-    <span
-      class="circuit-2"
+  </div>
+  <span
+    class="circuit-3"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <g
+        clip-path="url(#circle_checkmark_small_svg__clip0)"
       >
-        <g
-          clip-path="url(#circle_checkmark_small_svg__clip0)"
+        <path
+          clip-rule="evenodd"
+          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clippath
+          id="circle_checkmark_small_svg__clip0"
         >
           <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
-            fill="currentColor"
-            fill-rule="evenodd"
+            d="M0 0h16v16H0V0z"
+            fill="#fff"
           />
-        </g>
-        <defs>
-          <clippath
-            id="circle_checkmark_small_svg__clip0"
-          >
-            <path
-              d="M0 0h16v16H0V0z"
-              fill="#fff"
-            />
-          </clippath>
-        </defs>
-      </svg>
-      Yay! That username is available.
-    </span>
-  </div>
+        </clippath>
+      </defs>
+    </svg>
+    Yay! That username is available.
+  </span>
 </label>
 `;
 
@@ -16134,21 +16134,19 @@ exports[`Storyshots Forms/Input Warning 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16241,7 +16239,7 @@ label + .circuit-3 {
     First name
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <input
       aria-invalid="false"
@@ -16250,41 +16248,41 @@ label + .circuit-3 {
       placeholder="Jane"
       value=""
     />
-    <span
-      class="circuit-2"
+  </div>
+  <span
+    class="circuit-3"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <g
+        clip-path="url(#circle_warning_small_svg__clip0)"
       >
-        <g
-          clip-path="url(#circle_warning_small_svg__clip0)"
+        <path
+          clip-rule="evenodd"
+          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clippath
+          id="circle_warning_small_svg__clip0"
         >
           <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
-            fill="currentColor"
-            fill-rule="evenodd"
+            d="M0 0h16v16H0V0z"
+            fill="#fff"
           />
-        </g>
-        <defs>
-          <clippath
-            id="circle_warning_small_svg__clip0"
-          >
-            <path
-              d="M0 0h16v16H0V0z"
-              fill="#fff"
-            />
-          </clippath>
-        </defs>
-      </svg>
-      This does not look right.
-    </span>
-  </div>
+        </clippath>
+      </defs>
+    </svg>
+    This does not look right.
+  </span>
 </label>
 `;
 
@@ -16293,17 +16291,15 @@ exports[`Storyshots Forms/Input/CurrencyInput Base 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-5 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-5,
-label + .circuit-5 {
+.circuit-4 {
+  position: relative;
+}
+
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
@@ -16383,7 +16379,7 @@ label + .circuit-5 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16410,7 +16406,7 @@ label + .circuit-5 {
     Amount (de-DE, EUR)
   </span>
   <div
-    class="circuit-5"
+    class="circuit-4"
   >
     <span
       class="circuit-1 circuit-2"
@@ -16425,12 +16421,12 @@ label + .circuit-5 {
       type="text"
       value=""
     />
-    <span
-      class="circuit-4"
-    >
-      Excluding VAT
-    </span>
   </div>
+  <span
+    class="circuit-5"
+  >
+    Excluding VAT
+  </span>
 </label>
 `;
 
@@ -16440,17 +16436,15 @@ HTMLCollection [
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-5 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-5,
-label + .circuit-5 {
+.circuit-4 {
+  position: relative;
+}
+
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
@@ -16530,7 +16524,7 @@ label + .circuit-5 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16557,7 +16551,7 @@ label + .circuit-5 {
       Amount (pt-BR, BRL)
     </span>
     <div
-      class="circuit-5"
+      class="circuit-4"
     >
       <span
         class="circuit-1 circuit-2"
@@ -16572,28 +16566,26 @@ label + .circuit-5 {
         type="text"
         value=""
       />
-      <span
-        class="circuit-4"
-      >
-        Excluding VAT
-      </span>
     </div>
+    <span
+      class="circuit-5"
+    >
+      Excluding VAT
+    </span>
   </label>,
   .circuit-6 {
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-5 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-5,
-label + .circuit-5 {
+.circuit-4 {
+  position: relative;
+}
+
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
@@ -16673,7 +16665,7 @@ label + .circuit-5 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16700,7 +16692,7 @@ label + .circuit-5 {
       Amount (pt-BR, USD)
     </span>
     <div
-      class="circuit-5"
+      class="circuit-4"
     >
       <span
         class="circuit-1 circuit-2"
@@ -16715,12 +16707,12 @@ label + .circuit-5 {
         type="text"
         value=""
       />
-      <span
-        class="circuit-4"
-      >
-        Excluding VAT
-      </span>
     </div>
+    <span
+      class="circuit-5"
+    >
+      Excluding VAT
+    </span>
   </label>,
 ]
 `;
@@ -16731,17 +16723,15 @@ HTMLCollection [
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-5 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-5,
-label + .circuit-5 {
+.circuit-4 {
+  position: relative;
+}
+
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
@@ -16821,7 +16811,7 @@ label + .circuit-5 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16848,7 +16838,7 @@ label + .circuit-5 {
       Amount (de-DE, EUR)
     </span>
     <div
-      class="circuit-5"
+      class="circuit-4"
     >
       <span
         class="circuit-1 circuit-2"
@@ -16863,28 +16853,26 @@ label + .circuit-5 {
         type="text"
         value=""
       />
-      <span
-        class="circuit-4"
-      >
-        Excluding VAT
-      </span>
     </div>
+    <span
+      class="circuit-5"
+    >
+      Excluding VAT
+    </span>
   </label>,
   .circuit-6 {
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-5 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-5,
-label + .circuit-5 {
+.circuit-4 {
+  position: relative;
+}
+
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
@@ -16964,7 +16952,7 @@ label + .circuit-5 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16991,7 +16979,7 @@ label + .circuit-5 {
       Amount (en-IE, EUR)
     </span>
     <div
-      class="circuit-5"
+      class="circuit-4"
     >
       <span
         class="circuit-1 circuit-2"
@@ -17006,12 +16994,12 @@ label + .circuit-5 {
         type="text"
         value=""
       />
-      <span
-        class="circuit-4"
-      >
-        Excluding VAT
-      </span>
     </div>
+    <span
+      class="circuit-5"
+    >
+      Excluding VAT
+    </span>
   </label>,
 ]
 `;
@@ -17021,16 +17009,14 @@ exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
+.circuit-3 {
+  position: relative;
+}
+
+label .circuit-3,
 label + .circuit-3 {
   margin-top: 4px;
 }
@@ -17141,16 +17127,14 @@ exports[`Storyshots Forms/Input/SearchInput Clearable 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
+.circuit-3 {
+  position: relative;
+}
+
+label .circuit-3,
 label + .circuit-3 {
   margin-top: 4px;
 }
@@ -17259,10 +17243,13 @@ label + .circuit-3 {
 `;
 
 exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
+.circuit-3 {
+  position: relative;
+}
+
+label .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
 }
 
 .circuit-1 {
@@ -17276,19 +17263,14 @@ exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
   width: 40px;
 }
 
-.circuit-3 {
-  color: #212933;
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
   display: block;
-  position: relative;
-  margin-bottom: 16px;
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-}
-
-label > .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
+  margin-bottom: 16px;
 }
 
 .circuit-2 {
@@ -17302,6 +17284,7 @@ label + .circuit-3 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  background-color: #EEF0F2;
   padding-left: 40px;
   padding-right: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
@@ -17345,6 +17328,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
+  disabled=""
   for="40"
 >
   <span
@@ -17354,7 +17338,6 @@ label + .circuit-3 {
   </span>
   <div
     class="circuit-3"
-    disabled=""
   >
     <svg
       class="circuit-1"
@@ -18027,6 +18010,7 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
+  margin-bottom: 16px;
 }
 
 .circuit-3 {
@@ -18035,7 +18019,7 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
   position: relative;
 }
 
-label > .circuit-3,
+label .circuit-3,
 label + .circuit-3 {
   margin-top: 4px;
 }
@@ -18159,7 +18143,7 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   margin-bottom: 16px;
 }
 
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -18177,14 +18161,14 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   color: #DB4D4D;
 }
 
-.circuit-4 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label > .circuit-4,
-label + .circuit-4 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -18257,7 +18241,7 @@ label + .circuit-4 {
     Countries
   </span>
   <div
-    class="circuit-4"
+    class="circuit-3"
   >
     <select
       aria-invalid="true"
@@ -18296,41 +18280,41 @@ label + .circuit-4 {
         fill-rule="evenodd"
       />
     </svg>
-    <span
-      class="circuit-3"
+  </div>
+  <span
+    class="circuit-4"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <g
+        clip-path="url(#circle_cross_small_svg__clip0)"
       >
-        <g
-          clip-path="url(#circle_cross_small_svg__clip0)"
+        <path
+          clip-rule="evenodd"
+          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clippath
+          id="circle_cross_small_svg__clip0"
         >
           <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-            fill="currentColor"
-            fill-rule="evenodd"
+            d="M0 0h16v16H0V0z"
+            fill="#fff"
           />
-        </g>
-        <defs>
-          <clippath
-            id="circle_cross_small_svg__clip0"
-          >
-            <path
-              d="M0 0h16v16H0V0z"
-              fill="#fff"
-            />
-          </clippath>
-        </defs>
-      </svg>
-      This field is required
-    </span>
-  </div>
+        </clippath>
+      </defs>
+    </svg>
+    This field is required
+  </span>
 </label>
 `;
 
@@ -19051,16 +19035,14 @@ exports[`Storyshots Forms/TextArea Base 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
 label + .circuit-2 {
   margin-top: 4px;
 }
@@ -19137,10 +19119,23 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/TextArea Disabled 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
+  margin-top: 4px;
+}
+
 .circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  margin-bottom: 16px;
 }
 
 .circuit-1 {
@@ -19154,6 +19149,7 @@ exports[`Storyshots Forms/TextArea Disabled 1`] = `
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -19193,23 +19189,9 @@ exports[`Storyshots Forms/TextArea Disabled 1`] = `
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-label > .circuit-2,
-label + .circuit-2 {
-  margin-top: 4px;
-}
-
 <label
   class="circuit-3"
+  disabled=""
   for="60"
 >
   <span
@@ -19219,7 +19201,6 @@ label + .circuit-2 {
   </span>
   <div
     class="circuit-2"
-    disabled=""
   >
     <textarea
       class="circuit-1"
@@ -19251,16 +19232,14 @@ exports[`Storyshots Forms/TextArea Hidden Label 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
 label + .circuit-2 {
   margin-top: 4px;
 }
@@ -19341,17 +19320,15 @@ exports[`Storyshots Forms/TextArea Invalid 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
@@ -19421,7 +19398,7 @@ label + .circuit-3 {
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -19449,7 +19426,7 @@ label + .circuit-3 {
     Label
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <textarea
       aria-invalid="true"
@@ -19457,41 +19434,41 @@ label + .circuit-3 {
       id="57"
       placeholder="Write your text here..."
     />
-    <span
-      class="circuit-2"
+  </div>
+  <span
+    class="circuit-3"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <g
+        clip-path="url(#circle_cross_small_svg__clip0)"
       >
-        <g
-          clip-path="url(#circle_cross_small_svg__clip0)"
+        <path
+          clip-rule="evenodd"
+          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clippath
+          id="circle_cross_small_svg__clip0"
         >
           <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-            fill="currentColor"
-            fill-rule="evenodd"
+            d="M0 0h16v16H0V0z"
+            fill="#fff"
           />
-        </g>
-        <defs>
-          <clippath
-            id="circle_cross_small_svg__clip0"
-          >
-            <path
-              d="M0 0h16v16H0V0z"
-              fill="#fff"
-            />
-          </clippath>
-        </defs>
-      </svg>
-      Please fill in this field.
-    </span>
-  </div>
+        </clippath>
+      </defs>
+    </svg>
+    Please fill in this field.
+  </span>
 </label>
 `;
 
@@ -19500,16 +19477,14 @@ exports[`Storyshots Forms/TextArea Optional 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
 label + .circuit-2 {
   margin-top: 4px;
 }
@@ -19525,7 +19500,6 @@ label + .circuit-2 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #FAFBFC;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -19591,21 +19565,19 @@ exports[`Storyshots Forms/TextArea Warning 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -19698,48 +19670,48 @@ label + .circuit-3 {
     Label
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <textarea
       class="circuit-1"
       id="58"
       placeholder="Write your text here..."
     />
-    <span
-      class="circuit-2"
+  </div>
+  <span
+    class="circuit-3"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <svg
-        fill="none"
-        height="16"
-        role="presentation"
-        viewBox="0 0 16 16"
-        width="16"
-        xmlns="http://www.w3.org/2000/svg"
+      <g
+        clip-path="url(#circle_warning_small_svg__clip0)"
       >
-        <g
-          clip-path="url(#circle_warning_small_svg__clip0)"
+        <path
+          clip-rule="evenodd"
+          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </g>
+      <defs>
+        <clippath
+          id="circle_warning_small_svg__clip0"
         >
           <path
-            clip-rule="evenodd"
-            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
-            fill="currentColor"
-            fill-rule="evenodd"
+            d="M0 0h16v16H0V0z"
+            fill="#fff"
           />
-        </g>
-        <defs>
-          <clippath
-            id="circle_warning_small_svg__clip0"
-          >
-            <path
-              d="M0 0h16v16H0V0z"
-              fill="#fff"
-            />
-          </clippath>
-        </defs>
-      </svg>
-      We recommend that you fill in this field.
-    </span>
-  </div>
+        </clippath>
+      </defs>
+    </svg>
+    We recommend that you fill in this field.
+  </span>
 </label>
 `;
 

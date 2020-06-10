@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { css } from '@emotion/core';
 import { boolean, text } from '@storybook/addon-knobs';
 
@@ -28,21 +28,40 @@ export default {
   }
 };
 
-const BaseInput = (props: Partial<InputProps>) => (
-  <Input
-    label={text('Label', 'First name')}
-    placeholder={text('Placeholder', 'Jane')}
-    validationHint={text('Validation hint', 'Maximum 100 characters')}
-    optional={boolean('Optional', false)}
-    invalid={boolean('Invalid', false)}
-    showValid={boolean('Show valid', false)}
-    hasWarning={boolean('Has warning', false)}
-    css={css`
-      max-width: 250px;
-    `}
-    {...props}
-  />
-);
+const BaseInput = ({
+  value: initialValue = '',
+  ...props
+}: Partial<InputProps>) => {
+  const [value, setValue] = useState(initialValue);
+
+  // The readOnly attribute is treated as truthy even if the value is falsy
+  const readOnly = boolean('Readonly', false);
+
+  if (readOnly) {
+    // eslint-disable-next-line no-param-reassign
+    props.readOnly = true;
+  }
+
+  return (
+    <Input
+      value={value}
+      label={text('Label', 'First name')}
+      placeholder={text('Placeholder', 'Jane')}
+      validationHint={text('Validation hint', 'Maximum 100 characters')}
+      invalid={boolean('Invalid', false)}
+      showValid={boolean('Show valid', false)}
+      hasWarning={boolean('Has warning', false)}
+      readOnly={boolean('Readonly', false)}
+      onChange={(event: ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value);
+      }}
+      css={css`
+        max-width: 250px;
+      `}
+      {...props}
+    />
+  );
+};
 
 export const base = () => <BaseInput />;
 
@@ -62,7 +81,7 @@ export const warning = () => (
   <BaseInput validationHint="This does not look right." hasWarning />
 );
 
-export const optional = () => <BaseInput optional />;
+export const readonly = () => <BaseInput readOnly value="Copy me" />;
 
 export const disabled = () => <BaseInput value="Some value" disabled />;
 
