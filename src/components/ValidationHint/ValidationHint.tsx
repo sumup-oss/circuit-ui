@@ -32,6 +32,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   display: block;
   margin-top: ${theme.spacings.bit};
   color: ${theme.colors.n700};
+  transition: color ${theme.transitions.default};
 `;
 
 const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>

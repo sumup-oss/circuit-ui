@@ -79,6 +79,7 @@ label + .circuit-2 {
   disabled=""
 >
   <select
+    aria-invalid="true"
     class="circuit-0"
     disabled=""
     id="select_5"
@@ -453,6 +454,8 @@ label + .circuit-3 {
   display: block;
   margin-top: 4px;
   color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <div
@@ -955,6 +958,7 @@ label + .circuit-3 {
   class="circuit-3"
 >
   <select
+    aria-invalid="true"
     class="circuit-0"
     id="select_4"
   >

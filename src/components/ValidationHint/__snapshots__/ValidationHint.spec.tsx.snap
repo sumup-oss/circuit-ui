@@ -7,6 +7,8 @@ exports[`ValidationHint styles should render with default styles 1`] = `
   display: block;
   margin-top: 4px;
   color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <span
@@ -21,6 +23,8 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
   display: block;
   margin-top: 4px;
   color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
   color: #DB4D4D;
 }
 

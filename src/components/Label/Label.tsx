@@ -48,11 +48,12 @@ const visuallyHiddenStyles = ({ visuallyHidden }: LabelProps) =>
     ${hideVisually()};
   `;
 
-const inlineStyles = ({ inline }: LabelProps) =>
+const inlineStyles = ({ theme, inline }: StyleProps & LabelProps) =>
   inline &&
   css`
     label: label--inline;
-    display: block;
+    display: inline-block;
+    margin-right: ${theme.spacings.mega};
   `;
 
 /**

@@ -18515,6 +18515,7 @@ label + .circuit-3 {
     class="circuit-3"
   >
     <select
+      aria-invalid="false"
       class="circuit-1"
       id="44"
       name="select"
@@ -18654,6 +18655,8 @@ label + .circuit-5 {
   display: block;
   margin-top: 4px;
   color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
   color: #DB4D4D;
 }
 
@@ -18670,6 +18673,7 @@ label + .circuit-5 {
     class="circuit-5"
   >
     <select
+      aria-invalid="true"
       class="circuit-1"
       id="45"
       name="select"
@@ -18880,6 +18884,7 @@ label + .circuit-3 {
       </defs>
     </svg>
     <select
+      aria-invalid="false"
       class="circuit-1"
       id="46"
       name="country_select"
@@ -19023,6 +19028,7 @@ label + .circuit-3 {
     class="circuit-3"
   >
     <select
+      aria-invalid="false"
       class="circuit-1"
       id="47"
       name="select"

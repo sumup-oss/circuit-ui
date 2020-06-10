@@ -306,18 +306,21 @@ function SelectComponent(
   }
 
   const main = (
-    <SelectContainer {...{ noMargin, inline, disabled }}>
+    <SelectContainer
+      noMargin={noMargin}
+      inline={!label && inline}
+      disabled={disabled}
+    >
       {prefix}
       <SelectElement
-        {...{
-          ...props,
-          invalid,
-          value,
-          disabled,
-          hasPrefix: Boolean(prefix),
-          id,
-          ref
-        }}
+        id={id}
+        value={value}
+        ref={ref}
+        invalid={invalid}
+        aria-invalid={invalid}
+        disabled={disabled}
+        hasPrefix={Boolean(prefix)}
+        {...props}
       >
         {!value && (
           <option key="placeholder" value="">

@@ -20,7 +20,8 @@ exports[`Label should render with inline styles 1`] = `
   font-size: 13px;
   line-height: 20px;
   display: block;
-  display: block;
+  display: inline-block;
+  margin-right: 16px;
 }
 
 <label
