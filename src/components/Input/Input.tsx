@@ -15,8 +15,6 @@
 
 import React, { FC, HTMLProps, ReactNode } from 'react';
 import { css, InterpolationWithTheme } from '@emotion/core';
-import { find, identity } from 'lodash/fp';
-import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -26,10 +24,11 @@ import {
   hideVisually,
   inputOutline
 } from '../../styles/style-helpers';
-
-import Tooltip from '../Tooltip';
-import Label from '../Label';
 import { uniqueId } from '../../util/id';
+
+import Label from '../Label';
+import ValidationHint from '../ValidationHint';
+import { ReturnType } from '../../types/return-type';
 
 export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   /**
@@ -147,14 +146,17 @@ const InputContainer = styled('div')<InputProps>(
   containerInlineStyles
 );
 
-type InputElProps = InputProps & { hasPrefix: boolean; hasSuffix: boolean };
+type InputElProps = InputProps & {
+  hasPrefix: boolean;
+  hasSuffix: boolean;
+};
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
   label: input;
   background-color: ${theme.colors.white};
   border: none;
   border-radius: 8px;
-  padding: ${theme.spacings.byte} ${theme.spacings.kilo};
+  padding: calc(${theme.spacings.byte} + 1px) ${theme.spacings.kilo};
   transition: box-shadow ${theme.transitions.default},
     padding ${theme.transitions.default};
   width: 100%;
@@ -209,22 +211,18 @@ const inputTextAlignRightStyles = ({ textAlign }: InputElProps) =>
     text-align: right;
   `;
 
-const inputPrefixStyles = ({ theme, hasPrefix }: StyleProps & InputElProps) =>
+const inputPrefixStyles = ({ hasPrefix }: StyleProps & InputElProps) =>
   hasPrefix &&
   css`
     label: input--prefix;
-    padding-left: calc(
-      ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
-    );
+    padding-left: 40px;
   `;
 
-const inputSuffixStyles = ({ theme, hasSuffix }: StyleProps & InputElProps) =>
+const inputSuffixStyles = ({ hasSuffix }: StyleProps & InputElProps) =>
   hasSuffix &&
   css`
     label: input--suffix;
-    padding-right: calc(
-      ${theme.spacings.kilo} + ${theme.spacings.mega} + ${theme.spacings.kilo}
-    );
+    padding-right: 40px;
   `;
 
 const InputElement = styled('input')<InputElProps>(
@@ -258,21 +256,17 @@ const prefixStyles = (theme: Theme) => css`
  * Used with css prop directly, so it does not require prop
  * destructuring.
  */
-const suffixStyles = (theme: Theme) => css`
+const suffixStyles = (theme: Theme, hasValidationIcon = false) => css`
   label: input__suffix;
   position: absolute;
   top: 1px;
-  right: 1px;
+  right: ${hasValidationIcon ? '29px' : '1px'};
   pointer-events: none;
   color: ${theme.colors.n700};
   padding: ${theme.spacings.kilo};
   height: ${theme.spacings.peta};
   width: ${theme.spacings.peta};
-`;
-
-const tooltipBaseStyles = css`
-  label: input__tooltip;
-  right: 1px;
+  transition: right ${theme.transitions.default};
 `;
 
 const labelTextStyles = ({ visuallyHidden }: { visuallyHidden?: boolean }) =>
@@ -280,78 +274,10 @@ const labelTextStyles = ({ visuallyHidden }: { visuallyHidden?: boolean }) =>
 
 const LabelText = styled('span')(labelTextStyles);
 
-const InputTooltip = styled(Tooltip as any)(tooltipBaseStyles);
-
-type ValidationIconProps = Pick<
-  InputProps,
-  'invalid' | 'hasWarning' | 'showValid' | 'disabled'
-> & { className?: string };
-
-const validationIconBaseStyles = ({ theme }: StyleProps) => css`
-  opacity: 0;
-  transition: opacity ${theme.transitions.default};
-`;
-
-const validationIconActiveStyles = ({
-  invalid,
-  hasWarning,
-  showValid
-}: ValidationIconProps) =>
-  (invalid || hasWarning || showValid) &&
-  css`
-    opacity: 1;
-  `;
-
-const ValidationIconWrapper = styled('div')<ValidationIconProps>(
-  validationIconBaseStyles,
-  validationIconActiveStyles
-);
-
-const colorMap = {
-  error: 'danger',
-  warning: 'warning',
-  valid: 'success'
-} as const;
-
-const iconStyles = (variant: 'error' | 'warning' | 'valid') => (
-  theme: Theme
-) => css`
-  label: ${`input__validation-${variant}`};
-  display: block;
-  height: 100%;
-  width: 100%;
-  color: ${theme.colors[colorMap[variant]]};
-`;
-
-const ValidationIcon = ({
-  invalid,
-  hasWarning,
-  showValid,
-  disabled,
-  className
-}: ValidationIconProps) => {
-  if (disabled) {
-    return null;
-  }
-
-  const icons = [
-    invalid && <CircleCross role="img" css={iconStyles('error')} />,
-    hasWarning && <CircleWarning role="img" css={iconStyles('warning')} />,
-    showValid && <CircleCheckmark role="img" css={iconStyles('valid')} />
-  ];
-
-  const icon = find(identity, icons);
-
-  return (
-    <ValidationIconWrapper {...{ invalid, hasWarning, showValid, className }}>
-      {icon || null}
-    </ValidationIconWrapper>
-  );
-};
-
 function InputComponent(
   {
     children,
+    value,
     renderPrefix: RenderPrefix,
     renderSuffix: RenderSuffix,
     validationHint,
@@ -370,52 +296,46 @@ function InputComponent(
     ...props
   }: InputProps,
   ref: InputProps['ref']
-) {
+): ReturnType {
   const id = customId || uniqueId('input_');
 
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
-  const suffix = RenderSuffix ? (
-    <RenderSuffix css={suffixStyles} />
-  ) : (
-    <ValidationIcon
-      css={suffixStyles}
-      {...{ invalid, hasWarning, showValid, disabled }}
-    />
-  );
+  const suffix = RenderSuffix && <RenderSuffix css={suffixStyles} />;
+
+  const hasPrefix = Boolean(prefix);
+  const hasSuffix = Boolean(suffix);
 
   const main = (
     <InputContainer
-      {...{
-        noMargin,
-        inline,
-        disabled,
-        css: wrapperStyles
-      }}
+      noMargin={noMargin}
+      inline={!label && inline}
+      disabled={disabled}
+      css={wrapperStyles}
     >
       {prefix}
 
       <InputElement
-        {...{
-          ...props,
-          invalid,
-          disabled,
-          hasWarning,
-          ref,
-          as,
-          hasPrefix: !!prefix,
-          hasSuffix: !!suffix,
-          css: inputStyles,
-          id
-        }}
+        as={as}
+        id={id}
+        value={value}
+        ref={ref}
+        invalid={invalid}
         aria-invalid={invalid}
+        disabled={disabled}
+        hasWarning={hasWarning}
+        hasPrefix={hasPrefix}
+        hasSuffix={hasSuffix}
+        css={inputStyles}
+        {...props}
       />
       {suffix}
-      {!disabled && validationHint && (
-        <InputTooltip position={'top'} align={'left'}>
-          {validationHint}
-        </InputTooltip>
-      )}
-      {children}
+      <ValidationHint
+        disabled={disabled}
+        invalid={invalid}
+        hasWarning={hasWarning}
+        showValid={showValid}
+        validationHint={validationHint}
+      />
     </InputContainer>
   );
 

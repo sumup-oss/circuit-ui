@@ -14,8 +14,8 @@
  */
 
 import React from 'react';
-
-import { uniqueId } from '../../util/id';
+import { css } from '@emotion/core';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import docs from './Input.docs.mdx';
 import { Input, InputProps } from './Input';
@@ -28,48 +28,59 @@ export default {
   }
 };
 
-// Inputs always need labels for accessibility.
-const InputWithLabel = (props: Partial<InputProps>) => {
-  const id = uniqueId();
-  return <Input placeholder="Placeholder" {...props} id={id} label="Label" />;
-};
+const BaseInput = (props: Partial<InputProps>) => (
+  <Input
+    label={text('Label', 'First name')}
+    placeholder={text('Placeholder', 'Jane')}
+    validationHint={text('Validation hint', 'Maximum 100 characters')}
+    optional={boolean('Optional', false)}
+    invalid={boolean('Invalid', false)}
+    showValid={boolean('Show valid', false)}
+    hasWarning={boolean('Has warning', false)}
+    css={css`
+      max-width: 250px;
+    `}
+    {...props}
+  />
+);
 
-export const base = () => <InputWithLabel />;
+export const base = () => <BaseInput />;
 
 export const valid = () => (
-  <>
-    <InputWithLabel validationHint="That's correct." showValid />
-    <InputWithLabel showValid />
-  </>
+  <BaseInput
+    label="Username"
+    validationHint="Yay! That username is available."
+    showValid
+  />
 );
 
 export const invalid = () => (
-  <>
-    <InputWithLabel validationHint="This field is required." invalid />
-    <InputWithLabel invalid />
-  </>
+  <BaseInput validationHint="This field is required." invalid />
 );
 
 export const warning = () => (
-  <>
-    <InputWithLabel validationHint="This does not look right." hasWarning />
-    <InputWithLabel hasWarning />
-  </>
+  <BaseInput validationHint="This does not look right." hasWarning />
 );
 
-export const optional = () => <InputWithLabel optional />;
+export const optional = () => <BaseInput optional />;
 
-export const disabled = () => <InputWithLabel value="Some value" disabled />;
+export const disabled = () => <BaseInput value="Some value" disabled />;
 
-export const rightAligned = () => <InputWithLabel textAlign="right" />;
+export const rightAligned = () => <BaseInput textAlign="right" />;
 
 export const inline = () => (
   <div>
-    <Input placeholder="First" inline />
-    <Input placeholder="Second" inline />
+    <BaseInput placeholder="First name" inline />
+    <BaseInput placeholder="Last name" inline />
   </div>
 );
 
 export const withVisuallyHiddenLabel = () => (
-  <Input placeholder="Placeholder" label="Label" labelVisuallyHidden />
+  <BaseInput
+    labelVisuallyHidden
+    label="Email"
+    placeholder="Email"
+    type="email"
+    validationHint=""
+  />
 );

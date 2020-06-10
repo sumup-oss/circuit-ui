@@ -30,11 +30,6 @@ import {
   getSymbolLength
 } from './CurrencyInputService';
 
-// This is dynamic and cannot be done in pure CSS. No need for a label.
-const iconWidthStyles = length => css`
-  width: ${length}px !important;
-`;
-
 const CurrencyIcon = styled('span')`
   label: simple-currency-input__symbol;
   line-height: ${({ theme }) => theme.spacings.mega};
@@ -43,24 +38,10 @@ const CurrencyIcon = styled('span')`
   justify-content: center;
 `;
 
-const inputBaseStyles = () => css`
+const inputStyles = () => css`
   label: currency-input__input;
   text-align: right;
 `;
-
-const inputPrependStyles = ({ theme, symbolLength, prependSymbol }) =>
-  prependSymbol &&
-  css`
-    label: currency-input__input--prepend-symbol;
-    padding-left: calc(${theme.spacings.mega} + ${symbolLength}px);
-  `;
-
-const inputAppendStyles = ({ theme, symbolLength, prependSymbol }) =>
-  !prependSymbol &&
-  css`
-    label: currency-input__input--append-symbol;
-    padding-right: calc(${theme.spacings.mega} + ${symbolLength}px);
-  `;
 
 const CurrencyInputComponent = (
   { locale, currency, placeholder, ...props },
@@ -71,7 +52,6 @@ const CurrencyInputComponent = (
   const currencyFormat = resolveCurrencyFormat(locale, currency);
   const { currencyPosition, currencySymbol } = currencyFormat;
   const numberMask = createCurrencyMask(currencyFormat, locale);
-  const symbolLength = getSymbolLength(currencySymbol);
   const placeholderString = formatPlaceholder(placeholder, locale, {
     minimumFractionDigits: currencyFormat.minimumFractionDigits,
     maximumFractionDigits: currencyFormat.maximumFractionDigits
@@ -80,18 +60,14 @@ const CurrencyInputComponent = (
   const renderPrefix =
     currencyPosition === 'prefix'
       ? preffixProps => (
-          <CurrencyIcon {...preffixProps} css={iconWidthStyles(symbolLength)}>
-            {currencySymbol}
-          </CurrencyIcon>
+          <CurrencyIcon {...preffixProps}>{currencySymbol}</CurrencyIcon>
         )
       : null;
 
   const renderSuffix =
     currencyPosition === 'suffix'
       ? suffixProps => (
-          <CurrencyIcon {...suffixProps} css={iconWidthStyles(symbolLength)}>
-            {currencySymbol}
-          </CurrencyIcon>
+          <CurrencyIcon {...suffixProps}>{currencySymbol}</CurrencyIcon>
         )
       : null;
 
@@ -115,11 +91,7 @@ const CurrencyInputComponent = (
           }}
         />
       )}
-      inputStyles={css([
-        inputBaseStyles(),
-        inputPrependStyles({ theme, symbolLength, currencyPosition }),
-        inputAppendStyles({ theme, symbolLength, currencyPosition })
-      ])}
+      inputStyles={inputStyles}
       renderPrefix={renderPrefix}
       renderSuffix={renderSuffix}
       type="text"

@@ -14,6 +14,8 @@
  */
 
 import React from 'react';
+import { css } from '@emotion/core';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import docs from './CurrencyInput.docs.mdx';
 import CurrencyInput from './CurrencyInput';
@@ -26,45 +28,59 @@ export default {
   }
 };
 
-export const base = () => (
+const BaseCurrencyInput = props => (
   <CurrencyInput
+    validationHint={text('Validation hint', 'Excluding VAT')}
+    optional={boolean('Optional', false)}
+    invalid={boolean('Invalid', false)}
+    showValid={boolean('Show valid', false)}
+    hasWarning={boolean('Has warning', false)}
+    css={css`
+      max-width: 250px;
+    `}
+    {...props}
+  />
+);
+
+export const base = () => (
+  <BaseCurrencyInput
+    label="Amount (de-DE, EUR)"
     placeholder={123.45}
     locale="de-DE"
     currency="EUR"
-    label="Amount (de-DE, EUR)"
   />
 );
 
 export const currencies = () => (
   <>
-    <CurrencyInput
+    <BaseCurrencyInput
+      label="Amount (pt-BR, BRL)"
       placeholder={1234.5}
       currency="BRL"
       locale="pt-BR"
-      label="Amount (pt-BR, BRL)"
     />
-    <CurrencyInput
+    <BaseCurrencyInput
+      label="Amount (pt-BR, USD)"
       placeholder={1234.5}
       currency="USD"
       locale="pt-BR"
-      label="Amount (pt-BR, USD)"
     />
   </>
 );
 
 export const locales = () => (
   <>
-    <CurrencyInput
+    <BaseCurrencyInput
+      label="Amount (de-DE, EUR)"
       placeholder={1234.5}
       currency="EUR"
       locale="de-DE"
-      label="Amount (de-DE, EUR)"
     />
-    <CurrencyInput
+    <BaseCurrencyInput
+      label="Amount (en-IE, EUR)"
       placeholder={1234.5}
       currency="EUR"
       locale="en-IE"
-      label="Amount (en-IE, EUR)"
     />
   </>
 );

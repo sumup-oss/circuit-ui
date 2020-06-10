@@ -20,14 +20,13 @@ label + .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
@@ -81,37 +80,29 @@ label + .circuit-1 {
 `;
 
 exports[`TextArea should prioritize disabled over warning styles 1`] = `
-.circuit-2 {
+.circuit-1 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
-}
-
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
 }
 
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
@@ -184,74 +175,34 @@ label + .circuit-2 {
 }
 
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     aria-invalid="true"
     class="circuit-0"
     id="input_12"
   />
-  <div
-    class="circuit-1"
-  >
-    <svg
-      fill="none"
-      height="16"
-      role="img"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        clip-path="url(#circle_cross_small_svg__clip0)"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </g>
-      <defs>
-        <clippath
-          id="circle_cross_small_svg__clip0"
-        >
-          <path
-            d="M0 0h16v16H0V0z"
-            fill="#fff"
-          />
-        </clippath>
-      </defs>
-    </svg>
-  </div>
 </div>
 `;
 
 exports[`TextArea should prioritize error over optional styles 1`] = `
-.circuit-2 {
+.circuit-1 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
-}
-
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
 }
 
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
@@ -259,7 +210,6 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   background-color: #FAFBFC;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
@@ -316,59 +266,26 @@ label + .circuit-2 {
 }
 
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     aria-invalid="true"
     class="circuit-0"
     id="input_10"
   />
-  <div
-    class="circuit-1"
-  >
-    <svg
-      fill="none"
-      height="16"
-      role="img"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        clip-path="url(#circle_cross_small_svg__clip0)"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </g>
-      <defs>
-        <clippath
-          id="circle_cross_small_svg__clip0"
-        >
-          <path
-            d="M0 0h16v16H0V0z"
-            fill="#fff"
-          />
-        </clippath>
-      </defs>
-    </svg>
-  </div>
 </div>
 `;
 
 exports[`TextArea should render with a Tooltip when passed the validationHint prop 1`] = `
-.circuit-3 {
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
@@ -376,14 +293,13 @@ label + .circuit-3 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -424,80 +340,47 @@ label + .circuit-3 {
 }
 
 .circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-.circuit-2 {
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 31;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  right: 50%;
-  right: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  right: 1px;
-}
-
-.circuit-2::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-2::after {
-  right: 12px;
-}
-
-.circuit-2::after {
-  top: 100%;
-  border-top-color: #212933;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <div
-  class="circuit-3"
+  class="circuit-2"
 >
   <textarea
     class="circuit-0"
     id="input_4"
   />
-  <div
+  <span
     class="circuit-1"
-  />
-  <div
-    class="circuit-2"
   >
     Validation hint
-  </div>
+  </span>
 </div>
 `;
 
 exports[`TextArea should render with a prefix when passed the prefix prop 1`] = `
-.circuit-2 {
+.circuit-1 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
@@ -505,14 +388,13 @@ label + .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -552,35 +434,26 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     class="circuit-0"
     id="input_2"
   />
-  <div
-    class="circuit-1"
-  />
 </div>
 `;
 
 exports[`TextArea should render with a suffix when passed the suffix prop 1`] = `
-.circuit-2 {
+.circuit-1 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
@@ -588,14 +461,13 @@ label + .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -635,35 +507,26 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     class="circuit-0"
     id="input_3"
   />
-  <div
-    class="circuit-1"
-  />
 </div>
 `;
 
 exports[`TextArea should render with default styles 1`] = `
-.circuit-2 {
+.circuit-1 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
@@ -671,14 +534,13 @@ label + .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -718,21 +580,12 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     class="circuit-0"
     id="input_1"
-  />
-  <div
-    class="circuit-1"
   />
 </div>
 `;
@@ -742,14 +595,13 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -821,14 +673,13 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -869,12 +720,6 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
 }
 
 .circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
@@ -883,56 +728,45 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   margin-right: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     class="circuit-0"
     id="input_13"
   />
-  <div
-    class="circuit-1"
-  />
 </div>
 `;
 
 exports[`TextArea should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-2 {
+.circuit-1 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
-}
-
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
 }
 
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
@@ -989,46 +823,13 @@ label + .circuit-2 {
 }
 
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     aria-invalid="true"
     class="circuit-0"
     id="input_6"
   />
-  <div
-    class="circuit-1"
-  >
-    <svg
-      fill="none"
-      height="16"
-      role="img"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        clip-path="url(#circle_cross_small_svg__clip0)"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </g>
-      <defs>
-        <clippath
-          id="circle_cross_small_svg__clip0"
-        >
-          <path
-            d="M0 0h16v16H0V0z"
-            fill="#fff"
-          />
-        </clippath>
-      </defs>
-    </svg>
-  </div>
 </div>
 `;
 
@@ -1037,14 +838,13 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -1085,12 +885,6 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
 }
 
 .circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
@@ -1098,48 +892,39 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   margin-bottom: 0;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     class="circuit-0"
     id="input_14"
   />
-  <div
-    class="circuit-1"
-  />
 </div>
 `;
 
 exports[`TextArea should render with optional styles when passed the optional prop 1`] = `
-.circuit-2 {
+.circuit-1 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
-}
-
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
@@ -1147,7 +932,6 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   background-color: #FAFBFC;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -1188,28 +972,25 @@ label + .circuit-2 {
 }
 
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     class="circuit-0"
     id="input_8"
   />
-  <div
-    class="circuit-1"
-  />
 </div>
 `;
 
 exports[`TextArea should render with valid styles when passed the showValid prop 1`] = `
-.circuit-2 {
+.circuit-1 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
@@ -1217,14 +998,13 @@ label + .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -1264,66 +1044,26 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     class="circuit-0"
     id="input_7"
   />
-  <div
-    class="circuit-1"
-  >
-    <svg
-      fill="none"
-      height="16"
-      role="img"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        clip-path="url(#circle_checkmark_small_svg__clip0)"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </g>
-      <defs>
-        <clippath
-          id="circle_checkmark_small_svg__clip0"
-        >
-          <path
-            d="M0 0h16v16H0V0z"
-            fill="#fff"
-          />
-        </clippath>
-      </defs>
-    </svg>
-  </div>
 </div>
 `;
 
 exports[`TextArea should render with warning styles when passed the hasWarning prop 1`] = `
-.circuit-2 {
+.circuit-1 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
@@ -1331,14 +1071,13 @@ label + .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #D8A413;
 }
 
@@ -1394,52 +1133,12 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #D8A413;
 }
 
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
 <div
-  class="circuit-2"
+  class="circuit-1"
 >
   <textarea
     class="circuit-0"
     id="input_5"
   />
-  <div
-    class="circuit-1"
-  >
-    <svg
-      fill="none"
-      height="16"
-      role="img"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g
-        clip-path="url(#circle_warning_small_svg__clip0)"
-      >
-        <path
-          clip-rule="evenodd"
-          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </g>
-      <defs>
-        <clippath
-          id="circle_warning_small_svg__clip0"
-        >
-          <path
-            d="M0 0h16v16H0V0z"
-            fill="#fff"
-          />
-        </clippath>
-      </defs>
-    </svg>
-  </div>
 </div>
 `;

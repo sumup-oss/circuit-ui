@@ -8997,7 +8997,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_29"
+      aria-labelledby="progress-bar_26"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9008,7 +9008,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_29"
+      id="progress-bar_26"
     >
       3/10
     </span>
@@ -9065,7 +9065,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_30"
+      aria-labelledby="progress-bar_27"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9076,7 +9076,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_30"
+      id="progress-bar_27"
     >
       30%
     </span>
@@ -9138,7 +9138,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_33"
+      aria-labelledby="progress-bar_30"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9149,7 +9149,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_33"
+      id="progress-bar_30"
     >
       byte
     </span>
@@ -9206,7 +9206,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_34"
+      aria-labelledby="progress-bar_31"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9217,7 +9217,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_34"
+      id="progress-bar_31"
     >
       kilo
     </span>
@@ -9274,7 +9274,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_35"
+      aria-labelledby="progress-bar_32"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9285,7 +9285,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_35"
+      id="progress-bar_32"
     >
       mega
     </span>
@@ -9346,7 +9346,7 @@ exports[`Storyshots Components/ProgressBar Steps 1`] = `
   class="circuit-2"
 >
   <span
-    aria-labelledby="progress-bar_27"
+    aria-labelledby="progress-bar_24"
     aria-valuemax="10"
     aria-valuemin="0"
     aria-valuenow="3"
@@ -9357,7 +9357,7 @@ exports[`Storyshots Components/ProgressBar Steps 1`] = `
   />
   <span
     class="circuit-1"
-    id="progress-bar_27"
+    id="progress-bar_24"
   />
 </div>
 `;
@@ -9470,13 +9470,13 @@ exports[`Storyshots Components/ProgressBar Timer 1`] = `
   class="circuit-2"
 >
   <span
-    aria-labelledby="progress-bar_28"
+    aria-labelledby="progress-bar_25"
     class="circuit-0"
     loop=""
   />
   <span
     class="circuit-1"
-    id="progress-bar_28"
+    id="progress-bar_25"
   />
 </div>
 `;
@@ -9535,7 +9535,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_31"
+      aria-labelledby="progress-bar_28"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9546,7 +9546,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_31"
+      id="progress-bar_28"
     >
       primary
     </span>
@@ -9603,7 +9603,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_32"
+      aria-labelledby="progress-bar_29"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9614,7 +9614,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_32"
+      id="progress-bar_29"
     >
       secondary
     </span>
@@ -10248,7 +10248,7 @@ exports[`Storyshots Components/Spinner Base 1`] = `
 `;
 
 exports[`Storyshots Components/Step Form 1`] = `
-.circuit-12 {
+.circuit-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10281,28 +10281,28 @@ exports[`Storyshots Components/Step Form 1`] = `
   border-radius: 8px;
 }
 
-.circuit-12:focus {
+.circuit-10:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-12:focus::-moz-focus-inner {
+.circuit-10:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-12:disabled,
-.circuit-12[disabled] {
+.circuit-10:disabled,
+.circuit-10[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-12:hover {
+.circuit-10:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-12:active {
+.circuit-10:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
@@ -10319,22 +10319,16 @@ exports[`Storyshots Components/Step Form 1`] = `
   display: block;
 }
 
-.circuit-7 {
+.circuit-6 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-7,
-label + .circuit-7 {
+label > .circuit-6,
+label + .circuit-6 {
   margin-top: 4px;
-}
-
-.circuit-6 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
 .circuit-0 {
@@ -10355,14 +10349,13 @@ label + .circuit-7 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -10413,7 +10406,7 @@ label + .circuit-7 {
   align-items: center;
 }
 
-.circuit-13 {
+.circuit-11 {
   margin: 0 auto;
   width: 90%;
   max-width: 300px;
@@ -10451,7 +10444,7 @@ label + .circuit-7 {
 }
 
 <div
-  class="circuit-13 circuit-14"
+  class="circuit-11 circuit-12"
 >
   <h2
     class="circuit-0"
@@ -10465,7 +10458,7 @@ label + .circuit-7 {
     class="circuit-3"
   >
     <span
-      aria-labelledby="progress-bar_58"
+      aria-labelledby="progress-bar_55"
       aria-valuemax="3"
       aria-valuemin="0"
       aria-valuenow="1"
@@ -10476,7 +10469,7 @@ label + .circuit-7 {
     />
     <span
       class="circuit-2"
-      id="progress-bar_58"
+      id="progress-bar_55"
     />
   </div>
   <section>
@@ -10487,15 +10480,13 @@ label + .circuit-7 {
       First Name
     </label>
     <div
-      class="circuit-7"
+      class="circuit-6"
     >
       <input
         class="circuit-5"
         id="first"
         placeholder="John"
-      />
-      <div
-        class="circuit-6"
+        value=""
       />
     </div>
     <label
@@ -10505,19 +10496,17 @@ label + .circuit-7 {
       Second Name
     </label>
     <div
-      class="circuit-7"
+      class="circuit-6"
     >
       <input
         class="circuit-5"
         id="second"
         placeholder="Doe"
-      />
-      <div
-        class="circuit-6"
+        value=""
       />
     </div>
     <button
-      class="circuit-12"
+      class="circuit-10"
     >
       Next
     </button>
@@ -15144,23 +15133,33 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -15202,47 +15201,67 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
-  for="14"
+  for="input_14"
 >
   <span
     class="circuit-0"
   >
-    Label
+    First name
   </span>
   <div
     class="circuit-3"
   >
     <input
+      aria-invalid="false"
       class="circuit-1"
-      id="14"
-      placeholder="Placeholder"
+      id="input_14"
+      placeholder="Jane"
+      value=""
     />
-    <div
+    <span
       class="circuit-2"
-    />
+    >
+      Maximum 100 characters
+    </span>
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/Input Disabled 1`] = `
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
+}
+
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -15282,7 +15301,7 @@ exports[`Storyshots Forms/Input Disabled 1`] = `
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-2 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
@@ -15292,216 +15311,83 @@ exports[`Storyshots Forms/Input Disabled 1`] = `
   box-shadow: none;
 }
 
-label > .circuit-2,
-label + .circuit-2 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
 <label
-  class="circuit-3"
-  for="22"
+  class="circuit-4"
+  for="input_19"
 >
   <span
     class="circuit-0"
   >
-    Label
+    First name
   </span>
   <div
-    class="circuit-2"
+    class="circuit-3"
     disabled=""
   >
     <input
+      aria-invalid="false"
       class="circuit-1"
       disabled=""
-      id="22"
-      placeholder="Placeholder"
+      id="input_19"
+      placeholder="Jane"
       value="Some value"
     />
+    <span
+      class="circuit-2"
+    >
+      Maximum 100 characters
+    </span>
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/Input Inline 1`] = `
-.circuit-1 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-.circuit-0 {
-  background-color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-  box-shadow: 0 0 0 1px #9DA7B1;
-}
-
-.circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  display: inline-block;
-  margin-right: 16px;
-}
-
-label > .circuit-2,
-label + .circuit-2 {
-  margin-top: 4px;
-}
-
-<div>
-  <div
-    class="circuit-2"
-  >
-    <input
-      class="circuit-0"
-      id="input_24"
-      placeholder="First"
-    />
-    <div
-      class="circuit-1"
-    />
-  </div>
-  <div
-    class="circuit-2"
-  >
-    <input
-      class="circuit-0"
-      id="input_25"
-      placeholder="Second"
-    />
-    <div
-      class="circuit-1"
-    />
-  </div>
-</div>
-`;
-
-exports[`Storyshots Forms/Input Invalid 1`] = `
-HTMLCollection [
-  .circuit-5 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
 .circuit-3 {
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 31;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
+.circuit-2 {
   font-size: 13px;
   line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  right: 50%;
-  right: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  right: 1px;
-}
-
-.circuit-3::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-3::after {
-  right: 12px;
-}
-
-.circuit-3::after {
-  top: 100%;
-  border-top-color: #212933;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-  box-shadow: 0 0 0 1px #DB4D4D;
+  box-shadow: 0 0 0 1px #9DA7B1;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -15528,93 +15414,84 @@ label + .circuit-4 {
   transition: color 200ms ease-in-out;
 }
 
-.circuit-1:not(:focus)::-webkit-input-placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-1:not(:focus)::-moz-placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-1:not(:focus):-ms-input-placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-1:not(:focus)::placeholder {
-  color: #EA7A7A;
-}
-
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #B22828;
+  box-shadow: 0 0 0 1px #5C656F;
 }
 
 .circuit-1:focus {
-  box-shadow: 0 0 0 2px #DB4D4D;
+  box-shadow: 0 0 0 2px #3388FF;
 }
 
 .circuit-1:active {
-  box-shadow: 0 0 0 1px #DB4D4D;
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
-<label
-    class="circuit-5"
-    for="17"
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  display: inline-block;
+  margin-right: 16px;
+}
+
+<div>
+  <label
+    class="circuit-4"
+    for="input_21"
   >
     <span
       class="circuit-0"
     >
-      Label
+      First name
     </span>
     <div
-      class="circuit-4"
+      class="circuit-3"
     >
       <input
-        aria-invalid="true"
+        aria-invalid="false"
         class="circuit-1"
-        id="17"
-        placeholder="Placeholder"
+        id="input_21"
+        placeholder="First name"
+        value=""
       />
-      <div
+      <span
         class="circuit-2"
       >
-        <svg
-          fill="none"
-          height="16"
-          role="img"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            clip-path="url(#circle_cross_small_svg__clip0)"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </g>
-          <defs>
-            <clippath
-              id="circle_cross_small_svg__clip0"
-            >
-              <path
-                d="M0 0h16v16H0V0z"
-                fill="#fff"
-              />
-            </clippath>
-          </defs>
-        </svg>
-      </div>
-      <div
-        class="circuit-3"
-      >
-        This field is required.
-      </div>
+        Maximum 100 characters
+      </span>
     </div>
-  </label>,
-  .circuit-4 {
+  </label>
+  <label
+    class="circuit-4"
+    for="input_22"
+  >
+    <span
+      class="circuit-0"
+    >
+      First name
+    </span>
+    <div
+      class="circuit-3"
+    >
+      <input
+        aria-invalid="false"
+        class="circuit-1"
+        id="input_22"
+        placeholder="Last name"
+        value=""
+      />
+      <span
+        class="circuit-2"
+      >
+        Maximum 100 characters
+      </span>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Storyshots Forms/Input Invalid 1`] = `
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -15632,25 +15509,17 @@ label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
@@ -15706,60 +15575,79 @@ label + .circuit-3 {
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+  color: #DB4D4D;
+}
+
 <label
-    class="circuit-4"
-    for="18"
+  class="circuit-4"
+  for="input_16"
+>
+  <span
+    class="circuit-0"
   >
+    First name
+  </span>
+  <div
+    class="circuit-3"
+  >
+    <input
+      aria-invalid="true"
+      class="circuit-1"
+      id="input_16"
+      placeholder="Jane"
+      value=""
+    />
     <span
-      class="circuit-0"
+      class="circuit-2"
     >
-      Label
-    </span>
-    <div
-      class="circuit-3"
-    >
-      <input
-        aria-invalid="true"
-        class="circuit-1"
-        id="18"
-        placeholder="Placeholder"
-      />
-      <div
-        class="circuit-2"
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          fill="none"
-          height="16"
-          role="img"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <g
+          clip-path="url(#circle_cross_small_svg__clip0)"
         >
-          <g
-            clip-path="url(#circle_cross_small_svg__clip0)"
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_cross_small_svg__clip0"
           >
             <path
-              clip-rule="evenodd"
-              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-              fill="currentColor"
-              fill-rule="evenodd"
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
             />
-          </g>
-          <defs>
-            <clippath
-              id="circle_cross_small_svg__clip0"
-            >
-              <path
-                d="M0 0h16v16H0V0z"
-                fill="#fff"
-              />
-            </clippath>
-          </defs>
-        </svg>
-      </div>
-    </div>
-  </label>,
-]
+          </clippath>
+        </defs>
+      </svg>
+      This field is required.
+    </span>
+  </div>
+</label>
 `;
 
 exports[`Storyshots Forms/Input Optional 1`] = `
@@ -15782,16 +15670,27 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
@@ -15799,7 +15698,6 @@ label + .circuit-3 {
   font-size: 16px;
   line-height: 24px;
   background-color: #FAFBFC;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -15841,24 +15739,28 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
-  for="21"
+  for="input_18"
 >
   <span
     class="circuit-0"
   >
-    Label
+    First name
   </span>
   <div
     class="circuit-3"
   >
     <input
+      aria-invalid="false"
       class="circuit-1"
-      id="21"
-      placeholder="Placeholder"
+      id="input_18"
+      placeholder="Jane"
+      value=""
     />
-    <div
+    <span
       class="circuit-2"
-    />
+    >
+      Maximum 100 characters
+    </span>
   </div>
 </label>
 `;
@@ -15883,16 +15785,27 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
@@ -15900,7 +15813,6 @@ label + .circuit-3 {
   font-size: 16px;
   line-height: 24px;
   text-align: right;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -15942,205 +15854,34 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
-  for="23"
+  for="input_20"
 >
   <span
     class="circuit-0"
   >
-    Label
+    First name
   </span>
   <div
     class="circuit-3"
   >
     <input
+      aria-invalid="false"
       class="circuit-1"
-      id="23"
-      placeholder="Placeholder"
+      id="input_20"
+      placeholder="Jane"
+      value=""
     />
-    <div
+    <span
       class="circuit-2"
-    />
+    >
+      Maximum 100 characters
+    </span>
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/Input Valid 1`] = `
-HTMLCollection [
-  .circuit-5 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-1 {
-  background-color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-  box-shadow: 0 0 0 1px #9DA7B1;
-}
-
-.circuit-1::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
-.circuit-3 {
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 31;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  font-size: 13px;
-  line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  right: 50%;
-  right: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  right: 1px;
-}
-
-.circuit-3::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-3::after {
-  right: 12px;
-}
-
-.circuit-3::after {
-  top: 100%;
-  border-top-color: #212933;
-}
-
-<label
-    class="circuit-5"
-    for="15"
-  >
-    <span
-      class="circuit-0"
-    >
-      Label
-    </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-1"
-        id="15"
-        placeholder="Placeholder"
-      />
-      <div
-        class="circuit-2"
-      >
-        <svg
-          fill="none"
-          height="16"
-          role="img"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            clip-path="url(#circle_checkmark_small_svg__clip0)"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </g>
-          <defs>
-            <clippath
-              id="circle_checkmark_small_svg__clip0"
-            >
-              <path
-                d="M0 0h16v16H0V0z"
-                fill="#fff"
-              />
-            </clippath>
-          </defs>
-        </svg>
-      </div>
-      <div
-        class="circuit-3"
-      >
-        That's correct.
-      </div>
-    </div>
-  </label>,
-  .circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -16158,18 +15899,34 @@ label + .circuit-3 {
   margin-top: 4px;
 }
 
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -16209,261 +15966,65 @@ label + .circuit-3 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
 <label
-    class="circuit-4"
-    for="16"
+  class="circuit-4"
+  for="input_15"
+>
+  <span
+    class="circuit-0"
   >
+    Username
+  </span>
+  <div
+    class="circuit-3"
+  >
+    <input
+      aria-invalid="false"
+      class="circuit-1"
+      id="input_15"
+      placeholder="Jane"
+      value=""
+    />
     <span
-      class="circuit-0"
+      class="circuit-2"
     >
-      Label
-    </span>
-    <div
-      class="circuit-3"
-    >
-      <input
-        class="circuit-1"
-        id="16"
-        placeholder="Placeholder"
-      />
-      <div
-        class="circuit-2"
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          fill="none"
-          height="16"
-          role="img"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <g
+          clip-path="url(#circle_checkmark_small_svg__clip0)"
         >
-          <g
-            clip-path="url(#circle_checkmark_small_svg__clip0)"
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_checkmark_small_svg__clip0"
           >
             <path
-              clip-rule="evenodd"
-              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
-              fill="currentColor"
-              fill-rule="evenodd"
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
             />
-          </g>
-          <defs>
-            <clippath
-              id="circle_checkmark_small_svg__clip0"
-            >
-              <path
-                d="M0 0h16v16H0V0z"
-                fill="#fff"
-              />
-            </clippath>
-          </defs>
-        </svg>
-      </div>
-    </div>
-  </label>,
-]
+          </clippath>
+        </defs>
+      </svg>
+      Yay! That username is available.
+    </span>
+  </div>
+</label>
 `;
 
 exports[`Storyshots Forms/Input Warning 1`] = `
-HTMLCollection [
-  .circuit-5 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
 .circuit-4 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-label > .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
-.circuit-3 {
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 31;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  font-size: 13px;
-  line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  right: 50%;
-  right: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  right: 1px;
-}
-
-.circuit-3::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-3::after {
-  right: 12px;
-}
-
-.circuit-3::after {
-  top: 100%;
-  border-top-color: #212933;
-}
-
-.circuit-1 {
-  background-color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
-  box-shadow: 0 0 0 1px #D8A413;
-}
-
-.circuit-1::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-}
-
-.circuit-1:not(:focus)::-webkit-input-placeholder {
-  color: #D8A413;
-}
-
-.circuit-1:not(:focus)::-moz-placeholder {
-  color: #D8A413;
-}
-
-.circuit-1:not(:focus):-ms-input-placeholder {
-  color: #D8A413;
-}
-
-.circuit-1:not(:focus)::placeholder {
-  color: #D8A413;
-}
-
-.circuit-1:hover {
-  box-shadow: 0 0 0 1px #AD7A14;
-}
-
-.circuit-1:focus {
-  box-shadow: 0 0 0 2px #D8A413;
-}
-
-.circuit-1:active {
-  box-shadow: 0 0 0 1px #D8A413;
-}
-
-<label
-    class="circuit-5"
-    for="19"
-  >
-    <span
-      class="circuit-0"
-    >
-      Label
-    </span>
-    <div
-      class="circuit-4"
-    >
-      <input
-        class="circuit-1"
-        id="19"
-        placeholder="Placeholder"
-      />
-      <div
-        class="circuit-2"
-      >
-        <svg
-          fill="none"
-          height="16"
-          role="img"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            clip-path="url(#circle_warning_small_svg__clip0)"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </g>
-          <defs>
-            <clippath
-              id="circle_warning_small_svg__clip0"
-            >
-              <path
-                d="M0 0h16v16H0V0z"
-                fill="#fff"
-              />
-            </clippath>
-          </defs>
-        </svg>
-      </div>
-      <div
-        class="circuit-3"
-      >
-        This does not look right.
-      </div>
-    </div>
-  </label>,
-  .circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -16482,24 +16043,33 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #D8A413;
 }
 
@@ -16556,58 +16126,60 @@ label + .circuit-3 {
 }
 
 <label
-    class="circuit-4"
-    for="20"
+  class="circuit-4"
+  for="input_17"
+>
+  <span
+    class="circuit-0"
   >
+    First name
+  </span>
+  <div
+    class="circuit-3"
+  >
+    <input
+      aria-invalid="false"
+      class="circuit-1"
+      id="input_17"
+      placeholder="Jane"
+      value=""
+    />
     <span
-      class="circuit-0"
+      class="circuit-2"
     >
-      Label
-    </span>
-    <div
-      class="circuit-3"
-    >
-      <input
-        class="circuit-1"
-        id="20"
-        placeholder="Placeholder"
-      />
-      <div
-        class="circuit-2"
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          fill="none"
-          height="16"
-          role="img"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <g
+          clip-path="url(#circle_warning_small_svg__clip0)"
         >
-          <g
-            clip-path="url(#circle_warning_small_svg__clip0)"
+          <path
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </g>
+        <defs>
+          <clippath
+            id="circle_warning_small_svg__clip0"
           >
             <path
-              clip-rule="evenodd"
-              d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
-              fill="currentColor"
-              fill-rule="evenodd"
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
             />
-          </g>
-          <defs>
-            <clippath
-              id="circle_warning_small_svg__clip0"
-            >
-              <path
-                d="M0 0h16v16H0V0z"
-                fill="#fff"
-              />
-            </clippath>
-          </defs>
-        </svg>
-      </div>
-    </div>
-  </label>,
-]
+          </clippath>
+        </defs>
+      </svg>
+      This does not look right.
+    </span>
+  </div>
+</label>
 `;
 
 exports[`Storyshots Forms/Input With Visually Hidden Label 1`] = `
@@ -16624,42 +16196,35 @@ exports[`Storyshots Forms/Input With Visually Hidden Label 1`] = `
   width: 1px;
 }
 
-.circuit-4 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-3 {
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -16700,24 +16265,24 @@ label + .circuit-3 {
 }
 
 <label
-  class="circuit-4"
-  for="input_26"
+  class="circuit-3"
+  for="input_23"
 >
   <span
     class="circuit-0"
   >
-    Label
+    Email
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <input
+      aria-invalid="false"
       class="circuit-1"
-      id="input_26"
-      placeholder="Placeholder"
-    />
-    <div
-      class="circuit-2"
+      id="input_23"
+      placeholder="Email"
+      type="email"
+      value=""
     />
   </div>
 </label>
@@ -16756,23 +16321,30 @@ label + .circuit-5 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 18px !important;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-3 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-3::-webkit-input-placeholder {
@@ -16812,9 +16384,20 @@ label + .circuit-5 {
 }
 
 .circuit-4 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <label
@@ -16835,15 +16418,18 @@ label + .circuit-5 {
       €
     </span>
     <input
+      aria-invalid="false"
       class="circuit-3"
       id="input_9"
       placeholder="123.45"
       type="text"
       value=""
     />
-    <div
+    <span
       class="circuit-4"
-    />
+    >
+      Excluding VAT
+    </span>
   </div>
 </label>
 `;
@@ -16882,23 +16468,30 @@ label + .circuit-5 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 18px !important;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-3 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-3::-webkit-input-placeholder {
@@ -16938,9 +16531,20 @@ label + .circuit-5 {
 }
 
 .circuit-4 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <label
@@ -16961,15 +16565,18 @@ label + .circuit-5 {
         R$
       </span>
       <input
+        aria-invalid="false"
         class="circuit-3"
         id="input_10"
         placeholder="1,234.50"
         type="text"
         value=""
       />
-      <div
+      <span
         class="circuit-4"
-      />
+      >
+        Excluding VAT
+      </span>
     </div>
   </label>,
   .circuit-6 {
@@ -17004,23 +16611,30 @@ label + .circuit-5 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 18px !important;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-3 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-3::-webkit-input-placeholder {
@@ -17060,9 +16674,20 @@ label + .circuit-5 {
 }
 
 .circuit-4 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <label
@@ -17083,15 +16708,18 @@ label + .circuit-5 {
         $
       </span>
       <input
+        aria-invalid="false"
         class="circuit-3"
         id="input_11"
         placeholder="1,234.50"
         type="text"
         value=""
       />
-      <div
+      <span
         class="circuit-4"
-      />
+      >
+        Excluding VAT
+      </span>
     </div>
   </label>,
 ]
@@ -17131,23 +16759,30 @@ label + .circuit-5 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 18px !important;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-3 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-3::-webkit-input-placeholder {
@@ -17187,9 +16822,20 @@ label + .circuit-5 {
 }
 
 .circuit-4 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <label
@@ -17210,15 +16856,18 @@ label + .circuit-5 {
         €
       </span>
       <input
+        aria-invalid="false"
         class="circuit-3"
         id="input_12"
         placeholder="1,234.50"
         type="text"
         value=""
       />
-      <div
+      <span
         class="circuit-4"
-      />
+      >
+        Excluding VAT
+      </span>
     </div>
   </label>,
   .circuit-6 {
@@ -17253,23 +16902,30 @@ label + .circuit-5 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 18px !important;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-3 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-3::-webkit-input-placeholder {
@@ -17309,9 +16965,20 @@ label + .circuit-5 {
 }
 
 .circuit-4 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 <label
@@ -17332,15 +16999,18 @@ label + .circuit-5 {
         €
       </span>
       <input
+        aria-invalid="false"
         class="circuit-3"
         id="input_13"
         placeholder="1,234.50"
         type="text"
         value=""
       />
-      <div
+      <span
         class="circuit-4"
-      />
+      >
+        Excluding VAT
+      </span>
     </div>
   </label>,
 ]
@@ -17365,19 +17035,30 @@ label + .circuit-3 {
   margin-top: 4px;
 }
 
+.circuit-1 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
+}
+
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
+  padding-right: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -17417,20 +17098,9 @@ label + .circuit-3 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
 <label
   class="circuit-4"
-  for="42"
+  for="39"
 >
   <span
     class="circuit-0"
@@ -17457,7 +17127,7 @@ label + .circuit-3 {
     </svg>
     <input
       class="circuit-2"
-      id="42"
+      id="39"
       placeholder="Search..."
       type="text"
       value=""
@@ -17485,19 +17155,30 @@ label + .circuit-3 {
   margin-top: 4px;
 }
 
+.circuit-1 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
+}
+
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
+  padding-right: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -17537,21 +17218,10 @@ label + .circuit-3 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
 <div>
   <label
     class="circuit-4"
-    for="44"
+    for="41"
   >
     <span
       class="circuit-0"
@@ -17578,7 +17248,7 @@ label + .circuit-3 {
       </svg>
       <input
         class="circuit-2"
-        id="44"
+        id="41"
         placeholder="Search..."
         type="text"
         value=""
@@ -17595,19 +17265,45 @@ exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
   display: block;
 }
 
+.circuit-1 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+label > .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
+  padding-right: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -17647,35 +17343,9 @@ exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-  margin-bottom: 16px;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-label > .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
-}
-
-.circuit-1 {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
 <label
   class="circuit-4"
-  for="43"
+  for="40"
 >
   <span
     class="circuit-0"
@@ -17704,7 +17374,7 @@ label + .circuit-3 {
     <input
       class="circuit-2"
       disabled=""
-      id="43"
+      id="40"
       placeholder="Search..."
       type="text"
       value=""
@@ -17790,7 +17460,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_36"
+    id="radio-button_33"
     name="radio"
     type="radio"
     value="radio"
@@ -17844,7 +17514,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_36"
+    for="radio-button_33"
   >
     Unchecked
   </label>,
@@ -17889,7 +17559,7 @@ HTMLCollection [
 <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="radio-button_38"
+    id="radio-button_35"
     name="disabled"
     type="radio"
     value="disabled"
@@ -17962,7 +17632,7 @@ HTMLCollection [
 <label
     class="circuit-0 circuit-1"
     disabled=""
-    for="radio-button_38"
+    for="radio-button_35"
   >
     Disabled
   </label>,
@@ -18006,7 +17676,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_37"
+    id="radio-button_34"
     name="invalid"
     type="radio"
     value="invalid"
@@ -18069,7 +17739,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_37"
+    for="radio-button_34"
   >
     Error
   </label>,
@@ -18164,14 +17834,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_39"
+      id="radio-button_36"
       name="radio-button-group"
       type="radio"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_39"
+      for="radio-button_36"
     >
       Apple
     </label>
@@ -18179,14 +17849,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_40"
+      id="radio-button_37"
       name="radio-button-group"
       type="radio"
       value="banana"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_40"
+      for="radio-button_37"
     >
       Banana
     </label>
@@ -18194,14 +17864,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_41"
+      id="radio-button_38"
       name="radio-button-group"
       type="radio"
       value="mango"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_41"
+      for="radio-button_38"
     >
       Mango
     </label>
@@ -18288,7 +17958,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
-  for="45"
+  for="42"
 >
   <span
     class="circuit-0"
@@ -18301,7 +17971,7 @@ label + .circuit-3 {
     <select
       aria-invalid="false"
       class="circuit-1"
-      id="45"
+      id="42"
       name="select"
     >
       <option
@@ -18348,6 +18018,24 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
 }
 
 .circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+  color: #DB4D4D;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -18417,27 +18105,9 @@ label + .circuit-3 {
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 4px;
-  color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
-  color: #DB4D4D;
-}
-
 <label
   class="circuit-5"
-  for="45"
+  for="43"
 >
   <span
     class="circuit-0"
@@ -18450,7 +18120,7 @@ label + .circuit-3 {
     <select
       aria-invalid="true"
       class="circuit-1"
-      id="46"
+      id="43"
       name="select"
     >
       <option
@@ -18602,7 +18272,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
-  for="47"
+  for="44"
 >
   <span
     class="circuit-0"
@@ -18661,7 +18331,7 @@ label + .circuit-3 {
     <select
       aria-invalid="false"
       class="circuit-1"
-      id="47"
+      id="44"
       name="country_select"
     >
       <option
@@ -18791,7 +18461,7 @@ label + .circuit-3 {
 
 <label
   class="circuit-4"
-  for="48"
+  for="45"
 >
   <span
     class="circuit-0"
@@ -18804,7 +18474,7 @@ label + .circuit-3 {
     <select
       aria-invalid="false"
       class="circuit-1"
-      id="48"
+      id="45"
       name="select"
     >
       <option
@@ -18918,13 +18588,13 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 >
   <input
     class="circuit-0 circuit-1"
-    id="selector_49"
+    id="selector_46"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
-    for="selector_49"
+    for="selector_46"
   >
     Select me!
   </label>
@@ -19015,14 +18685,14 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="selector_51"
+    id="selector_48"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
     disabled=""
-    for="selector_51"
+    for="selector_48"
   >
     I cannot be selected
   </label>
@@ -19106,13 +18776,13 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   <input
     checked=""
     class="circuit-0 circuit-1"
-    id="selector_50"
+    id="selector_47"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
-    for="selector_50"
+    for="selector_47"
   >
     I am selected!
   </label>
@@ -19199,14 +18869,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_52"
+      id="selector_49"
       name="selector-group"
       type="radio"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_52"
+      for="selector_49"
     >
       Apple
     </label>
@@ -19216,14 +18886,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_53"
+      id="selector_50"
       name="selector-group"
       type="radio"
       value="banana"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_53"
+      for="selector_50"
     >
       Banana
     </label>
@@ -19233,14 +18903,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_54"
+      id="selector_51"
       name="selector-group"
       type="radio"
       value="mango"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_54"
+      for="selector_51"
     >
       Mango
     </label>
@@ -19328,14 +18998,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_55"
+      id="selector_52"
       name="selector-group"
       type="checkbox"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_55"
+      for="selector_52"
     >
       Apple
     </label>
@@ -19345,14 +19015,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_56"
+      id="selector_53"
       name="selector-group"
       type="checkbox"
       value="banana"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_56"
+      for="selector_53"
     >
       Banana
     </label>
@@ -19362,14 +19032,14 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_57"
+      id="selector_54"
       name="selector-group"
       type="checkbox"
       value="mango"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_57"
+      for="selector_54"
     >
       Mango
     </label>
@@ -19378,42 +19048,35 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
 `;
 
 exports[`Storyshots Forms/TextArea Base 1`] = `
-.circuit-4 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-3 {
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -19454,8 +19117,8 @@ label + .circuit-3 {
 }
 
 <label
-  class="circuit-4"
-  for="59"
+  class="circuit-3"
+  for="56"
 >
   <span
     class="circuit-0"
@@ -19463,15 +19126,12 @@ label + .circuit-3 {
     Label
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <textarea
       class="circuit-1"
-      id="59"
+      id="56"
       placeholder="Write your text here..."
-    />
-    <div
-      class="circuit-2"
     />
   </div>
 </label>
@@ -19488,14 +19148,13 @@ exports[`Storyshots Forms/TextArea Disabled 1`] = `
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -19552,7 +19211,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-3"
-  for="63"
+  for="60"
 >
   <span
     class="circuit-0"
@@ -19566,7 +19225,7 @@ label + .circuit-2 {
     <textarea
       class="circuit-1"
       disabled=""
-      id="63"
+      id="60"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -19576,84 +19235,35 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/TextArea Invalid 1`] = `
-.circuit-5 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-4 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-4,
-label + .circuit-4 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
-.circuit-3 {
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 31;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  font-size: 13px;
-  line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  right: 50%;
-  right: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  right: 1px;
-}
-
-.circuit-3::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-3::after {
-  right: 12px;
-}
-
-.circuit-3::after {
-  top: 100%;
-  border-top-color: #212933;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
@@ -19709,9 +19319,27 @@ label + .circuit-4 {
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+  color: #DB4D4D;
+}
+
 <label
-  class="circuit-5"
-  for="60"
+  class="circuit-4"
+  for="57"
 >
   <span
     class="circuit-0"
@@ -19719,21 +19347,21 @@ label + .circuit-4 {
     Label
   </span>
   <div
-    class="circuit-4"
+    class="circuit-3"
   >
     <textarea
       aria-invalid="true"
       class="circuit-1"
-      id="60"
+      id="57"
       placeholder="Write your text here..."
     />
-    <div
+    <span
       class="circuit-2"
     >
       <svg
         fill="none"
         height="16"
-        role="img"
+        role="presentation"
         viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
@@ -19759,46 +19387,36 @@ label + .circuit-4 {
           </clippath>
         </defs>
       </svg>
-    </div>
-    <div
-      class="circuit-3"
-    >
       Please fill in this field.
-    </div>
+    </span>
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/TextArea Optional 1`] = `
-.circuit-4 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-3 {
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
@@ -19806,7 +19424,6 @@ label + .circuit-3 {
   font-size: 16px;
   line-height: 24px;
   background-color: #FAFBFC;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -19847,8 +19464,8 @@ label + .circuit-3 {
 }
 
 <label
-  class="circuit-4"
-  for="62"
+  class="circuit-3"
+  for="59"
 >
   <span
     class="circuit-0"
@@ -19856,99 +19473,64 @@ label + .circuit-3 {
     Label
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <textarea
       class="circuit-1"
-      id="62"
+      id="59"
       placeholder="Write your text here..."
-    />
-    <div
-      class="circuit-2"
     />
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/TextArea Warning 1`] = `
-.circuit-5 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-4 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-4,
-label + .circuit-4 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
 .circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  opacity: 1;
-}
-
-.circuit-3 {
-  display: inline-block;
-  width: auto;
-  max-width: 280px;
-  min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  z-index: 31;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
   font-size: 13px;
   line-height: 20px;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-  right: 50%;
-  right: calc(50% - (16px + 4px));
-  bottom: 100%;
-  bottom: calc(100% + 12px);
-  right: 1px;
-}
-
-.circuit-3::after {
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border: 8px solid transparent;
-}
-
-.circuit-3::after {
-  right: 12px;
-}
-
-.circuit-3::after {
-  top: 100%;
-  border-top-color: #212933;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #D8A413;
 }
 
@@ -20005,8 +19587,8 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-5"
-  for="61"
+  class="circuit-4"
+  for="58"
 >
   <span
     class="circuit-0"
@@ -20014,20 +19596,20 @@ label + .circuit-4 {
     Label
   </span>
   <div
-    class="circuit-4"
+    class="circuit-3"
   >
     <textarea
       class="circuit-1"
-      id="61"
+      id="58"
       placeholder="Write your text here..."
     />
-    <div
+    <span
       class="circuit-2"
     >
       <svg
         fill="none"
         height="16"
-        role="img"
+        role="presentation"
         viewBox="0 0 16 16"
         width="16"
         xmlns="http://www.w3.org/2000/svg"
@@ -20053,12 +19635,8 @@ label + .circuit-4 {
           </clippath>
         </defs>
       </svg>
-    </div>
-    <div
-      class="circuit-3"
-    >
       We recommend that you fill in this field.
-    </div>
+    </span>
   </div>
 </label>
 `;
@@ -20077,42 +19655,35 @@ exports[`Storyshots Forms/TextArea With Visually Hidden Label 1`] = `
   width: 1px;
 }
 
-.circuit-4 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-3 {
+.circuit-2 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-3,
-label + .circuit-3 {
+label > .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
-}
-
-.circuit-2 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
 }
 
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-right: calc( 12px + 16px + 12px );
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -20153,8 +19724,8 @@ label + .circuit-3 {
 }
 
 <label
-  class="circuit-4"
-  for="64"
+  class="circuit-3"
+  for="61"
 >
   <span
     class="circuit-0"
@@ -20162,15 +19733,12 @@ label + .circuit-3 {
     Label
   </span>
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <textarea
       class="circuit-1"
-      id="64"
+      id="61"
       placeholder="Write your text here..."
-    />
-    <div
-      class="circuit-2"
     />
   </div>
 </label>
@@ -20295,9 +19863,9 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_66"
+    aria-labelledby="toggle-label_63"
     class="circuit-4 circuit-5"
-    id="toggle-switch_65"
+    id="toggle-switch_62"
     role="switch"
     type="button"
   >
@@ -20312,8 +19880,8 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   </button>
   <label
     class="circuit-8 circuit-9"
-    for="toggle-switch_65"
-    id="toggle-label_66"
+    for="toggle-switch_62"
+    id="toggle-label_63"
   >
     <p
       class="circuit-6 circuit-7"
@@ -20459,9 +20027,9 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_68"
+    aria-labelledby="toggle-label_65"
     class="circuit-4 circuit-5"
-    id="toggle-switch_67"
+    id="toggle-switch_64"
     role="switch"
     type="button"
   >
@@ -20476,8 +20044,8 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-10 circuit-11"
-    for="toggle-switch_67"
-    id="toggle-label_68"
+    for="toggle-switch_64"
+    id="toggle-label_65"
   >
     <p
       class="circuit-6 circuit-7"

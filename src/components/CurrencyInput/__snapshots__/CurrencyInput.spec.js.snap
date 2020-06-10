@@ -1,31 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CurrencyInput should adjust input padding and suffix width to match currency symbol width 1`] = `
-.circuit-4 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-4,
-label + .circuit-4 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
+}
+
+.circuit-0 {
+  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -65,31 +88,8 @@ label + .circuit-4 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-3 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
-.circuit-0 {
-  line-height: 16px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 27px !important;
-}
-
 <div
-  class="circuit-4"
+  class="circuit-3"
 >
   <span
     class="circuit-0 circuit-1"
@@ -103,22 +103,19 @@ label + .circuit-4 {
     type="text"
     value=""
   />
-  <div
-    class="circuit-3"
-  />
 </div>
 `;
 
 exports[`CurrencyInput should render with default styles 1`] = `
-.circuit-4 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-4,
-label + .circuit-4 {
+label > .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -136,22 +133,28 @@ label + .circuit-4 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 18px !important;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  padding-left: calc( 12px + 16px + 12px );
-  padding-right: calc( 12px + 16px + 12px );
+  padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
@@ -191,14 +194,8 @@ label + .circuit-4 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-3 {
-  opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-}
-
 <div
-  class="circuit-4"
+  class="circuit-3"
 >
   <span
     class="circuit-0 circuit-1"
@@ -210,9 +207,6 @@ label + .circuit-4 {
     id="input_1"
     type="text"
     value=""
-  />
-  <div
-    class="circuit-3"
   />
 </div>
 `;
