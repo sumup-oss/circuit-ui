@@ -13,23 +13,27 @@
  * limitations under the License.
  */
 
-import { HTMLProps } from 'react';
+import React, { FC, HTMLProps } from 'react';
 import { css } from '@emotion/core';
+import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { textKilo } from '../../styles/style-helpers';
 
 export interface ValidationHintProps extends HTMLProps<HTMLSpanElement> {
-  /**
-   * A concise description of the example prop.
-   */
+  validationHint?: string;
+  disabled?: boolean;
   invalid?: boolean;
+  hasWarning?: boolean;
+  showValid?: boolean;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: validation-hint;
   ${textKilo({ theme })};
-  display: block;
+  display: flex;
+  align-items: center;
   margin-top: ${theme.spacings.bit};
   color: ${theme.colors.n700};
   transition: color ${theme.transitions.default};
@@ -42,10 +46,57 @@ const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
     color: ${theme.colors.danger};
   `;
 
+const Wrapper = styled('span')<ValidationHintProps>(baseStyles, invalidStyles);
+
+const iconStyles = (color: 'danger' | 'warning' | 'success') => (
+  theme: Theme
+) => css`
+  label: ${`validation-hint__icon--${color}`};
+  width: ${theme.iconSizes.kilo};
+  height: ${theme.iconSizes.kilo};
+  margin-right: ${theme.spacings.bit};
+  color: ${theme.colors[color]};
+`;
+
+const getIcon = (state: ValidationHintProps) => {
+  switch (true) {
+    case state.disabled: {
+      return null;
+    }
+    case state.invalid: {
+      return <CircleCross role="presentation" css={iconStyles('danger')} />;
+    }
+    case state.hasWarning: {
+      return <CircleWarning role="presentation" css={iconStyles('warning')} />;
+    }
+    case state.showValid: {
+      return (
+        <CircleCheckmark role="presentation" css={iconStyles('success')} />
+      );
+    }
+    default: {
+      return null;
+    }
+  }
+};
+
 /**
- * Describe ValidationHint here.
+ * @private
  */
-export const ValidationHint = styled('span')<ValidationHintProps>(
-  baseStyles,
-  invalidStyles
-);
+export const ValidationHint: FC<ValidationHintProps> = ({
+  validationHint,
+  ...props
+}) => {
+  if (!validationHint) {
+    return null;
+  }
+
+  const icon = getIcon(props);
+
+  return (
+    <Wrapper invalid={props.invalid}>
+      {icon}
+      {validationHint}
+    </Wrapper>
+  );
+};

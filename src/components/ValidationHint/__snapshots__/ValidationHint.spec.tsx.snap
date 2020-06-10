@@ -4,7 +4,14 @@ exports[`ValidationHint styles should render with default styles 1`] = `
 .circuit-0 {
   font-size: 13px;
   line-height: 20px;
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 200ms ease-in-out;
@@ -13,14 +20,23 @@ exports[`ValidationHint styles should render with default styles 1`] = `
 
 <span
   class="circuit-0"
-/>
+>
+  This field is required
+</span>
 `;
 
 exports[`ValidationHint styles should render with invalid styles 1`] = `
 .circuit-0 {
   font-size: 13px;
   line-height: 20px;
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 200ms ease-in-out;
@@ -30,5 +46,144 @@ exports[`ValidationHint styles should render with invalid styles 1`] = `
 
 <span
   class="circuit-0"
-/>
+>
+  <svg
+    fill="none"
+    height="16"
+    role="presentation"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      clip-path="url(#circle_cross_small_svg__clip0)"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </g>
+    <defs>
+      <clippath
+        id="circle_cross_small_svg__clip0"
+      >
+        <path
+          d="M0 0h16v16H0V0z"
+          fill="#fff"
+        />
+      </clippath>
+    </defs>
+  </svg>
+  This field is required
+</span>
+`;
+
+exports[`ValidationHint styles should render with valid styles 1`] = `
+.circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+<span
+  class="circuit-0"
+>
+  <svg
+    fill="none"
+    height="16"
+    role="presentation"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      clip-path="url(#circle_checkmark_small_svg__clip0)"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm3.812 6.156a1 1 0 00-1.562-1.249L6.948 9.035l-1.21-1.21a1 1 0 00-1.414 1.414l2 2a1 1 0 001.488-.083l4-5z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </g>
+    <defs>
+      <clippath
+        id="circle_checkmark_small_svg__clip0"
+      >
+        <path
+          d="M0 0h16v16H0V0z"
+          fill="#fff"
+        />
+      </clippath>
+    </defs>
+  </svg>
+  This field is required
+</span>
+`;
+
+exports[`ValidationHint styles should render with warning styles 1`] = `
+.circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+<span
+  class="circuit-0"
+>
+  <svg
+    fill="none"
+    height="16"
+    role="presentation"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      clip-path="url(#circle_warning_small_svg__clip0)"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zm1 4a1 1 0 00-2 0v4.5a1 1 0 002 0V4zm0 7.5a1 1 0 10-2 0v.5a1 1 0 102 0v-.5z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </g>
+    <defs>
+      <clippath
+        id="circle_warning_small_svg__clip0"
+      >
+        <path
+          d="M0 0h16v16H0V0z"
+          fill="#fff"
+        />
+      </clippath>
+    </defs>
+  </svg>
+  This field is required
+</span>
 `;

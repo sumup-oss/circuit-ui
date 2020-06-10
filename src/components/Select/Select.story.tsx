@@ -94,6 +94,4 @@ export const withPrefix = () => (
   />
 );
 
-export const withVisuallyHiddenLabel = () => (
-  <StatefulSelect labelVisuallyHidden />
-);
+export const withVisuallyHiddenLabel = () => <StatefulSelect hideLabel />;

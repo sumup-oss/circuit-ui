@@ -15,7 +15,7 @@
 
 import React, { FC, ReactNode, Ref, HTMLProps, ChangeEvent } from 'react';
 import { css } from '@emotion/core';
-import { SelectExpand, CircleCross } from '@sumup/icons';
+import { SelectExpand } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import { uniqueId } from '../../util/id';
@@ -97,7 +97,7 @@ export interface SelectProps
    * Visually hide the label. This should only be used in rare cases and only if the
    * purpose of the field can be inferred from other context.
    */
-  labelVisuallyHidden?: boolean;
+  hideLabel?: boolean;
   /**
    * A unique identifier for the input field. If not defined, a randomly generated id is used.
    */
@@ -213,8 +213,8 @@ const SelectElement = styled.select<SelectElProps>(
   inputOutline
 );
 
-const labelTextStyles = ({ visuallyHidden }: { visuallyHidden?: boolean }) =>
-  visuallyHidden && hideVisually();
+const labelTextStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
+  hideLabel && hideVisually();
 
 const LabelText = styled('span')(labelTextStyles);
 
@@ -235,9 +235,7 @@ const prefixStyles = (theme: Theme) => css`
   pointer-events: none;
 `;
 
-type SuffixElProps = Pick<SelectProps, 'invalid'>;
-
-const suffixBaseStyles = ({ theme }: StyleProps) => css`
+const iconStyles = ({ theme }: StyleProps) => css`
   label: select__icon;
   color: ${theme.colors.n700};
   display: block;
@@ -251,22 +249,7 @@ const suffixBaseStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.kilo};
 `;
 
-const suffixInvalidStyles = ({ theme, invalid }: StyleProps & SuffixElProps) =>
-  invalid &&
-  css`
-    label: select__icon--invalid;
-    right: ${theme.spacings.giga};
-  `;
-
-const SelectIcon = styled(SelectExpand)<SuffixElProps>(
-  suffixBaseStyles,
-  suffixInvalidStyles
-);
-
-const InvalidIcon = styled(CircleCross)<SuffixElProps>`
-  ${suffixBaseStyles};
-  color: ${p => p.theme.colors.danger};
-`;
+const SelectIcon = styled(SelectExpand)<{}>(iconStyles);
 
 function SelectComponent(
   {
@@ -281,7 +264,7 @@ function SelectComponent(
     renderPrefix: RenderPrefix,
     validationHint,
     label,
-    labelVisuallyHidden,
+    hideLabel,
     id: customId,
     ...props
   }: SelectProps,
@@ -292,7 +275,7 @@ function SelectComponent(
   const prefix = RenderPrefix && (
     <RenderPrefix css={prefixStyles} value={value} />
   );
-  const showInvalid = !disabled && invalid;
+  const hasPrefix = Boolean(prefix);
 
   if (!label) {
     deprecate(
@@ -319,7 +302,7 @@ function SelectComponent(
         invalid={invalid}
         aria-invalid={invalid}
         disabled={disabled}
-        hasPrefix={Boolean(prefix)}
+        hasPrefix={hasPrefix}
         {...props}
       >
         {!value && (
@@ -335,17 +318,18 @@ function SelectComponent(
               </option>
             )))}
       </SelectElement>
-      <SelectIcon invalid={showInvalid} />
-      {showInvalid && <InvalidIcon />}
-      {validationHint && (
-        <ValidationHint invalid={invalid}>{validationHint}</ValidationHint>
-      )}
+      <SelectIcon />
+      <ValidationHint
+        disabled={disabled}
+        invalid={invalid}
+        validationHint={validationHint}
+      />
     </SelectContainer>
   );
 
   return label ? (
     <Label htmlFor={id} inline={inline}>
-      <LabelText visuallyHidden={labelVisuallyHidden}>{label}</LabelText>
+      <LabelText hideLabel={hideLabel}>{label}</LabelText>
       {main}
     </Label>
   ) : (

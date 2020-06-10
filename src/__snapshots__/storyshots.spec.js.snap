@@ -18551,28 +18551,40 @@ label + .circuit-3 {
         fill-rule="evenodd"
       />
     </svg>
-    
   </div>
 </label>
 `;
 
 exports[`Storyshots Forms/Select Invalid 1`] = `
-.circuit-6 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-5 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
   margin-bottom: 16px;
 }
 
-label > .circuit-5,
-label + .circuit-5 {
+label > .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
 }
 
 .circuit-1 {
@@ -18621,38 +18633,17 @@ label + .circuit-5 {
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-2 {
-  color: #5C656F;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
-  right: 24px;
-}
-
 .circuit-3 {
-  color: #5C656F;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
-  color: #DB4D4D;
-}
-
-.circuit-4 {
   font-size: 13px;
   line-height: 20px;
-  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 200ms ease-in-out;
@@ -18661,7 +18652,7 @@ label + .circuit-5 {
 }
 
 <label
-  class="circuit-6"
+  class="circuit-5"
   for="45"
 >
   <span
@@ -18670,7 +18661,7 @@ label + .circuit-5 {
     Countries
   </span>
   <div
-    class="circuit-5"
+    class="circuit-4"
   >
     <select
       aria-invalid="true"
@@ -18709,38 +18700,38 @@ label + .circuit-5 {
         fill-rule="evenodd"
       />
     </svg>
-    <svg
+    <span
       class="circuit-3"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
     >
-      <g
-        clip-path="url(#circle_cross_small_svg__clip0)"
+      <svg
+        fill="none"
+        height="16"
+        role="presentation"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          clip-rule="evenodd"
-          d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
-          fill="currentColor"
-          fill-rule="evenodd"
-        />
-      </g>
-      <defs>
-        <clippath
-          id="circle_cross_small_svg__clip0"
+        <g
+          clip-path="url(#circle_cross_small_svg__clip0)"
         >
           <path
-            d="M0 0h16v16H0V0z"
-            fill="#fff"
+            clip-rule="evenodd"
+            d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-8a8 8 0 100 16A8 8 0 008 0zM6.207 4.793a1 1 0 00-1.414 1.414L6.586 8 4.793 9.793a1 1 0 001.414 1.414L8 9.414l1.793 1.793a1 1 0 001.414-1.414L9.414 8l1.793-1.793a1 1 0 00-1.414-1.414L8 6.586 6.207 4.793z"
+            fill="currentColor"
+            fill-rule="evenodd"
           />
-        </clippath>
-      </defs>
-    </svg>
-    <span
-      class="circuit-4"
-    >
+        </g>
+        <defs>
+          <clippath
+            id="circle_cross_small_svg__clip0"
+          >
+            <path
+              d="M0 0h16v16H0V0z"
+              fill="#fff"
+            />
+          </clippath>
+        </defs>
+      </svg>
       This field is required
     </span>
   </div>
@@ -18920,7 +18911,6 @@ label + .circuit-3 {
         fill-rule="evenodd"
       />
     </svg>
-    
   </div>
 </label>
 `;
@@ -19064,7 +19054,6 @@ label + .circuit-3 {
         fill-rule="evenodd"
       />
     </svg>
-    
   </div>
 </label>
 `;

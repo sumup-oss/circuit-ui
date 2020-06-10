@@ -24,7 +24,9 @@ describe('ValidationHint', () => {
     renderFn: RenderFn,
     props: ValidationHintProps = {}
   ) {
-    return renderFn(<ValidationHint {...props} />);
+    return renderFn(
+      <ValidationHint validationHint="This field is required" {...props} />
+    );
   }
 
   describe('styles', () => {
@@ -35,6 +37,16 @@ describe('ValidationHint', () => {
 
     it('should render with invalid styles', () => {
       const actual = renderValidationHint(create, { invalid: true });
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with warning styles', () => {
+      const actual = renderValidationHint(create, { hasWarning: true });
+      expect(actual).toMatchSnapshot();
+    });
+
+    it('should render with valid styles', () => {
+      const actual = renderValidationHint(create, { showValid: true });
       expect(actual).toMatchSnapshot();
     });
   });
