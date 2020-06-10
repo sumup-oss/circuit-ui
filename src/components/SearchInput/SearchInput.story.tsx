@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { identity } from 'lodash/fp';
 
 import { uniqueId } from '../../util/id';
 
-import SearchInput from './SearchInput';
+import { SearchInput, SearchInputProps } from './SearchInput';
 import docs from './SearchInput.docs.mdx';
 
 export default {
@@ -30,18 +30,20 @@ export default {
 };
 
 // SearchInputs always need labels for accessibility.
-const SearchInputWithLabel = props => {
+const SearchInputWithLabel = (props: SearchInputProps) => {
   const id = uniqueId();
   return (
     <SearchInput placeholder="Search..." {...props} id={id} label="Search" />
   );
 };
 
-const SearchInputWithClear = props => {
+const SearchInputWithClear = (props: SearchInputProps) => {
   const id = uniqueId();
   const [value, setValue] = useState('');
 
-  const handleChange = ({ target: { value: inputValue } }) => {
+  const handleChange = ({
+    target: { value: inputValue }
+  }: ChangeEvent<HTMLInputElement>) => {
     setValue(inputValue);
   };
 

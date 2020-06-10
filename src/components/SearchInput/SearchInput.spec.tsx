@@ -16,6 +16,8 @@
 import React from 'react';
 import { identity } from 'lodash/fp';
 
+import { create, render, renderToHtml, axe } from '../../util/test-utils';
+
 import SearchInput from '.';
 import Label from '../Label';
 
@@ -47,7 +49,7 @@ describe('SearchInput', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
+      const tref = React.createRef<HTMLInputElement & HTMLTextAreaElement>();
       const { container } = render(<SearchInput ref={tref} />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);

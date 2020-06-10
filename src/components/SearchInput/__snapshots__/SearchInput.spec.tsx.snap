@@ -1,27 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchInput should grey out icon when disabled 1`] = `
-.circuit-2 {
+.circuit-1 {
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
-.circuit-0 {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-.circuit-3 {
+.circuit-2 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -31,7 +20,7 @@ label + .circuit-2 {
   margin-bottom: 16px;
 }
 
-.circuit-1 {
+.circuit-0 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -48,52 +37,51 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-0::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-0::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-1:focus {
+.circuit-0:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-1:active {
+.circuit-0:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <div
-  class="circuit-3"
+  class="circuit-2"
   disabled=""
   for="input_2"
 >
   <div
-    class="circuit-2"
+    class="circuit-1"
   >
     <svg
-      class="circuit-0"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -108,7 +96,7 @@ label + .circuit-2 {
       />
     </svg>
     <input
-      class="circuit-1"
+      class="circuit-0"
       disabled=""
       id="input_2"
       type="text"
@@ -119,34 +107,23 @@ label + .circuit-2 {
 `;
 
 exports[`SearchInput should render with default styles 1`] = `
-.circuit-3 {
+.circuit-2 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-1 {
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-1,
+label + .circuit-1 {
   margin-top: 4px;
 }
 
 .circuit-0 {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
-}
-
-.circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -162,51 +139,50 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-0::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-0::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-0:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-1:focus {
+.circuit-0:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-1:active {
+.circuit-0:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <div
-  class="circuit-3"
+  class="circuit-2"
   for="input_1"
 >
   <div
-    class="circuit-2"
+    class="circuit-1"
   >
     <svg
-      class="circuit-0"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -221,7 +197,7 @@ label + .circuit-2 {
       />
     </svg>
     <input
-      class="circuit-1"
+      class="circuit-0"
       id="input_1"
       type="text"
       value=""
