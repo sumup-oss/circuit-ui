@@ -16287,19 +16287,19 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/Input/CurrencyInput Base 1`] = `
-.circuit-6 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-4 {
+.circuit-3 {
   position: relative;
 }
 
-label .circuit-4,
-label + .circuit-4 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -16317,17 +16317,9 @@ label + .circuit-4 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -16338,48 +16330,48 @@ label + .circuit-4 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
-  max-width: 250px;
 }
 
-.circuit-3::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::placeholder {
+.circuit-2::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-3:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-3:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-5 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16397,7 +16389,7 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-6"
+  class="circuit-5"
   for="input_9"
 >
   <span
@@ -16406,16 +16398,16 @@ label + .circuit-4 {
     Amount (de-DE, EUR)
   </span>
   <div
-    class="circuit-4"
+    class="circuit-3"
   >
     <span
-      class="circuit-1 circuit-2"
+      class="circuit-1"
     >
       €
     </span>
     <input
       aria-invalid="false"
-      class="circuit-3"
+      class="circuit-2"
       id="input_9"
       placeholder="123.45"
       type="text"
@@ -16423,7 +16415,7 @@ label + .circuit-4 {
     />
   </div>
   <span
-    class="circuit-5"
+    class="circuit-4"
   >
     Excluding VAT
   </span>
@@ -16432,19 +16424,19 @@ label + .circuit-4 {
 
 exports[`Storyshots Forms/Input/CurrencyInput Currencies 1`] = `
 HTMLCollection [
-  .circuit-6 {
+  .circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-4 {
+.circuit-3 {
   position: relative;
 }
 
-label .circuit-4,
-label + .circuit-4 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -16462,17 +16454,9 @@ label + .circuit-4 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -16483,48 +16467,48 @@ label + .circuit-4 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
-  max-width: 250px;
 }
 
-.circuit-3::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::placeholder {
+.circuit-2::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-3:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-3:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-5 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16542,7 +16526,7 @@ label + .circuit-4 {
 }
 
 <label
-    class="circuit-6"
+    class="circuit-5"
     for="input_10"
   >
     <span
@@ -16551,16 +16535,16 @@ label + .circuit-4 {
       Amount (pt-BR, BRL)
     </span>
     <div
-      class="circuit-4"
+      class="circuit-3"
     >
       <span
-        class="circuit-1 circuit-2"
+        class="circuit-1"
       >
         R$
       </span>
       <input
         aria-invalid="false"
-        class="circuit-3"
+        class="circuit-2"
         id="input_10"
         placeholder="1,234.50"
         type="text"
@@ -16568,24 +16552,24 @@ label + .circuit-4 {
       />
     </div>
     <span
-      class="circuit-5"
+      class="circuit-4"
     >
       Excluding VAT
     </span>
   </label>,
-  .circuit-6 {
+  .circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-4 {
+.circuit-3 {
   position: relative;
 }
 
-label .circuit-4,
-label + .circuit-4 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -16603,17 +16587,9 @@ label + .circuit-4 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -16624,48 +16600,48 @@ label + .circuit-4 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
-  max-width: 250px;
 }
 
-.circuit-3::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::placeholder {
+.circuit-2::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-3:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-3:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-5 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16683,7 +16659,7 @@ label + .circuit-4 {
 }
 
 <label
-    class="circuit-6"
+    class="circuit-5"
     for="input_11"
   >
     <span
@@ -16692,16 +16668,16 @@ label + .circuit-4 {
       Amount (pt-BR, USD)
     </span>
     <div
-      class="circuit-4"
+      class="circuit-3"
     >
       <span
-        class="circuit-1 circuit-2"
+        class="circuit-1"
       >
         $
       </span>
       <input
         aria-invalid="false"
-        class="circuit-3"
+        class="circuit-2"
         id="input_11"
         placeholder="1,234.50"
         type="text"
@@ -16709,7 +16685,7 @@ label + .circuit-4 {
       />
     </div>
     <span
-      class="circuit-5"
+      class="circuit-4"
     >
       Excluding VAT
     </span>
@@ -16719,19 +16695,19 @@ label + .circuit-4 {
 
 exports[`Storyshots Forms/Input/CurrencyInput Locales 1`] = `
 HTMLCollection [
-  .circuit-6 {
+  .circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-4 {
+.circuit-3 {
   position: relative;
 }
 
-label .circuit-4,
-label + .circuit-4 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -16749,17 +16725,9 @@ label + .circuit-4 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -16770,48 +16738,48 @@ label + .circuit-4 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
-  max-width: 250px;
 }
 
-.circuit-3::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::placeholder {
+.circuit-2::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-3:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-3:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-5 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16829,7 +16797,7 @@ label + .circuit-4 {
 }
 
 <label
-    class="circuit-6"
+    class="circuit-5"
     for="input_12"
   >
     <span
@@ -16838,16 +16806,16 @@ label + .circuit-4 {
       Amount (de-DE, EUR)
     </span>
     <div
-      class="circuit-4"
+      class="circuit-3"
     >
       <span
-        class="circuit-1 circuit-2"
+        class="circuit-1"
       >
         €
       </span>
       <input
         aria-invalid="false"
-        class="circuit-3"
+        class="circuit-2"
         id="input_12"
         placeholder="1,234.50"
         type="text"
@@ -16855,24 +16823,24 @@ label + .circuit-4 {
       />
     </div>
     <span
-      class="circuit-5"
+      class="circuit-4"
     >
       Excluding VAT
     </span>
   </label>,
-  .circuit-6 {
+  .circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-4 {
+.circuit-3 {
   position: relative;
 }
 
-label .circuit-4,
-label + .circuit-4 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -16890,17 +16858,9 @@ label + .circuit-4 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-3 {
+.circuit-2 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -16911,48 +16871,48 @@ label + .circuit-4 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
-  max-width: 250px;
 }
 
-.circuit-3::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3::placeholder {
+.circuit-2::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-3:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-3:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-3:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-5 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -16970,7 +16930,7 @@ label + .circuit-4 {
 }
 
 <label
-    class="circuit-6"
+    class="circuit-5"
     for="input_13"
   >
     <span
@@ -16979,16 +16939,16 @@ label + .circuit-4 {
       Amount (en-IE, EUR)
     </span>
     <div
-      class="circuit-4"
+      class="circuit-3"
     >
       <span
-        class="circuit-1 circuit-2"
+        class="circuit-1"
       >
         €
       </span>
       <input
         aria-invalid="false"
-        class="circuit-3"
+        class="circuit-2"
         id="input_13"
         placeholder="1,234.50"
         type="text"
@@ -16996,7 +16956,7 @@ label + .circuit-4 {
       />
     </div>
     <span
-      class="circuit-5"
+      class="circuit-4"
     >
       Excluding VAT
     </span>

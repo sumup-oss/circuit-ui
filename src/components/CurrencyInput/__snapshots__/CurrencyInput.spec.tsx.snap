@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CurrencyInput should adjust input padding and suffix width to match currency symbol width 1`] = `
-.circuit-4 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-3 {
+.circuit-2 {
   position: relative;
 }
 
-label .circuit-3,
-label + .circuit-3 {
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
@@ -31,17 +31,9 @@ label + .circuit-3 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -52,60 +44,61 @@ label + .circuit-3 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-2:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-2:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <div
-  class="circuit-4"
+  class="circuit-3"
   for="input_2"
 >
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       CHF
     </span>
     <input
-      class="circuit-2"
+      class="circuit-1"
       id="input_2"
       placeholder="123,45"
       type="text"
@@ -116,19 +109,19 @@ label + .circuit-3 {
 `;
 
 exports[`CurrencyInput should render with default styles 1`] = `
-.circuit-4 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-3 {
+.circuit-2 {
   position: relative;
 }
 
-label .circuit-3,
-label + .circuit-3 {
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
@@ -146,17 +139,9 @@ label + .circuit-3 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  pointer-events: none;
-  color: #5C656F;
-  padding: 12px;
-  height: 40px;
-  width: 40px;
 }
 
-.circuit-2 {
+.circuit-1 {
   background-color: #FFFFFF;
   border: none;
   border-radius: 8px;
@@ -167,60 +152,61 @@ label + .circuit-3 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
+  text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-2::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 200ms ease-in-out;
   transition: color 200ms ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-2:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-2:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <div
-  class="circuit-4"
+  class="circuit-3"
   for="input_1"
 >
   <div
-    class="circuit-3"
+    class="circuit-2"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     >
       $
     </span>
     <input
-      class="circuit-2"
+      class="circuit-1"
       id="input_1"
       type="text"
       value=""

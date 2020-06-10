@@ -15,11 +15,7 @@
 
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
-import {
-  createCurrencyMask,
-  formatPlaceholder,
-  getSymbolLength
-} from './CurrencyInputService';
+import { createCurrencyMask, formatPlaceholder } from './CurrencyInputService';
 
 jest.mock('text-mask-addons/dist/createNumberMask', () => jest.fn());
 
@@ -69,22 +65,6 @@ describe('CurrencyInputService', () => {
       const placeholder = '1234.56';
       const actual = formatPlaceholder(placeholder, 'de-DE');
       const expected = placeholder;
-      expect(actual).toBe(expected);
-    });
-  });
-
-  describe('getSymbolLength', () => {
-    it('should calculate the symbol width in pixels', () => {
-      const symbol = 'CHF';
-      const actual = getSymbolLength(symbol);
-      const expected = 27;
-      expect(actual).toBe(expected);
-    });
-
-    it('should clamp the symbol chars between 2 and 5', () => {
-      const symbol = '€';
-      const actual = getSymbolLength(symbol);
-      const expected = 18;
       expect(actual).toBe(expected);
     });
   });

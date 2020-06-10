@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import CurrencyInput from './CurrencyInput';
+import { CurrencyInput } from './CurrencyInput';
 
-export * from './CurrencyInputService';
 export default CurrencyInput;

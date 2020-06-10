@@ -18,7 +18,7 @@ import { css } from '@emotion/core';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import docs from './CurrencyInput.docs.mdx';
-import CurrencyInput from './CurrencyInput';
+import { CurrencyInput, CurrencyInputProps } from './CurrencyInput';
 
 export default {
   title: 'Forms/Input/CurrencyInput',
@@ -28,10 +28,10 @@ export default {
   }
 };
 
-const BaseCurrencyInput = props => (
+const BaseCurrencyInput = (props: Partial<CurrencyInputProps>) => (
   <CurrencyInput
+    currency="EUR"
     validationHint={text('Validation hint', 'Excluding VAT')}
-    optional={boolean('Optional', false)}
     invalid={boolean('Invalid', false)}
     showValid={boolean('Show valid', false)}
     hasWarning={boolean('Has warning', false)}
