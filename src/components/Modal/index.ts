@@ -13,6 +13,24 @@
  * limitations under the License.
  */
 
-import ModalWrapper from './ModalWrapper';
+import {
+  ModalContext,
+  ModalProvider,
+  ModalConsumer,
+  useModal
+} from './ModalContext';
+import { Modal, DEFAULT_APP_ELEMENT } from './Modal';
+import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 
-export default ModalWrapper;
+export {
+  DEFAULT_APP_ELEMENT,
+  useModal,
+  ModalContext,
+  ModalConsumer,
+  ModalProvider,
+  ModalWrapper,
+  ModalHeader,
+  ModalFooter
+};
+
+export default Modal;

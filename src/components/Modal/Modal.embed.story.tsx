@@ -18,10 +18,10 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { action } from '@storybook/addon-actions';
 
-import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
+import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 
 export default {
   title: 'Components/Modal/Embedded',
@@ -58,7 +58,7 @@ export const withFooter = () => (
     <Text>Some text in the modal body.</Text>
     <ModalFooter>
       <ButtonGroup>
-        <Button secondary onClick={action('Cancel button clicked')}>
+        <Button variant="secondary" onClick={action('Cancel button clicked')}>
           Cancel
         </Button>
         <Button variant="primary" onClick={action('Confirm button clicked')}>

@@ -6934,7 +6934,7 @@ exports[`Storyshots Components/Modal/Embedded Base 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Hello World!
 </div>
@@ -6955,13 +6955,7 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
   }
 }
 
-.circuit-7 {
-  width: 100%;
-  padding: 0;
-  height: 50vh;
-}
-
-.circuit-5 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6998,20 +6992,20 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
   padding: 24px 18px;
 }
 
-.circuit-3 {
+.circuit-2 {
   height: 100%;
   width: 50%;
   background: no-repeat center / cover url('https://source.unsplash.com/random');
 }
 
 <div
-  class="circuit-7"
+  css="You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."
 >
   <div
-    class="circuit-5 circuit-6"
+    class="circuit-3"
   >
     <div
-      class="circuit-1 circuit-2"
+      class="circuit-1"
     >
       <p
         class="circuit-0"
@@ -7020,7 +7014,7 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
       </p>
     </div>
     <div
-      class="circuit-3 circuit-4"
+      class="circuit-2"
     />
   </div>
 </div>
@@ -7210,10 +7204,59 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-9 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 4px 4px 0 rgba(12,15,20,0.07),0 8px 8px 0 rgba(12,15,20,0.07);
+  padding: 16px 24px;
+  width: 100%;
+}
+
+@media (max-width:479px) {
+  .circuit-9 {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    min-width: initial;
+    position: relative;
+  }
+}
+
 .circuit-8 {
   display: block;
   width: 100%;
   margin-top: 24px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  margin-top: 0;
+  padding-top: 24px;
+  padding-bottom: 12px;
+  background: #FFFFFF;
 }
 
 @media (min-width:480px) {
@@ -7239,50 +7282,8 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
-.circuit-3 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-.circuit-10 {
-  background-color: #FFFFFF;
-  border-radius: 4px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 4px 4px 0 rgba(12,15,20,0.07),0 8px 8px 0 rgba(12,15,20,0.07);
-  padding: 16px 24px;
-  width: 100%;
-}
-
-@media (max-width:479px) {
-  .circuit-10 {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    min-width: initial;
-    position: relative;
-  }
-}
-
 <div
-  class="circuit-10 circuit-11"
+  class="circuit-9"
 >
   <header
     class="circuit-1 circuit-2"
@@ -7299,7 +7300,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
     Some text in the modal body.
   </p>
   <footer
-    class="circuit-8 circuit-9"
+    class="circuit-8"
   >
     <ul
       class="circuit-6 circuit-7"
@@ -7398,7 +7399,7 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-4"
 >
   <header
     class="circuit-1 circuit-2"
@@ -7565,7 +7566,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 }
 
 <div
-  class="circuit-6 circuit-7"
+  class="circuit-6"
 >
   <header
     class="circuit-3 circuit-4"
@@ -7654,7 +7655,7 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 }
 
 <div
-  class="circuit-1 circuit-2"
+  class="circuit-1"
 >
   <p
     class="circuit-0"

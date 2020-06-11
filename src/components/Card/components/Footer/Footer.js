@@ -43,9 +43,9 @@ const baseStyles = ({ theme }) => css`
  * Footer used in the Card component. Used for styling and aligment
  * purposes only.
  */
-const ModalFooter = styled('footer')(baseStyles, alignmentStyles);
+const CardFooter = styled('footer')(baseStyles, alignmentStyles);
 
-ModalFooter.propTypes = {
+CardFooter.propTypes = {
   /**
    * Buttons wrapped in a ButtonGroup.
    */
@@ -56,11 +56,11 @@ ModalFooter.propTypes = {
   align: PropTypes.oneOf(['left', 'right'])
 };
 
-ModalFooter.defaultProps = {
+CardFooter.defaultProps = {
   align: 'right'
 };
 
 /**
  * @component
  */
-export default ModalFooter;
+export default CardFooter;

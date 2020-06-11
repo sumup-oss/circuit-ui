@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import ModalHeader from './ModalHeader';
-
-export default ModalHeader;
+export { ModalWrapper } from './ModalWrapper/ModalWrapper';
+export { ModalHeader } from './ModalHeader/ModalHeader';
+export { ModalFooter } from './ModalFooter/ModalFooter';

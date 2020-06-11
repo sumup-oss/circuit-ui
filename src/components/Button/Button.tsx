@@ -52,10 +52,14 @@ export interface BaseProps {
    * The ref to the html dom element, it can be an anchor or a button
    */
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
+  /**
+   * The HTML button type
+   */
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
-type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'type'>;
-type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'type'>;
+type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size'>;
+type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
 

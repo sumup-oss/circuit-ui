@@ -13,7 +13,11 @@
  * limitations under the License.
  */
 
-export const isFunction = val => typeof val === 'function';
-export const isString = val => typeof val === 'string';
-export const isArray = value =>
+export const isFunction = (value: any): value is Function =>
+  typeof value === 'function';
+
+export const isString = (value: any): value is string =>
+  typeof value === 'string';
+
+export const isArray = (value: any): value is [] =>
   value && typeof value === 'object' && value.constructor === Array;

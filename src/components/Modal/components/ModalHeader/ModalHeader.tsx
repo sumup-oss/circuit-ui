@@ -13,13 +13,32 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC, MouseEvent } from 'react';
 
 import { CardHeader } from '../../../Card';
 import Heading from '../../../Heading';
 
-const ModalHeader = ({ title, onClose, labelCloseButton }) => (
+export interface ModalHeaderProps {
+  /**
+   * A concise, descriptive title for the modal.
+   */
+  title: string;
+  /**
+   * Callback for the close button. If not specified, the button won't
+   * be shown.
+   */
+  onClose?: (event: MouseEvent) => void;
+  /**
+   * Text label for the close button for screen reader users.
+   */
+  labelCloseButton?: string;
+}
+
+export const ModalHeader: FC<ModalHeaderProps> = ({
+  title,
+  onClose,
+  labelCloseButton
+}) => (
   <CardHeader onClose={onClose} labelCloseButton={labelCloseButton}>
     {title && (
       <Heading size="kilo" noMargin>
@@ -28,29 +47,3 @@ const ModalHeader = ({ title, onClose, labelCloseButton }) => (
     )}
   </CardHeader>
 );
-
-ModalHeader.propTypes = {
-  /**
-   * Callback for the close button. If not specified, the button won't
-   * be shown.
-   */
-  onClose: PropTypes.func,
-  /**
-   * The title for the Modal.
-   */
-  title: PropTypes.string.isRequired,
-  /**
-   * Text label for the close button for screen readers.
-   * Important for accessibility.
-   */
-  labelCloseButton: PropTypes.string
-};
-
-ModalHeader.defaultProps = {
-  onClose: null
-};
-
-/**
- * @component
- */
-export default ModalHeader;
