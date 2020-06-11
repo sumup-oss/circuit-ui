@@ -20,8 +20,6 @@ import { css } from '@emotion/core';
 
 import { shadowDouble } from '../../../../styles/style-helpers';
 
-import { StyledTab } from '../Tab';
-
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 const DEFAULT_HEIGHT = '80px';
 
@@ -43,7 +41,7 @@ const navigationBaseStyles = css`
 `;
 
 const stretchedStyles = ({ children, theme }) => css`
-  & > ${StyledTab} {
+  & [role='tab'] {
     flex: 1 1 auto;
     padding: 0 ${theme.spacings.kilo};
     width: ${Math.floor(100 / children.length)}%;
