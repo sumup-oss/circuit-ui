@@ -20,11 +20,7 @@ import { create, render, renderToHtml, axe } from '../../util/test-utils';
 import { Blockquote } from './Blockquote';
 
 describe('Blockquote', () => {
-  const quote = `
-  Lorem ipsum dolor amet echo park activated charcoal banjo deep
-  crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
-  kickstarter artisan.
-  `;
+  const quote = `The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.`;
 
   /**
    * Style tests.

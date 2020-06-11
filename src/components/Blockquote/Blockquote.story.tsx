@@ -19,12 +19,7 @@ import { select, text } from '@storybook/addon-knobs';
 import docs from './Blockquote.docs.mdx';
 import { Blockquote } from './Blockquote';
 
-const defaultQuote = `
-Lorem ipsum dolor amet echo park activated charcoal banjo deep
-crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
-kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape
-tbh adaptogen green juice lo-fi kombucha.
-`;
+const defaultQuote = `The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.`;
 
 const sizes = ['kilo', 'mega', 'giga'] as const;
 
@@ -38,27 +33,15 @@ export default {
 };
 
 export const base = () => (
-  <Blockquote size={select('Size', sizes, sizes[0])}>
+  <Blockquote size={select('Size', sizes, sizes[1])}>
     {text('Quote', defaultQuote)}
   </Blockquote>
 );
 
 export const size = () => (
   <Fragment>
-    <Blockquote size="kilo">
-      Kilo - The ability to accept credit card payments that are EMV-compliant
-      is essentially an insurance policy against fraud and an impressively
-      economical one at that.
-    </Blockquote>
-    <Blockquote size="mega">
-      Mega - The ability to accept credit card payments that are EMV-compliant
-      is essentially an insurance policy against fraud and an impressively
-      economical one at that.
-    </Blockquote>
-    <Blockquote size="giga">
-      Giga - The ability to accept credit card payments that are EMV-compliant
-      is essentially an insurance policy against fraud and an impressively
-      economical one at that.
-    </Blockquote>
+    <Blockquote size="kilo">Kilo - {text('Quote', defaultQuote)}</Blockquote>
+    <Blockquote size="mega">Mega - {text('Quote', defaultQuote)}</Blockquote>
+    <Blockquote size="giga">Giga - {text('Quote', defaultQuote)}</Blockquote>
   </Fragment>
 );
