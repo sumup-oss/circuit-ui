@@ -13,14 +13,13 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { action } from '@storybook/addon-actions';
-import { boolean, text } from '@storybook/addon-knobs/react';
+import { boolean, text } from '@storybook/addon-knobs';
 import { FlagDe, FlagUs, FlagFr } from '@sumup/icons';
 
 import { uniqueId } from '../../util/id';
-import Label from '../Label';
-import Select from './Select';
+import { Select, SelectProps } from './Select';
 import docs from './Select.docs.mdx';
 
 export default {
@@ -46,10 +45,14 @@ const options = [
     value: 'FR'
   }
 ];
-const flagIconMap = { DE: FlagDe, US: FlagUs, FR: FlagFr };
+const flagIconMap: { [key: string]: FC<{ className?: string }> } = {
+  DE: FlagDe,
+  US: FlagUs,
+  FR: FlagFr
+};
 
 // Selects always need labels for accessibility.
-const SelectWithLabelAndState = props => {
+const StatefulSelect = (props: Partial<SelectProps>) => {
   const id = uniqueId();
   const [value, setValue] = useState('US');
 
@@ -72,25 +75,23 @@ const SelectWithLabelAndState = props => {
   );
 };
 
-export const base = () => <SelectWithLabelAndState />;
+export const base = () => <StatefulSelect />;
 
 export const invalid = () => (
-  <SelectWithLabelAndState
+  <StatefulSelect
     invalid={boolean('Invalid', true)}
     validationHint={text('Validation hint', 'This field is required')}
   />
 );
 
 export const withPrefix = () => (
-  <SelectWithLabelAndState
+  <StatefulSelect
     name="country_select"
     renderPrefix={({ className, value }) => {
-      const Icon = flagIconMap[value];
-      return <Icon {...{ className }} />;
+      const Icon = value && flagIconMap[value];
+      return Icon ? <Icon {...{ className }} /> : null;
     }}
   />
 );
 
-export const withVisuallyHiddenLabel = () => (
-  <SelectWithLabelAndState labelVisuallyHidden />
-);
+export const withVisuallyHiddenLabel = () => <StatefulSelect hideLabel />;

@@ -13,22 +13,13 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
-import Label from './Label';
-import docs from './Label.docs.mdx';
-
-export default {
-  title: 'Forms/Label',
-  component: Label,
-  parameters: {
-    docs: { page: docs },
-    jest: ['Label']
+const isIos = ((): boolean => {
+  // For SSR compatibility
+  if (typeof window === 'undefined') {
+    return false;
   }
-};
+  const { platform } = window.navigator || {};
+  return !!platform && /iPad|iPhone|iPod/.test(platform);
+})();
 
-export const base = () => <Label>An input label</Label>;
-
-export const forAccessibilityOnly = () => (
-  <Label accessibleOnly>Only visible for screen readers</Label>
-);
+export default isIos;

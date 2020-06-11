@@ -15,6 +15,8 @@
 
 import React from 'react';
 
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
 import Label from '.';
 
 describe('Label', () => {
@@ -26,9 +28,27 @@ describe('Label', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should be visually hidden when used as accessible only label', () => {
+  it('should render with visually-hidden styles', () => {
     const actual = create(
       <Label visuallyHidden htmlFor="some-id">
+        Label
+      </Label>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with inline styles', () => {
+    const actual = create(
+      <Label inline htmlFor="some-id">
+        Label
+      </Label>
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with disabled styles', () => {
+    const actual = create(
+      <Label disabled htmlFor="some-id">
         Label
       </Label>
     );
@@ -39,7 +59,7 @@ describe('Label', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Label />);
+    const wrapper = renderToHtml(<Label htmlFor="some-id" />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

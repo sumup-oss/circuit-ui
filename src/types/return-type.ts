@@ -13,11 +13,6 @@
  * limitations under the License.
  */
 
-declare module '*.mdx' {
-  const MDXComponent: (props: any) => JSX.Element;
-  export default MDXComponent;
-}
+import { ReactElement } from 'react';
 
-declare const __PRODUCTION__: boolean;
-declare const __DEV__: boolean;
-declare const __TEST__: boolean;
+export type ReturnType = ReactElement<any, any> | null;

@@ -13,17 +13,24 @@
  * limitations under the License.
  */
 
-import warning from 'tiny-warning';
+import React from 'react';
 
-const warned = {};
+import { Label } from './Label';
+import docs from './Label.docs.mdx';
 
-export default function deprecate(explanation = '') {
-  if (__DEV__) {
-    const message = `DEPRECATION: ${explanation}`;
-
-    if (!warned[message]) {
-      warning(false, message);
-      warned[message] = true;
-    }
+export default {
+  title: 'Forms/Label',
+  component: Label,
+  parameters: {
+    docs: { page: docs },
+    jest: ['Label']
   }
-}
+};
+
+export const base = () => <Label htmlFor="some-id">An input label</Label>;
+
+export const visuallyHidden = () => (
+  <Label htmlFor="some-id" visuallyHidden>
+    Only visible for screen readers
+  </Label>
+);

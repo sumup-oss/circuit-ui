@@ -13,12 +13,13 @@
  * limitations under the License.
  */
 
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { css, keyframes } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
+import { ReturnType } from '../../types/return-type';
 
 interface BaseProps {
   children?: ReactNode;
@@ -62,8 +63,6 @@ interface TimeProgressProps {
 export type ProgressBarProps = BaseProps &
   StepProgressProps &
   TimeProgressProps;
-
-type ReturnType = ReactElement<any, any> | null;
 
 const wrapperStyles = () => css`
   display: flex;

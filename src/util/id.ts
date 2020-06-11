@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
-import Label from './Label';
+// NOTE: Related issue https://github.com/facebook/react/issues/5867
 
-export default Label;
+let idCounter = 0;
+
+export function uniqueId(prefix = ''): string {
+  idCounter += 1;
+  return `${prefix}${idCounter}`;
+}

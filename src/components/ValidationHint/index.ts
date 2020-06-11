@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2020, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,11 +13,6 @@
  * limitations under the License.
  */
 
-// NOTE: Related issue https://github.com/facebook/react/issues/5867
+import { ValidationHint } from './ValidationHint';
 
-let idCounter = 0;
-
-export const uniqueId = (prefix = '') => {
-  idCounter += 1;
-  return `${prefix}${idCounter}`;
-};
+export default ValidationHint;
