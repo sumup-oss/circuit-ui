@@ -14,6 +14,7 @@
  */
 
 import React, { useState } from 'react';
+import { text } from '@storybook/addon-knobs';
 
 import RadioButton from './RadioButton';
 import docs from './RadioButton.docs.mdx';
@@ -34,7 +35,12 @@ const RadioButtonWithState = ({ checked: initial, children, ...props }) => {
     setChecked(prev => !prev);
   };
   return (
-    <RadioButton {...props} checked={checked} onChange={handleChange}>
+    <RadioButton
+      {...props}
+      checked={checked}
+      onChange={handleChange}
+      tracking={{ label: text('Tracking Label', 'trackingId') }}
+    >
       {children || (checked ? 'Checked' : 'Unchecked')}
     </RadioButton>
   );

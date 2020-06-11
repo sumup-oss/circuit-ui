@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Check } from '@sumup/icons';
+import { useClickTrigger } from '@sumup/collector';
 
 import {
   disableVisually,
@@ -161,11 +162,27 @@ const CheckboxComponent = (
     disabled,
     validationHint,
     className,
+    tracking,
     ...props
   },
   ref
 ) => {
   const id = customId || uniqueId('checkbox_');
+  const { label, component = 'checkbox', customParameters } = tracking || {};
+  const dispatch = useClickTrigger();
+  const handleChange =
+    props.onChange && label
+      ? e => {
+          dispatch({
+            label,
+            component,
+            customParameters
+          });
+
+          props.onChange(e);
+        }
+      : props.onChange;
+
   return (
     <CheckboxWrapper className={className}>
       <CheckboxInput
@@ -176,6 +193,7 @@ const CheckboxComponent = (
         type="checkbox"
         disabled={disabled}
         ref={ref}
+        onChange={handleChange}
       />
       <CheckboxLabel {...props} htmlFor={id} disabled={disabled}>
         {children}
@@ -246,7 +264,15 @@ Checkbox.propTypes = {
     PropTypes.shape({
       current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
     })
-  ])
+  ]),
+  /**
+   * Data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 Checkbox.defaultProps = {

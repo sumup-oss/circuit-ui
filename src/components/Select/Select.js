@@ -17,7 +17,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { find } from 'lodash/fp';
 import { SelectExpand, CircleCross } from '@sumup/icons';
+import { useClickTrigger } from '@sumup/collector';
 
 import {
   eitherOrPropType,
@@ -217,6 +219,7 @@ const SelectComponent = (
     label,
     labelVisuallyHidden,
     id: customId,
+    onChange,
     ...props
   },
   ref
@@ -227,6 +230,27 @@ const SelectComponent = (
     <RenderPrefix css={prefixStyles} value={value} />
   );
   const showInvalid = !disabled && invalid;
+
+  const dispatch = useClickTrigger();
+  const handleChange = e => {
+    const selectedValue = e.target.value;
+    const selectedOption =
+      find(option => option.value === selectedValue, options) || {};
+    const { label: trackingLabel, component = 'select', customParameters } =
+      selectedOption.tracking || {};
+
+    if (trackingLabel) {
+      dispatch({
+        label: trackingLabel,
+        component,
+        customParameters
+      });
+    }
+
+    if (onChange) {
+      onChange(e);
+    }
+  };
 
   return (
     <Label htmlFor={id}>
@@ -243,7 +267,8 @@ const SelectComponent = (
             disabled,
             hasPrefix: !!prefix,
             id,
-            ref
+            ref,
+            onChange: handleChange
           }}
         >
           {!value && (
@@ -300,7 +325,12 @@ Select.propTypes = {
         value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
           .isRequired,
         label: PropTypes.string.isRequired,
-        disabled: PropTypes.bool
+        disabled: PropTypes.bool,
+        tracking: PropTypes.shape({
+          label: PropTypes.string.isRequired,
+          component: PropTypes.string,
+          customParameters: PropTypes.object
+        })
       })
     ),
     true

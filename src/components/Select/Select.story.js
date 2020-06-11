@@ -43,7 +43,8 @@ const options = [
   },
   {
     label: 'France',
-    value: 'FR'
+    value: 'FR',
+    tracking: { label: 'trackingId-fr' }
   }
 ];
 const flagIconMap = { DE: FlagDe, US: FlagUs, FR: FlagFr };

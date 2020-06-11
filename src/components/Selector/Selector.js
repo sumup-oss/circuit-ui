@@ -17,6 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useClickTrigger } from '@sumup/collector';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import {
@@ -115,12 +116,28 @@ const SelectorComponent = (
     multiple,
     checked,
     onChange,
+    tracking,
     ...props
   },
   ref
 ) => {
   const inputId = id || uniqueId('selector_');
   const type = multiple ? 'checkbox' : 'radio';
+  const { label, component = 'selector', customParameters } = tracking || {};
+  const dispatch = useClickTrigger();
+  const handleChange =
+    onChange && label
+      ? e => {
+          dispatch({
+            label,
+            component,
+            customParameters
+          });
+
+          onChange(e);
+        }
+      : onChange;
+
   return (
     <SelectorWrapper {...props}>
       <SelectorInput
@@ -130,7 +147,7 @@ const SelectorComponent = (
         value={value}
         checked={checked}
         disabled={disabled}
-        onClick={onChange}
+        onClick={handleChange}
         ref={ref}
       />
       <SelectorLabel htmlFor={inputId} disabled={disabled}>
@@ -187,7 +204,15 @@ Selector.propTypes = {
     PropTypes.shape({
       current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
     })
-  ])
+  ]),
+  /**
+   * Data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 Selector.defaultProps = {

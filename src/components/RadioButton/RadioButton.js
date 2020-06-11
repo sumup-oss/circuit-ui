@@ -17,6 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { useClickTrigger } from '@sumup/collector';
 
 import {
   disableVisually,
@@ -127,10 +128,25 @@ const RadioButtonLabel = styled('label')(
 );
 
 const RadioButtonComponent = (
-  { onChange, children, id, name, value, checked, ...props },
+  { onChange, children, id, name, value, checked, tracking, ...props },
   ref
 ) => {
   const inputId = id || uniqueId('radio-button_');
+  const { label, component = 'radio-button', customParameters } =
+    tracking || {};
+  const dispatch = useClickTrigger();
+  const handleChange =
+    onChange && label
+      ? e => {
+          dispatch({
+            label,
+            component,
+            customParameters
+          });
+
+          onChange(e);
+        }
+      : onChange;
   return (
     <>
       <RadioButtonInput
@@ -140,7 +156,7 @@ const RadioButtonComponent = (
         id={inputId}
         value={value}
         checked={checked}
-        onClick={onChange}
+        onClick={handleChange}
         ref={ref}
       />
       <RadioButtonLabel {...props} htmlFor={inputId}>
@@ -198,7 +214,15 @@ RadioButton.propTypes = {
     PropTypes.shape({
       current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
     })
-  ])
+  ]),
+  /**
+   * Data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 RadioButton.defaultProps = {
