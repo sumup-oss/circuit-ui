@@ -14,33 +14,10 @@
  */
 
 import PropTypes from 'prop-types';
-import { isNil } from 'lodash/fp';
-
-import deprecate from './deprecate';
 
 // TODO: figure out if we can still get these props in react-docgen
 //       when they are imported and merged into a component's
 //       propTypes.
-
-export const deprecatedPropType = (propType, explanation = '') => (
-  props,
-  propName,
-  componentName
-) => {
-  if (!isNil(props[propName])) {
-    deprecate(
-      // eslint-disable-next-line max-len
-      `"${propName}" prop of "${componentName}" has been deprecated.\n${explanation}`
-    );
-  }
-
-  return PropTypes.checkPropTypes(
-    { [propName]: propType },
-    props,
-    propName,
-    componentName
-  );
-};
 
 export const eitherOrPropType = (
   firstProp,
@@ -182,34 +159,11 @@ export const componentsPropType = PropTypes.shape({
   Link: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
 });
 
-export const localePropType = isRequired => (
-  props,
-  propName,
-  componentName
-) => {
-  // eslint-disable-next-line react/destructuring-assignment
-  const prop = props[propName];
-  if (isRequired && (!prop || !prop.length)) {
-    return new Error(
-      `Prop \`${propName}\` is marked as required in \`${componentName}\`,` +
-        `but received \`${prop}\`.`
-    );
-  }
-
-  if (!/[a-z]{2}-[A-Z]{2}/.test(prop)) {
-    return new Error(
-      `Invalid prop \`${propName}\` (\`${prop}\`)  supplied to` +
-        ` \`${componentName}\`. Please provide a valid locale.`
-    );
-  }
-
-  return null;
-};
-
 export const positionPropType = PropTypes.oneOf([
   'top',
   'bottom',
   'left',
   'right'
 ]);
+
 export const alignPropType = PropTypes.oneOf(['start', 'end', 'center']);
