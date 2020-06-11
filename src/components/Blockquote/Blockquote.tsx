@@ -13,16 +13,16 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps } from 'react';
+import React from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import Text from '../Text';
+import { TextProps } from '../Text/Text';
 
 type Size = 'kilo' | 'mega' | 'giga';
 
-export interface BlockquoteProps
-  extends Omit<HTMLProps<HTMLQuoteElement>, 'size'> {
+export interface BlockquoteProps extends TextProps {
   /**
    * A Circuit UI body text size.
    */

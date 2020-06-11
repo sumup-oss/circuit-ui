@@ -21,7 +21,8 @@ import styled, { StyleProps } from '../../styles/styled';
 
 type Size = 'kilo' | 'mega' | 'giga';
 
-export interface TextProps extends Omit<HTMLProps<HTMLElement>, 'size'> {
+export interface TextProps
+  extends Omit<HTMLProps<HTMLParagraphElement>, 'size'> {
   /**
    * Choose from 3 font sizes.
    */
