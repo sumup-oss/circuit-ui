@@ -15,18 +15,21 @@
 
 import React from 'react';
 
-import { ModalConsumer, ModalProvider } from '.';
+import { render, act, userEvent, wait } from '../../util/test-utils';
+
 import Button from '../Button';
+import { ModalProps } from './Modal';
+import { ModalConsumer, ModalProvider } from './ModalContext';
 
 import * as MockedModal from './Modal';
 
 describe('Modal', () => {
   beforeEach(() => {
-    MockedModal.TRANSITION_DURATION = 0;
+    (MockedModal as any).TRANSITION_DURATION = 0;
   });
 
   // eslint-disable-next-line react/prop-types
-  const PageWithModal = ({ modal }) => (
+  const PageWithModal = ({ modal }: { modal: ModalProps }) => (
     <div id="root">
       <ModalProvider>
         <ModalConsumer>
@@ -37,7 +40,7 @@ describe('Modal', () => {
               onClick={() => {
                 setModal({
                   ...modal,
-                  appElement: document.getElementById('root')
+                  appElement: document.getElementById('root') as HTMLElement
                 });
               }}
             >
@@ -49,7 +52,7 @@ describe('Modal', () => {
     </div>
   );
 
-  const defaultModal = {
+  const defaultModal: ModalProps = {
     // eslint-disable-next-line react/prop-types, react/display-name
     children: ({ onClose }) => (
       <div>
@@ -67,11 +70,11 @@ describe('Modal', () => {
     onClose: jest.fn()
   };
 
-  const openModal = modal => {
+  const openModal = (modal: ModalProps) => {
     const wrapper = render(<PageWithModal modal={modal} />);
 
     act(() => {
-      fireEvent.click(wrapper.getByTestId('button-open'));
+      userEvent.click(wrapper.getByTestId('button-open'));
     });
 
     return wrapper;
@@ -91,7 +94,7 @@ describe('Modal', () => {
       const { getByTestId, queryByTestId } = openModal(defaultModal);
 
       act(() => {
-        fireEvent.click(getByTestId('button-close'));
+        userEvent.click(getByTestId('button-close'));
       });
 
       await wait();

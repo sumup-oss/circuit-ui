@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+
 export const isFunction = (value?: any): value is Function =>
   typeof value === 'function';
 

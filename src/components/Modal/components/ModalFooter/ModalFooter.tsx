@@ -13,25 +13,20 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { css } from '@emotion/core';
 
-import ModalWrapper from '.';
+import styled, { StyleProps } from '../../../../styles/styled';
 
-describe('ModalWrapper', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(<ModalWrapper />);
-    expect(actual).toMatchSnapshot();
-  });
+import { CardFooter } from '../../../Card';
 
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<ModalWrapper />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
-  });
-});
+const footerStyles = ({ theme }: StyleProps) => css`
+  position: sticky;
+  bottom: 0;
+  margin-top: 0;
+  padding-top: ${theme.spacings.giga};
+  padding-bottom: ${theme.spacings.kilo};
+  background: ${theme.colors.white};
+`;
+
+// FIXME: Remove any typecast once the Card has been migrated to TypeScript.
+export const ModalFooter = styled(CardFooter as any)(footerStyles);

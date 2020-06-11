@@ -13,14 +13,25 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { FC } from 'react';
 import { css } from '@emotion/core';
 
+import styled, { StyleProps } from '../../../../styles/styled';
 import Card from '../../../Card';
 
-const baseStyles = ({ theme }) => css`
+// TODO: Extend CardProps once the Card has been migrated to TypeScript.
+export interface ModalWrapperProps {
+  /**
+   * The shadow depth of the Modal.
+   */
+  shadow?: 'single' | 'double' | 'triple';
+  /**
+   * The padding of the Modal.
+   */
+  spacing?: 'mega' | 'giga';
+}
+
+const baseStyles = ({ theme }: StyleProps) => css`
   width: 100%;
 
   ${theme.mq.untilKilo} {
@@ -31,22 +42,9 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const Wrapper = styled(Card)`
-  ${baseStyles};
-`;
+// FIXME: Remove any typecast once the Card has been migrated to TypeScript.
+const Wrapper = styled(Card as any)<ModalWrapperProps>(baseStyles);
 
-Wrapper.defaultProps = Card.defaultProps;
-
-const ModalWrapper = ({ ...props }) => <Wrapper shadow={'triple'} {...props} />;
-
-ModalWrapper.propTypes = {
-  /*
-   * Modal content
-   */
-  children: PropTypes.node.isRequired
-};
-
-/**
- * @component
- */
-export default ModalWrapper;
+export const ModalWrapper: FC<ModalWrapperProps> = props => (
+  <Wrapper shadow="triple" spacing="giga" {...props} />
+);

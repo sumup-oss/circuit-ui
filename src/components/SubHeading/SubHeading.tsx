@@ -13,21 +13,38 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { FC, HTMLProps } from 'react';
 import { css } from '@emotion/core';
+import isPropValid from '@emotion/is-prop-valid';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import styled, { StyleProps } from '../../styles/styled';
 
-const baseStyles = ({ theme }) => css`
+type Size = 'kilo' | 'mega';
+
+export interface SubHeadingProps
+  extends Omit<HTMLProps<HTMLHeadingElement>, 'size'> {
+  /**
+   * A Circuit UI subheading size.
+   */
+  size?: Size;
+  /**
+   * Removes the default bottom margin from the subheading.
+   */
+  noMargin?: boolean;
+  /**
+   * The HTML subheading element to render.
+   */
+  as?: string;
+}
+
+const baseStyles = ({ theme }: StyleProps) => css`
   label: sub-heading;
   text-transform: uppercase;
   font-weight: ${theme.fontWeight.bold};
   margin-bottom: ${theme.spacings.kilo};
 `;
 
-const sizeStyles = ({ theme, size }) =>
+const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & SubHeadingProps) =>
   size &&
   css`
     label: ${`sub-heading--${size}`};
@@ -35,53 +52,17 @@ const sizeStyles = ({ theme, size }) =>
     line-height: ${theme.typography.subHeadings[size].lineHeight};
   `;
 
-const noMarginStyles = ({ noMargin }) =>
+const noMarginStyles = ({ noMargin }: SubHeadingProps) =>
   noMargin &&
   css`
     label: sub-heading--no-margin;
     margin-bottom: 0;
   `;
 
-const SubHeadingElement = styled('h3')(baseStyles, sizeStyles, noMarginStyles);
-
 /**
  * A flexible subheading component capable of rendering using any HTML heading
  * tag, except h1.
  */
-
-const SubHeading = props => <SubHeadingElement {...props} />;
-
-SubHeading.propTypes = {
-  /**
-   * Child nodes to be rendered.
-   */
-  children: childrenPropType,
-  /**
-   * A Circuit UI sub-heading size.
-   */
-  size: PropTypes.oneOf(['kilo', 'mega']),
-  /**
-   * Optional additional className string to overwrite styles.
-   */
-  className: PropTypes.string,
-  /**
-   * Removes the default bottom margin from the subheading.
-   */
-  noMargin: PropTypes.bool,
-  /**
-   * The HTML heading element to render.
-   */
-  as: PropTypes.oneOf(['h2', 'h3', 'h4', 'h5', 'h6'])
-};
-
-SubHeading.defaultProps = {
-  size: 'kilo',
-  className: '',
-  noMargin: false,
-  children: null
-};
-
-/**
- * @component
- */
-export default SubHeading;
+export const SubHeading: FC<SubHeadingProps> = styled('h3', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+})<SubHeadingProps>(baseStyles, sizeStyles, noMarginStyles);

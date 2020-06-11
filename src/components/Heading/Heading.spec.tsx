@@ -26,7 +26,7 @@ describe('Heading', () => {
   const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
   it.each(elements)(`should render as %s element`, element => {
     const heading = create(
-      <Heading as={element}>{`${element.toUpperCase()} heading`}</Heading>
+      <Heading as={element}>{`${element} heading`}</Heading>
     );
     expect(heading).toMatchSnapshot();
   });

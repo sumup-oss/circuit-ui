@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import SubHeading from './SubHeading';
-
-export default SubHeading;
+export { ModalWrapper } from './ModalWrapper/ModalWrapper';
+export { ModalHeader } from './ModalHeader/ModalHeader';
+export { ModalFooter } from './ModalFooter/ModalFooter';

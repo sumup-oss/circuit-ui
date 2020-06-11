@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import ModalHeader from './ModalHeader';
+import { SubHeading } from './SubHeading';
 
-export default ModalHeader;
+export default SubHeading;

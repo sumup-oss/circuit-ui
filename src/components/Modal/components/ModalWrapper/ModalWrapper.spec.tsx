@@ -15,14 +15,16 @@
 
 import React from 'react';
 
-import ModalHeader from '.';
+import { create, renderToHtml, axe } from '../../../../util/test-utils';
 
-describe('ModalHeader', () => {
+import { ModalWrapper } from './ModalWrapper';
+
+describe('ModalWrapper', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<ModalHeader />);
+    const actual = create(<ModalWrapper />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -30,7 +32,7 @@ describe('ModalHeader', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<ModalHeader />);
+    const wrapper = renderToHtml(<ModalWrapper />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
