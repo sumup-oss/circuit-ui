@@ -13400,7 +13400,7 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-6 > .circuit-1 {
+  .circuit-6 [role='tab'] {
     -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
