@@ -30,7 +30,7 @@ export interface BlockquoteProps
   /**
    * The ref to the HTML DOM element.
    */
-  ref?: React.Ref<any>;
+  ref?: React.Ref<HTMLQuoteElement>;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`

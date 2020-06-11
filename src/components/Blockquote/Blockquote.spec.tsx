@@ -49,7 +49,7 @@ describe('Blockquote', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
+      const tref = React.createRef<HTMLQuoteElement>();
       const { container } = render(
         <Blockquote size="giga" ref={tref}>
           {quote}
