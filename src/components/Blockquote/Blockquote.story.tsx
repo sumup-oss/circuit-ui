@@ -14,7 +14,7 @@
  */
 
 import React, { Fragment } from 'react';
-import { select, text } from '@storybook/addon-knobs/react';
+import { select, text } from '@storybook/addon-knobs';
 
 import docs from './Blockquote.docs.mdx';
 import { Blockquote } from './Blockquote';
@@ -26,7 +26,7 @@ kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape
 tbh adaptogen green juice lo-fi kombucha.
 `;
 
-const sizes = ['kilo', 'mega', 'giga'];
+const sizes = ['kilo', 'mega', 'giga'] as const;
 
 export default {
   title: 'Typography/Blockquote',
@@ -45,17 +45,17 @@ export const base = () => (
 
 export const size = () => (
   <Fragment>
-    <Blockquote size={'kilo'}>
+    <Blockquote size="kilo">
       Kilo - The ability to accept credit card payments that are EMV-compliant
       is essentially an insurance policy against fraud and an impressively
       economical one at that.
     </Blockquote>
-    <Blockquote size={'mega'}>
+    <Blockquote size="mega">
       Mega - The ability to accept credit card payments that are EMV-compliant
       is essentially an insurance policy against fraud and an impressively
       economical one at that.
     </Blockquote>
-    <Blockquote size={'giga'}>
+    <Blockquote size="giga">
       Giga - The ability to accept credit card payments that are EMV-compliant
       is essentially an insurance policy against fraud and an impressively
       economical one at that.

@@ -15,6 +15,8 @@
 
 import React from 'react';
 
+import { create, render, renderToHtml, axe } from '../../util/test-utils';
+
 import { Blockquote } from './Blockquote';
 
 describe('Blockquote', () => {
@@ -33,13 +35,29 @@ describe('Blockquote', () => {
   });
 
   it('should render with mega styles', () => {
-    const actual = create(<Blockquote size={'mega'}>{quote}</Blockquote>);
+    const actual = create(<Blockquote size="mega">{quote}</Blockquote>);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with giga styles', () => {
-    const actual = create(<Blockquote size={'giga'}>{quote}</Blockquote>);
+    const actual = create(<Blockquote size="giga">{quote}</Blockquote>);
     expect(actual).toMatchSnapshot();
+  });
+
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(
+        <Blockquote size="giga" ref={tref}>
+          {quote}
+        </Blockquote>
+      );
+      const blockquote = container.querySelector('blockquote');
+      expect(tref.current).toBe(blockquote);
+    });
   });
 
   /**

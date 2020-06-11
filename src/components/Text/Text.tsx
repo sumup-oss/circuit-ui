@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { FC } from 'react';
+import { FC, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -21,7 +21,7 @@ import styled, { StyleProps } from '../../styles/styled';
 
 type Size = 'kilo' | 'mega' | 'giga';
 
-export interface TextProps {
+export interface TextProps extends Omit<HTMLProps<HTMLElement>, 'size'> {
   /**
    * Choose from 3 font sizes.
    */
@@ -47,9 +47,9 @@ export interface TextProps {
    */
   as?: string;
   /**
-   * The ref to the html dom element, it can be an anchor or a button
+   * The ref to the HTML DOM element.
    */
-  ref?: React.Ref<HTMLParagraphElement>;
+  ref?: React.Ref<any>;
 }
 
 const baseStyles = ({ theme }: StyleProps) => css`

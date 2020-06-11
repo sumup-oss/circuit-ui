@@ -23611,7 +23611,7 @@ exports[`Storyshots Typography/Blockquote Base 1`] = `
 }
 
 <blockquote
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   
 Lorem ipsum dolor amet echo park activated charcoal banjo deep
@@ -23642,7 +23642,7 @@ HTMLCollection [
 }
 
 <blockquote
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Kilo - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
   </blockquote>,
@@ -23664,7 +23664,7 @@ HTMLCollection [
 }
 
 <blockquote
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Mega - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
   </blockquote>,
@@ -23688,7 +23688,7 @@ HTMLCollection [
 }
 
 <blockquote
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Giga - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
   </blockquote>,
