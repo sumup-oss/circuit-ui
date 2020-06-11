@@ -17,7 +17,7 @@ import React, { Fragment } from 'react';
 import { select, text } from '@storybook/addon-knobs/react';
 
 import docs from './Blockquote.docs.mdx';
-import Blockquote from './Blockquote';
+import { Blockquote } from './Blockquote';
 
 const defaultQuote = `
 Lorem ipsum dolor amet echo park activated charcoal banjo deep

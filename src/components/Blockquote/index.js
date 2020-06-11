@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Blockquote from './Blockquote';
+import { Blockquote } from './Blockquote';
 
 export default Blockquote;

@@ -15,7 +15,7 @@
 
 import React from 'react';
 
-import Blockquote from './Blockquote';
+import { Blockquote } from './Blockquote';
 
 describe('Blockquote', () => {
   const quote = `

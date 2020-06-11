@@ -43,7 +43,7 @@ const StyledText = styled(Text)`
 /**
  * Indented and italicised text to denote a quotation.
  */
-const Blockquote = ({ children, ...props }) => (
+export const Blockquote = ({ children, ...props }) => (
   <StyledText {...props} as="blockquote" italic>
     {children}
   </StyledText>
@@ -63,8 +63,3 @@ Blockquote.propTypes = {
 Blockquote.defaultProps = {
   size: 'kilo'
 };
-
-/**
- * @component
- */
-export default Blockquote;
