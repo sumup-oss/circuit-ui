@@ -34,8 +34,8 @@ describe('Blockquote', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with mega styles', () => {
-    const actual = create(<Blockquote size="mega">{quote}</Blockquote>);
+  it('should render with kilo styles', () => {
+    const actual = create(<Blockquote size="kilo">{quote}</Blockquote>);
     expect(actual).toMatchSnapshot();
   });
 

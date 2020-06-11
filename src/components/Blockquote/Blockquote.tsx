@@ -39,7 +39,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   border-left: 2px solid ${theme.colors.p500};
 `;
 
-const gigaStyles = ({ theme, size = 'kilo' }: StyleProps & BlockquoteProps) =>
+const gigaStyles = ({ theme, size = 'mega' }: StyleProps & BlockquoteProps) =>
   size === 'giga' &&
   css`
     label: blockquote--giga;
