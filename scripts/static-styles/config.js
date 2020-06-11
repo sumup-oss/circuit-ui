@@ -19,7 +19,6 @@ import { light } from '@sumup/design-tokens';
 
 import {
   Badge,
-  Blockquote,
   ButtonGroup,
   Card,
   Checkbox,
@@ -125,9 +124,9 @@ export default {
       }
     },
     // getComponentInfo(Button, { size: [KILO, MEGA] }),
-    getComponentInfo(Blockquote, {
-      size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
-    }),
+    // getComponentInfo(Blockquote, {
+    //   size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
+    // }),
     getComponentInfo(ButtonGroup, {
       align: [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT]
     }),

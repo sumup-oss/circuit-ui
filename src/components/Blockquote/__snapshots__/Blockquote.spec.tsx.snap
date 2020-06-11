@@ -4,8 +4,8 @@ exports[`Blockquote should render with default styles 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   font-style: italic;
   padding-left: 12px;
   border-left: 2px solid #3388FF;
@@ -13,19 +13,15 @@ exports[`Blockquote should render with default styles 1`] = `
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
 <blockquote
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
-  
-  Lorem ipsum dolor amet echo park activated charcoal banjo deep
-  crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
-  kickstarter artisan.
-  
+  The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
 </blockquote>
 `;
 
@@ -50,22 +46,18 @@ exports[`Blockquote should render with giga styles 1`] = `
 }
 
 <blockquote
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
-  
-  Lorem ipsum dolor amet echo park activated charcoal banjo deep
-  crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
-  kickstarter artisan.
-  
+  The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
 </blockquote>
 `;
 
-exports[`Blockquote should render with mega styles 1`] = `
+exports[`Blockquote should render with kilo styles 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   font-style: italic;
   padding-left: 12px;
   border-left: 2px solid #3388FF;
@@ -73,18 +65,14 @@ exports[`Blockquote should render with mega styles 1`] = `
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 13px;
+    line-height: 20px;
   }
 }
 
 <blockquote
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
-  
-  Lorem ipsum dolor amet echo park activated charcoal banjo deep
-  crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
-  kickstarter artisan.
-  
+  The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
 </blockquote>
 `;

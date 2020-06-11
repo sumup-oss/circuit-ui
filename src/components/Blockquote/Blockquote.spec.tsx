@@ -15,14 +15,12 @@
 
 import React from 'react';
 
-import Blockquote from './Blockquote';
+import { create, render, renderToHtml, axe } from '../../util/test-utils';
+
+import { Blockquote } from './Blockquote';
 
 describe('Blockquote', () => {
-  const quote = `
-  Lorem ipsum dolor amet echo park activated charcoal banjo deep
-  crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
-  kickstarter artisan.
-  `;
+  const quote = `The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.`;
 
   /**
    * Style tests.
@@ -32,14 +30,30 @@ describe('Blockquote', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  it('should render with mega styles', () => {
-    const actual = create(<Blockquote size={'mega'}>{quote}</Blockquote>);
+  it('should render with kilo styles', () => {
+    const actual = create(<Blockquote size="kilo">{quote}</Blockquote>);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with giga styles', () => {
-    const actual = create(<Blockquote size={'giga'}>{quote}</Blockquote>);
+    const actual = create(<Blockquote size="giga">{quote}</Blockquote>);
     expect(actual).toMatchSnapshot();
+  });
+
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef<HTMLQuoteElement>();
+      const { container } = render(
+        <Blockquote size="giga" ref={tref}>
+          {quote}
+        </Blockquote>
+      );
+      const blockquote = container.querySelector('blockquote');
+      expect(tref.current).toBe(blockquote);
+    });
   });
 
   /**

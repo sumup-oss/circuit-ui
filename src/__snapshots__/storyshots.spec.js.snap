@@ -23582,8 +23582,8 @@ exports[`Storyshots Typography/Blockquote Base 1`] = `
 .circuit-0 {
   font-weight: 400;
   margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   font-style: italic;
   padding-left: 12px;
   border-left: 2px solid #3388FF;
@@ -23591,20 +23591,15 @@ exports[`Storyshots Typography/Blockquote Base 1`] = `
 
 @media (min-width:480px) {
   .circuit-0 {
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
 <blockquote
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
-  
-Lorem ipsum dolor amet echo park activated charcoal banjo deep
-crucifix pinterest yr af tumeric literally. Tbh four loko tattooed
-kickstarter artisan. Lumbersexual tote bag selfies truffaut, tofu vape
-tbh adaptogen green juice lo-fi kombucha.
-
+  The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
 </blockquote>
 `;
 
@@ -23628,9 +23623,10 @@ HTMLCollection [
 }
 
 <blockquote
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
-    Kilo - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
+    Kilo - 
+    The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
   </blockquote>,
   .circuit-0 {
   font-weight: 400;
@@ -23650,9 +23646,10 @@ HTMLCollection [
 }
 
 <blockquote
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
-    Mega - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
+    Mega - 
+    The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
   </blockquote>,
   .circuit-0 {
   font-weight: 400;
@@ -23674,9 +23671,10 @@ HTMLCollection [
 }
 
 <blockquote
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
-    Giga - The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
+    Giga - 
+    The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.
   </blockquote>,
 ]
 `;

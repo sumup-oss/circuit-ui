@@ -14,20 +14,32 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import styled, { StyleProps } from '../../styles/styled';
 import Text from '../Text';
+import { TextProps } from '../Text/Text';
 
-const baseStyles = ({ theme }) => css`
+type Size = 'kilo' | 'mega' | 'giga';
+
+export interface BlockquoteProps extends TextProps {
+  /**
+   * A Circuit UI body text size.
+   */
+  size?: Size;
+  /**
+   * The ref to the HTML DOM element.
+   */
+  ref?: React.Ref<HTMLQuoteElement>;
+}
+
+const baseStyles = ({ theme }: StyleProps) => css`
   label: blockquote;
   padding-left: ${theme.spacings.kilo};
   border-left: 2px solid ${theme.colors.p500};
 `;
 
-const gigaStyles = ({ theme, size }) =>
+const gigaStyles = ({ theme, size = 'mega' }: StyleProps & BlockquoteProps) =>
   size === 'giga' &&
   css`
     label: blockquote--giga;
@@ -35,36 +47,16 @@ const gigaStyles = ({ theme, size }) =>
     border-left: 3px solid ${theme.colors.p500};
   `;
 
-const StyledText = styled(Text)`
-  ${baseStyles};
-  ${gigaStyles};
-`;
+const StyledText = styled(Text)<BlockquoteProps>(baseStyles, gigaStyles);
+
+export function BlockquoteComponent(
+  props: BlockquoteProps,
+  ref: BlockquoteProps['ref']
+) {
+  return <StyledText {...props} as="blockquote" italic ref={ref} />;
+}
 
 /**
  * Indented and italicised text to denote a quotation.
  */
-const Blockquote = ({ children, ...props }) => (
-  <StyledText {...props} as="blockquote" italic>
-    {children}
-  </StyledText>
-);
-
-Blockquote.propTypes = {
-  /**
-   * Child nodes to be rendered.
-   */
-  children: childrenPropType,
-  /**
-   * A Circuit UI body text size.
-   */
-  size: PropTypes.oneOf(['kilo', 'mega', 'giga']).isRequired
-};
-
-Blockquote.defaultProps = {
-  size: 'kilo'
-};
-
-/**
- * @component
- */
-export default Blockquote;
+export const Blockquote = React.forwardRef(BlockquoteComponent);
