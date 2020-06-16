@@ -13,18 +13,10 @@
  * limitations under the License.
  */
 
-import React, {
-  HTMLProps,
-  ReactNode,
-  ReactElement,
-  FC,
-  SVGProps,
-  MouseEvent
-} from 'react';
+import React, { HTMLProps, ReactNode, ReactElement, FC, SVGProps } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
-import { useClickTrigger } from '@sumup/collector';
 import { Dispatch as TrackingProps } from '@sumup/collector/build/types';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -34,6 +26,7 @@ import {
   focusOutline
 } from '../../styles/style-helpers';
 import { useComponents } from '../ComponentsContext';
+import useClickTracker from '../../hooks/use-click-tracker';
 
 export interface BaseProps {
   children: ReactNode;
@@ -222,25 +215,7 @@ export function ButtonComponent(
   const { Link } = useComponents();
   const LinkButton = BaseButton.withComponent(Link);
   const ButtonElement = props.href ? LinkButton : BaseButton;
-
-  // Set default value for tracking dispatch
-  const { label, component = 'button', customParameters } =
-    props.tracking || {};
-
-  const dispatch = useClickTrigger();
-  const handleClick = label
-    ? (e: MouseEvent<any>): void => {
-        dispatch({
-          label,
-          component,
-          customParameters
-        });
-
-        if (props.onClick) {
-          props.onClick(e);
-        }
-      }
-    : props.onClick;
+  const handleClick = useClickTracker(props.onClick, props.tracking, 'button');
 
   return (
     <ButtonElement {...props} ref={ref} onClick={handleClick}>

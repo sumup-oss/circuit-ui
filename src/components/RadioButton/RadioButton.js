@@ -17,7 +17,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useClickTrigger } from '@sumup/collector';
 
 import {
   disableVisually,
@@ -26,6 +25,7 @@ import {
 } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
+import useClickTracker from '../../hooks/use-click-tracker';
 
 const labelBaseStyles = ({ theme }) => css`
   label: radio-button__label;
@@ -132,21 +132,8 @@ const RadioButtonComponent = (
   ref
 ) => {
   const inputId = id || uniqueId('radio-button_');
-  const { label, component = 'radio-button', customParameters } =
-    tracking || {};
-  const dispatch = useClickTrigger();
-  const handleChange =
-    onChange && label
-      ? e => {
-          dispatch({
-            label,
-            component,
-            customParameters
-          });
+  const handleChange = useClickTracker(onChange, tracking, 'radio-button');
 
-          onChange(e);
-        }
-      : onChange;
   return (
     <>
       <RadioButtonInput

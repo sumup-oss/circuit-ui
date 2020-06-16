@@ -16,6 +16,7 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { text } from '@storybook/addon-knobs';
 import {
   House,
   HouseFilled,
@@ -68,7 +69,9 @@ const SidebarWithState = () => {
           open={open}
           onClose={() => setOpen(false)}
           closeButtonLabel="close-button"
-          tracking={{ label: 'trackingId-sidebar' }}
+          tracking={{
+            label: text('Tracking Label - onClose', 'trackingId-onClose')
+          }}
         >
           <Sidebar.Header>Header</Sidebar.Header>
           <Sidebar.NavList>
@@ -79,7 +82,9 @@ const SidebarWithState = () => {
               onClick={() => setSelected(1)}
               defaultIcon={<House size="large" />}
               selectedIcon={<HouseFilled size="large" />}
-              tracking={{ label: 'trackingId-home' }}
+              tracking={{
+                label: text('Tracking Label - NavItem', 'trackingId-home')
+              }}
             />
             <Sidebar.Aggregator
               key="list"

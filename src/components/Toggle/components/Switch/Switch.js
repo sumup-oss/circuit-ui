@@ -17,9 +17,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useClickTrigger } from '@sumup/collector';
 
 import { focusOutline, hideVisually } from '../../../../styles/style-helpers';
+import useClickTracker from '../../../../hooks/use-click-tracker';
 
 const TRACK_WIDTH = '40px';
 const TRACK_HEIGHT = '24px';
@@ -99,20 +99,7 @@ const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
  */
 const Switch = React.forwardRef(
   ({ on, onChange, labelOn, labelOff, tracking, ...rest }, ref) => {
-    const { label, component = 'toggle', customParameters } = tracking || {};
-    const dispatch = useClickTrigger();
-    const handleChange =
-      onChange && label
-        ? e => {
-            dispatch({
-              label,
-              component,
-              customParameters
-            });
-
-            onChange(e);
-          }
-        : onChange;
+    const handleChange = useClickTracker(onChange, tracking, 'toggle');
 
     return (
       <SwitchTrack

@@ -18,7 +18,6 @@ import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Check } from '@sumup/icons';
-import { useClickTrigger } from '@sumup/collector';
 
 import {
   disableVisually,
@@ -28,6 +27,7 @@ import {
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
+import useClickTracker from '../../hooks/use-click-tracker';
 
 const labelBaseStyles = ({ theme }) => css`
   label: checkbox__label;
@@ -162,26 +162,16 @@ const CheckboxComponent = (
     disabled,
     validationHint,
     className,
-    tracking,
     ...props
   },
   ref
 ) => {
   const id = customId || uniqueId('checkbox_');
-  const { label, component = 'checkbox', customParameters } = tracking || {};
-  const dispatch = useClickTrigger();
-  const handleChange =
-    props.onChange && label
-      ? e => {
-          dispatch({
-            label,
-            component,
-            customParameters
-          });
-
-          props.onChange(e);
-        }
-      : props.onChange;
+  const handleChange = useClickTracker(
+    props.onChange,
+    props.tracking,
+    'checkbox'
+  );
 
   return (
     <CheckboxWrapper className={className}>

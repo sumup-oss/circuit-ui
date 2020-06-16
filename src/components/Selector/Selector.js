@@ -17,7 +17,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useClickTrigger } from '@sumup/collector';
 
 import { childrenPropType } from '../../util/shared-prop-types';
 import {
@@ -27,6 +26,7 @@ import {
   hideVisually
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
+import useClickTracker from '../../hooks/use-click-tracker';
 
 const wrapperStyles = ({ theme }) => css`
   label: selector;
@@ -123,20 +123,7 @@ const SelectorComponent = (
 ) => {
   const inputId = id || uniqueId('selector_');
   const type = multiple ? 'checkbox' : 'radio';
-  const { label, component = 'selector', customParameters } = tracking || {};
-  const dispatch = useClickTrigger();
-  const handleChange =
-    onChange && label
-      ? e => {
-          dispatch({
-            label,
-            component,
-            customParameters
-          });
-
-          onChange(e);
-        }
-      : onChange;
+  const handleChange = useClickTracker(onChange, tracking, 'selector');
 
   return (
     <SelectorWrapper {...props}>

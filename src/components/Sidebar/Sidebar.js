@@ -17,7 +17,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useClickTrigger } from '@sumup/collector';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -27,6 +26,7 @@ import Backdrop from './components/Backdrop';
 import CloseButton from './components/CloseButton';
 import Aggregator from './components/Aggregator';
 import Separator from './components/Separator';
+import useClickTracker from '../../hooks/use-click-tracker';
 
 const SIDEBAR_WIDTH = 256;
 
@@ -67,20 +67,7 @@ const Sidebar = ({
   tracking,
   ...props
 }) => {
-  const { label, component, customParameters } = tracking || {};
-  const dispatch = useClickTrigger();
-  const handleClose =
-    onClose && label
-      ? e => {
-          dispatch({
-            label,
-            component: component || 'sidebar-close',
-            customParameters
-          });
-
-          onClose(e);
-        }
-      : onClose;
+  const handleClose = useClickTracker(onClose, tracking, 'sidebar-close');
 
   return (
     <Fragment>

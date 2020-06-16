@@ -18,9 +18,9 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
-import { useClickTrigger } from '@sumup/collector';
 
 import { componentsPropType } from '../../../../util/shared-prop-types';
+import useClickTracker from '../../../../hooks/use-click-tracker';
 import NavLabel from '../NavLabel';
 import { getIcon } from './utils';
 
@@ -91,24 +91,7 @@ const NavItem = ({
 }) => {
   const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
   const Link = StyledLink.withComponent(components.Link);
-  const {
-    label: trackingLabel,
-    component = 'sidebar-nav-item',
-    customParameters
-  } = tracking || {};
-  const dispatch = useClickTrigger();
-  const handleClick =
-    onClick && trackingLabel
-      ? e => {
-          dispatch({
-            label: trackingLabel,
-            component,
-            customParameters
-          });
-
-          onClick(e);
-        }
-      : onClick;
+  const handleClick = useClickTracker(onClick, tracking, 'sidebar-nav-item');
 
   return (
     <li

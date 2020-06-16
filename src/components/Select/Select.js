@@ -278,7 +278,7 @@ const SelectComponent = (
           )}
           {children ||
             (options &&
-              options.map(({ label: labelValue, ...rest }) => (
+              options.map(({ label: labelValue, tracking, ...rest }) => (
                 <option key={rest.value} {...rest}>
                   {labelValue}
                 </option>

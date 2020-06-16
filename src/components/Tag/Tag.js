@@ -17,14 +17,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useClickTrigger } from '@sumup/collector';
-
+import isPropValid from '@emotion/is-prop-valid';
 import {
   eitherOrPropType,
   childrenPropType
 } from '../../util/shared-prop-types';
 import { textMega, focusOutline } from '../../styles/style-helpers';
 import CloseButton from '../CloseButton';
+import useClickTracker from '../../hooks/use-click-tracker';
 
 const tagStyles = ({ theme }) => css`
   label: tag;
@@ -113,6 +113,8 @@ const Tag = React.forwardRef(
       onRemove,
       labelRemoveButton,
       selected,
+      onClick,
+      tracking,
       ...props
     },
     ref
@@ -129,20 +131,9 @@ const Tag = React.forwardRef(
         css={theme => suffixStyles({ theme, selected })}
       />
     );
-    const { label, component, customParameters } = props.tracking || {};
-    const dispatch = useClickTrigger();
-    const handleClick =
-      props.onClick && label
-        ? e => {
-            dispatch({
-              label,
-              component: component || 'tag',
-              customParameters
-            });
-
-            props.onClick(e);
-          }
-        : props.onClick;
+    const { label, component = 'remove-button', customParameters } =
+      tracking || {};
+    const handleClick = useClickTracker(onClick, tracking, 'tag');
 
     return (
       <TagElement {...{ selected, ...props }} onClick={handleClick}>
@@ -161,7 +152,7 @@ const Tag = React.forwardRef(
             ref={ref}
             tracking={{
               label,
-              component: component || 'remove-button',
+              component,
               customParameters
             }}
           />
