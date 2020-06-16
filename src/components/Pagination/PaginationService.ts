@@ -13,23 +13,8 @@
  * limitations under the License.
  */
 
-import React from 'react';
-
-import PageButton from './PageButton';
-
-describe('PageButton', () => {
-  describe('styles', () => {
-    it('should render with default styles', () => {
-      const actual = create(<PageButton />);
-      expect(actual).toMatchSnapshot();
-    });
-  });
-
-  describe('accessibility', () => {
-    it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<PageButton>Lorem ipsum</PageButton>);
-      const actual = await axe(wrapper);
-      expect(actual).toHaveNoViolations();
-    });
-  });
-});
+// Adapted from https://stackoverflow.com/questions/4852017/how-to-initialize-an-arrays-length-in-javascript
+export function generatePages(totalPages: number): number[] {
+  // eslint-disable-next-line prefer-spread
+  return Array.apply(null, Array(totalPages)).map((_, index) => index + 1);
+}

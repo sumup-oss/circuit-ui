@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { number, text } from '@storybook/addon-knobs/react';
+import React, { useState } from 'react';
+import { number, text } from '@storybook/addon-knobs';
 
 import docs from './Pagination.docs.mdx';
-import Pagination from '.';
+import { Pagination, PaginationProps } from './Pagination';
 
 export default {
   title: 'Components/Pagination',
@@ -27,15 +27,22 @@ export default {
   }
 };
 
-export const base = () => (
-  <Pagination
-    page={number('page', 1)}
-    perPage={number('perPage', 10)}
-    total={number('total', 50)}
-    pagesToShow={number('pagesToShow', 1)}
-    onChange={() => {}}
-    footer={text('footer', 'Showing 1 - 10 of 50 items')}
-    align={text('align', 'center')}
-    justify={text('justify', 'center')}
-  />
-);
+const BasePagination = (props: Partial<PaginationProps>) => {
+  const [page, setPage] = useState(1);
+  return (
+    <Pagination
+      label={text('Label', 'Pagination')}
+      totalPages={number('Total pages', 5)}
+      pageLabel={p => `${text('Page label', 'Go to page')} ${p}`}
+      previousLabel={text('Previous label', 'Previous')}
+      nextLabel={text('Next label', 'Next')}
+      currentPage={page}
+      onChange={setPage}
+      {...props}
+    />
+  );
+};
+
+export const base = () => <BasePagination />;
+
+export const manyPages = () => <BasePagination totalPages={10} />;

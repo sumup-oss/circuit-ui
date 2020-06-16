@@ -24,10 +24,10 @@ import { light } from '@sumup/design-tokens';
 import { Badge, Text } from '../../src';
 
 const variants = {
-  stable: { color: Badge.SUCCESS, label: 'Stable' },
-  deprecated: { color: Badge.DANGER, label: 'Deprecated' },
-  inReview: { color: Badge.WARNING, label: 'In Review' },
-  experimental: { color: Badge.PRIMARY, label: 'Experimental' }
+  stable: { color: 'success', label: 'Stable' },
+  deprecated: { color: 'danger', label: 'Deprecated' },
+  inReview: { color: 'warning', label: 'In Review' },
+  experimental: { color: 'primary', label: 'Experimental' }
 };
 
 const Status = ({ variant = 'stable' }) => {
