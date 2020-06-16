@@ -98,8 +98,6 @@ Tab.defaultProps = {
   role: 'tab'
 };
 
-export { StyledTab };
-
 /**
  * @component
  */

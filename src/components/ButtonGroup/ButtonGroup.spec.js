@@ -28,14 +28,14 @@ describe('ButtonGroup', () => {
 
   describe('Center aligment', () => {
     it('should render with center alignment styles', () => {
-      const actual = create(<ButtonGroup align={ButtonGroup.CENTER} />);
+      const actual = create(<ButtonGroup align={'center'} />);
       expect(actual).toMatchSnapshot();
     });
   });
 
   describe('Left aligment', () => {
     it('should render with left alignment styles', () => {
-      const actual = create(<ButtonGroup align={ButtonGroup.LEFT} />);
+      const actual = create(<ButtonGroup align={'left'} />);
       expect(actual).toMatchSnapshot();
     });
   });

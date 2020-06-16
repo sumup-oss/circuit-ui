@@ -24,10 +24,6 @@ import {
   shadowDouble,
   shadowTriple
 } from '../../styles/style-helpers';
-import { sizes, shadows } from '../../styles/constants';
-
-const { MEGA, GIGA } = sizes;
-const { SINGLE, DOUBLE, TRIPLE } = shadows;
 
 const baseStyles = ({ theme }) => css`
   label: card;
@@ -43,9 +39,9 @@ const shadowStyles = ({ theme, shadow }) => {
     return null;
   }
   const shadowOptions = {
-    [SINGLE]: shadowSingle,
-    [DOUBLE]: shadowDouble,
-    [TRIPLE]: shadowTriple
+    single: shadowSingle,
+    double: shadowDouble,
+    triple: shadowTriple
   };
   return css`
     label: ${`card--shadow-${shadow}`};
@@ -58,10 +54,10 @@ const spacingStyles = ({ theme, spacing }) => {
     return null;
   }
   const spacings = {
-    [MEGA]: `
+    mega: `
       ${theme.spacings.mega} ${theme.spacings.mega}
     `,
-    [GIGA]: `
+    giga: `
       ${theme.spacings.mega} ${theme.spacings.giga}
     `
   };
@@ -78,22 +74,15 @@ const Card = styled('div', {
   shouldForwardProp: prop => isPropValid(prop) && prop !== 'spacing'
 })(baseStyles, shadowStyles, spacingStyles);
 
-Card.SINGLE = SINGLE;
-Card.DOUBLE = DOUBLE;
-Card.TRIPLE = TRIPLE;
-
-Card.MEGA = MEGA;
-Card.GIGA = GIGA;
-
 Card.propTypes = {
   /**
    * The shadow depth of the Card.
    */
-  shadow: PropTypes.oneOf([Card.SINGLE, Card.DOUBLE, Card.TRIPLE]),
+  shadow: PropTypes.oneOf(['single', 'double', 'triple']),
   /**
    * The padding of the Card.
    */
-  spacing: PropTypes.oneOf([Card.MEGA, Card.GIGA]),
+  spacing: PropTypes.oneOf(['mega', 'giga']),
   /**
    * Content to be rendered inside the Card.
    */
@@ -101,8 +90,8 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  spacing: Card.GIGA,
-  shadow: Card.SINGLE
+  spacing: 'giga',
+  shadow: 'single'
 };
 
 /**

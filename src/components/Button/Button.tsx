@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ReactNode, ReactElement, FC, SVGProps } from 'react';
+import React, { HTMLProps, ReactNode, FC, SVGProps } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
@@ -25,6 +25,7 @@ import {
   disableVisually,
   focusOutline
 } from '../../styles/style-helpers';
+import { ReturnType } from '../../types/return-type';
 import { useComponents } from '../ComponentsContext';
 import useClickTracker from '../../hooks/use-click-tracker';
 
@@ -58,14 +59,16 @@ export interface BaseProps {
    The ref to the html dom element, it can be an anchor or a button
    */
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
+  /**
+   * The HTML button type
+   */
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
-type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size' | 'type'>;
-type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size' | 'type'>;
+type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size'>;
+type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
 
 export type ButtonProps = BaseProps & LinkElProps & ButtonElProps;
-
-type ReturnType = ReactElement<any, any> | null;
 
 const BORDER_WIDTH = '1px';
 
@@ -200,15 +203,15 @@ const BaseButton = styled('button', {
   stretchStyles
 );
 
-export function ButtonComponent(
+function ButtonComponent(
   props: BaseProps & LinkElProps,
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
 ): ReturnType;
-export function ButtonComponent(
+function ButtonComponent(
   props: BaseProps & ButtonElProps,
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
 ): ReturnType;
-export function ButtonComponent(
+function ButtonComponent(
   { children, icon: Icon, ...props }: ButtonProps,
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
 ): ReturnType {

@@ -20,30 +20,29 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
-import { colorNames } from '../../styles/constants';
 
 const COLOR_MAP = {
-  [colorNames.SUCCESS]: {
+  success: {
     default: 'g500',
     hover: 'g700',
     active: 'g900'
   },
-  [colorNames.WARNING]: {
+  warning: {
     default: 'y500',
     hover: 'y700',
     active: 'y900'
   },
-  [colorNames.DANGER]: {
+  danger: {
     default: 'r500',
     hover: 'r700',
     active: 'r900'
   },
-  [colorNames.PRIMARY]: {
+  primary: {
     default: 'b500',
     hover: 'b700',
     active: 'b900'
   },
-  [colorNames.NEUTRAL]: {
+  neutral: {
     default: 'n500',
     hover: 'n700',
     active: 'n900'
@@ -122,12 +121,6 @@ const Badge = React.forwardRef((props, ref) => (
 
 Badge.displayName = 'Badge';
 
-Badge.NEUTRAL = colorNames.NEUTRAL;
-Badge.PRIMARY = colorNames.PRIMARY;
-Badge.SUCCESS = colorNames.SUCCESS;
-Badge.WARNING = colorNames.WARNING;
-Badge.DANGER = colorNames.DANGER;
-
 Badge.propTypes = {
   /**
    * Callback for the click event.
@@ -138,11 +131,11 @@ Badge.propTypes = {
    */
   circle: PropTypes.bool,
   color: PropTypes.oneOf([
-    Badge.NEUTRAL,
-    Badge.PRIMARY,
-    Badge.SUCCESS,
-    Badge.WARNING,
-    Badge.DANGER
+    'neutral',
+    'primary',
+    'success',
+    'warning',
+    'danger'
   ]),
   /**
    * The ref to the html button dom element
@@ -157,7 +150,7 @@ Badge.propTypes = {
 
 Badge.defaultProps = {
   circle: false,
-  color: Badge.NEUTRAL,
+  color: 'neutral',
   ref: undefined
 };
 

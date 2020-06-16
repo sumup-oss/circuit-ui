@@ -8,94 +8,20 @@
 
 </div>
 
-## Table of Contents <!-- omit in toc -->
-
-- [Getting started](#getting-started)
-- [Installation](#installation)
-- [Development](#development)
-- [Deployment](#deployment)
-- [Linting and formatting](#linting-and-formatting)
-- [Testing](#testing)
-- [Utils](#utils)
-- [Creating components](#creating-components)
-- [Code of conduct](#code-of-conduct)
-  - [Maintainers](#maintainers)
-- [Contributing](#contributing)
-- [About SumUp](#about-sumup)
-
-## Getting started
+## Quick start
 
 Here are a few helpful links for getting started with Circuit UI:
 
-- [Getting started](http://circuit.sumup.com/#/getting-started/developers) - Install and configure Circuit for your React app
-- [Styles](http://circuit.sumup.com/#/styles/colors) - Learn about our foundations such as colors, spacing, and typography.
-- [Guidelines](http://circuit.sumup.com/#/guidelines/content) - Use the design system in a compliant way.
-- [Components](http://circuit.sumup.com/#/components/badge) - Explore the available UI components.
+- [Documentation](https://circuit.sumup.com/) - Learn how to use Circuit UI and view the components in Storybook.
+- [Getting started](https://circuit.sumup.com/?path=/docs/introduction-getting-started--page) - Set up a new app with Circuit UI or add it to an existing project.
+- [Design Principles](https://circuit.sumup.com/?path=/docs/introduction-design-principles--page) - Discover the guiding principles behind Circuit UI's design.
+- [Theming](https://circuit.sumup.com/?path=/docs/advanced-theme--page) - Learn about our foundations such as colors, spacing, and typography.
+- [Contribute](https://circuit.sumup.com/?path=/docs/introduction-contributing--page) - File a bug report, suggest a change, or open a pull request.
 
-## Installation
+## Related projects
 
-```
-yarn add @sumup/circuit-ui
-```
-
-## Development
-
-```
-yarn && yarn start
-```
-
-## Deployment
-
-```
-yarn deploy
-```
-
-## Linting and formatting
-
-```
-yarn lint
-
-yarn lint:fix
-```
-
-## Testing
-
-```
-yarn test
-```
-
-```javascript
-import React from 'react';
-import Button from '.';
-
-describe('Button', () => {
-  it('should not render if there is no click handler, label, or children', () => {
-    const button = create(<Button />);
-    expect(button).toMatchSnapshot();
-  });
-  it('should take the body text as a child', () => {
-    const output = mount(<Button onClick={() => {}}>Hello World</Button>);
-    expect(output.text()).toContain('Hello World');
-  });
-});
-```
-
-## Utils
-
-Besides the component library, we also export some utilities which you
-might need in order to use the components. The three main ones:
-
-- `numbersUtils` - a module for dealing with number localization.
-- `currencyUtils` - a module for formatting currency amounts.
-- `styleHelpers` - a module containing helpers for writing styles.
-
-## Creating components
-
-This project uses [@sumup/foundry](https://www.npmjs.com/package/@sumup/foundry) and the provided `plop` command to generate new React components. The functionality is exposed as the `create-component` npm script from package.json.
-
-To create a new component, run `yarn create-component` inside the project. You'll see a CLI that guides you through the process.
-
-After the CLI has finished, all files will have been created in the location you specified.
+- **[create-sumup-react-app](https://github.com/sumup/create-sumup-react-app)** — bootstrap a new React app with [create-react-app](https://create-react-app.dev/), Circuit UI, and [Foundry](https://github.com/sumup-oss/foundry)
+- **[create-sumup-next-app](https://github.com/sumup/create-sumup-next-app)** — bootstrap a fresh [Next.js](https://nextjs.org/) app with Circuit UI and [Foundry](https://github.com/sumup-oss/foundry)
 
 ## Code of conduct
 

@@ -48,7 +48,7 @@ const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
                 <TableHeader
                   fixed
                   condensed={condensed}
-                  scope={TableHeader.ROW}
+                  scope={'row'}
                   isHovered={sortHover === cellIndex}
                   {...mapCellProps(cell)}
                 />

@@ -56,7 +56,7 @@ const NotificationListCard = Card.withComponent('li');
 const NotificationList = ({ children, ...props }) => (
   <NotificationListWrapper {...props} aria-live="polite" region="log">
     {Children.map(children, (child, i) => (
-      <NotificationListCard spacing={Card.MEGA} shadow={Card.DOUBLE} key={i}>
+      <NotificationListCard spacing={'mega'} shadow={'double'} key={i}>
         {child}
       </NotificationListCard>
     ))}

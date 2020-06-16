@@ -17,8 +17,8 @@ import React from 'react';
 
 import Popover from '.';
 
-const positions = [Popover.TOP, Popover.BOTTOM, Popover.LEFT, Popover.RIGHT];
-const alignments = [Popover.START, Popover.END, Popover.CENTER];
+const positions = ['top', 'bottom', 'left', 'right'];
+const alignments = ['start', 'end', 'center'];
 
 const defaultProps = {
   // eslint-disable-next-line react/display-name

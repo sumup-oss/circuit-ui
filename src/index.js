@@ -14,6 +14,7 @@
  */
 
 import * as sharedPropTypes from './util/shared-prop-types';
+import * as styleHelpers from './styles/style-helpers';
 
 // Typography
 export { default as Heading } from './components/Heading';
@@ -85,6 +86,8 @@ export { default as BaseStyles } from './components/BaseStyles';
 export {
   default as Modal,
   DEFAULT_APP_ELEMENT,
+  useModal,
+  ModalContext,
   ModalConsumer,
   ModalProvider,
   ModalWrapper,
@@ -114,6 +117,5 @@ export {
   useComponents
 } from './components/ComponentsContext';
 
-export { styleHelpers, constants as styleConstants } from './styles';
-export { sharedPropTypes };
+export { sharedPropTypes, styleHelpers };
 export { uniqueId } from './util/id';

@@ -17,8 +17,6 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { directions } from '../../../../styles/constants';
-
 const PRESENTATION = 'presentation';
 
 const baseStyles = ({ theme, align }) => css`
@@ -93,15 +91,11 @@ const TableCell = styled.td`
   ${condensedPresentationStyles};
 `;
 
-TableCell.LEFT = directions.LEFT;
-TableCell.RIGHT = directions.RIGHT;
-TableCell.CENTER = directions.CENTER;
-
 TableCell.propTypes = {
   /**
    * Aligns the content of the Cell with text-align
    */
-  align: PropTypes.oneOf([TableCell.LEFT, TableCell.RIGHT, TableCell.CENTER]),
+  align: PropTypes.oneOf(['left', 'right', 'center']),
   /**
    * @private Add heading styles to placeholder Cell.
    * Handled internally
@@ -117,7 +111,7 @@ TableCell.propTypes = {
 
 TableCell.defaultProps = {
   'data-testid': 'table-cell',
-  align: TableCell.LEFT,
+  align: 'left',
   header: false,
   isHovered: false
 };

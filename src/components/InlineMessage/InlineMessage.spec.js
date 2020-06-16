@@ -27,24 +27,22 @@ describe('InlineMessage', () => {
   });
 
   it('should render with success styles', () => {
-    const actual = create(<InlineMessage type={InlineMessage.SUCCESS} />);
+    const actual = create(<InlineMessage type={'success'} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with warning styles', () => {
-    const actual = create(<InlineMessage type={InlineMessage.WARNING} />);
+    const actual = create(<InlineMessage type={'warning'} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with danger styles', () => {
-    const actual = create(<InlineMessage type={InlineMessage.DANGER} />);
+    const actual = create(<InlineMessage type={'danger'} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with giga spacing', () => {
-    const actual = create(
-      <InlineMessage type={InlineMessage.DANGER} size={InlineMessage.GIGA} />
-    );
+    const actual = create(<InlineMessage type={'danger'} size={'giga'} />);
     expect(actual).toMatchSnapshot();
   });
 

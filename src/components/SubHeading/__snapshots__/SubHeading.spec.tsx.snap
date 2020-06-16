@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubHeading should render as h2 element 1`] = `
+.circuit-0 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+<h2
+  class="circuit-0"
+>
+  h2 subheading
+</h2>
+`;
+
+exports[`SubHeading should render as h3 element 1`] = `
+.circuit-0 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+<h3
+  class="circuit-0"
+>
+  h3 subheading
+</h3>
+`;
+
+exports[`SubHeading should render as h4 element 1`] = `
+.circuit-0 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+<h4
+  class="circuit-0"
+>
+  h4 subheading
+</h4>
+`;
+
+exports[`SubHeading should render as h5 element 1`] = `
+.circuit-0 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+<h5
+  class="circuit-0"
+>
+  h5 subheading
+</h5>
+`;
+
+exports[`SubHeading should render as h6 element 1`] = `
+.circuit-0 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+<h6
+  class="circuit-0"
+>
+  h6 subheading
+</h6>
+`;
+
+exports[`SubHeading should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-0 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+<h3
+  class="circuit-0"
+/>
+`;
+
+exports[`SubHeading should render with size kilo 1`] = `
+.circuit-0 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+<h3
+  class="circuit-0"
+>
+  kilo subheading
+</h3>
+`;
+
+exports[`SubHeading should render with size mega 1`] = `
+.circuit-0 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+<h3
+  class="circuit-0"
+>
+  mega subheading
+</h3>
+`;

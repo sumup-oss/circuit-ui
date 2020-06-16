@@ -56,7 +56,7 @@ const FormTwo = ({ onNextClick, onBackClick }) => (
     </Select>
     <Label htmlFor="postal">Postal Code</Label>
     <Input placeholder="10179" id="postal" />
-    <ButtonGroup align={ButtonGroup.LEFT}>
+    <ButtonGroup align={'left'}>
       <Button variant="primary" onClick={() => onNextClick()}>
         Submit
       </Button>
@@ -97,11 +97,7 @@ const MultiStepForm = () => {
             <Heading size="giga">
               Step {stepNumber} of {totalSteps}
             </Heading>
-            <ProgressBar
-              value={stepNumber}
-              max={totalSteps}
-              size={ProgressBar.KILO}
-            />
+            <ProgressBar value={stepNumber} max={totalSteps} size={'kilo'} />
             <StepComponent
               onNextClick={actions.next}
               onBackClick={actions.previous}

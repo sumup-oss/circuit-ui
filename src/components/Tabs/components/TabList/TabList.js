@@ -17,9 +17,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { styleHelpers } from '../../../../styles';
 
-import { StyledTab } from '../Tab';
+import { shadowDouble } from '../../../../styles/style-helpers';
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 const DEFAULT_HEIGHT = '80px';
@@ -27,7 +26,7 @@ const DEFAULT_HEIGHT = '80px';
 const Wrapper = styled.div(
   ({ theme }) => css`
     background: ${theme.colors.white};
-    ${styleHelpers.shadowDouble({ theme })};
+    ${shadowDouble({ theme })};
     height: ${DEFAULT_HEIGHT};
     display: flex;
     overflow-x: auto;
@@ -42,7 +41,7 @@ const navigationBaseStyles = css`
 `;
 
 const stretchedStyles = ({ children, theme }) => css`
-  & > ${StyledTab} {
+  & [role='tab'] {
     flex: 1 1 auto;
     padding: 0 ${theme.spacings.kilo};
     width: ${Math.floor(100 / children.length)}%;

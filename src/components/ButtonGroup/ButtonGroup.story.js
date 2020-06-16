@@ -29,11 +29,7 @@ export default {
 
 export const base = () => (
   <ButtonGroup
-    align={select(
-      'Align',
-      [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT],
-      ButtonGroup.RIGHT
-    )}
+    align={select('Align', ['left', 'center', 'right'], 'right')}
     inlineMobile={boolean('Display inline on mobile', false)}
   >
     <Button variant="secondary">Cancel</Button>

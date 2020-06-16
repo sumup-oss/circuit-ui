@@ -109,7 +109,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="input_2"
 >
   <div
@@ -244,7 +244,7 @@ label + .circuit-6 {
 }
 
 <label
-  class="circuit-8 circuit-9"
+  class="circuit-8"
   for="input_1"
 >
   <div
