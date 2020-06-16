@@ -13,13 +13,32 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { MouseEvent, KeyboardEvent, Ref } from 'react';
 import { css } from '@emotion/core';
+import { Theme } from '@sumup/design-tokens';
 import isPropValid from '@emotion/is-prop-valid';
 
+import styled from '../../styles/styled';
 import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
+
+type OnClick = (event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void;
+type RefType = Ref<() => void | HTMLButtonElement | undefined>;
+
+interface BadgeBaseProp {
+		/**
+		 * Callback for the click event.
+		 */
+		onClick: OnClick;
+		/**
+		 * Ensures text is centered and the badge looks like a circle.
+		 */
+		circle?: boolean;
+		color: 'neutral' | 'primary' | 'success' | 'warning' | 'danger';
+		/**
+		 * The ref to the html button dom element
+		 */
+		ref: RefType;
+}
 
 const COLOR_MAP = {
   success: {
@@ -48,7 +67,7 @@ const COLOR_MAP = {
     active: 'n900'
   }
 };
-const baseStyles = ({ theme }) => css`
+const baseStyles = (theme: Theme) => css`
   label: badge;
   border-radius: ${theme.borderRadius.pill};
   color: ${theme.colors.white};
@@ -61,7 +80,7 @@ const baseStyles = ({ theme }) => css`
   text-align: center;
 `;
 
-const colorStyles = ({ theme, color }) => {
+const colorStyles = (theme: Theme, color: string) => {
   const currentColor = COLOR_MAP[color];
   if (!currentColor) {
     return null;
@@ -83,7 +102,7 @@ const circleStyles = ({ circle }) =>
     width: 24px;
   `;
 
-const clickableStyles = ({ theme, onClick, color }) => {
+const clickableStyles = (theme: Theme, onClick: OnClick, color: string) => {
   const currentColor = COLOR_MAP[color];
   if (!onClick || !currentColor) {
     return null;
@@ -115,44 +134,11 @@ const StyledBadge = styled('div', {
 /**
  * A badge for displaying update notifications etc.
  */
-const Badge = React.forwardRef((props, ref) => (
+const Badge = React.forwardRef((props: BadgeBaseProp, ref: RefType) => (
   <StyledBadge {...props} ref={ref} />
 ));
 
 Badge.displayName = 'Badge';
-
-Badge.propTypes = {
-  /**
-   * Callback for the click event.
-   */
-  onClick: PropTypes.func,
-  /**
-   * Ensures text is centered and the badge looks like a circle.
-   */
-  circle: PropTypes.bool,
-  color: PropTypes.oneOf([
-    'neutral',
-    'primary',
-    'success',
-    'warning',
-    'danger'
-  ]),
-  /**
-   * The ref to the html button dom element
-   */
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLDivElement)])
-    })
-  ])
-};
-
-Badge.defaultProps = {
-  circle: false,
-  color: 'neutral',
-  ref: undefined
-};
 
 /**
  * @component
