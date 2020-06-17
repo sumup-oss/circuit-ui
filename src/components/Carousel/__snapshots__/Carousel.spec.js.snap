@@ -49,13 +49,13 @@ exports[`Carousel styles should render with children as a function 1`] = `
   }
 }
 
-.circuit-58 {
+.circuit-55 {
   width: 100%;
   height: auto;
   position: relative;
 }
 
-.circuit-36 {
+.circuit-33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -70,7 +70,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   height: auto;
 }
 
-.circuit-10 {
+.circuit-9 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -91,17 +91,17 @@ exports[`Carousel styles should render with children as a function 1`] = `
   z-index: 0;
 }
 
-.circuit-8 {
+.circuit-7 {
   box-shadow: 0 0 1px rgba(0,0,0,0.05);
   overflow: hidden;
   will-change: width;
 }
 
-.circuit-6 {
+.circuit-5 {
   width: 100%;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: block;
   position: relative;
   overflow: hidden;
@@ -113,7 +113,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   background: #FAFBFC;
 }
 
-.circuit-1 {
+.circuit-0 {
   display: block;
   height: auto;
   max-height: 100%;
@@ -134,11 +134,11 @@ exports[`Carousel styles should render with children as a function 1`] = `
   z-index: 2;
 }
 
-.circuit-1 img {
+.circuit-0 img {
   object-fit: cover;
 }
 
-.circuit-22 {
+.circuit-20 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -159,7 +159,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   z-index: -1;
 }
 
-.circuit-34 {
+.circuit-31 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -180,7 +180,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   z-index: -2;
 }
 
-.circuit-56 {
+.circuit-53 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -197,7 +197,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   margin-top: 16px;
 }
 
-.circuit-39 {
+.circuit-36 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -211,26 +211,26 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-39 {
+  .circuit-36 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-39 {
+  .circuit-36 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-39 {
+  .circuit-36 {
     margin-right: 12px;
   }
 }
 
-.circuit-44 {
+.circuit-41 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -244,7 +244,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   flex: 1 1 auto;
 }
 
-.circuit-41 {
+.circuit-38 {
   background-color: #EEF0F2;
   border-radius: 999999px;
   position: relative;
@@ -253,7 +253,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   height: 4px;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   content: '';
   display: block;
   position: absolute;
@@ -267,11 +267,11 @@ exports[`Carousel styles should render with children as a function 1`] = `
   width: 1px;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   background-color: #212933;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   -webkit-animation-name: animation-0;
   animation-name: animation-0;
   -webkit-animation-duration: 5640ms;
@@ -284,13 +284,13 @@ exports[`Carousel styles should render with children as a function 1`] = `
   animation-iteration-count: infinite;
 }
 
-.circuit-42 {
+.circuit-39 {
   font-size: 13px;
   line-height: 20px;
   margin-left: 8px;
 }
 
-.circuit-54 {
+.circuit-51 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -307,12 +307,12 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-54 {
+  .circuit-51 {
     margin-left: 12px;
   }
 }
 
-.circuit-47 {
+.circuit-44 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -346,37 +346,37 @@ exports[`Carousel styles should render with children as a function 1`] = `
   margin-left: 8px;
 }
 
-.circuit-47:focus {
+.circuit-44:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-47:focus::-moz-focus-inner {
+.circuit-44:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-47:disabled,
-.circuit-47[disabled] {
+.circuit-44:disabled,
+.circuit-44[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-47:hover {
+.circuit-44:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-47:active {
+.circuit-44:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-47:first-of-type {
+.circuit-44:first-of-type {
   margin-left: 0;
 }
 
-.circuit-45 {
+.circuit-42 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -391,28 +391,28 @@ exports[`Carousel styles should render with children as a function 1`] = `
 
 <div
   aria-label="gallery"
-  class="circuit-58 circuit-59"
+  class="circuit-55 circuit-56"
 >
   <div
-    class="circuit-36 circuit-37"
+    class="circuit-33 circuit-34"
   >
     <div
-      class="circuit-10 circuit-11"
+      class="circuit-9 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="doggy"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/600"
             />
           </div>
@@ -420,22 +420,22 @@ exports[`Carousel styles should render with children as a function 1`] = `
       </div>
     </div>
     <div
-      class="circuit-22 circuit-11"
+      class="circuit-20 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="doggy dog"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/700"
             />
           </div>
@@ -443,22 +443,22 @@ exports[`Carousel styles should render with children as a function 1`] = `
       </div>
     </div>
     <div
-      class="circuit-34 circuit-11"
+      class="circuit-31 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="woof woof"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/800"
             />
           </div>
@@ -467,34 +467,34 @@ exports[`Carousel styles should render with children as a function 1`] = `
     </div>
   </div>
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-53 circuit-54"
   >
     <p
-      class="circuit-38 circuit-39 circuit-40"
+      class="circuit-35 circuit-36 circuit-37"
     >
       1
        / 
       3
     </p>
     <div
-      class="circuit-43 circuit-44"
+      class="circuit-40 circuit-41"
     >
       <span
         aria-labelledby="progress-bar_6"
-        class="circuit-41"
+        class="circuit-38"
         loop=""
       />
       <span
-        class="circuit-42"
+        class="circuit-39"
         id="progress-bar_6"
       />
     </div>
     <div
-      class="circuit-54 circuit-55"
+      class="circuit-51 circuit-52"
     >
       <button
         aria-label="pause"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Pause"
       >
         <svg
@@ -513,14 +513,14 @@ exports[`Carousel styles should render with children as a function 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Pause
         </span>
       </button>
       <button
         aria-label="previous"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Previous"
       >
         <svg
@@ -540,14 +540,14 @@ exports[`Carousel styles should render with children as a function 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Previous
         </span>
       </button>
       <button
         aria-label="next"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Next"
       >
         <svg
@@ -567,7 +567,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Next
         </span>
@@ -628,13 +628,13 @@ exports[`Carousel styles should render with children as a node 1`] = `
   }
 }
 
-.circuit-58 {
+.circuit-55 {
   width: 100%;
   height: auto;
   position: relative;
 }
 
-.circuit-36 {
+.circuit-33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -649,7 +649,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   height: auto;
 }
 
-.circuit-10 {
+.circuit-9 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -670,17 +670,17 @@ exports[`Carousel styles should render with children as a node 1`] = `
   z-index: 0;
 }
 
-.circuit-8 {
+.circuit-7 {
   box-shadow: 0 0 1px rgba(0,0,0,0.05);
   overflow: hidden;
   will-change: width;
 }
 
-.circuit-6 {
+.circuit-5 {
   width: 100%;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: block;
   position: relative;
   overflow: hidden;
@@ -692,7 +692,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   background: #FAFBFC;
 }
 
-.circuit-1 {
+.circuit-0 {
   display: block;
   height: auto;
   max-height: 100%;
@@ -713,11 +713,11 @@ exports[`Carousel styles should render with children as a node 1`] = `
   z-index: 2;
 }
 
-.circuit-1 img {
+.circuit-0 img {
   object-fit: cover;
 }
 
-.circuit-22 {
+.circuit-20 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -738,7 +738,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   z-index: -1;
 }
 
-.circuit-34 {
+.circuit-31 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -759,7 +759,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   z-index: -2;
 }
 
-.circuit-56 {
+.circuit-53 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -776,7 +776,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   margin-top: 16px;
 }
 
-.circuit-39 {
+.circuit-36 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -790,26 +790,26 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-39 {
+  .circuit-36 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-39 {
+  .circuit-36 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-39 {
+  .circuit-36 {
     margin-right: 12px;
   }
 }
 
-.circuit-44 {
+.circuit-41 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -823,7 +823,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   flex: 1 1 auto;
 }
 
-.circuit-41 {
+.circuit-38 {
   background-color: #EEF0F2;
   border-radius: 999999px;
   position: relative;
@@ -832,7 +832,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   height: 4px;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   content: '';
   display: block;
   position: absolute;
@@ -846,11 +846,11 @@ exports[`Carousel styles should render with children as a node 1`] = `
   width: 1px;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   background-color: #212933;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   -webkit-animation-name: animation-0;
   animation-name: animation-0;
   -webkit-animation-duration: 5640ms;
@@ -863,13 +863,13 @@ exports[`Carousel styles should render with children as a node 1`] = `
   animation-iteration-count: infinite;
 }
 
-.circuit-42 {
+.circuit-39 {
   font-size: 13px;
   line-height: 20px;
   margin-left: 8px;
 }
 
-.circuit-54 {
+.circuit-51 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -886,12 +886,12 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-54 {
+  .circuit-51 {
     margin-left: 12px;
   }
 }
 
-.circuit-47 {
+.circuit-44 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -925,37 +925,37 @@ exports[`Carousel styles should render with children as a node 1`] = `
   margin-left: 8px;
 }
 
-.circuit-47:focus {
+.circuit-44:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-47:focus::-moz-focus-inner {
+.circuit-44:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-47:disabled,
-.circuit-47[disabled] {
+.circuit-44:disabled,
+.circuit-44[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-47:hover {
+.circuit-44:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-47:active {
+.circuit-44:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-47:first-of-type {
+.circuit-44:first-of-type {
   margin-left: 0;
 }
 
-.circuit-45 {
+.circuit-42 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -970,28 +970,28 @@ exports[`Carousel styles should render with children as a node 1`] = `
 
 <div
   aria-label="gallery"
-  class="circuit-58 circuit-59"
+  class="circuit-55 circuit-56"
 >
   <div
-    class="circuit-36 circuit-37"
+    class="circuit-33 circuit-34"
   >
     <div
-      class="circuit-10 circuit-11"
+      class="circuit-9 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="doggy"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/600"
             />
           </div>
@@ -999,22 +999,22 @@ exports[`Carousel styles should render with children as a node 1`] = `
       </div>
     </div>
     <div
-      class="circuit-22 circuit-11"
+      class="circuit-20 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="doggy dog"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/700"
             />
           </div>
@@ -1022,22 +1022,22 @@ exports[`Carousel styles should render with children as a node 1`] = `
       </div>
     </div>
     <div
-      class="circuit-34 circuit-11"
+      class="circuit-31 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="woof woof"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/800"
             />
           </div>
@@ -1046,34 +1046,34 @@ exports[`Carousel styles should render with children as a node 1`] = `
     </div>
   </div>
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-53 circuit-54"
   >
     <p
-      class="circuit-38 circuit-39 circuit-40"
+      class="circuit-35 circuit-36 circuit-37"
     >
       1
        / 
       3
     </p>
     <div
-      class="circuit-43 circuit-44"
+      class="circuit-40 circuit-41"
     >
       <span
         aria-labelledby="progress-bar_8"
-        class="circuit-41"
+        class="circuit-38"
         loop=""
       />
       <span
-        class="circuit-42"
+        class="circuit-39"
         id="progress-bar_8"
       />
     </div>
     <div
-      class="circuit-54 circuit-55"
+      class="circuit-51 circuit-52"
     >
       <button
         aria-label="pause"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Pause"
       >
         <svg
@@ -1092,14 +1092,14 @@ exports[`Carousel styles should render with children as a node 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Pause
         </span>
       </button>
       <button
         aria-label="previous"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Previous"
       >
         <svg
@@ -1119,14 +1119,14 @@ exports[`Carousel styles should render with children as a node 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Previous
         </span>
       </button>
       <button
         aria-label="next"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Next"
       >
         <svg
@@ -1146,7 +1146,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Next
         </span>
@@ -1206,13 +1206,13 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   }
 }
 
-.circuit-58 {
+.circuit-55 {
   width: 100%;
   height: auto;
   position: relative;
 }
 
-.circuit-36 {
+.circuit-33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1227,7 +1227,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   height: auto;
 }
 
-.circuit-10 {
+.circuit-9 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -1248,17 +1248,17 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   z-index: 0;
 }
 
-.circuit-8 {
+.circuit-7 {
   box-shadow: 0 0 1px rgba(0,0,0,0.05);
   overflow: hidden;
   will-change: width;
 }
 
-.circuit-6 {
+.circuit-5 {
   width: 100%;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: block;
   position: relative;
   overflow: hidden;
@@ -1270,7 +1270,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   background: #FAFBFC;
 }
 
-.circuit-1 {
+.circuit-0 {
   display: block;
   height: auto;
   max-height: 100%;
@@ -1291,11 +1291,11 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   z-index: 2;
 }
 
-.circuit-1 img {
+.circuit-0 img {
   object-fit: cover;
 }
 
-.circuit-22 {
+.circuit-20 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -1316,7 +1316,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   z-index: -1;
 }
 
-.circuit-34 {
+.circuit-31 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -1337,7 +1337,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   z-index: -2;
 }
 
-.circuit-56 {
+.circuit-53 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1354,7 +1354,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   margin-top: 16px;
 }
 
-.circuit-39 {
+.circuit-36 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -1368,26 +1368,26 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-39 {
+  .circuit-36 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-39 {
+  .circuit-36 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-39 {
+  .circuit-36 {
     margin-right: 12px;
   }
 }
 
-.circuit-44 {
+.circuit-41 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1401,13 +1401,13 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   flex: 1 1 auto;
 }
 
-.circuit-42 {
+.circuit-39 {
   font-size: 13px;
   line-height: 20px;
   margin-left: 8px;
 }
 
-.circuit-54 {
+.circuit-51 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1424,12 +1424,12 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-54 {
+  .circuit-51 {
     margin-left: 12px;
   }
 }
 
-.circuit-47 {
+.circuit-44 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1463,37 +1463,37 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   margin-left: 8px;
 }
 
-.circuit-47:focus {
+.circuit-44:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-47:focus::-moz-focus-inner {
+.circuit-44:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-47:disabled,
-.circuit-47[disabled] {
+.circuit-44:disabled,
+.circuit-44[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-47:hover {
+.circuit-44:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-47:active {
+.circuit-44:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-47:first-of-type {
+.circuit-44:first-of-type {
   margin-left: 0;
 }
 
-.circuit-45 {
+.circuit-42 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -1506,7 +1506,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   width: 1px;
 }
 
-.circuit-41 {
+.circuit-38 {
   background-color: #EEF0F2;
   border-radius: 999999px;
   position: relative;
@@ -1515,7 +1515,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   height: 4px;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   content: '';
   display: block;
   position: absolute;
@@ -1529,11 +1529,11 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   width: 1px;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   background-color: #212933;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   -webkit-animation-name: animation-0;
   animation-name: animation-0;
   -webkit-animation-duration: 5640ms;
@@ -1548,28 +1548,28 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 
 <div
   aria-label="gallery"
-  class="circuit-58 circuit-59"
+  class="circuit-55 circuit-56"
 >
   <div
-    class="circuit-36 circuit-37"
+    class="circuit-33 circuit-34"
   >
     <div
-      class="circuit-10 circuit-11"
+      class="circuit-9 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="doggy"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/600"
             />
           </div>
@@ -1577,22 +1577,22 @@ exports[`Carousel styles should render with default paused styles 1`] = `
       </div>
     </div>
     <div
-      class="circuit-22 circuit-11"
+      class="circuit-20 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="doggy dog"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/700"
             />
           </div>
@@ -1600,22 +1600,22 @@ exports[`Carousel styles should render with default paused styles 1`] = `
       </div>
     </div>
     <div
-      class="circuit-34 circuit-11"
+      class="circuit-31 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="woof woof"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/800"
             />
           </div>
@@ -1624,34 +1624,34 @@ exports[`Carousel styles should render with default paused styles 1`] = `
     </div>
   </div>
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-53 circuit-54"
   >
     <p
-      class="circuit-38 circuit-39 circuit-40"
+      class="circuit-35 circuit-36 circuit-37"
     >
       1
        / 
       3
     </p>
     <div
-      class="circuit-43 circuit-44"
+      class="circuit-40 circuit-41"
     >
       <span
         aria-labelledby="progress-bar_4"
-        class="circuit-41"
+        class="circuit-38"
         loop=""
       />
       <span
-        class="circuit-42"
+        class="circuit-39"
         id="progress-bar_4"
       />
     </div>
     <div
-      class="circuit-54 circuit-55"
+      class="circuit-51 circuit-52"
     >
       <button
         aria-label="play"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Play"
       >
         <svg
@@ -1671,14 +1671,14 @@ exports[`Carousel styles should render with default paused styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Play
         </span>
       </button>
       <button
         aria-label="previous"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Previous"
       >
         <svg
@@ -1698,14 +1698,14 @@ exports[`Carousel styles should render with default paused styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Previous
         </span>
       </button>
       <button
         aria-label="next"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Next"
       >
         <svg
@@ -1725,7 +1725,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Next
         </span>
@@ -1759,13 +1759,13 @@ exports[`Carousel styles should render with default styles 1`] = `
   }
 }
 
-.circuit-58 {
+.circuit-55 {
   width: 100%;
   height: auto;
   position: relative;
 }
 
-.circuit-36 {
+.circuit-33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1780,7 +1780,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   height: auto;
 }
 
-.circuit-10 {
+.circuit-9 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -1801,17 +1801,17 @@ exports[`Carousel styles should render with default styles 1`] = `
   z-index: 0;
 }
 
-.circuit-8 {
+.circuit-7 {
   box-shadow: 0 0 1px rgba(0,0,0,0.05);
   overflow: hidden;
   will-change: width;
 }
 
-.circuit-6 {
+.circuit-5 {
   width: 100%;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: block;
   position: relative;
   overflow: hidden;
@@ -1823,7 +1823,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   background: #FAFBFC;
 }
 
-.circuit-1 {
+.circuit-0 {
   display: block;
   height: auto;
   max-height: 100%;
@@ -1844,11 +1844,11 @@ exports[`Carousel styles should render with default styles 1`] = `
   z-index: 2;
 }
 
-.circuit-1 img {
+.circuit-0 img {
   object-fit: cover;
 }
 
-.circuit-22 {
+.circuit-20 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -1869,7 +1869,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   z-index: -1;
 }
 
-.circuit-34 {
+.circuit-31 {
   width: 100%;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
@@ -1890,7 +1890,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   z-index: -2;
 }
 
-.circuit-56 {
+.circuit-53 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1907,7 +1907,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   margin-top: 16px;
 }
 
-.circuit-39 {
+.circuit-36 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -1921,26 +1921,26 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-39 {
+  .circuit-36 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-39 {
+  .circuit-36 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 @media (max-width:479px) {
-  .circuit-39 {
+  .circuit-36 {
     margin-right: 12px;
   }
 }
 
-.circuit-44 {
+.circuit-41 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1954,7 +1954,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   flex: 1 1 auto;
 }
 
-.circuit-41 {
+.circuit-38 {
   background-color: #EEF0F2;
   border-radius: 999999px;
   position: relative;
@@ -1963,7 +1963,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   height: 4px;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   content: '';
   display: block;
   position: absolute;
@@ -1977,11 +1977,11 @@ exports[`Carousel styles should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   background-color: #212933;
 }
 
-.circuit-41::after {
+.circuit-38::after {
   -webkit-animation-name: animation-0;
   animation-name: animation-0;
   -webkit-animation-duration: 5640ms;
@@ -1994,13 +1994,13 @@ exports[`Carousel styles should render with default styles 1`] = `
   animation-iteration-count: infinite;
 }
 
-.circuit-42 {
+.circuit-39 {
   font-size: 13px;
   line-height: 20px;
   margin-left: 8px;
 }
 
-.circuit-54 {
+.circuit-51 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2017,12 +2017,12 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-54 {
+  .circuit-51 {
     margin-left: 12px;
   }
 }
 
-.circuit-47 {
+.circuit-44 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2056,37 +2056,37 @@ exports[`Carousel styles should render with default styles 1`] = `
   margin-left: 8px;
 }
 
-.circuit-47:focus {
+.circuit-44:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-47:focus::-moz-focus-inner {
+.circuit-44:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-47:disabled,
-.circuit-47[disabled] {
+.circuit-44:disabled,
+.circuit-44[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-47:hover {
+.circuit-44:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-47:active {
+.circuit-44:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-47:first-of-type {
+.circuit-44:first-of-type {
   margin-left: 0;
 }
 
-.circuit-45 {
+.circuit-42 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -2101,28 +2101,28 @@ exports[`Carousel styles should render with default styles 1`] = `
 
 <div
   aria-label="gallery"
-  class="circuit-58 circuit-59"
+  class="circuit-55 circuit-56"
 >
   <div
-    class="circuit-36 circuit-37"
+    class="circuit-33 circuit-34"
   >
     <div
-      class="circuit-10 circuit-11"
+      class="circuit-9 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="doggy"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/600"
             />
           </div>
@@ -2130,22 +2130,22 @@ exports[`Carousel styles should render with default styles 1`] = `
       </div>
     </div>
     <div
-      class="circuit-22 circuit-11"
+      class="circuit-20 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="doggy dog"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/700"
             />
           </div>
@@ -2153,22 +2153,22 @@ exports[`Carousel styles should render with default styles 1`] = `
       </div>
     </div>
     <div
-      class="circuit-34 circuit-11"
+      class="circuit-31 circuit-10"
       width="100%"
     >
       <div
-        class="circuit-8 circuit-9"
+        class="circuit-7 circuit-8"
       >
         <div
-          class="circuit-6 circuit-7"
+          class="circuit-5 circuit-6"
           width="100%"
         >
           <div
-            class="circuit-3 circuit-4 circuit-5"
+            class="circuit-2 circuit-3 circuit-4"
           >
             <img
               alt="woof woof"
-              class="circuit-0 circuit-1 circuit-2"
+              class="circuit-0 circuit-1"
               src="https://placedog.net/800"
             />
           </div>
@@ -2177,34 +2177,34 @@ exports[`Carousel styles should render with default styles 1`] = `
     </div>
   </div>
   <div
-    class="circuit-56 circuit-57"
+    class="circuit-53 circuit-54"
   >
     <p
-      class="circuit-38 circuit-39 circuit-40"
+      class="circuit-35 circuit-36 circuit-37"
     >
       1
        / 
       3
     </p>
     <div
-      class="circuit-43 circuit-44"
+      class="circuit-40 circuit-41"
     >
       <span
         aria-labelledby="progress-bar_2"
-        class="circuit-41"
+        class="circuit-38"
         loop=""
       />
       <span
-        class="circuit-42"
+        class="circuit-39"
         id="progress-bar_2"
       />
     </div>
     <div
-      class="circuit-54 circuit-55"
+      class="circuit-51 circuit-52"
     >
       <button
         aria-label="pause"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Pause"
       >
         <svg
@@ -2223,14 +2223,14 @@ exports[`Carousel styles should render with default styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Pause
         </span>
       </button>
       <button
         aria-label="previous"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Previous"
       >
         <svg
@@ -2250,14 +2250,14 @@ exports[`Carousel styles should render with default styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Previous
         </span>
       </button>
       <button
         aria-label="next"
-        class="circuit-46 circuit-47"
+        class="circuit-43 circuit-44"
         title="Next"
       >
         <svg
@@ -2277,7 +2277,7 @@ exports[`Carousel styles should render with default styles 1`] = `
           />
         </svg>
         <span
-          class="circuit-45"
+          class="circuit-42"
         >
           Next
         </span>

@@ -13,23 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { Image } from './Image';
 
-import docs from './Image.docs.mdx';
-import Image from './Image';
-
-export default {
-  title: 'Components/Image',
-  component: Image,
-  parameters: {
-    docs: { page: docs },
-    jest: ['Image']
-  }
-};
-
-export const base = () => (
-  <Image
-    src="https://source.unsplash.com/random"
-    alt="A random image from Unsplash"
-  />
-);
+export default Image;
