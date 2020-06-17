@@ -71,18 +71,17 @@ const Pagination = ({
 }) => {
   const { label, component = 'pagination', customParameters } = tracking || {};
   const dispatch = useClickTrigger();
-  const handleChange =
-    onChange && label
-      ? clickedPage => {
-          dispatch({
-            label,
-            component: `${component}-${clickedPage}`,
-            customParameters
-          });
+  const handleChange = onChange
+    ? clickedPage => {
+        dispatch({
+          label: label || clickedPage.toString(),
+          component,
+          customParameters
+        });
 
-          onChange(clickedPage);
-        }
-      : onChange;
+        onChange(clickedPage);
+      }
+    : onChange;
   const totalPages = PaginationService.calculatePages(total, perPage);
 
   if (totalPages < 2) {
