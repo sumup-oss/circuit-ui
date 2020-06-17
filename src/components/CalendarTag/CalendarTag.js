@@ -93,9 +93,10 @@ class CalendarTag extends Component {
   };
 
   render() {
-    const { onDatesRangeChange, tracking = {}, ...props } = this.props;
+    const { onDatesRangeChange, tracking, ...props } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
-    const { label, component = 'calendar-tag', customParameters } = tracking;
+    const { label, component = 'calendar-tag', customParameters } =
+      tracking || {};
     const isOpen = focusedInput !== null;
 
     return (

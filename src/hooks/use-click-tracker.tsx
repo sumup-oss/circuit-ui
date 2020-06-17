@@ -17,11 +17,13 @@ import { MouseEvent } from 'react';
 import { useClickTrigger } from '@sumup/collector';
 import { Dispatch } from '@sumup/collector/build/types';
 
+export type OnClickTracker = (arg: MouseEvent<any>) => void;
+
 export default function useClickTracker(
-  onClick?: (arg: MouseEvent<any>) => void,
+  onClick?: OnClickTracker,
   tracking?: Dispatch,
   defaultComponentName?: string
-): ((arg: MouseEvent<any>) => void) | undefined {
+): OnClickTracker | undefined {
   const dispatch = useClickTrigger();
   const { label, component = defaultComponentName, customParameters } =
     tracking || {};

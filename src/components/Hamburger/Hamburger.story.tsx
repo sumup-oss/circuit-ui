@@ -38,8 +38,11 @@ export const Base = () => (
   <HamburgerWithState
     labelActive={text('Label active', 'Close menu')}
     labelInActive={text('Label inactive', 'Open menu')}
-    tracking={{
-      label: text('Tracking Label', 'trackingId')
+    trackingOpen={{
+      label: text('Tracking Open', 'trackingId-open')
+    }}
+    trackingClose={{
+      label: text('Tracking Close', 'trackingId-close')
     }}
   />
 );

@@ -15,6 +15,7 @@
 
 import React, { FC, HTMLProps } from 'react';
 import { css } from '@emotion/core';
+import { Dispatch as TrackingProps } from '@sumup/collector/build/types';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
@@ -36,6 +37,14 @@ export interface HamburgerProps
    */
   labelInActive: string;
   'data-testid'?: string;
+  /**
+   * Additional data that is dispatched when opening hamburger.
+   */
+  trackingOpen?: TrackingProps;
+  /**
+   * Additional data that is dispatched with closing hamburger.
+   */
+  trackingClose?: TrackingProps;
 }
 
 const LAYER_HEIGHT = '2px';
@@ -130,10 +139,13 @@ export const Hamburger: FC<HamburgerProps> = ({
   isActive,
   labelActive = 'Close menu',
   labelInActive = 'Open menu',
+  trackingOpen = {},
+  trackingClose = {},
   ...props
 }: HamburgerProps) => {
-  const { label, component = 'hamburger', customParameters } =
-    props.tracking || {};
+  const { label, component = 'hamburger', customParameters } = isActive
+    ? trackingClose
+    : trackingOpen;
 
   return (
     <Button

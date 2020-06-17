@@ -45,7 +45,7 @@ export const base = () => (
       label: text('Previous label tracking - label', 'trackingId-previous')
     }}
     tracking={{
-      label: text('Page number tracking - label', 'trackingId-page-number')
+      label: text('Page number tracking - label', undefined)
     }}
   />
 );
