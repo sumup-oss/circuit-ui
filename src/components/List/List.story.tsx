@@ -23,8 +23,7 @@ export default {
   title: 'Typography/List',
   component: List,
   parameters: {
-    docs: { page: docs },
-    jest: ['List']
+    docs: { page: docs }
   }
 };
 

@@ -20,10 +20,7 @@ import Spinner from '.';
 
 export default {
   title: 'Components/Spinner',
-  component: Spinner,
-  parameters: {
-    jest: ['Spinner']
-  }
+  component: Spinner
 };
 
 export const Base = () => (

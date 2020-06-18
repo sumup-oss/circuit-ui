@@ -24,8 +24,7 @@ export default {
   title: 'Components/Button/IconButton',
   component: IconButton,
   parameters: {
-    docs: { page: docs },
-    jest: ['IconButton']
+    docs: { page: docs }
   }
 };
 
