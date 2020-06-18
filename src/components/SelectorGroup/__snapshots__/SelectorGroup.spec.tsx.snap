@@ -72,6 +72,7 @@ exports[`SelectorGroup should render with default styles 1`] = `
 }
 
 <div
+  aria-label="Choose an option"
   role="group"
 >
   <div

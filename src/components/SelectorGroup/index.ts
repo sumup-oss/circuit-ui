@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import SelectorGroup from './SelectorGroup';
+import { SelectorGroup } from './SelectorGroup';
 
 export default SelectorGroup;

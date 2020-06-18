@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 
-import SelectorGroup from './SelectorGroup';
+import { SelectorGroup, SelectorGroupProps } from './SelectorGroup';
 
 export default {
   title: 'Forms/Selector/SelectorGroup',
@@ -41,34 +41,34 @@ const options = [
 ];
 
 /* eslint-disable react/prop-types */
-const SelectorGroupWithState = ({ children, ...props }) => {
-  const [value, setValue] = useState(props.multiple ? [] : '');
-  const handleChange = event => {
+const SelectorGroupWithState = (props: Partial<SelectorGroupProps>) => {
+  const [value, setValue] = useState<string | string[]>(
+    props.multiple ? [] : ''
+  );
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.persist();
     setValue(prev => {
       if (!props.multiple) {
         return event.target.value;
       }
       return prev.includes(event.target.value)
-        ? prev.filter(v => v !== event.target.value)
+        ? (prev as string[]).filter(v => v !== event.target.value)
         : [...prev, event.target.value];
     });
   };
   return (
     <SelectorGroup
-      {...props}
-      value={value}
-      onChange={handleChange}
+      name="selector-group"
       label="Choose your favourite fruit"
+      options={options}
+      onChange={handleChange}
+      value={value}
+      {...props}
     />
   );
 };
 /* eslint-enable react/prop-types */
 
-export const base = () => (
-  <SelectorGroupWithState options={options} name="selector-group" />
-);
+export const base = () => <SelectorGroupWithState />;
 
-export const multiple = () => (
-  <SelectorGroupWithState options={options} name="selector-group" multiple />
-);
+export const multiple = () => <SelectorGroupWithState multiple />;
