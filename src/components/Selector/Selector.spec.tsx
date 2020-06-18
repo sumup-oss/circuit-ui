@@ -15,7 +15,16 @@
 
 import React from 'react';
 
-import Selector from '.';
+import {
+  create,
+  render,
+  act,
+  userEvent,
+  renderToHtml,
+  axe
+} from '../../util/test-utils';
+
+import { Selector } from './Selector';
 
 const defaultProps = {
   name: 'name',
@@ -86,7 +95,7 @@ describe('Selector', () => {
     });
 
     act(() => {
-      fireEvent.click(inputEl);
+      userEvent.click(inputEl);
     });
 
     expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
@@ -97,8 +106,8 @@ describe('Selector', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
-      const { container } = render(<Selector ref={tref} />);
+      const tref = React.createRef<HTMLInputElement>();
+      const { container } = render(<Selector {...defaultProps} ref={tref} />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
     });

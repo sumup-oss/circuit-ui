@@ -19060,7 +19060,7 @@ label + .circuit-3 {
 `;
 
 exports[`Storyshots Forms/Selector Base 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
   margin-bottom: 16px;
 }
@@ -19096,7 +19096,7 @@ exports[`Storyshots Forms/Selector Base 1`] = `
   border: 2px solid #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
@@ -19106,7 +19106,7 @@ exports[`Storyshots Forms/Selector Base 1`] = `
   text-align: center;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   display: block;
   content: '';
   position: absolute;
@@ -19122,25 +19122,25 @@ exports[`Storyshots Forms/Selector Base 1`] = `
   transition: border 0.1s ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: #FAFBFC;
 }
 
-.circuit-2:hover::before {
+.circuit-1:hover::before {
   border: 2px solid #9DA7B1;
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-2"
 >
   <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="selector_48"
     type="radio"
-    value=""
+    value="default"
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     for="selector_48"
   >
     Select me!
@@ -19149,7 +19149,7 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 `;
 
 exports[`Storyshots Forms/Selector Disabled 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
   margin-bottom: 16px;
 }
@@ -19185,7 +19185,7 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   border: 2px solid #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
@@ -19198,7 +19198,7 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   pointer-events: none;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   display: block;
   content: '';
   position: absolute;
@@ -19214,30 +19214,30 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   transition: border 0.1s ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: #FAFBFC;
 }
 
-.circuit-2:hover::before {
+.circuit-1:hover::before {
   border: 2px solid #9DA7B1;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   border-color: #D8DDE1;
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-2"
 >
   <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     disabled=""
     id="selector_50"
     type="radio"
-    value=""
+    value="default"
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     disabled=""
     for="selector_50"
   >
@@ -19247,7 +19247,7 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
 `;
 
 exports[`Storyshots Forms/Selector Selected 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
   margin-bottom: 16px;
 }
@@ -19283,7 +19283,7 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   border: 2px solid #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
@@ -19293,7 +19293,7 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   text-align: center;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   display: block;
   content: '';
   position: absolute;
@@ -19309,26 +19309,26 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   transition: border 0.1s ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: #FAFBFC;
 }
 
-.circuit-2:hover::before {
+.circuit-1:hover::before {
   border: 2px solid #9DA7B1;
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-2"
 >
   <input
     checked=""
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="selector_49"
     type="radio"
-    value=""
+    value="default"
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     for="selector_49"
   >
     I am selected!
@@ -19337,7 +19337,7 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
 `;
 
 exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
   margin-bottom: 16px;
 }
@@ -19373,7 +19373,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   border: 2px solid #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
@@ -19383,7 +19383,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   text-align: center;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   display: block;
   content: '';
   position: absolute;
@@ -19399,11 +19399,11 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   transition: border 0.1s ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: #FAFBFC;
 }
 
-.circuit-2:hover::before {
+.circuit-1:hover::before {
   border: 2px solid #9DA7B1;
 }
 
@@ -19412,51 +19412,51 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   role="group"
 >
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
   >
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="selector_51"
       name="selector-group"
       type="radio"
       value="apple"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="selector_51"
     >
       Apple
     </label>
   </div>
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
   >
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="selector_52"
       name="selector-group"
       type="radio"
       value="banana"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="selector_52"
     >
       Banana
     </label>
   </div>
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
   >
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="selector_53"
       name="selector-group"
       type="radio"
       value="mango"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="selector_53"
     >
       Mango
@@ -19466,7 +19466,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
 `;
 
 exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
   margin-bottom: 16px;
 }
@@ -19502,7 +19502,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   border: 2px solid #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
@@ -19512,7 +19512,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   text-align: center;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   display: block;
   content: '';
   position: absolute;
@@ -19528,11 +19528,11 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   transition: border 0.1s ease-in-out;
 }
 
-.circuit-2:hover {
+.circuit-1:hover {
   background-color: #FAFBFC;
 }
 
-.circuit-2:hover::before {
+.circuit-1:hover::before {
   border: 2px solid #9DA7B1;
 }
 
@@ -19541,51 +19541,51 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   role="group"
 >
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
   >
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="selector_54"
       name="selector-group"
       type="checkbox"
       value="apple"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="selector_54"
     >
       Apple
     </label>
   </div>
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
   >
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="selector_55"
       name="selector-group"
       type="checkbox"
       value="banana"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="selector_55"
     >
       Banana
     </label>
   </div>
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
   >
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="selector_56"
       name="selector-group"
       type="checkbox"
       value="mango"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="selector_56"
     >
       Mango

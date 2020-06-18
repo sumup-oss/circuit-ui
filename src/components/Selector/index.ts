@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Selector from './Selector';
+import { Selector } from './Selector';
 
 export default Selector;
