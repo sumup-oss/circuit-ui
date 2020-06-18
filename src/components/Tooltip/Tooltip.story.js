@@ -24,8 +24,7 @@ export default {
   title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
-    docs: { page: docs },
-    jest: ['Tooltip']
+    docs: { page: docs }
   }
 };
 

@@ -20,10 +20,7 @@ import TableHeader from '.';
 
 export default {
   title: 'Components/Table/TableHeader',
-  component: TableHeader,
-  parameters: {
-    jest: ['TableHeader']
-  }
+  component: TableHeader
 };
 
 export const base = () => (

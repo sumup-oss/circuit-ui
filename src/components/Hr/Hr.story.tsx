@@ -22,8 +22,7 @@ export default {
   title: 'Components/Hr',
   component: Hr,
   parameters: {
-    docs: { page: docs },
-    jest: ['Hr']
+    docs: { page: docs }
   }
 };
 

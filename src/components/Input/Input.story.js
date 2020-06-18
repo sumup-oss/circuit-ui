@@ -24,8 +24,7 @@ export default {
   title: 'Forms/Input',
   component: Input,
   parameters: {
-    docs: { page: docs },
-    jest: ['Input']
+    docs: { page: docs }
   }
 };
 

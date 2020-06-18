@@ -20,10 +20,7 @@ import CalendarTag from './CalendarTag';
 
 export default {
   title: 'Components/Calendar/CalendarTag',
-  component: CalendarTag,
-  parameters: {
-    jest: ['CalendarTag']
-  }
+  component: CalendarTag
 };
 
 export const base = () => (

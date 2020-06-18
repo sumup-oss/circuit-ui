@@ -20,10 +20,7 @@ import Status from './Status';
 
 export default {
   title: 'Components/Carousel/Status',
-  component: Status,
-  parameters: {
-    jest: ['Carousel/Status']
-  }
+  component: Status
 };
 
 export const base = () => (

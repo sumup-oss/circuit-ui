@@ -22,8 +22,7 @@ export default {
   title: 'Typography/Anchor',
   component: Anchor,
   parameters: {
-    docs: { page: docs },
-    jest: ['Anchor']
+    docs: { page: docs }
   }
 };
 

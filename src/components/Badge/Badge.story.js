@@ -24,8 +24,7 @@ export default {
   title: 'Components/Badge',
   component: Badge,
   parameters: {
-    docs: { page: docs },
-    jest: ['Badge']
+    docs: { page: docs }
   }
 };
 
