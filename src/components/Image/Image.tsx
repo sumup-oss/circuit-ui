@@ -19,18 +19,18 @@ import { css } from '@emotion/core';
 import styled from '../../styles/styled';
 
 export interface ImageProps
-extends Omit<HTMLProps<HTMLImageElement>, 'size' | 'crossOrigin'> {
-    /**
-     * Specifies the source URL of an image
-    */
-   src: string;
-    /**
-     * Provides alternative information if a user cannot view the image,
-     * e.g. because of slow connection, an error in the src attribute, or if the
-     * user uses a screen reader.
-    */
-   alt: string;
-  }
+  extends Omit<HTMLProps<HTMLImageElement>, 'size' | 'crossOrigin'> {
+  /**
+   * Specifies the source URL of an image
+   */
+  src: string;
+  /**
+   * Provides alternative information if a user cannot view the image,
+   * e.g. because of slow connection, an error in the src attribute, or if the
+   * user uses a screen reader.
+   */
+  alt: string;
+}
 
 const baseStyles = () => css`
   label: image;
