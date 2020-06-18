@@ -18,7 +18,7 @@ import { entries, isFunction, kebabCase } from 'lodash/fp';
 import { light } from '@sumup/design-tokens';
 
 import {
-  Badge,
+  // Badge,
   ButtonGroup,
   Card,
   Checkbox,
@@ -115,14 +115,14 @@ export function getComponentInfo(component, propOverrides = {}) {
 export default {
   themes: { light },
   components: [
-    {
-      name: 'badge',
-      component: Badge,
-      props: {
-        color: ['neutral', 'primary', 'success', 'warning', 'danger'],
-        circle: PropTypes.bool
-      }
-    },
+    // {
+    //   name: 'badge',
+    //   component: Badge,
+    //   props: {
+    //     color: ['neutral', 'primary', 'success', 'warning', 'danger'],
+    //     circle: PropTypes.bool
+    //   }
+    // },
     // getComponentInfo(Button, { size: [KILO, MEGA] }),
     // getComponentInfo(Blockquote, {
     //   size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]

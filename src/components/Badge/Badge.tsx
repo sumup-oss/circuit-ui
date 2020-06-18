@@ -13,31 +13,31 @@
  * limitations under the License.
  */
 
-import React, { MouseEvent, KeyboardEvent, Ref } from 'react';
+import React, { forwardRef, MouseEvent, KeyboardEvent, Ref, HTMLProps } from 'react';
 import { css } from '@emotion/core';
-import { Theme } from '@sumup/design-tokens';
 import isPropValid from '@emotion/is-prop-valid';
 
-import styled from '../../styles/styled';
+import styled, { StyleProps } from '../../styles/styled';
 import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
 
-type OnClick = (event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void;
-type RefType = Ref<() => void | HTMLButtonElement | undefined>;
+type OnClick = (event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => void;
+type RefType = Ref<HTMLDivElement>;
 
-interface BadgeBaseProp {
+export interface BadgeProps extends HTMLProps<HTMLDivElement> {
 		/**
 		 * Callback for the click event.
 		 */
-		onClick: OnClick;
+		onClick?: OnClick;
 		/**
 		 * Ensures text is centered and the badge looks like a circle.
 		 */
 		circle?: boolean;
-		color: 'neutral' | 'primary' | 'success' | 'warning' | 'danger';
+		color?: 'neutral' | 'primary' | 'success' | 'warning' | 'danger';
 		/**
-		 * The ref to the html button dom element
+		 * The ref to the html div DOM element
 		 */
-		ref: RefType;
+		ref?: RefType;
+		as?: string
 }
 
 const COLOR_MAP = {
@@ -66,8 +66,8 @@ const COLOR_MAP = {
     hover: 'n700',
     active: 'n900'
   }
-};
-const baseStyles = (theme: Theme) => css`
+} as const;
+const baseStyles = ({theme}:StyleProps ) => css`
   label: badge;
   border-radius: ${theme.borderRadius.pill};
   color: ${theme.colors.white};
@@ -80,7 +80,7 @@ const baseStyles = (theme: Theme) => css`
   text-align: center;
 `;
 
-const colorStyles = (theme: Theme, color: string) => {
+const colorStyles = ({theme, color = 'neutral' }: StyleProps & BadgeProps) => {
   const currentColor = COLOR_MAP[color];
   if (!currentColor) {
     return null;
@@ -91,7 +91,7 @@ const colorStyles = (theme: Theme, color: string) => {
   `;
 };
 
-const circleStyles = ({ circle }) =>
+const circleStyles = ({ circle }: BadgeProps) =>
   circle &&
   css`
     label: badge--circle;
@@ -102,7 +102,7 @@ const circleStyles = ({ circle }) =>
     width: 24px;
   `;
 
-const clickableStyles = (theme: Theme, onClick: OnClick, color: string) => {
+const clickableStyles = ({theme, onClick, color = 'neutral' }: StyleProps & BadgeProps) => {
   const currentColor = COLOR_MAP[color];
   if (!onClick || !currentColor) {
     return null;
@@ -127,18 +127,17 @@ const clickableStyles = (theme: Theme, onClick: OnClick, color: string) => {
   `;
 };
 
-const StyledBadge = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color'
-})(baseStyles, colorStyles, circleStyles, clickableStyles);
 
 /**
  * A badge for displaying update notifications etc.
  */
-const Badge = React.forwardRef((props: BadgeBaseProp, ref: RefType) => (
-  <StyledBadge {...props} ref={ref} />
-));
+const StyledBadge = styled('div', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color'
+})<BadgeProps>(baseStyles, colorStyles, circleStyles, clickableStyles);
 
-Badge.displayName = 'Badge';
+const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => (
+  <StyledBadge as={props.onClick ? 'button' : 'div'} ref={ref} {...props} />
+))
 
 /**
  * @component

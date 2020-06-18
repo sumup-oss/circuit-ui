@@ -14,7 +14,7 @@
  */
 
 import React, { Fragment } from 'react';
-import { select, boolean } from '@storybook/addon-knobs/react';
+import { select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import docs from './Badge.docs.mdx';
@@ -37,7 +37,7 @@ export const base = () => (
       'success',
       'warning',
       'danger'
-    ])}
+    ], 'neutral')}
   >
     Badge
   </Badge>
