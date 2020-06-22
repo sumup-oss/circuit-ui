@@ -28,8 +28,7 @@ export default {
   title: 'Components/Card',
   component: Card,
   parameters: {
-    docs: { page: docs },
-    jest: ['Card']
+    docs: { page: docs }
   }
 };
 

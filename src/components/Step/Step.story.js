@@ -38,8 +38,7 @@ export default {
   title: 'Components/Step',
   component: Step,
   parameters: {
-    docs: { page: docs },
-    jest: ['Step']
+    docs: { page: docs }
   }
 };
 

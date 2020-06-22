@@ -26,8 +26,7 @@ export default {
   title: 'Components/Table',
   component: Table,
   parameters: {
-    docs: { page: docs },
-    jest: ['Table']
+    docs: { page: docs }
   }
 };
 

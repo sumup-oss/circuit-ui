@@ -27,8 +27,7 @@ export default {
   title: 'Typography/Blockquote',
   component: Blockquote,
   parameters: {
-    docs: { page: docs },
-    jest: ['Blockquote']
+    docs: { page: docs }
   }
 };
 

@@ -23,8 +23,7 @@ export default {
   title: 'Forms/Selector',
   component: Selector,
   parameters: {
-    docs: { page: docs },
-    jest: ['Selector']
+    docs: { page: docs }
   }
 };
 

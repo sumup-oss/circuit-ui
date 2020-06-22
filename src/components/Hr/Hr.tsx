@@ -13,18 +13,20 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { css } from '@emotion/core';
 
-import docs from './Hr.docs.mdx';
-import Hr from './Hr';
+import styled, { StyleProps } from '../../styles/styled';
 
-export default {
-  title: 'Components/Hr',
-  component: Hr,
-  parameters: {
-    docs: { page: docs },
-    jest: ['Hr']
-  }
-};
+const baseStyles = ({ theme }: StyleProps) => css`
+  label: hr;
+  display: block;
+  width: 100%;
+  border: 1px solid ${theme.colors.n300};
+  margin-top: ${theme.spacings.mega};
+  margin-bottom: ${theme.spacings.mega};
+`;
 
-export const base = () => <Hr />;
+/**
+ * A horizontal rule to visually and semantically separate text.
+ */
+export const Hr = styled('hr')<{}>(baseStyles);

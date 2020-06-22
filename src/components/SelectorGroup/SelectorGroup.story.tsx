@@ -19,10 +19,7 @@ import { SelectorGroup, SelectorGroupProps } from './SelectorGroup';
 
 export default {
   title: 'Forms/Selector/SelectorGroup',
-  component: SelectorGroup,
-  parameters: {
-    jest: ['SelectorGroup']
-  }
+  component: SelectorGroup
 };
 
 const options = [

@@ -26,8 +26,7 @@ export default {
   title: 'Typography/SubHeading',
   component: SubHeading,
   parameters: {
-    docs: { page: docs },
-    jest: ['SubHeading']
+    docs: { page: docs }
   }
 };
 
