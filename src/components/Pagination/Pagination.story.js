@@ -23,8 +23,7 @@ export default {
   title: 'Components/Pagination',
   component: Pagination,
   parameters: {
-    docs: { page: docs },
-    jest: ['Pagination']
+    docs: { page: docs }
   }
 };
 

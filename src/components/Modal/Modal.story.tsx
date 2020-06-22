@@ -31,8 +31,7 @@ export default {
   title: 'Components/Modal',
   component: Modal,
   parameters: {
-    docs: { page: docs },
-    jest: ['Modal', 'ModalWrapper', 'ModalHeader', 'ModalFooter']
+    docs: { page: docs }
   }
 };
 

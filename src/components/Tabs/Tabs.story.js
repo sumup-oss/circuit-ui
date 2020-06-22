@@ -23,8 +23,7 @@ export default {
   title: 'Components/Tabs',
   component: Tabs,
   parameters: {
-    docs: { page: docs },
-    jest: ['Tabs']
+    docs: { page: docs }
   }
 };
 

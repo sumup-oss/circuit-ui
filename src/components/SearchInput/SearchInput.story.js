@@ -25,8 +25,7 @@ export default {
   title: 'Forms/Input/SearchInput',
   component: SearchInput,
   parameters: {
-    docs: { page: docs },
-    jest: ['SearchInput']
+    docs: { page: docs }
   }
 };
 

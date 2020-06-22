@@ -22,10 +22,7 @@ import Col from '../Col';
 
 export default {
   title: 'Layout/Grid/Row',
-  component: Row,
-  parameters: {
-    jest: ['Row']
-  }
+  component: Row
 };
 
 const StyledCol = styled(Col)(

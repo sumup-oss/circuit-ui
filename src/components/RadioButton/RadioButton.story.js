@@ -22,8 +22,7 @@ export default {
   title: 'Forms/RadioButton',
   component: RadioButton,
   parameters: {
-    docs: { page: docs },
-    jest: ['RadioButton']
+    docs: { page: docs }
   }
 };
 

@@ -23,8 +23,7 @@ export default {
   title: 'Components/Button/LoadingButton',
   component: LoadingButton,
   parameters: {
-    docs: { page: docs },
-    jest: ['LoadingButton']
+    docs: { page: docs }
   }
 };
 

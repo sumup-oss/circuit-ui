@@ -24,8 +24,7 @@ export default {
   title: 'Components/ProgressBar',
   component: ProgressBar,
   parameters: {
-    docs: { page: docs },
-    jest: ['ProgressBar']
+    docs: { page: docs }
   }
 };
 

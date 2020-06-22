@@ -33,10 +33,7 @@ const StyledHeading = styled(Heading)(headingStyles);
 
 export default {
   title: 'Components/Carousel/Slide',
-  component: Slide,
-  parameters: {
-    jest: ['Carousel/Slide']
-  }
+  component: Slide
 };
 
 export const onlyImage = () => (

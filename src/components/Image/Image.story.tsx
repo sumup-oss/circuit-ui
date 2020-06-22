@@ -22,8 +22,7 @@ export default {
   title: 'Components/Image',
   component: Image,
   parameters: {
-    docs: { page: docs },
-    jest: ['Image']
+    docs: { page: docs }
   }
 };
 

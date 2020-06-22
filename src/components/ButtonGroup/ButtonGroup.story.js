@@ -21,10 +21,7 @@ import Button from '../Button';
 
 export default {
   title: 'Components/Button/ButtonGroup',
-  component: ButtonGroup,
-  parameters: {
-    jest: ['ButtonGroup']
-  }
+  component: ButtonGroup
 };
 
 export const base = () => (

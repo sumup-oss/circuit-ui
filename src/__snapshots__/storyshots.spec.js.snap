@@ -6477,7 +6477,7 @@ exports[`Storyshots Components/Hr Base 1`] = `
 }
 
 <hr
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;
 

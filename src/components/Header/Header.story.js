@@ -21,10 +21,7 @@ import Hamburger from '../Hamburger';
 
 export default {
   title: 'Components/Header',
-  component: Header,
-  parameters: {
-    jest: ['Header']
-  }
+  component: Header
 };
 
 export const base = () => (

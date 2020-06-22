@@ -22,8 +22,7 @@ export default {
   title: 'Forms/Input/CurrencyInput',
   component: CurrencyInput,
   parameters: {
-    docs: { page: docs },
-    jest: ['CurrencyInput']
+    docs: { page: docs }
   }
 };
 
