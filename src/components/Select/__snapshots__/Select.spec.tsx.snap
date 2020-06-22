@@ -83,7 +83,7 @@ label + .circuit-2 {
 <span
   class="circuit-3"
   disabled=""
-  for="select_5"
+  for="select_6"
 >
   <div
     class="circuit-2"
@@ -92,7 +92,7 @@ label + .circuit-2 {
       aria-invalid="true"
       class="circuit-0"
       disabled=""
-      id="select_5"
+      id="select_6"
     >
       <option
         value=""
@@ -347,7 +347,7 @@ label + .circuit-2 {
 
 <span
   class="circuit-3"
-  for="select_9"
+  for="select_10"
 >
   <div
     class="circuit-2"
@@ -357,7 +357,7 @@ label + .circuit-2 {
     />
     <select
       class="circuit-0"
-      id="select_9"
+      id="select_10"
     >
       <option
         value=""
@@ -495,14 +495,14 @@ label + .circuit-2 {
 
 <span
   class="circuit-4"
-  for="select_8"
+  for="select_9"
 >
   <div
     class="circuit-2"
   >
     <select
       class="circuit-0"
-      id="select_8"
+      id="select_9"
     >
       <option
         value=""
@@ -547,6 +547,147 @@ label + .circuit-2 {
     This field is required.
   </span>
 </span>
+`;
+
+exports[`Select should render with a visually-hidden label 1`] = `
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.circuit-1 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #212933;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-1:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+<label
+  class="circuit-4"
+  for="select_3"
+>
+  <span
+    class="circuit-0"
+  >
+    Label
+  </span>
+  <div
+    class="circuit-3"
+  >
+    <select
+      class="circuit-1"
+      id="select_3"
+    >
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+</label>
 `;
 
 exports[`Select should render with default styles 1`] = `
@@ -760,7 +901,7 @@ label + .circuit-2 {
 <span
   class="circuit-3"
   disabled=""
-  for="select_3"
+  for="select_4"
 >
   <div
     class="circuit-2"
@@ -768,7 +909,7 @@ label + .circuit-2 {
     <select
       class="circuit-0"
       disabled=""
-      id="select_3"
+      id="select_4"
     >
       <option
         value=""
@@ -891,14 +1032,14 @@ label + .circuit-2 {
 
 <span
   class="circuit-3"
-  for="select_6"
+  for="select_7"
 >
   <div
     class="circuit-2"
   >
     <select
       class="circuit-0"
-      id="select_6"
+      id="select_7"
     >
       <option
         value=""
@@ -1020,7 +1161,7 @@ label + .circuit-2 {
 
 <span
   class="circuit-3"
-  for="select_4"
+  for="select_5"
 >
   <div
     class="circuit-2"
@@ -1028,7 +1169,7 @@ label + .circuit-2 {
     <select
       aria-invalid="true"
       class="circuit-0"
-      id="select_4"
+      id="select_5"
     >
       <option
         value=""
@@ -1148,14 +1289,14 @@ label + .circuit-2 {
 
 <span
   class="circuit-3"
-  for="select_7"
+  for="select_8"
 >
   <div
     class="circuit-2"
   >
     <select
       class="circuit-0"
-      id="select_7"
+      id="select_8"
     >
       <option
         value=""

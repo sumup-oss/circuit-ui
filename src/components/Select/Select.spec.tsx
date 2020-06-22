@@ -43,6 +43,11 @@ describe('Select', () => {
     expect(actual).toMatchSnapshot();
   });
 
+  it('should render with a visually-hidden label', () => {
+    const actual = create(<Select {...{ options }} label="Label" hideLabel />);
+    expect(actual).toMatchSnapshot();
+  });
+
   it('should render with disabled styles when passed the disabled prop', () => {
     const actual = create(<Select {...{ options }} disabled />);
     expect(actual).toMatchSnapshot();

@@ -26,11 +26,6 @@ exports[`PageSelect styles should render with default styles 1`] = `
   position: relative;
 }
 
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
-}
-
 .circuit-1 {
   -webkit-appearance: none;
   -moz-appearance: none;

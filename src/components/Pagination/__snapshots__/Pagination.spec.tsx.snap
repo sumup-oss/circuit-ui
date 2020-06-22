@@ -343,11 +343,6 @@ exports[`Pagination with more than 7 pages should render with default styles 1`]
   position: relative;
 }
 
-label .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
 .circuit-2 {
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -14,6 +14,8 @@
  */
 
 import React, { useCallback, FunctionComponent, ChangeEvent } from 'react';
+import { css } from '@emotion/core';
+import { Theme } from '@sumup/design-tokens';
 
 import { Select, SelectProps } from '../../../Select/Select';
 
@@ -23,6 +25,10 @@ export interface PageSelectProps extends Omit<SelectProps, 'onChange'> {
   currentPage: number;
   [key: string]: any;
 }
+
+const selectStyles = (theme: Theme) => css`
+  margin: 0 ${theme.spacings.kilo};
+`;
 
 export const PageSelect: FunctionComponent<PageSelectProps> = ({
   label,
@@ -47,6 +53,7 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
       value={currentPage}
       options={pageOptions}
       onChange={handleChange}
+      css={selectStyles}
       hideLabel
       noMargin
     />

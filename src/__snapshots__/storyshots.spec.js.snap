@@ -8831,11 +8831,6 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   position: relative;
 }
 
-label .circuit-4,
-label + .circuit-4 {
-  margin-top: 4px;
-}
-
 .circuit-2 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -17930,17 +17925,6 @@ exports[`Storyshots Forms/Select Base 1`] = `
   margin-bottom: 16px;
 }
 
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
-}
-
 .circuit-1 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -17997,6 +17981,17 @@ label + .circuit-3 {
   top: 1px;
   right: 1px;
   padding: 12px;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
 }
 
 <label
@@ -18077,11 +18072,6 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
   color: #212933;
   display: block;
   position: relative;
-}
-
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
 }
 
 .circuit-1 {
@@ -18221,17 +18211,6 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   color: #DB4D4D;
 }
 
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
-}
-
 .circuit-2 {
   color: #5C656F;
   display: block;
@@ -18243,6 +18222,17 @@ label + .circuit-3 {
   top: 1px;
   right: 1px;
   padding: 12px;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
 }
 
 .circuit-1 {
@@ -18386,17 +18376,6 @@ exports[`Storyshots Forms/Select With Prefix 1`] = `
   margin-bottom: 16px;
 }
 
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
-}
-
 .circuit-2 {
   color: #5C656F;
   display: block;
@@ -18408,6 +18387,17 @@ label + .circuit-3 {
   top: 1px;
   right: 1px;
   padding: 12px;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
 }
 
 .circuit-1 {

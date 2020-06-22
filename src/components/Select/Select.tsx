@@ -108,19 +108,33 @@ export interface SelectProps
   ref?: Ref<HTMLSelectElement>;
 }
 
-const containerStyles = ({ theme }: StyleProps) => css`
+const containerBaseStyles = ({ theme }: StyleProps) => css`
   label: select__container;
   color: ${theme.colors.n900};
   display: block;
   position: relative;
-
-  label &,
-  label + & {
-    margin-top: ${theme.spacings.bit};
-  }
 `;
 
-const SelectContainer = styled('div')<{}>(containerStyles);
+type ContainerElProps = Pick<SelectProps, 'hideLabel'>;
+
+const containerHideLabelStyles = ({
+  theme,
+  hideLabel
+}: StyleProps & ContainerElProps) =>
+  !hideLabel &&
+  css`
+    label: select__container--hide-label;
+
+    label &,
+    label + & {
+      margin-top: ${theme.spacings.bit};
+    }
+  `;
+
+const SelectContainer = styled('div')<ContainerElProps>(
+  containerBaseStyles,
+  containerHideLabelStyles
+);
 
 type LabelElProps = Pick<SelectProps, 'noMargin'>;
 
@@ -243,6 +257,7 @@ function SelectComponent(
     validationHint,
     label,
     hideLabel,
+    className,
     id: customId,
     ...props
   }: SelectProps,
@@ -268,6 +283,7 @@ function SelectComponent(
 
   return (
     <SelectLabel
+      className={className}
       htmlFor={id}
       inline={inline}
       disabled={disabled}
@@ -276,7 +292,7 @@ function SelectComponent(
     >
       {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
 
-      <SelectContainer>
+      <SelectContainer hideLabel={hideLabel}>
         {prefix}
         <SelectElement
           id={id}
