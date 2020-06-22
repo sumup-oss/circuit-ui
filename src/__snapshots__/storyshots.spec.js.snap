@@ -19089,7 +19089,6 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 
 .circuit-0:checked + label {
   background-color: #EDF4FC;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-0:checked + label::before {
@@ -19097,10 +19096,9 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 }
 
 .circuit-1 {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
-  padding: 24px;
+  padding: 16px 24px;
   border-radius: 5px;
   background-color: #FFFFFF;
   text-align: center;
@@ -19117,7 +19115,7 @@ exports[`Storyshots Forms/Selector Base 1`] = `
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  border: 1px solid #9DA7B1;
+  border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
 }
@@ -19127,7 +19125,15 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 }
 
 .circuit-1:hover::before {
-  border: 2px solid #9DA7B1;
+  border-color: #9DA7B1;
+}
+
+.circuit-1:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-1:active::before {
+  border-color: #5C656F;
 }
 
 <div
@@ -19178,7 +19184,6 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
 
 .circuit-0:checked + label {
   background-color: #EDF4FC;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-0:checked + label::before {
@@ -19186,16 +19191,15 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
 }
 
 .circuit-1 {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
-  padding: 24px;
+  padding: 16px 24px;
   border-radius: 5px;
   background-color: #FFFFFF;
   text-align: center;
-  color: #9DA7B1;
-  cursor: default;
+  opacity: 0.5;
   pointer-events: none;
+  box-shadow: none;
 }
 
 .circuit-1::before {
@@ -19209,7 +19213,7 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  border: 1px solid #9DA7B1;
+  border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
 }
@@ -19219,11 +19223,15 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
 }
 
 .circuit-1:hover::before {
-  border: 2px solid #9DA7B1;
+  border-color: #9DA7B1;
 }
 
-.circuit-1::before {
-  border-color: #D8DDE1;
+.circuit-1:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-1:active::before {
+  border-color: #5C656F;
 }
 
 <div
@@ -19276,7 +19284,6 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
 
 .circuit-0:checked + label {
   background-color: #EDF4FC;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-0:checked + label::before {
@@ -19284,10 +19291,9 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
 }
 
 .circuit-1 {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
-  padding: 24px;
+  padding: 16px 24px;
   border-radius: 5px;
   background-color: #FFFFFF;
   text-align: center;
@@ -19304,7 +19310,7 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  border: 1px solid #9DA7B1;
+  border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
 }
@@ -19314,7 +19320,15 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
 }
 
 .circuit-1:hover::before {
-  border: 2px solid #9DA7B1;
+  border-color: #9DA7B1;
+}
+
+.circuit-1:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-1:active::before {
+  border-color: #5C656F;
 }
 
 <div
@@ -19366,7 +19380,6 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
 
 .circuit-0:checked + label {
   background-color: #EDF4FC;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-0:checked + label::before {
@@ -19374,10 +19387,9 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
 }
 
 .circuit-1 {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
-  padding: 24px;
+  padding: 16px 24px;
   border-radius: 5px;
   background-color: #FFFFFF;
   text-align: center;
@@ -19394,7 +19406,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  border: 1px solid #9DA7B1;
+  border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
 }
@@ -19404,7 +19416,15 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
 }
 
 .circuit-1:hover::before {
-  border: 2px solid #9DA7B1;
+  border-color: #9DA7B1;
+}
+
+.circuit-1:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-1:active::before {
+  border-color: #5C656F;
 }
 
 <div
@@ -19495,7 +19515,6 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
 
 .circuit-0:checked + label {
   background-color: #EDF4FC;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
 }
 
 .circuit-0:checked + label::before {
@@ -19503,10 +19522,9 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
 }
 
 .circuit-1 {
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   display: block;
   cursor: pointer;
-  padding: 24px;
+  padding: 16px 24px;
   border-radius: 5px;
   background-color: #FFFFFF;
   text-align: center;
@@ -19523,7 +19541,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  border: 1px solid #9DA7B1;
+  border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
 }
@@ -19533,7 +19551,15 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
 }
 
 .circuit-1:hover::before {
-  border: 2px solid #9DA7B1;
+  border-color: #9DA7B1;
+}
+
+.circuit-1:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-1:active::before {
+  border-color: #5C656F;
 }
 
 <div
