@@ -13,28 +13,21 @@
  * limitations under the License.
  */
 
-import { MouseEvent } from 'react';
-import { useClickTrigger } from '@sumup/collector';
-import { Dispatch } from '@sumup/collector/build/types';
+import { useClickTrigger, Dispatch } from '@sumup/collector';
 
-export type OnClickTracker = (arg: MouseEvent<any>) => void;
-
-export default function useClickTracker(
-  onClick?: OnClickTracker,
+export default function useClickTracker<Event>(
+  onClick?: (event: Event) => void,
   tracking?: Dispatch,
   defaultComponentName?: string
-): OnClickTracker | undefined {
+): ((event: Event) => void) | undefined {
   const dispatch = useClickTrigger();
   const { label, component = defaultComponentName, customParameters } =
     tracking || {};
 
   return onClick && label
-    ? (arg: MouseEvent<any>): void => {
+    ? (event: Event): void => {
         dispatch({ label, component, customParameters });
-
-        if (onClick) {
-          onClick(arg);
-        }
+        onClick(event);
       }
     : onClick;
 }

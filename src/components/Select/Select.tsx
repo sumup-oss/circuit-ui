@@ -17,8 +17,7 @@ import React, { FC, ReactNode, Ref, HTMLProps, ChangeEvent } from 'react';
 import { css } from '@emotion/core';
 import { SelectExpand } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
-import { useClickTrigger } from '@sumup/collector';
-import { Dispatch as TrackingProps } from '@sumup/collector/build/types';
+import { useClickTrigger, Dispatch as TrackingProps } from '@sumup/collector';
 import { find, getOr } from 'lodash/fp';
 
 import { uniqueId } from '../../util/id';

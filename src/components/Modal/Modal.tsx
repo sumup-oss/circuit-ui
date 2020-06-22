@@ -18,19 +18,17 @@ import ReactModal, { Props } from 'react-modal';
 import { ClassNames } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import { Theme } from '@sumup/design-tokens';
-import { Dispatch as TrackingProps } from '@sumup/collector/build/types';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 import noScroll from 'no-scroll';
 
 import IS_IOS from '../../util/ios';
 import { isFunction } from '../../util/type-check';
-import useClickTracker, { OnClickTracker } from '../../hooks/use-click-tracker';
+import useClickTracker from '../../hooks/use-click-tracker';
 
 type OnClose = (event: MouseEvent | KeyboardEvent) => void;
 
 export interface ModalProps extends Partial<Props> {
-  children:
-    | ReactNode
-    | (({ onClose }: { onClose: OnClose | OnClickTracker }) => ReactNode);
+  children: ReactNode | (({ onClose }: { onClose: OnClose }) => ReactNode);
   /**
    * Determines if the modal is visible or not.
    */

@@ -15,7 +15,7 @@
 
 import React, { FC, HTMLProps } from 'react';
 import { css } from '@emotion/core';
-import { Dispatch as TrackingProps } from '@sumup/collector/build/types';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
