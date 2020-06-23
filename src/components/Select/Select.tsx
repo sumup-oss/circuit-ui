@@ -142,7 +142,7 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   background-color: ${theme.colors.white};
   outline: none;
   border: 0;
-  border-radius: 8px;
+  border-radius: ${theme.borderRadius.tera};
   box-shadow: none;
   color: ${theme.colors.n900};
   padding-top: calc(${theme.spacings.byte} + 1px);

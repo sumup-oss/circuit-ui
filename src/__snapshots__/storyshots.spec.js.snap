@@ -292,8 +292,8 @@ exports[`Storyshots Components/Button Primary 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -359,8 +359,8 @@ exports[`Storyshots Components/Button Secondary 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -427,8 +427,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -491,8 +491,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -559,8 +559,8 @@ exports[`Storyshots Components/Button Tertiary 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3388FF;
@@ -624,8 +624,8 @@ exports[`Storyshots Components/Button With Icon 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -708,8 +708,8 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -767,8 +767,8 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -881,8 +881,8 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -982,8 +982,8 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -1110,8 +1110,8 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -1226,6 +1226,8 @@ exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
   background: transparent;
@@ -1233,7 +1235,7 @@ exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  border: 1px solid #9DA7B1;
+  border-color: #9DA7B1;
 }
 
 .circuit-0:focus {
@@ -1270,6 +1272,8 @@ exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
   background: transparent;
@@ -1277,7 +1281,7 @@ exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  border: 1px solid #9DA7B1;
+  border-color: #9DA7B1;
 }
 
 .circuit-0:focus {
@@ -4023,8 +4027,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -4214,8 +4218,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -4557,8 +4561,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -4940,8 +4944,8 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -5514,8 +5518,8 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -5784,8 +5788,8 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6172,8 +6176,8 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6321,8 +6325,8 @@ exports[`Storyshots Components/Header Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6521,8 +6525,8 @@ exports[`Storyshots Components/Modal Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6589,8 +6593,8 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6657,8 +6661,8 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6725,8 +6729,8 @@ exports[`Storyshots Components/Modal With Header 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6793,8 +6797,8 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6861,8 +6865,8 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -7045,8 +7049,8 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -7104,8 +7108,8 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -7474,8 +7478,8 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -7690,8 +7694,8 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -8055,8 +8059,8 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -8527,8 +8531,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -8594,8 +8598,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -8679,8 +8683,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -8757,8 +8761,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -8886,8 +8890,8 @@ exports[`Storyshots Components/Popover Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -9935,8 +9939,8 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -10272,8 +10276,8 @@ exports[`Storyshots Components/Step Form 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -10618,8 +10622,8 @@ exports[`Storyshots Components/Step Slider 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -10678,8 +10682,8 @@ exports[`Storyshots Components/Step Slider 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -10797,8 +10801,8 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -13466,6 +13470,8 @@ exports[`Storyshots Components/Tag Base 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
 
 <div
@@ -13491,6 +13497,8 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
   background: transparent;
@@ -13498,7 +13506,7 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  border: 1px solid #9DA7B1;
+  border-color: #9DA7B1;
 }
 
 .circuit-0:focus {
@@ -13546,6 +13554,8 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
 
 .circuit-2 {
@@ -13572,8 +13582,8 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -13660,8 +13670,10 @@ exports[`Storyshots Components/Tag Selected 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: #3388FF;
-  border: 1px solid #3388FF;
+  border-color: #3388FF;
   color: #FFFFFF;
 }
 
@@ -13688,6 +13700,8 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
 
 .circuit-0 {
@@ -13734,6 +13748,8 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
 
 .circuit-0 {
@@ -23199,8 +23215,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -23271,8 +23287,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -23340,8 +23356,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -23404,8 +23420,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -23475,6 +23491,8 @@ exports[`Storyshots Typography/Anchor As Button 1`] = `
   margin-left: 0;
   margin-right: 0;
   color: #1760CE;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
 
 @media (min-width:480px) {
@@ -23536,6 +23554,8 @@ exports[`Storyshots Typography/Anchor As Link 1`] = `
   margin-left: 0;
   margin-right: 0;
   color: #1760CE;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
 
 @media (min-width:480px) {

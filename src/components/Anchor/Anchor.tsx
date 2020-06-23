@@ -48,6 +48,10 @@ const baseStyles = ({ theme }: StyleProps) => css`
   margin-left: 0;
   margin-right: 0;
   color: ${theme.colors.p700};
+  transition: opacity ${theme.transitions.default},
+    color ${theme.transitions.default},
+    background-color ${theme.transitions.default},
+    border-color ${theme.transitions.default};
 
   &:hover,
   &:active {
