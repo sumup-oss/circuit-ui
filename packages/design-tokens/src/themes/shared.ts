@@ -14,7 +14,6 @@
  */
 
 import { createMediaQueries } from '../utils';
-
 import {
   Spacings,
   IconSizes,
@@ -198,8 +197,9 @@ export const zIndex: ZIndex = {
   absolute: 1,
   drawer: 10,
   select: 20,
+  input: 20,
   popover: 30,
-  tooltip: 31,
+  tooltip: 40,
   header: 600,
   backdrop: 700,
   sidebar: 800,

@@ -179,7 +179,9 @@ export type ZIndex = {
   default: number;
   absolute: number;
   drawer: number;
+  // @deprecated use input value instead
   select: number;
+  input: number;
   popover: number;
   tooltip: number;
   header: number;
