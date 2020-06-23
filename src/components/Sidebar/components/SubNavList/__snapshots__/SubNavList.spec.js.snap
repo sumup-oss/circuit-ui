@@ -19,8 +19,8 @@ exports[`SubNavList styles should render with default styles when there is a sel
   border-radius: 1px;
   position: absolute;
   top: calc(32px * 1);
-  -webkit-transition: top 200ms ease-in-out;
-  transition: top 200ms ease-in-out;
+  -webkit-transition: top 120ms ease-in-out;
+  transition: top 120ms ease-in-out;
 }
 
 .circuit-0::before {
@@ -97,8 +97,8 @@ exports[`SubNavList styles should render without children 1`] = `
   border-radius: 1px;
   position: absolute;
   top: calc(32px * 0);
-  -webkit-transition: top 200ms ease-in-out;
-  transition: top 200ms ease-in-out;
+  -webkit-transition: top 120ms ease-in-out;
+  transition: top 120ms ease-in-out;
 }
 
 <ul

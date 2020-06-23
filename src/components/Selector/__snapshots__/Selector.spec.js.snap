@@ -42,7 +42,7 @@ exports[`Selector should render a checked selector 1`] = `
   display: block;
   cursor: pointer;
   padding: 24px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
 }
@@ -57,7 +57,7 @@ exports[`Selector should render a checked selector 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #9DA7B1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
@@ -133,7 +133,7 @@ exports[`Selector should render a default selector 1`] = `
   display: block;
   cursor: pointer;
   padding: 24px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
 }
@@ -148,7 +148,7 @@ exports[`Selector should render a default selector 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #9DA7B1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
@@ -223,7 +223,7 @@ exports[`Selector should render a disabled selector 1`] = `
   display: block;
   cursor: pointer;
   padding: 24px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
   color: #9DA7B1;
@@ -241,7 +241,7 @@ exports[`Selector should render a disabled selector 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #9DA7B1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;

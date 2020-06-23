@@ -26,8 +26,8 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -44,26 +44,26 @@ exports[`SearchInput should grey out icon when disabled 1`] = `
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-3 {
@@ -154,8 +154,8 @@ label + .circuit-3 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -172,26 +172,26 @@ label + .circuit-3 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 <label

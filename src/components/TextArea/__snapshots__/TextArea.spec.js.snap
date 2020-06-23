@@ -15,8 +15,8 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -34,26 +34,26 @@ exports[`TextArea should prioritize disabled over error styles 1`] = `
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2 {
@@ -110,8 +110,8 @@ label + .circuit-5 {
 
 .circuit-3 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   opacity: 1;
   position: absolute;
   top: 1px;
@@ -138,8 +138,8 @@ label + .circuit-5 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -157,26 +157,26 @@ label + .circuit-5 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:not(:focus) {
@@ -290,8 +290,8 @@ label + .circuit-5 {
 
 .circuit-3 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   opacity: 1;
   position: absolute;
   top: 1px;
@@ -318,8 +318,8 @@ label + .circuit-5 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -340,26 +340,26 @@ label + .circuit-5 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:not(:focus) {
@@ -459,8 +459,8 @@ label + .circuit-6 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -478,32 +478,32 @@ label + .circuit-6 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -524,7 +524,7 @@ label + .circuit-6 {
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 31;
+  z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -606,8 +606,8 @@ label + .circuit-4 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -625,32 +625,32 @@ label + .circuit-4 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -707,8 +707,8 @@ label + .circuit-4 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -726,32 +726,32 @@ label + .circuit-4 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -808,8 +808,8 @@ label + .circuit-4 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -827,32 +827,32 @@ label + .circuit-4 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -897,8 +897,8 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -916,26 +916,26 @@ exports[`TextArea should render with disabled styled when passed the disabled pr
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2 {
@@ -986,8 +986,8 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -1005,32 +1005,32 @@ exports[`TextArea should render with inline styles when passed the inline prop 1
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -1095,8 +1095,8 @@ label + .circuit-5 {
 
 .circuit-3 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   opacity: 1;
   position: absolute;
   top: 1px;
@@ -1116,8 +1116,8 @@ label + .circuit-5 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -1135,26 +1135,26 @@ label + .circuit-5 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:not(:focus) {
@@ -1249,8 +1249,8 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -1268,32 +1268,32 @@ exports[`TextArea should render with no margin styles when passed the noMargin p
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -1357,8 +1357,8 @@ label + .circuit-4 {
 
 .circuit-2 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   position: absolute;
   top: 1px;
   right: 1px;
@@ -1377,8 +1377,8 @@ label + .circuit-4 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -1399,26 +1399,26 @@ label + .circuit-4 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 <label
@@ -1467,8 +1467,8 @@ label + .circuit-5 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -1486,32 +1486,32 @@ label + .circuit-5 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-3 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   opacity: 1;
   position: absolute;
   top: 1px;
@@ -1607,8 +1607,8 @@ label + .circuit-5 {
   border-radius: 4px;
   box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -1626,26 +1626,26 @@ label + .circuit-5 {
 
 .circuit-0::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0:not(:focus) {
@@ -1670,8 +1670,8 @@ label + .circuit-5 {
 
 .circuit-3 {
   opacity: 0;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   opacity: 1;
   position: absolute;
   top: 1px;
