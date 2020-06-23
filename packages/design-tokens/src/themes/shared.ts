@@ -188,8 +188,8 @@ export const breakpoints: Breakpoints = {
 export const mq: MediaQueries = createMediaQueries(breakpoints);
 
 export const transitions = {
-  default: '200ms ease-in-out',
-  slow: '300ms ease-in-out',
+  default: '160ms ease-in-out',
+  slow: '320ms ease-in-out',
 };
 
 export const zIndex: ZIndex = {
