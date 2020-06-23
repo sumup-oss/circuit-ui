@@ -15,7 +15,14 @@
 
 import React from 'react';
 
-import { create,render,  renderToHtml, axe, act, userEvent } from '../../util/test-utils';
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent
+} from '../../util/test-utils';
 
 import Badge from '.';
 
