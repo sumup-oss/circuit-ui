@@ -20,13 +20,15 @@ export const type = 'light';
 const white = '#FFFFFF';
 const black = '#0F131A';
 
+// NOTE: The neutral color names & values don't match up with what's in Figma.
+// Fixing this would be a big breaking change, so we're leaving it as is.
 const neutrals = {
   n100: '#FAFBFC',
   n200: '#EEF0F2',
   n300: '#D8DDE1',
-  n500: '#9DA7B1',
-  n700: '#5C656F',
-  n800: '#323E49',
+  n500: '#9DA7B1', // n400 in Figma
+  n700: '#5C656F', // n500 in Figma
+  n800: '#323E49', // n700 in Figma
   n900: '#212933',
 };
 
