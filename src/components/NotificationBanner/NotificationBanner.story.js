@@ -22,10 +22,7 @@ import { base as Notification } from '../Notification/Notification.story';
 
 export default {
   title: 'Components/Notification/NotificationBanner',
-  component: NotificationBanner,
-  parameters: {
-    jest: ['NotificationBanner']
-  }
+  component: NotificationBanner
 };
 
 export const base = () => (

@@ -20,10 +20,7 @@ import { success as Notification } from '../Notification/Notification.story';
 
 export default {
   title: 'Components/Notification/NotificationList',
-  component: NotificationList,
-  parameters: {
-    jest: ['NotificationList']
-  }
+  component: NotificationList
 };
 
 export const base = () => (

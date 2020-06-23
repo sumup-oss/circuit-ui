@@ -20,10 +20,7 @@ import TableCell from '.';
 
 export default {
   title: 'Components/Table/TableCell',
-  component: TableCell,
-  parameters: {
-    jest: ['TableCell']
-  }
+  component: TableCell
 };
 
 export const base = () => (

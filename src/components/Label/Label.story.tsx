@@ -22,8 +22,7 @@ export default {
   title: 'Forms/Label',
   component: Label,
   parameters: {
-    docs: { page: docs },
-    jest: ['Label']
+    docs: { page: docs }
   }
 };
 

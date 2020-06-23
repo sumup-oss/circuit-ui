@@ -26,8 +26,7 @@ export default {
   title: 'Forms/Select',
   component: Select,
   parameters: {
-    docs: { page: docs },
-    jest: ['Select']
+    docs: { page: docs }
   }
 };
 

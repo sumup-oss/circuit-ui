@@ -21,8 +21,7 @@ import CloseButton from './CloseButton';
 export default {
   title: 'Components/Button/CloseButton',
   parameters: {
-    component: CloseButton,
-    jest: ['CloseButton']
+    component: CloseButton
   }
 };
 

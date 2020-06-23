@@ -24,8 +24,7 @@ export default {
   title: 'Forms/TextArea',
   component: TextArea,
   parameters: {
-    docs: { page: docs },
-    jest: ['TextArea']
+    docs: { page: docs }
   }
 };
 

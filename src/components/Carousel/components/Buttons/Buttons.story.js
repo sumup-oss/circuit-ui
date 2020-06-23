@@ -22,10 +22,7 @@ const { ButtonList, PlayButton, NextButton, PrevButton } = Buttons;
 
 export default {
   title: 'Components/Carousel/Buttons',
-  component: Buttons,
-  parameters: {
-    jest: ['Carousel/Buttons']
-  }
+  component: Buttons
 };
 
 export const allButtons = () => (

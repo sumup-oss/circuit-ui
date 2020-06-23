@@ -29,8 +29,7 @@ export default {
   title: 'Typography/Text',
   component: Text,
   parameters: {
-    docs: { page: docs },
-    jest: ['Text']
+    docs: { page: docs }
   }
 };
 
