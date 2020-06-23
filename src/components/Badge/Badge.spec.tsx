@@ -15,6 +15,15 @@
 
 import React from 'react';
 
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent
+} from '../../util/test-utils';
+
 import Badge from '.';
 
 describe('Badge', () => {
@@ -63,7 +72,7 @@ describe('Badge', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
+      const tref = React.createRef<HTMLDivElement>();
       const { container } = render(<Badge ref={tref} />);
       const div = container.querySelector('div');
       expect(tref.current).toBe(div);
@@ -89,7 +98,7 @@ describe('Badge', () => {
     );
 
     act(() => {
-      fireEvent.click(getByTestId('badge'));
+      userEvent.click(getByTestId('badge'));
     });
 
     expect(onClick).toHaveBeenCalledTimes(1);

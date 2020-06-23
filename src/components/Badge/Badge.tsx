@@ -13,13 +13,40 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, {
+  forwardRef,
+  MouseEvent,
+  KeyboardEvent,
+  Ref,
+  HTMLProps
+} from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
+import styled, { StyleProps } from '../../styles/styled';
 import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
+
+type OnClick = (
+  event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>
+) => void;
+type RefType = Ref<HTMLDivElement>;
+
+export interface BadgeProps extends HTMLProps<HTMLDivElement> {
+  /**
+   * Callback for the click event.
+   */
+  onClick?: OnClick;
+  /**
+   * Ensures text is centered and the badge looks like a circle.
+   */
+  circle?: boolean;
+  color?: 'neutral' | 'primary' | 'success' | 'warning' | 'danger';
+  /**
+   * The ref to the html div DOM element
+   */
+  ref?: RefType;
+  as?: string;
+}
 
 const COLOR_MAP = {
   success: {
@@ -47,8 +74,8 @@ const COLOR_MAP = {
     hover: 'n700',
     active: 'n900'
   }
-};
-const baseStyles = ({ theme }) => css`
+} as const;
+const baseStyles = ({ theme }: StyleProps) => css`
   label: badge;
   border-radius: ${theme.borderRadius.pill};
   color: ${theme.colors.white};
@@ -61,7 +88,7 @@ const baseStyles = ({ theme }) => css`
   text-align: center;
 `;
 
-const colorStyles = ({ theme, color }) => {
+const colorStyles = ({ theme, color = 'neutral' }: StyleProps & BadgeProps) => {
   const currentColor = COLOR_MAP[color];
   if (!currentColor) {
     return null;
@@ -72,7 +99,7 @@ const colorStyles = ({ theme, color }) => {
   `;
 };
 
-const circleStyles = ({ circle }) =>
+const circleStyles = ({ circle }: BadgeProps) =>
   circle &&
   css`
     label: badge--circle;
@@ -83,7 +110,11 @@ const circleStyles = ({ circle }) =>
     width: 24px;
   `;
 
-const clickableStyles = ({ theme, onClick, color }) => {
+const clickableStyles = ({
+  theme,
+  onClick,
+  color = 'neutral'
+}: StyleProps & BadgeProps) => {
   const currentColor = COLOR_MAP[color];
   if (!onClick || !currentColor) {
     return null;
@@ -108,51 +139,17 @@ const clickableStyles = ({ theme, onClick, color }) => {
   `;
 };
 
-const StyledBadge = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color'
-})(baseStyles, colorStyles, circleStyles, clickableStyles);
-
 /**
  * A badge for displaying update notifications etc.
  */
-const Badge = React.forwardRef((props, ref) => (
-  <StyledBadge {...props} ref={ref} />
+const StyledBadge = styled('div', {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color'
+})<BadgeProps>(baseStyles, colorStyles, circleStyles, clickableStyles);
+
+/* eslint-disable react/display-name */
+const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => (
+  <StyledBadge as={props.onClick ? 'button' : 'div'} ref={ref} {...props} />
 ));
-
-Badge.displayName = 'Badge';
-
-Badge.propTypes = {
-  /**
-   * Callback for the click event.
-   */
-  onClick: PropTypes.func,
-  /**
-   * Ensures text is centered and the badge looks like a circle.
-   */
-  circle: PropTypes.bool,
-  color: PropTypes.oneOf([
-    'neutral',
-    'primary',
-    'success',
-    'warning',
-    'danger'
-  ]),
-  /**
-   * The ref to the html button dom element
-   */
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLDivElement)])
-    })
-  ])
-};
-
-Badge.defaultProps = {
-  circle: false,
-  color: 'neutral',
-  ref: undefined
-};
 
 /**
  * @component

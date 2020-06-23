@@ -62,7 +62,7 @@ exports[`Storyshots Components/Badge Base 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Badge
 </div>
@@ -101,7 +101,7 @@ exports[`Storyshots Components/Badge Circular 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   42
 </div>
@@ -146,7 +146,7 @@ exports[`Storyshots Components/Badge Clickable 1`] = `
 }
 
 <button
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 >
   Click me
 </button>
@@ -172,7 +172,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Neutral
   </div>,
@@ -194,7 +194,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Primary
   </div>,
@@ -216,7 +216,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Success
   </div>,
@@ -238,7 +238,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Warning
   </div>,
@@ -260,7 +260,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
     Danger
   </div>,
@@ -12468,7 +12468,7 @@ tbody .circuit-18:last-child td {
 `;
 
 exports[`Storyshots Components/Table With Component Rows 1`] = `
-.circuit-24 {
+.circuit-23 {
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
@@ -12485,7 +12485,7 @@ exports[`Storyshots Components/Table With Component Rows 1`] = `
   background-color: #8CC13F;
 }
 
-.circuit-34 {
+.circuit-32 {
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
@@ -12519,36 +12519,36 @@ exports[`Storyshots Components/Table With Component Rows 1`] = `
   background-color: #DB4D4D;
 }
 
-.circuit-44 {
+.circuit-41 {
   position: relative;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-42 {
+.circuit-39 {
   border-radius: 4px;
 }
 
 @media (max-width:767px) {
-  .circuit-42 {
+  .circuit-39 {
     height: unset;
     margin-left: 145px;
     overflow-x: auto;
   }
 }
 
-.circuit-40 {
+.circuit-37 {
   background-color: #FFFFFF;
   border-collapse: separate;
   width: 100%;
 }
 
 @media (max-width:767px) {
-  .circuit-40 {
+  .circuit-37 {
     margin-left: -145px;
     width: calc(100% + 145px);
   }
 
-  .circuit-40:after {
+  .circuit-37:after {
     content: '';
     background-image: linear-gradient( 90deg,rgba(0,0,0,0.12),transparent );
     height: 100%;
@@ -12648,7 +12648,7 @@ tbody .circuit-6:last-child td {
   }
 }
 
-.circuit-16 {
+.circuit-15 {
   background-color: #FFFFFF;
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
@@ -12685,13 +12685,13 @@ tbody .circuit-6:last-child td {
 }
 
 <div
-  class="circuit-44 circuit-45"
+  class="circuit-41 circuit-42"
 >
   <div
-    class="circuit-42 circuit-43"
+    class="circuit-39 circuit-40"
   >
     <table
-      class="circuit-40 circuit-41"
+      class="circuit-37 circuit-38"
     >
       <thead
         class="circuit-8 circuit-9"
@@ -12741,11 +12741,11 @@ tbody .circuit-6:last-child td {
             Apple
           </td>
           <td
-            class="circuit-16 circuit-3"
+            class="circuit-15 circuit-3"
             data-testid="table-cell"
           >
             <div
-              class="circuit-14 circuit-15"
+              class="circuit-14"
             >
               Fruit
             </div>
@@ -12770,11 +12770,11 @@ tbody .circuit-6:last-child td {
             Broccoli
           </td>
           <td
-            class="circuit-16 circuit-3"
+            class="circuit-15 circuit-3"
             data-testid="table-cell"
           >
             <div
-              class="circuit-24 circuit-15"
+              class="circuit-23"
             >
               Vegetable
             </div>
@@ -12799,11 +12799,11 @@ tbody .circuit-6:last-child td {
             Chickpeas
           </td>
           <td
-            class="circuit-16 circuit-3"
+            class="circuit-15 circuit-3"
             data-testid="table-cell"
           >
             <div
-              class="circuit-34 circuit-15"
+              class="circuit-32"
             >
               Legume
             </div>
