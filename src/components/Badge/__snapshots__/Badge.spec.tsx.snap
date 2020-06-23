@@ -130,7 +130,7 @@ exports[`Badge should have hover/active styles only when the onClick handler is 
   border: 0;
 }
 
-<div
+<button
   class="circuit-0"
 />
 `;
