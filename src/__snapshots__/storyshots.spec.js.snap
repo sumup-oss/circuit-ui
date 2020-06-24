@@ -8737,13 +8737,13 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   width: 1px;
 }
 
-.circuit-5 {
+.circuit-6 {
   font-size: 13px;
   line-height: 20px;
   display: block;
 }
 
-.circuit-7 {
+.circuit-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8761,7 +8761,7 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-7 {
+  .circuit-8 {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -8825,7 +8825,7 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   color: #003C8B;
 }
 
-.circuit-4 {
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
@@ -8842,6 +8842,7 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -8889,9 +8890,30 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   padding: 12px;
 }
 
+select:active ~ .circuit-3 {
+  display: none;
+}
+
+.circuit-4 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-4 {
+  display: none;
+}
+
 <nav
   aria-label="Pagination"
-  class="circuit-7"
+  class="circuit-8"
   role="navigation"
 >
   <button
@@ -8901,7 +8923,7 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
     Previous
   </button>
   <label
-    class="circuit-5"
+    class="circuit-6"
     for="select_24"
   >
     <span
@@ -8910,7 +8932,7 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
       Pagination
     </span>
     <div
-      class="circuit-4"
+      class="circuit-5"
     >
       <select
         class="circuit-2"
@@ -8976,10 +8998,27 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          clip-rule="evenodd"
-          d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-          fill="currentColor"
-          fill-rule="evenodd"
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <svg
+        class="circuit-4"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 10l4-4 4 4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
         />
       </svg>
     </div>
@@ -17918,7 +17957,7 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
 `;
 
 exports[`Storyshots Forms/Select Base 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -17936,6 +17975,7 @@ exports[`Storyshots Forms/Select Base 1`] = `
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -17983,19 +18023,40 @@ exports[`Storyshots Forms/Select Base 1`] = `
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
 .circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-3,
-label + .circuit-3 {
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
 <label
-  class="circuit-4"
+  class="circuit-5"
   for="43"
 >
   <span
@@ -18004,7 +18065,7 @@ label + .circuit-3 {
     Countries
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <select
       aria-invalid="false"
@@ -18037,10 +18098,27 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
@@ -18061,14 +18139,14 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
   width: 1px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-3 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -18085,6 +18163,7 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -18132,8 +18211,29 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
 <label
-  class="circuit-4"
+  class="circuit-5"
   for="46"
 >
   <span
@@ -18142,7 +18242,7 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
     Countries
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <select
       aria-invalid="false"
@@ -18175,10 +18275,27 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
@@ -18186,14 +18303,14 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
 `;
 
 exports[`Storyshots Forms/Select Invalid 1`] = `
-.circuit-5 {
+.circuit-6 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -18224,14 +18341,35 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
 .circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-3,
-label + .circuit-3 {
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
@@ -18246,6 +18384,7 @@ label + .circuit-3 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -18282,7 +18421,7 @@ label + .circuit-3 {
 }
 
 <label
-  class="circuit-5"
+  class="circuit-6"
   for="44"
 >
   <span
@@ -18291,7 +18430,7 @@ label + .circuit-3 {
     Countries
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <select
       aria-invalid="true"
@@ -18324,15 +18463,32 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
   <span
-    class="circuit-4"
+    class="circuit-5"
   >
     <svg
       fill="none"
@@ -18369,7 +18525,7 @@ label + .circuit-3 {
 `;
 
 exports[`Storyshots Forms/Select With Prefix 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -18389,14 +18545,35 @@ exports[`Storyshots Forms/Select With Prefix 1`] = `
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
 .circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-3,
-label + .circuit-3 {
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
@@ -18411,6 +18588,7 @@ label + .circuit-3 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -18447,7 +18625,7 @@ label + .circuit-3 {
 }
 
 <label
-  class="circuit-4"
+  class="circuit-5"
   for="45"
 >
   <span
@@ -18456,7 +18634,7 @@ label + .circuit-3 {
     Countries
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <svg
       fill="none"
@@ -18535,10 +18713,27 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
