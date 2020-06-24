@@ -19,7 +19,7 @@ import { Meta, Intro, Story } from '../../.storybook/components';
 
 1. Wrap your application in root level with `TrackingRoot` and provide a dispatch function for your tracking service.
 2. Add `TrackingView` to a page or other meaningful view (e.g. a modal) in your application. (For more explanation about event schema, please refer to [Schema](https://github.com/sumup-oss/collector#schema) in Collector.)
-3. For better data quality, Collector set `label` as a mandatory field. Circuit UI invoke dispatch function only when the component provides a `label` value. To set the `label` field, please pass down this value within tracking property to a component.
+3. To ensure high data quality, the `label` tracking property is mandatory in Collector. Circuit UI components invoke the dispatch function only when a value for the `label` property is passed as part of the `tracking` prop.
 4. When a user clicks a button, Circuit UI should invoke the dispatch function with standard event schema.
 
 ```jsx
