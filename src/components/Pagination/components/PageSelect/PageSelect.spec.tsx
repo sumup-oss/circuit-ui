@@ -34,8 +34,10 @@ describe('PageSelect', () => {
   const baseProps: PageSelectProps = {
     onChange: jest.fn(),
     label: 'Pagination',
+    totalLabel: total => `of ${total}`,
     pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    currentPage: 1
+    currentPage: 1,
+    totalPages: 10
   };
 
   describe('styles', () => {

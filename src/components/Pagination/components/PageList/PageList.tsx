@@ -30,11 +30,6 @@ const List = styled.ol`
   list-style: none;
   display: flex;
   justify-content: center;
-
-  ${p => p.theme.mq.untilKilo} {
-    width: 100%;
-    margin-bottom: ${p => p.theme.spacings.byte};
-  }
 `;
 
 export const PageList: FunctionComponent<PageListProps> = ({

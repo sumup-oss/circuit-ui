@@ -16,36 +16,49 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
+import { ChevronLeft, ChevronRight } from '@sumup/icons';
 
-import styled, { StyleProps } from '../../styles/styled';
-import Button from '../Button';
+import styled from '../../styles/styled';
+import IconButton from '../IconButton';
 import { PageSelect } from './components/PageSelect';
 import { PageList } from './components/PageList';
 import * as PaginationService from './PaginationService';
 
 export interface PaginationProps {
   /**
-   * Active page of pagination
+   * The currently active page
    */
   currentPage?: number;
   /**
-   * Total of items inside the pagination
+   * The total number of pages
    */
   totalPages: number;
   /**
-   * Callback for when an page is changed
+   * Callback for when the page is changed
    */
   onChange: (page: number) => void;
-  label: string;
-  pageLabel: (page: number) => string;
   /**
-   * Label to be used on button of next
+   * Label to describe the type of navigation, e.g. "Pagination"
+   */
+  label: string;
+  /**
+   * Label for the "previous page" button, "Previous page"
+   */
+  previousLabel: string;
+  /**
+   * Label for the "next page" button, e.g. "Next page"
    */
   nextLabel: string;
   /**
-   * Label to be used on button of previous
+   * Function that returns the label for a page button,
+   * called with the page number, e.g. "Go to page 9"
    */
-  previousLabel: string;
+  pageLabel: (page: number) => string;
+  /**
+   * Function that returns the label after the select element,
+   * called with the total number of pages, e.g. "of 10"
+   */
+  totalLabel?: (totalPages: number) => string;
 }
 
 const Nav = styled.nav`
@@ -54,19 +67,18 @@ const Nav = styled.nav`
   justify-content: center;
   width: 100%;
   padding: ${p => p.theme.spacings.kilo};
-
-  ${p => p.theme.mq.untilKilo} {
-    flex-wrap: wrap;
-  }
 `;
 
-const buttonStyles = ({ theme, wrap }: StyleProps & { wrap: boolean }) =>
-  wrap &&
+const prevButtonStyles = (theme: Theme) =>
   css`
-    ${theme.mq.untilKilo} {
-      order: 2;
-      width: 50%;
-    }
+    margin-right: ${theme.spacings.kilo};
+    flex-shrink: 0;
+  `;
+
+const nextButtonStyles = (theme: Theme) =>
+  css`
+    margin-left: ${theme.spacings.kilo};
+    flex-shrink: 0;
   `;
 
 /**
@@ -77,29 +89,31 @@ export const Pagination = ({
   totalPages,
   onChange,
   label = 'Pagination',
+  previousLabel = 'Previous page',
+  nextLabel = 'Next page',
   pageLabel = page => `Go to page ${page}`,
-  previousLabel = 'Previous',
-  nextLabel = 'Next',
+  totalLabel,
   ...props
 }: PaginationProps) => {
   if (!totalPages || totalPages < 2) {
     return null;
   }
 
-  const showList = totalPages <= 7;
+  const showList = totalPages <= 5;
   const pages = PaginationService.generatePages(totalPages);
 
   return (
     <Nav role="navigation" aria-label={label} {...props}>
-      <Button
+      <IconButton
+        label={previousLabel}
         size="kilo"
         variant="tertiary"
         disabled={currentPage <= 1}
         onClick={() => onChange(currentPage - 1)}
-        css={(theme: Theme) => buttonStyles({ theme, wrap: showList })}
+        css={prevButtonStyles}
       >
-        {previousLabel}
-      </Button>
+        <ChevronLeft />
+      </IconButton>
 
       {showList ? (
         <PageList
@@ -114,18 +128,21 @@ export const Pagination = ({
           onChange={onChange}
           pages={pages}
           currentPage={currentPage}
+          totalPages={totalPages}
+          totalLabel={totalLabel}
         />
       )}
 
-      <Button
+      <IconButton
+        label={nextLabel}
         size="kilo"
         variant="tertiary"
         disabled={currentPage >= totalPages}
         onClick={() => onChange(currentPage + 1)}
-        css={(theme: Theme) => buttonStyles({ theme, wrap: showList })}
+        css={nextButtonStyles}
       >
-        {nextLabel}
-      </Button>
+        <ChevronRight />
+      </IconButton>
     </Nav>
   );
 };

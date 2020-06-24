@@ -13,13 +13,6 @@ exports[`PageList styles should render with default styles 1`] = `
   justify-content: center;
 }
 
-@media (max-width:479px) {
-  .circuit-3 {
-    width: 100%;
-    margin-bottom: 8px;
-  }
-}
-
 .circuit-0 {
   display: -webkit-box;
   display: -webkit-flex;

@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageSelect styles should render with default styles 1`] = `
-.circuit-4 {
+HTMLCollection [
+  .circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -20,7 +21,7 @@ exports[`PageSelect styles should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
@@ -37,6 +38,7 @@ exports[`PageSelect styles should render with default styles 1`] = `
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -84,88 +86,136 @@ exports[`PageSelect styles should render with default styles 1`] = `
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
 <label
-  class="circuit-4"
-  for="select_1"
->
-  <span
+    class="circuit-5"
+    for="select_1"
+  >
+    <span
+      class="circuit-0"
+    >
+      Pagination
+    </span>
+    <div
+      class="circuit-4"
+    >
+      <select
+        class="circuit-1"
+        id="select_1"
+      >
+        <option
+          value="1"
+        >
+          1
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+        <option
+          value="3"
+        >
+          3
+        </option>
+        <option
+          value="4"
+        >
+          4
+        </option>
+        <option
+          value="5"
+        >
+          5
+        </option>
+        <option
+          value="6"
+        >
+          6
+        </option>
+        <option
+          value="7"
+        >
+          7
+        </option>
+        <option
+          value="8"
+        >
+          8
+        </option>
+        <option
+          value="9"
+        >
+          9
+        </option>
+        <option
+          value="10"
+        >
+          10
+        </option>
+      </select>
+      <svg
+        class="circuit-2"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <svg
+        class="circuit-3"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 10l4-4 4 4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+  </label>,
+  .circuit-0 {
+  margin-left: 12px;
+}
+
+<span
     class="circuit-0"
   >
-    Pagination
-  </span>
-  <div
-    class="circuit-3"
-  >
-    <select
-      class="circuit-1"
-      id="select_1"
-    >
-      <option
-        value="1"
-      >
-        1
-      </option>
-      <option
-        value="2"
-      >
-        2
-      </option>
-      <option
-        value="3"
-      >
-        3
-      </option>
-      <option
-        value="4"
-      >
-        4
-      </option>
-      <option
-        value="5"
-      >
-        5
-      </option>
-      <option
-        value="6"
-      >
-        6
-      </option>
-      <option
-        value="7"
-      >
-        7
-      </option>
-      <option
-        value="8"
-      >
-        8
-      </option>
-      <option
-        value="9"
-      >
-        9
-      </option>
-      <option
-        value="10"
-      >
-        10
-      </option>
-    </select>
-    <svg
-      class="circuit-2"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </div>
-</label>
+    of 10
+  </span>,
+]
 `;

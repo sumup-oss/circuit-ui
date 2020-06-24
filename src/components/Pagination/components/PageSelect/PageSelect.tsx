@@ -14,20 +14,21 @@
  */
 
 import React, { useCallback, FunctionComponent, ChangeEvent } from 'react';
-import { css } from '@emotion/core';
-import { Theme } from '@sumup/design-tokens';
 
+import styled from '../../../../styles/styled';
 import { Select, SelectProps } from '../../../Select/Select';
 
 export interface PageSelectProps extends Omit<SelectProps, 'onChange'> {
   onChange: (page: number) => void;
   pages: number[];
   currentPage: number;
+  totalPages: number;
+  totalLabel?: (totalPages: number) => string;
   [key: string]: any;
 }
 
-const selectStyles = (theme: Theme) => css`
-  margin: 0 ${theme.spacings.kilo};
+const TotalPages = styled('span')`
+  margin-left: ${p => p.theme.spacings.kilo};
 `;
 
 export const PageSelect: FunctionComponent<PageSelectProps> = ({
@@ -35,6 +36,8 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   onChange,
   pages,
   currentPage,
+  totalPages,
+  totalLabel,
   ...props
 }) => {
   const pageOptions = pages.map(value => ({ value, label: `${value}` }));
@@ -47,15 +50,17 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   );
 
   return (
-    <Select
-      {...props}
-      label={label}
-      value={currentPage}
-      options={pageOptions}
-      onChange={handleChange}
-      css={selectStyles}
-      hideLabel
-      noMargin
-    />
+    <>
+      <Select
+        {...props}
+        label={label}
+        value={currentPage}
+        options={pageOptions}
+        onChange={handleChange}
+        hideLabel
+        noMargin
+      />
+      {totalLabel && <TotalPages>{totalLabel(totalPages)}</TotalPages>}
+    </>
   );
 };

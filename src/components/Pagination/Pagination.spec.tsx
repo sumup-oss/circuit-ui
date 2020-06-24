@@ -34,9 +34,10 @@ describe('Pagination', () => {
     onChange: jest.fn(),
     totalPages: 5,
     label: 'Pagination',
-    pageLabel: page => `Go to page ${page}`,
     previousLabel: 'Previous',
-    nextLabel: 'Next'
+    nextLabel: 'Next',
+    pageLabel: page => `Go to page ${page}`,
+    totalLabel: total => `of ${total}`
   };
 
   it('should disable the previous button on the first page', () => {
@@ -97,7 +98,7 @@ describe('Pagination', () => {
     });
   });
 
-  describe('with 2 to 7 pages', () => {
+  describe('with 2 to 5 pages', () => {
     const props = { ...baseProps, totalPages: 5 };
 
     it('should render with default styles', () => {
@@ -112,7 +113,7 @@ describe('Pagination', () => {
     });
   });
 
-  describe('with more than 7 pages', () => {
+  describe('with more than 5 pages', () => {
     const props = { ...baseProps, totalPages: 10 };
 
     it('should render with default styles', () => {
