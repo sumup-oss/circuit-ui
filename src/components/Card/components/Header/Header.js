@@ -45,28 +45,19 @@ const CardHeaderContainer = styled('header')`
   ${noHeadingStyles};
 `;
 
-const CardHeader = ({ onClose, children, labelCloseButton, ...props }) => {
-  const { label, component = 'close-button', customParameters } =
-    props.tracking || {};
-
-  return (
-    <CardHeaderContainer {...props}>
-      {children}
-      {onClose && (
-        <CloseButton
-          onClick={onClose}
-          label={labelCloseButton}
-          data-testid="header-close"
-          tracking={{
-            label,
-            component,
-            customParameters
-          }}
-        />
-      )}
-    </CardHeaderContainer>
-  );
-};
+const CardHeader = ({ onClose, children, labelCloseButton, tracking = {}, ...props }) => (
+  <CardHeaderContainer {...props}>
+    {children}
+    {onClose && (
+      <CloseButton
+        onClick={onClose}
+        label={labelCloseButton}
+        data-testid="header-close"
+        tracking={{ component: 'close-button', ...tracking }}
+      />
+    )}
+  </CardHeaderContainer>
+);
 
 CardHeader.propTypes = {
   /**
