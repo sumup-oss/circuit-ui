@@ -28,7 +28,7 @@ import {
   // Label,
   RadioButton,
   // Select,
-  Selector,
+  // Selector,
   Tag,
   // TextArea,
   Toggle
@@ -170,7 +170,7 @@ export default {
     // getComponentInfo(Select, {
     //   renderPrefix: PropTypes.element
     // }),
-    { name: 'selector', component: Selector },
+    // { name: 'selector', component: Selector },
     // TODO: Make React DocGen work with TypeScript
     // getComponentInfo(SubHeading, {
     //   size: ['kilo', 'mega']

@@ -14,10 +14,10 @@
  */
 
 import React, { useState } from 'react';
-import { boolean } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs';
 
 import docs from './Selector.docs.mdx';
-import Selector from './Selector';
+import { Selector, SelectorProps } from './Selector';
 
 export default {
   title: 'Forms/Selector',
@@ -28,14 +28,21 @@ export default {
 };
 
 /* eslint-disable react/prop-types */
-const SelectorWithState = props => {
+const SelectorWithState = (props: Partial<SelectorProps>) => {
   const [checked, setChecked] = useState(props.checked || false);
 
   const toggleChecked = () => {
     setChecked(prev => !prev);
   };
 
-  return <Selector {...props} checked={checked} onChange={toggleChecked} />;
+  return (
+    <Selector
+      value="default"
+      {...props}
+      checked={checked}
+      onChange={toggleChecked}
+    />
+  );
 };
 
 export const base = () => (

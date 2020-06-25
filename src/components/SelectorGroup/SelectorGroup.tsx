@@ -13,18 +13,49 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode, ChangeEvent } from 'react';
 import { includes } from 'lodash/fp';
 
 import { uniqueId } from '../../util/id';
 
 import Selector from '../Selector';
 
+export interface SelectorGroupProps {
+  /**
+   * A collection of available options. Each option must have at least
+   * a value and children.
+   */
+  options: {
+    value: string;
+    children: ReactNode;
+    disabled?: boolean;
+  }[];
+  /**
+   * Controles/Toggles the checked state. Passed on to the Selectors.
+   */
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  /**
+   * The value of the currently checked Selector.
+   */
+  value: string | string[];
+  /**
+   * A visually hidden description of the selector group for screen readers.
+   */
+  label: string;
+  /**
+   * A unique name for the radio group.
+   */
+  name?: string;
+  /**
+   * Whether the user can select multiple options.
+   */
+  multiple?: boolean;
+}
+
 /**
  * A group of Selectors.
  */
-const SelectorGroup = ({
+export function SelectorGroup({
   options,
   onChange,
   value: activeValue,
@@ -32,7 +63,7 @@ const SelectorGroup = ({
   label,
   multiple,
   ...props
-}) => {
+}: SelectorGroupProps) {
   const name = customName || uniqueId('selector-group_');
   return (
     <div role="group" aria-label={label} {...props}>
@@ -48,52 +79,4 @@ const SelectorGroup = ({
         ))}
     </div>
   );
-};
-
-SelectorGroup.propTypes = {
-  /**
-   * A collection of available options. Each option must have at least
-   * a value and children.
-   */
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        .isRequired,
-      children: PropTypes.any.isRequired,
-      disabled: PropTypes.bool
-    })
-  ).isRequired,
-  /**
-   * Controles/Toggles the checked state. Passed on to the Selectors.
-   */
-  onChange: PropTypes.func.isRequired,
-  /**
-   * The value of the currently checked Selector.
-   */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]).isRequired,
-  /**
-   * A unique name for the radio group.
-   */
-  name: PropTypes.string,
-  /**
-   * A visually hidden description of the selector group for screen readers.
-   */
-  label: PropTypes.string,
-  /**
-   * Whether the user can select multiple options.
-   */
-  multiple: PropTypes.bool
-};
-
-SelectorGroup.defaultProps = {
-  name: null,
-  multiple: false
-};
-
-/**
- * @component
- */
-export default SelectorGroup;
+}

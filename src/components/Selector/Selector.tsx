@@ -13,37 +13,65 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { Ref, HTMLProps } from 'react';
 import { css } from '@emotion/core';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import styled, { StyleProps } from '../../styles/styled';
 import {
-  shadowSingle,
-  shadowDouble,
   focusOutline,
-  hideVisually
+  hideVisually,
+  disableVisually
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 
-const wrapperStyles = ({ theme }) => css`
+export interface SelectorProps extends HTMLProps<HTMLInputElement> {
+  /**
+   * Value string for input.
+   */
+  value: string;
+  /**
+   * A unique identifier for the input field. If not defined, a randomly generated id is used.
+   */
+  id?: string;
+  /**
+   * The name of the selector.
+   */
+  name?: string;
+  /**
+   * Whether the selector is selected or not.
+   */
+  checked?: boolean;
+  /**
+   * Whether the selector is disabled or not.
+   */
+  disabled?: boolean;
+  /**
+   * Whether the user can select multiple options.
+   */
+  multiple?: boolean;
+  /**
+   * The ref to the html dom element
+   */
+  ref?: Ref<HTMLInputElement>;
+}
+
+const wrapperStyles = ({ theme }: StyleProps) => css`
   label: selector;
   position: relative;
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const SelectorWrapper = styled.div(wrapperStyles);
+const SelectorWrapper = styled('div')<{}>(wrapperStyles);
 
-const baseStyles = ({ theme }) => css`
+type LabelElProps = Pick<SelectorProps, 'disabled'>;
+
+const baseStyles = ({ theme }: StyleProps) => css`
   label: selector__label;
-  ${shadowSingle({ theme })};
   display: block;
   cursor: pointer;
-  padding: ${theme.spacings.giga};
+  padding: ${theme.spacings.mega} ${theme.spacings.giga};
   border-radius: ${theme.borderRadius.giga};
   background-color: ${theme.colors.white};
-  fill: ${theme.colors.n400};
   text-align: center;
 
   &::before {
@@ -57,7 +85,7 @@ const baseStyles = ({ theme }) => css`
     width: 100%;
     height: 100%;
     border-radius: ${theme.borderRadius.giga};
-    border: ${theme.borderWidth.kilo} solid ${theme.colors.n500};
+    border: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
     transition: border 0.1s ease-in-out;
   }
 
@@ -65,27 +93,29 @@ const baseStyles = ({ theme }) => css`
     background-color: ${theme.colors.n100};
 
     &::before {
-      border: ${theme.borderWidth.mega} solid ${theme.colors.n500};
+      border-color: ${theme.colors.n500};
+    }
+  }
+
+  &:active {
+    background-color: ${theme.colors.n200};
+
+    &::before {
+      border-color: ${theme.colors.n700};
     }
   }
 `;
 
-const disabledStyles = ({ disabled, theme }) =>
+const disabledStyles = ({ disabled }: LabelElProps) =>
   disabled &&
   css`
     label: selector__label--disabled;
-    color: ${theme.colors.n500};
-    cursor: default;
-    pointer-events: none;
-
-    &::before {
-      border-color: ${theme.colors.n300};
-    }
+    ${disableVisually()};
   `;
 
-const SelectorLabel = styled.label(baseStyles, disabledStyles);
+const SelectorLabel = styled('label')<LabelElProps>(baseStyles, disabledStyles);
 
-const inputStyles = ({ theme }) => css`
+const inputStyles = ({ theme }: StyleProps) => css`
   label: selector__input;
   ${hideVisually()};
 
@@ -94,8 +124,7 @@ const inputStyles = ({ theme }) => css`
   }
 
   &:checked + label {
-    background-color: ${theme.colors.b100};
-    ${shadowDouble({ theme })};
+    background-color: ${theme.colors.p100};
 
     &::before {
       border: ${theme.borderWidth.mega} solid ${theme.colors.p500};
@@ -103,9 +132,9 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const SelectorInput = styled.input(inputStyles);
+const SelectorInput = styled('input')<SelectorProps>(inputStyles);
 
-const SelectorComponent = (
+function SelectorComponent(
   {
     children,
     value,
@@ -116,9 +145,9 @@ const SelectorComponent = (
     checked,
     onChange,
     ...props
-  },
-  ref
-) => {
+  }: SelectorProps,
+  ref: SelectorProps['ref']
+) {
   const inputId = id || uniqueId('selector_');
   const type = multiple ? 'checkbox' : 'radio';
   return (
@@ -138,65 +167,10 @@ const SelectorComponent = (
       </SelectorLabel>
     </SelectorWrapper>
   );
-};
+}
 
 /**
  * A selector allows users to choose between several mutually-exlusive choices,
  * accompanied by descriptions, possibly with tabular data.
  */
-const Selector = React.forwardRef(SelectorComponent);
-
-Selector.propTypes = {
-  /**
-   * Controles/Toggles the checked state.
-   */
-  onChange: PropTypes.func.isRequired,
-  /**
-   * Value string for input.
-   */
-  value: PropTypes.string.isRequired,
-  /**
-   * Child nodes to be rendered as the label.
-   */
-  children: childrenPropType.isRequired,
-  /**
-   * The name of the selector.
-   */
-  name: PropTypes.string.isRequired,
-  /**
-   * A unique ID used to link the input and label.
-   */
-  id: PropTypes.string,
-  /**
-   * Whether the selector is selected or not.
-   */
-  checked: PropTypes.bool,
-  /**
-   * Whether the selector is disabled or not.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Whether the user can select multiple options.
-   */
-  multiple: PropTypes.bool,
-  /**
-   * The ref to the html dom element
-   */
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
-    })
-  ])
-};
-
-Selector.defaultProps = {
-  checked: false,
-  disabled: false,
-  multiple: false
-};
-
-/**
- * @component
- */
-export default Selector;
+export const Selector = React.forwardRef(SelectorComponent);

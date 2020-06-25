@@ -15,29 +15,36 @@
 
 import React from 'react';
 
-import SelectorGroup from '.';
+import { create, render, renderToHtml, axe } from '../../util/test-utils';
+
+import { SelectorGroup } from './SelectorGroup';
 
 describe('SelectorGroup', () => {
-  const options = [
-    {
-      children: 'Option 1',
-      value: 'first'
-    },
-    {
-      children: 'Option 2',
-      value: 'second'
-    },
-    {
-      children: 'Option 3',
-      value: 'third'
-    }
-  ];
+  const defaultProps = {
+    onChange: jest.fn(),
+    value: '',
+    label: 'Choose an option',
+    options: [
+      {
+        children: 'Option 1',
+        value: 'first'
+      },
+      {
+        children: 'Option 2',
+        value: 'second'
+      },
+      {
+        children: 'Option 3',
+        value: 'third'
+      }
+    ]
+  };
 
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<SelectorGroup {...{ options }} />);
+    const actual = create(<SelectorGroup {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -47,7 +54,7 @@ describe('SelectorGroup', () => {
   it('should check the selected option', () => {
     const value = 'second';
     const { getByLabelText } = render(
-      <SelectorGroup options={options} value={value} />
+      <SelectorGroup {...defaultProps} value={value} />
     );
     expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
     expect(getByLabelText('Option 2')).toHaveAttribute('checked');
@@ -57,7 +64,7 @@ describe('SelectorGroup', () => {
   it('should check the selected options', () => {
     const value = ['second', 'third'];
     const { getByLabelText } = render(
-      <SelectorGroup options={options} value={value} multiple />
+      <SelectorGroup {...defaultProps} value={value} multiple />
     );
     expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
     expect(getByLabelText('Option 2')).toHaveAttribute('checked');
@@ -70,11 +77,7 @@ describe('SelectorGroup', () => {
   it('should meet accessibility guidelines', async () => {
     const value = 'second';
     const wrapper = renderToHtml(
-      <SelectorGroup
-        options={options}
-        value={value}
-        label="Choose your favourite option"
-      />
+      <SelectorGroup {...defaultProps} value={value} />
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
