@@ -13,15 +13,16 @@
  * limitations under the License.
  */
 
-import { Transform } from 'jscodeshift';
+import { Transform, JSCodeshift, Collection } from 'jscodeshift';
 
 import { renameJSXAttribute, findLocalNames } from './utils';
 
-const transform: Transform = (file, api) => {
-  const j = api.jscodeshift;
-  const root = j(file.source);
-
-  const components = findLocalNames(j, root, 'Input');
+function transformFactory(
+  j: JSCodeshift,
+  root: Collection,
+  componentName: string
+): void {
+  const components = findLocalNames(j, root, componentName);
 
   if (!components) {
     return;
@@ -30,6 +31,14 @@ const transform: Transform = (file, api) => {
   components.forEach(component => {
     renameJSXAttribute(j, root, component, 'wrapperStyles', 'labelStyles');
   });
+}
+
+const transform: Transform = (file, api) => {
+  const j = api.jscodeshift;
+  const root = j(file.source);
+
+  transformFactory(j, root, 'Input');
+  transformFactory(j, root, 'TextArea');
 
   return root.toSource();
 };
