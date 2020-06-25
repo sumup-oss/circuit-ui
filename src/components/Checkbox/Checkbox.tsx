@@ -13,22 +13,37 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { HTMLProps, Ref } from 'react';
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
 import { Check } from '@sumup/icons';
 
+import styled, { StyleProps } from '../../styles/styled';
 import {
   disableVisually,
   hideVisually,
   focusOutline
 } from '../../styles/style-helpers';
-import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
 
-const labelBaseStyles = ({ theme }) => css`
+export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
+  /**
+   * Triggers error styles on the component.
+   */
+  invalid?: boolean;
+  /**
+   * Warning or error message, displayed in a tooltip.
+   */
+  validationHint?: string;
+  /**
+   * The ref to the html dom element
+   */
+  ref?: Ref<HTMLInputElement>;
+}
+
+type LabelElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
+
+const labelBaseStyles = ({ theme }: StyleProps) => css`
   label: checkbox__label;
   color: ${theme.colors.n700};
   display: inline-block;
@@ -70,7 +85,7 @@ const labelBaseStyles = ({ theme }) => css`
   }
 `;
 
-const labelInvalidStyles = ({ theme, invalid }) =>
+const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
   invalid &&
   css`
     label: checkbox--error;
@@ -84,7 +99,7 @@ const labelInvalidStyles = ({ theme, invalid }) =>
     }
   `;
 
-const labelDisabledStyles = ({ theme, disabled }) =>
+const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
   disabled &&
   css`
     label: checkbox--disabled;
@@ -102,7 +117,24 @@ const labelDisabledStyles = ({ theme, disabled }) =>
     }
   `;
 
-const inputStyles = ({ theme }) => css`
+const CheckboxLabel = styled('label')<LabelElProps>(
+  labelBaseStyles,
+  labelDisabledStyles,
+  labelInvalidStyles
+);
+
+const checkboxWrapperStyles = ({ theme }: StyleProps) => css`
+  label: checkbox;
+  position: relative;
+
+  &:last-of-type {
+    margin-bottom: ${theme.spacings.mega};
+  }
+`;
+
+const CheckboxWrapper = styled('div')<{}>(checkboxWrapperStyles);
+
+const inputStyles = ({ theme }: StyleProps) => css`
   label: checkbox__input;
   ${hideVisually()};
 
@@ -120,37 +152,14 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const checkboxWrapperBaseStyles = ({ theme }) => css`
-  label: checkbox;
-  position: relative;
+const CheckboxInput = styled('input')<CheckboxProps>(inputStyles);
 
-  &:last-of-type {
-    margin-bottom: ${theme.spacings.mega};
-  }
-`;
-
-const tooltipBaseStyles = ({ theme }) => css`
+const tooltipStyles = ({ theme }: StyleProps) => css`
   label: checkbox__tooltip;
   left: -${theme.spacings.kilo};
 `;
 
-const CheckboxInput = styled('input')`
-  ${inputStyles};
-`;
-
-const CheckboxLabel = styled('label')`
-  ${labelBaseStyles};
-  ${labelDisabledStyles};
-  ${labelInvalidStyles};
-`;
-
-const CheckboxWrapper = styled('div')`
-  ${checkboxWrapperBaseStyles};
-`;
-
-const CheckboxTooltip = styled(Tooltip)`
-  ${tooltipBaseStyles};
-`;
+const CheckboxTooltip = styled(Tooltip)<{}>(tooltipStyles);
 
 const CheckboxComponent = (
   {
@@ -161,9 +170,10 @@ const CheckboxComponent = (
     disabled,
     validationHint,
     className,
+    invalid,
     ...props
-  },
-  ref
+  }: CheckboxProps,
+  ref: CheckboxProps['ref']
 ) => {
   const id = customId || uniqueId('checkbox_');
   return (
@@ -175,13 +185,17 @@ const CheckboxComponent = (
         value={value}
         type="checkbox"
         disabled={disabled}
+        invalid={invalid}
         ref={ref}
       />
-      <CheckboxLabel {...props} htmlFor={id} disabled={disabled}>
+      <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
         {children}
         <Check aria-hidden="true" />
       </CheckboxLabel>
       {!disabled && validationHint && (
+        // TODO: Reenable typechecks once Tooltip has been migrated to TypeScript.
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
         <CheckboxTooltip position={'top'} align={'right'}>
           {validationHint}
         </CheckboxTooltip>
@@ -193,75 +207,4 @@ const CheckboxComponent = (
 /**
  * Checkbox component for forms.
  */
-const Checkbox = React.forwardRef(CheckboxComponent);
-
-Checkbox.propTypes = {
-  /**
-   * Controles/Toggles the checked state.
-   */
-  onChange: PropTypes.func,
-  /**
-   * Value string for input.
-   */
-  value: PropTypes.string.isRequired,
-  /**
-   * Child nodes to be rendered as the label.
-   */
-  children: childrenPropType.isRequired,
-  /**
-   * The name of the checkbox.
-   */
-  name: PropTypes.string.isRequired,
-  /**
-   * A unique ID used to link the input and label.
-   */
-  id: PropTypes.string,
-  /**
-   * Triggers checked styles on the component. This is also forwarded as
-   * attribute to the <input> element.
-   */
-  checked: PropTypes.bool,
-  /**
-   * Triggers error styles on the component.
-   */
-  invalid: PropTypes.bool,
-  /**
-   * Triggers disabled styles on the component. This is also forwarded as
-   * attribute to the <input> element.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Warning or error message, displayed in a tooltip.
-   */
-  validationHint: PropTypes.string,
-  /**
-   * Override styles for the Checkbox component.
-   */
-  className: PropTypes.string,
-  /**
-   * The ref to the html dom element
-   */
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
-    })
-  ])
-};
-
-Checkbox.defaultProps = {
-  onChange: undefined,
-  id: null,
-  checked: false,
-  value: '',
-  invalid: false,
-  disabled: false,
-  children: null,
-  className: '',
-  ref: undefined
-};
-
-/**
- * @component
- */
-export default Checkbox;
+export const Checkbox = React.forwardRef(CheckboxComponent);

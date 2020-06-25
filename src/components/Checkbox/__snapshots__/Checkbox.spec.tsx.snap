@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox should render with a tooltip when passed a validation hint 1`] = `
-.circuit-6 {
+.circuit-3 {
   position: relative;
 }
 
-.circuit-6:last-of-type {
+.circuit-3:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -42,7 +42,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -50,7 +50,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -70,7 +70,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -90,7 +90,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-.circuit-4 {
+.circuit-2 {
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -113,7 +113,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   left: -12px;
 }
 
-.circuit-4::after {
+.circuit-2::after {
   display: block;
   content: '';
   width: 0;
@@ -122,27 +122,27 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   border: 8px solid transparent;
 }
 
-.circuit-4::after {
+.circuit-2::after {
   left: 12px;
 }
 
-.circuit-4::after {
+.circuit-2::after {
   top: 100%;
   border-top-color: #212933;
 }
 
 <div
-  class=" circuit-6 circuit-7"
+  class="circuit-3"
 >
   <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="checkbox_5"
     name="name"
     type="checkbox"
     value=""
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     for="checkbox_5"
   >
     <svg
@@ -163,7 +163,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
     </svg>
   </label>
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
   >
     This field is required.
   </div>
@@ -171,11 +171,11 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 `;
 
 exports[`Checkbox should render with checked styles when passed the checked prop 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-4:last-of-type {
+.circuit-2:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -212,7 +212,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -220,7 +220,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -240,7 +240,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -261,18 +261,18 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 }
 
 <div
-  class=" circuit-4 circuit-5"
+  class="circuit-2"
 >
   <input
     checked=""
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="checkbox_2"
     name="name"
     type="checkbox"
     value=""
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     for="checkbox_2"
   >
     <svg
@@ -296,11 +296,11 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 `;
 
 exports[`Checkbox should render with default styles 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-4:last-of-type {
+.circuit-2:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -337,7 +337,7 @@ exports[`Checkbox should render with default styles 1`] = `
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -345,7 +345,7 @@ exports[`Checkbox should render with default styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -365,7 +365,7 @@ exports[`Checkbox should render with default styles 1`] = `
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -386,17 +386,17 @@ exports[`Checkbox should render with default styles 1`] = `
 }
 
 <div
-  class=" circuit-4 circuit-5"
+  class="circuit-2"
 >
   <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="checkbox_1"
     name="name"
     type="checkbox"
     value=""
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     for="checkbox_1"
   >
     <svg
@@ -420,11 +420,11 @@ exports[`Checkbox should render with default styles 1`] = `
 `;
 
 exports[`Checkbox should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-4:last-of-type {
+.circuit-2:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -461,7 +461,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -472,7 +472,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   box-shadow: none;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -492,7 +492,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -512,7 +512,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -520,7 +520,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   background-color: #FAFBFC;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -528,10 +528,10 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 }
 
 <div
-  class=" circuit-4 circuit-5"
+  class="circuit-2"
 >
   <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     disabled=""
     id="checkbox_3"
     name="name"
@@ -539,7 +539,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
     value=""
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     disabled=""
     for="checkbox_3"
   >
@@ -564,11 +564,11 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 `;
 
 exports[`Checkbox should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-4:last-of-type {
+.circuit-2:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -605,7 +605,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -613,7 +613,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -633,7 +633,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -653,27 +653,27 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-.circuit-2:not(:focus)::before {
+.circuit-1:not(:focus)::before {
   border-color: #DB4D4D;
   background-color: #F4CBCB;
 }
 
-.circuit-2:not(:focus) svg {
+.circuit-1:not(:focus) svg {
   color: #DB4D4D;
 }
 
 <div
-  class=" circuit-4 circuit-5"
+  class="circuit-2"
 >
   <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="checkbox_4"
     name="name"
     type="checkbox"
     value=""
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     for="checkbox_4"
   >
     <svg
