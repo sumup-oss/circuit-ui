@@ -68,14 +68,6 @@ npm install --save @sumup/design-tokens @sumup/icons @sumup/intl
 
 Refer to the individual packages for documentation on how to use them.
 
-### Forward custom props and refs
-
-Any additional props that are passed to a component are now spread on their outermost child element ([#553](https://github.com/sumup-oss/circuit-ui/pull/553)). This is useful for test ids, data attributes, and custom styles using Emotion's `styled` function or `css` prop.
-
-React [`ref`s](https://reactjs.org/docs/refs-and-the-dom.html) allow you to access the underlying DOM node of a component. All Circuit UI components now forward `ref`s to the underlying DOM node (for single node components such as a Button) or to the main interactive DOM node (for composite components such as an Input) ([#592](https://github.com/sumup-oss/circuit-ui/pull/592)).
-
-⚠️ _The ability to pass custom styles and `ref`s is meant as an escape hatch. We strongly recommend to avoid using them as we cannot guarantee that they will be compatible with future changes. Please consider opening an issue or PR to suggest the improvement in Circuit UI instead._
-
 ### Component static properties
 
 Many components expose their configuration values as static properties. The `Text` component, for example, exposes its size options as `Text.KILO`, `Text.MEGA`, and `Text.GIGA`. The purpose of these static properties was to autocomplete the options and prevent typos.
@@ -127,7 +119,9 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The `flat` **Button** variant has been removed (🤖 _button-variant-enum_)
 - The **LoadingButton**'s exit animations have been removed. An action's success or error result should be communicated outside the button (🤖 _exit-animations_)
 - The **RadioButton** and **Switch** components no longer accept the `onToggle` prop. Use the `onChange` prop instead (🤖 _onchange-prop_)
-- The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead.
+- The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead. The `wrapperStyles` prop has been renamed to `labelStyles` (🤖 _input-label-styles-prop_). The `deepRef` prop has been renamed to `ref` (🤖 _input-deepref-prop_)
+- The **Input** and **Textarea** components' `deepRef` prop has been renamed to `ref` (🤖 _input-deepref-prop_)
+- The **Input** and **Textarea** components no longer have an `optional` state. Add "(optional)" to the label text instead.
 - The **Selector** component no longer accepts the `onClick` and `selected` props. Use the `onChange` and `checked` props instead (🤖 _selector-props_). The `value` and `name` have been added as required props.
 - The **RadioButtonGroup** component's `label` property inside the `options` prop has been renamed to `children`.
 - The **IconButton** component's dimensions and style have changed. It is now consistent with the Button component.
