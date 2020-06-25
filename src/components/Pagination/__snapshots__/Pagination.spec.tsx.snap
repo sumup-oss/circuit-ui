@@ -1,0 +1,684 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
+.circuit-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  color: #1760CE;
+}
+
+.circuit-1:active {
+  color: #003C8B;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 4px calc(16px - 1px);
+  border-radius: 6px;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-2:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
+}
+
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 4px calc(16px - 1px);
+  border-radius: 6px;
+}
+
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  color: #1760CE;
+}
+
+.circuit-3:active {
+  color: #003C8B;
+}
+
+<nav
+  aria-label="Pagination"
+  class="circuit-10"
+  role="navigation"
+>
+  <button
+    class="circuit-1"
+    disabled=""
+    title="Previous"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10 4L6 8l4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Previous
+    </span>
+  </button>
+  <ol
+    class="circuit-7"
+    role="list"
+  >
+    <li>
+      <button
+        aria-current="true"
+        aria-label="Go to page 1"
+        class="circuit-2"
+        title="Go to page 1"
+      >
+        1
+      </button>
+    </li>
+    <li>
+      <button
+        aria-current="false"
+        aria-label="Go to page 2"
+        class="circuit-3"
+        title="Go to page 2"
+      >
+        2
+      </button>
+    </li>
+    <li>
+      <button
+        aria-current="false"
+        aria-label="Go to page 3"
+        class="circuit-3"
+        title="Go to page 3"
+      >
+        3
+      </button>
+    </li>
+    <li>
+      <button
+        aria-current="false"
+        aria-label="Go to page 4"
+        class="circuit-3"
+        title="Go to page 4"
+      >
+        4
+      </button>
+    </li>
+    <li>
+      <button
+        aria-current="false"
+        aria-label="Go to page 5"
+        class="circuit-3"
+        title="Go to page 5"
+      >
+        5
+      </button>
+    </li>
+  </ol>
+  <button
+    class="circuit-1"
+    title="Next"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12l4-4-4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Next
+    </span>
+  </button>
+</nav>
+`;
+
+exports[`Pagination with more than 5 pages should render with default styles 1`] = `
+.circuit-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  color: #1760CE;
+}
+
+.circuit-1:active {
+  color: #003C8B;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-6 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+.circuit-3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #212933;
+  margin: 0;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-3:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-3:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-3:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-3:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-4 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:active ~ .circuit-4 {
+  display: none;
+}
+
+.circuit-5 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-5 {
+  display: none;
+}
+
+.circuit-8 {
+  margin-left: 12px;
+}
+
+<nav
+  aria-label="Pagination"
+  class="circuit-11"
+  role="navigation"
+>
+  <button
+    class="circuit-1"
+    disabled=""
+    title="Previous"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10 4L6 8l4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Previous
+    </span>
+  </button>
+  <label
+    class="circuit-7"
+    for="select_1"
+  >
+    <span
+      class="circuit-0"
+    >
+      Pagination
+    </span>
+    <div
+      class="circuit-6"
+    >
+      <select
+        class="circuit-3"
+        id="select_1"
+      >
+        <option
+          value="1"
+        >
+          1
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+        <option
+          value="3"
+        >
+          3
+        </option>
+        <option
+          value="4"
+        >
+          4
+        </option>
+        <option
+          value="5"
+        >
+          5
+        </option>
+        <option
+          value="6"
+        >
+          6
+        </option>
+        <option
+          value="7"
+        >
+          7
+        </option>
+        <option
+          value="8"
+        >
+          8
+        </option>
+        <option
+          value="9"
+        >
+          9
+        </option>
+        <option
+          value="10"
+        >
+          10
+        </option>
+      </select>
+      <svg
+        class="circuit-4"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <svg
+        class="circuit-5"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 10l4-4 4 4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+  </label>
+  <span
+    class="circuit-8"
+  >
+    of 10
+  </span>
+  <button
+    class="circuit-1"
+    title="Next"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12l4-4-4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Next
+    </span>
+  </button>
+</nav>
+`;

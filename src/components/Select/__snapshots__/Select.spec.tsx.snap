@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select should not render with invalid styles when also passed the disabled prop 1`] = `
-.circuit-2 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -25,7 +25,28 @@ label + .circuit-2 {
   padding: 12px;
 }
 
-.circuit-3 {
+select:active ~ .circuit-1 {
+  display: none;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -46,6 +67,7 @@ label + .circuit-2 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -69,7 +91,7 @@ label + .circuit-2 {
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #DB4D4D;
+  box-shadow: 0 0 0 1px #B22828;
 }
 
 .circuit-0:focus {
@@ -81,18 +103,18 @@ label + .circuit-2 {
 }
 
 <span
-  class="circuit-3"
+  class="circuit-4"
   disabled=""
-  for="select_5"
+  for="select_6"
 >
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <select
       aria-invalid="true"
       class="circuit-0"
       disabled=""
-      id="select_5"
+      id="select_6"
     >
       <option
         value=""
@@ -124,10 +146,27 @@ label + .circuit-2 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
@@ -135,21 +174,21 @@ label + .circuit-2 {
 `;
 
 exports[`Select should render with a label 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-3 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-3,
-label + .circuit-3 {
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
 }
 
@@ -164,6 +203,7 @@ label + .circuit-3 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -211,8 +251,29 @@ label + .circuit-3 {
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
 <label
-  class="circuit-4"
+  class="circuit-5"
   for="select_2"
 >
   <span
@@ -221,7 +282,7 @@ label + .circuit-3 {
     Label
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <select
       class="circuit-1"
@@ -257,10 +318,27 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
@@ -268,21 +346,21 @@ label + .circuit-3 {
 `;
 
 exports[`Select should render with a prefix when passed the prefix prop 1`] = `
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -299,6 +377,27 @@ label + .circuit-2 {
   padding: 12px;
 }
 
+select:active ~ .circuit-1 {
+  display: none;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-2 {
+  display: none;
+}
+
 .circuit-0 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -310,6 +409,7 @@ label + .circuit-2 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -346,15 +446,199 @@ label + .circuit-2 {
 }
 
 <span
-  class="circuit-3"
-  for="select_9"
+  class="circuit-4"
+  for="select_10"
 >
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <div
       style="width: 24px; height: 24px;"
     />
+    <select
+      class="circuit-0"
+      id="select_10"
+    >
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-1"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</span>
+`;
+
+exports[`Select should render with a tooltip when passed a validation hint 1`] = `
+.circuit-5 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #212933;
+  margin: 0;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-1 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:active ~ .circuit-1 {
+  display: none;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+<span
+  class="circuit-5"
+  for="select_9"
+>
+  <div
+    class="circuit-3"
+  >
     <select
       class="circuit-0"
       id="select_9"
@@ -389,36 +673,47 @@ label + .circuit-2 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
+  <span
+    class="circuit-4"
+  >
+    This field is required.
+  </span>
 </span>
 `;
 
-exports[`Select should render with a tooltip when passed a validation hint 1`] = `
-.circuit-4 {
+exports[`Select should render with a visually-hidden label 1`] = `
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-2,
-label + .circuit-2 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
+.circuit-1 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -429,6 +724,7 @@ label + .circuit-2 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -446,24 +742,24 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-0:-moz-focusring {
+.circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-0:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-0:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-0:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-1 {
+.circuit-2 {
   color: #5C656F;
   display: block;
   z-index: 21;
@@ -476,33 +772,61 @@ label + .circuit-2 {
   padding: 12px;
 }
 
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 4px;
-  color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+select:active ~ .circuit-2 {
+  display: none;
 }
 
-<span
-  class="circuit-4"
-  for="select_8"
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+<label
+  class="circuit-5"
+  for="select_3"
 >
+  <span
+    class="circuit-0"
+  >
+    Label
+  </span>
   <div
-    class="circuit-2"
+    class="circuit-4"
   >
     <select
-      class="circuit-0"
-      id="select_8"
+      class="circuit-1"
+      id="select_3"
     >
       <option
         value=""
@@ -526,7 +850,7 @@ label + .circuit-2 {
       </option>
     </select>
     <svg
-      class="circuit-1"
+      class="circuit-2"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -534,37 +858,49 @@ label + .circuit-2 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
-  <span
-    class="circuit-3"
-  >
-    This field is required.
-  </span>
-</span>
+</label>
 `;
 
 exports[`Select should render with default styles 1`] = `
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -579,6 +915,7 @@ label + .circuit-2 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -626,12 +963,33 @@ label + .circuit-2 {
   padding: 12px;
 }
 
+select:active ~ .circuit-1 {
+  display: none;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-2 {
+  display: none;
+}
+
 <span
-  class="circuit-3"
+  class="circuit-4"
   for="select_1"
 >
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <select
       class="circuit-0"
@@ -667,10 +1025,27 @@ label + .circuit-2 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
@@ -678,14 +1053,14 @@ label + .circuit-2 {
 `;
 
 exports[`Select should render with disabled styles when passed the disabled prop 1`] = `
-.circuit-2 {
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -700,6 +1075,7 @@ label + .circuit-2 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -747,7 +1123,28 @@ label + .circuit-2 {
   padding: 12px;
 }
 
-.circuit-3 {
+select:active ~ .circuit-1 {
+  display: none;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -758,276 +1155,16 @@ label + .circuit-2 {
 }
 
 <span
-  class="circuit-3"
+  class="circuit-4"
   disabled=""
-  for="select_3"
+  for="select_4"
 >
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <select
       class="circuit-0"
       disabled=""
-      id="select_3"
-    >
-      <option
-        value=""
-      >
-        Select an option
-      </option>
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-1"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </div>
-</span>
-`;
-
-exports[`Select should render with inline styles when passed the inline prop 1`] = `
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-2,
-label + .circuit-2 {
-  margin-top: 4px;
-}
-
-.circuit-0 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: #FFFFFF;
-  outline: none;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #212933;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
-}
-
-.circuit-0:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
-}
-
-.circuit-1 {
-  color: #5C656F;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
-}
-
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-  display: inline-block;
-  margin-right: 16px;
-  margin-bottom: 16px;
-}
-
-<span
-  class="circuit-3"
-  for="select_6"
->
-  <div
-    class="circuit-2"
-  >
-    <select
-      class="circuit-0"
-      id="select_6"
-    >
-      <option
-        value=""
-      >
-        Select an option
-      </option>
-      <option
-        value="1"
-      >
-        Option 1
-      </option>
-      <option
-        value="2"
-      >
-        Option 2
-      </option>
-      <option
-        value="3"
-      >
-        Option 3
-      </option>
-    </select>
-    <svg
-      class="circuit-1"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
-      />
-    </svg>
-  </div>
-</span>
-`;
-
-exports[`Select should render with invalid styles when passed the invalid prop 1`] = `
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.circuit-2 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-2,
-label + .circuit-2 {
-  margin-top: 4px;
-}
-
-.circuit-1 {
-  color: #5C656F;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
-}
-
-.circuit-0 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: #FFFFFF;
-  outline: none;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #212933;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
-  padding-right: 56px;
-  box-shadow: 0 0 0 1px #DB4D4D;
-}
-
-.circuit-0:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #DB4D4D;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #DB4D4D;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #DB4D4D;
-}
-
-<span
-  class="circuit-3"
-  for="select_4"
->
-  <div
-    class="circuit-2"
-  >
-    <select
-      aria-invalid="true"
-      class="circuit-0"
       id="select_4"
     >
       <option
@@ -1060,25 +1197,42 @@ label + .circuit-2 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
 </span>
 `;
 
-exports[`Select should render with no margin styles when passed the noMargin prop 1`] = `
-.circuit-2 {
+exports[`Select should render with inline styles when passed the inline prop 1`] = `
+.circuit-3 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
@@ -1093,6 +1247,7 @@ label + .circuit-2 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -1140,18 +1295,43 @@ label + .circuit-2 {
   padding: 12px;
 }
 
-.circuit-3 {
+select:active ~ .circuit-1 {
+  display: none;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  display: inline-block;
 }
 
 <span
-  class="circuit-3"
+  class="circuit-4"
   for="select_7"
 >
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <select
       class="circuit-0"
@@ -1187,10 +1367,362 @@ label + .circuit-2 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</span>
+`;
+
+exports[`Select should render with invalid styles when passed the invalid prop 1`] = `
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
+.circuit-1 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:active ~ .circuit-1 {
+  display: none;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #212933;
+  margin: 0;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: 56px;
+  box-shadow: 0 0 0 1px #DB4D4D;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #B22828;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #DB4D4D;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #DB4D4D;
+}
+
+<span
+  class="circuit-4"
+  for="select_5"
+>
+  <div
+    class="circuit-3"
+  >
+    <select
+      aria-invalid="true"
+      class="circuit-0"
+      id="select_5"
+    >
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-1"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+</span>
+`;
+
+exports[`Select should render with no margin styles when passed the noMargin prop 1`] = `
+.circuit-3 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-3,
+label + .circuit-3 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #212933;
+  margin: 0;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-1 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:active ~ .circuit-1 {
+  display: none;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+<span
+  class="circuit-4"
+  for="select_8"
+>
+  <div
+    class="circuit-3"
+  >
+    <select
+      class="circuit-0"
+      id="select_8"
+    >
+      <option
+        value=""
+      >
+        Select an option
+      </option>
+      <option
+        value="1"
+      >
+        Option 1
+      </option>
+      <option
+        value="2"
+      >
+        Option 2
+      </option>
+      <option
+        value="3"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      class="circuit-1"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-2"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>

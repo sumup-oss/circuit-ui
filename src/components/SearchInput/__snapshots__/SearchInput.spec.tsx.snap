@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchInput should grey out icon when disabled 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
+label + .circuit-1 {
+  margin-top: 4px;
+}
+
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: calc(8px + 1px) 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: #EEF0F2;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<div
+  class="circuit-2"
+  disabled=""
+  for="input_2"
+>
+  <div
+    class="circuit-1"
+  >
+    <svg
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <input
+      class="circuit-0"
+      disabled=""
+      id="input_2"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`SearchInput should render with default styles 1`] = `
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.circuit-1 {
+  position: relative;
+}
+
+label .circuit-1,
+label + .circuit-1 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: calc(8px + 1px) 12px;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-0::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 200ms ease-in-out;
+  transition: color 200ms ease-in-out;
+}
+
+.circuit-0:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-0:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-0:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<div
+  class="circuit-2"
+  for="input_1"
+>
+  <div
+    class="circuit-1"
+  >
+    <svg
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M2 7a5 5 0 1110 0A5 5 0 012 7zm5-7a7 7 0 104.192 12.606l3.1 3.101a1 1 0 001.415-1.414l-3.1-3.1A7 7 0 007 0z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <input
+      class="circuit-0"
+      id="input_1"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
