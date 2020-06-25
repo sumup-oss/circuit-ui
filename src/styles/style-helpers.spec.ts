@@ -296,7 +296,7 @@ describe('Style helpers', () => {
             box-shadow: 0 0 0 1px #DB4D4D;
 
             &:hover {
-              box-shadow: 0 0 0 1px #DB4D4D;
+              box-shadow: 0 0 0 1px #B22828;
             }
 
             &:focus {
@@ -305,6 +305,30 @@ describe('Style helpers', () => {
 
             &:active {
               box-shadow: 0 0 0 1px #DB4D4D;
+            }
+          "
+      `);
+    });
+
+    it('should match the snapshot when it has a warning', () => {
+      const { styles } = StyleHelpers.inputOutline({
+        theme: light,
+        hasWarning: true
+      });
+      expect(styles).toMatchInlineSnapshot(`
+        "
+            box-shadow: 0 0 0 1px #D8A413;
+
+            &:hover {
+              box-shadow: 0 0 0 1px #AD7A14;
+            }
+
+            &:focus {
+              box-shadow: 0 0 0 2px #D8A413;
+            }
+
+            &:active {
+              box-shadow: 0 0 0 1px #D8A413;
             }
           "
       `);

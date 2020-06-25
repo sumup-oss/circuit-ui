@@ -144,10 +144,17 @@ export const clearfix = (): SerializedStyles => css`
  * or active.
  */
 export const inputOutline = (
-  args: Theme | { theme: Theme; invalid?: boolean }
+  args:
+    | Theme
+    | {
+        theme: Theme;
+        invalid?: boolean;
+        hasWarning?: boolean;
+        showValid?: boolean;
+      }
 ): SerializedStyles => {
   const theme = getTheme(args);
-  const options = isTheme(args) ? { invalid: false } : args;
+  const options = isTheme(args) ? { invalid: false, hasWarning: false } : args;
 
   let colors;
 
@@ -155,9 +162,18 @@ export const inputOutline = (
     case options.invalid: {
       colors = {
         default: theme.colors.r500,
-        hover: theme.colors.r500,
+        hover: theme.colors.r700,
         focus: theme.colors.r500,
         active: theme.colors.r500
+      };
+      break;
+    }
+    case options.hasWarning: {
+      colors = {
+        default: theme.colors.y500,
+        hover: theme.colors.y700,
+        focus: theme.colors.y500,
+        active: theme.colors.y500
       };
       break;
     }

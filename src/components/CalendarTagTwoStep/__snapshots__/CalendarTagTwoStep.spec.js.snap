@@ -16,6 +16,8 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
   background: transparent;
@@ -23,7 +25,7 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  border: 1px solid #9DA7B1;
+  border-color: #9DA7B1;
 }
 
 .circuit-0:focus {

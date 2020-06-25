@@ -6,8 +6,8 @@ exports[`TableHeader Style tests should render with condensed styles 1`] = `
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -35,8 +35,8 @@ exports[`TableHeader Style tests should render with default styles 1`] = `
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -59,8 +59,8 @@ exports[`TableHeader Style tests should render with hovered styles 1`] = `
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   background-color: #FAFBFC;
   color: #5C656F;
@@ -84,8 +84,8 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
 }
 
@@ -103,8 +103,8 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -170,8 +170,8 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   color: #3388FF;
   border: 0;
   background: none;
@@ -282,8 +282,8 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   color: #3388FF;
   border: 0;
   background: none;
@@ -324,8 +324,8 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -432,8 +432,8 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   color: #3388FF;
   border: 0;
   background: none;
@@ -474,8 +474,8 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;

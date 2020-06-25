@@ -15,8 +15,8 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -57,8 +57,8 @@ tbody .circuit-6:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -68,8 +68,8 @@ tbody .circuit-6:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
 }
 
@@ -88,8 +88,8 @@ tbody .circuit-6:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   display: none;
@@ -148,8 +148,8 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -190,8 +190,8 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -201,8 +201,8 @@ tbody .circuit-4:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   background-color: #FAFBFC;

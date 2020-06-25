@@ -80,7 +80,10 @@ const baseStyles = ({ theme }: StyleProps) => css`
   font-weight: ${theme.fontWeight.bold};
   border-width: ${BORDER_WIDTH};
   border-style: solid;
-  transition: opacity ${theme.transitions.default};
+  transition: opacity ${theme.transitions.default},
+    color ${theme.transitions.default},
+    background-color ${theme.transitions.default},
+    border-color ${theme.transitions.default};
 
   &:focus {
     ${focusOutline({ theme })};
@@ -160,11 +163,11 @@ const sizeStyles = ({ theme, size = 'mega' }: ButtonProps & StyleProps) => {
   const sizeMap = {
     kilo: {
       padding: `${theme.spacings.bit} calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
-      borderRadius: '6px'
+      borderRadius: theme.borderRadius.giga
     },
     mega: {
       padding: `${theme.spacings.byte} calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
-      borderRadius: '8px'
+      borderRadius: theme.borderRadius.tera
     }
   };
 

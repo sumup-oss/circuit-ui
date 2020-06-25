@@ -24,13 +24,13 @@ import {
   // Checkbox,
   Hr,
   Image,
-  Input,
+  // Input,
   // Label,
   RadioButton,
   // Select,
-  Selector,
+  // Selector,
   Tag,
-  TextArea,
+  // TextArea,
   Toggle
 } from '../../src';
 
@@ -153,11 +153,11 @@ export default {
     // }),
     { name: 'hr', component: Hr },
     { name: 'image', component: Image },
-    getComponentInfo(Input, {
-      renderPrefix: PropTypes.element,
-      renderSuffix: PropTypes.element,
-      textAlign: [Input.LEFT, Input.RIGHT]
-    }),
+    // getComponentInfo(Input, {
+    //   renderPrefix: PropTypes.element,
+    //   renderSuffix: PropTypes.element,
+    //   textAlign: ['left', 'right']
+    // }),
     // getComponentInfo(Label),
     // getComponentInfo(List, {
     //   size: [List.KILO, List.MEGA, List.GIGA]
@@ -170,7 +170,7 @@ export default {
     // getComponentInfo(Select, {
     //   renderPrefix: PropTypes.element
     // }),
-    { name: 'selector', component: Selector },
+    // { name: 'selector', component: Selector },
     // TODO: Make React DocGen work with TypeScript
     // getComponentInfo(SubHeading, {
     //   size: ['kilo', 'mega']
@@ -183,7 +183,7 @@ export default {
     // getComponentInfo(Text, {
     //   size: ['kilo', 'mega', 'giga']
     // }),
-    getComponentInfo(TextArea),
+    // getComponentInfo(TextArea),
     getComponentInfo(Toggle)
   ]
 };

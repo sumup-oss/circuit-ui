@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageSelect styles should render with default styles 1`] = `
+HTMLCollection [
+  .circuit-5 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+.circuit-1 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #212933;
+  margin: 0;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-1:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-2 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:active ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
+<label
+    class="circuit-5"
+    for="select_1"
+  >
+    <span
+      class="circuit-0"
+    >
+      Pagination
+    </span>
+    <div
+      class="circuit-4"
+    >
+      <select
+        class="circuit-1"
+        id="select_1"
+      >
+        <option
+          value="1"
+        >
+          1
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+        <option
+          value="3"
+        >
+          3
+        </option>
+        <option
+          value="4"
+        >
+          4
+        </option>
+        <option
+          value="5"
+        >
+          5
+        </option>
+        <option
+          value="6"
+        >
+          6
+        </option>
+        <option
+          value="7"
+        >
+          7
+        </option>
+        <option
+          value="8"
+        >
+          8
+        </option>
+        <option
+          value="9"
+        >
+          9
+        </option>
+        <option
+          value="10"
+        >
+          10
+        </option>
+      </select>
+      <svg
+        class="circuit-2"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <svg
+        class="circuit-3"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 10l4-4 4 4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+  </label>,
+  .circuit-0 {
+  margin-left: 12px;
+}
+
+<span
+    class="circuit-0"
+  >
+    of 10
+  </span>,
+]
+`;

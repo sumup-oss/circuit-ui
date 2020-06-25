@@ -2547,10 +2547,10 @@
     telejson "^3.2.0"
     util-deprecate "^1.0.2"
 
-"@sumup/design-tokens@^1.0.0-alpha.3":
-  version "1.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.0-alpha.3.tgz#d1c490c3692da63ab6131c135a45f4a125af5bad"
-  integrity sha512-Cbbzu5rsHfZSPzpCHbOEx/SMF+cv8ejHy7cF0PtkGSyylB/yBmuHScEH0Ga9jVqg9GoZ8OKMfQoOGY/1r0brKg==
+"@sumup/design-tokens@^1.0.0-alpha.5":
+  version "1.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.0-alpha.5.tgz#4c645ed655476570f6ac97499cf76133b4a95af8"
+  integrity sha512-qxSZtJk9nXR3J+VI30pq4wfCkhS+HGvpMMHksOMEKIxxqCBwevxXm3NfOSvFMQo1JgKI3q2pyK5X972SHV2zlA==
 
 "@sumup/foundry@^2.1.0":
   version "2.1.0"
@@ -3057,6 +3057,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-text-mask@^5.4.6":
+  version "5.4.6"
+  resolved "https://registry.yarnpkg.com/@types/react-text-mask/-/react-text-mask-5.4.6.tgz#3a81e9de472beb939038e78cb16d737ae94ba14a"
+  integrity sha512-0KkER9oXZY/v1x8aoMTHwANlWnKT5tnmV7Zz+g81gBvcHRtcIHotcpY4KgWRwx0T5JMcsYmEh7wGOz0lwdONew==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-textarea-autosize@^4.3.3":
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/@types/react-textarea-autosize/-/react-textarea-autosize-4.3.5.tgz#6c4d2753fa1864c98c0b2b517f67bb1f6e4c46de"
@@ -3079,13 +3086,6 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
-
-"@types/recompose@^0.30.7":
-  version "0.30.7"
-  resolved "https://registry.yarnpkg.com/@types/recompose/-/recompose-0.30.7.tgz#0d47f3da3bdf889a4f36d4ca7531fac1eee1c6bd"
-  integrity sha512-kEvD7XMguXgG7jJJS//cE1QTbkFj2qDtIPAg1FvXxE8D6jD1C0WabJjT7cVitC7TK0N5I3yp2955hqNFFZV0wg==
-  dependencies:
-    "@types/react" "*"
 
 "@types/retry@^0.12.0":
   version "0.12.0"

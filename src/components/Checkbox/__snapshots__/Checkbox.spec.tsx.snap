@@ -100,7 +100,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 31;
+  z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;

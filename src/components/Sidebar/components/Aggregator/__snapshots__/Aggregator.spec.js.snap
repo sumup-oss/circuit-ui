@@ -52,8 +52,8 @@ HTMLCollection [
   position: relative;
   opacity: 1;
   visibility: visible;
-  -webkit-transition: height 200ms ease-in-out,opacity 200ms ease-in-out 100ms,visibility 200ms ease-in-out 100ms;
-  transition: height 200ms ease-in-out,opacity 200ms ease-in-out 100ms,visibility 200ms ease-in-out 100ms;
+  -webkit-transition: height 120ms ease-in-out,opacity 120ms ease-in-out 100ms,visibility 120ms ease-in-out 100ms;
+  transition: height 120ms ease-in-out,opacity 120ms ease-in-out 100ms,visibility 120ms ease-in-out 100ms;
 }
 
 .circuit-0::after {
@@ -64,8 +64,8 @@ HTMLCollection [
   border-radius: 1px;
   position: absolute;
   top: calc(32px * 0);
-  -webkit-transition: top 200ms ease-in-out;
-  transition: top 200ms ease-in-out;
+  -webkit-transition: top 120ms ease-in-out;
+  transition: top 120ms ease-in-out;
 }
 
 .circuit-0::before {
@@ -148,8 +148,8 @@ HTMLCollection [
   border-radius: 1px;
   position: absolute;
   top: calc(32px * 0);
-  -webkit-transition: top 200ms ease-in-out;
-  transition: top 200ms ease-in-out;
+  -webkit-transition: top 120ms ease-in-out;
+  transition: top 120ms ease-in-out;
 }
 
 .circuit-0::before {

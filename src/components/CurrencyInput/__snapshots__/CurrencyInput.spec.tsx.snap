@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyInput should adjust input padding and suffix width to match currency symbol width 1`] = `
+.circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.circuit-1 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: calc(8px + 1px) 12px;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  padding-left: 40px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<div
+  class="circuit-3"
+  for="input_2"
+>
+  <div
+    class="circuit-2"
+  >
+    <span
+      class="circuit-0"
+    >
+      CHF
+    </span>
+    <input
+      class="circuit-1"
+      id="input_2"
+      placeholder="123,45"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`CurrencyInput should render with default styles 1`] = `
+.circuit-3 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.circuit-2 {
+  position: relative;
+}
+
+label .circuit-2,
+label + .circuit-2 {
+  margin-top: 4px;
+}
+
+.circuit-0 {
+  line-height: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.circuit-1 {
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: calc(8px + 1px) 12px;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  padding-left: 40px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-1::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-1:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-1:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-1:active {
+  box-shadow: 0 0 0 1px #3388FF;
+}
+
+<div
+  class="circuit-3"
+  for="input_1"
+>
+  <div
+    class="circuit-2"
+  >
+    <span
+      class="circuit-0"
+    >
+      €
+    </span>
+    <input
+      class="circuit-1"
+      id="input_1"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

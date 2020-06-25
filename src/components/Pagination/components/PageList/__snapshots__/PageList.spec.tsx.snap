@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageList styles should render with default styles 1`] = `
+.circuit-3 {
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.circuit-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 4px calc(16px - 1px);
+  border-radius: 6px;
+}
+
+.circuit-0:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:disabled,
+.circuit-0[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-0:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-0:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 4px calc(16px - 1px);
+  border-radius: 6px;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  color: #1760CE;
+}
+
+.circuit-1:active {
+  color: #003C8B;
+}
+
+<ol
+  class="circuit-3"
+  role="list"
+>
+  <li>
+    <button
+      aria-current="true"
+      aria-label="Go to page 1"
+      class="circuit-0"
+      title="Go to page 1"
+    >
+      1
+    </button>
+  </li>
+  <li>
+    <button
+      aria-current="false"
+      aria-label="Go to page 2"
+      class="circuit-1"
+      title="Go to page 2"
+    >
+      2
+    </button>
+  </li>
+  <li>
+    <button
+      aria-current="false"
+      aria-label="Go to page 3"
+      class="circuit-1"
+      title="Go to page 3"
+    >
+      3
+    </button>
+  </li>
+</ol>
+`;
