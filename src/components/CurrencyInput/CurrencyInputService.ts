@@ -14,10 +14,16 @@
  */
 
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-import { clamp } from 'lodash/fp';
 import { format } from '@sumup/intl';
 
-export const createCurrencyMask = (currencyFormat, options = {}) => {
+export const createCurrencyMask = (
+  currencyFormat: {
+    maximumFractionDigits: number;
+    decimalDelimiter?: string;
+    groupDelimiter?: string;
+  },
+  options = {}
+) => {
   const {
     maximumFractionDigits: decimalLimit,
     decimalDelimiter: decimalSymbol = '.',
@@ -35,15 +41,12 @@ export const createCurrencyMask = (currencyFormat, options = {}) => {
   });
 };
 
-export function formatPlaceholder(placeholder, locale, options) {
+export function formatPlaceholder(
+  placeholder?: string | number,
+  locale?: string | string[],
+  options?: Intl.NumberFormatOptions
+): string | undefined {
   return typeof placeholder === 'number'
     ? format(placeholder, locale, options)
     : placeholder;
-}
-
-const CHAR_WIDTH = 9; // Average length of a character in pixels
-
-export function getSymbolLength(symbol = '') {
-  const length = clamp(2, symbol.length, 5);
-  return length * CHAR_WIDTH;
 }

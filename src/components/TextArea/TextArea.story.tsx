@@ -17,7 +17,7 @@ import React from 'react';
 
 import { uniqueId } from '../../util/id';
 
-import TextArea from './TextArea';
+import { TextArea, TextAreaProps } from './TextArea';
 import docs from './TextArea.docs.mdx';
 
 export default {
@@ -29,7 +29,7 @@ export default {
 };
 
 // TextAreas always need labels for accessibility.
-const TextAreaWithLabel = props => {
+const TextAreaWithLabel = (props: Partial<TextAreaProps>) => {
   const id = uniqueId();
   return (
     <TextArea
@@ -54,7 +54,7 @@ export const warning = () => (
   />
 );
 
-export const optional = () => <TextAreaWithLabel optional />;
+export const readonly = () => <TextAreaWithLabel readOnly />;
 
 export const disabled = () => (
   <TextAreaWithLabel
@@ -63,6 +63,4 @@ export const disabled = () => (
   />
 );
 
-export const withVisuallyHiddenLabel = () => (
-  <TextAreaWithLabel labelVisuallyHidden />
-);
+export const hiddenLabel = () => <TextAreaWithLabel hideLabel />;

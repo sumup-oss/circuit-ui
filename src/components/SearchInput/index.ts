@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import TextArea from './TextArea';
+import { SearchInput } from './SearchInput';
 
-export default TextArea;
+export default SearchInput;

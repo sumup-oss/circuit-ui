@@ -14,23 +14,34 @@
  */
 
 import React from 'react';
+import { identity } from 'lodash/fp';
 
-import CurrencyInput from '.';
+import { create, render, renderToHtml, axe } from '../../util/test-utils';
 
-describe('CurrencyInput', () => {
+import SearchInput from '.';
+import Label from '../Label';
+
+describe('SearchInput', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CurrencyInput currency="USD" />);
+    const actual = create(<SearchInput />);
     expect(actual).toMatchSnapshot();
   });
 
-  it('should adjust input padding and suffix width to match currency symbol width', () => {
-    const actual = create(
-      <CurrencyInput placeholder="123,45" currency="CHF" />
-    );
+  it('should grey out icon when disabled', () => {
+    const actual = create(<SearchInput disabled />);
     expect(actual).toMatchSnapshot();
+  });
+
+  it('should display a clear icon when not empty and an onClear callback is provided', () => {
+    const onClear = jest.fn(identity);
+
+    const { getByTestId } = render(
+      <SearchInput value="search value" onClear={onClear} />
+    );
+    expect(getByTestId('input-clear')).toBeVisible();
   });
 
   describe('business logic', () => {
@@ -38,10 +49,8 @@ describe('CurrencyInput', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
-      const { container } = render(
-        <CurrencyInput id="id" locale="de-DE" currency="EUR" ref={tref} />
-      );
+      const tref = React.createRef<HTMLInputElement & HTMLTextAreaElement>();
+      const { container } = render(<SearchInput ref={tref} />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
     });
@@ -52,7 +61,10 @@ describe('CurrencyInput', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <CurrencyInput locale="de-DE" currency="EUR" />
+      <Label htmlFor="search">
+        <SearchInput id="search" />
+        Search
+      </Label>
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
