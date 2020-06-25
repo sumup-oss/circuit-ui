@@ -13,10 +13,24 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import { HTMLProps } from 'react';
 import { css } from '@emotion/core';
+
+import styled from '../../styles/styled';
+
+export interface ImageProps
+  extends Omit<HTMLProps<HTMLImageElement>, 'size' | 'crossOrigin'> {
+  /**
+   * Specifies the source URL of an image
+   */
+  src: string;
+  /**
+   * Provides alternative information if a user cannot view the image,
+   * e.g. because of slow connection, an error in the src attribute, or if the
+   * user uses a screen reader.
+   */
+  alt: string;
+}
 
 const baseStyles = () => css`
   label: image;
@@ -26,27 +40,7 @@ const baseStyles = () => css`
   width: 100%;
 `;
 
-const StyledImage = styled('img')(baseStyles);
-
 /**
  * The Image component. Responsive by default.
  */
-const Image = props => <StyledImage {...props} />;
-
-Image.propTypes = {
-  /**
-   * Specifies the source URL of an image
-   */
-  src: PropTypes.string.isRequired,
-  /**
-   * Provides alternative information if a user cannot view the image,
-   * e.g. because of slow connection, an error in the src attribute, or if the
-   * user uses a screen reader.
-   */
-  alt: PropTypes.string.isRequired
-};
-
-/**
- * @component
- */
-export default Image;
+export const Image = styled.img<ImageProps>(baseStyles);

@@ -16,7 +16,7 @@
 import React from 'react';
 
 import docs from './Image.docs.mdx';
-import Image from './Image';
+import { Image } from './Image';
 
 export default {
   title: 'Components/Image',

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SlideImage styles should render with custom aspect ratio 1`] = `
-.circuit-1 {
+.circuit-0 {
   display: block;
   height: auto;
   max-height: 100%;
@@ -22,11 +22,11 @@ exports[`SlideImage styles should render with custom aspect ratio 1`] = `
   z-index: 2;
 }
 
-.circuit-1 img {
+.circuit-0 img {
   object-fit: cover;
 }
 
-.circuit-4 {
+.circuit-3 {
   display: block;
   position: relative;
   overflow: hidden;
@@ -39,18 +39,18 @@ exports[`SlideImage styles should render with custom aspect ratio 1`] = `
 }
 
 <div
-  class="circuit-3 circuit-4 circuit-5"
+  class="circuit-2 circuit-3 circuit-4"
 >
   <img
     alt="random pic"
-    class="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1"
     src="https://placedog.net/800/500"
   />
 </div>
 `;
 
 exports[`SlideImage styles should render with default styles 1`] = `
-.circuit-4 {
+.circuit-3 {
   display: block;
   position: relative;
   overflow: hidden;
@@ -62,7 +62,7 @@ exports[`SlideImage styles should render with default styles 1`] = `
   background: #FAFBFC;
 }
 
-.circuit-1 {
+.circuit-0 {
   display: block;
   height: auto;
   max-height: 100%;
@@ -83,16 +83,16 @@ exports[`SlideImage styles should render with default styles 1`] = `
   z-index: 2;
 }
 
-.circuit-1 img {
+.circuit-0 img {
   object-fit: cover;
 }
 
 <div
-  class="circuit-3 circuit-4 circuit-5"
+  class="circuit-2 circuit-3 circuit-4"
 >
   <img
     alt="random pic"
-    class="circuit-0 circuit-1 circuit-2"
+    class="circuit-0 circuit-1"
     src="https://placedog.net/800/500"
   />
 </div>
