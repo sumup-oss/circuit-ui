@@ -127,7 +127,7 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The `flat` **Button** variant has been removed (🤖 _button-variant-enum_)
 - The **LoadingButton**'s exit animations have been removed. An action's success or error result should be communicated outside the button (🤖 _exit-animations_)
 - The **RadioButton** and **Switch** components no longer accept the `onToggle` prop. Use the `onChange` prop instead (🤖 _onchange-prop_)
-- The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead.
+- The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead. The `wrapperStyles` prop has been renamed to `labelStyles` (🤖 _input-styles-prop_). The `deepRef` prop has been renamed to `ref` (🤖 _input-deepref-prop_)
 - The **Selector** component no longer accepts the `onClick` and `selected` props. Use the `onChange` and `checked` props instead (🤖 _selector-props_). The `value` and `name` have been added as required props.
 - The **RadioButtonGroup** component's `label` property inside the `options` prop has been renamed to `children`.
 - The **IconButton** component's dimensions and style have changed. It is now consistent with the Button component.

@@ -29,7 +29,7 @@ function transformFactory(
   }
 
   components.forEach(component => {
-    renameJSXAttribute(j, root, component, 'deepRef', 'ref');
+    renameJSXAttribute(j, root, component, 'wrapperStyles', 'labelStyles');
   });
 }
 
