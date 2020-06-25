@@ -48,9 +48,10 @@ const SelectorGroupWithState = (props: Partial<SelectorGroupProps>) => {
       if (!props.multiple) {
         return event.target.value;
       }
-      return prev.includes(event.target.value)
-        ? (prev as string[]).filter(v => v !== event.target.value)
-        : [...prev, event.target.value];
+      const prevArray = prev as string[];
+      return prevArray.includes(event.target.value)
+        ? prevArray.filter(v => v !== event.target.value)
+        : [...prevArray, event.target.value];
     });
   };
   return (
