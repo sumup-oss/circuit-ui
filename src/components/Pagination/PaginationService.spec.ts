@@ -13,6 +13,15 @@
  * limitations under the License.
  */
 
-import PaginationButton from './PaginationButton';
+import * as PaginationService from './PaginationService';
 
-export default PaginationButton;
+describe('PaginationService', () => {
+  describe('generatePages', () => {
+    it('should generate an array or pages of n length', () => {
+      const actual = PaginationService.generatePages(5);
+      const expected = [1, 2, 3, 4, 5];
+
+      expect(actual).toEqual(expected);
+    });
+  });
+});

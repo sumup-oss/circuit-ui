@@ -13,29 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import PageButton from '../PageButton';
+import { Pagination } from './Pagination';
 
-const PaginationButton = ({ currentPage, onClick, active, ...props }) => (
-  <PageButton
-    {...props}
-    variant={active ? 'primary' : 'secondary'}
-    name={currentPage}
-    onClick={() => onClick(currentPage)}
-  >
-    {currentPage}
-  </PageButton>
-);
-
-PaginationButton.propTypes = {
-  currentPage: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
-  active: PropTypes.bool
-};
-
-PaginationButton.defaultProps = {
-  active: false
-};
-
-export default PaginationButton;
+export default Pagination;

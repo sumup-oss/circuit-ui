@@ -15,7 +15,7 @@
 
 import React, { FC, ReactNode, Ref, HTMLProps, ChangeEvent } from 'react';
 import { css } from '@emotion/core';
-import { SelectExpand } from '@sumup/icons';
+import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import { uniqueId } from '../../util/id';
@@ -108,30 +108,55 @@ export interface SelectProps
   ref?: Ref<HTMLSelectElement>;
 }
 
-const containerStyles = ({ theme }: StyleProps) => css`
+const containerBaseStyles = ({ theme }: StyleProps) => css`
   label: select__container;
   color: ${theme.colors.n900};
   display: block;
   position: relative;
-
-  label &,
-  label + & {
-    margin-top: ${theme.spacings.bit};
-  }
+  /* max-height: 42px; */
 `;
 
-const SelectContainer = styled('div')<{}>(containerStyles);
+type ContainerElProps = Pick<SelectProps, 'hideLabel'>;
 
-type LabelElProps = Pick<SelectProps, 'noMargin'>;
+const containerHideLabelStyles = ({
+  theme,
+  hideLabel
+}: StyleProps & ContainerElProps) =>
+  !hideLabel &&
+  css`
+    label: select__container--hide-label;
 
-const labelStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
+    label &,
+    label + & {
+      margin-top: ${theme.spacings.bit};
+    }
+  `;
+
+const SelectContainer = styled('div')<ContainerElProps>(
+  containerBaseStyles,
+  containerHideLabelStyles
+);
+
+type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
+
+const labelMarginStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
   !noMargin &&
   css`
     label: input__label--margin;
     margin-bottom: ${theme.spacings.mega};
   `;
 
-const SelectLabel = styled(Label)<LabelElProps>(labelStyles);
+const labelInlineStyles = ({ inline }: LabelElProps) =>
+  inline &&
+  css`
+    label: input__label--inline;
+    display: inline-block;
+  `;
+
+const SelectLabel = styled(Label)<LabelElProps>(
+  labelMarginStyles,
+  labelInlineStyles
+);
 
 type SelectElProps = Omit<SelectProps, 'options'> & { hasPrefix: boolean };
 
@@ -145,6 +170,7 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   border-radius: 8px;
   box-shadow: none;
   color: ${theme.colors.n900};
+  margin: 0;
   padding-top: calc(${theme.spacings.byte} + 1px);
   padding-right: ${theme.spacings.tera};
   padding-bottom: calc(${theme.spacings.byte} + 1px);
@@ -213,7 +239,7 @@ const prefixStyles = (theme: Theme) => css`
   pointer-events: none;
 `;
 
-const iconStyles = ({ theme }: StyleProps) => css`
+const iconBaseStyles = ({ theme }: StyleProps) => css`
   label: select__icon;
   color: ${theme.colors.n700};
   display: block;
@@ -227,7 +253,22 @@ const iconStyles = ({ theme }: StyleProps) => css`
   padding: ${theme.spacings.kilo};
 `;
 
-const SelectIcon = styled(SelectExpand)<{}>(iconStyles);
+const iconActiveStyles = () => css`
+  label: select__icon-active;
+  select:active ~ & {
+    display: none;
+  }
+`;
+
+const iconInactiveStyles = () => css`
+  label: select__icon-inactive;
+  select:not(:active) ~ & {
+    display: none;
+  }
+`;
+
+const IconActive = styled(ChevronDown)<{}>(iconBaseStyles, iconActiveStyles);
+const IconInactive = styled(ChevronUp)<{}>(iconBaseStyles, iconInactiveStyles);
 
 function SelectComponent(
   {
@@ -243,6 +284,7 @@ function SelectComponent(
     validationHint,
     label,
     hideLabel,
+    className,
     id: customId,
     ...props
   }: SelectProps,
@@ -268,6 +310,7 @@ function SelectComponent(
 
   return (
     <SelectLabel
+      className={className}
       htmlFor={id}
       inline={inline}
       disabled={disabled}
@@ -276,7 +319,7 @@ function SelectComponent(
     >
       {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
 
-      <SelectContainer>
+      <SelectContainer hideLabel={hideLabel}>
         {prefix}
         <SelectElement
           id={id}
@@ -301,7 +344,8 @@ function SelectComponent(
                 </option>
               )))}
         </SelectElement>
-        <SelectIcon />
+        <IconActive />
+        <IconInactive />
       </SelectContainer>
 
       <ValidationHint

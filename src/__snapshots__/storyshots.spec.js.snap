@@ -8489,20 +8489,6 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 `;
 
 exports[`Storyshots Components/Pagination Base 1`] = `
-HTMLCollection [
-  .circuit-14 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  padding: 12px;
-}
-
 .circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8529,14 +8515,11 @@ HTMLCollection [
   border-style: solid;
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
-  padding: 4px calc(16px - 1px);
-  border-radius: 6px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 0;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
 }
 
 .circuit-1:focus {
@@ -8556,21 +8539,56 @@ HTMLCollection [
 }
 
 .circuit-1:hover {
-  background-color: #FAFBFC;
-  border-color: #5C656F;
+  color: #1760CE;
 }
 
 .circuit-1:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
+  color: #003C8B;
 }
 
-.circuit-1:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
-.circuit-3 {
+.circuit-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-7 {
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8601,12 +8619,65 @@ HTMLCollection [
   color: #FFFFFF;
   padding: 4px calc(16px - 1px);
   border-radius: 6px;
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-  font-weight: bold;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
   pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-2:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
+}
+
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 4px calc(16px - 1px);
+  border-radius: 6px;
 }
 
 .circuit-3:focus {
@@ -8626,239 +8697,478 @@ HTMLCollection [
 }
 
 .circuit-3:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  color: #1760CE;
 }
 
 .circuit-3:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  color: #003C8B;
+}
+
+<nav
+  aria-label="Pagination"
+  class="circuit-10"
+  role="navigation"
+>
+  <button
+    class="circuit-1"
+    disabled=""
+    title="Previous page"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10 4L6 8l4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Previous page
+    </span>
+  </button>
+  <ol
+    class="circuit-7"
+    role="list"
+  >
+    <li>
+      <button
+        aria-current="true"
+        aria-label="Go to page 1"
+        class="circuit-2"
+        title="Go to page 1"
+      >
+        1
+      </button>
+    </li>
+    <li>
+      <button
+        aria-current="false"
+        aria-label="Go to page 2"
+        class="circuit-3"
+        title="Go to page 2"
+      >
+        2
+      </button>
+    </li>
+    <li>
+      <button
+        aria-current="false"
+        aria-label="Go to page 3"
+        class="circuit-3"
+        title="Go to page 3"
+      >
+        3
+      </button>
+    </li>
+    <li>
+      <button
+        aria-current="false"
+        aria-label="Go to page 4"
+        class="circuit-3"
+        title="Go to page 4"
+      >
+        4
+      </button>
+    </li>
+    <li>
+      <button
+        aria-current="false"
+        aria-label="Go to page 5"
+        class="circuit-3"
+        title="Go to page 5"
+      >
+        5
+      </button>
+    </li>
+  </ol>
+  <button
+    class="circuit-1"
+    title="Next page"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12l4-4-4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Next page
+    </span>
+  </button>
+</nav>
+`;
+
+exports[`Storyshots Components/Pagination Many Pages 1`] = `
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  color: #1760CE;
+}
+
+.circuit-1:active {
+  color: #003C8B;
+}
+
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-7 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
+.circuit-6 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+.circuit-3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #212933;
+  margin: 0;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+}
+
+.circuit-3:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-3:hover {
+  box-shadow: 0 0 0 1px #5C656F;
 }
 
 .circuit-3:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: 4px 16px;
+  box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-3:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
+.circuit-3:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
-.circuit-3:hover:focus {
-  box-shadow: none;
+.circuit-4 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
 }
 
-.circuit-3:hover {
-  border-color: #D8DDE1;
-  box-shadow: none;
+select:active ~ .circuit-4 {
+  display: none;
 }
 
 .circuit-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
-  padding: 4px calc(16px - 1px);
-  border-radius: 6px;
-  border-radius: 0;
-  border-right: 0;
-  font-weight: 400;
-  border-color: #D8DDE1;
-}
-
-.circuit-5:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-5:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-5:disabled,
-.circuit-5[disabled] {
-  opacity: 0.5;
+  color: #5C656F;
+  display: block;
+  z-index: 21;
   pointer-events: none;
-  box-shadow: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
 }
 
-.circuit-5:hover {
-  background-color: #FAFBFC;
-  border-color: #5C656F;
+select:not(:active) ~ .circuit-5 {
+  display: none;
 }
 
-.circuit-5:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
+.circuit-8 {
+  margin-left: 12px;
 }
 
-.circuit-5:focus {
-  border-color: #D8DDE1;
-  border-width: 1px;
-  padding: 4px 16px;
-}
-
-.circuit-5:hover {
-  box-shadow: 1px 0 0 #9DA7B1;
-  z-index: 1;
-}
-
-.circuit-5:hover:focus {
-  box-shadow: none;
-}
-
-.circuit-13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
-  padding: 4px calc(16px - 1px);
-  border-radius: 6px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.circuit-13:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-13:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-13:disabled,
-.circuit-13[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-13:hover {
-  background-color: #FAFBFC;
-  border-color: #5C656F;
-}
-
-.circuit-13:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
-}
-
-<div
-    class="circuit-14 circuit-15"
+<nav
+  aria-label="Pagination"
+  class="circuit-11"
+  role="navigation"
+>
+  <button
+    class="circuit-1"
+    disabled=""
+    title="Previous page"
   >
-    <button
-      class="circuit-0 circuit-1"
-      data-testid="pagination-button-previous"
-      disabled=""
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      &lt;
-    </button>
-    <button
-      class="circuit-2 circuit-3"
-      data-testid="pagination-button-page"
-      name="1"
+      <path
+        d="M10 4L6 8l4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
     >
-      1
-    </button>
-    <button
-      class="circuit-2 circuit-5"
-      data-testid="pagination-button-page"
-      name="2"
-    >
-      2
-    </button>
-    <button
-      class="circuit-2 circuit-5"
-      data-testid="pagination-button-page"
-      name="3"
-    >
-      3
-    </button>
-    <button
-      class="circuit-2 circuit-5"
-      data-testid="pagination-button-page"
-      name="4"
-    >
-      4
-    </button>
-    <button
-      class="circuit-2 circuit-5"
-      data-testid="pagination-button-page"
-      name="5"
-    >
-      5
-    </button>
-    <button
-      class="circuit-12 circuit-13"
-      data-testid="pagination-button-next"
-    >
-      &gt;
-    </button>
-  </div>,
-  .circuit-0 {
-  text-align: right;
-  color: #9DA7B1;
-  font-size: 13px;
-  padding-right: 12px;
-}
-
-<div
-    class="circuit-0 circuit-1"
+      Previous page
+    </span>
+  </button>
+  <label
+    class="circuit-7"
+    for="select_24"
   >
-    Showing 1 - 10 of 50 items
-  </div>,
-]
+    <span
+      class="circuit-0"
+    >
+      Pagination
+    </span>
+    <div
+      class="circuit-6"
+    >
+      <select
+        class="circuit-3"
+        id="select_24"
+      >
+        <option
+          value="1"
+        >
+          1
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+        <option
+          value="3"
+        >
+          3
+        </option>
+        <option
+          value="4"
+        >
+          4
+        </option>
+        <option
+          value="5"
+        >
+          5
+        </option>
+        <option
+          value="6"
+        >
+          6
+        </option>
+        <option
+          value="7"
+        >
+          7
+        </option>
+        <option
+          value="8"
+        >
+          8
+        </option>
+        <option
+          value="9"
+        >
+          9
+        </option>
+        <option
+          value="10"
+        >
+          10
+        </option>
+      </select>
+      <svg
+        class="circuit-4"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <svg
+        class="circuit-5"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 10l4-4 4 4"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+  </label>
+  <span
+    class="circuit-8"
+  >
+    of 10
+  </span>
+  <button
+    class="circuit-1"
+    title="Next page"
+  >
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 12l4-4-4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-0"
+    >
+      Next page
+    </span>
+  </button>
+</nav>
 `;
 
 exports[`Storyshots Components/Popover Base 1`] = `
@@ -8997,7 +9307,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_26"
+      aria-labelledby="progress-bar_27"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9008,7 +9318,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_26"
+      id="progress-bar_27"
     >
       3/10
     </span>
@@ -9065,7 +9375,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_27"
+      aria-labelledby="progress-bar_28"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9076,7 +9386,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_27"
+      id="progress-bar_28"
     >
       30%
     </span>
@@ -9138,7 +9448,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_30"
+      aria-labelledby="progress-bar_31"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9149,7 +9459,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_30"
+      id="progress-bar_31"
     >
       byte
     </span>
@@ -9206,7 +9516,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_31"
+      aria-labelledby="progress-bar_32"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9217,7 +9527,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_31"
+      id="progress-bar_32"
     >
       kilo
     </span>
@@ -9274,7 +9584,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_32"
+      aria-labelledby="progress-bar_33"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9285,7 +9595,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_32"
+      id="progress-bar_33"
     >
       mega
     </span>
@@ -9346,7 +9656,7 @@ exports[`Storyshots Components/ProgressBar Steps 1`] = `
   class="circuit-2"
 >
   <span
-    aria-labelledby="progress-bar_24"
+    aria-labelledby="progress-bar_25"
     aria-valuemax="10"
     aria-valuemin="0"
     aria-valuenow="3"
@@ -9357,7 +9667,7 @@ exports[`Storyshots Components/ProgressBar Steps 1`] = `
   />
   <span
     class="circuit-1"
-    id="progress-bar_24"
+    id="progress-bar_25"
   />
 </div>
 `;
@@ -9470,13 +9780,13 @@ exports[`Storyshots Components/ProgressBar Timer 1`] = `
   class="circuit-2"
 >
   <span
-    aria-labelledby="progress-bar_25"
+    aria-labelledby="progress-bar_26"
     class="circuit-0"
     loop=""
   />
   <span
     class="circuit-1"
-    id="progress-bar_25"
+    id="progress-bar_26"
   />
 </div>
 `;
@@ -9535,7 +9845,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_28"
+      aria-labelledby="progress-bar_29"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9546,7 +9856,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_28"
+      id="progress-bar_29"
     >
       primary
     </span>
@@ -9603,7 +9913,7 @@ HTMLCollection [
     class="circuit-2"
   >
     <span
-      aria-labelledby="progress-bar_29"
+      aria-labelledby="progress-bar_30"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="3"
@@ -9614,7 +9924,7 @@ HTMLCollection [
     />
     <span
       class="circuit-1"
-      id="progress-bar_29"
+      id="progress-bar_30"
     >
       secondary
     </span>
@@ -10462,7 +10772,7 @@ label + .circuit-6 {
     class="circuit-3"
   >
     <span
-      aria-labelledby="progress-bar_55"
+      aria-labelledby="progress-bar_56"
       aria-valuemax="3"
       aria-valuemin="0"
       aria-valuenow="1"
@@ -10473,7 +10783,7 @@ label + .circuit-6 {
     />
     <span
       class="circuit-2"
-      id="progress-bar_55"
+      id="progress-bar_56"
     />
   </div>
   <section>
@@ -16665,7 +16975,7 @@ label + .circuit-3 {
     <span
       class="circuit-0"
     >
-      Amount (pt-BR, USD)
+      Amount (pt-BR, EUR)
     </span>
     <div
       class="circuit-3"
@@ -16673,7 +16983,7 @@ label + .circuit-3 {
       <span
         class="circuit-1"
       >
-        $
+        €
       </span>
       <input
         aria-invalid="false"
@@ -17035,7 +17345,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-3"
-  for="39"
+  for="40"
 >
   <span
     class="circuit-0"
@@ -17061,7 +17371,7 @@ label + .circuit-2 {
     </svg>
     <input
       class="circuit-1"
-      id="39"
+      id="40"
       placeholder="Search..."
       type="text"
       value=""
@@ -17142,7 +17452,7 @@ label + .circuit-2 {
 <div>
   <label
     class="circuit-3"
-    for="41"
+    for="42"
   >
     <span
       class="circuit-0"
@@ -17168,7 +17478,7 @@ label + .circuit-2 {
       </svg>
       <input
         class="circuit-1"
-        id="41"
+        id="42"
         placeholder="Search..."
         type="text"
         value=""
@@ -17254,7 +17564,7 @@ label + .circuit-2 {
 <label
   class="circuit-3"
   disabled=""
-  for="40"
+  for="41"
 >
   <span
     class="circuit-0"
@@ -17281,7 +17591,7 @@ label + .circuit-2 {
     <input
       class="circuit-1"
       disabled=""
-      id="40"
+      id="41"
       placeholder="Search..."
       type="text"
       value=""
@@ -17367,7 +17677,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_33"
+    id="radio-button_34"
     name="radio"
     type="radio"
     value="radio"
@@ -17421,7 +17731,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_33"
+    for="radio-button_34"
   >
     Unchecked
   </label>,
@@ -17466,7 +17776,7 @@ HTMLCollection [
 <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="radio-button_35"
+    id="radio-button_36"
     name="disabled"
     type="radio"
     value="disabled"
@@ -17539,7 +17849,7 @@ HTMLCollection [
 <label
     class="circuit-0 circuit-1"
     disabled=""
-    for="radio-button_35"
+    for="radio-button_36"
   >
     Disabled
   </label>,
@@ -17583,7 +17893,7 @@ HTMLCollection [
 
 <input
     class="circuit-0 circuit-1"
-    id="radio-button_34"
+    id="radio-button_35"
     name="invalid"
     type="radio"
     value="invalid"
@@ -17646,7 +17956,7 @@ HTMLCollection [
 
 <label
     class="circuit-0 circuit-1"
-    for="radio-button_34"
+    for="radio-button_35"
   >
     Error
   </label>,
@@ -17741,31 +18051,16 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   <div>
     <input
       class="circuit-0 circuit-1"
-      id="radio-button_36"
+      id="radio-button_37"
       name="radio-button-group"
       type="radio"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="radio-button_36"
-    >
-      Apple
-    </label>
-  </div>
-  <div>
-    <input
-      class="circuit-0 circuit-1"
-      id="radio-button_37"
-      name="radio-button-group"
-      type="radio"
-      value="banana"
-    />
-    <label
-      class="circuit-2 circuit-3"
       for="radio-button_37"
     >
-      Banana
+      Apple
     </label>
   </div>
   <div>
@@ -17774,11 +18069,26 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
       id="radio-button_38"
       name="radio-button-group"
       type="radio"
-      value="mango"
+      value="banana"
     />
     <label
       class="circuit-2 circuit-3"
       for="radio-button_38"
+    >
+      Banana
+    </label>
+  </div>
+  <div>
+    <input
+      class="circuit-0 circuit-1"
+      id="radio-button_39"
+      name="radio-button-group"
+      type="radio"
+      value="mango"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="radio-button_39"
     >
       Mango
     </label>
@@ -17787,22 +18097,11 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
 `;
 
 exports[`Storyshots Forms/Select Base 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
 }
 
 .circuit-1 {
@@ -17816,6 +18115,7 @@ label + .circuit-3 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -17863,9 +18163,41 @@ label + .circuit-3 {
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 <label
-  class="circuit-4"
-  for="42"
+  class="circuit-5"
+  for="43"
 >
   <span
     class="circuit-0"
@@ -17873,12 +18205,12 @@ label + .circuit-3 {
     Countries
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <select
       aria-invalid="false"
       class="circuit-1"
-      id="42"
+      id="43"
       name="select"
     >
       <option
@@ -17906,10 +18238,27 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
@@ -17930,22 +18279,17 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
   width: 1px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-3 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
-}
-
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
 }
 
 .circuit-1 {
@@ -17959,6 +18303,7 @@ label + .circuit-3 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -18006,9 +18351,30 @@ label + .circuit-3 {
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
 <label
-  class="circuit-4"
-  for="45"
+  class="circuit-5"
+  for="46"
 >
   <span
     class="circuit-0"
@@ -18016,12 +18382,12 @@ label + .circuit-3 {
     Countries
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <select
       aria-invalid="false"
       class="circuit-1"
-      id="45"
+      id="46"
       name="select"
     >
       <option
@@ -18049,10 +18415,27 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
@@ -18060,14 +18443,14 @@ label + .circuit-3 {
 `;
 
 exports[`Storyshots Forms/Select Invalid 1`] = `
-.circuit-5 {
+.circuit-6 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -18085,17 +18468,6 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   color: #DB4D4D;
 }
 
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
-}
-
 .circuit-2 {
   color: #5C656F;
   display: block;
@@ -18109,6 +18481,38 @@ label + .circuit-3 {
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-1 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -18120,6 +18524,7 @@ label + .circuit-3 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -18156,8 +18561,8 @@ label + .circuit-3 {
 }
 
 <label
-  class="circuit-5"
-  for="43"
+  class="circuit-6"
+  for="44"
 >
   <span
     class="circuit-0"
@@ -18165,12 +18570,12 @@ label + .circuit-3 {
     Countries
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <select
       aria-invalid="true"
       class="circuit-1"
-      id="43"
+      id="44"
       name="select"
     >
       <option
@@ -18198,15 +18603,32 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
   <span
-    class="circuit-4"
+    class="circuit-5"
   >
     <svg
       fill="none"
@@ -18243,22 +18665,11 @@ label + .circuit-3 {
 `;
 
 exports[`Storyshots Forms/Select With Prefix 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
-}
-
-.circuit-3 {
-  color: #212933;
-  display: block;
-  position: relative;
-}
-
-label .circuit-3,
-label + .circuit-3 {
-  margin-top: 4px;
 }
 
 .circuit-2 {
@@ -18274,6 +18685,38 @@ label + .circuit-3 {
   padding: 12px;
 }
 
+select:active ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
+  display: none;
+}
+
+.circuit-4 {
+  color: #212933;
+  display: block;
+  position: relative;
+}
+
+label .circuit-4,
+label + .circuit-4 {
+  margin-top: 4px;
+}
+
 .circuit-1 {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -18285,6 +18728,7 @@ label + .circuit-3 {
   border-radius: 8px;
   box-shadow: none;
   color: #212933;
+  margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
   padding-bottom: calc(8px + 1px);
@@ -18321,8 +18765,8 @@ label + .circuit-3 {
 }
 
 <label
-  class="circuit-4"
-  for="44"
+  class="circuit-5"
+  for="45"
 >
   <span
     class="circuit-0"
@@ -18330,7 +18774,7 @@ label + .circuit-3 {
     Countries
   </span>
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <svg
       fill="none"
@@ -18381,7 +18825,7 @@ label + .circuit-3 {
     <select
       aria-invalid="false"
       class="circuit-1"
-      id="44"
+      id="45"
       name="country_select"
     >
       <option
@@ -18409,10 +18853,27 @@ label + .circuit-3 {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        clip-rule="evenodd"
-        d="M8.707 1.293a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L8 3.414l2.293 2.293a1 1 0 101.414-1.414l-3-3zm3 10.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L8 12.586l2.293-2.293a1 1 0 111.414 1.414z"
-        fill="currentColor"
-        fill-rule="evenodd"
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    <svg
+      class="circuit-3"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 10l4-4 4 4"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
       />
     </svg>
   </div>
@@ -18495,13 +18956,13 @@ exports[`Storyshots Forms/Selector Base 1`] = `
 >
   <input
     class="circuit-0 circuit-1"
-    id="selector_46"
+    id="selector_47"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
-    for="selector_46"
+    for="selector_47"
   >
     Select me!
   </label>
@@ -18592,14 +19053,14 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   <input
     class="circuit-0 circuit-1"
     disabled=""
-    id="selector_48"
+    id="selector_49"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
     disabled=""
-    for="selector_48"
+    for="selector_49"
   >
     I cannot be selected
   </label>
@@ -18683,13 +19144,13 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   <input
     checked=""
     class="circuit-0 circuit-1"
-    id="selector_47"
+    id="selector_48"
     type="radio"
     value=""
   />
   <label
     class="circuit-2 circuit-3"
-    for="selector_47"
+    for="selector_48"
   >
     I am selected!
   </label>
@@ -18776,33 +19237,16 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_49"
+      id="selector_50"
       name="selector-group"
       type="radio"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_49"
-    >
-      Apple
-    </label>
-  </div>
-  <div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      class="circuit-0 circuit-1"
-      id="selector_50"
-      name="selector-group"
-      type="radio"
-      value="banana"
-    />
-    <label
-      class="circuit-2 circuit-3"
       for="selector_50"
     >
-      Banana
+      Apple
     </label>
   </div>
   <div
@@ -18813,11 +19257,28 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
       id="selector_51"
       name="selector-group"
       type="radio"
-      value="mango"
+      value="banana"
     />
     <label
       class="circuit-2 circuit-3"
       for="selector_51"
+    >
+      Banana
+    </label>
+  </div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_52"
+      name="selector-group"
+      type="radio"
+      value="mango"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_52"
     >
       Mango
     </label>
@@ -18905,33 +19366,16 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   >
     <input
       class="circuit-0 circuit-1"
-      id="selector_52"
+      id="selector_53"
       name="selector-group"
       type="checkbox"
       value="apple"
     />
     <label
       class="circuit-2 circuit-3"
-      for="selector_52"
-    >
-      Apple
-    </label>
-  </div>
-  <div
-    class="circuit-4 circuit-5"
-  >
-    <input
-      class="circuit-0 circuit-1"
-      id="selector_53"
-      name="selector-group"
-      type="checkbox"
-      value="banana"
-    />
-    <label
-      class="circuit-2 circuit-3"
       for="selector_53"
     >
-      Banana
+      Apple
     </label>
   </div>
   <div
@@ -18942,11 +19386,28 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
       id="selector_54"
       name="selector-group"
       type="checkbox"
-      value="mango"
+      value="banana"
     />
     <label
       class="circuit-2 circuit-3"
       for="selector_54"
+    >
+      Banana
+    </label>
+  </div>
+  <div
+    class="circuit-4 circuit-5"
+  >
+    <input
+      class="circuit-0 circuit-1"
+      id="selector_55"
+      name="selector-group"
+      type="checkbox"
+      value="mango"
+    />
+    <label
+      class="circuit-2 circuit-3"
+      for="selector_55"
     >
       Mango
     </label>
@@ -19023,7 +19484,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-3"
-  for="56"
+  for="57"
 >
   <span
     class="circuit-0"
@@ -19035,7 +19496,7 @@ label + .circuit-2 {
   >
     <textarea
       class="circuit-1"
-      id="56"
+      id="57"
       placeholder="Write your text here..."
     />
   </div>
@@ -19116,7 +19577,7 @@ label + .circuit-2 {
 <label
   class="circuit-3"
   disabled=""
-  for="60"
+  for="61"
 >
   <span
     class="circuit-0"
@@ -19129,7 +19590,7 @@ label + .circuit-2 {
     <textarea
       class="circuit-1"
       disabled=""
-      id="60"
+      id="61"
       placeholder="Write your text here..."
     >
       You cannot edit the text because the textarea is disabled
@@ -19220,7 +19681,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-3"
-  for="61"
+  for="62"
 >
   <span
     class="circuit-0"
@@ -19232,7 +19693,7 @@ label + .circuit-2 {
   >
     <textarea
       class="circuit-1"
-      id="61"
+      id="62"
       placeholder="Write your text here..."
     />
   </div>
@@ -19342,7 +19803,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4"
-  for="57"
+  for="58"
 >
   <span
     class="circuit-0"
@@ -19355,7 +19816,7 @@ label + .circuit-2 {
     <textarea
       aria-invalid="true"
       class="circuit-1"
-      id="57"
+      id="58"
       placeholder="Write your text here..."
     />
   </div>
@@ -19466,7 +19927,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-3"
-  for="59"
+  for="60"
 >
   <span
     class="circuit-0"
@@ -19478,7 +19939,7 @@ label + .circuit-2 {
   >
     <textarea
       class="circuit-1"
-      id="59"
+      id="60"
       placeholder="Write your text here..."
       readonly=""
     />
@@ -19588,7 +20049,7 @@ label + .circuit-2 {
 
 <label
   class="circuit-4"
-  for="58"
+  for="59"
 >
   <span
     class="circuit-0"
@@ -19600,7 +20061,7 @@ label + .circuit-2 {
   >
     <textarea
       class="circuit-1"
-      id="58"
+      id="59"
       placeholder="Write your text here..."
     />
   </div>
@@ -19760,9 +20221,9 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_63"
+    aria-labelledby="toggle-label_64"
     class="circuit-4 circuit-5"
-    id="toggle-switch_62"
+    id="toggle-switch_63"
     role="switch"
     type="button"
   >
@@ -19777,8 +20238,8 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   </button>
   <label
     class="circuit-8 circuit-9"
-    for="toggle-switch_62"
-    id="toggle-label_63"
+    for="toggle-switch_63"
+    id="toggle-label_64"
   >
     <p
       class="circuit-6 circuit-7"
@@ -19924,9 +20385,9 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 >
   <button
     aria-checked="false"
-    aria-labelledby="toggle-label_65"
+    aria-labelledby="toggle-label_66"
     class="circuit-4 circuit-5"
-    id="toggle-switch_64"
+    id="toggle-switch_65"
     role="switch"
     type="button"
   >
@@ -19941,8 +20402,8 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   </button>
   <label
     class="circuit-10 circuit-11"
-    for="toggle-switch_64"
-    id="toggle-label_65"
+    for="toggle-switch_65"
+    id="toggle-label_66"
   >
     <p
       class="circuit-6 circuit-7"
