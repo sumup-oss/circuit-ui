@@ -42,8 +42,7 @@ const options = [
   },
   {
     label: 'France',
-    value: 'FR',
-    tracking: { label: 'trackingId-fr' }
+    value: 'FR'
   }
 ];
 const flagIconMap: { [key: string]: FC<{ className?: string }> } = {
@@ -71,6 +70,7 @@ const StatefulSelect = (props: Partial<SelectProps>) => {
       invalid={boolean('Invalid', false)}
       validationHint={text('Validation hint', '')}
       label="Countries"
+      tracking={{ label: text('Tracking Label', 'trackingId') }}
       {...props}
     />
   );

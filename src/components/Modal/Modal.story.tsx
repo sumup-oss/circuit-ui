@@ -64,8 +64,8 @@ const defaultModal = {
 export const base = () => (
   <PageWithModal
     {...defaultModal}
-    trackingClose={{
-      label: text('Tracking Label - onClose', 'trackingId-close')
+    tracking={{
+      label: text('Tracking Label', 'trackingId')
     }}
   />
 );

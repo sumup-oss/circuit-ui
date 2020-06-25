@@ -162,16 +162,13 @@ const CheckboxComponent = (
     disabled,
     validationHint,
     className,
+    tracking,
     ...props
   },
   ref
 ) => {
   const id = customId || uniqueId('checkbox_');
-  const handleChange = useClickTracker(
-    props.onChange,
-    props.tracking,
-    'checkbox'
-  );
+  const handleChange = useClickTracker(props.onChange, tracking, 'checkbox');
 
   return (
     <CheckboxWrapper className={className}>

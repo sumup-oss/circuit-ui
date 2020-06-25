@@ -49,9 +49,9 @@ export interface ModalProps extends Partial<Props> {
    */
   appElement?: string | HTMLElement;
   /**
-   * Additional data that is dispatched with closing hamburger.
+   * Additional data that is dispatched with the tracking event.
    */
-  trackingClose?: TrackingProps;
+  tracking?: TrackingProps;
 }
 
 export const TRANSITION_DURATION = 200;
@@ -75,12 +75,12 @@ export const Modal: FC<ModalProps> = ({
   contentLabel = 'Modal',
   appElement = DEFAULT_APP_ELEMENT,
   isOpen = true,
-  trackingClose = {},
+  tracking = {},
   ...props
 }) => {
   const theme: Theme = useTheme();
   const handleClose =
-    useClickTracker(onClose, trackingClose, 'modal-close') || onClose;
+    useClickTracker(onClose, tracking, 'modal-close') || onClose;
   ReactModal.setAppElement(appElement);
   return (
     <ClassNames>

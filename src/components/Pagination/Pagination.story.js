@@ -38,14 +38,8 @@ export const base = () => (
     footer={text('footer', 'Showing 1 - 10 of 50 items')}
     align={text('align', 'center')}
     justify={text('justify', 'center')}
-    nextLabelTracking={{
-      label: text('Next label tracking - label', 'trackingId-next')
-    }}
-    previousLabelTracking={{
-      label: text('Previous label tracking - label', 'trackingId-previous')
-    }}
     tracking={{
-      label: text('Page number tracking - label', undefined)
+      label: text('Tracking Label', undefined)
     }}
   />
 );

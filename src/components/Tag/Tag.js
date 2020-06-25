@@ -131,8 +131,6 @@ const Tag = React.forwardRef(
         css={theme => suffixStyles({ theme, selected })}
       />
     );
-    const { label, component = 'remove-button', customParameters } =
-      tracking || {};
     const handleClick = useClickTracker(onClick, tracking, 'tag');
 
     return (
@@ -151,9 +149,8 @@ const Tag = React.forwardRef(
             onClick={onRemove}
             ref={ref}
             tracking={{
-              label,
-              component,
-              customParameters
+              component: 'remove-button',
+              ...tracking
             }}
           />
         )}

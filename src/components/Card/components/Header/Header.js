@@ -45,7 +45,13 @@ const CardHeaderContainer = styled('header')`
   ${noHeadingStyles};
 `;
 
-const CardHeader = ({ onClose, children, labelCloseButton, tracking = {}, ...props }) => (
+const CardHeader = ({
+  onClose,
+  children,
+  labelCloseButton,
+  tracking = {},
+  ...props
+}) => (
   <CardHeaderContainer {...props}>
     {children}
     {onClose && (

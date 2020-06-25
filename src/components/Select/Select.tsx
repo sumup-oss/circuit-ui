@@ -17,8 +17,7 @@ import React, { FC, ReactNode, Ref, HTMLProps, ChangeEvent } from 'react';
 import { css } from '@emotion/core';
 import { SelectExpand } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
-import { useClickTrigger, Dispatch as TrackingProps } from '@sumup/collector';
-import { find, getOr } from 'lodash/fp';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { uniqueId } from '../../util/id';
 import deprecate from '../../util/deprecate';
@@ -29,6 +28,7 @@ import {
   inputOutline
 } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
+import useClickTracker from '../../hooks/use-click-tracker';
 
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
@@ -251,6 +251,7 @@ function SelectComponent(
     hideLabel,
     id: customId,
     onChange,
+    tracking,
     ...props
   }: SelectProps,
   ref?: SelectProps['ref']
@@ -262,31 +263,7 @@ function SelectComponent(
   );
   const hasPrefix = Boolean(prefix);
 
-  const dispatch = useClickTrigger();
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>): void => {
-    const selectedValue = e.target.value;
-    const selectedOption = find(
-      option => option.value === selectedValue,
-      options
-    );
-    const {
-      label: trackingLabel,
-      component = 'select',
-      customParameters
-    } = getOr({}, 'tracking', selectedOption);
-
-    if (trackingLabel) {
-      dispatch({
-        label: trackingLabel,
-        component,
-        customParameters
-      });
-    }
-
-    if (onChange) {
-      onChange(e);
-    }
-  };
+  const handleChange = useClickTracker(onChange, tracking, 'select');
 
   if (!label) {
     deprecate(
@@ -329,7 +306,7 @@ function SelectComponent(
           )}
           {children ||
             (options &&
-              options.map(({ label: labelValue, tracking, ...rest }) => (
+              options.map(({ label: labelValue, ...rest }) => (
                 <option key={rest.value} {...rest}>
                   {labelValue}
                 </option>

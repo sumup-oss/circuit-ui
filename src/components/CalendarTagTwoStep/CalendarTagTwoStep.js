@@ -152,8 +152,6 @@ export default class CalendarTagTwoStep extends Component {
       ...props
     } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
-    const { label, component = 'calendar-tag-two-step', customParameters } =
-      tracking || {};
     const isOpen = focusedInput !== null;
     const isFilled = !!(startDate && endDate);
 
@@ -163,7 +161,7 @@ export default class CalendarTagTwoStep extends Component {
           selected={isOpen || isFilled}
           ref={this.handleButtonRef}
           onClick={this.handleButtonClick}
-          tracking={{ label, component, customParameters }}
+          tracking={{ component: 'calendar-tag-two-step', ...tracking }}
         >
           {this.getDateRangePreview()}
         </Tag>

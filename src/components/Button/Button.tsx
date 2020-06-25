@@ -212,7 +212,7 @@ function ButtonComponent(
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
 ): ReturnType;
 function ButtonComponent(
-  { children, icon: Icon, ...props }: ButtonProps,
+  { children, icon: Icon, tracking, ...props }: ButtonProps,
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
 ): ReturnType {
   const { Link } = useComponents();
@@ -220,7 +220,7 @@ function ButtonComponent(
   const ButtonElement = props.href ? LinkButton : BaseButton;
   const handleClick = useClickTracker<MouseEvent<any>>(
     props.onClick,
-    props.tracking,
+    tracking,
     'button'
   );
 

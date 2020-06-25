@@ -2564,8 +2564,10 @@
     telejson "^3.2.0"
     util-deprecate "^1.0.2"
 
-"@sumup/collector@file:.yalc/@sumup/collector":
-  version "0.0.1-1cb84aba"
+"@sumup/collector@^1.0.0-alpha.1":
+  version "1.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@sumup/collector/-/collector-1.0.0-alpha.1.tgz#3f056661fd698825dd015fc3a462b193226d8455"
+  integrity sha512-anFQO6yXzgHxGfiJBAAnE354tqj3DZHLQAbYl2q+xo0oZAGmwdGy9QqpGQ9pvlIuk8HLZJlBvG30rP3pDr6WhQ==
   dependencies:
     tti-polyfill "^0.2.2"
 

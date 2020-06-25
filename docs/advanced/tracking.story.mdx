@@ -2,7 +2,7 @@ import { Meta, Intro, Story } from '../../.storybook/components';
 
 <Meta title="Advanced/Event Tracking" />
 
-# Built-in Tracking
+# Event Tracking
 
 <Intro>
   Working along with{' '}
@@ -33,7 +33,7 @@ export default function App() {
       <TrackingView name="homepage">
         <Button
           tracking={{
-            label: 'trackingId', // required
+            label: 'signup', // required
             component: 'button', // optional, Circuit UI uses the lowercase component name by default
             customParameters: { custom1: 'data' }
           }}

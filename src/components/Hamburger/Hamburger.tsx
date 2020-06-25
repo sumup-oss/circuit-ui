@@ -38,13 +38,9 @@ export interface HamburgerProps
   labelInActive: string;
   'data-testid'?: string;
   /**
-   * Additional data that is dispatched when opening hamburger.
+   * Additional data that is dispatched with the tracking event.
    */
-  trackingOpen?: TrackingProps;
-  /**
-   * Additional data that is dispatched with closing hamburger.
-   */
-  trackingClose?: TrackingProps;
+  tracking?: TrackingProps;
 }
 
 const LAYER_HEIGHT = '2px';
@@ -139,27 +135,16 @@ export const Hamburger: FC<HamburgerProps> = ({
   isActive,
   labelActive = 'Close menu',
   labelInActive = 'Open menu',
-  trackingOpen = {},
-  trackingClose = {},
+  tracking = {},
   ...props
-}: HamburgerProps) => {
-  const { label, component = 'hamburger', customParameters } = isActive
-    ? trackingClose
-    : trackingOpen;
-
-  return (
-    <Button
-      label={isActive ? labelActive : labelInActive}
-      {...props}
-      tracking={{
-        label,
-        component,
-        customParameters
-      }}
-    >
-      <Box>
-        <Layers isActive={isActive} />
-      </Box>
-    </Button>
-  );
-};
+}: HamburgerProps) => (
+  <Button
+    label={isActive ? labelActive : labelInActive}
+    {...props}
+    tracking={{ component: 'hamburger', ...tracking }}
+  >
+    <Box>
+      <Layers isActive={isActive} />
+    </Box>
+  </Button>
+);

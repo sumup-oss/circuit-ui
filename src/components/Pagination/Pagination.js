@@ -66,17 +66,16 @@ const Pagination = ({
   nextLabel,
   previousLabel,
   footer,
-  tracking,
+  tracking = {},
   ...props
 }) => {
-  const { label, component = 'pagination', customParameters } = tracking || {};
   const dispatch = useClickTrigger();
   const handleChange = onChange
     ? clickedPage => {
         dispatch({
-          label: label || clickedPage.toString(),
-          component,
-          customParameters
+          label: clickedPage.toString(),
+          component: 'pagination',
+          ...tracking
         });
 
         onChange(clickedPage);
@@ -204,25 +203,9 @@ Pagination.propTypes = {
    */
   nextLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   /**
-   * Data that is dispatched when next button is clicked
-   */
-  nextLabelTracking: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    component: PropTypes.string,
-    customParameters: PropTypes.object
-  }),
-  /**
    * Label to be used on button of previous
    */
   previousLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  /**
-   * Data that is dispatched when previous button is clicked
-   */
-  previousLabelTracking: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    component: PropTypes.string,
-    customParameters: PropTypes.object
-  }),
   /**
    * Text to be shown on the pagination footer
    */
@@ -242,9 +225,7 @@ Pagination.defaultProps = {
   perPage: PAGINATION.ITEMS_PER_PAGE,
   pagesToShow: PAGINATION.PAGES_TO_SHOW,
   nextLabel: PAGINATION.LABEL_NEXT,
-  nextLabelTracking: {},
   previousLabel: PAGINATION.LABEL_PREVIOUS,
-  previousLabelTracking: {},
   footer: PAGINATION.FOOTER,
   tracking: {}
 };
