@@ -19,7 +19,7 @@ exports[`Badge rendering color variations should render with danger colors 1`] =
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;
 
@@ -42,7 +42,7 @@ exports[`Badge rendering color variations should render with primary colors 1`] 
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;
 
@@ -65,7 +65,7 @@ exports[`Badge rendering color variations should render with success colors 1`] 
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;
 
@@ -88,7 +88,7 @@ exports[`Badge rendering color variations should render with warning colors 1`] 
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;
 
@@ -130,8 +130,8 @@ exports[`Badge should have hover/active styles only when the onClick handler is 
   border: 0;
 }
 
-<div
-  class="circuit-0 circuit-1"
+<button
+  class="circuit-0"
 />
 `;
 
@@ -168,7 +168,7 @@ exports[`Badge should have the correct circle styles 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;
 
@@ -191,6 +191,6 @@ exports[`Badge should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;

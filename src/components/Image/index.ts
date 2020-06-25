@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Image from './Image';
+import { Image } from './Image';
 
 export default Image;
