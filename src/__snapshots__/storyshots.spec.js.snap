@@ -16975,7 +16975,7 @@ label + .circuit-3 {
     <span
       class="circuit-0"
     >
-      Amount (pt-BR, USD)
+      Amount (pt-BR, EUR)
     </span>
     <div
       class="circuit-3"
@@ -16983,7 +16983,7 @@ label + .circuit-3 {
       <span
         class="circuit-1"
       >
-        US$
+        €
       </span>
       <input
         aria-invalid="false"

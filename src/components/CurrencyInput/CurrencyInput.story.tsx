@@ -60,9 +60,9 @@ export const currencies = () => (
       locale="pt-BR"
     />
     <BaseCurrencyInput
-      label="Amount (pt-BR, USD)"
+      label="Amount (pt-BR, EUR)"
       placeholder={1234.5}
-      currency="USD"
+      currency="EUR"
       locale="pt-BR"
     />
   </>
