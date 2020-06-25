@@ -19,7 +19,7 @@ import { light } from '@sumup/design-tokens';
 
 import {
   // Badge,
-  ButtonGroup,
+  // ButtonGroup,
   Card,
   Checkbox,
   Hr,
@@ -127,9 +127,9 @@ export default {
     // getComponentInfo(Blockquote, {
     //   size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
     // }),
-    getComponentInfo(ButtonGroup, {
-      align: [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT]
-    }),
+    // getComponentInfo(ButtonGroup, {
+    //   align: ['left', 'center', 'right']
+    // }),
     {
       name: 'card',
       component: Card,
