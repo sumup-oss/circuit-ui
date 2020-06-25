@@ -292,8 +292,8 @@ exports[`Storyshots Components/Button Primary 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -359,8 +359,8 @@ exports[`Storyshots Components/Button Secondary 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -427,8 +427,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -491,8 +491,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -559,8 +559,8 @@ exports[`Storyshots Components/Button Tertiary 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3388FF;
@@ -624,8 +624,8 @@ exports[`Storyshots Components/Button With Icon 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -708,8 +708,8 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -767,8 +767,8 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -881,8 +881,8 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -982,8 +982,8 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -1110,8 +1110,8 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -1173,8 +1173,8 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   position: absolute;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, visibility 120ms ease-in-out;
 }
 
 .circuit-2 {
@@ -1183,9 +1183,9 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   -webkit-transform: scale3d(1,1,1);
   -ms-transform: scale3d(1,1,1);
   transform: scale3d(1,1,1);
-  -webkit-transition: opacity 200ms ease-in-out, -webkit-transform 200ms ease-in-out, visibility 200ms ease-in-out;
-  -webkit-transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out, transform 200ms ease-in-out, visibility 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, -webkit-transform 120ms ease-in-out, visibility 120ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, transform 120ms ease-in-out, visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, transform 120ms ease-in-out, visibility 120ms ease-in-out;
 }
 
 <button
@@ -1226,6 +1226,8 @@ exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
   background: transparent;
@@ -1233,7 +1235,7 @@ exports[`Storyshots Components/Calendar/CalendarTag Base 1`] = `
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  border: 1px solid #9DA7B1;
+  border-color: #9DA7B1;
 }
 
 .circuit-0:focus {
@@ -1270,6 +1272,8 @@ exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
   background: transparent;
@@ -1277,7 +1281,7 @@ exports[`Storyshots Components/Calendar/CalendarTagTwoStep Base 1`] = `
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  border: 1px solid #9DA7B1;
+  border-color: #9DA7B1;
 }
 
 .circuit-0:focus {
@@ -2355,8 +2359,8 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
 .circuit-4 .SingleDatePickerInput {
   background-color: #FFFFFF;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -2405,26 +2409,26 @@ exports[`Storyshots Components/Calendar/RangePicker Base 1`] = `
 
 .circuit-4 .DateInput_input::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-4 .DateInput_input::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-4 .DateInput_input:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-4 .DateInput_input::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-4 .DateInput_fang {
@@ -3646,8 +3650,8 @@ exports[`Storyshots Components/Calendar/SingleDayPicker Base 1`] = `
 .circuit-0 .SingleDatePickerInput {
   background-color: #FFFFFF;
   padding: 8px 12px;
-  -webkit-transition: border-color 200ms ease-in-out;
-  transition: border-color 200ms ease-in-out;
+  -webkit-transition: border-color 120ms ease-in-out;
+  transition: border-color 120ms ease-in-out;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -3696,26 +3700,26 @@ exports[`Storyshots Components/Calendar/SingleDayPicker Base 1`] = `
 
 .circuit-0 .DateInput_input::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0 .DateInput_input::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0 .DateInput_input:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0 .DateInput_input::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-0 .DateInput_fang {
@@ -4023,8 +4027,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -4214,8 +4218,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -4557,8 +4561,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -4940,8 +4944,8 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -5514,8 +5518,8 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -5784,8 +5788,8 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6172,8 +6176,8 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6321,8 +6325,8 @@ exports[`Storyshots Components/Header Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6521,8 +6525,8 @@ exports[`Storyshots Components/Modal Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6589,8 +6593,8 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6657,8 +6661,8 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6725,8 +6729,8 @@ exports[`Storyshots Components/Modal With Header 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6793,8 +6797,8 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -6861,8 +6865,8 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -7045,8 +7049,8 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -7104,8 +7108,8 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -7474,8 +7478,8 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -7690,8 +7694,8 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -8055,8 +8059,8 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -8513,8 +8517,8 @@ exports[`Storyshots Components/Pagination Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3388FF;
@@ -8612,8 +8616,8 @@ exports[`Storyshots Components/Pagination Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -8671,8 +8675,8 @@ exports[`Storyshots Components/Pagination Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3388FF;
@@ -8845,8 +8849,8 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
   color: #3388FF;
@@ -8942,8 +8946,8 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
@@ -9196,8 +9200,8 @@ exports[`Storyshots Components/Popover Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -9962,9 +9966,9 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   height: 100%;
   min-width: 256px;
   background-color: #212933;
-  -webkit-transition: -webkit-transform 200ms ease-in-out;
-  -webkit-transition: transform 200ms ease-in-out;
-  transition: transform 200ms ease-in-out;
+  -webkit-transition: -webkit-transform 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out;
+  transition: transform 120ms ease-in-out;
   position: absolute;
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
@@ -10119,8 +10123,8 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   text-decoration: none;
   margin: 0px 24px;
   padding: 4px 0px;
-  -webkit-transition: top 200ms ease-in-out;
-  transition: top 200ms ease-in-out;
+  -webkit-transition: top 120ms ease-in-out;
+  transition: top 120ms ease-in-out;
 }
 
 .circuit-13:hover {
@@ -10206,8 +10210,8 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   height: 100%;
   position: absolute;
   background-color: #212933;
-  -webkit-transition: opacity 200ms ease-in-out,visibility 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out,visibility 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   visibility: hidden;
   opacity: 0;
   z-index: 700;
@@ -10245,8 +10249,8 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -10582,8 +10586,8 @@ exports[`Storyshots Components/Step Form 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -10658,8 +10662,8 @@ label + .circuit-6 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -10669,26 +10673,26 @@ label + .circuit-6 {
 
 .circuit-5::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-5::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-5:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-5::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-5:hover {
@@ -10915,8 +10919,8 @@ exports[`Storyshots Components/Step Slider 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -10975,8 +10979,8 @@ exports[`Storyshots Components/Step Slider 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -11094,8 +11098,8 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -11283,8 +11287,8 @@ tbody .circuit-22:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -11360,8 +11364,8 @@ tbody .circuit-22:last-child td {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   color: #3388FF;
   border: 0;
   background: none;
@@ -11389,8 +11393,8 @@ tbody .circuit-22:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   display: none;
@@ -11413,8 +11417,8 @@ tbody .circuit-22:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -11464,8 +11468,8 @@ tbody .circuit-22:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -11479,8 +11483,8 @@ tbody .circuit-22:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: right;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -11532,8 +11536,8 @@ tbody .circuit-36:hover th {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
 }
 
@@ -11552,8 +11556,8 @@ tbody .circuit-36:hover th {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   display: none;
@@ -11573,8 +11577,8 @@ tbody .circuit-36:hover th {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -11584,8 +11588,8 @@ tbody .circuit-36:hover th {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: right;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -11918,8 +11922,8 @@ tbody .circuit-10:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -11995,8 +11999,8 @@ tbody .circuit-10:last-child td {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   color: #3388FF;
   border: 0;
   background: none;
@@ -12024,8 +12028,8 @@ tbody .circuit-10:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   display: none;
@@ -12048,8 +12052,8 @@ tbody .circuit-10:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
 }
 
@@ -12068,8 +12072,8 @@ tbody .circuit-10:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   display: none;
@@ -12329,8 +12333,8 @@ tbody .circuit-18:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -12406,8 +12410,8 @@ tbody .circuit-18:last-child td {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   color: #3388FF;
   border: 0;
   background: none;
@@ -12435,8 +12439,8 @@ tbody .circuit-18:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   display: none;
@@ -12459,8 +12463,8 @@ tbody .circuit-18:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -12510,8 +12514,8 @@ tbody .circuit-18:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
 }
 
@@ -12530,8 +12534,8 @@ tbody .circuit-18:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   display: none;
@@ -12551,8 +12555,8 @@ tbody .circuit-18:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -12870,8 +12874,8 @@ tbody .circuit-6:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   display: none;
@@ -12894,8 +12898,8 @@ tbody .circuit-6:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -12909,8 +12913,8 @@ tbody .circuit-6:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
 }
 
@@ -12929,8 +12933,8 @@ tbody .circuit-6:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
   display: none;
@@ -12950,8 +12954,8 @@ tbody .circuit-6:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -12961,8 +12965,8 @@ tbody .circuit-6:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -13118,8 +13122,8 @@ exports[`Storyshots Components/Table/TableCell Base 1`] = `
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -13139,8 +13143,8 @@ exports[`Storyshots Components/Table/TableHeader Base 1`] = `
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -13763,6 +13767,8 @@ exports[`Storyshots Components/Tag Base 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
 
 <div
@@ -13788,6 +13794,8 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
   background: transparent;
@@ -13795,7 +13803,7 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
 
 .circuit-0:hover {
   background-color: #D8DDE1;
-  border: 1px solid #9DA7B1;
+  border-color: #9DA7B1;
 }
 
 .circuit-0:focus {
@@ -13843,6 +13851,8 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
 
 .circuit-2 {
@@ -13869,8 +13879,8 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -13957,8 +13967,10 @@ exports[`Storyshots Components/Tag Selected 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
   background-color: #3388FF;
-  border: 1px solid #3388FF;
+  border-color: #3388FF;
   color: #FFFFFF;
 }
 
@@ -13985,6 +13997,8 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
 
 .circuit-0 {
@@ -14031,6 +14045,8 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
   border: 1px solid #D8DDE1;
   padding: 4px 12px;
   cursor: default;
+  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
 }
 
 .circuit-0 {
@@ -14083,7 +14099,7 @@ exports[`Storyshots Components/Tooltip Base 1`] = `
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 31;
+  z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -14179,7 +14195,7 @@ exports[`Storyshots Components/Tooltip Bottom Right 1`] = `
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 31;
+  z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -14270,7 +14286,7 @@ exports[`Storyshots Components/Tooltip Left Center 1`] = `
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 31;
+  z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -14366,7 +14382,7 @@ exports[`Storyshots Components/Tooltip Top Left 1`] = `
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 31;
+  z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -14814,7 +14830,7 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
-  z-index: 31;
+  z-index: 40;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   font-size: 13px;
@@ -15265,8 +15281,8 @@ exports[`Storyshots Forms/InlineMessage Alert 1`] = `
 
 .circuit-0:before {
   display: inline-block;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
   content: '';
   position: absolute;
   left: -24px;
@@ -15311,8 +15327,8 @@ exports[`Storyshots Forms/InlineMessage Base 1`] = `
 
 .circuit-0:before {
   display: inline-block;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
   content: '';
   position: absolute;
   left: -24px;
@@ -15390,8 +15406,8 @@ exports[`Storyshots Forms/InlineMessage Success 1`] = `
 
 .circuit-0:before {
   display: inline-block;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
   content: '';
   position: absolute;
   left: -24px;
@@ -15418,8 +15434,8 @@ exports[`Storyshots Forms/InlineMessage Warning 1`] = `
 
 .circuit-0:before {
   display: inline-block;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
   content: '';
   position: absolute;
   left: -24px;
@@ -15467,8 +15483,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1 {
@@ -15476,8 +15492,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -15487,26 +15503,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -15572,8 +15588,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-4 {
@@ -15591,8 +15607,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -15603,26 +15619,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -15702,8 +15718,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -15713,26 +15729,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -15794,8 +15810,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1 {
@@ -15803,8 +15819,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -15814,26 +15830,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -15935,8 +15951,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -15946,26 +15962,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:not(:focus)::-webkit-input-placeholder {
@@ -16009,8 +16025,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
   color: #DB4D4D;
 }
 
@@ -16101,8 +16117,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1 {
@@ -16110,8 +16126,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -16122,26 +16138,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -16215,8 +16231,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1 {
@@ -16224,8 +16240,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -16236,26 +16252,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -16328,8 +16344,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1 {
@@ -16337,8 +16353,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -16348,26 +16364,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -16469,8 +16485,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1 {
@@ -16478,8 +16494,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -16489,26 +16505,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:not(:focus)::-webkit-input-placeholder {
@@ -16634,8 +16650,8 @@ label + .circuit-3 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -16647,26 +16663,26 @@ label + .circuit-3 {
 
 .circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:hover {
@@ -16694,8 +16710,8 @@ label + .circuit-3 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 <label
@@ -16771,8 +16787,8 @@ label + .circuit-3 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -16784,26 +16800,26 @@ label + .circuit-3 {
 
 .circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:hover {
@@ -16831,8 +16847,8 @@ label + .circuit-3 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 <label
@@ -16904,8 +16920,8 @@ label + .circuit-3 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -16917,26 +16933,26 @@ label + .circuit-3 {
 
 .circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:hover {
@@ -16964,8 +16980,8 @@ label + .circuit-3 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 <label
@@ -17042,8 +17058,8 @@ label + .circuit-3 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -17055,26 +17071,26 @@ label + .circuit-3 {
 
 .circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:hover {
@@ -17102,8 +17118,8 @@ label + .circuit-3 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 <label
@@ -17175,8 +17191,8 @@ label + .circuit-3 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -17188,26 +17204,26 @@ label + .circuit-3 {
 
 .circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:hover {
@@ -17235,8 +17251,8 @@ label + .circuit-3 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 <label
@@ -17296,8 +17312,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -17309,26 +17325,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -17402,8 +17418,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -17415,26 +17431,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -17513,8 +17529,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -17527,26 +17543,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -18126,8 +18142,8 @@ exports[`Storyshots Forms/Select Base 1`] = `
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
@@ -18314,8 +18330,8 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
@@ -18463,8 +18479,8 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
   color: #DB4D4D;
 }
 
@@ -18535,8 +18551,8 @@ label + .circuit-4 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   padding-right: 56px;
@@ -18739,8 +18755,8 @@ label + .circuit-4 {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
   padding-left: 40px;
@@ -18920,7 +18936,7 @@ exports[`Storyshots Forms/Selector Base 1`] = `
   display: block;
   cursor: pointer;
   padding: 16px 24px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
 }
@@ -18935,7 +18951,7 @@ exports[`Storyshots Forms/Selector Base 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
@@ -19015,7 +19031,7 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   display: block;
   cursor: pointer;
   padding: 16px 24px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
   opacity: 0.5;
@@ -19033,7 +19049,7 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
@@ -19115,7 +19131,7 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   display: block;
   cursor: pointer;
   padding: 16px 24px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
 }
@@ -19130,7 +19146,7 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
@@ -19211,7 +19227,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   display: block;
   cursor: pointer;
   padding: 16px 24px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
 }
@@ -19226,7 +19242,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
@@ -19346,7 +19362,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   display: block;
   cursor: pointer;
   padding: 16px 24px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
 }
@@ -19361,7 +19377,7 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
@@ -19463,8 +19479,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -19474,26 +19490,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -19554,8 +19570,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -19566,26 +19582,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -19660,8 +19676,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -19671,26 +19687,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -19748,8 +19764,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -19759,26 +19775,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:not(:focus)::-webkit-input-placeholder {
@@ -19822,8 +19838,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
   color: #DB4D4D;
 }
 
@@ -19905,8 +19921,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -19917,26 +19933,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
@@ -20003,8 +20019,8 @@ label + .circuit-2 {
   align-items: center;
   margin-top: 4px;
   color: #5C656F;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1 {
@@ -20012,8 +20028,8 @@ label + .circuit-2 {
   border: none;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
-  transition: box-shadow 200ms ease-in-out, padding 200ms ease-in-out;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   width: 100%;
   margin: 0;
   font-size: 16px;
@@ -20023,26 +20039,26 @@ label + .circuit-2 {
 
 .circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
   color: #9DA7B1;
-  -webkit-transition: color 200ms ease-in-out;
-  transition: color 200ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-1:not(:focus)::-webkit-input-placeholder {
@@ -22875,8 +22891,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -22947,8 +22963,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -23016,8 +23032,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFFFFF;
   border-color: #9DA7B1;
   color: #323E49;
@@ -23080,8 +23096,8 @@ HTMLCollection [
   font-weight: 700;
   border-width: 1px;
   border-style: solid;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
   border-color: #3388FF;
   color: #FFFFFF;
@@ -23151,6 +23167,8 @@ exports[`Storyshots Typography/Anchor As Button 1`] = `
   margin-left: 0;
   margin-right: 0;
   color: #1760CE;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
 
 @media (min-width:480px) {
@@ -23178,7 +23196,7 @@ exports[`Storyshots Typography/Anchor As Button 1`] = `
 .circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .circuit-0:focus::-moz-focus-inner {
@@ -23212,6 +23230,8 @@ exports[`Storyshots Typography/Anchor As Link 1`] = `
   margin-left: 0;
   margin-right: 0;
   color: #1760CE;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
 
 @media (min-width:480px) {
@@ -23239,7 +23259,7 @@ exports[`Storyshots Typography/Anchor As Link 1`] = `
 .circuit-0:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .circuit-0:focus::-moz-focus-inner {

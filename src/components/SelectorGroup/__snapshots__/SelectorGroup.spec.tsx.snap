@@ -40,7 +40,7 @@ exports[`SelectorGroup should render with default styles 1`] = `
   display: block;
   cursor: pointer;
   padding: 16px 24px;
-  border-radius: 5px;
+  border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
 }
@@ -55,7 +55,7 @@ exports[`SelectorGroup should render with default styles 1`] = `
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #D8DDE1;
   -webkit-transition: border 0.1s ease-in-out;
   transition: border 0.1s ease-in-out;
