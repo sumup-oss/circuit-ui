@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FC, HTMLProps } from 'react';
+import React, { HTMLProps } from 'react';
 import { css } from '@emotion/core';
 import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
@@ -83,10 +83,10 @@ const getIcon = (state: ValidationHintProps) => {
 /**
  * @private
  */
-export const ValidationHint: FC<ValidationHintProps> = ({
+export const ValidationHint = ({
   validationHint,
   ...props
-}) => {
+}: ValidationHintProps) => {
   if (!validationHint) {
     return null;
   }

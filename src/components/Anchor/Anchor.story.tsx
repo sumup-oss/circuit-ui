@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
 import Anchor from '.';
 import docs from './Anchor.docs.mdx';
@@ -26,12 +26,12 @@ export default {
   }
 };
 
-export const AsLink: FunctionComponent = () => (
+export const AsLink = () => (
   <Anchor href="https://opensource.sumup.com">
     {`View SumUp's OSS projects`}
   </Anchor>
 );
 
-export const AsButton: FunctionComponent = () => (
+export const AsButton = () => (
   <Anchor onClick={() => alert('Hello')}>Say hello</Anchor>
 );

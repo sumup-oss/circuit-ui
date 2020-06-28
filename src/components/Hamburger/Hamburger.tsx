@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FC, HTMLProps } from 'react';
+import React, { HTMLProps } from 'react';
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -126,7 +126,7 @@ const Layers = styled('span')<{ isActive?: boolean }>(
 /**
  * A hamburger button for menus. Morphs into a close icon when active.
  */
-export const Hamburger: FC<HamburgerProps> = ({
+export const Hamburger = ({
   isActive,
   labelActive = 'Close menu',
   labelInActive = 'Open menu',
