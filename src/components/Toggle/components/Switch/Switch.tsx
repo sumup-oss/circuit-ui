@@ -13,21 +13,42 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { HTMLProps, Ref } from 'react';
 import { css } from '@emotion/core';
 
+import styled, { StyleProps } from '../../../../styles/styled';
 import { focusOutline, hideVisually } from '../../../../styles/style-helpers';
+
+export interface SwitchProps
+  extends Omit<HTMLProps<HTMLButtonElement>, 'type'> {
+  /**
+   * Is the Switch on?
+   */
+  on?: boolean;
+  /**
+   * Label for the 'on' state. Important for accessibility.
+   */
+  labelOn: string;
+  /**
+   * Label for the 'off' state. Important for accessibility.
+   */
+  labelOff: string;
+  /**
+   * The ref to the html button dom element
+   */
+  ref?: Ref<HTMLButtonElement>;
+}
 
 const TRACK_WIDTH = '40px';
 const TRACK_HEIGHT = '24px';
 const KNOB_SIZE = '16px';
 const ANIMATION_TIMING = '200ms ease-in-out';
 
-const knobShadow = color => `0 2px 0 0 ${color}`;
+const knobShadow = (color: string) => `0 2px 0 0 ${color}`;
 
-const trackBaseStyles = ({ theme }) => css`
+type TrackElProps = Omit<SwitchProps, 'labelOn' | 'labelOff'>;
+
+const trackBaseStyles = ({ theme }: StyleProps) => css`
   label: toggle__switch;
   margin: 0;
   padding: 0;
@@ -49,16 +70,21 @@ const trackBaseStyles = ({ theme }) => css`
   }
 `;
 
-const trackOnStyles = ({ theme, on }) =>
+const trackOnStyles = ({ theme, on }: StyleProps & TrackElProps) =>
   on &&
   css`
     label: toggle__switch--on;
     background-color: ${theme.colors.p500};
   `;
 
-const SwitchTrack = styled('button')(trackBaseStyles, trackOnStyles);
+const SwitchTrack = styled('button')<TrackElProps>(
+  trackBaseStyles,
+  trackOnStyles
+);
 
-const knobBaseStyles = ({ theme }) => css`
+type KnobElProps = Pick<SwitchProps, 'on'>;
+
+const knobBaseStyles = ({ theme }: StyleProps) => css`
   label: toggle__switch-knob;
   display: block;
   background-color: ${theme.colors.n100};
@@ -72,7 +98,7 @@ const knobBaseStyles = ({ theme }) => css`
   border-radius: ${KNOB_SIZE};
 `;
 
-const knobOnStyles = ({ theme, on }) =>
+const knobOnStyles = ({ theme, on }: StyleProps & KnobElProps) =>
   on &&
   css`
     label: toggle__switch-knob--on;
@@ -88,7 +114,7 @@ const labelBaseStyles = () => css`
   label: toggle__switch-label;
 `;
 
-const SwitchKnob = styled('span')(knobBaseStyles, knobOnStyles);
+const SwitchKnob = styled('span')<KnobElProps>(knobBaseStyles, knobOnStyles);
 
 // Important for accessibility
 const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
@@ -96,15 +122,24 @@ const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
 /**
  * A simple Switch component.
  */
-const Switch = React.forwardRef(
-  ({ on, onChange, labelOn, labelOff, ...rest }, ref) => (
+export const Switch = React.forwardRef(
+  (
+    {
+      on = false,
+      onChange,
+      labelOn = 'on',
+      labelOff = 'off',
+      ...props
+    }: SwitchProps,
+    ref: SwitchProps['ref']
+  ) => (
     <SwitchTrack
       type="button"
       onClick={onChange}
       on={on}
       role="switch"
       aria-checked={on}
-      {...rest}
+      {...props}
       ref={ref}
     >
       <SwitchKnob {...{ on }} />
@@ -114,42 +149,3 @@ const Switch = React.forwardRef(
 );
 
 Switch.displayName = 'Switch';
-
-Switch.propTypes = {
-  /**
-   * Is the Switch on?
-   */
-  on: PropTypes.bool,
-  /**
-   * Callback used when the user toggles the switch.
-   */
-  onChange: PropTypes.func.isRequired,
-  /**
-   * Label for the 'on' state. Important for accessibility.
-   */
-  labelOn: PropTypes.string,
-  /**
-   * Label for the 'off' state. Important for accessibility.
-   */
-  labelOff: PropTypes.string,
-  /**
-   * The ref to the html button dom element
-   */
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLButtonElement)])
-    })
-  ])
-};
-
-Switch.defaultProps = {
-  on: false,
-  labelOn: 'on',
-  labelOff: 'off'
-};
-
-/**
- * @component
- */
-export default Switch;
