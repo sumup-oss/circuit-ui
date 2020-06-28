@@ -27,19 +27,19 @@ export default {
 };
 
 const ToggleWithState = (props: Partial<ToggleProps>) => {
-  const [on, setOn] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
-    setOn(prev => !prev);
+    setChecked(prev => !prev);
   };
 
   return (
     <Toggle
       label="Short label"
-      labelOn="on"
-      labelOff="off"
+      labelChecked="on"
+      labelUnchecked="off"
       {...props}
-      on={on}
+      checked={checked}
       onChange={handleChange}
     />
   );

@@ -118,11 +118,12 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The `plain` **Button** prop has been removed. Use the new Anchor component or the `tertiary` Button variant instead.
 - The `flat` **Button** variant has been removed (🤖 _button-variant-enum_)
 - The **LoadingButton**'s exit animations have been removed. An action's success or error result should be communicated outside the button (🤖 _exit-animations_)
-- The **RadioButton** and **Switch** components no longer accept the `onToggle` prop. Use the `onChange` prop instead (🤖 _onchange-prop_)
+- The **RadioButton** and **Switch** component's `onToggle` prop has been renamed to `onChange` (🤖 _onchange-prop_)
 - The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead. The `wrapperStyles` prop has been renamed to `labelStyles` (🤖 _input-label-styles-prop_). The `deepRef` prop has been renamed to `ref` (🤖 _input-deepref-prop_)
 - The **Input** and **Textarea** components' `deepRef` prop has been renamed to `ref` (🤖 _input-deepref-prop_)
 - The **Input** and **Textarea** components no longer have an `optional` state. Add "(optional)" to the label text instead.
-- The **Selector** component no longer accepts the `onClick` and `selected` props. Use the `onChange` and `checked` props instead (🤖 _selector-props_). The `value` and `name` have been added as required props.
+- The **Selector** component's `onClick` and `selected` props have been renamed to `onChange` and `checked` (🤖 _selector-props_). The `value` and `name` have been added as required props.
+- The **Toggle** component's `on`, `labelOn`, and `labelOff` props have been renamed to `checked`, `labelChecked`, and `labelUnchecked` (🤖 _toggle-checked-prop_).
 - The **RadioButtonGroup** component's `label` property inside the `options` prop has been renamed to `children`.
 - The **IconButton** component's dimensions and style have changed. It is now consistent with the Button component.
 - The **Hamburger** component's default size has been increased to match the IconButton component.

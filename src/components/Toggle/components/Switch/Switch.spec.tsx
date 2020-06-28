@@ -20,8 +20,8 @@ import { create, render, act, userEvent } from '../../../../util/test-utils';
 import { Switch } from './Switch';
 
 const defaultProps = {
-  labelOn: 'on',
-  labelOff: 'off'
+  labelChecked: 'on',
+  labelUnchecked: 'off'
 };
 
 describe('Switch', () => {
@@ -34,7 +34,7 @@ describe('Switch', () => {
   });
 
   it('should have the correct on styles', () => {
-    const actual = create(<Switch {...defaultProps} on />);
+    const actual = create(<Switch {...defaultProps} checked />);
     expect(actual).toMatchSnapshot();
   });
 

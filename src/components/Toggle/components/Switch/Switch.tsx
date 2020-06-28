@@ -24,15 +24,15 @@ export interface SwitchProps
   /**
    * Is the Switch on?
    */
-  on?: boolean;
+  checked?: boolean;
   /**
    * Label for the 'on' state. Important for accessibility.
    */
-  labelOn: string;
+  labelChecked: string;
   /**
    * Label for the 'off' state. Important for accessibility.
    */
-  labelOff: string;
+  labelUnchecked: string;
   /**
    * The ref to the html button dom element
    */
@@ -46,7 +46,7 @@ const ANIMATION_TIMING = '200ms ease-in-out';
 
 const knobShadow = (color: string) => `0 2px 0 0 ${color}`;
 
-type TrackElProps = Omit<SwitchProps, 'labelOn' | 'labelOff'>;
+type TrackElProps = Omit<SwitchProps, 'labelChecked' | 'labelUnchecked'>;
 
 const trackBaseStyles = ({ theme }: StyleProps) => css`
   label: toggle__switch;
@@ -70,10 +70,10 @@ const trackBaseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const trackOnStyles = ({ theme, on }: StyleProps & TrackElProps) =>
-  on &&
+const trackOnStyles = ({ theme, checked }: StyleProps & TrackElProps) =>
+  checked &&
   css`
-    label: toggle__switch--on;
+    label: toggle__switch--checked;
     background-color: ${theme.colors.p500};
   `;
 
@@ -82,7 +82,7 @@ const SwitchTrack = styled('button')<TrackElProps>(
   trackOnStyles
 );
 
-type KnobElProps = Pick<SwitchProps, 'on'>;
+type KnobElProps = Pick<SwitchProps, 'checked'>;
 
 const knobBaseStyles = ({ theme }: StyleProps) => css`
   label: toggle__switch-knob;
@@ -98,10 +98,10 @@ const knobBaseStyles = ({ theme }: StyleProps) => css`
   border-radius: ${KNOB_SIZE};
 `;
 
-const knobOnStyles = ({ theme, on }: StyleProps & KnobElProps) =>
-  on &&
+const knobOnStyles = ({ theme, checked }: StyleProps & KnobElProps) =>
+  checked &&
   css`
-    label: toggle__switch-knob--on;
+    label: toggle__switch-knob--checked;
     box-shadow: ${knobShadow(theme.colors.p700)};
     transform: translate3d(
       calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
@@ -125,10 +125,10 @@ const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
 export const Switch = React.forwardRef(
   (
     {
-      on = false,
+      checked = false,
       onChange,
-      labelOn = 'on',
-      labelOff = 'off',
+      labelChecked = 'on',
+      labelUnchecked = 'off',
       ...props
     }: SwitchProps,
     ref: SwitchProps['ref']
@@ -136,14 +136,14 @@ export const Switch = React.forwardRef(
     <SwitchTrack
       type="button"
       onClick={onChange}
-      on={on}
+      checked={checked}
       role="switch"
-      aria-checked={on}
+      aria-checked={checked}
       {...props}
       ref={ref}
     >
-      <SwitchKnob {...{ on }} />
-      <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
+      <SwitchKnob checked={checked} />
+      <SwitchLabel>{checked ? labelChecked : labelUnchecked}</SwitchLabel>
     </SwitchTrack>
   )
 );
