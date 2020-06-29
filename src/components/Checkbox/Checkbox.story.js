@@ -24,8 +24,7 @@ export default {
   title: 'Forms/Checkbox',
   component: Checkbox,
   parameters: {
-    docs: { page: docs },
-    jest: ['Checkbox']
+    docs: { page: docs }
   }
 };
 

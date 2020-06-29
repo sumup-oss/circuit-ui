@@ -25,8 +25,7 @@ export default {
   title: 'Components/Button',
   component: Button,
   parameters: {
-    docs: { page: docs },
-    jest: ['Button']
+    docs: { page: docs }
   }
 };
 

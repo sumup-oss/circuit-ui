@@ -15,8 +15,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -82,8 +82,8 @@ tbody .circuit-12:last-child td {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   color: #3388FF;
   border: 0;
   background: none;
@@ -124,8 +124,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -221,8 +221,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;
@@ -288,8 +288,8 @@ tbody .circuit-12:last-child td {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out;
   color: #3388FF;
   border: 0;
   background: none;
@@ -330,8 +330,8 @@ tbody .circuit-12:last-child td {
   border-bottom: 1px solid #D8DDE1;
   padding: 24px;
   text-align: left;
-  -webkit-transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out,color 200ms ease-in-out;
+  -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
+  transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   color: #5C656F;
   font-size: 13px;

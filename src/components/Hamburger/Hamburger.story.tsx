@@ -20,10 +20,7 @@ import { Hamburger, HamburgerProps } from './Hamburger';
 
 export default {
   title: 'Components/Hamburger',
-  component: Hamburger,
-  parameters: {
-    jest: ['Hamburger']
-  }
+  component: Hamburger
 };
 
 const HamburgerWithState = (props: HamburgerProps) => {

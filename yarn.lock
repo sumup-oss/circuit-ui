@@ -2085,23 +2085,6 @@
     vue-docgen-api "^4.1.0"
     vue-docgen-loader "^1.3.0-beta.0"
 
-"@storybook/addon-jest@^5.2.0":
-  version "5.3.9"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-jest/-/addon-jest-5.3.9.tgz#59ac23f315ec28ddfcc864fa7aedde2d497045fd"
-  integrity sha512-NGfcSU07Qif1gHOUAbVUBOLBoP5pmD+OpNfZzWqwA5JZ1iciGd/GWGHjvY97rTDSeQgTEdcZaHsWW2cBvXy/dw==
-  dependencies:
-    "@storybook/addons" "5.3.9"
-    "@storybook/api" "5.3.9"
-    "@storybook/components" "5.3.9"
-    "@storybook/core-events" "5.3.9"
-    "@storybook/theming" "5.3.9"
-    core-js "^3.0.1"
-    global "^4.3.2"
-    react "^16.8.3"
-    react-sizeme "^2.5.2"
-    upath "^1.1.0"
-    util-deprecate "^1.0.2"
-
 "@storybook/addon-knobs@^5.2.0":
   version "5.3.9"
   resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-5.3.9.tgz#b51be01731dd31ad1b883276acdbeabedc0b7095"
@@ -2571,10 +2554,10 @@
   dependencies:
     tti-polyfill "^0.2.2"
 
-"@sumup/design-tokens@^1.0.0-alpha.3":
-  version "1.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.0-alpha.3.tgz#d1c490c3692da63ab6131c135a45f4a125af5bad"
-  integrity sha512-Cbbzu5rsHfZSPzpCHbOEx/SMF+cv8ejHy7cF0PtkGSyylB/yBmuHScEH0Ga9jVqg9GoZ8OKMfQoOGY/1r0brKg==
+"@sumup/design-tokens@^1.0.0-alpha.5":
+  version "1.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.0-alpha.5.tgz#4c645ed655476570f6ac97499cf76133b4a95af8"
+  integrity sha512-qxSZtJk9nXR3J+VI30pq4wfCkhS+HGvpMMHksOMEKIxxqCBwevxXm3NfOSvFMQo1JgKI3q2pyK5X972SHV2zlA==
 
 "@sumup/foundry@^2.1.0":
   version "2.1.0"
@@ -3081,6 +3064,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-text-mask@^5.4.6":
+  version "5.4.6"
+  resolved "https://registry.yarnpkg.com/@types/react-text-mask/-/react-text-mask-5.4.6.tgz#3a81e9de472beb939038e78cb16d737ae94ba14a"
+  integrity sha512-0KkER9oXZY/v1x8aoMTHwANlWnKT5tnmV7Zz+g81gBvcHRtcIHotcpY4KgWRwx0T5JMcsYmEh7wGOz0lwdONew==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-textarea-autosize@^4.3.3":
   version "4.3.5"
   resolved "https://registry.yarnpkg.com/@types/react-textarea-autosize/-/react-textarea-autosize-4.3.5.tgz#6c4d2753fa1864c98c0b2b517f67bb1f6e4c46de"
@@ -3103,13 +3093,6 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
-
-"@types/recompose@^0.30.7":
-  version "0.30.7"
-  resolved "https://registry.yarnpkg.com/@types/recompose/-/recompose-0.30.7.tgz#0d47f3da3bdf889a4f36d4ca7531fac1eee1c6bd"
-  integrity sha512-kEvD7XMguXgG7jJJS//cE1QTbkFj2qDtIPAg1FvXxE8D6jD1C0WabJjT7cVitC7TK0N5I3yp2955hqNFFZV0wg==
-  dependencies:
-    "@types/react" "*"
 
 "@types/retry@^0.12.0":
   version "0.12.0"
@@ -17052,7 +17035,7 @@ unzip-response@^2.0.1:
   resolved "https://registry.yarnpkg.com/unzip-response/-/unzip-response-2.0.1.tgz#d2f0f737d16b0615e72a6935ed04214572d56f97"
   integrity sha1-0vD3N9FrBhXnKmk17QQhRXLVb5c=
 
-upath@^1.1.0, upath@^1.1.1:
+upath@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/upath/-/upath-1.2.0.tgz#8f66dbcd55a883acdae4408af8b035a5044c1894"
   integrity sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==

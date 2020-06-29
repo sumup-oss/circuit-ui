@@ -66,8 +66,6 @@ addDecorator(withKnobs);
 
 // These decorators need to be disabled for StoryShots to work.
 if (!__TEST__) {
-  const withTests = require('./util/withTests').default;
-  addDecorator(withTests);
   addDecorator(withStoryStyles);
 }
 

@@ -23,8 +23,7 @@ export default {
   title: 'Forms/Toggle',
   component: Toggle,
   parameters: {
-    docs: { page: docs },
-    jest: ['Toggle']
+    docs: { page: docs }
   }
 };
 

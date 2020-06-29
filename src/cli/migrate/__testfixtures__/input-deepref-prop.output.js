@@ -1,17 +1,33 @@
-import React, { useRef } from 'react';
+import React, { useRef, Fragment } from 'react';
 import styled from '@emotion/styled';
-import { Input } from '@sumup/circuit-ui';
+import { Input, TextArea } from '@sumup/circuit-ui';
 
 const Form = () => {
-  const ref = useRef(null);
-  return <Input ref={ref} />;
+  const inputRef = useRef(null);
+  const textAreaRef = useRef(null);
+  return (
+    <Fragment>
+      <Input ref={inputRef} />
+      <TextArea ref={textAreaRef} />
+    </Fragment>
+  );
 };
 
 const RedInput = styled(Input)`
   color: red;
 `;
 
+const RedTextArea = styled(TextArea)`
+  color: red;
+`;
+
 const RedForm = () => {
-  const ref = useRef(null);
-  return <RedInput ref={ref} />;
+  const inputRef = useRef(null);
+  const textAreaRef = useRef(null);
+  return (
+    <Fragment>
+      <RedInput ref={inputRef} />
+      <RedTextArea ref={textAreaRef} />
+    </Fragment>
+  );
 };

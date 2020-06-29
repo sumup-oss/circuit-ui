@@ -21,10 +21,7 @@ import CalendarTagTwoStep from './CalendarTagTwoStep';
 
 export default {
   title: 'Components/Calendar/CalendarTagTwoStep',
-  component: CalendarTagTwoStep,
-  parameters: {
-    jest: ['CalendarTagTwoStep']
-  }
+  component: CalendarTagTwoStep
 };
 
 export const base = () => (

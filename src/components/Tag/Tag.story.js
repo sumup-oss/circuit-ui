@@ -25,8 +25,7 @@ export default {
   title: 'Components/Tag',
   component: Tag,
   parameters: {
-    docs: { page: docs },
-    jest: ['Tag']
+    docs: { page: docs }
   }
 };
 

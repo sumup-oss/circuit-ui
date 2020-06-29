@@ -35,6 +35,10 @@ const tagStyles = ({ theme }) => css`
   border: 1px solid ${theme.colors.n300};
   padding: ${theme.spacings.bit} ${theme.spacings.kilo};
   cursor: default;
+  transition: opacity ${theme.transitions.default},
+    color ${theme.transitions.default},
+    background-color ${theme.transitions.default},
+    border-color ${theme.transitions.default};
 `;
 
 const tagClickableStyles = ({ onClick, theme }) =>
@@ -47,7 +51,7 @@ const tagClickableStyles = ({ onClick, theme }) =>
 
     &:hover {
       background-color: ${theme.colors.n300};
-      border: 1px solid ${theme.colors.n500};
+      border-color: ${theme.colors.n500};
     }
 
     &:focus {
@@ -60,7 +64,7 @@ const tagSelectedStyles = ({ selected, theme }) =>
   css`
     label: tag--selected;
     background-color: ${theme.colors.p500};
-    border: 1px solid ${theme.colors.p500};
+    border-color: ${theme.colors.p500};
     color: ${theme.colors.white};
   `;
 
@@ -71,7 +75,7 @@ const tagSelectedClickableStyles = ({ selected, onClick, theme }) =>
     label: tag--selected--clickable;
     &:hover {
       background-color: ${theme.colors.p500};
-      border: 1px solid ${theme.colors.p500};
+      border-color: ${theme.colors.p500};
     }
   `;
 

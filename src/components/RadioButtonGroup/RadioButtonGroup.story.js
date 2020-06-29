@@ -19,10 +19,7 @@ import RadioButtonGroup from './RadioButtonGroup';
 
 export default {
   title: 'Forms/RadioButton/RadioButtonGroup',
-  component: RadioButtonGroup,
-  parameters: {
-    jest: ['RadioButtonGroup']
-  }
+  component: RadioButtonGroup
 };
 
 const options = [

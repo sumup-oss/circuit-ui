@@ -26,8 +26,7 @@ export default {
   title: 'Components/Notification',
   component: Notification,
   parameters: {
-    docs: { page: docs },
-    jest: ['Notification']
+    docs: { page: docs }
   }
 };
 

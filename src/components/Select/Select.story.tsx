@@ -26,8 +26,7 @@ export default {
   title: 'Forms/Select',
   component: Select,
   parameters: {
-    docs: { page: docs },
-    jest: ['Select']
+    docs: { page: docs }
   }
 };
 
@@ -95,4 +94,4 @@ export const withPrefix = () => (
   />
 );
 
-export const withVisuallyHiddenLabel = () => <StatefulSelect hideLabel />;
+export const hiddenLabel = () => <StatefulSelect hideLabel />;

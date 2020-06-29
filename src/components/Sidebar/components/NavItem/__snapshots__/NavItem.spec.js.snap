@@ -75,8 +75,8 @@ exports[`NavItem styles should render with default styles and match the snapshot
   text-decoration: none;
   margin: 0px 24px;
   padding: 4px 0px;
-  -webkit-transition: top 200ms ease-in-out;
-  transition: top 200ms ease-in-out;
+  -webkit-transition: top 120ms ease-in-out;
+  transition: top 120ms ease-in-out;
 }
 
 .circuit-2:hover {

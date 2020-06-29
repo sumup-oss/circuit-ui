@@ -19,10 +19,7 @@ import SingleDayPicker from './SingleDayPicker';
 
 export default {
   title: 'Components/Calendar/SingleDayPicker',
-  component: SingleDayPicker,
-  parameters: {
-    jest: ['SingleDayPicker']
-  }
+  component: SingleDayPicker
 };
 
 const SingleDayPickerWithState = props => {

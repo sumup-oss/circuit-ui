@@ -24,8 +24,7 @@ export default {
   title: 'Forms/InlineMessage',
   component: InlineMessage,
   parameters: {
-    docs: { page: docs },
-    jest: ['InlineMessage']
+    docs: { page: docs }
   }
 };
 

@@ -42,8 +42,7 @@ export default {
   title: 'Components/Sidebar',
   component: Sidebar,
   parameters: {
-    docs: { page: docs },
-    jest: ['Sidebar']
+    docs: { page: docs }
   }
 };
 

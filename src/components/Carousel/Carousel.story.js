@@ -36,8 +36,7 @@ export default {
   title: 'Components/Carousel',
   component: Carousel,
   parameters: {
-    docs: { page: docs },
-    jest: ['Carousel']
+    docs: { page: docs }
   }
 };
 
