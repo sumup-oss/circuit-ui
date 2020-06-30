@@ -152,7 +152,7 @@ NavItem.propTypes = {
   onClick: PropTypes.func,
   components: componentsPropType,
   /**
-   * Data that is dispatched with click tracking event.
+   * Additional data that is dispatched with click tracking event.
    */
   tracking: PropTypes.shape({
     label: PropTypes.string.isRequired,

@@ -107,7 +107,7 @@ Sidebar.propTypes = {
    */
   onClose: PropTypes.func,
   /**
-   * Data that is dispatched with the close tracking event.
+   * Additional data that is dispatched with the close tracking event.
    */
   tracking: PropTypes.shape({
     label: PropTypes.string.isRequired,

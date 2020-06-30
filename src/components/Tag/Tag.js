@@ -195,7 +195,7 @@ Tag.propTypes = {
    */
   selected: PropTypes.bool,
   /**
-   * Data that is dispatched with the tracking event.
+   * Additional data that is dispatched with the tracking event.
    */
   tracking: PropTypes.shape({
     label: PropTypes.string.isRequired,
