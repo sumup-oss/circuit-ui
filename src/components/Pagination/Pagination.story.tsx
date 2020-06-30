@@ -44,12 +44,6 @@ const BasePagination = (props: Partial<PaginationProps>) => {
   );
 };
 
-export const base = () => (
-  <BasePagination
-    tracking={{
-      label: text('Tracking Label', 'trackingId')
-    }}
-  />
-);
+export const base = () => <BasePagination />;
 
 export const manyPages = () => <BasePagination totalPages={10} />;

@@ -36,7 +36,7 @@ export const Base = () => (
     labelActive={text('Label active', 'Close menu')}
     labelInActive={text('Label inactive', 'Open menu')}
     tracking={{
-      label: text('Tracking Label', 'trackingId-open')
+      label: text('Tracking Label', 'trackingId')
     }}
   />
 );

@@ -132,6 +132,7 @@ export const Pagination = ({
           pageLabel={pageLabel}
           pages={pages}
           currentPage={currentPage}
+          tracking={tracking}
         />
       ) : (
         <PageSelect
@@ -141,6 +142,7 @@ export const Pagination = ({
           currentPage={currentPage}
           totalPages={totalPages}
           totalLabel={totalLabel}
+          tracking={tracking}
         />
       )}
 

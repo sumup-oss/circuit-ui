@@ -13,7 +13,7 @@ In this guide we will cover all the basics to start measuring using Circuit UI c
   to enable and use it.
 </Intro>
 
-## Configuring tracking dispatch
+## Configuring Tracking Dispatch
 
 1. Wrap your application in root level with `TrackingRoot` and provide a dispatch function for your tracking service.
 2. Add `TrackingView` to a page or other meaningful view (e.g. a modal) in your application. (For more explanation about event schema, please refer to [Schema](https://github.com/sumup-oss/collector#schema) in Collector.)
@@ -24,7 +24,9 @@ In this guide we will cover all the basics to start measuring using Circuit UI c
 import { TrackingRoot, TrackingView } from '@sumup/collector';
 
 export default function App() {
-  const sendTracking = payload => sendGA(payload);
+  const sendTracking = React.useCallback((payload) => {
+    window.dataLayer.push(payload)
+  }, []);
 
   return (
     <TrackingRoot name="marketing-website" onDispatch={sendTracking)}>
@@ -40,6 +42,31 @@ export default function App() {
         </Button>
       </TrackingView>
     </TrackingRoot>
+  );
+}
+```
+
+## Import Trigger from Collector
+
+For the use case doesn't cover by Circuit UI, you can import click trigger from Collector and dispatch event directly.
+
+```jsx
+import { useClickTrigger } from '@sumup/collector';
+
+export default function Selector({ onChange }) {
+  const dispatch = useClickTrigger();
+  const handleChange = (selected) => {
+    dispatch({ 
+      label: selected.toString(),
+      component: 'selector', 
+      customParameters: { custom1: 'data' } 
+    });
+
+    onChange(selected);
+  };
+
+  return (
+    <Selector onChange={handleChange} />
   );
 }
 ```
