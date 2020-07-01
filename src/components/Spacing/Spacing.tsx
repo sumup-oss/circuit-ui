@@ -17,15 +17,8 @@ import { css } from '@emotion/core';
 import styled, { StyleProps } from '../../styles/styled';
 
 export interface SpacingProps {
-  /**
-   * Specifies the source URL of an image
-   */
   bottom?: boolean;
-  /**
-   * Provides alternative information if a user cannot view the image,
-   * e.g. because of slow connection, an error in the src attribute, or if the
-   * user uses a screen reader.
-   */
+
   top?: boolean;
 }
 
