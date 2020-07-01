@@ -23,7 +23,7 @@ import noScroll from 'no-scroll';
 
 import IS_IOS from '../../util/ios';
 import { isFunction } from '../../util/type-check';
-import useClickTracker from '../../hooks/use-click-tracker';
+import useClickHandler from '../../hooks/use-click-handler';
 
 type OnClose = (event: MouseEvent | KeyboardEvent) => void;
 
@@ -80,7 +80,7 @@ export const Modal: FC<ModalProps> = ({
 }) => {
   const theme: Theme = useTheme();
   const handleClose =
-    useClickTracker(onClose, tracking, 'modal-close') || onClose;
+    useClickHandler(onClose, tracking, 'modal-close') || onClose;
   ReactModal.setAppElement(appElement);
   return (
     <ClassNames>

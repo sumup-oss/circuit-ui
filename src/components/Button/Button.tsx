@@ -27,7 +27,7 @@ import {
 } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
 import { useComponents } from '../ComponentsContext';
-import useClickTracker from '../../hooks/use-click-tracker';
+import useClickHandler from '../../hooks/use-click-handler';
 
 export interface BaseProps {
   children: ReactNode;
@@ -221,7 +221,7 @@ function ButtonComponent(
   const { Link } = useComponents();
   const LinkButton = BaseButton.withComponent(Link);
   const ButtonElement = props.href ? LinkButton : BaseButton;
-  const handleClick = useClickTracker<MouseEvent<any>>(
+  const handleClick = useClickHandler<MouseEvent<any>>(
     props.onClick,
     tracking,
     'button'

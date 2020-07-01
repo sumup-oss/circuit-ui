@@ -24,7 +24,7 @@ import {
   disableVisually
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
-import useClickTracker from '../../hooks/use-click-tracker';
+import useClickHandler from '../../hooks/use-click-handler';
 
 export interface SelectorProps extends HTMLProps<HTMLInputElement> {
   /**
@@ -157,7 +157,7 @@ function SelectorComponent(
 ) {
   const inputId = id || uniqueId('selector_');
   const type = multiple ? 'checkbox' : 'radio';
-  const handleChange = useClickTracker(onChange, tracking, 'selector');
+  const handleChange = useClickHandler(onChange, tracking, 'selector');
 
   return (
     <SelectorWrapper {...props}>

@@ -18,13 +18,13 @@ import { mocked } from 'ts-jest/utils';
 
 import * as Collector from '@sumup/collector';
 
-import useClickTracker from './use-click-tracker';
+import useClickHandler from './use-click-handler';
 
 const mockCollector = mocked(Collector, true);
 
 jest.mock('@sumup/collector');
 
-describe('useClickTracker', () => {
+describe('useClickHandler', () => {
   afterEach(jest.clearAllMocks);
   afterAll(jest.resetModules);
 
@@ -35,7 +35,7 @@ describe('useClickTracker', () => {
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickTracker(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName)
       );
 
       const event = new MouseEvent('click');
@@ -55,7 +55,7 @@ describe('useClickTracker', () => {
 
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickTracker(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName)
       );
 
       const event = new MouseEvent('click');
@@ -71,7 +71,7 @@ describe('useClickTracker', () => {
     it('should return undefined if there is no onClick callback', () => {
       const onClick = undefined;
       const { result } = renderHook(() =>
-        useClickTracker(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName)
       );
 
       expect(result.current).toBeUndefined();
@@ -85,7 +85,7 @@ describe('useClickTracker', () => {
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickTracker(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName)
       );
 
       const event = new MouseEvent('click');
@@ -105,7 +105,7 @@ describe('useClickTracker', () => {
 
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickTracker(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName)
       );
 
       const event = new MouseEvent('click');

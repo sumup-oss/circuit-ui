@@ -28,7 +28,7 @@ import {
   inputOutline
 } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
-import useClickTracker from '../../hooks/use-click-tracker';
+import useClickHandler from '../../hooks/use-click-handler';
 
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
@@ -305,7 +305,7 @@ function SelectComponent(
   );
   const hasPrefix = Boolean(prefix);
 
-  const handleChange = useClickTracker(onChange, tracking, 'select');
+  const handleChange = useClickHandler(onChange, tracking, 'select');
 
   if (!label) {
     deprecate(

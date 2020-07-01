@@ -37,7 +37,6 @@ export const PageList: FunctionComponent<PageListProps> = ({
   pageLabel,
   pages,
   currentPage,
-  tracking,
   ...props
 }) => (
   <List role="list" {...props}>

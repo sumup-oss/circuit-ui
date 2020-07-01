@@ -24,7 +24,7 @@ import {
 } from '../../util/shared-prop-types';
 import { textMega, focusOutline } from '../../styles/style-helpers';
 import CloseButton from '../CloseButton';
-import useClickTracker from '../../hooks/use-click-tracker';
+import useClickHandler from '../../hooks/use-click-handler';
 
 const tagStyles = ({ theme }) => css`
   label: tag;
@@ -135,7 +135,7 @@ const Tag = React.forwardRef(
         css={theme => suffixStyles({ theme, selected })}
       />
     );
-    const handleClick = useClickTracker(onClick, tracking, 'tag');
+    const handleClick = useClickHandler(onClick, tracking, 'tag');
 
     return (
       <TagElement {...{ selected, ...props }} onClick={handleClick}>

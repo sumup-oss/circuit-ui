@@ -27,7 +27,7 @@ import {
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
-import useClickTracker from '../../hooks/use-click-tracker';
+import useClickHandler from '../../hooks/use-click-handler';
 
 const labelBaseStyles = ({ theme }) => css`
   label: checkbox__label;
@@ -168,7 +168,7 @@ const CheckboxComponent = (
   ref
 ) => {
   const id = customId || uniqueId('checkbox_');
-  const handleChange = useClickTracker(props.onChange, tracking, 'checkbox');
+  const handleChange = useClickHandler(props.onChange, tracking, 'checkbox');
 
   return (
     <CheckboxWrapper className={className}>

@@ -26,7 +26,7 @@ import Backdrop from './components/Backdrop';
 import CloseButton from './components/CloseButton';
 import Aggregator from './components/Aggregator';
 import Separator from './components/Separator';
-import useClickTracker from '../../hooks/use-click-tracker';
+import useClickHandler from '../../hooks/use-click-handler';
 
 const SIDEBAR_WIDTH = 256;
 
@@ -67,7 +67,7 @@ const Sidebar = ({
   tracking,
   ...props
 }) => {
-  const handleClose = useClickTracker(onClose, tracking, 'sidebar-close');
+  const handleClose = useClickHandler(onClose, tracking, 'sidebar-close');
 
   return (
     <Fragment>

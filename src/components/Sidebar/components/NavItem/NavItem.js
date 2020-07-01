@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import { componentsPropType } from '../../../../util/shared-prop-types';
-import useClickTracker from '../../../../hooks/use-click-tracker';
+import useClickHandler from '../../../../hooks/use-click-handler';
 import NavLabel from '../NavLabel';
 import { getIcon } from './utils';
 
@@ -91,7 +91,7 @@ const NavItem = ({
 }) => {
   const icon = getIcon({ defaultIcon, selected, selectedIcon, disabled });
   const Link = StyledLink.withComponent(components.Link);
-  const handleClick = useClickTracker(onClick, tracking, 'sidebar-nav-item');
+  const handleClick = useClickHandler(onClick, tracking, 'sidebar-nav-item');
 
   return (
     <li

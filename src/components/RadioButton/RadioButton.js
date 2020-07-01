@@ -25,7 +25,7 @@ import {
 } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
-import useClickTracker from '../../hooks/use-click-tracker';
+import useClickHandler from '../../hooks/use-click-handler';
 
 const labelBaseStyles = ({ theme }) => css`
   label: radio-button__label;
@@ -132,7 +132,7 @@ const RadioButtonComponent = (
   ref
 ) => {
   const inputId = id || uniqueId('radio-button_');
-  const handleChange = useClickTracker(onChange, tracking, 'radio-button');
+  const handleChange = useClickHandler(onChange, tracking, 'radio-button');
 
   return (
     <>

@@ -38,7 +38,6 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   currentPage,
   totalPages,
   totalLabel,
-  tracking,
   ...props
 }) => {
   const pageOptions = pages.map(value => ({ value, label: `${value}` }));
