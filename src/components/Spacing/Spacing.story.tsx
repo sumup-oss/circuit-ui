@@ -15,12 +15,15 @@
 
 import React, { Fragment } from 'react';
 
-import Spacing from './Spacing';
+import { Spacing } from './Spacing';
 import Button from '../Button';
 
 export default {
   title: 'Layout/Spacing',
-  component: Spacing
+  component: Spacing,
+  parameters: {
+    jest: ['Spacing']
+  }
 };
 
 export const bottomSpacing = () => (
