@@ -14,7 +14,7 @@ In this guide we will cover all the basics to start measuring using Circuit UI c
 ## Configuring Tracking Dispatch
 
 1. Wrap your application in root level with `TrackingRoot` and provide a dispatch function for your tracking service.
-2. Add `TrackingView` to a page or other meaningful view (e.g. a modal) in your application. (For more explanation about event schema, please refer to [Schema](https://github.com/sumup-oss/collector#schema) in Collector.)
+2. Add `TrackingView` to a [page view](https://github.com/sumup-oss/collector#page-view) in your application. Read more about the [Event Schema](https://github.com/sumup-oss/collector#event-schema) in the Collector documentation.
 3. To ensure high data quality, the `label` tracking property is mandatory in Collector. Circuit UI components invoke the dispatch function only when a value for the `label` property is passed as part of the `tracking` prop.
 4. When a user interacts with a component, Circuit UI invokes the dispatch function with the standard event schema.
 
