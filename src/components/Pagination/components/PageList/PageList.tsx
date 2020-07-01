@@ -53,11 +53,6 @@ export const PageList: FunctionComponent<PageListProps> = ({
             title={label}
             aria-label={label}
             aria-current={isCurrent}
-            tracking={{
-              label: page.toString(),
-              component: 'pagination',
-              ...tracking
-            }}
           >
             {page}
           </Button>

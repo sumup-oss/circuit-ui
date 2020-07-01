@@ -14,7 +14,6 @@
  */
 
 import React, { useCallback, FunctionComponent, ChangeEvent } from 'react';
-import { useClickTrigger } from '@sumup/collector';
 
 import styled from '../../../../styles/styled';
 import { Select, SelectProps } from '../../../Select/Select';
@@ -43,20 +42,11 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   ...props
 }) => {
   const pageOptions = pages.map(value => ({ value, label: `${value}` }));
-  const dispatch = useClickTrigger();
-
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
-      const selectedPage = parseInt(event.target.value, 10);
-
-      onChange(selectedPage);
-      dispatch({
-        label: selectedPage.toString(),
-        component: 'pagination',
-        ...tracking
-      });
+      onChange(parseInt(event.target.value, 10));
     },
-    [onChange, dispatch, tracking]
+    [onChange]
   );
 
   return (
