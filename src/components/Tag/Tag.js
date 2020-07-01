@@ -153,7 +153,7 @@ const Tag = React.forwardRef(
             onClick={onRemove}
             ref={ref}
             tracking={{
-              component: 'remove-button',
+              component: 'tag-remove',
               ...tracking
             }}
           />
