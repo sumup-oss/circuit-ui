@@ -20,10 +20,7 @@ import Button from '../Button';
 
 export default {
   title: 'Layout/Spacing',
-  component: Spacing,
-  parameters: {
-    jest: ['Spacing']
-  }
+  component: Spacing
 };
 
 export const bottomSpacing = () => (

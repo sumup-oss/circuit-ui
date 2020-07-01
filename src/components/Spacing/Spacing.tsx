@@ -21,11 +21,9 @@ export interface SpacingProps {
    * Adds bottom margin to component
    */
   bottom?: boolean;
-
   /**
    * Adds top margin to component
    */
-
   top?: boolean;
 }
 
