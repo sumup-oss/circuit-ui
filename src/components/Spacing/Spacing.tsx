@@ -17,7 +17,14 @@ import { css } from '@emotion/core';
 import styled, { StyleProps } from '../../styles/styled';
 
 export interface SpacingProps {
+  /**
+   * Adds bottom margin to component
+   */
   bottom?: boolean;
+
+  /**
+   * Adds top margin to component
+   */
 
   top?: boolean;
 }
