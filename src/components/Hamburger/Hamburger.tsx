@@ -15,6 +15,7 @@
 
 import React, { HTMLProps } from 'react';
 import { css } from '@emotion/core';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';
@@ -36,6 +37,10 @@ export interface HamburgerProps
    */
   labelInActive: string;
   'data-testid'?: string;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
 }
 
 const LAYER_HEIGHT = '2px';
@@ -130,9 +135,14 @@ export const Hamburger = ({
   isActive,
   labelActive = 'Close menu',
   labelInActive = 'Open menu',
+  tracking = {},
   ...props
 }: HamburgerProps) => (
-  <Button label={isActive ? labelActive : labelInActive} {...props}>
+  <Button
+    label={isActive ? labelActive : labelInActive}
+    {...props}
+    tracking={{ component: 'hamburger', ...tracking }}
+  >
     <Box>
       <Layers isActive={isActive} />
     </Box>

@@ -14,7 +14,8 @@
  */
 
 import React from 'react';
-import { select, boolean, text } from '@storybook/addon-knobs';
+import { select, boolean, text, object } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import { ThumbUp } from '@sumup/icons';
 
 import docs from './Button.docs.mdx';
@@ -65,5 +66,17 @@ export const WithIcon = () => (
     size={select('Size', ['kilo', 'mega'], 'mega')}
   >
     Like
+  </Button>
+);
+
+export const Tracking = () => (
+  <Button
+    onClick={action('Button Click')}
+    tracking={{
+      label: text('Tracking Label', 'trackingId'),
+      customParameters: object('Custom Parameters', { custom1: 'data' })
+    }}
+  >
+    {'Click'}
   </Button>
 );

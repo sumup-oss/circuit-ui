@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ReactNode, FC, SVGProps } from 'react';
+import React, { HTMLProps, ReactNode, FC, SVGProps, MouseEvent } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -26,6 +27,7 @@ import {
 } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
 import { useComponents } from '../ComponentsContext';
+import useClickHandler from '../../hooks/use-click-handler';
 
 export interface BaseProps {
   children: ReactNode;
@@ -50,7 +52,11 @@ export interface BaseProps {
    */
   icon?: FC<SVGProps<SVGSVGElement>>;
   /**
-   * The ref to the html dom element, it can be an anchor or a button
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
+  /**
+   The ref to the html dom element, it can be an anchor or a button
    */
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
   /**
@@ -209,14 +215,20 @@ function ButtonComponent(
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
 ): ReturnType;
 function ButtonComponent(
-  { children, icon: Icon, ...props }: ButtonProps,
+  { children, icon: Icon, tracking, ...props }: ButtonProps,
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
 ): ReturnType {
   const { Link } = useComponents();
   const LinkButton = BaseButton.withComponent(Link);
   const ButtonElement = props.href ? LinkButton : BaseButton;
+  const handleClick = useClickHandler<MouseEvent<any>>(
+    props.onClick,
+    tracking,
+    'button'
+  );
+
   return (
-    <ButtonElement {...props} ref={ref}>
+    <ButtonElement {...props} ref={ref} onClick={handleClick}>
       {Icon && <Icon css={iconStyles} role="presentation" />}
       {children}
     </ButtonElement>

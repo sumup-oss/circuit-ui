@@ -2547,6 +2547,13 @@
     telejson "^3.2.0"
     util-deprecate "^1.0.2"
 
+"@sumup/collector@^1.0.0-alpha.1":
+  version "1.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@sumup/collector/-/collector-1.0.0-alpha.1.tgz#3f056661fd698825dd015fc3a462b193226d8455"
+  integrity sha512-anFQO6yXzgHxGfiJBAAnE354tqj3DZHLQAbYl2q+xo0oZAGmwdGy9QqpGQ9pvlIuk8HLZJlBvG30rP3pDr6WhQ==
+  dependencies:
+    tti-polyfill "^0.2.2"
+
 "@sumup/design-tokens@^1.0.0-alpha.5":
   version "1.0.0-alpha.5"
   resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.0-alpha.5.tgz#4c645ed655476570f6ac97499cf76133b4a95af8"
@@ -16708,6 +16715,11 @@ tsutils@^3.17.1:
   integrity sha512-kzeQ5B8H3w60nFY2g8cJIuH7JDpsALXySGtwGJ0p2LSjLgay3NdIpqq5SoOBe46bKDW2iq25irHCr8wjomUS2g==
   dependencies:
     tslib "^1.8.1"
+
+tti-polyfill@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/tti-polyfill/-/tti-polyfill-0.2.2.tgz#f7bbf71b13afa9edf60c8bb0d0c05f134e1513b9"
+  integrity sha512-URIoJxvsHThbQEJij29hIBUDHx9UNoBBCQVjy7L8PnzkqY8N6lsAI6h8JrT1Wt2lA0avus/DkuiJxd9qpfCpqw==
 
 tty-browserify@0.0.0:
   version "0.0.0"

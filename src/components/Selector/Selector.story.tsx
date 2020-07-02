@@ -14,7 +14,7 @@
  */
 
 import React, { useState } from 'react';
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import docs from './Selector.docs.mdx';
 import { Selector, SelectorProps } from './Selector';
@@ -46,7 +46,10 @@ const SelectorWithState = (props: Partial<SelectorProps>) => {
 };
 
 export const base = () => (
-  <SelectorWithState disabled={boolean('Disabled', false)}>
+  <SelectorWithState
+    disabled={boolean('Disabled', false)}
+    tracking={{ label: text('Tracking Label', 'trackingId') }}
+  >
     Select me!
   </SelectorWithState>
 );

@@ -24,6 +24,7 @@ import {
 } from '../../util/shared-prop-types';
 import { textMega, focusOutline } from '../../styles/style-helpers';
 import CloseButton from '../CloseButton';
+import useClickHandler from '../../hooks/use-click-handler';
 
 const tagStyles = ({ theme }) => css`
   label: tag;
@@ -116,6 +117,8 @@ const Tag = React.forwardRef(
       onRemove,
       labelRemoveButton,
       selected,
+      onClick,
+      tracking,
       ...props
     },
     ref
@@ -132,9 +135,10 @@ const Tag = React.forwardRef(
         css={theme => suffixStyles({ theme, selected })}
       />
     );
+    const handleClick = useClickHandler(onClick, tracking, 'tag');
 
     return (
-      <TagElement {...{ selected, ...props }}>
+      <TagElement {...{ selected, ...props }} onClick={handleClick}>
         {prefixElement}
 
         {children}
@@ -148,6 +152,10 @@ const Tag = React.forwardRef(
             size="kilo"
             onClick={onRemove}
             ref={ref}
+            tracking={{
+              component: 'tag-remove',
+              ...tracking
+            }}
           />
         )}
 
@@ -187,7 +195,15 @@ Tag.propTypes = {
    */
   selected: PropTypes.bool,
   /**
-   * The ref to the html button dom element
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  }),
+  /**
+   *  The ref to the html button dom element
    */
   ref: PropTypes.oneOfType([
     PropTypes.func,
@@ -204,6 +220,7 @@ Tag.defaultProps = {
   onRemove: null,
   selected: false,
   labelRemoveButton: 'remove',
+  tracking: {},
   ref: undefined
 };
 

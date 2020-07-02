@@ -25,6 +25,7 @@ import {
 } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
+import useClickHandler from '../../hooks/use-click-handler';
 
 const labelBaseStyles = ({ theme }) => css`
   label: radio-button__label;
@@ -127,10 +128,12 @@ const RadioButtonLabel = styled('label')(
 );
 
 const RadioButtonComponent = (
-  { onChange, children, id, name, value, checked, ...props },
+  { onChange, children, id, name, value, checked, tracking, ...props },
   ref
 ) => {
   const inputId = id || uniqueId('radio-button_');
+  const handleChange = useClickHandler(onChange, tracking, 'radio-button');
+
   return (
     <>
       <RadioButtonInput
@@ -140,7 +143,7 @@ const RadioButtonComponent = (
         id={inputId}
         value={value}
         checked={checked}
-        onClick={onChange}
+        onClick={handleChange}
         ref={ref}
       />
       <RadioButtonLabel {...props} htmlFor={inputId}>
@@ -198,7 +201,15 @@ RadioButton.propTypes = {
     PropTypes.shape({
       current: PropTypes.any
     })
-  ])
+  ]),
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 RadioButton.defaultProps = {

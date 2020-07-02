@@ -15,6 +15,7 @@
 
 import React, { Ref, HTMLProps } from 'react';
 import { css } from '@emotion/core';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -23,6 +24,7 @@ import {
   disableVisually
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
+import useClickHandler from '../../hooks/use-click-handler';
 
 export interface SelectorProps extends HTMLProps<HTMLInputElement> {
   /**
@@ -53,6 +55,10 @@ export interface SelectorProps extends HTMLProps<HTMLInputElement> {
    * The ref to the html dom element
    */
   ref?: Ref<HTMLInputElement>;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
 }
 
 const wrapperStyles = ({ theme }: StyleProps) => css`
@@ -144,12 +150,15 @@ function SelectorComponent(
     multiple,
     checked,
     onChange,
+    tracking,
     ...props
   }: SelectorProps,
   ref: SelectorProps['ref']
 ) {
   const inputId = id || uniqueId('selector_');
   const type = multiple ? 'checkbox' : 'radio';
+  const handleChange = useClickHandler(onChange, tracking, 'selector');
+
   return (
     <SelectorWrapper {...props}>
       <SelectorInput
@@ -159,7 +168,7 @@ function SelectorComponent(
         value={value}
         checked={checked}
         disabled={disabled}
-        onClick={onChange}
+        onClick={handleChange}
         ref={ref}
       />
       <SelectorLabel htmlFor={inputId} disabled={disabled}>
