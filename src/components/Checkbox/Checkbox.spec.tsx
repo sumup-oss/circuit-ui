@@ -15,7 +15,16 @@
 
 import React from 'react';
 
-import Checkbox from '.';
+import {
+  create,
+  render,
+  renderToHtml,
+  axe,
+  act,
+  userEvent
+} from '../../util/test-utils';
+
+import { Checkbox } from './Checkbox';
 
 const defaultProps = {
   name: 'name',
@@ -75,7 +84,7 @@ describe('Checkbox', () => {
     });
 
     act(() => {
-      fireEvent.click(inputEl);
+      userEvent.click(inputEl);
     });
 
     expect(defaultProps.onChange).toHaveBeenCalledTimes(1);
@@ -86,7 +95,7 @@ describe('Checkbox', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
+      const tref = React.createRef<HTMLInputElement>();
       const { container } = render(<Checkbox ref={tref} />);
       const checkbox = container.querySelector('input');
       expect(tref.current).toBe(checkbox);

@@ -21,7 +21,7 @@ import {
   // Badge,
   ButtonGroup,
   Card,
-  Checkbox,
+  // Checkbox,
   Hr,
   Image,
   // Input,
@@ -138,7 +138,7 @@ export default {
         spacing: [Card.MEGA, Card.GIGA]
       }
     },
-    getComponentInfo(Checkbox),
+    // getComponentInfo(Checkbox),
     // getComponentInfo(Hamburger),
     // getComponentInfo(Heading, {
     //   size: [
