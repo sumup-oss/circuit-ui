@@ -40,7 +40,12 @@ const CheckboxWithState = ({
     setChecked(prev => !prev);
   };
   return (
-    <Checkbox {...props} checked={checked} onChange={handleChange}>
+    <Checkbox
+      {...props}
+      checked={checked}
+      onChange={handleChange}
+      tracking={{ label: text('Tracking Label', 'trackingId') }}
+    >
       {children || (checked ? 'Checked' : 'Unchecked')}
     </Checkbox>
   );

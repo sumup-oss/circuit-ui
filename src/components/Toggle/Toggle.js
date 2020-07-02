@@ -131,7 +131,7 @@ Toggle.propTypes = {
   ref: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
-      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLButtonElement)])
+      current: PropTypes.any
     })
   ])
 };

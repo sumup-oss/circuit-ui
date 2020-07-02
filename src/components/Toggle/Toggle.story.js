@@ -14,6 +14,7 @@
  */
 
 import React, { useState } from 'react';
+import { text } from '@storybook/addon-knobs';
 
 import docs from './Toggle.docs.mdx';
 import Toggle from './Toggle';
@@ -37,7 +38,12 @@ const ToggleWithState = props => {
   return <Toggle {...props} on={on} onChange={handleChange} />;
 };
 
-export const base = () => <ToggleWithState label="Short label" />;
+export const base = () => (
+  <ToggleWithState
+    label="Short label"
+    tracking={{ label: text('Tracking Label', 'trackingId') }}
+  />
+);
 
 export const withExplanation = () => (
   <ToggleWithState

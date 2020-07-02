@@ -41,7 +41,6 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   ...props
 }) => {
   const pageOptions = pages.map(value => ({ value, label: `${value}` }));
-
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
       onChange(parseInt(event.target.value, 10));

@@ -17,6 +17,7 @@ import React, { FC, ReactNode, Ref, HTMLProps, ChangeEvent } from 'react';
 import { css } from '@emotion/core';
 import { ChevronDown, ChevronUp } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import { uniqueId } from '../../util/id';
 import deprecate from '../../util/deprecate';
@@ -27,6 +28,7 @@ import {
   inputOutline
 } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
+import useClickHandler from '../../hooks/use-click-handler';
 
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
@@ -106,6 +108,10 @@ export interface SelectProps
    * The ref to the html dom element
    */
   ref?: Ref<HTMLSelectElement>;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
 }
 
 const containerBaseStyles = ({ theme }: StyleProps) => css`
@@ -286,6 +292,8 @@ function SelectComponent(
     hideLabel,
     className,
     id: customId,
+    onChange,
+    tracking,
     ...props
   }: SelectProps,
   ref?: SelectProps['ref']
@@ -296,6 +304,8 @@ function SelectComponent(
     <RenderPrefix css={prefixStyles} value={value} />
   );
   const hasPrefix = Boolean(prefix);
+
+  const handleChange = useClickHandler(onChange, tracking, 'select');
 
   if (!label) {
     deprecate(
@@ -330,6 +340,7 @@ function SelectComponent(
           disabled={disabled}
           hasPrefix={hasPrefix}
           {...props}
+          onChange={handleChange}
         >
           {!value && (
             <option key="placeholder" value="">

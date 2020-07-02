@@ -16,6 +16,7 @@
 import React, { HTMLProps, Ref } from 'react';
 import { css } from '@emotion/core';
 import { Check } from '@sumup/icons';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import {
@@ -25,6 +26,7 @@ import {
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
+import useClickHandler from '../../hooks/use-click-handler';
 
 export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
   /**
@@ -35,6 +37,10 @@ export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
    * Warning or error message, displayed in a tooltip.
    */
   validationHint?: string;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
   /**
    * The ref to the html dom element
    */
@@ -134,6 +140,8 @@ const checkboxWrapperStyles = ({ theme }: StyleProps) => css`
 
 const CheckboxWrapper = styled('div')<{}>(checkboxWrapperStyles);
 
+type InputElProps = Omit<CheckboxProps, 'tracking'>;
+
 const inputStyles = ({ theme }: StyleProps) => css`
   label: checkbox__input;
   ${hideVisually()};
@@ -152,7 +160,7 @@ const inputStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const CheckboxInput = styled('input')<CheckboxProps>(inputStyles);
+const CheckboxInput = styled('input')<InputElProps>(inputStyles);
 
 const tooltipStyles = ({ theme }: StyleProps) => css`
   label: checkbox__tooltip;
@@ -171,11 +179,14 @@ const CheckboxComponent = (
     validationHint,
     className,
     invalid,
+    tracking,
     ...props
   }: CheckboxProps,
   ref: CheckboxProps['ref']
 ) => {
   const id = customId || uniqueId('checkbox_');
+  const handleChange = useClickHandler(props.onChange, tracking, 'checkbox');
+
   return (
     <CheckboxWrapper className={className}>
       <CheckboxInput
@@ -187,6 +198,7 @@ const CheckboxComponent = (
         disabled={disabled}
         invalid={invalid}
         ref={ref}
+        onChange={handleChange}
       />
       <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
         {children}

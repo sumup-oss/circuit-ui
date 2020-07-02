@@ -19,6 +19,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import { focusOutline, hideVisually } from '../../../../styles/style-helpers';
+import useClickHandler from '../../../../hooks/use-click-handler';
 
 const TRACK_WIDTH = '40px';
 const TRACK_HEIGHT = '24px';
@@ -97,20 +98,24 @@ const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
  * A simple Switch component.
  */
 const Switch = React.forwardRef(
-  ({ on, onChange, labelOn, labelOff, ...rest }, ref) => (
-    <SwitchTrack
-      type="button"
-      onClick={onChange}
-      on={on}
-      role="switch"
-      aria-checked={on}
-      {...rest}
-      ref={ref}
-    >
-      <SwitchKnob {...{ on }} />
-      <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
-    </SwitchTrack>
-  )
+  ({ on, onChange, labelOn, labelOff, tracking, ...rest }, ref) => {
+    const handleChange = useClickHandler(onChange, tracking, 'toggle');
+
+    return (
+      <SwitchTrack
+        type="button"
+        onClick={handleChange}
+        on={on}
+        role="switch"
+        aria-checked={on}
+        {...rest}
+        ref={ref}
+      >
+        <SwitchKnob {...{ on }} />
+        <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
+      </SwitchTrack>
+    );
+  }
 );
 
 Switch.displayName = 'Switch';
@@ -138,9 +143,17 @@ Switch.propTypes = {
   ref: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
-      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLButtonElement)])
+      current: PropTypes.any
     })
-  ])
+  ]),
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 Switch.defaultProps = {
