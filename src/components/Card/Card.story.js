@@ -14,6 +14,7 @@
  */
 
 import React, { Fragment } from 'react';
+import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { css } from '@emotion/core';
 
@@ -87,7 +88,12 @@ export const withHeader = () => (
     </Card>
 
     <Card css={cardStyles}>
-      <CardHeader onClose={action('CloseButton clicked')}>
+      <CardHeader
+        onClose={action('CloseButton clicked')}
+        tracking={{
+          label: text('Tracking Label', 'trackingId')
+        }}
+      >
         <Header />
       </CardHeader>
       <Content />

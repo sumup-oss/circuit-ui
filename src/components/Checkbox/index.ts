@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Toggle from './Toggle';
+import { Checkbox } from './Checkbox';
 
-export default Toggle;
+export default Checkbox;

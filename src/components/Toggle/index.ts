@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Spacing from './Spacing';
+import { Toggle } from './Toggle';
 
-export default Spacing;
+export default Toggle;

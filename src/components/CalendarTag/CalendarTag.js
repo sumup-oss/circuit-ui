@@ -32,7 +32,15 @@ class CalendarTag extends Component {
     /**
      * Callback to receive the set of dates when the user selects them.
      */
-    onDatesRangeChange: PropTypes.func.isRequired
+    onDatesRangeChange: PropTypes.func.isRequired,
+    /**
+     * Additional data that is dispatched with the tracking event.
+     */
+    tracking: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      component: PropTypes.string,
+      customParameters: PropTypes.object
+    })
   };
 
   state = { startDate: null, endDate: null, focusedInput: null };
@@ -85,7 +93,7 @@ class CalendarTag extends Component {
   };
 
   render() {
-    const { onDatesRangeChange, ...props } = this.props;
+    const { onDatesRangeChange, tracking, ...props } = this.props;
     const { focusedInput, startDate, endDate } = this.state;
     const isOpen = focusedInput !== null;
 
@@ -95,6 +103,10 @@ class CalendarTag extends Component {
           selected={isOpen}
           ref={this.handleButtonRef}
           onClick={this.handleButtonClick}
+          tracking={{
+            component: 'calendar-tag',
+            ...tracking
+          }}
         >
           {this.getDateRangePreview()}
         </Tag>

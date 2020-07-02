@@ -45,7 +45,13 @@ const CardHeaderContainer = styled('header')`
   ${noHeadingStyles};
 `;
 
-const CardHeader = ({ onClose, children, labelCloseButton, ...props }) => (
+const CardHeader = ({
+  onClose,
+  children,
+  labelCloseButton,
+  tracking = {},
+  ...props
+}) => (
   <CardHeaderContainer {...props}>
     {children}
     {onClose && (
@@ -53,6 +59,7 @@ const CardHeader = ({ onClose, children, labelCloseButton, ...props }) => (
         onClick={onClose}
         label={labelCloseButton}
         data-testid="header-close"
+        tracking={{ component: 'close-button', ...tracking }}
       />
     )}
   </CardHeaderContainer>

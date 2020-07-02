@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React, { FunctionComponent, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -28,7 +28,7 @@ export default {
   }
 };
 
-export const base: FunctionComponent = () => (
+export const base = () => (
   <Badge
     color={select(
       'Color',
@@ -40,7 +40,7 @@ export const base: FunctionComponent = () => (
   </Badge>
 );
 
-export const colors: FunctionComponent = () => (
+export const colors = () => (
   <Fragment>
     <Badge color={'neutral'}>Neutral</Badge>
     <Badge color={'primary'}>Primary</Badge>
@@ -50,13 +50,13 @@ export const colors: FunctionComponent = () => (
   </Fragment>
 );
 
-export const circular: FunctionComponent = () => (
+export const circular = () => (
   <Badge color={'primary'} circle={boolean('Circular', true)}>
     42
   </Badge>
 );
 
-export const clickable: FunctionComponent = () => (
+export const clickable = () => (
   <Badge color={'primary'} onClick={action('onClick')} as="button">
     Click me
   </Badge>

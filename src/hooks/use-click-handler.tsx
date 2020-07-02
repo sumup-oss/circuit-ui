@@ -13,18 +13,21 @@
  * limitations under the License.
  */
 
-import { defineTest } from 'jscodeshift/dist/testUtils';
+import { useClickTrigger, Dispatch } from '@sumup/collector';
 
-jest.autoMockOff();
+export default function useClickHandler<Event>(
+  onClick?: (event: Event) => void,
+  tracking?: Dispatch,
+  defaultComponentName?: string
+): ((event: Event) => void) | undefined {
+  const dispatch = useClickTrigger();
+  const { label, component = defaultComponentName, customParameters } =
+    tracking || {};
 
-defineTest(__dirname, 'button-variant-enum');
-defineTest(__dirname, 'list-variant-enum');
-defineTest(__dirname, 'onchange-prop');
-defineTest(__dirname, 'as-prop');
-defineTest(__dirname, 'selector-props');
-defineTest(__dirname, 'exit-animations');
-defineTest(__dirname, 'input-deepref-prop');
-defineTest(__dirname, 'input-styles-prop');
-defineTest(__dirname, 'component-names-v2');
-defineTest(__dirname, 'component-static-properties');
-defineTest(__dirname, 'toggle-checked-prop');
+  return onClick && label
+    ? (event: Event): void => {
+        dispatch({ label, component, customParameters });
+        onClick(event);
+      }
+    : onClick;
+}

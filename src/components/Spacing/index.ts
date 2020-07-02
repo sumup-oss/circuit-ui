@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Switch from './Switch';
+import { Spacing } from './Spacing';
 
-export default Switch;
+export default Spacing;

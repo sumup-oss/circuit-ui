@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { action } from '@storybook/addon-actions';
 import { text } from '@storybook/addon-knobs';
 
-import Checkbox from './Checkbox';
+import { Checkbox, CheckboxProps } from './Checkbox';
 import docs from './Checkbox.docs.mdx';
 
 export default {
@@ -29,14 +29,23 @@ export default {
 };
 
 // eslint-disable-next-line react/prop-types
-const CheckboxWithState = ({ checked: initial, children, ...props }) => {
+const CheckboxWithState = ({
+  checked: initial = false,
+  children,
+  ...props
+}: CheckboxProps) => {
   const [checked, setChecked] = useState(initial);
-  const handleChange = e => {
-    action('Checkbox clicked')(e);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    action('Checkbox clicked')(event);
     setChecked(prev => !prev);
   };
   return (
-    <Checkbox {...props} checked={checked} onChange={handleChange}>
+    <Checkbox
+      {...props}
+      checked={checked}
+      onChange={handleChange}
+      tracking={{ label: text('Tracking Label', 'trackingId') }}
+    >
       {children || (checked ? 'Checked' : 'Unchecked')}
     </Checkbox>
   );
@@ -49,7 +58,7 @@ export const invalid = () => (
     name="invalid"
     value="invalid"
     validationHint={text('Validation hint', 'This field is required.')}
-    invalid={true}
+    invalid
   />
 );
 
