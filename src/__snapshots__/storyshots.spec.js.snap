@@ -14519,11 +14519,11 @@ exports[`Storyshots Components/Tooltip Top Left 1`] = `
 `;
 
 exports[`Storyshots Forms/Checkbox Base 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-4:last-of-type {
+.circuit-2:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -14560,7 +14560,7 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -14568,7 +14568,7 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -14588,7 +14588,7 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -14609,17 +14609,17 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
 }
 
 <div
-  class=" circuit-4 circuit-5"
+  class="circuit-2"
 >
   <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="checkbox_3"
     name="base"
     type="checkbox"
     value="true"
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     for="checkbox_3"
   >
     Unchecked
@@ -14644,11 +14644,11 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
 `;
 
 exports[`Storyshots Forms/Checkbox Disabled 1`] = `
-.circuit-4 {
+.circuit-2 {
   position: relative;
 }
 
-.circuit-4:last-of-type {
+.circuit-2:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -14685,7 +14685,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -14696,7 +14696,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   box-shadow: none;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -14716,7 +14716,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -14736,7 +14736,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -14744,7 +14744,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   background-color: #FAFBFC;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
@@ -14752,10 +14752,10 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
 }
 
 <div
-  class=" circuit-4 circuit-5"
+  class="circuit-2"
 >
   <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     disabled=""
     id="checkbox_5"
     name="disabled"
@@ -14763,7 +14763,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
     value="disabled"
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     disabled=""
     for="checkbox_5"
   >
@@ -14789,11 +14789,11 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
 `;
 
 exports[`Storyshots Forms/Checkbox Invalid 1`] = `
-.circuit-6 {
+.circuit-3 {
   position: relative;
 }
 
-.circuit-6:last-of-type {
+.circuit-3:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -14830,7 +14830,7 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -14838,7 +14838,7 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -14858,7 +14858,7 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -14878,16 +14878,16 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   transition: transform 0.05s ease-in,opacity 0.05s ease-in;
 }
 
-.circuit-2:not(:focus)::before {
+.circuit-1:not(:focus)::before {
   border-color: #DB4D4D;
   background-color: #F4CBCB;
 }
 
-.circuit-2:not(:focus) svg {
+.circuit-1:not(:focus) svg {
   color: #DB4D4D;
 }
 
-.circuit-4 {
+.circuit-2 {
   display: inline-block;
   width: auto;
   max-width: 280px;
@@ -14910,7 +14910,7 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   left: -12px;
 }
 
-.circuit-4::after {
+.circuit-2::after {
   display: block;
   content: '';
   width: 0;
@@ -14919,27 +14919,27 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   border: 8px solid transparent;
 }
 
-.circuit-4::after {
+.circuit-2::after {
   left: 12px;
 }
 
-.circuit-4::after {
+.circuit-2::after {
   top: 100%;
   border-top-color: #212933;
 }
 
 <div
-  class=" circuit-6 circuit-7"
+  class="circuit-3"
 >
   <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="checkbox_4"
     name="invalid"
     type="checkbox"
     value="invalid"
   />
   <label
-    class="circuit-2 circuit-3"
+    class="circuit-1"
     for="checkbox_4"
   >
     Unchecked
@@ -14961,7 +14961,7 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
     </svg>
   </label>
   <div
-    class="circuit-4 circuit-5"
+    class="circuit-2"
   >
     This field is required.
   </div>
@@ -14970,11 +14970,11 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
 
 exports[`Storyshots Forms/Checkbox Multiple 1`] = `
 HTMLCollection [
-  .circuit-4 {
+  .circuit-2 {
   position: relative;
 }
 
-.circuit-4:last-of-type {
+.circuit-2:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -15011,7 +15011,7 @@ HTMLCollection [
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -15019,7 +15019,7 @@ HTMLCollection [
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -15039,7 +15039,7 @@ HTMLCollection [
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -15060,17 +15060,17 @@ HTMLCollection [
 }
 
 <div
-    class=" circuit-4 circuit-5"
+    class="circuit-2"
   >
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="checkbox_6"
       name="fruits"
       type="checkbox"
       value="apples"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="checkbox_6"
     >
       Apples
@@ -15092,11 +15092,11 @@ HTMLCollection [
       </svg>
     </label>
   </div>,
-  .circuit-4 {
+  .circuit-2 {
   position: relative;
 }
 
-.circuit-4:last-of-type {
+.circuit-2:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -15133,7 +15133,7 @@ HTMLCollection [
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -15141,7 +15141,7 @@ HTMLCollection [
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -15161,7 +15161,7 @@ HTMLCollection [
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -15182,17 +15182,17 @@ HTMLCollection [
 }
 
 <div
-    class=" circuit-4 circuit-5"
+    class="circuit-2"
   >
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="checkbox_7"
       name="fruits"
       type="checkbox"
       value="bananas"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="checkbox_7"
     >
       Bananas
@@ -15214,11 +15214,11 @@ HTMLCollection [
       </svg>
     </label>
   </div>,
-  .circuit-4 {
+  .circuit-2 {
   position: relative;
 }
 
-.circuit-4:last-of-type {
+.circuit-2:last-of-type {
   margin-bottom: 16px;
 }
 
@@ -15255,7 +15255,7 @@ HTMLCollection [
   border-color: #3388FF;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   display: inline-block;
   padding-left: 24px;
@@ -15263,7 +15263,7 @@ HTMLCollection [
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   height: 16px;
   width: 16px;
   box-sizing: border-box;
@@ -15283,7 +15283,7 @@ HTMLCollection [
   transition: border 0.05s ease-in,background-color 0.05s ease-in;
 }
 
-.circuit-2 svg {
+.circuit-1 svg {
   height: 16px;
   width: 16px;
   padding: 2px;
@@ -15304,17 +15304,17 @@ HTMLCollection [
 }
 
 <div
-    class=" circuit-4 circuit-5"
+    class="circuit-2"
   >
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="checkbox_8"
       name="fruits"
       type="checkbox"
       value="oranges"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="checkbox_8"
     >
       Oranges
