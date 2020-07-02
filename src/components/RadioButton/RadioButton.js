@@ -196,7 +196,7 @@ RadioButton.propTypes = {
   ref: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
-      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+      current: PropTypes.any
     })
   ])
 };
