@@ -23000,7 +23000,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-1 circuit-2"
+    class="circuit-1"
   >
     <button
       class="circuit-0"
@@ -23205,7 +23205,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-1 circuit-2"
+    class="circuit-1"
   >
     <button
       class="circuit-0"
