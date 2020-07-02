@@ -13,22 +13,48 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { HTMLProps, Ref } from 'react';
 import { css } from '@emotion/core';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
+import styled, { StyleProps } from '../../../../styles/styled';
 import { focusOutline, hideVisually } from '../../../../styles/style-helpers';
 import useClickHandler from '../../../../hooks/use-click-handler';
+
+export interface SwitchProps
+  extends Omit<HTMLProps<HTMLButtonElement>, 'type'> {
+  /**
+   * Is the Switch on?
+   */
+  checked?: boolean;
+  /**
+   * Label for the 'on' state. Important for accessibility.
+   */
+  labelChecked: string;
+  /**
+   * Label for the 'off' state. Important for accessibility.
+   */
+  labelUnchecked: string;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
+  /**
+   * The ref to the html button dom element
+   */
+  ref?: Ref<HTMLButtonElement>;
+}
 
 const TRACK_WIDTH = '40px';
 const TRACK_HEIGHT = '24px';
 const KNOB_SIZE = '16px';
 const ANIMATION_TIMING = '200ms ease-in-out';
 
-const knobShadow = color => `0 2px 0 0 ${color}`;
+const knobShadow = (color: string) => `0 2px 0 0 ${color}`;
 
-const trackBaseStyles = ({ theme }) => css`
+type TrackElProps = Omit<SwitchProps, 'labelChecked' | 'labelUnchecked'>;
+
+const trackBaseStyles = ({ theme }: StyleProps) => css`
   label: toggle__switch;
   margin: 0;
   padding: 0;
@@ -50,16 +76,21 @@ const trackBaseStyles = ({ theme }) => css`
   }
 `;
 
-const trackOnStyles = ({ theme, on }) =>
-  on &&
+const trackOnStyles = ({ theme, checked }: StyleProps & TrackElProps) =>
+  checked &&
   css`
-    label: toggle__switch--on;
+    label: toggle__switch--checked;
     background-color: ${theme.colors.p500};
   `;
 
-const SwitchTrack = styled('button')(trackBaseStyles, trackOnStyles);
+const SwitchTrack = styled('button')<TrackElProps>(
+  trackBaseStyles,
+  trackOnStyles
+);
 
-const knobBaseStyles = ({ theme }) => css`
+type KnobElProps = Pick<SwitchProps, 'checked'>;
+
+const knobBaseStyles = ({ theme }: StyleProps) => css`
   label: toggle__switch-knob;
   display: block;
   background-color: ${theme.colors.n100};
@@ -73,10 +104,10 @@ const knobBaseStyles = ({ theme }) => css`
   border-radius: ${KNOB_SIZE};
 `;
 
-const knobOnStyles = ({ theme, on }) =>
-  on &&
+const knobOnStyles = ({ theme, checked }: StyleProps & KnobElProps) =>
+  checked &&
   css`
-    label: toggle__switch-knob--on;
+    label: toggle__switch-knob--checked;
     box-shadow: ${knobShadow(theme.colors.p700)};
     transform: translate3d(
       calc(${TRACK_WIDTH} - ${KNOB_SIZE} - ${theme.spacings.bit}),
@@ -89,7 +120,7 @@ const labelBaseStyles = () => css`
   label: toggle__switch-label;
 `;
 
-const SwitchKnob = styled('span')(knobBaseStyles, knobOnStyles);
+const SwitchKnob = styled('span')<KnobElProps>(knobBaseStyles, knobOnStyles);
 
 // Important for accessibility
 const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
@@ -97,72 +128,34 @@ const SwitchLabel = styled('span')(labelBaseStyles, hideVisually);
 /**
  * A simple Switch component.
  */
-const Switch = React.forwardRef(
-  ({ on, onChange, labelOn, labelOff, tracking, ...rest }, ref) => {
+export const Switch = React.forwardRef(
+  (
+    {
+      checked = false,
+      onChange,
+      labelChecked = 'on',
+      labelUnchecked = 'off',
+      tracking,
+      ...props
+    }: SwitchProps,
+    ref: SwitchProps['ref']
+  ) => {
     const handleChange = useClickHandler(onChange, tracking, 'toggle');
-
     return (
       <SwitchTrack
         type="button"
         onClick={handleChange}
-        on={on}
+        checked={checked}
         role="switch"
-        aria-checked={on}
-        {...rest}
+        aria-checked={checked}
+        {...props}
         ref={ref}
       >
-        <SwitchKnob {...{ on }} />
-        <SwitchLabel>{on ? labelOn : labelOff}</SwitchLabel>
+        <SwitchKnob checked={checked} />
+        <SwitchLabel>{checked ? labelChecked : labelUnchecked}</SwitchLabel>
       </SwitchTrack>
     );
   }
 );
 
 Switch.displayName = 'Switch';
-
-Switch.propTypes = {
-  /**
-   * Is the Switch on?
-   */
-  on: PropTypes.bool,
-  /**
-   * Callback used when the user toggles the switch.
-   */
-  onChange: PropTypes.func.isRequired,
-  /**
-   * Label for the 'on' state. Important for accessibility.
-   */
-  labelOn: PropTypes.string,
-  /**
-   * Label for the 'off' state. Important for accessibility.
-   */
-  labelOff: PropTypes.string,
-  /**
-   * The ref to the html button dom element
-   */
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any
-    })
-  ]),
-  /**
-   * Additional data that is dispatched with the tracking event.
-   */
-  tracking: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    component: PropTypes.string,
-    customParameters: PropTypes.object
-  })
-};
-
-Switch.defaultProps = {
-  on: false,
-  labelOn: 'on',
-  labelOff: 'off'
-};
-
-/**
- * @component
- */
-export default Switch;

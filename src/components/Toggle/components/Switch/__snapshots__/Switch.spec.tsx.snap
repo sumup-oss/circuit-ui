@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Switch should have the correct default styles 1`] = `
-.circuit-4 {
+.circuit-2 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -23,12 +23,12 @@ exports[`Switch should have the correct default styles 1`] = `
   cursor: pointer;
 }
 
-.circuit-4:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -49,7 +49,7 @@ exports[`Switch should have the correct default styles 1`] = `
   border-radius: 16px;
 }
 
-.circuit-2 {
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -64,15 +64,15 @@ exports[`Switch should have the correct default styles 1`] = `
 
 <button
   aria-checked="false"
-  class="circuit-4 circuit-5"
+  class="circuit-2"
   role="switch"
   type="button"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   />
   <span
-    class="circuit-2 circuit-3"
+    class="circuit-1"
   >
     off
   </span>
@@ -80,7 +80,7 @@ exports[`Switch should have the correct default styles 1`] = `
 `;
 
 exports[`Switch should have the correct on styles 1`] = `
-.circuit-2 {
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -93,7 +93,7 @@ exports[`Switch should have the correct on styles 1`] = `
   width: 1px;
 }
 
-.circuit-4 {
+.circuit-2 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -116,12 +116,12 @@ exports[`Switch should have the correct on styles 1`] = `
   background-color: #3388FF;
 }
 
-.circuit-4:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -141,22 +141,22 @@ exports[`Switch should have the correct on styles 1`] = `
   width: 16px;
   border-radius: 16px;
   box-shadow: 0 2px 0 0 #1760CE;
-  -webkit-transform: translate3d( calc(40px - 16px - 4px),-50%,0 );
-  -ms-transform: translate3d( calc(40px - 16px - 4px),-50%,0 );
-  transform: translate3d( calc(40px - 16px - 4px),-50%,0 );
+  -webkit-transform: translate3d( calc(40px - 16px - 4px), -50%, 0 );
+  -ms-transform: translate3d( calc(40px - 16px - 4px), -50%, 0 );
+  transform: translate3d( calc(40px - 16px - 4px), -50%, 0 );
 }
 
 <button
   aria-checked="true"
-  class="circuit-4 circuit-5"
+  class="circuit-2"
   role="switch"
   type="button"
 >
   <span
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   />
   <span
-    class="circuit-2 circuit-3"
+    class="circuit-1"
   >
     on
   </span>

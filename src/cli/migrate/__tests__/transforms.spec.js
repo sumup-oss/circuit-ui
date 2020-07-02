@@ -27,3 +27,4 @@ defineTest(__dirname, 'input-deepref-prop');
 defineTest(__dirname, 'input-styles-prop');
 defineTest(__dirname, 'component-names-v2');
 defineTest(__dirname, 'component-static-properties');
+defineTest(__dirname, 'toggle-checked-prop');

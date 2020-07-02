@@ -13,17 +13,35 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { Ref } from 'react';
 import { css } from '@emotion/core';
 
+import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 
-import { Switch } from './components';
-import Text from '../Text';
+import { Switch, SwitchProps } from './components/Switch/Switch';
+import { Text, TextProps } from '../Text/Text';
 
-const textWrapperStyles = ({ theme }) => css`
+export interface ToggleProps extends SwitchProps {
+  /**
+   * Describes the function of the toggle. Should not change depending on the state.
+   */
+  label: string;
+  /**
+   * Further explanation of the toggle. Can change depending on the state.
+   */
+  explanation?: string;
+  /**
+   * Removes the default bottom margin from the input.
+   */
+  noMargin?: boolean;
+  /**
+   * The ref to the html button dom element
+   */
+  ref?: Ref<HTMLButtonElement>;
+}
+
+const textWrapperStyles = ({ theme }: StyleProps) => css`
   label: toggle__text-wrapper;
   display: block;
   margin-left: ${theme.spacings.kilo};
@@ -35,7 +53,7 @@ const textWrapperStyles = ({ theme }) => css`
   }
 `;
 
-const ToggleTextWrapper = styled('label')(textWrapperStyles);
+const ToggleTextWrapper = styled('label')<{}>(textWrapperStyles);
 
 const labelStyles = css`
   label: toggle__label;
@@ -44,23 +62,19 @@ const labelStyles = css`
 
 const ToggleLabel = styled(Text)(labelStyles);
 
-ToggleLabel.propTypes = Text.propTypes;
-ToggleLabel.defaultProps = Text.defaultProps;
-
-const explanationStyles = ({ theme }) => css`
+const explanationStyles = ({ theme }: StyleProps) => css`
   label: toggle__explanation;
-  color: ${theme.colors.n500};
+  color: ${theme.colors.n700};
 `;
 
-const ToggleExplanation = styled(Text)(explanationStyles);
+const ToggleExplanation = styled(Text)<TextProps>(explanationStyles);
 
-ToggleExplanation.propTypes = Text.propTypes;
-ToggleExplanation.defaultProps = Text.defaultProps;
+type WrapperElProps = Pick<ToggleProps, 'noMargin'>;
 
-const toggleWrapperStyles = ({ theme }) => css`
+const toggleWrapperStyles = ({ theme }: StyleProps) => css`
   label: toggle;
   display: flex;
-  flex-align: flex-start;
+  align-items: flex-start;
   margin-bottom: ${theme.spacings.mega};
 
   ${theme.mq.untilKilo} {
@@ -69,14 +83,14 @@ const toggleWrapperStyles = ({ theme }) => css`
   }
 `;
 
-const toggleWrapperNoMarginStyles = ({ noMargin }) =>
+const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) =>
   noMargin &&
   css`
     label: toggle--no-margin;
     margin-bottom: 0;
   `;
 
-const ToggleWrapper = styled('div')(
+const ToggleWrapper = styled('div')<WrapperElProps>(
   toggleWrapperStyles,
   toggleWrapperNoMarginStyles
 );
@@ -84,8 +98,11 @@ const ToggleWrapper = styled('div')(
 /**
  * A toggle component with support for labels and additional explanations.
  */
-const Toggle = React.forwardRef(
-  ({ label, explanation, noMargin, ...props }, ref) => {
+export const Toggle = React.forwardRef(
+  (
+    { label, explanation, noMargin, ...props }: ToggleProps,
+    ref: ToggleProps['ref']
+  ) => {
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
     return (
@@ -111,38 +128,3 @@ const Toggle = React.forwardRef(
 );
 
 Toggle.displayName = 'Toggle';
-
-Toggle.propTypes = {
-  /**
-   * Describes the function of the toggle. Should not change depending on the state.
-   */
-  label: PropTypes.string,
-  /**
-   * Further explanation of the toggle. Can change depending on the state.
-   */
-  explanation: PropTypes.string,
-  /**
-   * Removes the default bottom margin from the input.
-   */
-  noMargin: PropTypes.bool,
-  /**
-   * The ref to the html button dom element
-   */
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any
-    })
-  ])
-};
-
-Toggle.defaultProps = {
-  label: null,
-  explanation: null,
-  noMargin: false
-};
-
-/**
- * @component
- */
-export default Toggle;

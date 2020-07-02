@@ -20212,19 +20212,20 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/Toggle Base 1`] = `
-.circuit-10 {
+.circuit-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-align: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
-  flex-align: flex-start;
+  align-items: flex-start;
   margin-bottom: 16px;
 }
 
 @media (max-width:479px) {
-  .circuit-10 {
+  .circuit-5 {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
@@ -20235,7 +20236,7 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-2 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -20257,12 +20258,12 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   cursor: pointer;
 }
 
-.circuit-4:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -20283,7 +20284,7 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   border-radius: 16px;
 }
 
-.circuit-2 {
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -20296,20 +20297,20 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
   width: 1px;
 }
 
-.circuit-8 {
+.circuit-4 {
   display: block;
   margin-left: 12px;
   cursor: pointer;
 }
 
 @media (max-width:479px) {
-  .circuit-8 {
+  .circuit-4 {
     margin-left: 0;
     margin-right: 12px;
   }
 }
 
-.circuit-6 {
+.circuit-3 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 13px;
@@ -20319,39 +20320,39 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-6 {
+  .circuit-3 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 <div
-  class="circuit-10 circuit-11"
+  class="circuit-5"
 >
   <button
     aria-checked="false"
     aria-labelledby="toggle-label_64"
-    class="circuit-4 circuit-5"
+    class="circuit-2"
     id="toggle-switch_63"
     role="switch"
     type="button"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     />
     <span
-      class="circuit-2 circuit-3"
+      class="circuit-1"
     >
       off
     </span>
   </button>
   <label
-    class="circuit-8 circuit-9"
+    class="circuit-4"
     for="toggle-switch_63"
     id="toggle-label_64"
   >
     <p
-      class="circuit-6 circuit-7"
+      class="circuit-3"
     >
       Short label
     </p>
@@ -20360,19 +20361,20 @@ exports[`Storyshots Forms/Toggle Base 1`] = `
 `;
 
 exports[`Storyshots Forms/Toggle With Explanation 1`] = `
-.circuit-12 {
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-align: flex-start;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
-  flex-align: flex-start;
+  align-items: flex-start;
   margin-bottom: 16px;
 }
 
 @media (max-width:479px) {
-  .circuit-12 {
+  .circuit-6 {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
@@ -20383,7 +20385,7 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   }
 }
 
-.circuit-4 {
+.circuit-2 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -20405,12 +20407,12 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   cursor: pointer;
 }
 
-.circuit-4:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
@@ -20431,7 +20433,7 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   border-radius: 16px;
 }
 
-.circuit-2 {
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -20444,20 +20446,20 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
   width: 1px;
 }
 
-.circuit-10 {
+.circuit-5 {
   display: block;
   margin-left: 12px;
   cursor: pointer;
 }
 
 @media (max-width:479px) {
-  .circuit-10 {
+  .circuit-5 {
     margin-left: 0;
     margin-right: 12px;
   }
 }
 
-.circuit-6 {
+.circuit-3 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 13px;
@@ -20467,60 +20469,60 @@ exports[`Storyshots Forms/Toggle With Explanation 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-6 {
+  .circuit-3 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
-.circuit-8 {
+.circuit-4 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 13px;
   line-height: 20px;
   margin-bottom: 0;
-  color: #9DA7B1;
+  color: #5C656F;
 }
 
 @media (min-width:480px) {
-  .circuit-8 {
+  .circuit-4 {
     font-size: 13px;
     line-height: 20px;
   }
 }
 
 <div
-  class="circuit-12 circuit-13"
+  class="circuit-6"
 >
   <button
     aria-checked="false"
     aria-labelledby="toggle-label_66"
-    class="circuit-4 circuit-5"
+    class="circuit-2"
     id="toggle-switch_65"
     role="switch"
     type="button"
   >
     <span
-      class="circuit-0 circuit-1"
+      class="circuit-0"
     />
     <span
-      class="circuit-2 circuit-3"
+      class="circuit-1"
     >
       off
     </span>
   </button>
   <label
-    class="circuit-10 circuit-11"
+    class="circuit-5"
     for="toggle-switch_65"
     id="toggle-label_66"
   >
     <p
-      class="circuit-6 circuit-7"
+      class="circuit-3"
     >
       Short label
     </p>
     <p
-      class="circuit-8 circuit-9"
+      class="circuit-4"
     >
       Some more detailed text of what this means
     </p>

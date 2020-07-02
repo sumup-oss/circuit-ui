@@ -17,22 +17,22 @@ import React from 'react';
 import { entries, isFunction, kebabCase } from 'lodash/fp';
 import { light } from '@sumup/design-tokens';
 
-import {
-  // Badge,
-  ButtonGroup,
-  Card,
-  // Checkbox,
-  Hr,
-  Image,
-  // Input,
-  // Label,
-  RadioButton,
-  // Select,
-  // Selector,
-  Tag,
-  // TextArea,
-  Toggle
-} from '../../src';
+// import {
+//   Badge,
+//   ButtonGroup,
+//   Card,
+//   Checkbox,
+//   Hr,
+//   Image,
+//   Input,
+//   Label,
+//   RadioButton,
+//   Select,
+//   Selector,
+//   Tag,
+//   TextArea,
+//   Toggle
+// } from '../../src';
 
 const element = props => <div {...props} />;
 
@@ -111,9 +111,9 @@ export function getComponentInfo(component, propOverrides = {}) {
   }
 }
 
-// TODO: Make React DocGen work with TypeScript
 export default {
   themes: { light },
+  // TODO: Make React DocGen work with TypeScript
   components: [
     // {
     //   name: 'badge',
@@ -125,19 +125,19 @@ export default {
     // },
     // getComponentInfo(Button, { size: [KILO, MEGA] }),
     // getComponentInfo(Blockquote, {
-    //   size: [Blockquote.KILO, Blockquote.MEGA, Blockquote.GIGA]
+    //   size: ['kilo', 'mega', 'giga']
     // }),
-    getComponentInfo(ButtonGroup, {
-      align: [ButtonGroup.LEFT, ButtonGroup.CENTER, ButtonGroup.RIGHT]
-    }),
-    {
-      name: 'card',
-      component: Card,
-      props: {
-        shadow: [Card.SINGLE, Card.DOUBLE, Card.TRIPLE],
-        spacing: [Card.MEGA, Card.GIGA]
-      }
-    },
+    // getComponentInfo(ButtonGroup, {
+    //   align: ['left', 'center', 'right']
+    // }),
+    // {
+    //   name: 'card',
+    //   component: Card,
+    //   props: {
+    //     shadow: ['single', 'double', 'triple'],
+    //     spacing: ['mega', 'giga']
+    //   }
+    // },
     // getComponentInfo(Checkbox),
     // getComponentInfo(Hamburger),
     // getComponentInfo(Heading, {
@@ -151,8 +151,8 @@ export default {
     //     "zetta"
     //   ]
     // }),
-    { name: 'hr', component: Hr },
-    { name: 'image', component: Image },
+    // { name: 'hr', component: Hr },
+    // { name: 'image', component: Image },
     // getComponentInfo(Input, {
     //   renderPrefix: PropTypes.element,
     //   renderSuffix: PropTypes.element,
@@ -166,24 +166,23 @@ export default {
     // getComponentInfo(ProgressBar, {
     //   size: ['kilo', 'mega', 'giga']
     // }),
-    getComponentInfo(RadioButton),
+    // getComponentInfo(RadioButton),
     // getComponentInfo(Select, {
     //   renderPrefix: PropTypes.element
     // }),
     // { name: 'selector', component: Selector },
-    // TODO: Make React DocGen work with TypeScript
     // getComponentInfo(SubHeading, {
     //   size: ['kilo', 'mega']
     // }),
-    getComponentInfo(Tag, {
-      onRemove: PropTypes.func,
-      prefix: PropTypes.element,
-      suffix: PropTypes.element
-    }),
+    // getComponentInfo(Tag, {
+    //   onRemove: PropTypes.func,
+    //   prefix: PropTypes.element,
+    //   suffix: PropTypes.element
+    // }),
     // getComponentInfo(Text, {
     //   size: ['kilo', 'mega', 'giga']
     // }),
     // getComponentInfo(TextArea),
-    getComponentInfo(Toggle)
+    // getComponentInfo(Toggle)
   ]
 };

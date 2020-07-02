@@ -15,19 +15,26 @@
 
 import React from 'react';
 
-import Switch from '.';
+import { create, render, act, userEvent } from '../../../../util/test-utils';
+
+import { Switch } from './Switch';
+
+const defaultProps = {
+  labelChecked: 'on',
+  labelUnchecked: 'off'
+};
 
 describe('Switch', () => {
   /**
    * Stylesheet tests.
    */
   it('should have the correct default styles', () => {
-    const actual = create(<Switch />);
+    const actual = create(<Switch {...defaultProps} />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should have the correct on styles', () => {
-    const actual = create(<Switch on />);
+    const actual = create(<Switch {...defaultProps} checked />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -37,10 +44,10 @@ describe('Switch', () => {
   it('should call the change handler when toggled', () => {
     const onChange = jest.fn();
     const { getByTestId } = render(
-      <Switch onChange={onChange} data-testid="switch" />
+      <Switch {...defaultProps} onChange={onChange} data-testid="switch" />
     );
     act(() => {
-      fireEvent.click(getByTestId('switch'));
+      userEvent.click(getByTestId('switch'));
     });
     expect(onChange).toHaveBeenCalledTimes(1);
   });
@@ -50,8 +57,8 @@ describe('Switch', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
-      const { container } = render(<Switch ref={tref} />);
+      const tref = React.createRef<HTMLButtonElement>();
+      const { container } = render(<Switch {...defaultProps} ref={tref} />);
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);
     });

@@ -17,7 +17,7 @@ import React, { useState } from 'react';
 import { text } from '@storybook/addon-knobs';
 
 import docs from './Toggle.docs.mdx';
-import Toggle from './Toggle';
+import { Toggle, ToggleProps } from './Toggle';
 
 export default {
   title: 'Forms/Toggle',
@@ -27,15 +27,23 @@ export default {
   }
 };
 
-/* eslint-disable react/prop-types */
-const ToggleWithState = props => {
-  const [on, setOn] = useState(false);
+const ToggleWithState = (props: Partial<ToggleProps>) => {
+  const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
-    setOn(prev => !prev);
+    setChecked(prev => !prev);
   };
 
-  return <Toggle {...props} on={on} onChange={handleChange} />;
+  return (
+    <Toggle
+      label="Short label"
+      labelChecked="on"
+      labelUnchecked="off"
+      {...props}
+      checked={checked}
+      onChange={handleChange}
+    />
+  );
 };
 
 export const base = () => (
@@ -46,8 +54,5 @@ export const base = () => (
 );
 
 export const withExplanation = () => (
-  <ToggleWithState
-    label="Short label"
-    explanation="Some more detailed text of what this means"
-  />
+  <ToggleWithState explanation="Some more detailed text of what this means" />
 );
