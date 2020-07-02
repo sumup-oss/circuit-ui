@@ -15,9 +15,11 @@
 
 import React, { HTMLProps, Ref } from 'react';
 import { css } from '@emotion/core';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../../../styles/styled';
 import { focusOutline, hideVisually } from '../../../../styles/style-helpers';
+import useClickHandler from '../../../../hooks/use-click-handler';
 
 export interface SwitchProps
   extends Omit<HTMLProps<HTMLButtonElement>, 'type'> {
@@ -33,6 +35,10 @@ export interface SwitchProps
    * Label for the 'off' state. Important for accessibility.
    */
   labelUnchecked: string;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
   /**
    * The ref to the html button dom element
    */
@@ -129,23 +135,27 @@ export const Switch = React.forwardRef(
       onChange,
       labelChecked = 'on',
       labelUnchecked = 'off',
+      tracking,
       ...props
     }: SwitchProps,
     ref: SwitchProps['ref']
-  ) => (
-    <SwitchTrack
-      type="button"
-      onClick={onChange}
-      checked={checked}
-      role="switch"
-      aria-checked={checked}
-      {...props}
-      ref={ref}
-    >
-      <SwitchKnob checked={checked} />
-      <SwitchLabel>{checked ? labelChecked : labelUnchecked}</SwitchLabel>
-    </SwitchTrack>
-  )
+  ) => {
+    const handleChange = useClickHandler(onChange, tracking, 'toggle');
+    return (
+      <SwitchTrack
+        type="button"
+        onClick={handleChange}
+        checked={checked}
+        role="switch"
+        aria-checked={checked}
+        {...props}
+        ref={ref}
+      >
+        <SwitchKnob checked={checked} />
+        <SwitchLabel>{checked ? labelChecked : labelUnchecked}</SwitchLabel>
+      </SwitchTrack>
+    );
+  }
 );
 
 Switch.displayName = 'Switch';

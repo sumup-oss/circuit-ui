@@ -15,7 +15,7 @@
 
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { boolean } from '@storybook/addon-knobs/react';
+import { boolean, text } from '@storybook/addon-knobs/react';
 import { Check } from '@sumup/icons';
 
 import docs from './Tag.docs.mdx';
@@ -48,13 +48,23 @@ export const withPrefix = () => <Tag prefix={Check}>Transactions</Tag>;
 export const withSuffix = () => <Tag suffix={Check}>Transactions</Tag>;
 
 export const removable = () => (
-  <Tag onRemove={action('Tag removed')} labelRemoveButton="Remove">
+  <Tag
+    onRemove={action('Tag removed')}
+    labelRemoveButton="Remove"
+    tracking={{ label: text('Tracking Label', 'trackingId') }}
+  >
     Transactions
   </Tag>
 );
 
 export const clickable = () => (
-  <Tag onClick={action('Tag clicked')} as="button">
+  <Tag
+    onClick={action('Tag clicked')}
+    as="button"
+    tracking={{
+      label: text('Tracking Label', 'trackingId')
+    }}
+  >
     Transactions
   </Tag>
 );

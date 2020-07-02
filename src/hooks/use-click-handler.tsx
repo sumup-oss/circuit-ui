@@ -13,25 +13,21 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import { useClickTrigger, Dispatch } from '@sumup/collector';
 
-import Anchor from '.';
-import docs from './Anchor.docs.mdx';
+export default function useClickHandler<Event>(
+  onClick?: (event: Event) => void,
+  tracking?: Dispatch,
+  defaultComponentName?: string
+): ((event: Event) => void) | undefined {
+  const dispatch = useClickTrigger();
+  const { label, component = defaultComponentName, customParameters } =
+    tracking || {};
 
-export default {
-  title: 'Typography/Anchor',
-  component: Anchor,
-  parameters: {
-    docs: { page: docs }
-  }
-};
-
-export const AsLink = () => (
-  <Anchor href="https://opensource.sumup.com">
-    {`View SumUp's OSS projects`}
-  </Anchor>
-);
-
-export const AsButton = () => (
-  <Anchor onClick={() => alert('Hello')}>Say hello</Anchor>
-);
+  return onClick && label
+    ? (event: Event): void => {
+        dispatch({ label, component, customParameters });
+        onClick(event);
+      }
+    : onClick;
+}

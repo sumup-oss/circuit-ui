@@ -26,6 +26,7 @@ import Backdrop from './components/Backdrop';
 import CloseButton from './components/CloseButton';
 import Aggregator from './components/Aggregator';
 import Separator from './components/Separator';
+import useClickHandler from '../../hooks/use-click-handler';
 
 const SIDEBAR_WIDTH = 256;
 
@@ -58,20 +59,35 @@ const openStyles = ({ theme, open }) =>
 
 const Drawer = styled('nav')(baseStyles, openStyles);
 
-const Sidebar = ({ children, open, closeButtonLabel, onClose, ...props }) => (
-  <Fragment>
-    <Drawer open={open} {...props}>
-      {children}
-    </Drawer>
-    <Backdrop visible={open} onClick={onClose} data-testid="sidebar-backdrop" />
-    <CloseButton
-      visible={open}
-      label={closeButtonLabel}
-      onClick={onClose}
-      data-testid="sidebar-close-button"
-    />
-  </Fragment>
-);
+const Sidebar = ({
+  children,
+  open,
+  closeButtonLabel,
+  onClose,
+  tracking,
+  ...props
+}) => {
+  const handleClose = useClickHandler(onClose, tracking, 'sidebar-close');
+
+  return (
+    <Fragment>
+      <Drawer open={open} {...props}>
+        {children}
+      </Drawer>
+      <Backdrop
+        visible={open}
+        onClick={handleClose}
+        data-testid="sidebar-backdrop"
+      />
+      <CloseButton
+        visible={open}
+        label={closeButtonLabel}
+        onClick={handleClose}
+        data-testid="sidebar-close-button"
+      />
+    </Fragment>
+  );
+};
 
 Sidebar.propTypes = {
   /**
@@ -89,7 +105,15 @@ Sidebar.propTypes = {
   /**
    * A function to handle the sidebar close
    */
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  /**
+   * Additional data that is dispatched with the close tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 Sidebar.defaultProps = {

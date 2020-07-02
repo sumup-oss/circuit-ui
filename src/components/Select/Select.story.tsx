@@ -69,6 +69,7 @@ const StatefulSelect = (props: Partial<SelectProps>) => {
       invalid={boolean('Invalid', false)}
       validationHint={text('Validation hint', '')}
       label="Countries"
+      tracking={{ label: text('Tracking Label', 'trackingId') }}
       {...props}
     />
   );

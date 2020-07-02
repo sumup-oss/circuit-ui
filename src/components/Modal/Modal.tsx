@@ -18,10 +18,12 @@ import ReactModal, { Props } from 'react-modal';
 import { ClassNames } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import { Theme } from '@sumup/design-tokens';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 import noScroll from 'no-scroll';
 
 import IS_IOS from '../../util/ios';
 import { isFunction } from '../../util/type-check';
+import useClickHandler from '../../hooks/use-click-handler';
 
 type OnClose = (event: MouseEvent | KeyboardEvent) => void;
 
@@ -46,6 +48,10 @@ export interface ModalProps extends Partial<Props> {
    * http://reactcommunity.org/react-modal/accessibility/#app-element
    */
   appElement?: string | HTMLElement;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
 }
 
 export const TRANSITION_DURATION = 200;
@@ -69,9 +75,12 @@ export const Modal: FC<ModalProps> = ({
   contentLabel = 'Modal',
   appElement = DEFAULT_APP_ELEMENT,
   isOpen = true,
+  tracking = {},
   ...props
 }) => {
   const theme: Theme = useTheme();
+  const handleClose =
+    useClickHandler(onClose, tracking, 'modal-close') || onClose;
   ReactModal.setAppElement(appElement);
   return (
     <ClassNames>
@@ -176,13 +185,17 @@ export const Modal: FC<ModalProps> = ({
           contentLabel,
           onAfterOpen: () => IS_IOS && noScroll.on(),
           onAfterClose: () => IS_IOS && noScroll.off(),
-          onRequestClose: onClose,
+          onRequestClose: handleClose,
           closeTimeoutMS: TRANSITION_DURATION,
           ...props
         };
         return (
           <ReactModal {...reactModalProps}>
-            {isFunction(children) ? children({ onClose }) : children}
+            {isFunction(children)
+              ? children({
+                  onClose: handleClose
+                })
+              : children}
           </ReactModal>
         );
       }}

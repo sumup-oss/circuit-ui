@@ -57,6 +57,7 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui#readme",
   "dependencies": {
+    "@sumup/collector": "^1.0.0-alpha.1",
     "cross-spawn": "^7.0.3",
     "jscodeshift": "^0.9.0",
     "lodash": "^4.17.11",

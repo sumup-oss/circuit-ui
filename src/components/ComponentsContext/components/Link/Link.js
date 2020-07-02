@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { oneOfType, func, shape, instanceOf } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
 
@@ -30,7 +30,10 @@ const Link = React.forwardRef(LinkComponent);
 
 Link.propTypes = {
   children: childrenPropType,
-  ref: oneOfType([func, shape({ current: instanceOf(HTMLAnchorElement) })])
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
+  ])
 };
 
 /**

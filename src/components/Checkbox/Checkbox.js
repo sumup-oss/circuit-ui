@@ -27,6 +27,7 @@ import {
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
+import useClickHandler from '../../hooks/use-click-handler';
 
 const labelBaseStyles = ({ theme }) => css`
   label: checkbox__label;
@@ -161,11 +162,14 @@ const CheckboxComponent = (
     disabled,
     validationHint,
     className,
+    tracking,
     ...props
   },
   ref
 ) => {
   const id = customId || uniqueId('checkbox_');
+  const handleChange = useClickHandler(props.onChange, tracking, 'checkbox');
+
   return (
     <CheckboxWrapper className={className}>
       <CheckboxInput
@@ -176,6 +180,7 @@ const CheckboxComponent = (
         type="checkbox"
         disabled={disabled}
         ref={ref}
+        onChange={handleChange}
       />
       <CheckboxLabel {...props} htmlFor={id} disabled={disabled}>
         {children}
@@ -244,9 +249,17 @@ Checkbox.propTypes = {
   ref: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
-      current: PropTypes.oneOf([PropTypes.instanceOf(HTMLInputElement)])
+      current: PropTypes.any
     })
-  ])
+  ]),
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object
+  })
 };
 
 Checkbox.defaultProps = {
