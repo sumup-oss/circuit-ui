@@ -13,23 +13,6 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { select, boolean } from '@storybook/addon-knobs/react';
+import { ButtonGroup } from './ButtonGroup';
 
-import ButtonGroup from '.';
-import Button from '../Button';
-
-export default {
-  title: 'Components/Button/ButtonGroup',
-  component: ButtonGroup
-};
-
-export const base = () => (
-  <ButtonGroup
-    align={select('Align', ['left', 'center', 'right'], 'right')}
-    inlineMobile={boolean('Display inline on mobile', false)}
-  >
-    <Button variant="secondary">Cancel</Button>
-    <Button variant="primary">Confirm</Button>
-  </ButtonGroup>
-);
+export default ButtonGroup;

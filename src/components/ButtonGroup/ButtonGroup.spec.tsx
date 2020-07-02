@@ -15,34 +15,45 @@
 
 import React from 'react';
 
-import ButtonGroup from '.';
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
+import Button from '../Button';
+import { ButtonGroup } from './ButtonGroup';
 
 describe('ButtonGroup', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<ButtonGroup />);
+    const actual = create(
+      <ButtonGroup>
+        <Button variant="secondary">Cancel</Button>
+        <Button variant="primary">Confirm</Button>
+      </ButtonGroup>
+    );
     expect(actual).toMatchSnapshot();
   });
 
   describe('Center aligment', () => {
     it('should render with center alignment styles', () => {
-      const actual = create(<ButtonGroup align={'center'} />);
+      const actual = create(
+        <ButtonGroup align={'center'}>
+          <Button variant="secondary">Cancel</Button>
+          <Button variant="primary">Confirm</Button>
+        </ButtonGroup>
+      );
       expect(actual).toMatchSnapshot();
     });
   });
 
   describe('Left aligment', () => {
     it('should render with left alignment styles', () => {
-      const actual = create(<ButtonGroup align={'left'} />);
-      expect(actual).toMatchSnapshot();
-    });
-  });
-
-  describe('No margin bottom', () => {
-    it('should render without margin bottom styles', () => {
-      const actual = create(<ButtonGroup noMargin />);
+      const actual = create(
+        <ButtonGroup align={'left'}>
+          <Button variant="secondary">Cancel</Button>
+          <Button variant="primary">Confirm</Button>
+        </ButtonGroup>
+      );
       expect(actual).toMatchSnapshot();
     });
   });
@@ -51,7 +62,12 @@ describe('ButtonGroup', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<ButtonGroup />);
+    const wrapper = renderToHtml(
+      <ButtonGroup>
+        <Button variant="secondary">Cancel</Button>
+        <Button variant="primary">Confirm</Button>
+      </ButtonGroup>
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

@@ -870,7 +870,17 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
 }
 
 .circuit-2 {
-  list-style-type: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   width: 100%;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
@@ -878,49 +888,49 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   justify-content: flex-end;
 }
 
-.circuit-2 > li:not(:last-of-type) {
-  margin-bottom: 16px;
+.circuit-2 > button,
+.circuit-2 > a {
+  width: 100%;
 }
 
-.circuit-2 > li > * {
-  width: 100%;
+.circuit-2 > button:not(:last-of-type),
+.circuit-2 > a:not(:last-of-type) {
+  margin-bottom: 16px;
 }
 
 @media (min-width:480px) {
   .circuit-2 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
-  .circuit-2 > li:not(:last-of-type) {
-    margin-bottom: 0;
+  .circuit-2 > button,
+  .circuit-2 > a {
+    width: auto;
+  }
+
+  .circuit-2 > button:not(:last-of-type),
+  .circuit-2 > a:not(:last-of-type) {
     margin-right: 16px;
+    margin-bottom: 0;
   }
 }
 
-<ul
-  class="circuit-2 circuit-3"
+<div
+  class="circuit-2"
 >
-  <li>
-    <button
-      class="circuit-0"
-    >
-      Cancel
-    </button>
-  </li>
-  <li>
-    <button
-      class="circuit-1"
-    >
-      Confirm
-    </button>
-  </li>
-</ul>
+  <button
+    class="circuit-0"
+  >
+    Cancel
+  </button>
+  <button
+    class="circuit-1"
+  >
+    Confirm
+  </button>
+</div>
 `;
 
 exports[`Storyshots Components/Button/CloseButton Base 1`] = `
@@ -4130,7 +4140,17 @@ HTMLCollection [
 }
 
 .circuit-3 {
-  list-style-type: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   width: 100%;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
@@ -4138,32 +4158,36 @@ HTMLCollection [
   justify-content: flex-end;
 }
 
-.circuit-3 > li:not(:last-of-type) {
-  margin-bottom: 16px;
+.circuit-3 > button,
+.circuit-3 > a {
+  width: 100%;
 }
 
-.circuit-3 > li > * {
-  width: 100%;
+.circuit-3 > button:not(:last-of-type),
+.circuit-3 > a:not(:last-of-type) {
+  margin-bottom: 16px;
 }
 
 @media (min-width:480px) {
   .circuit-3 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
-  .circuit-3 > li:not(:last-of-type) {
-    margin-bottom: 0;
+  .circuit-3 > button,
+  .circuit-3 > a {
+    width: auto;
+  }
+
+  .circuit-3 > button:not(:last-of-type),
+  .circuit-3 > a:not(:last-of-type) {
     margin-right: 16px;
+    margin-bottom: 0;
   }
 }
 
-.circuit-7 {
+.circuit-6 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -4201,14 +4225,14 @@ HTMLCollection [
   }
 }
 
-.circuit-5 {
+.circuit-4 {
   display: block;
   width: 100%;
   margin-top: 24px;
 }
 
 @media (min-width:480px) {
-  .circuit-5 {
+  .circuit-4 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -4222,7 +4246,7 @@ HTMLCollection [
 }
 
 @media (min-width:480px) {
-  .circuit-5 {
+  .circuit-4 {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -4231,7 +4255,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-7 circuit-8"
+    class="circuit-6 circuit-7"
   >
     <p
       class="circuit-0"
@@ -4239,26 +4263,22 @@ HTMLCollection [
       This is some text showing in my card
     </p>
     <footer
-      class="circuit-5 circuit-6"
+      class="circuit-4 circuit-5"
     >
-      <ul
-        class="circuit-3 circuit-4"
+      <div
+        class="circuit-3"
       >
-        <li>
-          <button
-            class="circuit-1"
-          >
-            Cancel
-          </button>
-        </li>
-        <li>
-          <button
-            class="circuit-1"
-          >
-            Confirm
-          </button>
-        </li>
-      </ul>
+        <button
+          class="circuit-1"
+        >
+          Cancel
+        </button>
+        <button
+          class="circuit-1"
+        >
+          Confirm
+        </button>
+      </div>
     </footer>
   </div>,
   .circuit-1 {
@@ -4320,7 +4340,7 @@ HTMLCollection [
   border-color: #323E49;
 }
 
-.circuit-7 {
+.circuit-6 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -4358,14 +4378,14 @@ HTMLCollection [
   }
 }
 
-.circuit-5 {
+.circuit-4 {
   display: block;
   width: 100%;
   margin-top: 24px;
 }
 
 @media (min-width:480px) {
-  .circuit-5 {
+  .circuit-4 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -4379,7 +4399,17 @@ HTMLCollection [
 }
 
 .circuit-3 {
-  list-style-type: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   width: 100%;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
@@ -4387,33 +4417,37 @@ HTMLCollection [
   justify-content: flex-start;
 }
 
-.circuit-3 > li:not(:last-of-type) {
-  margin-bottom: 16px;
+.circuit-3 > button,
+.circuit-3 > a {
+  width: 100%;
 }
 
-.circuit-3 > li > * {
-  width: 100%;
+.circuit-3 > button:not(:last-of-type),
+.circuit-3 > a:not(:last-of-type) {
+  margin-bottom: 16px;
 }
 
 @media (min-width:480px) {
   .circuit-3 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
-  .circuit-3 > li:not(:last-of-type) {
-    margin-bottom: 0;
+  .circuit-3 > button,
+  .circuit-3 > a {
+    width: auto;
+  }
+
+  .circuit-3 > button:not(:last-of-type),
+  .circuit-3 > a:not(:last-of-type) {
     margin-right: 16px;
+    margin-bottom: 0;
   }
 }
 
 <div
-    class="circuit-7 circuit-8"
+    class="circuit-6 circuit-7"
   >
     <p
       class="circuit-0"
@@ -4421,26 +4455,22 @@ HTMLCollection [
       This is some text showing in my card
     </p>
     <footer
-      class="circuit-5 circuit-6"
+      class="circuit-4 circuit-5"
     >
-      <ul
-        class="circuit-3 circuit-4"
+      <div
+        class="circuit-3"
       >
-        <li>
-          <button
-            class="circuit-1"
-          >
-            Cancel
-          </button>
-        </li>
-        <li>
-          <button
-            class="circuit-1"
-          >
-            Confirm
-          </button>
-        </li>
-      </ul>
+        <button
+          class="circuit-1"
+        >
+          Cancel
+        </button>
+        <button
+          class="circuit-1"
+        >
+          Confirm
+        </button>
+      </div>
     </footer>
   </div>,
 ]
@@ -7211,7 +7241,17 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 .circuit-6 {
-  list-style-type: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   width: 100%;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
@@ -7219,28 +7259,32 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   justify-content: flex-end;
 }
 
-.circuit-6 > li:not(:last-of-type) {
-  margin-bottom: 16px;
+.circuit-6 > button,
+.circuit-6 > a {
+  width: 100%;
 }
 
-.circuit-6 > li > * {
-  width: 100%;
+.circuit-6 > button:not(:last-of-type),
+.circuit-6 > a:not(:last-of-type) {
+  margin-bottom: 16px;
 }
 
 @media (min-width:480px) {
   .circuit-6 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
-  .circuit-6 > li:not(:last-of-type) {
-    margin-bottom: 0;
+  .circuit-6 > button,
+  .circuit-6 > a {
+    width: auto;
+  }
+
+  .circuit-6 > button:not(:last-of-type),
+  .circuit-6 > a:not(:last-of-type) {
     margin-right: 16px;
+    margin-bottom: 0;
   }
 }
 
@@ -7289,7 +7333,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
-.circuit-9 {
+.circuit-8 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -7309,7 +7353,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 @media (max-width:479px) {
-  .circuit-9 {
+  .circuit-8 {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     min-width: initial;
@@ -7317,7 +7361,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
-.circuit-8 {
+.circuit-7 {
   display: block;
   width: 100%;
   margin-top: 24px;
@@ -7331,7 +7375,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-8 {
+  .circuit-7 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -7345,7 +7389,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-8 {
+  .circuit-7 {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -7354,7 +7398,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
 }
 
 <div
-  class="circuit-9"
+  class="circuit-8"
 >
   <header
     class="circuit-1 circuit-2"
@@ -7371,26 +7415,22 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
     Some text in the modal body.
   </p>
   <footer
-    class="circuit-8"
+    class="circuit-7"
   >
-    <ul
-      class="circuit-6 circuit-7"
+    <div
+      class="circuit-6"
     >
-      <li>
-        <button
-          class="circuit-4"
-        >
-          Cancel
-        </button>
-      </li>
-      <li>
-        <button
-          class="circuit-5"
-        >
-          Confirm
-        </button>
-      </li>
-    </ul>
+      <button
+        class="circuit-4"
+      >
+        Cancel
+      </button>
+      <button
+        class="circuit-5"
+      >
+        Confirm
+      </button>
+    </div>
   </footer>
 </div>
 `;
@@ -11200,7 +11240,7 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   border-color: #323E49;
 }
 
-.circuit-6 {
+.circuit-5 {
   margin: 0 auto;
   overflow: hidden;
   width: 400px;
@@ -11220,7 +11260,17 @@ exports[`Storyshots Components/Step Swiper 1`] = `
 }
 
 .circuit-4 {
-  list-style-type: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   width: 100%;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -11228,33 +11278,37 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   justify-content: center;
 }
 
-.circuit-4 > li:not(:last-of-type) {
-  margin-bottom: 16px;
+.circuit-4 > button,
+.circuit-4 > a {
+  width: 100%;
 }
 
-.circuit-4 > li > * {
-  width: 100%;
+.circuit-4 > button:not(:last-of-type),
+.circuit-4 > a:not(:last-of-type) {
+  margin-bottom: 16px;
 }
 
 @media (min-width:480px) {
   .circuit-4 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
-  .circuit-4 > li:not(:last-of-type) {
-    margin-bottom: 0;
+  .circuit-4 > button,
+  .circuit-4 > a {
+    width: auto;
+  }
+
+  .circuit-4 > button:not(:last-of-type),
+  .circuit-4 > a:not(:last-of-type) {
     margin-right: 16px;
+    margin-bottom: 0;
   }
 }
 
 <div
-  class="circuit-6 circuit-7"
+  class="circuit-5 circuit-6"
 >
   <div>
     <img
@@ -11263,26 +11317,22 @@ exports[`Storyshots Components/Step Swiper 1`] = `
       src="https://placedog.net/500/500"
     />
   </div>
-  <ul
-    class="circuit-4 circuit-5"
+  <div
+    class="circuit-4"
   >
-    <li>
-      <button
-        aria-label="previous"
-        class="circuit-2"
-      >
-        No
-      </button>
-    </li>
-    <li>
-      <button
-        aria-label="next"
-        class="circuit-2"
-      >
-        Yes
-      </button>
-    </li>
-  </ul>
+    <button
+      aria-label="previous"
+      class="circuit-2"
+    >
+      No
+    </button>
+    <button
+      aria-label="next"
+      class="circuit-2"
+    >
+      Yes
+    </button>
+  </div>
 </div>
 `;
 
