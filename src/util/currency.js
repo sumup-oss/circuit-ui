@@ -105,6 +105,10 @@ export const CURRENCY_FORMATS = {
   HRK: {
     'hr-HR': { prependSymbol: false, fractionalPrecision: 2, addSpace: true },
     default: { prependSymbol: false, fractionalPrecision: 2, addSpace: true }
+  },
+  COP: {
+    default: { prependSymbol: true, fractionalPrecision: 2, addSpace: false },
+    'es-CO': { prependSymbol: true, fractionalPrecision: 2, addSpace: false }
   }
 };
 
@@ -124,7 +128,8 @@ export const CURRENCY_SYMBOLS = {
   HUF: 'Ft',
   NOK: 'kr',
   RON: 'Lei',
-  HRK: 'kn'
+  HRK: 'kn',
+  COP: '$'
 };
 
 function prependSymbol(amount, symbol, addSpace) {

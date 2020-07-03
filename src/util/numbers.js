@@ -30,6 +30,7 @@ export const NUMBER_SEPARATORS = {
   'en-MT': { decimal: '.', thousand: ',' },
   'en-US': { decimal: '.', thousand: ',' },
   'es-CL': { decimal: ',', thousand: '.' },
+  'es-CO': { decimal: ',', thousand: '.' },
   'es-ES': { decimal: ',', thousand: '.' },
   'et-EE': { decimal: '.', thousand: '\xA0' },
   'fi-FI': { decimal: ',', thousand: '\xA0' },

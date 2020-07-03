@@ -216,6 +216,11 @@ describe('currency', () => {
       testCurrency(inputs, 'CLP', 'es-CL', outputs);
     });
 
+    it('should localize COP', () => {
+      const outputs = ['$11,23', '$1.000,00', '$0,98'];
+      testCurrency(inputs, 'COP', 'es-CO', outputs);
+    });
+
     it('should localize BGN', () => {
       const outputs = ['11,23\xA0лв.', '1\xA0000,00\xA0лв.', '0,98\xA0лв.'];
       testCurrency(inputs, 'BGN', 'bg-BG', outputs);
