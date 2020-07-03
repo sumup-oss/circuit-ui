@@ -120,7 +120,8 @@ describe('numbers', () => {
       'ru-RU': '1\xA0000,00',
       'sl-SI': '1.000,00',
       'sk-SK': '1\xA0000,00',
-      'sv-SE': '1\xA0000,00'
+      'sv-SE': '1\xA0000,00',
+      'es-CO': '1.000,00'
     };
     locales.forEach(locale => {
       it(`should localize ${number} to ${
