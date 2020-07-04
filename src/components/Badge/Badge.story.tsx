@@ -18,7 +18,7 @@ import { select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import docs from './Badge.docs.mdx';
-import Badge from './Badge';
+import { Badge, BadgeProps } from './Badge';
 
 export default {
   title: 'Components/Badge',
@@ -28,36 +28,32 @@ export default {
   }
 };
 
-export const base = () => (
+const BaseBadge = (props: Partial<BadgeProps>) => (
   <Badge
     color={select(
       'Color',
       ['neutral', 'primary', 'success', 'warning', 'danger'],
       'neutral'
     )}
-  >
-    Badge
-  </Badge>
+    circle={boolean('Circular', false)}
+    {...props}
+  />
 );
+
+export const base = () => <BaseBadge>Badge</BaseBadge>;
 
 export const colors = () => (
   <Fragment>
-    <Badge color={'neutral'}>Neutral</Badge>
-    <Badge color={'primary'}>Primary</Badge>
-    <Badge color={'success'}>Success</Badge>
-    <Badge color={'warning'}>Warning</Badge>
-    <Badge color={'danger'}>Danger</Badge>
+    <BaseBadge color="neutral">Neutral</BaseBadge>
+    <BaseBadge color="primary">Primary</BaseBadge>
+    <BaseBadge color="success">Success</BaseBadge>
+    <BaseBadge color="warning">Warning</BaseBadge>
+    <BaseBadge color="danger">Danger</BaseBadge>
   </Fragment>
 );
 
-export const circular = () => (
-  <Badge color={'primary'} circle={boolean('Circular', true)}>
-    42
-  </Badge>
-);
+export const circular = () => <BaseBadge circle>42</BaseBadge>;
 
 export const clickable = () => (
-  <Badge color={'primary'} onClick={action('onClick')} as="button">
-    Click me
-  </Badge>
+  <BaseBadge onClick={action('onClick')}>Click me</BaseBadge>
 );

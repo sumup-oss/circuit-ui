@@ -24,7 +24,7 @@ import {
   userEvent
 } from '../../util/test-utils';
 
-import Badge from '.';
+import { Badge } from './Badge';
 
 describe('Badge', () => {
   /**

@@ -24,7 +24,7 @@ import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
+import { focusOutline } from '../../styles/style-helpers';
 
 type OnClick = (
   event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>
@@ -50,42 +50,43 @@ export interface BadgeProps extends HTMLProps<HTMLDivElement> {
 
 const COLOR_MAP = {
   success: {
-    default: 'g500',
-    hover: 'g700',
-    active: 'g900'
+    text: 'white',
+    default: 'g700',
+    hover: 'g900'
   },
   warning: {
-    default: 'y500',
-    hover: 'y700',
-    active: 'y900'
+    text: 'bodyColor',
+    default: 'y300',
+    hover: 'y500'
   },
   danger: {
+    text: 'white',
     default: 'r500',
-    hover: 'r700',
-    active: 'r900'
+    hover: 'r700'
   },
   primary: {
+    text: 'white',
     default: 'b500',
-    hover: 'b700',
-    active: 'b900'
+    hover: 'b700'
   },
   neutral: {
-    default: 'n500',
-    hover: 'n700',
-    active: 'n900'
+    text: 'bodyColor',
+    default: 'n300',
+    hover: 'n500'
   }
 } as const;
+
 const baseStyles = ({ theme }: StyleProps) => css`
   label: badge;
   border-radius: ${theme.borderRadius.pill};
   color: ${theme.colors.white};
   display: inline-block;
-  padding: 0 ${theme.spacings.byte};
-  ${subHeadingKilo({ theme })};
+  padding: 2px ${theme.spacings.byte};
+  font-size: 14px;
+  line-height: 20px;
   font-weight: ${theme.fontWeight.bold};
-  text-transform: uppercase;
-  user-select: none;
   text-align: center;
+  letter-spacing: 0.25px;
 `;
 
 const colorStyles = ({ theme, color = 'neutral' }: StyleProps & BadgeProps) => {
@@ -96,6 +97,7 @@ const colorStyles = ({ theme, color = 'neutral' }: StyleProps & BadgeProps) => {
   return css`
     label: ${`badge--${color}`};
     background-color: ${theme.colors[currentColor.default]};
+    color: ${theme.colors[currentColor.text]};
   `;
 };
 
@@ -125,12 +127,9 @@ const clickableStyles = ({
     outline: 0;
     cursor: pointer;
 
-    &:hover {
-      background-color: ${theme.colors[currentColor.hover]};
-    }
-
+    &:hover,
     &:active {
-      background-color: ${theme.colors[currentColor.active]};
+      background-color: ${theme.colors[currentColor.hover]};
     }
 
     &:focus {
@@ -139,19 +138,16 @@ const clickableStyles = ({
   `;
 };
 
-/**
- * A badge for displaying update notifications etc.
- */
 const StyledBadge = styled('div', {
   shouldForwardProp: prop => isPropValid(prop) && prop !== 'color'
 })<BadgeProps>(baseStyles, colorStyles, circleStyles, clickableStyles);
 
-/* eslint-disable react/display-name */
-const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => (
+/**
+ * A badge communicates the status of an element or the count of items
+ * related to an element.
+ */
+export const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => (
   <StyledBadge as={props.onClick ? 'button' : 'div'} ref={ref} {...props} />
 ));
 
-/**
- * @component
- */
-export default Badge;
+Badge.displayName = 'Badge';

@@ -5,17 +5,17 @@ exports[`Badge rendering color variations should render with danger colors 1`] =
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
   background-color: #DB4D4D;
+  color: #FFFFFF;
 }
 
 <div
@@ -28,17 +28,17 @@ exports[`Badge rendering color variations should render with primary colors 1`] 
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
   background-color: #3388FF;
+  color: #FFFFFF;
 }
 
 <div
@@ -51,17 +51,17 @@ exports[`Badge rendering color variations should render with success colors 1`] 
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #8CC13F;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #47995A;
+  color: #FFFFFF;
 }
 
 <div
@@ -74,17 +74,17 @@ exports[`Badge rendering color variations should render with warning colors 1`] 
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #D8A413;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #F6CC1B;
+  color: #0F131A;
 }
 
 <div
@@ -97,28 +97,25 @@ exports[`Badge should have hover/active styles only when the onClick handler is 
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #9DA7B1;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
   border: 0;
   outline: 0;
   cursor: pointer;
 }
 
-.circuit-0:hover {
-  background-color: #5C656F;
-}
-
+.circuit-0:hover,
 .circuit-0:active {
-  background-color: #212933;
+  background-color: #9DA7B1;
 }
 
 .circuit-0:focus {
@@ -140,17 +137,17 @@ exports[`Badge should have the correct circle styles 1`] = `
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #9DA7B1;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -177,17 +174,17 @@ exports[`Badge should render with default styles 1`] = `
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #9DA7B1;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
 }
 
 <div

@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Badge from './Badge';
+import { Badge } from './Badge';
 
 export default Badge;
