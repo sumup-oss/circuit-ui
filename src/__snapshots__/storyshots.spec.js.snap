@@ -144,28 +144,6 @@ HTMLCollection [
   -moz-letter-spacing: 0.25px;
   -ms-letter-spacing: 0.25px;
   letter-spacing: 0.25px;
-  background-color: #3388FF;
-  color: #FFFFFF;
-}
-
-<div
-    class="circuit-0"
-  >
-    Primary
-  </div>,
-  .circuit-0 {
-  border-radius: 999999px;
-  color: #FFFFFF;
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 700;
-  text-align: center;
-  -webkit-letter-spacing: 0.25px;
-  -moz-letter-spacing: 0.25px;
-  -ms-letter-spacing: 0.25px;
-  letter-spacing: 0.25px;
   background-color: #47995A;
   color: #FFFFFF;
 }

@@ -160,6 +160,16 @@ export const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => {
     );
   }
 
+  if (props.color === 'primary') {
+    deprecate(
+      [
+        'The "primary" color of the Badge component has been deprecated.',
+        'It conflicts with the color of the primary Button variant.',
+        'Use the "neutral" variant instead.'
+      ].join(' ')
+    );
+  }
+
   const as = props.onClick ? 'button' : 'div';
   return <StyledBadge as={as} ref={ref} {...props} />;
 });

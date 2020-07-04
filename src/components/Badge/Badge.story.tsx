@@ -31,7 +31,7 @@ const BaseBadge = (props: Partial<BadgeProps>) => (
   <Badge
     color={select(
       'Color',
-      ['neutral', 'primary', 'success', 'warning', 'danger'],
+      ['neutral', 'success', 'warning', 'danger'],
       'neutral'
     )}
     circle={boolean('Circular', false)}
@@ -44,7 +44,6 @@ export const base = () => <BaseBadge>Badge</BaseBadge>;
 export const colors = () => (
   <Fragment>
     <BaseBadge color="neutral">Neutral</BaseBadge>
-    <BaseBadge color="primary">Primary</BaseBadge>
     <BaseBadge color="success">Success</BaseBadge>
     <BaseBadge color="warning">Warning</BaseBadge>
     <BaseBadge color="danger">Danger</BaseBadge>
