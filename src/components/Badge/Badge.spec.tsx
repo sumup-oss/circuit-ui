@@ -35,26 +35,24 @@ describe('Badge', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  describe('rendering color variations', () => {
-    it('should render with success colors', () => {
-      const actual = create(<Badge color={'success'} />);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should render with success styles', () => {
+    const actual = create(<Badge variant="success" />);
+    expect(actual).toMatchSnapshot();
+  });
 
-    it('should render with warning colors', () => {
-      const actual = create(<Badge color={'warning'} />);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should render with warning styles', () => {
+    const actual = create(<Badge variant="warning" />);
+    expect(actual).toMatchSnapshot();
+  });
 
-    it('should render with danger colors', () => {
-      const actual = create(<Badge color={'danger'} />);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should render with danger styles', () => {
+    const actual = create(<Badge variant="danger" />);
+    expect(actual).toMatchSnapshot();
+  });
 
-    it('should render with primary colors', () => {
-      const actual = create(<Badge color={'primary'} />);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should render with primary styles', () => {
+    const actual = create(<Badge variant="primary" />);
+    expect(actual).toMatchSnapshot();
   });
 
   it('should have hover/active styles only when the onClick handler is provided', () => {

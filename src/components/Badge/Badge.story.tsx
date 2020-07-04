@@ -29,8 +29,8 @@ export default {
 
 const BaseBadge = (props: Partial<BadgeProps>) => (
   <Badge
-    color={select(
-      'Color',
+    variant={select(
+      'Variant',
       ['neutral', 'success', 'warning', 'danger'],
       'neutral'
     )}
@@ -41,12 +41,12 @@ const BaseBadge = (props: Partial<BadgeProps>) => (
 
 export const base = () => <BaseBadge>Badge</BaseBadge>;
 
-export const colors = () => (
+export const variants = () => (
   <Fragment>
-    <BaseBadge color="neutral">Neutral</BaseBadge>
-    <BaseBadge color="success">Success</BaseBadge>
-    <BaseBadge color="warning">Warning</BaseBadge>
-    <BaseBadge color="danger">Danger</BaseBadge>
+    <BaseBadge variant="neutral">Neutral</BaseBadge>
+    <BaseBadge variant="success">Success</BaseBadge>
+    <BaseBadge variant="warning">Warning</BaseBadge>
+    <BaseBadge variant="danger">Danger</BaseBadge>
   </Fragment>
 );
 

@@ -107,7 +107,7 @@ exports[`Storyshots Components/Badge Circular 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components/Badge Colors 1`] = `
+exports[`Storyshots Components/Badge Variants 1`] = `
 HTMLCollection [
   .circuit-0 {
   border-radius: 999999px;
@@ -12819,40 +12819,6 @@ tbody .circuit-18:last-child td {
 `;
 
 exports[`Storyshots Components/Table With Component Rows 1`] = `
-.circuit-23 {
-  border-radius: 999999px;
-  color: #FFFFFF;
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 700;
-  text-align: center;
-  -webkit-letter-spacing: 0.25px;
-  -moz-letter-spacing: 0.25px;
-  -ms-letter-spacing: 0.25px;
-  letter-spacing: 0.25px;
-  background-color: #47995A;
-  color: #FFFFFF;
-}
-
-.circuit-32 {
-  border-radius: 999999px;
-  color: #FFFFFF;
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 700;
-  text-align: center;
-  -webkit-letter-spacing: 0.25px;
-  -moz-letter-spacing: 0.25px;
-  -ms-letter-spacing: 0.25px;
-  letter-spacing: 0.25px;
-  background-color: #F6CC1B;
-  color: #0F131A;
-}
-
 .circuit-14 {
   border-radius: 999999px;
   color: #FFFFFF;
@@ -12866,8 +12832,8 @@ exports[`Storyshots Components/Table With Component Rows 1`] = `
   -moz-letter-spacing: 0.25px;
   -ms-letter-spacing: 0.25px;
   letter-spacing: 0.25px;
-  background-color: #DB4D4D;
-  color: #FFFFFF;
+  background-color: #D8DDE1;
+  color: #0F131A;
 }
 
 .circuit-41 {
@@ -13097,6 +13063,7 @@ tbody .circuit-6:last-child td {
           >
             <div
               class="circuit-14"
+              color="danger"
             >
               Fruit
             </div>
@@ -13125,7 +13092,8 @@ tbody .circuit-6:last-child td {
             data-testid="table-cell"
           >
             <div
-              class="circuit-23"
+              class="circuit-14"
+              color="success"
             >
               Vegetable
             </div>
@@ -13154,7 +13122,8 @@ tbody .circuit-6:last-child td {
             data-testid="table-cell"
           >
             <div
-              class="circuit-32"
+              class="circuit-14"
+              color="warning"
             >
               Legume
             </div>

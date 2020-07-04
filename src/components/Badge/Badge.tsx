@@ -21,7 +21,6 @@ import React, {
   HTMLProps
 } from 'react';
 import { css } from '@emotion/core';
-import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-helpers';
@@ -29,9 +28,9 @@ import deprecate from '../../util/deprecate';
 
 export interface BadgeProps extends HTMLProps<HTMLDivElement> {
   /**
-   * The semantic color of the badge.
+   * Choose from 4 style variants. Default: 'neutral'.
    */
-  color?: 'neutral' | 'primary' | 'success' | 'warning' | 'danger';
+  variant?: 'neutral' | 'success' | 'warning' | 'danger' | 'primary';
   /**
    * Use the circular badge to indicate a count of items related to an element.
    */
@@ -90,13 +89,16 @@ const baseStyles = ({ theme }: StyleProps) => css`
   letter-spacing: 0.25px;
 `;
 
-const colorStyles = ({ theme, color = 'neutral' }: StyleProps & BadgeProps) => {
-  const currentColor = COLOR_MAP[color];
+const variantStyles = ({
+  theme,
+  variant = 'neutral'
+}: StyleProps & BadgeProps) => {
+  const currentColor = COLOR_MAP[variant];
   if (!currentColor) {
     return null;
   }
   return css`
-    label: ${`badge--${color}`};
+    label: ${`badge--${variant}`};
     background-color: ${theme.colors[currentColor.default]};
     color: ${theme.colors[currentColor.text]};
   `;
@@ -116,9 +118,9 @@ const circleStyles = ({ circle }: BadgeProps) =>
 const clickableStyles = ({
   theme,
   onClick,
-  color = 'neutral'
+  variant = 'neutral'
 }: StyleProps & BadgeProps) => {
-  const currentColor = COLOR_MAP[color];
+  const currentColor = COLOR_MAP[variant];
   if (!onClick || !currentColor) {
     return null;
   }
@@ -140,9 +142,12 @@ const clickableStyles = ({
   `;
 };
 
-const StyledBadge = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color'
-})<BadgeProps>(baseStyles, colorStyles, circleStyles, clickableStyles);
+const StyledBadge = styled('div')<BadgeProps>(
+  baseStyles,
+  variantStyles,
+  circleStyles,
+  clickableStyles
+);
 
 /**
  * A badge communicates the status of an element or the count of items
@@ -160,7 +165,7 @@ export const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => {
     );
   }
 
-  if (props.color === 'primary') {
+  if (props.variant === 'primary') {
     deprecate(
       [
         'The "primary" color of the Badge component has been deprecated.',
