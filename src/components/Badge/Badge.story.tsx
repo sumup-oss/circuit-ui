@@ -50,4 +50,10 @@ export const variants = () => (
   </Fragment>
 );
 
-export const circular = () => <BaseBadge circle>42</BaseBadge>;
+export const circular = () => (
+  <Fragment>
+    <BaseBadge circle>1</BaseBadge>
+    <BaseBadge circle>42</BaseBadge>
+    <BaseBadge circle>999</BaseBadge>
+  </Fragment>
+);

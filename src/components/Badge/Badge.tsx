@@ -104,15 +104,23 @@ const variantStyles = ({
   `;
 };
 
-const circleStyles = ({ circle }: BadgeProps) =>
+const isDynamicWidth = (children: BadgeProps['children']) => {
+  if (typeof children === 'string') {
+    return children.length > 2;
+  }
+  return false;
+};
+
+const circleStyles = ({ circle, children }: BadgeProps) =>
   circle &&
   css`
     label: badge--circle;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2px 4px;
     height: 24px;
-    width: 24px;
+    width: ${isDynamicWidth(children) ? 'auto' : '24px'};
   `;
 
 const clickableStyles = ({

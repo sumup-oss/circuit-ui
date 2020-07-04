@@ -69,7 +69,8 @@ exports[`Storyshots Components/Badge Base 1`] = `
 `;
 
 exports[`Storyshots Components/Badge Circular 1`] = `
-.circuit-0 {
+HTMLCollection [
+  .circuit-0 {
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
@@ -96,15 +97,91 @@ exports[`Storyshots Components/Badge Circular 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  padding: 2px 4px;
   height: 24px;
   width: 24px;
 }
 
 <div
-  class="circuit-0"
->
-  42
-</div>
+    class="circuit-0"
+  >
+    1
+  </div>,
+  .circuit-0 {
+  border-radius: 999999px;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 2px 4px;
+  height: 24px;
+  width: 24px;
+}
+
+<div
+    class="circuit-0"
+  >
+    42
+  </div>,
+  .circuit-0 {
+  border-radius: 999999px;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 2px 4px;
+  height: 24px;
+  width: auto;
+}
+
+<div
+    class="circuit-0"
+  >
+    999
+  </div>,
+]
 `;
 
 exports[`Storyshots Components/Badge Variants 1`] = `
