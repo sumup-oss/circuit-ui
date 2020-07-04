@@ -107,48 +107,6 @@ exports[`Storyshots Components/Badge Circular 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components/Badge Clickable 1`] = `
-.circuit-0 {
-  border-radius: 999999px;
-  color: #FFFFFF;
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 700;
-  text-align: center;
-  -webkit-letter-spacing: 0.25px;
-  -moz-letter-spacing: 0.25px;
-  -ms-letter-spacing: 0.25px;
-  letter-spacing: 0.25px;
-  background-color: #D8DDE1;
-  color: #0F131A;
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-}
-
-.circuit-0:hover,
-.circuit-0:active {
-  background-color: #9DA7B1;
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-<button
-  class="circuit-0"
->
-  Click me
-</button>
-`;
-
 exports[`Storyshots Components/Badge Colors 1`] = `
 HTMLCollection [
   .circuit-0 {

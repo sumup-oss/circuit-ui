@@ -15,7 +15,6 @@
 
 import React, { Fragment } from 'react';
 import { select, boolean } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
 
 import docs from './Badge.docs.mdx';
 import { Badge, BadgeProps } from './Badge';
@@ -53,7 +52,3 @@ export const colors = () => (
 );
 
 export const circular = () => <BaseBadge circle>42</BaseBadge>;
-
-export const clickable = () => (
-  <BaseBadge onClick={action('onClick')}>Click me</BaseBadge>
-);

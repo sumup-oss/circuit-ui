@@ -25,27 +25,28 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-helpers';
-
-type OnClick = (
-  event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>
-) => void;
-type RefType = Ref<HTMLDivElement>;
+import deprecate from '../../util/deprecate';
 
 export interface BadgeProps extends HTMLProps<HTMLDivElement> {
   /**
-   * Callback for the click event.
+   * The semantic color of the badge.
    */
-  onClick?: OnClick;
-  /**
-   * Ensures text is centered and the badge looks like a circle.
-   */
-  circle?: boolean;
   color?: 'neutral' | 'primary' | 'success' | 'warning' | 'danger';
   /**
-   * The ref to the html div DOM element
+   * Use the circular badge to indicate a count of items related to an element.
    */
-  ref?: RefType;
-  as?: string;
+  circle?: boolean;
+  /**
+   * @deprecated
+   * Callback for the click event.
+   */
+  onClick?: (
+    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>
+  ) => void;
+  /**
+   * The ref to the HTML DOM element
+   */
+  ref?: Ref<HTMLDivElement>;
 }
 
 const COLOR_MAP = {
@@ -66,8 +67,8 @@ const COLOR_MAP = {
   },
   primary: {
     text: 'white',
-    default: 'b500',
-    hover: 'b700'
+    default: 'p500',
+    hover: 'p700'
   },
   neutral: {
     text: 'bodyColor',
@@ -126,6 +127,7 @@ const clickableStyles = ({
     border: 0;
     outline: 0;
     cursor: pointer;
+    transition: background-color ${theme.transitions.default};
 
     &:hover,
     &:active {
@@ -146,8 +148,20 @@ const StyledBadge = styled('div', {
  * A badge communicates the status of an element or the count of items
  * related to an element.
  */
-export const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => (
-  <StyledBadge as={props.onClick ? 'button' : 'div'} ref={ref} {...props} />
-));
+export const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => {
+  if (props.onClick) {
+    deprecate(
+      [
+        'The `onClick` prop of the Badge component has been deprecated.',
+        'Badges are not meant to be interactive and should only',
+        'communicate the status of an element.',
+        'Use the Tag component for interactive elements instead.'
+      ].join(' ')
+    );
+  }
+
+  const as = props.onClick ? 'button' : 'div';
+  return <StyledBadge as={as} ref={ref} {...props} />;
+});
 
 Badge.displayName = 'Badge';
