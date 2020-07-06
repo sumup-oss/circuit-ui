@@ -23,6 +23,7 @@ label + .circuit-1 {
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -126,6 +127,7 @@ label + .circuit-1 {
 .circuit-0 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;

@@ -136,6 +136,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   label: input;
   background-color: ${theme.colors.white};
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(${theme.spacings.byte} + 1px) ${theme.spacings.kilo};
   transition: box-shadow ${theme.transitions.default},
