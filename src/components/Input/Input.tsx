@@ -28,6 +28,7 @@ import { uniqueId } from '../../util/id';
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
+import deprecate from '../../util/deprecate';
 
 export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   /**
@@ -286,6 +287,17 @@ function InputComponent(
   }: InputProps,
   ref: InputProps['ref']
 ): ReturnType {
+  if (!label) {
+    deprecate(
+      [
+        'The label is now built into the input component.',
+        'Use the `label` prop to pass in the label content and',
+        'remove the Label component from your code.',
+        'The label will become required in the next major version.'
+      ].join(' ')
+    );
+  }
+
   const id = customId || uniqueId('input_');
 
   const prefix = RenderPrefix && <RenderPrefix css={prefixStyles} />;
