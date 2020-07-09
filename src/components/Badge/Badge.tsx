@@ -21,101 +21,114 @@ import React, {
   HTMLProps,
 } from 'react';
 import { css } from '@emotion/core';
-import isPropValid from '@emotion/is-prop-valid';
 
 import styled, { StyleProps } from '../../styles/styled';
-import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
-
-type OnClick = (
-  event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
-) => void;
-type RefType = Ref<HTMLDivElement>;
+import { focusOutline } from '../../styles/style-helpers';
+import deprecate from '../../util/deprecate';
 
 export interface BadgeProps extends HTMLProps<HTMLDivElement> {
   /**
-   * Callback for the click event.
+   * Choose from 4 style variants. Default: 'neutral'.
    */
-  onClick?: OnClick;
+  variant?: 'neutral' | 'success' | 'warning' | 'danger' | 'primary';
   /**
-   * Ensures text is centered and the badge looks like a circle.
+   * Use the circular badge to indicate a count of items related to an element.
    */
   circle?: boolean;
-  color?: 'neutral' | 'primary' | 'success' | 'warning' | 'danger';
   /**
-   * The ref to the html div DOM element
+   * @deprecated
+   * Callback for the click event.
    */
-  ref?: RefType;
-  as?: string;
+  onClick?: (
+    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
+  ) => void;
+  /**
+   * The ref to the HTML DOM element
+   */
+  ref?: Ref<HTMLDivElement>;
 }
 
 const COLOR_MAP = {
   success: {
-    default: 'g500',
-    hover: 'g700',
-    active: 'g900',
+    text: 'white',
+    default: 'g700',
+    hover: 'g900',
   },
   warning: {
-    default: 'y500',
-    hover: 'y700',
-    active: 'y900',
+    text: 'bodyColor',
+    default: 'y300',
+    hover: 'y500',
   },
   danger: {
+    text: 'white',
     default: 'r500',
     hover: 'r700',
-    active: 'r900',
   },
   primary: {
-    default: 'b500',
-    hover: 'b700',
-    active: 'b900',
+    text: 'white',
+    default: 'p500',
+    hover: 'p700',
   },
   neutral: {
-    default: 'n500',
-    hover: 'n700',
-    active: 'n900',
+    text: 'bodyColor',
+    default: 'n300',
+    hover: 'n500',
   },
 } as const;
+
 const baseStyles = ({ theme }: StyleProps) => css`
   label: badge;
   border-radius: ${theme.borderRadius.pill};
   color: ${theme.colors.white};
   display: inline-block;
-  padding: 0 ${theme.spacings.byte};
-  ${subHeadingKilo({ theme })};
+  padding: 2px ${theme.spacings.byte};
+  font-size: 14px;
+  line-height: 20px;
   font-weight: ${theme.fontWeight.bold};
-  text-transform: uppercase;
-  user-select: none;
   text-align: center;
+  letter-spacing: 0.25px;
 `;
 
-const colorStyles = ({ theme, color = 'neutral' }: StyleProps & BadgeProps) => {
-  const currentColor = COLOR_MAP[color];
+const variantStyles = ({
+  theme,
+  variant = 'neutral',
+}: StyleProps & BadgeProps) => {
+  const currentColor = COLOR_MAP[variant];
   if (!currentColor) {
     return null;
   }
   return css`
-    label: ${`badge--${color}`};
+    label: ${`badge--${variant}`};
     background-color: ${theme.colors[currentColor.default]};
+    color: ${theme.colors[currentColor.text]};
   `;
 };
 
-const circleStyles = ({ circle }: BadgeProps) =>
+const isDynamicWidth = (children: BadgeProps['children']) => {
+  if (typeof children === 'string') {
+    return children.length > 2;
+  }
+  return false;
+};
+
+const circleStyles = ({ circle, children }: BadgeProps) =>
   circle &&
   css`
     label: badge--circle;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2px 4px;
     height: 24px;
-    width: 24px;
+    width: ${isDynamicWidth(children) ? 'auto' : '24px'};
   `;
 
 const clickableStyles = ({
   theme,
   onClick,
-  color = 'neutral',
+  variant = 'neutral',
 }: StyleProps & BadgeProps) => {
-  const currentColor = COLOR_MAP[color];
+  const currentColor = COLOR_MAP[variant];
   if (!onClick || !currentColor) {
     return null;
   }
@@ -124,13 +137,11 @@ const clickableStyles = ({
     border: 0;
     outline: 0;
     cursor: pointer;
+    transition: background-color ${theme.transitions.default};
 
-    &:hover {
-      background-color: ${theme.colors[currentColor.hover]};
-    }
-
+    &:hover,
     &:active {
-      background-color: ${theme.colors[currentColor.active]};
+      background-color: ${theme.colors[currentColor.hover]};
     }
 
     &:focus {
@@ -139,19 +150,41 @@ const clickableStyles = ({
   `;
 };
 
-/**
- * A badge for displaying update notifications etc.
- */
-const StyledBadge = styled('div', {
-  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
-})<BadgeProps>(baseStyles, colorStyles, circleStyles, clickableStyles);
-
-/* eslint-disable react/display-name */
-const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => (
-  <StyledBadge as={props.onClick ? 'button' : 'div'} ref={ref} {...props} />
-));
+const StyledBadge = styled('div')<BadgeProps>(
+  baseStyles,
+  variantStyles,
+  circleStyles,
+  clickableStyles,
+);
 
 /**
- * @component
+ * A badge communicates the status of an element or the count of items
+ * related to an element.
  */
-export default Badge;
+export const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => {
+  if (props.onClick) {
+    deprecate(
+      [
+        'The `onClick` prop of the Badge component has been deprecated.',
+        'Badges are not meant to be interactive and should only',
+        'communicate the status of an element.',
+        'Use the Tag component for interactive elements instead.',
+      ].join(' '),
+    );
+  }
+
+  if (props.variant === 'primary') {
+    deprecate(
+      [
+        'The "primary" color of the Badge component has been deprecated.',
+        'It conflicts with the color of the primary Button variant.',
+        'Use the "neutral" variant instead.',
+      ].join(' '),
+    );
+  }
+
+  const as = props.onClick ? 'button' : 'div';
+  return <StyledBadge as={as} ref={ref} {...props} />;
+});
+
+Badge.displayName = 'Badge';

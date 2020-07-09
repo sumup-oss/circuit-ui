@@ -15,10 +15,9 @@
 
 import React, { Fragment } from 'react';
 import { select, boolean } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
 
 import docs from './Badge.docs.mdx';
-import Badge from './Badge';
+import { Badge, BadgeProps } from './Badge';
 
 export default {
   title: 'Components/Badge',
@@ -28,36 +27,33 @@ export default {
   },
 };
 
-export const base = () => (
+const BaseBadge = (props: Partial<BadgeProps>) => (
   <Badge
-    color={select(
-      'Color',
-      ['neutral', 'primary', 'success', 'warning', 'danger'],
+    variant={select(
+      'Variant',
+      ['neutral', 'success', 'warning', 'danger'],
       'neutral',
     )}
-  >
-    Badge
-  </Badge>
+    circle={boolean('Circular', false)}
+    {...props}
+  />
 );
 
-export const colors = () => (
+export const base = () => <BaseBadge>Badge</BaseBadge>;
+
+export const variants = () => (
   <Fragment>
-    <Badge color={'neutral'}>Neutral</Badge>
-    <Badge color={'primary'}>Primary</Badge>
-    <Badge color={'success'}>Success</Badge>
-    <Badge color={'warning'}>Warning</Badge>
-    <Badge color={'danger'}>Danger</Badge>
+    <BaseBadge variant="neutral">Neutral</BaseBadge>
+    <BaseBadge variant="success">Success</BaseBadge>
+    <BaseBadge variant="warning">Warning</BaseBadge>
+    <BaseBadge variant="danger">Danger</BaseBadge>
   </Fragment>
 );
 
 export const circular = () => (
-  <Badge color={'primary'} circle={boolean('Circular', true)}>
-    42
-  </Badge>
-);
-
-export const clickable = () => (
-  <Badge color={'primary'} onClick={action('onClick')} as="button">
-    Click me
-  </Badge>
+  <Fragment>
+    <BaseBadge circle>1</BaseBadge>
+    <BaseBadge circle>42</BaseBadge>
+    <BaseBadge circle>999</BaseBadge>
+  </Fragment>
 );

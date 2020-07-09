@@ -312,7 +312,7 @@ function SelectComponent(
         'The label is now built into the Select component.',
         'Use the `label` prop to pass in the label content and',
         'remove the Label component from your code.',
-        'The label will become required in the next major version',
+        'The label will become required in the next major version.',
       ].join(' '),
     );
   }

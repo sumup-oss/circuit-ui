@@ -114,6 +114,7 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The **Heading**, **SubHeading**, **Text**, and **Input** components no longer accept the `element` prop. Emotion 10 introduced the ability to change the HTML element. Use the `as` prop instead (🤖 _as-prop_)
 - The **List** component's `ordered` prop has been replaced by the `variant` enum prop (🤖 _list-variant-enum_)
 - The **List** component's default size is now `mega` to match the Text component.
+- The **Badge** component's `color` prop has been renamed to `variant` (🤖 _badge-variant-enum_)
 - The `primary` and `secondary` **Button** boolean props have been removed. Use the `variant` enum prop instead (🤖 _button-variant-enum_)
 - The `plain` **Button** prop has been removed. Use the new Anchor component or the `tertiary` Button variant instead.
 - The `flat` **Button** variant has been removed (🤖 _button-variant-enum_)

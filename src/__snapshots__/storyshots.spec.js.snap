@@ -48,17 +48,17 @@ exports[`Storyshots Components/Badge Base 1`] = `
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #9DA7B1;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
 }
 
 <div
@@ -69,21 +69,22 @@ exports[`Storyshots Components/Badge Base 1`] = `
 `;
 
 exports[`Storyshots Components/Badge Circular 1`] = `
-.circuit-0 {
+HTMLCollection [
+  .circuit-0 {
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #3388FF;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -96,79 +97,110 @@ exports[`Storyshots Components/Badge Circular 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  padding: 2px 4px;
   height: 24px;
   width: 24px;
 }
 
 <div
-  class="circuit-0"
->
-  42
-</div>
-`;
-
-exports[`Storyshots Components/Badge Clickable 1`] = `
-.circuit-0 {
+    class="circuit-0"
+  >
+    1
+  </div>,
+  .circuit-0 {
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #3388FF;
-  border: 0;
-  outline: 0;
-  cursor: pointer;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 2px 4px;
+  height: 24px;
+  width: 24px;
 }
 
-.circuit-0:hover {
-  background-color: #1760CE;
+<div
+    class="circuit-0"
+  >
+    42
+  </div>,
+  .circuit-0 {
+  border-radius: 999999px;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 2px 4px;
+  height: 24px;
+  width: auto;
 }
 
-.circuit-0:active {
-  background-color: #003C8B;
-}
-
-.circuit-0:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus::-moz-focus-inner {
-  border: 0;
-}
-
-<button
-  class="circuit-0"
->
-  Click me
-</button>
+<div
+    class="circuit-0"
+  >
+    999
+  </div>,
+]
 `;
 
-exports[`Storyshots Components/Badge Colors 1`] = `
+exports[`Storyshots Components/Badge Variants 1`] = `
 HTMLCollection [
   .circuit-0 {
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #9DA7B1;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
 }
 
 <div
@@ -180,39 +212,17 @@ HTMLCollection [
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #3388FF;
-}
-
-<div
-    class="circuit-0"
-  >
-    Primary
-  </div>,
-  .circuit-0 {
-  border-radius: 999999px;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #47995A;
   color: #FFFFFF;
-  display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  text-align: center;
-  background-color: #8CC13F;
 }
 
 <div
@@ -224,17 +234,17 @@ HTMLCollection [
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #D8A413;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #F6CC1B;
+  color: #0F131A;
 }
 
 <div
@@ -246,17 +256,17 @@ HTMLCollection [
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
   background-color: #DB4D4D;
+  color: #FFFFFF;
 }
 
 <div
@@ -10767,6 +10777,7 @@ label + .circuit-6 {
 .circuit-5 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -12886,55 +12897,21 @@ tbody .circuit-18:last-child td {
 `;
 
 exports[`Storyshots Components/Table With Component Rows 1`] = `
-.circuit-23 {
-  border-radius: 999999px;
-  color: #FFFFFF;
-  display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  text-align: center;
-  background-color: #8CC13F;
-}
-
-.circuit-32 {
-  border-radius: 999999px;
-  color: #FFFFFF;
-  display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  text-align: center;
-  background-color: #D8A413;
-}
-
 .circuit-14 {
   border-radius: 999999px;
   color: #FFFFFF;
   display: inline-block;
-  padding: 0 8px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 700;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   text-align: center;
-  background-color: #DB4D4D;
+  -webkit-letter-spacing: 0.25px;
+  -moz-letter-spacing: 0.25px;
+  -ms-letter-spacing: 0.25px;
+  letter-spacing: 0.25px;
+  background-color: #D8DDE1;
+  color: #0F131A;
 }
 
 .circuit-41 {
@@ -13164,6 +13141,7 @@ tbody .circuit-6:last-child td {
           >
             <div
               class="circuit-14"
+              color="danger"
             >
               Fruit
             </div>
@@ -13192,7 +13170,8 @@ tbody .circuit-6:last-child td {
             data-testid="table-cell"
           >
             <div
-              class="circuit-23"
+              class="circuit-14"
+              color="success"
             >
               Vegetable
             </div>
@@ -13221,7 +13200,8 @@ tbody .circuit-6:last-child td {
             data-testid="table-cell"
           >
             <div
-              class="circuit-32"
+              class="circuit-14"
+              color="warning"
             >
               Legume
             </div>
@@ -15607,6 +15587,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -15722,6 +15703,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -15833,6 +15815,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -15934,6 +15917,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -16066,6 +16050,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -16241,6 +16226,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -16355,6 +16341,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -16468,6 +16455,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -16609,6 +16597,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -16765,6 +16754,7 @@ label + .circuit-3 {
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -16902,6 +16892,7 @@ label + .circuit-3 {
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -17035,6 +17026,7 @@ label + .circuit-3 {
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -17173,6 +17165,7 @@ label + .circuit-3 {
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -17306,6 +17299,7 @@ label + .circuit-3 {
 .circuit-2 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -17427,6 +17421,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -17533,6 +17528,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -17644,6 +17640,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -19594,6 +19591,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -19685,6 +19683,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -19791,6 +19790,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -19879,6 +19879,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -20036,6 +20037,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
@@ -20143,6 +20145,7 @@ label + .circuit-2 {
 .circuit-1 {
   background-color: #FFFFFF;
   border: none;
+  outline: 0;
   border-radius: 8px;
   padding: calc(8px + 1px) 12px;
   -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
