@@ -1,5 +1,5 @@
 import { Status, Props, Story } from '../../../.storybook/components';
-import Badge from './Badge';
+import { Badge } from './Badge';
 
 # Badge
 
@@ -8,7 +8,6 @@ import Badge from './Badge';
 Badges are non-actionable elements in the UI, used to indicate the status of an object.
 
 <Story id="components-badge--base" />
-
 <Props of={Badge} />
 
 ## Best practices
@@ -22,26 +21,18 @@ Badges are non-actionable elements in the UI, used to indicate the status of an 
 - **Do** use badges to indicate the status of data rows in a table.
 - **Do** use badges to bring attention to a specific area on the screen (like a
   new feature).
-- **Do not** use badges to indicate default statuses (e.g. in the Transaction
-  History, a transaction should only include a status if it's anything other
-  than default; failed, refunded, paid out, etc.)
+- **Do not** use badges to indicate default statuses (e.g. in the Transaction History, a transaction should only include a status if it's anything other than default; failed, refunded, paid out, etc.)
 
 ## Component variations
 
-### Semantic badges
+### Colors
 
 The badges come in a number of colors based on their semantic meaning.
 
-<Story id="components-badge--colors" />
+<Story id="components-badge--variants" />
 
 ### Circular badges
 
 Badges that receive the `circle` prop can be used to indicate notifications.
 
 <Story id="components-badge--circular" />
-
-### Clickable badges
-
-Badges that receive the `onClick` prop can be interacted with.
-
-<Story id="components-badge--clickable" />

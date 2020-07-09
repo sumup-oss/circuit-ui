@@ -1,5 +1,5 @@
 /**
- * Copyright 2019, SumUp Ltd.
+ * Copyright 2020, SumUp Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,25 @@
  * limitations under the License.
  */
 
-import { Badge } from './Badge';
+import { Transform } from 'jscodeshift';
 
-export default Badge;
+import { renameJSXAttribute, findLocalNames } from './utils';
+
+const transform: Transform = (file, api) => {
+  const j = api.jscodeshift;
+  const root = j(file.source);
+
+  const components = findLocalNames(j, root, 'Badge');
+
+  if (!components) {
+    return;
+  }
+
+  components.forEach(component => {
+    renameJSXAttribute(j, root, component, 'color', 'variant');
+  });
+
+  return root.toSource();
+};
+
+export default transform;
