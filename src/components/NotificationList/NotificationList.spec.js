@@ -25,7 +25,7 @@ describe('NotificationList', () => {
     const actual = create(
       <NotificationList>
         <div />
-      </NotificationList>
+      </NotificationList>,
     );
     expect(actual).toMatchSnapshot();
   });

@@ -28,7 +28,7 @@ function main() {
     .option('theme', {
       desc: 'The name of the theme to use.',
       choices: themeOpts,
-      default: 'light'
+      default: 'light',
     })
     .option('components', {
       desc:
@@ -50,29 +50,29 @@ function main() {
           }
         }
         return val;
-      }
+      },
     })
     .option('global', {
       desc: 'Whether to include global styles.',
       type: 'boolean',
-      default: false
+      default: false,
     })
     .option('customProperties', {
       desc: 'Whether to use CSS custom properties (variables).',
       type: 'boolean',
-      default: false
+      default: false,
     })
     .option('pretty', {
       desc: 'Whether the CSS should be formatted with prettier.',
       type: 'boolean',
-      default: false
+      default: false,
     })
     .option('filePath', {
       desc:
         // eslint-disable-next-line max-len
         'Path to the file where the stylesheet should be saved, relative to the current directory.',
       type: 'string',
-      normalize: true
+      normalize: true,
     })
     .showHelpOnFail(true)
     .help()

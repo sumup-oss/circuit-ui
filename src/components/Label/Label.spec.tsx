@@ -32,7 +32,7 @@ describe('Label', () => {
     const actual = create(
       <Label visuallyHidden htmlFor="some-id">
         Label
-      </Label>
+      </Label>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -41,7 +41,7 @@ describe('Label', () => {
     const actual = create(
       <Label inline htmlFor="some-id">
         Label
-      </Label>
+      </Label>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -50,7 +50,7 @@ describe('Label', () => {
     const actual = create(
       <Label disabled htmlFor="some-id">
         Label
-      </Label>
+      </Label>,
     );
     expect(actual).toMatchSnapshot();
   });

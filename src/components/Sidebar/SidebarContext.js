@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 
 const SidebarContext = createContext({
   isSidebarOpen: false,
-  toggleSidebar: () => {}
+  toggleSidebar: () => {},
 });
 
 const SidebarContextConsumer = SidebarContext.Consumer;
@@ -35,7 +35,7 @@ class SidebarContextProvider extends React.Component {
       <SidebarContext.Provider
         value={{
           isSidebarOpen: this.state.isSidebarOpen,
-          toggleSidebar: this.toggleSidebar
+          toggleSidebar: this.toggleSidebar,
         }}
       >
         {this.props.children}
@@ -48,7 +48,7 @@ SidebarContextProvider.propTypes = {
   /**
    * The children received by SidebarContextProvider
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export { SidebarContext, SidebarContextProvider, SidebarContextConsumer };

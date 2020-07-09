@@ -36,7 +36,7 @@ describe('TextArea', () => {
     const actual = create(
       <TextArea
         renderPrefix={({ className }) => <DummyElement {...{ className }} />}
-      />
+      />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -45,7 +45,7 @@ describe('TextArea', () => {
     const actual = create(
       <TextArea
         renderSuffix={({ className }) => <DummyElement {...{ className }} />}
-      />
+      />,
     );
     expect(actual).toMatchSnapshot();
   });

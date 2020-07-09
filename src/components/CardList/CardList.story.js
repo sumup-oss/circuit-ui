@@ -51,8 +51,8 @@ export default {
   title: 'Components/Card/CardList',
   component: CardList,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => <CardListStory />;

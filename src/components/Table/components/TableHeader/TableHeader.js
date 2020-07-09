@@ -139,7 +139,7 @@ const condensedColStyles = ({ condensed, scope, theme }) =>
   `;
 
 const StyledHeader = styled('th', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'scope'
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'scope',
 })`
   ${baseStyles};
   ${hoveredStyles};
@@ -223,7 +223,7 @@ TableHeader.propTypes = {
    * @private Adds sorted style to the Header if it is currently sorted
    * Handled internally
    */
-  isSorted: PropTypes.bool
+  isSorted: PropTypes.bool,
 };
 
 TableHeader.defaultProps = {
@@ -235,7 +235,7 @@ TableHeader.defaultProps = {
   children: null,
   sortDirection: null,
   isSorted: false,
-  'data-testid': 'table-header'
+  'data-testid': 'table-header',
 };
 
 export default TableHeader;

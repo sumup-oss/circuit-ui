@@ -31,7 +31,7 @@ NavList.propTypes = {
   /**
    * The children component passed to the Sidebar
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default NavList;

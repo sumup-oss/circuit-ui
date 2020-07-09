@@ -44,9 +44,9 @@ export default function extractStaticStyles(options) {
     ...options,
     theme: options.customProperties ? createTheme(theme) : theme,
     components: config.components.filter(component =>
-      options.components.includes(component.name)
+      options.components.includes(component.name),
     ),
-    filePath: options.filePath || getFilePath(options)
+    filePath: options.filePath || getFilePath(options),
   };
 
   let styleSheet = '';

@@ -74,14 +74,14 @@ export default class CalendarTagTwoStep extends Component {
     tracking: PropTypes.shape({
       label: PropTypes.string.isRequired,
       component: PropTypes.string,
-      customParameters: PropTypes.object
-    })
+      customParameters: PropTypes.object,
+    }),
   };
 
   static defaultProps = {
     clearText: 'Clear',
     confirmText: 'Apply',
-    tracking: {}
+    tracking: {},
   };
 
   state = { startDate: null, endDate: null, focusedInput: null };
@@ -101,7 +101,7 @@ export default class CalendarTagTwoStep extends Component {
 
   handleButtonClick = () =>
     this.setState(({ focusedInput }) => ({
-      focusedInput: focusedInput !== null ? null : START_DATE
+      focusedInput: focusedInput !== null ? null : START_DATE,
     }));
 
   getDateRangePreview = () => {

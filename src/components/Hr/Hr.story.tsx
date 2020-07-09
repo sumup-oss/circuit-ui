@@ -22,8 +22,8 @@ export default {
   title: 'Components/Hr',
   component: Hr,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => <Hr />;

@@ -70,7 +70,7 @@ const CarouselSlider = ({ images = [], ...stepProps }) => (
       getNextControlProps,
       getPreviousControlProps,
       getPauseControlProps,
-      getPlayControlProps
+      getPlayControlProps,
     }) => (
       <SliderWrapper>
         <SliderInner
@@ -103,7 +103,7 @@ const CarouselSlider = ({ images = [], ...stepProps }) => (
   </Step>
 );
 CarouselSlider.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string)
+  images: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default CarouselSlider;

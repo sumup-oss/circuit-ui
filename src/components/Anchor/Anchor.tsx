@@ -75,12 +75,12 @@ const baseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const BaseAnchor = styled(Text, {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size',
 })<AnchorProps>(baseStyles);
 
 function AnchorComponent(
   props: AnchorProps,
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>,
 ): ReturnType {
   const { Link } = useComponents();
   const AnchorLink = BaseAnchor.withComponent(Link);

@@ -18,19 +18,19 @@ export const SLIDES = [
   {
     image: {
       src: 'https://placedog.net/600',
-      alt: 'doggy'
-    }
+      alt: 'doggy',
+    },
   },
   {
     image: {
       src: 'https://placedog.net/700',
-      alt: 'doggy dog'
-    }
+      alt: 'doggy dog',
+    },
   },
   {
     image: {
       src: 'https://placedog.net/800',
-      alt: 'woof woof'
-    }
-  }
+      alt: 'woof woof',
+    },
+  },
 ];

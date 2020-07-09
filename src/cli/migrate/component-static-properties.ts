@@ -21,107 +21,107 @@ import { findLocalNames, findProperty } from './utils';
 const components = [
   {
     componentName: 'Badge',
-    properties: ['NEUTRAL', 'PRIMARY', 'SUCCESS', 'WARNING', 'DANGER']
+    properties: ['NEUTRAL', 'PRIMARY', 'SUCCESS', 'WARNING', 'DANGER'],
   },
   {
     componentName: 'Blockquote',
-    properties: ['KILO', 'MEGA', 'GIGA']
+    properties: ['KILO', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'Button',
-    properties: ['KILO', 'MEGA', 'GIGA']
+    properties: ['KILO', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'ButtonGroup',
-    properties: ['LEFT', 'CENTER', 'RIGHT']
+    properties: ['LEFT', 'CENTER', 'RIGHT'],
   },
   {
     componentName: 'Card',
-    properties: ['SINGLE', 'DOUBLE', 'TRIPLE', 'MEGA', 'GIGA']
+    properties: ['SINGLE', 'DOUBLE', 'TRIPLE', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'CardList.Item',
-    properties: ['KILO', 'MEGA', 'GIGA']
+    properties: ['KILO', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'ListView.Item',
-    properties: ['KILO', 'MEGA', 'GIGA']
+    properties: ['KILO', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'Heading',
-    properties: ['KILO', 'MEGA', 'GIGA', 'TERA', 'PETA', 'EXA', 'ZETTA']
+    properties: ['KILO', 'MEGA', 'GIGA', 'TERA', 'PETA', 'EXA', 'ZETTA'],
   },
   {
     componentName: 'InlineNotification',
-    properties: ['DANGER', 'SUCCESS', 'WARNING', 'MEGA', 'GIGA']
+    properties: ['DANGER', 'SUCCESS', 'WARNING', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'InlineMessage',
-    properties: ['DANGER', 'SUCCESS', 'WARNING', 'MEGA', 'GIGA']
+    properties: ['DANGER', 'SUCCESS', 'WARNING', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'Input',
-    properties: ['LEFT', 'RIGHT']
+    properties: ['LEFT', 'RIGHT'],
   },
   {
     componentName: 'TextArea',
-    properties: ['LEFT', 'RIGHT']
+    properties: ['LEFT', 'RIGHT'],
   },
   {
     componentName: 'List',
-    properties: ['KILO', 'MEGA', 'GIGA']
+    properties: ['KILO', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'MessageIcon',
-    properties: ['SUCCESS', 'ERROR', 'WARNING']
+    properties: ['SUCCESS', 'ERROR', 'WARNING'],
   },
   {
     componentName: 'ModalFooter',
-    properties: ['LEFT', 'RIGHT']
+    properties: ['LEFT', 'RIGHT'],
   },
   {
     componentName: 'CardFooter',
-    properties: ['LEFT', 'RIGHT']
+    properties: ['LEFT', 'RIGHT'],
   },
   {
     componentName: 'NotificationIcon',
-    properties: ['SUCCESS', 'ERROR', 'WARNING']
+    properties: ['SUCCESS', 'ERROR', 'WARNING'],
   },
   {
     componentName: 'Popover',
-    properties: ['TOP', 'BOTTOM', 'LEFT', 'RIGHT', 'START', 'END', 'CENTER']
+    properties: ['TOP', 'BOTTOM', 'LEFT', 'RIGHT', 'START', 'END', 'CENTER'],
   },
   {
     componentName: 'ProgressBar',
-    properties: ['KILO', 'MEGA', 'GIGA']
+    properties: ['KILO', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'SubHeading',
-    properties: ['KILO', 'MEGA']
+    properties: ['KILO', 'MEGA'],
   },
   {
     componentName: 'TableHeader',
-    properties: ['LEFT', 'RIGHT', 'CENTER', 'COL', 'ROW']
+    properties: ['LEFT', 'RIGHT', 'CENTER', 'COL', 'ROW'],
   },
   {
     componentName: 'TableCell',
-    properties: ['LEFT', 'RIGHT', 'CENTER']
+    properties: ['LEFT', 'RIGHT', 'CENTER'],
   },
   {
     componentName: 'Text',
-    properties: ['KILO', 'MEGA', 'GIGA']
+    properties: ['KILO', 'MEGA', 'GIGA'],
   },
   {
     componentName: 'Tooltip',
-    properties: ['CENTER', 'TOP', 'RIGHT', 'BOTTOM', 'LEFT']
-  }
+    properties: ['CENTER', 'TOP', 'RIGHT', 'BOTTOM', 'LEFT'],
+  },
 ];
 
 function transformFactory(
   j: JSCodeshift,
   root: Collection,
   componentName: string,
-  properties: string[]
+  properties: string[],
 ): void {
   const localNames = findLocalNames(j, root, componentName);
 
@@ -132,7 +132,7 @@ function transformFactory(
   localNames.forEach(localName => {
     properties.forEach(property => {
       findProperty(j, root, `${localName}.${property}`).replaceWith(
-        j.stringLiteral(toLower(property))
+        j.stringLiteral(toLower(property)),
       );
     });
   });

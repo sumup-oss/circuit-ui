@@ -34,7 +34,7 @@ const StyledHeading = styled(Heading)(headingStyles);
 
 export default {
   title: 'Components/Carousel/Slide',
-  component: Slide
+  component: Slide,
 };
 
 export const onlyImage = () => (

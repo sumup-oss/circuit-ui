@@ -51,7 +51,7 @@ const StyledText = styled(Text)<BlockquoteProps>(baseStyles, gigaStyles);
 
 export function BlockquoteComponent(
   props: BlockquoteProps,
-  ref: BlockquoteProps['ref']
+  ref: BlockquoteProps['ref'],
 ) {
   return <StyledText {...props} as="blockquote" italic ref={ref} />;
 }

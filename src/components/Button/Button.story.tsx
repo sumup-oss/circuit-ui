@@ -26,8 +26,8 @@ export default {
   title: 'Components/Button',
   component: Button,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const Primary = () => (
@@ -75,7 +75,7 @@ export const Tracking = () => (
     onClick={action('Button Click')}
     tracking={{
       label: text('Tracking Label', 'trackingId'),
-      customParameters: object('Custom Parameters', { custom1: 'data' })
+      customParameters: object('Custom Parameters', { custom1: 'data' }),
     }}
   >
     {'Click'}

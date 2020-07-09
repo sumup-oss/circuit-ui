@@ -24,8 +24,8 @@ export default {
   title: 'Forms/Checkbox',
   component: Checkbox,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 // eslint-disable-next-line react/prop-types

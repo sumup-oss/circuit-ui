@@ -31,7 +31,7 @@ describe('CurrencyInput', () => {
 
   it('should adjust input padding and suffix width to match currency symbol width', () => {
     const actual = create(
-      <CurrencyInput placeholder="123,45" currency="CHF" />
+      <CurrencyInput placeholder="123,45" currency="CHF" />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -43,7 +43,7 @@ describe('CurrencyInput', () => {
     it.skip('should accept a working ref', () => {
       const tref = React.createRef<TextMaskInput>();
       const { container } = render(
-        <CurrencyInput id="id" locale="de-DE" currency="EUR" ref={tref} />
+        <CurrencyInput id="id" locale="de-DE" currency="EUR" ref={tref} />,
       );
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);
@@ -55,7 +55,7 @@ describe('CurrencyInput', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <CurrencyInput locale="de-DE" currency="EUR" label="Product price" />
+      <CurrencyInput locale="de-DE" currency="EUR" label="Product price" />,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

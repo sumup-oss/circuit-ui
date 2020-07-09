@@ -98,7 +98,7 @@ export default function componentStyles({ components, theme } = {}) {
       // Reset all props to `null`.
       const baseProps = entries(props).reduce(
         (acc, [prop]) => ({ ...acc, [prop]: null }),
-        requiredProps
+        requiredProps,
       );
 
       // Render the plain base component.
@@ -110,7 +110,7 @@ export default function componentStyles({ components, theme } = {}) {
           renderFn(Component, { ...baseProps, [key]: value }, name);
         });
       });
-    }
+    },
   );
 
   const styleSheet = entries(styleSheets)

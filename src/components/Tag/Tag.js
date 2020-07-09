@@ -20,7 +20,7 @@ import { css } from '@emotion/core';
 
 import {
   eitherOrPropType,
-  childrenPropType
+  childrenPropType,
 } from '../../util/shared-prop-types';
 import { textMega, focusOutline } from '../../styles/style-helpers';
 import CloseButton from '../CloseButton';
@@ -83,7 +83,7 @@ const TagElement = styled('div')(
   tagStyles,
   tagClickableStyles,
   tagSelectedStyles,
-  tagSelectedClickableStyles
+  tagSelectedClickableStyles,
 );
 
 const prefixStyles = ({ theme }) => css`
@@ -121,7 +121,7 @@ const Tag = React.forwardRef(
       tracking,
       ...props
     },
-    ref
+    ref,
   ) => {
     const prefixElement = Prefix && (
       <Prefix
@@ -154,7 +154,7 @@ const Tag = React.forwardRef(
             ref={ref}
             tracking={{
               component: 'tag-remove',
-              ...tracking
+              ...tracking,
             }}
           />
         )}
@@ -162,7 +162,7 @@ const Tag = React.forwardRef(
         {!onRemove && suffixElement}
       </TagElement>
     );
-  }
+  },
 );
 
 Tag.displayName = 'Tag';
@@ -200,7 +200,7 @@ Tag.propTypes = {
   tracking: PropTypes.shape({
     label: PropTypes.string.isRequired,
     component: PropTypes.string,
-    customParameters: PropTypes.object
+    customParameters: PropTypes.object,
   }),
   /**
    *  The ref to the html button dom element
@@ -208,9 +208,9 @@ Tag.propTypes = {
   ref: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
-      current: PropTypes.any
-    })
-  ])
+      current: PropTypes.any,
+    }),
+  ]),
 };
 
 Tag.defaultProps = {
@@ -221,7 +221,7 @@ Tag.defaultProps = {
   selected: false,
   labelRemoveButton: 'remove',
   tracking: {},
-  ref: undefined
+  ref: undefined,
 };
 
 /**

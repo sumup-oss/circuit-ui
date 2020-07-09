@@ -34,7 +34,7 @@ describe('Slide', () => {
           step={0}
           slideSize={{ width: 800 }}
           slideDirection={SLIDE_DIRECTIONS.FORWARD}
-        />
+        />,
       );
 
       expect(actual).toMatchSnapshot();
@@ -47,7 +47,7 @@ describe('Slide', () => {
           prevStep={0}
           slideSize={{ width: 800 }}
           slideDirection={SLIDE_DIRECTIONS.BACK}
-        />
+        />,
       );
 
       expect(actual).toMatchSnapshot();

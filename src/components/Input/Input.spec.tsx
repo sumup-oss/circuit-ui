@@ -37,7 +37,7 @@ describe('Input', () => {
     const actual = create(
       <Input
         renderPrefix={({ className }) => <DummyElement {...{ className }} />}
-      />
+      />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -46,7 +46,7 @@ describe('Input', () => {
     const actual = create(
       <Input
         renderSuffix={({ className }) => <DummyElement {...{ className }} />}
-      />
+      />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -115,7 +115,7 @@ describe('Input', () => {
         inputStyles={css`
           color: red;
         `}
-      />
+      />,
     );
     expect(actual).toMatchSnapshot();
   });

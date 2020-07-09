@@ -32,8 +32,8 @@ export default {
   title: 'Components/Modal',
   component: Modal,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 /* eslint-disable react/display-name, react/prop-types */
@@ -57,14 +57,14 @@ const PageWithModal = (modal: ModalProps) => (
 
 const defaultModal = {
   children: () => <ModalWrapper>Hello World!</ModalWrapper>,
-  onClose: () => {}
+  onClose: () => {},
 };
 
 export const base = () => (
   <PageWithModal
     {...defaultModal}
     tracking={{
-      label: text('Tracking Label', 'trackingId')
+      label: text('Tracking Label', 'trackingId'),
     }}
   />
 );

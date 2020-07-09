@@ -21,7 +21,7 @@ import { css } from '@emotion/core';
 import {
   disableVisually,
   hideVisually,
-  focusOutline
+  focusOutline,
 } from '../../styles/style-helpers';
 import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
@@ -124,12 +124,12 @@ const RadioButtonInput = styled('input')(hideVisually, inputStyles);
 const RadioButtonLabel = styled('label')(
   labelBaseStyles,
   labelDisabledStyles,
-  labelInvalidStyles
+  labelInvalidStyles,
 );
 
 const RadioButtonComponent = (
   { onChange, children, id, name, value, checked, tracking, ...props },
-  ref
+  ref,
 ) => {
   const inputId = id || uniqueId('radio-button_');
   const handleChange = useClickHandler(onChange, tracking, 'radio-button');
@@ -199,8 +199,8 @@ RadioButton.propTypes = {
   ref: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
-      current: PropTypes.any
-    })
+      current: PropTypes.any,
+    }),
   ]),
   /**
    * Additional data that is dispatched with the tracking event.
@@ -208,8 +208,8 @@ RadioButton.propTypes = {
   tracking: PropTypes.shape({
     label: PropTypes.string.isRequired,
     component: PropTypes.string,
-    customParameters: PropTypes.object
-  })
+    customParameters: PropTypes.object,
+  }),
 };
 
 RadioButton.defaultProps = {
@@ -218,7 +218,7 @@ RadioButton.defaultProps = {
   invalid: false,
   disabled: false,
   children: null,
-  ref: undefined
+  ref: undefined,
 };
 
 /**

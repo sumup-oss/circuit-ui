@@ -21,7 +21,7 @@ import {
   act,
   userEvent,
   renderToHtml,
-  axe
+  axe,
 } from '../../util/test-utils';
 
 import { Selector } from './Selector';
@@ -29,7 +29,7 @@ import { Selector } from './Selector';
 const defaultProps = {
   name: 'name',
   value: 'value',
-  onChange: jest.fn()
+  onChange: jest.fn(),
 };
 
 describe('Selector', () => {
@@ -44,7 +44,7 @@ describe('Selector', () => {
     const actual = create(
       <Selector {...defaultProps} disabled>
         Label
-      </Selector>
+      </Selector>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -52,14 +52,14 @@ describe('Selector', () => {
     const actual = create(
       <Selector {...defaultProps} checked>
         Label
-      </Selector>
+      </Selector>,
     );
     expect(actual).toMatchSnapshot();
   });
 
   it('should render a radio input by default', () => {
     const { getByLabelText } = render(
-      <Selector {...defaultProps}>Label</Selector>
+      <Selector {...defaultProps}>Label</Selector>,
     );
     expect(getByLabelText('Label')).toHaveAttribute('type', 'radio');
   });
@@ -68,7 +68,7 @@ describe('Selector', () => {
     const { getByLabelText } = render(
       <Selector {...defaultProps} multiple>
         Label
-      </Selector>
+      </Selector>,
     );
     expect(getByLabelText('Label')).toHaveAttribute('type', 'checkbox');
   });
@@ -78,20 +78,20 @@ describe('Selector', () => {
    */
   it('should be unchecked by default', () => {
     const { getByLabelText } = render(
-      <Selector {...defaultProps}>Label</Selector>
+      <Selector {...defaultProps}>Label</Selector>,
     );
     const inputEl = getByLabelText('Label', {
-      exact: false
+      exact: false,
     });
     expect(inputEl).not.toHaveAttribute('checked');
   });
 
   it('should call the change handler when clicked', () => {
     const { getByLabelText } = render(
-      <Selector {...defaultProps}>Label</Selector>
+      <Selector {...defaultProps}>Label</Selector>,
     );
     const inputEl = getByLabelText('Label', {
-      exact: false
+      exact: false,
     });
 
     act(() => {

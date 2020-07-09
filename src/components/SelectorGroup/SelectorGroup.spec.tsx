@@ -27,17 +27,17 @@ describe('SelectorGroup', () => {
     options: [
       {
         children: 'Option 1',
-        value: 'first'
+        value: 'first',
       },
       {
         children: 'Option 2',
-        value: 'second'
+        value: 'second',
       },
       {
         children: 'Option 3',
-        value: 'third'
-      }
-    ]
+        value: 'third',
+      },
+    ],
   };
 
   /**
@@ -54,7 +54,7 @@ describe('SelectorGroup', () => {
   it('should check the selected option', () => {
     const value = 'second';
     const { getByLabelText } = render(
-      <SelectorGroup {...defaultProps} value={value} />
+      <SelectorGroup {...defaultProps} value={value} />,
     );
     expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
     expect(getByLabelText('Option 2')).toHaveAttribute('checked');
@@ -64,7 +64,7 @@ describe('SelectorGroup', () => {
   it('should check the selected options', () => {
     const value = ['second', 'third'];
     const { getByLabelText } = render(
-      <SelectorGroup {...defaultProps} value={value} multiple />
+      <SelectorGroup {...defaultProps} value={value} multiple />,
     );
     expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
     expect(getByLabelText('Option 2')).toHaveAttribute('checked');
@@ -77,7 +77,7 @@ describe('SelectorGroup', () => {
   it('should meet accessibility guidelines', async () => {
     const value = 'second';
     const wrapper = renderToHtml(
-      <SelectorGroup {...defaultProps} value={value} />
+      <SelectorGroup {...defaultProps} value={value} />,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

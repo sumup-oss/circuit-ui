@@ -21,7 +21,7 @@ import {
   render,
   renderToHtml,
   axe,
-  RenderFn
+  RenderFn,
 } from '../../../../util/test-utils';
 
 import { PageSelect, PageSelectProps } from './PageSelect';
@@ -37,7 +37,7 @@ describe('PageSelect', () => {
     totalLabel: total => `of ${total}`,
     pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     currentPage: 1,
-    totalPages: 10
+    totalPages: 10,
   };
 
   describe('styles', () => {
@@ -54,7 +54,7 @@ describe('PageSelect', () => {
       const { getByTestId } = renderPageSelect(render, {
         ...baseProps,
         onChange,
-        'data-testid': testId
+        'data-testid': testId,
       });
       const selectEl = getByTestId(testId);
 

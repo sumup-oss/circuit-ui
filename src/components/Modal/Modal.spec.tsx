@@ -39,7 +39,7 @@ describe('Modal', () => {
               onClick={() => {
                 setModal({
                   ...modal,
-                  appElement: document.getElementById('root') as HTMLElement
+                  appElement: document.getElementById('root') as HTMLElement,
                 });
               }}
             >
@@ -66,7 +66,7 @@ describe('Modal', () => {
     // Here are the docs for setting the app element:
     // http://reactcommunity.org/react-modal/accessibility/#app-element
     ariaHideApp: false,
-    onClose: jest.fn()
+    onClose: jest.fn(),
   };
 
   const openModal = (modal: ModalProps) => {

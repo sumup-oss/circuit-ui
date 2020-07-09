@@ -23,8 +23,8 @@ export default {
   title: 'Components/Pagination',
   component: Pagination,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const BasePagination = (props: Partial<PaginationProps>) => {

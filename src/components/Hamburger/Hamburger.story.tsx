@@ -20,7 +20,7 @@ import { Hamburger, HamburgerProps } from './Hamburger';
 
 export default {
   title: 'Components/Hamburger',
-  component: Hamburger
+  component: Hamburger,
 };
 
 const HamburgerWithState = (props: HamburgerProps) => {
@@ -36,7 +36,7 @@ export const Base = () => (
     labelActive={text('Label active', 'Close menu')}
     labelInActive={text('Label inactive', 'Open menu')}
     tracking={{
-      label: text('Tracking Label', 'trackingId')
+      label: text('Tracking Label', 'trackingId'),
     }}
   />
 );

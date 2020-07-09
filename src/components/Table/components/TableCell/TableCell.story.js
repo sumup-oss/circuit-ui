@@ -20,7 +20,7 @@ import TableCell from '.';
 
 export default {
   title: 'Components/Table/TableCell',
-  component: TableCell
+  component: TableCell,
 };
 
 export const base = () => (

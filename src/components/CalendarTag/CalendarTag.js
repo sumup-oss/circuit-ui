@@ -38,8 +38,8 @@ class CalendarTag extends Component {
     tracking: PropTypes.shape({
       label: PropTypes.string.isRequired,
       component: PropTypes.string,
-      customParameters: PropTypes.object
-    })
+      customParameters: PropTypes.object,
+    }),
   };
 
   state = { startDate: null, endDate: null, focusedInput: null };
@@ -60,7 +60,7 @@ class CalendarTag extends Component {
 
   handleButtonClick = () =>
     this.setState(({ focusedInput }) => ({
-      focusedInput: focusedInput !== null ? null : START_DATE
+      focusedInput: focusedInput !== null ? null : START_DATE,
     }));
 
   getDateRangePreview = () => {
@@ -104,7 +104,7 @@ class CalendarTag extends Component {
           onClick={this.handleButtonClick}
           tracking={{
             component: 'calendar-tag',
-            ...tracking
+            ...tracking,
           }}
         >
           {this.getDateRangePreview()}

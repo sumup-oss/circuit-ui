@@ -21,7 +21,7 @@ import {
   renderToHtml,
   axe,
   RenderFn,
-  userEvent
+  userEvent,
 } from '../../util/test-utils';
 
 import { Pagination, PaginationProps } from './Pagination';
@@ -38,13 +38,13 @@ describe('Pagination', () => {
     previousLabel: 'Previous',
     nextLabel: 'Next',
     pageLabel: page => `Go to page ${page}`,
-    totalLabel: total => `of ${total}`
+    totalLabel: total => `of ${total}`,
   };
 
   it('should disable the previous button on the first page', () => {
     const { getByText } = renderPagination(render, {
       ...baseProps,
-      currentPage: 1
+      currentPage: 1,
     });
     const prevButtonEl = getByText('Previous');
 
@@ -54,7 +54,7 @@ describe('Pagination', () => {
   it('should disable the next button on the last page', () => {
     const { getByText } = renderPagination(render, {
       ...baseProps,
-      currentPage: baseProps.totalPages
+      currentPage: baseProps.totalPages,
     });
     const nextButtonEl = getByText('Next');
 
@@ -66,7 +66,7 @@ describe('Pagination', () => {
     const { getByText } = renderPagination(render, {
       ...baseProps,
       onChange,
-      currentPage: 3
+      currentPage: 3,
     });
 
     const prevButtonEl = getByText('Previous');

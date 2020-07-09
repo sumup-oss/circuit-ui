@@ -24,8 +24,8 @@ export default {
   title: 'Forms/TextArea',
   component: TextArea,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 // TextAreas always need labels for accessibility.

@@ -75,15 +75,15 @@ const AspectRatio = React.forwardRef(
             React.cloneElement(child, {
               className: cx(
                 childBaseStyles(cssClassName),
-                childAspectRatioStyles(cssClassName, { aspectRatio })
-              )
+                childAspectRatioStyles(cssClassName, { aspectRatio }),
+              ),
             })
           }
         </ClassNames>
         {restChildren}
       </Wrapper>
     );
-  }
+  },
 );
 
 AspectRatio.displayName = 'AspectRatio';
@@ -91,7 +91,7 @@ AspectRatio.displayName = 'AspectRatio';
 AspectRatio.propTypes = {
   children: childrenPropType,
   aspectRatio: PropTypes.number,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default AspectRatio;

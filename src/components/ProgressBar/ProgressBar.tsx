@@ -132,7 +132,7 @@ const loopAnimation = keyframes`
 const timedStyles = ({
   duration = 3000,
   loop = false,
-  paused = false
+  paused = false,
 }: TimeProgressProps) => css`
   &::after {
     animation-name: ${loop ? loopAnimation : oneAnimation};
@@ -145,11 +145,11 @@ const timedStyles = ({
 
 const variantStyles = ({
   theme,
-  variant = 'primary'
+  variant = 'primary',
 }: StyleProps & BaseProps) => {
   const variantMap = {
     primary: theme.colors.p500,
-    secondary: theme.colors.n900
+    secondary: theme.colors.n900,
   };
   return css`
     label: ${`progress-bar--${variant}`};
@@ -164,11 +164,11 @@ const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & BaseProps) => {
   const sizeMap = {
     byte: theme.spacings.bit,
     kilo: theme.spacings.byte,
-    mega: theme.spacings.mega
+    mega: theme.spacings.mega,
   };
   return css({
     label: `progress-bar--${size}`,
-    height: sizeMap[size]
+    height: sizeMap[size],
   });
 };
 
@@ -176,14 +176,14 @@ const TaskProgress = styled('span')<BaseProps & StepProgressProps>(
   baseStyles,
   variantStyles,
   sizeStyles,
-  taskStyles
+  taskStyles,
 );
 
 const TimeProgress = styled('span')<BaseProps & TimeProgressProps>(
   baseStyles,
   variantStyles,
   sizeStyles,
-  timedStyles
+  timedStyles,
 );
 
 const labelStyles = ({ theme }: StyleProps) => css`

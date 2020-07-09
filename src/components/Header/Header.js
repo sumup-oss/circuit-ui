@@ -62,12 +62,12 @@ Header.propTypes = {
   /**
    * The child component of Header.
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 Header.defaultProps = {
   title: '',
-  children: ''
+  children: '',
 };
 
 /**

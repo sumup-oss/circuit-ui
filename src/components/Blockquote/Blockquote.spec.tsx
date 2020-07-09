@@ -49,7 +49,7 @@ describe('Blockquote', () => {
       const { container } = render(
         <Blockquote size="giga" ref={tref}>
           {quote}
-        </Blockquote>
+        </Blockquote>,
       );
       const blockquote = container.querySelector('blockquote');
       expect(tref.current).toBe(blockquote);

@@ -49,7 +49,7 @@ const TableHead = ({
   sortDirection,
   sortedRow,
   onSortEnter,
-  onSortLeave
+  onSortLeave,
 }) => (
   <Thead scrollable={scrollable} top={top} rowHeaders={rowHeaders}>
     {!!headers.length && (
@@ -145,14 +145,14 @@ TableHead.propTypes = {
   /**
    * @private sortLeave handler
    */
-  onSortLeave: PropTypes.func
+  onSortLeave: PropTypes.func,
 };
 
 TableHead.defaultProps = {
   headers: [],
   rowHeaders: false,
   sortDirection: null,
-  sortedRow: null
+  sortedRow: null,
 };
 
 export default TableHead;

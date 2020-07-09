@@ -35,11 +35,11 @@ const transform: Transform = (file, api) => {
         .find(j.JSXAttribute, {
           name: {
             type: 'JSXIdentifier',
-            name: variant
-          }
+            name: variant,
+          },
         })
         .replaceWith(() =>
-          j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral(variant))
+          j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral(variant)),
         );
     });
   });

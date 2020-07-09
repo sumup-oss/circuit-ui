@@ -33,8 +33,8 @@ describe('Step', () => {
       create(
         <Step>
           <div />
-        </Step>
-      )
+        </Step>,
+      ),
     ).toThrow(expectedError);
   });
 

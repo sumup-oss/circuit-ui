@@ -44,7 +44,7 @@ const ClearButton = styled(IconButton)`
 
 function SearchInputComponent(
   { value, onClear, clearLabel = 'Clear', ...props }: SearchInputProps,
-  ref: SearchInputProps['ref']
+  ref: SearchInputProps['ref'],
 ) {
   return (
     <Input

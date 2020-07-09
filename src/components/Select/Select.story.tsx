@@ -27,28 +27,28 @@ export default {
   title: 'Forms/Select',
   component: Select,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const options = [
   {
     label: 'United States',
-    value: 'US'
+    value: 'US',
   },
   {
     label: 'Germany',
-    value: 'DE'
+    value: 'DE',
   },
   {
     label: 'France',
-    value: 'FR'
-  }
+    value: 'FR',
+  },
 ];
 const flagIconMap: { [key: string]: FC<{ className?: string }> } = {
   DE: FlagDe,
   US: FlagUs,
-  FR: FlagFr
+  FR: FlagFr,
 };
 
 // Selects always need labels for accessibility.

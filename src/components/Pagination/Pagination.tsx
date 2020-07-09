@@ -109,7 +109,7 @@ export const Pagination = ({
     const {
       label: trackingLabel = pageNumber.toString(),
       component = 'pagination',
-      customParameters
+      customParameters,
     } = tracking;
 
     if (label) {

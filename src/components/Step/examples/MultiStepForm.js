@@ -41,7 +41,7 @@ const FormOne = ({ onNextClick }) => (
   </section>
 );
 FormOne.propTypes = {
-  onNextClick: PropTypes.func.isRequired
+  onNextClick: PropTypes.func.isRequired,
 };
 
 const FormTwo = ({ onNextClick, onBackClick }) => (
@@ -66,7 +66,7 @@ const FormTwo = ({ onNextClick, onBackClick }) => (
 );
 FormTwo.propTypes = {
   onNextClick: PropTypes.func.isRequired,
-  onBackClick: PropTypes.func.isRequired
+  onBackClick: PropTypes.func.isRequired,
 };
 
 const Thanks = () => (

@@ -21,6 +21,6 @@ initStoryshots({
   serializer: createSerializer({
     classNameReplacer(className, index) {
       return `circuit-${index}`;
-    }
-  })
+    },
+  }),
 });

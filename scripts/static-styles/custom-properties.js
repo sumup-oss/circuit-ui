@@ -16,7 +16,7 @@
 import { entries, includes, isObject, isNil, set } from 'lodash';
 
 const DEFAULT_OPTIONS = {
-  omit: ['__esModule', 'mq', 'grid']
+  omit: ['__esModule', 'mq', 'grid'],
 };
 
 export function createTheme(theme, options = {}) {
@@ -35,7 +35,7 @@ export function createGlobalStyles(theme, options = {}) {
   traverse(theme, buildGlobalStyles(customProperties, opts.omit));
 
   const rules = entries(customProperties).map(
-    ([name, value]) => `${name}: ${value};`
+    ([name, value]) => `${name}: ${value};`,
   );
 
   return `:root { ${rules.join(' ')} }`;

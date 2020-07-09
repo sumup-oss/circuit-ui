@@ -92,7 +92,7 @@ const toggleWrapperNoMarginStyles = ({ noMargin }: WrapperElProps) =>
 
 const ToggleWrapper = styled('div')<WrapperElProps>(
   toggleWrapperStyles,
-  toggleWrapperNoMarginStyles
+  toggleWrapperNoMarginStyles,
 );
 
 /**
@@ -101,7 +101,7 @@ const ToggleWrapper = styled('div')<WrapperElProps>(
 export const Toggle = React.forwardRef(
   (
     { label, explanation, noMargin, ...props }: ToggleProps,
-    ref: ToggleProps['ref']
+    ref: ToggleProps['ref'],
   ) => {
     const switchId = uniqueId('toggle-switch_');
     const labelId = uniqueId('toggle-label_');
@@ -124,7 +124,7 @@ export const Toggle = React.forwardRef(
         )}
       </ToggleWrapper>
     );
-  }
+  },
 );
 
 Toggle.displayName = 'Toggle';

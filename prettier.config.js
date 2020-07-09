@@ -16,7 +16,6 @@
 module.exports = require('@sumup/foundry/prettier')(
   {},
   {
-    trailingComma: 'none',
     arrowParens: 'avoid',
     quoteProps: 'as-needed'
   }

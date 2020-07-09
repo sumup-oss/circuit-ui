@@ -23,8 +23,8 @@ export default {
   title: 'Typography/Anchor',
   component: Anchor,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const AsLink = () => (

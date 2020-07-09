@@ -30,8 +30,8 @@ export default {
   title: 'Typography/Text',
   component: Text,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (

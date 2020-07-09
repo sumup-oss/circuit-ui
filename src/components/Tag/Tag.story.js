@@ -25,8 +25,8 @@ export default {
   title: 'Components/Tag',
   component: Tag,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (
@@ -62,7 +62,7 @@ export const clickable = () => (
     onClick={action('Tag clicked')}
     as="button"
     tracking={{
-      label: text('Tracking Label', 'trackingId')
+      label: text('Tracking Label', 'trackingId'),
     }}
   >
     Transactions

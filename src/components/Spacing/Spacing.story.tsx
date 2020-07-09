@@ -21,7 +21,7 @@ import { Spacing } from './Spacing';
 
 export default {
   title: 'Layout/Spacing',
-  component: Spacing
+  component: Spacing,
 };
 
 export const bottomSpacing = () => (

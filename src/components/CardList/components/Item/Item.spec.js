@@ -29,7 +29,7 @@ describe('Item', () => {
   it('should render with all paddings', () => {
     ['kilo', 'mega', 'giga'].forEach(padding => {
       expect(
-        create(<Item padding={padding}>List item</Item>)
+        create(<Item padding={padding}>List item</Item>),
       ).toMatchSnapshot();
     });
   });
@@ -38,7 +38,7 @@ describe('Item', () => {
     const { getByTestId } = render(
       <Item>
         <span data-testid="child">Item</span>
-      </Item>
+      </Item>,
     );
     const childEl = getByTestId('child');
     expect(childEl).not.toBeNull();

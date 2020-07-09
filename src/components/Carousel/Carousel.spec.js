@@ -42,7 +42,7 @@ describe('Carousel', () => {
       const actual = create(
         <Carousel slides={SLIDES}>
           {({ state }) => <h1>Carousel heading for step #{state.step}</h1>}
-        </Carousel>
+        </Carousel>,
       );
 
       expect(actual).toMatchSnapshot();
@@ -52,7 +52,7 @@ describe('Carousel', () => {
       const actual = create(
         <Carousel slides={SLIDES}>
           <h1>Carousel heading</h1>
-        </Carousel>
+        </Carousel>,
       );
 
       expect(actual).toMatchSnapshot();

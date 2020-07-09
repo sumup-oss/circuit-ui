@@ -25,8 +25,8 @@ export default {
   title: 'Forms/InlineMessage',
   component: InlineMessage,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (

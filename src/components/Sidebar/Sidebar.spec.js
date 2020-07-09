@@ -21,7 +21,7 @@ describe('<Sidebar />', () => {
   it('should render and match the snapshot when closed', () => {
     const props = {
       open: false,
-      onClose: jest.fn()
+      onClose: jest.fn(),
     };
     const actual = create(<Sidebar {...props} />);
     expect(actual).toMatchSnapshot();
@@ -30,7 +30,7 @@ describe('<Sidebar />', () => {
   it('should render and match snapshot when open', () => {
     const props = {
       open: true,
-      onClose: jest.fn()
+      onClose: jest.fn(),
     };
     const actual = create(<Sidebar {...props} />);
     expect(actual).toMatchSnapshot();
@@ -39,7 +39,7 @@ describe('<Sidebar />', () => {
   it('should dispatch onClose when CloseButton is clicked', () => {
     const props = {
       open: true,
-      onClose: jest.fn()
+      onClose: jest.fn(),
     };
     const { getByTestId } = render(<Sidebar {...props} />);
     act(() => {
@@ -51,7 +51,7 @@ describe('<Sidebar />', () => {
   it('should dispatch onClose when the Backdrop is clicked', () => {
     const props = {
       open: true,
-      onClose: jest.fn()
+      onClose: jest.fn(),
     };
     const { getByTestId } = render(<Sidebar {...props} />);
     act(() => {

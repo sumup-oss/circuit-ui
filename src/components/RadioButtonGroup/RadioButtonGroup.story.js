@@ -19,22 +19,22 @@ import RadioButtonGroup from './RadioButtonGroup';
 
 export default {
   title: 'Forms/RadioButton/RadioButtonGroup',
-  component: RadioButtonGroup
+  component: RadioButtonGroup,
 };
 
 const options = [
   {
     children: 'Apple',
-    value: 'apple'
+    value: 'apple',
   },
   {
     children: 'Banana',
-    value: 'banana'
+    value: 'banana',
   },
   {
     children: 'Mango',
-    value: 'mango'
-  }
+    value: 'mango',
+  },
 ];
 
 // eslint-disable-next-line react/prop-types

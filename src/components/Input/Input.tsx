@@ -21,7 +21,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import {
   textMega,
   hideVisually,
-  inputOutline
+  inputOutline,
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import Label from '../Label';
@@ -152,7 +152,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 const inputWarningStyles = ({
   theme,
   hasWarning,
-  disabled
+  disabled,
 }: StyleProps & InputElProps) =>
   !disabled &&
   hasWarning &&
@@ -166,7 +166,7 @@ const inputWarningStyles = ({
 const inputInvalidStyles = ({
   theme,
   invalid,
-  disabled
+  disabled,
 }: StyleProps & InputElProps) =>
   !disabled &&
   invalid &&
@@ -221,7 +221,7 @@ const InputElement = styled('input')<InputElProps>(
   inputDisabledStyles,
   inputPrefixStyles,
   inputSuffixStyles,
-  inputOutline
+  inputOutline,
 );
 
 /**
@@ -282,7 +282,7 @@ function InputComponent(
     id: customId,
     ...props
   }: InputProps,
-  ref: InputProps['ref']
+  ref: InputProps['ref'],
 ): ReturnType {
   const id = customId || uniqueId('input_');
 

@@ -64,7 +64,7 @@ const AggregatorContainer = styled.div(
   baseStyles,
   hoverStyles,
   selectedStyles,
-  disabledStyles
+  disabledStyles,
 );
 
 class Aggregator extends Component {
@@ -116,7 +116,7 @@ class Aggregator extends Component {
       selected: hasSelectedChild(children),
       selectedIcon,
       defaultIcon,
-      disabled
+      disabled,
     });
 
     return (
@@ -162,7 +162,7 @@ Aggregator.propTypes = {
   /**
    * The onClick method to handle the click event on the NavAggregator
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 Aggregator.defaultProps = {
@@ -171,7 +171,7 @@ Aggregator.defaultProps = {
   defaultIcon: '',
   selectedIcon: '',
   disabled: false,
-  onClick: null
+  onClick: null,
 };
 
 /**

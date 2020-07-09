@@ -32,7 +32,7 @@ Title.propTypes = {
   /**
    * The children component passed to the Title
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 /**

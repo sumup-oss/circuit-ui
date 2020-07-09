@@ -53,11 +53,11 @@ NotificationBanner.propTypes = {
   /**
    * A single Notification.
    */
-  children: PropTypes.element
+  children: PropTypes.element,
 };
 
 NotificationBanner.defaultProps = {
-  children: null
+  children: null,
 };
 
 /**

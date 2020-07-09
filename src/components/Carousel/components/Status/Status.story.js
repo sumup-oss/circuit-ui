@@ -20,7 +20,7 @@ import Status from './Status';
 
 export default {
   title: 'Components/Carousel/Status',
-  component: Status
+  component: Status,
 };
 
 export const base = () => (

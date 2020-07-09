@@ -22,12 +22,12 @@ export const createCurrencyMask = (
     decimalDelimiter?: string;
     groupDelimiter?: string;
   },
-  options = {}
+  options = {},
 ) => {
   const {
     maximumFractionDigits: decimalLimit,
     decimalDelimiter: decimalSymbol = '.',
-    groupDelimiter: thousandsSeparatorSymbol = ','
+    groupDelimiter: thousandsSeparatorSymbol = ',',
   } = currencyFormat;
 
   return createNumberMask({
@@ -37,14 +37,14 @@ export const createCurrencyMask = (
     allowDecimal: decimalLimit > 0,
     decimalLimit,
     decimalSymbol,
-    ...options
+    ...options,
   });
 };
 
 export function formatPlaceholder(
   placeholder?: string | number,
   locale?: string | string[],
-  options?: Intl.NumberFormatOptions
+  options?: Intl.NumberFormatOptions,
 ): string | undefined {
   return typeof placeholder === 'number'
     ? format(placeholder, locale, options)

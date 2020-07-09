@@ -25,7 +25,7 @@ import Text from '../Text';
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 
 export default {
-  title: 'Components/Modal/Embedded'
+  title: 'Components/Modal/Embedded',
 };
 
 export const base = () => <ModalWrapper>Hello World!</ModalWrapper>;

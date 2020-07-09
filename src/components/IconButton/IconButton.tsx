@@ -36,22 +36,22 @@ export interface IconButtonProps extends ButtonProps {
 const Label = styled('span')(hideVisually);
 
 const sizeStyles = (size: IconButtonProps['size'] = 'mega') => (
-  theme: Theme
+  theme: Theme,
 ): SerializedStyles => {
   const sizeMap = {
     kilo: theme.spacings.byte,
-    mega: theme.spacings.kilo
+    mega: theme.spacings.kilo,
   };
 
   return css({
     label: `button--${size}`,
-    padding: sizeMap[size]
+    padding: sizeMap[size],
   });
 };
 
 const IconButtonComponent = (
   { children, label, size, ...props }: IconButtonProps,
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>,
 ) => {
   const child = Children.only(children);
   const icon = cloneElement(child, { role: 'presentation' });

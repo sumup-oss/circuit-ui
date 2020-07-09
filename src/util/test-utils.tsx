@@ -24,7 +24,7 @@ import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
 import ComponentsContext, {
-  defaultComponents
+  defaultComponents,
 } from '../components/ComponentsContext';
 
 export type RenderFn = (component: React.ReactElement, ...rest: any) => any;
@@ -53,8 +53,8 @@ const create: RenderFn = (...args) => {
 const axe = configureAxe({
   rules: {
     // disabled landmark rules when testing isolated components.
-    region: { enabled: false }
-  }
+    region: { enabled: false },
+  },
 });
 
 export {
@@ -66,5 +66,5 @@ export {
   actHook,
   userEvent,
   wait,
-  axe
+  axe,
 };

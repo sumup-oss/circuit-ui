@@ -28,7 +28,7 @@ describe('Header', () => {
       const { getByTestId } = render(
         <Header>
           <span data-testid="child">Child</span>
-        </Header>
+        </Header>,
       );
       const childEl = getByTestId('child');
       expect(childEl).not.toBeNull();

@@ -56,7 +56,7 @@ const animationStyles = ({
   theme,
   isAnimating,
   animationDuration,
-  animationName
+  animationName,
 }) => css`
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
   overflow: hidden;
@@ -90,13 +90,13 @@ const Slide = ({
     index,
     step,
     prevStep,
-    slideDirection
+    slideDirection,
   );
   const shouldAnimate = SlideService.shouldAnimate(
     index,
     step,
     prevStep,
-    slideDirection
+    slideDirection,
   );
   const dynamicWidth = SlideService.getDynamicWidth(slideSize.width);
   const animationName =
@@ -138,14 +138,14 @@ Slide.propTypes = {
    */
   slideSize: PropTypes.shape({
     width: PropTypes.number,
-    height: PropTypes.number
+    height: PropTypes.number,
   }),
   /**
    * Indicates slide direction of a carousel (required for animation).
    */
   slideDirection: PropTypes.oneOf([
     SLIDE_DIRECTIONS.FORWARD,
-    SLIDE_DIRECTIONS.BACK
+    SLIDE_DIRECTIONS.BACK,
   ]),
   /**
    * Indicates duration of animation between slides (in milliseconds)
@@ -154,7 +154,7 @@ Slide.propTypes = {
   /**
    * Content of a slide
    */
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 export default Slide;

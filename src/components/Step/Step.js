@@ -30,7 +30,7 @@ function Step({
   onPlay = () => {},
   onPause = () => {},
   onNext = () => {},
-  onPrevious = () => {}
+  onPrevious = () => {},
 }) {
   const stateAndHelpers = useStep({
     totalSteps,
@@ -43,7 +43,7 @@ function Step({
     onPlay,
     onPause,
     onNext,
-    onPrevious
+    onPrevious,
   });
 
   if (!isFunction(children)) {
@@ -109,7 +109,7 @@ Step.propTypes = {
   /**
    * Function called with an object containing current state and prop getters.
    */
-  children: PropTypes.func
+  children: PropTypes.func,
 };
 
 export default Step;

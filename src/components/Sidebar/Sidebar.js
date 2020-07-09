@@ -113,14 +113,14 @@ Sidebar.propTypes = {
   tracking: PropTypes.shape({
     label: PropTypes.string.isRequired,
     component: PropTypes.string,
-    customParameters: PropTypes.object
-  })
+    customParameters: PropTypes.object,
+  }),
 };
 
 Sidebar.defaultProps = {
   children: '',
   open: false,
-  onClose: null
+  onClose: null,
 };
 
 Sidebar.Header = Header;

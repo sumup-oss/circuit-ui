@@ -78,6 +78,6 @@ export const RowPropType = PropTypes.oneOfType([
   PropTypes.string,
   PropTypes.shape({
     children: childrenPropType,
-    align: PropTypes.string
-  })
+    align: PropTypes.string,
+  }),
 ]);

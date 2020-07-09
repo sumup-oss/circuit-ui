@@ -21,7 +21,7 @@ import NotificationList from './NotificationList';
 
 export default {
   title: 'Components/Notification/NotificationList',
-  component: NotificationList
+  component: NotificationList,
 };
 
 export const base = () => (

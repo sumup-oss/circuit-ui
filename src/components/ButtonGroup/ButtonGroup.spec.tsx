@@ -29,7 +29,7 @@ describe('ButtonGroup', () => {
       <ButtonGroup>
         <Button variant="secondary">Cancel</Button>
         <Button variant="primary">Confirm</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -40,7 +40,7 @@ describe('ButtonGroup', () => {
         <ButtonGroup align={'center'}>
           <Button variant="secondary">Cancel</Button>
           <Button variant="primary">Confirm</Button>
-        </ButtonGroup>
+        </ButtonGroup>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -52,7 +52,7 @@ describe('ButtonGroup', () => {
         <ButtonGroup align={'left'}>
           <Button variant="secondary">Cancel</Button>
           <Button variant="primary">Confirm</Button>
-        </ButtonGroup>
+        </ButtonGroup>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -66,7 +66,7 @@ describe('ButtonGroup', () => {
       <ButtonGroup>
         <Button variant="secondary">Cancel</Button>
         <Button variant="primary">Confirm</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

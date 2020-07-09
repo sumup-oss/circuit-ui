@@ -22,7 +22,7 @@ jest.mock('lodash/fp/throttle', () =>
     // eslint-disable-next-line no-param-reassign
     fn.cancel = jest.fn();
     return fn;
-  })
+  }),
 );
 
 describe('useComponentSize', () => {
@@ -40,8 +40,8 @@ describe('useComponentSize', () => {
     const ref = {
       current: {
         offsetWidth: 800,
-        offsetHeight: 450
-      }
+        offsetHeight: 450,
+      },
     };
     const { result } = renderHook(() => useComponentSize(ref));
 
@@ -52,8 +52,8 @@ describe('useComponentSize', () => {
     const ref = {
       current: {
         offsetWidth: 800,
-        offsetHeight: 450
-      }
+        offsetHeight: 450,
+      },
     };
 
     const { result, unmount } = renderHook(() => useComponentSize(ref));
@@ -73,14 +73,14 @@ describe('useComponentSize', () => {
     const disconnect = jest.fn();
     global.ResizeObserver = jest.fn(() => ({
       observe,
-      disconnect
+      disconnect,
     }));
 
     const ref = {
       current: {
         offsetWidth: 800,
-        offsetHeight: 450
-      }
+        offsetHeight: 450,
+      },
     };
 
     const { unmount } = renderHook(() => useComponentSize(ref));

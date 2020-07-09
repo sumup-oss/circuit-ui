@@ -24,8 +24,8 @@ export default {
   title: 'Components/Button/LoadingButton',
   component: LoadingButton,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const StatefulLoadingButton = (props: Partial<LoadingButtonProps>) => {
@@ -46,7 +46,7 @@ const StatefulLoadingButton = (props: Partial<LoadingButtonProps>) => {
       variant={select(
         'Variant',
         ['primary', 'secondary', 'tertiary'],
-        'primary'
+        'primary',
       )}
       size={select('Size', ['kilo', 'mega'], 'mega')}
       {...props}

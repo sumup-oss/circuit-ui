@@ -53,7 +53,7 @@ const slideImageTransformStyles = ({ swipe }) =>
   `;
 const SliderImage = styled(Image)(
   sliderImageBaseStyles,
-  slideImageTransformStyles
+  slideImageTransformStyles,
 );
 
 const YesOrNoSlider = ({ images, ...stepProps }) => {
@@ -103,13 +103,16 @@ const YesOrNoSlider = ({ images, ...stepProps }) => {
   );
 };
 YesOrNoSlider.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string)
+  images: PropTypes.arrayOf(PropTypes.string),
 };
 
 function calculateRotationAngle(direction, velocity) {
   return Math.min(
     30,
-    Math.max(-30, -1 * (direction === LEFT_DIRECTION ? -1 : 1) * velocity * 100)
+    Math.max(
+      -30,
+      -1 * (direction === LEFT_DIRECTION ? -1 : 1) * velocity * 100,
+    ),
   );
 }
 

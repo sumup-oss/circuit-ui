@@ -31,7 +31,7 @@ Footer.propTypes = {
   /**
    * The children component passed to the Footer
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Footer;

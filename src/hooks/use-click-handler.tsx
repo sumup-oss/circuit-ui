@@ -18,7 +18,7 @@ import { useClickTrigger, Dispatch } from '@sumup/collector';
 export default function useClickHandler<Event>(
   onClick?: (event: Event) => void,
   tracking?: Dispatch,
-  defaultComponentName?: string
+  defaultComponentName?: string,
 ): ((event: Event) => void) | undefined {
   const dispatch = useClickTrigger();
   const { label, component = defaultComponentName, customParameters } =

@@ -24,15 +24,15 @@ export default {
   title: 'Components/Tabs',
   component: Tabs,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const tabs = [
   { id: 'one', tab: 'Tab 1', panel: 'Content 1' },
   { id: 'two', tab: 'Tab 2', panel: 'Content 2' },
   { id: 'three', tab: 'Tab 3', panel: 'Content 3' },
-  { id: 'four', tab: 'Tab 4', panel: 'Content 4' }
+  { id: 'four', tab: 'Tab 4', panel: 'Content 4' },
 ];
 
 const TabsWithState = props => {

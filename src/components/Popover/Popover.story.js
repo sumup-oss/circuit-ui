@@ -27,7 +27,7 @@ const alignments = ['start', 'end', 'center'];
 
 export default {
   title: 'Components/Popover',
-  component: Popover
+  component: Popover,
 };
 
 const PopoverWithState = props => {

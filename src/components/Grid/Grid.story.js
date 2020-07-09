@@ -38,7 +38,7 @@ const StyledCol = styled(Col)`
 `;
 
 StyledCol.defaultProps = {
-  skip: '0'
+  skip: '0',
 };
 
 const StyledRow = styled(Row)`
@@ -48,7 +48,7 @@ const StyledRow = styled(Row)`
 
 export default {
   title: 'Layout/Grid/Grid',
-  component: Grid
+  component: Grid,
 };
 
 export const staticColumns = () => (

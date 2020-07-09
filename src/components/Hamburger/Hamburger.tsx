@@ -125,7 +125,7 @@ const layersActiveStyles = ({ isActive }: { isActive?: boolean }) =>
 
 const Layers = styled('span')<{ isActive?: boolean }>(
   layersBaseStyles,
-  layersActiveStyles
+  layersActiveStyles,
 );
 
 /**

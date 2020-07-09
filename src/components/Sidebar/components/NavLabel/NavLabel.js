@@ -42,7 +42,7 @@ const secondaryVisibleStyles = ({ secondary, visible }) =>
 const NavLabel = styled.div(
   baseStyles,
   secondaryStyles,
-  secondaryVisibleStyles
+  secondaryVisibleStyles,
 );
 
 NavLabel.propTypes = {
@@ -53,7 +53,7 @@ NavLabel.propTypes = {
   /**
    * If the Label is visible (it can be hidden when secondary)
    */
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
 };
 
 /**

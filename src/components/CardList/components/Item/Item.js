@@ -86,7 +86,7 @@ const BaseItem = styled('div')(
   baseStyles,
   paddingStyles,
   selectedStyles,
-  hoverStyles
+  hoverStyles,
 );
 
 const createOnKeyDown = onClick => {
@@ -123,13 +123,13 @@ Item.propTypes = {
   /**
    * Content of the list item.
    */
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 Item.defaultProps = {
   padding: 'giga',
   selected: false,
-  tabIndex: 0
+  tabIndex: 0,
 };
 
 /**

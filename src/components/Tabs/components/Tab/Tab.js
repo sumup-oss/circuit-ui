@@ -90,12 +90,12 @@ Tab.propTypes = {
   /**
    * Triggers selected styles of the component
    */
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
 };
 
 Tab.defaultProps = {
   selected: false,
-  role: 'tab'
+  role: 'tab',
 };
 
 /**

@@ -28,7 +28,7 @@ describe('TableHeader', () => {
 
     it('should render with clickable styles', () => {
       const actual = create(
-        <TableRow onClick={jest.fn()}>{children}</TableRow>
+        <TableRow onClick={jest.fn()}>{children}</TableRow>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -40,7 +40,7 @@ describe('TableHeader', () => {
       const { getByTestId } = render(
         <TableRow onClick={onClick} data-testid="row">
           {children}
-        </TableRow>
+        </TableRow>,
       );
       const rowEl = getByTestId('row');
 
@@ -56,7 +56,7 @@ describe('TableHeader', () => {
       const { getByTestId } = render(
         <TableRow onClick={onClick} data-testid="row">
           {children}
-        </TableRow>
+        </TableRow>,
       );
       const rowEl = getByTestId('row');
 

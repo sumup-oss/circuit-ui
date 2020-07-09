@@ -35,11 +35,11 @@ const transform: Transform = (file, api) => {
           .find(j.JSXAttribute, {
             name: {
               type: 'JSXIdentifier',
-              name: prop
-            }
+              name: prop,
+            },
           })
           .remove();
-      }
+      },
     );
   });
 

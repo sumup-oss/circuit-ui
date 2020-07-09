@@ -28,7 +28,7 @@ const getSecondaryChild = (children, visible) => {
   return isArray(children)
     ? children.map(child => ({
         ...child,
-        props: { ...child.props, secondary: true, visible }
+        props: { ...child.props, secondary: true, visible },
       }))
     : { ...children, props: { ...children.props, secondary: true, visible } };
 };

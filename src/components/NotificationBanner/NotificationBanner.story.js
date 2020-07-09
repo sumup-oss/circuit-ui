@@ -22,7 +22,7 @@ import NotificationBanner from './NotificationBanner';
 
 export default {
   title: 'Components/Notification/NotificationBanner',
-  component: NotificationBanner
+  component: NotificationBanner,
 };
 
 export const base = () => (

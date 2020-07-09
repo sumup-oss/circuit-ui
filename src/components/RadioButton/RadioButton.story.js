@@ -23,8 +23,8 @@ export default {
   title: 'Forms/RadioButton',
   component: RadioButton,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 // eslint-disable-next-line react/prop-types

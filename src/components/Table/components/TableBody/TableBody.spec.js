@@ -43,7 +43,7 @@ describe('TableBody', () => {
 
       it('should render a table header as the first element of each row with rowHeaders', () => {
         const { getByTestId } = render(
-          <TableBody rows={fixtureRows} rowHeaders />
+          <TableBody rows={fixtureRows} rowHeaders />,
         );
         const tableCell = getByTestId('table-row').firstChild;
 
@@ -55,7 +55,7 @@ describe('TableBody', () => {
       it('should not render a cell with hovered styles if its column is not currently hovered', () => {
         const sortHover = 4;
         const wrapper = create(
-          <TableBody sortHover={sortHover} rows={fixtureRows} />
+          <TableBody sortHover={sortHover} rows={fixtureRows} />,
         );
         expect(wrapper).toMatchSnapshot();
       });
@@ -63,7 +63,7 @@ describe('TableBody', () => {
       it('should render a cell with hovered styles if its column is currently hovered', () => {
         const sortHover = 0;
         const wrapper = create(
-          <TableBody sortHover={sortHover} rows={fixtureRows} />
+          <TableBody sortHover={sortHover} rows={fixtureRows} />,
         );
         expect(wrapper).toMatchSnapshot();
       });

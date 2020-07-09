@@ -31,8 +31,8 @@ export default {
   title: 'Components/Card',
   component: Card,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const cardStyles = theme => css`
@@ -93,7 +93,7 @@ export const withHeader = () => (
       <CardHeader
         onClose={action('CloseButton clicked')}
         tracking={{
-          label: text('Tracking Label', 'trackingId')
+          label: text('Tracking Label', 'trackingId'),
         }}
       >
         <Header />

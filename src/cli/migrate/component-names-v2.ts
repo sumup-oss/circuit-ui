@@ -20,7 +20,7 @@ import { findImportsByPath } from './utils';
 function transformFactory(
   j: JSCodeshift,
   root: Collection,
-  componentNames: string[]
+  componentNames: string[],
 ): void {
   const [oldComponentName, newComponentName] = componentNames;
   const imports = findImportsByPath(j, root, '@sumup/circuit-ui');
@@ -46,7 +46,7 @@ const transform: Transform = (file, api) => {
     ['SvgButton', 'IconButton'],
     ['Message', 'Notification'],
     ['InlineNotification', 'InlineMessage'],
-    ['GlobalStyles', 'BaseStyles']
+    ['GlobalStyles', 'BaseStyles'],
   ].forEach(componentNames => {
     transformFactory(j, root, componentNames);
   });

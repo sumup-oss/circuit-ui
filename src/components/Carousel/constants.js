@@ -21,5 +21,5 @@ export const SLIDE_DURATION = 5000;
 
 export const SLIDE_DIRECTIONS = {
   FORWARD: 'forward',
-  BACK: 'back'
+  BACK: 'back',
 };

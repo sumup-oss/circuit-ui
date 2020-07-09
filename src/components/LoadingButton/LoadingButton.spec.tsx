@@ -26,7 +26,7 @@ describe('LoadingButton', () => {
 
   const baseProps = {
     children: 'Things take time',
-    loadingLabel: 'Loading'
+    loadingLabel: 'Loading',
   };
 
   describe('styles', () => {
@@ -38,7 +38,7 @@ describe('LoadingButton', () => {
     it('should render with loading styles', () => {
       const actual = renderLoadingButton(create, {
         ...baseProps,
-        isLoading: true
+        isLoading: true,
       });
       expect(actual).toMatchSnapshot();
     });

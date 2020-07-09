@@ -22,12 +22,12 @@ const props = {
   onClick: jest.fn(),
   selectedIcon: 'selected-icon',
   defaultIcon: 'default-icon',
-  'data-testid': 'aggregator'
+  'data-testid': 'aggregator',
 };
 
 class MockedNavigation extends Component {
   state = {
-    selected: 1
+    selected: 1,
   };
 
   render() {
@@ -58,7 +58,7 @@ describe('Aggregator', () => {
       const actual = create(
         <Aggregator {...props}>
           <div data-testid="child">child</div>
-        </Aggregator>
+        </Aggregator>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -67,7 +67,7 @@ describe('Aggregator', () => {
       const { container, getByTestId } = render(
         <Aggregator {...props}>
           <div data-testid="child">child</div>
-        </Aggregator>
+        </Aggregator>,
       );
       const aggregatorEl = getByTestId('aggregator');
 
@@ -82,7 +82,7 @@ describe('Aggregator', () => {
       const actual = create(
         <Aggregator {...props} disabled={true}>
           <div data-testid="child">child</div>
-        </Aggregator>
+        </Aggregator>,
       );
 
       expect(actual).toMatchSnapshot();
@@ -95,7 +95,7 @@ describe('Aggregator', () => {
       const { getByTestId } = render(
         <Aggregator {...props} onClick={onClick}>
           <div data-testid="child">child</div>
-        </Aggregator>
+        </Aggregator>,
       );
       const aggregatorEl = getByTestId('aggregator');
       const childEl = getByTestId('child');
@@ -113,13 +113,13 @@ describe('Aggregator', () => {
     it('should show children when clicking the aggregator and no onClick handle is passed', () => {
       const noHandlerProps = {
         ...props,
-        onClick: null
+        onClick: null,
       };
 
       const { getByTestId } = render(
         <Aggregator {...noHandlerProps}>
           <div data-testid="child">child</div>
-        </Aggregator>
+        </Aggregator>,
       );
       const aggregatorEl = getByTestId('aggregator');
       const childEl = getByTestId('child');
@@ -140,7 +140,7 @@ describe('Aggregator', () => {
           <div selected data-testid="child">
             child
           </div>
-        </Aggregator>
+        </Aggregator>,
       );
       const aggregatorEl = getByTestId('aggregator');
       const childEl = getByTestId('child');
@@ -187,7 +187,7 @@ describe('Aggregator', () => {
       const { queryByTestId } = render(
         <Aggregator {...props} disabled={true}>
           <div data-selector="child">child</div>
-        </Aggregator>
+        </Aggregator>,
       );
       const childEl = queryByTestId('child');
 

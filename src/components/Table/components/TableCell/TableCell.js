@@ -106,14 +106,14 @@ TableCell.propTypes = {
    * sort.
    * Handled internally
    */
-  isHovered: PropTypes.bool
+  isHovered: PropTypes.bool,
 };
 
 TableCell.defaultProps = {
   'data-testid': 'table-cell',
   align: 'left',
   header: false,
-  isHovered: false
+  isHovered: false,
 };
 
 export default TableCell;

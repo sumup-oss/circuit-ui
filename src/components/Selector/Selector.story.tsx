@@ -23,8 +23,8 @@ export default {
   title: 'Forms/Selector',
   component: Selector,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 /* eslint-disable react/prop-types */

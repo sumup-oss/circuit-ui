@@ -34,8 +34,8 @@ export default {
   title: 'Components/Carousel',
   component: Carousel,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const CustomCarousel = ({ slides }) => {
@@ -54,7 +54,7 @@ const CustomCarousel = ({ slides }) => {
             step={step}
             style={{
               opacity: step === index ? 1 : 0,
-              transition: 'opacity .3s ease-in'
+              transition: 'opacity .3s ease-in',
             }}
           >
             <SlideImage

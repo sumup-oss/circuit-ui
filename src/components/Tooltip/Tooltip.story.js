@@ -24,8 +24,8 @@ export default {
   title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const TooltipContainer = styled('div')`

@@ -34,7 +34,7 @@ describe('Tag', () => {
 
   describe('when is clickable', () => {
     const props = {
-      onClick: jest.fn()
+      onClick: jest.fn(),
     };
 
     it('should render with clickable styles', () => {
@@ -45,7 +45,7 @@ describe('Tag', () => {
 
   describe('when is selected', () => {
     const props = {
-      selected: true
+      selected: true,
     };
 
     it('should render with selected styles', () => {
@@ -55,7 +55,7 @@ describe('Tag', () => {
 
     it('should change the given icon color', () => {
       const component = create(
-        <Tag {...{ prefix: DummyIcon, ...props }}>SomeTest</Tag>
+        <Tag {...{ prefix: DummyIcon, ...props }}>SomeTest</Tag>,
       );
       expect(component).toMatchSnapshot();
     });
@@ -95,7 +95,7 @@ describe('Tag', () => {
    */
   describe('when is removable', () => {
     const props = {
-      onRemove: jest.fn()
+      onRemove: jest.fn(),
     };
 
     it('should render a close button', () => {
@@ -116,7 +116,7 @@ describe('Tag', () => {
 
   describe('when a suffix prop is passed', () => {
     const props = {
-      suffix: DummyIcon
+      suffix: DummyIcon,
     };
 
     it('should render with suffix', () => {
@@ -128,7 +128,7 @@ describe('Tag', () => {
       const onRemove = jest.fn();
 
       const { queryByTestId } = render(
-        <Tag {...{ onRemove, props }}>SomeTest</Tag>
+        <Tag {...{ onRemove, props }}>SomeTest</Tag>,
       );
 
       expect(queryByTestId('tag-icon')).toBeNull();
@@ -138,7 +138,7 @@ describe('Tag', () => {
 
   describe('when a prefix prop is passed', () => {
     const props = {
-      prefix: DummyIcon
+      prefix: DummyIcon,
     };
 
     it('should render with a prefix', () => {

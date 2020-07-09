@@ -55,5 +55,5 @@ const marginTopStyles = ({ theme, top }: SpacingProps & StyleProps) =>
 export const Spacing = styled('div')<SpacingProps>(
   baseStyles,
   marginBottomStyles,
-  marginTopStyles
+  marginTopStyles,
 );

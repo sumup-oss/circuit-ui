@@ -22,14 +22,14 @@ describe('Custom properties', () => {
       n300: '#D8DDE1',
       n500: '#9DA7B1',
       n700: '#5C656F',
-      n900: '#212933'
+      n900: '#212933',
     },
     spacings: {
       bit: '4px',
       byte: '8px',
       kilo: '12px',
-      mega: '16px'
-    }
+      mega: '16px',
+    },
   };
 
   const mq = {
@@ -37,7 +37,7 @@ describe('Custom properties', () => {
     kilo: 480,
     kiloToMega: '(min-width: 480px) and (max-width: 767px)',
     mega: 768,
-    untilMega: '(max-width: 767px)'
+    untilMega: '(max-width: 767px)',
   };
 
   describe('createTheme', () => {
@@ -49,14 +49,14 @@ describe('Custom properties', () => {
           n300: 'var(--colors-n300)',
           n500: 'var(--colors-n500)',
           n700: 'var(--colors-n700)',
-          n900: 'var(--colors-n900)'
+          n900: 'var(--colors-n900)',
         },
         spacings: {
           bit: 'var(--spacings-bit)',
           byte: 'var(--spacings-byte)',
           kilo: 'var(--spacings-kilo)',
-          mega: 'var(--spacings-mega)'
-        }
+          mega: 'var(--spacings-mega)',
+        },
       };
       expect(actual).toEqual(expected);
     });
@@ -69,15 +69,15 @@ describe('Custom properties', () => {
           n300: 'var(--colors-n300)',
           n500: 'var(--colors-n500)',
           n700: 'var(--colors-n700)',
-          n900: 'var(--colors-n900)'
+          n900: 'var(--colors-n900)',
         },
         spacings: {
           bit: 'var(--spacings-bit)',
           byte: 'var(--spacings-byte)',
           kilo: 'var(--spacings-kilo)',
-          mega: 'var(--spacings-mega)'
+          mega: 'var(--spacings-mega)',
         },
-        mq
+        mq,
       };
       expect(actual).toEqual(expected);
     });

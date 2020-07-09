@@ -25,7 +25,7 @@ import {
   Transactions,
   TransactionsFilled,
   ShoppingCart,
-  ShoppingCartFilled
+  ShoppingCartFilled,
 } from '@sumup/icons';
 
 import Button from '../Button';
@@ -44,8 +44,8 @@ export default {
   title: 'Components/Sidebar',
   component: Sidebar,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const SidebarWithState = () => {
@@ -71,7 +71,7 @@ const SidebarWithState = () => {
           onClose={() => setOpen(false)}
           closeButtonLabel="close-button"
           tracking={{
-            label: text('Tracking Label - onClose', 'trackingId-onClose')
+            label: text('Tracking Label - onClose', 'trackingId-onClose'),
           }}
         >
           <Sidebar.Header>Header</Sidebar.Header>
@@ -84,7 +84,7 @@ const SidebarWithState = () => {
               defaultIcon={<House size="large" />}
               selectedIcon={<HouseFilled size="large" />}
               tracking={{
-                label: text('Tracking Label - NavItem', 'trackingId-home')
+                label: text('Tracking Label - NavItem', 'trackingId-home'),
               }}
             />
             <Sidebar.Aggregator

@@ -26,8 +26,8 @@ export default {
   title: 'Components/Table',
   component: Table,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (
@@ -36,7 +36,7 @@ export const base = () => (
       { children: 'Name', sortable: true },
       { children: 'Created at', sortable: true },
       'Permissions',
-      { children: 'Status', align: 'right' }
+      { children: 'Status', align: 'right' },
     ]}
     rows={[
       {
@@ -45,25 +45,25 @@ export const base = () => (
           {
             children: '12/01/2017',
             sortByValue: 0,
-            'data-selector': 'item-1-cell-date-12/01/2017'
+            'data-selector': 'item-1-cell-date-12/01/2017',
           },
           '-',
-          { children: 'Disabled', align: 'right' }
+          { children: 'Disabled', align: 'right' },
         ],
-        'data-selector': 'item-1'
+        'data-selector': 'item-1',
       },
       [
         'Ipsum dolor sit amet',
         { children: '13/01/2017', sortByValue: 1 },
         'Virtual Terminal',
-        { children: 'Enabled', align: 'right' }
+        { children: 'Enabled', align: 'right' },
       ],
       [
         'Dolor sit amet, consectetur adipiscing',
         { children: '14/01/2017', sortByValue: 2 },
         '-',
-        { children: 'Disabled', align: 'right' }
-      ]
+        { children: 'Disabled', align: 'right' },
+      ],
     ]}
     rowHeaders={boolean('Mobile rows', true)}
     condensed={boolean('Condensed', false)}
@@ -82,10 +82,10 @@ export const withComponentRows = () => (
       [
         'Broccoli',
         {
-          children: <Badge color={'success'}>Vegetable</Badge>
-        }
+          children: <Badge color={'success'}>Vegetable</Badge>,
+        },
       ],
-      ['Chickpeas', { children: <Badge color={'warning'}>Legume</Badge> }]
+      ['Chickpeas', { children: <Badge color={'warning'}>Legume</Badge> }],
     ]}
   />
 );
@@ -94,30 +94,30 @@ export const sortable = () => (
   <Table
     headers={[
       { children: 'Name', sortable: true },
-      { children: 'Date added', sortable: true }
+      { children: 'Date added', sortable: true },
     ]}
     rows={[
       [
         { children: 'Apple' },
         {
           children: '12/12/18',
-          sortByValue: new Date('12/12/18')
-        }
+          sortByValue: new Date('12/12/18'),
+        },
       ],
       [
         { children: 'Broccoli' },
         {
           children: '12/13/18',
-          sortByValue: new Date('12/13/18')
-        }
+          sortByValue: new Date('12/13/18'),
+        },
       ],
       [
         { children: 'Chickpeas' },
         {
           children: '12/14/18',
-          sortByValue: new Date('12/14/18')
-        }
-      ]
+          sortByValue: new Date('12/14/18'),
+        },
+      ],
     ]}
   />
 );
@@ -135,7 +135,7 @@ export const customSort = () => (
       ['Österreich'],
       ['Deutschland'],
       ['Liechtenstein'],
-      ['Italien']
+      ['Italien'],
     ]}
   />
 );

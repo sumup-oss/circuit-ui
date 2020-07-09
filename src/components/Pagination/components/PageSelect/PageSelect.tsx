@@ -45,7 +45,7 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
     (event: ChangeEvent<HTMLSelectElement>) => {
       onChange(parseInt(event.target.value, 10));
     },
-    [onChange]
+    [onChange],
   );
 
   return (

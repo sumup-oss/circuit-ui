@@ -28,8 +28,8 @@ export default {
   title: 'Components/Notification',
   component: Notification,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (

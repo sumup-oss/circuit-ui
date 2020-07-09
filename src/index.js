@@ -29,7 +29,7 @@ export {
   RangePicker,
   RangePickerController,
   SingleDayPicker,
-  CalendarConstants
+  CalendarConstants,
 } from './components/Calendar';
 export { default as CalendarTag } from './components/CalendarTag';
 export { default as CalendarTagTwoStep } from './components/CalendarTagTwoStep';
@@ -57,7 +57,7 @@ export { default as Selector } from './components/Selector';
 export {
   default as Notification,
   NotificationIcon,
-  NotificationButton
+  NotificationButton,
 } from './components/Notification';
 export { default as NotificationBanner } from './components/NotificationBanner';
 export { default as NotificationList } from './components/NotificationList';
@@ -92,7 +92,7 @@ export {
   ModalProvider,
   ModalWrapper,
   ModalHeader,
-  ModalFooter
+  ModalFooter,
 } from './components/Modal';
 
 export { TableRow, TableCell, TableHeader } from './components/Table';
@@ -101,7 +101,7 @@ export { default as Table } from './components/Table';
 export { default as Sidebar } from './components/Sidebar';
 export {
   SidebarContextProvider,
-  SidebarContextConsumer
+  SidebarContextConsumer,
 } from './components/Sidebar';
 export { default as Header } from './components/Header';
 export { default as Step, useStep } from './components/Step';
@@ -114,7 +114,7 @@ export { default as InlineElements } from './components/InlineElements';
 export {
   default as ComponentsContext,
   withComponents,
-  useComponents
+  useComponents,
 } from './components/ComponentsContext';
 
 export { sharedPropTypes, styleHelpers };

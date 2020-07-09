@@ -45,14 +45,14 @@ describe('Col utils', () => {
     it('should sort the provided key/value tuple array based on the provided grid priority', () => {
       const grid = {
         default: {
-          priority: 0
+          priority: 0,
         },
         last: {
-          priority: 2
+          priority: 2,
         },
         first: {
-          priority: 1
-        }
+          priority: 1,
+        },
       };
 
       const breakpoints = [['last'], ['first'], ['default']];
@@ -68,7 +68,7 @@ describe('Col utils', () => {
     it('should call the provided fn with grid[key], theme and value', () => {
       const mock = jest.fn();
       const grid = {
-        default: {}
+        default: {},
       };
       const theme = 'default';
       const tuple = ['default', 0];

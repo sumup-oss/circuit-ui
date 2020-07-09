@@ -47,14 +47,14 @@ export const PropTypes = {
       return [element];
     }
     return null;
-  }
+  },
 };
 
 const requiredPropTypes = {
   string: 'string',
   bool: true,
   func: () => {},
-  element
+  element,
 };
 
 function getVariations(name, prop, propOverrides) {
@@ -77,8 +77,8 @@ function getProps(props, propOverrides) {
       console.warn(
         [
           `No variations found for prop "${name}" of type "${type}"`,
-          'Please provide a custom override.'
-        ].join(' ')
+          'Please provide a custom override.',
+        ].join(' '),
       );
       return acc;
     }
@@ -103,7 +103,7 @@ export function getComponentInfo(component, propOverrides = {}) {
       component,
       name: kebabCase(displayName),
       props: getProps(props, propOverrides),
-      requiredProps: getRequiredProps(props)
+      requiredProps: getRequiredProps(props),
     };
   } catch (error) {
     console.error(component);
@@ -184,5 +184,5 @@ export default {
     // }),
     // getComponentInfo(TextArea),
     // getComponentInfo(Toggle)
-  ]
+  ],
 };

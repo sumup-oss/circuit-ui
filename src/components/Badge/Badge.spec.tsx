@@ -21,7 +21,7 @@ import {
   renderToHtml,
   axe,
   act,
-  userEvent
+  userEvent,
 } from '../../util/test-utils';
 
 import Badge from '.';
@@ -94,7 +94,7 @@ describe('Badge', () => {
   it('should be clickable', () => {
     const onClick = jest.fn();
     const { getByTestId } = render(
-      <Badge onClick={onClick} data-testid="badge" />
+      <Badge onClick={onClick} data-testid="badge" />,
     );
 
     act(() => {

@@ -33,9 +33,9 @@ export default function useStep(props = {}) {
       step: props.initialStep,
       totalSteps: props.totalSteps,
       stepInterval: props.stepInterval,
-      cycle: props.cycle
+      cycle: props.cycle,
     }),
-    paused: !props.autoPlay
+    paused: !props.autoPlay,
   };
   const [state, dispatch] = useReducer(StepService.reducer, initialState);
   const playingInterval = useRef(null);
@@ -61,7 +61,7 @@ export default function useStep(props = {}) {
       step: state.step,
       stepInterval,
       totalSteps,
-      cycle
+      cycle,
     });
 
     updateSlide(newStep, () => {
@@ -77,7 +77,7 @@ export default function useStep(props = {}) {
       step: state.step,
       stepInterval,
       totalSteps,
-      cycle
+      cycle,
     });
 
     updateSlide(newStep, () => {
@@ -130,7 +130,7 @@ export default function useStep(props = {}) {
     if (!playingInterval.current) {
       playingInterval.current = setInterval(
         next,
-        getDurationFromProp(props.stepDuration)
+        getDurationFromProp(props.stepDuration),
       );
     }
   }
@@ -152,8 +152,8 @@ export default function useStep(props = {}) {
         type: 'updateSlide',
         payload: {
           step: newStep,
-          previousStep: state.step
-        }
+          previousStep: state.step,
+        },
       });
       onEndCallback();
     };
@@ -174,7 +174,7 @@ export default function useStep(props = {}) {
 
     dispatch({
       type: 'updatePause',
-      payload: { paused }
+      payload: { paused },
     });
 
     if (paused) {
@@ -189,7 +189,7 @@ export default function useStep(props = {}) {
       next,
       previous,
       play,
-      pause
+      pause,
     };
     const propGetters = StepService.generatePropGetters(actions);
     const stepDuration = getDurationFromProp(props.stepDuration);
@@ -199,10 +199,10 @@ export default function useStep(props = {}) {
       state: {
         ...state,
         stepDuration,
-        animationDuration
+        animationDuration,
       },
       actions,
-      ...propGetters
+      ...propGetters,
     };
   }
 

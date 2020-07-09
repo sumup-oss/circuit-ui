@@ -20,7 +20,7 @@ import React, {
   useContext,
   MouseEvent,
   KeyboardEvent,
-  useCallback
+  useCallback,
 } from 'react';
 import { Global, css } from '@emotion/core';
 
@@ -33,7 +33,7 @@ type ModalContextType = {
 
 export const ModalContext = createContext<ModalContextType>({
   setModal: () => {},
-  getModal: () => null
+  getModal: () => null,
 });
 
 export const ModalConsumer = ModalContext.Consumer;
@@ -64,7 +64,7 @@ export const ModalProvider: FC<Pick<ModalProps, 'appElement'>> = props => {
       }
       closeModal();
     },
-    [onClose]
+    [onClose],
   );
 
   const getModal = useCallback(() => modal, [modal]);

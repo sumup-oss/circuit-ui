@@ -24,7 +24,7 @@ type Import = {
 export function findImportsByPath(
   j: JSCodeshift,
   root: Collection,
-  importPath: string
+  importPath: string,
 ): Import[] {
   const imports: Import[] = [];
 
@@ -32,8 +32,8 @@ export function findImportsByPath(
     .find(j.ImportDeclaration, {
       source: {
         type: 'Literal',
-        value: importPath
-      }
+        value: importPath,
+      },
     })
     .forEach(nodePath => {
       nodePath.value.specifiers.forEach(specifier => {
@@ -44,7 +44,7 @@ export function findImportsByPath(
           imports.push({
             type: 'default',
             // @ts-ignore
-            local: specifier.local.name
+            local: specifier.local.name,
           });
         } else {
           imports.push({
@@ -52,7 +52,7 @@ export function findImportsByPath(
             // @ts-ignore
             name: specifier.imported.name,
             // @ts-ignore
-            local: specifier.local.name
+            local: specifier.local.name,
           });
         }
         /* eslint-enable @typescript-eslint/ban-ts-ignore */
@@ -65,7 +65,7 @@ export function findImportsByPath(
 export function findStyledComponentNames(
   j: JSCodeshift,
   root: Collection,
-  componentName: string
+  componentName: string,
 ): string[] {
   const styledComponents: string[] = [];
 
@@ -73,14 +73,14 @@ export function findStyledComponentNames(
     .find(j.CallExpression, {
       callee: {
         type: 'Identifier',
-        name: 'styled'
+        name: 'styled',
       },
       arguments: [
         {
           type: 'Identifier',
-          name: componentName
-        }
-      ]
+          name: componentName,
+        },
+      ],
     })
     .forEach(path => {
       const styledComponent = j(path)
@@ -96,7 +96,7 @@ export function findStyledComponentNames(
 export function findLocalNames(
   j: JSCodeshift,
   root: Collection,
-  componentName: string
+  componentName: string,
 ): string[] | null {
   const imports = findImportsByPath(j, root, '@sumup/circuit-ui');
 
@@ -122,25 +122,25 @@ export function renameJSXAttribute(
   root: Collection,
   componentName: string,
   fromName: string,
-  toName: string
+  toName: string,
 ): void {
   root
     .findJSXElements(componentName)
     .find(j.JSXAttribute, {
       name: {
         type: 'JSXIdentifier',
-        name: fromName
-      }
+        name: fromName,
+      },
     })
     .replaceWith(nodePath =>
-      j.jsxAttribute(j.jsxIdentifier(toName), nodePath.node.value)
+      j.jsxAttribute(j.jsxIdentifier(toName), nodePath.node.value),
     );
 }
 
 export function findProperty(
   j: JSCodeshift,
   root: Collection,
-  path: string
+  path: string,
 ): Collection {
   const [parent, ...properties] = path.split('.');
   const query = properties.reduce(
@@ -148,10 +148,10 @@ export function findProperty(
       type: 'MemberExpression',
       object: acc,
       property: {
-        name: property
-      }
+        name: property,
+      },
     }),
-    { name: parent } as any
+    { name: parent } as any,
   );
   return root.find(j.MemberExpression, query);
 }

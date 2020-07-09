@@ -24,8 +24,8 @@ export default {
   title: 'Components/Badge',
   component: Badge,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (
@@ -33,7 +33,7 @@ export const base = () => (
     color={select(
       'Color',
       ['neutral', 'primary', 'success', 'warning', 'danger'],
-      'neutral'
+      'neutral',
     )}
   >
     Badge

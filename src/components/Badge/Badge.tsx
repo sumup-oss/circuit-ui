@@ -18,7 +18,7 @@ import React, {
   MouseEvent,
   KeyboardEvent,
   Ref,
-  HTMLProps
+  HTMLProps,
 } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
@@ -27,7 +27,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import { subHeadingKilo, focusOutline } from '../../styles/style-helpers';
 
 type OnClick = (
-  event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>
+  event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
 ) => void;
 type RefType = Ref<HTMLDivElement>;
 
@@ -52,28 +52,28 @@ const COLOR_MAP = {
   success: {
     default: 'g500',
     hover: 'g700',
-    active: 'g900'
+    active: 'g900',
   },
   warning: {
     default: 'y500',
     hover: 'y700',
-    active: 'y900'
+    active: 'y900',
   },
   danger: {
     default: 'r500',
     hover: 'r700',
-    active: 'r900'
+    active: 'r900',
   },
   primary: {
     default: 'b500',
     hover: 'b700',
-    active: 'b900'
+    active: 'b900',
   },
   neutral: {
     default: 'n500',
     hover: 'n700',
-    active: 'n900'
-  }
+    active: 'n900',
+  },
 } as const;
 const baseStyles = ({ theme }: StyleProps) => css`
   label: badge;
@@ -113,7 +113,7 @@ const circleStyles = ({ circle }: BadgeProps) =>
 const clickableStyles = ({
   theme,
   onClick,
-  color = 'neutral'
+  color = 'neutral',
 }: StyleProps & BadgeProps) => {
   const currentColor = COLOR_MAP[color];
   if (!onClick || !currentColor) {
@@ -143,7 +143,7 @@ const clickableStyles = ({
  * A badge for displaying update notifications etc.
  */
 const StyledBadge = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color'
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color',
 })<BadgeProps>(baseStyles, colorStyles, circleStyles, clickableStyles);
 
 /* eslint-disable react/display-name */

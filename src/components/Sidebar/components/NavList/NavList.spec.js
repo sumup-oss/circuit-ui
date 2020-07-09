@@ -28,7 +28,7 @@ describe('NavList', () => {
       const { getByTestId } = render(
         <NavList>
           <span data-testid="child">Child</span>
-        </NavList>
+        </NavList>,
       );
       const childEl = getByTestId('child');
       expect(childEl).not.toBeNull();

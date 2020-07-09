@@ -25,8 +25,8 @@ export default {
   title: 'Components/Button/IconButton',
   component: IconButton,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const Base = () => (

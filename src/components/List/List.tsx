@@ -50,20 +50,20 @@ const sizeStyles = ({ theme, size = 'mega' }: ListProps & StyleProps) => {
       marginBottom: theme.spacings.kilo,
       paddingLeft: theme.spacings.kilo,
       marginLeft: theme.spacings.bit,
-      type: textKilo({ theme })
+      type: textKilo({ theme }),
     },
     mega: {
       marginBottom: theme.spacings.byte,
       paddingLeft: theme.spacings.kilo,
       marginLeft: theme.spacings.kilo,
-      type: textMega({ theme })
+      type: textMega({ theme }),
     },
     giga: {
       marginBottom: theme.spacings.kilo,
       paddingLeft: theme.spacings.mega,
       marginLeft: theme.spacings.kilo,
-      type: textGiga({ theme })
-    }
+      type: textGiga({ theme }),
+    },
   };
   const { marginBottom, paddingLeft, marginLeft, type } = sizeMap[size];
   return css`
@@ -91,7 +91,7 @@ const marginStyles = ({ noMargin }: ListProps) =>
   `;
 
 const BaseList = styled('ol', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size',
 })<ListProps & { as: 'ul' | 'ol' }>(baseStyles, sizeStyles, marginStyles);
 
 /**

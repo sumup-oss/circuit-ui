@@ -24,7 +24,7 @@ describe('SubNavList', () => {
         <SubNavList>
           <li>Item 1</li>
           <li selected>Item 2</li>
-        </SubNavList>
+        </SubNavList>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -34,7 +34,7 @@ describe('SubNavList', () => {
         <SubNavList>
           <li>Item 1</li>
           <li>Item 2</li>
-        </SubNavList>
+        </SubNavList>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -51,7 +51,7 @@ describe('SubNavList', () => {
         <SubNavList>
           <li>Item 1</li>
           <li selected>Item 2</li>
-        </SubNavList>
+        </SubNavList>,
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

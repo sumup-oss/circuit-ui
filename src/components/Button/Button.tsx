@@ -23,7 +23,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import {
   textMega,
   disableVisually,
-  focusOutline
+  focusOutline,
 } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
 import { useComponents } from '../ComponentsContext';
@@ -103,7 +103,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const primaryStyles = ({
   theme,
-  variant = 'secondary'
+  variant = 'secondary',
 }: ButtonProps & StyleProps) =>
   variant === 'primary' &&
   css`
@@ -125,7 +125,7 @@ const primaryStyles = ({
 
 const secondaryStyles = ({
   theme,
-  variant = 'secondary'
+  variant = 'secondary',
 }: ButtonProps & StyleProps) =>
   variant === 'secondary' &&
   css`
@@ -147,7 +147,7 @@ const secondaryStyles = ({
 
 const tertiaryStyles = ({
   theme,
-  variant = 'secondary'
+  variant = 'secondary',
 }: ButtonProps & StyleProps) =>
   variant === 'tertiary' &&
   css`
@@ -169,17 +169,17 @@ const sizeStyles = ({ theme, size = 'mega' }: ButtonProps & StyleProps) => {
   const sizeMap = {
     kilo: {
       padding: `${theme.spacings.bit} calc(${theme.spacings.mega} - ${BORDER_WIDTH})`,
-      borderRadius: theme.borderRadius.giga
+      borderRadius: theme.borderRadius.giga,
     },
     mega: {
       padding: `${theme.spacings.byte} calc(${theme.spacings.giga} - ${BORDER_WIDTH})`,
-      borderRadius: theme.borderRadius.tera
-    }
+      borderRadius: theme.borderRadius.tera,
+    },
   };
 
   return css({
     label: `button--${size}`,
-    ...sizeMap[size]
+    ...sizeMap[size],
   });
 };
 
@@ -196,19 +196,19 @@ const iconStyles = (theme: Theme) => css`
 `;
 
 const BaseButton = styled('button', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size',
 })<ButtonProps>(
   baseStyles,
   primaryStyles,
   secondaryStyles,
   tertiaryStyles,
   sizeStyles,
-  stretchStyles
+  stretchStyles,
 );
 
 function ButtonComponent(
   { children, icon: Icon, tracking, ...props }: ButtonProps,
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>,
 ): ReturnType {
   const { Link } = useComponents();
   const LinkButton = BaseButton.withComponent(Link);
@@ -216,7 +216,7 @@ function ButtonComponent(
   const handleClick = useClickHandler<MouseEvent<any>>(
     props.onClick,
     tracking,
-    'button'
+    'button',
   );
 
   return (

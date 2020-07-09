@@ -21,12 +21,12 @@ import { ASCENDING } from './constants';
 const headers = [
   { children: 'Letters', sortable: true },
   { children: 'Numbers', sortable: true },
-  'Words'
+  'Words',
 ];
 const rows = [
   ['b', '3', 'Foo'],
   ['a', '1', 'Bar'],
-  ['c', '2', 'Baz']
+  ['c', '2', 'Baz'],
 ];
 const rowLength = rows[0].length;
 
@@ -51,7 +51,7 @@ describe('Table', () => {
 
     it('should render a collapsed table', () => {
       const actual = create(
-        <Table headers={headers} rows={rows} borderCollapsed />
+        <Table headers={headers} rows={rows} borderCollapsed />,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -63,7 +63,7 @@ describe('Table', () => {
 
     it('should render a scrollable table', () => {
       const actual = create(
-        <Table headers={headers} rows={rows} scrollable rowHeaders={false} />
+        <Table headers={headers} rows={rows} scrollable rowHeaders={false} />,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -79,7 +79,7 @@ describe('Table', () => {
       const onRowClickMock = jest.fn();
       const index = 0;
       const { getAllByTestId } = render(
-        <Table onRowClick={onRowClickMock} headers={headers} rows={rows} />
+        <Table onRowClick={onRowClickMock} headers={headers} rows={rows} />,
       );
 
       act(() => {
@@ -93,7 +93,7 @@ describe('Table', () => {
     describe('sorting', () => {
       it('should sort a column in ascending order', () => {
         const { getAllByTestId } = render(
-          <Table rows={rows} headers={headers} />
+          <Table rows={rows} headers={headers} />,
         );
 
         const letterHeaderEl = getAllByTestId('table-header')[0];
@@ -114,7 +114,7 @@ describe('Table', () => {
 
       it('should sort a column in descending order', () => {
         const { getAllByTestId } = render(
-          <Table rows={rows} headers={headers} />
+          <Table rows={rows} headers={headers} />,
         );
 
         const letterHeaderEl = getAllByTestId('table-header')[0];
@@ -141,7 +141,7 @@ describe('Table', () => {
         const index = 0;
         const nextDirection = ASCENDING;
         const { getAllByTestId } = render(
-          <Table onSortBy={onSortByMock} headers={headers} rows={rows} />
+          <Table onSortBy={onSortByMock} headers={headers} rows={rows} />,
         );
 
         act(() => {
@@ -157,7 +157,7 @@ describe('Table', () => {
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
-        <Table rowHeaders headers={headers} rows={rows} />
+        <Table rowHeaders headers={headers} rows={rows} />,
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

@@ -21,14 +21,14 @@ import {
   renderToHtml,
   axe,
   act,
-  userEvent
+  userEvent,
 } from '../../util/test-utils';
 
 import { Checkbox } from './Checkbox';
 
 const defaultProps = {
   name: 'name',
-  onChange: jest.fn()
+  onChange: jest.fn(),
 };
 
 describe('Checkbox', () => {
@@ -57,7 +57,7 @@ describe('Checkbox', () => {
 
   it('should render with a tooltip when passed a validation hint', () => {
     const actual = create(
-      <Checkbox validationHint="This field is required." {...defaultProps} />
+      <Checkbox validationHint="This field is required." {...defaultProps} />,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -67,20 +67,20 @@ describe('Checkbox', () => {
    */
   it('should be unchecked by default', () => {
     const { getByLabelText } = render(
-      <Checkbox {...defaultProps}>Label</Checkbox>
+      <Checkbox {...defaultProps}>Label</Checkbox>,
     );
     const inputEl = getByLabelText('Label', {
-      exact: false
+      exact: false,
     });
     expect(inputEl).not.toHaveAttribute('checked');
   });
 
   it('should call the change handler when clicked', () => {
     const { getByLabelText } = render(
-      <Checkbox {...defaultProps}>Label</Checkbox>
+      <Checkbox {...defaultProps}>Label</Checkbox>,
     );
     const inputEl = getByLabelText('Label', {
-      exact: false
+      exact: false,
     });
 
     act(() => {
@@ -109,7 +109,7 @@ describe('Checkbox', () => {
     const wrapper = renderToHtml(
       <div>
         <Checkbox {...defaultProps}>Label</Checkbox>
-      </div>
+      </div>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

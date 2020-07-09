@@ -28,7 +28,7 @@ const IMAGES = [
   'https://placedog.net/600/600',
   'https://placedog.net/700/700',
   'https://placedog.net/800/800',
-  'https://placedog.net/900/900'
+  'https://placedog.net/900/900',
 ];
 const STEP_DURATION = 2000;
 const ANIMATION_DURATION = 300;
@@ -37,8 +37,8 @@ export default {
   title: 'Components/Step',
   component: Step,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const slider = () => (

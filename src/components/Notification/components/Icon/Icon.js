@@ -22,13 +22,13 @@ import { CircleCheckmark, CircleCross, CircleWarning } from '@sumup/icons';
 const colorMap = {
   success: 'success',
   error: 'danger',
-  warning: 'warning'
+  warning: 'warning',
 };
 
 const iconMap = {
   success: CircleCheckmark,
   error: CircleCross,
-  warning: CircleWarning
+  warning: CircleWarning,
 };
 
 const baseStyles = ({ theme }) => css`
@@ -73,7 +73,7 @@ NotificationIcon.propTypes = {
   /**
    * The icon type. Overrides a custom icon.
    */
-  type: PropTypes.oneOf(['success', 'error', 'warning'])
+  type: PropTypes.oneOf(['success', 'error', 'warning']),
 };
 
 /**

@@ -45,7 +45,7 @@ function FunctionalComponent({ label, value }) {
 
 FunctionalComponent.propTypes = {
   label: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
 };
 
 /**

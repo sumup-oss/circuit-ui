@@ -24,8 +24,8 @@ export default {
   title: 'Components/ProgressBar',
   component: ProgressBar,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const variants = ['primary', 'secondary'] as const;

@@ -22,7 +22,7 @@ import { ButtonGroup } from './ButtonGroup';
 
 export default {
   title: 'Components/Button/ButtonGroup',
-  component: ButtonGroup
+  component: ButtonGroup,
 };
 
 export const base = () => (

@@ -23,14 +23,14 @@ describe('useStep', () => {
       initialStep: 0,
       totalSteps: 2,
       cycle: true,
-      autoPlay: false
+      autoPlay: false,
     };
     const { result, unmount } = renderHook(() => useStep(defaults));
 
     expect(result.current.state).toMatchObject({
       step: defaults.initialStep,
       previousStep: defaults.totalSteps - 1,
-      paused: true
+      paused: true,
     });
 
     unmount();
@@ -41,7 +41,7 @@ describe('useStep', () => {
 
     const { result } = renderHook(() => useStep({ cycle: true }));
     const expectedError = new Error(
-      'Cannot use cycle prop without totalSteps prop.'
+      'Cannot use cycle prop without totalSteps prop.',
     );
 
     expect(result.error).toEqual(expectedError);
@@ -54,7 +54,7 @@ describe('useStep', () => {
 
     const { result } = renderHook(() => useStep({ autoPlay: true }));
     const expectedError = Error(
-      'Cannot use autoPlay prop without stepDuration prop.'
+      'Cannot use autoPlay prop without stepDuration prop.',
     );
 
     expect(result.error).toEqual(expectedError);
@@ -68,12 +68,12 @@ describe('useStep', () => {
         play: expect.any(Function),
         pause: expect.any(Function),
         next: expect.any(Function),
-        previous: expect.any(Function)
+        previous: expect.any(Function),
       }),
       getPlayControlProps: expect.any(Function),
       getPauseControlProps: expect.any(Function),
       getNextControlProps: expect.any(Function),
-      getPreviousControlProps: expect.any(Function)
+      getPreviousControlProps: expect.any(Function),
     });
     const { result, unmount } = renderHook(() => useStep());
 
@@ -86,8 +86,8 @@ describe('useStep', () => {
     const { result, unmount } = renderHook(() =>
       useStep({
         autoPlay: true,
-        stepDuration: 3000
-      })
+        stepDuration: 3000,
+      }),
     );
 
     expect(result.current.state.paused).toEqual(false);
@@ -105,8 +105,8 @@ describe('useStep', () => {
     const { result, unmount } = renderHook(() =>
       useStep({
         autoPlay: false,
-        stepDuration: 3000
-      })
+        stepDuration: 3000,
+      }),
     );
 
     expect(result.current.state.paused).toEqual(true);
@@ -124,8 +124,8 @@ describe('useStep', () => {
     const { result, unmount } = renderHook(() =>
       useStep({
         autoPlay: false,
-        stepDuration: 3000
-      })
+        stepDuration: 3000,
+      }),
     );
 
     expect(result.current.state.paused).toEqual(true);
@@ -197,7 +197,7 @@ describe('useStep', () => {
     const initialStep = 1;
     const stepInterval = 3;
     const { result, unmount } = renderHook(() =>
-      useStep({ initialStep, stepInterval })
+      useStep({ initialStep, stepInterval }),
     );
 
     expect(result.current.state.step).toEqual(initialStep);
@@ -216,7 +216,7 @@ describe('useStep', () => {
 
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(
-      initialStep + stepInterval
+      initialStep + stepInterval,
     );
 
     unmount();
@@ -232,14 +232,14 @@ describe('useStep', () => {
         stepInterval,
         autoPlay: true,
         stepDuration: 100,
-        animationDuration: 100
-      })
+        animationDuration: 100,
+      }),
     );
 
     expect(result.current.state.paused).toEqual(false);
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(
-      initialStep - stepInterval
+      initialStep - stepInterval,
     );
 
     await waitForNextUpdate();
@@ -269,14 +269,14 @@ describe('useStep', () => {
         stepInterval,
         autoPlay: true,
         stepDuration: () => 100,
-        animationDuration: () => 100
-      })
+        animationDuration: () => 100,
+      }),
     );
 
     expect(result.current.state.paused).toEqual(false);
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(
-      initialStep - stepInterval
+      initialStep - stepInterval,
     );
 
     await waitForNextUpdate();
@@ -297,13 +297,13 @@ describe('useStep', () => {
         initialStep,
         stepInterval,
         totalSteps,
-        cycle: true
-      })
+        cycle: true,
+      }),
     );
 
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(
-      totalSteps - stepInterval
+      totalSteps - stepInterval,
     );
 
     act(() => {
@@ -317,7 +317,7 @@ describe('useStep', () => {
     });
     expect(result.current.state.step).toEqual(initialStep);
     expect(result.current.state.previousStep).toEqual(
-      totalSteps - stepInterval
+      totalSteps - stepInterval,
     );
 
     unmount();
@@ -329,7 +329,7 @@ describe('useStep', () => {
     const onNext = jest.fn();
     const onPrevious = jest.fn();
     const { result, unmount } = renderHook(() =>
-      useStep({ onPlay, onPause, onNext, onPrevious })
+      useStep({ onPlay, onPause, onNext, onPrevious }),
     );
 
     act(() => {

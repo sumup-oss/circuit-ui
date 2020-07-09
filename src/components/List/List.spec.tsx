@@ -27,7 +27,7 @@ describe('List', () => {
     const actual = create(
       <List>
         <li>List</li>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -37,7 +37,7 @@ describe('List', () => {
     const actual = create(
       <List variant={variant}>
         <li>{variant}</li>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -47,7 +47,7 @@ describe('List', () => {
     const actual = create(
       <List size={size}>
         <li>{size}</li>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -59,7 +59,7 @@ describe('List', () => {
         <List>
           <li>Second level</li>
         </List>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -68,7 +68,7 @@ describe('List', () => {
     const actual = create(
       <List noMargin>
         <li>no margin</li>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -80,7 +80,7 @@ describe('List', () => {
     const wrapper = renderToHtml(
       <List>
         <li>List</li>
-      </List>
+      </List>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

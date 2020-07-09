@@ -25,8 +25,8 @@ export default {
   title: 'Forms/Input/SearchInput',
   component: SearchInput,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 // SearchInputs always need labels for accessibility.
@@ -42,7 +42,7 @@ const SearchInputWithClear = (props: SearchInputProps) => {
   const [value, setValue] = useState('');
 
   const handleChange = ({
-    target: { value: inputValue }
+    target: { value: inputValue },
   }: ChangeEvent<HTMLInputElement>) => {
     setValue(inputValue);
   };

@@ -29,7 +29,7 @@ export default function render(theme, insertFactory) {
         <ThemeProvider theme={theme}>
           <Component {...props} />
         </ThemeProvider>
-      </CacheProvider>
+      </CacheProvider>,
     );
   };
 }

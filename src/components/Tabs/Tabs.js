@@ -36,13 +36,13 @@ class Tabs extends Component {
       PropTypes.shape({
         id: PropTypes.string.isRequired,
         tab: PropTypes.node.isRequired,
-        panel: PropTypes.node.isRequired
-      })
-    ).isRequired
+        panel: PropTypes.node.isRequired,
+      }),
+    ).isRequired,
   };
 
   static defaultProps = {
-    initialSelectedIndex: 0
+    initialSelectedIndex: 0,
   };
 
   state = { selectedIndex: this.props.initialSelectedIndex };
@@ -103,10 +103,10 @@ class Tabs extends Component {
 
         return {
           tabs: [...aggr.tabs, tabElement],
-          panels: [...aggr.panels, tabPanelElement]
+          panels: [...aggr.panels, tabPanelElement],
         };
       },
-      { tabs: [], panels: [] }
+      { tabs: [], panels: [] },
     );
 
     return (
@@ -121,7 +121,7 @@ class Tabs extends Component {
 function getIds(id) {
   return {
     tabId: `tab-${id}`,
-    panelId: `panel-${id}`
+    panelId: `panel-${id}`,
   };
 }
 

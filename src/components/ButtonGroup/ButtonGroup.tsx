@@ -75,7 +75,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const alignmentMap = {
   left: 'flex-start',
   center: 'center',
-  right: 'flex-end'
+  right: 'flex-end',
 } as const;
 
 const alignmentStyles = ({ align = 'right' }: ButtonGroupProps) => {
@@ -89,7 +89,7 @@ const alignmentStyles = ({ align = 'right' }: ButtonGroupProps) => {
 
 const inlineMobileStyles = ({
   theme,
-  inlineMobile
+  inlineMobile,
 }: StyleProps & ButtonGroupProps) =>
   inlineMobile &&
   css`
@@ -100,12 +100,12 @@ const inlineMobileStyles = ({
 const Wrapper = styled('div')<ButtonGroupProps>(
   baseStyles,
   alignmentStyles,
-  inlineMobileStyles
+  inlineMobileStyles,
 );
 
 const ButtonGroupComponent = (
   { children, ...props }: ButtonGroupProps,
-  ref: ButtonGroupProps['ref']
+  ref: ButtonGroupProps['ref'],
 ) => (
   <Wrapper {...props} ref={ref}>
     {children}

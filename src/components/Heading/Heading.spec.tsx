@@ -26,7 +26,7 @@ describe('Heading', () => {
   const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
   it.each(elements)(`should render as %s element`, element => {
     const heading = create(
-      <Heading as={element}>{`${element} heading`}</Heading>
+      <Heading as={element}>{`${element} heading`}</Heading>,
     );
     expect(heading).toMatchSnapshot();
   });
@@ -38,11 +38,11 @@ describe('Heading', () => {
     'tera',
     'peta',
     'exa',
-    'zetta'
+    'zetta',
   ] as const;
   it.each(sizes)(`should render with size %s`, size => {
     const heading = create(
-      <Heading {...{ size }}>{`${size} heading`}</Heading>
+      <Heading {...{ size }}>{`${size} heading`}</Heading>,
     );
     expect(heading).toMatchSnapshot();
   });

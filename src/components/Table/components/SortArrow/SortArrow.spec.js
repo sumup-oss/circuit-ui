@@ -41,7 +41,7 @@ describe('SortArrow', () => {
     it('should call the onClick callback', () => {
       const onClick = jest.fn();
       const { getByTestId } = render(
-        <SortArrow onClick={onClick} data-testid="sort" />
+        <SortArrow onClick={onClick} data-testid="sort" />,
       );
       act(() => {
         userEvent.click(getByTestId('sort'));

@@ -26,7 +26,7 @@ export interface MigrateArgs {
 const TRANSFORM_DIR = __dirname;
 const PARSERS = {
   JavaScript: 'babel',
-  TypeScript: 'tsx'
+  TypeScript: 'tsx',
 };
 
 export function migrate({ transform, language, path }: MigrateArgs): void {
@@ -50,9 +50,9 @@ export function migrate({ transform, language, path }: MigrateArgs): void {
       `${TRANSFORM_DIR}/${transform}.js`,
       '--parser',
       parser,
-      path
+      path,
     ],
-    { stdio: 'inherit' }
+    { stdio: 'inherit' },
   );
 }
 

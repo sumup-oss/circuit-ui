@@ -51,7 +51,7 @@ Backdrop.propTypes = {
   /**
    * Tells if the Backdrop is visible
    */
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
 };
 
 export default Backdrop;

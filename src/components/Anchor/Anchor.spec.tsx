@@ -22,7 +22,7 @@ import {
   axe,
   RenderFn,
   act,
-  userEvent
+  userEvent,
 } from '../../util/test-utils';
 
 import { Anchor, AnchorProps } from './Anchor';
@@ -44,7 +44,7 @@ describe('Anchor', () => {
       const props = {
         ...baseProps,
         href: 'https://sumup.com',
-        onClick: jest.fn()
+        onClick: jest.fn(),
       };
       const actual = renderAnchor(create, props);
       expect(actual).toMatchSnapshot();
@@ -63,7 +63,7 @@ describe('Anchor', () => {
         ...baseProps,
         href: 'https://sumup.com',
         onClick: jest.fn(event => event.preventDefault()),
-        'data-testid': 'anchor'
+        'data-testid': 'anchor',
       };
       const { getByTestId } = renderAnchor(render, props);
 
@@ -78,7 +78,7 @@ describe('Anchor', () => {
       const props = {
         ...baseProps,
         onClick: jest.fn(),
-        'data-testid': 'anchor'
+        'data-testid': 'anchor',
       };
       const { getByTestId } = renderAnchor(render, props);
 
@@ -95,7 +95,7 @@ describe('Anchor', () => {
     it('should accept a working ref for a "button"', () => {
       const tref = React.createRef<any>();
       const { container } = render(
-        <Anchor ref={tref}>This is a span as button</Anchor>
+        <Anchor ref={tref}>This is a span as button</Anchor>,
       );
       const button = container.querySelector('span');
       expect(tref.current).toBe(button);
@@ -109,7 +109,7 @@ describe('Anchor', () => {
       const { container } = render(
         <Anchor href="http://sumup.com" ref={tref}>
           Link button
-        </Anchor>
+        </Anchor>,
       );
       const anchor = container.querySelector('a');
       expect(tref.current).toBe(anchor);
@@ -131,7 +131,7 @@ describe('Anchor', () => {
       const props = {
         ...baseProps,
         href: 'https://sumup.com',
-        onClick: jest.fn()
+        onClick: jest.fn(),
       };
       const wrapper = renderAnchor(renderToHtml, props);
       const actual = await axe(wrapper);

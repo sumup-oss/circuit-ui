@@ -24,8 +24,8 @@ export default {
   title: 'Forms/Input',
   component: Input,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const BaseInput = ({

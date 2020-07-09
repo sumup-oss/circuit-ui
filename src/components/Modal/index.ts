@@ -17,7 +17,7 @@ import {
   ModalContext,
   ModalProvider,
   ModalConsumer,
-  useModal
+  useModal,
 } from './ModalContext';
 import { Modal, DEFAULT_APP_ELEMENT } from './Modal';
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
@@ -30,7 +30,7 @@ export {
   ModalProvider,
   ModalWrapper,
   ModalHeader,
-  ModalFooter
+  ModalFooter,
 };
 
 export default Modal;

@@ -19,7 +19,7 @@ import RangePicker from './RangePicker';
 
 export default {
   title: 'Components/Calendar/RangePicker',
-  component: RangePicker
+  component: RangePicker,
 };
 
 const RangePickerWithState = props => {

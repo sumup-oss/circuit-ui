@@ -23,8 +23,8 @@ export default {
   title: 'Typography/List',
   component: List,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const sizes: ['kilo', 'mega', 'giga'] = ['kilo', 'mega', 'giga'];

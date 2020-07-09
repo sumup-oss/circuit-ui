@@ -37,7 +37,7 @@ const baseStyles = ({ theme }) => css`
 const alignmentStyles = ({ align }) => {
   const alignments = {
     [CENTER]: 'center',
-    [TOP]: 'flex-start'
+    [TOP]: 'flex-start',
   };
   return css`
     label: ${`notification__button--${align}`};
@@ -62,11 +62,11 @@ NotificationButton.propTypes = {
   /**
    * Vertical alignment
    */
-  align: PropTypes.oneOf([NotificationButton.TOP, NotificationButton.CENTER])
+  align: PropTypes.oneOf([NotificationButton.TOP, NotificationButton.CENTER]),
 };
 
 NotificationButton.defaultProps = {
-  align: NotificationButton.CENTER
+  align: NotificationButton.CENTER,
 };
 
 /**

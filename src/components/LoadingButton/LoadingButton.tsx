@@ -56,7 +56,7 @@ const spinnerLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
 
 const LoadingIcon = styled(Spinner)<{ isLoading: boolean }>(
   spinnerBaseStyles,
-  spinnerLoadingStyles
+  spinnerLoadingStyles,
 );
 
 const LoadingLabel = styled.span(hideVisually);
@@ -80,7 +80,7 @@ const childrenLoadingStyles = ({ isLoading }: { isLoading: boolean }) =>
 
 const Children = styled.span<{ isLoading: boolean }>(
   childrenStyles,
-  childrenLoadingStyles
+  childrenLoadingStyles,
 );
 
 export const LoadingButton: FC<LoadingButtonProps> = ({
