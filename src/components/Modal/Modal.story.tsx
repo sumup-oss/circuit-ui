@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { MouseEvent, KeyboardEvent } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { text } from '@storybook/addon-knobs';
@@ -111,18 +111,18 @@ export const withFooter = () => (
           <ButtonGroup>
             <Button
               variant="secondary"
-              onClick={e => {
-                action('Cancel button clicked')(e);
-                onClose(e);
+              onClick={(event: MouseEvent | KeyboardEvent) => {
+                action('Cancel button clicked')(event);
+                onClose(event);
               }}
             >
               Cancel
             </Button>
             <Button
               variant="primary"
-              onClick={e => {
-                action('Confirm button clicked')(e);
-                onClose(e);
+              onClick={(event: MouseEvent | KeyboardEvent) => {
+                action('Confirm button clicked')(event);
+                onClose(event);
               }}
             >
               Confirm

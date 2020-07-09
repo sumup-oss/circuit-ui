@@ -207,14 +207,6 @@ const BaseButton = styled('button', {
 );
 
 function ButtonComponent(
-  props: BaseProps & LinkElProps,
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
-): ReturnType;
-function ButtonComponent(
-  props: BaseProps & ButtonElProps,
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
-): ReturnType;
-function ButtonComponent(
   { children, icon: Icon, tracking, ...props }: ButtonProps,
   ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
 ): ReturnType {

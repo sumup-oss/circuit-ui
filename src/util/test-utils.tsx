@@ -16,7 +16,7 @@
 import React, { FunctionComponent } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
-import { axe } from 'jest-axe';
+import { configureAxe } from 'jest-axe';
 import { render as renderTest, wait, act } from '@testing-library/react';
 import { renderHook, act as actHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
@@ -49,6 +49,13 @@ const create: RenderFn = (...args) => {
     ? container.children
     : container.firstChild;
 };
+
+const axe = configureAxe({
+  rules: {
+    // disabled landmark rules when testing isolated components.
+    region: { enabled: false }
+  }
+});
 
 export {
   create,

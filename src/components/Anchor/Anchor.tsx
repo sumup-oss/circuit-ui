@@ -29,7 +29,7 @@ interface BaseProps extends TextProps {
   /**
    * The ref to the html dom element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
-  ref?: React.Ref<any>;
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
 }
 type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size'>;
 type ButtonElProps = Omit<HTMLProps<HTMLButtonElement>, 'size'>;
@@ -78,7 +78,10 @@ const BaseAnchor = styled(Text, {
   shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
 })<AnchorProps>(baseStyles);
 
-function AnchorComponent(props: AnchorProps, ref?: React.Ref<any>): ReturnType {
+function AnchorComponent(
+  props: AnchorProps,
+  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>
+): ReturnType {
   const { Link } = useComponents();
   const AnchorLink = BaseAnchor.withComponent(Link);
 
@@ -88,12 +91,10 @@ function AnchorComponent(props: AnchorProps, ref?: React.Ref<any>): ReturnType {
 
   if (props.href) {
     // typing issues with with
-    return <AnchorLink {...props} ref={ref as React.Ref<any>} noMargin />;
+    return <AnchorLink {...props} ref={ref} noMargin />;
   }
 
-  return (
-    <BaseAnchor as="button" {...props} ref={ref as React.Ref<any>} noMargin />
-  );
+  return <BaseAnchor as="button" {...props} ref={ref} noMargin />;
 }
 
 /**
