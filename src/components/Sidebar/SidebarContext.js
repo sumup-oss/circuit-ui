@@ -27,7 +27,7 @@ class SidebarContextProvider extends React.Component {
   state = { isSidebarOpen: false };
 
   toggleSidebar = () => {
-    this.setState(prevState => ({ isSidebarOpen: !prevState.isSidebarOpen }));
+    this.setState((prevState) => ({ isSidebarOpen: !prevState.isSidebarOpen }));
   };
 
   render() {

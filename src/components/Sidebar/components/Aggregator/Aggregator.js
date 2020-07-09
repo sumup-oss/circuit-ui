@@ -95,7 +95,7 @@ class Aggregator extends Component {
   toggleAggregator = () => {
     const { onClick } = this.props;
 
-    this.setState(prevState => ({ open: !prevState.open }));
+    this.setState((prevState) => ({ open: !prevState.open }));
     if (onClick) {
       onClick();
     }

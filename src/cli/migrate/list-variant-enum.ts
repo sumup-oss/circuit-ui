@@ -27,9 +27,9 @@ const transform: Transform = (file, api) => {
     return null;
   }
 
-  components.forEach(component => {
+  components.forEach((component) => {
     // Change variants from boolean to enum prop
-    ['ordered', 'unordered'].forEach(variant => {
+    ['ordered', 'unordered'].forEach((variant) => {
       root
         .findJSXElements(component)
         .find(j.JSXAttribute, {

@@ -35,8 +35,8 @@ export function findImportsByPath(
         value: importPath,
       },
     })
-    .forEach(nodePath => {
-      nodePath.value.specifiers.forEach(specifier => {
+    .forEach((nodePath) => {
+      nodePath.value.specifiers.forEach((specifier) => {
         // These TypeScript errors are incorrect,
         // but I (Connor) am too lazy to submit a fix ¯\_(ツ)_/¯
         /* eslint-disable @typescript-eslint/ban-ts-ignore */
@@ -82,7 +82,7 @@ export function findStyledComponentNames(
         },
       ],
     })
-    .forEach(path => {
+    .forEach((path) => {
       const styledComponent = j(path)
         .closest(j.VariableDeclaration)
         .find(j.Identifier)
@@ -102,7 +102,7 @@ export function findLocalNames(
 
   const [baseName, subName] = componentName.split('.');
 
-  const componentImport = imports.find(i => i.name === baseName);
+  const componentImport = imports.find((i) => i.name === baseName);
 
   if (!componentImport) {
     return null;
@@ -132,7 +132,7 @@ export function renameJSXAttribute(
         name: fromName,
       },
     })
-    .replaceWith(nodePath =>
+    .replaceWith((nodePath) =>
       j.jsxAttribute(j.jsxIdentifier(toName), nodePath.node.value),
     );
 }

@@ -27,9 +27,9 @@ const transform: Transform = (file, api) => {
     return;
   }
 
-  components.forEach(component => {
+  components.forEach((component) => {
     ['exitAnimation', 'exitAnimationDuration', 'onAnimationComplete'].forEach(
-      prop => {
+      (prop) => {
         root
           .findJSXElements(component)
           .find(j.JSXAttribute, {

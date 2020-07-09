@@ -29,7 +29,7 @@ const CustomCloseIcon = styled(Cross)`
   color: ${({ theme }) => theme.colors.n700};
 `;
 
-const RangePicker = props => (
+const RangePicker = (props) => (
   <CalendarWrapper>
     <DateRangePicker
       customArrowIcon={<CustomArrow />}

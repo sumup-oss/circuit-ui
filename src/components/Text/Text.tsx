@@ -115,7 +115,7 @@ const marginStyles = ({ noMargin }: TextProps & StyleProps) =>
  * to our users.
  */
 export const Text: FC<TextProps> = styled('p', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size',
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<TextProps>(
   baseStyles,
   sizeStyles,

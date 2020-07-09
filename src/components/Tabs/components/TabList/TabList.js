@@ -53,7 +53,7 @@ const stretchedStyles = ({ children, theme }) => css`
 const navigationChildrenStyles = ({ stretched, ...props }) =>
   stretched && stretchedStyles(props);
 
-const navigationResponsiveChildrenStyles = props =>
+const navigationResponsiveChildrenStyles = (props) =>
   props.children.length <= MOBILE_AUTOSTRETCH_ITEMS_MAX &&
   css`
     ${props.theme.mq.untilKilo} {

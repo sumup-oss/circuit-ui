@@ -24,7 +24,7 @@ describe('SubHeading', () => {
    * Style tests.
    */
   const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
-  it.each(elements)(`should render as %s element`, element => {
+  it.each(elements)(`should render as %s element`, (element) => {
     const subheading = create(
       <SubHeading as={element}>{`${element} subheading`}</SubHeading>,
     );
@@ -32,7 +32,7 @@ describe('SubHeading', () => {
   });
 
   const sizes = ['kilo', 'mega'] as const;
-  it.each(sizes)(`should render with size %s`, size => {
+  it.each(sizes)(`should render with size %s`, (size) => {
     const subheading = create(
       <SubHeading {...{ size }}>{`${size} subheading`}</SubHeading>,
     );

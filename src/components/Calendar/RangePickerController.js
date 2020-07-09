@@ -20,7 +20,7 @@ import 'react-dates/initialize';
 
 import { CalendarWrapper } from './components';
 
-const RangePickerController = props => (
+const RangePickerController = (props) => (
   <CalendarWrapper>
     <DayPickerRangeController
       navNext={<ArrowRight />}

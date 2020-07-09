@@ -40,7 +40,7 @@ const options = [
 // eslint-disable-next-line react/prop-types
 const RadioButtonGroupWithState = ({ value: initial, children, ...props }) => {
   const [value, setValue] = useState(initial);
-  const handleChange = e => {
+  const handleChange = (e) => {
     setValue(e.target.value);
   };
   return (

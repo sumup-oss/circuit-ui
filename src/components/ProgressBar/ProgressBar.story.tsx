@@ -78,7 +78,7 @@ export const Labelled = () => {
 export const Variants = () => {
   const max = number('Maximum value', 10);
   const value = number('Value', 3);
-  return variants.map(variant => (
+  return variants.map((variant) => (
     <BaseProgressBar key={variant} variant={variant} value={value} max={max}>
       {variant}
     </BaseProgressBar>
@@ -88,7 +88,7 @@ export const Variants = () => {
 export const Sizes = () => {
   const max = number('Maximum value', 10);
   const value = number('Value', 3);
-  return sizes.map(size => (
+  return sizes.map((size) => (
     <BaseProgressBar key={size} size={size} value={value} max={max}>
       {size}
     </BaseProgressBar>

@@ -33,7 +33,7 @@ describe('List', () => {
   });
 
   const variants: ListProps['variant'][] = ['ordered', 'unordered'];
-  it.each(variants)('should render the %s variant', variant => {
+  it.each(variants)('should render the %s variant', (variant) => {
     const actual = create(
       <List variant={variant}>
         <li>{variant}</li>
@@ -43,7 +43,7 @@ describe('List', () => {
   });
 
   const sizes: ListProps['size'][] = ['kilo', 'mega', 'giga'];
-  it.each(sizes)('should render with size %s', size => {
+  it.each(sizes)('should render with size %s', (size) => {
     const actual = create(
       <List size={size}>
         <li>{size}</li>

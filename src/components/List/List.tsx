@@ -91,7 +91,7 @@ const marginStyles = ({ noMargin }: ListProps) =>
   `;
 
 const BaseList = styled('ol', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size',
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<ListProps & { as: 'ul' | 'ol' }>(baseStyles, sizeStyles, marginStyles);
 
 /**

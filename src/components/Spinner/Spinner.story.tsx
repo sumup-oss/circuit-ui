@@ -25,7 +25,7 @@ export default {
 
 export const Base = () => (
   <Spinner
-    css={theme =>
+    css={(theme) =>
       css`
         color: ${theme.colors.n900};
       `

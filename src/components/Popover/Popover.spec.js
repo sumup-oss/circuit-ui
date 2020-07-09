@@ -58,8 +58,8 @@ describe('Popover', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  positions.forEach(position => {
-    alignments.forEach(alignment => {
+  positions.forEach((position) => {
+    alignments.forEach((alignment) => {
       it(`should render with position ${position} and alignment ${alignment}`, () => {
         const actual = create(
           <Popover

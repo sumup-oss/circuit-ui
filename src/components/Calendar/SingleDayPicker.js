@@ -25,7 +25,7 @@ const CustomCloseIcon = styled(Cross)`
   color: ${({ theme }) => theme.colors.n700};
 `;
 
-const SingleDayPicker = props => (
+const SingleDayPicker = (props) => (
   <CalendarWrapper>
     <SingleDatePicker
       navNext={<ArrowRight />}

@@ -28,7 +28,7 @@ export interface PageSelectProps extends Omit<SelectProps, 'onChange'> {
 }
 
 const TotalPages = styled('span')`
-  margin-left: ${p => p.theme.spacings.kilo};
+  margin-left: ${(p) => p.theme.spacings.kilo};
 `;
 
 export const PageSelect: FunctionComponent<PageSelectProps> = ({
@@ -40,7 +40,7 @@ export const PageSelect: FunctionComponent<PageSelectProps> = ({
   totalLabel,
   ...props
 }) => {
-  const pageOptions = pages.map(value => ({ value, label: `${value}` }));
+  const pageOptions = pages.map((value) => ({ value, label: `${value}` }));
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
       onChange(parseInt(event.target.value, 10));

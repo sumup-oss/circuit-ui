@@ -38,7 +38,7 @@ const wrapperAspectRatioStyles = ({ aspectRatio }) =>
 
 const Wrapper = styled('div')(wrapperBaseStyles, wrapperAspectRatioStyles);
 
-const childBaseStyles = cssClassName => cssClassName`
+const childBaseStyles = (cssClassName) => cssClassName`
   display: block;
   height: auto;
   max-height: 100%;

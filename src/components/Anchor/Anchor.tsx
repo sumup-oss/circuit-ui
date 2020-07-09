@@ -75,7 +75,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 `;
 
 const BaseAnchor = styled(Text, {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size',
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<AnchorProps>(baseStyles);
 
 function AnchorComponent(

@@ -36,7 +36,7 @@ const baseStyles = ({ theme, skip, span }) => css`
  * props.
  */
 const Col = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'span',
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'span',
 })(baseStyles);
 
 const sizingProp = PropTypes.oneOfType([

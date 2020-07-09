@@ -34,7 +34,7 @@ import { light } from '@sumup/design-tokens';
 //   Toggle
 // } from '../../src';
 
-const element = props => <div {...props} />;
+const element = (props) => <div {...props} />;
 
 export const PropTypes = {
   string: ['string'],

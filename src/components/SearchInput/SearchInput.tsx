@@ -50,8 +50,8 @@ function SearchInputComponent(
     <Input
       value={value}
       type="text"
-      renderPrefix={renderProps => <Search {...renderProps} />}
-      renderSuffix={renderProps =>
+      renderPrefix={(renderProps) => <Search {...renderProps} />}
+      renderSuffix={(renderProps) =>
         value && onClear ? (
           <ClearButton
             onClick={onClear}

@@ -77,7 +77,7 @@ const CarouselSlider = ({ images = [], ...stepProps }) => (
           step={state.step}
           animationDuration={state.animationDuration}
         >
-          {images.map(src => (
+          {images.map((src) => (
             <SliderImage
               key={src}
               src={src}

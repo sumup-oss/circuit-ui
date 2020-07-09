@@ -94,7 +94,7 @@ export default class CalendarTagTwoStep extends Component {
     this.handleFocusChange(endDate ? START_DATE : END_DATE);
   };
 
-  handleFocusChange = focusedInput => this.setState({ focusedInput });
+  handleFocusChange = (focusedInput) => this.setState({ focusedInput });
 
   handleClear = () =>
     this.setState({ startDate: null, endDate: null, focusedInput: null });
@@ -114,9 +114,9 @@ export default class CalendarTagTwoStep extends Component {
     return `${this.toPreviewDate(startDate)} - ${this.toPreviewDate(endDate)}`;
   };
 
-  toPreviewDate = date => (date ? date.format('MMM DD') : '');
+  toPreviewDate = (date) => (date ? date.format('MMM DD') : '');
 
-  handleButtonRef = ref => {
+  handleButtonRef = (ref) => {
     this.buttonRef = ref;
   };
 

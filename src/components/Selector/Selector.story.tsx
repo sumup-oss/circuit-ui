@@ -32,7 +32,7 @@ const SelectorWithState = (props: Partial<SelectorProps>) => {
   const [checked, setChecked] = useState(props.checked || false);
 
   const toggleChecked = () => {
-    setChecked(prev => !prev);
+    setChecked((prev) => !prev);
   };
 
   return (

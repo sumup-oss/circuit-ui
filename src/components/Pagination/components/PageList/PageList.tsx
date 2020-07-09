@@ -40,7 +40,7 @@ export const PageList: FunctionComponent<PageListProps> = ({
   ...props
 }) => (
   <List role="list" {...props}>
-    {pages.map(page => {
+    {pages.map((page) => {
       const isCurrent = currentPage === page;
       const label = pageLabel(page);
       return (

@@ -191,15 +191,15 @@ class Table extends Component {
     });
   };
 
-  setTableRef = tableContainer => {
+  setTableRef = (tableContainer) => {
     this.tableContainer = tableContainer;
   };
 
-  onSortEnter = i => this.setState({ sortHover: i });
+  onSortEnter = (i) => this.setState({ sortHover: i });
 
   onSortLeave = () => this.setState({ sortHover: null });
 
-  onSortBy = i => {
+  onSortBy = (i) => {
     const { sortedRow, sortDirection } = this.state;
     const isActive = i === sortedRow;
     const nextDirection = getSortDirection(isActive, sortDirection);
@@ -232,7 +232,7 @@ class Table extends Component {
     return [...rows].sort(sortFn(i));
   };
 
-  handleScroll = e => {
+  handleScroll = (e) => {
     this.setState({ scrollTop: e.target.scrollTop });
   };
 

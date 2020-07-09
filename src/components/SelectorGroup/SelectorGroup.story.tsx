@@ -44,13 +44,13 @@ const SelectorGroupWithState = (props: Partial<SelectorGroupProps>) => {
   );
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.persist();
-    setValue(prev => {
+    setValue((prev) => {
       if (!props.multiple) {
         return event.target.value;
       }
       const prevArray = prev as string[];
       return prevArray.includes(event.target.value)
-        ? prevArray.filter(v => v !== event.target.value)
+        ? prevArray.filter((v) => v !== event.target.value)
         : [...prevArray, event.target.value];
     });
   };

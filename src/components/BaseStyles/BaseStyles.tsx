@@ -19,5 +19,5 @@ import { Global } from '@emotion/core';
 import { createBaseStyles } from './BaseStylesService';
 
 export const BaseStyles = () => (
-  <Global styles={theme => createBaseStyles({ theme })} />
+  <Global styles={(theme) => createBaseStyles({ theme })} />
 );

@@ -26,7 +26,7 @@ yargs
   .command(
     'migrate',
     "Automatically transforms your source code to Circuit UI's latest APIs",
-    yrgs =>
+    (yrgs) =>
       yrgs
         .option('transform', {
           alias: 't',
@@ -49,7 +49,7 @@ yargs
           type: 'string',
           default: '.',
         }),
-    args => execute('migrate', args),
+    (args) => execute('migrate', args),
   )
   .showHelpOnFail(true)
   .demandCommand(1, '')

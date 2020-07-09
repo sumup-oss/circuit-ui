@@ -30,13 +30,13 @@ describe('Text', () => {
   });
 
   const elements = ['p', 'article', 'div'];
-  it.each(elements)('should render as %s element', as => {
+  it.each(elements)('should render as %s element', (as) => {
     const actual = create(<Text as={as}>{`${as.toUpperCase()} text`}</Text>);
     expect(actual).toMatchSnapshot();
   });
 
   const sizes: TextProps['size'][] = ['kilo', 'mega', 'giga'];
-  it.each(sizes)('should render with size %s', size => {
+  it.each(sizes)('should render with size %s', (size) => {
     const actual = create(<Text size={size}>{`${size} text`}</Text>);
     expect(actual).toMatchSnapshot();
   });

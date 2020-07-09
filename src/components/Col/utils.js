@@ -83,7 +83,7 @@ const createBreakpointStyles = curry((theme, current) => {
 /**
  * Return the default styles for each breakpoint provided by the config
  */
-export const getBreakPointStyles = theme =>
+export const getBreakPointStyles = (theme) =>
   compose(values, mapValues(createBreakpointStyles(theme)))(theme.grid);
 
 /**

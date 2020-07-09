@@ -63,7 +63,7 @@ export const warning = () => (
     <NotificationButton>
       <Button
         size="kilo"
-        onClick={e => {
+        onClick={(e) => {
           action('Button clicked')(e);
         }}
       >
@@ -82,7 +82,7 @@ export const alert = () => (
     <NotificationButton>
       <Button
         size="kilo"
-        onClick={e => {
+        onClick={(e) => {
           action('Button clicked')(e);
         }}
       >

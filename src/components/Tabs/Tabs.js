@@ -49,9 +49,9 @@ class Tabs extends Component {
 
   tabPanelsRefs = createRefs(this.props.items.length);
 
-  handleChange = selectedIndex => this.setState({ selectedIndex });
+  handleChange = (selectedIndex) => this.setState({ selectedIndex });
 
-  handleTabKeyDown = e => {
+  handleTabKeyDown = (e) => {
     const { selectedIndex } = this.state;
     const nextTab = Math.min(this.props.items.length - 1, selectedIndex + 1);
     const previousTab = Math.max(0, selectedIndex - 1);

@@ -54,7 +54,7 @@ class CalendarTag extends Component {
     }
   };
 
-  handleFocusChange = focusedInput => {
+  handleFocusChange = (focusedInput) => {
     this.setState({ focusedInput });
   };
 
@@ -73,9 +73,9 @@ class CalendarTag extends Component {
     return `${this.toDate(startDate)} - ${this.toDate(endDate)}`;
   };
 
-  toDate = date => (date ? date.format('MMM DD') : '');
+  toDate = (date) => (date ? date.format('MMM DD') : '');
 
-  handleButtonRef = ref => {
+  handleButtonRef = (ref) => {
     this.buttonRef = ref;
   };
 

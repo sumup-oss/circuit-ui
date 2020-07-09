@@ -25,29 +25,29 @@ module.exports = {
     '!src/@(components|util|styles)/**/index.{ts,tsx,js,jsx}',
     '!src/@(components|util|styles)/**/*.story.{ts,tsx,js,jsx}',
     '!src/@(components|util|styles)/**/*.docs.mdx',
-    '!**/node_modules/**'
+    '!**/node_modules/**',
   ],
   moduleDirectories: ['node_modules', 'src'],
   // HACK: See https://github.com/storybookjs/storybook/pull/9292
   moduleNameMapper: {
     'react-syntax-highlighter/dist/esm/(.*)':
-      'react-syntax-highlighter/dist/cjs/$1'
+      'react-syntax-highlighter/dist/cjs/$1',
   },
   transform: {
     '^.+\\.(js|jsx)$': 'babel-jest',
     '^.+\\.(ts|tsx)$': 'ts-jest',
-    '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js'
+    '^.+\\.(md|mdx)$': '<rootDir>/jest.mdxTransformer.js',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   globals: {
-    STORYBOOK: false,
-    __DEV__: false,
-    __PRODUCTION__: false,
-    __TEST__: true,
+    'STORYBOOK': false,
+    '__DEV__': false,
+    '__PRODUCTION__': false,
+    '__TEST__': true,
     'ts-jest': {
       tsConfig: {
-        jsx: 'react'
-      }
-    }
-  }
+        jsx: 'react',
+      },
+    },
+  },
 };

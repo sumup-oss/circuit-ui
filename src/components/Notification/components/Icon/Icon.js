@@ -44,7 +44,7 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const iconColor = type => theme =>
+const iconColor = (type) => (theme) =>
   css`
     color: ${theme.colors[colorMap[type]]};
   `;

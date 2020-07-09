@@ -71,7 +71,7 @@ const spacingStyles = ({ theme, spacing }) => {
  * Card component that is used for displaying content on a grid.
  */
 const Card = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'spacing',
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
 })(baseStyles, shadowStyles, spacingStyles);
 
 Card.propTypes = {

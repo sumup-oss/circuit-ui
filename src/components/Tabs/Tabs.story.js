@@ -35,7 +35,7 @@ const tabs = [
   { id: 'four', tab: 'Tab 4', panel: 'Content 4' },
 ];
 
-const TabsWithState = props => {
+const TabsWithState = (props) => {
   const [selected, setSelected] = useState(0);
 
   return (

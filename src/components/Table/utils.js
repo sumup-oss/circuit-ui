@@ -20,16 +20,17 @@ import { childrenPropType } from '../../util/shared-prop-types';
 
 import { ASCENDING, DESCENDING } from './constants';
 
-export const mapRowProps = props => (isArray(props) ? { cells: props } : props);
+export const mapRowProps = (props) =>
+  isArray(props) ? { cells: props } : props;
 
-export const getRowCells = props => mapRowProps(props).cells;
+export const getRowCells = (props) => mapRowProps(props).cells;
 
-export const mapCellProps = props =>
+export const mapCellProps = (props) =>
   isString(props) || isNumber(props) ? { children: props } : props;
 
-export const getCellChildren = props => mapCellProps(props).children;
+export const getCellChildren = (props) => mapCellProps(props).children;
 
-export const getSortByValue = props =>
+export const getSortByValue = (props) =>
   Object.prototype.hasOwnProperty.call(props, 'sortByValue')
     ? props.sortByValue
     : getCellChildren(props);

@@ -27,7 +27,7 @@ const transform: Transform = (file, api) => {
     return;
   }
 
-  components.forEach(component => {
+  components.forEach((component) => {
     renameJSXAttribute(j, root, component, 'on', 'checked');
     renameJSXAttribute(j, root, component, 'labelOn', 'labelChecked');
     renameJSXAttribute(j, root, component, 'labelOff', 'labelUnchecked');

@@ -25,7 +25,7 @@ function transformFactory(
   const [oldComponentName, newComponentName] = componentNames;
   const imports = findImportsByPath(j, root, '@sumup/circuit-ui');
 
-  const componentImport = imports.find(i => i.name === oldComponentName);
+  const componentImport = imports.find((i) => i.name === oldComponentName);
 
   if (!componentImport) {
     return;
@@ -33,7 +33,7 @@ function transformFactory(
 
   root
     .find(j.Identifier)
-    .filter(nodePath => nodePath.node.name === oldComponentName)
+    .filter((nodePath) => nodePath.node.name === oldComponentName)
     .replaceWith(j.identifier(newComponentName));
 }
 
@@ -47,7 +47,7 @@ const transform: Transform = (file, api) => {
     ['Message', 'Notification'],
     ['InlineNotification', 'InlineMessage'],
     ['GlobalStyles', 'BaseStyles'],
-  ].forEach(componentNames => {
+  ].forEach((componentNames) => {
     transformFactory(j, root, componentNames);
   });
 

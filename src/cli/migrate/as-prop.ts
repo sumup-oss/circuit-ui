@@ -28,7 +28,7 @@ function transformFactory(
     return;
   }
 
-  components.forEach(component => {
+  components.forEach((component) => {
     renameJSXAttribute(j, root, component, 'element', 'as');
   });
 }
@@ -37,7 +37,7 @@ const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  ['Heading', 'SubHeading', 'Text', 'Input'].forEach(componentName => {
+  ['Heading', 'SubHeading', 'Text', 'Input'].forEach((componentName) => {
     transformFactory(j, root, componentName);
   });
 

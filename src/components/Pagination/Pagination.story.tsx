@@ -33,8 +33,8 @@ const BasePagination = (props: Partial<PaginationProps>) => {
     <Pagination
       label={text('Label', 'Pagination')}
       totalPages={number('Total pages', 5)}
-      pageLabel={p => `${text('Page label', 'Go to page')} ${p}`}
-      totalLabel={t => `${text('Total label', 'of')} ${t}`}
+      pageLabel={(p) => `${text('Page label', 'Go to page')} ${p}`}
+      totalLabel={(t) => `${text('Total label', 'of')} ${t}`}
       previousLabel={text('Previous label', 'Previous page')}
       nextLabel={text('Next label', 'Next page')}
       currentPage={page}

@@ -17,7 +17,7 @@ import React from 'react';
 
 import Tag from '.';
 
-const DummyIcon = props => <div data-testid="tag-icon" {...props} />;
+const DummyIcon = (props) => <div data-testid="tag-icon" {...props} />;
 
 describe('Tag', () => {
   /**

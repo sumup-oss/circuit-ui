@@ -26,13 +26,13 @@ function charToRegex(value) {
 function stringToRegex(value) {
   return value
     .split('')
-    .map(v => charToRegex(v))
+    .map((v) => charToRegex(v))
     .join('')
     .replace(/[\s]/g, '\\s');
 }
 
 function arrayOfStringsToRegex(values = []) {
-  return values.map(value => stringToRegex(value));
+  return values.map((value) => stringToRegex(value));
 }
 
 export function currencyToRegex(

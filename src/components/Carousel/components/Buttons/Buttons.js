@@ -45,13 +45,13 @@ Button.defaultProps = {
   size: 'kilo',
 };
 
-export const NextButton = props => (
+export const NextButton = (props) => (
   <Button label="Next" {...props}>
     <ChevronRight />
   </Button>
 );
 
-export const PrevButton = props => (
+export const PrevButton = (props) => (
   <Button label="Previous" {...props}>
     <ChevronLeft />
   </Button>

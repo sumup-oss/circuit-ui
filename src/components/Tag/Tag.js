@@ -126,13 +126,13 @@ const Tag = React.forwardRef(
     const prefixElement = Prefix && (
       <Prefix
         selected={selected}
-        css={theme => prefixStyles({ theme, selected })}
+        css={(theme) => prefixStyles({ theme, selected })}
       />
     );
     const suffixElement = Suffix && (
       <Suffix
         selected={selected}
-        css={theme => suffixStyles({ theme, selected })}
+        css={(theme) => suffixStyles({ theme, selected })}
       />
     );
     const handleClick = useClickHandler(onClick, tracking, 'tag');

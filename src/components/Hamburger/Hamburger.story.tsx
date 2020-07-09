@@ -26,7 +26,7 @@ export default {
 const HamburgerWithState = (props: HamburgerProps) => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
-    setActive(prev => !prev);
+    setActive((prev) => !prev);
   };
   return <Hamburger isActive={active} onClick={handleClick} {...props} />;
 };

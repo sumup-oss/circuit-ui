@@ -33,7 +33,7 @@ describe('PageList', () => {
 
   const baseProps: PageListProps = {
     onChange: jest.fn(),
-    pageLabel: page => `Go to page ${page}`,
+    pageLabel: (page) => `Go to page ${page}`,
     pages: [1, 2, 3],
     currentPage: 1,
   };

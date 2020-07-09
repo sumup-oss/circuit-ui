@@ -40,7 +40,7 @@ export const ModalConsumer = ModalContext.Consumer;
 
 export const useModal = (): ModalContextType => useContext(ModalContext);
 
-export const ModalProvider: FC<Pick<ModalProps, 'appElement'>> = props => {
+export const ModalProvider: FC<Pick<ModalProps, 'appElement'>> = (props) => {
   const [isOpen, setOpen] = useState(false);
   const [modal, setModal] = useState<ModalProps | null>(null);
 

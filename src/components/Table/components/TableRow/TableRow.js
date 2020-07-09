@@ -70,7 +70,7 @@ const clickableStyles = ({ theme, onClick }) =>
 const Tr = styled.tr(baseStyles, clickableStyles);
 
 const TableRow = ({ onClick, ...props }) => {
-  const handleKeyDown = event => {
+  const handleKeyDown = (event) => {
     if (isEnter(event) || isSpacebar(event)) {
       onClick();
     }

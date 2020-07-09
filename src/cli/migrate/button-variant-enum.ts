@@ -28,9 +28,9 @@ function transformFactory(
     return;
   }
 
-  components.forEach(component => {
+  components.forEach((component) => {
     // Change variants from boolean to enum prop
-    ['primary', 'secondary'].forEach(variant => {
+    ['primary', 'secondary'].forEach((variant) => {
       root
         .findJSXElements(component)
         .find(j.JSXAttribute, {

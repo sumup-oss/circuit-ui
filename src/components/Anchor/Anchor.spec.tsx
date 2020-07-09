@@ -62,7 +62,7 @@ describe('Anchor', () => {
       const props = {
         ...baseProps,
         'href': 'https://sumup.com',
-        'onClick': jest.fn(event => event.preventDefault()),
+        'onClick': jest.fn((event) => event.preventDefault()),
         'data-testid': 'anchor',
       };
       const { getByTestId } = renderAnchor(render, props);

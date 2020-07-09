@@ -28,7 +28,7 @@ function transformFactory(
     return;
   }
 
-  components.forEach(component => {
+  components.forEach((component) => {
     renameJSXAttribute(j, root, component, 'deepRef', 'ref');
   });
 }

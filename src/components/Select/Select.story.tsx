@@ -62,7 +62,7 @@ const StatefulSelect = (props: Partial<SelectProps>) => {
       name="select"
       options={options}
       value={value}
-      onChange={e => {
+      onChange={(e) => {
         action('Option selected')(e);
         setValue(e.target.value);
       }}

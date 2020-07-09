@@ -70,7 +70,7 @@ const selectedTabStyles = ({ theme, selected }) =>
     }
   `;
 
-const tabIndex = selected => (selected ? undefined : '-1');
+const tabIndex = (selected) => (selected ? undefined : '-1');
 
 /**
  * Tab component that represents a single tab inside a Tabs wrapper

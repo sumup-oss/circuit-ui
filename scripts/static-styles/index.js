@@ -43,7 +43,7 @@ export default function extractStaticStyles(options) {
   const opts = {
     ...options,
     theme: options.customProperties ? createTheme(theme) : theme,
-    components: config.components.filter(component =>
+    components: config.components.filter((component) =>
       options.components.includes(component.name),
     ),
     filePath: options.filePath || getFilePath(options),

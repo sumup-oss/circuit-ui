@@ -37,8 +37,8 @@ describe('Pagination', () => {
     label: 'Pagination',
     previousLabel: 'Previous',
     nextLabel: 'Next',
-    pageLabel: page => `Go to page ${page}`,
-    totalLabel: total => `of ${total}`,
+    pageLabel: (page) => `Go to page ${page}`,
+    totalLabel: (total) => `of ${total}`,
   };
 
   it('should disable the previous button on the first page', () => {

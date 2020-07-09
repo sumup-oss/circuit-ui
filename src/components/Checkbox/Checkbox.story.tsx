@@ -37,7 +37,7 @@ const CheckboxWithState = ({
   const [checked, setChecked] = useState(initial);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     action('Checkbox clicked')(event);
-    setChecked(prev => !prev);
+    setChecked((prev) => !prev);
   };
   return (
     <Checkbox

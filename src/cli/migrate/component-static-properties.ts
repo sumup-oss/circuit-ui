@@ -129,8 +129,8 @@ function transformFactory(
     return;
   }
 
-  localNames.forEach(localName => {
-    properties.forEach(property => {
+  localNames.forEach((localName) => {
+    properties.forEach((property) => {
       findProperty(j, root, `${localName}.${property}`).replaceWith(
         j.stringLiteral(toLower(property)),
       );

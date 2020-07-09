@@ -76,7 +76,7 @@ const YesOrNoSlider = ({ images, ...stepProps }) => {
     <Step totalSteps={images.length} {...stepProps}>
       {({ state, actions, getPreviousControlProps, getNextControlProps }) => (
         <SliderWrapper>
-          <Swipeable onSwiped={eventData => handleSwipe(eventData, actions)}>
+          <Swipeable onSwiped={(eventData) => handleSwipe(eventData, actions)}>
             <SliderImage
               src={images[state.step]}
               alt="random pic"

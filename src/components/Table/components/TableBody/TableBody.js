@@ -27,7 +27,7 @@ import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 
-const getRowKey = index => `${TR_KEY_PREFIX}-${index}`;
+const getRowKey = (index) => `${TR_KEY_PREFIX}-${index}`;
 const getCellKey = (rowIndex, cellIndex) =>
   `${TD_KEY_PREFIX}-${rowIndex}-${cellIndex}`;
 

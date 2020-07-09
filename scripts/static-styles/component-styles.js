@@ -106,7 +106,7 @@ export default function componentStyles({ components, theme } = {}) {
 
       // Render each prop variation (not combination).
       entries(props).forEach(([key, variations]) => {
-        variations.forEach(value => {
+        variations.forEach((value) => {
           renderFn(Component, { ...baseProps, [key]: value }, name);
         });
       });

@@ -41,7 +41,7 @@ export const base = () => (
 );
 
 export const size = () =>
-  sizes.map(s => (
+  sizes.map((s) => (
     <SubHeading key={s} size={s}>
       This is a {s} subheading.
     </SubHeading>

@@ -143,7 +143,7 @@ const clickableStyles = ({
  * A badge for displaying update notifications etc.
  */
 const StyledBadge = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'color',
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'color',
 })<BadgeProps>(baseStyles, colorStyles, circleStyles, clickableStyles);
 
 /* eslint-disable react/display-name */
