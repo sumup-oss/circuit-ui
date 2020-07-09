@@ -227,14 +227,14 @@ TableHeader.propTypes = {
 };
 
 TableHeader.defaultProps = {
-  align: 'left',
-  scope: 'col',
-  fixed: false,
-  sortable: false,
-  isHovered: false,
-  children: null,
-  sortDirection: null,
-  isSorted: false,
+  'align': 'left',
+  'scope': 'col',
+  'fixed': false,
+  'sortable': false,
+  'isHovered': false,
+  'children': null,
+  'sortDirection': null,
+  'isSorted': false,
   'data-testid': 'table-header',
 };
 

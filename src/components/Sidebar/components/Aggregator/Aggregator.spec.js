@@ -18,10 +18,10 @@ import React, { Component, Fragment } from 'react';
 import Aggregator from './Aggregator';
 
 const props = {
-  label: 'Aggregator',
-  onClick: jest.fn(),
-  selectedIcon: 'selected-icon',
-  defaultIcon: 'default-icon',
+  'label': 'Aggregator',
+  'onClick': jest.fn(),
+  'selectedIcon': 'selected-icon',
+  'defaultIcon': 'default-icon',
   'data-testid': 'aggregator',
 };
 

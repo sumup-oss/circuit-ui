@@ -19,10 +19,10 @@ import Link from './Link';
 
 describe('Link', () => {
   const defaultProps = {
-    children: 'Click me',
-    href: 'https://sumup.com',
-    target: '_blank',
-    rel: 'noreferrer',
+    'children': 'Click me',
+    'href': 'https://sumup.com',
+    'target': '_blank',
+    'rel': 'noreferrer',
     'data-testid': 'link',
   };
 

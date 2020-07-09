@@ -27,20 +27,20 @@ export interface HamburgerProps
   /**
    * When active, the Hamburger transform into a close button.
    */
-  isActive?: boolean;
+  'isActive'?: boolean;
   /**
    * Label for the 'active' state. Important for accessibility.
    */
-  labelActive: string;
+  'labelActive': string;
   /**
    * Label for the 'inactive' state. Important for accessibility.
    */
-  labelInActive: string;
+  'labelInActive': string;
   'data-testid'?: string;
   /**
    * Additional data that is dispatched with the tracking event.
    */
-  tracking?: TrackingProps;
+  'tracking'?: TrackingProps;
 }
 
 const LAYER_HEIGHT = '2px';

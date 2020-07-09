@@ -61,8 +61,8 @@ describe('Anchor', () => {
     it('should call the onClick handler when rendered as a link', () => {
       const props = {
         ...baseProps,
-        href: 'https://sumup.com',
-        onClick: jest.fn(event => event.preventDefault()),
+        'href': 'https://sumup.com',
+        'onClick': jest.fn(event => event.preventDefault()),
         'data-testid': 'anchor',
       };
       const { getByTestId } = renderAnchor(render, props);
@@ -77,7 +77,7 @@ describe('Anchor', () => {
     it('should call the onClick handler when rendered as a button', () => {
       const props = {
         ...baseProps,
-        onClick: jest.fn(),
+        'onClick': jest.fn(),
         'data-testid': 'anchor',
       };
       const { getByTestId } = renderAnchor(render, props);

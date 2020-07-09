@@ -64,22 +64,22 @@ export function generatePropGetters(actions = {}) {
   const getPlayControlProps = (props = {}) => ({
     'aria-label': 'play',
     ...props,
-    onClick: over([props.onClick, actions.play]),
+    'onClick': over([props.onClick, actions.play]),
   });
   const getPauseControlProps = (props = {}) => ({
     'aria-label': 'pause',
     ...props,
-    onClick: over([props.onClick, actions.pause]),
+    'onClick': over([props.onClick, actions.pause]),
   });
   const getNextControlProps = (props = {}) => ({
     'aria-label': 'next',
     ...props,
-    onClick: over([props.onClick, actions.next]),
+    'onClick': over([props.onClick, actions.next]),
   });
   const getPreviousControlProps = (props = {}) => ({
     'aria-label': 'previous',
     ...props,
-    onClick: over([props.onClick, actions.previous]),
+    'onClick': over([props.onClick, actions.previous]),
   });
 
   return {

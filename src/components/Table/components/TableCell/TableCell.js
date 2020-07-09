@@ -111,9 +111,9 @@ TableCell.propTypes = {
 
 TableCell.defaultProps = {
   'data-testid': 'table-cell',
-  align: 'left',
-  header: false,
-  isHovered: false,
+  'align': 'left',
+  'header': false,
+  'isHovered': false,
 };
 
 export default TableCell;

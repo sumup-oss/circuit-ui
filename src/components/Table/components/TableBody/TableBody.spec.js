@@ -71,7 +71,7 @@ describe('TableBody', () => {
 
     it('should forward additional props to the row', () => {
       const testId = 'row-1-testId';
-      const rows = [{ cells: ['Foo', 'Bar'], 'data-testid': testId }];
+      const rows = [{ 'cells': ['Foo', 'Bar'], 'data-testid': testId }];
       const { getAllByTestId } = render(<TableBody rows={rows} />);
 
       expect(getAllByTestId(testId)).toHaveLength(1);
@@ -79,7 +79,7 @@ describe('TableBody', () => {
 
     it('should forward additional props to the cell', () => {
       const testId = 'cell-1-testId';
-      const rows = [[{ children: 'Foo', 'data-testid': testId }, 'Bar']];
+      const rows = [[{ 'children': 'Foo', 'data-testid': testId }, 'Bar']];
       const { getAllByTestId } = render(<TableBody rows={rows} />);
 
       expect(getAllByTestId(testId)).toHaveLength(1);

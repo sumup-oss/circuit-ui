@@ -40,11 +40,11 @@ export const base = () => (
     ]}
     rows={[
       {
-        cells: [
+        'cells': [
           'Lorem ipsum dolor',
           {
-            children: '12/01/2017',
-            sortByValue: 0,
+            'children': '12/01/2017',
+            'sortByValue': 0,
             'data-selector': 'item-1-cell-date-12/01/2017',
           },
           '-',

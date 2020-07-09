@@ -87,8 +87,8 @@ describe('Button', () => {
     it('should render as a link when passed the href prop', () => {
       const props = {
         ...baseProps,
-        href: '#',
-        onClick: jest.fn(),
+        'href': '#',
+        'onClick': jest.fn(),
         'data-testid': 'link-button',
       };
       const { getByTestId } = renderButton(render, props);
@@ -100,7 +100,7 @@ describe('Button', () => {
     it('should call the onClick handler when clicked', () => {
       const props = {
         ...baseProps,
-        onClick: jest.fn(),
+        'onClick': jest.fn(),
         'data-testid': 'link-button',
       };
       const { getByTestId } = renderButton(render, props);
