@@ -15,7 +15,6 @@
 
 import { renderHook, act } from '@testing-library/react-hooks';
 import { mocked } from 'ts-jest/utils';
-
 import * as Collector from '@sumup/collector';
 
 import useClickHandler from './use-click-handler';

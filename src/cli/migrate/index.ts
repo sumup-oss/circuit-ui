@@ -14,6 +14,7 @@
  */
 
 import fs from 'fs';
+
 import { sync as spawn } from 'cross-spawn';
 
 export interface MigrateArgs {

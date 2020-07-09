@@ -19,6 +19,7 @@ import { action } from '@storybook/addon-actions';
 import { ThumbUp } from '@sumup/icons';
 
 import docs from './Button.docs.mdx';
+
 import Button from '.';
 
 export default {

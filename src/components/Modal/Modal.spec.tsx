@@ -16,11 +16,10 @@
 import React from 'react';
 
 import { render, act, userEvent, wait } from '../../util/test-utils';
-
 import Button from '../Button';
+
 import { ModalProps } from './Modal';
 import { ModalConsumer, ModalProvider } from './ModalContext';
-
 import * as MockedModal from './Modal';
 
 describe('Modal', () => {

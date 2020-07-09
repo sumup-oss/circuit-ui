@@ -18,12 +18,14 @@ import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { css } from '@emotion/core';
 
-import docs from './Card.docs.mdx';
-import Card, { CardHeader, CardFooter } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
+
+import docs from './Card.docs.mdx';
+
+import Card, { CardHeader, CardFooter } from '.';
 
 export default {
   title: 'Components/Card',

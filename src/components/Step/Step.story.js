@@ -19,7 +19,6 @@ import { action } from '@storybook/addon-actions';
 
 import Step from './Step';
 import docs from './Step.docs.mdx';
-
 import CarouselSlider from './examples/CarouselSlider';
 import YesOrNoSlider from './examples/YesOrNoSlider';
 import MultiStepForm from './examples/MultiStepForm';

@@ -17,7 +17,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { uniqueId } from '../../util/id';
-
 import RadioButton from '../RadioButton';
 
 /**

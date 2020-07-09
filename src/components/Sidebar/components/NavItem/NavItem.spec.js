@@ -16,6 +16,7 @@
 import React from 'react';
 
 import NavList from '../NavList';
+
 import NavItem from '.';
 
 describe('NavItem', () => {

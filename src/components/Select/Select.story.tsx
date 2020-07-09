@@ -19,6 +19,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 import { FlagDe, FlagUs, FlagFr } from '@sumup/icons';
 
 import { uniqueId } from '../../util/id';
+
 import { Select, SelectProps } from './Select';
 import docs from './Select.docs.mdx';
 

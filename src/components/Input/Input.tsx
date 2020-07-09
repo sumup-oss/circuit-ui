@@ -24,7 +24,6 @@ import {
   inputOutline
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
-
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';

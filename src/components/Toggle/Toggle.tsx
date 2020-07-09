@@ -18,9 +18,9 @@ import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
+import { Text, TextProps } from '../Text/Text';
 
 import { Switch, SwitchProps } from './components/Switch/Switch';
-import { Text, TextProps } from '../Text/Text';
 
 export interface ToggleProps extends SwitchProps {
   /**

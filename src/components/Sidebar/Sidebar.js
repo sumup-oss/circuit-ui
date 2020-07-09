@@ -18,6 +18,8 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+import useClickHandler from '../../hooks/use-click-handler';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import NavList from './components/NavList';
@@ -26,7 +28,6 @@ import Backdrop from './components/Backdrop';
 import CloseButton from './components/CloseButton';
 import Aggregator from './components/Aggregator';
 import Separator from './components/Separator';
-import useClickHandler from '../../hooks/use-click-handler';
 
 const SIDEBAR_WIDTH = 256;
 

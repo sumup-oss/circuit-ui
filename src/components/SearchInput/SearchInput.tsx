@@ -17,7 +17,6 @@ import React from 'react';
 import { Search, Cross } from '@sumup/icons';
 
 import styled from '../../styles/styled';
-
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
 import IconButton from '../IconButton';

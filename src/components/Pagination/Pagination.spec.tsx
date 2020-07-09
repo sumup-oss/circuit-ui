@@ -23,6 +23,7 @@ import {
   RenderFn,
   userEvent
 } from '../../util/test-utils';
+
 import { Pagination, PaginationProps } from './Pagination';
 
 describe('Pagination', () => {

@@ -15,8 +15,10 @@
 
 import PropTypes from 'prop-types';
 import { isString, isNumber, isArray, curry } from 'lodash/fp';
-import { ASCENDING, DESCENDING } from './constants';
+
 import { childrenPropType } from '../../util/shared-prop-types';
+
+import { ASCENDING, DESCENDING } from './constants';
 
 export const mapRowProps = props => (isArray(props) ? { cells: props } : props);
 

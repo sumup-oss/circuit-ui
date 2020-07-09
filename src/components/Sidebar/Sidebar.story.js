@@ -29,9 +29,11 @@ import {
 } from '@sumup/icons';
 
 import Button from '../Button';
+
 import docs from './Sidebar.docs.mdx';
-import Sidebar from '.';
 import Separator from './components/Separator';
+
+import Sidebar from '.';
 
 const Viewport = styled.div`
   height: 100vh;

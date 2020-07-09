@@ -17,6 +17,7 @@ import React, { useState } from 'react';
 import { select } from '@storybook/addon-knobs';
 
 import docs from '../Button/Button.docs.mdx';
+
 import { LoadingButton, LoadingButtonProps } from './LoadingButton';
 
 export default {

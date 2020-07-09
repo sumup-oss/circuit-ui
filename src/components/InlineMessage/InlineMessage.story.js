@@ -15,10 +15,11 @@
 
 import React from 'react';
 
-import docs from './InlineMessage.docs.mdx';
-import InlineMessage from './InlineMessage';
 import Card from '../Card';
 import Text from '../Text';
+
+import docs from './InlineMessage.docs.mdx';
+import InlineMessage from './InlineMessage';
 
 export default {
   title: 'Forms/InlineMessage',

@@ -16,11 +16,13 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import docs from './Notification.docs.mdx';
-import Notification, { NotificationIcon, NotificationButton } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
+
+import docs from './Notification.docs.mdx';
+
+import Notification, { NotificationIcon, NotificationButton } from '.';
 
 export default {
   title: 'Components/Notification',

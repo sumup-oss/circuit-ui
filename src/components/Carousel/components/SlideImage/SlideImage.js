@@ -20,7 +20,6 @@ import { css } from '@emotion/core';
 
 import Image from '../../../Image';
 import AspectRatio from '../../../AspectRatio';
-
 import { ASPECT_RATIO } from '../../constants';
 
 const backgroundStyles = ({ theme }) => css`

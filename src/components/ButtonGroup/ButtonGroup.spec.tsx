@@ -16,8 +16,8 @@
 import React from 'react';
 
 import { create, renderToHtml, axe } from '../../util/test-utils';
-
 import Button from '../Button';
+
 import { ButtonGroup } from './ButtonGroup';
 
 describe('ButtonGroup', () => {

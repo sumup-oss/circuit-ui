@@ -14,9 +14,9 @@
  */
 
 /* eslint-disable max-len */
-import * as SlideService from './SlideService';
-
 import { SLIDE_DIRECTIONS } from '../../constants';
+
+import * as SlideService from './SlideService';
 
 describe('SlideService', () => {
   describe('getStackOrder', () => {

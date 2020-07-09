@@ -16,8 +16,9 @@
 import React from 'react';
 import { select, boolean } from '@storybook/addon-knobs';
 
-import Text from '.';
 import docs from './Text.docs.mdx';
+
+import Text from '.';
 
 const elements = ['p', 'article', 'div', 'span', 'strong', 'em'];
 const sizes = ['kilo', 'mega', 'giga'] as const;

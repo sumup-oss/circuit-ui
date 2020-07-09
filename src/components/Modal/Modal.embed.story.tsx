@@ -21,6 +21,7 @@ import { action } from '@storybook/addon-actions';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
+
 import { ModalWrapper, ModalHeader, ModalFooter } from './components';
 
 export default {

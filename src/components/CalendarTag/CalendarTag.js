@@ -17,7 +17,6 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-
 import { START_DATE } from 'react-dates/constants';
 
 import { RangePickerController } from '../Calendar';

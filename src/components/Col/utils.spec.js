@@ -14,6 +14,7 @@
  */
 
 import { head, last } from 'lodash/fp';
+
 import * as utils from './utils';
 import { DEFAULT_BREAKPOINT } from './constants';
 

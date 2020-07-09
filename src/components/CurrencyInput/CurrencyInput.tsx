@@ -20,6 +20,7 @@ import TextMaskInput from 'react-text-mask';
 import styled from '../../styles/styled';
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
+
 import { createCurrencyMask, formatPlaceholder } from './CurrencyInputService';
 
 export interface CurrencyInputProps

@@ -17,9 +17,9 @@ import React from 'react';
 import { identity } from 'lodash/fp';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
+import Label from '../Label';
 
 import SearchInput from '.';
-import Label from '../Label';
 
 describe('SearchInput', () => {
   /**

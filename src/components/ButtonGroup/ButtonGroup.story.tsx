@@ -17,6 +17,7 @@ import React from 'react';
 import { select, boolean } from '@storybook/addon-knobs';
 
 import Button from '../Button';
+
 import { ButtonGroup } from './ButtonGroup';
 
 export default {

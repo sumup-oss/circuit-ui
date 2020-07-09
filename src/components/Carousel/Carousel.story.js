@@ -26,10 +26,8 @@ import Controls from './components/Controls';
 import { ButtonList, NextButton, PrevButton } from './components/Buttons';
 import Status from './components/Status';
 import { ASPECT_RATIO, ANIMATION_DURATION, SLIDE_DURATION } from './constants';
-
 import Carousel from './Carousel';
 import docs from './Carousel.docs.mdx';
-
 import { SLIDES } from './__fixtures__';
 
 export default {

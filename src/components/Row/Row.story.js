@@ -17,8 +17,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import Row from './Row';
 import Col from '../Col';
+
+import Row from './Row';
 
 export default {
   title: 'Layout/Grid/Row',

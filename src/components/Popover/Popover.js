@@ -21,6 +21,7 @@ import { css } from '@emotion/core';
 
 import Portal from '../Portal';
 import { positionPropType, alignPropType } from '../../util/shared-prop-types';
+
 import { toPopperPlacement, popperModifiers } from './PopoverService';
 
 const ReferenceWrapper = styled('div')`

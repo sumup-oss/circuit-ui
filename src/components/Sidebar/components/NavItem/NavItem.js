@@ -22,6 +22,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { componentsPropType } from '../../../../util/shared-prop-types';
 import useClickHandler from '../../../../hooks/use-click-handler';
 import NavLabel from '../NavLabel';
+
 import { getIcon } from './utils';
 
 const baseStyles = ({ theme }) => css`

@@ -18,6 +18,7 @@ import { select, boolean, text } from '@storybook/addon-knobs';
 import { Download } from '@sumup/icons';
 
 import docs from '../Button/Button.docs.mdx';
+
 import { IconButton } from './IconButton';
 
 export default {

@@ -14,6 +14,7 @@
  */
 
 import { findIndex } from 'lodash/fp';
+
 import { isArray } from '../../../../util/type-check';
 
 const getSelectedChildIndex = children =>

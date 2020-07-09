@@ -16,8 +16,9 @@
 import yargs from 'yargs';
 import { keys } from 'lodash/fp';
 
-import extractStaticStyles from '.';
 import config from './config';
+
+import extractStaticStyles from '.';
 
 const themeOpts = keys(config.themes);
 const componentOpts = config.components.map(({ name }) => name);

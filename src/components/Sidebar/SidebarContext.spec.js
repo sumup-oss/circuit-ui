@@ -14,6 +14,7 @@
  */
 
 import React, { useContext } from 'react';
+
 import {
   SidebarContext,
   SidebarContextProvider,

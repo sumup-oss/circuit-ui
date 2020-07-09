@@ -19,6 +19,8 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isNil, throttle } from 'lodash/fp';
 
+import { shadowSingle } from '../../styles/style-helpers';
+
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
 import {
@@ -28,7 +30,6 @@ import {
   RowPropType
 } from './utils';
 import { ASCENDING } from './constants';
-import { shadowSingle } from '../../styles/style-helpers';
 
 /**
  * Table container styles.

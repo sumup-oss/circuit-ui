@@ -15,8 +15,9 @@
 
 import React from 'react';
 
-import Slide from './Slide';
 import { SLIDE_DIRECTIONS } from '../../constants';
+
+import Slide from './Slide';
 
 describe('Slide', () => {
   describe('styles', () => {

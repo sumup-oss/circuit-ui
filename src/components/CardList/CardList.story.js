@@ -18,6 +18,7 @@ import { range } from 'lodash/fp';
 import * as knobs from '@storybook/addon-knobs/react';
 
 import docs from './CardList.docs.mdx';
+
 import CardList from '.';
 
 class CardListStory extends Component {

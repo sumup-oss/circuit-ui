@@ -25,7 +25,6 @@ import {
   NextButton,
   PrevButton
 } from './components/Buttons';
-
 import Carousel from './Carousel';
 
 export const CarouselComposer = {

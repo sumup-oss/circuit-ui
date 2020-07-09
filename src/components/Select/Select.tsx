@@ -29,7 +29,6 @@ import {
 } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
 import useClickHandler from '../../hooks/use-click-handler';
-
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 

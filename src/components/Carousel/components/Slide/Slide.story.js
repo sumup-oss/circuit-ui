@@ -19,6 +19,7 @@ import { css } from '@emotion/core';
 
 import Heading from '../../../Heading';
 import Image from '../../../Image';
+
 import Slide from './Slide';
 
 const headingStyles = css`

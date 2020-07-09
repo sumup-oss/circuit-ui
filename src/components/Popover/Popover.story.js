@@ -17,9 +17,10 @@
 import React, { useState } from 'react';
 import { select, boolean } from '@storybook/addon-knobs/react';
 
-import Popover from './Popover';
 import Button from '../Button';
 import Card from '../Card';
+
+import Popover from './Popover';
 
 const positions = ['top', 'bottom', 'left', 'right'];
 const alignments = ['start', 'end', 'center'];

@@ -24,6 +24,7 @@ import {
   childrenPropType,
   childrenRenderPropType
 } from '../../util/shared-prop-types';
+import useComponentSize from '../../hooks/use-component-size';
 
 import Container from './components/Container';
 import Slides from './components/Slides';
@@ -37,8 +38,6 @@ import {
   PrevButton,
   PlayButton
 } from './components/Buttons';
-
-import useComponentSize from '../../hooks/use-component-size';
 import {
   ASPECT_RATIO,
   ANIMATION_DURATION,

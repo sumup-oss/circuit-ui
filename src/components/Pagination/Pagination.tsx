@@ -21,6 +21,7 @@ import { Dispatch as TrackingProps, useClickTrigger } from '@sumup/collector';
 
 import styled from '../../styles/styled';
 import IconButton from '../IconButton';
+
 import { PageSelect } from './components/PageSelect';
 import { PageList } from './components/PageList';
 import * as PaginationService from './PaginationService';

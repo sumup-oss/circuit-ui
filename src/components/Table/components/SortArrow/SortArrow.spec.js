@@ -15,8 +15,9 @@
 
 import React from 'react';
 
-import SortArrow from '.';
 import { ASCENDING, DESCENDING } from '../../constants';
+
+import SortArrow from '.';
 
 describe('SortArrow', () => {
   describe('Style tests', () => {

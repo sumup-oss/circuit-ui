@@ -17,6 +17,7 @@ import React, { useState, Fragment } from 'react';
 import * as knobs from '@storybook/addon-knobs/react';
 
 import docs from './Tabs.docs.mdx';
+
 import { Tabs, TabList, TabPanel, Tab } from '.';
 
 export default {

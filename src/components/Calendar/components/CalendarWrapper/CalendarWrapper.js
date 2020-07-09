@@ -22,6 +22,7 @@ import {
   textKilo,
   shadowTriple
 } from '../../../../styles/style-helpers';
+
 import CalendarInheritStyles from './CalendarImportedStyles';
 
 const baseStyles = (/* { theme } */) => css`

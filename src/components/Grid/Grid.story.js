@@ -16,9 +16,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import Grid from './Grid';
 import Col from '../Col';
 import Row from '../Row';
+
+import Grid from './Grid';
 
 const StyledCol = styled(Col)`
   color: ${p => p.theme.colors.white};

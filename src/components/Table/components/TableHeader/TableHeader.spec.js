@@ -15,8 +15,9 @@
 
 import React from 'react';
 
-import TableHeader from '.';
 import { ASCENDING, DESCENDING } from '../../constants';
+
+import TableHeader from '.';
 
 const children = 'Foo';
 

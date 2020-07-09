@@ -19,9 +19,9 @@ import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/core';
 
 import { childrenPropType } from '../../../../util/shared-prop-types';
+import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants';
 
 import * as SlideService from './SlideService';
-import { ANIMATION_DURATION, SLIDE_DIRECTIONS } from '../../constants';
 
 const baseStyles = ({ index, stackOrder, width }) => css`
   label: carousel__slide;
