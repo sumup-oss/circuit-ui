@@ -21,8 +21,8 @@ import CloseButton from './CloseButton';
 export default {
   title: 'Components/Button/CloseButton',
   parameters: {
-    component: CloseButton
-  }
+    component: CloseButton,
+  },
 };
 
 export const base = () => <CloseButton label={text('Label', 'Close')} />;

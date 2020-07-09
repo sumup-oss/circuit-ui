@@ -19,16 +19,17 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { isNil, throttle } from 'lodash/fp';
 
+import { shadowSingle } from '../../styles/style-helpers';
+
 import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
 import {
   getSortDirection,
   ascendingSort,
   descendingSort,
-  RowPropType
+  RowPropType,
 } from './utils';
 import { ASCENDING } from './constants';
-import { shadowSingle } from '../../styles/style-helpers';
 
 /**
  * Table container styles.
@@ -144,7 +145,7 @@ class Table extends Component {
     sortHover: null,
     sortDirection: null,
     scrollTop: null,
-    tableBodyHeight: null
+    tableBodyHeight: null,
   };
 
   componentDidMount() {
@@ -174,7 +175,7 @@ class Table extends Component {
 
     window.addEventListener(
       'resize',
-      throttle(1000, this.calculateTableBodyHeight)
+      throttle(1000, this.calculateTableBodyHeight),
     );
   };
 
@@ -186,19 +187,19 @@ class Table extends Component {
     this.setState({
       tableBodyHeight: isNil(this.tableContainer)
         ? 'unset'
-        : `${this.tableContainer.parentNode.offsetHeight}px`
+        : `${this.tableContainer.parentNode.offsetHeight}px`,
     });
   };
 
-  setTableRef = tableContainer => {
+  setTableRef = (tableContainer) => {
     this.tableContainer = tableContainer;
   };
 
-  onSortEnter = i => this.setState({ sortHover: i });
+  onSortEnter = (i) => this.setState({ sortHover: i });
 
   onSortLeave = () => this.setState({ sortHover: null });
 
-  onSortBy = i => {
+  onSortBy = (i) => {
     const { sortedRow, sortDirection } = this.state;
     const isActive = i === sortedRow;
     const nextDirection = getSortDirection(isActive, sortDirection);
@@ -222,7 +223,7 @@ class Table extends Component {
   updateSort = (i, nextDirection) =>
     this.setState({
       sortedRow: i,
-      sortDirection: nextDirection
+      sortDirection: nextDirection,
     });
 
   defaultSortBy = (i, direction, rows) => {
@@ -231,7 +232,7 @@ class Table extends Component {
     return [...rows].sort(sortFn(i));
   };
 
-  handleScroll = e => {
+  handleScroll = (e) => {
     this.setState({ scrollTop: e.target.scrollTop });
   };
 
@@ -251,7 +252,7 @@ class Table extends Component {
       sortHover,
       sortedRow,
       scrollTop,
-      tableBodyHeight
+      tableBodyHeight,
     } = this.state;
 
     const rows = this.getSortedRows();
@@ -315,8 +316,8 @@ Table.propTypes = {
   rows: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({ cells: PropTypes.arrayOf(RowPropType) }),
-      PropTypes.arrayOf(RowPropType)
-    ])
+      PropTypes.arrayOf(RowPropType),
+    ]),
   ),
   /**
    * Enables/disables sticky columns on mobile
@@ -348,7 +349,7 @@ Table.propTypes = {
   /**
    * Collapses the table cells.
    */
-  borderCollapsed: PropTypes.bool
+  borderCollapsed: PropTypes.bool,
 };
 
 Table.defaultProps = {
@@ -360,7 +361,7 @@ Table.defaultProps = {
   noShadow: false,
   onSortBy: null,
   onRowClick: null,
-  borderCollapsed: false
+  borderCollapsed: false,
 };
 
 export default Table;

@@ -29,7 +29,7 @@ describe('Title', () => {
     const { getByTestId } = render(
       <Title>
         <span data-testid="child">Title</span>
-      </Title>
+      </Title>,
     );
     const childEl = getByTestId('child');
     expect(childEl).not.toBeNull();

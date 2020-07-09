@@ -22,20 +22,20 @@ describe('Tooltip', () => {
    * Style tests.
    */
   const positions = ['top', 'right', 'bottom', 'left'];
-  positions.forEach(position => {
+  positions.forEach((position) => {
     it(`should render with position ${position}, when passed "${position}" for the position prop`, () => {
       const component = create(
-        <Tooltip position={position}>Tooltip content</Tooltip>
+        <Tooltip position={position}>Tooltip content</Tooltip>,
       );
       expect(component).toMatchSnapshot();
     });
   });
 
   const alignments = ['right', 'left', 'top', 'bottom', 'center'];
-  alignments.forEach(align => {
+  alignments.forEach((align) => {
     it(`should render with align ${align}, when passed "${align}" for the align prop`, () => {
       const component = create(
-        <Tooltip align={align}>Tooltip content</Tooltip>
+        <Tooltip align={align}>Tooltip content</Tooltip>,
       );
       expect(component).toMatchSnapshot();
     });
@@ -45,7 +45,7 @@ describe('Tooltip', () => {
     const component = create(
       <Tooltip align={'left'} position={'left'}>
         Tooltip content
-      </Tooltip>
+      </Tooltip>,
     );
     expect(component).toMatchSnapshot();
   });
@@ -57,7 +57,7 @@ describe('Tooltip', () => {
     const wrapper = renderToHtml(
       <Tooltip align={'center'} content="Tooltip">
         Text
-      </Tooltip>
+      </Tooltip>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

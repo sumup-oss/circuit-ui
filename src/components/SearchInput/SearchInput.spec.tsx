@@ -17,9 +17,9 @@ import React from 'react';
 import { identity } from 'lodash/fp';
 
 import { create, render, renderToHtml, axe } from '../../util/test-utils';
+import Label from '../Label';
 
 import SearchInput from '.';
-import Label from '../Label';
 
 describe('SearchInput', () => {
   /**
@@ -39,7 +39,7 @@ describe('SearchInput', () => {
     const onClear = jest.fn(identity);
 
     const { getByTestId } = render(
-      <SearchInput value="search value" onClear={onClear} />
+      <SearchInput value="search value" onClear={onClear} />,
     );
     expect(getByTestId('input-clear')).toBeVisible();
   });
@@ -64,7 +64,7 @@ describe('SearchInput', () => {
       <Label htmlFor="search">
         <SearchInput id="search" />
         Search
-      </Label>
+      </Label>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

@@ -27,7 +27,7 @@ const transform: Transform = (file, api) => {
     return;
   }
 
-  components.forEach(component => {
+  components.forEach((component) => {
     renameJSXAttribute(j, root, component, 'color', 'variant');
   });
 

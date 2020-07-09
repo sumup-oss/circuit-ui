@@ -21,7 +21,7 @@ import { BaseStyles } from './BaseStyles';
 import { createBaseStyles } from './BaseStylesService';
 
 jest.mock('./BaseStylesService', () => ({
-  createBaseStyles: jest.fn()
+  createBaseStyles: jest.fn(),
 }));
 
 describe('BaseStyles', () => {

@@ -23,8 +23,8 @@ export default {
   title: 'Typography/List',
   component: List,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const sizes: ['kilo', 'mega', 'giga'] = ['kilo', 'mega', 'giga'];
@@ -47,14 +47,14 @@ export const Base = () => (
 );
 
 export const Variant = () =>
-  variants.map(variant => (
+  variants.map((variant) => (
     <List key={variant} variant={variant}>
       <ListItems />
     </List>
   ));
 
 export const Size = () =>
-  sizes.map(size => (
+  sizes.map((size) => (
     <List key={size} size={size}>
       <ListItems />
     </List>

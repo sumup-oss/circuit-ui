@@ -23,8 +23,8 @@ export default {
   title: 'Forms/Selector',
   component: Selector,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 /* eslint-disable react/prop-types */
@@ -32,7 +32,7 @@ const SelectorWithState = (props: Partial<SelectorProps>) => {
   const [checked, setChecked] = useState(props.checked || false);
 
   const toggleChecked = () => {
-    setChecked(prev => !prev);
+    setChecked((prev) => !prev);
   };
 
   return (

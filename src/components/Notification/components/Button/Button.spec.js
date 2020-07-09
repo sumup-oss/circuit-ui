@@ -28,7 +28,7 @@ describe('NotificationButton', () => {
 
   it('should render alignment styles when passed the align prop', () => {
     const actual = create(
-      <NotificationButton align={NotificationButton.CENTER} />
+      <NotificationButton align={NotificationButton.CENTER} />,
     );
     expect(actual).toMatchSnapshot();
   });

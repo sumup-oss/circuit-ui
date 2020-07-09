@@ -20,6 +20,7 @@ import TextMaskInput from 'react-text-mask';
 import styled from '../../styles/styled';
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
+
 import { createCurrencyMask, formatPlaceholder } from './CurrencyInputService';
 
 export interface CurrencyInputProps
@@ -49,7 +50,7 @@ const DEFAULT_FORMAT = {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
   decimalSymbol: '.',
-  housandsSeparatorSymbol: ','
+  housandsSeparatorSymbol: ',',
 };
 
 const CurrencyIcon = styled('span')`
@@ -62,7 +63,7 @@ const CurrencyIcon = styled('span')`
 
 function CurrencyInputComponent(
   { locale, currency, placeholder, ...props }: CurrencyInputProps,
-  ref: CurrencyInputProps['ref']
+  ref: CurrencyInputProps['ref'],
 ) {
   const currencyFormat =
     resolveCurrencyFormat(locale, currency) || DEFAULT_FORMAT;
@@ -70,12 +71,12 @@ function CurrencyInputComponent(
     currencyPosition,
     currencySymbol,
     minimumFractionDigits,
-    maximumFractionDigits
+    maximumFractionDigits,
   } = currencyFormat;
   const numberMask = createCurrencyMask(currencyFormat, locale);
   const placeholderString = formatPlaceholder(placeholder, locale, {
     minimumFractionDigits,
-    maximumFractionDigits
+    maximumFractionDigits,
   });
 
   const renderPrefix =

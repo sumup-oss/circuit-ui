@@ -45,6 +45,6 @@ const baseStyles = ({ theme }: StyleProps) => css`
 // FIXME: Remove any typecast once the Card has been migrated to TypeScript.
 const Wrapper = styled(Card as any)<ModalWrapperProps>(baseStyles);
 
-export const ModalWrapper: FC<ModalWrapperProps> = props => (
+export const ModalWrapper: FC<ModalWrapperProps> = (props) => (
   <Wrapper shadow="triple" spacing="giga" {...props} />
 );

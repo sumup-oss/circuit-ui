@@ -23,7 +23,7 @@ import {
   axe,
   RenderFn,
   act,
-  userEvent
+  userEvent,
 } from '../../util/test-utils';
 
 import { Button, ButtonProps } from './Button';
@@ -44,7 +44,7 @@ describe('Button', () => {
     it('should render a secondary button', () => {
       const wrapper = renderButton(create, {
         ...baseProps,
-        variant: 'secondary'
+        variant: 'secondary',
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -52,7 +52,7 @@ describe('Button', () => {
     it('should render a tertiary button', () => {
       const wrapper = renderButton(create, {
         ...baseProps,
-        variant: 'tertiary'
+        variant: 'tertiary',
       });
       expect(wrapper).toMatchSnapshot();
     });
@@ -87,9 +87,9 @@ describe('Button', () => {
     it('should render as a link when passed the href prop', () => {
       const props = {
         ...baseProps,
-        href: '#',
-        onClick: jest.fn(),
-        'data-testid': 'link-button'
+        'href': '#',
+        'onClick': jest.fn(),
+        'data-testid': 'link-button',
       };
       const { getByTestId } = renderButton(render, props);
       const buttonEl = getByTestId('link-button');
@@ -100,8 +100,8 @@ describe('Button', () => {
     it('should call the onClick handler when clicked', () => {
       const props = {
         ...baseProps,
-        onClick: jest.fn(),
-        'data-testid': 'link-button'
+        'onClick': jest.fn(),
+        'data-testid': 'link-button',
       };
       const { getByTestId } = renderButton(render, props);
 
@@ -118,7 +118,7 @@ describe('Button', () => {
     it('should accept a working ref for a button', () => {
       const tref = React.createRef<HTMLButtonElement & HTMLAnchorElement>();
       const { container } = render(
-        <Button ref={tref}>This is a button</Button>
+        <Button ref={tref}>This is a button</Button>,
       );
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);
@@ -132,7 +132,7 @@ describe('Button', () => {
       const { container } = render(
         <Button href="http://sumup.com" ref={tref}>
           Link button
-        </Button>
+        </Button>,
       );
       const button = container.querySelector('a');
       expect(tref.current).toBe(button);

@@ -16,38 +16,39 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import Grid from './Grid';
 import Col from '../Col';
 import Row from '../Row';
 
+import Grid from './Grid';
+
 const StyledCol = styled(Col)`
-  color: ${p => p.theme.colors.white};
+  color: ${(p) => p.theme.colors.white};
   font-size: 14px;
   font-weight: bold;
   line-height: 20px;
   height: 40px;
   padding: 10px;
   &:nth-of-type(n) {
-    background-color: ${p => p.theme.colors.b500};
+    background-color: ${(p) => p.theme.colors.b500};
   }
 
   &:nth-of-type(2n) {
-    background-color: ${p => p.theme.colors.b300};
+    background-color: ${(p) => p.theme.colors.b300};
   }
 `;
 
 StyledCol.defaultProps = {
-  skip: '0'
+  skip: '0',
 };
 
 const StyledRow = styled(Row)`
-  border: 2px solid ${p => p.theme.colors.y100};
+  border: 2px solid ${(p) => p.theme.colors.y100};
   margin-bottom: 8px;
 `;
 
 export default {
   title: 'Layout/Grid/Grid',
-  component: Grid
+  component: Grid,
 };
 
 export const staticColumns = () => (

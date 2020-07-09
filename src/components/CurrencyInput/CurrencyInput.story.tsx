@@ -24,8 +24,8 @@ export default {
   title: 'Forms/Input/CurrencyInput',
   component: CurrencyInput,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const BaseCurrencyInput = (props: Partial<CurrencyInputProps>) => (

@@ -85,7 +85,7 @@ const trackOnStyles = ({ theme, checked }: StyleProps & TrackElProps) =>
 
 const SwitchTrack = styled('button')<TrackElProps>(
   trackBaseStyles,
-  trackOnStyles
+  trackOnStyles,
 );
 
 type KnobElProps = Pick<SwitchProps, 'checked'>;
@@ -138,7 +138,7 @@ export const Switch = React.forwardRef(
       tracking,
       ...props
     }: SwitchProps,
-    ref: SwitchProps['ref']
+    ref: SwitchProps['ref'],
   ) => {
     const handleChange = useClickHandler(onChange, tracking, 'toggle');
     return (
@@ -155,7 +155,7 @@ export const Switch = React.forwardRef(
         <SwitchLabel>{checked ? labelChecked : labelUnchecked}</SwitchLabel>
       </SwitchTrack>
     );
-  }
+  },
 );
 
 Switch.displayName = 'Switch';

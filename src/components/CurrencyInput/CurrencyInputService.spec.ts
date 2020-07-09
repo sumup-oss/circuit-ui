@@ -29,7 +29,7 @@ describe('CurrencyInputService', () => {
       const currencyFormat = {
         maximumFractionDigits: 2,
         decimalDelimiter: '.',
-        groupDelimiter: ','
+        groupDelimiter: ',',
       };
       createCurrencyMask(currencyFormat);
       const options = createNumberMask.mock.calls[0][0];
@@ -43,7 +43,7 @@ describe('CurrencyInputService', () => {
       const currencyFormat = {
         maximumFractionDigits: 2,
         decimalDelimiter: '.',
-        groupDelimiter: ','
+        groupDelimiter: ',',
       };
       const options = { foo: 'bar' };
       createCurrencyMask(currencyFormat, options);

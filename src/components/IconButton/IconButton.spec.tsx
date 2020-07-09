@@ -27,7 +27,7 @@ describe('IconButton', () => {
     const actual = create(
       <IconButton label="A fake SVG">
         <div>SVG here</div>
-      </IconButton>
+      </IconButton>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -39,7 +39,7 @@ describe('IconButton', () => {
     const wrapper = renderToHtml(
       <IconButton label="A fake SVG">
         <div>SVG here</div>
-      </IconButton>
+      </IconButton>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

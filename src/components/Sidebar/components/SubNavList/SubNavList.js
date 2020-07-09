@@ -17,8 +17,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { getSelectedChildIndex, getSecondaryChild } from './utils';
+
 import { childrenPropType } from '../../../../util/shared-prop-types';
+
+import { getSelectedChildIndex, getSecondaryChild } from './utils';
 
 const SUB_NAV_ITEM_HEIGHT = 32;
 
@@ -83,7 +85,7 @@ const SubNavigationContainer = styled.ul(
   baseStyles,
   selectedItemStyles,
   listStyles,
-  visibleStyles
+  visibleStyles,
 );
 
 const SubNavList = ({ children, visible, ...props }) => (
@@ -104,12 +106,12 @@ SubNavList.propTypes = {
   /**
    * If the SubNavList is currently visible
    */
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
 };
 
 SubNavList.defaultProps = {
   children: null,
-  visible: false
+  visible: false,
 };
 
 /**

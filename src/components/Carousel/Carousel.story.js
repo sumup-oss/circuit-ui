@@ -26,18 +26,16 @@ import Controls from './components/Controls';
 import { ButtonList, NextButton, PrevButton } from './components/Buttons';
 import Status from './components/Status';
 import { ASPECT_RATIO, ANIMATION_DURATION, SLIDE_DURATION } from './constants';
-
 import Carousel from './Carousel';
 import docs from './Carousel.docs.mdx';
-
 import { SLIDES } from './__fixtures__';
 
 export default {
   title: 'Components/Carousel',
   component: Carousel,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const CustomCarousel = ({ slides }) => {
@@ -56,7 +54,7 @@ const CustomCarousel = ({ slides }) => {
             step={step}
             style={{
               opacity: step === index ? 1 : 0,
-              transition: 'opacity .3s ease-in'
+              transition: 'opacity .3s ease-in',
             }}
           >
             <SlideImage

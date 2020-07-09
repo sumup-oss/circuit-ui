@@ -26,26 +26,26 @@ function charToRegex(value) {
 function stringToRegex(value) {
   return value
     .split('')
-    .map(v => charToRegex(v))
+    .map((v) => charToRegex(v))
     .join('')
     .replace(/[\s]/g, '\\s');
 }
 
 function arrayOfStringsToRegex(values = []) {
-  return values.map(value => stringToRegex(value));
+  return values.map((value) => stringToRegex(value));
 }
 
 export function currencyToRegex(
   thousandSeparators = [' ', '.', ',', "'", '`'],
   decimalNumbers = 2,
   decimalSeparators = ['.', ','],
-  thousandGroupNumbers = 3
+  thousandGroupNumbers = 3,
 ) {
   const thousandSeparatorsRegex = arrayOfStringsToRegex(
-    thousandSeparators
+    thousandSeparators,
   ).join('|');
   const decimalSeparatorsRegex = arrayOfStringsToRegex(decimalSeparators).join(
-    '|'
+    '|',
   );
 
   // eslint-disable-next-line prettier/prettier

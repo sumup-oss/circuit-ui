@@ -56,7 +56,7 @@ const baseStyles = ({ theme, ratios, children }) => {
           flex-grow: ${ratios[childIndex] || 1};
           width: auto;
         }
-      `
+      `,
     ).join('\n');
 
   return css`
@@ -143,7 +143,7 @@ const InlineElements = styled('div')(
   fallbackBaseStyles,
   baseStyles,
   fallbackInlineMobileStyles,
-  inlineMobileStyles
+  inlineMobileStyles,
 );
 
 InlineElements.propTypes = {
@@ -161,12 +161,12 @@ InlineElements.propTypes = {
    * to the flex-grow parameter, which they are
    * used with.
    */
-  ratios: PropTypes.arrayOf(PropTypes.number)
+  ratios: PropTypes.arrayOf(PropTypes.number),
 };
 
 InlineElements.defaultProps = {
   inlineMobile: false,
-  ratios: []
+  ratios: [],
 };
 
 /**

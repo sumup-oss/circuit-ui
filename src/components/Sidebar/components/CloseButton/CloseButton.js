@@ -51,7 +51,7 @@ CloseButton.propTypes = {
   /**
    * Tells if the CloseButton is visible
    */
-  visible: PropTypes.bool
+  visible: PropTypes.bool,
 };
 
 export default CloseButton;

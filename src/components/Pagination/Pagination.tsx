@@ -21,6 +21,7 @@ import { Dispatch as TrackingProps, useClickTrigger } from '@sumup/collector';
 
 import styled from '../../styles/styled';
 import IconButton from '../IconButton';
+
 import { PageSelect } from './components/PageSelect';
 import { PageList } from './components/PageList';
 import * as PaginationService from './PaginationService';
@@ -71,7 +72,7 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: ${p => p.theme.spacings.kilo};
+  padding: ${(p) => p.theme.spacings.kilo};
 `;
 
 const prevButtonStyles = (theme: Theme) =>
@@ -96,7 +97,7 @@ export const Pagination = ({
   label = 'Pagination',
   previousLabel = 'Previous page',
   nextLabel = 'Next page',
-  pageLabel = page => `Go to page ${page}`,
+  pageLabel = (page) => `Go to page ${page}`,
   totalLabel,
   tracking = {},
   ...props
@@ -108,7 +109,7 @@ export const Pagination = ({
     const {
       label: trackingLabel = pageNumber.toString(),
       component = 'pagination',
-      customParameters
+      customParameters,
     } = tracking;
 
     if (label) {

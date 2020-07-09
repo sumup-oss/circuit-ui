@@ -33,7 +33,7 @@ describe('NavLabel', () => {
       const actual = create(
         <NavLabel visible secondary>
           Item 01
-        </NavLabel>
+        </NavLabel>,
       );
       expect(actual).toMatchSnapshot();
     });

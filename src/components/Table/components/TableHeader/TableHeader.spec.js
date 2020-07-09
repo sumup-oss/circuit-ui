@@ -15,8 +15,9 @@
 
 import React from 'react';
 
-import TableHeader from '.';
 import { ASCENDING, DESCENDING } from '../../constants';
+
+import TableHeader from '.';
 
 const children = 'Foo';
 
@@ -29,7 +30,7 @@ describe('TableHeader', () => {
 
     it('should render with row styles', () => {
       const actual = create(
-        <TableHeader scope={'row'}>{children}</TableHeader>
+        <TableHeader scope={'row'}>{children}</TableHeader>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -42,7 +43,7 @@ describe('TableHeader', () => {
       const actual = create(
         <TableHeader sortable sortLabel={sortLabel}>
           {children}
-        </TableHeader>
+        </TableHeader>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -62,7 +63,7 @@ describe('TableHeader', () => {
         const actual = create(
           <TableHeader sortable isSorted sortDirection={ASCENDING}>
             {children}
-          </TableHeader>
+          </TableHeader>,
         );
         expect(actual).toMatchSnapshot();
       });
@@ -71,7 +72,7 @@ describe('TableHeader', () => {
         const actual = create(
           <TableHeader sortable isSorted sortDirection={DESCENDING}>
             {children}
-          </TableHeader>
+          </TableHeader>,
         );
         expect(actual).toMatchSnapshot();
       });
@@ -83,7 +84,7 @@ describe('TableHeader', () => {
       const wrapper = renderToHtml(
         <TableHeader sortable sortLabel="Sort by Foo">
           {children}
-        </TableHeader>
+        </TableHeader>,
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

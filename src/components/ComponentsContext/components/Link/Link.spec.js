@@ -19,11 +19,11 @@ import Link from './Link';
 
 describe('Link', () => {
   const defaultProps = {
-    children: 'Click me',
-    href: 'https://sumup.com',
-    target: '_blank',
-    rel: 'noreferrer',
-    'data-testid': 'link'
+    'children': 'Click me',
+    'href': 'https://sumup.com',
+    'target': '_blank',
+    'rel': 'noreferrer',
+    'data-testid': 'link',
   };
 
   describe('business logic', () => {
@@ -35,7 +35,7 @@ describe('Link', () => {
       const { container } = render(
         <Link {...defaultProps} ref={tref}>
           This is a link
-        </Link>
+        </Link>,
       );
       const link = container.querySelector('a');
       expect(tref.current).toBe(link);

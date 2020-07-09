@@ -14,6 +14,7 @@
  */
 
 import { css } from '@emotion/core';
+
 import styled, { StyleProps } from '../../styles/styled';
 
 export interface SpacingProps {
@@ -54,5 +55,5 @@ const marginTopStyles = ({ theme, top }: SpacingProps & StyleProps) =>
 export const Spacing = styled('div')<SpacingProps>(
   baseStyles,
   marginBottomStyles,
-  marginTopStyles
+  marginTopStyles,
 );

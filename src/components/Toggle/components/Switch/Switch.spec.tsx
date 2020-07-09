@@ -21,7 +21,7 @@ import { Switch } from './Switch';
 
 const defaultProps = {
   labelChecked: 'on',
-  labelUnchecked: 'off'
+  labelUnchecked: 'off',
 };
 
 describe('Switch', () => {
@@ -44,7 +44,7 @@ describe('Switch', () => {
   it('should call the change handler when toggled', () => {
     const onChange = jest.fn();
     const { getByTestId } = render(
-      <Switch {...defaultProps} onChange={onChange} data-testid="switch" />
+      <Switch {...defaultProps} onChange={onChange} data-testid="switch" />,
     );
     act(() => {
       userEvent.click(getByTestId('switch'));

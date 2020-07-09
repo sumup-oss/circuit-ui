@@ -22,7 +22,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import {
   disableVisually,
   hideVisually,
-  focusOutline
+  focusOutline,
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import Tooltip from '../Tooltip';
@@ -126,7 +126,7 @@ const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
 const CheckboxLabel = styled('label')<LabelElProps>(
   labelBaseStyles,
   labelDisabledStyles,
-  labelInvalidStyles
+  labelInvalidStyles,
 );
 
 const checkboxWrapperStyles = ({ theme }: StyleProps) => css`
@@ -182,7 +182,7 @@ const CheckboxComponent = (
     tracking,
     ...props
   }: CheckboxProps,
-  ref: CheckboxProps['ref']
+  ref: CheckboxProps['ref'],
 ) => {
   const id = customId || uniqueId('checkbox_');
   const handleChange = useClickHandler(props.onChange, tracking, 'checkbox');

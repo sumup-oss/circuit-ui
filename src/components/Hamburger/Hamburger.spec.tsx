@@ -22,7 +22,7 @@ import {
   render,
   act,
   userEvent,
-  RenderFn
+  RenderFn,
 } from '../../util/test-utils';
 
 import { Hamburger, HamburgerProps } from './Hamburger';
@@ -34,7 +34,7 @@ describe('Hamburger', () => {
 
   const baseProps = {
     labelActive: 'Close menu',
-    labelInActive: 'Open menu'
+    labelInActive: 'Open menu',
   };
 
   /**
@@ -58,7 +58,7 @@ describe('Hamburger', () => {
     const { getByTestId } = renderHamburger(render, {
       ...baseProps,
       onClick,
-      'data-testid': 'hamburger'
+      'data-testid': 'hamburger',
     });
 
     act(() => {

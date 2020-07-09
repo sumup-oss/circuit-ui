@@ -20,7 +20,7 @@ import { findLocalNames } from './utils';
 function transformFactory(
   j: JSCodeshift,
   root: Collection,
-  buttonName: string
+  buttonName: string,
 ): void {
   const components = findLocalNames(j, root, buttonName);
 
@@ -28,19 +28,19 @@ function transformFactory(
     return;
   }
 
-  components.forEach(component => {
+  components.forEach((component) => {
     // Change variants from boolean to enum prop
-    ['primary', 'secondary'].forEach(variant => {
+    ['primary', 'secondary'].forEach((variant) => {
       root
         .findJSXElements(component)
         .find(j.JSXAttribute, {
           name: {
             type: 'JSXIdentifier',
-            name: variant
-          }
+            name: variant,
+          },
         })
         .replaceWith(() =>
-          j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral(variant))
+          j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral(variant)),
         );
     });
 
@@ -50,8 +50,8 @@ function transformFactory(
       .find(j.JSXAttribute, {
         name: {
           type: 'JSXIdentifier',
-          name: 'flat'
-        }
+          name: 'flat',
+        },
       })
       .remove();
 

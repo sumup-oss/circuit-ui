@@ -16,8 +16,9 @@
 import React from 'react';
 import { select, boolean } from '@storybook/addon-knobs';
 
-import Text from '.';
 import docs from './Text.docs.mdx';
+
+import Text from '.';
 
 const elements = ['p', 'article', 'div', 'span', 'strong', 'em'];
 const sizes = ['kilo', 'mega', 'giga'] as const;
@@ -29,8 +30,8 @@ export default {
   title: 'Typography/Text',
   component: Text,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (
@@ -47,7 +48,7 @@ export const base = () => (
 );
 
 export const size = () =>
-  sizes.map(s => (
+  sizes.map((s) => (
     <Text key={s} size={s}>
       This is a {s} text. {content}
     </Text>

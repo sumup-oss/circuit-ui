@@ -32,8 +32,8 @@ Link.propTypes = {
   children: childrenPropType,
   ref: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any })
-  ])
+    PropTypes.shape({ current: PropTypes.any }),
+  ]),
 };
 
 /**

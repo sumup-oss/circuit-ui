@@ -40,7 +40,7 @@ describe('NotificationIcon', () => {
     const actual = create(
       <NotificationIcon>
         <div>Custom content</div>
-      </NotificationIcon>
+      </NotificationIcon>,
     );
     expect(actual).toMatchSnapshot();
   });

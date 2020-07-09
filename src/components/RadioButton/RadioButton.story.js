@@ -23,15 +23,15 @@ export default {
   title: 'Forms/RadioButton',
   component: RadioButton,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 // eslint-disable-next-line react/prop-types
 const RadioButtonWithState = ({ checked: initial, children, ...props }) => {
   const [checked, setChecked] = useState(initial);
   const handleChange = () => {
-    setChecked(prev => !prev);
+    setChecked((prev) => !prev);
   };
   return (
     <RadioButton

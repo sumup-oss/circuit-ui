@@ -20,7 +20,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import {
   textKilo,
   hideVisually,
-  disableVisually
+  disableVisually,
 } from '../../styles/style-helpers';
 
 export interface LabelProps extends HTMLProps<HTMLLabelElement> {
@@ -78,5 +78,5 @@ export const Label = styled.label<LabelProps>(
   baseStyles,
   visuallyHiddenStyles,
   inlineStyles,
-  disabledStyles
+  disabledStyles,
 );

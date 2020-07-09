@@ -110,13 +110,13 @@ Portal.propTypes = {
   /**
    * Callback fired once the children has been mounted into the `container`.
    */
-  onRendered: PropTypes.func
+  onRendered: PropTypes.func,
 };
 
 Portal.defaultProps = {
   disablePortal: false,
   container: null,
-  onRendered: () => {}
+  onRendered: () => {},
 };
 
 export default Portal;

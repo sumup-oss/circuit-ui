@@ -23,8 +23,8 @@ export default {
   title: 'Components/Badge',
   component: Badge,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const BaseBadge = (props: Partial<BadgeProps>) => (
@@ -32,7 +32,7 @@ const BaseBadge = (props: Partial<BadgeProps>) => (
     variant={select(
       'Variant',
       ['neutral', 'success', 'warning', 'danger'],
-      'neutral'
+      'neutral',
     )}
     circle={boolean('Circular', false)}
     {...props}

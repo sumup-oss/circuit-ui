@@ -51,7 +51,7 @@ export const shadowTriple = (args: ThemeArgs): SerializedStyles => {
 
 function createTypeHelper<T extends 'headings' | 'subHeadings' | 'text'>(
   type: T,
-  size: keyof Theme['typography'][T]
+  size: keyof Theme['typography'][T],
 ) {
   return (args: ThemeArgs): SerializedStyles => {
     const theme = getTheme(args);
@@ -151,7 +151,7 @@ export const inputOutline = (
         invalid?: boolean;
         hasWarning?: boolean;
         showValid?: boolean;
-      }
+      },
 ): SerializedStyles => {
   const theme = getTheme(args);
   const options = isTheme(args) ? { invalid: false, hasWarning: false } : args;
@@ -164,7 +164,7 @@ export const inputOutline = (
         default: theme.colors.r500,
         hover: theme.colors.r700,
         focus: theme.colors.r500,
-        active: theme.colors.r500
+        active: theme.colors.r500,
       };
       break;
     }
@@ -173,7 +173,7 @@ export const inputOutline = (
         default: theme.colors.y500,
         hover: theme.colors.y700,
         focus: theme.colors.y500,
-        active: theme.colors.y500
+        active: theme.colors.y500,
       };
       break;
     }
@@ -182,7 +182,7 @@ export const inputOutline = (
         default: theme.colors.n500,
         hover: theme.colors.n700,
         focus: theme.colors.p500,
-        active: theme.colors.p500
+        active: theme.colors.p500,
       };
       break;
     }

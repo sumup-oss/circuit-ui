@@ -70,7 +70,7 @@ const selectedTabStyles = ({ theme, selected }) =>
     }
   `;
 
-const tabIndex = selected => (selected ? undefined : '-1');
+const tabIndex = (selected) => (selected ? undefined : '-1');
 
 /**
  * Tab component that represents a single tab inside a Tabs wrapper
@@ -90,12 +90,12 @@ Tab.propTypes = {
   /**
    * Triggers selected styles of the component
    */
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
 };
 
 Tab.defaultProps = {
   selected: false,
-  role: 'tab'
+  role: 'tab',
 };
 
 /**

@@ -15,12 +15,13 @@
 
 import React, { Fragment } from 'react';
 
-import { Spacing } from './Spacing';
 import Button from '../Button';
+
+import { Spacing } from './Spacing';
 
 export default {
   title: 'Layout/Spacing',
-  component: Spacing
+  component: Spacing,
 };
 
 export const bottomSpacing = () => (

@@ -21,7 +21,7 @@ import {
   renderToHtml,
   axe,
   userEvent,
-  RenderFn
+  RenderFn,
 } from '../../../../util/test-utils';
 
 import { PageList, PageListProps } from './PageList';
@@ -33,9 +33,9 @@ describe('PageList', () => {
 
   const baseProps: PageListProps = {
     onChange: jest.fn(),
-    pageLabel: page => `Go to page ${page}`,
+    pageLabel: (page) => `Go to page ${page}`,
     pages: [1, 2, 3],
-    currentPage: 1
+    currentPage: 1,
   };
 
   describe('styles', () => {

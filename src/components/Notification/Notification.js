@@ -40,7 +40,7 @@ Notification.propTypes = {
    * Content to be rendered inside the Notification.
    * Supports a special NotificationIcon and NotificationButton.
    */
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 /**

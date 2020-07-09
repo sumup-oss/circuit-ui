@@ -27,27 +27,27 @@ describe('List', () => {
     const actual = create(
       <List>
         <li>List</li>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
 
   const variants: ListProps['variant'][] = ['ordered', 'unordered'];
-  it.each(variants)('should render the %s variant', variant => {
+  it.each(variants)('should render the %s variant', (variant) => {
     const actual = create(
       <List variant={variant}>
         <li>{variant}</li>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
 
   const sizes: ListProps['size'][] = ['kilo', 'mega', 'giga'];
-  it.each(sizes)('should render with size %s', size => {
+  it.each(sizes)('should render with size %s', (size) => {
     const actual = create(
       <List size={size}>
         <li>{size}</li>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -59,7 +59,7 @@ describe('List', () => {
         <List>
           <li>Second level</li>
         </List>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -68,7 +68,7 @@ describe('List', () => {
     const actual = create(
       <List noMargin>
         <li>no margin</li>
-      </List>
+      </List>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -80,7 +80,7 @@ describe('List', () => {
     const wrapper = renderToHtml(
       <List>
         <li>List</li>
-      </List>
+      </List>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

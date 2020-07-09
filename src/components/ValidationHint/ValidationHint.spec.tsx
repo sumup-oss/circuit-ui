@@ -22,10 +22,10 @@ import { ValidationHint, ValidationHintProps } from './ValidationHint';
 describe('ValidationHint', () => {
   function renderValidationHint(
     renderFn: RenderFn,
-    props: ValidationHintProps = {}
+    props: ValidationHintProps = {},
   ) {
     return renderFn(
-      <ValidationHint validationHint="This field is required" {...props} />
+      <ValidationHint validationHint="This field is required" {...props} />,
     );
   }
 

@@ -24,8 +24,8 @@ export default {
   title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const TooltipContainer = styled('div')`
@@ -39,7 +39,7 @@ const TooltipContainer = styled('div')`
   }
 `;
 
-const TooltipWithContainer = props => (
+const TooltipWithContainer = (props) => (
   <TooltipContainer>
     <Tooltip {...props}>I am a teeny, tiny tooltip.</Tooltip>
     <CircleInfo />

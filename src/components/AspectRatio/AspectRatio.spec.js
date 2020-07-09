@@ -22,7 +22,7 @@ describe('AspectRatio', () => {
     const actual = create(
       <AspectRatio>
         <div />
-      </AspectRatio>
+      </AspectRatio>,
     );
     expect(actual).toMatchSnapshot();
   });
@@ -31,7 +31,7 @@ describe('AspectRatio', () => {
     const actual = create(
       <AspectRatio aspectRatio={1.618}>
         <div />
-      </AspectRatio>
+      </AspectRatio>,
     );
     expect(actual).toMatchSnapshot();
   });

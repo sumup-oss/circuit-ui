@@ -17,7 +17,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { uniqueId } from '../../util/id';
-
 import RadioButton from '../RadioButton';
 
 /**
@@ -59,8 +58,8 @@ RadioButtonGroup.propTypes = {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
         .isRequired,
       children: PropTypes.string.isRequired,
-      disabled: PropTypes.bool
-    })
+      disabled: PropTypes.bool,
+    }),
   ).isRequired,
   /**
    * Controles/Toggles the checked state. Passed on to the RadioButtons.
@@ -77,11 +76,11 @@ RadioButtonGroup.propTypes = {
   /**
    * A visually hidden description of the selector group for screen readers.
    */
-  label: PropTypes.string
+  label: PropTypes.string,
 };
 
 RadioButtonGroup.defaultProps = {
-  name: null
+  name: null,
 };
 
 /**

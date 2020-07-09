@@ -20,7 +20,6 @@ import { css } from '@emotion/core';
 
 import Image from '../../../Image';
 import AspectRatio from '../../../AspectRatio';
-
 import { ASPECT_RATIO } from '../../constants';
 
 const backgroundStyles = ({ theme }) => css`
@@ -57,11 +56,11 @@ SlideImage.propTypes = {
   /**
    * Image aspect ratio.
    */
-  aspectRatio: PropTypes.number
+  aspectRatio: PropTypes.number,
 };
 
 SlideImage.defaultProps = {
-  aspectRatio: ASPECT_RATIO
+  aspectRatio: ASPECT_RATIO,
 };
 
 export default SlideImage;

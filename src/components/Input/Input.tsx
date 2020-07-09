@@ -21,10 +21,9 @@ import styled, { StyleProps } from '../../styles/styled';
 import {
   textMega,
   hideVisually,
-  inputOutline
+  inputOutline,
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
-
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 import { ReturnType } from '../../types/return-type';
@@ -155,7 +154,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 const inputWarningStyles = ({
   theme,
   hasWarning,
-  disabled
+  disabled,
 }: StyleProps & InputElProps) =>
   !disabled &&
   hasWarning &&
@@ -169,7 +168,7 @@ const inputWarningStyles = ({
 const inputInvalidStyles = ({
   theme,
   invalid,
-  disabled
+  disabled,
 }: StyleProps & InputElProps) =>
   !disabled &&
   invalid &&
@@ -224,7 +223,7 @@ const InputElement = styled('input')<InputElProps>(
   inputDisabledStyles,
   inputPrefixStyles,
   inputSuffixStyles,
-  inputOutline
+  inputOutline,
 );
 
 /**
@@ -285,7 +284,7 @@ function InputComponent(
     id: customId,
     ...props
   }: InputProps,
-  ref: InputProps['ref']
+  ref: InputProps['ref'],
 ): ReturnType {
   if (!label) {
     deprecate(
@@ -293,8 +292,8 @@ function InputComponent(
         'The label is now built into the input component.',
         'Use the `label` prop to pass in the label content and',
         'remove the Label component from your code.',
-        'The label will become required in the next major version.'
-      ].join(' ')
+        'The label will become required in the next major version.',
+      ].join(' '),
     );
   }
 

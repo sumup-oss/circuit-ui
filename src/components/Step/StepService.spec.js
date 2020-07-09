@@ -24,7 +24,7 @@ describe('StepService', () => {
 
     it('should support custom step interval', () => {
       expect(
-        StepService.calculateNextStep({ step: 1, stepInterval: 3 })
+        StepService.calculateNextStep({ step: 1, stepInterval: 3 }),
       ).toEqual(4);
     });
 
@@ -37,10 +37,10 @@ describe('StepService', () => {
       const baseOpts = { firstStep: 0, totalSteps: 2, cycle: true };
 
       expect(StepService.calculateNextStep({ step: 0, ...baseOpts })).toEqual(
-        1
+        1,
       );
       expect(StepService.calculateNextStep({ step: 1, ...baseOpts })).toEqual(
-        baseOpts.firstStep
+        baseOpts.firstStep,
       );
     });
 
@@ -48,10 +48,10 @@ describe('StepService', () => {
       const baseOpts = { firstStep: 0, totalSteps: 2, cycle: false };
 
       expect(StepService.calculateNextStep({ step: 0, ...baseOpts })).toEqual(
-        1
+        1,
       );
       expect(StepService.calculateNextStep({ step: 1, ...baseOpts })).toEqual(
-        baseOpts.totalSteps - 1
+        baseOpts.totalSteps - 1,
       );
     });
   });
@@ -64,7 +64,7 @@ describe('StepService', () => {
 
     it('should support custom step interval', () => {
       expect(
-        StepService.calculatePreviousStep({ step: 2, stepInterval: 2 })
+        StepService.calculatePreviousStep({ step: 2, stepInterval: 2 }),
       ).toEqual(0);
     });
 
@@ -77,10 +77,10 @@ describe('StepService', () => {
       const baseOpts = { firstStep: 0, totalSteps: 2, cycle: true };
 
       expect(
-        StepService.calculatePreviousStep({ step: 1, ...baseOpts })
+        StepService.calculatePreviousStep({ step: 1, ...baseOpts }),
       ).toEqual(0);
       expect(
-        StepService.calculatePreviousStep({ step: 0, ...baseOpts })
+        StepService.calculatePreviousStep({ step: 0, ...baseOpts }),
       ).toEqual(baseOpts.totalSteps - 1);
     });
 
@@ -88,10 +88,10 @@ describe('StepService', () => {
       const baseOpts = { firstStep: 0, totalSteps: 2, cycle: false };
 
       expect(
-        StepService.calculatePreviousStep({ step: 1, ...baseOpts })
+        StepService.calculatePreviousStep({ step: 1, ...baseOpts }),
       ).toEqual(0);
       expect(
-        StepService.calculatePreviousStep({ step: 0, ...baseOpts })
+        StepService.calculatePreviousStep({ step: 0, ...baseOpts }),
       ).toEqual(baseOpts.firstStep);
     });
   });
@@ -102,7 +102,7 @@ describe('StepService', () => {
         getPlayControlProps: expect.any(Function),
         getPauseControlProps: expect.any(Function),
         getNextControlProps: expect.any(Function),
-        getPreviousControlProps: expect.any(Function)
+        getPreviousControlProps: expect.any(Function),
       });
       const getters = StepService.generatePropGetters();
 
@@ -114,7 +114,7 @@ describe('StepService', () => {
         play: jest.fn(),
         pause: jest.fn(),
         next: jest.fn(),
-        previous: jest.fn()
+        previous: jest.fn(),
       };
       const getters = StepService.generatePropGetters(actions);
 
@@ -133,16 +133,16 @@ describe('StepService', () => {
       const getters = StepService.generatePropGetters();
 
       expect(getters.getPlayControlProps()).toMatchObject({
-        'aria-label': 'play'
+        'aria-label': 'play',
       });
       expect(getters.getPauseControlProps()).toMatchObject({
-        'aria-label': 'pause'
+        'aria-label': 'pause',
       });
       expect(getters.getNextControlProps()).toMatchObject({
-        'aria-label': 'next'
+        'aria-label': 'next',
       });
       expect(getters.getPreviousControlProps()).toMatchObject({
-        'aria-label': 'previous'
+        'aria-label': 'previous',
       });
     });
 
@@ -150,20 +150,20 @@ describe('StepService', () => {
       const getters = StepService.generatePropGetters();
       const customProps = {
         foo: 'bar',
-        onCopy: jest.fn()
+        onCopy: jest.fn(),
       };
 
       expect(getters.getPlayControlProps(customProps)).toMatchObject(
-        customProps
+        customProps,
       );
       expect(getters.getPauseControlProps(customProps)).toMatchObject(
-        customProps
+        customProps,
       );
       expect(getters.getNextControlProps(customProps)).toMatchObject(
-        customProps
+        customProps,
       );
       expect(getters.getPreviousControlProps(customProps)).toMatchObject(
-        customProps
+        customProps,
       );
     });
 
@@ -172,10 +172,10 @@ describe('StepService', () => {
         play: jest.fn(),
         pause: jest.fn(),
         next: jest.fn(),
-        previous: jest.fn()
+        previous: jest.fn(),
       };
       const customProps = {
-        onClick: jest.fn()
+        onClick: jest.fn(),
       };
       const getters = StepService.generatePropGetters(actions);
 

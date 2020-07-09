@@ -21,16 +21,16 @@ describe('RadioButtonGroup', () => {
   const options = [
     {
       children: 'Option 1',
-      value: 'first'
+      value: 'first',
     },
     {
       children: 'Option 2',
-      value: 'second'
+      value: 'second',
     },
     {
       children: 'Option 3',
-      value: 'third'
-    }
+      value: 'third',
+    },
   ];
 
   /**
@@ -47,7 +47,7 @@ describe('RadioButtonGroup', () => {
   it('should check the selected option', () => {
     const value = 'second';
     const { getByLabelText } = render(
-      <RadioButtonGroup options={options} value={value} />
+      <RadioButtonGroup options={options} value={value} />,
     );
     expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
     expect(getByLabelText('Option 2')).toHaveAttribute('checked');
@@ -64,7 +64,7 @@ describe('RadioButtonGroup', () => {
         options={options}
         value={value}
         label="Choose your favourite option"
-      />
+      />,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

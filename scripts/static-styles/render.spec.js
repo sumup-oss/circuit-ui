@@ -55,10 +55,10 @@ describe('Render', () => {
     expect(insert).toHaveBeenCalledWith(
       expect.any(String),
       expect.objectContaining({
-        styles: expect.any(String)
+        styles: expect.any(String),
       }),
       expect.any(Object),
-      expect.any(Boolean)
+      expect.any(Boolean),
     );
   });
 });

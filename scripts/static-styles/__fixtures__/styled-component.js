@@ -34,7 +34,7 @@ const StyledComponent = styled.input(baseStyles, disabledStyles);
 
 StyledComponent.propTypes = {
   label: PropTypes.string,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
 };
 
 /**

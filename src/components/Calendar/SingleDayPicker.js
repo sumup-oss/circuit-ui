@@ -16,7 +16,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { ArrowRight, ArrowLeft, Cross } from '@sumup/icons';
-
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/initialize';
 
@@ -26,7 +25,7 @@ const CustomCloseIcon = styled(Cross)`
   color: ${({ theme }) => theme.colors.n700};
 `;
 
-const SingleDayPicker = props => (
+const SingleDayPicker = (props) => (
   <CalendarWrapper>
     <SingleDatePicker
       navNext={<ArrowRight />}

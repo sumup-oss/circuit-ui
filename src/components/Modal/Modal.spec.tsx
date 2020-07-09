@@ -16,11 +16,10 @@
 import React from 'react';
 
 import { render, act, userEvent, wait } from '../../util/test-utils';
-
 import Button from '../Button';
+
 import { ModalProps } from './Modal';
 import { ModalConsumer, ModalProvider } from './ModalContext';
-
 import * as MockedModal from './Modal';
 
 describe('Modal', () => {
@@ -40,7 +39,7 @@ describe('Modal', () => {
               onClick={() => {
                 setModal({
                   ...modal,
-                  appElement: document.getElementById('root') as HTMLElement
+                  appElement: document.getElementById('root') as HTMLElement,
                 });
               }}
             >
@@ -67,7 +66,7 @@ describe('Modal', () => {
     // Here are the docs for setting the app element:
     // http://reactcommunity.org/react-modal/accessibility/#app-element
     ariaHideApp: false,
-    onClose: jest.fn()
+    onClose: jest.fn(),
   };
 
   const openModal = (modal: ModalProps) => {

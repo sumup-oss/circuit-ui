@@ -27,7 +27,7 @@ describe('Tabs', () => {
         <TabList>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
-        </TabList>
+        </TabList>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -37,7 +37,7 @@ describe('Tabs', () => {
         <TabList stretched>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
-        </TabList>
+        </TabList>,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -50,9 +50,9 @@ describe('Tabs', () => {
           items={[
             { id: 'a', tab: 'tab-a', panel: 'panel-a' },
             { id: 'b', tab: 'tab-b', panel: 'panel-b' },
-            { id: 'c', tab: 'tab-c', panel: 'panel-c' }
+            { id: 'c', tab: 'tab-c', panel: 'panel-c' },
           ]}
-        />
+        />,
       );
 
       const tabEls = getAllByTestId('tab-element');
@@ -77,9 +77,9 @@ describe('Tabs', () => {
           items={[
             { id: 'a', tab: 'tab-a', panel: 'panel-a' },
             { id: 'b', tab: 'tab-b', panel: 'panel-b' },
-            { id: 'c', tab: 'tab-c', panel: 'panel-c' }
+            { id: 'c', tab: 'tab-c', panel: 'panel-c' },
           ]}
-        />
+        />,
       );
 
       const tabEls = getAllByTestId('tab-element');
@@ -91,7 +91,7 @@ describe('Tabs', () => {
       act(() => {
         fireEvent.keyDown(tabEls[0], {
           key: 'ArrowRight',
-          code: keyCodeRight
+          code: keyCodeRight,
         });
       });
 
@@ -106,7 +106,7 @@ describe('Tabs', () => {
         <TabList>
           <Tab>tab #1</Tab>
           <Tab selected>tab #2</Tab>
-        </TabList>
+        </TabList>,
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
@@ -120,7 +120,7 @@ describe('Tabs', () => {
             <Tab selected>tab #2</Tab>
           </TabList>
           <TabPanel>Tab content</TabPanel>
-        </div>
+        </div>,
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
@@ -133,10 +133,10 @@ describe('Tabs', () => {
               { id: 'one', tab: 'Tab 1', panel: 'Content 1' },
               { id: 'two', tab: 'Tab 2', panel: 'Content 2' },
               { id: 'three', tab: 'Tab 3', panel: 'Content 3' },
-              { id: 'four', tab: 'Tab 4', panel: 'Content 4' }
+              { id: 'four', tab: 'Tab 4', panel: 'Content 4' },
             ]}
           />
-        </div>
+        </div>,
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

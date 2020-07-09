@@ -35,12 +35,12 @@ const Container = styled('div')({
   maxWidth: '600px',
   margin: '0 auto',
   border: '1px solid green',
-  padding: '12px'
+  padding: '12px',
 });
 
 export default {
   title: 'Layout/InlineElements',
-  component: InlineElements
+  component: InlineElements,
 };
 
 export const twoInlineElements = () => (

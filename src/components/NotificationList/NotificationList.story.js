@@ -15,12 +15,13 @@
 
 import React from 'react';
 
-import NotificationList from './NotificationList';
 import { success as Notification } from '../Notification/Notification.story';
+
+import NotificationList from './NotificationList';
 
 export default {
   title: 'Components/Notification/NotificationList',
-  component: NotificationList
+  component: NotificationList,
 };
 
 export const base = () => (

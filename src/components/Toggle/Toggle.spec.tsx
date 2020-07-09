@@ -23,7 +23,7 @@ const defaultProps = {
   label: 'Label',
   explanation: 'A longer explanation',
   labelChecked: 'on',
-  labelUnchecked: 'off'
+  labelUnchecked: 'off',
 };
 
 describe('Toggle', () => {

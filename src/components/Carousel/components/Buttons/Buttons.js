@@ -42,16 +42,16 @@ const buttonStyles = ({ theme }) => css`
 export const Button = styled(IconButton)(buttonStyles);
 
 Button.defaultProps = {
-  size: 'kilo'
+  size: 'kilo',
 };
 
-export const NextButton = props => (
+export const NextButton = (props) => (
   <Button label="Next" {...props}>
     <ChevronRight />
   </Button>
 );
 
-export const PrevButton = props => (
+export const PrevButton = (props) => (
   <Button label="Previous" {...props}>
     <ChevronLeft />
   </Button>
@@ -64,5 +64,5 @@ export const PlayButton = ({ paused, ...props }) => (
 );
 
 PlayButton.propTypes = {
-  paused: PropTypes.bool
+  paused: PropTypes.bool,
 };

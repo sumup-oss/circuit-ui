@@ -19,10 +19,10 @@ import SingleDayPicker from './SingleDayPicker';
 
 export default {
   title: 'Components/Calendar/SingleDayPicker',
-  component: SingleDayPicker
+  component: SingleDayPicker,
 };
 
-const SingleDayPickerWithState = props => {
+const SingleDayPickerWithState = (props) => {
   const [date, setDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
 

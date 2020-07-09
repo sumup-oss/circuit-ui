@@ -19,38 +19,38 @@ import { SelectorGroup, SelectorGroupProps } from './SelectorGroup';
 
 export default {
   title: 'Forms/Selector/SelectorGroup',
-  component: SelectorGroup
+  component: SelectorGroup,
 };
 
 const options = [
   {
     children: 'Apple',
-    value: 'apple'
+    value: 'apple',
   },
   {
     children: 'Banana',
-    value: 'banana'
+    value: 'banana',
   },
   {
     children: 'Mango',
-    value: 'mango'
-  }
+    value: 'mango',
+  },
 ];
 
 /* eslint-disable react/prop-types */
 const SelectorGroupWithState = (props: Partial<SelectorGroupProps>) => {
   const [value, setValue] = useState<string | string[]>(
-    props.multiple ? [] : ''
+    props.multiple ? [] : '',
   );
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.persist();
-    setValue(prev => {
+    setValue((prev) => {
       if (!props.multiple) {
         return event.target.value;
       }
       const prevArray = prev as string[];
       return prevArray.includes(event.target.value)
-        ? prevArray.filter(v => v !== event.target.value)
+        ? prevArray.filter((v) => v !== event.target.value)
         : [...prevArray, event.target.value];
     });
   };

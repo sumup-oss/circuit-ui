@@ -17,6 +17,7 @@ import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { ClassNames, css } from '@emotion/core';
+
 import { childrenPropType } from '../../util/shared-prop-types';
 
 const wrapperBaseStyles = () => css`
@@ -37,7 +38,7 @@ const wrapperAspectRatioStyles = ({ aspectRatio }) =>
 
 const Wrapper = styled('div')(wrapperBaseStyles, wrapperAspectRatioStyles);
 
-const childBaseStyles = cssClassName => cssClassName`
+const childBaseStyles = (cssClassName) => cssClassName`
   display: block;
   height: auto;
   max-height: 100%;
@@ -74,15 +75,15 @@ const AspectRatio = React.forwardRef(
             React.cloneElement(child, {
               className: cx(
                 childBaseStyles(cssClassName),
-                childAspectRatioStyles(cssClassName, { aspectRatio })
-              )
+                childAspectRatioStyles(cssClassName, { aspectRatio }),
+              ),
             })
           }
         </ClassNames>
         {restChildren}
       </Wrapper>
     );
-  }
+  },
 );
 
 AspectRatio.displayName = 'AspectRatio';
@@ -90,7 +91,7 @@ AspectRatio.displayName = 'AspectRatio';
 AspectRatio.propTypes = {
   children: childrenPropType,
   aspectRatio: PropTypes.number,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default AspectRatio;

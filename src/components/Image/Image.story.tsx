@@ -22,8 +22,8 @@ export default {
   title: 'Components/Image',
   component: Image,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (

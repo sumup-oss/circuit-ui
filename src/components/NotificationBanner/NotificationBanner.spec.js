@@ -25,7 +25,7 @@ describe('NotificationBanner', () => {
     const actual = create(
       <NotificationBanner>
         <div />
-      </NotificationBanner>
+      </NotificationBanner>,
     );
     expect(actual).toMatchSnapshot();
   });

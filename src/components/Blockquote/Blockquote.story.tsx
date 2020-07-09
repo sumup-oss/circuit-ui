@@ -27,8 +27,8 @@ export default {
   title: 'Typography/Blockquote',
   component: Blockquote,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (

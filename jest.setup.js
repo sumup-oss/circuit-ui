@@ -28,7 +28,7 @@ import {
   actHook,
   userEvent,
   wait,
-  axe
+  axe,
 } from './src/util/test-utils';
 
 global.axe = axe;
@@ -47,8 +47,8 @@ if (global.document) {
     setEnd: () => {},
     commonAncestorContainer: {
       nodeName: 'BODY',
-      ownerDocument: document
-    }
+      ownerDocument: document,
+    },
   });
 }
 
@@ -61,6 +61,6 @@ expect.addSnapshotSerializer(
   createSerializer({
     classNameReplacer(className, index) {
       return `circuit-${index}`;
-    }
-  })
+    },
+  }),
 );

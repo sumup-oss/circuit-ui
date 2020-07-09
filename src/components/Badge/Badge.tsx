@@ -18,7 +18,7 @@ import React, {
   MouseEvent,
   KeyboardEvent,
   Ref,
-  HTMLProps
+  HTMLProps,
 } from 'react';
 import { css } from '@emotion/core';
 
@@ -40,7 +40,7 @@ export interface BadgeProps extends HTMLProps<HTMLDivElement> {
    * Callback for the click event.
    */
   onClick?: (
-    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>
+    event: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>,
   ) => void;
   /**
    * The ref to the HTML DOM element
@@ -52,28 +52,28 @@ const COLOR_MAP = {
   success: {
     text: 'white',
     default: 'g700',
-    hover: 'g900'
+    hover: 'g900',
   },
   warning: {
     text: 'bodyColor',
     default: 'y300',
-    hover: 'y500'
+    hover: 'y500',
   },
   danger: {
     text: 'white',
     default: 'r500',
-    hover: 'r700'
+    hover: 'r700',
   },
   primary: {
     text: 'white',
     default: 'p500',
-    hover: 'p700'
+    hover: 'p700',
   },
   neutral: {
     text: 'bodyColor',
     default: 'n300',
-    hover: 'n500'
-  }
+    hover: 'n500',
+  },
 } as const;
 
 const baseStyles = ({ theme }: StyleProps) => css`
@@ -91,7 +91,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 
 const variantStyles = ({
   theme,
-  variant = 'neutral'
+  variant = 'neutral',
 }: StyleProps & BadgeProps) => {
   const currentColor = COLOR_MAP[variant];
   if (!currentColor) {
@@ -126,7 +126,7 @@ const circleStyles = ({ circle, children }: BadgeProps) =>
 const clickableStyles = ({
   theme,
   onClick,
-  variant = 'neutral'
+  variant = 'neutral',
 }: StyleProps & BadgeProps) => {
   const currentColor = COLOR_MAP[variant];
   if (!onClick || !currentColor) {
@@ -154,7 +154,7 @@ const StyledBadge = styled('div')<BadgeProps>(
   baseStyles,
   variantStyles,
   circleStyles,
-  clickableStyles
+  clickableStyles,
 );
 
 /**
@@ -168,8 +168,8 @@ export const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => {
         'The `onClick` prop of the Badge component has been deprecated.',
         'Badges are not meant to be interactive and should only',
         'communicate the status of an element.',
-        'Use the Tag component for interactive elements instead.'
-      ].join(' ')
+        'Use the Tag component for interactive elements instead.',
+      ].join(' '),
     );
   }
 
@@ -178,8 +178,8 @@ export const Badge = forwardRef((props: BadgeProps, ref: BadgeProps['ref']) => {
       [
         'The "primary" color of the Badge component has been deprecated.',
         'It conflicts with the color of the primary Button variant.',
-        'Use the "neutral" variant instead.'
-      ].join(' ')
+        'Use the "neutral" variant instead.',
+      ].join(' '),
     );
   }
 

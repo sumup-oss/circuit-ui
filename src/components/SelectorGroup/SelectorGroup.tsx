@@ -17,7 +17,6 @@ import React, { ReactNode, ChangeEvent } from 'react';
 import { includes } from 'lodash/fp';
 
 import { uniqueId } from '../../util/id';
-
 import Selector from '../Selector';
 
 export interface SelectorGroupProps {

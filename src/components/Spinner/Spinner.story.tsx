@@ -20,12 +20,12 @@ import Spinner from '.';
 
 export default {
   title: 'Components/Spinner',
-  component: Spinner
+  component: Spinner,
 };
 
 export const Base = () => (
   <Spinner
-    css={theme =>
+    css={(theme) =>
       css`
         color: ${theme.colors.n900};
       `

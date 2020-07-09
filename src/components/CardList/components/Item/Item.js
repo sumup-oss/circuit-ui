@@ -39,7 +39,7 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const getBorderStyles = theme => css`
+const getBorderStyles = (theme) => css`
   outline: none;
 
   &::after {
@@ -86,15 +86,15 @@ const BaseItem = styled('div')(
   baseStyles,
   paddingStyles,
   selectedStyles,
-  hoverStyles
+  hoverStyles,
 );
 
-const createOnKeyDown = onClick => {
+const createOnKeyDown = (onClick) => {
   if (!onClick) {
     return null;
   }
 
-  return event => {
+  return (event) => {
     // Most clickable HTML elements can also be triggered by pressing the
     // spacebar or enter key.
     if (isEnter(event) || isSpacebar(event)) {
@@ -103,7 +103,7 @@ const createOnKeyDown = onClick => {
   };
 };
 
-const Item = props => (
+const Item = (props) => (
   <BaseItem
     aria-selected={props.selected}
     onKeyDown={createOnKeyDown(props.onClick)}
@@ -123,13 +123,13 @@ Item.propTypes = {
   /**
    * Content of the list item.
    */
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 Item.defaultProps = {
   padding: 'giga',
   selected: false,
-  tabIndex: 0
+  tabIndex: 0,
 };
 
 /**

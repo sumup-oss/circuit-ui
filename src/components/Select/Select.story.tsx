@@ -19,6 +19,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 import { FlagDe, FlagUs, FlagFr } from '@sumup/icons';
 
 import { uniqueId } from '../../util/id';
+
 import { Select, SelectProps } from './Select';
 import docs from './Select.docs.mdx';
 
@@ -26,28 +27,28 @@ export default {
   title: 'Forms/Select',
   component: Select,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const options = [
   {
     label: 'United States',
-    value: 'US'
+    value: 'US',
   },
   {
     label: 'Germany',
-    value: 'DE'
+    value: 'DE',
   },
   {
     label: 'France',
-    value: 'FR'
-  }
+    value: 'FR',
+  },
 ];
 const flagIconMap: { [key: string]: FC<{ className?: string }> } = {
   DE: FlagDe,
   US: FlagUs,
-  FR: FlagFr
+  FR: FlagFr,
 };
 
 // Selects always need labels for accessibility.
@@ -61,7 +62,7 @@ const StatefulSelect = (props: Partial<SelectProps>) => {
       name="select"
       options={options}
       value={value}
-      onChange={e => {
+      onChange={(e) => {
         action('Option selected')(e);
         setValue(e.target.value);
       }}

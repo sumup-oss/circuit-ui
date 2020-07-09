@@ -26,7 +26,7 @@ const defaultProps = {
   // eslint-disable-next-line react/display-name
   renderPopover: () => <div />,
   onReferenceClickClose: () => {},
-  onOutsideClickClose: () => {}
+  onOutsideClickClose: () => {},
 };
 
 // FMI: https://github.com/FezVrasta/popper.js/issues/478
@@ -39,7 +39,7 @@ jest.mock('popper.js', () => {
     constructor() {
       return {
         destroy: () => {},
-        scheduleUpdate: () => {}
+        scheduleUpdate: () => {},
       };
     }
   };
@@ -58,8 +58,8 @@ describe('Popover', () => {
     expect(actual).toMatchSnapshot();
   });
 
-  positions.forEach(position => {
-    alignments.forEach(alignment => {
+  positions.forEach((position) => {
+    alignments.forEach((alignment) => {
       it(`should render with position ${position} and alignment ${alignment}`, () => {
         const actual = create(
           <Popover
@@ -67,7 +67,7 @@ describe('Popover', () => {
             position={position}
             align={alignment}
             {...defaultProps}
-          />
+          />,
         );
         expect(actual).toMatchSnapshot();
       });
@@ -76,7 +76,7 @@ describe('Popover', () => {
 
   it('should render nothing without isOpen=false', () => {
     const { queryByTestId } = render(
-      <Popover isOpen={false} {...defaultProps} />
+      <Popover isOpen={false} {...defaultProps} />,
     );
     expect(queryByTestId('popover-child')).toBeNull();
   });
@@ -88,7 +88,7 @@ describe('Popover', () => {
         isOpen
         {...defaultProps}
         onReferenceClickClose={onReferenceClickClose}
-      />
+      />,
     );
 
     act(() => {
@@ -100,7 +100,7 @@ describe('Popover', () => {
 
   it('should not render <Reference> component when referenceElement is passed', () => {
     const { queryByTestId } = render(
-      <Popover isOpen {...defaultProps} referenceElement={<div />} />
+      <Popover isOpen {...defaultProps} referenceElement={<div />} />,
     );
     expect(queryByTestId('popover-reference')).toBeNull();
   });

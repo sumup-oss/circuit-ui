@@ -24,7 +24,7 @@ import {
   curry,
   map,
   mapValues,
-  values
+  values,
 } from 'lodash/fp';
 
 import { MIN_COL_SPAN, MAX_COL_WIDTH, DEFAULT_BREAKPOINT } from './constants';
@@ -83,7 +83,7 @@ const createBreakpointStyles = curry((theme, current) => {
 /**
  * Return the default styles for each breakpoint provided by the config
  */
-export const getBreakPointStyles = theme =>
+export const getBreakPointStyles = (theme) =>
   compose(values, mapValues(createBreakpointStyles(theme)))(theme.grid);
 
 /**
@@ -91,7 +91,7 @@ export const getBreakPointStyles = theme =>
  * defined on the grid config.
  */
 export const sortByPriority = curry((grid, iteratee) =>
-  iteratee.sort((a, b) => grid[head(a)].priority - grid[head(b)].priority)
+  iteratee.sort((a, b) => grid[head(a)].priority - grid[head(b)].priority),
 );
 
 /**
@@ -99,7 +99,7 @@ export const sortByPriority = curry((grid, iteratee) =>
  * config.
  */
 export const mapBreakpoint = curry((fn, grid, theme, [key, value]) =>
-  fn(grid[key], theme, value)
+  fn(grid[key], theme, value),
 );
 
 /**
@@ -109,8 +109,8 @@ const composeBreakpoints = curry((fn, grid, theme, breakpoints) =>
   compose(
     map(mapBreakpoint(fn, grid, theme)),
     sortByPriority(grid),
-    toPairs
-  )(breakpoints)
+    toPairs,
+  )(breakpoints),
 );
 
 /**

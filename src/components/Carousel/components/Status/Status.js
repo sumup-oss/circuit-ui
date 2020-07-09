@@ -43,12 +43,12 @@ Status.propTypes = {
   /**
    * Total number of slides in a carousel.
    */
-  total: PropTypes.number
+  total: PropTypes.number,
 };
 
 Status.defaultProps = {
   step: 0,
-  total: 0
+  total: 0,
 };
 
 export default Status;

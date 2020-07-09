@@ -19,7 +19,7 @@ import SlideImage from './SlideImage';
 
 const image = {
   src: 'https://placedog.net/800/500',
-  alt: 'random pic'
+  alt: 'random pic',
 };
 
 describe('SlideImage', () => {
@@ -32,7 +32,7 @@ describe('SlideImage', () => {
 
     it('should render with custom aspect ratio', () => {
       const actual = create(
-        <SlideImage src={image.src} alt={image.alt} aspectRatio={2} />
+        <SlideImage src={image.src} alt={image.alt} aspectRatio={2} />,
       );
 
       expect(actual).toMatchSnapshot();
@@ -42,7 +42,7 @@ describe('SlideImage', () => {
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
-        <SlideImage src={image.src} alt={image.alt} />
+        <SlideImage src={image.src} alt={image.alt} />,
       );
       const actual = await axe(wrapper);
 

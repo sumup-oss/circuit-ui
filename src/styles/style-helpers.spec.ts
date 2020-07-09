@@ -289,7 +289,7 @@ describe('Style helpers', () => {
     it('should match the snapshot when invalid', () => {
       const { styles } = StyleHelpers.inputOutline({
         theme: light,
-        invalid: true
+        invalid: true,
       });
       expect(styles).toMatchInlineSnapshot(`
         "
@@ -313,7 +313,7 @@ describe('Style helpers', () => {
     it('should match the snapshot when it has a warning', () => {
       const { styles } = StyleHelpers.inputOutline({
         theme: light,
-        hasWarning: true
+        hasWarning: true,
       });
       expect(styles).toMatchInlineSnapshot(`
         "

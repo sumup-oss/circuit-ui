@@ -26,8 +26,8 @@ export default {
   title: 'Typography/Heading',
   component: Heading,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (
@@ -41,7 +41,7 @@ export const base = () => (
 );
 
 export const size = () =>
-  sizes.map(s => (
+  sizes.map((s) => (
     <Heading key={s} size={s}>
       This is a {s} heading
     </Heading>

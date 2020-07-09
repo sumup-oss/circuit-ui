@@ -16,7 +16,7 @@
 import React, { FunctionComponent } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import '@testing-library/jest-dom/extend-expect';
-import { axe } from 'jest-axe';
+import { configureAxe } from 'jest-axe';
 import { render as renderTest, wait, act } from '@testing-library/react';
 import { renderHook, act as actHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
@@ -24,7 +24,7 @@ import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
 import ComponentsContext, {
-  defaultComponents
+  defaultComponents,
 } from '../components/ComponentsContext';
 
 export type RenderFn = (component: React.ReactElement, ...rest: any) => any;
@@ -50,6 +50,13 @@ const create: RenderFn = (...args) => {
     : container.firstChild;
 };
 
+const axe = configureAxe({
+  rules: {
+    // disabled landmark rules when testing isolated components.
+    region: { enabled: false },
+  },
+});
+
 export {
   create,
   render,
@@ -59,5 +66,5 @@ export {
   actHook,
   userEvent,
   wait,
-  axe
+  axe,
 };

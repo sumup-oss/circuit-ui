@@ -37,7 +37,7 @@ export interface ModalHeaderProps {
 export const ModalHeader: FC<ModalHeaderProps> = ({
   title,
   onClose,
-  labelCloseButton
+  labelCloseButton,
 }) => (
   <CardHeader onClose={onClose} labelCloseButton={labelCloseButton}>
     {title && (

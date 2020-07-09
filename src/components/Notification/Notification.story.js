@@ -16,18 +16,20 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import docs from './Notification.docs.mdx';
-import Notification, { NotificationIcon, NotificationButton } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
+
+import docs from './Notification.docs.mdx';
+
+import Notification, { NotificationIcon, NotificationButton } from '.';
 
 export default {
   title: 'Components/Notification',
   component: Notification,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => (
@@ -61,7 +63,7 @@ export const warning = () => (
     <NotificationButton>
       <Button
         size="kilo"
-        onClick={e => {
+        onClick={(e) => {
           action('Button clicked')(e);
         }}
       >
@@ -80,7 +82,7 @@ export const alert = () => (
     <NotificationButton>
       <Button
         size="kilo"
-        onClick={e => {
+        onClick={(e) => {
           action('Button clicked')(e);
         }}
       >

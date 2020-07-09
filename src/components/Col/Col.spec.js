@@ -46,7 +46,7 @@ describe('Col', () => {
 
     it('should render with span/skip based styles', () => {
       const actual = create(
-        <Col span={{ default: 6, kilo: 12 }} skip={{ default: 6, kilo: 3 }} />
+        <Col span={{ default: 6, kilo: 12 }} skip={{ default: 6, kilo: 3 }} />,
       );
       expect(actual).toMatchSnapshot();
     });

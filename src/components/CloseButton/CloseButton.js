@@ -35,12 +35,12 @@ const CloseButton = React.forwardRef((props, ref) => (
 CloseButton.displayName = 'CloseButton';
 
 CloseButton.propTypes = {
-  ...IconButton.propTypes
+  ...IconButton.propTypes,
 };
 
 CloseButton.defaultProps = {
   label: 'Close',
-  ref: undefined
+  ref: undefined,
 };
 
 /**

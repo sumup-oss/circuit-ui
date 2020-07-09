@@ -21,7 +21,7 @@ import Col from './Col';
 
 export default {
   title: 'Layout/Grid/Col',
-  component: Col
+  component: Col,
 };
 
 const StyledCol = styled(Col)(
@@ -33,11 +33,11 @@ const StyledCol = styled(Col)(
     line-height: 20px;
     height: 40px;
     padding: 10px;
-  `
+  `,
 );
 
 StyledCol.defaultProps = {
-  skip: '0'
+  skip: '0',
 };
 
 export const col = () => (

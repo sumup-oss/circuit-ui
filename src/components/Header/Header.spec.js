@@ -21,7 +21,7 @@ describe('Header', () => {
   const props = {
     title: 'Title',
     onHamburgerClick: jest.fn(),
-    hamburgerButtonLabel: 'hamburger-button'
+    hamburgerButtonLabel: 'hamburger-button',
   };
 
   describe('styles', () => {
@@ -40,7 +40,7 @@ describe('Header', () => {
       const { getByTestId } = render(
         <Header>
           <span data-testid="child">Text</span>
-        </Header>
+        </Header>,
       );
       const childEl = getByTestId('child');
       expect(childEl).not.toBeNull();

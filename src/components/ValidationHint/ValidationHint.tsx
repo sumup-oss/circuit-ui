@@ -49,7 +49,7 @@ const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
 const Wrapper = styled('span')<ValidationHintProps>(baseStyles, invalidStyles);
 
 const iconStyles = (color: 'danger' | 'warning' | 'success') => (
-  theme: Theme
+  theme: Theme,
 ) => css`
   label: ${`validation-hint__icon--${color}`};
   width: ${theme.iconSizes.kilo};

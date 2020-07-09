@@ -25,7 +25,7 @@ const Background = styled('div')`
 
 export default {
   title: 'Components/AspectRatio',
-  component: AspectRatio
+  component: AspectRatio,
 };
 
 export const base = () => (

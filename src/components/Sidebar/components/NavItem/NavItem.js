@@ -22,6 +22,7 @@ import isPropValid from '@emotion/is-prop-valid';
 import { componentsPropType } from '../../../../util/shared-prop-types';
 import useClickHandler from '../../../../hooks/use-click-handler';
 import NavLabel from '../NavLabel';
+
 import { getIcon } from './utils';
 
 const baseStyles = ({ theme }) => css`
@@ -73,7 +74,7 @@ const disabledStyles = ({ theme, disabled }) =>
   `;
 
 const StyledLink = styled('a', {
-  shouldForwardProp: isPropValid
+  shouldForwardProp: isPropValid,
 })(baseStyles, hoverStyles, selectedStyles, secondaryStyles, disabledStyles);
 
 const NavItem = ({
@@ -157,8 +158,8 @@ NavItem.propTypes = {
   tracking: PropTypes.shape({
     label: PropTypes.string.isRequired,
     component: PropTypes.string,
-    customParameters: PropTypes.object
-  })
+    customParameters: PropTypes.object,
+  }),
 };
 
 NavItem.defaultProps = {
@@ -169,7 +170,7 @@ NavItem.defaultProps = {
   selectedIcon: '',
   selected: false,
   disabled: false,
-  onClick: null
+  onClick: null,
 };
 
 export default NavItem;

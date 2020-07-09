@@ -22,7 +22,7 @@ import { childrenPropType } from '../../util/shared-prop-types';
 import {
   shadowSingle,
   shadowDouble,
-  shadowTriple
+  shadowTriple,
 } from '../../styles/style-helpers';
 
 const baseStyles = ({ theme }) => css`
@@ -41,7 +41,7 @@ const shadowStyles = ({ theme, shadow }) => {
   const shadowOptions = {
     single: shadowSingle,
     double: shadowDouble,
-    triple: shadowTriple
+    triple: shadowTriple,
   };
   return css`
     label: ${`card--shadow-${shadow}`};
@@ -59,7 +59,7 @@ const spacingStyles = ({ theme, spacing }) => {
     `,
     giga: `
       ${theme.spacings.mega} ${theme.spacings.giga}
-    `
+    `,
   };
   return css`
     label: ${`card--spacing-${spacing}`};
@@ -71,7 +71,7 @@ const spacingStyles = ({ theme, spacing }) => {
  * Card component that is used for displaying content on a grid.
  */
 const Card = styled('div', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'spacing'
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'spacing',
 })(baseStyles, shadowStyles, spacingStyles);
 
 Card.propTypes = {
@@ -86,12 +86,12 @@ Card.propTypes = {
   /**
    * Content to be rendered inside the Card.
    */
-  children: childrenPropType
+  children: childrenPropType,
 };
 
 Card.defaultProps = {
   spacing: 'giga',
-  shadow: 'single'
+  shadow: 'single',
 };
 
 /**

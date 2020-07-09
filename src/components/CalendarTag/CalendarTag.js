@@ -17,7 +17,6 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-
 import { START_DATE } from 'react-dates/constants';
 
 import { RangePickerController } from '../Calendar';
@@ -39,8 +38,8 @@ class CalendarTag extends Component {
     tracking: PropTypes.shape({
       label: PropTypes.string.isRequired,
       component: PropTypes.string,
-      customParameters: PropTypes.object
-    })
+      customParameters: PropTypes.object,
+    }),
   };
 
   state = { startDate: null, endDate: null, focusedInput: null };
@@ -55,13 +54,13 @@ class CalendarTag extends Component {
     }
   };
 
-  handleFocusChange = focusedInput => {
+  handleFocusChange = (focusedInput) => {
     this.setState({ focusedInput });
   };
 
   handleButtonClick = () =>
     this.setState(({ focusedInput }) => ({
-      focusedInput: focusedInput !== null ? null : START_DATE
+      focusedInput: focusedInput !== null ? null : START_DATE,
     }));
 
   getDateRangePreview = () => {
@@ -74,9 +73,9 @@ class CalendarTag extends Component {
     return `${this.toDate(startDate)} - ${this.toDate(endDate)}`;
   };
 
-  toDate = date => (date ? date.format('MMM DD') : '');
+  toDate = (date) => (date ? date.format('MMM DD') : '');
 
-  handleButtonRef = ref => {
+  handleButtonRef = (ref) => {
     this.buttonRef = ref;
   };
 
@@ -105,7 +104,7 @@ class CalendarTag extends Component {
           onClick={this.handleButtonClick}
           tracking={{
             component: 'calendar-tag',
-            ...tracking
+            ...tracking,
           }}
         >
           {this.getDateRangePreview()}

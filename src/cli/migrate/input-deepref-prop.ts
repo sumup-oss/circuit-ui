@@ -20,7 +20,7 @@ import { renameJSXAttribute, findLocalNames } from './utils';
 function transformFactory(
   j: JSCodeshift,
   root: Collection,
-  componentName: string
+  componentName: string,
 ): void {
   const components = findLocalNames(j, root, componentName);
 
@@ -28,7 +28,7 @@ function transformFactory(
     return;
   }
 
-  components.forEach(component => {
+  components.forEach((component) => {
     renameJSXAttribute(j, root, component, 'deepRef', 'ref');
   });
 }

@@ -62,7 +62,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
 const mobileSizeMap: { [key in Size]: Size } = {
   kilo: 'kilo',
   mega: 'mega',
-  giga: 'mega'
+  giga: 'mega',
 };
 
 const sizeStyles = ({ theme, size = 'mega' }: TextProps & StyleProps) => {
@@ -115,12 +115,12 @@ const marginStyles = ({ noMargin }: TextProps & StyleProps) =>
  * to our users.
  */
 export const Text: FC<TextProps> = styled('p', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<TextProps>(
   baseStyles,
   sizeStyles,
   marginStyles,
   boldStyles,
   italicStyles,
-  strikeThroughStyles
+  strikeThroughStyles,
 );

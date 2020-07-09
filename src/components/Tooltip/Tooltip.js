@@ -21,7 +21,7 @@ import { includes } from 'lodash/fp';
 import { textKilo, shadowSingle } from '../../styles/style-helpers';
 import {
   positionPropType,
-  childrenPropType
+  childrenPropType,
 } from '../../util/shared-prop-types';
 
 const baseStyles = ({ theme }) => css`
@@ -54,7 +54,7 @@ const positionMap = {
   top: 'bottom',
   right: 'left',
   bottom: 'top',
-  left: 'right'
+  left: 'right',
 };
 
 const getPositionStyles = ({ theme, position }) => {
@@ -139,12 +139,12 @@ Tooltip.propTypes = {
   /**
    * The alignment of the tooltip relative to its position.
    */
-  align: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'center'])
+  align: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'center']),
 };
 
 Tooltip.defaultProps = {
   position: 'right',
-  align: 'center'
+  align: 'center',
 };
 
 /**

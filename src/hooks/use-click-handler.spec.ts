@@ -15,7 +15,6 @@
 
 import { renderHook, act } from '@testing-library/react-hooks';
 import { mocked } from 'ts-jest/utils';
-
 import * as Collector from '@sumup/collector';
 
 import useClickHandler from './use-click-handler';
@@ -35,7 +34,7 @@ describe('useClickHandler', () => {
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
@@ -55,7 +54,7 @@ describe('useClickHandler', () => {
 
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
@@ -71,7 +70,7 @@ describe('useClickHandler', () => {
     it('should return undefined if there is no onClick callback', () => {
       const onClick = undefined;
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName),
       );
 
       expect(result.current).toBeUndefined();
@@ -85,7 +84,7 @@ describe('useClickHandler', () => {
     it('should call the onClick callback with the event', () => {
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
@@ -105,7 +104,7 @@ describe('useClickHandler', () => {
 
       const onClick = jest.fn();
       const { result } = renderHook(() =>
-        useClickHandler(onClick, tracking, defaultComponentName)
+        useClickHandler(onClick, tracking, defaultComponentName),
       );
 
       const event = new MouseEvent('click');
@@ -118,7 +117,7 @@ describe('useClickHandler', () => {
       expect(dispatch).toHaveBeenCalledTimes(1);
       expect(dispatch).toHaveBeenCalledWith({
         label: 'trackingId',
-        component: defaultComponentName
+        component: defaultComponentName,
       });
     });
   });

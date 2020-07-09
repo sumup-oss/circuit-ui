@@ -14,7 +14,9 @@
  */
 
 import React from 'react';
+
 import { create, renderToHtml, axe } from '../../util/test-utils';
+
 import { Spacing } from './Spacing';
 
 describe('Spacing', () => {

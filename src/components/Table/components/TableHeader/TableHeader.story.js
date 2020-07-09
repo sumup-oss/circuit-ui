@@ -20,7 +20,7 @@ import TableHeader from '.';
 
 export default {
   title: 'Components/Table/TableHeader',
-  component: TableHeader
+  component: TableHeader,
 };
 
 export const base = () => (

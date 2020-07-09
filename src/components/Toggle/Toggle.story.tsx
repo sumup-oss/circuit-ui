@@ -23,15 +23,15 @@ export default {
   title: 'Forms/Toggle',
   component: Toggle,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 const ToggleWithState = (props: Partial<ToggleProps>) => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
-    setChecked(prev => !prev);
+    setChecked((prev) => !prev);
   };
 
   return (

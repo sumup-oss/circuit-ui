@@ -20,8 +20,9 @@ import { withTheme } from 'emotion-theming';
 import {
   textMega,
   textKilo,
-  shadowTriple
+  shadowTriple,
 } from '../../../../styles/style-helpers';
+
 import CalendarInheritStyles from './CalendarImportedStyles';
 
 const baseStyles = (/* { theme } */) => css`

@@ -36,7 +36,7 @@ Header.propTypes = {
   /**
    * The children component passed to the Sidebar Header.
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Header;

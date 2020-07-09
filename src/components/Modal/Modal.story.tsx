@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { MouseEvent, KeyboardEvent } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { text } from '@storybook/addon-knobs';
@@ -32,8 +32,8 @@ export default {
   title: 'Components/Modal',
   component: Modal,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 /* eslint-disable react/display-name, react/prop-types */
@@ -57,14 +57,14 @@ const PageWithModal = (modal: ModalProps) => (
 
 const defaultModal = {
   children: () => <ModalWrapper>Hello World!</ModalWrapper>,
-  onClose: () => {}
+  onClose: () => {},
 };
 
 export const base = () => (
   <PageWithModal
     {...defaultModal}
     tracking={{
-      label: text('Tracking Label', 'trackingId')
+      label: text('Tracking Label', 'trackingId'),
     }}
   />
 );
@@ -111,18 +111,18 @@ export const withFooter = () => (
           <ButtonGroup>
             <Button
               variant="secondary"
-              onClick={e => {
-                action('Cancel button clicked')(e);
-                onClose(e);
+              onClick={(event: MouseEvent | KeyboardEvent) => {
+                action('Cancel button clicked')(event);
+                onClose(event);
               }}
             >
               Cancel
             </Button>
             <Button
               variant="primary"
-              onClick={e => {
-                action('Confirm button clicked')(e);
-                onClose(e);
+              onClick={(event: MouseEvent | KeyboardEvent) => {
+                action('Confirm button clicked')(event);
+                onClose(event);
               }}
             >
               Confirm

@@ -22,7 +22,7 @@ const { ButtonList, PlayButton, NextButton, PrevButton } = Buttons;
 
 export default {
   title: 'Components/Carousel/Buttons',
-  component: Buttons
+  component: Buttons,
 };
 
 export const allButtons = () => (

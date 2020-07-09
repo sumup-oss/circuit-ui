@@ -44,7 +44,7 @@ const mobileSizeMap: { [key in Size]: Size } = {
   tera: 'giga',
   peta: 'tera',
   exa: 'peta',
-  zetta: 'peta'
+  zetta: 'peta',
 };
 
 const baseStyles = ({ theme }: StyleProps) => css`
@@ -77,5 +77,5 @@ const noMarginStyles = ({ noMargin }: HeadingProps) =>
  * A flexible heading component capable of rendering using any HTML heading tag.
  */
 export const Heading: FC<HeadingProps> = styled('h2', {
-  shouldForwardProp: prop => isPropValid(prop) && prop !== 'size'
+  shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<HeadingProps>(baseStyles, sizeStyles, noMarginStyles);

@@ -73,7 +73,7 @@ const SortArrow = ({ label = 'Sort', direction = null, ...props }) => (
 
 SortArrow.propTypes = {
   direction: PropTypes.oneOf([ASCENDING, DESCENDING]),
-  label: PropTypes.string
+  label: PropTypes.string,
 };
 
 export default SortArrow;

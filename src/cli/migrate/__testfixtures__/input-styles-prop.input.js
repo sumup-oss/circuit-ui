@@ -6,12 +6,12 @@ import { Input, TextArea } from '@sumup/circuit-ui';
 const Form = () => (
   <>
     <Input
-      wrapperStyles={theme => css`
+      wrapperStyles={(theme) => css`
         color: red;
       `}
     />
     <TextArea
-      wrapperStyles={theme => css`
+      wrapperStyles={(theme) => css`
         color: red;
       `}
     />
@@ -29,12 +29,12 @@ const RedTextArea = styled(TextArea)`
 const RedForm = () => (
   <>
     <RedInput
-      wrapperStyles={theme => css`
+      wrapperStyles={(theme) => css`
         color: red;
       `}
     />
     <RedTextArea
-      wrapperStyles={theme => css`
+      wrapperStyles={(theme) => css`
         color: red;
       `}
     />

@@ -32,7 +32,7 @@ describe('currency', () => {
         thousandSeparators,
         decimalNumbers,
         decimalSeparators,
-        thousandGroupNumbers
+        thousandGroupNumbers,
       );
       expect(actual).toMatchSnapshot();
     });
@@ -47,7 +47,7 @@ describe('currency', () => {
         thousandSeparators,
         decimalNumbers,
         decimalSeparators,
-        thousandGroupNumbers
+        thousandGroupNumbers,
       );
       expect(actual).toMatchSnapshot();
     });

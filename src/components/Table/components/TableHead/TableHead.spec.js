@@ -37,7 +37,7 @@ describe('TableHead', () => {
       const headers = ['Foo'];
       const onSortByMock = jest.fn();
       const { getByTestId } = render(
-        <TableHead onSortBy={onSortByMock} headers={headers} />
+        <TableHead onSortBy={onSortByMock} headers={headers} />,
       );
 
       act(() => {
@@ -51,7 +51,7 @@ describe('TableHead', () => {
       const headers = [{ children: 'Foo', sortable: true }];
       const onSortByMock = jest.fn();
       const { getByTestId } = render(
-        <TableHead onSortBy={onSortByMock} headers={headers} />
+        <TableHead onSortBy={onSortByMock} headers={headers} />,
       );
 
       act(() => {
@@ -68,7 +68,7 @@ describe('TableHead', () => {
       const headers = ['Foo'];
       const onSortEnterMock = jest.fn();
       const { getByTestId } = render(
-        <TableHead onSortEnter={onSortEnterMock} headers={headers} />
+        <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
       );
 
       act(() => {
@@ -82,7 +82,7 @@ describe('TableHead', () => {
       const headers = [{ children: 'Foo', sortable: true }];
       const onSortEnterMock = jest.fn();
       const { getByTestId } = render(
-        <TableHead onSortEnter={onSortEnterMock} headers={headers} />
+        <TableHead onSortEnter={onSortEnterMock} headers={headers} />,
       );
 
       act(() => {
@@ -99,7 +99,7 @@ describe('TableHead', () => {
       const headers = ['Foo'];
       const onSortLeaveMock = jest.fn();
       const { getByTestId } = render(
-        <TableHead onSortLeave={onSortLeaveMock} headers={headers} />
+        <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
       );
 
       act(() => {
@@ -113,7 +113,7 @@ describe('TableHead', () => {
       const headers = [{ children: 'Foo', sortable: true }];
       const onSortLeaveMock = jest.fn();
       const { getByTestId } = render(
-        <TableHead onSortLeave={onSortLeaveMock} headers={headers} />
+        <TableHead onSortLeave={onSortLeaveMock} headers={headers} />,
       );
 
       act(() => {
@@ -128,7 +128,7 @@ describe('TableHead', () => {
   describe('Accessibility tests', () => {
     it('should meet accessibility guidelines', async () => {
       const wrapper = renderToHtml(
-        <TableHead rowHeader headers={fixtureHeaders} />
+        <TableHead rowHeader headers={fixtureHeaders} />,
       );
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();

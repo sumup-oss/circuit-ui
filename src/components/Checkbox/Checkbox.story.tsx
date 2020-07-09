@@ -24,8 +24,8 @@ export default {
   title: 'Forms/Checkbox',
   component: Checkbox,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 // eslint-disable-next-line react/prop-types
@@ -37,7 +37,7 @@ const CheckboxWithState = ({
   const [checked, setChecked] = useState(initial);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     action('Checkbox clicked')(event);
-    setChecked(prev => !prev);
+    setChecked((prev) => !prev);
   };
   return (
     <Checkbox

@@ -20,13 +20,13 @@ function getSize(el) {
   if (!el) {
     return {
       width: 0,
-      height: 0
+      height: 0,
     };
   }
 
   return {
     width: el.offsetWidth,
-    height: el.offsetHeight
+    height: el.offsetHeight,
   };
 }
 
@@ -38,7 +38,7 @@ export default function useComponentSize(ref = {}) {
         setComponentSize(getSize(ref.current));
       }
     }),
-    [ref]
+    [ref],
   );
 
   useEffect(() => {

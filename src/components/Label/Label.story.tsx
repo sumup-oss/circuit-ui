@@ -22,8 +22,8 @@ export default {
   title: 'Forms/Label',
   component: Label,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => <Label htmlFor="some-id">An input label</Label>;

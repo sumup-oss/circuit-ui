@@ -13,11 +13,4 @@
  * limitations under the License.
  */
 
-module.exports = require('@sumup/foundry/prettier')(
-  {},
-  {
-    trailingComma: 'none',
-    arrowParens: 'avoid',
-    quoteProps: 'as-needed'
-  }
-);
+module.exports = require('@sumup/foundry/prettier')();

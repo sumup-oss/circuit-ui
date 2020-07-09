@@ -146,7 +146,7 @@ export const Modal: FC<ModalProps> = ({
               opacity: 0;
               transform: translateY(${TRANSFORM_Y_FLOATING});
             }
-          `
+          `,
         };
 
         const overlayClassName = {
@@ -174,7 +174,7 @@ export const Modal: FC<ModalProps> = ({
           beforeClose: css`
             label: modal__overlay--before-close;
             opacity: 0;
-          `
+          `,
         };
 
         const reactModalProps = {
@@ -187,13 +187,13 @@ export const Modal: FC<ModalProps> = ({
           onAfterClose: () => IS_IOS && noScroll.off(),
           onRequestClose: handleClose,
           closeTimeoutMS: TRANSITION_DURATION,
-          ...props
+          ...props,
         };
         return (
           <ReactModal {...reactModalProps}>
             {isFunction(children)
               ? children({
-                  onClose: handleClose
+                  onClose: handleClose,
                 })
               : children}
           </ReactModal>

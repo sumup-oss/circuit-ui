@@ -15,19 +15,22 @@
 
 import PropTypes from 'prop-types';
 import { isString, isNumber, isArray, curry } from 'lodash/fp';
-import { ASCENDING, DESCENDING } from './constants';
+
 import { childrenPropType } from '../../util/shared-prop-types';
 
-export const mapRowProps = props => (isArray(props) ? { cells: props } : props);
+import { ASCENDING, DESCENDING } from './constants';
 
-export const getRowCells = props => mapRowProps(props).cells;
+export const mapRowProps = (props) =>
+  isArray(props) ? { cells: props } : props;
 
-export const mapCellProps = props =>
+export const getRowCells = (props) => mapRowProps(props).cells;
+
+export const mapCellProps = (props) =>
   isString(props) || isNumber(props) ? { children: props } : props;
 
-export const getCellChildren = props => mapCellProps(props).children;
+export const getCellChildren = (props) => mapCellProps(props).children;
 
-export const getSortByValue = props =>
+export const getSortByValue = (props) =>
   Object.prototype.hasOwnProperty.call(props, 'sortByValue')
     ? props.sortByValue
     : getCellChildren(props);
@@ -76,6 +79,6 @@ export const RowPropType = PropTypes.oneOfType([
   PropTypes.string,
   PropTypes.shape({
     children: childrenPropType,
-    align: PropTypes.string
-  })
+    align: PropTypes.string,
+  }),
 ]);

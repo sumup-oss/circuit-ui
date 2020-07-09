@@ -19,6 +19,7 @@ import { css } from '@emotion/core';
 
 import Heading from '../../../Heading';
 import Image from '../../../Image';
+
 import Slide from './Slide';
 
 const headingStyles = css`
@@ -33,7 +34,7 @@ const StyledHeading = styled(Heading)(headingStyles);
 
 export default {
   title: 'Components/Carousel/Slide',
-  component: Slide
+  component: Slide,
 };
 
 export const onlyImage = () => (

@@ -20,7 +20,7 @@ describe('getSelectedChildIndex', () => {
     const children = [
       { props: { selected: false } },
       { props: { selected: true } },
-      { props: { selected: false } }
+      { props: { selected: false } },
     ];
     const selectedChild = getSelectedChildIndex(children);
 
@@ -38,7 +38,7 @@ describe('getSelectedChildIndex', () => {
     const children = [
       { props: { selected: true } },
       { props: { selected: false } },
-      { props: { selected: true } }
+      { props: { selected: true } },
     ];
     const selectedChild = getSelectedChildIndex(children);
 
@@ -55,7 +55,7 @@ describe('getSecondaryChild', () => {
   it('should return all secondary children for an array of items', () => {
     const children = [
       { props: { secondary: false } },
-      { props: { secondary: false } }
+      { props: { secondary: false } },
     ];
     expect(getSecondaryChild(children)[0].props.secondary).toBe(true);
     expect(getSecondaryChild(children)[1].props.secondary).toBe(true);
@@ -69,7 +69,7 @@ describe('getSecondaryChild', () => {
     const children = { props: { secondary: false } };
     expect(getSecondaryChild(children, true).props).toEqual({
       secondary: true,
-      visible: true
+      visible: true,
     });
   });
 });

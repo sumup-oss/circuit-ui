@@ -53,11 +53,11 @@ CardFooter.propTypes = {
   /**
    * Direction to align the content. Either left/right
    */
-  align: PropTypes.oneOf(['left', 'right'])
+  align: PropTypes.oneOf(['left', 'right']),
 };
 
 CardFooter.defaultProps = {
-  align: 'right'
+  align: 'right',
 };
 
 /**

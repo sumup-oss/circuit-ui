@@ -17,6 +17,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+
 import Title from './components/Title';
 
 const baseStyles = ({ theme }) => css`
@@ -61,12 +62,12 @@ Header.propTypes = {
   /**
    * The child component of Header.
    */
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 Header.defaultProps = {
   title: '',
-  children: ''
+  children: '',
 };
 
 /**

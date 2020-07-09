@@ -31,7 +31,7 @@ describe('InlineElements', () => {
       <InlineElements inlineMobile ratios={[2, 1]}>
         <div />
         <div />
-      </InlineElements>
+      </InlineElements>,
     );
     expect(actual).toMatchSnapshot();
   });

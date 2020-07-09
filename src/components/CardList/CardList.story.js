@@ -18,12 +18,13 @@ import { range } from 'lodash/fp';
 import * as knobs from '@storybook/addon-knobs/react';
 
 import docs from './CardList.docs.mdx';
+
 import CardList from '.';
 
 class CardListStory extends Component {
   state = { selected: 0 };
 
-  handleClick = selected => () => this.setState({ selected });
+  handleClick = (selected) => () => this.setState({ selected });
 
   render() {
     const { selected } = this.state;
@@ -31,7 +32,7 @@ class CardListStory extends Component {
 
     return (
       <CardList>
-        {range(1, 6).map(i => (
+        {range(1, 6).map((i) => (
           <CardList.Item
             key={i}
             selected={selected === i}
@@ -50,8 +51,8 @@ export default {
   title: 'Components/Card/CardList',
   component: CardList,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const base = () => <CardListStory />;

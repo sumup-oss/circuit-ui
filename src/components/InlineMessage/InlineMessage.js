@@ -28,17 +28,17 @@ const marginStyles = ({ noMargin }) =>
     margin-bottom: 0;
   `;
 
-const createLeftBorderStyles = colorName => ({ theme, size, type }) => {
+const createLeftBorderStyles = (colorName) => ({ theme, size, type }) => {
   const colors = {
     danger: theme.colors.danger,
     success: theme.colors.success,
-    warning: theme.colors.warning
+    warning: theme.colors.warning,
   };
 
   const textColors = {
     danger: theme.colors.danger,
     success: theme.colors.black,
-    warning: theme.colors.black
+    warning: theme.colors.black,
   };
 
   return (
@@ -77,7 +77,7 @@ const InlineMessage = styled('p')(
   dangerStyles,
   successStyles,
   warningStyles,
-  marginStyles
+  marginStyles,
 );
 
 InlineMessage.propTypes = {
@@ -92,12 +92,12 @@ InlineMessage.propTypes = {
   /**
    * Removes the default bottom margin from the text.
    */
-  noMargin: PropTypes.bool
+  noMargin: PropTypes.bool,
 };
 
 InlineMessage.defaultProps = {
   size: 'giga',
-  noMargin: false
+  noMargin: false,
 };
 
 /**

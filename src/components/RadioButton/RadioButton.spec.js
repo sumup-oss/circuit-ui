@@ -46,7 +46,7 @@ describe('RadioButton', () => {
    */
   it('should meet accessibility guidelines', async () => {
     const wrapper = renderToHtml(
-      <RadioButton name="radio">Radio button</RadioButton>
+      <RadioButton name="radio">Radio button</RadioButton>,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
@@ -58,7 +58,7 @@ describe('RadioButton', () => {
   it('should be unchecked by default', () => {
     const { getByLabelText } = render(<RadioButton>Label</RadioButton>);
     const inputEl = getByLabelText('Label', {
-      exact: false
+      exact: false,
     });
     expect(inputEl).not.toHaveAttribute('checked');
   });
@@ -66,10 +66,10 @@ describe('RadioButton', () => {
   it('should call the change handler when clicked', () => {
     const onChange = jest.fn();
     const { getByLabelText } = render(
-      <RadioButton onChange={onChange}>Label</RadioButton>
+      <RadioButton onChange={onChange}>Label</RadioButton>,
     );
     const inputEl = getByLabelText('Label', {
-      exact: false
+      exact: false,
     });
 
     act(() => {

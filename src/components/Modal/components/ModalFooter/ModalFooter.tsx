@@ -16,7 +16,6 @@
 import { css } from '@emotion/core';
 
 import styled, { StyleProps } from '../../../../styles/styled';
-
 import { CardFooter } from '../../../Card';
 
 const footerStyles = ({ theme }: StyleProps) => css`

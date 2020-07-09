@@ -26,30 +26,30 @@ yargs
   .command(
     'migrate',
     "Automatically transforms your source code to Circuit UI's latest APIs",
-    yrgs =>
+    (yrgs) =>
       yrgs
         .option('transform', {
           alias: 't',
           desc: 'The transform to be applied to the source code',
           choices: listTransforms(),
           type: 'string',
-          required: true
+          required: true,
         })
         .option('language', {
           alias: 'l',
           desc: 'The programming language of the files to be transformed',
           choices: ['TypeScript', 'JavaScript'],
           type: 'string',
-          required: true
+          required: true,
         })
         .option('path', {
           alias: 'p',
           desc:
             'A path to the folder that contains the files to be transformed',
           type: 'string',
-          default: '.'
+          default: '.',
         }),
-    args => execute('migrate', args)
+    (args) => execute('migrate', args),
   )
   .showHelpOnFail(true)
   .demandCommand(1, '')

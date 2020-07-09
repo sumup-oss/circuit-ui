@@ -16,12 +16,13 @@
 import React from 'react';
 
 import { getDisplayName } from '../../util/get-display-name';
+
 import useComponents from './useComponents';
 
 /**
  * Subscribe to the components context with a HOC.
  */
-const withComponents = Component => {
+const withComponents = (Component) => {
   function WrappedComponent(props) {
     const components = useComponents();
     return <Component {...props} components={components} />;

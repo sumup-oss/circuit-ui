@@ -20,14 +20,14 @@ import {
   mapRowProps,
   mapCellProps,
   getCellChildren,
-  RowPropType
+  RowPropType,
 } from '../../utils';
 import { TR_KEY_PREFIX, TD_KEY_PREFIX } from '../../constants';
 import TableRow from '../TableRow';
 import TableHeader from '../TableHeader';
 import TableCell from '../TableCell';
 
-const getRowKey = index => `${TR_KEY_PREFIX}-${index}`;
+const getRowKey = (index) => `${TR_KEY_PREFIX}-${index}`;
 const getCellKey = (rowIndex, cellIndex) =>
   `${TD_KEY_PREFIX}-${rowIndex}-${cellIndex}`;
 
@@ -67,7 +67,7 @@ const TableBody = ({ rows, condensed, rowHeaders, sortHover, onRowClick }) => (
                 isHovered={sortHover === cellIndex}
                 {...mapCellProps(cell)}
               />
-            )
+            ),
           )}
         </TableRow>
       );
@@ -86,8 +86,8 @@ TableBody.propTypes = {
   rows: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({ cells: PropTypes.arrayOf(RowPropType) }),
-      PropTypes.arrayOf(RowPropType)
-    ])
+      PropTypes.arrayOf(RowPropType),
+    ]),
   ),
   /**
    * Enables/disables sticky columns on mobile
@@ -106,14 +106,14 @@ TableBody.propTypes = {
   /**
    * onClick handler
    */
-  onRowClick: PropTypes.func
+  onRowClick: PropTypes.func,
 };
 
 TableBody.defaultProps = {
   rows: [],
   rowHeaders: false,
   sortHover: null,
-  onRowClick: null
+  onRowClick: null,
 };
 
 export default TableBody;

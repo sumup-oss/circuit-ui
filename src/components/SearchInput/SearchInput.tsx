@@ -17,7 +17,6 @@ import React from 'react';
 import { Search, Cross } from '@sumup/icons';
 
 import styled from '../../styles/styled';
-
 import Input from '../Input';
 import { InputProps } from '../Input/Input';
 import IconButton from '../IconButton';
@@ -45,14 +44,14 @@ const ClearButton = styled(IconButton)`
 
 function SearchInputComponent(
   { value, onClear, clearLabel = 'Clear', ...props }: SearchInputProps,
-  ref: SearchInputProps['ref']
+  ref: SearchInputProps['ref'],
 ) {
   return (
     <Input
       value={value}
       type="text"
-      renderPrefix={renderProps => <Search {...renderProps} />}
-      renderSuffix={renderProps =>
+      renderPrefix={(renderProps) => <Search {...renderProps} />}
+      renderSuffix={(renderProps) =>
         value && onClear ? (
           <ClearButton
             onClick={onClear}

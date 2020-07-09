@@ -25,11 +25,10 @@ import styled, { StyleProps } from '../../styles/styled';
 import {
   textMega,
   hideVisually,
-  inputOutline
+  inputOutline,
 } from '../../styles/style-helpers';
 import { ReturnType } from '../../types/return-type';
 import useClickHandler from '../../hooks/use-click-handler';
-
 import Label from '../Label';
 import ValidationHint from '../ValidationHint';
 
@@ -126,7 +125,7 @@ type ContainerElProps = Pick<SelectProps, 'hideLabel'>;
 
 const containerHideLabelStyles = ({
   theme,
-  hideLabel
+  hideLabel,
 }: StyleProps & ContainerElProps) =>
   !hideLabel &&
   css`
@@ -140,7 +139,7 @@ const containerHideLabelStyles = ({
 
 const SelectContainer = styled('div')<ContainerElProps>(
   containerBaseStyles,
-  containerHideLabelStyles
+  containerHideLabelStyles,
 );
 
 type LabelElProps = Pick<SelectProps, 'noMargin' | 'inline'>;
@@ -161,7 +160,7 @@ const labelInlineStyles = ({ inline }: LabelElProps) =>
 
 const SelectLabel = styled(Label)<LabelElProps>(
   labelMarginStyles,
-  labelInlineStyles
+  labelInlineStyles,
 );
 
 type SelectElProps = Omit<SelectProps, 'options'> & { hasPrefix: boolean };
@@ -200,7 +199,7 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
 const selectInvalidStyles = ({
   theme,
   invalid,
-  disabled
+  disabled,
 }: StyleProps & SelectElProps) =>
   invalid &&
   !disabled &&
@@ -220,7 +219,7 @@ const SelectElement = styled.select<SelectElProps>(
   selectBaseStyles,
   selectInvalidStyles,
   selectPrefixStyles,
-  inputOutline
+  inputOutline,
 );
 
 const labelTextStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
@@ -296,7 +295,7 @@ function SelectComponent(
     tracking,
     ...props
   }: SelectProps,
-  ref?: SelectProps['ref']
+  ref?: SelectProps['ref'],
 ): ReturnType {
   const id = customId || uniqueId('select_');
 
@@ -313,8 +312,8 @@ function SelectComponent(
         'The label is now built into the Select component.',
         'Use the `label` prop to pass in the label content and',
         'remove the Label component from your code.',
-        'The label will become required in the next major version.'
-      ].join(' ')
+        'The label will become required in the next major version.',
+      ].join(' '),
     );
   }
 

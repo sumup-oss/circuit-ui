@@ -21,7 +21,7 @@ import styled, { StyleProps } from '../../styles/styled';
 import {
   focusOutline,
   hideVisually,
-  disableVisually
+  disableVisually,
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import useClickHandler from '../../hooks/use-click-handler';
@@ -153,7 +153,7 @@ function SelectorComponent(
     tracking,
     ...props
   }: SelectorProps,
-  ref: SelectorProps['ref']
+  ref: SelectorProps['ref'],
 ) {
   const inputId = id || uniqueId('selector_');
   const type = multiple ? 'checkbox' : 'radio';

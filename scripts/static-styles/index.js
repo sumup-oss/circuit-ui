@@ -15,6 +15,7 @@
 
 import fs from 'fs';
 import path from 'path';
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 import prettier from 'prettier';
 
@@ -42,10 +43,10 @@ export default function extractStaticStyles(options) {
   const opts = {
     ...options,
     theme: options.customProperties ? createTheme(theme) : theme,
-    components: config.components.filter(component =>
-      options.components.includes(component.name)
+    components: config.components.filter((component) =>
+      options.components.includes(component.name),
     ),
-    filePath: options.filePath || getFilePath(options)
+    filePath: options.filePath || getFilePath(options),
   };
 
   let styleSheet = '';

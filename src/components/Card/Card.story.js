@@ -18,22 +18,24 @@ import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { css } from '@emotion/core';
 
-import docs from './Card.docs.mdx';
-import Card, { CardHeader, CardFooter } from '.';
 import Heading from '../Heading';
 import Text from '../Text';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 
+import docs from './Card.docs.mdx';
+
+import Card, { CardHeader, CardFooter } from '.';
+
 export default {
   title: 'Components/Card',
   component: Card,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
-const cardStyles = theme => css`
+const cardStyles = (theme) => css`
   width: 500px;
   height: 150px;
   max-width: 90%;
@@ -41,7 +43,7 @@ const cardStyles = theme => css`
   margin-bottom: ${theme.spacings.mega};
 `;
 
-const contentStyles = theme => css`
+const contentStyles = (theme) => css`
   background: ${theme.colors.n200};
   width: 100%;
   height: 100%;
@@ -91,7 +93,7 @@ export const withHeader = () => (
       <CardHeader
         onClose={action('CloseButton clicked')}
         tracking={{
-          label: text('Tracking Label', 'trackingId')
+          label: text('Tracking Label', 'trackingId'),
         }}
       >
         <Header />

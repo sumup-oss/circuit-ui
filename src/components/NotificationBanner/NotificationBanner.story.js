@@ -16,13 +16,13 @@
 import React from 'react';
 import { css } from '@emotion/core';
 
-import NotificationBanner from './NotificationBanner';
-
 import { base as Notification } from '../Notification/Notification.story';
+
+import NotificationBanner from './NotificationBanner';
 
 export default {
   title: 'Components/Notification/NotificationBanner',
-  component: NotificationBanner
+  component: NotificationBanner,
 };
 
 export const base = () => (

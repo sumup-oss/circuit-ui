@@ -15,15 +15,16 @@
 
 import React from 'react';
 
-import Anchor from '.';
 import docs from './Anchor.docs.mdx';
+
+import Anchor from '.';
 
 export default {
   title: 'Typography/Anchor',
   component: Anchor,
   parameters: {
-    docs: { page: docs }
-  }
+    docs: { page: docs },
+  },
 };
 
 export const AsLink = () => (

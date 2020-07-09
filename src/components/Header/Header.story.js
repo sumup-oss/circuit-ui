@@ -16,12 +16,13 @@
 import React from 'react';
 import { boolean } from '@storybook/addon-knobs';
 
-import Header from '.';
 import Hamburger from '../Hamburger';
+
+import Header from '.';
 
 export default {
   title: 'Components/Header',
-  component: Header
+  component: Header,
 };
 
 export const base = () => (

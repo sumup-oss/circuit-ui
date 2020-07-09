@@ -17,19 +17,20 @@
 import React, { useState } from 'react';
 import { select, boolean } from '@storybook/addon-knobs/react';
 
-import Popover from './Popover';
 import Button from '../Button';
 import Card from '../Card';
+
+import Popover from './Popover';
 
 const positions = ['top', 'bottom', 'left', 'right'];
 const alignments = ['start', 'end', 'center'];
 
 export default {
   title: 'Components/Popover',
-  component: Popover
+  component: Popover,
 };
 
-const PopoverWithState = props => {
+const PopoverWithState = (props) => {
   const [open, setOpen] = useState(false);
 
   const { closeOnButtonClick, ...restProps } = props;
@@ -40,7 +41,7 @@ const PopoverWithState = props => {
       {...restProps}
       renderPopover={() => <Card>Popover Content</Card>}
       renderReference={() => (
-        <Button size="kilo" onClick={() => setOpen(prev => !prev)}>
+        <Button size="kilo" onClick={() => setOpen((prev) => !prev)}>
           {open ? 'Hide' : 'Show'}
         </Button>
       )}

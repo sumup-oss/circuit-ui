@@ -19,10 +19,10 @@ import { Lock } from '@sumup/icons';
 
 import { isArray } from '../../../../util/type-check';
 
-export const hasSelectedChild = children => {
+export const hasSelectedChild = (children) => {
   if (children) {
     return isArray(children)
-      ? !isEmpty(children.filter(item => item.props.selected))
+      ? !isEmpty(children.filter((item) => item.props.selected))
       : children.props.selected;
   }
   return false;

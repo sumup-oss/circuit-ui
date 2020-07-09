@@ -30,7 +30,7 @@ const Wrapper = styled.div(
     height: ${DEFAULT_HEIGHT};
     display: flex;
     overflow-x: auto;
-  `
+  `,
 );
 
 const navigationBaseStyles = css`
@@ -53,7 +53,7 @@ const stretchedStyles = ({ children, theme }) => css`
 const navigationChildrenStyles = ({ stretched, ...props }) =>
   stretched && stretchedStyles(props);
 
-const navigationResponsiveChildrenStyles = props =>
+const navigationResponsiveChildrenStyles = (props) =>
   props.children.length <= MOBILE_AUTOSTRETCH_ITEMS_MAX &&
   css`
     ${props.theme.mq.untilKilo} {
@@ -64,7 +64,7 @@ const navigationResponsiveChildrenStyles = props =>
 const Navigation = styled.div(
   navigationBaseStyles,
   navigationChildrenStyles,
-  navigationResponsiveChildrenStyles
+  navigationResponsiveChildrenStyles,
 );
 
 /**
@@ -80,7 +80,7 @@ TabList.propTypes = {
   /**
    * Override styles for the TabList component.
    */
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 /**

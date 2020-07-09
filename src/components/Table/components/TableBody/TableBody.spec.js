@@ -43,7 +43,7 @@ describe('TableBody', () => {
 
       it('should render a table header as the first element of each row with rowHeaders', () => {
         const { getByTestId } = render(
-          <TableBody rows={fixtureRows} rowHeaders />
+          <TableBody rows={fixtureRows} rowHeaders />,
         );
         const tableCell = getByTestId('table-row').firstChild;
 
@@ -55,7 +55,7 @@ describe('TableBody', () => {
       it('should not render a cell with hovered styles if its column is not currently hovered', () => {
         const sortHover = 4;
         const wrapper = create(
-          <TableBody sortHover={sortHover} rows={fixtureRows} />
+          <TableBody sortHover={sortHover} rows={fixtureRows} />,
         );
         expect(wrapper).toMatchSnapshot();
       });
@@ -63,7 +63,7 @@ describe('TableBody', () => {
       it('should render a cell with hovered styles if its column is currently hovered', () => {
         const sortHover = 0;
         const wrapper = create(
-          <TableBody sortHover={sortHover} rows={fixtureRows} />
+          <TableBody sortHover={sortHover} rows={fixtureRows} />,
         );
         expect(wrapper).toMatchSnapshot();
       });
@@ -71,7 +71,7 @@ describe('TableBody', () => {
 
     it('should forward additional props to the row', () => {
       const testId = 'row-1-testId';
-      const rows = [{ cells: ['Foo', 'Bar'], 'data-testid': testId }];
+      const rows = [{ 'cells': ['Foo', 'Bar'], 'data-testid': testId }];
       const { getAllByTestId } = render(<TableBody rows={rows} />);
 
       expect(getAllByTestId(testId)).toHaveLength(1);
@@ -79,7 +79,7 @@ describe('TableBody', () => {
 
     it('should forward additional props to the cell', () => {
       const testId = 'cell-1-testId';
-      const rows = [[{ children: 'Foo', 'data-testid': testId }, 'Bar']];
+      const rows = [[{ 'children': 'Foo', 'data-testid': testId }, 'Bar']];
       const { getAllByTestId } = render(<TableBody rows={rows} />);
 
       expect(getAllByTestId(testId)).toHaveLength(1);
