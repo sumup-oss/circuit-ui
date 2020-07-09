@@ -26,7 +26,7 @@
     "release": "foundry run semantic-release"
   },
   "devDependencies": {
-    "@sumup/foundry": "^2.1.0",
+    "@sumup/foundry": "^3.0.0",
     "@types/jest": "^25.2.1",
     "jest": "^25.4.0",
     "jest-extended": "^0.11.5",

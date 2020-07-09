@@ -14,6 +14,7 @@
  */
 
 import { Breakpoints } from '../types';
+
 import { createMediaQueries } from '.';
 
 describe('Utils', () => {
