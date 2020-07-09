@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import InlineMessage from './InlineMessage';
+import { InlineMessage } from './InlineMessage';
 
 export default InlineMessage;

@@ -1,5 +1,5 @@
 import { Status, Props, Story } from '../../../.storybook/components';
-import InlineMessage from './InlineMessage';
+import { InlineMessage } from './InlineMessage';
 
 # InlineMessage
 
@@ -22,22 +22,18 @@ Use it when we need to provide contextual information that highlights errors or 
 
 ## Component variants
 
-### Success
+### Variants
 
-Used to provide positive feedback without taking the user to another screen, such as updating the configuration
-on a settings page.
+<Story id="forms-inlinemessage--variants" />
 
-<Story id="forms-inlinemessage--success" />
+**Success**: Used to provide positive feedback without taking the user to another screen, such as updating the configuration on a settings page.
 
-### Warning
+**Warning**: Used to warn users regarding information that is not obligatory to fill or input, but it could provide additional help if the fill it.
 
-Used to warn users regarding information that is not obligatory to fill or input, but it
-could provide additional help if the fill it.
+**Danger**: The most common inline message type. Used to provide feedback that we cannot proceed forward in completing a task for the user (such as a login) if they don't fix what's wrong. Remember to always provide concrete instructions on how to solve the problem.
 
-<Story id="forms-inlinemessage--warning" />
+### Sizes
 
-### Alert
+The InlineMessage component supports 2 different sizes (_mega_ and _giga_) that should match the size of the Card component in which they are placed.
 
-The most common inline message type. Used to provide feedback that we cannot proceed forward in completing a task for the user (such as a login) if they don't fix what's wrong. Remember to always provide concrete instructions on how to solve the problem.
-
-<Story id="forms-inlinemessage--alert" />
+<Story id="forms-inlinemessage--sizes" />

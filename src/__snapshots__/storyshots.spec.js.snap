@@ -7329,20 +7329,6 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
-.circuit-3 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 .circuit-8 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -7368,6 +7354,20 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
     border-bottom-right-radius: 0;
     min-width: initial;
     position: relative;
+  }
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-3 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -7477,20 +7477,6 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
   }
 }
 
-.circuit-3 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 .circuit-4 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -7516,6 +7502,20 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
     border-bottom-right-radius: 0;
     min-width: initial;
     position: relative;
+  }
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-3 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -7644,20 +7644,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   width: 1px;
 }
 
-.circuit-5 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-5 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 .circuit-6 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -7683,6 +7669,20 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
     border-bottom-right-radius: 0;
     min-width: initial;
     position: relative;
+  }
+}
+
+.circuit-5 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-5 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -7733,20 +7733,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 `;
 
 exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 .circuit-1 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -7772,6 +7758,20 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
     border-bottom-right-radius: 0;
     min-width: initial;
     position: relative;
+  }
+}
+
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -15369,36 +15369,8 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms/InlineMessage Alert 1`] = `
-.circuit-0 {
-  color: #DB4D4D;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.circuit-0:before {
-  display: inline-block;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  content: '';
-  position: absolute;
-  left: -24px;
-  top: 0;
-  height: 100%;
-  background-color: #DB4D4D;
-  width: 3px;
-}
-
-<p
-  class="circuit-0 circuit-1"
-  type="danger"
->
-  Something has gone terribly wrong.
-</p>
-`;
-
 exports[`Storyshots Forms/InlineMessage Base 1`] = `
-.circuit-3 {
+.circuit-1 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -15435,38 +15407,37 @@ exports[`Storyshots Forms/InlineMessage Base 1`] = `
   width: 3px;
 }
 
-.circuit-2 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 <div
-  class="circuit-3 circuit-4"
+  class="circuit-1 circuit-2"
 >
   <p
-    class="circuit-0 circuit-1"
-    type="warning"
+    class="circuit-0"
   >
     Something might go terribly wrong.
-  </p>
-  <p
-    class="circuit-2"
-  >
-    Sorry that is how it is.
   </p>
 </div>
 `;
 
-exports[`Storyshots Forms/InlineMessage Size 1`] = `
+exports[`Storyshots Forms/InlineMessage Sizes 1`] = `
+HTMLCollection [
+  .circuit-1 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  padding: 16px 16px;
+}
+
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15482,19 +15453,37 @@ exports[`Storyshots Forms/InlineMessage Size 1`] = `
   left: -16px;
   top: 0;
   height: 100%;
-  background-color: #D8A413;
+  background-color: #47995A;
   width: 3px;
 }
 
-<p
-  class="circuit-0 circuit-1"
-  type="warning"
->
-  Something might go terribly wrong with a bigger card.
-</p>
-`;
+<div
+    class="circuit-1 circuit-2"
+  >
+    <p
+      class="circuit-0"
+    >
+      Something has gone wonderfully right with a smaller card.
+    </p>
+  </div>,
+  .circuit-1 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  padding: 16px 24px;
+}
 
-exports[`Storyshots Forms/InlineMessage Success 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15514,15 +15503,56 @@ exports[`Storyshots Forms/InlineMessage Success 1`] = `
   width: 3px;
 }
 
-<p
-  class="circuit-0 circuit-1"
-  type="success"
->
-  Something has gone wonderfully right.
-</p>
+<div
+    class="circuit-1 circuit-2"
+  >
+    <p
+      class="circuit-0"
+    >
+      Something has gone wonderfully right with a larger card.
+    </p>
+  </div>,
+]
 `;
 
-exports[`Storyshots Forms/InlineMessage Warning 1`] = `
+exports[`Storyshots Forms/InlineMessage Variants 1`] = `
+.circuit-3 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  padding: 16px 24px;
+}
+
+.circuit-1 {
+  color: #0F131A;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-1:before {
+  display: inline-block;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  height: 100%;
+  background-color: #D8A413;
+  width: 3px;
+}
+
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15538,16 +15568,48 @@ exports[`Storyshots Forms/InlineMessage Warning 1`] = `
   left: -24px;
   top: 0;
   height: 100%;
-  background-color: #D8A413;
+  background-color: #47995A;
   width: 3px;
 }
 
-<p
-  class="circuit-0 circuit-1"
-  type="warning"
+.circuit-2 {
+  color: #DB4D4D;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-2:before {
+  display: inline-block;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  height: 100%;
+  background-color: #DB4D4D;
+  width: 3px;
+}
+
+<div
+  class="circuit-3 circuit-4"
 >
-  Something might go sideways.
-</p>
+  <p
+    class="circuit-0"
+  >
+    Something has gone wonderfully right.
+  </p>
+  <p
+    class="circuit-1"
+  >
+    Something might go sideways.
+  </p>
+  <p
+    class="circuit-2"
+  >
+    Something has gone terribly wrong.
+  </p>
+</div>
 `;
 
 exports[`Storyshots Forms/Input Base 1`] = `

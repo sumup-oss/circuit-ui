@@ -130,6 +130,7 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The **Hamburger** component's default size has been increased to match the IconButton component.
 - The **Hamburger** component's `light` prop has been removed. Set the color through CSS instead.
 - The **Spinner** component's `dark` prop has been removed. Set the color through CSS instead.
+- The **InlineMessage** component's `type` prop has been renamed to `variant` (🤖 _inline-message-variant-enum_)
 - (_in writing_) combine label with form input components
 
 ### Utilities

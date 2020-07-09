@@ -15,34 +15,31 @@
 
 import React from 'react';
 
-import InlineMessage from '.';
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
+import { InlineMessage } from './InlineMessage';
 
 describe('InlineMessage', () => {
   /**
    * Style tests.
    */
-  it('should render with default styles', () => {
-    const actual = create(<InlineMessage />);
-    expect(actual).toMatchSnapshot();
-  });
-
   it('should render with success styles', () => {
-    const actual = create(<InlineMessage type={'success'} />);
+    const actual = create(<InlineMessage variant="success" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with warning styles', () => {
-    const actual = create(<InlineMessage type={'warning'} />);
+    const actual = create(<InlineMessage variant="warning" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with danger styles', () => {
-    const actual = create(<InlineMessage type={'danger'} />);
+    const actual = create(<InlineMessage variant="danger" />);
     expect(actual).toMatchSnapshot();
   });
 
   it('should render with giga spacing', () => {
-    const actual = create(<InlineMessage type={'danger'} size={'giga'} />);
+    const actual = create(<InlineMessage variant="danger" size="mega" />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -50,7 +47,7 @@ describe('InlineMessage', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<InlineMessage />);
+    const wrapper = renderToHtml(<InlineMessage variant="success" />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

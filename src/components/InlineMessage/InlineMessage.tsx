@@ -13,39 +13,60 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+
+import styled, { StyleProps } from '../../styles/styled';
+
+type Variant = 'danger' | 'success' | 'warning';
+
+export interface InlineMessageProps {
+  /**
+   * Indicates the color of the left border and text in the message.
+   */
+  variant: Variant;
+  /**
+   * Should correspond to the size provided to the surrounding Card component.
+   */
+  size?: 'mega' | 'giga';
+  /**
+   * Removes the default bottom margin from the text.
+   */
+  noMargin?: boolean;
+}
 
 const baseStyles = css`
   label: inline-message;
 `;
 
-const marginStyles = ({ noMargin }) =>
+const marginStyles = ({ noMargin }: InlineMessageProps) =>
   noMargin &&
   css`
     label: text--no-margin;
     margin-bottom: 0;
   `;
 
-const createLeftBorderStyles = (colorName) => ({ theme, size, type }) => {
+const createLeftBorderStyles = (variantName: Variant) => ({
+  theme,
+  size = 'giga',
+  variant,
+}: StyleProps & InlineMessageProps) => {
   const colors = {
     danger: theme.colors.danger,
     success: theme.colors.success,
     warning: theme.colors.warning,
-  };
+  } as const;
 
   const textColors = {
     danger: theme.colors.danger,
     success: theme.colors.black,
     warning: theme.colors.black,
-  };
+  } as const;
 
   return (
-    colorName === type &&
+    variant === variantName &&
     css`
-      label: ${`inline-message--${type}`};
-      color: ${textColors[type]};
+      label: ${`inline-message--${variant}`};
+      color: ${textColors[variant]};
       position: relative;
       margin-bottom: ${theme.spacings.mega};
 
@@ -58,7 +79,7 @@ const createLeftBorderStyles = (colorName) => ({ theme, size, type }) => {
         left: -${theme.spacings[size]};
         top: 0;
         height: 100%;
-        background-color: ${colors[type]};
+        background-color: ${colors[variant]};
         width: 3px;
       }
     `
@@ -72,35 +93,10 @@ const dangerStyles = createLeftBorderStyles('danger');
 /**
  * An inline message displayed inside a Card.
  */
-const InlineMessage = styled('p')(
+export const InlineMessage = styled('p')<InlineMessageProps>(
   baseStyles,
   dangerStyles,
   successStyles,
   warningStyles,
   marginStyles,
 );
-
-InlineMessage.propTypes = {
-  /**
-   * Indicates the color of the left border and text in the message.
-   */
-  type: PropTypes.oneOf(['danger', 'success', 'warning']),
-  /**
-   * Should correspond to the size provided to the surrounding Card component.
-   */
-  size: PropTypes.oneOf(['mega', 'giga']),
-  /**
-   * Removes the default bottom margin from the text.
-   */
-  noMargin: PropTypes.bool,
-};
-
-InlineMessage.defaultProps = {
-  size: 'giga',
-  noMargin: false,
-};
-
-/**
- * @component
- */
-export default InlineMessage;
