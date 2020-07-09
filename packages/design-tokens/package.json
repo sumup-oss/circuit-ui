@@ -15,7 +15,7 @@
   "scripts": {
     "build": "yarn build:es && yarn build:cjs",
     "build:es": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir './dist/cjs'",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
     "start": "tsc --watch",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
