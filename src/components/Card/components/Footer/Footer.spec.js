@@ -28,7 +28,7 @@ describe('CardFooter', () => {
 
   describe('Left aligment', () => {
     it('should render with left alignment styles', () => {
-      const actual = create(<CardFooter align={'LEFT'} />);
+      const actual = create(<CardFooter align={'left'} />);
       expect(actual).toMatchSnapshot();
     });
   });

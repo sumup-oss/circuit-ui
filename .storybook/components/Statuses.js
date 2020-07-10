@@ -24,20 +24,20 @@ import { light } from '@sumup/design-tokens';
 import { Badge, Text } from '../../src';
 
 const variants = {
-  stable: { color: 'success', label: 'Stable' },
-  deprecated: { color: 'danger', label: 'Deprecated' },
-  inReview: { color: 'warning', label: 'In Review' },
-  experimental: { color: 'primary', label: 'Experimental' }
+  stable: { variant: 'success', label: 'Stable' },
+  deprecated: { variant: 'danger', label: 'Deprecated' },
+  inReview: { variant: 'warning', label: 'In Review' },
+  experimental: { variant: 'warning', label: 'Experimental' },
 };
 
-const Status = ({ variant = 'stable' }) => {
-  const { color, label } = variants[variant];
+const Status = ({ variant: status = 'stable' }) => {
+  const { variant, label } = variants[status];
 
   return (
     <ThemeProvider theme={light}>
       <Badge
-        color={color}
-        css={theme => css`
+        variant={variant}
+        css={(theme) => css`
           margin-bottom: ${theme.spacings.mega};
         `}
       >
@@ -57,13 +57,18 @@ Status.Description = ({ children }) => (
 );
 
 Status.propTypes = {
-  variant: PropTypes.oneOf(['stable', 'deprecated', 'inReview', 'experimental'])
+  variant: PropTypes.oneOf([
+    'stable',
+    'deprecated',
+    'inReview',
+    'experimental',
+  ]),
 };
 
-Status.Stable = props => <Status {...props} variant="stable" />;
-Status.Deprecated = props => <Status {...props} variant="deprecated" />;
-Status.InReview = props => <Status {...props} variant="inReview" />;
-Status.Experimental = props => <Status {...props} variant="experimental" />;
+Status.Stable = (props) => <Status {...props} variant="stable" />;
+Status.Deprecated = (props) => <Status {...props} variant="deprecated" />;
+Status.InReview = (props) => <Status {...props} variant="inReview" />;
+Status.Experimental = (props) => <Status {...props} variant="experimental" />;
 
 /**
  * @component
