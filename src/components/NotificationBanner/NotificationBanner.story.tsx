@@ -14,28 +14,34 @@
  */
 
 import React from 'react';
+import { css } from '@emotion/core';
 
-import NotificationBanner from '.';
+import { base as Notification } from '../Notification/Notification.story';
 
-describe('NotificationBanner', () => {
-  /**
-   * Style tests.
-   */
-  it('should render with default styles', () => {
-    const actual = create(
+import { NotificationBanner } from './NotificationBanner';
+
+export default {
+  title: 'Components/Notification/NotificationBanner',
+  component: NotificationBanner,
+};
+
+export const base = () => (
+  <div
+    css={css`
+      min-height: 8rem;
+    `}
+  >
+    <div
+      css={css`
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      `}
+    >
       <NotificationBanner>
-        <div />
-      </NotificationBanner>,
-    );
-    expect(actual).toMatchSnapshot();
-  });
-
-  /**
-   * Accessibility tests.
-   */
-  it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<NotificationBanner />);
-    const actual = await axe(wrapper);
-    expect(actual).toHaveNoViolations();
-  });
-});
+        <Notification />
+      </NotificationBanner>
+    </div>
+  </div>
+);

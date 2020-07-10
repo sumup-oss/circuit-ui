@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NotificationBanner should render with default styles 1`] = `
-.circuit-2 {
+.circuit-1 {
   width: 100%;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
@@ -13,12 +13,15 @@ exports[`NotificationBanner should render with default styles 1`] = `
 
 <div
   aria-live="polite"
-  class="circuit-2 circuit-3"
+  class="circuit-1"
+  role="status"
 >
   <div
-    class="circuit-0 circuit-1"
+    class="circuit-0"
   >
-    <div />
+    <p>
+      This is a notification.
+    </p>
   </div>
 </div>
 `;

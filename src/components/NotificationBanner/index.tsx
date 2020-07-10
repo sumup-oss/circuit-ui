@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import NotificationBanner from './NotificationBanner';
+import { NotificationBanner } from './NotificationBanner';
 
 export default NotificationBanner;

@@ -13,54 +13,43 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
+import styled, { StyleProps } from '../../styles/styled';
 import { shadowSingle } from '../../styles/style-helpers';
 
-const outerStyles = ({ theme }) => css`
+export interface NotificationBannerProps extends HTMLProps<HTMLDivElement> {
+  /**
+   * A single Notification.
+   */
+  children: ReactNode;
+}
+
+const outerStyles = ({ theme }: StyleProps) => css`
   label: notification-banner;
   width: 100%;
   background-color: ${theme.colors.white};
   ${shadowSingle({ theme })};
 `;
 
-const innerStyles = ({ theme }) => css`
+const NotificationBannerOuter = styled('div')<{}>(outerStyles);
+
+const innerStyles = ({ theme }: StyleProps) => css`
   label: notification-banner__inner;
   padding: ${theme.spacings.mega} ${theme.spacings.giga};
-  max-width: ;
 `;
 
-const NotificationBannerOuter = styled('div')`
-  ${outerStyles};
-`;
-const NotificationBannerInner = styled('div')`
-  ${innerStyles};
-`;
+const NotificationBannerInner = styled('div')<{}>(innerStyles);
 
 /**
  * NotificationBanner displays a persistent Notification.
  */
-const NotificationBanner = ({ children, ...props }) => (
-  <NotificationBannerOuter {...props} aria-live="polite" region="status">
+export const NotificationBanner = ({
+  children,
+  ...props
+}: NotificationBannerProps) => (
+  <NotificationBannerOuter {...props} aria-live="polite" role="status">
     <NotificationBannerInner>{children}</NotificationBannerInner>
   </NotificationBannerOuter>
 );
-
-NotificationBanner.propTypes = {
-  /**
-   * A single Notification.
-   */
-  children: PropTypes.element,
-};
-
-NotificationBanner.defaultProps = {
-  children: null,
-};
-
-/**
- * @component
- */
-export default NotificationBanner;
