@@ -13,11 +13,27 @@
  * limitations under the License.
  */
 
-import Notification from './Notification';
+import React from 'react';
 
-export {
-  Icon as NotificationIcon,
-  Button as NotificationButton,
-} from './components';
+import { create, renderToHtml, axe } from '../../util/test-utils';
 
-export default Notification;
+import { Notification } from './Notification';
+
+describe('Notification', () => {
+  /**
+   * Style tests.
+   */
+  it('should render with default styles', () => {
+    const actual = create(<Notification />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  /**
+   * Accessibility tests.
+   */
+  it('should meet accessibility guidelines', async () => {
+    const wrapper = renderToHtml(<Notification />);
+    const actual = await axe(wrapper);
+    expect(actual).toHaveNoViolations();
+  });
+});

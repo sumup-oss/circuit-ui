@@ -28,6 +28,6 @@ exports[`Notification should render with default styles 1`] = `
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-0"
 />
 `;

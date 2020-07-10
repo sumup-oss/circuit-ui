@@ -13,12 +13,11 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import styled, { StyleProps } from '../../styles/styled';
 
-const baseStyles = ({ theme }) => css`
+const baseStyles = ({ theme }: StyleProps) => css`
   label: notification;
   display: flex;
   flex-direction: column;
@@ -33,17 +32,4 @@ const baseStyles = ({ theme }) => css`
 /**
  * A Notification component for alerts, updates and notifications.
  */
-const Notification = styled('div')(baseStyles);
-
-Notification.propTypes = {
-  /**
-   * Content to be rendered inside the Notification.
-   * Supports a special NotificationIcon and NotificationButton.
-   */
-  children: childrenPropType,
-};
-
-/**
- * @component
- */
-export default Notification;
+export const Notification = styled('div')<{}>(baseStyles);
