@@ -13,20 +13,26 @@
  * limitations under the License.
  */
 
-import React, { Children } from 'react';
-import styled from '@emotion/styled';
+import React, { Children, HTMLProps, ReactNode } from 'react';
 import { css } from '@emotion/core';
 
-import { childrenPropType } from '../../util/shared-prop-types';
+import styled, { StyleProps } from '../../styles/styled';
 import Card from '../Card';
+
+export interface NotificationListProps extends HTMLProps<HTMLUListElement> {
+  /**
+   * One or more Notifications.
+   */
+  children: ReactNode;
+}
 
 // The first max-width rule is a fallback for old versions of Android
 // that don't support calc()
-const baseStyles = ({ theme }) => css`
+const baseStyles = ({ theme }: StyleProps) => css`
   label: notification-list;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 600px;
   max-width: 90vw;
   max-width: calc(100vw - (${theme.spacings.giga} * 2));
 
@@ -44,37 +50,23 @@ const baseStyles = ({ theme }) => css`
   }
 `;
 
-const NotificationListWrapper = styled('ul')`
-  ${baseStyles};
-`;
+const NotificationListWrapper = styled('ul')<{}>(baseStyles);
 
-const NotificationListCard = Card.withComponent('li');
+// FIXME: Remove typecast once the Card has been migrated to TypeScript.
+const NotificationListCard = Card.withComponent('li') as any;
 
 /**
  * NotificationList displays Notifications as Cards in a corner.
  */
-const NotificationList = ({ children, ...props }) => (
-  <NotificationListWrapper {...props} aria-live="polite" region="log">
+export const NotificationList = ({
+  children,
+  ...props
+}: NotificationListProps) => (
+  <NotificationListWrapper {...props} aria-live="polite">
     {Children.map(children, (child, i) => (
-      <NotificationListCard spacing={'mega'} shadow={'double'} key={i}>
+      <NotificationListCard spacing="mega" shadow="double" key={i}>
         {child}
       </NotificationListCard>
     ))}
   </NotificationListWrapper>
 );
-
-NotificationList.propTypes = {
-  /**
-   * One or more Notifications.
-   */
-  children: childrenPropType,
-};
-
-NotificationList.defaultProps = {
-  children: null,
-};
-
-/**
- * @component
- */
-export default NotificationList;

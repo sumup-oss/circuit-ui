@@ -15,18 +15,18 @@
 
 import React from 'react';
 
-import NotificationList from '.';
+import { create, renderToHtml, axe } from '../../util/test-utils';
+
+import { NotificationList } from './NotificationList';
 
 describe('NotificationList', () => {
+  const children = <p>This is a notification.</p>;
+
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(
-      <NotificationList>
-        <div />
-      </NotificationList>,
-    );
+    const actual = create(<NotificationList>{children}</NotificationList>);
     expect(actual).toMatchSnapshot();
   });
 
@@ -34,7 +34,9 @@ describe('NotificationList', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<NotificationList />);
+    const wrapper = renderToHtml(
+      <NotificationList>{children}</NotificationList>,
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
