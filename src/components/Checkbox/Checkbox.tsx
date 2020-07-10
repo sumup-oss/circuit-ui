@@ -53,15 +53,15 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
   label: checkbox__label;
   color: ${theme.colors.n700};
   display: inline-block;
-  padding-left: ${theme.spacings.giga};
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 
   &::before {
-    height: ${theme.spacings.mega};
-    width: ${theme.spacings.mega};
+    height: 18px;
+    width: 18px;
     box-sizing: border-box;
-    box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
+    box-shadow: 0;
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
     border-radius: 3px;
@@ -71,12 +71,13 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     top: ${theme.spacings.kilo};
     left: 0;
     transform: translateY(-50%);
-    transition: border 0.05s ease-in, background-color 0.05s ease-in;
+    transition: border ${theme.transitions.default},
+      background-color ${theme.transitions.default};
   }
 
   svg {
-    height: ${theme.spacings.mega};
-    width: ${theme.spacings.mega};
+    height: 18px;
+    width: 18px;
     padding: 2px;
     box-sizing: border-box;
     color: ${theme.colors.p500};
@@ -87,7 +88,8 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     top: ${theme.spacings.kilo};
     left: 0;
     transform: translateY(-50%) scale(0, 0);
-    transition: transform 0.05s ease-in, opacity 0.05s ease-in;
+    transition: transform ${theme.transitions.default},
+      opacity ${theme.transitions.default};
   }
 `;
 
@@ -113,13 +115,13 @@ const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
 
     &::before {
       ${disableVisually()};
-      border-color: ${theme.colors.n500};
-      background-color: ${theme.colors.n100};
+      border-color: ${theme.colors.n700};
+      background-color: ${theme.colors.n200};
     }
 
     & svg {
       ${disableVisually()};
-      color: ${theme.colors.n500};
+      color: ${theme.colors.n700};
     }
   `;
 
@@ -142,9 +144,13 @@ const CheckboxWrapper = styled('div')<{}>(checkboxWrapperStyles);
 
 type InputElProps = Omit<CheckboxProps, 'tracking'>;
 
-const inputStyles = ({ theme }: StyleProps) => css`
+const inputBaseStyles = ({ theme }: StyleProps) => css`
   label: checkbox__input;
   ${hideVisually()};
+
+  &:hover + label::before {
+    border-color: ${theme.colors.n700};
+  }
 
   &:focus + label::before {
     ${focusOutline({ theme })};
@@ -160,7 +166,24 @@ const inputStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const CheckboxInput = styled('input')<InputElProps>(inputStyles);
+const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
+  invalid &&
+  css`
+    label: checkbox__input--invalid;
+
+    &:hover + label::before {
+      border-color: ${theme.colors.r700};
+    }
+
+    &:checked + label::before {
+      border-color: ${theme.colors.r500};
+    }
+  `;
+
+const CheckboxInput = styled('input')<InputElProps>(
+  inputBaseStyles,
+  inputInvalidStyles,
+);
 
 const tooltipStyles = ({ theme }: StyleProps) => css`
   label: checkbox__tooltip;

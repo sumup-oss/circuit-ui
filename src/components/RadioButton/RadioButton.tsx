@@ -46,15 +46,15 @@ type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   label: radio-button__label;
   color: ${theme.colors.n700};
-  padding-left: ${theme.spacings.giga};
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 
   &::before {
     box-sizing: border-box;
-    height: ${theme.spacings.mega};
-    width: ${theme.spacings.mega};
-    box-shadow: inset 0 1px 2px 0 rgba(102, 113, 123, 0.12);
+    height: 18px;
+    width: 18px;
+    box-shadow: 0;
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
     border-radius: 100%;
@@ -64,13 +64,13 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    transition: border 0.05s ease-in;
+    transition: border ${theme.transitions.default};
   }
 
   &::after {
     box-sizing: border-box;
-    height: ${theme.spacings.byte};
-    width: ${theme.spacings.byte};
+    height: 10px;
+    width: 10px;
     background-color: ${theme.colors.p500};
     border-radius: 100%;
     content: '';
@@ -80,7 +80,8 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     left: ${theme.spacings.bit};
     transform: translateY(-50%) scale(0, 0);
     opacity: 0;
-    transition: transform 0.05s ease-in, opacity 0.05s ease-in;
+    transition: transform ${theme.transitions.default},
+      opacity ${theme.transitions.default};
   }
 `;
 
@@ -106,13 +107,13 @@ const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
 
     &::before {
       ${disableVisually()};
-      border-color: ${theme.colors.n500};
-      background-color: ${theme.colors.n100};
+      border-color: ${theme.colors.n700};
+      background-color: ${theme.colors.n200};
     }
 
     &::after {
       ${disableVisually()};
-      background-color: ${theme.colors.n500};
+      background-color: ${theme.colors.n700};
     }
   `;
 
@@ -124,8 +125,13 @@ const RadioButtonLabel = styled('label')<LabelElProps>(
 
 type InputElProps = Omit<RadioButtonProps, 'tracking'>;
 
-const inputStyles = ({ theme }: StyleProps) => css`
+const inputBaseStyles = ({ theme }: StyleProps) => css`
   label: radio-button__input;
+  ${hideVisually()};
+
+  &:hover + label::before {
+    border-color: ${theme.colors.n700};
+  }
 
   &:focus + label::before {
     ${focusOutline({ theme })}
@@ -143,9 +149,23 @@ const inputStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
+const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
+  invalid &&
+  css`
+    label: radio-button__input--invalid;
+
+    &:hover + label::before {
+      border-color: ${theme.colors.r700};
+    }
+
+    &:checked + label::before {
+      border-color: ${theme.colors.r500};
+    }
+  `;
+
 const RadioButtonInput = styled('input')<InputElProps>(
-  hideVisually,
-  inputStyles,
+  inputBaseStyles,
+  inputInvalidStyles,
 );
 
 const RadioButtonComponent = (
@@ -174,6 +194,8 @@ const RadioButtonComponent = (
         name={name}
         id={id}
         value={value}
+        invalid={invalid}
+        disabled={disabled}
         checked={checked}
         onClick={handleChange}
         ref={ref}
