@@ -17806,7 +17806,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="radio-button_34"
     name="radio"
     type="radio"
@@ -17860,7 +17860,7 @@ HTMLCollection [
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     for="radio-button_34"
   >
     Unchecked
@@ -17904,8 +17904,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
-    disabled=""
+    class="circuit-0"
     id="radio-button_36"
     name="disabled"
     type="radio"
@@ -17977,7 +17976,7 @@ HTMLCollection [
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     disabled=""
     for="radio-button_36"
   >
@@ -18022,7 +18021,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="radio-button_35"
     name="invalid"
     type="radio"
@@ -18085,7 +18084,7 @@ HTMLCollection [
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     for="radio-button_35"
   >
     Error
@@ -18127,14 +18126,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   opacity: 1;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   padding-left: 24px;
   position: relative;
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   box-sizing: border-box;
   height: 16px;
   width: 16px;
@@ -18154,7 +18153,7 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   transition: border 0.05s ease-in;
 }
 
-.circuit-2::after {
+.circuit-1::after {
   box-sizing: border-box;
   height: 8px;
   width: 8px;
@@ -18180,14 +18179,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
 >
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_37"
       name="radio-button-group"
       type="radio"
       value="apple"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_37"
     >
       Apple
@@ -18195,14 +18194,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   </div>
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_38"
       name="radio-button-group"
       type="radio"
       value="banana"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_38"
     >
       Banana
@@ -18210,14 +18209,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   </div>
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_39"
       name="radio-button-group"
       type="radio"
       value="mango"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_39"
     >
       Mango

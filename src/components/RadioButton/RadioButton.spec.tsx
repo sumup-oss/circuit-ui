@@ -15,6 +15,15 @@
 
 import React from 'react';
 
+import {
+  create,
+  renderToHtml,
+  axe,
+  render,
+  act,
+  userEvent,
+} from '../../util/test-utils';
+
 import RadioButton from '.';
 
 describe('RadioButton', () => {
@@ -73,7 +82,7 @@ describe('RadioButton', () => {
     });
 
     act(() => {
-      fireEvent.click(inputEl);
+      userEvent.click(inputEl);
     });
 
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -84,7 +93,7 @@ describe('RadioButton', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
+      const tref = React.createRef<HTMLInputElement>();
       const { container } = render(<RadioButton ref={tref} />);
       const input = container.querySelector('input');
       expect(tref.current).toBe(input);

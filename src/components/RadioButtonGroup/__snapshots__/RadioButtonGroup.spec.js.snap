@@ -34,14 +34,14 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   opacity: 1;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
   padding-left: 24px;
   position: relative;
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   box-sizing: border-box;
   height: 16px;
   width: 16px;
@@ -61,7 +61,7 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   transition: border 0.05s ease-in;
 }
 
-.circuit-2::after {
+.circuit-1::after {
   box-sizing: border-box;
   height: 8px;
   width: 8px;
@@ -86,14 +86,14 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
 >
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_2"
       name="radio-button-group_1"
       type="radio"
       value="first"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_2"
     >
       Option 1
@@ -101,14 +101,14 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   </div>
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_3"
       name="radio-button-group_1"
       type="radio"
       value="second"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_3"
     >
       Option 2
@@ -116,14 +116,14 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   </div>
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_4"
       name="radio-button-group_1"
       type="radio"
       value="third"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_4"
     >
       Option 3

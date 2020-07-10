@@ -13,21 +13,37 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React, { HTMLProps, Ref } from 'react';
 import { css } from '@emotion/core';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
+import styled, { StyleProps } from '../../styles/styled';
 import {
   disableVisually,
   hideVisually,
   focusOutline,
 } from '../../styles/style-helpers';
-import { childrenPropType } from '../../util/shared-prop-types';
 import { uniqueId } from '../../util/id';
 import useClickHandler from '../../hooks/use-click-handler';
 
-const labelBaseStyles = ({ theme }) => css`
+export interface RadioButtonProps extends HTMLProps<HTMLInputElement> {
+  /**
+   * Triggers error styles on the component.
+   */
+  invalid?: boolean;
+  /**
+   * The ref to the HTML Dom element
+   */
+  ref?: Ref<HTMLInputElement>;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
+}
+
+type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
+
+const labelBaseStyles = ({ theme }: StyleProps) => css`
   label: radio-button__label;
   color: ${theme.colors.n700};
   padding-left: ${theme.spacings.giga};
@@ -68,7 +84,7 @@ const labelBaseStyles = ({ theme }) => css`
   }
 `;
 
-const labelInvalidStyles = ({ theme, invalid }) =>
+const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
   invalid &&
   css`
     label: radio-button--error;
@@ -82,7 +98,7 @@ const labelInvalidStyles = ({ theme, invalid }) =>
     }
   `;
 
-const labelDisabledStyles = ({ theme, disabled }) =>
+const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
   disabled &&
   css`
     label: radio-button--disabled;
@@ -100,7 +116,15 @@ const labelDisabledStyles = ({ theme, disabled }) =>
     }
   `;
 
-const inputStyles = ({ theme }) => css`
+const RadioButtonLabel = styled('label')<LabelElProps>(
+  labelBaseStyles,
+  labelDisabledStyles,
+  labelInvalidStyles,
+);
+
+type InputElProps = Omit<RadioButtonProps, 'tracking'>;
+
+const inputStyles = ({ theme }: StyleProps) => css`
   label: radio-button__input;
 
   &:focus + label::before {
@@ -119,19 +143,27 @@ const inputStyles = ({ theme }) => css`
   }
 `;
 
-const RadioButtonInput = styled('input')(hideVisually, inputStyles);
-
-const RadioButtonLabel = styled('label')(
-  labelBaseStyles,
-  labelDisabledStyles,
-  labelInvalidStyles,
+const RadioButtonInput = styled('input')<InputElProps>(
+  hideVisually,
+  inputStyles,
 );
 
 const RadioButtonComponent = (
-  { onChange, children, id, name, value, checked, tracking, ...props },
-  ref,
+  {
+    onChange,
+    children,
+    id: customId,
+    name,
+    value,
+    checked,
+    invalid,
+    disabled,
+    tracking,
+    ...props
+  }: RadioButtonProps,
+  ref: RadioButtonProps['ref'],
 ) => {
-  const inputId = id || uniqueId('radio-button_');
+  const id = customId || uniqueId('radio-button_');
   const handleChange = useClickHandler(onChange, tracking, 'radio-button');
 
   return (
@@ -140,13 +172,13 @@ const RadioButtonComponent = (
         {...props}
         type="radio"
         name={name}
-        id={inputId}
+        id={id}
         value={value}
         checked={checked}
         onClick={handleChange}
         ref={ref}
       />
-      <RadioButtonLabel {...props} htmlFor={inputId}>
+      <RadioButtonLabel htmlFor={id} disabled={disabled} invalid={invalid}>
         {children}
       </RadioButtonLabel>
     </>
@@ -156,72 +188,4 @@ const RadioButtonComponent = (
 /**
  * RadioButton component for forms.
  */
-const RadioButton = React.forwardRef(RadioButtonComponent);
-
-RadioButton.propTypes = {
-  /**
-   * Callback used when the user toggles the radio button.
-   */
-  onChange: PropTypes.func,
-  /**
-   * Value string for input.
-   */
-  value: PropTypes.string.isRequired,
-  /**
-   * Child nodes to be rendered as the label.
-   */
-  children: childrenPropType.isRequired,
-  /**
-   * The name of the radio group that the radio button belongs to.
-   */
-  name: PropTypes.string.isRequired,
-  /**
-   * A unique ID used to link the input and label.
-   */
-  id: PropTypes.string,
-  /**
-   * Triggers checked styles on the component. This is also forwarded as
-   * attribute to the <input> element.
-   */
-  checked: PropTypes.bool,
-  /**
-   * Triggers error styles on the component.
-   */
-  invalid: PropTypes.bool,
-  /**
-   * Triggers disabled styles on the component. This is also forwarded as
-   * attribute to the <input> element.
-   */
-  disabled: PropTypes.bool,
-  /**
-   * The ref to the html dom element
-   */
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
-  /**
-   * Additional data that is dispatched with the tracking event.
-   */
-  tracking: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    component: PropTypes.string,
-    customParameters: PropTypes.object,
-  }),
-};
-
-RadioButton.defaultProps = {
-  id: null,
-  checked: false,
-  invalid: false,
-  disabled: false,
-  children: null,
-  ref: undefined,
-};
-
-/**
- * @component
- */
-export default RadioButton;
+export const RadioButton = React.forwardRef(RadioButtonComponent);

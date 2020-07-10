@@ -37,7 +37,7 @@ HTMLCollection [
 
 <input
     checked=""
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="radio-button_2"
     type="radio"
     value=""
@@ -90,7 +90,7 @@ HTMLCollection [
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     for="radio-button_2"
   />,
 ]
@@ -132,7 +132,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="radio-button_1"
     type="radio"
     value=""
@@ -185,7 +185,7 @@ HTMLCollection [
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     for="radio-button_1"
   />,
 ]
@@ -227,8 +227,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
-    disabled=""
+    class="circuit-0"
     id="radio-button_3"
     type="radio"
     value=""
@@ -299,7 +298,7 @@ HTMLCollection [
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     disabled=""
     for="radio-button_3"
   />,
@@ -342,7 +341,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="radio-button_4"
     type="radio"
     value=""
@@ -404,7 +403,7 @@ HTMLCollection [
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     for="radio-button_4"
   />,
 ]

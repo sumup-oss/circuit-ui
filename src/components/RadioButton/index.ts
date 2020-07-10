@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import RadioButton from './RadioButton';
+import { RadioButton } from './RadioButton';
 
 export default RadioButton;

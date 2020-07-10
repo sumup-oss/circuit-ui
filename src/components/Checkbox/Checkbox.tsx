@@ -42,7 +42,7 @@ export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
    */
   tracking?: TrackingProps;
   /**
-   * The ref to the html dom element
+   * The ref to the HTML Dom element
    */
   ref?: Ref<HTMLInputElement>;
 }
@@ -171,6 +171,7 @@ const CheckboxTooltip = styled(Tooltip)<{}>(tooltipStyles);
 
 const CheckboxComponent = (
   {
+    onChange,
     children,
     value,
     id: customId,
@@ -185,7 +186,7 @@ const CheckboxComponent = (
   ref: CheckboxProps['ref'],
 ) => {
   const id = customId || uniqueId('checkbox_');
-  const handleChange = useClickHandler(props.onChange, tracking, 'checkbox');
+  const handleChange = useClickHandler(onChange, tracking, 'checkbox');
 
   return (
     <CheckboxWrapper className={className}>
