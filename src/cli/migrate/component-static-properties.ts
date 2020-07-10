@@ -84,10 +84,6 @@ const components = [
     properties: ['LEFT', 'RIGHT'],
   },
   {
-    componentName: 'NotificationIcon',
-    properties: ['SUCCESS', 'ERROR', 'WARNING'],
-  },
-  {
     componentName: 'Popover',
     properties: ['TOP', 'BOTTOM', 'LEFT', 'RIGHT', 'START', 'END', 'CENTER'],
   },

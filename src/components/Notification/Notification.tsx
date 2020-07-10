@@ -13,23 +13,109 @@
  * limitations under the License.
  */
 
+import React, {
+  FC,
+  SVGProps,
+  ReactNode,
+  MouseEvent,
+  KeyboardEvent,
+} from 'react';
 import { css } from '@emotion/core';
+import { CircleCheckmark, CircleCross, CircleWarning } from '@sumup/icons';
+import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
+import { CloseButton, CloseButtonProps } from '../CloseButton/CloseButton';
 
-const baseStyles = ({ theme }: StyleProps) => css`
+type Variant = 'success' | 'error' | 'warning';
+
+export interface NotificationProps {
+  variant: Variant;
+  children: ReactNode;
+  icon?: FC<SVGProps<SVGSVGElement>>;
+  onClose?: (event: MouseEvent | KeyboardEvent) => void;
+  closeLabel?: string;
+}
+
+const containerStyles = () => css`
   label: notification;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: flex-start;
-
-  ${theme.mq.kilo} {
-    flex-direction: row;
-  }
 `;
+
+const Container = styled('div')<{}>(containerStyles);
+
+const contentStyles = () => css`
+  label: notification__content;
+  display: flex;
+  flex-direction: row;
+`;
+
+const Content = styled('div')<{}>(contentStyles);
+
+const colorMap = {
+  success: 'success',
+  error: 'danger',
+  warning: 'warning',
+} as const;
+
+const iconMap = {
+  success: CircleCheckmark,
+  error: CircleCross,
+  warning: CircleWarning,
+} as const;
+
+const iconStyles = (variant: Variant) => (theme: Theme) =>
+  css`
+    label: notification__icon;
+    display: block;
+    margin-right: ${theme.spacings.kilo};
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: 0;
+    color: ${theme.colors[colorMap[variant]]};
+  `;
+
+const closeButtonStyles = ({ theme }: StyleProps) => css`
+  label: notification__close-button;
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: -${theme.spacings.bit};
+  margin-bottom: -${theme.spacings.bit};
+  margin-left: ${theme.spacings.kilo};
+`;
+
+const StyledCloseButton = styled(CloseButton)<CloseButtonProps>(
+  closeButtonStyles,
+);
 
 /**
  * A Notification component for alerts, updates and notifications.
  */
-export const Notification = styled('div')<{}>(baseStyles);
+export const Notification = ({
+  variant,
+  icon,
+  children,
+  onClose,
+  closeLabel,
+  ...props
+}: NotificationProps) => {
+  const Icon = icon || iconMap[variant];
+
+  return (
+    <Container {...props}>
+      <Content>
+        {Icon && <Icon css={iconStyles(variant)} size="large" />}
+        <div>{children}</div>
+      </Content>
+
+      {onClose && closeLabel && (
+        <StyledCloseButton onClick={onClose} label={closeLabel} size="kilo" />
+      )}
+    </Container>
+  );
+};

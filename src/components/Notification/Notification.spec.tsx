@@ -20,11 +20,29 @@ import { create, renderToHtml, axe } from '../../util/test-utils';
 import { Notification } from './Notification';
 
 describe('Notification', () => {
+  const children = <p>This is a notification.</p>;
+
   /**
    * Style tests.
    */
-  it('should render with default styles', () => {
-    const actual = create(<Notification />);
+  it('should render with success styles', () => {
+    const actual = create(
+      <Notification variant="success">{children}</Notification>,
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with warning styles', () => {
+    const actual = create(
+      <Notification variant="warning">{children}</Notification>,
+    );
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with error styles', () => {
+    const actual = create(
+      <Notification variant="error">{children}</Notification>,
+    );
     expect(actual).toMatchSnapshot();
   });
 
@@ -32,7 +50,9 @@ describe('Notification', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<Notification />);
+    const wrapper = renderToHtml(
+      <Notification variant="success">{children}</Notification>,
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

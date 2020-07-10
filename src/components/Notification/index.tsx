@@ -15,9 +15,4 @@
 
 import { Notification } from './Notification';
 
-export {
-  Icon as NotificationIcon,
-  Button as NotificationButton,
-} from './components';
-
 export default Notification;

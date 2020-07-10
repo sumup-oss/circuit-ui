@@ -15,14 +15,15 @@
 
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { css } from '@emotion/core';
+import { Theme } from '@sumup/design-tokens';
 
 import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
 
 import docs from './Notification.docs.mdx';
-
-import Notification, { NotificationIcon, NotificationButton } from '.';
+import { Notification } from './Notification';
 
 export default {
   title: 'Components/Notification',
@@ -32,62 +33,61 @@ export default {
   },
 };
 
+const notificationStyles = (theme: Theme) =>
+  css`
+    width: 600px;
+    max-width: 95vw;
+    margin-bottom: ${theme.spacings.mega};
+  `;
+
+const headingStyles = (theme: Theme) =>
+  css`
+    margin-bottom: ${theme.spacings.kilo};
+  `;
+
 export const base = () => (
-  <Notification>
-    <div>
-      <Heading as="h4" size="kilo" noMargin>
-        New Feature — Intelligent Reporting
+  <Notification
+    variant="success"
+    onClose={action('Notification dismissed')}
+    closeLabel="Close"
+  >
+    <Heading as="h4" size="kilo" noMargin>
+      New Feature — Intelligent Reporting
+    </Heading>
+    <Text>
+      Get automatic insights into your business statistics with one click.
+    </Text>
+    <Button size="kilo" onClick={action('Action clicked')}>
+      Learn more
+    </Button>
+  </Notification>
+);
+
+export const variants = () => (
+  <>
+    <Notification variant="success" css={notificationStyles}>
+      <Heading size="kilo" as="h4" noMargin>
+        Transaction successfully refunded
       </Heading>
-      <Text noMargin>
-        Get automatic insights into your business statistics with one click.
+    </Notification>
+    <Notification variant="warning" css={notificationStyles}>
+      <Heading size="kilo" as="h4" noMargin>
+        You need to verify your account
+      </Heading>
+      <Text>
+        We need to verify your identity before you can continue transacting.
       </Text>
-    </div>
-  </Notification>
-);
-
-export const success = () => (
-  <Notification>
-    <NotificationIcon type={'success'} />
-    <Heading size="kilo" as="h4" noMargin>
-      Transaction successfully refunded
-    </Heading>
-  </Notification>
-);
-
-export const warning = () => (
-  <Notification>
-    <NotificationIcon type={'warning'} />
-    <Heading size="kilo" as="h4" noMargin>
-      You still need to verify your account
-    </Heading>
-    <NotificationButton>
-      <Button
-        size="kilo"
-        onClick={(e) => {
-          action('Button clicked')(e);
-        }}
-      >
+      <Button size="kilo" onClick={action('Button clicked')}>
         Verify account
       </Button>
-    </NotificationButton>
-  </Notification>
-);
-
-export const alert = () => (
-  <Notification>
-    <NotificationIcon type={'error'} />
-    <Heading size="kilo" as="h4" noMargin>
-      Your transaction has failed
-    </Heading>
-    <NotificationButton>
-      <Button
-        size="kilo"
-        onClick={(e) => {
-          action('Button clicked')(e);
-        }}
-      >
+    </Notification>
+    <Notification variant="error" css={notificationStyles}>
+      <Heading size="kilo" as="h4" css={headingStyles}>
+        We failed to process your transaction
+      </Heading>
+      <Button size="kilo" onClick={action('Button clicked')}>
         Try again
       </Button>
-    </NotificationButton>
-  </Notification>
+    </Notification>
+  </>
 );
