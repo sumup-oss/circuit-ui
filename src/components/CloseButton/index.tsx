@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import CloseButton from './CloseButton';
+import { CloseButton } from './CloseButton';
 
 export default CloseButton;

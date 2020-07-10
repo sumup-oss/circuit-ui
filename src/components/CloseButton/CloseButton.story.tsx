@@ -16,7 +16,7 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs';
 
-import CloseButton from './CloseButton';
+import { CloseButton } from './CloseButton';
 
 export default {
   title: 'Components/Button/CloseButton',

@@ -17,7 +17,9 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { Cross } from '@sumup/icons';
 
-import IconButton from '../IconButton';
+import { IconButton, IconButtonProps } from '../IconButton/IconButton';
+
+export type CloseButtonProps = Omit<IconButtonProps, 'children'>;
 
 const buttonStyles = () => css`
   border: 0;
@@ -26,24 +28,21 @@ const buttonStyles = () => css`
 /**
  * A generic close button.
  */
-const CloseButton = React.forwardRef((props, ref) => (
-  <IconButton css={buttonStyles} {...props} ref={ref}>
-    <Cross />
-  </IconButton>
-));
+export const CloseButton = React.forwardRef(
+  (
+    { label = 'Close', ...props }: CloseButtonProps,
+    ref: CloseButtonProps['ref'],
+  ) => (
+    <IconButton
+      type="button"
+      css={buttonStyles}
+      label={label}
+      {...props}
+      ref={ref}
+    >
+      <Cross />
+    </IconButton>
+  ),
+);
 
 CloseButton.displayName = 'CloseButton';
-
-CloseButton.propTypes = {
-  ...IconButton.propTypes,
-};
-
-CloseButton.defaultProps = {
-  label: 'Close',
-  ref: undefined,
-};
-
-/**
- * @component
- */
-export default CloseButton;

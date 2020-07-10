@@ -15,14 +15,16 @@
 
 import React from 'react';
 
-import CloseButton from '.';
+import { create, renderToHtml, axe, render } from '../../util/test-utils';
+
+import { CloseButton } from './CloseButton';
 
 describe('CloseButton', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CloseButton />);
+    const actual = create(<CloseButton label="Close" />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -31,8 +33,8 @@ describe('CloseButton', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
-      const { container } = render(<CloseButton ref={tref} />);
+      const tref = React.createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const { container } = render(<CloseButton label="Close" ref={tref} />);
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);
     });
@@ -42,7 +44,7 @@ describe('CloseButton', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CloseButton />);
+    const wrapper = renderToHtml(<CloseButton label="Close" />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });
