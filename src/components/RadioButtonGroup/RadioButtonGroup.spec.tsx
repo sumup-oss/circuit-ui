@@ -15,29 +15,42 @@
 
 import React from 'react';
 
-import RadioButtonGroup from '.';
+import {
+  create,
+  renderToHtml,
+  axe,
+  render,
+  act,
+  userEvent,
+} from '../../util/test-utils';
+
+import { RadioButtonGroup } from './RadioButtonGroup';
 
 describe('RadioButtonGroup', () => {
-  const options = [
-    {
-      children: 'Option 1',
-      value: 'first',
-    },
-    {
-      children: 'Option 2',
-      value: 'second',
-    },
-    {
-      children: 'Option 3',
-      value: 'third',
-    },
-  ];
+  const baseProps = {
+    options: [
+      {
+        children: 'Option 1',
+        value: 'first',
+      },
+      {
+        children: 'Option 2',
+        value: 'second',
+      },
+      {
+        children: 'Option 3',
+        value: 'third',
+      },
+    ],
+    onChange: jest.fn(),
+    label: 'Choose an option',
+  };
 
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<RadioButtonGroup {...{ options }} />);
+    const actual = create(<RadioButtonGroup {...baseProps} />);
     expect(actual).toMatchSnapshot();
   });
 
@@ -47,11 +60,24 @@ describe('RadioButtonGroup', () => {
   it('should check the selected option', () => {
     const value = 'second';
     const { getByLabelText } = render(
-      <RadioButtonGroup options={options} value={value} />,
+      <RadioButtonGroup {...baseProps} value={value} />,
     );
     expect(getByLabelText('Option 1')).not.toHaveAttribute('checked');
     expect(getByLabelText('Option 2')).toHaveAttribute('checked');
     expect(getByLabelText('Option 3')).not.toHaveAttribute('checked');
+  });
+
+  it('should call the change handler when clicked', () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = render(
+      <RadioButtonGroup {...baseProps} onChange={onChange} />,
+    );
+
+    act(() => {
+      userEvent.click(getByLabelText('Option 3'));
+    });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 
   /**
@@ -60,11 +86,7 @@ describe('RadioButtonGroup', () => {
   it('should meet accessibility guidelines', async () => {
     const value = 'second';
     const wrapper = renderToHtml(
-      <RadioButtonGroup
-        options={options}
-        value={value}
-        label="Choose your favourite option"
-      />,
+      <RadioButtonGroup {...baseProps} value={value} />,
     );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();

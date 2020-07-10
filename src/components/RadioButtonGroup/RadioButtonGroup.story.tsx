@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 
-import RadioButtonGroup from './RadioButtonGroup';
+import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 
 export default {
   title: 'Forms/RadioButton/RadioButtonGroup',
@@ -37,15 +37,19 @@ const options = [
   },
 ];
 
-// eslint-disable-next-line react/prop-types
-const RadioButtonGroupWithState = ({ value: initial, children, ...props }) => {
+const RadioButtonGroupWithState = ({
+  value: initial,
+  children,
+  ...props
+}: Partial<RadioButtonGroupProps>) => {
   const [value, setValue] = useState(initial);
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
   };
   return (
     <RadioButtonGroup
       {...props}
+      options={options}
       value={value}
       onChange={handleChange}
       label="Choose your favourite fruit"
@@ -54,5 +58,5 @@ const RadioButtonGroupWithState = ({ value: initial, children, ...props }) => {
 };
 
 export const base = () => (
-  <RadioButtonGroupWithState options={options} name="radio-button-group" />
+  <RadioButtonGroupWithState name="radio-button-group" />
 );
