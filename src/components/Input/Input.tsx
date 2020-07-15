@@ -134,6 +134,7 @@ type InputElProps = InputProps & {
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
   label: input;
+  -webkit-appearance: none;
   background-color: ${theme.colors.white};
   border: none;
   outline: 0;

@@ -10775,6 +10775,7 @@ label + .circuit-6 {
 }
 
 .circuit-5 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -15585,6 +15586,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -15701,6 +15703,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -15813,6 +15816,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -15915,6 +15919,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -16048,6 +16053,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -16224,6 +16230,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -16339,6 +16346,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -16453,6 +16461,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -16595,6 +16604,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -16752,6 +16762,7 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -16890,6 +16901,7 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -17024,6 +17036,7 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -17163,6 +17176,7 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -17297,6 +17311,7 @@ label + .circuit-3 {
 }
 
 .circuit-2 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -17419,6 +17434,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -17526,6 +17542,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -17638,6 +17655,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -19589,6 +19607,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -19681,6 +19700,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -19788,6 +19808,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -19877,6 +19898,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -20035,6 +20057,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -20143,6 +20166,7 @@ label + .circuit-2 {
 }
 
 .circuit-1 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
