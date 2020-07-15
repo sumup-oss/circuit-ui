@@ -172,6 +172,7 @@ const RadioButtonComponent = (
   {
     onChange,
     children,
+    label,
     id: customId,
     name,
     value,
@@ -201,7 +202,7 @@ const RadioButtonComponent = (
         ref={ref}
       />
       <RadioButtonLabel htmlFor={id} disabled={disabled} invalid={invalid}>
-        {children}
+        {children || label}
       </RadioButtonLabel>
     </>
   );
