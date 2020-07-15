@@ -20,7 +20,7 @@ import { text } from '@storybook/addon-knobs';
 import CalendarTag from './CalendarTag';
 
 export default {
-  title: 'Components/Calendar/CalendarTag',
+  title: 'Forms/Calendar/CalendarTag',
   component: CalendarTag,
 };
 

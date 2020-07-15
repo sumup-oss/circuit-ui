@@ -48,6 +48,7 @@ const CalendarInheritStyles = () => css`
     background-color: #fff;
   }
   .SingleDatePickerInput__withBorder {
+    border-radius: 2px;
     border: 1px solid #dbdbdb;
   }
   .SingleDatePickerInput__rtl {
@@ -190,35 +191,54 @@ const CalendarInheritStyles = () => css`
     outline: 0;
   }
   .DayPickerKeyboardShortcuts_show {
-    width: 22px;
+    width: 33px;
+    height: 26px;
     position: absolute;
     z-index: 2;
   }
+  .DayPickerKeyboardShortcuts_show::before {
+    content: '';
+    display: block;
+    position: absolute;
+  }
   .DayPickerKeyboardShortcuts_show__bottomRight {
+    bottom: 0;
+    right: 0;
+  }
+  .DayPickerKeyboardShortcuts_show__bottomRight::before {
     border-top: 26px solid transparent;
     border-right: 33px solid #00a699;
     bottom: 0;
     right: 0;
   }
-  .DayPickerKeyboardShortcuts_show__bottomRight:hover {
+  .DayPickerKeyboardShortcuts_show__bottomRight:hover::before {
     border-right: 33px solid #008489;
   }
   .DayPickerKeyboardShortcuts_show__topRight {
+    top: 0;
+    right: 0;
+  }
+  .DayPickerKeyboardShortcuts_show__topRight::before {
     border-bottom: 26px solid transparent;
     border-right: 33px solid #00a699;
     top: 0;
     right: 0;
   }
-  .DayPickerKeyboardShortcuts_show__topRight:hover {
+  .DayPickerKeyboardShortcuts_show__topRight:hover::before {
     border-right: 33px solid #008489;
   }
   .DayPickerKeyboardShortcuts_show__topLeft {
+    top: 0;
+    left: 0;
+  }
+  .DayPickerKeyboardShortcuts_show__topLeft::before {
     border-bottom: 26px solid transparent;
     border-left: 33px solid #00a699;
     top: 0;
     left: 0;
   }
-  .DayPickerKeyboardShortcuts_show__topLeft:hover {
+  .DayPickerKeyboardShortcuts_show__topLeft:hover::before {
+    border-left: 33px solid #008489;
     border-left: 33px solid #008489;
   }
   .DayPickerKeyboardShortcuts_showSpan {
@@ -227,15 +247,15 @@ const CalendarInheritStyles = () => css`
   }
   .DayPickerKeyboardShortcuts_showSpan__bottomRight {
     bottom: 0;
-    right: -28px;
+    right: 5px;
   }
   .DayPickerKeyboardShortcuts_showSpan__topRight {
     top: 1px;
-    right: -28px;
+    right: 5px;
   }
   .DayPickerKeyboardShortcuts_showSpan__topLeft {
     top: 1px;
-    left: -28px;
+    left: 5px;
   }
   .DayPickerKeyboardShortcuts_panel {
     overflow: auto;
@@ -250,6 +270,7 @@ const CalendarInheritStyles = () => css`
     z-index: 2;
     padding: 22px;
     margin: 33px;
+    text-align: left;
   }
   .DayPickerKeyboardShortcuts_title {
     font-size: 16px;
@@ -294,12 +315,12 @@ const CalendarInheritStyles = () => css`
   }
   .CalendarDay__default {
     border: 1px solid #e4e7e7;
-    color: #565a5c;
+    color: #484848;
     background: #fff;
   }
   .CalendarDay__default:hover {
     background: #e4e7e7;
-    border: 1px double #e4e7e7;
+    border: 1px solid #e4e7e7;
     color: inherit;
   }
   .CalendarDay__hovered_offset {
@@ -310,7 +331,10 @@ const CalendarInheritStyles = () => css`
   .CalendarDay__outside {
     border: 0;
     background: #fff;
-    color: #565a5c;
+    color: #484848;
+  }
+  .CalendarDay__outside:hover {
+    border: 0;
   }
   .CalendarDay__blocked_minimum_nights {
     background: #fff;
@@ -324,43 +348,40 @@ const CalendarInheritStyles = () => css`
   }
   .CalendarDay__highlighted_calendar {
     background: #ffe8bc;
-    color: #565a5c;
+    color: #484848;
   }
   .CalendarDay__highlighted_calendar:active,
   .CalendarDay__highlighted_calendar:hover {
     background: #ffce71;
-    color: #565a5c;
+    color: #484848;
   }
   .CalendarDay__selected_span {
     background: #66e2da;
-    border: 1px solid #33dacd;
+    border: 1px double #33dacd;
     color: #fff;
   }
   .CalendarDay__selected_span:active,
   .CalendarDay__selected_span:hover {
     background: #33dacd;
-    border: 1px solid #33dacd;
+    border: 1px double #33dacd;
     color: #fff;
-  }
-  .CalendarDay__last_in_range {
-    border-right: #00a699;
   }
   .CalendarDay__selected,
   .CalendarDay__selected:active,
   .CalendarDay__selected:hover {
     background: #00a699;
-    border: 1px solid #00a699;
+    border: 1px double #00a699;
     color: #fff;
   }
   .CalendarDay__hovered_span,
   .CalendarDay__hovered_span:hover {
     background: #b2f1ec;
-    border: 1px solid #80e8e0;
+    border: 1px double #80e8e0;
     color: #007a87;
   }
   .CalendarDay__hovered_span:active {
     background: #80e8e0;
-    border: 1px solid #80e8e0;
+    border: 1px double #80e8e0;
     color: #007a87;
   }
   .CalendarDay__blocked_calendar,
@@ -377,10 +398,17 @@ const CalendarInheritStyles = () => css`
     border: 1px solid #e4e7e7;
     color: #cacccd;
   }
+  .CalendarDay__hovered_start_first_possible_end {
+    background: #eceeee;
+    border: 1px double #eceeee;
+  }
+  .CalendarDay__hovered_start_blocked_min_nights {
+    background: #eceeee;
+    border: 1px double #e4e7e7;
+  }
   .CalendarMonth {
     background: #fff;
     text-align: center;
-    padding: 0 13px;
     vertical-align: top;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -395,7 +423,7 @@ const CalendarInheritStyles = () => css`
     border-collapse: separate;
   }
   .CalendarMonth_caption {
-    color: #565a5c;
+    color: #484848;
     font-size: 18px;
     text-align: center;
     padding-top: 22px;
@@ -418,12 +446,9 @@ const CalendarInheritStyles = () => css`
     position: absolute;
     left: 9px;
   }
-  .CalendarMonthGrid__vertical {
-    margin: 0 auto;
-  }
+  .CalendarMonthGrid__vertical,
   .CalendarMonthGrid__vertical_scrollable {
     margin: 0 auto;
-    overflow-y: scroll;
   }
   .CalendarMonthGrid_month__horizontal {
     display: inline-block;
@@ -439,29 +464,49 @@ const CalendarInheritStyles = () => css`
   .CalendarMonthGrid_month__hidden {
     visibility: hidden;
   }
-  .DayPickerNavigation_container {
+  .DayPickerNavigation {
     position: relative;
     z-index: 2;
   }
-  .DayPickerNavigation_container__vertical {
-    background: #fff;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  .DayPickerNavigation__horizontal {
+    height: 0;
+  }
+  .DayPickerNavigation__verticalScrollable_prevNav {
+    z-index: 1;
+  }
+  .DayPickerNavigation__verticalDefault {
     position: absolute;
+    width: 100%;
+    height: 52px;
     bottom: 0;
     left: 0;
-    height: 52px;
-    width: 100%;
   }
-  .DayPickerNavigation_container__verticalScrollable {
+  .DayPickerNavigation__verticalScrollableDefault {
     position: relative;
+  }
+  .DayPickerNavigation__bottom {
+    height: auto;
+  }
+  .DayPickerNavigation__bottomDefault {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
   }
   .DayPickerNavigation_button {
     cursor: pointer;
-    line-height: 0.78;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
   }
   .DayPickerNavigation_button__default {
     border: 1px solid #e4e7e7;
@@ -475,11 +520,27 @@ const CalendarInheritStyles = () => css`
   .DayPickerNavigation_button__default:active {
     background: #f2f2f2;
   }
+  .DayPickerNavigation_button__disabled {
+    cursor: default;
+    border: 1px solid #f2f2f2;
+  }
+  .DayPickerNavigation_button__disabled:focus,
+  .DayPickerNavigation_button__disabled:hover {
+    border: 1px solid #f2f2f2;
+  }
+  .DayPickerNavigation_button__disabled:active {
+    background: 0 0;
+  }
   .DayPickerNavigation_button__horizontal {
+    position: absolute;
+    top: 18px;
+    line-height: 0.78;
     border-radius: 3px;
     padding: 6px 9px;
-    top: 18px;
-    position: absolute;
+  }
+  .DayPickerNavigation_bottomButton__horizontal {
+    position: static;
+    margin: -10px 22px 30px;
   }
   .DayPickerNavigation_leftButton__horizontal {
     left: 22px;
@@ -488,29 +549,35 @@ const CalendarInheritStyles = () => css`
     right: 22px;
   }
   .DayPickerNavigation_button__vertical {
-    display: inline-block;
+    padding: 5px;
+    background: #fff;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
     position: relative;
+    display: inline-block;
+    text-align: center;
     height: 100%;
     width: 50%;
   }
-  .DayPickerNavigation_button__vertical__default {
-    padding: 5px;
-  }
-  .DayPickerNavigation_nextButton__vertical__default {
+  .DayPickerNavigation_nextButton__vertical {
     border-left: 0;
   }
-  .DayPickerNavigation_nextButton__verticalScrollable {
+  .DayPickerNavigation_nextButton__verticalScrollable,
+  .DayPickerNavigation_prevButton__verticalScrollable {
     width: 100%;
   }
   .DayPickerNavigation_svg__horizontal {
     height: 19px;
     width: 19px;
     fill: #82888a;
+    display: block;
   }
   .DayPickerNavigation_svg__vertical {
     height: 42px;
     width: 42px;
-    fill: #565a5c;
+    fill: #484848;
+  }
+  .DayPickerNavigation_svg__disabled {
+    fill: #f2f2f2;
   }
   .DayPicker {
     background: #fff;
@@ -558,7 +625,6 @@ const CalendarInheritStyles = () => css`
     position: absolute;
     top: 62px;
     z-index: 2;
-    padding: 0 13px;
     text-align: left;
   }
   .DayPicker_weekHeader__vertical {
@@ -618,7 +684,7 @@ const CalendarInheritStyles = () => css`
     vertical-align: middle;
   }
   .DateInput__small {
-    width: 90px;
+    width: 97px;
   }
   .DateInput__block {
     width: 100%;
@@ -629,22 +695,24 @@ const CalendarInheritStyles = () => css`
   }
   .DateInput_input {
     font-weight: 200;
-    font-size: 18px;
+    font-size: 19px;
     line-height: 24px;
-    color: #565a5c;
+    color: #484848;
     background-color: #fff;
     width: 100%;
-    padding: 13px 12px 11px;
+    padding: 11px 11px 9px;
     border: 0;
     border-top: 0;
     border-right: 0;
     border-bottom: 2px solid transparent;
     border-left: 0;
+    border-radius: 0;
   }
   .DateInput_input__small {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 18px;
-    padding: 8px 8px 6px;
+    letter-spacing: 0.2px;
+    padding: 7px 7px 5px;
   }
   .DateInput_input__regular {
     font-weight: auto;
@@ -700,7 +768,8 @@ const CalendarInheritStyles = () => css`
     background: #f2f2f2;
   }
   .DateRangePickerInput__withBorder {
-    border: 1px solid #cacccd;
+    border-radius: 2px;
+    border: 1px solid #dbdbdb;
   }
   .DateRangePickerInput__rtl {
     direction: rtl;
@@ -714,16 +783,13 @@ const CalendarInheritStyles = () => css`
   .DateRangePickerInput_arrow {
     display: inline-block;
     vertical-align: middle;
+    color: #484848;
   }
   .DateRangePickerInput_arrow_svg {
     vertical-align: middle;
-    fill: #565a5c;
+    fill: #484848;
     height: 24px;
     width: 24px;
-  }
-  .DateRangePickerInput_arrow_svg__small {
-    height: 19px;
-    width: 19px;
   }
   .DateRangePickerInput_clearDates {
     background: 0 0;

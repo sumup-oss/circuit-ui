@@ -21,6 +21,8 @@ import {
   textMega,
   textKilo,
   shadowTriple,
+  focusOutline,
+  disableVisually,
 } from '../../../../styles/style-helpers';
 
 import CalendarInheritStyles from './CalendarImportedStyles';
@@ -38,7 +40,7 @@ const dayDefault = ({ theme }) => css`
 
     &:hover {
       background: ${theme.colors.n300};
-      border: 1px double ${theme.colors.n300};
+      border: 1px double ${theme.colors.n500};
       color: inherit;
     }
   }
@@ -46,36 +48,36 @@ const dayDefault = ({ theme }) => css`
   .CalendarDay__hovered_span {
     &,
     &:hover {
-      background: ${theme.colors.b100};
-      border: 1px solid ${theme.colors.b500};
+      background: ${theme.colors.p100};
+      border: 1px solid ${theme.colors.p500};
     }
 
     &:active {
-      background: ${theme.colors.b100};
-      border: 1px solid ${theme.colors.b500};
+      background: ${theme.colors.p100};
+      border: 1px solid ${theme.colors.p500};
     }
   }
 `;
 
 const daySelection = ({ theme }) => css`
   .CalendarDay__selected_span {
-    background: ${theme.colors.b100};
-    border: 1px solid ${theme.colors.b300};
+    background: ${theme.colors.p100};
+    border: 1px solid ${theme.colors.p300};
 
     &:hover {
       color: ${theme.colors.white};
-      background: ${theme.colors.b300};
-      border: 1px solid ${theme.colors.b300};
+      background: ${theme.colors.p300};
+      border: 1px solid ${theme.colors.p500};
     }
   }
   .CalendarDay__last_in_range {
-    border-right: #00a699;
+    border-right: ${theme.colors.p500};
   }
   .CalendarDay__selected,
   .CalendarDay__selected:active,
   .CalendarDay__selected:hover {
-    background: ${theme.colors.b500};
-    border: 1px solid ${theme.colors.b300};
+    background: ${theme.colors.p500};
+    border: 1px solid ${theme.colors.p700};
     color: ${theme.colors.white};
   }
 `;
@@ -124,7 +126,7 @@ const dateRangePickerInput = ({ theme }) => css`
   }
 
   .DateInput {
-    width: 85px;
+    width: 90px;
     vertical-align: inherit;
   }
 
@@ -150,21 +152,52 @@ const dateRangePickerInput = ({ theme }) => css`
 
 const navButtons = ({ theme }) => css`
   .DayPickerNavigation_button__horizontal {
-    background: ${theme.colors.white};
-    border: 1px solid ${theme.colors.n300};
-    color: ${theme.colors.n900};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid ${theme.colors.n500};
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.n800};
+    padding: ${theme.spacings.byte};
+    border-radius: ${theme.borderRadius.giga};
+    transition: opacity ${theme.transitions.default},
+      color ${theme.transitions.default},
+      background-color ${theme.transitions.default},
+      border-color ${theme.transitions.default};
 
-    padding: 0;
-    width: ${theme.spacings.peta};
-    height: ${theme.spacings.tera};
+    &:hover {
+      background-color: ${theme.colors.n100};
+      border-color: ${theme.colors.n700};
+    }
 
-    & > svg {
-      vertical-align: middle;
+    &:active {
+      background-color: ${theme.colors.n200};
+      border-color: ${theme.colors.n800};
+    }
+
+    &:focus {
+      ${focusOutline({ theme })};
+    }
+
+    &:disabled,
+    &[disabled] {
+      ${disableVisually()};
     }
   }
 
   .DayPickerNavigation_leftButton__horizontal {
     transform: scale(-1, 1);
+  }
+
+  .DayPickerNavigation_button__horizontal:nth-of-type(1) {
+    left: 22px;
+  }
+  .DayPickerNavigation_button__horizontal:nth-of-type(2) {
+    right: 22px;
   }
 `;
 
