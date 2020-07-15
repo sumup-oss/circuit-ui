@@ -1315,9 +1315,9 @@ exports[`Storyshots Components/Card Base 1`] = `
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
@@ -1345,9 +1345,9 @@ HTMLCollection [
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
@@ -1371,9 +1371,9 @@ HTMLCollection [
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
@@ -1397,9 +1397,9 @@ HTMLCollection [
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 4px 4px 0 rgba(12,15,20,0.07),0 8px 8px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
@@ -1428,9 +1428,9 @@ HTMLCollection [
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 16px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
@@ -1464,9 +1464,9 @@ HTMLCollection [
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
@@ -1488,7 +1488,66 @@ HTMLCollection [
 
 exports[`Storyshots Components/Card With Footer 1`] = `
 HTMLCollection [
-  .circuit-1 {
+  .circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-2:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1612,9 +1671,9 @@ HTMLCollection [
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
@@ -1682,14 +1741,73 @@ HTMLCollection [
           Cancel
         </button>
         <button
-          class="circuit-1"
+          class="circuit-2"
         >
           Confirm
         </button>
       </div>
     </footer>
   </div>,
-  .circuit-1 {
+  .circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #3388FF;
+  border-color: #3388FF;
+  color: #FFFFFF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #1760CE;
+  border-color: #1760CE;
+}
+
+.circuit-2:active {
+  background-color: #003C8B;
+  border-color: #003C8B;
+}
+
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1765,9 +1883,9 @@ HTMLCollection [
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
@@ -1874,7 +1992,7 @@ HTMLCollection [
           Cancel
         </button>
         <button
-          class="circuit-1"
+          class="circuit-2"
         >
           Confirm
         </button>
@@ -1903,9 +2021,9 @@ HTMLCollection [
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
@@ -1990,9 +2108,9 @@ HTMLCollection [
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
   padding: 16px 24px;
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: 16px;
 }
 
