@@ -27,6 +27,7 @@ function Step({
   stepInterval = 1,
   animationDuration = 0,
   stepDuration = 0,
+  tracking = {},
   onPlay = () => {},
   onPause = () => {},
   onNext = () => {},
@@ -40,6 +41,7 @@ function Step({
     stepInterval,
     animationDuration,
     stepDuration,
+    tracking,
     onPlay,
     onPause,
     onNext,
@@ -110,6 +112,14 @@ Step.propTypes = {
    * Function called with an object containing current state and prop getters.
    */
   children: PropTypes.func,
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object,
+  }),
 };
 
 export default Step;

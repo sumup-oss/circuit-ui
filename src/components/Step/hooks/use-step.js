@@ -17,6 +17,7 @@ import { useReducer, useEffect, useRef } from 'react';
 import { isFunction } from 'lodash/fp';
 
 import * as StepService from '../StepService';
+import useClickHandler from '../../../hooks/use-click-handler';
 
 export default function useStep(props = {}) {
   if (__DEV__ && props.cycle && !props.totalSteps) {
@@ -40,6 +41,27 @@ export default function useStep(props = {}) {
   const [state, dispatch] = useReducer(StepService.reducer, initialState);
   const playingInterval = useRef(null);
   const animationEndCallback = useRef(null);
+  const { onNext, onPrevious, onPause, onPlay, tracking } = props;
+  const handleNext = useClickHandler(
+    onNext,
+    { label: 'next', ...tracking },
+    'carousel',
+  );
+  const handlePrevious = useClickHandler(
+    onPrevious,
+    { label: 'previous', ...tracking },
+    'carousel',
+  );
+  const handlePause = useClickHandler(
+    onPause,
+    { label: 'pause', ...tracking },
+    'carousel',
+  );
+  const handlePlay = useClickHandler(
+    onPlay,
+    { label: 'play', ...tracking },
+    'carousel',
+  );
 
   useEffect(() => {
     const playable = shouldPlay();
@@ -56,7 +78,7 @@ export default function useStep(props = {}) {
 
   // ACTIONS
   function next() {
-    const { totalSteps, cycle, stepInterval, onNext } = props;
+    const { totalSteps, cycle, stepInterval } = props;
     const newStep = StepService.calculateNextStep({
       step: state.step,
       stepInterval,
@@ -65,14 +87,14 @@ export default function useStep(props = {}) {
     });
 
     updateSlide(newStep, () => {
-      if (isFunction(onNext)) {
-        onNext(getStateAndHelpers());
+      if (isFunction(handleNext)) {
+        handleNext(getStateAndHelpers());
       }
     });
   }
 
   function previous() {
-    const { totalSteps, cycle, stepInterval, onPrevious } = props;
+    const { totalSteps, cycle, stepInterval } = props;
     const newStep = StepService.calculatePreviousStep({
       step: state.step,
       stepInterval,
@@ -81,29 +103,25 @@ export default function useStep(props = {}) {
     });
 
     updateSlide(newStep, () => {
-      if (isFunction(onPrevious)) {
-        onPrevious(getStateAndHelpers());
+      if (isFunction(handlePrevious)) {
+        handlePrevious(getStateAndHelpers());
       }
     });
   }
 
   function pause() {
-    const { onPause } = props;
-
     updatePause(true);
 
-    if (isFunction(onPause)) {
-      onPause(getStateAndHelpers());
+    if (isFunction(handlePause)) {
+      handlePause(getStateAndHelpers());
     }
   }
 
   function play() {
-    const { onPlay } = props;
-
     updatePause(false);
 
-    if (isFunction(onPlay)) {
-      onPlay(getStateAndHelpers());
+    if (isFunction(handlePlay)) {
+      handlePlay(getStateAndHelpers());
     }
   }
 
