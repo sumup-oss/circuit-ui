@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "ES5",
     "module": "ES2020",
     "declaration": true,
     "strict": true,
