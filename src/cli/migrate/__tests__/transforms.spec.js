@@ -44,3 +44,5 @@ defineTest(
   'theme-to-design-tokens-2',
 );
 defineTest(__dirname, 'theme-icon-sizes');
+defineTest(__dirname, 'currency-utils', null, 'currency-utils-1');
+defineTest(__dirname, 'currency-utils', null, 'currency-utils-2');
