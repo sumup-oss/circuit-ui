@@ -2812,9 +2812,9 @@
     tti-polyfill "^0.2.2"
 
 "@sumup/design-tokens@^1.0.0":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.2.tgz#466cbb68043cbd92d031c588e0c4b481dfa2698e"
-  integrity sha512-bqtuPElq6yioWOMx11P26c5BxUcUIyOYw+HqZ4xeEhpuwa9IHq0bdo0n0ymbMCJYaOSSMhRR/M9VdPN99wvgaw==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.3.tgz#80bfd7a960c1fda313aaa75f2ee7cda8cb87a42c"
+  integrity sha512-eiKAGMyw968+SWdmNyBFsuT1LnYeeKULjvPF3G92PliCoHtFosebahdIo+yP8SGMImvOgHo4OEl6qqAlf/ZEUQ==
 
 "@sumup/foundry@^3.0.0":
   version "3.0.0"
