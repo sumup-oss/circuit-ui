@@ -27,23 +27,6 @@ module.exports = {
       }
       return rule;
     });
-    // {
-    //     test: /\.js$/,
-    //     include: /node_modules\/acorn-jsx/,
-    //     use: [
-    //       {
-    //         loader: 'babel-loader',
-    //         options: {
-    //           presets: [
-    //             [
-    //               '/Users/connorbaer/Code/GitHub/sumup-oss/circuit-ui/node_modules/@babel/preset-env/lib/index.js',
-    //               { modules: 'commonjs' }
-    //             ]
-    //           ]
-    //         }
-    //       }
-    //     ]
-    //   },
     return config;
   },
 };
