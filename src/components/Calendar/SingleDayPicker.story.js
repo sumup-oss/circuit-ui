@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import SingleDayPicker from './SingleDayPicker';
 
 export default {
-  title: 'Components/Calendar/SingleDayPicker',
+  title: 'Forms/Calendar/SingleDayPicker',
   component: SingleDayPicker,
 };
 

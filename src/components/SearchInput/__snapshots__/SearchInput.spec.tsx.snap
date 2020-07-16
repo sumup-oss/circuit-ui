@@ -21,6 +21,7 @@ label + .circuit-1 {
 }
 
 .circuit-0 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;
@@ -125,6 +126,7 @@ label + .circuit-1 {
 }
 
 .circuit-0 {
+  -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
   outline: 0;

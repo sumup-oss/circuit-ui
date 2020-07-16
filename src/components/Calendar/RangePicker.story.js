@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import RangePicker from './RangePicker';
 
 export default {
-  title: 'Components/Calendar/RangePicker',
+  title: 'Forms/Calendar/RangePicker',
   component: RangePicker,
 };
 

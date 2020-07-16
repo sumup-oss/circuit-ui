@@ -20,7 +20,7 @@ import { text } from '@storybook/addon-knobs';
 import CalendarTagTwoStep from './CalendarTagTwoStep';
 
 export default {
-  title: 'Components/Calendar/CalendarTagTwoStep',
+  title: 'Forms/Calendar/CalendarTagTwoStep',
   component: CalendarTagTwoStep,
 };
 

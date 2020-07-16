@@ -28,7 +28,6 @@ export default {
   },
 };
 
-// eslint-disable-next-line react/prop-types
 const CheckboxWithState = ({
   checked: initial = false,
   children,
@@ -53,13 +52,35 @@ const CheckboxWithState = ({
 
 export const base = () => <CheckboxWithState name="base" value="true" />;
 
+const InvalidCheckboxWithState = ({
+  checked: initial = false,
+  children,
+  ...props
+}: CheckboxProps) => {
+  const [checked, setChecked] = useState(initial);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    action('Checkbox clicked')(event);
+    setChecked((prev) => !prev);
+  };
+  const invalid = !checked;
+  return (
+    <Checkbox
+      {...props}
+      checked={checked}
+      onChange={handleChange}
+      tracking={{ label: text('Tracking Label', 'trackingId') }}
+      validationHint={
+        invalid ? text('Validation hint', 'This field is required.') : undefined
+      }
+      invalid={invalid}
+    >
+      {children || (checked ? 'Checked' : 'Unchecked')}
+    </Checkbox>
+  );
+};
+
 export const invalid = () => (
-  <CheckboxWithState
-    name="invalid"
-    value="invalid"
-    validationHint={text('Validation hint', 'This field is required.')}
-    invalid
-  />
+  <InvalidCheckboxWithState name="invalid" value="invalid" />
 );
 
 export const disabled = () => (

@@ -37,9 +37,9 @@ export default {
 
 const cardStyles = (theme) => css`
   width: 500px;
-  height: 150px;
-  max-width: 90%;
-  max-height: 90%;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
   margin-bottom: ${theme.spacings.mega};
 `;
 
@@ -109,8 +109,8 @@ export const withFooter = () => (
       <Content />
       <CardFooter>
         <ButtonGroup>
-          <Button secondary>Cancel</Button>
-          <Button>Confirm</Button>
+          <Button>Cancel</Button>
+          <Button variant="primary">Confirm</Button>
         </ButtonGroup>
       </CardFooter>
     </Card>
@@ -119,8 +119,8 @@ export const withFooter = () => (
       <Content />
       <CardFooter align="left">
         <ButtonGroup align="left">
-          <Button secondary>Cancel</Button>
-          <Button>Confirm</Button>
+          <Button>Cancel</Button>
+          <Button variant="primary">Confirm</Button>
         </ButtonGroup>
       </CardFooter>
     </Card>
