@@ -15,29 +15,39 @@
 
 import React from 'react';
 
-import { CardFooter } from '../..';
+import { create, renderToHtml, axe } from '../../util/test-utils';
 
-describe('CardFooter', () => {
+import { InlineMessage } from './InlineMessage';
+
+describe('InlineMessage', () => {
   /**
    * Style tests.
    */
-  it('should render with default styles', () => {
-    const actual = create(<CardFooter />);
+  it('should render with success styles', () => {
+    const actual = create(<InlineMessage variant="success" />);
     expect(actual).toMatchSnapshot();
   });
 
-  describe('Left aligment', () => {
-    it('should render with left alignment styles', () => {
-      const actual = create(<CardFooter align={'left'} />);
-      expect(actual).toMatchSnapshot();
-    });
+  it('should render with warning styles', () => {
+    const actual = create(<InlineMessage variant="warning" />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with danger styles', () => {
+    const actual = create(<InlineMessage variant="danger" />);
+    expect(actual).toMatchSnapshot();
+  });
+
+  it('should render with giga spacing', () => {
+    const actual = create(<InlineMessage variant="danger" size="mega" />);
+    expect(actual).toMatchSnapshot();
   });
 
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CardFooter />);
+    const wrapper = renderToHtml(<InlineMessage variant="success" />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

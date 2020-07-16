@@ -115,7 +115,6 @@ HTMLCollection [
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
-  border: 0;
   border-radius: 100%;
   position: absolute;
   bottom: 16px;
@@ -165,6 +164,7 @@ HTMLCollection [
     class="circuit-1 circuit-2"
     data-testid="sidebar-close-button"
     title="Close"
+    type="button"
   >
     <svg
       fill="none"
@@ -278,7 +278,6 @@ HTMLCollection [
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
-  border: 0;
   border-radius: 100%;
   position: absolute;
   bottom: 16px;
@@ -339,6 +338,7 @@ HTMLCollection [
     class="circuit-1 circuit-2"
     data-testid="sidebar-close-button"
     title="Close"
+    type="button"
   >
     <svg
       fill="none"

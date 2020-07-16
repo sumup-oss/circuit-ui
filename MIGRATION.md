@@ -96,6 +96,7 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The **CardSchemes** and **PaymentMethodIcon** components have been removed. Use [@sumup/icons](https://www.npmjs.com/package/@sumup/icons) instead.
 - The **AutoCompleteInput** and **AutoCompleteTags** components have been removed. You can build them yourself using the SearchInput, Card, and Tag components.
 - The **MaskedInput** and **RestrictedInput** components have been removed. Use [react-text-mask](https://www.npmjs.com/package/react-text-mask) or a similar package directly instead.
+- The **MessageIcon** and **MessageButton** components have been removed. Use the Notification component's icon and children props instead.
 - The **Markdown** component has been removed. Use [markdown-to-jsx](https://www.npmjs.com/package/markdown-to-jsx) or a similar package instead.
 - The **State** component has been removed. Use React's [useState](https://reactjs.org/docs/hooks-reference.html#usestate) hook instead.
 - The **Picture** component has been removed. Use the native HTML `picture` element instead.
@@ -129,6 +130,7 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The **Hamburger** component's default size has been increased to match the IconButton component.
 - The **Hamburger** component's `light` prop has been removed. Set the color through CSS instead.
 - The **Spinner** component's `dark` prop has been removed. Set the color through CSS instead.
+- The **InlineMessage** component's `type` prop has been renamed to `variant` (🤖 _inline-message-variant-enum_)
 - (_in writing_) combine label with form input components
 
 ### Utilities

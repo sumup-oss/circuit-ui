@@ -15,29 +15,28 @@
 
 import React from 'react';
 
-import { CardFooter } from '../..';
+import { create, renderToHtml, axe } from '../../util/test-utils';
 
-describe('CardFooter', () => {
+import { NotificationList } from './NotificationList';
+
+describe('NotificationList', () => {
+  const children = <p>This is a notification.</p>;
+
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CardFooter />);
+    const actual = create(<NotificationList>{children}</NotificationList>);
     expect(actual).toMatchSnapshot();
-  });
-
-  describe('Left aligment', () => {
-    it('should render with left alignment styles', () => {
-      const actual = create(<CardFooter align={'left'} />);
-      expect(actual).toMatchSnapshot();
-    });
   });
 
   /**
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CardFooter />);
+    const wrapper = renderToHtml(
+      <NotificationList>{children}</NotificationList>,
+    );
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

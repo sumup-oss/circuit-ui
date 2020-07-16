@@ -1,5 +1,5 @@
 import { Status, Props, Story } from '../../../.storybook/components';
-import Notification, { NotificationIcon, NotificationButton } from '.';
+import { Notification } from './Notification';
 import NotificationBanner from '../NotificationBanner';
 import NotificationList from '../NotificationList';
 
@@ -11,10 +11,7 @@ Notifications are a quick and subtle way of providing contextual feedback for ou
 or fixed cards with a semantical meaning (either success, danger or attention).
 
 <Story id="components-notification--base" />
-
 <Props of={Notification} />
-<Props of={NotificationIcon} />
-<Props of={NotificationButton} />
 
 ## When to use it
 
@@ -34,41 +31,27 @@ on a given action.
 
 ## Component variations
 
-### Feedback notifications
+### Variants
 
-Used to provide feedback to a user after an action
-has been taken. These notifications disappear automatically.
+<Story id="components-notification--variants" />
 
-<Story id="components-notification--success" />
+**Success**: Used to provide feedback to a user after an action has been taken. These notifications disappear automatically.
 
-### Informative notifications
-
-Can contain information which isn't essential but may
-be useful to the user. (e.g. New feature announcement) It is recommended
+**Warning**: Can contain information which isn't essential but may be useful to the user. (e.g. new feature announcement). It is recommended
 to use a call to action.
 
-<Story id="components-notification--warning" />
-
-### Attention notifications
-
-When action is required by the user, attention
-notifications should be used and should clearly highlight which action is
-required. **A call to action must be displayed.**
-
-<Story id="components-notification--alert" />
+**Error**: When action is required by the user, attention notifications should be used and should clearly highlight which action is required. **A call to action must be displayed.**
 
 ## NotificationBanner
 
-You can display a banner with a notification with `NotificationBanner`, and position it at the top or bottom of a view.
+You can display a banner with a notification with the `NotificationBanner`, and position it at the top or bottom of a view.
 
 <Story id="components-notification-notificationbanner--base" />
-
 <Props of={NotificationBanner} />
 
 ## NotificationList
 
-You can display a list of notifications with `NotificationList`.
+You can display a list of notifications with the `NotificationList`.
 
 <Story id="components-notification-notificationlist--base" />
-
 <Props of={NotificationList} />

@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InlineMessage should render with danger styles 1`] = `
+.circuit-0 {
+  color: #DB4D4D;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0:before {
+  display: inline-block;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  height: 100%;
+  background-color: #DB4D4D;
+  width: 3px;
+}
+
+<p
+  class="circuit-0"
+/>
+`;
+
+exports[`InlineMessage should render with giga spacing 1`] = `
+.circuit-0 {
+  color: #DB4D4D;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0:before {
+  display: inline-block;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 0;
+  height: 100%;
+  background-color: #DB4D4D;
+  width: 3px;
+}
+
+<p
+  class="circuit-0"
+/>
+`;
+
+exports[`InlineMessage should render with success styles 1`] = `
+.circuit-0 {
+  color: #0F131A;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0:before {
+  display: inline-block;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  height: 100%;
+  background-color: #47995A;
+  width: 3px;
+}
+
+<p
+  class="circuit-0"
+/>
+`;
+
+exports[`InlineMessage should render with warning styles 1`] = `
+.circuit-0 {
+  color: #0F131A;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0:before {
+  display: inline-block;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  height: 100%;
+  background-color: #D8A413;
+  width: 3px;
+}
+
+<p
+  class="circuit-0"
+/>
+`;
