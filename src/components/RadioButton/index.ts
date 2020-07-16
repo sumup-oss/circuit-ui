@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import RadioButtonGroup from './RadioButtonGroup';
+import { RadioButton } from './RadioButton';
 
-export default RadioButtonGroup;
+export default RadioButton;

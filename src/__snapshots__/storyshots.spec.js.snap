@@ -14570,6 +14570,10 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -14593,16 +14597,16 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -14614,13 +14618,13 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -14633,9 +14637,9 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -14695,6 +14699,10 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -14718,7 +14726,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
   opacity: 0.5;
@@ -14727,10 +14735,10 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -14742,13 +14750,13 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -14761,24 +14769,24 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 .circuit-1::before {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  border-color: #9DA7B1;
-  background-color: #FAFBFC;
+  border-color: #5C656F;
+  background-color: #EEF0F2;
 }
 
 .circuit-1 svg {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  color: #9DA7B1;
+  color: #5C656F;
 }
 
 <div
@@ -14840,6 +14848,10 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -14860,19 +14872,27 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   border-color: #3388FF;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #B22828;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #DB4D4D;
+}
+
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -14884,13 +14904,13 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -14903,9 +14923,9 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 .circuit-1:not(:focus)::before {
@@ -15021,6 +15041,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -15044,16 +15068,16 @@ HTMLCollection [
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -15065,13 +15089,13 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -15084,9 +15108,9 @@ HTMLCollection [
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -15143,6 +15167,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -15166,16 +15194,16 @@ HTMLCollection [
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -15187,13 +15215,13 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -15206,9 +15234,9 @@ HTMLCollection [
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -15265,6 +15293,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -15288,16 +15320,16 @@ HTMLCollection [
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -15309,13 +15341,13 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -15328,9 +15360,9 @@ HTMLCollection [
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -17785,6 +17817,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -17806,7 +17842,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="radio-button_34"
     name="radio"
     type="radio"
@@ -17814,16 +17850,16 @@ HTMLCollection [
   />,
   .circuit-0 {
   color: #5C656F;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-0::before {
   box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  height: 18px;
+  width: 18px;
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -17835,14 +17871,14 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
 .circuit-0::after {
   box-sizing: border-box;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -17854,13 +17890,13 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     for="radio-button_34"
   >
     Unchecked
@@ -17883,6 +17919,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -17904,7 +17944,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     disabled=""
     id="radio-button_36"
     name="disabled"
@@ -17913,7 +17953,7 @@ HTMLCollection [
   />,
   .circuit-0 {
   color: #5C656F;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
   opacity: 0.5;
@@ -17923,9 +17963,9 @@ HTMLCollection [
 
 .circuit-0::before {
   box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  height: 18px;
+  width: 18px;
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -17937,14 +17977,14 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
 .circuit-0::after {
   box-sizing: border-box;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -17956,28 +17996,28 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 .circuit-0::before {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  border-color: #9DA7B1;
-  background-color: #FAFBFC;
+  border-color: #5C656F;
+  background-color: #EEF0F2;
 }
 
 .circuit-0::after {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  background-color: #9DA7B1;
+  background-color: #5C656F;
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     disabled=""
     for="radio-button_36"
   >
@@ -18001,6 +18041,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -18021,8 +18065,16 @@ HTMLCollection [
   opacity: 1;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #B22828;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #DB4D4D;
+}
+
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="radio-button_35"
     name="invalid"
     type="radio"
@@ -18030,16 +18082,16 @@ HTMLCollection [
   />,
   .circuit-0 {
   color: #5C656F;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-0::before {
   box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  height: 18px;
+  width: 18px;
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -18051,14 +18103,14 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
 .circuit-0::after {
   box-sizing: border-box;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -18070,9 +18122,9 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 .circuit-0:not(:focus)::before {
@@ -18085,7 +18137,7 @@ HTMLCollection [
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     for="radio-button_35"
   >
     Error
@@ -18107,6 +18159,10 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -18127,18 +18183,18 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   opacity: 1;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  height: 18px;
+  width: 18px;
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -18150,14 +18206,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
-.circuit-2::after {
+.circuit-1::after {
   box-sizing: border-box;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -18169,9 +18225,9 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -18180,14 +18236,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
 >
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_37"
       name="radio-button-group"
       type="radio"
       value="apple"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_37"
     >
       Apple
@@ -18195,14 +18251,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   </div>
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_38"
       name="radio-button-group"
       type="radio"
       value="banana"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_38"
     >
       Banana
@@ -18210,14 +18266,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   </div>
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_39"
       name="radio-button-group"
       type="radio"
       value="mango"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_39"
     >
       Mango

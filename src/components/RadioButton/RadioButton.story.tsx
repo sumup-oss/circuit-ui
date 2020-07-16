@@ -16,7 +16,7 @@
 import React, { useState } from 'react';
 import { text } from '@storybook/addon-knobs';
 
-import RadioButton from './RadioButton';
+import { RadioButton, RadioButtonProps } from './RadioButton';
 import docs from './RadioButton.docs.mdx';
 
 export default {
@@ -27,8 +27,11 @@ export default {
   },
 };
 
-// eslint-disable-next-line react/prop-types
-const RadioButtonWithState = ({ checked: initial, children, ...props }) => {
+const RadioButtonWithState = ({
+  checked: initial,
+  children,
+  ...props
+}: RadioButtonProps) => {
   const [checked, setChecked] = useState(initial);
   const handleChange = () => {
     setChecked((prev) => !prev);

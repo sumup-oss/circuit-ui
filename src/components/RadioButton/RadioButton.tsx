@@ -15,7 +15,6 @@
 
 import React, { HTMLProps, Ref } from 'react';
 import { css } from '@emotion/core';
-import { Check } from '@sumup/icons';
 import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -25,69 +24,62 @@ import {
   focusOutline,
 } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
-import Tooltip from '../Tooltip';
 import useClickHandler from '../../hooks/use-click-handler';
 
-export interface CheckboxProps extends HTMLProps<HTMLInputElement> {
+export interface RadioButtonProps extends HTMLProps<HTMLInputElement> {
   /**
    * Triggers error styles on the component.
    */
   invalid?: boolean;
   /**
-   * Warning or error message, displayed in a tooltip.
+   * The ref to the HTML Dom element
    */
-  validationHint?: string;
+  ref?: Ref<HTMLInputElement>;
   /**
    * Additional data that is dispatched with the tracking event.
    */
   tracking?: TrackingProps;
-  /**
-   * The ref to the HTML Dom element
-   */
-  ref?: Ref<HTMLInputElement>;
 }
 
-type LabelElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
+type LabelElProps = Pick<RadioButtonProps, 'invalid' | 'disabled'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
-  label: checkbox__label;
+  label: radio-button__label;
   color: ${theme.colors.n700};
-  display: inline-block;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
 
   &::before {
+    box-sizing: border-box;
     height: 18px;
     width: 18px;
-    box-sizing: border-box;
     box-shadow: 0;
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.n500};
-    border-radius: 3px;
+    border-radius: 100%;
     content: '';
     display: block;
     position: absolute;
-    top: ${theme.spacings.kilo};
+    top: 50%;
     left: 0;
     transform: translateY(-50%);
-    transition: border ${theme.transitions.default},
-      background-color ${theme.transitions.default};
+    transition: border ${theme.transitions.default};
   }
 
-  svg {
-    height: 18px;
-    width: 18px;
-    padding: 2px;
+  &::after {
     box-sizing: border-box;
-    color: ${theme.colors.p500};
+    height: 10px;
+    width: 10px;
+    background-color: ${theme.colors.p500};
+    border-radius: 100%;
+    content: '';
     display: block;
-    line-height: 0;
-    opacity: 0;
     position: absolute;
-    top: ${theme.spacings.kilo};
-    left: 0;
+    top: 50%;
+    left: ${theme.spacings.bit};
     transform: translateY(-50%) scale(0, 0);
+    opacity: 0;
     transition: transform ${theme.transitions.default},
       opacity ${theme.transitions.default};
   }
@@ -96,21 +88,21 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
 const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
   invalid &&
   css`
-    label: checkbox--error;
+    label: radio-button--error;
     &:not(:focus)::before {
       border-color: ${theme.colors.r500};
       background-color: ${theme.colors.r100};
     }
 
-    &:not(:focus) svg {
-      color: ${theme.colors.r500};
+    &:not(:focus)::after {
+      background-color: ${theme.colors.r500};
     }
   `;
 
 const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
   disabled &&
   css`
-    label: checkbox--disabled;
+    label: radio-button--disabled;
     ${disableVisually()};
 
     &::before {
@@ -119,33 +111,22 @@ const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
       background-color: ${theme.colors.n200};
     }
 
-    & svg {
+    &::after {
       ${disableVisually()};
-      color: ${theme.colors.n700};
+      background-color: ${theme.colors.n700};
     }
   `;
 
-const CheckboxLabel = styled('label')<LabelElProps>(
+const RadioButtonLabel = styled('label')<LabelElProps>(
   labelBaseStyles,
   labelDisabledStyles,
   labelInvalidStyles,
 );
 
-const checkboxWrapperStyles = ({ theme }: StyleProps) => css`
-  label: checkbox;
-  position: relative;
-
-  &:last-of-type {
-    margin-bottom: ${theme.spacings.mega};
-  }
-`;
-
-const CheckboxWrapper = styled('div')<{}>(checkboxWrapperStyles);
-
-type InputElProps = Omit<CheckboxProps, 'tracking'>;
+type InputElProps = Omit<RadioButtonProps, 'tracking'>;
 
 const inputBaseStyles = ({ theme }: StyleProps) => css`
-  label: checkbox__input;
+  label: radio-button__input;
   ${hideVisually()};
 
   &:hover + label::before {
@@ -153,23 +134,25 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
   }
 
   &:focus + label::before {
-    ${focusOutline({ theme })};
+    ${focusOutline({ theme })}
   }
 
-  &:checked + label > svg {
-    transform: translateY(-50%) scale(1, 1);
-    opacity: 1;
-  }
+  &:checked + label {
+    &::before {
+      border-color: ${theme.colors.p500};
+    }
 
-  &:checked + label::before {
-    border-color: ${theme.colors.p500};
+    &::after {
+      transform: translateY(-50%) scale(1, 1);
+      opacity: 1;
+    }
   }
 `;
 
 const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
   invalid &&
   css`
-    label: checkbox__input--invalid;
+    label: radio-button__input--invalid;
 
     &:hover + label::before {
       border-color: ${theme.colors.r700};
@@ -180,67 +163,52 @@ const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
     }
   `;
 
-const CheckboxInput = styled('input')<InputElProps>(
+const RadioButtonInput = styled('input')<InputElProps>(
   inputBaseStyles,
   inputInvalidStyles,
 );
 
-const tooltipStyles = ({ theme }: StyleProps) => css`
-  label: checkbox__tooltip;
-  left: -${theme.spacings.kilo};
-`;
-
-const CheckboxTooltip = styled(Tooltip)<{}>(tooltipStyles);
-
-const CheckboxComponent = (
+const RadioButtonComponent = (
   {
     onChange,
     children,
-    value,
+    label,
     id: customId,
     name,
-    disabled,
-    validationHint,
-    className,
+    value,
+    checked,
     invalid,
+    disabled,
     tracking,
     ...props
-  }: CheckboxProps,
-  ref: CheckboxProps['ref'],
+  }: RadioButtonProps,
+  ref: RadioButtonProps['ref'],
 ) => {
-  const id = customId || uniqueId('checkbox_');
-  const handleChange = useClickHandler(onChange, tracking, 'checkbox');
+  const id = customId || uniqueId('radio-button_');
+  const handleChange = useClickHandler(onChange, tracking, 'radio-button');
 
   return (
-    <CheckboxWrapper className={className}>
-      <CheckboxInput
+    <>
+      <RadioButtonInput
         {...props}
-        id={id}
+        type="radio"
         name={name}
+        id={id}
         value={value}
-        type="checkbox"
-        disabled={disabled}
         invalid={invalid}
+        disabled={disabled}
+        checked={checked}
+        onClick={handleChange}
         ref={ref}
-        onChange={handleChange}
       />
-      <CheckboxLabel htmlFor={id} disabled={disabled} invalid={invalid}>
-        {children}
-        <Check aria-hidden="true" />
-      </CheckboxLabel>
-      {!disabled && validationHint && (
-        // TODO: Reenable typechecks once Tooltip has been migrated to TypeScript.
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        <CheckboxTooltip position={'top'} align={'right'}>
-          {validationHint}
-        </CheckboxTooltip>
-      )}
-    </CheckboxWrapper>
+      <RadioButtonLabel htmlFor={id} disabled={disabled} invalid={invalid}>
+        {children || label}
+      </RadioButtonLabel>
+    </>
   );
 };
 
 /**
- * Checkbox component for forms.
+ * RadioButton component for forms.
  */
-export const Checkbox = React.forwardRef(CheckboxComponent);
+export const RadioButton = React.forwardRef(RadioButtonComponent);
