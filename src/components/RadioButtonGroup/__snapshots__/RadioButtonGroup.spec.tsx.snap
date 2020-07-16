@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButtonGroup should render with default styles 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
+.circuit-0:focus + label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #3388FF;
+}
+
+.circuit-0:checked + label::after {
+  -webkit-transform: translateY(-50%) scale(1,1);
+  -ms-transform: translateY(-50%) scale(1,1);
+  transform: translateY(-50%) scale(1,1);
+  opacity: 1;
+}
+
+.circuit-1 {
+  color: #5C656F;
+  padding-left: 26px;
+  position: relative;
+  cursor: pointer;
+}
+
+.circuit-1::before {
+  box-sizing: border-box;
+  height: 18px;
+  width: 18px;
+  box-shadow: 0;
+  background-color: #FFFFFF;
+  border: 1px solid #9DA7B1;
+  border-radius: 100%;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
+}
+
+.circuit-1::after {
+  box-sizing: border-box;
+  height: 10px;
+  width: 10px;
+  background-color: #3388FF;
+  border-radius: 100%;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  -webkit-transform: translateY(-50%) scale(0,0);
+  -ms-transform: translateY(-50%) scale(0,0);
+  transform: translateY(-50%) scale(0,0);
+  opacity: 0;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+}
+
+<div
+  aria-label="Choose an option"
+  role="group"
+>
+  <div>
+    <input
+      class="circuit-0"
+      id="radio-button_2"
+      name="radio-button-group_1"
+      type="radio"
+      value="first"
+    />
+    <label
+      class="circuit-1"
+      for="radio-button_2"
+    >
+      Option 1
+    </label>
+  </div>
+  <div>
+    <input
+      class="circuit-0"
+      id="radio-button_3"
+      name="radio-button-group_1"
+      type="radio"
+      value="second"
+    />
+    <label
+      class="circuit-1"
+      for="radio-button_3"
+    >
+      Option 2
+    </label>
+  </div>
+  <div>
+    <input
+      class="circuit-0"
+      id="radio-button_4"
+      name="radio-button-group_1"
+      type="radio"
+      value="third"
+    />
+    <label
+      class="circuit-1"
+      for="radio-button_4"
+    >
+      Option 3
+    </label>
+  </div>
+</div>
+`;

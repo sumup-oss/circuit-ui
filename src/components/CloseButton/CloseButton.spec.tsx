@@ -15,21 +15,28 @@
 
 import React from 'react';
 
-import { CardFooter } from '../..';
+import { create, renderToHtml, axe, render } from '../../util/test-utils';
 
-describe('CardFooter', () => {
+import { CloseButton } from './CloseButton';
+
+describe('CloseButton', () => {
   /**
    * Style tests.
    */
   it('should render with default styles', () => {
-    const actual = create(<CardFooter />);
+    const actual = create(<CloseButton label="Close" />);
     expect(actual).toMatchSnapshot();
   });
 
-  describe('Left aligment', () => {
-    it('should render with left alignment styles', () => {
-      const actual = create(<CardFooter align={'left'} />);
-      expect(actual).toMatchSnapshot();
+  describe('business logic', () => {
+    /**
+     * Should accept a working ref
+     */
+    it('should accept a working ref', () => {
+      const tref = React.createRef<HTMLButtonElement & HTMLAnchorElement>();
+      const { container } = render(<CloseButton label="Close" ref={tref} />);
+      const button = container.querySelector('button');
+      expect(tref.current).toBe(button);
     });
   });
 
@@ -37,7 +44,7 @@ describe('CardFooter', () => {
    * Accessibility tests.
    */
   it('should meet accessibility guidelines', async () => {
-    const wrapper = renderToHtml(<CardFooter />);
+    const wrapper = renderToHtml(<CloseButton label="Close" />);
     const actual = await axe(wrapper);
     expect(actual).toHaveNoViolations();
   });

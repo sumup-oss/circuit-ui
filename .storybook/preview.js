@@ -20,22 +20,29 @@ const SORT_ORDER = {
     'Getting Started',
     'Design Principles',
     'Contributing',
-    'Code of Conduct'
+    'Code of Conduct',
   ],
-  Advanced: ['Static CSS', 'Base Components', 'Theme', 'Grid', 'Icons'],
+  Advanced: [
+    'Static CSS',
+    'Base Components',
+    'Theme',
+    'Grid',
+    'Icons',
+    'Event Tracking',
+  ],
   Typography: ['Heading', 'SubHeading', 'Text'],
   Layout: [],
   Forms: [],
   Components: [],
-  Icons: []
+  Icons: [],
 };
 
 addParameters({
   options: {
     storySort: sortStories(SORT_ORDER),
-    showRoots: true
+    showRoots: true,
   },
-  docs: { components }
+  docs: { components },
 });
 
 const Story = styled.div`
@@ -50,11 +57,11 @@ const Story = styled.div`
   }
 `;
 
-const withStoryStyles = storyFn => {
+const withStoryStyles = (storyFn) => {
   return <Story>{storyFn()}</Story>;
 };
 
-const withThemeProvider = storyFn => (
+const withThemeProvider = (storyFn) => (
   <ThemeProvider theme={light}>
     <BaseStyles />
     {storyFn()}
@@ -71,7 +78,7 @@ if (!__TEST__) {
 
 addDecorator(withThemeProvider);
 
-const withTrackingAction = storyFn => (
+const withTrackingAction = (storyFn) => (
   <TrackingRoot name="tracking-root" onDispatch={action('Tracking event')}>
     <TrackingView name="tracking-view">{storyFn()}</TrackingView>
   </TrackingRoot>

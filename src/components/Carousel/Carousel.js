@@ -78,6 +78,7 @@ const Carousel = ({
   hideControls = false,
   getAriaLabelledBy = () => {},
   children,
+  tracking,
   ...props
 }) => {
   const slidesTotal = slides.length;
@@ -101,6 +102,7 @@ const Carousel = ({
       animationDuration={animationDuration}
       onNext={handleNextSlide}
       onPrevious={handlePreviousSlide}
+      tracking={tracking}
     >
       {({
         state,
@@ -221,6 +223,14 @@ Carousel.propTypes = {
    * Add additional components inside a carousel.
    */
   children: PropTypes.oneOfType([childrenPropType, childrenRenderPropType]),
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    component: PropTypes.string,
+    customParameters: PropTypes.object,
+  }),
 };
 
 export default Carousel;

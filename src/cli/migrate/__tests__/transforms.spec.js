@@ -29,3 +29,4 @@ defineTest(__dirname, 'component-names-v2');
 defineTest(__dirname, 'component-static-properties');
 defineTest(__dirname, 'toggle-checked-prop');
 defineTest(__dirname, 'badge-variant-enum');
+defineTest(__dirname, 'inline-message-variant-enum');

@@ -32,7 +32,6 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
-  border: 0;
   border-radius: 100%;
   position: absolute;
   bottom: 16px;
@@ -92,6 +91,7 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
 <button
   class="circuit-1 circuit-2"
   title="Close"
+  type="button"
 >
   <svg
     fill="none"
@@ -161,7 +161,6 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
-  border: 0;
   border-radius: 100%;
   position: absolute;
   bottom: 16px;
@@ -210,6 +209,7 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
 <button
   class="circuit-1 circuit-2"
   title="Close"
+  type="button"
 >
   <svg
     fill="none"

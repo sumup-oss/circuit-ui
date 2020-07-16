@@ -96,6 +96,7 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The **CardSchemes** and **PaymentMethodIcon** components have been removed. Use [@sumup/icons](https://www.npmjs.com/package/@sumup/icons) instead.
 - The **AutoCompleteInput** and **AutoCompleteTags** components have been removed. You can build them yourself using the SearchInput, Card, and Tag components.
 - The **MaskedInput** and **RestrictedInput** components have been removed. Use [react-text-mask](https://www.npmjs.com/package/react-text-mask) or a similar package directly instead.
+- The **MessageIcon** and **MessageButton** components have been removed. Use the Notification component's icon and children props instead.
 - The **Markdown** component has been removed. Use [markdown-to-jsx](https://www.npmjs.com/package/markdown-to-jsx) or a similar package instead.
 - The **State** component has been removed. Use React's [useState](https://reactjs.org/docs/hooks-reference.html#usestate) hook instead.
 - The **Picture** component has been removed. Use the native HTML `picture` element instead.
@@ -120,16 +121,16 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The `flat` **Button** variant has been removed (🤖 _button-variant-enum_)
 - The **LoadingButton**'s exit animations have been removed. An action's success or error result should be communicated outside the button (🤖 _exit-animations_)
 - The **RadioButton** and **Switch** component's `onToggle` prop has been renamed to `onChange` (🤖 _onchange-prop_)
-- The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead. The `wrapperStyles` prop has been renamed to `labelStyles` (🤖 _input-label-styles-prop_). The `deepRef` prop has been renamed to `ref` (🤖 _input-deepref-prop_)
+- The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead. The `wrapperStyles` prop has been renamed to `labelStyles` (🤖 _input-styles-prop_).
 - The **Input** and **Textarea** components' `deepRef` prop has been renamed to `ref` (🤖 _input-deepref-prop_)
 - The **Input** and **Textarea** components no longer have an `optional` state. Add "(optional)" to the label text instead.
 - The **Selector** component's `onClick` and `selected` props have been renamed to `onChange` and `checked` (🤖 _selector-props_). The `value` and `name` have been added as required props.
 - The **Toggle** component's `on`, `labelOn`, and `labelOff` props have been renamed to `checked`, `labelChecked`, and `labelUnchecked` (🤖 _toggle-checked-prop_).
-- The **RadioButtonGroup** component's `label` property inside the `options` prop has been renamed to `children`.
 - The **IconButton** component's dimensions and style have changed. It is now consistent with the Button component.
 - The **Hamburger** component's default size has been increased to match the IconButton component.
 - The **Hamburger** component's `light` prop has been removed. Set the color through CSS instead.
 - The **Spinner** component's `dark` prop has been removed. Set the color through CSS instead.
+- The **InlineMessage** component's `type` prop has been renamed to `variant` (🤖 _inline-message-variant-enum_)
 - (_in writing_) combine label with form input components
 
 ### Utilities

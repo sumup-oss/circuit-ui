@@ -975,7 +975,6 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
-  border: 0;
 }
 
 .circuit-1:focus {
@@ -1020,6 +1019,7 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
 <button
   class="circuit-1"
   title="Close"
+  type="button"
 >
   <svg
     fill="none"
@@ -2091,7 +2091,66 @@ HTMLCollection [
       This is some text showing in my card
     </p>
   </div>,
-  .circuit-6 {
+  .circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
+}
+
+.circuit-6 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -2160,66 +2219,6 @@ HTMLCollection [
   }
 }
 
-.circuit-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
-  padding: 8px calc(24px - 1px);
-  border-radius: 8px;
-  border: 0;
-}
-
-.circuit-2:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-2:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-2:disabled,
-.circuit-2[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-2:hover {
-  background-color: #FAFBFC;
-  border-color: #5C656F;
-}
-
-.circuit-2:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
-}
-
 .circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -2248,6 +2247,7 @@ HTMLCollection [
         class="circuit-2"
         data-testid="header-close"
         title="Close"
+        type="button"
       >
         <svg
           fill="none"
@@ -4845,20 +4845,6 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   }
 }
 
-.circuit-3 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 .circuit-8 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -4884,6 +4870,20 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
     border-bottom-right-radius: 0;
     min-width: initial;
     position: relative;
+  }
+}
+
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-3 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -4993,20 +4993,6 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
   }
 }
 
-.circuit-3 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 .circuit-4 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -5035,6 +5021,20 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
   }
 }
 
+.circuit-3 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
 <div
   class="circuit-4"
 >
@@ -5056,37 +5056,6 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 `;
 
 exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = `
-.circuit-3 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
 .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5118,7 +5087,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
-  border: 0;
 }
 
 .circuit-2:focus {
@@ -5147,6 +5115,37 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   border-color: #323E49;
 }
 
+.circuit-3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
 .circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -5158,20 +5157,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
-
-.circuit-5 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-5 {
-    font-size: 16px;
-    line-height: 24px;
-  }
 }
 
 .circuit-6 {
@@ -5202,6 +5187,20 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   }
 }
 
+.circuit-5 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-5 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
 <div
   class="circuit-6"
 >
@@ -5217,6 +5216,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
       class="circuit-2"
       data-testid="header-close"
       title="Close"
+      type="button"
     >
       <svg
         fill="none"
@@ -5249,20 +5249,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 `;
 
 exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
-.circuit-0 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 .circuit-1 {
   background-color: #FFFFFF;
   border-radius: 4px;
@@ -5291,6 +5277,20 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
   }
 }
 
+.circuit-0 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
 <div
   class="circuit-1"
 >
@@ -5302,8 +5302,8 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components/Notification Alert 1`] = `
-.circuit-4 {
+exports[`Storyshots Components/Notification Base 1`] = `
+.circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5336,160 +5336,32 @@ exports[`Storyshots Components/Notification Alert 1`] = `
   border-radius: 6px;
 }
 
-.circuit-4:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-4:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-4:active {
+.circuit-2:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-3 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-@media (min-width:480px) {
-  .circuit-7 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-.circuit-1 {
-  display: block;
-  margin: 0 0 16px 0;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-1 {
-    margin: 0 16px 0 0;
-  }
-}
-
-.circuit-5 {
-  display: block;
-  padding-left: 24px;
-  margin-top: 16px;
-  margin-left: auto;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-@media (min-width:480px) {
-  .circuit-5 {
-    margin-top: 0;
-  }
-}
-
-.circuit-0 {
-  color: #DB4D4D;
-}
-
-<div
-  class="circuit-7 circuit-8"
->
-  <div
-    class="circuit-1 circuit-2"
-  >
-    <svg
-      class="circuit-0"
-      fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-      />
-    </svg>
-  </div>
-  <h4
-    class="circuit-3"
-  >
-    Your transaction has failed
-  </h4>
-  <div
-    class="circuit-5 circuit-6"
-  >
-    <button
-      class="circuit-4"
-    >
-      Try again
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components/Notification Base 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -5505,12 +5377,24 @@ exports[`Storyshots Components/Notification Base 1`] = `
   }
 }
 
+.circuit-4 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-1 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 @media (min-width:480px) {
@@ -5520,95 +5404,66 @@ exports[`Storyshots Components/Notification Base 1`] = `
   }
 }
 
-.circuit-2 {
+.circuit-6 {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
-@media (min-width:480px) {
-  .circuit-2 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-<div
-  class="circuit-2 circuit-3"
->
-  <div>
-    <h4
-      class="circuit-0"
-    >
-      New Feature — Intelligent Reporting
-    </h4>
-    <p
-      class="circuit-1"
-    >
-      Get automatic insights into your business statistics with one click.
-    </p>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components/Notification Success 1`] = `
 .circuit-3 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
-@media (min-width:480px) {
-  .circuit-4 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-.circuit-1 {
-  display: block;
-  margin: 0 0 16px 0;
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -5616,27 +5471,47 @@ exports[`Storyshots Components/Notification Success 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  line-height: 0;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  margin-left: 12px;
 }
 
-@media (min-width:480px) {
-  .circuit-1 {
-    margin: 0 16px 0 0;
-  }
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0 {
-  color: #47995A;
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-5:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 <div
-  class="circuit-4 circuit-5"
+  class="circuit-6"
 >
   <div
-    class="circuit-1 circuit-2"
+    class="circuit-3"
   >
     <svg
-      class="circuit-0"
       fill="none"
       height="24"
       viewBox="0 0 24 24"
@@ -5658,17 +5533,137 @@ exports[`Storyshots Components/Notification Success 1`] = `
         stroke-width="2"
       />
     </svg>
+    <div>
+      <h4
+        class="circuit-0"
+      >
+        New Feature — Intelligent Reporting
+      </h4>
+      <p
+        class="circuit-1"
+      >
+        Get automatic insights into your business statistics with one click.
+      </p>
+      <button
+        class="circuit-2"
+      >
+        Learn more
+      </button>
+    </div>
   </div>
-  <h4
-    class="circuit-3"
+  <button
+    class="circuit-5"
+    title="Close"
+    type="button"
   >
-    Transaction successfully refunded
-  </h4>
+    <svg
+      fill="none"
+      height="16"
+      role="presentation"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 3l10 10m0-10L3 13"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </svg>
+    <span
+      class="circuit-4"
+    >
+      Close
+    </span>
+  </button>
 </div>
 `;
 
-exports[`Storyshots Components/Notification Warning 1`] = `
-.circuit-4 {
+exports[`Storyshots Components/Notification Variants 1`] = `
+HTMLCollection [
+  .circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+<div
+    class="circuit-2"
+  >
+    <div
+      class="circuit-1"
+    >
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.183 12.684l2.571 2.571 5.143-6.428"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+        <path
+          d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <div>
+        <h4
+          class="circuit-0"
+        >
+          Transaction successfully refunded
+        </h4>
+      </div>
+    </div>
+  </div>,
+  .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5701,160 +5696,32 @@ exports[`Storyshots Components/Notification Warning 1`] = `
   border-radius: 6px;
 }
 
-.circuit-4:focus {
+.circuit-2:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-4:focus::-moz-focus-inner {
+.circuit-2:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-4:disabled,
-.circuit-4[disabled] {
+.circuit-2:disabled,
+.circuit-2[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-4:hover {
+.circuit-2:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-4:active {
+.circuit-2:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-3 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-3 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-@media (min-width:480px) {
-  .circuit-7 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-.circuit-1 {
-  display: block;
-  margin: 0 0 16px 0;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  line-height: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-1 {
-    margin: 0 16px 0 0;
-  }
-}
-
-.circuit-0 {
-  color: #D8A413;
-}
-
-.circuit-5 {
-  display: block;
-  padding-left: 24px;
-  margin-top: 16px;
-  margin-left: auto;
-  -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-@media (min-width:480px) {
-  .circuit-5 {
-    margin-top: 0;
-  }
-}
-
-<div
-  class="circuit-7 circuit-8"
->
-  <div
-    class="circuit-1 circuit-2"
-  >
-    <svg
-      class="circuit-0"
-      fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-      />
-    </svg>
-  </div>
-  <h4
-    class="circuit-3"
-  >
-    You still need to verify your account
-  </h4>
-  <div
-    class="circuit-5 circuit-6"
-  >
-    <button
-      class="circuit-4"
-    >
-      Verify account
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
 .circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
@@ -5875,7 +5742,6 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   margin-bottom: 16px;
   font-size: 16px;
   line-height: 24px;
-  margin-bottom: 0;
 }
 
 @media (min-width:480px) {
@@ -5885,90 +5751,276 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   }
 }
 
-.circuit-2 {
+.circuit-4 {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
-@media (min-width:480px) {
-  .circuit-2 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
-}
-
-.circuit-9 {
-  min-height: 5rem;
-}
-
-.circuit-8 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.circuit-6 {
-  width: 100%;
-  background-color: #FFFFFF;
-  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
-}
-
-.circuit-4 {
-  padding: 16px 24px;
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 <div
-  class="circuit-9"
->
-  <div
-    class="circuit-8"
+    class="circuit-4"
   >
     <div
-      aria-live="polite"
-      class="circuit-6 circuit-7"
+      class="circuit-3"
     >
-      <div
-        class="circuit-4 circuit-5"
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <div
-          class="circuit-2 circuit-3"
+        <path
+          d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <div>
+        <h4
+          class="circuit-0"
         >
-          <div>
-            <h4
-              class="circuit-0"
-            >
-              New Feature — Intelligent Reporting
-            </h4>
-            <p
-              class="circuit-1"
-            >
-              Get automatic insights into your business statistics with one click.
-            </p>
-          </div>
-        </div>
+          You need to verify your account
+        </h4>
+        <p
+          class="circuit-1"
+        >
+          We need to verify your identity before you can continue transacting.
+        </p>
+        <button
+          class="circuit-2"
+        >
+          Verify account
+        </button>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+  .circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 4px calc(16px - 1px);
+  border-radius: 6px;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-1:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
+}
+
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-3 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+<div
+    class="circuit-3"
+  >
+    <div
+      class="circuit-2"
+    >
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <div>
+        <h4
+          class="circuit-0"
+        >
+          We failed to process your transaction
+        </h4>
+        <button
+          class="circuit-1"
+        >
+          Try again
+        </button>
+      </div>
+    </div>
+  </div>,
+]
 `;
 
-exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
-.circuit-3 {
+exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 4px calc(16px - 1px);
+  border-radius: 6px;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
+}
+
+.circuit-0 {
   font-weight: 700;
   margin-bottom: 24px;
   font-size: 17px;
@@ -5977,41 +6029,99 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-3 {
+  .circuit-0 {
     font-size: 17px;
     line-height: 24px;
   }
 }
 
 .circuit-4 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-1 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-6 {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
 }
 
-@media (min-width:480px) {
-  .circuit-4 {
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-  }
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
-.circuit-1 {
-  display: block;
-  margin: 0 0 16px 0;
+.circuit-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -6019,20 +6129,347 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  line-height: 0;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  margin-left: 12px;
+}
+
+.circuit-5:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-5:disabled,
+.circuit-5[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-5:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-5:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
+}
+
+.circuit-8 {
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+}
+
+.circuit-7 {
+  padding: 16px 24px;
+}
+
+<div
+  css="You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."
+>
+  <div
+    css="You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."
+  >
+    <div
+      aria-live="polite"
+      class="circuit-8"
+      role="status"
+    >
+      <div
+        class="circuit-7"
+      >
+        <div
+          class="circuit-6"
+        >
+          <div
+            class="circuit-3"
+          >
+            <svg
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.183 12.684l2.571 2.571 5.143-6.428"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+              <path
+                d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+            <div>
+              <h4
+                class="circuit-0"
+              >
+                New Feature — Intelligent Reporting
+              </h4>
+              <p
+                class="circuit-1"
+              >
+                Get automatic insights into your business statistics with one click.
+              </p>
+              <button
+                class="circuit-2"
+              >
+                Learn more
+              </button>
+            </div>
+          </div>
+          <button
+            class="circuit-5"
+            title="Close"
+            type="button"
+          >
+            <svg
+              fill="none"
+              height="16"
+              role="presentation"
+              viewBox="0 0 16 16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 3l10 10m0-10L3 13"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="2"
+              />
+            </svg>
+            <span
+              class="circuit-4"
+            >
+              Close
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 4px calc(16px - 1px);
+  border-radius: 6px;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
+}
+
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-9 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-1 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 @media (min-width:480px) {
   .circuit-1 {
-    margin: 0 16px 0 0;
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
-.circuit-0 {
-  color: #47995A;
+.circuit-4 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
 }
 
-.circuit-8 {
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.circuit-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  margin-left: 12px;
+}
+
+.circuit-10:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-10:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-10:disabled,
+.circuit-10[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-10:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-10:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
+}
+
+.circuit-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6040,27 +6477,27 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 400px;
+  width: 600px;
   max-width: 90vw;
   max-width: calc(100vw - (24px * 2));
 }
 
-.circuit-8 > * {
+.circuit-14 > * {
   margin-top: 16px;
 }
 
-.circuit-8 > *:first-child {
+.circuit-14 > *:first-child {
   margin-top: 0;
 }
 
 @media (max-width:767px) {
-  .circuit-8 {
+  .circuit-14 {
     max-width: none;
     width: 100%;
   }
 }
 
-.circuit-6 {
+.circuit-5 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -6080,19 +6517,18 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 
 <ul
   aria-live="polite"
-  class="circuit-8 circuit-9"
+  class="circuit-14"
 >
   <li
-    class="circuit-6 circuit-7"
+    class="circuit-5 circuit-6"
   >
     <div
-      class="circuit-4 circuit-5"
+      class="circuit-4"
     >
       <div
-        class="circuit-1 circuit-2"
+        class="circuit-3"
       >
         <svg
-          class="circuit-0"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -6114,12 +6550,84 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
             stroke-width="2"
           />
         </svg>
+        <div>
+          <h4
+            class="circuit-0"
+          >
+            New Feature — Intelligent Reporting
+          </h4>
+          <p
+            class="circuit-1"
+          >
+            Get automatic insights into your business statistics with one click.
+          </p>
+          <button
+            class="circuit-2"
+          >
+            Learn more
+          </button>
+        </div>
       </div>
-      <h4
+    </div>
+  </li>
+  <li
+    class="circuit-5 circuit-6"
+  >
+    <div
+      class="circuit-4"
+    >
+      <div
         class="circuit-3"
       >
-        Transaction successfully refunded
-      </h4>
+        <svg
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+          />
+        </svg>
+        <div>
+          <h4
+            class="circuit-0"
+          >
+            We failed to process your transaction
+          </h4>
+        </div>
+      </div>
+      <button
+        class="circuit-10"
+        title="Close"
+        type="button"
+      >
+        <svg
+          fill="none"
+          height="16"
+          role="presentation"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 3l10 10m0-10L3 13"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="2"
+          />
+        </svg>
+        <span
+          class="circuit-9"
+        >
+          Close
+        </span>
+      </button>
     </div>
   </li>
 </ul>
@@ -7889,7 +8397,6 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
-  border: 0;
   border-radius: 100%;
   position: absolute;
   bottom: 16px;
@@ -8121,6 +8628,7 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
     class="circuit-49 circuit-50"
     data-testid="sidebar-close-button"
     title="close-button"
+    type="button"
   >
     <svg
       fill="none"
@@ -11500,7 +12008,6 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
-  border: 0;
   margin-left: 4px;
   margin-right: -4px;
   padding: 0;
@@ -11540,6 +12047,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
     class="circuit-1 circuit-2"
     data-testid="tag-close"
     title="Remove"
+    type="button"
   >
     <svg
       fill="none"
@@ -14957,6 +15465,10 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -14980,16 +15492,16 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -15001,13 +15513,13 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -15020,9 +15532,9 @@ exports[`Storyshots Forms/Checkbox Base 1`] = `
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -15082,6 +15594,10 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -15105,7 +15621,7 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
   opacity: 0.5;
@@ -15114,10 +15630,10 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -15129,13 +15645,13 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -15148,24 +15664,24 @@ exports[`Storyshots Forms/Checkbox Disabled 1`] = `
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 .circuit-1::before {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  border-color: #9DA7B1;
-  background-color: #FAFBFC;
+  border-color: #5C656F;
+  background-color: #EEF0F2;
 }
 
 .circuit-1 svg {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  color: #9DA7B1;
+  color: #5C656F;
 }
 
 <div
@@ -15227,6 +15743,10 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -15247,19 +15767,27 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   border-color: #3388FF;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #B22828;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #DB4D4D;
+}
+
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -15271,13 +15799,13 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -15290,9 +15818,9 @@ exports[`Storyshots Forms/Checkbox Invalid 1`] = `
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 .circuit-1:not(:focus)::before {
@@ -15408,6 +15936,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -15431,16 +15963,16 @@ HTMLCollection [
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -15452,13 +15984,13 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -15471,9 +16003,9 @@ HTMLCollection [
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -15530,6 +16062,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -15553,16 +16089,16 @@ HTMLCollection [
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -15574,13 +16110,13 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -15593,9 +16129,9 @@ HTMLCollection [
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -15652,6 +16188,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -15675,16 +16215,16 @@ HTMLCollection [
 .circuit-1 {
   color: #5C656F;
   display: inline-block;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-1::before {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 3px;
@@ -15696,13 +16236,13 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in,background-color 0.05s ease-in;
-  transition: border 0.05s ease-in,background-color 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
+  transition: border 120ms ease-in-out, background-color 120ms ease-in-out;
 }
 
 .circuit-1 svg {
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
   padding: 2px;
   box-sizing: border-box;
   color: #3388FF;
@@ -15715,9 +16255,9 @@ HTMLCollection [
   -webkit-transform: translateY(-50%) scale(0,0);
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -15756,36 +16296,8 @@ HTMLCollection [
 ]
 `;
 
-exports[`Storyshots Forms/InlineMessage Alert 1`] = `
-.circuit-0 {
-  color: #DB4D4D;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.circuit-0:before {
-  display: inline-block;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  content: '';
-  position: absolute;
-  left: -24px;
-  top: 0;
-  height: 100%;
-  background-color: #DB4D4D;
-  width: 3px;
-}
-
-<p
-  class="circuit-0 circuit-1"
-  type="danger"
->
-  Something has gone terribly wrong.
-</p>
-`;
-
 exports[`Storyshots Forms/InlineMessage Base 1`] = `
-.circuit-3 {
+.circuit-1 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -15822,38 +16334,37 @@ exports[`Storyshots Forms/InlineMessage Base 1`] = `
   width: 3px;
 }
 
-.circuit-2 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-2 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
 <div
-  class="circuit-3 circuit-4"
+  class="circuit-1 circuit-2"
 >
   <p
-    class="circuit-0 circuit-1"
-    type="warning"
+    class="circuit-0"
   >
     Something might go terribly wrong.
-  </p>
-  <p
-    class="circuit-2"
-  >
-    Sorry that is how it is.
   </p>
 </div>
 `;
 
-exports[`Storyshots Forms/InlineMessage Size 1`] = `
+exports[`Storyshots Forms/InlineMessage Sizes 1`] = `
+HTMLCollection [
+  .circuit-1 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  padding: 16px 16px;
+}
+
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15869,19 +16380,37 @@ exports[`Storyshots Forms/InlineMessage Size 1`] = `
   left: -16px;
   top: 0;
   height: 100%;
-  background-color: #D8A413;
+  background-color: #47995A;
   width: 3px;
 }
 
-<p
-  class="circuit-0 circuit-1"
-  type="warning"
->
-  Something might go terribly wrong with a bigger card.
-</p>
-`;
+<div
+    class="circuit-1 circuit-2"
+  >
+    <p
+      class="circuit-0"
+    >
+      Something has gone wonderfully right with a smaller card.
+    </p>
+  </div>,
+  .circuit-1 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  padding: 16px 24px;
+}
 
-exports[`Storyshots Forms/InlineMessage Success 1`] = `
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15901,15 +16430,56 @@ exports[`Storyshots Forms/InlineMessage Success 1`] = `
   width: 3px;
 }
 
-<p
-  class="circuit-0 circuit-1"
-  type="success"
->
-  Something has gone wonderfully right.
-</p>
+<div
+    class="circuit-1 circuit-2"
+  >
+    <p
+      class="circuit-0"
+    >
+      Something has gone wonderfully right with a larger card.
+    </p>
+  </div>,
+]
 `;
 
-exports[`Storyshots Forms/InlineMessage Warning 1`] = `
+exports[`Storyshots Forms/InlineMessage Variants 1`] = `
+.circuit-3 {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
+  padding: 16px 24px;
+}
+
+.circuit-1 {
+  color: #0F131A;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-1:before {
+  display: inline-block;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  height: 100%;
+  background-color: #D8A413;
+  width: 3px;
+}
+
 .circuit-0 {
   color: #0F131A;
   position: relative;
@@ -15925,16 +16495,48 @@ exports[`Storyshots Forms/InlineMessage Warning 1`] = `
   left: -24px;
   top: 0;
   height: 100%;
-  background-color: #D8A413;
+  background-color: #47995A;
   width: 3px;
 }
 
-<p
-  class="circuit-0 circuit-1"
-  type="warning"
+.circuit-2 {
+  color: #DB4D4D;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-2:before {
+  display: inline-block;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 0;
+  height: 100%;
+  background-color: #DB4D4D;
+  width: 3px;
+}
+
+<div
+  class="circuit-3 circuit-4"
 >
-  Something might go sideways.
-</p>
+  <p
+    class="circuit-0"
+  >
+    Something has gone wonderfully right.
+  </p>
+  <p
+    class="circuit-1"
+  >
+    Something might go sideways.
+  </p>
+  <p
+    class="circuit-2"
+  >
+    Something has gone terribly wrong.
+  </p>
+</div>
 `;
 
 exports[`Storyshots Forms/Input Base 1`] = `
@@ -18189,6 +18791,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -18210,7 +18816,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="radio-button_34"
     name="radio"
     type="radio"
@@ -18218,16 +18824,16 @@ HTMLCollection [
   />,
   .circuit-0 {
   color: #5C656F;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-0::before {
   box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  height: 18px;
+  width: 18px;
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -18239,14 +18845,14 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
 .circuit-0::after {
   box-sizing: border-box;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -18258,13 +18864,13 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     for="radio-button_34"
   >
     Unchecked
@@ -18287,6 +18893,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -18308,7 +18918,7 @@ HTMLCollection [
 }
 
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     disabled=""
     id="radio-button_36"
     name="disabled"
@@ -18317,7 +18927,7 @@ HTMLCollection [
   />,
   .circuit-0 {
   color: #5C656F;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
   opacity: 0.5;
@@ -18327,9 +18937,9 @@ HTMLCollection [
 
 .circuit-0::before {
   box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  height: 18px;
+  width: 18px;
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -18341,14 +18951,14 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
 .circuit-0::after {
   box-sizing: border-box;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -18360,28 +18970,28 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 .circuit-0::before {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  border-color: #9DA7B1;
-  background-color: #FAFBFC;
+  border-color: #5C656F;
+  background-color: #EEF0F2;
 }
 
 .circuit-0::after {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  background-color: #9DA7B1;
+  background-color: #5C656F;
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     disabled=""
     for="radio-button_36"
   >
@@ -18405,6 +19015,10 @@ HTMLCollection [
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -18425,8 +19039,16 @@ HTMLCollection [
   opacity: 1;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #B22828;
+}
+
+.circuit-0:checked + label::before {
+  border-color: #DB4D4D;
+}
+
 <input
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     id="radio-button_35"
     name="invalid"
     type="radio"
@@ -18434,16 +19056,16 @@ HTMLCollection [
   />,
   .circuit-0 {
   color: #5C656F;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
 .circuit-0::before {
   box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  height: 18px;
+  width: 18px;
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -18455,14 +19077,14 @@ HTMLCollection [
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
 .circuit-0::after {
   box-sizing: border-box;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -18474,9 +19096,9 @@ HTMLCollection [
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 .circuit-0:not(:focus)::before {
@@ -18489,7 +19111,7 @@ HTMLCollection [
 }
 
 <label
-    class="circuit-0 circuit-1"
+    class="circuit-0"
     for="radio-button_35"
   >
     Error
@@ -18511,6 +19133,10 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   width: 1px;
 }
 
+.circuit-0:hover + label::before {
+  border-color: #5C656F;
+}
+
 .circuit-0:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
@@ -18531,18 +19157,18 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   opacity: 1;
 }
 
-.circuit-2 {
+.circuit-1 {
   color: #5C656F;
-  padding-left: 24px;
+  padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
-.circuit-2::before {
+.circuit-1::before {
   box-sizing: border-box;
-  height: 16px;
-  width: 16px;
-  box-shadow: inset 0 1px 2px 0 rgba(102,113,123,0.12);
+  height: 18px;
+  width: 18px;
+  box-shadow: 0;
   background-color: #FFFFFF;
   border: 1px solid #9DA7B1;
   border-radius: 100%;
@@ -18554,14 +19180,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  -webkit-transition: border 0.05s ease-in;
-  transition: border 0.05s ease-in;
+  -webkit-transition: border 120ms ease-in-out;
+  transition: border 120ms ease-in-out;
 }
 
-.circuit-2::after {
+.circuit-1::after {
   box-sizing: border-box;
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
   background-color: #3388FF;
   border-radius: 100%;
   content: '';
@@ -18573,9 +19199,9 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   -ms-transform: translateY(-50%) scale(0,0);
   transform: translateY(-50%) scale(0,0);
   opacity: 0;
-  -webkit-transition: -webkit-transform 0.05s ease-in,opacity 0.05s ease-in;
-  -webkit-transition: transform 0.05s ease-in,opacity 0.05s ease-in;
-  transition: transform 0.05s ease-in,opacity 0.05s ease-in;
+  -webkit-transition: -webkit-transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  -webkit-transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
+  transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
 <div
@@ -18584,14 +19210,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
 >
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_37"
       name="radio-button-group"
       type="radio"
       value="apple"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_37"
     >
       Apple
@@ -18599,14 +19225,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   </div>
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_38"
       name="radio-button-group"
       type="radio"
       value="banana"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_38"
     >
       Banana
@@ -18614,14 +19240,14 @@ exports[`Storyshots Forms/RadioButton/RadioButtonGroup Base 1`] = `
   </div>
   <div>
     <input
-      class="circuit-0 circuit-1"
+      class="circuit-0"
       id="radio-button_39"
       name="radio-button-group"
       type="radio"
       value="mango"
     />
     <label
-      class="circuit-2 circuit-3"
+      class="circuit-1"
       for="radio-button_39"
     >
       Mango
