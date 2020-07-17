@@ -20,7 +20,6 @@
     "create:component": "foundry run plop component",
     "static-styles": "cross-env BABEL_ENV=static babel-node --extensions '.js,.ts,.tsx' ./scripts/static-styles/cli.js",
     "build:docs": "yarn build:storybook && yarn build:stylesheets",
-    "prebuild:storybook": "yarn test:output",
     "build:storybook": "build-storybook -c .storybook -o public -s .storybook/public",
     "build:stylesheets": "mkdir -p public/static && yarn static-styles --global --filePath=./public/static/circuit-ui-v1.css",
     "lint": "foundry run eslint . --ext .js,.jsx,.ts,.tsx",
