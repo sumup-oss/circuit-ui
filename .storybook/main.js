@@ -20,9 +20,10 @@ module.exports = {
   managerWebpack: transpileModules,
 };
 
+// Transpile all node_modules under the @sumup/* namespace.
 function transpileModules(config) {
   config.module.rules = config.module.rules.map((rule) => {
-    // We want to override the rule for `.js` files only.
+    // Modify all rules that apply to story files.
     if (
       rule.test &&
       rule.test instanceof RegExp &&
