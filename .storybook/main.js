@@ -16,17 +16,25 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
   ],
-  webpack: (config) => {
-    config.module.rules = config.module.rules.map((rule) => {
-      // We want to override the rule for `.js` files only.
-      if (rule.test && rule.test instanceof RegExp && rule.test.test('.js')) {
-        return {
-          ...rule,
-          exclude: /node_modules\/(?!(@sumup|acorn-jsx)\/).*/,
-        };
-      }
-      return rule;
-    });
-    return config;
-  },
+  webpackFinal: transpileModules,
+  managerWebpack: transpileModules,
 };
+
+// Transpile all node_modules under the @sumup/* namespace.
+function transpileModules(config) {
+  config.module.rules = config.module.rules.map((rule) => {
+    // Modify all rules that apply to story files.
+    if (
+      rule.test &&
+      rule.test instanceof RegExp &&
+      ['.js', '.ts', '.tsx'].some((extension) => rule.test.test(extension))
+    ) {
+      return {
+        ...rule,
+        exclude: /node_modules\/(?!(@sumup|acorn-jsx)\/).*/,
+      };
+    }
+    return rule;
+  });
+  return config;
+}
