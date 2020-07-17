@@ -147,6 +147,6 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 
 (_in writing_)
 
-- The themes have been moved to [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens). Import them from there instead (🤖 _TODO_)
-- The `iconSizes.byte` theme value has been removed. Use `iconSizes.kilo` instead (🤖 _TODO_)
-- The `grid.afterTera` theme value has been renamed to `grid.tera` (🤖 _TODO_)
+- The themes have been moved to [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens). Import them from there instead (🤖 _theme-to-design-tokens_)
+- The `iconSizes.byte` theme value has been removed. Use `iconSizes.kilo` instead (🤖 _theme-icon-sizes_)
+- The `grid.afterTera` theme value has been renamed to `grid.tera` (🤖 _theme-grid-tera_)
