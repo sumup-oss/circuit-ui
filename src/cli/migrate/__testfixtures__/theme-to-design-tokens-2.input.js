@@ -7,3 +7,9 @@ const App = ({ children }) => (
     <Text>{children}</Text>
   </ThemeProvider>
 );
+
+const App2 = ({ children }) => (
+  <ThemeProvider theme={theme.standard}>
+    <Text>{children}</Text>
+  </ThemeProvider>
+);

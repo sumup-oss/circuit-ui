@@ -29,17 +29,18 @@ const transform: Transform = (file, api) => {
     return;
   }
 
-  root
-    .find(j.MemberExpression, {
-      object: {
-        name: themeImport.local,
-      },
-      property: {
-        name: 'circuit',
-      },
-    })
-    .replaceWith(j.identifier('light'));
-
+  ['circuit', 'standard'].forEach((themeName) => {
+    root
+      .find(j.MemberExpression, {
+        object: {
+          name: themeImport.local,
+        },
+        property: {
+          name: themeName,
+        },
+      })
+      .replaceWith(j.identifier('light'));
+  });
   const circuitImport = root.find(j.ImportDeclaration, {
     source: {
       value: '@sumup/circuit-ui',

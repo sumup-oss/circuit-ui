@@ -8,3 +8,9 @@ const App = ({ children }) => (
     <Text>{children}</Text>
   </ThemeProvider>
 );
+
+const App2 = ({ children }) => (
+  <ThemeProvider theme={light}>
+    <Text>{children}</Text>
+  </ThemeProvider>
+);
