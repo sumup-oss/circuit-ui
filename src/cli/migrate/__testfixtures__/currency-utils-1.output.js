@@ -1,4 +1,4 @@
-import { formatCurrency, formatAmountForLocale } from '@sumup/intl-js';
+import { formatCurrency, formatAmountForLocale } from '@sumup/intl';
 
 const amount = '42';
 const locale = 'en-US';
