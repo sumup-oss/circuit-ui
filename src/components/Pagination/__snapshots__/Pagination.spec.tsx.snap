@@ -466,6 +466,10 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-3::-ms-expand {
+  display: none;
+}
+
 .circuit-3:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }

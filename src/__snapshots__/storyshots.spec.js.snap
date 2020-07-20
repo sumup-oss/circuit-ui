@@ -7099,6 +7099,10 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-3::-ms-expand {
+  display: none;
+}
+
 .circuit-3:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
@@ -19298,6 +19302,10 @@ exports[`Storyshots Forms/Select Base 1`] = `
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1::-ms-expand {
+  display: none;
+}
+
 .circuit-1:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
@@ -19484,6 +19492,10 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
 .circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-1::-ms-expand {
+  display: none;
 }
 
 .circuit-1:hover {
@@ -19708,6 +19720,10 @@ label + .circuit-4 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1::-ms-expand {
+  display: none;
+}
+
 .circuit-1:hover {
   box-shadow: 0 0 0 1px #B22828;
 }
@@ -19910,6 +19926,10 @@ label + .circuit-4 {
 .circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-1::-ms-expand {
+  display: none;
 }
 
 .circuit-1:hover {
