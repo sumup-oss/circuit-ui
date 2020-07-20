@@ -82,7 +82,7 @@ const transform: Transform = (file, api) => {
 
   const intlImport = j.importDeclaration(
     intlSpecifiers,
-    j.literal('@sumup/intl-js'),
+    j.literal('@sumup/intl'),
   );
 
   if (imports.length === 1) {
