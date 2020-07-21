@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import React from 'react';
+/** @jsx jsx */
+import { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import Heading from '../Heading';
@@ -64,7 +65,7 @@ export const base = () => (
 );
 
 export const variants = () => (
-  <>
+  <Fragment>
     <Notification variant="success" css={notificationStyles}>
       <Heading size="kilo" as="h4" noMargin>
         Transaction successfully refunded
@@ -89,5 +90,5 @@ export const variants = () => (
         Try again
       </Button>
     </Notification>
-  </>
+  </Fragment>
 );

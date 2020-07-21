@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React, { FC } from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import { FC } from 'react';
+import { css, jsx } from '@emotion/core';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { hideVisually } from '../../styles/style-helpers';

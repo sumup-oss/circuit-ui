@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
+/** @jsx jsx */
 import React from 'react';
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { Cross } from '@sumup/icons';
 
 import { IconButton, IconButtonProps } from '../IconButton/IconButton';

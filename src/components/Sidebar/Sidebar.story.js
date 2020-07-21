@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import { Fragment, useState } from 'react';
+import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { text } from '@storybook/addon-knobs';
 import {
@@ -53,7 +54,7 @@ const SidebarWithState = () => {
   const [selected, setSelected] = useState(1);
 
   return (
-    <>
+    <Fragment>
       {!open && (
         <Button
           onClick={() => setOpen(true)}
@@ -132,7 +133,7 @@ const SidebarWithState = () => {
           <Sidebar.Footer>Footer</Sidebar.Footer>
         </Sidebar>
       </Viewport>
-    </>
+    </Fragment>
   );
 };
 

@@ -31,6 +31,14 @@ label + .circuit-2 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-1 {
@@ -141,6 +149,14 @@ label + .circuit-2 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-1 {
