@@ -3615,7 +3615,7 @@ exports[`Storyshots Components/Carousel/Slide Only Image 1`] = `
 }
 
 <div
-  style="width: 50vw;"
+  style="width: 600px; max-width: 90vw;"
 >
   <div
     class="circuit-5 circuit-6"
@@ -3684,7 +3684,7 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
   font-size: 28px;
   line-height: 32px;
   color: #fff;
-  width: 50%;
+  width: 66%;
   position: absolute;
   bottom: 0;
   left: 25px;
@@ -3699,7 +3699,7 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
 }
 
 <div
-  style="width: 50vw;"
+  style="width: 600px; max-width: 90vw;"
 >
   <div
     class="circuit-7 circuit-8"

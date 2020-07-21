@@ -36,8 +36,8 @@ const BaseProgressBar = (props: ProgressBarProps) => (
     variant={select('Variant', variants, 'primary')}
     size={select('Size', sizes, 'kilo')}
     css={css`
+      width: 90%;
       min-width: 500px;
-      max-width: 90%;
     `}
     {...props}
   />
