@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
+/** @jsx jsx */
 import React, { Children, cloneElement, ReactElement } from 'react';
-import { css, SerializedStyles } from '@emotion/core';
+import { css, jsx, SerializedStyles } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import { hideVisually } from '../../styles/style-helpers';

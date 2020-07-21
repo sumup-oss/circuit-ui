@@ -13,14 +13,9 @@
  * limitations under the License.
  */
 
-import React, {
-  FC,
-  SVGProps,
-  ReactNode,
-  MouseEvent,
-  KeyboardEvent,
-} from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import { FC, SVGProps, ReactNode, MouseEvent, KeyboardEvent } from 'react';
+import { css, jsx } from '@emotion/core';
 import { CircleCheckmark, CircleCross, CircleWarning } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 

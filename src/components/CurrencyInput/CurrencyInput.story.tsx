@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import { Fragment } from 'react';
+import { css, jsx } from '@emotion/core';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import docs from './CurrencyInput.docs.mdx';
@@ -52,7 +53,7 @@ export const base = () => (
 );
 
 export const currencies = () => (
-  <>
+  <Fragment>
     <BaseCurrencyInput
       label="Amount (pt-BR, BRL)"
       placeholder={1234.5}
@@ -65,11 +66,11 @@ export const currencies = () => (
       currency="EUR"
       locale="pt-BR"
     />
-  </>
+  </Fragment>
 );
 
 export const locales = () => (
-  <>
+  <Fragment>
     <BaseCurrencyInput
       label="Amount (de-DE, EUR)"
       placeholder={1234.5}
@@ -82,5 +83,5 @@ export const locales = () => (
       currency="EUR"
       locale="en-IE"
     />
-  </>
+  </Fragment>
 );

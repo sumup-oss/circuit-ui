@@ -677,7 +677,7 @@ exports[`Storyshots Components/Button Tracking 1`] = `
 `;
 
 exports[`Storyshots Components/Button With Icon 1`] = `
-.circuit-0 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -710,36 +710,41 @@ exports[`Storyshots Components/Button With Icon 1`] = `
   border-radius: 8px;
 }
 
-.circuit-0:focus {
+.circuit-1:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus::-moz-focus-inner {
+.circuit-1:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:disabled,
-.circuit-0[disabled] {
+.circuit-1:disabled,
+.circuit-1[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-0:hover {
+.circuit-1:hover {
   background-color: #1760CE;
   border-color: #1760CE;
 }
 
-.circuit-0:active {
+.circuit-1:active {
   background-color: #003C8B;
   border-color: #003C8B;
 }
 
+.circuit-0 {
+  margin-right: 8px;
+}
+
 <button
-  class="circuit-0"
+  class="circuit-1"
 >
   <svg
+    class="circuit-0"
     fill="none"
     height="16"
     role="presentation"
@@ -975,6 +980,8 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 12px;
+  border: 0;
 }
 
 .circuit-1:focus {
@@ -1045,6 +1052,19 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
 `;
 
 exports[`Storyshots Components/Button/IconButton Base 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1076,6 +1096,7 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 12px;
 }
 
 .circuit-1:focus {
@@ -1102,19 +1123,6 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
 .circuit-1:active {
   background-color: #003C8B;
   border-color: #003C8B;
-}
-
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 <button
@@ -1173,6 +1181,19 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   }
 }
 
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1204,6 +1225,8 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   color: #FFFFFF;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  position: relative;
+  overflow: hidden;
 }
 
 .circuit-3:focus {
@@ -1230,19 +1253,6 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
 .circuit-3:active {
   background-color: #003C8B;
   border-color: #003C8B;
-}
-
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
 }
 
 .circuit-1 {
@@ -2091,66 +2101,7 @@ HTMLCollection [
       This is some text showing in my card
     </p>
   </div>,
-  .circuit-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
-  padding: 8px calc(24px - 1px);
-  border-radius: 8px;
-}
-
-.circuit-2:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-2:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-2:disabled,
-.circuit-2[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-2:hover {
-  background-color: #FAFBFC;
-  border-color: #5C656F;
-}
-
-.circuit-2:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
-}
-
-.circuit-6 {
+  .circuit-6 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -2217,6 +2168,67 @@ HTMLCollection [
     font-size: 16px;
     line-height: 24px;
   }
+}
+
+.circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+  padding: 12px;
+  border: 0;
+}
+
+.circuit-2:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-2:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-2:disabled,
+.circuit-2[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-2:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-2:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-1 {
@@ -2574,6 +2586,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 8px;
   margin-left: 8px;
 }
 
@@ -3148,6 +3161,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 8px;
   margin-left: 8px;
 }
 
@@ -3418,6 +3432,7 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 8px;
   margin-left: 8px;
 }
 
@@ -3806,6 +3821,7 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 12px;
   border: 0;
 }
 
@@ -3924,66 +3940,6 @@ exports[`Storyshots Components/Header Base 1`] = `
   width: 1px;
 }
 
-.circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
-  padding: 8px calc(24px - 1px);
-  border-radius: 8px;
-  border: 0;
-}
-
-.circuit-3:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-3:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-3:disabled,
-.circuit-3[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-3:hover {
-  background-color: #FAFBFC;
-  border-color: #5C656F;
-}
-
-.circuit-3:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
-}
-
 .circuit-1 {
   position: relative;
   display: -webkit-box;
@@ -4055,6 +4011,67 @@ exports[`Storyshots Components/Header Base 1`] = `
   z-index: 600;
   position: -webkit-sticky;
   position: sticky;
+}
+
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+  padding: 8px;
+  border: 0;
+}
+
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-3:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
 }
 
 .circuit-4 {
@@ -4582,6 +4599,12 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
   }
 }
 
+.circuit-4 {
+  width: 100%;
+  padding: 0;
+  height: 50vh;
+}
+
 .circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4626,7 +4649,7 @@ exports[`Storyshots Components/Modal/Embedded With Custom Styles 1`] = `
 }
 
 <div
-  css="You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."
+  class="circuit-4"
 >
   <div
     class="circuit-3"
@@ -5056,6 +5079,37 @@ exports[`Storyshots Components/Modal/Embedded With Title 1`] = `
 `;
 
 exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = `
+.circuit-3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.circuit-0 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-0 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
 .circuit-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5087,6 +5141,8 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 12px;
+  border: 0;
 }
 
 .circuit-2:focus {
@@ -5113,37 +5169,6 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
 .circuit-2:active {
   background-color: #EEF0F2;
   border-color: #323E49;
-}
-
-.circuit-3 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 17px;
-    line-height: 24px;
-  }
 }
 
 .circuit-1 {
@@ -5303,7 +5328,7 @@ exports[`Storyshots Components/Modal/Embedded Without Close Button 1`] = `
 `;
 
 exports[`Storyshots Components/Notification Base 1`] = `
-.circuit-2 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5336,33 +5361,33 @@ exports[`Storyshots Components/Notification Base 1`] = `
   border-radius: 6px;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-0 {
+.circuit-1 {
   font-weight: 700;
   margin-bottom: 24px;
   font-size: 17px;
@@ -5371,13 +5396,13 @@ exports[`Storyshots Components/Notification Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-0 {
+  .circuit-1 {
     font-size: 17px;
     line-height: 24px;
   }
 }
 
-.circuit-4 {
+.circuit-5 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -5390,7 +5415,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
   width: 1px;
 }
 
-.circuit-1 {
+.circuit-2 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -5398,13 +5423,13 @@ exports[`Storyshots Components/Notification Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-1 {
+  .circuit-2 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-6 {
+.circuit-7 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -5423,7 +5448,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
   align-items: flex-start;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5433,7 +5458,21 @@ exports[`Storyshots Components/Notification Base 1`] = `
   flex-direction: row;
 }
 
-.circuit-5 {
+.circuit-0 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #47995A;
+}
+
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5464,6 +5503,8 @@ exports[`Storyshots Components/Notification Base 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 8px;
+  border: 0;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -5479,39 +5520,40 @@ exports[`Storyshots Components/Notification Base 1`] = `
   margin-left: 12px;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-5:active {
+.circuit-6:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
 <div
-  class="circuit-6"
+  class="circuit-7"
 >
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <svg
+      class="circuit-0"
       fill="none"
       height="24"
       viewBox="0 0 24 24"
@@ -5535,24 +5577,24 @@ exports[`Storyshots Components/Notification Base 1`] = `
     </svg>
     <div>
       <h4
-        class="circuit-0"
+        class="circuit-1"
       >
         New Feature — Intelligent Reporting
       </h4>
       <p
-        class="circuit-1"
+        class="circuit-2"
       >
         Get automatic insights into your business statistics with one click.
       </p>
       <button
-        class="circuit-2"
+        class="circuit-3"
       >
         Learn more
       </button>
     </div>
   </div>
   <button
-    class="circuit-5"
+    class="circuit-6"
     title="Close"
     type="button"
   >
@@ -5572,7 +5614,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
       />
     </svg>
     <span
-      class="circuit-4"
+      class="circuit-5"
     >
       Close
     </span>
@@ -5582,7 +5624,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
 
 exports[`Storyshots Components/Notification Variants 1`] = `
 HTMLCollection [
-  .circuit-0 {
+  .circuit-1 {
   font-weight: 700;
   margin-bottom: 24px;
   font-size: 17px;
@@ -5591,13 +5633,37 @@ HTMLCollection [
 }
 
 @media (min-width:480px) {
-  .circuit-0 {
+  .circuit-1 {
     font-size: 17px;
     line-height: 24px;
   }
 }
 
 .circuit-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.circuit-0 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #47995A;
+}
+
+.circuit-3 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -5614,25 +5680,19 @@ HTMLCollection [
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-}
-
-.circuit-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  width: 600px;
+  max-width: 95vw;
+  margin-bottom: 16px;
 }
 
 <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <div
-      class="circuit-1"
+      class="circuit-2"
     >
       <svg
+        class="circuit-0"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -5656,10 +5716,185 @@ HTMLCollection [
       </svg>
       <div>
         <h4
-          class="circuit-0"
+          class="circuit-1"
         >
           Transaction successfully refunded
         </h4>
+      </div>
+    </div>
+  </div>,
+  .circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  border-color: #9DA7B1;
+  color: #323E49;
+  padding: 4px calc(16px - 1px);
+  border-radius: 6px;
+}
+
+.circuit-3:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-3:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-3:disabled,
+.circuit-3[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-3:hover {
+  background-color: #FAFBFC;
+  border-color: #5C656F;
+}
+
+.circuit-3:active {
+  background-color: #EEF0F2;
+  border-color: #323E49;
+}
+
+.circuit-1 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+
+@media (min-width:480px) {
+  .circuit-1 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.circuit-2 {
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width:480px) {
+  .circuit-2 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.circuit-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.circuit-5 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  width: 600px;
+  max-width: 95vw;
+  margin-bottom: 16px;
+}
+
+.circuit-0 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #D8A413;
+}
+
+<div
+    class="circuit-5"
+  >
+    <div
+      class="circuit-4"
+    >
+      <svg
+        class="circuit-0"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+      <div>
+        <h4
+          class="circuit-1"
+        >
+          You need to verify your account
+        </h4>
+        <p
+          class="circuit-2"
+        >
+          We need to verify your identity before you can continue transacting.
+        </p>
+        <button
+          class="circuit-3"
+        >
+          Verify account
+        </button>
       </div>
     </div>
   </div>,
@@ -5722,33 +5957,14 @@ HTMLCollection [
   border-color: #323E49;
 }
 
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-1 {
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-1 {
-    font-size: 16px;
-    line-height: 24px;
-  }
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .circuit-4 {
@@ -5768,16 +5984,38 @@ HTMLCollection [
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  width: 600px;
+  max-width: 95vw;
+  margin-bottom: 16px;
 }
 
-.circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+.circuit-0 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #DB4D4D;
+}
+
+.circuit-1 {
+  font-weight: 700;
+  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 24px;
+  margin-bottom: 12px;
+}
+
+@media (min-width:480px) {
+  .circuit-1 {
+    font-size: 17px;
+    line-height: 24px;
+  }
 }
 
 <div
@@ -5787,148 +6025,7 @@ HTMLCollection [
       class="circuit-3"
     >
       <svg
-        fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-      <div>
-        <h4
-          class="circuit-0"
-        >
-          You need to verify your account
-        </h4>
-        <p
-          class="circuit-1"
-        >
-          We need to verify your identity before you can continue transacting.
-        </p>
-        <button
-          class="circuit-2"
-        >
-          Verify account
-        </button>
-      </div>
-    </div>
-  </div>,
-  .circuit-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
-  padding: 4px calc(16px - 1px);
-  border-radius: 6px;
-}
-
-.circuit-1:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-1:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-1:hover {
-  background-color: #FAFBFC;
-  border-color: #5C656F;
-}
-
-.circuit-1:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
-}
-
-.circuit-0 {
-  font-weight: 700;
-  margin-bottom: 24px;
-  font-size: 17px;
-  line-height: 24px;
-}
-
-@media (min-width:480px) {
-  .circuit-0 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-.circuit-3 {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-}
-
-.circuit-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-<div
-    class="circuit-3"
-  >
-    <div
-      class="circuit-2"
-    >
-      <svg
+        class="circuit-0"
         fill="none"
         height="24"
         viewBox="0 0 24 24"
@@ -5945,12 +6042,12 @@ HTMLCollection [
       </svg>
       <div>
         <h4
-          class="circuit-0"
+          class="circuit-1"
         >
           We failed to process your transaction
         </h4>
         <button
-          class="circuit-1"
+          class="circuit-2"
         >
           Try again
         </button>
@@ -5961,7 +6058,7 @@ HTMLCollection [
 `;
 
 exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
-.circuit-2 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5994,33 +6091,33 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   border-radius: 6px;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-0 {
+.circuit-1 {
   font-weight: 700;
   margin-bottom: 24px;
   font-size: 17px;
@@ -6029,13 +6126,13 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-0 {
+  .circuit-1 {
     font-size: 17px;
     line-height: 24px;
   }
 }
 
-.circuit-4 {
+.circuit-5 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -6048,7 +6145,7 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   width: 1px;
 }
 
-.circuit-1 {
+.circuit-2 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -6056,13 +6153,13 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-1 {
+  .circuit-2 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-6 {
+.circuit-7 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -6081,7 +6178,7 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   align-items: flex-start;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6091,7 +6188,21 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   flex-direction: row;
 }
 
-.circuit-5 {
+.circuit-0 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #47995A;
+}
+
+.circuit-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6122,6 +6233,8 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 8px;
+  border: 0;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -6137,63 +6250,75 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   margin-left: 12px;
 }
 
-.circuit-5:focus {
+.circuit-6:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-5:focus::-moz-focus-inner {
+.circuit-6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-5:disabled,
-.circuit-5[disabled] {
+.circuit-6:disabled,
+.circuit-6[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-5:hover {
+.circuit-6:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-5:active {
+.circuit-6:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-8 {
+.circuit-11 {
+  min-height: 8rem;
+}
+
+.circuit-10 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.circuit-9 {
   width: 100%;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 0 1px 0 rgba(12,15,20,0.07),0 2px 2px 0 rgba(12,15,20,0.07);
 }
 
-.circuit-7 {
+.circuit-8 {
   padding: 16px 24px;
 }
 
 <div
-  css="You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."
+  class="circuit-11"
 >
   <div
-    css="You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop)."
+    class="circuit-10"
   >
     <div
       aria-live="polite"
-      class="circuit-8"
+      class="circuit-9"
       role="status"
     >
       <div
-        class="circuit-7"
+        class="circuit-8"
       >
         <div
-          class="circuit-6"
+          class="circuit-7"
         >
           <div
-            class="circuit-3"
+            class="circuit-4"
           >
             <svg
+              class="circuit-0"
               fill="none"
               height="24"
               viewBox="0 0 24 24"
@@ -6217,24 +6342,24 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
             </svg>
             <div>
               <h4
-                class="circuit-0"
+                class="circuit-1"
               >
                 New Feature — Intelligent Reporting
               </h4>
               <p
-                class="circuit-1"
+                class="circuit-2"
               >
                 Get automatic insights into your business statistics with one click.
               </p>
               <button
-                class="circuit-2"
+                class="circuit-3"
               >
                 Learn more
               </button>
             </div>
           </div>
           <button
-            class="circuit-5"
+            class="circuit-6"
             title="Close"
             type="button"
           >
@@ -6254,7 +6379,7 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
               />
             </svg>
             <span
-              class="circuit-4"
+              class="circuit-5"
             >
               Close
             </span>
@@ -6267,7 +6392,7 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
 `;
 
 exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
-.circuit-2 {
+.circuit-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6300,33 +6425,33 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   border-radius: 6px;
 }
 
-.circuit-2:focus {
+.circuit-3:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-2:focus::-moz-focus-inner {
+.circuit-3:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-2:disabled,
-.circuit-2[disabled] {
+.circuit-3:disabled,
+.circuit-3[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-2:hover {
+.circuit-3:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-2:active {
+.circuit-3:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-0 {
+.circuit-1 {
   font-weight: 700;
   margin-bottom: 24px;
   font-size: 17px;
@@ -6335,13 +6460,13 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-0 {
+  .circuit-1 {
     font-size: 17px;
     line-height: 24px;
   }
 }
 
-.circuit-9 {
+.circuit-11 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -6354,7 +6479,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   width: 1px;
 }
 
-.circuit-1 {
+.circuit-2 {
   font-weight: 400;
   margin-bottom: 16px;
   font-size: 16px;
@@ -6362,13 +6487,13 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 }
 
 @media (min-width:480px) {
-  .circuit-1 {
+  .circuit-2 {
     font-size: 16px;
     line-height: 24px;
   }
 }
 
-.circuit-4 {
+.circuit-5 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -6387,7 +6512,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   align-items: flex-start;
 }
 
-.circuit-3 {
+.circuit-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6397,7 +6522,21 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   flex-direction: row;
 }
 
-.circuit-10 {
+.circuit-0 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #47995A;
+}
+
+.circuit-12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6428,6 +6567,8 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 8px;
+  border: 0;
   -webkit-box-flex: 0;
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
@@ -6443,33 +6584,47 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   margin-left: 12px;
 }
 
-.circuit-10:focus {
+.circuit-12:focus {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-10:focus::-moz-focus-inner {
+.circuit-12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-10:disabled,
-.circuit-10[disabled] {
+.circuit-12:disabled,
+.circuit-12[disabled] {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
 }
 
-.circuit-10:hover {
+.circuit-12:hover {
   background-color: #FAFBFC;
   border-color: #5C656F;
 }
 
-.circuit-10:active {
+.circuit-12:active {
   background-color: #EEF0F2;
   border-color: #323E49;
 }
 
-.circuit-14 {
+.circuit-8 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #DB4D4D;
+}
+
+.circuit-16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6482,22 +6637,22 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   max-width: calc(100vw - (24px * 2));
 }
 
-.circuit-14 > * {
+.circuit-16 > * {
   margin-top: 16px;
 }
 
-.circuit-14 > *:first-child {
+.circuit-16 > *:first-child {
   margin-top: 0;
 }
 
 @media (max-width:767px) {
-  .circuit-14 {
+  .circuit-16 {
     max-width: none;
     width: 100%;
   }
 }
 
-.circuit-5 {
+.circuit-6 {
   background-color: #FFFFFF;
   border-radius: 4px;
   display: -webkit-box;
@@ -6517,18 +6672,19 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 
 <ul
   aria-live="polite"
-  class="circuit-14"
+  class="circuit-16"
 >
   <li
-    class="circuit-5 circuit-6"
+    class="circuit-6 circuit-7"
   >
     <div
-      class="circuit-4"
+      class="circuit-5"
     >
       <div
-        class="circuit-3"
+        class="circuit-4"
       >
         <svg
+          class="circuit-0"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -6552,17 +6708,17 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
         </svg>
         <div>
           <h4
-            class="circuit-0"
+            class="circuit-1"
           >
             New Feature — Intelligent Reporting
           </h4>
           <p
-            class="circuit-1"
+            class="circuit-2"
           >
             Get automatic insights into your business statistics with one click.
           </p>
           <button
-            class="circuit-2"
+            class="circuit-3"
           >
             Learn more
           </button>
@@ -6571,15 +6727,16 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
     </div>
   </li>
   <li
-    class="circuit-5 circuit-6"
+    class="circuit-6 circuit-7"
   >
     <div
-      class="circuit-4"
+      class="circuit-5"
     >
       <div
-        class="circuit-3"
+        class="circuit-4"
       >
         <svg
+          class="circuit-8"
           fill="none"
           height="24"
           viewBox="0 0 24 24"
@@ -6596,14 +6753,14 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
         </svg>
         <div>
           <h4
-            class="circuit-0"
+            class="circuit-1"
           >
             We failed to process your transaction
           </h4>
         </div>
       </div>
       <button
-        class="circuit-10"
+        class="circuit-12"
         title="Close"
         type="button"
       >
@@ -6623,7 +6780,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
           />
         </svg>
         <span
-          class="circuit-9"
+          class="circuit-11"
         >
           Close
         </span>
@@ -6634,6 +6791,36 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
 `;
 
 exports[`Storyshots Components/Pagination Base 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+}
+
 .circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6665,6 +6852,11 @@ exports[`Storyshots Components/Pagination Base 1`] = `
   color: #3388FF;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 8px;
+  margin-right: 12px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 .circuit-1:focus {
@@ -6689,36 +6881,6 @@ exports[`Storyshots Components/Pagination Base 1`] = `
 
 .circuit-1:active {
   color: #003C8B;
-}
-
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-10 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-  padding: 12px;
 }
 
 .circuit-7 {
@@ -6849,6 +7011,68 @@ exports[`Storyshots Components/Pagination Base 1`] = `
   color: #003C8B;
 }
 
+.circuit-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+  padding: 8px;
+  margin-left: 12px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.circuit-9:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-9:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-9:disabled,
+.circuit-9[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-9:hover {
+  color: #1760CE;
+}
+
+.circuit-9:active {
+  color: #003C8B;
+}
+
 <nav
   aria-label="Pagination"
   class="circuit-10"
@@ -6937,7 +7161,7 @@ exports[`Storyshots Components/Pagination Base 1`] = `
     </li>
   </ol>
   <button
-    class="circuit-1"
+    class="circuit-9"
     title="Next page"
   >
     <svg
@@ -6966,63 +7190,6 @@ exports[`Storyshots Components/Pagination Base 1`] = `
 `;
 
 exports[`Storyshots Components/Pagination Many Pages 1`] = `
-.circuit-1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-weight: 700;
-  border-width: 1px;
-  border-style: solid;
-  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: transparent;
-  border-color: transparent;
-  color: #3388FF;
-  padding: 8px calc(24px - 1px);
-  border-radius: 8px;
-}
-
-.circuit-1:focus {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-1:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-1:disabled,
-.circuit-1[disabled] {
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-1:hover {
-  color: #1760CE;
-}
-
-.circuit-1:active {
-  color: #003C8B;
-}
-
 .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -7057,6 +7224,130 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   justify-content: center;
   width: 100%;
   padding: 12px;
+}
+
+.circuit-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+  padding: 8px;
+  margin-right: 12px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.circuit-1:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-1:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-1:disabled,
+.circuit-1[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-1:hover {
+  color: #1760CE;
+}
+
+.circuit-1:active {
+  color: #003C8B;
+}
+
+.circuit-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  background-color: transparent;
+  border-color: transparent;
+  color: #3388FF;
+  padding: 8px calc(24px - 1px);
+  border-radius: 8px;
+  padding: 8px;
+  margin-left: 12px;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.circuit-10:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-10:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-10:disabled,
+.circuit-10[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-10:hover {
+  color: #1760CE;
+}
+
+.circuit-10:active {
+  color: #003C8B;
 }
 
 .circuit-6 {
@@ -7292,7 +7583,7 @@ select:not(:active) ~ .circuit-5 {
     of 10
   </span>
   <button
-    class="circuit-1"
+    class="circuit-10"
     title="Next page"
   >
     <svg
@@ -7419,6 +7710,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
+  min-width: 500px;
 }
 
 .circuit-0 {
@@ -7487,6 +7780,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
+  min-width: 500px;
 }
 
 .circuit-0 {
@@ -7560,6 +7855,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
+  min-width: 500px;
 }
 
 .circuit-0 {
@@ -7628,6 +7925,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
+  min-width: 500px;
 }
 
 .circuit-0 {
@@ -7696,6 +7995,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
+  min-width: 500px;
 }
 
 .circuit-0 {
@@ -7768,6 +8069,8 @@ exports[`Storyshots Components/ProgressBar Steps 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
+  min-width: 500px;
 }
 
 .circuit-0 {
@@ -7883,6 +8186,8 @@ exports[`Storyshots Components/ProgressBar Timer 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
+  min-width: 500px;
 }
 
 .circuit-0 {
@@ -7957,6 +8262,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
+  min-width: 500px;
 }
 
 .circuit-0 {
@@ -8025,6 +8332,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
+  min-width: 500px;
 }
 
 .circuit-0 {
@@ -8401,6 +8710,8 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 12px;
+  border: 0;
   border-radius: 100%;
   position: absolute;
   bottom: 16px;
@@ -8699,6 +9010,7 @@ exports[`Storyshots Components/Spinner Base 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
+  color: #212933;
 }
 
 <span
@@ -8802,6 +9114,60 @@ label + .circuit-6 {
   }
 }
 
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
+.circuit-13 {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 300px;
+}
+
+.circuit-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.circuit-1 {
+  background-color: #EEF0F2;
+  border-radius: 999999px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 8px;
+}
+
+.circuit-1::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #3388FF;
+  -webkit-transition: width 0.05s ease-out;
+  transition: width 0.05s ease-out;
+  height: 100%;
+  width: 1px;
+}
+
+.circuit-1::after {
+  background-color: #3388FF;
+}
+
+.circuit-1::after {
+  width: 33.33333333333333%;
+}
+
 .circuit-5 {
   -webkit-appearance: none;
   background-color: #FFFFFF;
@@ -8852,60 +9218,6 @@ label + .circuit-6 {
 
 .circuit-5:active {
   box-shadow: 0 0 0 1px #3388FF;
-}
-
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-}
-
-.circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.circuit-13 {
-  margin: 0 auto;
-  width: 90%;
-  max-width: 300px;
-}
-
-.circuit-1 {
-  background-color: #EEF0F2;
-  border-radius: 999999px;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  height: 8px;
-}
-
-.circuit-1::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #3388FF;
-  -webkit-transition: width 0.05s ease-out;
-  transition: width 0.05s ease-out;
-  height: 100%;
-  width: 1px;
-}
-
-.circuit-1::after {
-  background-color: #3388FF;
-}
-
-.circuit-1::after {
-  width: 33.33333333333333%;
 }
 
 <div
@@ -12012,6 +12324,8 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 8px;
+  border: 0;
   margin-left: 4px;
   margin-right: -4px;
   padding: 0;
@@ -16591,6 +16905,7 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -16709,6 +17024,7 @@ label + .circuit-2 {
   line-height: 24px;
   background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -16821,6 +17137,7 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -16924,6 +17241,7 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -17028,7 +17346,7 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/Input Invalid 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -17058,6 +17376,7 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #DB4D4D;
+  max-width: 250px;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -17112,7 +17431,7 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -17130,8 +17449,15 @@ label + .circuit-2 {
   color: #DB4D4D;
 }
 
+.circuit-3 {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  color: #DB4D4D;
+}
+
 <label
-  class="circuit-4"
+  class="circuit-5"
   for="input_16"
 >
   <span
@@ -17151,9 +17477,10 @@ label + .circuit-2 {
     />
   </div>
   <span
-    class="circuit-3"
+    class="circuit-4"
   >
     <svg
+      class="circuit-3"
       fill="none"
       height="16"
       role="presentation"
@@ -17236,6 +17563,7 @@ label + .circuit-2 {
   line-height: 24px;
   background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -17352,6 +17680,7 @@ label + .circuit-2 {
   line-height: 24px;
   text-align: right;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -17419,7 +17748,7 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/Input Valid 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -17435,7 +17764,7 @@ label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -17466,6 +17795,7 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -17504,8 +17834,15 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
+.circuit-3 {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  color: #47995A;
+}
+
 <label
-  class="circuit-4"
+  class="circuit-5"
   for="input_15"
 >
   <span
@@ -17525,9 +17862,10 @@ label + .circuit-2 {
     />
   </div>
   <span
-    class="circuit-3"
+    class="circuit-4"
   >
     <svg
+      class="circuit-3"
       fill="none"
       height="16"
       role="presentation"
@@ -17562,7 +17900,7 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/Input Warning 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -17578,7 +17916,7 @@ label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -17609,6 +17947,7 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #D8A413;
+  max-width: 250px;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -17663,8 +18002,15 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #D8A413;
 }
 
+.circuit-3 {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  color: #D8A413;
+}
+
 <label
-  class="circuit-4"
+  class="circuit-5"
   for="input_17"
 >
   <span
@@ -17684,9 +18030,10 @@ label + .circuit-2 {
     />
   </div>
   <span
-    class="circuit-3"
+    class="circuit-4"
   >
     <svg
+      class="circuit-3"
       fill="none"
       height="16"
       role="presentation"
@@ -17751,6 +18098,14 @@ label + .circuit-3 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -17769,6 +18124,7 @@ label + .circuit-3 {
   text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-2::-webkit-input-placeholder {
@@ -17890,6 +18246,14 @@ label + .circuit-3 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -17908,6 +18272,7 @@ label + .circuit-3 {
   text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-2::-webkit-input-placeholder {
@@ -18025,6 +18390,14 @@ label + .circuit-3 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -18043,6 +18416,7 @@ label + .circuit-3 {
   text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-2::-webkit-input-placeholder {
@@ -18165,6 +18539,14 @@ label + .circuit-3 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -18183,6 +18565,7 @@ label + .circuit-3 {
   text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-2::-webkit-input-placeholder {
@@ -18300,6 +18683,14 @@ label + .circuit-3 {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
 }
 
 .circuit-2 {
@@ -18318,6 +18709,7 @@ label + .circuit-3 {
   text-align: right;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
 }
 
 .circuit-2::-webkit-input-placeholder {
@@ -18409,23 +18801,34 @@ label + .circuit-3 {
 `;
 
 exports[`Storyshots Forms/Input/SearchInput Base 1`] = `
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
 .circuit-1 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
+}
+
+.circuit-2 {
   -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
@@ -18443,44 +18846,44 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-2::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-4"
   for="40"
 >
   <span
@@ -18489,9 +18892,10 @@ label + .circuit-2 {
     Search
   </span>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <svg
+      class="circuit-1"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -18506,7 +18910,7 @@ label + .circuit-2 {
       />
     </svg>
     <input
-      class="circuit-1"
+      class="circuit-2"
       id="40"
       placeholder="Search..."
       type="text"
@@ -18517,23 +18921,34 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/Input/SearchInput Clearable 1`] = `
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-2 {
+.circuit-3 {
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
 .circuit-1 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
+}
+
+.circuit-2 {
   -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
@@ -18551,45 +18966,45 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-2::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <div>
   <label
-    class="circuit-3"
+    class="circuit-4"
     for="42"
   >
     <span
@@ -18598,9 +19013,10 @@ label + .circuit-2 {
       Label
     </span>
     <div
-      class="circuit-2"
+      class="circuit-3"
     >
       <svg
+        class="circuit-1"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -18615,7 +19031,7 @@ label + .circuit-2 {
         />
       </svg>
       <input
-        class="circuit-1"
+        class="circuit-2"
         id="42"
         placeholder="Search..."
         type="text"
@@ -18627,16 +19043,27 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/Input/SearchInput Disabled 1`] = `
-.circuit-2 {
+.circuit-3 {
   position: relative;
 }
 
-label .circuit-2,
-label + .circuit-2 {
+label .circuit-3,
+label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-3 {
+.circuit-1 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
+}
+
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -18646,7 +19073,7 @@ label + .circuit-2 {
   margin-bottom: 16px;
 }
 
-.circuit-1 {
+.circuit-2 {
   -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
@@ -18665,44 +19092,44 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-1::-webkit-input-placeholder {
+.circuit-2::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::-moz-placeholder {
+.circuit-2::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:-ms-input-placeholder {
+.circuit-2:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1::placeholder {
+.circuit-2::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
-  class="circuit-3"
+  class="circuit-4"
   disabled=""
   for="41"
 >
@@ -18712,9 +19139,10 @@ label + .circuit-2 {
     Search
   </span>
   <div
-    class="circuit-2"
+    class="circuit-3"
   >
     <svg
+      class="circuit-1"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -18729,7 +19157,7 @@ label + .circuit-2 {
       />
     </svg>
     <input
-      class="circuit-1"
+      class="circuit-2"
       disabled=""
       id="41"
       placeholder="Search..."
@@ -19615,14 +20043,14 @@ select:not(:active) ~ .circuit-3 {
 `;
 
 exports[`Storyshots Forms/Select Invalid 1`] = `
-.circuit-6 {
+.circuit-7 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-5 {
+.circuit-6 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -19637,6 +20065,13 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+  color: #DB4D4D;
+}
+
+.circuit-5 {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
   color: #DB4D4D;
 }
 
@@ -19737,7 +20172,7 @@ label + .circuit-4 {
 }
 
 <label
-  class="circuit-6"
+  class="circuit-7"
   for="44"
 >
   <span
@@ -19804,9 +20239,10 @@ label + .circuit-4 {
     </svg>
   </div>
   <span
-    class="circuit-5"
+    class="circuit-6"
   >
     <svg
+      class="circuit-5"
       fill="none"
       height="16"
       role="presentation"
@@ -19841,28 +20277,11 @@ label + .circuit-4 {
 `;
 
 exports[`Storyshots Forms/Select With Prefix 1`] = `
-.circuit-5 {
+.circuit-6 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
-}
-
-.circuit-2 {
-  color: #5C656F;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
-}
-
-select:active ~ .circuit-2 {
-  display: none;
 }
 
 .circuit-3 {
@@ -19878,22 +20297,51 @@ select:active ~ .circuit-2 {
   padding: 12px;
 }
 
-select:not(:active) ~ .circuit-3 {
+select:active ~ .circuit-3 {
   display: none;
 }
 
 .circuit-4 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-4 {
+  display: none;
+}
+
+.circuit-5 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-4,
-label + .circuit-4 {
+label .circuit-5,
+label + .circuit-5 {
   margin-top: 4px;
 }
 
 .circuit-1 {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 21;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
+  pointer-events: none;
+}
+
+.circuit-2 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -19923,29 +20371,29 @@ label + .circuit-4 {
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-1:-moz-focusring {
+.circuit-2:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-1::-ms-expand {
+.circuit-2::-ms-expand {
   display: none;
 }
 
-.circuit-1:hover {
+.circuit-2:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-1:focus {
+.circuit-2:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-1:active {
+.circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <label
-  class="circuit-5"
+  class="circuit-6"
   for="45"
 >
   <span
@@ -19954,9 +20402,10 @@ label + .circuit-4 {
     Countries
   </span>
   <div
-    class="circuit-4"
+    class="circuit-5"
   >
     <svg
+      class="circuit-1"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -20004,7 +20453,7 @@ label + .circuit-4 {
     </svg>
     <select
       aria-invalid="false"
-      class="circuit-1"
+      class="circuit-2"
       id="45"
       name="country_select"
     >
@@ -20025,7 +20474,7 @@ label + .circuit-4 {
       </option>
     </select>
     <svg
-      class="circuit-2"
+      class="circuit-3"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -20041,7 +20490,7 @@ label + .circuit-4 {
       />
     </svg>
     <svg
-      class="circuit-3"
+      class="circuit-4"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -20652,6 +21101,8 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -20746,6 +21197,8 @@ label + .circuit-2 {
   line-height: 24px;
   background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -20853,6 +21306,8 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -20913,7 +21368,7 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/TextArea Invalid 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -20927,6 +21382,31 @@ exports[`Storyshots Forms/TextArea Invalid 1`] = `
 label .circuit-2,
 label + .circuit-2 {
   margin-top: 4px;
+}
+
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+  color: #DB4D4D;
+}
+
+.circuit-3 {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  color: #DB4D4D;
 }
 
 .circuit-1 {
@@ -20943,6 +21423,8 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #DB4D4D;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -20997,26 +21479,8 @@ label + .circuit-2 {
   box-shadow: 0 0 0 1px #DB4D4D;
 }
 
-.circuit-3 {
-  font-size: 13px;
-  line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 4px;
-  color: #5C656F;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-  color: #DB4D4D;
-}
-
 <label
-  class="circuit-4"
+  class="circuit-5"
   for="58"
 >
   <span
@@ -21035,9 +21499,10 @@ label + .circuit-2 {
     />
   </div>
   <span
-    class="circuit-3"
+    class="circuit-4"
   >
     <svg
+      class="circuit-3"
       fill="none"
       height="16"
       role="presentation"
@@ -21103,6 +21568,8 @@ label + .circuit-2 {
   line-height: 24px;
   background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -21164,7 +21631,7 @@ label + .circuit-2 {
 `;
 
 exports[`Storyshots Forms/TextArea Warning 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
@@ -21180,7 +21647,7 @@ label + .circuit-2 {
   margin-top: 4px;
 }
 
-.circuit-3 {
+.circuit-4 {
   font-size: 13px;
   line-height: 20px;
   display: -webkit-box;
@@ -21197,6 +21664,13 @@ label + .circuit-2 {
   transition: color 120ms ease-in-out;
 }
 
+.circuit-3 {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  color: #D8A413;
+}
+
 .circuit-1 {
   -webkit-appearance: none;
   background-color: #FFFFFF;
@@ -21211,6 +21685,8 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #D8A413;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-1::-webkit-input-placeholder {
@@ -21266,7 +21742,7 @@ label + .circuit-2 {
 }
 
 <label
-  class="circuit-4"
+  class="circuit-5"
   for="59"
 >
   <span
@@ -21284,9 +21760,10 @@ label + .circuit-2 {
     />
   </div>
   <span
-    class="circuit-3"
+    class="circuit-4"
   >
     <svg
+      class="circuit-3"
       fill="none"
       height="16"
       role="presentation"

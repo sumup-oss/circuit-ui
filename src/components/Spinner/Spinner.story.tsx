@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
 
 import Spinner from '.';
 

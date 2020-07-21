@@ -35,6 +35,8 @@ label + .circuit-1 {
   line-height: 24px;
   background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #DB4D4D;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -122,6 +124,8 @@ label + .circuit-1 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #DB4D4D;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -239,6 +243,8 @@ label + .circuit-1 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -315,23 +321,34 @@ label + .circuit-1 {
 `;
 
 exports[`TextArea should render with a prefix when passed the prefix prop 1`] = `
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-1 {
+.circuit-2 {
   position: relative;
 }
 
-label .circuit-1,
-label + .circuit-1 {
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
 .circuit-0 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
+}
+
+.circuit-1 {
   -webkit-appearance: none;
   background-color: #FFFFFF;
   border: none;
@@ -346,56 +363,59 @@ label + .circuit-1 {
   line-height: 24px;
   padding-left: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
-.circuit-0::-webkit-input-placeholder {
+.circuit-1::-webkit-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-0::-moz-placeholder {
+.circuit-1::-moz-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-0:-ms-input-placeholder {
+.circuit-1:-ms-input-placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-0::placeholder {
+.circuit-1::placeholder {
   color: #9DA7B1;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-0:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-0:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-0:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <div
-  class="circuit-2"
+  class="circuit-3"
   for="input_2"
 >
   <div
-    class="circuit-1"
+    class="circuit-2"
   >
     <div
+      class="circuit-0"
       style="width: 24px; height: 24px;"
     />
     <textarea
-      class="circuit-0"
+      class="circuit-1"
       id="input_2"
     />
   </div>
@@ -403,19 +423,19 @@ label + .circuit-1 {
 `;
 
 exports[`TextArea should render with a suffix when passed the suffix prop 1`] = `
-.circuit-2 {
+.circuit-3 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-1 {
+.circuit-2 {
   position: relative;
 }
 
-label .circuit-1,
-label + .circuit-1 {
+label .circuit-2,
+label + .circuit-2 {
   margin-top: 4px;
 }
 
@@ -434,6 +454,8 @@ label + .circuit-1 {
   line-height: 24px;
   padding-right: 40px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -472,18 +494,32 @@ label + .circuit-1 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
+.circuit-1 {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  pointer-events: none;
+  color: #5C656F;
+  padding: 12px;
+  height: 40px;
+  width: 40px;
+  -webkit-transition: right 120ms ease-in-out;
+  transition: right 120ms ease-in-out;
+}
+
 <div
-  class="circuit-2"
+  class="circuit-3"
   for="input_3"
 >
   <div
-    class="circuit-1"
+    class="circuit-2"
   >
     <textarea
       class="circuit-0"
       id="input_3"
     />
     <div
+      class="circuit-1"
       style="width: 24px; height: 24px;"
     />
   </div>
@@ -521,6 +557,8 @@ label + .circuit-1 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -609,6 +647,8 @@ label + .circuit-1 {
   line-height: 24px;
   background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -688,6 +728,8 @@ label + .circuit-1 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -781,6 +823,8 @@ label + .circuit-1 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #DB4D4D;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -875,6 +919,8 @@ label + .circuit-1 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -966,6 +1012,8 @@ label + .circuit-1 {
   line-height: 24px;
   background-color: #EEF0F2;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -1051,6 +1099,8 @@ label + .circuit-1 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #9DA7B1;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
@@ -1135,6 +1185,8 @@ label + .circuit-1 {
   font-size: 16px;
   line-height: 24px;
   box-shadow: 0 0 0 1px #D8A413;
+  overflow: auto;
+  resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {

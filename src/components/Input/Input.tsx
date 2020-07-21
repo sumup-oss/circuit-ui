@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
+/** @jsx jsx */
 import React, { FC, HTMLProps, ReactNode } from 'react';
-import { css, InterpolationWithTheme } from '@emotion/core';
+import { css, jsx, InterpolationWithTheme } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
