@@ -61,6 +61,10 @@ HTMLCollection [
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1::-ms-expand {
+  display: none;
+}
+
 .circuit-1:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }

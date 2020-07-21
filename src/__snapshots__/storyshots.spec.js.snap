@@ -3630,7 +3630,7 @@ exports[`Storyshots Components/Carousel/Slide Only Image 1`] = `
 }
 
 <div
-  style="width: 50vw;"
+  style="width: 600px; max-width: 90vw;"
 >
   <div
     class="circuit-5 circuit-6"
@@ -3699,7 +3699,7 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
   font-size: 28px;
   line-height: 32px;
   color: #fff;
-  width: 50%;
+  width: 66%;
   position: absolute;
   bottom: 0;
   left: 25px;
@@ -3714,7 +3714,7 @@ exports[`Storyshots Components/Carousel/Slide Text And Image 1`] = `
 }
 
 <div
-  style="width: 50vw;"
+  style="width: 600px; max-width: 90vw;"
 >
   <div
     class="circuit-7 circuit-8"
@@ -7390,6 +7390,10 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-3::-ms-expand {
+  display: none;
+}
+
 .circuit-3:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
@@ -7706,8 +7710,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
   min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0 {
@@ -7776,8 +7780,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
   min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0 {
@@ -7851,8 +7855,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
   min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0 {
@@ -7921,8 +7925,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
   min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0 {
@@ -7991,8 +7995,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
   min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0 {
@@ -8065,8 +8069,8 @@ exports[`Storyshots Components/ProgressBar Steps 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
   min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0 {
@@ -8182,8 +8186,8 @@ exports[`Storyshots Components/ProgressBar Timer 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
   min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0 {
@@ -8258,8 +8262,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
   min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0 {
@@ -8328,8 +8332,8 @@ HTMLCollection [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 90%;
   min-width: 500px;
-  max-width: 90%;
 }
 
 .circuit-0 {
@@ -19726,6 +19730,10 @@ exports[`Storyshots Forms/Select Base 1`] = `
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1::-ms-expand {
+  display: none;
+}
+
 .circuit-1:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
@@ -19912,6 +19920,10 @@ exports[`Storyshots Forms/Select Hidden Label 1`] = `
 .circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-1::-ms-expand {
+  display: none;
 }
 
 .circuit-1:hover {
@@ -20143,6 +20155,10 @@ label + .circuit-4 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1::-ms-expand {
+  display: none;
+}
+
 .circuit-1:hover {
   box-shadow: 0 0 0 1px #B22828;
 }
@@ -20358,6 +20374,10 @@ label + .circuit-5 {
 .circuit-2:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-2::-ms-expand {
+  display: none;
 }
 
 .circuit-2:hover {

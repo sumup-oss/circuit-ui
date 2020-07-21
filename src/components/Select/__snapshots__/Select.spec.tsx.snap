@@ -90,6 +90,10 @@ select:not(:active) ~ .circuit-2 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-0::-ms-expand {
+  display: none;
+}
+
 .circuit-0:hover {
   box-shadow: 0 0 0 1px #B22828;
 }
@@ -224,6 +228,10 @@ label + .circuit-4 {
 .circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-1::-ms-expand {
+  display: none;
 }
 
 .circuit-1:hover {
@@ -445,6 +453,10 @@ select:not(:active) ~ .circuit-3 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-1::-ms-expand {
+  display: none;
+}
+
 .circuit-1:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
@@ -580,6 +592,10 @@ label + .circuit-3 {
 .circuit-0:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-0::-ms-expand {
+  display: none;
 }
 
 .circuit-0:hover {
@@ -758,6 +774,10 @@ exports[`Select should render with a visually-hidden label 1`] = `
 .circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-1::-ms-expand {
+  display: none;
 }
 
 .circuit-1:hover {
@@ -951,6 +971,10 @@ label + .circuit-3 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-0::-ms-expand {
+  display: none;
+}
+
 .circuit-0:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
@@ -1109,6 +1133,10 @@ label + .circuit-3 {
 .circuit-0:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-0::-ms-expand {
+  display: none;
 }
 
 .circuit-0:hover {
@@ -1281,6 +1309,10 @@ label + .circuit-3 {
 .circuit-0:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-0::-ms-expand {
+  display: none;
 }
 
 .circuit-0:hover {
@@ -1495,6 +1527,10 @@ select:not(:active) ~ .circuit-2 {
   text-shadow: 0 0 0 #000;
 }
 
+.circuit-0::-ms-expand {
+  display: none;
+}
+
 .circuit-0:hover {
   box-shadow: 0 0 0 1px #B22828;
 }
@@ -1620,6 +1656,10 @@ label + .circuit-3 {
 .circuit-0:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
+}
+
+.circuit-0::-ms-expand {
+  display: none;
 }
 
 .circuit-0:hover {

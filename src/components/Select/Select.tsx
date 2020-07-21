@@ -119,7 +119,6 @@ const containerBaseStyles = ({ theme }: StyleProps) => css`
   color: ${theme.colors.n900};
   display: block;
   position: relative;
-  /* max-height: 42px; */
 `;
 
 type ContainerElProps = Pick<SelectProps, 'hideLabel'>;
@@ -194,6 +193,10 @@ const selectBaseStyles = ({ theme }: StyleProps) => css`
   &:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #000;
+  }
+
+  &::-ms-expand {
+    display: none;
   }
 `;
 

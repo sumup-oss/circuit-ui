@@ -24,7 +24,7 @@ import Slide from './Slide';
 
 const headingStyles = css`
   color: #fff;
-  width: 50%;
+  width: 66%;
   position: absolute;
   bottom: 0;
   left: 25px;
@@ -38,7 +38,7 @@ export default {
 };
 
 export const onlyImage = () => (
-  <div style={{ width: '50vw' }}>
+  <div style={{ width: '600px', maxWidth: '90vw' }}>
     <Slide>
       <Image src="https://placedog.net/800/600" alt="random puppy" />
     </Slide>
@@ -46,7 +46,7 @@ export const onlyImage = () => (
 );
 
 export const textAndImage = () => (
-  <div style={{ width: '50vw' }}>
+  <div style={{ width: '600px', maxWidth: '90vw' }}>
     <Slide>
       <Image src="https://placedog.net/800/600" alt="random puppy" />
       <StyledHeading size="exa">Get The SumUp Card Reader Today!</StyledHeading>
