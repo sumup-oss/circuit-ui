@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import React from 'react';
+/** @jsx jsx */
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { ChevronUp, ChevronDown } from '@sumup/icons';
 
 import { hideVisually } from '../../../../styles/style-helpers';

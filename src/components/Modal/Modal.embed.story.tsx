@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import React from 'react';
+/** @jsx jsx */
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { action } from '@storybook/addon-actions';
 
 import Button from '../Button';

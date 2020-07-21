@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import React, { MouseEvent, KeyboardEvent } from 'react';
+/** @jsx jsx */
+import { MouseEvent, KeyboardEvent } from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 

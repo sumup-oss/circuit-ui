@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps } from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import { HTMLProps } from 'react';
+import { css, jsx } from '@emotion/core';
 import { CircleCheckmark, CircleWarning, CircleCross } from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 

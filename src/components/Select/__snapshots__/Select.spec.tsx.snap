@@ -346,39 +346,22 @@ select:not(:active) ~ .circuit-3 {
 `;
 
 exports[`Select should render with a prefix when passed the prefix prop 1`] = `
-.circuit-4 {
+.circuit-5 {
   font-size: 13px;
   line-height: 20px;
   display: block;
   margin-bottom: 16px;
 }
 
-.circuit-3 {
+.circuit-4 {
   color: #212933;
   display: block;
   position: relative;
 }
 
-label .circuit-3,
-label + .circuit-3 {
+label .circuit-4,
+label + .circuit-4 {
   margin-top: 4px;
-}
-
-.circuit-1 {
-  color: #5C656F;
-  display: block;
-  z-index: 21;
-  pointer-events: none;
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  top: 1px;
-  right: 1px;
-  padding: 12px;
-}
-
-select:active ~ .circuit-1 {
-  display: none;
 }
 
 .circuit-2 {
@@ -394,11 +377,40 @@ select:active ~ .circuit-1 {
   padding: 12px;
 }
 
-select:not(:active) ~ .circuit-2 {
+select:active ~ .circuit-2 {
+  display: none;
+}
+
+.circuit-3 {
+  color: #5C656F;
+  display: block;
+  z-index: 21;
+  pointer-events: none;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: 1px;
+  right: 1px;
+  padding: 12px;
+}
+
+select:not(:active) ~ .circuit-3 {
   display: none;
 }
 
 .circuit-0 {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 21;
+  height: 40px;
+  width: 40px;
+  padding: 12px;
+  pointer-events: none;
+}
+
+.circuit-1 {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -428,35 +440,36 @@ select:not(:active) ~ .circuit-2 {
   box-shadow: 0 0 0 1px #9DA7B1;
 }
 
-.circuit-0:-moz-focusring {
+.circuit-1:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
 
-.circuit-0:hover {
+.circuit-1:hover {
   box-shadow: 0 0 0 1px #5C656F;
 }
 
-.circuit-0:focus {
+.circuit-1:focus {
   box-shadow: 0 0 0 2px #3388FF;
 }
 
-.circuit-0:active {
+.circuit-1:active {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
 <span
-  class="circuit-4"
+  class="circuit-5"
   for="select_10"
 >
   <div
-    class="circuit-3"
+    class="circuit-4"
   >
     <div
+      class="circuit-0"
       style="width: 24px; height: 24px;"
     />
     <select
-      class="circuit-0"
+      class="circuit-1"
       id="select_10"
     >
       <option
@@ -481,7 +494,7 @@ select:not(:active) ~ .circuit-2 {
       </option>
     </select>
     <svg
-      class="circuit-1"
+      class="circuit-2"
       fill="none"
       height="16"
       viewBox="0 0 16 16"
@@ -497,7 +510,7 @@ select:not(:active) ~ .circuit-2 {
       />
     </svg>
     <svg
-      class="circuit-2"
+      class="circuit-3"
       fill="none"
       height="16"
       viewBox="0 0 16 16"

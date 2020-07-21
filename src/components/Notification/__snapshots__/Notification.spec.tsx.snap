@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Notification should render with error styles 1`] = `
-.circuit-1 {
+.circuit-2 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -20,7 +20,7 @@ exports[`Notification should render with error styles 1`] = `
   align-items: flex-start;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30,13 +30,28 @@ exports[`Notification should render with error styles 1`] = `
   flex-direction: row;
 }
 
+.circuit-0 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #DB4D4D;
+}
+
 <div
-  class="circuit-1"
+  class="circuit-2"
 >
   <div
-    class="circuit-0"
+    class="circuit-1"
   >
     <svg
+      class="circuit-0"
       fill="none"
       height="24"
       viewBox="0 0 24 24"
@@ -61,7 +76,7 @@ exports[`Notification should render with error styles 1`] = `
 `;
 
 exports[`Notification should render with success styles 1`] = `
-.circuit-1 {
+.circuit-2 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -80,7 +95,7 @@ exports[`Notification should render with success styles 1`] = `
   align-items: flex-start;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -90,13 +105,28 @@ exports[`Notification should render with success styles 1`] = `
   flex-direction: row;
 }
 
+.circuit-0 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #47995A;
+}
+
 <div
-  class="circuit-1"
+  class="circuit-2"
 >
   <div
-    class="circuit-0"
+    class="circuit-1"
   >
     <svg
+      class="circuit-0"
       fill="none"
       height="24"
       viewBox="0 0 24 24"
@@ -128,7 +158,7 @@ exports[`Notification should render with success styles 1`] = `
 `;
 
 exports[`Notification should render with warning styles 1`] = `
-.circuit-1 {
+.circuit-2 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -147,7 +177,7 @@ exports[`Notification should render with warning styles 1`] = `
   align-items: flex-start;
 }
 
-.circuit-0 {
+.circuit-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -157,13 +187,28 @@ exports[`Notification should render with warning styles 1`] = `
   flex-direction: row;
 }
 
+.circuit-0 {
+  display: block;
+  margin-right: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  line-height: 0;
+  color: #D8A413;
+}
+
 <div
-  class="circuit-1"
+  class="circuit-2"
 >
   <div
-    class="circuit-0"
+    class="circuit-1"
   >
     <svg
+      class="circuit-0"
       fill="none"
       height="24"
       viewBox="0 0 24 24"

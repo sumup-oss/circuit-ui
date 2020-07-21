@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React, { useState, ChangeEvent } from 'react';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import { useState, ChangeEvent } from 'react';
+import { css, jsx } from '@emotion/core';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import docs from './Input.docs.mdx';

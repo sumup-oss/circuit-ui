@@ -13,10 +13,11 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+/** @jsx jsx */
+import { Fragment } from 'react';
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { css } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 
 import Heading from '../Heading';
 import Text from '../Text';

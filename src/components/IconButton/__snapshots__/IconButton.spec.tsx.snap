@@ -32,6 +32,7 @@ exports[`IconButton should render with the default styles 1`] = `
   color: #323E49;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
+  padding: 12px;
 }
 
 .circuit-1:focus {

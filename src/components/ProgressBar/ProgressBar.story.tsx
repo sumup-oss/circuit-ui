@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import React from 'react';
+/** @jsx jsx */
+import { Fragment } from 'react';
+import { css, jsx } from '@emotion/core';
 import { select, number, boolean } from '@storybook/addon-knobs';
-import { css } from '@emotion/core';
 
 import docs from './ProgressBar.docs.mdx';
 import { ProgressBar, ProgressBarProps } from './ProgressBar';
@@ -64,14 +65,14 @@ export const Labelled = () => {
   const fraction = `${value}/${max}`;
   const percentage = `${(value / max) * 100}%`;
   return (
-    <>
+    <Fragment>
       <BaseProgressBar value={value} max={max}>
         {fraction}
       </BaseProgressBar>
       <BaseProgressBar value={value} max={max}>
         {percentage}
       </BaseProgressBar>
-    </>
+    </Fragment>
   );
 };
 

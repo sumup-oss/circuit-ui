@@ -9,6 +9,11 @@ module.exports = require('@sumup/foundry/eslint')(
     parserOptions: {
       project: ['./tsconfig.eslint.json'],
     },
+    rules: {
+      // The custom JSX pragma is required to make Emotion's css prop
+      // work with TypeScript.
+      'emotion/jsx-import': 'error',
+    },
     overrides: [
       {
         files: [
