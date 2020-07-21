@@ -12241,6 +12241,10 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
   background: transparent;
 }
 
+.circuit-0:active {
+  color: #0F131A;
+}
+
 .circuit-0:hover {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
@@ -12916,6 +12920,10 @@ exports[`Storyshots Forms/Calendar/CalendarTag Base 1`] = `
   background: transparent;
 }
 
+.circuit-0:active {
+  color: #0F131A;
+}
+
 .circuit-0:hover {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
@@ -12960,6 +12968,10 @@ exports[`Storyshots Forms/Calendar/CalendarTagTwoStep Base 1`] = `
   cursor: pointer;
   outline: 0;
   background: transparent;
+}
+
+.circuit-0:active {
+  color: #0F131A;
 }
 
 .circuit-0:hover {

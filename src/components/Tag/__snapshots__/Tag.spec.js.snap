@@ -23,6 +23,10 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   background: transparent;
 }
 
+.circuit-0:active {
+  color: #0F131A;
+}
+
 .circuit-0:hover {
   background-color: #D8DDE1;
   border-color: #9DA7B1;

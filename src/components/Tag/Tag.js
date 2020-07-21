@@ -50,6 +50,10 @@ const tagClickableStyles = ({ onClick, theme }) =>
     outline: 0;
     background: transparent;
 
+    &:active {
+      color: ${theme.colors.bodyColor};
+    }
+
     &:hover {
       background-color: ${theme.colors.n300};
       border-color: ${theme.colors.n500};
@@ -74,9 +78,14 @@ const tagSelectedClickableStyles = ({ selected, onClick, theme }) =>
   onClick &&
   css`
     label: tag--selected--clickable;
+
+    &:active {
+      color: ${theme.colors.white};
+    }
+
     &:hover {
-      background-color: ${theme.colors.p500};
-      border-color: ${theme.colors.p500};
+      background-color: ${theme.colors.p700};
+      border-color: ${theme.colors.p700};
     }
   `;
 
