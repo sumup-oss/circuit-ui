@@ -3090,6 +3090,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 }
 
 .circuit-38::after {
+  border-radius: 999999px;
   -webkit-animation-name: animation-0;
   animation-name: animation-0;
   -webkit-animation-duration: 5640ms;
@@ -8218,6 +8219,7 @@ exports[`Storyshots Components/ProgressBar Timer 1`] = `
 }
 
 .circuit-0::after {
+  border-radius: 999999px;
   -webkit-animation-name: animation-0;
   animation-name: animation-0;
   -webkit-animation-duration: 3000ms;
