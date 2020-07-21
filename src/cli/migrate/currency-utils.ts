@@ -71,7 +71,7 @@ const transform: Transform = (file, api) => {
   }
 
   if (formatAmountForLocale.length) {
-    const name = 'formatAmountForLocale';
+    const name = 'format';
     const identifier = j.identifier(name);
     const importSpecifier = j.importSpecifier(identifier);
 
