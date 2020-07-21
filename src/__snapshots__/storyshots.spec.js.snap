@@ -11603,10 +11603,18 @@ exports[`Storyshots Components/Table/TableHeader Base 1`] = `
 `;
 
 exports[`Storyshots Components/Tabs Base 1`] = `
-HTMLCollection [
-  .circuit-10 {
+.circuit-12 {
+  max-width: 100vw;
+}
+
+.circuit-10 {
   background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
+  -ms-overflow-style: none;
+  -webkit-scrollbar-width: none;
+  -moz-scrollbar-width: none;
+  -ms-scrollbar-width: none;
+  scrollbar-width: none;
   height: 80px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -11615,8 +11623,11 @@ HTMLCollection [
   overflow-x: auto;
 }
 
+.circuit-10::-webkit-scrollbar {
+  display: none;
+}
+
 .circuit-8 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11736,6 +11747,9 @@ HTMLCollection [
 }
 
 <div
+  class="circuit-12 circuit-13"
+>
+  <div
     class="circuit-10 circuit-11"
   >
     <div
@@ -11786,7 +11800,7 @@ HTMLCollection [
         Tab 4
       </button>
     </div>
-  </div>,
+  </div>
   <div
     aria-labelledby="tab-one"
     data-testid="tab-panel"
@@ -11795,7 +11809,7 @@ HTMLCollection [
     tabindex="0"
   >
     Content 1
-  </div>,
+  </div>
   <div
     aria-labelledby="tab-two"
     data-testid="tab-panel"
@@ -11805,7 +11819,7 @@ HTMLCollection [
     tabindex="0"
   >
     Content 2
-  </div>,
+  </div>
   <div
     aria-labelledby="tab-three"
     data-testid="tab-panel"
@@ -11815,7 +11829,7 @@ HTMLCollection [
     tabindex="0"
   >
     Content 3
-  </div>,
+  </div>
   <div
     aria-labelledby="tab-four"
     data-testid="tab-panel"
@@ -11825,15 +11839,23 @@ HTMLCollection [
     tabindex="0"
   >
     Content 4
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Storyshots Components/Tabs Controlled State 1`] = `
-HTMLCollection [
-  .circuit-10 {
+.circuit-12 {
+  max-width: 100vw;
+}
+
+.circuit-10 {
   background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
+  -ms-overflow-style: none;
+  -webkit-scrollbar-width: none;
+  -moz-scrollbar-width: none;
+  -ms-scrollbar-width: none;
+  scrollbar-width: none;
   height: 80px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -11842,8 +11864,11 @@ HTMLCollection [
   overflow-x: auto;
 }
 
+.circuit-10::-webkit-scrollbar {
+  display: none;
+}
+
 .circuit-8 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11963,6 +11988,9 @@ HTMLCollection [
 }
 
 <div
+  class="circuit-12 circuit-13"
+>
+  <div
     class="circuit-10 circuit-11"
   >
     <div
@@ -12001,24 +12029,37 @@ HTMLCollection [
         Tab 4
       </button>
     </div>
-  </div>,
+  </div>
   <div
     role="tabpanel"
     tabindex="0"
-  />,
-]
+  />
+</div>
 `;
 
 exports[`Storyshots Components/Tabs Links 1`] = `
+.circuit-10 {
+  max-width: 100vw;
+}
+
 .circuit-8 {
   background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
+  -ms-overflow-style: none;
+  -webkit-scrollbar-width: none;
+  -moz-scrollbar-width: none;
+  -ms-scrollbar-width: none;
+  scrollbar-width: none;
   height: 80px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   overflow-x: auto;
+}
+
+.circuit-8::-webkit-scrollbar {
+  display: none;
 }
 
 .circuit-0 {
@@ -12131,7 +12172,6 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 }
 
 .circuit-6 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12154,39 +12194,43 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 }
 
 <div
-  class="circuit-8 circuit-9"
+  class="circuit-10 circuit-11"
 >
   <div
-    class="circuit-6 circuit-7"
-    role="tablist"
+    class="circuit-8 circuit-9"
   >
-    <button
-      aria-selected="true"
-      class="circuit-0 circuit-1"
-      role="tab"
+    <div
+      class="circuit-6 circuit-7"
+      role="tablist"
     >
-      Home
-    </button>
-    <a
-      aria-selected="false"
-      class="circuit-2 circuit-1"
-      href="https://www.google.com"
-      role="tab"
-      tabindex="-1"
-      target="_blank"
-    >
-      Page #1
-    </a>
-    <a
-      aria-selected="false"
-      class="circuit-2 circuit-1"
-      href="https://www.google.com"
-      role="tab"
-      tabindex="-1"
-      target="_blank"
-    >
-      Page #2
-    </a>
+      <button
+        aria-selected="true"
+        class="circuit-0 circuit-1"
+        role="tab"
+      >
+        Home
+      </button>
+      <a
+        aria-selected="false"
+        class="circuit-2 circuit-1"
+        href="https://www.google.com"
+        role="tab"
+        tabindex="-1"
+        target="_blank"
+      >
+        Page #1
+      </a>
+      <a
+        aria-selected="false"
+        class="circuit-2 circuit-1"
+        href="https://www.google.com"
+        role="tab"
+        tabindex="-1"
+        target="_blank"
+      >
+        Page #2
+      </a>
+    </div>
   </div>
 </div>
 `;

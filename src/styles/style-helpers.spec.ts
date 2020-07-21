@@ -264,6 +264,22 @@ describe('Style helpers', () => {
     });
   });
 
+  describe('hideScrollbar', () => {
+    it('should match the snapshot', () => {
+      const { styles } = StyleHelpers.hideScrollbar();
+      expect(styles).toMatchInlineSnapshot(`
+        "
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        "
+      `);
+    });
+  });
+
   describe('inputOutline', () => {
     it('should match the snapshot', () => {
       const { styles } = StyleHelpers.inputOutline(light);

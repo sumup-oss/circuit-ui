@@ -140,6 +140,18 @@ export const clearfix = (): SerializedStyles => css`
 `;
 
 /**
+ * Hide the browser scrollbar on a scrollable element, e.g. with overflow.
+ */
+export const hideScrollbar = (): SerializedStyles => css`
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+/**
  * Visually communicates to the user that an input is hovered, focused,
  * or active.
  */
