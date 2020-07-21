@@ -34,6 +34,9 @@ const baseStyles = () => css`
   }
 `;
 
+// Chrome doesn't respect position: relative; on table elements
+// so the transform property is used to create a separate stacking context
+// which is needed to show the focus outline above the other table rows.
 const clickableStyles = ({ theme, onClick }) =>
   onClick &&
   css`
@@ -41,17 +44,9 @@ const clickableStyles = ({ theme, onClick }) =>
     cursor: pointer;
     position: relative;
 
-    &:focus::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+    &:focus {
       z-index: 1;
+      transform: translate(0, 0);
       ${focusOutline({ theme })};
     }
 
