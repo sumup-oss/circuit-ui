@@ -3090,6 +3090,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
 }
 
 .circuit-38::after {
+  border-radius: 999999px;
   -webkit-animation-name: animation-0;
   animation-name: animation-0;
   -webkit-animation-duration: 5640ms;
@@ -8218,6 +8219,7 @@ exports[`Storyshots Components/ProgressBar Timer 1`] = `
 }
 
 .circuit-0::after {
+  border-radius: 999999px;
   -webkit-animation-name: animation-0;
   animation-name: animation-0;
   -webkit-animation-duration: 3000ms;
@@ -11595,10 +11597,18 @@ exports[`Storyshots Components/Table/TableHeader Base 1`] = `
 `;
 
 exports[`Storyshots Components/Tabs Base 1`] = `
-HTMLCollection [
-  .circuit-10 {
+.circuit-12 {
+  max-width: 100vw;
+}
+
+.circuit-10 {
   background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
+  -ms-overflow-style: none;
+  -webkit-scrollbar-width: none;
+  -moz-scrollbar-width: none;
+  -ms-scrollbar-width: none;
+  scrollbar-width: none;
   height: 80px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -11607,8 +11617,11 @@ HTMLCollection [
   overflow-x: auto;
 }
 
+.circuit-10::-webkit-scrollbar {
+  display: none;
+}
+
 .circuit-8 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11728,6 +11741,9 @@ HTMLCollection [
 }
 
 <div
+  class="circuit-12 circuit-13"
+>
+  <div
     class="circuit-10 circuit-11"
   >
     <div
@@ -11778,7 +11794,7 @@ HTMLCollection [
         Tab 4
       </button>
     </div>
-  </div>,
+  </div>
   <div
     aria-labelledby="tab-one"
     data-testid="tab-panel"
@@ -11787,7 +11803,7 @@ HTMLCollection [
     tabindex="0"
   >
     Content 1
-  </div>,
+  </div>
   <div
     aria-labelledby="tab-two"
     data-testid="tab-panel"
@@ -11797,7 +11813,7 @@ HTMLCollection [
     tabindex="0"
   >
     Content 2
-  </div>,
+  </div>
   <div
     aria-labelledby="tab-three"
     data-testid="tab-panel"
@@ -11807,7 +11823,7 @@ HTMLCollection [
     tabindex="0"
   >
     Content 3
-  </div>,
+  </div>
   <div
     aria-labelledby="tab-four"
     data-testid="tab-panel"
@@ -11817,15 +11833,23 @@ HTMLCollection [
     tabindex="0"
   >
     Content 4
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Storyshots Components/Tabs Controlled State 1`] = `
-HTMLCollection [
-  .circuit-10 {
+.circuit-12 {
+  max-width: 100vw;
+}
+
+.circuit-10 {
   background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
+  -ms-overflow-style: none;
+  -webkit-scrollbar-width: none;
+  -moz-scrollbar-width: none;
+  -ms-scrollbar-width: none;
+  scrollbar-width: none;
   height: 80px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -11834,8 +11858,11 @@ HTMLCollection [
   overflow-x: auto;
 }
 
+.circuit-10::-webkit-scrollbar {
+  display: none;
+}
+
 .circuit-8 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11955,6 +11982,9 @@ HTMLCollection [
 }
 
 <div
+  class="circuit-12 circuit-13"
+>
+  <div
     class="circuit-10 circuit-11"
   >
     <div
@@ -11993,24 +12023,37 @@ HTMLCollection [
         Tab 4
       </button>
     </div>
-  </div>,
+  </div>
   <div
     role="tabpanel"
     tabindex="0"
-  />,
-]
+  />
+</div>
 `;
 
 exports[`Storyshots Components/Tabs Links 1`] = `
+.circuit-10 {
+  max-width: 100vw;
+}
+
 .circuit-8 {
   background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
+  -ms-overflow-style: none;
+  -webkit-scrollbar-width: none;
+  -moz-scrollbar-width: none;
+  -ms-scrollbar-width: none;
+  scrollbar-width: none;
   height: 80px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   overflow-x: auto;
+}
+
+.circuit-8::-webkit-scrollbar {
+  display: none;
 }
 
 .circuit-0 {
@@ -12123,7 +12166,6 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 }
 
 .circuit-6 {
-  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12146,39 +12188,43 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 }
 
 <div
-  class="circuit-8 circuit-9"
+  class="circuit-10 circuit-11"
 >
   <div
-    class="circuit-6 circuit-7"
-    role="tablist"
+    class="circuit-8 circuit-9"
   >
-    <button
-      aria-selected="true"
-      class="circuit-0 circuit-1"
-      role="tab"
+    <div
+      class="circuit-6 circuit-7"
+      role="tablist"
     >
-      Home
-    </button>
-    <a
-      aria-selected="false"
-      class="circuit-2 circuit-1"
-      href="https://www.google.com"
-      role="tab"
-      tabindex="-1"
-      target="_blank"
-    >
-      Page #1
-    </a>
-    <a
-      aria-selected="false"
-      class="circuit-2 circuit-1"
-      href="https://www.google.com"
-      role="tab"
-      tabindex="-1"
-      target="_blank"
-    >
-      Page #2
-    </a>
+      <button
+        aria-selected="true"
+        class="circuit-0 circuit-1"
+        role="tab"
+      >
+        Home
+      </button>
+      <a
+        aria-selected="false"
+        class="circuit-2 circuit-1"
+        href="https://www.google.com"
+        role="tab"
+        tabindex="-1"
+        target="_blank"
+      >
+        Page #1
+      </a>
+      <a
+        aria-selected="false"
+        class="circuit-2 circuit-1"
+        href="https://www.google.com"
+        role="tab"
+        tabindex="-1"
+        target="_blank"
+      >
+        Page #2
+      </a>
+    </div>
   </div>
 </div>
 `;
@@ -12231,6 +12277,10 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
   cursor: pointer;
   outline: 0;
   background: transparent;
+}
+
+.circuit-0:active {
+  color: #0F131A;
 }
 
 .circuit-0:hover {
@@ -12908,6 +12958,10 @@ exports[`Storyshots Forms/Calendar/CalendarTag Base 1`] = `
   background: transparent;
 }
 
+.circuit-0:active {
+  color: #0F131A;
+}
+
 .circuit-0:hover {
   background-color: #D8DDE1;
   border-color: #9DA7B1;
@@ -12952,6 +13006,10 @@ exports[`Storyshots Forms/Calendar/CalendarTagTwoStep Base 1`] = `
   cursor: pointer;
   outline: 0;
   background: transparent;
+}
+
+.circuit-0:active {
+  color: #0F131A;
 }
 
 .circuit-0:hover {
@@ -20504,12 +20562,8 @@ label + .circuit-5 {
 `;
 
 exports[`Storyshots Forms/Selector Base 1`] = `
-.circuit-2 {
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.circuit-0 {
+HTMLCollection [
+  .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -20539,72 +20593,67 @@ exports[`Storyshots Forms/Selector Base 1`] = `
   border: 2px solid #3388FF;
 }
 
-.circuit-1 {
-  display: block;
-  cursor: pointer;
-  padding: 16px 24px;
-  border-radius: 6px;
-  background-color: #FFFFFF;
-  text-align: center;
-}
-
-.circuit-1::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  border: 1px solid #D8DDE1;
-  -webkit-transition: border 0.1s ease-in-out;
-  transition: border 0.1s ease-in-out;
-}
-
-.circuit-1:hover {
-  background-color: #FAFBFC;
-}
-
-.circuit-1:hover::before {
-  border-color: #9DA7B1;
-}
-
-.circuit-1:active {
-  background-color: #EEF0F2;
-}
-
-.circuit-1:active::before {
-  border-color: #5C656F;
-}
-
-<div
-  class="circuit-2"
->
-  <input
+<input
     class="circuit-0"
     id="selector_47"
     type="radio"
     value="default"
-  />
-  <label
-    class="circuit-1"
-    for="selector_47"
-  >
-    Select me!
-  </label>
-</div>
-`;
-
-exports[`Storyshots Forms/Selector Disabled 1`] = `
-.circuit-2 {
+  />,
+  .circuit-0 {
+  display: block;
+  cursor: pointer;
+  padding: 16px 24px;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  text-align: center;
   position: relative;
   margin-bottom: 16px;
 }
 
-.circuit-0 {
+.circuit-0::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  border: 1px solid #D8DDE1;
+  -webkit-transition: border 0.1s ease-in-out;
+  transition: border 0.1s ease-in-out;
+}
+
+.circuit-0:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-0:hover::before {
+  border-color: #9DA7B1;
+}
+
+.circuit-0:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-0:active::before {
+  border-color: #5C656F;
+}
+
+<label
+    class="circuit-0"
+    for="selector_47"
+  >
+    Select me!
+  </label>,
+]
+`;
+
+exports[`Storyshots Forms/Selector Disabled 1`] = `
+HTMLCollection [
+  .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -20634,77 +20683,72 @@ exports[`Storyshots Forms/Selector Disabled 1`] = `
   border: 2px solid #3388FF;
 }
 
-.circuit-1 {
-  display: block;
-  cursor: pointer;
-  padding: 16px 24px;
-  border-radius: 6px;
-  background-color: #FFFFFF;
-  text-align: center;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-}
-
-.circuit-1::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  border: 1px solid #D8DDE1;
-  -webkit-transition: border 0.1s ease-in-out;
-  transition: border 0.1s ease-in-out;
-}
-
-.circuit-1:hover {
-  background-color: #FAFBFC;
-}
-
-.circuit-1:hover::before {
-  border-color: #9DA7B1;
-}
-
-.circuit-1:active {
-  background-color: #EEF0F2;
-}
-
-.circuit-1:active::before {
-  border-color: #5C656F;
-}
-
-<div
-  class="circuit-2"
->
-  <input
+<input
     class="circuit-0"
     disabled=""
     id="selector_49"
     type="radio"
     value="default"
-  />
-  <label
-    class="circuit-1"
+  />,
+  .circuit-0 {
+  display: block;
+  cursor: pointer;
+  padding: 16px 24px;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.circuit-0::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  border: 1px solid #D8DDE1;
+  -webkit-transition: border 0.1s ease-in-out;
+  transition: border 0.1s ease-in-out;
+}
+
+.circuit-0:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-0:hover::before {
+  border-color: #9DA7B1;
+}
+
+.circuit-0:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-0:active::before {
+  border-color: #5C656F;
+}
+
+<label
+    class="circuit-0"
     disabled=""
     for="selector_49"
   >
     I cannot be selected
-  </label>
-</div>
+  </label>,
+]
 `;
 
 exports[`Storyshots Forms/Selector Selected 1`] = `
-.circuit-2 {
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.circuit-0 {
+HTMLCollection [
+  .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -20734,207 +20778,186 @@ exports[`Storyshots Forms/Selector Selected 1`] = `
   border: 2px solid #3388FF;
 }
 
-.circuit-1 {
-  display: block;
-  cursor: pointer;
-  padding: 16px 24px;
-  border-radius: 6px;
-  background-color: #FFFFFF;
-  text-align: center;
-}
-
-.circuit-1::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  border: 1px solid #D8DDE1;
-  -webkit-transition: border 0.1s ease-in-out;
-  transition: border 0.1s ease-in-out;
-}
-
-.circuit-1:hover {
-  background-color: #FAFBFC;
-}
-
-.circuit-1:hover::before {
-  border-color: #9DA7B1;
-}
-
-.circuit-1:active {
-  background-color: #EEF0F2;
-}
-
-.circuit-1:active::before {
-  border-color: #5C656F;
-}
-
-<div
-  class="circuit-2"
->
-  <input
+<input
     checked=""
     class="circuit-0"
     id="selector_48"
     type="radio"
     value="default"
-  />
-  <label
-    class="circuit-1"
+  />,
+  .circuit-0 {
+  display: block;
+  cursor: pointer;
+  padding: 16px 24px;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-0::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  border: 1px solid #D8DDE1;
+  -webkit-transition: border 0.1s ease-in-out;
+  transition: border 0.1s ease-in-out;
+}
+
+.circuit-0:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-0:hover::before {
+  border-color: #9DA7B1;
+}
+
+.circuit-0:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-0:active::before {
+  border-color: #5C656F;
+}
+
+<label
+    class="circuit-0"
     for="selector_48"
   >
     I am selected!
+  </label>,
+]
+`;
+
+exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
+.circuit-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.circuit-0:focus + label::before {
+  outline: 0;
+  box-shadow: 0 0 0 4px #AFD0FE;
+}
+
+.circuit-0:focus + label::before::-moz-focus-inner {
+  border: 0;
+}
+
+.circuit-0:checked + label {
+  background-color: #EDF4FC;
+}
+
+.circuit-0:checked + label::before {
+  border: 2px solid #3388FF;
+}
+
+.circuit-1 {
+  display: block;
+  cursor: pointer;
+  padding: 16px 24px;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.circuit-1::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  border: 1px solid #D8DDE1;
+  -webkit-transition: border 0.1s ease-in-out;
+  transition: border 0.1s ease-in-out;
+}
+
+.circuit-1:hover {
+  background-color: #FAFBFC;
+}
+
+.circuit-1:hover::before {
+  border-color: #9DA7B1;
+}
+
+.circuit-1:active {
+  background-color: #EEF0F2;
+}
+
+.circuit-1:active::before {
+  border-color: #5C656F;
+}
+
+<div
+  aria-label="Choose your favourite fruit"
+  role="group"
+>
+  <input
+    class="circuit-0"
+    id="selector_50"
+    name="selector-group"
+    type="radio"
+    value="apple"
+  />
+  <label
+    class="circuit-1"
+    for="selector_50"
+  >
+    Apple
+  </label>
+  <input
+    class="circuit-0"
+    id="selector_51"
+    name="selector-group"
+    type="radio"
+    value="banana"
+  />
+  <label
+    class="circuit-1"
+    for="selector_51"
+  >
+    Banana
+  </label>
+  <input
+    class="circuit-0"
+    id="selector_52"
+    name="selector-group"
+    type="radio"
+    value="mango"
+  />
+  <label
+    class="circuit-1"
+    for="selector_52"
+  >
+    Mango
   </label>
 </div>
 `;
 
-exports[`Storyshots Forms/Selector/SelectorGroup Base 1`] = `
-.circuit-2 {
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.circuit-0 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.circuit-0:focus + label::before {
-  outline: 0;
-  box-shadow: 0 0 0 4px #AFD0FE;
-}
-
-.circuit-0:focus + label::before::-moz-focus-inner {
-  border: 0;
-}
-
-.circuit-0:checked + label {
-  background-color: #EDF4FC;
-}
-
-.circuit-0:checked + label::before {
-  border: 2px solid #3388FF;
-}
-
-.circuit-1 {
-  display: block;
-  cursor: pointer;
-  padding: 16px 24px;
-  border-radius: 6px;
-  background-color: #FFFFFF;
-  text-align: center;
-}
-
-.circuit-1::before {
-  display: block;
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  border: 1px solid #D8DDE1;
-  -webkit-transition: border 0.1s ease-in-out;
-  transition: border 0.1s ease-in-out;
-}
-
-.circuit-1:hover {
-  background-color: #FAFBFC;
-}
-
-.circuit-1:hover::before {
-  border-color: #9DA7B1;
-}
-
-.circuit-1:active {
-  background-color: #EEF0F2;
-}
-
-.circuit-1:active::before {
-  border-color: #5C656F;
-}
-
-<div
-  aria-label="Choose your favourite fruit"
-  role="group"
->
-  <div
-    class="circuit-2"
-  >
-    <input
-      class="circuit-0"
-      id="selector_50"
-      name="selector-group"
-      type="radio"
-      value="apple"
-    />
-    <label
-      class="circuit-1"
-      for="selector_50"
-    >
-      Apple
-    </label>
-  </div>
-  <div
-    class="circuit-2"
-  >
-    <input
-      class="circuit-0"
-      id="selector_51"
-      name="selector-group"
-      type="radio"
-      value="banana"
-    />
-    <label
-      class="circuit-1"
-      for="selector_51"
-    >
-      Banana
-    </label>
-  </div>
-  <div
-    class="circuit-2"
-  >
-    <input
-      class="circuit-0"
-      id="selector_52"
-      name="selector-group"
-      type="radio"
-      value="mango"
-    />
-    <label
-      class="circuit-1"
-      for="selector_52"
-    >
-      Mango
-    </label>
-  </div>
-</div>
-`;
-
 exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
-.circuit-2 {
-  position: relative;
-  margin-bottom: 16px;
-}
-
 .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -20972,6 +20995,8 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   border-radius: 6px;
   background-color: #FFFFFF;
   text-align: center;
+  position: relative;
+  margin-bottom: 16px;
 }
 
 .circuit-1::before {
@@ -21010,57 +21035,45 @@ exports[`Storyshots Forms/Selector/SelectorGroup Multiple 1`] = `
   aria-label="Choose your favourite fruit"
   role="group"
 >
-  <div
-    class="circuit-2"
+  <input
+    class="circuit-0"
+    id="selector_53"
+    name="selector-group"
+    type="checkbox"
+    value="apple"
+  />
+  <label
+    class="circuit-1"
+    for="selector_53"
   >
-    <input
-      class="circuit-0"
-      id="selector_53"
-      name="selector-group"
-      type="checkbox"
-      value="apple"
-    />
-    <label
-      class="circuit-1"
-      for="selector_53"
-    >
-      Apple
-    </label>
-  </div>
-  <div
-    class="circuit-2"
+    Apple
+  </label>
+  <input
+    class="circuit-0"
+    id="selector_54"
+    name="selector-group"
+    type="checkbox"
+    value="banana"
+  />
+  <label
+    class="circuit-1"
+    for="selector_54"
   >
-    <input
-      class="circuit-0"
-      id="selector_54"
-      name="selector-group"
-      type="checkbox"
-      value="banana"
-    />
-    <label
-      class="circuit-1"
-      for="selector_54"
-    >
-      Banana
-    </label>
-  </div>
-  <div
-    class="circuit-2"
+    Banana
+  </label>
+  <input
+    class="circuit-0"
+    id="selector_55"
+    name="selector-group"
+    type="checkbox"
+    value="mango"
+  />
+  <label
+    class="circuit-1"
+    for="selector_55"
   >
-    <input
-      class="circuit-0"
-      id="selector_55"
-      name="selector-group"
-      type="checkbox"
-      value="mango"
-    />
-    <label
-      class="circuit-1"
-      for="selector_55"
-    >
-      Mango
-    </label>
-  </div>
+    Mango
+  </label>
 </div>
 `;
 

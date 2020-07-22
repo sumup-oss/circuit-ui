@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React, { useState, Fragment } from 'react';
-import * as knobs from '@storybook/addon-knobs/react';
+import React, { useState } from 'react';
+import styled from '@emotion/styled';
+import { boolean } from '@storybook/addon-knobs';
 
 import docs from './Tabs.docs.mdx';
 
@@ -35,11 +36,15 @@ const tabs = [
   { id: 'four', tab: 'Tab 4', panel: 'Content 4' },
 ];
 
+const Wrapper = styled.div`
+  max-width: 100vw;
+`;
+
 const TabsWithState = (props) => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <Fragment>
+    <Wrapper>
       <TabList {...props}>
         {tabs.map(({ tab }, index) => (
           <Tab
@@ -52,24 +57,30 @@ const TabsWithState = (props) => {
         ))}
       </TabList>
       <TabPanel>{tabs[selected].content}</TabPanel>
-    </Fragment>
+    </Wrapper>
   );
 };
 
-export const base = () => <Tabs items={tabs} />;
+export const base = () => (
+  <Wrapper>
+    <Tabs items={tabs} />
+  </Wrapper>
+);
 
 export const links = () => (
-  <TabList>
-    <Tab selected>Home</Tab>
-    <Tab as="a" href="https://www.google.com" target="_blank">
-      Page #1
-    </Tab>
-    <Tab as="a" href="https://www.google.com" target="_blank">
-      Page #2
-    </Tab>
-  </TabList>
+  <Wrapper>
+    <TabList>
+      <Tab selected>Home</Tab>
+      <Tab as="a" href="https://www.google.com" target="_blank">
+        Page #1
+      </Tab>
+      <Tab as="a" href="https://www.google.com" target="_blank">
+        Page #2
+      </Tab>
+    </TabList>
+  </Wrapper>
 );
 
 export const controlledState = () => (
-  <TabsWithState stretched={knobs.boolean('stretched', false)} />
+  <TabsWithState stretched={boolean('stretched', false)} />
 );

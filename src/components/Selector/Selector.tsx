@@ -61,14 +61,6 @@ export interface SelectorProps extends HTMLProps<HTMLInputElement> {
   tracking?: TrackingProps;
 }
 
-const wrapperStyles = ({ theme }: StyleProps) => css`
-  label: selector;
-  position: relative;
-  margin-bottom: ${theme.spacings.mega};
-`;
-
-const SelectorWrapper = styled('div')<{}>(wrapperStyles);
-
 type LabelElProps = Pick<SelectorProps, 'disabled'>;
 
 const baseStyles = ({ theme }: StyleProps) => css`
@@ -79,6 +71,8 @@ const baseStyles = ({ theme }: StyleProps) => css`
   border-radius: ${theme.borderRadius.giga};
   background-color: ${theme.colors.white};
   text-align: center;
+  position: relative;
+  margin-bottom: ${theme.spacings.mega};
 
   &::before {
     display: block;
@@ -160,7 +154,7 @@ function SelectorComponent(
   const handleChange = useClickHandler(onChange, tracking, 'selector');
 
   return (
-    <SelectorWrapper {...props}>
+    <>
       <SelectorInput
         type={type}
         id={inputId}
@@ -170,11 +164,12 @@ function SelectorComponent(
         disabled={disabled}
         onClick={handleChange}
         ref={ref}
+        {...props}
       />
       <SelectorLabel htmlFor={inputId} disabled={disabled}>
         {children}
       </SelectorLabel>
-    </SelectorWrapper>
+    </>
   );
 }
 

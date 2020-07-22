@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-import { shadowDouble } from '../../../../styles/style-helpers';
+import { shadowDouble, hideScrollbar } from '../../../../styles/style-helpers';
 
 const MOBILE_AUTOSTRETCH_ITEMS_MAX = 3;
 const DEFAULT_HEIGHT = '80px';
@@ -27,6 +27,7 @@ const Wrapper = styled.div(
   ({ theme }) => css`
     background: ${theme.colors.white};
     ${shadowDouble({ theme })};
+    ${hideScrollbar()}
     height: ${DEFAULT_HEIGHT};
     display: flex;
     overflow-x: auto;
@@ -35,7 +36,6 @@ const Wrapper = styled.div(
 
 const navigationBaseStyles = css`
   label: tablist;
-  width: 100%;
   display: flex;
   flex-wrap: nowrap;
 `;

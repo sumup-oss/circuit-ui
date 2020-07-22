@@ -130,11 +130,13 @@ const loopAnimation = keyframes`
 `;
 
 const timedStyles = ({
+  theme,
   duration = 3000,
   loop = false,
   paused = false,
-}: TimeProgressProps) => css`
+}: StyleProps & TimeProgressProps) => css`
   &::after {
+    border-radius: ${theme.borderRadius.pill};
     animation-name: ${loop ? loopAnimation : oneAnimation};
     animation-duration: ${duration}ms;
     animation-play-state: ${paused ? 'paused' : 'running'};
