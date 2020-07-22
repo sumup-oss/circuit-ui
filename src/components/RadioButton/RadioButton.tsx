@@ -180,6 +180,7 @@ const RadioButtonComponent = (
     invalid,
     disabled,
     tracking,
+    className,
     ...props
   }: RadioButtonProps,
   ref: RadioButtonProps['ref'],
@@ -201,7 +202,12 @@ const RadioButtonComponent = (
         onClick={handleChange}
         ref={ref}
       />
-      <RadioButtonLabel htmlFor={id} disabled={disabled} invalid={invalid}>
+      <RadioButtonLabel
+        htmlFor={id}
+        disabled={disabled}
+        invalid={invalid}
+        className={className}
+      >
         {children || label}
       </RadioButtonLabel>
     </>
