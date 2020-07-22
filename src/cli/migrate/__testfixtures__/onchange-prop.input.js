@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { RadioButton, Switch } from '@sumup/circuit-ui';
+import { RadioButton, Switch, Toggle } from '@sumup/circuit-ui';
 
 const BaseRadioButton = () => <RadioButton onToggle={console.log} checked />;
 
@@ -19,3 +19,11 @@ const RedSwitch = styled(Switch)`
 `;
 
 const StyledSwitch = () => <RedSwitch onToggle={console.log} checked />;
+
+const BaseToggle = () => <Toggle onToggle={console.log} checked />;
+
+const RedToggle = styled(Toggle)`
+  color: red;
+`;
+
+const StyledToggle = () => <RedToggle onToggle={console.log} checked />;

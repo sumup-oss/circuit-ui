@@ -4,6 +4,7 @@
 - [From v1.x to v2](#from-v1.x-to-v2)
   - [Library format](#library-format)
   - [Peer dependencies](#peer-dependencies)
+  - [Font loading](#font-loading)
   - [Forward custom props and refs](#forward-custom-props-and-refs)
   - [Component static properties](#component-static-properties)
   - [Removed components](#removed-components)
@@ -68,6 +69,22 @@ npm install --save @sumup/collector @sumup/design-tokens @sumup/icons @sumup/int
 
 Refer to the individual packages for documentation on how to use them.
 
+### Font loading
+
+Circuit UI now downloads the Aktiv Grotesk font family in the 400 (regular) and 700 (bold) weights. It uses `@font-face` with the [`font-display`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display) set to `swap`, which means a fallback font is shown until the custom fonts have loaded.
+
+You should remove any code in your application that was previously used to load these fonts.
+
+### Forward custom props and refs
+
+A big theme of this release is consistency.
+
+Any additional props that are passed to a component are now spread on their outermost child element ([#553](https://github.com/sumup-oss/circuit-ui/pull/553)). This is useful for test ids, data attributes, and custom styles using Emotion's `styled` function or `css` prop.
+
+React `ref`s allow you to access the underlying DOM node of a component. All Circuit UI components now forward `ref`s to the underlying DOM node (for single node components such as a Button) or to the main interactive DOM node (for composite components such as an Input) ([#592](https://github.com/sumup-oss/circuit-ui/pull/592)).
+
+> ⚠️ The ability to pass custom styles and `ref`s is meant as an escape hatch. We strongly recommend avoiding using them as we cannot guarantee that they will be compatible with future changes. Please consider opening an issue or PR to suggest the improvement in Circuit UI instead.
+
 ### Component static properties
 
 Many components expose their configuration values as static properties. The `Text` component, for example, exposes its size options as `Text.KILO`, `Text.MEGA`, and `Text.GIGA`. The purpose of these static properties was to autocomplete the options and prevent typos.
@@ -120,22 +137,20 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The `plain` **Button** prop has been removed. Use the new Anchor component or the `tertiary` Button variant instead.
 - The `flat` **Button** variant has been removed (🤖 _button-variant-enum_)
 - The **LoadingButton**'s exit animations have been removed. An action's success or error result should be communicated outside the button (🤖 _exit-animations_)
-- The **RadioButton** and **Switch** component's `onToggle` prop has been renamed to `onChange` (🤖 _onchange-prop_)
+- The **Input**, **TextArea**, and **Select** components have the label built in now. Use the `label` prop to pass in the label content and remove the Label component from your code. The `label` prop will become required in the next major version of Circuit UI.
 - The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead. The `wrapperStyles` prop has been renamed to `labelStyles` (🤖 _input-styles-prop_).
 - The **Input** and **Textarea** components' `deepRef` prop has been renamed to `ref` (🤖 _input-deepref-prop_)
 - The **Input** and **Textarea** components no longer have an `optional` state. Add "(optional)" to the label text instead.
 - The **Selector** component's `onClick` and `selected` props have been renamed to `onChange` and `checked` (🤖 _selector-props_). The `value` and `name` have been added as required props.
+- The **RadioButton**, **Toggle**, and **Switch** component's `onToggle` prop has been renamed to `onChange` (🤖 _onchange-prop_)
 - The **Toggle** component's `on`, `labelOn`, and `labelOff` props have been renamed to `checked`, `labelChecked`, and `labelUnchecked` (🤖 _toggle-checked-prop_).
 - The **IconButton** component's dimensions and style have changed. It is now consistent with the Button component.
 - The **Hamburger** component's default size has been increased to match the IconButton component.
 - The **Hamburger** component's `light` prop has been removed. Set the color through CSS instead.
 - The **Spinner** component's `dark` prop has been removed. Set the color through CSS instead.
 - The **InlineMessage** component's `type` prop has been renamed to `variant` (🤖 _inline-message-variant-enum_)
-- (_in writing_) combine label with form input components
 
 ### Utilities
-
-(_in writing_)
 
 - The `currencyAmountUtils` have been removed. There is not replacement, we suggest you copy the [old implementation](https://github.com/sumup-oss/circuit-ui/blob/b3d89f43ac54ef1f7c0c2ff6f4edce92e2bd937d/src/components/CurrencyInput/CurrencyInputService.js) to your application.
 - The `currencyUtils` have been removed. Use [@sumup/intl](https://www.npmjs.com/package/@sumup/intl) instead (🤖 _currency-utils_)
