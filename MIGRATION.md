@@ -57,13 +57,13 @@ yarn add react react-dom @emotion/core @emotion/styled emotion-theming
 npm install --save react-dom @emotion/core @emotion/styled emotion-theming
 ```
 
-In Circuit UI v2 some functionality has been extracted into separate packages for easier maintenance. The themes have been moved to [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens), the icons are available from [@sumup/icons](https://www.npmjs.com/package/@sumup/icons), and the number & currency utils have been completely rewritten in [@sumup/intl](https://www.npmjs.com/package/@sumup/intl). These packages are marked as required peer dependencies. To install them, run the following command in your terminal:
+In Circuit UI v2 some functionality has been extracted into separate packages for easier maintenance. The themes have been moved to [@sumup/design-tokens](https://www.npmjs.com/package/@sumup/design-tokens), the icons are available from [@sumup/icons](https://www.npmjs.com/package/@sumup/icons), and the number & currency utils have been completely rewritten in [@sumup/intl](https://www.npmjs.com/package/@sumup/intl). The new [@sumup/collector](https://www.npmjs.com/package/@sumup/collector) package is used for event tracking. These packages are marked as required peer dependencies. To install them, run the following command in your terminal:
 
 ```sh
 # With yarn
-yarn add @sumup/design-tokens @sumup/icons @sumup/intl
+yarn add @sumup/collector @sumup/design-tokens @sumup/icons @sumup/intl
 # With npm
-npm install --save @sumup/design-tokens @sumup/icons @sumup/intl
+npm install --save @sumup/collector @sumup/design-tokens @sumup/icons @sumup/intl
 ```
 
 Refer to the individual packages for documentation on how to use them.

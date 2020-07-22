@@ -56,7 +56,6 @@
   },
   "homepage": "https://github.com/sumup-oss/circuit-ui#readme",
   "dependencies": {
-    "@sumup/collector": "^1.0.0-alpha.1",
     "cross-spawn": "^7.0.3",
     "jscodeshift": "^0.9.0",
     "lodash": "^4.17.11",
@@ -96,6 +95,7 @@
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^5.2.0",
     "@storybook/source-loader": "^5.2.4",
+    "@sumup/collector": "^1.0.0-alpha.1",
     "@sumup/design-tokens": "^1.0.0",
     "@sumup/foundry": "^3.0.0",
     "@sumup/icons": "^1.0.0",
@@ -162,6 +162,7 @@
     "@emotion/is-prop-valid": "0.8.x",
     "@emotion/styled": "10.x",
     "@emotion/stylis": "0.8.x",
+    "@sumup/collector": "1.x",
     "@sumup/design-tokens": "1.x",
     "@sumup/icons": "1.x",
     "@sumup/intl": "1.x",
