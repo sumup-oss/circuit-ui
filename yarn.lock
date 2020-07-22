@@ -2852,9 +2852,9 @@
   integrity sha512-NkWjLKU1tnFcgBe6beRDS0LE9E4Kwb/d8Mb2SV+dv3tSb52r/SYOvPS2/NPpVCuOblqxf27Fwswo0XPPEEyyEg==
 
 "@sumup/intl@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.0.1.tgz#3288c3cc834b15ae03990927216014bac5b0b068"
-  integrity sha512-nJXeAyiHPPaC8VvJEFgiJWI+jHQoB4K3cA6IX2nNirXWNTuOGVZagmGgyE4JWm7BS3aoSVeijCmcjJu40cAwNg==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@sumup/intl/-/intl-1.0.2.tgz#465df828552f4cb7ad427e77e5d800302ed699c1"
+  integrity sha512-oXGr2VSccJG2+ydHH29H49LpFsH8vBmrlsr5w6Cw4NMHYf/i9ZYS3w2b9cKpB/2xXNt+qhOzOpaQlm+6D3vWjw==
   dependencies:
     intl-format-cache "^4.2.27"
 

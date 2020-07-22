@@ -9973,22 +9973,16 @@ tbody .circuit-36:last-child td {
   border-bottom: none;
 }
 
-.circuit-36:focus::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+.circuit-36:focus {
   z-index: 1;
+  -webkit-transform: translate(0,0);
+  -ms-transform: translate(0,0);
+  transform: translate(0,0);
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-36:focus::after::-moz-focus-inner {
+.circuit-36:focus::-moz-focus-inner {
   border: 0;
 }
 
