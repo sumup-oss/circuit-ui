@@ -145,6 +145,7 @@ function SelectorComponent(
     checked,
     onChange,
     tracking,
+    className,
     ...props
   }: SelectorProps,
   ref: SelectorProps['ref'],
@@ -166,7 +167,11 @@ function SelectorComponent(
         ref={ref}
         {...props}
       />
-      <SelectorLabel htmlFor={inputId} disabled={disabled}>
+      <SelectorLabel
+        htmlFor={inputId}
+        disabled={disabled}
+        className={className}
+      >
         {children}
       </SelectorLabel>
     </>
