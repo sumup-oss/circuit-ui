@@ -39,6 +39,7 @@ const transform: Transform = (file, api) => {
 
   transformFactory(j, root, 'RadioButton');
   transformFactory(j, root, 'Switch');
+  transformFactory(j, root, 'Toggle');
 
   return root.toSource();
 };
