@@ -150,6 +150,7 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The **Hamburger** component's `light` prop has been removed. Set the color through CSS instead.
 - The **Spinner** component's `dark` prop has been removed. Set the color through CSS instead.
 - The **InlineMessage** component's `type` prop has been renamed to `variant` (🤖 _inline-message-variant-enum_)
+- The **Pagination** component's `footer`, `justify`, `align`, `perPage`, and `pagesToShow` props have been removed. The `page` prop has been renamed to `currentPage`. The `total` prop has been replaced by the `totalPages` prop which represents the total number of pages as opposed to the total number of items (`totalPages = Math.ceil(total / perPage)`).
 
 ### Utilities
 
