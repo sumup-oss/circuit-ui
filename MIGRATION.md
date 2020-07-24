@@ -136,6 +136,7 @@ The affected components are: Badge, Blockquote, Button, ButtonGroup, Card, CardF
 - The `primary` and `secondary` **Button** boolean props have been removed. Use the `variant` enum prop instead (🤖 _button-variant-enum_)
 - The `plain` **Button** prop has been removed. Use the new Anchor component or the `tertiary` Button variant instead.
 - The `flat` **Button** variant has been removed (🤖 _button-variant-enum_)
+- The `giga` **Button** size has been removed. Use the `mega` size (default) instead (🤖 _button-size-giga_)
 - The **LoadingButton**'s exit animations have been removed. An action's success or error result should be communicated outside the button (🤖 _exit-animations_)
 - The **Input**, **TextArea**, and **Select** components have the label built in now. Use the `label` prop to pass in the label content and remove the Label component from your code. The `label` prop will become required in the next major version of Circuit UI.
 - The **Input** and **Textarea** components no longer accept `*ClassName` props. Emotion 10 uses style objects instead of class names. Use the `*Styles` props instead. The `wrapperStyles` prop has been renamed to `labelStyles` (🤖 _input-styles-prop_).

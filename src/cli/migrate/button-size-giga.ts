@@ -29,31 +29,21 @@ function transformFactory(
   }
 
   components.forEach((component) => {
-    // Change variants from boolean to enum prop
-    ['primary', 'secondary'].forEach((variant) => {
-      root
-        .findJSXElements(component)
-        .find(j.JSXAttribute, {
-          name: {
-            type: 'JSXIdentifier',
-            name: variant,
-          },
-        })
-        .replaceWith(() =>
-          j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral(variant)),
-        );
-    });
-
-    // Remove flat variant
     root
       .findJSXElements(component)
       .find(j.JSXAttribute, {
         name: {
           type: 'JSXIdentifier',
-          name: 'flat',
+          name: 'size',
+        },
+        value: {
+          type: 'Literal',
+          value: 'giga',
         },
       })
-      .remove();
+      .replaceWith(() =>
+        j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral('mega')),
+      );
   });
 }
 
