@@ -32,7 +32,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   label: notification-list;
   display: flex;
   flex-direction: column;
-  width: 600px;
+  width: 400px;
   max-width: 90vw;
   max-width: calc(100vw - (${theme.spacings.giga} * 2));
 

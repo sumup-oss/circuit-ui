@@ -9,7 +9,7 @@ exports[`NotificationList should render with default styles 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 600px;
+  width: 400px;
   max-width: 90vw;
   max-width: calc(100vw - (24px * 2));
 }

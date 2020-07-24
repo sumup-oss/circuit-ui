@@ -5449,16 +5449,6 @@ exports[`Storyshots Components/Notification Base 1`] = `
   align-items: flex-start;
 }
 
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
 .circuit-0 {
   display: block;
   margin-right: 12px;
@@ -5471,6 +5461,10 @@ exports[`Storyshots Components/Notification Base 1`] = `
   flex-shrink: 0;
   line-height: 0;
   color: #47995A;
+}
+
+.circuit-4 {
+  width: 100%;
 }
 
 .circuit-6 {
@@ -5550,49 +5544,47 @@ exports[`Storyshots Components/Notification Base 1`] = `
 <div
   class="circuit-7"
 >
+  <svg
+    class="circuit-0"
+    fill="none"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.183 12.684l2.571 2.571 5.143-6.428"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+    <path
+      d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+    />
+  </svg>
   <div
     class="circuit-4"
   >
-    <svg
-      class="circuit-0"
-      fill="none"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
-      xmlns="http://www.w3.org/2000/svg"
+    <h4
+      class="circuit-1"
     >
-      <path
-        d="M8.183 12.684l2.571 2.571 5.143-6.428"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-      />
-      <path
-        d="M12 21a9 9 0 100-18 9 9 0 000 18z"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-      />
-    </svg>
-    <div>
-      <h4
-        class="circuit-1"
-      >
-        New Feature — Intelligent Reporting
-      </h4>
-      <p
-        class="circuit-2"
-      >
-        Get automatic insights into your business statistics with one click.
-      </p>
-      <button
-        class="circuit-3"
-      >
-        Learn more
-      </button>
-    </div>
+      New Feature — Intelligent Reporting
+    </h4>
+    <p
+      class="circuit-2"
+    >
+      Get automatic insights into your business statistics with one click.
+    </p>
+    <button
+      class="circuit-3"
+    >
+      Learn more
+    </button>
   </div>
   <button
     class="circuit-6"
@@ -5640,16 +5632,6 @@ HTMLCollection [
   }
 }
 
-.circuit-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
 .circuit-0 {
   display: block;
   margin-right: 12px;
@@ -5662,6 +5644,10 @@ HTMLCollection [
   flex-shrink: 0;
   line-height: 0;
   color: #47995A;
+}
+
+.circuit-2 {
+  width: 100%;
 }
 
 .circuit-3 {
@@ -5689,39 +5675,37 @@ HTMLCollection [
 <div
     class="circuit-3"
   >
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.183 12.684l2.571 2.571 5.143-6.428"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+      <path
+        d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
     <div
       class="circuit-2"
     >
-      <svg
-        class="circuit-0"
-        fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <h4
+        class="circuit-1"
       >
-        <path
-          d="M8.183 12.684l2.571 2.571 5.143-6.428"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-        <path
-          d="M12 21a9 9 0 100-18 9 9 0 000 18z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-      <div>
-        <h4
-          class="circuit-1"
-        >
-          Transaction successfully refunded
-        </h4>
-      </div>
+        Transaction successfully refunded
+      </h4>
     </div>
   </div>,
   .circuit-3 {
@@ -5813,13 +5797,7 @@ HTMLCollection [
 }
 
 .circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  width: 100%;
 }
 
 .circuit-5 {
@@ -5861,42 +5839,40 @@ HTMLCollection [
 <div
     class="circuit-5"
   >
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
     <div
       class="circuit-4"
     >
-      <svg
-        class="circuit-0"
-        fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <h4
+        class="circuit-1"
       >
-        <path
-          d="M12 12.643V6.857m0 10.286V16.5m0 4.5a9 9 0 100-18 9 9 0 000 18z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-      <div>
-        <h4
-          class="circuit-1"
-        >
-          You need to verify your account
-        </h4>
-        <p
-          class="circuit-2"
-        >
-          We need to verify your identity before you can continue transacting.
-        </p>
-        <button
-          class="circuit-3"
-        >
-          Verify account
-        </button>
-      </div>
+        You need to verify your account
+      </h4>
+      <p
+        class="circuit-2"
+      >
+        We need to verify your identity before you can continue transacting.
+      </p>
+      <button
+        class="circuit-3"
+      >
+        Verify account
+      </button>
     </div>
   </div>,
   .circuit-2 {
@@ -5959,13 +5935,7 @@ HTMLCollection [
 }
 
 .circuit-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  width: 100%;
 }
 
 .circuit-4 {
@@ -6022,37 +5992,35 @@ HTMLCollection [
 <div
     class="circuit-4"
   >
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
     <div
       class="circuit-3"
     >
-      <svg
-        class="circuit-0"
-        fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <h4
+        class="circuit-1"
       >
-        <path
-          d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        />
-      </svg>
-      <div>
-        <h4
-          class="circuit-1"
-        >
-          We failed to process your transaction
-        </h4>
-        <button
-          class="circuit-2"
-        >
-          Try again
-        </button>
-      </div>
+        We failed to process your transaction
+      </h4>
+      <button
+        class="circuit-2"
+      >
+        Try again
+      </button>
     </div>
   </div>,
 ]
@@ -6179,16 +6147,6 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   align-items: flex-start;
 }
 
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
 .circuit-0 {
   display: block;
   margin-right: 12px;
@@ -6201,6 +6159,10 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   flex-shrink: 0;
   line-height: 0;
   color: #47995A;
+}
+
+.circuit-4 {
+  width: 100%;
 }
 
 .circuit-6 {
@@ -6315,49 +6277,47 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
         <div
           class="circuit-7"
         >
+          <svg
+            class="circuit-0"
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.183 12.684l2.571 2.571 5.143-6.428"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
           <div
             class="circuit-4"
           >
-            <svg
-              class="circuit-0"
-              fill="none"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <h4
+              class="circuit-1"
             >
-              <path
-                d="M8.183 12.684l2.571 2.571 5.143-6.428"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              />
-              <path
-                d="M12 21a9 9 0 100-18 9 9 0 000 18z"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              />
-            </svg>
-            <div>
-              <h4
-                class="circuit-1"
-              >
-                New Feature — Intelligent Reporting
-              </h4>
-              <p
-                class="circuit-2"
-              >
-                Get automatic insights into your business statistics with one click.
-              </p>
-              <button
-                class="circuit-3"
-              >
-                Learn more
-              </button>
-            </div>
+              New Feature — Intelligent Reporting
+            </h4>
+            <p
+              class="circuit-2"
+            >
+              Get automatic insights into your business statistics with one click.
+            </p>
+            <button
+              class="circuit-3"
+            >
+              Learn more
+            </button>
           </div>
           <button
             class="circuit-6"
@@ -6513,16 +6473,6 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   align-items: flex-start;
 }
 
-.circuit-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
 .circuit-0 {
   display: block;
   margin-right: 12px;
@@ -6535,6 +6485,10 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   flex-shrink: 0;
   line-height: 0;
   color: #47995A;
+}
+
+.circuit-4 {
+  width: 100%;
 }
 
 .circuit-12 {
@@ -6633,7 +6587,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 600px;
+  width: 400px;
   max-width: 90vw;
   max-width: calc(100vw - (24px * 2));
 }
@@ -6681,49 +6635,47 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
     <div
       class="circuit-5"
     >
+      <svg
+        class="circuit-0"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.183 12.684l2.571 2.571 5.143-6.428"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+        <path
+          d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
       <div
         class="circuit-4"
       >
-        <svg
-          class="circuit-0"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
+        <h4
+          class="circuit-1"
         >
-          <path
-            d="M8.183 12.684l2.571 2.571 5.143-6.428"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-          <path
-            d="M12 21a9 9 0 100-18 9 9 0 000 18z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-        </svg>
-        <div>
-          <h4
-            class="circuit-1"
-          >
-            New Feature — Intelligent Reporting
-          </h4>
-          <p
-            class="circuit-2"
-          >
-            Get automatic insights into your business statistics with one click.
-          </p>
-          <button
-            class="circuit-3"
-          >
-            Learn more
-          </button>
-        </div>
+          New Feature — Intelligent Reporting
+        </h4>
+        <p
+          class="circuit-2"
+        >
+          Get automatic insights into your business statistics with one click.
+        </p>
+        <button
+          class="circuit-3"
+        >
+          Learn more
+        </button>
       </div>
     </div>
   </li>
@@ -6733,32 +6685,30 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
     <div
       class="circuit-5"
     >
+      <svg
+        class="circuit-8"
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
       <div
         class="circuit-4"
       >
-        <svg
-          class="circuit-8"
-          fill="none"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
+        <h4
+          class="circuit-1"
         >
-          <path
-            d="M8.786 15.214l6.429-6.428m-6.429 0l6.429 6.428M12 21a9 9 0 100-18 9 9 0 000 18z"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          />
-        </svg>
-        <div>
-          <h4
-            class="circuit-1"
-          >
-            We failed to process your transaction
-          </h4>
-        </div>
+          We failed to process your transaction
+        </h4>
       </div>
       <button
         class="circuit-12"
@@ -18137,61 +18087,6 @@ label + .circuit-3 {
 }
 
 .circuit-1 {
-  -webkit-appearance: none;
-  background-color: #FFFFFF;
-  border: none;
-  outline: 0;
-  border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: right;
-  padding-right: 40px;
-  box-shadow: 0 0 0 1px #9DA7B1;
-  max-width: 250px;
-}
-
-.circuit-1::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-1::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-1:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-1::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
-}
-
-.circuit-2 {
   line-height: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -18207,14 +18102,67 @@ label + .circuit-3 {
   justify-content: center;
   position: absolute;
   top: 1px;
-  right: 1px;
+  left: 1px;
   pointer-events: none;
   color: #5C656F;
   padding: 12px;
   height: 40px;
   width: 40px;
-  -webkit-transition: right 120ms ease-in-out;
-  transition: right 120ms ease-in-out;
+}
+
+.circuit-2 {
+  -webkit-appearance: none;
+  background-color: #FFFFFF;
+  border: none;
+  outline: 0;
+  border-radius: 8px;
+  padding: calc(8px + 1px) 12px;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  padding-left: 40px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
+}
+
+.circuit-2::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-2::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-2:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-2::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-2:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-2:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-2:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 .circuit-4 {
@@ -18246,19 +18194,19 @@ label + .circuit-3 {
   <div
     class="circuit-3"
   >
-    <input
-      aria-invalid="false"
-      class="circuit-1"
-      id="input_9"
-      placeholder="123,45"
-      type="text"
-      value=""
-    />
     <span
-      class="circuit-2"
+      class="circuit-1"
     >
       €
     </span>
+    <input
+      aria-invalid="false"
+      class="circuit-2"
+      id="input_9"
+      placeholder="123.45"
+      type="text"
+      value=""
+    />
   </div>
   <span
     class="circuit-4"
@@ -18286,23 +18234,6 @@ label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 4px;
-  color: #5C656F;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
 .circuit-1 {
   line-height: 16px;
   display: -webkit-box;
@@ -18382,6 +18313,23 @@ label + .circuit-3 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
 <label
     class="circuit-5"
     for="input_10"
@@ -18403,7 +18351,7 @@ label + .circuit-3 {
         aria-invalid="false"
         class="circuit-2"
         id="input_10"
-        placeholder="1.234,50"
+        placeholder="1,234.50"
         type="text"
         value=""
       />
@@ -18430,23 +18378,6 @@ label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 4px;
-  color: #5C656F;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
 .circuit-1 {
   line-height: 16px;
   display: -webkit-box;
@@ -18526,6 +18457,23 @@ label + .circuit-3 {
   box-shadow: 0 0 0 1px #3388FF;
 }
 
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
 <label
     class="circuit-5"
     for="input_11"
@@ -18547,7 +18495,7 @@ label + .circuit-3 {
         aria-invalid="false"
         class="circuit-2"
         id="input_11"
-        placeholder="1.234,50"
+        placeholder="1,234.50"
         type="text"
         value=""
       />
@@ -18580,61 +18528,6 @@ label + .circuit-3 {
 }
 
 .circuit-1 {
-  -webkit-appearance: none;
-  background-color: #FFFFFF;
-  border: none;
-  outline: 0;
-  border-radius: 8px;
-  padding: calc(8px + 1px) 12px;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  width: 100%;
-  margin: 0;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: right;
-  padding-right: 40px;
-  box-shadow: 0 0 0 1px #9DA7B1;
-  max-width: 250px;
-}
-
-.circuit-1::-webkit-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-1::-moz-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-1:-ms-input-placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-1::placeholder {
-  color: #9DA7B1;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
-}
-
-.circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
-}
-
-.circuit-2 {
   line-height: 16px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -18650,14 +18543,67 @@ label + .circuit-3 {
   justify-content: center;
   position: absolute;
   top: 1px;
-  right: 1px;
+  left: 1px;
   pointer-events: none;
   color: #5C656F;
   padding: 12px;
   height: 40px;
   width: 40px;
-  -webkit-transition: right 120ms ease-in-out;
-  transition: right 120ms ease-in-out;
+}
+
+.circuit-2 {
+  -webkit-appearance: none;
+  background-color: #FFFFFF;
+  border: none;
+  outline: 0;
+  border-radius: 8px;
+  padding: calc(8px + 1px) 12px;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  padding-left: 40px;
+  box-shadow: 0 0 0 1px #9DA7B1;
+  max-width: 250px;
+}
+
+.circuit-2::-webkit-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-2::-moz-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-2:-ms-input-placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-2::placeholder {
+  color: #9DA7B1;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
+}
+
+.circuit-2:hover {
+  box-shadow: 0 0 0 1px #5C656F;
+}
+
+.circuit-2:focus {
+  box-shadow: 0 0 0 2px #3388FF;
+}
+
+.circuit-2:active {
+  box-shadow: 0 0 0 1px #3388FF;
 }
 
 .circuit-4 {
@@ -18689,19 +18635,19 @@ label + .circuit-3 {
     <div
       class="circuit-3"
     >
-      <input
-        aria-invalid="false"
-        class="circuit-1"
-        id="input_12"
-        placeholder="1.234,50"
-        type="text"
-        value=""
-      />
       <span
-        class="circuit-2"
+        class="circuit-1"
       >
         €
       </span>
+      <input
+        aria-invalid="false"
+        class="circuit-2"
+        id="input_12"
+        placeholder="1,234.50"
+        type="text"
+        value=""
+      />
     </div>
     <span
       class="circuit-4"
@@ -18723,23 +18669,6 @@ label + .circuit-3 {
 label .circuit-3,
 label + .circuit-3 {
   margin-top: 4px;
-}
-
-.circuit-4 {
-  font-size: 13px;
-  line-height: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 4px;
-  color: #5C656F;
-  -webkit-transition: color 120ms ease-in-out;
-  transition: color 120ms ease-in-out;
 }
 
 .circuit-1 {
@@ -18819,6 +18748,23 @@ label + .circuit-3 {
 
 .circuit-2:active {
   box-shadow: 0 0 0 1px #3388FF;
+}
+
+.circuit-4 {
+  font-size: 13px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 4px;
+  color: #5C656F;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 <label

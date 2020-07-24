@@ -45,8 +45,7 @@ const Container = styled('div')<{}>(containerStyles);
 
 const contentStyles = () => css`
   label: notification__content;
-  display: flex;
-  flex-direction: row;
+  width: 100%;
 `;
 
 const Content = styled('div')<{}>(contentStyles);
@@ -103,10 +102,9 @@ export const Notification = ({
 
   return (
     <Container {...props}>
-      <Content>
-        {Icon && <Icon css={iconStyles(variant)} size="large" />}
-        <div>{children}</div>
-      </Content>
+      {Icon && <Icon css={iconStyles(variant)} size="large" />}
+
+      <Content>{children}</Content>
 
       {onClose && closeLabel && (
         <StyledCloseButton onClick={onClose} label={closeLabel} size="kilo" />
