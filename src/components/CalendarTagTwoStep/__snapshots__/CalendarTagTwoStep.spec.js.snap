@@ -42,10 +42,10 @@ exports[`CalendarTagTwoStep should render with default styles 1`] = `
 }
 
 <div>
-  <div
+  <button
     class="circuit-0 circuit-1"
   >
     Dates
-  </div>
+  </button>
 </div>
 `;

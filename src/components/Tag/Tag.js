@@ -146,9 +146,10 @@ const Tag = React.forwardRef(
       />
     );
     const handleClick = useClickHandler(onClick, tracking, 'tag');
+    const as = onClick ? 'button' : 'div';
 
     return (
-      <TagElement {...{ selected, ...props }} onClick={handleClick}>
+      <TagElement {...{ selected, ...props }} onClick={handleClick} as={as}>
         {prefixElement}
 
         {children}

@@ -41,11 +41,11 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   border: 0;
 }
 
-<div
+<button
   class="circuit-0 circuit-1"
 >
   SomeTest
-</div>
+</button>
 `;
 
 exports[`Tag when is default should render with default styles 1`] = `
