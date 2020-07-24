@@ -246,6 +246,7 @@ class Table extends Component {
       scrollable,
       onRowClick,
       onSortBy,
+      rows,
       ...props
     } = this.props;
     const {
@@ -256,7 +257,7 @@ class Table extends Component {
       tableBodyHeight,
     } = this.state;
 
-    const rows = this.getSortedRows();
+    const sortedRows = this.getSortedRows();
 
     return (
       <TableContainer
@@ -292,7 +293,7 @@ class Table extends Component {
             <TableBody
               condensed={condensed}
               scrollable={scrollable}
-              rows={rows}
+              rows={sortedRows}
               rowHeaders={rowHeaders}
               sortHover={sortHover}
               onRowClick={onRowClick}
