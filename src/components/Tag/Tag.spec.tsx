@@ -15,9 +15,18 @@
 
 import React from 'react';
 
-import Tag from '.';
+import {
+  create,
+  renderToHtml,
+  axe,
+  render,
+  act,
+  userEvent,
+} from '../../util/test-utils';
 
-const DummyIcon = (props) => <div data-testid="tag-icon" {...props} />;
+import { Tag } from './Tag';
+
+const DummyIcon = (props: any) => <div data-testid="tag-icon" {...props} />;
 
 describe('Tag', () => {
   /**
@@ -74,8 +83,8 @@ describe('Tag', () => {
      * Should accept a working ref
      */
     it('should accept a working ref', () => {
-      const tref = React.createRef();
-      const { container } = render(<Tag ref={tref} onRemove={() => 1} />);
+      const tref = React.createRef<HTMLButtonElement & HTMLDivElement>();
+      const { container } = render(<Tag ref={tref} onClick={jest.fn()} />);
       const button = container.querySelector('button');
       expect(tref.current).toBe(button);
     });
@@ -103,11 +112,11 @@ describe('Tag', () => {
       expect(getByTestId('tag-close')).not.toBeNull();
     });
 
-    it('should calls onRemove when click close', () => {
+    it('should call onRemove when closed', () => {
       const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
 
       act(() => {
-        fireEvent.click(getByTestId('tag-close'));
+        userEvent.click(getByTestId('tag-close'));
       });
 
       expect(props.onRemove).toHaveBeenCalledTimes(1);
@@ -122,17 +131,6 @@ describe('Tag', () => {
     it('should render with suffix', () => {
       const { getByTestId } = render(<Tag {...props}>SomeTest</Tag>);
       expect(getByTestId('tag-icon')).not.toBeNull();
-    });
-
-    it('gives priority to close button when removable', () => {
-      const onRemove = jest.fn();
-
-      const { queryByTestId } = render(
-        <Tag {...{ onRemove, props }}>SomeTest</Tag>,
-      );
-
-      expect(queryByTestId('tag-icon')).toBeNull();
-      expect(queryByTestId('tag-close')).not.toBeNull();
     });
   });
 

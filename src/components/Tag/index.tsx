@@ -13,6 +13,6 @@
  * limitations under the License.
  */
 
-import Tag from './Tag';
+import { Tag } from './Tag';
 
 export default Tag;

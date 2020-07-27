@@ -14,7 +14,7 @@
  */
 
 /** @jsx jsx */
-import React, { FC, HTMLProps, ReactNode } from 'react';
+import { forwardRef, Ref, FC, HTMLProps, ReactNode } from 'react';
 import { css, jsx, InterpolationWithTheme } from '@emotion/core';
 import { Theme } from '@sumup/design-tokens';
 
@@ -102,7 +102,7 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   /**
    * The ref to the html dom element
    */
-  ref?: React.Ref<HTMLInputElement & HTMLTextAreaElement>;
+  ref?: Ref<HTMLInputElement & HTMLTextAreaElement>;
 }
 
 const containerStyles = ({ theme }: StyleProps) => css`
@@ -350,4 +350,4 @@ function InputComponent(
 /**
  * Input component for forms. Takes optional prefix and suffix as render props.
  */
-export const Input = React.forwardRef(InputComponent);
+export const Input = forwardRef(InputComponent);
