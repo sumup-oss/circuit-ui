@@ -14,7 +14,15 @@
  */
 
 /** @jsx jsx */
-import React, { HTMLProps, ReactNode, FC, SVGProps, MouseEvent } from 'react';
+import {
+  forwardRef,
+  Ref,
+  HTMLProps,
+  ReactNode,
+  FC,
+  SVGProps,
+  MouseEvent,
+} from 'react';
 import { css, jsx } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
 import { Theme } from '@sumup/design-tokens';
@@ -59,7 +67,7 @@ export interface BaseProps {
   /**
    The ref to the html dom element, it can be an anchor or a button
    */
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>;
+  ref?: Ref<HTMLButtonElement & HTMLAnchorElement>;
   /**
    * The HTML button type
    */
@@ -209,7 +217,7 @@ const BaseButton = styled('button', {
 
 function ButtonComponent(
   { children, icon: Icon, tracking, ...props }: ButtonProps,
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>,
+  ref?: BaseProps['ref'],
 ): ReturnType {
   const { Link } = useComponents();
   const LinkButton = BaseButton.withComponent(Link);
@@ -232,4 +240,4 @@ function ButtonComponent(
  * The Button component enables the user to perform an action or navigate
  * to a different screen.
  */
-export const Button = React.forwardRef(ButtonComponent);
+export const Button = forwardRef(ButtonComponent);

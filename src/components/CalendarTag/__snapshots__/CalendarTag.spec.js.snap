@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CalendarTag should render with default styles 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
 .circuit-0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -10,17 +14,17 @@ exports[`CalendarTag should render with default styles 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #D8DDE1;
+  border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
-  background: transparent;
 }
 
 .circuit-0:active {
@@ -28,7 +32,7 @@ exports[`CalendarTag should render with default styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #D8DDE1;
+  background-color: #EEF0F2;
   border-color: #9DA7B1;
 }
 
@@ -42,10 +46,14 @@ exports[`CalendarTag should render with default styles 1`] = `
 }
 
 <div>
-  <button
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-1"
   >
-    Dates
-  </button>
+    <button
+      class="circuit-0"
+    >
+      Dates
+    </button>
+  </div>
 </div>
 `;

@@ -12180,6 +12180,10 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 `;
 
 exports[`Storyshots Components/Tag Base 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
 .circuit-0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -12189,24 +12193,33 @@ exports[`Storyshots Components/Tag Base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #D8DDE1;
+  border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-1"
 >
-  Transactions
+  <div
+    class="circuit-0"
+  >
+    Transactions
+  </div>
 </div>
 `;
 
 exports[`Storyshots Components/Tag Clickable 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
 .circuit-0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -12216,17 +12229,17 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #D8DDE1;
+  border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
-  background: transparent;
 }
 
 .circuit-0:active {
@@ -12234,7 +12247,7 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #D8DDE1;
+  background-color: #EEF0F2;
   border-color: #9DA7B1;
 }
 
@@ -12247,15 +12260,23 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
   border: 0;
 }
 
-<button
-  class="circuit-0 circuit-1"
+<div
+  class="circuit-1"
 >
-  Transactions
-</button>
+  <button
+    class="circuit-0"
+  >
+    Transactions
+  </button>
+</div>
 `;
 
 exports[`Storyshots Components/Tag Removable 1`] = `
-.circuit-0 {
+.circuit-3 {
+  position: relative;
+}
+
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -12268,7 +12289,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   width: 1px;
 }
 
-.circuit-3 {
+.circuit-0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -12277,14 +12298,16 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #D8DDE1;
+  border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  padding-right: calc(4px + 32px);
 }
 
 .circuit-2 {
@@ -12320,9 +12343,10 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   border-radius: 8px;
   padding: 8px;
   border: 0;
-  margin-left: 4px;
-  margin-right: -4px;
-  padding: 0;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  border-radius: 4px;
 }
 
 .circuit-2:focus {
@@ -12352,11 +12376,15 @@ exports[`Storyshots Components/Tag Removable 1`] = `
 }
 
 <div
-  class="circuit-3 circuit-4"
+  class="circuit-3"
 >
-  Transactions
+  <div
+    class="circuit-0"
+  >
+    Transactions
+  </div>
   <button
-    class="circuit-1 circuit-2"
+    class="circuit-2"
     data-testid="tag-close"
     title="Remove"
     type="button"
@@ -12377,7 +12405,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
       />
     </svg>
     <span
-      class="circuit-0"
+      class="circuit-1"
     >
       Remove
     </span>
@@ -12386,6 +12414,10 @@ exports[`Storyshots Components/Tag Removable 1`] = `
 `;
 
 exports[`Storyshots Components/Tag Selected 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
 .circuit-0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -12395,27 +12427,36 @@ exports[`Storyshots Components/Tag Selected 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #D8DDE1;
+  border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #3388FF;
-  border-color: #3388FF;
+  border-color: #1760CE;
   color: #FFFFFF;
 }
 
 <div
-  class="circuit-0 circuit-1"
+  class="circuit-1"
 >
-  Transactions
+  <div
+    class="circuit-0"
+  >
+    Transactions
+  </div>
 </div>
 `;
 
 exports[`Storyshots Components/Tag With Prefix 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -12425,14 +12466,15 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #D8DDE1;
+  border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
 
 .circuit-0 {
@@ -12441,29 +12483,37 @@ exports[`Storyshots Components/Tag With Prefix 1`] = `
 }
 
 <div
-  class="circuit-1 circuit-2"
+  class="circuit-2"
 >
-  <svg
-    class="circuit-0"
-    fill="none"
-    height="16"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
+  <div
+    class="circuit-1"
   >
-    <path
-      d="M2 8.79L6 13l8-9"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
-  Transactions
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 8.79L6 13l8-9"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+    Transactions
+  </div>
 </div>
 `;
 
 exports[`Storyshots Components/Tag With Suffix 1`] = `
+.circuit-2 {
+  position: relative;
+}
+
 .circuit-1 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -12473,14 +12523,15 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #D8DDE1;
+  border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
 
 .circuit-0 {
@@ -12489,25 +12540,29 @@ exports[`Storyshots Components/Tag With Suffix 1`] = `
 }
 
 <div
-  class="circuit-1 circuit-2"
+  class="circuit-2"
 >
-  Transactions
-  <svg
-    class="circuit-0"
-    fill="none"
-    height="16"
-    viewBox="0 0 16 16"
-    width="16"
-    xmlns="http://www.w3.org/2000/svg"
+  <div
+    class="circuit-1"
   >
-    <path
-      d="M2 8.79L6 13l8-9"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-    />
-  </svg>
+    Transactions
+    <svg
+      class="circuit-0"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2 8.79L6 13l8-9"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
 </div>
 `;
 
@@ -12886,6 +12941,10 @@ exports[`Storyshots Components/Tooltip Top Left 1`] = `
 `;
 
 exports[`Storyshots Forms/Calendar/CalendarTag Base 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
 .circuit-0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -12895,17 +12954,17 @@ exports[`Storyshots Forms/Calendar/CalendarTag Base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #D8DDE1;
+  border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
-  background: transparent;
 }
 
 .circuit-0:active {
@@ -12913,7 +12972,7 @@ exports[`Storyshots Forms/Calendar/CalendarTag Base 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #D8DDE1;
+  background-color: #EEF0F2;
   border-color: #9DA7B1;
 }
 
@@ -12927,15 +12986,23 @@ exports[`Storyshots Forms/Calendar/CalendarTag Base 1`] = `
 }
 
 <div>
-  <button
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-1"
   >
-    Dates
-  </button>
+    <button
+      class="circuit-0"
+    >
+      Dates
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Storyshots Forms/Calendar/CalendarTagTwoStep Base 1`] = `
+.circuit-1 {
+  position: relative;
+}
+
 .circuit-0 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -12945,17 +13012,17 @@ exports[`Storyshots Forms/Calendar/CalendarTagTwoStep Base 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
   border: 1px solid #D8DDE1;
+  border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
-  transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
+  background-color: #FFFFFF;
+  -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
+  transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   cursor: pointer;
   outline: 0;
-  background: transparent;
 }
 
 .circuit-0:active {
@@ -12963,7 +13030,7 @@ exports[`Storyshots Forms/Calendar/CalendarTagTwoStep Base 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #D8DDE1;
+  background-color: #EEF0F2;
   border-color: #9DA7B1;
 }
 
@@ -12977,11 +13044,15 @@ exports[`Storyshots Forms/Calendar/CalendarTagTwoStep Base 1`] = `
 }
 
 <div>
-  <button
-    class="circuit-0 circuit-1"
+  <div
+    class="circuit-1"
   >
-    Dates
-  </button>
+    <button
+      class="circuit-0"
+    >
+      Dates
+    </button>
+  </div>
 </div>
 `;
 

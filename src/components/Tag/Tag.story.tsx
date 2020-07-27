@@ -15,11 +15,11 @@
 
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { boolean, text } from '@storybook/addon-knobs/react';
+import { boolean, text } from '@storybook/addon-knobs';
 import { Check } from '@sumup/icons';
 
 import docs from './Tag.docs.mdx';
-import Tag from './Tag';
+import { Tag, TagProps } from './Tag';
 
 export default {
   title: 'Components/Tag',
@@ -29,42 +29,39 @@ export default {
   },
 };
 
-export const base = () => (
+const BaseTag = (props: Partial<TagProps>) => (
   <Tag
     selected={boolean('Selected', false)}
-    onRemove={boolean('Removable', false) ? action('Tag removed') : null}
-    prefix={boolean('Prefix', false) ? <Check /> : null}
-    suffix={boolean('Suffix', false) ? <Check /> : null}
-    onClick={boolean('Clickable', false) ? action('Tag clicked') : null}
+    prefix={boolean('Prefix', false) ? Check : undefined}
+    suffix={boolean('Suffix', false) ? Check : undefined}
+    onClick={boolean('Clickable', false) ? action('Tag clicked') : undefined}
+    onRemove={boolean('Removable', false) ? action('Tag removed') : undefined}
+    {...props}
   >
     Transactions
   </Tag>
 );
 
-export const selected = () => <Tag selected>Transactions</Tag>;
+export const base = () => <BaseTag />;
 
-export const withPrefix = () => <Tag prefix={Check}>Transactions</Tag>;
+export const selected = () => <BaseTag selected />;
 
-export const withSuffix = () => <Tag suffix={Check}>Transactions</Tag>;
+export const withPrefix = () => <BaseTag prefix={Check} />;
+
+export const withSuffix = () => <BaseTag suffix={Check} />;
+
+export const clickable = () => (
+  <BaseTag
+    onClick={action('Tag clicked')}
+    as="button"
+    tracking={{ label: text('Tracking Label', 'trackingId') }}
+  />
+);
 
 export const removable = () => (
-  <Tag
+  <BaseTag
     onRemove={action('Tag removed')}
     labelRemoveButton="Remove"
     tracking={{ label: text('Tracking Label', 'trackingId') }}
-  >
-    Transactions
-  </Tag>
-);
-
-export const clickable = () => (
-  <Tag
-    onClick={action('Tag clicked')}
-    as="button"
-    tracking={{
-      label: text('Tracking Label', 'trackingId'),
-    }}
-  >
-    Transactions
-  </Tag>
+  />
 );
