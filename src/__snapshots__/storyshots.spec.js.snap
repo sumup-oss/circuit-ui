@@ -12265,6 +12265,7 @@ exports[`Storyshots Components/Tag Clickable 1`] = `
 >
   <button
     class="circuit-0"
+    type="button"
   >
     Transactions
   </button>
@@ -12991,6 +12992,7 @@ exports[`Storyshots Forms/Calendar/CalendarTag Base 1`] = `
   >
     <button
       class="circuit-0"
+      type="button"
     >
       Dates
     </button>
@@ -13049,6 +13051,7 @@ exports[`Storyshots Forms/Calendar/CalendarTagTwoStep Base 1`] = `
   >
     <button
       class="circuit-0"
+      type="button"
     >
       Dates
     </button>

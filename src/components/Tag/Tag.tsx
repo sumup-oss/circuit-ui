@@ -204,6 +204,7 @@ const TagComponent = (
         removable={removable}
         selected={selected}
         onClick={handleClick}
+        type={onClick && 'button'}
         as={as}
         ref={ref}
         {...props}
@@ -217,6 +218,7 @@ const TagComponent = (
 
       {removable && (
         <RemoveButton
+          type="button"
           variant={selected ? 'primary' : 'secondary'}
           selected={selected}
           label={labelRemoveButton}

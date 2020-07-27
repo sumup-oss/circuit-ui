@@ -50,6 +50,7 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
 >
   <button
     class="circuit-0"
+    type="button"
   >
     SomeTest
   </button>
