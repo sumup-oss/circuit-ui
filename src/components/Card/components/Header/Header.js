@@ -36,15 +36,20 @@ const noHeadingStyles = ({ children }) =>
     justify-content: flex-end;
   `;
 
+const CardHeaderContainer = styled('header')(baseStyles, noHeadingStyles);
+
+const closeButtonStyles = ({ theme }) => css`
+  margin-top: -${theme.spacings.byte};
+  margin-right: -${theme.spacings.kilo};
+  margin-bottom: -${theme.spacings.byte};
+`;
+
+const CardHeaderCloseButton = styled(CloseButton)(closeButtonStyles);
+
 /**
  * Header used in the Card component. Used for styling and alignment
  * purposes only.
  */
-const CardHeaderContainer = styled('header')`
-  ${baseStyles};
-  ${noHeadingStyles};
-`;
-
 const CardHeader = ({
   onClose,
   children,
@@ -55,7 +60,7 @@ const CardHeader = ({
   <CardHeaderContainer {...props}>
     {children}
     {onClose && (
-      <CloseButton
+      <CardHeaderCloseButton
         onClick={onClose}
         label={labelCloseButton}
         data-testid="header-close"
