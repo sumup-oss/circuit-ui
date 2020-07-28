@@ -19,12 +19,25 @@ import styled, { StyleProps } from '../../../../styles/styled';
 import { CardFooter } from '../../../Card';
 
 const footerStyles = ({ theme }: StyleProps) => css`
-  position: sticky;
-  bottom: 0;
-  margin-top: 0;
-  padding-top: ${theme.spacings.giga};
-  padding-bottom: ${theme.spacings.kilo};
-  background: ${theme.colors.white};
+  ${theme.mq.untilKilo} {
+    position: sticky;
+    bottom: 0;
+    margin: 0 -${theme.spacings.mega};
+    padding: ${theme.spacings.mega};
+    width: calc(100% + 2 * ${theme.spacings.mega});
+    background: ${theme.colors.white};
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -${theme.spacings.giga};
+      right: 0;
+      width: 100%;
+      height: ${theme.spacings.giga};
+      background: linear-gradient(transparent, ${theme.colors.white});
+    }
+  }
 `;
 
 // FIXME: Remove any typecast once the Card has been migrated to TypeScript.

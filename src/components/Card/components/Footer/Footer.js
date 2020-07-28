@@ -17,15 +17,6 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
-const alignmentStyles = ({ theme, align }) =>
-  align === 'right' &&
-  css`
-    label: card__footer--right;
-    ${theme.mq.kilo} {
-      justify-content: flex-end;
-    }
-  `;
-
 const baseStyles = ({ theme }) => css`
   label: card__footer;
   display: block;
@@ -38,6 +29,15 @@ const baseStyles = ({ theme }) => css`
     margin-top: ${theme.spacings.mega};
   }
 `;
+
+const alignmentStyles = ({ theme, align }) =>
+  align === 'right' &&
+  css`
+    label: card__footer--right;
+    ${theme.mq.kilo} {
+      justify-content: flex-end;
+    }
+  `;
 
 /**
  * Footer used in the Card component. Used for styling and aligment
