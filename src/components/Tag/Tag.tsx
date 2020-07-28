@@ -186,6 +186,7 @@ const TagComponent = (
     selected,
     onClick,
     tracking,
+    className,
     ...props
   }: TagProps,
   ref: BaseProps['ref'],
@@ -199,7 +200,7 @@ const TagComponent = (
   const removable = Boolean(onRemove);
 
   return (
-    <Container>
+    <Container className={className}>
       <TagElement
         removable={removable}
         selected={selected}
