@@ -11621,17 +11621,24 @@ exports[`Storyshots Components/Table/TableHeader Base 1`] = `
 
 exports[`Storyshots Components/Tabs Base 1`] = `
 .circuit-12 {
-  max-width: 100vw;
+  width: 100vw;
+}
+
+@media (min-width:480px) {
+  .circuit-12 {
+    width: auto;
+    max-width: 100vw;
+  }
 }
 
 .circuit-10 {
-  background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
   -ms-overflow-style: none;
   -webkit-scrollbar-width: none;
   -moz-scrollbar-width: none;
   -ms-scrollbar-width: none;
   scrollbar-width: none;
+  background: #FFFFFF;
   height: 80px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -11862,17 +11869,24 @@ exports[`Storyshots Components/Tabs Base 1`] = `
 
 exports[`Storyshots Components/Tabs Controlled State 1`] = `
 .circuit-12 {
-  max-width: 100vw;
+  width: 100vw;
+}
+
+@media (min-width:480px) {
+  .circuit-12 {
+    width: auto;
+    max-width: 100vw;
+  }
 }
 
 .circuit-10 {
-  background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
   -ms-overflow-style: none;
   -webkit-scrollbar-width: none;
   -moz-scrollbar-width: none;
   -ms-scrollbar-width: none;
   scrollbar-width: none;
+  background: #FFFFFF;
   height: 80px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -12056,17 +12070,24 @@ exports[`Storyshots Components/Tabs Controlled State 1`] = `
 
 exports[`Storyshots Components/Tabs Links 1`] = `
 .circuit-10 {
-  max-width: 100vw;
+  width: 100vw;
+}
+
+@media (min-width:480px) {
+  .circuit-10 {
+    width: auto;
+    max-width: 100vw;
+  }
 }
 
 .circuit-8 {
-  background: #FFFFFF;
   box-shadow: 0 0 0 1px rgba(12,15,20,0.07), 0 2px 2px 0 rgba(12,15,20,0.07),0 4px 4px 0 rgba(12,15,20,0.07);
   -ms-overflow-style: none;
   -webkit-scrollbar-width: none;
   -moz-scrollbar-width: none;
   -ms-scrollbar-width: none;
   scrollbar-width: none;
+  background: #FFFFFF;
   height: 80px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -12199,6 +12220,10 @@ exports[`Storyshots Components/Tabs Links 1`] = `
 }
 
 @media (max-width:479px) {
+  .circuit-6 {
+    width: 100%;
+  }
+
   .circuit-6 [role='tab'] {
     -webkit-flex: 1 1 auto;
     -ms-flex: 1 1 auto;

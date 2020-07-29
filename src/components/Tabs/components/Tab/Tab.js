@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -72,30 +72,29 @@ const selectedTabStyles = ({ theme, selected }) =>
 
 const tabIndex = (selected) => (selected ? undefined : '-1');
 
-/**
- * Tab component that represents a single tab inside a Tabs wrapper
- */
 const StyledTab = styled('button')(defaultTabStyles, selectedTabStyles);
 
-const Tab = ({ selected, ...props }) => (
+const TabComponent = ({ selected = false, ...props }, ref) => (
   <StyledTab
-    {...props}
+    ref={ref}
+    role="tab"
     selected={selected}
     aria-selected={selected}
     tabIndex={tabIndex(selected)}
+    {...props}
   />
 );
+
+/**
+ * Tab component that represents a single tab inside a Tabs wrapper
+ */
+const Tab = forwardRef(TabComponent);
 
 Tab.propTypes = {
   /**
    * Triggers selected styles of the component
    */
   selected: PropTypes.bool,
-};
-
-Tab.defaultProps = {
-  selected: false,
-  role: 'tab',
 };
 
 /**

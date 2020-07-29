@@ -29,4 +29,13 @@ describe('Tab', () => {
       expect(actual).toMatchSnapshot();
     });
   });
+
+  describe('business logic', () => {
+    it('should accept a working ref', () => {
+      const tref = React.createRef();
+      const { container } = render(<Tab ref={tref} />);
+      const button = container.querySelector('button');
+      expect(tref.current).toBe(button);
+    });
+  });
 });

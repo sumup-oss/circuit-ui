@@ -25,9 +25,9 @@ const DEFAULT_HEIGHT = '80px';
 
 const Wrapper = styled.div(
   ({ theme }) => css`
-    background: ${theme.colors.white};
     ${shadowDouble({ theme })};
     ${hideScrollbar()}
+    background: ${theme.colors.white};
     height: ${DEFAULT_HEIGHT};
     display: flex;
     overflow-x: auto;
@@ -41,6 +41,8 @@ const navigationBaseStyles = css`
 `;
 
 const stretchedStyles = ({ children, theme }) => css`
+  width: 100%;
+
   & [role='tab'] {
     flex: 1 1 auto;
     padding: 0 ${theme.spacings.kilo};

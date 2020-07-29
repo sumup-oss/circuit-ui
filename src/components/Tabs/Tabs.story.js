@@ -37,7 +37,12 @@ const tabs = [
 ];
 
 const Wrapper = styled.div`
-  max-width: 100vw;
+  width: 100vw;
+
+  ${(p) => p.theme.mq.kilo} {
+    width: auto;
+    max-width: 100vw;
+  }
 `;
 
 const TabsWithState = (props) => {
