@@ -34,7 +34,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   label: validation-hint;
   ${textKilo({ theme })};
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-top: ${theme.spacings.bit};
   color: ${theme.colors.n700};
   transition: color ${theme.transitions.default};
@@ -53,8 +53,10 @@ const iconStyles = (color: 'danger' | 'warning' | 'success') => (
   theme: Theme,
 ) => css`
   label: ${`validation-hint__icon--${color}`};
+  flex-shrink: 1;
   width: ${theme.iconSizes.kilo};
   height: ${theme.iconSizes.kilo};
+  margin-top: 0.15em;
   margin-right: ${theme.spacings.bit};
   color: ${theme.colors[color]};
 `;

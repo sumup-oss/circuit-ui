@@ -16979,10 +16979,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -17087,10 +17087,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -17315,10 +17315,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -17536,10 +17536,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -17548,8 +17548,12 @@ label + .circuit-2 {
 }
 
 .circuit-3 {
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
   width: 16px;
   height: 16px;
+  margin-top: 0.15em;
   margin-right: 4px;
   color: #DB4D4D;
 }
@@ -17636,10 +17640,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -17753,10 +17757,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -17869,10 +17873,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -17933,8 +17937,12 @@ label + .circuit-2 {
 }
 
 .circuit-3 {
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
   width: 16px;
   height: 16px;
+  margin-top: 0.15em;
   margin-right: 4px;
   color: #47995A;
 }
@@ -18021,10 +18029,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -18101,8 +18109,12 @@ label + .circuit-2 {
 }
 
 .circuit-3 {
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
   width: 16px;
   height: 16px;
+  margin-top: 0.15em;
   margin-right: 4px;
   color: #D8A413;
 }
@@ -18268,10 +18280,10 @@ label + .circuit-3 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -18416,10 +18428,10 @@ label + .circuit-3 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -18560,10 +18572,10 @@ label + .circuit-3 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -18709,10 +18721,10 @@ label + .circuit-3 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -18853,10 +18865,10 @@ label + .circuit-3 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -20155,10 +20167,10 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -20167,8 +20179,12 @@ exports[`Storyshots Forms/Select Invalid 1`] = `
 }
 
 .circuit-5 {
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
   width: 16px;
   height: 16px;
+  margin-top: 0.15em;
   margin-right: 4px;
   color: #DB4D4D;
 }
@@ -21444,10 +21460,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -21456,8 +21472,12 @@ label + .circuit-2 {
 }
 
 .circuit-3 {
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
   width: 16px;
   height: 16px;
+  margin-top: 0.15em;
   margin-right: 4px;
   color: #DB4D4D;
 }
@@ -21707,10 +21727,10 @@ label + .circuit-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   margin-top: 4px;
   color: #5C656F;
   -webkit-transition: color 120ms ease-in-out;
@@ -21718,8 +21738,12 @@ label + .circuit-2 {
 }
 
 .circuit-3 {
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
   width: 16px;
   height: 16px;
+  margin-top: 0.15em;
   margin-right: 4px;
   color: #D8A413;
 }
