@@ -99,6 +99,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -264,6 +265,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;

@@ -16,6 +16,7 @@ exports[`Button styles should render a button with icon 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -105,6 +106,7 @@ exports[`Button styles should render a disabled button 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -173,6 +175,7 @@ exports[`Button styles should render a kilo button 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -240,6 +243,7 @@ exports[`Button styles should render a mega button 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -307,6 +311,7 @@ exports[`Button styles should render a primary button by default 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -374,6 +379,7 @@ exports[`Button styles should render a secondary button 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -441,6 +447,7 @@ exports[`Button styles should render a stretched button 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -509,6 +516,7 @@ exports[`Button styles should render a tertiary button 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;

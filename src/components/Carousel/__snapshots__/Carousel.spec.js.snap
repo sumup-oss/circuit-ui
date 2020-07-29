@@ -328,6 +328,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -909,6 +910,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -1448,6 +1450,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -2044,6 +2047,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;

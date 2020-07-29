@@ -33,6 +33,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -120,6 +121,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -179,6 +181,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -236,6 +239,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -432,6 +436,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -507,6 +512,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;

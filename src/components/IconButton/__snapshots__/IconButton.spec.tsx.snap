@@ -16,6 +16,7 @@ exports[`IconButton should render with the default styles 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;

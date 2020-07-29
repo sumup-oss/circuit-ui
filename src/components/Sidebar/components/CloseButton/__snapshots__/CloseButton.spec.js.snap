@@ -16,6 +16,7 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -147,6 +148,7 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;

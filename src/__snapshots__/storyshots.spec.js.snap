@@ -293,6 +293,7 @@ exports[`Storyshots Components/Button Primary 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -360,6 +361,7 @@ exports[`Storyshots Components/Button Secondary 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -428,6 +430,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -492,6 +495,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -560,6 +564,7 @@ exports[`Storyshots Components/Button Tertiary 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -625,6 +630,7 @@ exports[`Storyshots Components/Button Tracking 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -692,6 +698,7 @@ exports[`Storyshots Components/Button With Icon 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -781,6 +788,7 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -840,6 +848,7 @@ exports[`Storyshots Components/Button/ButtonGroup Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -977,6 +986,7 @@ exports[`Storyshots Components/Button/CloseButton Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -1080,6 +1090,7 @@ exports[`Storyshots Components/Button/IconButton Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -1209,6 +1220,7 @@ exports[`Storyshots Components/Button/LoadingButton Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -1513,6 +1525,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -1572,6 +1585,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -1773,6 +1787,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -1832,6 +1847,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -2185,6 +2201,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -2573,6 +2590,7 @@ exports[`Storyshots Components/Carousel Composed 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -3149,6 +3167,7 @@ exports[`Storyshots Components/Carousel Stateful 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -3420,6 +3439,7 @@ exports[`Storyshots Components/Carousel/Buttons All Buttons 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -3809,6 +3829,7 @@ exports[`Storyshots Components/Hamburger Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -4032,6 +4053,7 @@ exports[`Storyshots Components/Header Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -4160,6 +4182,7 @@ exports[`Storyshots Components/Modal Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -4228,6 +4251,7 @@ exports[`Storyshots Components/Modal With Custom Styles 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -4296,6 +4320,7 @@ exports[`Storyshots Components/Modal With Footer 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -4364,6 +4389,7 @@ exports[`Storyshots Components/Modal With Header 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -4432,6 +4458,7 @@ exports[`Storyshots Components/Modal With Title And Close Button 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -4500,6 +4527,7 @@ exports[`Storyshots Components/Modal Without Close Button 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -4690,6 +4718,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -4749,6 +4778,7 @@ exports[`Storyshots Components/Modal/Embedded With Footer 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -5145,6 +5175,7 @@ exports[`Storyshots Components/Modal/Embedded With Title And Close Button 1`] = 
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -5366,6 +5397,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -5504,6 +5536,7 @@ exports[`Storyshots Components/Notification Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -5745,6 +5778,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -5912,6 +5946,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -6064,6 +6099,7 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -6202,6 +6238,7 @@ exports[`Storyshots Components/Notification/NotificationBanner Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -6390,6 +6427,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -6528,6 +6566,7 @@ exports[`Storyshots Components/Notification/NotificationList Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -6809,6 +6848,7 @@ exports[`Storyshots Components/Pagination Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -6883,6 +6923,7 @@ exports[`Storyshots Components/Pagination Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -6942,6 +6983,7 @@ exports[`Storyshots Components/Pagination Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -6999,6 +7041,7 @@ exports[`Storyshots Components/Pagination Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -7214,6 +7257,7 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -7276,6 +7320,7 @@ exports[`Storyshots Components/Pagination Many Pages 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -7600,6 +7645,7 @@ exports[`Storyshots Components/Popover Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -8668,6 +8714,7 @@ exports[`Storyshots Components/Sidebar Base 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -9008,6 +9055,7 @@ exports[`Storyshots Components/Step Form 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -9343,6 +9391,7 @@ exports[`Storyshots Components/Step Slider 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -9403,6 +9452,7 @@ exports[`Storyshots Components/Step Slider 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -9522,6 +9572,7 @@ exports[`Storyshots Components/Step Swiper 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -12348,6 +12399,7 @@ exports[`Storyshots Components/Tag Removable 1`] = `
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -24614,6 +24666,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -24686,6 +24739,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -24755,6 +24809,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;
@@ -24819,6 +24874,7 @@ HTMLCollection [
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   font-size: 16px;
   line-height: 24px;

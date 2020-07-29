@@ -88,6 +88,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   justify-content: center;
   width: auto;
   height: auto;
+  margin: 0;
   cursor: pointer;
   ${textMega({ theme })};
   text-align: center;
