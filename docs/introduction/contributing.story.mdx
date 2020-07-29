@@ -60,7 +60,7 @@ In some cases, you can also introduce a completely new version of the component 
 
 ## Development workflow
 
-To work on an issue, please [fork this repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and create a new branch on your local fork. When you're happy and would like to propose that changeset to be merged back upstream, [open a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) to merge from your local `origin/master` to `upstream/master`.
+To work on an issue, please [fork this repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and create a new branch on your local fork. When you're happy and would like to propose that changeset to be merged back upstream, [open a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) to merge from your local `origin/main` to `upstream/main`.
 
 Once you've cloned the repository, navigate to the project folder in your terminal. Run the following command to install all dependencies:
 
@@ -153,9 +153,9 @@ We have a couple of special branches that are automatically released whenever
 you merge code into them.
 
 - **`beta`** — This is a branch you can use to test your changes integrated with other branches before it is ready to be PR'd to `canary`. It is also useful if you need to deploy the changes somewhere to test them. `beta` is a throw-away branch that can be recreated from `canary` at any time.
-- **`canary`** - The step before `master`. This is where we prepare a group of changes for the next release. Code on `canary` should be tested and stable. Usually, `canary` is a couple of commits ahead of `master`.
-- **`master`** - A merge to `master` will release a new version of the library. Code on `master` is stable and production-tested.
-- **`next`** - This branch is used to develop the next major version in parallel. It is the only branch that can contain breaking changes.
+- **`canary`** - The step before `main`. This is where we prepare a group of changes for the next release. Code on `canary` should be tested and stable. Usually, `canary` is a couple of commits ahead of `main`.
+- **`main`** - A merge to `main` will release a new version of the library. Code on `main` is stable and production-tested.
+- **`alpha`** - This branch is used to develop the next major version in parallel. It is the only branch that can contain breaking changes.
 
 When you merge into one of these release branches, `semantic-release` runs in CI and automatically:
 
