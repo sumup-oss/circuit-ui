@@ -2,10 +2,10 @@
 
 # SumUp Design Tokens
 
+Visual primitives such as typography, color, and spacing that are shared across platforms. Part of the SumUp Design System.
+
 [![License](https://img.shields.io/badge/license--lightgrey.svg)](https://github.com/sumup-oss/design-tokens/blob/main/LICENSE)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/sumup-oss/icons/blob/main/CODE_OF_CONDUCT.md)
-
-Visual primitives such as typography, color, and spacing that are shared across platforms. Part of the SumUp Design System.
 
 </div>
 
