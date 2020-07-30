@@ -2,9 +2,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { List, Text } from '@sumup/circuit-ui';
 
-const Ordered = () => <List ordered>primary</List>;
-
-const Unordered = () => <List unordered>Secondary</List>;
+const Base = () => (
+  <>
+    <List ordered>primary</List>
+    <List unordered>Secondary</List>
+    <List unordered={!true}>Secondary</List>
+  </>
+);
 
 const RedList = styled(List)`
   color: red;

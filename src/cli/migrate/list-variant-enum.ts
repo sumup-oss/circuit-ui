@@ -20,6 +20,7 @@ import { findLocalNames } from './utils';
 const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
+  const filePath = file.path;
 
   const components = findLocalNames(j, root, 'List');
 
@@ -37,6 +38,18 @@ const transform: Transform = (file, api) => {
             type: 'JSXIdentifier',
             name: variant,
           },
+        })
+        .filter((nodePath) => {
+          const hasValue = Boolean(nodePath.value.value);
+          if (hasValue) {
+            console.error(
+              [
+                `Cannot migrate the "${component}" component automatically,`,
+                `please apply the change manually.\n  in ${filePath}`,
+              ].join(' '),
+            );
+          }
+          return !hasValue;
         })
         .replaceWith(() =>
           j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral(variant)),

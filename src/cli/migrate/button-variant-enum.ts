@@ -20,6 +20,7 @@ import { findLocalNames } from './utils';
 function transformFactory(
   j: JSCodeshift,
   root: Collection,
+  filePath: string,
   buttonName: string,
 ): void {
   const components = findLocalNames(j, root, buttonName);
@@ -38,6 +39,18 @@ function transformFactory(
             type: 'JSXIdentifier',
             name: variant,
           },
+        })
+        .filter((nodePath) => {
+          const hasValue = Boolean(nodePath.value.value);
+          if (hasValue) {
+            console.error(
+              [
+                `Cannot migrate the "${component}" component automatically,`,
+                `please apply the change manually.\n  in ${filePath}`,
+              ].join(' '),
+            );
+          }
+          return !hasValue;
         })
         .replaceWith(() =>
           j.jsxAttribute(j.jsxIdentifier('variant'), j.stringLiteral(variant)),
@@ -60,9 +73,10 @@ function transformFactory(
 const transform: Transform = (file, api) => {
   const j = api.jscodeshift;
   const root = j(file.source);
+  const filePath = file.path;
 
-  transformFactory(j, root, 'Button');
-  transformFactory(j, root, 'LoadingButton');
+  transformFactory(j, root, filePath, 'Button');
+  transformFactory(j, root, filePath, 'LoadingButton');
 
   return root.toSource();
 };

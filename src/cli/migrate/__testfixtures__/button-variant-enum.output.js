@@ -2,7 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Button, LoadingButton, Text } from '@sumup/circuit-ui';
 
-const Primary = () => <Button variant="primary">primary</Button>;
+const Primary = () => (
+  <>
+    <Button variant="primary">primary</Button>
+    <Button primary={!true}>primary</Button>
+  </>
+);
 
 const Secondary = () => <Button variant="secondary">Secondary</Button>;
 

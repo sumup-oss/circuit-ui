@@ -33,6 +33,7 @@ module.exports = require('@sumup/foundry/eslint')(
           // jscodeshift expect no return value for files
           // that should not be transformed.
           'consistent-return': 'off',
+          'no-console': 'off',
         },
       },
     ],
