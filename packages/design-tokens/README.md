@@ -1,9 +1,9 @@
-[![License](https://img.shields.io/badge/license--lightgrey.svg)](https://github.com/sumup-oss/design-tokens/LICENSE)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
-
 <div align="center">
 
 # SumUp Design Tokens
+
+[![License](https://img.shields.io/badge/license--lightgrey.svg)](https://github.com/sumup-oss/design-tokens/blob/main/LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](https://github.com/sumup-oss/icons/blob/main/CODE_OF_CONDUCT.md)
 
 Visual primitives such as typography, color, and spacing that are shared across platforms. Part of the SumUp Design System.
 
@@ -30,7 +30,7 @@ $ npm install @sumup/design-tokens
 
 ## Usage
 
-The package currently exports a single `light` theme that is meant to be used in combination with the [`emotion-theming`](https://emotion.sh/docs/theming) package.
+The package currently exports a single `light` theme that is meant to be used with SumUp's component library, [Circuit UI](https://github.com/sumup-oss/circuit-ui). Pass the theme to the `ThemeProvider` from the [`emotion-theming`](https://emotion.sh/docs/theming) package:
 
 ```jsx
 import { light } from '@sumup/design-tokens';
@@ -47,6 +47,8 @@ const Bold = styled.strong`
   font-weight: ${(p) => p.theme.fontWeight.bold};
 `;
 ```
+
+The theme is a plain JavaScript object, so you can use it in other ways, too.
 
 ### With TypeScript
 

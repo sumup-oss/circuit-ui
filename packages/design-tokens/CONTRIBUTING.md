@@ -21,8 +21,8 @@ If you feel another member of the community violated our CoC or you are experien
 ### Submitting a PR
 
 1. Find an existing issue to work on or follow `Submitting an issue` to create one that you're also going to fix. Make sure to notify that you're working on a fix for the issue you picked.
-2. Branch out from latest `master`.
-3. Code, add, commit and push your changes in your branch.
+2. Branch out from the latest `main` branch.
+3. Code, add, commit and push your changes in your feature branch.
 4. Make sure that tests and linter(s) pass locally for you.
 5. Submit a PR.
-6. Collaborate with the codeowners/reviewers to merge this in `master`.
+6. Collaborate with the codeowners/reviewers to merge your changes to `main`.
