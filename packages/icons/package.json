@@ -27,7 +27,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
-    "@sumup/foundry": "^2.1.0",
+    "@sumup/foundry": "^3.0.0",
     "@types/babel__core": "^7.1.7",
     "@types/dedent": "^0.7.0",
     "@types/lodash": "^4.14.149",
