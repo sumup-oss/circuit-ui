@@ -28,5 +28,6 @@
     ]
   },
   "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*/__tests__/*", "**/*/__testfixtures__/*"],
   "typeRoots": ["./node_modules/@types", "./src/types/"]
 }
