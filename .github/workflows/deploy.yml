@@ -3,7 +3,7 @@ name: Deploy documentation
 on:
   push:
     branches:
-      - canary
+      - main
 
 jobs:
   deploy:
@@ -33,7 +33,7 @@ jobs:
       - name: Build docs
         run: yarn predeploy
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3-beta
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_BRANCH: canary
