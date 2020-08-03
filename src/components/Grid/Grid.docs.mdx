@@ -1,0 +1,45 @@
+import { Status, Story } from '../../../.storybook/components';
+
+import Grid from './Grid';
+
+# Grid
+
+<Status.Stable />
+
+The grid provided by Circuit UI is a float-based grid. We use
+this grid in applications where we need to support older browsers, such as Android and iOS webviews.
+
+The [static CSS](Advanced/Static-CSS) does not include a grid system.
+
+## Static columns
+
+Sometimes you need the same type of grid behavior on all viewports. For that
+scenario, you can use the normal `span` attribute of the grid.
+
+<Story id="layout-grid-grid--static-columns" />
+
+## Responsive columns
+
+You can use the following [breakpoints](Advanced/Theme) to define the
+responsive behavior of your grid:
+
+- `untilKilo`
+- `kilo`
+- `mega`
+- `giga`
+- `tera`
+
+<Story id="layout-grid-grid--responsive-columns" />
+
+Default refers to the smallest viewpoint.
+
+## Skipping columns
+
+Sometimes you want to skip a column. For that, you can use the `skip` prop on
+the `Col` component.
+
+<Story id="layout-grid-grid--skipping-columns" />
+
+## Responsive skipping
+
+<Story id="layout-grid-grid--responsive-skipping" />

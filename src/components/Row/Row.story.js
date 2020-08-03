@@ -17,6 +17,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
+import docs from '../Grid/Grid.docs.mdx';
 import Col from '../Col';
 
 import Row from './Row';
@@ -24,6 +25,9 @@ import Row from './Row';
 export default {
   title: 'Layout/Grid/Row',
   component: Row,
+  parameters: {
+    docs: { page: docs },
+  },
 };
 
 const StyledCol = styled(Col)(

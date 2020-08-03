@@ -20,6 +20,15 @@ import Col from '../Col';
 import Row from '../Row';
 
 import Grid from './Grid';
+import docs from './Grid.docs.mdx';
+
+export default {
+  title: 'Layout/Grid/Grid',
+  component: Grid,
+  parameters: {
+    docs: { page: docs },
+  },
+};
 
 const StyledCol = styled(Col)`
   color: ${(p) => p.theme.colors.white};
@@ -45,11 +54,6 @@ const StyledRow = styled(Row)`
   border: 2px solid ${(p) => p.theme.colors.y100};
   margin-bottom: 8px;
 `;
-
-export default {
-  title: 'Layout/Grid/Grid',
-  component: Grid,
-};
 
 export const staticColumns = () => (
   <div style={{ width: '100vw' }}>
