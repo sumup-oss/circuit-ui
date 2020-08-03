@@ -60,7 +60,7 @@ import {
   ModalProvider,
   ModalWrapper,
   ModalHeader,
-  Button
+  Button,
 } from '@sumup/circuit-ui';
 
 const SayHello = ({ name }) => {
@@ -72,7 +72,7 @@ const SayHello = ({ name }) => {
           <ModalHeader title="This is a modal" onClose={onClose} />
           Hello {name}
         </ModalWrapper>
-      )
+      ),
     });
   };
   return <Button onClick={showModal}>Say hello</Button>;
@@ -103,21 +103,21 @@ const Page = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
-    setModalOpen(prev => !prev);
+    setModalOpen((prev) => !prev);
   };
 
   return (
     <>
       <Button onClick={toggleModal}>Open modal</Button>
 
-      {isModalOpen && (
-        <Modal>
+      <Modal isOpen={isModalOpen} onClose={toggleModal}>
+        {({ onClose }) => (
           <ModalWrapper>
-            <ModalHeader onClose={toggleModal} title="Hello" />
+            <ModalHeader onClose={onClose} title="Hello" />
             The modal is open!
           </ModalWrapper>
-        </Modal>
-      )}
+        )}
+      </Modal>
     </>
   );
 };
