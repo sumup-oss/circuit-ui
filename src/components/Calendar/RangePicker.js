@@ -22,7 +22,7 @@ import 'react-dates/initialize';
 import { CalendarWrapper } from './components';
 
 const CustomArrow = styled(ArrowRight)`
-  color: ${({ theme }) => theme.colors.b500};
+  color: ${({ theme }) => theme.colors.b300};
 `;
 
 const CustomCloseIcon = styled(Cross)`
