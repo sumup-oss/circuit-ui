@@ -69,12 +69,7 @@ const withThemeProvider = (storyFn) => (
 
 addDecorator(withA11y);
 addDecorator(withKnobs);
-
-// These decorators need to be disabled for StoryShots to work.
-if (!__TEST__) {
-  addDecorator(withStoryStyles);
-}
-
+addDecorator(withStoryStyles);
 addDecorator(withThemeProvider);
 
 const withTrackingAction = (storyFn) => (
