@@ -118,7 +118,7 @@ const primaryStyles = ({
   variant === 'primary' &&
   css`
     label: button--primary;
-    background-color: ${theme.colors.r500};
+    background-color: ${theme.colors.p500};
     border-color: ${theme.colors.p500};
     color: ${theme.colors.white};
 
