@@ -18,8 +18,8 @@ import React from 'react';
 import SlideImage from './SlideImage';
 
 const image = {
-  src: 'https://placedog.net/800/500',
-  alt: 'random pic',
+  src: 'https://source.unsplash.com/QU-zhliIV8Q/1600x900',
+  alt: 'Aerial photo of turbulent blue ocean waves',
 };
 
 describe('SlideImage', () => {

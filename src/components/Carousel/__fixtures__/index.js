@@ -13,24 +13,23 @@
  * limitations under the License.
  */
 
-// eslint-disable-next-line import/prefer-default-export
 export const SLIDES = [
   {
     image: {
-      src: 'https://placedog.net/600',
-      alt: 'doggy',
+      src: 'https://source.unsplash.com/QU-zhliIV8Q/1600x900',
+      alt: 'Aerial photo of turbulent blue ocean waves',
     },
   },
   {
     image: {
-      src: 'https://placedog.net/700',
-      alt: 'doggy dog',
+      src: 'https://source.unsplash.com/TpHmEoVSmfQ/1600x900',
+      alt: 'Aerial photo of turbulent turquoise ocean waves',
     },
   },
   {
     image: {
-      src: 'https://placedog.net/800',
-      alt: 'woof woof',
+      src: 'https://source.unsplash.com/-lpbnspYkJg/1600x900',
+      alt: 'Aerial photo of turbulent ocean water with white foam',
     },
   },
 ];

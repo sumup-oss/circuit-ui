@@ -24,11 +24,11 @@ import YesOrNoSlider from './examples/YesOrNoSlider';
 import MultiStepForm from './examples/MultiStepForm';
 
 const IMAGES = [
-  'https://placedog.net/500/500',
-  'https://placedog.net/600/600',
-  'https://placedog.net/700/700',
-  'https://placedog.net/800/800',
-  'https://placedog.net/900/900',
+  'https://source.unsplash.com/QU-zhliIV8Q/1600x900',
+  'https://source.unsplash.com/6ArTTluciuA/1600x900',
+  'https://source.unsplash.com/uanoYn1AmPs/1600x900',
+  'https://source.unsplash.com/Ai2TRdvI6gM/1600x900',
+  'https://source.unsplash.com/wxGwllldlIQ/1600x900',
 ];
 const STEP_DURATION = 2000;
 const ANIMATION_DURATION = 300;

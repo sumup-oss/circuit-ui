@@ -40,7 +40,10 @@ export default {
 export const onlyImage = () => (
   <div style={{ width: '600px', maxWidth: '90vw' }}>
     <Slide>
-      <Image src="https://placedog.net/800/600" alt="random puppy" />
+      <Image
+        src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
+        alt="Aerial photo of turbulent turquoise ocean waves"
+      />
     </Slide>
   </div>
 );
@@ -48,7 +51,10 @@ export const onlyImage = () => (
 export const textAndImage = () => (
   <div style={{ width: '600px', maxWidth: '90vw' }}>
     <Slide>
-      <Image src="https://placedog.net/800/600" alt="random puppy" />
+      <Image
+        src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
+        alt="Aerial photo of turbulent turquoise ocean waves"
+      />
       <StyledHeading size="exa">Get The SumUp Card Reader Today!</StyledHeading>
     </Slide>
   </div>
