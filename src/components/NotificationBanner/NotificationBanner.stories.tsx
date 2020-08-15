@@ -16,7 +16,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 
-import { base as Notification } from '../Notification/Notification.story';
+import { base as Notification } from '../Notification/Notification.stories';
 
 import { NotificationBanner } from './NotificationBanner';
 
