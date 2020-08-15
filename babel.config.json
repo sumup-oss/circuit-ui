@@ -41,8 +41,7 @@
       "plugins": [
         "@babel/plugin-proposal-class-properties",
         "lodash",
-        "react-docgen",
-        "macros"
+        "react-docgen"
       ],
       "presets": [
         [
