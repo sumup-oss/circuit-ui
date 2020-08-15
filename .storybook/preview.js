@@ -7,7 +7,7 @@ import { light } from '@sumup/design-tokens';
 import { TrackingRoot, TrackingView } from '@sumup/collector';
 
 import { BaseStyles } from '../src';
-import { components } from './util/theme';
+import { theme, components } from './util/theme';
 import { sortStories } from './util/story-helpers';
 
 // Add group and story names to the sort order to explicitly order them.
@@ -34,19 +34,16 @@ const SORT_ORDER = {
   Icons: [],
 };
 
-addParameters({
+export const parameters = {
+  layout: 'centered',
+  actions: { argTypesRegex: '^on.*' },
   options: {
     storySort: sortStories(SORT_ORDER),
-    showRoots: true,
   },
-  docs: { components },
-});
-
-export const parameters = {
-  actions: { argTypesRegex: '^on.*' },
+  docs: { theme, components },
 };
 
-const Story = styled.div`
+const StoryStyles = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -58,24 +55,31 @@ const Story = styled.div`
   }
 `;
 
-const withStoryStyles = (storyFn) => {
-  return <Story>{storyFn()}</Story>;
+const withStoryStyles = (Story) => {
+  return (
+    <StoryStyles>
+      <Story />
+    </StoryStyles>
+  );
 };
 
-const withThemeProvider = (storyFn) => (
+const withThemeProvider = (Story) => (
   <ThemeProvider theme={light}>
     <BaseStyles />
-    {storyFn()}
+    <Story />
   </ThemeProvider>
 );
 
-addDecorator(withStoryStyles);
-addDecorator(withThemeProvider);
-
-const withTrackingAction = (storyFn) => (
+const withTrackingAction = (Story) => (
   <TrackingRoot name="tracking-root" onDispatch={action('Tracking event')}>
-    <TrackingView name="tracking-view">{storyFn()}</TrackingView>
+    <TrackingView name="tracking-view">
+      <Story />
+    </TrackingView>
   </TrackingRoot>
 );
 
-addDecorator(withTrackingAction);
+export const decorators = [
+  withThemeProvider,
+  // withStoryStyles,
+  withTrackingAction,
+];
