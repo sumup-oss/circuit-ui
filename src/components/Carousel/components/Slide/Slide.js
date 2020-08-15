@@ -62,12 +62,12 @@ const animationStyles = ({
   overflow: hidden;
   will-change: width;
   ${isAnimating &&
-    css`
-      animation-name: ${animationName};
-      animation-duration: ${animationDuration}ms;
-      animation-fill-mode: forwards;
-      animation-timing-function: ${theme.transitions.easeInOutCubic};
-    `};
+  css`
+    animation-name: ${animationName};
+    animation-duration: ${animationDuration}ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ${theme.transitions.easeInOutCubic};
+  `};
 `;
 const Inner = styled('div')(animationStyles);
 

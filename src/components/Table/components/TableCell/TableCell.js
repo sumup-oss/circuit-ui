@@ -37,11 +37,11 @@ const presentationStyles = ({ theme, role, header }) =>
     display: none;
 
     ${header &&
-      css`
-        font-size: ${theme.typography.text.kilo.fontSize};
-        font-weight: ${theme.fontWeight.bold};
-        padding: ${theme.spacings.byte} ${theme.spacings.giga};
-      `}
+    css`
+      font-size: ${theme.typography.text.kilo.fontSize};
+      font-weight: ${theme.fontWeight.bold};
+      padding: ${theme.spacings.byte} ${theme.spacings.giga};
+    `}
 
     ${theme.mq.untilMega} {
       display: table-cell;
@@ -74,9 +74,9 @@ const condensedPresentationStyles = ({ role, header, condensed, theme }) =>
     padding: ${theme.spacings.kilo} ${theme.spacings.mega};
     ${theme.typography.text.kilo};
     ${header &&
-      css`
-        padding: ${theme.spacings.byte} ${theme.spacings.mega};
-      `}
+    css`
+      padding: ${theme.spacings.byte} ${theme.spacings.mega};
+    `}
   `;
 
 /**
