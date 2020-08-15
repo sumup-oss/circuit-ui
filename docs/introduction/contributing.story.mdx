@@ -99,6 +99,28 @@ yarn link
 yarn link @sumup/circuit-ui
 ```
 
+### Visual testing
+
+Visual testing is process of detecting the visual UI changes.
+You can run visual tests at any time with a visual user interface. 
+Visual errors happen, but catching them on time and having visual tests implemented will help you increase quality and accelerate delivery.
+
+Storybook is using [Chromatic] (https://www.chromatic.com/) - visual testing service made by Storybook maintainers. 
+Chromatic helps ship the UI component much faster. 
+
+- **UI testing feature in Chromatic:**
+
+In **manage section** you can enable UI tests (with supported browsers Chrome and Firefox). 
+
+Once you run the Chromatic build on a branch the test baseline is created. This way you are capturing snapshot of each story and setting it as test baseline.
+Every next build will generate new snapshots and compare them against the baseline and detect the UI changes. 
+This means the tests are really easy to maintain and keep up to date.
+
+In Chromatic UI you can see a list of all changes on every build page.
+You can verify the changes and mark it as **Accept** change or **Deny** change.
+If all the changes are accepted the build will Pass and for the Denied changes the build will Fail that will require to make code changes. 
+Once the build has passed, chromatic will update the PR check to reflect the UI tests state.
+
 ## Development Principles
 
 When developing components in Circuit UI, we have a few development principles

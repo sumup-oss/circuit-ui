@@ -38,6 +38,14 @@ If you feel another member of the community violated our CoC or you are experien
 
 If you have ideas for how we could improve this readme or the project in general, [let us know](https://github.com/sumup-oss/circuit-ui/issues) or [contribute some](https://github.com/sumup-oss/circuit-ui/edit/main/README.md)!
 
+## Thanks
+
+[![Chromatic logo](https://raw.githubusercontent.com/sumup-oss/circuit-ui/main/.storybook/public/images/chromatic.svg?sanitize=true)](https://www.chromatic.com/)
+
+Thanks to [Chromatic](https://www.chromatic.com/) for providing the visual testing platform that helps us catch unexpected changes on time.
+
 ## About SumUp
+
+[![SumUp logo](https://raw.githubusercontent.com/sumup-oss/assets/main/sumup-logo.svg?sanitize=true)](https://sumup.com)
 
 [SumUp](https://sumup.com) is a mobile-point of sale provider. It is our mission to make easy and fast card payments a reality across the _entire_ world. You can pay with SumUp in more than 30 countries, already. Our engineers work in Berlin, Cologne, Sofia, and Sāo Paulo. They write code in JavaScript, Swift, Ruby, Elixir, Erlang, and much more. Want to come work and with us? [Head to our careers page](https://sumup.com/careers) to find out more.

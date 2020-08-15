@@ -81,7 +81,7 @@ const CarouselSlider = ({ images = [], ...stepProps }) => (
             <SliderImage
               key={src}
               src={src}
-              alt="random pic"
+              alt="A random picture from Unsplash"
               animationDuration={state.animationDuration}
             />
           ))}

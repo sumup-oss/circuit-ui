@@ -79,7 +79,7 @@ const YesOrNoSlider = ({ images, ...stepProps }) => {
           <Swipeable onSwiped={(eventData) => handleSwipe(eventData, actions)}>
             <SliderImage
               src={images[state.step]}
-              alt="random pic"
+              alt="A random picture from Unsplash"
               swipe={swipe}
             />
           </Swipeable>

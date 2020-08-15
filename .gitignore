@@ -9,7 +9,7 @@ jest-test-results.json
 __coverage__
 __reports__
 dist
-public
+/public
 lib
 .out
 .docz

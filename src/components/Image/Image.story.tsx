@@ -28,7 +28,7 @@ export default {
 
 export const base = () => (
   <Image
-    src="https://source.unsplash.com/random"
-    alt="A random image from Unsplash"
+    src="https://source.unsplash.com/QU-zhliIV8Q/1600x900"
+    alt="Aerial photo of turbulent blue-turquoise ocean waves"
   />
 );

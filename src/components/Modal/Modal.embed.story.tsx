@@ -89,7 +89,7 @@ export const withCustomStyles = () => {
     height: 100%;
     width: 50%;
     background: no-repeat center / cover
-      url('https://source.unsplash.com/random');
+      url('https://source.unsplash.com/9K9ipjhDdks/900x1600');
   `;
 
   return (

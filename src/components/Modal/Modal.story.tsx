@@ -157,7 +157,7 @@ export const withCustomStyles = () => {
     height: 100%;
     width: 50%;
     background: no-repeat center / cover
-      url('https://source.unsplash.com/random');
+      url('https://source.unsplash.com/S4W2AU0t3lw/900x1600');
   `;
 
   return (

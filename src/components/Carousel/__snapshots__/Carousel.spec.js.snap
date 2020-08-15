@@ -414,9 +414,9 @@ exports[`Carousel styles should render with children as a function 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="doggy"
+              alt="Aerial photo of turbulent blue ocean waves"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/600"
+              src="https://source.unsplash.com/QU-zhliIV8Q/1600x900"
             />
           </div>
         </div>
@@ -437,9 +437,9 @@ exports[`Carousel styles should render with children as a function 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="doggy dog"
+              alt="Aerial photo of turbulent turquoise ocean waves"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/700"
+              src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
             />
           </div>
         </div>
@@ -460,9 +460,9 @@ exports[`Carousel styles should render with children as a function 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="woof woof"
+              alt="Aerial photo of turbulent ocean water with white foam"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/800"
+              src="https://source.unsplash.com/-lpbnspYkJg/1600x900"
             />
           </div>
         </div>
@@ -996,9 +996,9 @@ exports[`Carousel styles should render with children as a node 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="doggy"
+              alt="Aerial photo of turbulent blue ocean waves"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/600"
+              src="https://source.unsplash.com/QU-zhliIV8Q/1600x900"
             />
           </div>
         </div>
@@ -1019,9 +1019,9 @@ exports[`Carousel styles should render with children as a node 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="doggy dog"
+              alt="Aerial photo of turbulent turquoise ocean waves"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/700"
+              src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
             />
           </div>
         </div>
@@ -1042,9 +1042,9 @@ exports[`Carousel styles should render with children as a node 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="woof woof"
+              alt="Aerial photo of turbulent ocean water with white foam"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/800"
+              src="https://source.unsplash.com/-lpbnspYkJg/1600x900"
             />
           </div>
         </div>
@@ -1577,9 +1577,9 @@ exports[`Carousel styles should render with default paused styles 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="doggy"
+              alt="Aerial photo of turbulent blue ocean waves"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/600"
+              src="https://source.unsplash.com/QU-zhliIV8Q/1600x900"
             />
           </div>
         </div>
@@ -1600,9 +1600,9 @@ exports[`Carousel styles should render with default paused styles 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="doggy dog"
+              alt="Aerial photo of turbulent turquoise ocean waves"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/700"
+              src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
             />
           </div>
         </div>
@@ -1623,9 +1623,9 @@ exports[`Carousel styles should render with default paused styles 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="woof woof"
+              alt="Aerial photo of turbulent ocean water with white foam"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/800"
+              src="https://source.unsplash.com/-lpbnspYkJg/1600x900"
             />
           </div>
         </div>
@@ -2133,9 +2133,9 @@ exports[`Carousel styles should render with default styles 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="doggy"
+              alt="Aerial photo of turbulent blue ocean waves"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/600"
+              src="https://source.unsplash.com/QU-zhliIV8Q/1600x900"
             />
           </div>
         </div>
@@ -2156,9 +2156,9 @@ exports[`Carousel styles should render with default styles 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="doggy dog"
+              alt="Aerial photo of turbulent turquoise ocean waves"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/700"
+              src="https://source.unsplash.com/TpHmEoVSmfQ/1600x900"
             />
           </div>
         </div>
@@ -2179,9 +2179,9 @@ exports[`Carousel styles should render with default styles 1`] = `
             class="circuit-2 circuit-3 circuit-4"
           >
             <img
-              alt="woof woof"
+              alt="Aerial photo of turbulent ocean water with white foam"
               class="circuit-0 circuit-1"
-              src="https://placedog.net/800"
+              src="https://source.unsplash.com/-lpbnspYkJg/1600x900"
             />
           </div>
         </div>
