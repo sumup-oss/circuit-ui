@@ -1,5 +1,4 @@
 import { Status, Props, Story } from '../../../.storybook/components';
-import { CurrencyInput } from './CurrencyInput';
 
 # CurrencyInput
 
@@ -8,7 +7,7 @@ import { CurrencyInput } from './CurrencyInput';
 The CurrencyInput component indicates to the user that a number should be entered in a given currency.
 
 <Story id="forms-input-currencyinput--base" />
-<Props of={CurrencyInput} />
+<Props />
 
 ⚠️ The CurrencyInput uses `@sumup/intl` to format the currency value. It wraps the [ECMAScript Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) which is [supported by all modern browsers](https://caniuse.com/#search=NumberFormat) but not IE11. If you need to support older browsers, you need to include [a polyfill for the `Intl.NumberFormat` API](https://formatjs.io/docs/polyfills/intl-numberformat).
 
