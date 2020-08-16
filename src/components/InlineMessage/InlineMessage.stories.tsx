@@ -15,10 +15,11 @@
 
 import React from 'react';
 
+import { Stack } from '../../../.storybook/components';
 import UntypedCard from '../Card';
 
 import docs from './InlineMessage.docs.mdx';
-import { InlineMessage } from './InlineMessage';
+import { InlineMessage, InlineMessageProps } from './InlineMessage';
 
 // FIXME: Remove once the Card component has been migrated to TypeScript.
 const Card = UntypedCard as any;
@@ -31,41 +32,43 @@ export default {
   },
 };
 
-export const base = () => (
-  <Card>
-    <InlineMessage variant="warning">
-      Something might go terribly wrong.
-    </InlineMessage>
+export const Base = (args: InlineMessageProps) => (
+  <Card spacing={args.size}>
+    <InlineMessage {...args}>Something might go terribly wrong.</InlineMessage>
   </Card>
 );
 
-export const variants = () => (
-  <Card>
-    <InlineMessage variant="success">
+Base.args = {
+  variant: 'warning',
+};
+
+export const Variants = (args: InlineMessageProps) => (
+  <Card spacing={args.size}>
+    <InlineMessage {...args} variant="success">
       Something has gone wonderfully right.
     </InlineMessage>
 
-    <InlineMessage variant="warning">
+    <InlineMessage {...args} variant="warning">
       Something might go sideways.
     </InlineMessage>
 
-    <InlineMessage variant="danger">
+    <InlineMessage {...args} variant="danger">
       Something has gone terribly wrong.
     </InlineMessage>
   </Card>
 );
 
-export const sizes = () => (
-  <>
+export const Sizes = (args: InlineMessageProps) => (
+  <Stack>
     <Card spacing="mega">
-      <InlineMessage variant="success" size="mega">
+      <InlineMessage {...args} variant="success" size="mega">
         Something has gone wonderfully right with a smaller card.
       </InlineMessage>
     </Card>
     <Card>
-      <InlineMessage variant="success" size="giga">
+      <InlineMessage {...args} variant="success" size="giga">
         Something has gone wonderfully right with a larger card.
       </InlineMessage>
     </Card>
-  </>
+  </Stack>
 );

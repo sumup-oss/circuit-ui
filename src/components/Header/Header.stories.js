@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { boolean } from '@storybook/addon-knobs';
 
 import Hamburger from '../Hamburger';
 
@@ -25,8 +24,13 @@ export default {
   component: Header,
 };
 
-export const base = () => (
-  <Header title="Title" mobileOnly={boolean('mobileOnly')}>
+export const Base = (args) => (
+  <Header {...args}>
     <Hamburger size="kilo" />
   </Header>
 );
+
+Base.args = {
+  title: 'Title',
+  mobileOnly: false,
+};

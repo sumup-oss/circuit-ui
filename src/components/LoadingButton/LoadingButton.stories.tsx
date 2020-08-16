@@ -14,7 +14,6 @@
  */
 
 import React, { useState } from 'react';
-import { select } from '@storybook/addon-knobs';
 
 import docs from '../Button/Button.docs.mdx';
 
@@ -28,7 +27,7 @@ export default {
   },
 };
 
-const StatefulLoadingButton = (props: Partial<LoadingButtonProps>) => {
+export const Base = (args: LoadingButtonProps) => {
   const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
@@ -39,21 +38,8 @@ const StatefulLoadingButton = (props: Partial<LoadingButtonProps>) => {
   };
 
   return (
-    <LoadingButton
-      isLoading={loading}
-      loadingLabel="Loading"
-      onClick={handleClick}
-      variant={select(
-        'Variant',
-        ['primary', 'secondary', 'tertiary'],
-        'primary',
-      )}
-      size={select('Size', ['kilo', 'mega'], 'mega')}
-      {...props}
-    >
+    <LoadingButton isLoading={loading} onClick={handleClick} {...args}>
       Things take time
     </LoadingButton>
   );
 };
-
-export const Base = () => <StatefulLoadingButton />;

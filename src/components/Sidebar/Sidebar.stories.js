@@ -14,10 +14,9 @@
  */
 
 /** @jsx jsx */
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { text } from '@storybook/addon-knobs';
 import {
   House,
   HouseFilled,
@@ -36,25 +35,33 @@ import Separator from './components/Separator';
 
 import Sidebar from '.';
 
-const Viewport = styled.div`
-  height: 100vh;
-  width: 100vw;
-`;
-
 export default {
   title: 'Components/Sidebar',
   component: Sidebar,
+  subcomponents: {
+    Header: Sidebar.Header,
+    NavList: Sidebar.NavList,
+    NavItem: Sidebar.NavItem,
+    Aggregator: Sidebar.Aggregator,
+    Separator: Sidebar.Separator,
+    Footer: Sidebar.Footer,
+  },
   parameters: {
+    layout: 'fullscreen',
     docs: { page: docs },
   },
 };
 
-const SidebarWithState = () => {
+const Viewport = styled.div`
+  min-height: 500px;
+`;
+
+export const Base = (args) => {
   const [open, setOpen] = useState(true);
   const [selected, setSelected] = useState(1);
 
   return (
-    <Fragment>
+    <Viewport>
       {!open && (
         <Button
           onClick={() => setOpen(true)}
@@ -66,75 +73,66 @@ const SidebarWithState = () => {
         </Button>
       )}
 
-      <Viewport>
-        <Sidebar
-          open={open}
-          onClose={() => setOpen(false)}
-          closeButtonLabel="close-button"
-          tracking={{
-            label: text('Tracking Label - onClose', 'trackingId-onClose'),
-          }}
-        >
-          <Sidebar.Header>Header</Sidebar.Header>
-          <Sidebar.NavList>
+      <Sidebar {...args} open={open} onClose={() => setOpen(false)}>
+        <Sidebar.Header>Header</Sidebar.Header>
+        <Sidebar.NavList>
+          <Sidebar.NavItem
+            key="home"
+            label="Home"
+            selected={selected === 1}
+            onClick={() => setSelected(1)}
+            defaultIcon={<House size="large" />}
+            selectedIcon={<HouseFilled size="large" />}
+            tracking={{ label: 'trackingId-home' }}
+          />
+          <Sidebar.Aggregator
+            key="list"
+            selected={selected === 2}
+            label="List"
+            defaultIcon={<Transactions size="large" />}
+            selectedIcon={<TransactionsFilled size="large" />}
+          >
             <Sidebar.NavItem
-              key="home"
-              label="Home"
-              selected={selected === 1}
-              onClick={() => setSelected(1)}
-              defaultIcon={<House size="large" />}
-              selectedIcon={<HouseFilled size="large" />}
-              tracking={{
-                label: text('Tracking Label - NavItem', 'trackingId-home'),
-              }}
+              label="First"
+              selected={selected === 21}
+              onClick={() => setSelected(21)}
             />
-            <Sidebar.Aggregator
-              key="list"
-              selected={selected === 2}
-              label="List"
-              defaultIcon={<Transactions size="large" />}
-              selectedIcon={<TransactionsFilled size="large" />}
-            >
-              <Sidebar.NavItem
-                label="First"
-                selected={selected === 21}
-                onClick={() => setSelected(21)}
-              />
-              <Sidebar.NavItem
-                label="Second"
-                selected={selected === 22}
-                onClick={() => setSelected(22)}
-              />
-              <Sidebar.NavItem
-                label="Third"
-                selected={selected === 23}
-                onClick={() => setSelected(23)}
-              />
-            </Sidebar.Aggregator>
             <Sidebar.NavItem
-              key="shop"
-              label="Shop"
-              disabled
-              selected={selected === 3}
-              defaultIcon={<ShoppingCart size="large" />}
-              selectedIcon={<ShoppingCartFilled size="large" />}
-              onClick={() => setSelected(3)}
+              label="Second"
+              selected={selected === 22}
+              onClick={() => setSelected(22)}
             />
-            <Separator key="separator" />
             <Sidebar.NavItem
-              key="me"
-              label="Me"
-              selected={selected === 4}
-              defaultIcon={<Person size="large" />}
-              selectedIcon={<PersonFilled size="large" />}
-              onClick={() => setSelected(4)}
+              label="Third"
+              selected={selected === 23}
+              onClick={() => setSelected(23)}
             />
-          </Sidebar.NavList>
-          <Sidebar.Footer>Footer</Sidebar.Footer>
-        </Sidebar>
-      </Viewport>
-    </Fragment>
+          </Sidebar.Aggregator>
+          <Sidebar.NavItem
+            key="shop"
+            label="Shop"
+            disabled
+            selected={selected === 3}
+            defaultIcon={<ShoppingCart size="large" />}
+            selectedIcon={<ShoppingCartFilled size="large" />}
+            onClick={() => setSelected(3)}
+          />
+          <Separator key="separator" />
+          <Sidebar.NavItem
+            key="me"
+            label="Me"
+            selected={selected === 4}
+            defaultIcon={<Person size="large" />}
+            selectedIcon={<PersonFilled size="large" />}
+            onClick={() => setSelected(4)}
+          />
+        </Sidebar.NavList>
+        <Sidebar.Footer>Footer</Sidebar.Footer>
+      </Sidebar>
+    </Viewport>
   );
 };
 
-export const base = () => <SidebarWithState />;
+Base.args = {
+  closeButtonLabel: 'close-button',
+};

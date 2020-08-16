@@ -14,10 +14,9 @@
  */
 
 import React from 'react';
-import { boolean, select } from '@storybook/addon-knobs';
 
 import docs from './List.docs.mdx';
-import { List } from './List';
+import { List, ListProps } from './List';
 
 export default {
   title: 'Typography/List',
@@ -27,9 +26,6 @@ export default {
   },
 };
 
-const sizes: ['kilo', 'mega', 'giga'] = ['kilo', 'mega', 'giga'];
-const variants: ['unordered', 'ordered'] = ['unordered', 'ordered'];
-
 const ListItems = () => (
   <>
     <li>This is a list</li>
@@ -37,33 +33,34 @@ const ListItems = () => (
   </>
 );
 
-export const Base = () => (
-  <List
-    size={select('Size', sizes, 'mega')}
-    variant={boolean('Ordered', false) ? 'ordered' : 'unordered'}
-  >
+export const Base = (args: ListProps) => (
+  <List {...args}>
     <ListItems />
   </List>
 );
 
-export const Variant = () =>
+const variants = ['unordered', 'ordered'] as const;
+
+export const Variants = (args: ListProps) =>
   variants.map((variant) => (
-    <List key={variant} variant={variant}>
+    <List key={variant} {...args} variant={variant}>
       <ListItems />
     </List>
   ));
 
-export const Size = () =>
+const sizes = ['kilo', 'mega', 'giga'] as const;
+
+export const Sizes = (args: ListProps) =>
   sizes.map((size) => (
-    <List key={size} size={size}>
+    <List key={size} {...args} size={size}>
       <ListItems />
     </List>
   ));
 
-export const Nested = () => (
-  <List>
+export const Nested = (args: ListProps) => (
+  <List {...args}>
     <ListItems />
-    <List>
+    <List {...args}>
       <li>Sometimes a nested list</li>
     </List>
   </List>

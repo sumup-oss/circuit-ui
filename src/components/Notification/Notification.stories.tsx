@@ -22,13 +22,16 @@ import { Theme } from '@sumup/design-tokens';
 import Heading from '../Heading';
 import Text from '../Text';
 import Button from '../Button';
+import NotificationList from '../NotificationList';
+import NotificationBanner from '../NotificationBanner';
 
 import docs from './Notification.docs.mdx';
-import { Notification } from './Notification';
+import { Notification, NotificationProps } from './Notification';
 
 export default {
   title: 'Components/Notification',
   component: Notification,
+  subcomponents: { NotificationList, NotificationBanner },
   parameters: {
     docs: { page: docs },
   },
@@ -46,12 +49,8 @@ const headingStyles = (theme: Theme) =>
     margin-bottom: ${theme.spacings.kilo};
   `;
 
-export const base = () => (
-  <Notification
-    variant="success"
-    onClose={action('Notification dismissed')}
-    closeLabel="Close"
-  >
+export const Base = (args: NotificationProps) => (
+  <Notification {...args}>
     <Heading as="h4" size="kilo" noMargin>
       New Feature — Intelligent Reporting
     </Heading>
@@ -64,7 +63,13 @@ export const base = () => (
   </Notification>
 );
 
-export const variants = () => (
+Base.args = {
+  variant: 'success',
+  onClose: action('Notification dismissed'),
+  closeLabel: 'Close',
+};
+
+export const Variants = () => (
   <Fragment>
     <Notification variant="success" css={notificationStyles}>
       <Heading size="kilo" as="h4" noMargin>
@@ -92,3 +97,7 @@ export const variants = () => (
     </Notification>
   </Fragment>
 );
+
+Variants.parameters = {
+  controls: { hideNoControlsWarning: true },
+};

@@ -15,9 +15,8 @@
 
 import React from 'react';
 
+import { Anchor, AnchorProps } from './Anchor';
 import docs from './Anchor.docs.mdx';
-
-import Anchor from '.';
 
 export default {
   title: 'Typography/Anchor',
@@ -25,14 +24,22 @@ export default {
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    href: { control: 'text' },
+    children: { control: 'text' },
+  },
 };
 
-export const AsLink = () => (
-  <Anchor href="https://opensource.sumup.com">
-    {`View SumUp's OSS projects`}
-  </Anchor>
-);
+export const AsLink = (args: AnchorProps) => <Anchor {...args} />;
 
-export const AsButton = () => (
-  <Anchor onClick={() => alert('Hello')}>Say hello</Anchor>
-);
+AsLink.args = {
+  href: 'https://opensource.sumup.com',
+  children: `View SumUp's OSS projects`,
+};
+
+export const AsButton = (args: AnchorProps) => <Anchor {...args} />;
+
+AsButton.args = {
+  onClick: () => alert('Hello'),
+  children: `Say hello`,
+};

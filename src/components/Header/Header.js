@@ -65,11 +65,6 @@ Header.propTypes = {
   children: PropTypes.node,
 };
 
-Header.defaultProps = {
-  title: '',
-  children: '',
-};
-
 /**
  * @component
  */

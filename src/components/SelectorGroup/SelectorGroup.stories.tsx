@@ -22,51 +22,45 @@ export default {
   component: SelectorGroup,
 };
 
-const options = [
-  {
-    children: 'Apple',
-    value: 'apple',
-  },
-  {
-    children: 'Banana',
-    value: 'banana',
-  },
-  {
-    children: 'Mango',
-    value: 'mango',
-  },
-];
+const baseArgs = {
+  name: 'selector-group',
+  label: 'Choose your favourite fruit',
+  options: [
+    { children: 'Apple', value: 'apple' },
+    { children: 'Banana', value: 'banana' },
+    { children: 'Mango', value: 'mango' },
+  ],
+};
 
-/* eslint-disable react/prop-types */
-const SelectorGroupWithState = (props: Partial<SelectorGroupProps>) => {
-  const [value, setValue] = useState<string | string[]>(
-    props.multiple ? [] : '',
-  );
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    event.persist();
-    setValue((prev) => {
-      if (!props.multiple) {
-        return event.target.value;
-      }
-      const prevArray = prev as string[];
-      return prevArray.includes(event.target.value)
-        ? prevArray.filter((v) => v !== event.target.value)
-        : [...prevArray, event.target.value];
-    });
-  };
+export const Base = (args: SelectorGroupProps) => {
+  const [value, setValue] = useState<string>('');
+
   return (
     <SelectorGroup
-      name="selector-group"
-      label="Choose your favourite fruit"
-      options={options}
-      onChange={handleChange}
+      {...args}
       value={value}
-      {...props}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
     />
   );
 };
-/* eslint-enable react/prop-types */
 
-export const base = () => <SelectorGroupWithState />;
+Base.args = baseArgs;
 
-export const multiple = () => <SelectorGroupWithState multiple />;
+export const Multiple = (args: SelectorGroupProps) => {
+  const [value, setValue] = useState<string[]>([]);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    event.persist();
+    setValue((prev) =>
+      prev.includes(event.target.value)
+        ? prev.filter((v) => v !== event.target.value)
+        : [...prev, event.target.value],
+    );
+  };
+
+  return <SelectorGroup {...args} value={value} onChange={handleChange} />;
+};
+
+Multiple.args = { ...baseArgs, multiple: true };

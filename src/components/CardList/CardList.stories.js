@@ -13,39 +13,12 @@
  * limitations under the License.
  */
 
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { range } from 'lodash/fp';
-import * as knobs from '@storybook/addon-knobs';
 
 import docs from './CardList.docs.mdx';
 
 import CardList from '.';
-
-class CardListStory extends Component {
-  state = { selected: 0 };
-
-  handleClick = (selected) => () => this.setState({ selected });
-
-  render() {
-    const { selected } = this.state;
-    const padding = knobs.select('padding', ['kilo', 'mega', 'giga'], 'giga');
-
-    return (
-      <CardList>
-        {range(1, 6).map((i) => (
-          <CardList.Item
-            key={i}
-            selected={selected === i}
-            onClick={this.handleClick(i)}
-            padding={padding}
-          >
-            Item #{i}
-          </CardList.Item>
-        ))}
-      </CardList>
-    );
-  }
-}
 
 export default {
   title: 'Components/Card/CardList',
@@ -55,4 +28,22 @@ export default {
   },
 };
 
-export const base = () => <CardListStory />;
+export const Base = (args) => {
+  const [selected, setSelected] = useState(0);
+
+  const handleClick = (index) => () => setSelected(index);
+
+  return (
+    <CardList {...args}>
+      {range(1, 6).map((i) => (
+        <CardList.Item
+          key={i}
+          selected={selected === i}
+          onClick={handleClick(i)}
+        >
+          Item #{i}
+        </CardList.Item>
+      ))}
+    </CardList>
+  );
+};

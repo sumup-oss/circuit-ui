@@ -13,35 +13,39 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import React from 'react';
+import { action } from '@storybook/addon-actions';
 
-import { base as Notification } from '../Notification/Notification.stories';
+import Notification from '../Notification';
+import Heading from '../Heading';
+import Text from '../Text';
+import Button from '../Button';
 
-import { NotificationBanner } from './NotificationBanner';
+import {
+  NotificationBanner,
+  NotificationBannerProps,
+} from './NotificationBanner';
 
 export default {
   title: 'Components/Notification/NotificationBanner',
   component: NotificationBanner,
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
 
-export const base = () => (
-  <div
-    css={css`
-      min-height: 8rem;
-    `}
-  >
-    <div
-      css={css`
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-      `}
-    >
-      <NotificationBanner>
-        <Notification />
-      </NotificationBanner>
-    </div>
-  </div>
+export const Base = (args: NotificationBannerProps) => (
+  <NotificationBanner {...args}>
+    <Notification variant="success">
+      <Heading as="h4" size="kilo" noMargin>
+        New Feature — Intelligent Reporting
+      </Heading>
+      <Text>
+        Get automatic insights into your business statistics with one click.
+      </Text>
+      <Button size="kilo" onClick={action('Action clicked')}>
+        Learn more
+      </Button>
+    </Notification>
+  </NotificationBanner>
 );

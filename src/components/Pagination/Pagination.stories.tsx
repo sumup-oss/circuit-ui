@@ -14,7 +14,6 @@
  */
 
 import React, { useState } from 'react';
-import { number, text } from '@storybook/addon-knobs';
 
 import docs from './Pagination.docs.mdx';
 import { Pagination, PaginationProps } from './Pagination';
@@ -27,23 +26,25 @@ export default {
   },
 };
 
-const BasePagination = (props: Partial<PaginationProps>) => {
-  const [page, setPage] = useState(1);
-  return (
-    <Pagination
-      label={text('Label', 'Pagination')}
-      totalPages={number('Total pages', 5)}
-      pageLabel={(p) => `${text('Page label', 'Go to page')} ${p}`}
-      totalLabel={(t) => `${text('Total label', 'of')} ${t}`}
-      previousLabel={text('Previous label', 'Previous page')}
-      nextLabel={text('Next label', 'Next page')}
-      currentPage={page}
-      onChange={setPage}
-      {...props}
-    />
-  );
+const baseArgs = {
+  label: 'Pagination',
+  totalPages: 5,
+  pageLabel: (p: number) => `Go to page ${p}`,
+  totalLabel: (t: number) => `of ${t}`,
+  previousLabel: 'Previous page',
+  nextLabel: 'Next page',
 };
 
-export const base = () => <BasePagination />;
+export const Base = (args: PaginationProps) => {
+  const [page, setPage] = useState(1);
+  return <Pagination {...args} currentPage={page} onChange={setPage} />;
+};
 
-export const manyPages = () => <BasePagination totalPages={10} />;
+Base.args = baseArgs;
+
+export const ManyPages = (args: PaginationProps) => {
+  const [page, setPage] = useState(1);
+  return <Pagination {...args} currentPage={page} onChange={setPage} />;
+};
+
+ManyPages.args = { ...baseArgs, totalPages: 10 };

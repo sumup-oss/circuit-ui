@@ -21,15 +21,15 @@ import Text from '../Text';
 import Button from '../Button';
 import Notification from '../Notification';
 
-import { NotificationList } from './NotificationList';
+import { NotificationList, NotificationListProps } from './NotificationList';
 
 export default {
   title: 'Components/Notification/NotificationList',
   component: NotificationList,
 };
 
-export const base = () => (
-  <NotificationList>
+export const Base = (args: NotificationListProps) => (
+  <NotificationList {...args}>
     <Notification variant="success">
       <Heading as="h4" size="kilo" noMargin>
         New Feature — Intelligent Reporting

@@ -22,7 +22,7 @@ import { hideVisually } from '../../styles/style-helpers';
 import styled from '../../styles/styled';
 import { Button, ButtonProps } from '../Button/Button';
 
-export interface IconButtonProps extends ButtonProps {
+export interface IconButtonProps extends Omit<ButtonProps, 'icon' | 'stretch'> {
   /**
    * A single icon element.
    */

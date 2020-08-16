@@ -14,7 +14,8 @@
  */
 
 import React, { useState } from 'react';
-import { text } from '@storybook/addon-knobs';
+
+import RadioButtonGroup from '../RadioButtonGroup';
 
 import { RadioButton, RadioButtonProps } from './RadioButton';
 import docs from './RadioButton.docs.mdx';
@@ -22,8 +23,14 @@ import docs from './RadioButton.docs.mdx';
 export default {
   title: 'Forms/RadioButton',
   component: RadioButton,
+  subcomponents: { RadioButtonGroup },
   parameters: {
     docs: { page: docs },
+  },
+  argTypes: {
+    name: { control: 'text' },
+    value: { control: 'text' },
+    disabled: { control: 'boolean' },
   },
 };
 
@@ -37,27 +44,37 @@ const RadioButtonWithState = ({
     setChecked((prev) => !prev);
   };
   return (
-    <RadioButton
-      {...props}
-      checked={checked}
-      onChange={handleChange}
-      tracking={{ label: text('Tracking Label', 'trackingId') }}
-    >
+    <RadioButton {...props} checked={checked} onChange={handleChange}>
       {children || (checked ? 'Checked' : 'Unchecked')}
     </RadioButton>
   );
 };
 
-export const base = () => <RadioButtonWithState value="radio" name="radio" />;
-
-export const invalid = () => (
-  <RadioButtonWithState value="invalid" name="invalid" invalid>
-    Error
-  </RadioButtonWithState>
+export const Base = (args: RadioButtonProps) => (
+  <RadioButtonWithState {...args} />
 );
 
-export const disabled = () => (
-  <RadioButtonWithState value="disabled" name="disabled" disabled>
-    Disabled
-  </RadioButtonWithState>
+Base.args = {
+  name: 'base',
+  value: 'true',
+};
+
+export const Invalid = (args: RadioButtonProps) => (
+  <RadioButtonWithState {...args}>Invalid</RadioButtonWithState>
 );
+
+Invalid.args = {
+  name: 'invalid',
+  value: 'true',
+  invalid: true,
+};
+
+export const Disabled = (args: RadioButtonProps) => (
+  <RadioButtonWithState {...args}>Disabled</RadioButtonWithState>
+);
+
+Disabled.args = {
+  name: 'disabled',
+  value: 'true',
+  disabled: true,
+};

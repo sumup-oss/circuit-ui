@@ -14,9 +14,9 @@
  */
 
 /** @jsx jsx */
-import { Fragment } from 'react';
 import { css, jsx } from '@emotion/core';
-import { boolean, text } from '@storybook/addon-knobs';
+
+import { Stack } from '../../../.storybook/components';
 
 import docs from './CurrencyInput.docs.mdx';
 import { CurrencyInput, CurrencyInputProps } from './CurrencyInput';
@@ -29,59 +29,62 @@ export default {
   },
 };
 
-const BaseCurrencyInput = (props: Partial<CurrencyInputProps>) => (
-  <CurrencyInput
-    currency="EUR"
-    validationHint={text('Validation hint', 'Excluding VAT')}
-    invalid={boolean('Invalid', false)}
-    showValid={boolean('Show valid', false)}
-    hasWarning={boolean('Has warning', false)}
-    css={css`
-      max-width: 250px;
-    `}
-    {...props}
-  />
+const storyStyles = css`
+  max-width: 250px;
+`;
+
+const baseArgs = {
+  label: 'Amount (de-DE, EUR)',
+  placeholder: 123.45,
+  validationHint: 'Excluding VAT',
+  currency: 'EUR',
+  locale: 'de-DE',
+};
+
+export const Base = (args: CurrencyInputProps) => (
+  <CurrencyInput {...args} css={storyStyles} />
 );
 
-export const base = () => (
-  <BaseCurrencyInput
-    label="Amount (de-DE, EUR)"
-    placeholder={123.45}
-    locale="de-DE"
-    currency="EUR"
-  />
-);
+Base.args = baseArgs;
 
-export const currencies = () => (
-  <Fragment>
-    <BaseCurrencyInput
+export const Currencies = (args: CurrencyInputProps) => (
+  <Stack>
+    <CurrencyInput
+      {...args}
       label="Amount (pt-BR, BRL)"
       placeholder={1234.5}
       currency="BRL"
       locale="pt-BR"
     />
-    <BaseCurrencyInput
+    <CurrencyInput
+      {...args}
       label="Amount (pt-BR, EUR)"
       placeholder={1234.5}
       currency="EUR"
       locale="pt-BR"
     />
-  </Fragment>
+  </Stack>
 );
 
-export const locales = () => (
-  <Fragment>
-    <BaseCurrencyInput
+Currencies.args = baseArgs;
+
+export const Locales = (args: CurrencyInputProps) => (
+  <Stack>
+    <CurrencyInput
+      {...args}
       label="Amount (de-DE, EUR)"
       placeholder={1234.5}
       currency="EUR"
       locale="de-DE"
     />
-    <BaseCurrencyInput
+    <CurrencyInput
+      {...args}
       label="Amount (en-IE, EUR)"
       placeholder={1234.5}
       currency="EUR"
       locale="en-IE"
     />
-  </Fragment>
+  </Stack>
 );
+
+Locales.args = baseArgs;

@@ -15,7 +15,6 @@
 
 import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 
 import docs from '../Grid/Grid.docs.mdx';
 import Col from '../Col';
@@ -26,40 +25,34 @@ export default {
   title: 'Layout/Grid/Row',
   component: Row,
   parameters: {
+    layout: 'fullscreen',
+    controls: { hideNoControlsWarning: true },
     docs: { page: docs },
   },
 };
 
-const StyledCol = styled(Col)(
-  ({ theme }) => css`
-    color: ${theme.colors.white};
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 20px;
-    height: 40px;
-    padding: 10px;
-    &:nth-of-type(n) {
-      background-color: ${theme.colors.b500};
-    }
+const StyledCol = styled(Col)`
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  height: 48px;
+  padding: 12px;
+  &:nth-of-type(n) {
+    background-color: ${(p) => p.theme.colors.n300};
+  }
 
-    &:nth-of-type(2n) {
-      background-color: ${theme.colors.b300};
-    }
-  `,
-);
+  &:nth-of-type(2n) {
+    background-color: ${(p) => p.theme.colors.n100};
+  }
+`;
 
-StyledCol.defaultProps = {
-  skip: '0',
-};
+const StyledRow = styled(Row)`
+  border: 1px solid magenta;
+  margin-bottom: 8px;
+`;
 
-const StyledRow = styled(Row)(
-  ({ theme }) => css`
-    border: 2px solid ${theme.colors.y100};
-    margin-bottom: 8px;
-  `,
-);
-
-export const base = () => (
+export const Base = () => (
   <StyledRow>
     <StyledCol span="4">Col 4</StyledCol>
     <StyledCol span="4">Col 4</StyledCol>

@@ -37,3 +37,4 @@ export { default as Intro } from './Intro';
 export { default as Teaser } from './Teaser';
 export { default as Link } from './Link';
 export { default as Image } from './Image';
+export { default as Stack } from './Stack';

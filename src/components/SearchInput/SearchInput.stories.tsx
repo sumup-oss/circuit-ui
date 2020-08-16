@@ -14,9 +14,6 @@
  */
 
 import React, { useState, ChangeEvent } from 'react';
-import { identity } from 'lodash/fp';
-
-import { uniqueId } from '../../util/id';
 
 import { SearchInput, SearchInputProps } from './SearchInput';
 import docs from './SearchInput.docs.mdx';
@@ -27,18 +24,25 @@ export default {
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    placeholder: { control: 'text' },
+  },
 };
 
-// SearchInputs always need labels for accessibility.
-const SearchInputWithLabel = (props: SearchInputProps) => {
-  const id = uniqueId();
-  return (
-    <SearchInput placeholder="Search..." {...props} id={id} label="Search" />
-  );
+const baseArgs = {
+  placeholder: 'Type a word...',
+  label: 'Search',
 };
 
-const SearchInputWithClear = (props: SearchInputProps) => {
-  const id = uniqueId();
+export const Base = (args: SearchInputProps) => <SearchInput {...args} />;
+
+Base.args = baseArgs;
+
+export const Disabled = (args: SearchInputProps) => <SearchInput {...args} />;
+
+Disabled.args = { ...baseArgs, disabled: true };
+
+export const Clearable = (args: SearchInputProps) => {
   const [value, setValue] = useState('');
 
   const handleChange = ({
@@ -52,22 +56,13 @@ const SearchInputWithClear = (props: SearchInputProps) => {
   };
 
   return (
-    <div>
-      <SearchInput
-        {...props}
-        id={id}
-        value={value}
-        onClear={handleClear}
-        onChange={handleChange}
-        placeholder="Search..."
-        label="Label"
-      />
-    </div>
+    <SearchInput
+      {...args}
+      value={value}
+      onClear={handleClear}
+      onChange={handleChange}
+    />
   );
 };
 
-export const base = () => <SearchInputWithLabel />;
-
-export const disabled = () => <SearchInputWithLabel disabled />;
-
-export const clearable = () => <SearchInputWithClear onClear={identity} />;
+Clearable.args = baseArgs;

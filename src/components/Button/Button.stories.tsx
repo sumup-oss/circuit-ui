@@ -14,70 +14,77 @@
  */
 
 import React from 'react';
-import { select, boolean, text, object } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { ThumbUp } from '@sumup/icons';
 
-import docs from './Button.docs.mdx';
+import { Stack } from '../../../.storybook/components';
+import ButtonGroup from '../ButtonGroup';
+import LoadingButton from '../LoadingButton';
+import IconButton from '../IconButton';
+import CloseButton from '../CloseButton';
 
-import Button from '.';
+import { Button, ButtonProps } from './Button';
+import docs from './Button.docs.mdx';
 
 export default {
   title: 'Components/Button',
   component: Button,
+  subcomponents: { LoadingButton, IconButton, CloseButton, ButtonGroup },
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    children: { control: 'text' },
+  },
 };
 
-export const Primary = () => (
-  <Button
-    variant={select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}
-    size={select('Size', ['kilo', 'mega'], 'mega')}
-    href={boolean('Link', false) ? '#' : undefined}
-    target={boolean('Link', false) ? '_blank' : undefined}
-    stretch={boolean('Stretched', false)}
-    disabled={boolean('Disabled', false)}
-  >
-    {text('Button Label', 'Button')}
-  </Button>
+export const Base = (args: ButtonProps) => <Button {...args} />;
+
+Base.args = {
+  onClick: () => alert('Hello'),
+  children: `Say hello`,
+};
+
+export const Variants = (args: ButtonProps) => (
+  <Stack>
+    <Button {...args} variant="primary">
+      Primary
+    </Button>
+    <Button {...args} variant="secondary">
+      Secondary
+    </Button>
+    <Button {...args} variant="tertiary">
+      Tertiary
+    </Button>
+  </Stack>
 );
 
-export const Secondary = () => (
-  <Button variant="secondary">
-    {text('Button Label', 'Secondary Button')}
-  </Button>
+export const Sizes = (args: ButtonProps) => (
+  <Stack>
+    <Button {...args} size="kilo">
+      Kilo
+    </Button>
+    <Button {...args} size="mega">
+      Mega
+    </Button>
+  </Stack>
 );
 
-export const Tertiary = () => (
-  <Button variant="tertiary">{text('Button Label', 'Tertiary Button')}</Button>
-);
-
-export const Sizes = () => (
-  <>
-    <Button size="kilo">Button kilo</Button>
-    <Button size="mega">Button mega</Button>
-  </>
-);
-
-export const WithIcon = () => (
-  <Button
-    icon={ThumbUp}
-    variant={select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}
-    size={select('Size', ['kilo', 'mega'], 'mega')}
-  >
+export const WithIcon = (args: ButtonProps) => (
+  <Button {...args} icon={ThumbUp}>
     Like
   </Button>
 );
 
-export const Tracking = () => (
+export const Tracking = (args: ButtonProps) => (
   <Button
+    {...args}
     onClick={action('Button Click')}
     tracking={{
-      label: text('Tracking Label', 'trackingId'),
-      customParameters: object('Custom Parameters', { custom1: 'data' }),
+      label: 'track-button',
+      customParameters: { key: 'value' },
     }}
   >
-    {'Click'}
+    Track me
   </Button>
 );

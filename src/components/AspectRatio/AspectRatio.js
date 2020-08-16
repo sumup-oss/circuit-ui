@@ -91,7 +91,6 @@ AspectRatio.displayName = 'AspectRatio';
 AspectRatio.propTypes = {
   children: childrenPropType,
   aspectRatio: PropTypes.number,
-  className: PropTypes.string,
 };
 
 export default AspectRatio;

@@ -20,28 +20,29 @@ import RangePicker from './RangePicker';
 export default {
   title: 'Forms/Calendar/RangePicker',
   component: RangePicker,
+  argTypes: {
+    showClearDates: { control: 'boolean' },
+  },
 };
 
-const RangePickerWithState = (props) => {
+export const Base = (args) => {
   const [{ startDate, endDate }, setRange] = useState({});
   const [focusedInput, setFocusedInput] = useState(null);
 
   return (
     <RangePicker
-      {...props}
+      {...args}
       startDate={startDate}
       endDate={endDate}
       onDatesChange={setRange}
       focusedInput={focusedInput}
       onFocusChange={setFocusedInput}
+      startDateId="your_unique_start_date_id"
+      endDateId="your_unique_end_date_id"
     />
   );
 };
 
-export const base = () => (
-  <RangePickerWithState
-    startDateId="your_unique_start_date_id"
-    endDateId="your_unique_end_date_id"
-    showClearDates
-  />
-);
+Base.args = {
+  showClearDates: true,
+};

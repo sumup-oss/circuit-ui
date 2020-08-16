@@ -15,7 +15,6 @@
 
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { text } from '@storybook/addon-knobs';
 
 import CalendarTag from './CalendarTag';
 
@@ -24,9 +23,6 @@ export default {
   component: CalendarTag,
 };
 
-export const base = () => (
-  <CalendarTag
-    onDatesRangeChange={action('onDatesRangeChange')}
-    tracking={{ label: text('Tracking Label', 'trackingId') }}
-  />
+export const Base = (args) => (
+  <CalendarTag {...args} onDatesRangeChange={action('onDatesRangeChange')} />
 );

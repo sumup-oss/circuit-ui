@@ -13,31 +13,35 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Button from '../Button';
 
-import { Spacing } from './Spacing';
+import { Spacing, SpacingProps } from './Spacing';
 
 export default {
   title: 'Layout/Spacing',
   component: Spacing,
 };
 
-export const bottomSpacing = () => (
-  <Fragment>
-    <Spacing bottom>
+export const Bottom = (args: SpacingProps) => (
+  <div>
+    <Spacing {...args}>
       <Button variant="primary">Spacing bottom</Button>
     </Spacing>
     <Button>No spacing</Button>
-  </Fragment>
+  </div>
 );
 
-export const topSpacing = () => (
-  <Fragment>
+Bottom.args = { bottom: true };
+
+export const Top = (args: SpacingProps) => (
+  <div>
     <Button>No spacing</Button>
-    <Spacing top>
+    <Spacing {...args} top>
       <Button variant="primary">Spacing top</Button>
     </Spacing>
-  </Fragment>
+  </div>
 );
+
+Top.args = { top: true };

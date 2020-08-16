@@ -17,7 +17,6 @@
 import { MouseEvent, KeyboardEvent } from 'react';
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/core';
-import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import Button from '../Button';
@@ -61,17 +60,12 @@ const defaultModal = {
   onClose: () => {},
 };
 
-export const base = () => (
-  <PageWithModal
-    {...defaultModal}
-    tracking={{
-      label: text('Tracking Label', 'trackingId'),
-    }}
-  />
+export const Base = (args: ModalProps) => (
+  <PageWithModal {...args} {...defaultModal} />
 );
 
-export const withHeader = () => (
-  <PageWithModal {...defaultModal}>
+export const WithHeader = (args: ModalProps) => (
+  <PageWithModal {...args} {...defaultModal}>
     {() => (
       <ModalWrapper>
         <ModalHeader title="A modal" />
@@ -81,8 +75,8 @@ export const withHeader = () => (
   </PageWithModal>
 );
 
-export const withoutCloseButton = () => (
-  <PageWithModal {...defaultModal}>
+export const WithoutCloseButton = (args: ModalProps) => (
+  <PageWithModal {...args} {...defaultModal}>
     {() => (
       <ModalWrapper>
         <Text>Some text in the modal body.</Text>
@@ -91,8 +85,8 @@ export const withoutCloseButton = () => (
   </PageWithModal>
 );
 
-export const withTitleAndCloseButton = () => (
-  <PageWithModal {...defaultModal}>
+export const WithTitleAndCloseButton = (args: ModalProps) => (
+  <PageWithModal {...args} {...defaultModal}>
     {({ onClose }) => (
       <ModalWrapper>
         <ModalHeader title="A modal" onClose={onClose} />
@@ -102,8 +96,8 @@ export const withTitleAndCloseButton = () => (
   </PageWithModal>
 );
 
-export const withFooter = () => (
-  <PageWithModal {...defaultModal}>
+export const WithFooter = (args: ModalProps) => (
+  <PageWithModal {...args} {...defaultModal}>
     {({ onClose }) => (
       <ModalWrapper>
         <ModalHeader title="A modal" />
@@ -135,7 +129,7 @@ export const withFooter = () => (
   </PageWithModal>
 );
 
-export const withCustomStyles = () => {
+export const WithCustomStyles = (args: ModalProps) => {
   const Container = styled('div')`
     display: flex;
     justify-content: stretch;
@@ -162,6 +156,7 @@ export const withCustomStyles = () => {
 
   return (
     <PageWithModal
+      {...args}
       {...defaultModal}
       css={css`
         padding: 0;

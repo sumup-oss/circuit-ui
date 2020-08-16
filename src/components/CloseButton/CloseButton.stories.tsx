@@ -14,9 +14,8 @@
  */
 
 import React from 'react';
-import { text } from '@storybook/addon-knobs';
 
-import { CloseButton } from './CloseButton';
+import { CloseButton, CloseButtonProps } from './CloseButton';
 
 export default {
   title: 'Components/Button/CloseButton',
@@ -25,4 +24,8 @@ export default {
   },
 };
 
-export const base = () => <CloseButton label={text('Label', 'Close')} />;
+export const Base = (args: CloseButtonProps) => <CloseButton {...args} />;
+
+Base.args = {
+  label: 'Close',
+};

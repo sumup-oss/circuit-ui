@@ -15,46 +15,44 @@
 
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
 
 import Button from '../Button';
 import Card from '../Card';
 
 import Popover from './Popover';
 
-const positions = ['top', 'bottom', 'left', 'right'];
-const alignments = ['start', 'end', 'center'];
-
 export default {
   title: 'Components/Popover',
   component: Popover,
 };
 
-const PopoverWithState = (props) => {
+export const Base = (args) => {
   const [open, setOpen] = useState(false);
 
-  const { closeOnButtonClick, ...restProps } = props;
+  const { closeOnButtonClick, ...props } = args;
 
   return (
     <Popover
       isOpen={open}
-      {...restProps}
+      {...props}
       renderPopover={() => <Card>Popover Content</Card>}
       renderReference={() => (
         <Button size="kilo" onClick={() => setOpen((prev) => !prev)}>
           {open ? 'Hide' : 'Show'}
         </Button>
       )}
-      onReferenceClickClose={() => closeOnButtonClick && setOpen(false)}
+      onReferenceClickClose={() => {
+        if (closeOnButtonClick) {
+          setOpen(false);
+        }
+      }}
       onOutsideClickClose={() => setOpen(false)}
     />
   );
 };
 
-export const base = () => (
-  <PopoverWithState
-    position={select('position', positions, 'bottom')}
-    align={select('align', alignments, 'start')}
-    closeOnButtonClick={boolean('closeOnButton', false)}
-  />
-);
+Base.args = {
+  position: 'bottom',
+  align: 'start',
+  closeOnButtonClick: false,
+};

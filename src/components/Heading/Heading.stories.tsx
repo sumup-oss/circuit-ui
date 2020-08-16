@@ -14,13 +14,9 @@
  */
 
 import React from 'react';
-import { select, boolean, text } from '@storybook/addon-knobs';
 
-import { Heading } from './Heading';
+import { Heading, HeadingProps } from './Heading';
 import docs from './Heading.docs.mdx';
-
-const elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-const sizes = ['zetta', 'exa', 'peta', 'tera', 'giga', 'mega', 'kilo'] as const;
 
 export default {
   title: 'Typography/Heading',
@@ -30,19 +26,15 @@ export default {
   },
 };
 
-export const base = () => (
-  <Heading
-    as={select('Element', elements, elements[0])}
-    size={select('Size', sizes, sizes[0])}
-    noMargin={boolean('No margin', false)}
-  >
-    {text('Text', 'This is a heading')}
-  </Heading>
+export const Base = (args: HeadingProps) => (
+  <Heading {...args}>This is a heading</Heading>
 );
 
-export const size = () =>
+const sizes = ['zetta', 'exa', 'peta', 'tera', 'giga', 'mega', 'kilo'] as const;
+
+export const Sizes = (args: HeadingProps) =>
   sizes.map((s) => (
-    <Heading key={s} size={s}>
+    <Heading key={s} {...args} size={s}>
       This is a {s} heading
     </Heading>
   ));

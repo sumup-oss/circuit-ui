@@ -13,79 +13,77 @@
  * limitations under the License.
  */
 
-import React from 'react';
+/** @jsx jsx */
 import styled from '@emotion/styled';
+import { jsx, css } from '@emotion/core';
 
 import InlineElements from './InlineElements';
-
-const Box = styled('div')`
-  height: 42px;
-
-  &:nth-of-type(n) {
-    background-color: yellow;
-  }
-
-  &:nth-of-type(2n) {
-    background-color: red;
-  }
-`;
-
-const Container = styled('div')({
-  width: '95vw',
-  maxWidth: '600px',
-  margin: '0 auto',
-  border: '1px solid green',
-  padding: '12px',
-});
 
 export default {
   title: 'Layout/InlineElements',
   component: InlineElements,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
-export const twoInlineElements = () => (
-  <Container>
-    <InlineElements>
-      <Box />
-      <Box />
-    </InlineElements>
-  </Container>
+const Box = styled('div')`
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  height: 48px;
+  padding: 12px;
+
+  &:nth-of-type(n) {
+    background-color: ${(p) => p.theme.colors.n300};
+  }
+
+  &:nth-of-type(2n) {
+    background-color: ${(p) => p.theme.colors.n100};
+  }
+`;
+
+const inlineElementsStyles = css`
+  width: 95vw;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid magenta;
+`;
+
+export const TwoInlineElements = () => (
+  <InlineElements css={inlineElementsStyles}>
+    <Box />
+    <Box />
+  </InlineElements>
 );
 
-export const threeInlineElements = () => (
-  <Container>
-    <InlineElements>
-      <Box />
-      <Box />
-      <Box />
-    </InlineElements>
-  </Container>
+export const ThreeInlineElements = () => (
+  <InlineElements css={inlineElementsStyles}>
+    <Box />
+    <Box />
+    <Box />
+  </InlineElements>
 );
 
-export const threeInlineElementsInlineOnMobile = () => (
-  <Container>
-    <InlineElements inlineMobile>
-      <Box />
-      <Box />
-      <Box />
-    </InlineElements>
-  </Container>
+export const ThreeInlineElementsInlineOnMobile = () => (
+  <InlineElements css={inlineElementsStyles} inlineMobile>
+    <Box />
+    <Box />
+    <Box />
+  </InlineElements>
 );
 
-export const twoInlineElementsWithRatios = () => (
-  <Container>
-    <InlineElements ratios={[2, 1]}>
-      <Box>2x</Box>
-      <Box>1x</Box>
-    </InlineElements>
-  </Container>
+export const TwoInlineElementsWithRatios = () => (
+  <InlineElements css={inlineElementsStyles} ratios={[2, 1]}>
+    <Box>2x</Box>
+    <Box>1x</Box>
+  </InlineElements>
 );
 
-export const twoInlineElementsWithRatiosInlineOnMobile = () => (
-  <Container>
-    <InlineElements ratios={[3, 1]} inlineMobile>
-      <Box>2x</Box>
-      <Box>1x</Box>
-    </InlineElements>
-  </Container>
+export const TwoInlineElementsWithRatiosInlineOnMobile = () => (
+  <InlineElements css={inlineElementsStyles} ratios={[2, 1]} inlineMobile>
+    <Box>2x</Box>
+    <Box>1x</Box>
+  </InlineElements>
 );

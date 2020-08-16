@@ -117,12 +117,6 @@ Sidebar.propTypes = {
   }),
 };
 
-Sidebar.defaultProps = {
-  children: '',
-  open: false,
-  onClose: null,
-};
-
 Sidebar.Header = Header;
 Sidebar.Footer = Footer;
 Sidebar.NavList = NavList;

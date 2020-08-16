@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { number } from '@storybook/addon-knobs';
 
 import Status from './Status';
 
@@ -23,6 +22,9 @@ export default {
   component: Status,
 };
 
-export const base = () => (
-  <Status step={number('Current index', 0)} total={number('Total slides', 3)} />
-);
+export const Base = (args) => <Status {...args} />;
+
+Base.args = {
+  step: 0,
+  total: 3,
+};

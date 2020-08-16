@@ -13,33 +13,18 @@
  * limitations under the License.
  */
 
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 
-const baseStyles = ({ theme }) => css`
-  label: sidebar-header;
+const Stack = styled.div<{}>`
   display: flex;
-  align-self: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 64px;
-  width: 100%;
-  padding: ${theme.spacings.mega};
-  background-color: ${theme.colors.bodyColor};
-  color: ${theme.colors.n100};
+  gap: 1rem;
+
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+  }
 `;
 
-const Header = styled('header')(baseStyles);
-
-Header.propTypes = {
-  /**
-   * The children component passed to the Sidebar Header.
-   */
-  children: PropTypes.node,
-};
-
-/**
- * @component
- */
-export default Header;
+export default Stack;

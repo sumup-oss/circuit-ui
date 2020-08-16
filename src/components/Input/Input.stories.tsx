@@ -14,9 +14,10 @@
  */
 
 /** @jsx jsx */
-import { useState, ChangeEvent } from 'react';
 import { css, jsx } from '@emotion/core';
-import { boolean, text } from '@storybook/addon-knobs';
+
+import SearchInput from '../SearchInput';
+import CurrencyInput from '../CurrencyInput';
 
 import docs from './Input.docs.mdx';
 import { Input, InputProps } from './Input';
@@ -24,83 +25,113 @@ import { Input, InputProps } from './Input';
 export default {
   title: 'Forms/Input',
   component: Input,
+  subcomponents: { SearchInput, CurrencyInput },
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    placeholder: { control: 'text' },
+    disabled: { control: 'boolean' },
+  },
 };
 
-const BaseInput = ({
-  value: initialValue = '',
-  ...props
-}: Partial<InputProps>) => {
-  const [value, setValue] = useState(initialValue);
+const inputStyles = css`
+  max-width: 250px;
+`;
 
-  // The readOnly attribute is treated as truthy even if the value is falsy
-  const readOnly = boolean('Readonly', false);
-
-  if (readOnly) {
-    // eslint-disable-next-line no-param-reassign
-    props.readOnly = true;
-  }
-
-  return (
-    <Input
-      value={value}
-      label={text('Label', 'First name')}
-      placeholder={text('Placeholder', 'Jane')}
-      validationHint={text('Validation hint', 'Maximum 100 characters')}
-      invalid={boolean('Invalid', false)}
-      showValid={boolean('Show valid', false)}
-      hasWarning={boolean('Has warning', false)}
-      readOnly={boolean('Readonly', false)}
-      onChange={(event: ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value);
-      }}
-      css={css`
-        max-width: 250px;
-      `}
-      {...props}
-    />
-  );
+const baseArgs = {
+  label: 'First name',
+  placeholder: 'Jane',
+  validationHint: 'Maximum 100 characters',
 };
 
-export const base = () => <BaseInput />;
+export const Base = (args: InputProps) => <Input {...args} css={inputStyles} />;
 
-export const valid = () => (
-  <BaseInput
-    label="Username"
-    validationHint="Yay! That username is available."
-    showValid
-  />
+Base.args = baseArgs;
+
+export const Valid = (args: InputProps) => (
+  <Input {...args} css={inputStyles} />
 );
 
-export const invalid = () => (
-  <BaseInput validationHint="This field is required." invalid />
+Valid.args = {
+  label: 'Username',
+  placeholder: 'jane123',
+  validationHint: 'Yay! That username is available.',
+  showValid: true,
+};
+
+export const Invalid = (args: InputProps) => (
+  <Input {...args} css={inputStyles} />
 );
 
-export const warning = () => (
-  <BaseInput validationHint="This does not look right." hasWarning />
+Invalid.args = {
+  ...baseArgs,
+  validationHint: 'This field is required.',
+  invalid: true,
+};
+
+export const Warning = (args: InputProps) => (
+  <Input {...args} css={inputStyles} />
 );
 
-export const readonly = () => <BaseInput readOnly value="Copy me" />;
+Warning.args = {
+  ...baseArgs,
+  validationHint: 'This does not look right.',
+  hasWarning: true,
+};
 
-export const disabled = () => <BaseInput value="Some value" disabled />;
+export const Readonly = (args: InputProps) => (
+  <Input {...args} css={inputStyles} />
+);
 
-export const rightAligned = () => <BaseInput textAlign="right" />;
+Readonly.args = {
+  ...baseArgs,
+  label: 'API token',
+  value: 'a3b2c1',
+  validationHint: 'Select and copy me',
+  readOnly: true,
+};
 
-export const inline = () => (
+export const Disabled = (args: InputProps) => (
+  <Input {...args} css={inputStyles} />
+);
+
+Disabled.args = {
+  ...baseArgs,
+  value: "You can't edit me",
+  disabled: true,
+};
+
+export const RightAligned = (args: InputProps) => (
+  <Input {...args} css={inputStyles} />
+);
+
+RightAligned.args = {
+  ...baseArgs,
+  textAlign: 'right',
+};
+
+export const Inline = (args: InputProps) => (
   <div>
-    <BaseInput placeholder="First name" inline />
-    <BaseInput placeholder="Last name" inline />
+    <Input {...args} label="First name" placeholder="Jane" />
+    <Input {...args} label="Last name" placeholder="Doe" />
   </div>
 );
 
-export const hiddenLabel = () => (
-  <BaseInput
-    hideLabel
-    label="Email"
-    placeholder="Email"
-    type="email"
-    validationHint=""
-  />
+Inline.args = {
+  ...baseArgs,
+  inline: true,
+};
+
+export const HiddenLabel = (args: InputProps) => (
+  <Input {...args} css={inputStyles} />
 );
+
+HiddenLabel.args = {
+  ...baseArgs,
+  label: 'Email',
+  placeholder: 'Email',
+  type: 'email',
+  validationHint: '',
+  hideLabel: true,
+};

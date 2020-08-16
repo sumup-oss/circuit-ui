@@ -22,36 +22,43 @@ import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Text from '../Text';
 
-import { ModalWrapper, ModalHeader, ModalFooter } from './components';
+import { ModalHeader, ModalFooter } from './components';
+import {
+  ModalWrapper,
+  ModalWrapperProps,
+} from './components/ModalWrapper/ModalWrapper';
 
 export default {
   title: 'Components/Modal/Embedded',
+  component: ModalWrapper,
 };
 
-export const base = () => <ModalWrapper>Hello World!</ModalWrapper>;
+export const Base = (args: ModalWrapperProps) => (
+  <ModalWrapper {...args}>Hello World!</ModalWrapper>
+);
 
-export const withTitle = () => (
-  <ModalWrapper>
+export const WithTitle = (args: ModalWrapperProps) => (
+  <ModalWrapper {...args}>
     <ModalHeader title="A title" />
     <Text>Hello world!</Text>
   </ModalWrapper>
 );
 
-export const withoutCloseButton = () => (
-  <ModalWrapper>
+export const WithoutCloseButton = (args: ModalWrapperProps) => (
+  <ModalWrapper {...args}>
     <Text>Some text in the modal body.</Text>
   </ModalWrapper>
 );
 
-export const withTitleAndCloseButton = () => (
-  <ModalWrapper>
+export const WithTitleAndCloseButton = (args: ModalWrapperProps) => (
+  <ModalWrapper {...args}>
     <ModalHeader title="A modal" onClose={action('onClose')} />
     <Text>Some text in the modal body.</Text>
   </ModalWrapper>
 );
 
-export const withFooter = () => (
-  <ModalWrapper>
+export const WithFooter = (args: ModalWrapperProps) => (
+  <ModalWrapper {...args}>
     <ModalHeader title="A modal" />
     <Text>Some text in the modal body.</Text>
     <ModalFooter>
@@ -67,7 +74,7 @@ export const withFooter = () => (
   </ModalWrapper>
 );
 
-export const withCustomStyles = () => {
+export const WithCustomStyles = (args: ModalWrapperProps) => {
   const Container = styled('div')`
     display: flex;
     justify-content: stretch;
@@ -93,7 +100,8 @@ export const withCustomStyles = () => {
   `;
 
   return (
-    <div
+    <ModalWrapper
+      {...args}
       css={css`
         width: 100%;
         padding: 0;
@@ -106,6 +114,6 @@ export const withCustomStyles = () => {
         </LeftColumn>
         <RightColumn />
       </Container>
-    </div>
+    </ModalWrapper>
   );
 };

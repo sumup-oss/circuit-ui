@@ -89,7 +89,7 @@ const alignmentStyles = ({ align = 'right' }: ButtonGroupProps) => {
 
 const inlineMobileStyles = ({
   theme,
-  inlineMobile,
+  inlineMobile = false,
 }: StyleProps & ButtonGroupProps) =>
   inlineMobile &&
   css`

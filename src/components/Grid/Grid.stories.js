@@ -26,146 +26,125 @@ export default {
   title: 'Layout/Grid/Grid',
   component: Grid,
   parameters: {
+    layout: 'fullscreen',
+    controls: { hideNoControlsWarning: true },
     docs: { page: docs },
   },
 };
 
 const StyledCol = styled(Col)`
-  color: ${(p) => p.theme.colors.white};
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
-  line-height: 20px;
-  height: 40px;
-  padding: 10px;
+  line-height: 24px;
+  height: 48px;
+  padding: 12px;
   &:nth-of-type(n) {
-    background-color: ${(p) => p.theme.colors.b500};
+    background-color: ${(p) => p.theme.colors.n300};
   }
 
   &:nth-of-type(2n) {
-    background-color: ${(p) => p.theme.colors.b300};
+    background-color: ${(p) => p.theme.colors.n100};
   }
 `;
 
-StyledCol.defaultProps = {
-  skip: '0',
-};
-
 const StyledRow = styled(Row)`
-  border: 2px solid ${(p) => p.theme.colors.y100};
+  border: 1px solid magenta;
   margin-bottom: 8px;
 `;
 
-export const staticColumns = () => (
-  <div style={{ width: '100vw' }}>
-    <Grid>
-      <StyledRow>
-        <StyledCol span="2">Col 2</StyledCol>
-        <StyledCol span="2">Col 2</StyledCol>
-        <StyledCol span="2">Col 2</StyledCol>
-        <StyledCol span="2">Col 2</StyledCol>
-        <StyledCol span="2">Col 2</StyledCol>
-        <StyledCol span="2">Col 2</StyledCol>
-      </StyledRow>
+export const StaticColumns = () => (
+  <Grid>
+    <StyledRow>
+      <StyledCol span="2">Col 2</StyledCol>
+      <StyledCol span="2">Col 2</StyledCol>
+      <StyledCol span="2">Col 2</StyledCol>
+      <StyledCol span="2">Col 2</StyledCol>
+      <StyledCol span="2">Col 2</StyledCol>
+      <StyledCol span="2">Col 2</StyledCol>
+    </StyledRow>
 
-      <StyledRow>
-        <StyledCol span="3">Col 3</StyledCol>
-        <StyledCol span="3">Col 3</StyledCol>
-        <StyledCol span="3">Col 3</StyledCol>
-        <StyledCol span="3">Col 3</StyledCol>
-      </StyledRow>
+    <StyledRow>
+      <StyledCol span="3">Col 3</StyledCol>
+      <StyledCol span="3">Col 3</StyledCol>
+      <StyledCol span="3">Col 3</StyledCol>
+      <StyledCol span="3">Col 3</StyledCol>
+    </StyledRow>
 
-      <StyledRow>
-        <StyledCol span="4">Col 4</StyledCol>
-        <StyledCol span="4">Col 4</StyledCol>
-        <StyledCol span="4">Col 4</StyledCol>
-      </StyledRow>
+    <StyledRow>
+      <StyledCol span="4">Col 4</StyledCol>
+      <StyledCol span="4">Col 4</StyledCol>
+      <StyledCol span="4">Col 4</StyledCol>
+    </StyledRow>
 
-      <StyledRow>
-        <StyledCol span="4">Col 4</StyledCol>
-        <StyledCol span="2">Col 2</StyledCol>
-        <StyledCol span="2">Col 2</StyledCol>
-        <StyledCol span="1">1</StyledCol>
-        <StyledCol span="3">Col 4</StyledCol>
-      </StyledRow>
+    <StyledRow>
+      <StyledCol span="4">Col 4</StyledCol>
+      <StyledCol span="2">Col 2</StyledCol>
+      <StyledCol span="2">Col 2</StyledCol>
+      <StyledCol span="1">Col 1</StyledCol>
+      <StyledCol span="3">Col 4</StyledCol>
+    </StyledRow>
 
-      <StyledRow>
-        <StyledCol span="6">Col 6</StyledCol>
-        <StyledCol span="6">Col 6</StyledCol>
-      </StyledRow>
-    </Grid>
-  </div>
+    <StyledRow>
+      <StyledCol span="6">Col 6</StyledCol>
+      <StyledCol span="6">Col 6</StyledCol>
+    </StyledRow>
+  </Grid>
 );
 
-export const responsiveColumns = () => (
-  <div style={{ width: '100vw' }}>
-    <Grid>
-      <StyledRow>
-        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-          resize me
-        </StyledCol>
-        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-          resize me
-        </StyledCol>
-        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-          resize me
-        </StyledCol>
-        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-          resize me
-        </StyledCol>
-      </StyledRow>
+export const ResponsiveColumns = () => (
+  <Grid>
+    <StyledRow>
+      <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>resize me</StyledCol>
+      <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>resize me</StyledCol>
+      <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>resize me</StyledCol>
+      <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>resize me</StyledCol>
+    </StyledRow>
 
-      <StyledRow>
-        <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>
-          resize me
-        </StyledCol>
-        <StyledCol span="6">half</StyledCol>
-      </StyledRow>
-    </Grid>
-  </div>
+    <StyledRow>
+      <StyledCol span={{ default: 12, mega: 3, kilo: 6 }}>resize me</StyledCol>
+      <StyledCol span="6">half</StyledCol>
+    </StyledRow>
+  </Grid>
 );
 
-export const skippingColumns = () => (
-  <div style={{ width: '100vw' }}>
-    <Grid>
-      <StyledRow>
-        <StyledCol span="3">Col 3</StyledCol>
-        <StyledCol span="3">Col 3</StyledCol>
-        <StyledCol span="3" skip="3">
-          Col 3
-        </StyledCol>
-      </StyledRow>
+export const SkippingColumns = () => (
+  <Grid>
+    <StyledRow>
+      <StyledCol span="3">Col 3</StyledCol>
+      <StyledCol span="3">Col 3</StyledCol>
+      <StyledCol span="3" skip="3">
+        Col 3
+      </StyledCol>
+    </StyledRow>
 
-      <StyledRow>
-        <StyledCol span="6" skip="6">
-          First column
-        </StyledCol>
-        <StyledCol span="6" skip="-6">
-          Second Column
-        </StyledCol>
-      </StyledRow>
-    </Grid>
-  </div>
+    <StyledRow>
+      <StyledCol span="6" skip="6">
+        First column
+      </StyledCol>
+      <StyledCol span="6" skip="-6">
+        Second Column
+      </StyledCol>
+    </StyledRow>
+  </Grid>
 );
 
-export const responsiveSkipping = () => (
-  <div style={{ width: '100vw' }}>
-    <Grid>
-      <StyledRow>
-        <StyledCol span="3">Col 3</StyledCol>
-        <StyledCol span="3">Col 3</StyledCol>
-        <StyledCol span="3" skip={{ default: 0, untilKilo: 3 }}>
-          skip mobile
-        </StyledCol>
-      </StyledRow>
+export const ResponsiveSkipping = () => (
+  <Grid>
+    <StyledRow>
+      <StyledCol span="3">Col 3</StyledCol>
+      <StyledCol span="3">Col 3</StyledCol>
+      <StyledCol span="3" skip={{ default: 0, untilKilo: 3 }}>
+        skip mobile
+      </StyledCol>
+    </StyledRow>
 
-      <StyledRow>
-        <StyledCol span="6" skip={{ default: 6, untilKilo: 0 }}>
-          first column
-        </StyledCol>
-        <StyledCol span="6" skip={{ default: -6, untilKilo: 0 }}>
-          second column
-        </StyledCol>
-      </StyledRow>
-    </Grid>
-  </div>
+    <StyledRow>
+      <StyledCol span="6" skip={{ default: 6, untilKilo: 0 }}>
+        first column
+      </StyledCol>
+      <StyledCol span="6" skip={{ default: -6, untilKilo: 0 }}>
+        second column
+      </StyledCol>
+    </StyledRow>
+  </Grid>
 );

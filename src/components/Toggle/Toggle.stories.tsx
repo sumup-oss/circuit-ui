@@ -14,7 +14,6 @@
  */
 
 import React, { useState } from 'react';
-import { text } from '@storybook/addon-knobs';
 
 import docs from './Toggle.docs.mdx';
 import { Toggle, ToggleProps } from './Toggle';
@@ -27,32 +26,33 @@ export default {
   },
 };
 
-const ToggleWithState = (props: Partial<ToggleProps>) => {
+const baseArgs = {
+  label: 'Short label',
+  labelChecked: 'on',
+  labelUnchecked: 'off',
+};
+
+export const Base = (args: ToggleProps) => {
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
-
-  return (
-    <Toggle
-      label="Short label"
-      labelChecked="on"
-      labelUnchecked="off"
-      {...props}
-      checked={checked}
-      onChange={handleChange}
-    />
-  );
+  return <Toggle {...args} checked={checked} onChange={handleChange} />;
 };
 
-export const base = () => (
-  <ToggleWithState
-    label="Short label"
-    tracking={{ label: text('Tracking Label', 'trackingId') }}
-  />
-);
+Base.args = baseArgs;
 
-export const withExplanation = () => (
-  <ToggleWithState explanation="Some more detailed text of what this means" />
-);
+export const WithExplanation = (args: ToggleProps) => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+  return <Toggle {...args} checked={checked} onChange={handleChange} />;
+};
+
+WithExplanation.args = {
+  ...baseArgs,
+  explanation: 'Some more detailed text of what this means',
+};

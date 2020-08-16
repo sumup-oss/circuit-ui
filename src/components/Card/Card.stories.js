@@ -15,10 +15,11 @@
 
 /** @jsx jsx */
 import { Fragment } from 'react';
-import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { css, jsx } from '@emotion/core';
 
+import { Stack } from '../../../.storybook/components';
+import CardList from '../CardList';
 import Heading from '../Heading';
 import Text from '../Text';
 import ButtonGroup from '../ButtonGroup';
@@ -31,23 +32,31 @@ import Card, { CardHeader, CardFooter } from '.';
 export default {
   title: 'Components/Card',
   component: Card,
+  subcomponents: { CardList },
   parameters: {
     docs: { page: docs },
   },
 };
 
-const cardStyles = (theme) => css`
-  width: 500px;
+const cardStyles = () => css`
+  width: 400px;
+  min-height: 120px;
+  max-width: 90vw;
+  max-height: 90vh;
+  margin-bottom: 1rem;
+`;
+
+const squareStyles = () => css`
+  width: 150px;
   min-height: 150px;
   max-width: 90vw;
   max-height: 90vh;
-  margin-bottom: ${theme.spacings.mega};
 `;
 
 const contentStyles = (theme) => css`
-  background: ${theme.colors.n200};
+  background: ${theme.colors.n300};
   width: 100%;
-  height: 100%;
+  height: 118px;
 `;
 
 const Header = () => (
@@ -60,28 +69,28 @@ const Content = () => (
   <Text noMargin>This is some text showing in my card</Text>
 );
 
-export const base = () => <Card css={cardStyles} />;
+export const Base = () => <Card css={cardStyles} />;
 
-export const shadows = () => (
-  <Fragment>
-    <Card shadow={'single'} css={cardStyles} />
-    <Card shadow={'double'} css={cardStyles} />
-    <Card shadow={'triple'} css={cardStyles} />
-  </Fragment>
+export const Shadows = () => (
+  <Stack>
+    <Card shadow={'single'} css={squareStyles} />
+    <Card shadow={'double'} css={squareStyles} />
+    <Card shadow={'triple'} css={squareStyles} />
+  </Stack>
 );
 
-export const spacings = () => (
-  <Fragment>
-    <Card spacing={'mega'} css={cardStyles}>
+export const Spacings = () => (
+  <Stack>
+    <Card spacing={'mega'} css={squareStyles}>
       <div css={contentStyles} />
     </Card>
-    <Card spacing={'giga'} css={cardStyles}>
+    <Card spacing={'giga'} css={squareStyles}>
       <div css={contentStyles} />
     </Card>
-  </Fragment>
+  </Stack>
 );
 
-export const withHeader = () => (
+export const WithHeader = () => (
   <Fragment>
     <Card css={cardStyles}>
       <CardHeader>
@@ -93,9 +102,7 @@ export const withHeader = () => (
     <Card css={cardStyles}>
       <CardHeader
         onClose={action('CloseButton clicked')}
-        tracking={{
-          label: text('Tracking Label', 'trackingId'),
-        }}
+        tracking={{ label: 'trackingId' }}
       >
         <Header />
       </CardHeader>
@@ -104,7 +111,7 @@ export const withHeader = () => (
   </Fragment>
 );
 
-export const withFooter = () => (
+export const WithFooter = () => (
   <Fragment>
     <Card css={cardStyles}>
       <Content />

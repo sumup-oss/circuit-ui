@@ -14,13 +14,9 @@
  */
 
 import React from 'react';
-import { select, boolean, text } from '@storybook/addon-knobs';
 
-import { SubHeading } from './SubHeading';
+import { SubHeading, SubHeadingProps } from './SubHeading';
 import docs from './SubHeading.docs.mdx';
-
-const elements = ['h2', 'h3', 'h4', 'h5', 'h6'];
-const sizes = ['mega', 'kilo'] as const;
 
 export default {
   title: 'Typography/SubHeading',
@@ -30,19 +26,15 @@ export default {
   },
 };
 
-export const base = () => (
-  <SubHeading
-    as={select('Element', elements, elements[0])}
-    size={select('Size', sizes, sizes[0])}
-    noMargin={boolean('No margin', false)}
-  >
-    {text('Text', 'This is a subheading')}
-  </SubHeading>
+export const Base = (args: SubHeadingProps) => (
+  <SubHeading {...args}>This is a subheading</SubHeading>
 );
 
-export const size = () =>
+const sizes = ['mega', 'kilo'] as const;
+
+export const Sizes = (args: SubHeadingProps) =>
   sizes.map((s) => (
-    <SubHeading key={s} size={s}>
+    <SubHeading key={s} {...args} size={s}>
       This is a {s} subheading.
     </SubHeading>
   ));

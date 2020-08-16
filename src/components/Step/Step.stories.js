@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { object, number, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import Step from './Step';
@@ -41,40 +40,29 @@ export default {
   },
 };
 
-export const slider = () => (
-  <CarouselSlider
-    images={object('images', IMAGES)}
-    stepDuration={number('Step duration', STEP_DURATION)}
-    animationDuration={number('Animation duration', ANIMATION_DURATION)}
-    cycle={boolean('Cycle', true)}
-    autoPlay={boolean('Auto play', false)}
-    onNext={action('onNext')}
-    onPrevious={action('onPrev')}
-    onPlay={action('onPlay')}
-    onPause={action('onPause')}
-    onBeforeChange={action('onBeforeChange')}
-    onAfterChange={action('onAfterChange')}
-  />
-);
+const baseArgs = {
+  images: IMAGES,
+  cycle: true,
+  onNext: action('onNext'),
+  onPrevious: action('onPrev'),
+  onPlay: action('onPlay'),
+  onPause: action('onPause'),
+  onBeforeChange: action('onBeforeChange'),
+  onAfterChange: action('onAfterChange'),
+};
 
-export const swiper = () => (
-  <YesOrNoSlider
-    images={object('images', IMAGES)}
-    cycle={boolean('Cycle', true)}
-    onNext={action('onNext')}
-    onPrevious={action('onPrev')}
-    onPlay={action('onPlay')}
-    onPause={action('onPause')}
-    onBeforeChange={action('onBeforeChange')}
-    onAfterChange={action('onAfterChange')}
-  />
-);
+export const Slider = (args) => <CarouselSlider {...args} />;
 
-export const form = () => (
-  <MultiStepForm
-    onNext={action('onNext')}
-    onPrevious={action('onPrev')}
-    onBeforeChange={action('onBeforeChange')}
-    onAfterChange={action('onAfterChange')}
-  />
-);
+Slider.args = {
+  ...baseArgs,
+  stepDuration: STEP_DURATION,
+  animationDuration: ANIMATION_DURATION,
+};
+
+export const Swiper = (args) => <YesOrNoSlider {...args} />;
+
+Swiper.args = baseArgs;
+
+export const Form = (args) => <MultiStepForm {...args} />;
+
+Form.args = baseArgs;
