@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { number } from '@storybook/addon-knobs';
 import styled from '@emotion/styled';
 
 import AspectRatio from './AspectRatio';
@@ -28,10 +27,14 @@ export default {
   component: AspectRatio,
 };
 
-export const base = () => (
+export const Base = (args) => (
   <div style={{ width: '50vw' }}>
-    <AspectRatio aspectRatio={number('Aspect ratio', 1.5)}>
+    <AspectRatio {...args}>
       <Background />
     </AspectRatio>
   </div>
 );
+
+Base.args = {
+  aspectRatio: 1.5,
+};

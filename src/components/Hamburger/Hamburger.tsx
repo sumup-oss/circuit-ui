@@ -23,24 +23,23 @@ import { IconButton, IconButtonProps } from '../IconButton/IconButton';
 export type HamburgerRef = HTMLButtonElement;
 
 export interface HamburgerProps
-  extends Omit<IconButtonProps, 'ref' | 'children' | 'label'> {
+  extends Omit<IconButtonProps, 'ref' | 'children' | 'label' | 'type'> {
   /**
    * When active, the Hamburger transform into a close button.
    */
-  'isActive'?: boolean;
+  isActive?: boolean;
   /**
    * Label for the 'active' state. Important for accessibility.
    */
-  'labelActive': string;
+  labelActive: string;
   /**
    * Label for the 'inactive' state. Important for accessibility.
    */
-  'labelInActive': string;
-  'data-testid'?: string;
+  labelInActive: string;
   /**
    * Additional data that is dispatched with the tracking event.
    */
-  'tracking'?: TrackingProps;
+  tracking?: TrackingProps;
 }
 
 const LAYER_HEIGHT = '2px';
@@ -142,6 +141,7 @@ export const Hamburger = ({
     label={isActive ? labelActive : labelInActive}
     {...props}
     tracking={{ component: 'hamburger', ...tracking }}
+    type="button"
   >
     <Box>
       <Layers isActive={isActive} />

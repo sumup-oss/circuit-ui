@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { boolean, text, select } from '@storybook/addon-knobs';
 
 import TableHeader from '.';
 
@@ -23,12 +22,8 @@ export default {
   component: TableHeader,
 };
 
-export const base = () => (
-  <TableHeader
-    style={{ width: '300px', alignSelf: 'center' }}
-    align={select('Align', ['left', 'right', 'center'])}
-    sortable={boolean('Sortable', false)}
-  >
-    {text('Content', 'Header')}
+export const Base = (args) => (
+  <TableHeader style={{ width: '300px', alignSelf: 'center' }} {...args}>
+    Header
   </TableHeader>
 );

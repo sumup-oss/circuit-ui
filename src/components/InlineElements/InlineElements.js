@@ -46,7 +46,7 @@ const fallbackBaseStyles = ({ children, theme }) => {
   `;
 };
 
-const baseStyles = ({ theme, ratios, children }) => {
+const baseStyles = ({ theme, ratios = [], children }) => {
   const flexGrows =
     ratios.length &&
     Children.map(
@@ -162,11 +162,6 @@ InlineElements.propTypes = {
    * used with.
    */
   ratios: PropTypes.arrayOf(PropTypes.number),
-};
-
-InlineElements.defaultProps = {
-  inlineMobile: false,
-  ratios: [],
 };
 
 /**

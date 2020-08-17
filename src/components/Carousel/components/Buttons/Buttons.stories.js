@@ -25,7 +25,7 @@ export default {
   component: Buttons,
 };
 
-export const allButtons = () => (
+export const AllButtons = () => (
   <ButtonList>
     <PlayButton onClick={action('on play click')} />
     <PlayButton paused onClick={action('on pause click')} />

@@ -15,7 +15,6 @@
 
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { boolean, text } from '@storybook/addon-knobs';
 import { Check } from '@sumup/icons';
 
 import docs from './Tag.docs.mdx';
@@ -28,40 +27,41 @@ export default {
     docs: { page: docs },
   },
 };
-
-const BaseTag = (props: Partial<TagProps>) => (
-  <Tag
-    selected={boolean('Selected', false)}
-    prefix={boolean('Prefix', false) ? Check : undefined}
-    suffix={boolean('Suffix', false) ? Check : undefined}
-    onClick={boolean('Clickable', false) ? action('Tag clicked') : undefined}
-    onRemove={boolean('Removable', false) ? action('Tag removed') : undefined}
-    {...props}
-  >
-    Transactions
-  </Tag>
+export const Base = ({ onRemove, ...args }: TagProps) => (
+  <Tag {...args}>Transactions</Tag>
 );
 
-export const base = () => <BaseTag />;
-
-export const selected = () => <BaseTag selected />;
-
-export const withPrefix = () => <BaseTag prefix={Check} />;
-
-export const withSuffix = () => <BaseTag suffix={Check} />;
-
-export const clickable = () => (
-  <BaseTag
-    onClick={action('Tag clicked')}
-    as="button"
-    tracking={{ label: text('Tracking Label', 'trackingId') }}
-  />
+export const Selected = ({ onRemove, ...args }: TagProps) => (
+  <Tag {...args}>Transactions</Tag>
 );
 
-export const removable = () => (
-  <BaseTag
-    onRemove={action('Tag removed')}
-    labelRemoveButton="Remove"
-    tracking={{ label: text('Tracking Label', 'trackingId') }}
-  />
+Selected.args = { selected: true };
+
+export const WithPrefix = ({ onRemove, ...args }: TagProps) => (
+  <Tag {...args}>Transactions</Tag>
 );
+
+WithPrefix.args = { prefix: Check };
+
+export const WithSuffix = ({ onRemove, ...args }: TagProps) => (
+  <Tag {...args}>Transactions</Tag>
+);
+
+WithSuffix.args = { suffix: Check };
+
+export const Clickable = ({ onRemove, ...args }: TagProps) => (
+  <Tag {...args}>Transactions</Tag>
+);
+
+Clickable.args = {
+  onClick: action('Tag clicked'),
+  tracking: { label: 'trackingId' },
+};
+
+export const Removable = (args: TagProps) => <Tag {...args}>Transactions</Tag>;
+
+Removable.args = {
+  onRemove: action('Tag removed'),
+  labelRemoveButton: 'Remove',
+  tracking: { label: 'trackingId' },
+};

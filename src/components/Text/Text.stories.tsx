@@ -14,14 +14,11 @@
  */
 
 import React from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
 
 import docs from './Text.docs.mdx';
+import { TextProps } from './Text';
 
 import Text from '.';
-
-const elements = ['p', 'article', 'div', 'span', 'strong', 'em'];
-const sizes = ['kilo', 'mega', 'giga'] as const;
 
 const content =
   'An electronic circuit is composed of individual electronic components, such as resistors, transistors, capacitors, inductors and diodes, connected by conductive wires or traces through which electric current can flow.';
@@ -34,30 +31,31 @@ export default {
   },
 };
 
-export const base = () => (
-  <Text
-    as={select('Element', elements, elements[0])}
-    size={select('Size', sizes, sizes[0])}
-    noMargin={boolean('No margin', true)}
-    bold={boolean('Bold', false)}
-    italic={boolean('Italic', false)}
-    strike={boolean('Strike through', false)}
-  >
-    {content}
-  </Text>
-);
+export const Base = (args: TextProps) => <Text {...args}>{content}</Text>;
 
-export const size = () =>
+const sizes = ['kilo', 'mega', 'giga'] as const;
+
+export const Sizes = (args: TextProps) =>
   sizes.map((s) => (
-    <Text key={s} size={s}>
+    <Text key={s} {...args} size={s}>
       This is a {s} text. {content}
     </Text>
   ));
 
-export const bold = () => <Text bold>{content}</Text>;
+export const Bold = (args: TextProps) => (
+  <Text {...args} as="strong" bold>
+    {content}
+  </Text>
+);
 
-export const italic = () => <Text italic>{content}</Text>;
+export const Italic = (args: TextProps) => (
+  <Text {...args} as="em" italic>
+    {content}
+  </Text>
+);
 
-export const strike = () => <Text strike>{content}</Text>;
-
-export const customElement = () => <Text as="span">{content}</Text>;
+export const Strike = (args: TextProps) => (
+  <Text {...args} as="s" strike>
+    {content}
+  </Text>
+);

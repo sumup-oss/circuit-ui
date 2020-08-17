@@ -14,8 +14,6 @@
  */
 
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
-import { boolean } from '@storybook/addon-knobs';
 
 import docs from './Tabs.docs.mdx';
 
@@ -24,7 +22,9 @@ import { Tabs, TabList, TabPanel, Tab } from '.';
 export default {
   title: 'Components/Tabs',
   component: Tabs,
+  subcomponents: { TabList, TabPanel, Tab },
   parameters: {
+    layout: 'fullscreen',
     docs: { page: docs },
   },
 };
@@ -36,21 +36,38 @@ const tabs = [
   { id: 'four', tab: 'Tab 4', panel: 'Content 4' },
 ];
 
-const Wrapper = styled.div`
-  width: 100vw;
+export const Base = (args) => <Tabs {...args} />;
 
-  ${(p) => p.theme.mq.kilo} {
-    width: auto;
-    max-width: 100vw;
-  }
-`;
+Base.args = {
+  items: tabs,
+};
 
-const TabsWithState = (props) => {
+export const Links = () => (
+  <TabList>
+    <Tab selected>Home</Tab>
+    <Tab as="a" href="https://github.com/sumup-oss/circuit-ui" target="_blank">
+      GitHub
+    </Tab>
+    <Tab
+      as="a"
+      href="https://www.npmjs.com/package/@sumup/circuit-ui"
+      target="_blank"
+    >
+      NPM
+    </Tab>
+  </TabList>
+);
+
+Links.parameters = {
+  controls: { hideNoControlsWarning: true },
+};
+
+export const ControlledState = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <Wrapper>
-      <TabList {...props}>
+    <>
+      <TabList>
         {tabs.map(({ tab }, index) => (
           <Tab
             key={tab}
@@ -62,30 +79,10 @@ const TabsWithState = (props) => {
         ))}
       </TabList>
       <TabPanel>{tabs[selected].content}</TabPanel>
-    </Wrapper>
+    </>
   );
 };
 
-export const base = () => (
-  <Wrapper>
-    <Tabs items={tabs} />
-  </Wrapper>
-);
-
-export const links = () => (
-  <Wrapper>
-    <TabList>
-      <Tab selected>Home</Tab>
-      <Tab as="a" href="https://www.google.com" target="_blank">
-        Page #1
-      </Tab>
-      <Tab as="a" href="https://www.google.com" target="_blank">
-        Page #2
-      </Tab>
-    </TabList>
-  </Wrapper>
-);
-
-export const controlledState = () => (
-  <TabsWithState stretched={boolean('stretched', false)} />
-);
+ControlledState.parameters = {
+  controls: { hideNoControlsWarning: true },
+};

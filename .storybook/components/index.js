@@ -13,9 +13,17 @@
  * limitations under the License.
  */
 
+import {
+  ArgsTable as Props,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs/blocks';
+
+Props.defaultProps = { ...Props.defaultProps, story: PRIMARY_STORY };
+
+export { Props };
+
 export {
   Meta,
-  ArgsTable as Props,
   IconGallery,
   IconItem,
   Typeset,
@@ -37,3 +45,4 @@ export { default as Intro } from './Intro';
 export { default as Teaser } from './Teaser';
 export { default as Link } from './Link';
 export { default as Image } from './Image';
+export { default as Stack } from './Stack';

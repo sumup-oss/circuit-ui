@@ -26,6 +26,20 @@ export default {
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    position: {
+      control: {
+        type: 'select',
+        options: ['top', 'bottom', 'left', 'right'],
+      },
+    },
+    align: {
+      control: {
+        type: 'select',
+        options: ['top', 'bottom', 'left', 'right', 'center'],
+      },
+    },
+  },
 };
 
 const TooltipContainer = styled('div')`
@@ -39,25 +53,50 @@ const TooltipContainer = styled('div')`
   }
 `;
 
-const TooltipWithContainer = (props) => (
+export const Base = (args) => (
   <TooltipContainer>
-    <Tooltip {...props}>I am a teeny, tiny tooltip.</Tooltip>
+    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
     <CircleInfo />
   </TooltipContainer>
 );
 
-export const base = () => (
-  <TooltipWithContainer position={'right'} align={'center'} />
+Base.args = {
+  position: 'right',
+  align: 'center',
+};
+
+export const TopLeft = (args) => (
+  <TooltipContainer>
+    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
+    <CircleInfo />
+  </TooltipContainer>
 );
 
-export const topLeft = () => (
-  <TooltipWithContainer position={'top'} align={'left'} />
+TopLeft.args = {
+  position: 'top',
+  align: 'left',
+};
+
+export const BottomRight = (args) => (
+  <TooltipContainer>
+    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
+    <CircleInfo />
+  </TooltipContainer>
 );
 
-export const bottomRight = () => (
-  <TooltipWithContainer position={'bottom'} align={'right'} />
+BottomRight.args = {
+  position: 'bottom',
+  align: 'right',
+};
+
+export const LeftCenter = (args) => (
+  <TooltipContainer>
+    <Tooltip {...args}>I am a teeny, tiny tooltip.</Tooltip>
+    <CircleInfo />
+  </TooltipContainer>
 );
 
-export const leftCenter = () => (
-  <TooltipWithContainer position={'left'} align={'center'} />
-);
+LeftCenter.args = {
+  position: 'left',
+  align: 'center',
+};

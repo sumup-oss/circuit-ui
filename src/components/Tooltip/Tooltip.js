@@ -113,7 +113,11 @@ const getAlignmentStyles = ({ theme, position, align }) => {
   /* eslint-enable max-len */
 };
 
-const positionAndAlignStyles = ({ theme, position, align }) => css`
+const positionAndAlignStyles = ({
+  theme,
+  position = 'right',
+  align = 'center',
+}) => css`
   label: ${`tooltip--${position}-${align}`};
   ${getAlignmentStyles({ theme, position, align })};
   ${getPositionStyles({ theme, position })};
@@ -122,10 +126,7 @@ const positionAndAlignStyles = ({ theme, position, align }) => css`
 /**
  * A Tooltip component
  */
-const Tooltip = styled('div')`
-  ${baseStyles};
-  ${positionAndAlignStyles};
-`;
+const Tooltip = styled('div')(baseStyles, positionAndAlignStyles);
 
 Tooltip.propTypes = {
   /**
@@ -140,11 +141,6 @@ Tooltip.propTypes = {
    * The alignment of the tooltip relative to its position.
    */
   align: PropTypes.oneOf(['top', 'right', 'bottom', 'left', 'center']),
-};
-
-Tooltip.defaultProps = {
-  position: 'right',
-  align: 'center',
 };
 
 /**

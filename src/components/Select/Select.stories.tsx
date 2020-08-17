@@ -14,11 +14,7 @@
  */
 
 import React, { useState, FC } from 'react';
-import { action } from '@storybook/addon-actions';
-import { boolean, text } from '@storybook/addon-knobs';
 import { FlagDe, FlagUs, FlagFr } from '@sumup/icons';
-
-import { uniqueId } from '../../util/id';
 
 import { Select, SelectProps } from './Select';
 import docs from './Select.docs.mdx';
@@ -31,68 +27,62 @@ export default {
   },
 };
 
-const options = [
-  {
-    label: 'United States',
-    value: 'US',
-  },
-  {
-    label: 'Germany',
-    value: 'DE',
-  },
-  {
-    label: 'France',
-    value: 'FR',
-  },
-];
+const baseArgs = {
+  name: 'select',
+  label: 'Countries',
+  options: [
+    {
+      label: 'United States',
+      value: 'US',
+    },
+    {
+      label: 'Germany',
+      value: 'DE',
+    },
+    {
+      label: 'France',
+      value: 'FR',
+    },
+  ],
+};
+
 const flagIconMap: { [key: string]: FC<{ className?: string }> } = {
   DE: FlagDe,
   US: FlagUs,
   FR: FlagFr,
 };
 
-// Selects always need labels for accessibility.
-const StatefulSelect = (props: Partial<SelectProps>) => {
-  const id = uniqueId();
-  const [value, setValue] = useState('US');
+export const Base = (args: SelectProps) => <Select {...args} />;
 
+Base.args = baseArgs;
+
+export const Invalid = (args: SelectProps) => <Select {...args} />;
+
+Invalid.args = {
+  ...baseArgs,
+  validationHint: 'This field is required',
+  invalid: true,
+};
+
+export const WithPrefix = (args: SelectProps) => {
+  const [value, setValue] = useState('US');
   return (
     <Select
-      id={id}
-      name="select"
-      options={options}
+      {...args}
       value={value}
-      onChange={(e) => {
-        action('Option selected')(e);
-        setValue(e.target.value);
+      onChange={(event) => {
+        setValue(event.target.value);
       }}
-      disabled={boolean('Disabled', false)}
-      invalid={boolean('Invalid', false)}
-      validationHint={text('Validation hint', '')}
-      label="Countries"
-      tracking={{ label: text('Tracking Label', 'trackingId') }}
-      {...props}
+      renderPrefix={(props) => {
+        const Icon = props.value && flagIconMap[props.value];
+        return Icon ? <Icon {...props} /> : null;
+      }}
     />
   );
 };
 
-export const base = () => <StatefulSelect />;
+WithPrefix.args = baseArgs;
 
-export const invalid = () => (
-  <StatefulSelect
-    invalid={boolean('Invalid', true)}
-    validationHint={text('Validation hint', 'This field is required')}
-  />
-);
+export const HiddenLabel = (args: SelectProps) => <Select {...args} />;
 
-export const withPrefix = () => (
-  <StatefulSelect
-    name="country_select"
-    renderPrefix={({ className, value }) => {
-      const Icon = value && flagIconMap[value];
-      return Icon ? <Icon {...{ className }} /> : null;
-    }}
-  />
-);
-
-export const hiddenLabel = () => <StatefulSelect hideLabel />;
+HiddenLabel.args = { ...baseArgs, hideLabel: true };

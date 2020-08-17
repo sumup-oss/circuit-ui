@@ -20,7 +20,7 @@ import isPropValid from '@emotion/is-prop-valid';
 
 import { getSpanStyles, getSkipStyles, getBreakPointStyles } from './utils';
 
-const baseStyles = ({ theme, skip, span }) => css`
+const baseStyles = ({ theme, skip = '0', span = '0' }) => css`
   label: col;
 
   box-sizing: border-box;
@@ -62,11 +62,6 @@ Col.propTypes = {
    * span of 6 columns.
    */
   span: sizingProp,
-};
-
-Col.defaultProps = {
-  skip: '0',
-  span: '0',
 };
 
 /**

@@ -14,12 +14,11 @@
  */
 
 import React from 'react';
-import { select, boolean, text } from '@storybook/addon-knobs';
 import { Download } from '@sumup/icons';
 
 import docs from '../Button/Button.docs.mdx';
 
-import { IconButton } from './IconButton';
+import { IconButton, IconButtonProps } from './IconButton';
 
 export default {
   title: 'Components/Button/IconButton',
@@ -29,14 +28,9 @@ export default {
   },
 };
 
-export const Base = () => (
-  <IconButton
-    label={text('Label', 'Download')}
-    variant={select('Variant', ['primary', 'secondary', 'tertiary'], 'primary')}
-    size={select('Size', ['kilo', 'mega'], 'mega')}
-    stretch={boolean('Stretched', false)}
-    disabled={boolean('Disabled', false)}
-  >
-    <Download />
-  </IconButton>
-);
+export const Base = (args: IconButtonProps) => <IconButton {...args} />;
+
+Base.args = {
+  children: <Download />,
+  label: 'Download',
+};

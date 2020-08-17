@@ -15,8 +15,6 @@
 
 import React from 'react';
 
-import { uniqueId } from '../../util/id';
-
 import { TextArea, TextAreaProps } from './TextArea';
 import docs from './TextArea.docs.mdx';
 
@@ -26,41 +24,57 @@ export default {
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    placeholder: { control: 'text' },
+    disabled: { control: 'boolean' },
+  },
 };
 
-// TextAreas always need labels for accessibility.
-const TextAreaWithLabel = (props: Partial<TextAreaProps>) => {
-  const id = uniqueId();
-  return (
-    <TextArea
-      placeholder="Write your text here..."
-      {...props}
-      id={id}
-      label="Label"
-    />
-  );
+const baseArgs = {
+  label: 'Describe your issue',
+  placeholder: 'Be detailed and concise...',
 };
 
-export const base = () => <TextAreaWithLabel />;
+export const Base = (args: TextAreaProps) => <TextArea {...args} />;
 
-export const invalid = () => (
-  <TextAreaWithLabel validationHint="Please fill in this field." invalid />
-);
+Base.args = baseArgs;
 
-export const warning = () => (
-  <TextAreaWithLabel
-    validationHint="We recommend that you fill in this field."
-    hasWarning
-  />
-);
+export const Invalid = (args: TextAreaProps) => <TextArea {...args} />;
 
-export const readonly = () => <TextAreaWithLabel readOnly />;
+Invalid.args = {
+  ...baseArgs,
+  validationHint: 'Please fill in this field.',
+  invalid: true,
+};
 
-export const disabled = () => (
-  <TextAreaWithLabel
-    value="You cannot edit the text because the textarea is disabled"
-    disabled
-  />
-);
+export const Warning = (args: TextAreaProps) => <TextArea {...args} />;
 
-export const hiddenLabel = () => <TextAreaWithLabel hideLabel />;
+Warning.args = {
+  ...baseArgs,
+  validationHint: 'We recommend that you fill in this field.',
+  hasWarning: true,
+};
+
+export const Readonly = (args: TextAreaProps) => <TextArea {...args} />;
+
+Readonly.args = {
+  ...baseArgs,
+  placeholder: 'You can select and copy but not edit me',
+  readOnly: true,
+};
+
+export const Disabled = (args: TextAreaProps) => <TextArea {...args} />;
+
+Disabled.args = {
+  ...baseArgs,
+  value: 'You cannot edit the text because the textarea is disabled',
+  disabled: true,
+};
+
+export const HiddenLabel = (args: TextAreaProps) => <TextArea {...args} />;
+
+HiddenLabel.args = {
+  ...baseArgs,
+  placeholder: 'Describe your issue',
+  hideLabel: true,
+};

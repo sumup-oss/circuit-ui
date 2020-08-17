@@ -111,7 +111,7 @@ const isDynamicWidth = (children: BadgeProps['children']) => {
   return false;
 };
 
-const circleStyles = ({ circle, children }: BadgeProps) =>
+const circleStyles = ({ circle = false, children }: BadgeProps) =>
   circle &&
   css`
     label: badge--circle;

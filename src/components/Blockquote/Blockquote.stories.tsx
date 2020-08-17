@@ -14,14 +14,9 @@
  */
 
 import React, { Fragment } from 'react';
-import { select, text } from '@storybook/addon-knobs';
 
+import { Blockquote, BlockquoteProps } from './Blockquote';
 import docs from './Blockquote.docs.mdx';
-import { Blockquote } from './Blockquote';
-
-const defaultQuote = `The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.`;
-
-const sizes = ['kilo', 'mega', 'giga'] as const;
 
 export default {
   title: 'Typography/Blockquote',
@@ -31,16 +26,22 @@ export default {
   },
 };
 
-export const base = () => (
-  <Blockquote size={select('Size', sizes, sizes[1])}>
-    {text('Quote', defaultQuote)}
-  </Blockquote>
-);
+export const Base = (args: BlockquoteProps) => <Blockquote {...args} />;
 
-export const size = () => (
+Base.args = {
+  children: `The ability to accept credit card payments that are EMV-compliant is essentially an insurance policy against fraud and an impressively economical one at that.`,
+};
+
+export const Sizes = (args: BlockquoteProps) => (
   <Fragment>
-    <Blockquote size="kilo">Kilo - {text('Quote', defaultQuote)}</Blockquote>
-    <Blockquote size="mega">Mega - {text('Quote', defaultQuote)}</Blockquote>
-    <Blockquote size="giga">Giga - {text('Quote', defaultQuote)}</Blockquote>
+    <Base {...args} size="kilo">
+      Kilo
+    </Base>
+    <Base {...args} size="mega">
+      Mega
+    </Base>
+    <Base {...args} size="giga">
+      Giga
+    </Base>
   </Fragment>
 );

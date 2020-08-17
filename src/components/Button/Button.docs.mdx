@@ -1,17 +1,13 @@
 import { Status, Props, Story } from '../../../.storybook/components';
 
-import Button from '.';
-import ButtonGroup from '../ButtonGroup';
-import LoadingButton from '../LoadingButton';
-
 # Button
 
 <Status.Stable />
 
 A button allows us to highlight actions in the product and make them easily perceived and achievable through just one click.
 
-<Story id="components-button--primary" />
-<Props of={Button} />
+<Story id="components-button--base" />
+<Props />
 
 ## When to use it
 
@@ -35,23 +31,15 @@ Use buttons when users need to either navigate through a product or perform a sp
 
 ## Component variations
 
-### Primary
+### Variants
+
+<Story id="components-button--variants" />
 
 The **primary button** should be used for the most important actions. There should always be just one primary button visible at a time on the screen.
 
-<Story id="components-button--primary" />
-
-### Secondary
-
 The **secondary button** should be used for secondary actions to compliment a primary action, or when multiple actions of equal importance are required.
 
-<Story id="components-button--secondary" />
-
-### Tertiary
-
 The **tertiary button** should be used for supportive actions, and can be paired with the primary or the secondary button.
-
-<Story id="components-button--tertiary" />
 
 ### Sizes
 
@@ -68,7 +56,6 @@ Used when users have two opposite actions to be taken in a certain step of a flo
 with a primary button for the expected action and a secondary button on its left.
 
 <Story id="components-button-buttongroup--base" />
-<Props of={ButtonGroup} />
 
 - **Do** use the same verb tenses for both actions
 
@@ -77,4 +64,3 @@ with a primary button for the expected action and a secondary button on its left
 When the button's action is inputting/saving information or it takes more than 3 seconds to take the user to the next step/page, you can indicate a loading state with `LoadingButton`.
 
 <Story id="components-button-loadingbutton--base" />
-<Props of={LoadingButton} />

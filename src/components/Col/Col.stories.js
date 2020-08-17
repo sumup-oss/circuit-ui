@@ -21,32 +21,47 @@ import docs from '../Grid/Grid.docs.mdx';
 
 import Col from './Col';
 
+const colControl = {
+  control: {
+    type: 'range',
+    min: 0,
+    max: 12,
+    step: 1,
+  },
+};
+
 export default {
   title: 'Layout/Grid/Col',
   component: Col,
   parameters: {
+    layout: 'fullscreen',
     docs: { page: docs },
+  },
+  argTypes: {
+    span: colControl,
+    skip: colControl,
   },
 };
 
 const StyledCol = styled(Col)(
   ({ theme }) => css`
-    background-color: ${theme.colors.b500};
-    color: ${theme.colors.white};
-    font-size: 14px;
+    background-color: ${theme.colors.n300};
+    text-align: center;
+    font-size: 16px;
     font-weight: bold;
-    line-height: 20px;
-    height: 40px;
-    padding: 10px;
+    line-height: 24px;
+    height: 48px;
+    padding: 12px;
   `,
 );
 
-StyledCol.defaultProps = {
-  skip: '0',
-};
-
-export const col = () => (
-  <div style={{ width: '100vw' }}>
-    <StyledCol span="12">Column</StyledCol>
-  </div>
+export const Base = (args) => (
+  <StyledCol span={args.span.toString()} skip={args.skip.toString()}>
+    Column
+  </StyledCol>
 );
+
+Base.args = {
+  span: '12',
+  skip: 0,
+};

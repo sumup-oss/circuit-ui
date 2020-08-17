@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
-import { select, boolean } from '@storybook/addon-knobs';
+import React from 'react';
 
-import docs from './Badge.docs.mdx';
+import { Stack } from '../../../.storybook/components';
+
 import { Badge, BadgeProps } from './Badge';
+import docs from './Badge.docs.mdx';
 
 export default {
   title: 'Components/Badge',
@@ -27,33 +28,39 @@ export default {
   },
 };
 
-const BaseBadge = (props: Partial<BadgeProps>) => (
-  <Badge
-    variant={select(
-      'Variant',
-      ['neutral', 'success', 'warning', 'danger'],
-      'neutral',
-    )}
-    circle={boolean('Circular', false)}
-    {...props}
-  />
+export const Base = (args: BadgeProps) => <Badge {...args} />;
+
+Base.args = {
+  children: 'Badge',
+};
+
+export const Variants = (args: BadgeProps) => (
+  <Stack>
+    <Badge {...args} variant="neutral">
+      Neutral
+    </Badge>
+    <Badge {...args} variant="success">
+      Success
+    </Badge>
+    <Badge {...args} variant="warning">
+      Warning
+    </Badge>
+    <Badge {...args} variant="danger">
+      Danger
+    </Badge>
+  </Stack>
 );
 
-export const base = () => <BaseBadge>Badge</BaseBadge>;
-
-export const variants = () => (
-  <Fragment>
-    <BaseBadge variant="neutral">Neutral</BaseBadge>
-    <BaseBadge variant="success">Success</BaseBadge>
-    <BaseBadge variant="warning">Warning</BaseBadge>
-    <BaseBadge variant="danger">Danger</BaseBadge>
-  </Fragment>
-);
-
-export const circular = () => (
-  <Fragment>
-    <BaseBadge circle>1</BaseBadge>
-    <BaseBadge circle>42</BaseBadge>
-    <BaseBadge circle>999</BaseBadge>
-  </Fragment>
+export const Circular = (args: BadgeProps) => (
+  <Stack>
+    <Badge {...args} circle>
+      1
+    </Badge>
+    <Badge {...args} circle>
+      42
+    </Badge>
+    <Badge {...args} circle>
+      999
+    </Badge>
+  </Stack>
 );

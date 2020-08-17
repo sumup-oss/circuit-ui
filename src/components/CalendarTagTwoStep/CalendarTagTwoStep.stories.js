@@ -15,7 +15,6 @@
 
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { text } from '@storybook/addon-knobs';
 
 import CalendarTagTwoStep from './CalendarTagTwoStep';
 
@@ -24,9 +23,9 @@ export default {
   component: CalendarTagTwoStep,
 };
 
-export const base = () => (
+export const Base = (args) => (
   <CalendarTagTwoStep
+    {...args}
     onDatesRangeChange={action('onDatesRangeChange')}
-    tracking={{ label: text('Tracking Label', 'trackingId') }}
   />
 );

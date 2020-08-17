@@ -1,5 +1,4 @@
 import { Status, Props, Story } from '../../../.storybook/components';
-import { Input } from './Input';
 
 # Input
 
@@ -9,7 +8,7 @@ A text field is an input field for inserting short text and numbers. It has
 multiple functions and supports multiple character types/formats.
 
 <Story id="forms-input--base" />
-<Props of={Input} />
+<Props />
 
 ## When to use it
 
@@ -36,18 +35,6 @@ already have or need and we do not want the user to edit it easily. A disabled
 field should only be open for editing again if a CTA is clicked.
 
 <Story id="forms-input--disabled" />
-
-### Optional
-
-We should always strive for not asking optional information from our users. We
-recommend using optional inputs only if you feel that information is not
-critical and the user could benefit from having it input (such as `cellphone`
-in the context of a delivery address).
-
-Remember to always mark the input as optional on the label and never on the
-placeholder.
-
-<Story id="forms-input--optional" />
 
 ### Invalid
 

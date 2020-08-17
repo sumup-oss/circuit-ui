@@ -39,39 +39,40 @@ import { useComponents } from '../ComponentsContext';
 import useClickHandler from '../../hooks/use-click-handler';
 
 export interface BaseProps {
-  children: ReactNode;
+  'children': ReactNode;
   /**
    * Choose from 3 style variants. Default: 'primary'.
    */
-  variant?: 'primary' | 'secondary' | 'tertiary';
+  'variant'?: 'primary' | 'secondary' | 'tertiary';
   /**
-   * Choose from 3 sizes. Default: 'mega'.
+   * Choose from 2 sizes. Default: 'mega'.
    */
-  size?: 'kilo' | 'mega';
+  'size'?: 'kilo' | 'mega';
   /**
    * Visually and functionally disable the button.
    */
-  disabled?: boolean;
+  'disabled'?: boolean;
   /**
    * Stretch the button across the full width of its parent.
    */
-  stretch?: boolean;
+  'stretch'?: boolean;
   /**
    * Display an icon in addition to the text to help to identify the action.
    */
-  icon?: FC<SVGProps<SVGSVGElement>>;
-  /**
-   * Additional data that is dispatched with the tracking event.
-   */
-  tracking?: TrackingProps;
-  /**
-   The ref to the html dom element, it can be an anchor or a button
-   */
-  ref?: Ref<HTMLButtonElement & HTMLAnchorElement>;
+  'icon'?: FC<SVGProps<SVGSVGElement>>;
   /**
    * The HTML button type
    */
-  type?: 'button' | 'submit' | 'reset' | undefined;
+  'type'?: 'button' | 'submit' | 'reset' | undefined;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  'tracking'?: TrackingProps;
+  /**
+   The ref to the html dom element, it can be an anchor or a button
+   */
+  'ref'?: Ref<HTMLButtonElement & HTMLAnchorElement>;
+  'data-testid'?: string;
 }
 
 type LinkElProps = Omit<HTMLProps<HTMLAnchorElement>, 'size'>;

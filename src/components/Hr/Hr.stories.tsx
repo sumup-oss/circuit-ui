@@ -22,8 +22,10 @@ export default {
   title: 'Components/Hr',
   component: Hr,
   parameters: {
+    layout: 'fullscreen',
+    controls: { hideNoControlsWarning: true },
     docs: { page: docs },
   },
 };
 
-export const base = () => <Hr />;
+export const Base = () => <Hr />;

@@ -14,7 +14,6 @@
  */
 
 import React from 'react';
-import { boolean, text, select } from '@storybook/addon-knobs';
 
 import TableCell from '.';
 
@@ -23,12 +22,8 @@ export default {
   component: TableCell,
 };
 
-export const base = () => (
-  <TableCell
-    style={{ width: '300px', alignSelf: 'center' }}
-    align={select('Align', ['left', 'right', 'center'])}
-    isHovered={boolean('Hover styles', false)}
-  >
-    {text('Content', 'Header')}
+export const Base = (args) => (
+  <TableCell style={{ width: '300px', alignSelf: 'center' }} {...args}>
+    Cell
   </TableCell>
 );

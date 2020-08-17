@@ -14,7 +14,6 @@
  */
 
 import React, { useState } from 'react';
-import { text } from '@storybook/addon-knobs';
 
 import { Hamburger, HamburgerProps } from './Hamburger';
 
@@ -23,20 +22,15 @@ export default {
   component: Hamburger,
 };
 
-const HamburgerWithState = (props: HamburgerProps) => {
+export const Base = (args: HamburgerProps) => {
   const [active, setActive] = useState(false);
   const handleClick = () => {
     setActive((prev) => !prev);
   };
-  return <Hamburger isActive={active} onClick={handleClick} {...props} />;
+  return <Hamburger isActive={active} onClick={handleClick} {...args} />;
 };
 
-export const Base = () => (
-  <HamburgerWithState
-    labelActive={text('Label active', 'Close menu')}
-    labelInActive={text('Label inactive', 'Open menu')}
-    tracking={{
-      label: text('Tracking Label', 'trackingId'),
-    }}
-  />
-);
+Base.args = {
+  labelActive: 'Close menu',
+  labelInActive: 'Open menu',
+};

@@ -15,7 +15,6 @@
 
 import React, { useState, ChangeEvent } from 'react';
 import { action } from '@storybook/addon-actions';
-import { text } from '@storybook/addon-knobs';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
 import docs from './Checkbox.docs.mdx';
@@ -25,6 +24,11 @@ export default {
   component: Checkbox,
   parameters: {
     docs: { page: docs },
+  },
+  argTypes: {
+    name: { control: 'text' },
+    value: { control: 'text' },
+    disabled: { control: 'boolean' },
   },
 };
 
@@ -39,25 +43,21 @@ const CheckboxWithState = ({
     setChecked((prev) => !prev);
   };
   return (
-    <Checkbox
-      {...props}
-      checked={checked}
-      onChange={handleChange}
-      tracking={{ label: text('Tracking Label', 'trackingId') }}
-    >
+    <Checkbox {...props} checked={checked} onChange={handleChange}>
       {children || (checked ? 'Checked' : 'Unchecked')}
     </Checkbox>
   );
 };
 
-export const base = () => <CheckboxWithState name="base" value="true" />;
+export const Base = (args: CheckboxProps) => <CheckboxWithState {...args} />;
 
-const InvalidCheckboxWithState = ({
-  checked: initial = false,
-  children,
-  ...props
-}: CheckboxProps) => {
-  const [checked, setChecked] = useState(initial);
+Base.args = {
+  name: 'base',
+  value: 'true',
+};
+
+export const Invalid = (args: CheckboxProps) => {
+  const [checked, setChecked] = useState(false);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     action('Checkbox clicked')(event);
     setChecked((prev) => !prev);
@@ -65,37 +65,42 @@ const InvalidCheckboxWithState = ({
   const invalid = !checked;
   return (
     <Checkbox
-      {...props}
+      {...args}
       checked={checked}
       onChange={handleChange}
-      tracking={{ label: text('Tracking Label', 'trackingId') }}
-      validationHint={
-        invalid ? text('Validation hint', 'This field is required.') : undefined
-      }
+      validationHint={invalid ? args.validationHint : undefined}
       invalid={invalid}
     >
-      {children || (checked ? 'Checked' : 'Unchecked')}
+      {checked ? 'Checked' : 'Unchecked'}
     </Checkbox>
   );
 };
 
-export const invalid = () => (
-  <InvalidCheckboxWithState name="invalid" value="invalid" />
+Invalid.args = {
+  name: 'invalid',
+  value: 'true',
+  validationHint: 'This field is required.',
+};
+
+export const Disabled = (args: CheckboxProps) => (
+  <CheckboxWithState {...args} />
 );
 
-export const disabled = () => (
-  <CheckboxWithState name="disabled" value="disabled" disabled />
-);
+Disabled.args = {
+  name: 'disabled',
+  value: 'true',
+  disabled: true,
+};
 
-export const multiple = () => (
+export const Multiple = (args: CheckboxProps) => (
   <>
-    <CheckboxWithState value="apples" name="fruits">
+    <CheckboxWithState {...args} value="apples" name="fruits">
       Apples
     </CheckboxWithState>
-    <CheckboxWithState value="bananas" name="fruits">
+    <CheckboxWithState {...args} value="bananas" name="fruits">
       Bananas
     </CheckboxWithState>
-    <CheckboxWithState value="oranges" name="fruits">
+    <CheckboxWithState {...args} value="oranges" name="fruits">
       Oranges
     </CheckboxWithState>
   </>

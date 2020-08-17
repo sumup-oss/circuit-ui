@@ -16,7 +16,7 @@
 import React from 'react';
 
 import docs from './Image.docs.mdx';
-import { Image } from './Image';
+import { Image, ImageProps } from './Image';
 
 export default {
   title: 'Components/Image',
@@ -24,11 +24,15 @@ export default {
   parameters: {
     docs: { page: docs },
   },
+  argTypes: {
+    src: { control: 'text' },
+    alt: { control: 'text' },
+  },
 };
 
-export const base = () => (
-  <Image
-    src="https://source.unsplash.com/QU-zhliIV8Q/1600x900"
-    alt="Aerial photo of turbulent blue-turquoise ocean waves"
-  />
-);
+export const Base = (args: ImageProps) => <Image {...args} />;
+
+Base.args = {
+  src: 'https://source.unsplash.com/QU-zhliIV8Q/1600x900',
+  alt: 'Aerial photo of turbulent blue-turquoise ocean waves',
+};

@@ -22,13 +22,13 @@ export default {
   component: SingleDayPicker,
 };
 
-const SingleDayPickerWithState = (props) => {
+export const Base = (args) => {
   const [date, setDate] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
 
   return (
     <SingleDayPicker
-      {...props}
+      {...args}
       date={date}
       onDateChange={setDate}
       focused={focusedInput}
@@ -36,5 +36,3 @@ const SingleDayPickerWithState = (props) => {
     />
   );
 };
-
-export const base = () => <SingleDayPickerWithState />;

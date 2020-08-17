@@ -21,6 +21,9 @@ import Spinner from '.';
 export default {
   title: 'Components/Spinner',
   component: Spinner,
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 export const Base = () => (

@@ -122,4 +122,7 @@ Step.propTypes = {
   }),
 };
 
+/**
+ * @component
+ */
 export default Step;

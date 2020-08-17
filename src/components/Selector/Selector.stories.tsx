@@ -13,8 +13,9 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
-import { boolean, text } from '@storybook/addon-knobs';
+import React from 'react';
+
+import SelectorGroup from '../SelectorGroup';
 
 import docs from './Selector.docs.mdx';
 import { Selector, SelectorProps } from './Selector';
@@ -22,42 +23,31 @@ import { Selector, SelectorProps } from './Selector';
 export default {
   title: 'Forms/Selector',
   component: Selector,
+  subcomponents: { SelectorGroup },
   parameters: {
     docs: { page: docs },
   },
 };
 
-/* eslint-disable react/prop-types */
-const SelectorWithState = (props: Partial<SelectorProps>) => {
-  const [checked, setChecked] = useState(props.checked || false);
-
-  const toggleChecked = () => {
-    setChecked((prev) => !prev);
-  };
-
-  return (
-    <Selector
-      value="default"
-      {...props}
-      checked={checked}
-      onChange={toggleChecked}
-    />
-  );
+const baseArgs = {
+  name: 'selector',
+  value: 'default',
 };
 
-export const base = () => (
-  <SelectorWithState
-    disabled={boolean('Disabled', false)}
-    tracking={{ label: text('Tracking Label', 'trackingId') }}
-  >
-    Select me!
-  </SelectorWithState>
+export const Base = (args: SelectorProps) => (
+  <Selector {...args}>Select me!</Selector>
 );
 
-export const selected = () => (
-  <SelectorWithState checked>I am selected!</SelectorWithState>
+Base.args = baseArgs;
+
+export const Selected = (args: SelectorProps) => (
+  <Selector {...args}>I am selected!</Selector>
 );
 
-export const disabled = () => (
-  <SelectorWithState disabled>I cannot be selected</SelectorWithState>
+Selected.args = { ...baseArgs, checked: true };
+
+export const Disabled = (args: SelectorProps) => (
+  <Selector {...args}>I cannot be selected</Selector>
 );
+
+Disabled.args = { ...baseArgs, disabled: true };
