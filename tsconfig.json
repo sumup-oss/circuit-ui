@@ -28,6 +28,12 @@
     ]
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*/__tests__/*", "**/*/__testfixtures__/*"],
+  "exclude": [
+    "node_modules",
+    "**/*/__tests__/*",
+    "**/*/__testfixtures__/*",
+    "**/*.spec.*",
+    "**/*.stories.*"
+  ],
   "typeRoots": ["./node_modules/@types", "./src/types/"]
 }

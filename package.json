@@ -16,9 +16,8 @@
     "commit": "git-cz",
     "start": "start-storybook -p 6006 -s .storybook/public",
     "dev": "tsc --watch",
-    "build": "tsc && tsc --project tsconfig.cjs.json && yarn build:executable && yarn build:clean",
+    "build": "tsc && tsc --project tsconfig.cjs.json && yarn build:executable",
     "build:executable": "chmod +x ./dist/cjs/cli/index.js",
-    "build:clean": "find ./dist -type f -name '*.spec.*' -delete && find ./dist -type f -name '*.story.*' -delete",
     "create:component": "foundry run plop component",
     "static-styles": "cross-env BABEL_ENV=static babel-node --extensions '.js,.ts,.tsx' ./scripts/static-styles/cli.js",
     "build:docs": "yarn build:storybook && yarn build:stylesheets",
@@ -36,9 +35,8 @@
     "predeploy": "rm -rf ./public && yarn build:docs && cp ./src/CNAME ./public/CNAME",
     "deploy": "gh-pages -d public",
     "now-build": "yarn build:storybook",
-    "prepublishOnly": "yarn build",
-    "release": "semantic-release",
-    "chromatic": "npx chromatic --project-token s0eu6cjigj"
+    "prerelease": "yarn build",
+    "release": "semantic-release"
   },
   "config": {
     "commitizen": {
