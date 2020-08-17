@@ -1,11 +1,11 @@
-[![License](https://img.shields.io/badge/license--lightgrey.svg)](https://github.com/sumup-oss/icons/LICENSE)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
-
 <div align="center">
 
 # SumUp Icons
 
 A collection of icons for the web, part of the SumUp Design System.
+
+[![License](https://img.shields.io/badge/license--lightgrey.svg)](https://github.com/sumup-oss/icons/LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 </div>
 
@@ -61,7 +61,7 @@ const SuccessMessage = ({ description }) => (
 );
 ```
 
-To change the color of an icon, set the `color` property in CSS. The color will [cascade down](https://css-tricks.com/cascading-svg-fill-color/) since the `fill` and `stroke` attributes of most icons are set to `currentColor`. Here's an example with a CSS-in-JS library:
+To change the color of an icon, set the `color` property in CSS. The color will [cascade down](https://css-tricks.com/cascading-svg-fill-color/) since the `fill` and `stroke` attributes of all monochrome icons are set to `currentColor`. Here's an example with a CSS-in-JS library:
 
 ```jsx
 import styled from '@emotion/styled';
@@ -94,6 +94,8 @@ const SuccessMessage = ({ description }) => (
 );
 ```
 
+It is not possible to change the color of an external SVG using the `css` color property. Instead, you can use the [CSS `filter` hack](https://blog.union.io/code/2017/08/10/img-svg-fill/) to colorize the icon.
+
 ### Load from a URL
 
 The latest version of the icon library is [automatically deployed](https://icons.sumup-oss.now.sh/) to [Vercel Now](https://vercel.com/). The files are hosted behind a global CDN, so they load quickly for all users. You can load the icons from `https://icons.sumup-oss.now.sh/v1/<name>_<size>.svg`. Below are some examples:
@@ -107,6 +109,8 @@ The latest version of the icon library is [automatically deployed](https://icons
   background-image: url('https://icons.sumup-oss.now.sh/v1/circle_checkmark_filled_large.svg');
 }
 ```
+
+It is not possible to change the color of an external SVG using the `css` color property. Instead, you can use the [CSS `filter` hack](https://blog.union.io/code/2017/08/10/img-svg-fill/) to colorize the icon.
 
 ## Code of Conduct
 
