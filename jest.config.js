@@ -23,7 +23,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/@(components|util|styles)/**/*.{ts,tsx,js,jsx}',
     '!src/@(components|util|styles)/**/index.{ts,tsx,js,jsx}',
-    '!src/@(components|util|styles)/**/*.story.{ts,tsx,js,jsx}',
+    '!src/@(components|util|styles)/**/*.stories.{ts,tsx,js,jsx}',
     '!src/@(components|util|styles)/**/*.docs.mdx',
     '!**/node_modules/**',
   ],

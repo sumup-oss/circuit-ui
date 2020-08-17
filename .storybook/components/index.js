@@ -15,10 +15,10 @@
 
 export {
   Meta,
-  Props,
+  ArgsTable as Props,
   IconGallery,
   IconItem,
-  Typeset
+  Typeset,
 } from '@storybook/addon-docs/blocks';
 
 export { default as Status } from './Statuses';

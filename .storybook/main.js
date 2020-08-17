@@ -1,7 +1,7 @@
 module.exports = {
   stories: [
-    '../src/**/*.(stories|story).(js|ts|tsx|mdx)',
-    '../docs/**/*.(stories|story).(js|ts|tsx|mdx)',
+    '../src/**/*.stories.@(js|ts|tsx|mdx)',
+    '../docs/**/*.stories.@(js|ts|tsx|mdx)',
   ],
   addons: [
     {
@@ -10,10 +10,11 @@ module.exports = {
     },
     '@storybook/addon-docs/',
     '@storybook/addon-storysource',
-    '@storybook/addon-actions',
-    '@storybook/addon-links',
+    '@storybook/addon-controls',
     '@storybook/addon-knobs',
+    '@storybook/addon-actions',
     '@storybook/addon-a11y',
+    '@storybook/addon-links',
     '@storybook/addon-viewport',
   ],
   webpackFinal: transpileModules,

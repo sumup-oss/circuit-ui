@@ -1,5 +1,8 @@
 {
-  "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
+  "plugins": [
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    "lodash"
+  ],
   "presets": [
     ["@babel/preset-env", { "loose": true }],
     "@babel/preset-react",

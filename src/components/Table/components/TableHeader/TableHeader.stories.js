@@ -13,35 +13,22 @@
  * limitations under the License.
  */
 
-/** @jsx jsx */
-import { css, jsx } from '@emotion/core';
+import React from 'react';
+import { boolean, text, select } from '@storybook/addon-knobs';
 
-import { base as Notification } from '../Notification/Notification.story';
-
-import { NotificationBanner } from './NotificationBanner';
+import TableHeader from '.';
 
 export default {
-  title: 'Components/Notification/NotificationBanner',
-  component: NotificationBanner,
+  title: 'Components/Table/TableHeader',
+  component: TableHeader,
 };
 
 export const base = () => (
-  <div
-    css={css`
-      min-height: 8rem;
-    `}
+  <TableHeader
+    style={{ width: '300px', alignSelf: 'center' }}
+    align={select('Align', ['left', 'right', 'center'])}
+    sortable={boolean('Sortable', false)}
   >
-    <div
-      css={css`
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-      `}
-    >
-      <NotificationBanner>
-        <Notification />
-      </NotificationBanner>
-    </div>
-  </div>
+    {text('Content', 'Header')}
+  </TableHeader>
 );

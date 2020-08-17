@@ -1,5 +1,8 @@
 {
-  "plugins": ["@babel/plugin-proposal-class-properties", "lodash"],
+  "plugins": [
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    "lodash"
+  ],
   "presets": [
     ["@babel/preset-env", { "loose": true }],
     "@babel/preset-react",
@@ -14,7 +17,7 @@
   "env": {
     "static": {
       "plugins": [
-        "@babel/plugin-proposal-class-properties",
+        ["@babel/plugin-proposal-class-properties", { "loose": true }],
         "lodash",
         "dev-expression",
         "react-docgen"
@@ -39,7 +42,7 @@
     },
     "test": {
       "plugins": [
-        "@babel/plugin-proposal-class-properties",
+        ["@babel/plugin-proposal-class-properties", { "loose": true }],
         "lodash",
         "react-docgen"
       ],

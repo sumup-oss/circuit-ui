@@ -16,7 +16,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { useState } from 'react';
-import { object, number, boolean } from '@storybook/addon-knobs/react';
+import { object, number, boolean } from '@storybook/addon-knobs';
 
 import Container from './components/Container';
 import Slides from './components/Slides';

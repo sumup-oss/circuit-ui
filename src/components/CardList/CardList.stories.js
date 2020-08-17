@@ -15,7 +15,7 @@
 
 import React, { Component } from 'react';
 import { range } from 'lodash/fp';
-import * as knobs from '@storybook/addon-knobs/react';
+import * as knobs from '@storybook/addon-knobs';
 
 import docs from './CardList.docs.mdx';
 

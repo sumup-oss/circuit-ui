@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { object, number, boolean } from '@storybook/addon-knobs/react';
+import { object, number, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import Step from './Step';

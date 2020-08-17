@@ -14,15 +14,15 @@
  */
 
 import React from 'react';
-import { Preview as StorybookPreview } from '@storybook/addon-docs/blocks';
+import { Canvas } from '@storybook/addon-docs/blocks';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
 // eslint-disable-next-line react/prop-types
 const Preview = ({ children, ...props }) => (
-  <StorybookPreview {...props}>
+  <Canvas {...props}>
     <ThemeProvider theme={light}>{children}</ThemeProvider>
-  </StorybookPreview>
+  </Canvas>
 );
 
 export default Preview;

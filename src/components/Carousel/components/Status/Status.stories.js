@@ -14,7 +14,7 @@
  */
 
 import React from 'react';
-import { number } from '@storybook/addon-knobs/react';
+import { number } from '@storybook/addon-knobs';
 
 import Status from './Status';
 

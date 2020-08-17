@@ -14,21 +14,21 @@
  */
 
 import React from 'react';
-import { boolean, text, select } from '@storybook/addon-knobs/react';
+import { boolean, text, select } from '@storybook/addon-knobs';
 
-import TableHeader from '.';
+import TableCell from '.';
 
 export default {
-  title: 'Components/Table/TableHeader',
-  component: TableHeader,
+  title: 'Components/Table/TableCell',
+  component: TableCell,
 };
 
 export const base = () => (
-  <TableHeader
+  <TableCell
     style={{ width: '300px', alignSelf: 'center' }}
     align={select('Align', ['left', 'right', 'center'])}
-    sortable={boolean('Sortable', false)}
+    isHovered={boolean('Hover styles', false)}
   >
     {text('Content', 'Header')}
-  </TableHeader>
+  </TableCell>
 );

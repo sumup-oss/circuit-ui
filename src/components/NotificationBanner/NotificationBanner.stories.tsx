@@ -13,22 +13,35 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { boolean, text, select } from '@storybook/addon-knobs/react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
 
-import TableCell from '.';
+import { base as Notification } from '../Notification/Notification.stories';
+
+import { NotificationBanner } from './NotificationBanner';
 
 export default {
-  title: 'Components/Table/TableCell',
-  component: TableCell,
+  title: 'Components/Notification/NotificationBanner',
+  component: NotificationBanner,
 };
 
 export const base = () => (
-  <TableCell
-    style={{ width: '300px', alignSelf: 'center' }}
-    align={select('Align', ['left', 'right', 'center'])}
-    isHovered={boolean('Hover styles', false)}
+  <div
+    css={css`
+      min-height: 8rem;
+    `}
   >
-    {text('Content', 'Header')}
-  </TableCell>
+    <div
+      css={css`
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      `}
+    >
+      <NotificationBanner>
+        <Notification />
+      </NotificationBanner>
+    </div>
+  </div>
 );

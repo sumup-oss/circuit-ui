@@ -15,7 +15,7 @@
 
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { select, boolean } from '@storybook/addon-knobs/react';
+import { select, boolean } from '@storybook/addon-knobs';
 
 import Button from '../Button';
 import Card from '../Card';
