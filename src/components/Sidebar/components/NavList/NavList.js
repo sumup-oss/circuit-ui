@@ -13,9 +13,11 @@
  * limitations under the License.
  */
 
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { TrackingElement } from '@sumup/collector';
 
 const baseStyles = () => css`
   label: nav-list;
@@ -25,7 +27,15 @@ const baseStyles = () => css`
   width: 100%;
 `;
 
-const NavList = styled('ul')(baseStyles);
+const StyledList = styled('ul')(baseStyles);
+
+const TRACKING_ELEMENT = 'navList';
+
+const NavList = ({ children, ...props }) => (
+  <TrackingElement name={TRACKING_ELEMENT}>
+    <StyledList {...props}>{children}</StyledList>
+  </TrackingElement>
+);
 
 NavList.propTypes = {
   /**

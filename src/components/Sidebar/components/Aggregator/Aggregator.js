@@ -17,6 +17,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { TrackingElement } from '@sumup/collector';
 
 import SubNavList from '../SubNavList';
 import NavLabel from '../NavLabel';
@@ -66,6 +67,8 @@ const AggregatorContainer = styled.div(
   selectedStyles,
   disabledStyles,
 );
+
+const TRACKING_ELEMENT = 'aggregator';
 
 class Aggregator extends Component {
   state = { open: false };
@@ -131,7 +134,9 @@ class Aggregator extends Component {
           <NavLabel>{label}</NavLabel>
         </AggregatorContainer>
         {children && !disabled && (
-          <SubNavList visible={open}>{children}</SubNavList>
+          <TrackingElement name={TRACKING_ELEMENT}>
+            <SubNavList visible={open}>{children}</SubNavList>
+          </TrackingElement>
         )}
       </Fragment>
     );

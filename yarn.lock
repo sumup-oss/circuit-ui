@@ -3288,10 +3288,10 @@
     resolve-from "^5.0.0"
     store2 "^2.7.1"
 
-"@sumup/collector@^1.0.0-alpha.1":
-  version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@sumup/collector/-/collector-1.0.0-alpha.1.tgz#3f056661fd698825dd015fc3a462b193226d8455"
-  integrity sha512-anFQO6yXzgHxGfiJBAAnE354tqj3DZHLQAbYl2q+xo0oZAGmwdGy9QqpGQ9pvlIuk8HLZJlBvG30rP3pDr6WhQ==
+"@sumup/collector@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@sumup/collector/-/collector-1.0.0.tgz#96d99a52772dd8a38e724986be04040bb71398e9"
+  integrity sha512-6Mqad3IchiWNBhE0ZNT7AL1z/eZgcgtG9+OxDQ43N+izV6d8srEkNIZvTlk9KbnoQvrFqqRzLFSDYyy2TbmriA==
   dependencies:
     tti-polyfill "^0.2.2"
 
