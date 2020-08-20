@@ -108,7 +108,7 @@ export { default as Carousel, CarouselComposer } from './components/Carousel';
 export { default as InlineElements } from './components/InlineElements';
 
 export {
-  default as ComponentsContext,
+  ComponentsContext,
   withComponents,
   useComponents,
 } from './components/ComponentsContext';
