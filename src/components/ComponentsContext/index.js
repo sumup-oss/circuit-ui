@@ -18,5 +18,4 @@ import withComponents from './withComponents';
 import useComponents from './useComponents';
 import * as defaultComponents from './components';
 
-export { withComponents, useComponents, defaultComponents };
-export default ComponentsContext;
+export { ComponentsContext, withComponents, useComponents, defaultComponents };

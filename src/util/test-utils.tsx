@@ -23,7 +23,8 @@ import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'emotion-theming';
 import { light } from '@sumup/design-tokens';
 
-import ComponentsContext, {
+import {
+  ComponentsContext,
   defaultComponents,
 } from '../components/ComponentsContext';
 
