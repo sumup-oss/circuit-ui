@@ -95,7 +95,7 @@
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^6.0.10",
     "@storybook/source-loader": "^6.0.10",
-    "@sumup/collector": "^1.0.0-alpha.1",
+    "@sumup/collector": "^1.0.0",
     "@sumup/design-tokens": "^1.0.0",
     "@sumup/foundry": "^3.0.0",
     "@sumup/icons": "^1.0.0",

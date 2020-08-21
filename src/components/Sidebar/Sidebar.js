@@ -17,6 +17,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { TrackingElement } from '@sumup/collector';
 
 import useClickHandler from '../../hooks/use-click-handler';
 
@@ -60,6 +61,8 @@ const openStyles = ({ theme, open }) =>
 
 const Drawer = styled('nav')(baseStyles, openStyles);
 
+const TRACKING_ELEMENT = 'sidebar';
+
 const Sidebar = ({
   children,
   open,
@@ -73,7 +76,7 @@ const Sidebar = ({
   return (
     <Fragment>
       <Drawer open={open} {...props}>
-        {children}
+        <TrackingElement name={TRACKING_ELEMENT}>{children}</TrackingElement>
       </Drawer>
       <Backdrop
         visible={open}
