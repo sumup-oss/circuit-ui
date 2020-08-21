@@ -20,26 +20,52 @@ import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 export default {
   title: 'Forms/RadioButton/RadioButtonGroup',
   component: RadioButtonGroup,
-  argTypes: {
-    name: { control: 'text' },
-    value: { control: 'text' },
-  },
 };
 
-export const Base = (args: RadioButtonGroupProps) => {
-  const [value, setValue] = useState<string>();
+const options = [
+  {
+    children: 'Apple',
+    value: 'apple',
+  },
+  {
+    children: 'Banana',
+    value: 'banana',
+  },
+  {
+    children: 'Mango',
+    value: 'mango',
+  },
+];
+
+const RadioButtonGroupWithState = ({
+  value: initial,
+  children,
+  ...props
+}: Partial<RadioButtonGroupProps>) => {
+  const [value, setValue] = useState(initial);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
-  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
+  return (
+    <RadioButtonGroup
+      {...props}
+      options={options}
+      value={value}
+      onChange={handleChange}
+      label="Choose your favourite fruit"
+    />
+  );
 };
 
-Base.args = {
-  name: 'radio-button-group',
-  label: 'Choose your favourite fruit',
-  options: [
-    { children: 'Apple', value: 'apple' },
-    { children: 'Banana', value: 'banana' },
-    { children: 'Mango', value: 'mango' },
-  ],
+export const Base = () => (
+  <RadioButtonGroupWithState name="radio-button-group" />
+);
+
+export const Invalid = (args: RadioButtonGroupProps) => (
+  <RadioButtonGroupWithState {...args} />
+);
+
+Invalid.args = {
+  invalid: true,
+  validationHint: 'This field is required.',
 };

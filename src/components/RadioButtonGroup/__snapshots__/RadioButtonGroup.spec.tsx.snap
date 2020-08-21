@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButtonGroup should render with default styles 1`] = `
+.circuit-6 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+}
+
 .circuit-0 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
@@ -85,54 +91,62 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   transition: transform 120ms ease-in-out, opacity 120ms ease-in-out;
 }
 
-<div
-  aria-label="Choose an option"
-  role="group"
+<label
+  class="circuit-6"
+  for="radio-button-group_1"
 >
-  <div>
-    <input
-      class="circuit-0"
-      id="radio-button_2"
-      name="radio-button-group_1"
-      type="radio"
-      value="first"
-    />
-    <label
-      class="circuit-1"
-      for="radio-button_2"
-    >
-      Option 1
-    </label>
+  <span>
+    Choose an option
+  </span>
+  <div
+    aria-label="Choose an option"
+    role="group"
+  >
+    <div>
+      <input
+        class="circuit-0"
+        id="radio-button_2"
+        name="radio-button-group_1"
+        type="radio"
+        value="first"
+      />
+      <label
+        class="circuit-1"
+        for="radio-button_2"
+      >
+        Option 1
+      </label>
+    </div>
+    <div>
+      <input
+        class="circuit-0"
+        id="radio-button_3"
+        name="radio-button-group_1"
+        type="radio"
+        value="second"
+      />
+      <label
+        class="circuit-1"
+        for="radio-button_3"
+      >
+        Option 2
+      </label>
+    </div>
+    <div>
+      <input
+        class="circuit-0"
+        id="radio-button_4"
+        name="radio-button-group_1"
+        type="radio"
+        value="third"
+      />
+      <label
+        class="circuit-1"
+        for="radio-button_4"
+      >
+        Option 3
+      </label>
+    </div>
   </div>
-  <div>
-    <input
-      class="circuit-0"
-      id="radio-button_3"
-      name="radio-button-group_1"
-      type="radio"
-      value="second"
-    />
-    <label
-      class="circuit-1"
-      for="radio-button_3"
-    >
-      Option 2
-    </label>
-  </div>
-  <div>
-    <input
-      class="circuit-0"
-      id="radio-button_4"
-      name="radio-button-group_1"
-      type="radio"
-      value="third"
-    />
-    <label
-      class="circuit-1"
-      for="radio-button_4"
-    >
-      Option 3
-    </label>
-  </div>
-</div>
+</label>
 `;
