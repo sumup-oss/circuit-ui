@@ -14,9 +14,16 @@
  */
 
 import React, { HTMLProps, Ref } from 'react';
+import { css } from '@emotion/core';
 
+import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
+import Label from '../Label';
+import {
+  InlineMessage,
+  InlineMessageProps,
+} from '../InlineMessage/InlineMessage';
 
 export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
   /**
@@ -25,7 +32,7 @@ export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
    */
   options: Omit<RadioButtonProps, 'onChange'>[];
   /**
-   * Controles/Toggles the checked state. Passed on to the RadioButtons.
+   * Controls/Toggles the checked state. Passed on to the RadioButtons.
    */
   onChange: RadioButtonProps['onChange'];
   /**
@@ -40,7 +47,23 @@ export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
    * The ref to the HTML Dom element
    */
   ref?: Ref<HTMLDivElement>;
+  /**
+   * Warning or error message, displayed in a tooltip.
+   */
+  validationHint?: string;
+  /**
+   * Triggers error styles on the component. Important for accessibility.
+   */
+  invalid?: boolean;
 }
+
+const inlineMessageStyles = ({ theme }: StyleProps) => css`
+  margin-top: ${theme.spacings.mega};
+`;
+
+const StyledInlineMessage = styled(InlineMessage)<InlineMessageProps>(
+  inlineMessageStyles,
+);
 
 const RadioButtonGroupComponent = (
   {
@@ -49,25 +72,36 @@ const RadioButtonGroupComponent = (
     value: activeValue,
     name: customName,
     label,
+    invalid,
+    validationHint,
     ...props
   }: RadioButtonGroupProps,
   ref: RadioButtonGroupProps['ref'],
 ) => {
   const name = customName || uniqueId('radio-button-group_');
   return (
-    <div role="group" aria-label={label} ref={ref} {...props}>
-      {options &&
-        options.map(({ children, value, className, ...rest }) => (
-          <div key={value && value.toString()} className={className}>
-            <RadioButton
-              {...{ ...rest, value, name, onChange }}
-              checked={value === activeValue}
-            >
-              {children}
-            </RadioButton>
-          </div>
-        ))}
-    </div>
+    <Label htmlFor={name}>
+      {label && <span>{label}</span>}
+
+      <div role="group" aria-label={label} ref={ref} {...props}>
+        {options &&
+          options.map(({ children, value, className, ...rest }) => (
+            <div key={value && value.toString()} className={className}>
+              <RadioButton
+                {...{ ...rest, value, name, onChange }}
+                checked={value === activeValue}
+              >
+                {children}
+              </RadioButton>
+            </div>
+          ))}
+      </div>
+      {invalid && (
+        <StyledInlineMessage variant="danger">
+          {validationHint}
+        </StyledInlineMessage>
+      )}
+    </Label>
   );
 };
 
