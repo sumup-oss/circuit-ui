@@ -14,16 +14,10 @@
  */
 
 import React, { HTMLProps, Ref } from 'react';
-import { css } from '@emotion/core';
 
-import styled, { StyleProps } from '../../styles/styled';
 import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
-import Label from '../Label';
-import {
-  InlineMessage,
-  InlineMessageProps,
-} from '../InlineMessage/InlineMessage';
+import ValidationHint from '../ValidationHint';
 
 export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
   /**
@@ -48,22 +42,22 @@ export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
    */
   ref?: Ref<HTMLDivElement>;
   /**
-   * Warning or error message, displayed in a tooltip.
+   * Warning/error/valid message, displayed below the radio buttons.
    */
   validationHint?: string;
   /**
-   * Triggers error styles on the component. Important for accessibility.
+   * Triggers error message below the radio buttons.
    */
   invalid?: boolean;
+  /**
+   * Triggers warning message below the radio buttons.
+   */
+  hasWarning?: boolean;
+  /**
+   * Triggers valid message below the radio buttons.
+   */
+  showValid?: boolean;
 }
-
-const inlineMessageStyles = ({ theme }: StyleProps) => css`
-  margin-top: ${theme.spacings.mega};
-`;
-
-const StyledInlineMessage = styled(InlineMessage)<InlineMessageProps>(
-  inlineMessageStyles,
-);
 
 const RadioButtonGroupComponent = (
   {
@@ -74,14 +68,17 @@ const RadioButtonGroupComponent = (
     label,
     invalid,
     validationHint,
+    showValid,
+    disabled,
+    hasWarning,
     ...props
   }: RadioButtonGroupProps,
   ref: RadioButtonGroupProps['ref'],
 ) => {
   const name = customName || uniqueId('radio-button-group_');
   return (
-    <Label htmlFor={name}>
-      {label && <span>{label}</span>}
+    <fieldset name={name}>
+      {label && <legend>{label}</legend>}
 
       <div role="group" aria-label={label} ref={ref} {...props}>
         {options &&
@@ -96,12 +93,14 @@ const RadioButtonGroupComponent = (
             </div>
           ))}
       </div>
-      {invalid && (
-        <StyledInlineMessage variant="danger">
-          {validationHint}
-        </StyledInlineMessage>
-      )}
-    </Label>
+      <ValidationHint
+        invalid={invalid}
+        showValid={showValid}
+        disabled={disabled}
+        hasWarning={hasWarning}
+        validationHint={validationHint}
+      />
+    </fieldset>
   );
 };
 

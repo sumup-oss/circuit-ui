@@ -20,52 +20,108 @@ import { RadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 export default {
   title: 'Forms/RadioButton/RadioButtonGroup',
   component: RadioButtonGroup,
+  argTypes: {
+    name: { control: 'text' },
+    value: { control: 'text' },
+    options: { control: 'array' },
+    invalid: { control: 'boolean' },
+    showValid: { control: 'boolean' },
+    hasWarning: { control: 'boolean' },
+    validationHint: { control: 'text' },
+  },
 };
 
-const options = [
-  {
-    children: 'Apple',
-    value: 'apple',
-  },
-  {
-    children: 'Banana',
-    value: 'banana',
-  },
-  {
-    children: 'Mango',
-    value: 'mango',
-  },
-];
-
-const RadioButtonGroupWithState = ({
-  value: initial,
-  children,
-  ...props
-}: Partial<RadioButtonGroupProps>) => {
-  const [value, setValue] = useState(initial);
+export const Base = (args: RadioButtonGroupProps) => {
+  const [value, setValue] = useState<string>();
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
-  return (
-    <RadioButtonGroup
-      {...props}
-      options={options}
-      value={value}
-      onChange={handleChange}
-      label="Choose your favourite fruit"
-    />
-  );
+  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
 };
 
-export const Base = () => (
-  <RadioButtonGroupWithState name="radio-button-group" />
-);
+Base.args = {
+  name: 'radio-button-group',
+  label: 'Choose your favourite fruit',
+  options: [
+    { children: 'Apple', value: 'apple' },
+    { children: 'Banana', value: 'banana' },
+    { children: 'Mango', value: 'mango' },
+  ],
+};
 
-export const Invalid = (args: RadioButtonGroupProps) => (
-  <RadioButtonGroupWithState {...args} />
-);
+export const NoLabel = (args: RadioButtonGroupProps) => {
+  const [value, setValue] = useState<string>();
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
+};
+
+NoLabel.args = {
+  name: 'radio-button-group',
+  options: [
+    { children: 'Apple', value: 'apple' },
+    { children: 'Banana', value: 'banana' },
+    { children: 'Mango', value: 'mango' },
+  ],
+};
+
+export const Invalid = (args: RadioButtonGroupProps) => {
+  const [value, setValue] = useState<string>();
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
+};
 
 Invalid.args = {
+  name: 'radio-button-group',
+  label: 'Choose your favourite fruit',
+  options: [
+    { children: 'Apple', value: 'apple' },
+    { children: 'Banana', value: 'banana' },
+    { children: 'Mango', value: 'mango' },
+  ],
   invalid: true,
   validationHint: 'This field is required.',
+};
+
+export const Valid = (args: RadioButtonGroupProps) => {
+  const [value, setValue] = useState<string>();
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
+};
+
+Valid.args = {
+  name: 'radio-button-group',
+  label: 'Choose your favourite fruit',
+  options: [
+    { children: 'Apple', value: 'apple' },
+    { children: 'Banana', value: 'banana' },
+    { children: 'Mango', value: 'mango' },
+  ],
+  showValid: true,
+  validationHint: 'You chose an option.',
+};
+
+export const Warning = (args: RadioButtonGroupProps) => {
+  const [value, setValue] = useState<string>();
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+  return <RadioButtonGroup {...args} value={value} onChange={handleChange} />;
+};
+
+Warning.args = {
+  name: 'radio-button-group',
+  label: 'Choose your favourite fruit',
+  options: [
+    { children: 'Apple', value: 'apple' },
+    { children: 'Banana', value: 'banana' },
+    { children: 'Mango', value: 'mango' },
+  ],
+  hasWarning: true,
+  validationHint: 'This choice might cause errors.',
 };
