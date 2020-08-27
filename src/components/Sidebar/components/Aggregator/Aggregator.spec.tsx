@@ -13,77 +13,60 @@
  * limitations under the License.
  */
 
-import React, { Component, Fragment } from 'react';
+import React from 'react';
 
-import Aggregator from './Aggregator';
+import {
+  create,
+  renderToHtml,
+  axe,
+  render,
+  act,
+  userEvent,
+} from '../../../../util/test-utils';
 
-const props = {
-  'label': 'Aggregator',
-  'onClick': jest.fn(),
-  'selectedIcon': 'selected-icon',
-  'defaultIcon': 'default-icon',
-  'data-testid': 'aggregator',
+import Aggregator, { AggregatorProps } from './Aggregator';
+
+const ProxyComponent = ({ children, selected, visible, ...rest }: any) => (
+  <div {...rest}>{children}</div>
+);
+
+const defaultProps = {
+  label: 'Aggregator',
+  onClick: jest.fn(),
+  selectedIcon: 'selected-icon' as any,
+  defaultIcon: 'default-icon' as any,
+  disabled: false,
+  children: <ProxyComponent data-testid="child">child</ProxyComponent>,
+  tracking: {},
 };
 
-class MockedNavigation extends Component {
-  state = {
-    selected: 1,
-  };
-
-  render() {
-    const { selected } = this.state;
-    return (
-      <Fragment>
-        <Aggregator {...props} {...this.props}>
-          <div selected={selected === 0} data-testid="child">
-            child
-          </div>
-        </Aggregator>
-        {/* eslint-disable-next-line */}
-        <div
-          id="sibling"
-          selected={selected !== 0}
-          onClick={() => this.setState({ selected: 1 })}
-        >
-          sibling
-        </div>
-      </Fragment>
-    );
-  }
-}
+const renderComponent = (fn: Function, props: Partial<AggregatorProps> = {}) =>
+  fn(
+    <Aggregator {...defaultProps} {...props} data-testid="aggregator">
+      {props.children || defaultProps.children}
+    </Aggregator>,
+  );
 
 describe('Aggregator', () => {
   describe('styles', () => {
     it('should render with default styles', () => {
-      const actual = create(
-        <Aggregator {...props}>
-          <div data-testid="child">child</div>
-        </Aggregator>,
-      );
+      const actual = renderComponent(create);
       expect(actual).toMatchSnapshot();
     });
 
     it('should render and match snapshot when open', () => {
-      const { container, getByTestId } = render(
-        <Aggregator {...props}>
-          <div data-testid="child">child</div>
-        </Aggregator>,
-      );
+      const { container, getByTestId } = renderComponent(render);
       const aggregatorEl = getByTestId('aggregator');
 
       act(() => {
-        fireEvent.click(aggregatorEl);
+        userEvent.click(aggregatorEl);
       });
 
       expect(container.children).toMatchSnapshot();
     });
 
     it('should render with disabled state styles and match the snapshot', () => {
-      const actual = create(
-        <Aggregator {...props} disabled={true}>
-          <div data-testid="child">child</div>
-        </Aggregator>,
-      );
+      const actual = renderComponent(create, { disabled: true });
 
       expect(actual).toMatchSnapshot();
     });
@@ -92,18 +75,14 @@ describe('Aggregator', () => {
   describe('interactions', () => {
     it('should show children and call onClick when clicking the aggregator', () => {
       const onClick = jest.fn();
-      const { getByTestId } = render(
-        <Aggregator {...props} onClick={onClick}>
-          <div data-testid="child">child</div>
-        </Aggregator>,
-      );
+      const { getByTestId } = renderComponent(render, { onClick });
       const aggregatorEl = getByTestId('aggregator');
       const childEl = getByTestId('child');
 
       expect(childEl).not.toBeVisible();
 
       act(() => {
-        fireEvent.click(aggregatorEl);
+        userEvent.click(aggregatorEl);
       });
 
       expect(childEl).toBeVisible();
@@ -111,50 +90,43 @@ describe('Aggregator', () => {
     });
 
     it('should show children when clicking the aggregator and no onClick handle is passed', () => {
-      const noHandlerProps = {
-        ...props,
-        onClick: null,
-      };
-
-      const { getByTestId } = render(
-        <Aggregator {...noHandlerProps}>
-          <div data-testid="child">child</div>
-        </Aggregator>,
-      );
+      const { getByTestId } = renderComponent(render, {
+        onClick: undefined,
+      });
       const aggregatorEl = getByTestId('aggregator');
       const childEl = getByTestId('child');
 
       expect(childEl).not.toBeVisible();
 
       act(() => {
-        fireEvent.click(aggregatorEl);
+        userEvent.click(aggregatorEl);
       });
 
       expect(childEl).toBeVisible();
     });
 
     it('should not toggle when clicking again on the aggregator with a selected child', () => {
-      const onClick = jest.fn();
-      const { getByTestId } = render(
-        <Aggregator {...props} onClick={onClick}>
-          <div selected data-testid="child">
-            child
-          </div>
-        </Aggregator>,
+      const children = (
+        <ProxyComponent selected data-testid="child">
+          child
+        </ProxyComponent>
       );
+      const onClick = jest.fn();
+      const { getByTestId } = renderComponent(render, { onClick, children });
+
       const aggregatorEl = getByTestId('aggregator');
       const childEl = getByTestId('child');
 
       expect(childEl).toBeVisible();
 
       act(() => {
-        fireEvent.click(aggregatorEl);
+        userEvent.click(aggregatorEl);
       });
 
       expect(childEl).toBeVisible();
 
       act(() => {
-        fireEvent.click(aggregatorEl);
+        userEvent.click(aggregatorEl);
       });
 
       expect(onClick).toHaveBeenCalledTimes(2);
@@ -163,20 +135,20 @@ describe('Aggregator', () => {
 
     it('should close when there are no selected children', () => {
       const onClick = jest.fn();
-      const { getByTestId } = render(<MockedNavigation onClick={onClick} />);
+      const { getByTestId } = renderComponent(render, { onClick });
       const aggregatorEl = getByTestId('aggregator');
       const childEl = getByTestId('child');
 
       expect(childEl).not.toBeVisible();
 
       act(() => {
-        fireEvent.click(aggregatorEl);
+        userEvent.click(aggregatorEl);
       });
 
       expect(childEl).toBeVisible();
 
       act(() => {
-        fireEvent.click(aggregatorEl);
+        userEvent.click(aggregatorEl);
       });
 
       expect(onClick).toHaveBeenCalledTimes(2);
@@ -184,11 +156,9 @@ describe('Aggregator', () => {
     });
 
     it('should not render children when disabled', () => {
-      const { queryByTestId } = render(
-        <Aggregator {...props} disabled={true}>
-          <div data-selector="child">child</div>
-        </Aggregator>,
-      );
+      const { queryByTestId } = renderComponent(render, {
+        disabled: true,
+      });
       const childEl = queryByTestId('child');
 
       expect(childEl).toBeNull();
@@ -197,7 +167,7 @@ describe('Aggregator', () => {
 
   describe('accessibility', () => {
     it('should meet accessibility guidelines', async () => {
-      const wrapper = renderToHtml(<Aggregator />);
+      const wrapper = renderComponent(renderToHtml);
       const actual = await axe(wrapper);
       expect(actual).toHaveNoViolations();
     });
