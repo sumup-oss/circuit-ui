@@ -30,7 +30,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-2 circuit-3"
+    class="circuit-2"
     data-testid="aggregator"
   >
     default-icon
@@ -120,7 +120,7 @@ HTMLCollection [
 }
 
 <div
-    class="circuit-2 circuit-3"
+    class="circuit-2"
     data-testid="aggregator"
   >
     default-icon
@@ -201,7 +201,7 @@ exports[`Aggregator styles should render with disabled state styles and match th
 }
 
 <div
-  class="circuit-2 circuit-3"
+  class="circuit-2"
   data-testid="aggregator"
   disabled=""
 >
