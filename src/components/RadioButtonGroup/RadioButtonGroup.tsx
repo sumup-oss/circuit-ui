@@ -14,12 +14,16 @@
  */
 
 import React, { HTMLProps, Ref } from 'react';
+import { css } from '@emotion/core';
 
+import styled, { StyleProps } from '../../styles/styled';
+import { textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
 import ValidationHint from '../ValidationHint';
 
-export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
+export interface RadioButtonGroupProps
+  extends Omit<HTMLProps<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least
    * a value and children.
@@ -40,7 +44,7 @@ export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
   /**
    * The ref to the HTML Dom element
    */
-  ref?: Ref<HTMLDivElement>;
+  ref?: Ref<HTMLFieldSetElement>;
   /**
    * Warning/error/valid message, displayed below the radio buttons.
    */
@@ -58,6 +62,15 @@ export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
    */
   showValid?: boolean;
 }
+
+const legendBaseStyles = ({ theme }: StyleProps) => css`
+  ${textKilo({ theme })};
+  margin-bottom: ${theme.spacings.bit};
+`;
+
+const StyledLegend = styled('legend')<HTMLProps<HTMLLegendElement>>(
+  legendBaseStyles,
+);
 
 const RadioButtonGroupComponent = (
   {
@@ -77,22 +90,19 @@ const RadioButtonGroupComponent = (
 ) => {
   const name = customName || uniqueId('radio-button-group_');
   return (
-    <fieldset name={name}>
-      {label && <legend>{label}</legend>}
-
-      <div role="group" aria-label={label} ref={ref} {...props}>
-        {options &&
-          options.map(({ children, value, className, ...rest }) => (
-            <div key={value && value.toString()} className={className}>
-              <RadioButton
-                {...{ ...rest, value, name, onChange }}
-                checked={value === activeValue}
-              >
-                {children}
-              </RadioButton>
-            </div>
-          ))}
-      </div>
+    <fieldset name={name} ref={ref} {...props}>
+      {label && <StyledLegend>{label}</StyledLegend>}
+      {options &&
+        options.map(({ children, value, className, ...rest }) => (
+          <div key={value && value.toString()} className={className}>
+            <RadioButton
+              {...{ ...rest, value, name, onChange }}
+              checked={value === activeValue}
+            >
+              {children}
+            </RadioButton>
+          </div>
+        ))}
       <ValidationHint
         invalid={invalid}
         showValid={showValid}

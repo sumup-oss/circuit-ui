@@ -2,6 +2,12 @@
 
 exports[`RadioButtonGroup should render with default styles 1`] = `
 .circuit-0 {
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+
+.circuit-1 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -14,38 +20,38 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   width: 1px;
 }
 
-.circuit-0:hover + label::before {
+.circuit-1:hover + label::before {
   border-color: #5C656F;
 }
 
-.circuit-0:focus + label::before {
+.circuit-1:focus + label::before {
   outline: 0;
   box-shadow: 0 0 0 4px #AFD0FE;
 }
 
-.circuit-0:focus + label::before::-moz-focus-inner {
+.circuit-1:focus + label::before::-moz-focus-inner {
   border: 0;
 }
 
-.circuit-0:checked + label::before {
+.circuit-1:checked + label::before {
   border-color: #3388FF;
 }
 
-.circuit-0:checked + label::after {
+.circuit-1:checked + label::after {
   -webkit-transform: translateY(-50%) scale(1,1);
   -ms-transform: translateY(-50%) scale(1,1);
   transform: translateY(-50%) scale(1,1);
   opacity: 1;
 }
 
-.circuit-1 {
+.circuit-2 {
   color: #5C656F;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
 }
 
-.circuit-1::before {
+.circuit-2::before {
   box-sizing: border-box;
   height: 18px;
   width: 18px;
@@ -65,7 +71,7 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   transition: border 120ms ease-in-out;
 }
 
-.circuit-1::after {
+.circuit-2::after {
   box-sizing: border-box;
   height: 10px;
   width: 10px;
@@ -88,58 +94,55 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
 <fieldset
   name="radio-button-group_1"
 >
-  <legend>
+  <legend
+    class="circuit-0"
+  >
     Choose an option
   </legend>
-  <div
-    aria-label="Choose an option"
-    role="group"
-  >
-    <div>
-      <input
-        class="circuit-0"
-        id="radio-button_2"
-        name="radio-button-group_1"
-        type="radio"
-        value="first"
-      />
-      <label
-        class="circuit-1"
-        for="radio-button_2"
-      >
-        Option 1
-      </label>
-    </div>
-    <div>
-      <input
-        class="circuit-0"
-        id="radio-button_3"
-        name="radio-button-group_1"
-        type="radio"
-        value="second"
-      />
-      <label
-        class="circuit-1"
-        for="radio-button_3"
-      >
-        Option 2
-      </label>
-    </div>
-    <div>
-      <input
-        class="circuit-0"
-        id="radio-button_4"
-        name="radio-button-group_1"
-        type="radio"
-        value="third"
-      />
-      <label
-        class="circuit-1"
-        for="radio-button_4"
-      >
-        Option 3
-      </label>
-    </div>
+  <div>
+    <input
+      class="circuit-1"
+      id="radio-button_2"
+      name="radio-button-group_1"
+      type="radio"
+      value="first"
+    />
+    <label
+      class="circuit-2"
+      for="radio-button_2"
+    >
+      Option 1
+    </label>
+  </div>
+  <div>
+    <input
+      class="circuit-1"
+      id="radio-button_3"
+      name="radio-button-group_1"
+      type="radio"
+      value="second"
+    />
+    <label
+      class="circuit-2"
+      for="radio-button_3"
+    >
+      Option 2
+    </label>
+  </div>
+  <div>
+    <input
+      class="circuit-1"
+      id="radio-button_4"
+      name="radio-button-group_1"
+      type="radio"
+      value="third"
+    />
+    <label
+      class="circuit-2"
+      for="radio-button_4"
+    >
+      Option 3
+    </label>
   </div>
 </fieldset>
 `;
