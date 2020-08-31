@@ -14,18 +14,23 @@
  */
 
 import React, { HTMLProps, Ref } from 'react';
+import { css } from '@emotion/core';
 
+import styled, { StyleProps } from '../../styles/styled';
+import { textKilo } from '../../styles/style-helpers';
 import { uniqueId } from '../../util/id';
 import { RadioButton, RadioButtonProps } from '../RadioButton/RadioButton';
+import ValidationHint from '../ValidationHint';
 
-export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
+export interface RadioButtonGroupProps
+  extends Omit<HTMLProps<HTMLFieldSetElement>, 'onChange'> {
   /**
    * A collection of available options. Each option must have at least
    * a value and children.
    */
   options: Omit<RadioButtonProps, 'onChange'>[];
   /**
-   * Controles/Toggles the checked state. Passed on to the RadioButtons.
+   * Controls/Toggles the checked state. Passed on to the RadioButtons.
    */
   onChange: RadioButtonProps['onChange'];
   /**
@@ -39,8 +44,33 @@ export interface RadioButtonGroupProps extends HTMLProps<HTMLDivElement> {
   /**
    * The ref to the HTML Dom element
    */
-  ref?: Ref<HTMLDivElement>;
+  ref?: Ref<HTMLFieldSetElement>;
+  /**
+   * Warning/error/valid message, displayed below the radio buttons.
+   */
+  validationHint?: string;
+  /**
+   * Triggers error message below the radio buttons.
+   */
+  invalid?: boolean;
+  /**
+   * Triggers warning message below the radio buttons.
+   */
+  hasWarning?: boolean;
+  /**
+   * Triggers valid message below the radio buttons.
+   */
+  showValid?: boolean;
 }
+
+const legendBaseStyles = ({ theme }: StyleProps) => css`
+  ${textKilo({ theme })};
+  margin-bottom: ${theme.spacings.bit};
+`;
+
+const StyledLegend = styled('legend')<HTMLProps<HTMLLegendElement>>(
+  legendBaseStyles,
+);
 
 const RadioButtonGroupComponent = (
   {
@@ -49,13 +79,19 @@ const RadioButtonGroupComponent = (
     value: activeValue,
     name: customName,
     label,
+    invalid,
+    validationHint,
+    showValid,
+    disabled,
+    hasWarning,
     ...props
   }: RadioButtonGroupProps,
   ref: RadioButtonGroupProps['ref'],
 ) => {
   const name = customName || uniqueId('radio-button-group_');
   return (
-    <div role="group" aria-label={label} ref={ref} {...props}>
+    <fieldset name={name} ref={ref} {...props}>
+      {label && <StyledLegend>{label}</StyledLegend>}
       {options &&
         options.map(({ children, value, className, ...rest }) => (
           <div key={value && value.toString()} className={className}>
@@ -67,7 +103,14 @@ const RadioButtonGroupComponent = (
             </RadioButton>
           </div>
         ))}
-    </div>
+      <ValidationHint
+        invalid={invalid}
+        showValid={showValid}
+        disabled={disabled}
+        hasWarning={hasWarning}
+        validationHint={validationHint}
+      />
+    </fieldset>
   );
 };
 
