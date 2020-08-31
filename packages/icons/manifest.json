@@ -206,6 +206,11 @@
       "size": "small"
     },
     {
+      "name": "flag_co",
+      "category": "Country flag",
+      "size": "small"
+    },
+    {
       "name": "flag_cy",
       "category": "Country flag",
       "size": "small"
@@ -307,6 +312,11 @@
     },
     {
       "name": "flag_pt",
+      "category": "Country flag",
+      "size": "small"
+    },
+    {
+      "name": "flag_ro",
       "category": "Country flag",
       "size": "small"
     },
