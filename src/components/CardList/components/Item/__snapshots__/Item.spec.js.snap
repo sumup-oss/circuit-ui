@@ -8,7 +8,7 @@ exports[`Item should render with all paddings 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #D8DDE1;
+  border-bottom: 1px solid #E6E6E6;
   padding: 12px;
 }
 
@@ -34,7 +34,7 @@ exports[`Item should render with all paddings 1`] = `
     height: 100%;
     left: 0;
     top: 0;
-    box-shadow: 0px 0px 0px 2px #3388FF;
+    box-shadow: 0px 0px 0px 2px #3063E9;
     border-radius: 4px;
   }
 }
@@ -50,7 +50,7 @@ exports[`Item should render with all paddings 1`] = `
   height: 100%;
   left: 0;
   top: 0;
-  box-shadow: 0px 0px 0px 2px #3388FF;
+  box-shadow: 0px 0px 0px 2px #3063E9;
   border-radius: 4px;
 }
 
@@ -71,7 +71,7 @@ exports[`Item should render with all paddings 2`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #D8DDE1;
+  border-bottom: 1px solid #E6E6E6;
   padding: 16px;
 }
 
@@ -97,7 +97,7 @@ exports[`Item should render with all paddings 2`] = `
     height: 100%;
     left: 0;
     top: 0;
-    box-shadow: 0px 0px 0px 2px #3388FF;
+    box-shadow: 0px 0px 0px 2px #3063E9;
     border-radius: 4px;
   }
 }
@@ -113,7 +113,7 @@ exports[`Item should render with all paddings 2`] = `
   height: 100%;
   left: 0;
   top: 0;
-  box-shadow: 0px 0px 0px 2px #3388FF;
+  box-shadow: 0px 0px 0px 2px #3063E9;
   border-radius: 4px;
 }
 
@@ -134,7 +134,7 @@ exports[`Item should render with all paddings 3`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #D8DDE1;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
 }
 
@@ -160,7 +160,7 @@ exports[`Item should render with all paddings 3`] = `
     height: 100%;
     left: 0;
     top: 0;
-    box-shadow: 0px 0px 0px 2px #3388FF;
+    box-shadow: 0px 0px 0px 2px #3063E9;
     border-radius: 4px;
   }
 }
@@ -176,7 +176,7 @@ exports[`Item should render with all paddings 3`] = `
   height: 100%;
   left: 0;
   top: 0;
-  box-shadow: 0px 0px 0px 2px #3388FF;
+  box-shadow: 0px 0px 0px 2px #3063E9;
   border-radius: 4px;
 }
 
@@ -197,7 +197,7 @@ exports[`Item should render with default styles 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #D8DDE1;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
 }
 
@@ -223,7 +223,7 @@ exports[`Item should render with default styles 1`] = `
     height: 100%;
     left: 0;
     top: 0;
-    box-shadow: 0px 0px 0px 2px #3388FF;
+    box-shadow: 0px 0px 0px 2px #3063E9;
     border-radius: 4px;
   }
 }
@@ -239,7 +239,7 @@ exports[`Item should render with default styles 1`] = `
   height: 100%;
   left: 0;
   top: 0;
-  box-shadow: 0px 0px 0px 2px #3388FF;
+  box-shadow: 0px 0px 0px 2px #3063E9;
   border-radius: 4px;
 }
 
@@ -260,7 +260,7 @@ exports[`Item should render with selected styles 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #D8DDE1;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
 }
 
@@ -286,7 +286,7 @@ exports[`Item should render with selected styles 1`] = `
     height: 100%;
     left: 0;
     top: 0;
-    box-shadow: 0px 0px 0px 2px #3388FF;
+    box-shadow: 0px 0px 0px 2px #3063E9;
     border-radius: 4px;
   }
 }
@@ -302,7 +302,7 @@ exports[`Item should render with selected styles 1`] = `
   height: 100%;
   left: 0;
   top: 0;
-  box-shadow: 0px 0px 0px 2px #3388FF;
+  box-shadow: 0px 0px 0px 2px #3063E9;
   border-radius: 4px;
 }
 

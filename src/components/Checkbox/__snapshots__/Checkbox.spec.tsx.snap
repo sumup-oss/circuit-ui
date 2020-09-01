@@ -23,7 +23,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 }
 
 .circuit-0:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-0:focus + label::before {
@@ -43,11 +43,11 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 }
 
 .circuit-0:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #333333;
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -59,8 +59,8 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 3px;
   content: '';
   display: block;
@@ -79,7 +79,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #3388FF;
+  color: #3063E9;
   display: block;
   line-height: 0;
   opacity: 0;
@@ -99,8 +99,8 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #212933;
-  color: #FFFFFF;
+  background-color: #000000;
+  color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
   position: absolute;
@@ -132,7 +132,7 @@ exports[`Checkbox should render with a tooltip when passed a validation hint 1`]
 
 .circuit-2::after {
   top: 100%;
-  border-top-color: #212933;
+  border-top-color: #000000;
 }
 
 <div
@@ -197,7 +197,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 }
 
 .circuit-0:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-0:focus + label::before {
@@ -217,11 +217,11 @@ exports[`Checkbox should render with checked styles when passed the checked prop
 }
 
 .circuit-0:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #333333;
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -233,8 +233,8 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 3px;
   content: '';
   display: block;
@@ -253,7 +253,7 @@ exports[`Checkbox should render with checked styles when passed the checked prop
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #3388FF;
+  color: #3063E9;
   display: block;
   line-height: 0;
   opacity: 0;
@@ -326,7 +326,7 @@ exports[`Checkbox should render with default styles 1`] = `
 }
 
 .circuit-0:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-0:focus + label::before {
@@ -346,11 +346,11 @@ exports[`Checkbox should render with default styles 1`] = `
 }
 
 .circuit-0:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #333333;
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -362,8 +362,8 @@ exports[`Checkbox should render with default styles 1`] = `
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 3px;
   content: '';
   display: block;
@@ -382,7 +382,7 @@ exports[`Checkbox should render with default styles 1`] = `
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #3388FF;
+  color: #3063E9;
   display: block;
   line-height: 0;
   opacity: 0;
@@ -454,7 +454,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 }
 
 .circuit-0:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-0:focus + label::before {
@@ -474,11 +474,11 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
 }
 
 .circuit-0:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #333333;
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -493,8 +493,8 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 3px;
   content: '';
   display: block;
@@ -513,7 +513,7 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #3388FF;
+  color: #3063E9;
   display: block;
   line-height: 0;
   opacity: 0;
@@ -532,15 +532,15 @@ exports[`Checkbox should render with disabled styles when passed the disabled pr
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  border-color: #5C656F;
-  background-color: #EEF0F2;
+  border-color: #333333;
+  background-color: #F5F5F5;
 }
 
 .circuit-1 svg {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  color: #5C656F;
+  color: #333333;
 }
 
 <div
@@ -602,7 +602,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 }
 
 .circuit-0:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-0:focus + label::before {
@@ -622,19 +622,19 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 }
 
 .circuit-0:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-0:hover + label::before {
-  border-color: #B22828;
+  border-color: #B22426;
 }
 
 .circuit-0:checked + label::before {
-  border-color: #DB4D4D;
+  border-color: #D23F47;
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #333333;
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -646,8 +646,8 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   width: 18px;
   box-sizing: border-box;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 3px;
   content: '';
   display: block;
@@ -666,7 +666,7 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
   width: 18px;
   padding: 2px;
   box-sizing: border-box;
-  color: #3388FF;
+  color: #3063E9;
   display: block;
   line-height: 0;
   opacity: 0;
@@ -682,12 +682,12 @@ exports[`Checkbox should render with invalid styles when passed the invalid prop
 }
 
 .circuit-1:not(:focus)::before {
-  border-color: #DB4D4D;
+  border-color: #D23F47;
   background-color: #F4CBCB;
 }
 
 .circuit-1:not(:focus) svg {
-  color: #DB4D4D;
+  color: #D23F47;
 }
 
 <div

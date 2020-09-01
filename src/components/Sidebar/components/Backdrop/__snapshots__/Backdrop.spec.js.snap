@@ -5,7 +5,7 @@ exports[`Backdrop styles should render with default styles when not visible 1`] 
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #212933;
+  background-color: #000000;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   visibility: hidden;
@@ -29,7 +29,7 @@ exports[`Backdrop styles should render with default styles when visible 1`] = `
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #212933;
+  background-color: #000000;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   visibility: hidden;

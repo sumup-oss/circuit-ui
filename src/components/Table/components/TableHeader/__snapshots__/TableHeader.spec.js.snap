@@ -2,14 +2,14 @@
 
 exports[`TableHeader Style tests should render with condensed styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -31,14 +31,14 @@ exports[`TableHeader Style tests should render with condensed styles 1`] = `
 
 exports[`TableHeader Style tests should render with default styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -55,15 +55,15 @@ exports[`TableHeader Style tests should render with default styles 1`] = `
 
 exports[`TableHeader Style tests should render with hovered styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
   background-color: #FAFBFC;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -80,8 +80,8 @@ exports[`TableHeader Style tests should render with hovered styles 1`] = `
 
 exports[`TableHeader Style tests should render with row styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -99,14 +99,14 @@ exports[`TableHeader Style tests should render with row styles 1`] = `
 
 exports[`TableHeader Style tests should render with sortable styles 1`] = `
 .circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -141,7 +141,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
 .circuit-6:focus-within,
 .circuit-6:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-6:focus-within > button,
@@ -172,7 +172,7 @@ exports[`TableHeader Style tests should render with sortable styles 1`] = `
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -284,7 +284,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -320,14 +320,14 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 }
 
 .circuit-5 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -362,7 +362,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 .circuit-5:focus-within,
 .circuit-5:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-5:focus-within > button,
@@ -434,7 +434,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -470,14 +470,14 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 }
 
 .circuit-5 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -512,7 +512,7 @@ exports[`TableHeader Style tests sortable + sorted should render with sortable +
 .circuit-5:focus-within,
 .circuit-5:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-5:focus-within > button,

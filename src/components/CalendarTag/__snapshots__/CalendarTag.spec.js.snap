@@ -16,11 +16,11 @@ exports[`CalendarTag should render with default styles 1`] = `
   align-items: center;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid #D8DDE1;
+  border: 1px solid #E6E6E6;
   border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   cursor: pointer;
@@ -28,12 +28,12 @@ exports[`CalendarTag should render with default styles 1`] = `
 }
 
 .circuit-0:active {
-  color: #0F131A;
+  color: #000;
 }
 
 .circuit-0:hover {
-  background-color: #EEF0F2;
-  border-color: #9DA7B1;
+  background-color: #F5F5F5;
+  border-color: #999999;
 }
 
 .circuit-0:focus {

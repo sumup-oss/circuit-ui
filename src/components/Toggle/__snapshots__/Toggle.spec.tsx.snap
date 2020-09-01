@@ -36,7 +36,7 @@ exports[`Toggle should render with default styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #D8DDE1;
+  background-color: #E6E6E6;
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -59,7 +59,7 @@ exports[`Toggle should render with default styles 1`] = `
 .circuit-0 {
   display: block;
   background-color: #FAFBFC;
-  box-shadow: 0 2px 0 0 #9DA7B1;
+  box-shadow: 0 2px 0 0 #999999;
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px,-50%,0);
@@ -121,7 +121,7 @@ exports[`Toggle should render with default styles 1`] = `
   font-size: 13px;
   line-height: 20px;
   margin-bottom: 0;
-  color: #5C656F;
+  color: #333333;
 }
 
 @media (min-width:480px) {
@@ -182,7 +182,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #D8DDE1;
+  background-color: #E6E6E6;
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -205,7 +205,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
 .circuit-0 {
   display: block;
   background-color: #FAFBFC;
-  box-shadow: 0 2px 0 0 #9DA7B1;
+  box-shadow: 0 2px 0 0 #999999;
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px,-50%,0);
@@ -267,7 +267,7 @@ exports[`Toggle should render with no margin styles when passed the noMargin pro
   font-size: 13px;
   line-height: 20px;
   margin-bottom: 0;
-  color: #5C656F;
+  color: #333333;
 }
 
 @media (min-width:480px) {

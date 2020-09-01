@@ -13,7 +13,7 @@ exports[`ProgressBar step-based should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: #EEF0F2;
+  background-color: #F5F5F5;
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -28,7 +28,7 @@ exports[`ProgressBar step-based should render with default styles 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3388FF;
+  background-color: #3063E9;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -36,7 +36,7 @@ exports[`ProgressBar step-based should render with default styles 1`] = `
 }
 
 .circuit-0::after {
-  background-color: #3388FF;
+  background-color: #3063E9;
 }
 
 .circuit-0::after {
@@ -98,7 +98,7 @@ exports[`ProgressBar time-based should render with default styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: #EEF0F2;
+  background-color: #F5F5F5;
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -113,7 +113,7 @@ exports[`ProgressBar time-based should render with default styles 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3388FF;
+  background-color: #3063E9;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -121,7 +121,7 @@ exports[`ProgressBar time-based should render with default styles 1`] = `
 }
 
 .circuit-0::after {
-  background-color: #3388FF;
+  background-color: #3063E9;
 }
 
 .circuit-0::after {
@@ -194,7 +194,7 @@ exports[`ProgressBar time-based should render with loop styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: #EEF0F2;
+  background-color: #F5F5F5;
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -209,7 +209,7 @@ exports[`ProgressBar time-based should render with loop styles 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3388FF;
+  background-color: #3063E9;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -217,7 +217,7 @@ exports[`ProgressBar time-based should render with loop styles 1`] = `
 }
 
 .circuit-0::after {
-  background-color: #3388FF;
+  background-color: #3063E9;
 }
 
 .circuit-0::after {
@@ -288,7 +288,7 @@ exports[`ProgressBar time-based should render with paused styles 1`] = `
 }
 
 .circuit-0 {
-  background-color: #EEF0F2;
+  background-color: #F5F5F5;
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -303,7 +303,7 @@ exports[`ProgressBar time-based should render with paused styles 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3388FF;
+  background-color: #3063E9;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -311,7 +311,7 @@ exports[`ProgressBar time-based should render with paused styles 1`] = `
 }
 
 .circuit-0::after {
-  background-color: #3388FF;
+  background-color: #3063E9;
 }
 
 .circuit-0::after {

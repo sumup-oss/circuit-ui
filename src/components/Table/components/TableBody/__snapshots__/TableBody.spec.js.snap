@@ -11,8 +11,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -53,8 +53,8 @@ tbody .circuit-6:last-child td {
 }
 
 .circuit-4 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -64,8 +64,8 @@ tbody .circuit-6:last-child td {
 }
 
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -84,8 +84,8 @@ tbody .circuit-6:last-child td {
 }
 
 .circuit-2 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -144,8 +144,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -186,8 +186,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-2 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -197,8 +197,8 @@ tbody .circuit-4:last-child td {
 }
 
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;

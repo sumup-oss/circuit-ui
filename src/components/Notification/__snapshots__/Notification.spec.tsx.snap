@@ -35,7 +35,7 @@ exports[`Notification should render with error styles 1`] = `
   -ms-flex-negative: 0;
   flex-shrink: 0;
   line-height: 0;
-  color: #DB4D4D;
+  color: #D23F47;
 }
 
 <div
@@ -98,7 +98,7 @@ exports[`Notification should render with success styles 1`] = `
   -ms-flex-negative: 0;
   flex-shrink: 0;
   line-height: 0;
-  color: #47995A;
+  color: #138849;
 }
 
 .circuit-1 {
@@ -176,7 +176,7 @@ exports[`Notification should render with warning styles 1`] = `
   -ms-flex-negative: 0;
   flex-shrink: 0;
   line-height: 0;
-  color: #D8A413;
+  color: #F5C625;
 }
 
 <div

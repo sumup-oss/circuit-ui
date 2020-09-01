@@ -2,7 +2,7 @@
 
 exports[`CardList should render with default styles 1`] = `
 .circuit-8 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-radius: 4px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -27,7 +27,7 @@ exports[`CardList should render with default styles 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #D8DDE1;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
 }
 
@@ -53,7 +53,7 @@ exports[`CardList should render with default styles 1`] = `
     height: 100%;
     left: 0;
     top: 0;
-    box-shadow: 0px 0px 0px 2px #3388FF;
+    box-shadow: 0px 0px 0px 2px #3063E9;
     border-radius: 4px;
   }
 }
@@ -69,7 +69,7 @@ exports[`CardList should render with default styles 1`] = `
   height: 100%;
   left: 0;
   top: 0;
-  box-shadow: 0px 0px 0px 2px #3388FF;
+  box-shadow: 0px 0px 0px 2px #3063E9;
   border-radius: 4px;
 }
 
@@ -80,9 +80,9 @@ exports[`CardList should render with default styles 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #D8DDE1;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
-  background: #EDF4FC;
+  background: #F0F6FF;
   outline: none;
 }
 
@@ -103,7 +103,7 @@ exports[`CardList should render with default styles 1`] = `
   height: 100%;
   left: 0;
   top: 0;
-  box-shadow: 0px 0px 0px 2px #3388FF;
+  box-shadow: 0px 0px 0px 2px #3063E9;
   border-radius: 4px;
 }
 
@@ -119,7 +119,7 @@ exports[`CardList should render with default styles 1`] = `
     height: 100%;
     left: 0;
     top: 0;
-    box-shadow: 0px 0px 0px 2px #3388FF;
+    box-shadow: 0px 0px 0px 2px #3063E9;
     border-radius: 4px;
   }
 }
@@ -135,7 +135,7 @@ exports[`CardList should render with default styles 1`] = `
   height: 100%;
   left: 0;
   top: 0;
-  box-shadow: 0px 0px 0px 2px #3388FF;
+  box-shadow: 0px 0px 0px 2px #3063E9;
   border-radius: 4px;
 }
 

@@ -21,7 +21,7 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
 }
 
 .circuit-1:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-1:focus + label::before {
@@ -34,7 +34,7 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
 }
 
 .circuit-1:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-1:checked + label::after {
@@ -45,7 +45,7 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #333333;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -56,8 +56,8 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   height: 18px;
   width: 18px;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 100%;
   content: '';
   display: block;
@@ -75,7 +75,7 @@ exports[`RadioButtonGroup should render with default styles 1`] = `
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3388FF;
+  background-color: #3063E9;
   border-radius: 100%;
   content: '';
   display: block;

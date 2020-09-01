@@ -2,8 +2,8 @@
 
 exports[`TableCell Style tests should render with condensed styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -25,8 +25,8 @@ exports[`TableCell Style tests should render with condensed styles 1`] = `
 
 exports[`TableCell Style tests should render with default styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -45,8 +45,8 @@ exports[`TableCell Style tests should render with default styles 1`] = `
 
 exports[`TableCell Style tests should render with header styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -65,8 +65,8 @@ exports[`TableCell Style tests should render with header styles 1`] = `
 
 exports[`TableCell Style tests should render with isHovered styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;

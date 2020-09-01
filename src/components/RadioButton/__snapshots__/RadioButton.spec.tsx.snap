@@ -16,7 +16,7 @@ HTMLCollection [
 }
 
 .circuit-0:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-0:focus + label::before {
@@ -29,7 +29,7 @@ HTMLCollection [
 }
 
 .circuit-0:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-0:checked + label::after {
@@ -47,7 +47,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #5C656F;
+  color: #333333;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -58,8 +58,8 @@ HTMLCollection [
   height: 18px;
   width: 18px;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 100%;
   content: '';
   display: block;
@@ -77,7 +77,7 @@ HTMLCollection [
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3388FF;
+  background-color: #3063E9;
   border-radius: 100%;
   content: '';
   display: block;
@@ -116,7 +116,7 @@ HTMLCollection [
 }
 
 .circuit-0:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-0:focus + label::before {
@@ -129,7 +129,7 @@ HTMLCollection [
 }
 
 .circuit-0:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-0:checked + label::after {
@@ -146,7 +146,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #5C656F;
+  color: #333333;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -157,8 +157,8 @@ HTMLCollection [
   height: 18px;
   width: 18px;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 100%;
   content: '';
   display: block;
@@ -176,7 +176,7 @@ HTMLCollection [
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3388FF;
+  background-color: #3063E9;
   border-radius: 100%;
   content: '';
   display: block;
@@ -215,7 +215,7 @@ HTMLCollection [
 }
 
 .circuit-0:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-0:focus + label::before {
@@ -228,7 +228,7 @@ HTMLCollection [
 }
 
 .circuit-0:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-0:checked + label::after {
@@ -246,7 +246,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #5C656F;
+  color: #333333;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -260,8 +260,8 @@ HTMLCollection [
   height: 18px;
   width: 18px;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 100%;
   content: '';
   display: block;
@@ -279,7 +279,7 @@ HTMLCollection [
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3388FF;
+  background-color: #3063E9;
   border-radius: 100%;
   content: '';
   display: block;
@@ -299,15 +299,15 @@ HTMLCollection [
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  border-color: #5C656F;
-  background-color: #EEF0F2;
+  border-color: #333333;
+  background-color: #F5F5F5;
 }
 
 .circuit-0::after {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  background-color: #5C656F;
+  background-color: #333333;
 }
 
 <label
@@ -334,7 +334,7 @@ HTMLCollection [
 }
 
 .circuit-0:hover + label::before {
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-0:focus + label::before {
@@ -347,7 +347,7 @@ HTMLCollection [
 }
 
 .circuit-0:checked + label::before {
-  border-color: #3388FF;
+  border-color: #3063E9;
 }
 
 .circuit-0:checked + label::after {
@@ -358,11 +358,11 @@ HTMLCollection [
 }
 
 .circuit-0:hover + label::before {
-  border-color: #B22828;
+  border-color: #B22426;
 }
 
 .circuit-0:checked + label::before {
-  border-color: #DB4D4D;
+  border-color: #D23F47;
 }
 
 <input
@@ -372,7 +372,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #5C656F;
+  color: #333333;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -383,8 +383,8 @@ HTMLCollection [
   height: 18px;
   width: 18px;
   box-shadow: 0;
-  background-color: #FFFFFF;
-  border: 1px solid #9DA7B1;
+  background-color: #FFF;
+  border: 1px solid #999999;
   border-radius: 100%;
   content: '';
   display: block;
@@ -402,7 +402,7 @@ HTMLCollection [
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  background-color: #3388FF;
+  background-color: #3063E9;
   border-radius: 100%;
   content: '';
   display: block;
@@ -419,12 +419,12 @@ HTMLCollection [
 }
 
 .circuit-0:not(:focus)::before {
-  border-color: #DB4D4D;
+  border-color: #D23F47;
   background-color: #F4CBCB;
 }
 
 .circuit-0:not(:focus)::after {
-  background-color: #DB4D4D;
+  background-color: #D23F47;
 }
 
 <label

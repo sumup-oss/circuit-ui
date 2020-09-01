@@ -285,18 +285,18 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.inputOutline(light);
       expect(styles).toMatchInlineSnapshot(`
         "
-            box-shadow: 0 0 0 1px #9DA7B1;
+            box-shadow: 0 0 0 1px #999999;
 
             &:hover {
-              box-shadow: 0 0 0 1px #5C656F;
+              box-shadow: 0 0 0 1px #333333;
             }
 
             &:focus {
-              box-shadow: 0 0 0 2px #3388FF;
+              box-shadow: 0 0 0 2px #3063E9;
             }
 
             &:active {
-              box-shadow: 0 0 0 1px #3388FF;
+              box-shadow: 0 0 0 1px #3063E9;
             }
           "
       `);
@@ -309,18 +309,18 @@ describe('Style helpers', () => {
       });
       expect(styles).toMatchInlineSnapshot(`
         "
-            box-shadow: 0 0 0 1px #DB4D4D;
+            box-shadow: 0 0 0 1px #D23F47;
 
             &:hover {
-              box-shadow: 0 0 0 1px #B22828;
+              box-shadow: 0 0 0 1px #B22426;
             }
 
             &:focus {
-              box-shadow: 0 0 0 2px #DB4D4D;
+              box-shadow: 0 0 0 2px #D23F47;
             }
 
             &:active {
-              box-shadow: 0 0 0 1px #DB4D4D;
+              box-shadow: 0 0 0 1px #D23F47;
             }
           "
       `);

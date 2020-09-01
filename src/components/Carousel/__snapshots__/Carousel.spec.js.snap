@@ -245,7 +245,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 .circuit-38 {
-  background-color: #EEF0F2;
+  background-color: #F5F5F5;
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -260,7 +260,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3388FF;
+  background-color: #3063E9;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -268,7 +268,7 @@ exports[`Carousel styles should render with children as a function 1`] = `
 }
 
 .circuit-38::after {
-  background-color: #212933;
+  background-color: #000000;
 }
 
 .circuit-38::after {
@@ -340,9 +340,9 @@ exports[`Carousel styles should render with children as a function 1`] = `
   border-style: solid;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
+  background-color: #FFF;
+  border-color: #999999;
+  color: #1A1A1A;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 8px;
@@ -367,12 +367,12 @@ exports[`Carousel styles should render with children as a function 1`] = `
 
 .circuit-44:hover {
   background-color: #FAFBFC;
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-44:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
+  background-color: #F5F5F5;
+  border-color: #1A1A1A;
 }
 
 .circuit-44:first-of-type {
@@ -827,7 +827,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 .circuit-38 {
-  background-color: #EEF0F2;
+  background-color: #F5F5F5;
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -842,7 +842,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3388FF;
+  background-color: #3063E9;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -850,7 +850,7 @@ exports[`Carousel styles should render with children as a node 1`] = `
 }
 
 .circuit-38::after {
-  background-color: #212933;
+  background-color: #000000;
 }
 
 .circuit-38::after {
@@ -922,9 +922,9 @@ exports[`Carousel styles should render with children as a node 1`] = `
   border-style: solid;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
+  background-color: #FFF;
+  border-color: #999999;
+  color: #1A1A1A;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 8px;
@@ -949,12 +949,12 @@ exports[`Carousel styles should render with children as a node 1`] = `
 
 .circuit-44:hover {
   background-color: #FAFBFC;
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-44:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
+  background-color: #F5F5F5;
+  border-color: #1A1A1A;
 }
 
 .circuit-44:first-of-type {
@@ -1462,9 +1462,9 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   border-style: solid;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
+  background-color: #FFF;
+  border-color: #999999;
+  color: #1A1A1A;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 8px;
@@ -1489,12 +1489,12 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 
 .circuit-44:hover {
   background-color: #FAFBFC;
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-44:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
+  background-color: #F5F5F5;
+  border-color: #1A1A1A;
 }
 
 .circuit-44:first-of-type {
@@ -1515,7 +1515,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 .circuit-38 {
-  background-color: #EEF0F2;
+  background-color: #F5F5F5;
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -1530,7 +1530,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3388FF;
+  background-color: #3063E9;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -1538,7 +1538,7 @@ exports[`Carousel styles should render with default paused styles 1`] = `
 }
 
 .circuit-38::after {
-  background-color: #212933;
+  background-color: #000000;
 }
 
 .circuit-38::after {
@@ -1964,7 +1964,7 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 .circuit-38 {
-  background-color: #EEF0F2;
+  background-color: #F5F5F5;
   border-radius: 999999px;
   position: relative;
   width: 100%;
@@ -1979,7 +1979,7 @@ exports[`Carousel styles should render with default styles 1`] = `
   top: 0;
   bottom: 0;
   left: 0;
-  background-color: #3388FF;
+  background-color: #3063E9;
   -webkit-transition: width 0.05s ease-out;
   transition: width 0.05s ease-out;
   height: 100%;
@@ -1987,7 +1987,7 @@ exports[`Carousel styles should render with default styles 1`] = `
 }
 
 .circuit-38::after {
-  background-color: #212933;
+  background-color: #000000;
 }
 
 .circuit-38::after {
@@ -2059,9 +2059,9 @@ exports[`Carousel styles should render with default styles 1`] = `
   border-style: solid;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #FFFFFF;
-  border-color: #9DA7B1;
-  color: #323E49;
+  background-color: #FFF;
+  border-color: #999999;
+  color: #1A1A1A;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 8px;
@@ -2086,12 +2086,12 @@ exports[`Carousel styles should render with default styles 1`] = `
 
 .circuit-44:hover {
   background-color: #FAFBFC;
-  border-color: #5C656F;
+  border-color: #333333;
 }
 
 .circuit-44:active {
-  background-color: #EEF0F2;
-  border-color: #323E49;
+  background-color: #F5F5F5;
+  border-color: #1A1A1A;
 }
 
 .circuit-44:first-of-type {

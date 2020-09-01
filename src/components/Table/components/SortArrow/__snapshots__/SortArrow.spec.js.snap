@@ -24,7 +24,7 @@ exports[`SortArrow Style tests should render with ascending arrow styles 1`] = `
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -112,7 +112,7 @@ exports[`SortArrow Style tests should render with both arrows styles 1`] = `
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -216,7 +216,7 @@ exports[`SortArrow Style tests should render with descending arrow styles 1`] = 
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;

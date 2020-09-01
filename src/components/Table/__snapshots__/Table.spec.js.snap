@@ -19,7 +19,7 @@ exports[`Table Style tests should not render a scrollable table if the rowHeader
 }
 
 .circuit-54 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
@@ -51,14 +51,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -103,7 +103,7 @@ tbody .circuit-20:last-child td {
 .circuit-6:focus-within,
 .circuit-6:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-6:focus-within > button,
@@ -134,7 +134,7 @@ tbody .circuit-20:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -170,8 +170,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -194,14 +194,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-16 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -236,7 +236,7 @@ tbody .circuit-20:last-child td {
 .circuit-16:focus-within,
 .circuit-16:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-16:focus-within > button,
@@ -245,14 +245,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -260,8 +260,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-24 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -280,8 +280,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-26 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -301,8 +301,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-28 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -570,14 +570,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -622,7 +622,7 @@ tbody .circuit-20:last-child td {
 .circuit-6:focus-within,
 .circuit-6:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-6:focus-within > button,
@@ -653,7 +653,7 @@ tbody .circuit-20:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -689,8 +689,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -713,14 +713,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-16 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -755,7 +755,7 @@ tbody .circuit-20:last-child td {
 .circuit-16:focus-within,
 .circuit-16:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-16:focus-within > button,
@@ -764,14 +764,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -779,8 +779,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-24 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -799,8 +799,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-26 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -820,8 +820,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-28 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -831,7 +831,7 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-54 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-collapse: separate;
   width: 100%;
   border-collapse: collapse;
@@ -1104,7 +1104,7 @@ exports[`Table Style tests should render a condensed table 1`] = `
 }
 
 .circuit-54 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
@@ -1158,7 +1158,7 @@ tbody .circuit-20:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -1194,14 +1194,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -1251,7 +1251,7 @@ tbody .circuit-20:last-child td {
 .circuit-6:focus-within,
 .circuit-6:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-6:focus-within > button,
@@ -1260,8 +1260,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -1291,14 +1291,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-16 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -1338,7 +1338,7 @@ tbody .circuit-20:last-child td {
 .circuit-16:focus-within,
 .circuit-16:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-16:focus-within > button,
@@ -1347,14 +1347,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -1367,8 +1367,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-24 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -1391,8 +1391,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-26 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -1418,8 +1418,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-28 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -1695,7 +1695,7 @@ tbody .circuit-18:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -1731,14 +1731,14 @@ tbody .circuit-18:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -1773,7 +1773,7 @@ tbody .circuit-18:last-child td {
 .circuit-6:focus-within,
 .circuit-6:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-6:focus-within > button,
@@ -1782,14 +1782,14 @@ tbody .circuit-18:last-child td {
 }
 
 .circuit-16 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -1797,8 +1797,8 @@ tbody .circuit-18:last-child td {
 }
 
 .circuit-22 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -1820,7 +1820,7 @@ tbody .circuit-18:last-child td {
 }
 
 .circuit-46 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
@@ -2063,7 +2063,7 @@ exports[`Table Style tests should render with default styles 1`] = `
 }
 
 .circuit-54 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
@@ -2095,14 +2095,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -2147,7 +2147,7 @@ tbody .circuit-20:last-child td {
 .circuit-6:focus-within,
 .circuit-6:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-6:focus-within > button,
@@ -2178,7 +2178,7 @@ tbody .circuit-20:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -2214,8 +2214,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2238,14 +2238,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-16 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -2280,7 +2280,7 @@ tbody .circuit-20:last-child td {
 .circuit-16:focus-within,
 .circuit-16:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-16:focus-within > button,
@@ -2289,14 +2289,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -2304,8 +2304,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-24 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -2324,8 +2324,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-26 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2345,8 +2345,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-28 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2605,7 +2605,7 @@ exports[`Table Style tests should render with rowHeader styles 1`] = `
 }
 
 .circuit-54 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
@@ -2637,14 +2637,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -2689,7 +2689,7 @@ tbody .circuit-20:last-child td {
 .circuit-6:focus-within,
 .circuit-6:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-6:focus-within > button,
@@ -2720,7 +2720,7 @@ tbody .circuit-20:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -2756,8 +2756,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2780,14 +2780,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-16 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -2822,7 +2822,7 @@ tbody .circuit-20:last-child td {
 .circuit-16:focus-within,
 .circuit-16:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-16:focus-within > button,
@@ -2831,14 +2831,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -2846,8 +2846,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-24 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -2866,8 +2866,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-26 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -2887,8 +2887,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-28 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -3142,7 +3142,7 @@ exports[`Table Style tests should render without the table shadow 1`] = `
 }
 
 .circuit-54 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-collapse: separate;
   width: 100%;
 }
@@ -3174,14 +3174,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-6 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -3226,7 +3226,7 @@ tbody .circuit-20:last-child td {
 .circuit-6:focus-within,
 .circuit-6:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-6:focus-within > button,
@@ -3257,7 +3257,7 @@ tbody .circuit-20:last-child td {
   transform: translateY(-50%);
   -webkit-transition: opacity 120ms ease-in-out;
   transition: opacity 120ms ease-in-out;
-  color: #3388FF;
+  color: #3063E9;
   border: 0;
   background: none;
   outline: 0;
@@ -3293,8 +3293,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-8 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -3317,14 +3317,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-16 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -3359,7 +3359,7 @@ tbody .circuit-20:last-child td {
 .circuit-16:focus-within,
 .circuit-16:hover {
   background-color: #FAFBFC;
-  color: #3388FF;
+  color: #3063E9;
 }
 
 .circuit-16:focus-within > button,
@@ -3368,14 +3368,14 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-18 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #5C656F;
+  color: #333333;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -3383,8 +3383,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-24 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -3403,8 +3403,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-26 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -3424,8 +3424,8 @@ tbody .circuit-20:last-child td {
 }
 
 .circuit-28 {
-  background-color: #FFFFFF;
-  border-bottom: 1px solid #D8DDE1;
+  background-color: #FFF;
+  border-bottom: 1px solid #E6E6E6;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;

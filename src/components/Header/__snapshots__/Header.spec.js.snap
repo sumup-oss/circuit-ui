@@ -20,7 +20,7 @@ exports[`Header styles should render and match snapshot for mobileOnly styles 1`
   -ms-flex-align: center;
   align-items: center;
   min-height: 64px;
-  background-color: #212933;
+  background-color: #000000;
   padding: 16px;
   z-index: 600;
   position: -webkit-sticky;
@@ -56,7 +56,7 @@ exports[`Header styles should render with default styles 1`] = `
   -ms-flex-align: center;
   align-items: center;
   min-height: 64px;
-  background-color: #212933;
+  background-color: #000000;
   padding: 16px;
   z-index: 600;
   position: -webkit-sticky;

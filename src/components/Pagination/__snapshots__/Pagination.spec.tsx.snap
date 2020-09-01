@@ -47,7 +47,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
-  color: #3388FF;
+  color: #3063E9;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 8px;
@@ -74,11 +74,11 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-1:hover {
-  color: #1760CE;
+  color: #234BC3;
 }
 
 .circuit-1:active {
-  color: #003C8B;
+  color: #1A368E;
 }
 
 .circuit-0 {
@@ -133,9 +133,9 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   border-style: solid;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
   padding: 4px calc(16px - 1px);
   border-radius: 6px;
 }
@@ -157,13 +157,13 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-2:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #234BC3;
+  border-color: #234BC3;
 }
 
 .circuit-2:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-3 {
@@ -195,7 +195,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
-  color: #3388FF;
+  color: #3063E9;
   padding: 4px calc(16px - 1px);
   border-radius: 6px;
 }
@@ -217,11 +217,11 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-3:hover {
-  color: #1760CE;
+  color: #234BC3;
 }
 
 .circuit-3:active {
-  color: #003C8B;
+  color: #1A368E;
 }
 
 .circuit-9 {
@@ -253,7 +253,7 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
-  color: #3388FF;
+  color: #3063E9;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 8px;
@@ -280,11 +280,11 @@ exports[`Pagination with 2 to 5 pages should render with default styles 1`] = `
 }
 
 .circuit-9:hover {
-  color: #1760CE;
+  color: #234BC3;
 }
 
 .circuit-9:active {
-  color: #003C8B;
+  color: #1A368E;
 }
 
 <nav
@@ -450,7 +450,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
-  color: #3388FF;
+  color: #3063E9;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 8px;
@@ -477,11 +477,11 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-1:hover {
-  color: #1760CE;
+  color: #234BC3;
 }
 
 .circuit-1:active {
-  color: #003C8B;
+  color: #1A368E;
 }
 
 .circuit-0 {
@@ -526,7 +526,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
-  color: #3388FF;
+  color: #3063E9;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 8px;
@@ -553,11 +553,11 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-10:hover {
-  color: #1760CE;
+  color: #234BC3;
 }
 
 .circuit-10:active {
-  color: #003C8B;
+  color: #1A368E;
 }
 
 .circuit-7 {
@@ -567,7 +567,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-6 {
-  color: #212933;
+  color: #000000;
   display: block;
   position: relative;
 }
@@ -577,12 +577,12 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #000000;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -598,7 +598,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999999;
 }
 
 .circuit-3:-moz-focusring {
@@ -611,19 +611,19 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-3:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #333333;
 }
 
 .circuit-3:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-3:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-4 {
-  color: #5C656F;
+  color: #333333;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -640,7 +640,7 @@ select:active ~ .circuit-4 {
 }
 
 .circuit-5 {
-  color: #5C656F;
+  color: #333333;
   display: block;
   z-index: 21;
   pointer-events: none;

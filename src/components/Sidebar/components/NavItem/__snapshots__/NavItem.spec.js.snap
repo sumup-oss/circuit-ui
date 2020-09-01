@@ -22,13 +22,13 @@ exports[`NavItem styles should render with default styles and match the snapshot
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #9DA7B1;
+  color: #999999;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .circuit-2:hover {
-  color: #D8DDE1;
+  color: #E6E6E6;
 }
 
 .circuit-0 {
@@ -70,7 +70,7 @@ exports[`NavItem styles should render with default styles and match the snapshot
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #9DA7B1;
+  color: #999999;
   -webkit-text-decoration: none;
   text-decoration: none;
   margin: 0px 24px;
@@ -80,7 +80,7 @@ exports[`NavItem styles should render with default styles and match the snapshot
 }
 
 .circuit-2:hover {
-  color: #D8DDE1;
+  color: #E6E6E6;
 }
 
 .circuit-0 {
@@ -131,11 +131,11 @@ exports[`NavItem styles should render with disabled state styles and match the s
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #9DA7B1;
+  color: #999999;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: not-allowed;
-  color: #5C656F;
+  color: #333333;
 }
 
 <li
@@ -178,7 +178,7 @@ exports[`NavItem styles should render with selected state styles and match the s
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #9DA7B1;
+  color: #999999;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;

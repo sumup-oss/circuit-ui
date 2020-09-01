@@ -16,11 +16,11 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
   align-items: center;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid #D8DDE1;
+  border: 1px solid #E6E6E6;
   border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   cursor: pointer;
@@ -28,12 +28,12 @@ exports[`Tag when is clickable should render with clickable styles 1`] = `
 }
 
 .circuit-0:active {
-  color: #0F131A;
+  color: #000;
 }
 
 .circuit-0:hover {
-  background-color: #EEF0F2;
-  border-color: #9DA7B1;
+  background-color: #F5F5F5;
+  border-color: #999999;
 }
 
 .circuit-0:focus {
@@ -73,11 +73,11 @@ exports[`Tag when is default should render with default styles 1`] = `
   align-items: center;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid #D8DDE1;
+  border: 1px solid #E6E6E6;
   border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
 }
@@ -109,17 +109,17 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   align-items: center;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid #D8DDE1;
+  border: 1px solid #E6E6E6;
   border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   padding-right: calc(4px + 32px);
-  background-color: #3388FF;
-  border-color: #1760CE;
-  color: #FFFFFF;
+  background-color: #3063E9;
+  border-color: #234BC3;
+  color: #FFF;
 }
 
 .circuit-2 {
@@ -149,9 +149,9 @@ exports[`Tag when is selected should change the close icon color 1`] = `
   border-style: solid;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 8px;
@@ -179,13 +179,13 @@ exports[`Tag when is selected should change the close icon color 1`] = `
 }
 
 .circuit-2:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #234BC3;
+  border-color: #234BC3;
 }
 
 .circuit-2:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-1 {
@@ -255,16 +255,16 @@ exports[`Tag when is selected should change the given icon color 1`] = `
   align-items: center;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid #D8DDE1;
+  border: 1px solid #E6E6E6;
   border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #1760CE;
-  color: #FFFFFF;
+  background-color: #3063E9;
+  border-color: #234BC3;
+  color: #FFF;
 }
 
 .circuit-0 {
@@ -303,16 +303,16 @@ exports[`Tag when is selected should render with selected styles 1`] = `
   align-items: center;
   font-size: 16px;
   line-height: 24px;
-  border: 1px solid #D8DDE1;
+  border: 1px solid #E6E6E6;
   border-radius: 6px;
   padding: 4px 12px;
   cursor: default;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #1760CE;
-  color: #FFFFFF;
+  background-color: #3063E9;
+  border-color: #234BC3;
+  color: #FFF;
 }
 
 <div

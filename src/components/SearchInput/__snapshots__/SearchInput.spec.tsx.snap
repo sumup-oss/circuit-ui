@@ -15,7 +15,7 @@ label + .circuit-2 {
   top: 1px;
   left: 1px;
   pointer-events: none;
-  color: #5C656F;
+  color: #333333;
   padding: 12px;
   height: 40px;
   width: 40px;
@@ -33,7 +33,7 @@ label + .circuit-2 {
 
 .circuit-1 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -44,46 +44,46 @@ label + .circuit-2 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #EEF0F2;
+  background-color: #F5F5F5;
   padding-left: 40px;
   padding-right: 40px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999999;
 }
 
 .circuit-1::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
-  color: #9DA7B1;
+  color: #999999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #333333;
 }
 
 .circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 <div
@@ -142,7 +142,7 @@ label + .circuit-2 {
   top: 1px;
   left: 1px;
   pointer-events: none;
-  color: #5C656F;
+  color: #333333;
   padding: 12px;
   height: 40px;
   width: 40px;
@@ -150,7 +150,7 @@ label + .circuit-2 {
 
 .circuit-1 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -163,43 +163,43 @@ label + .circuit-2 {
   line-height: 24px;
   padding-left: 40px;
   padding-right: 40px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999999;
 }
 
 .circuit-1::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
-  color: #9DA7B1;
+  color: #999999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #333333;
 }
 
 .circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 <div

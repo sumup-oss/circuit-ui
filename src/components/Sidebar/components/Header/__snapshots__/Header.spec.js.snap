@@ -20,7 +20,7 @@ exports[`Header styles should render with default styles 1`] = `
   min-height: 64px;
   width: 100%;
   padding: 16px;
-  background-color: #0F131A;
+  background-color: #000;
   color: #FAFBFC;
 }
 

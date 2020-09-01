@@ -4,7 +4,7 @@ exports[`Footer styles should render with default styles 1`] = `
 .circuit-0 {
   margin-top: auto;
   padding: 24px;
-  background-color: #212933;
+  background-color: #000000;
   color: #FAFBFC;
 }
 

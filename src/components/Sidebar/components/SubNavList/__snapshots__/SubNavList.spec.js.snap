@@ -14,7 +14,7 @@ exports[`SubNavList styles should render with default styles when there is a sel
 .circuit-0::after {
   content: '';
   width: 2px;
-  background: #3388FF;
+  background: #3063E9;
   height: 32px;
   border-radius: 1px;
   position: absolute;
@@ -26,7 +26,7 @@ exports[`SubNavList styles should render with default styles when there is a sel
 .circuit-0::before {
   content: '';
   width: 2px;
-  background: #5C656F;
+  background: #333333;
   height: calc(32px * 2);
   position: absolute;
   top: 0;
@@ -59,7 +59,7 @@ exports[`SubNavList styles should render with default styles when there is no se
 .circuit-0::before {
   content: '';
   width: 2px;
-  background: #5C656F;
+  background: #333333;
   height: calc(32px * 2);
   position: absolute;
   top: 0;
@@ -92,7 +92,7 @@ exports[`SubNavList styles should render without children 1`] = `
 .circuit-0::after {
   content: '';
   width: 2px;
-  background: #3388FF;
+  background: #3063E9;
   height: 32px;
   border-radius: 1px;
   position: absolute;
