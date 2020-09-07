@@ -28,13 +28,6 @@ yargs
     "Automatically transforms your source code to Circuit UI's latest APIs",
     (yrgs) =>
       yrgs
-        .option('transform', {
-          alias: 't',
-          desc: 'The transform to be applied to the source code',
-          choices: listTransforms(),
-          type: 'string',
-          required: true,
-        })
         .option('language', {
           alias: 'l',
           desc: 'The programming language of the files to be transformed',
@@ -48,6 +41,13 @@ yargs
             'A path to the folder that contains the files to be transformed',
           type: 'string',
           default: '.',
+        })
+        .option('transform', {
+          alias: 't',
+          desc: 'The transform to be applied to the source code',
+          choices: listTransforms(),
+          type: 'string',
+          required: true,
         }),
     (args) => execute('migrate', args),
   )
