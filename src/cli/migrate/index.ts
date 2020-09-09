@@ -50,6 +50,8 @@ export function migrate({ transform, language, path }: MigrateArgs): void {
       `${TRANSFORM_DIR}/${transform}.js`,
       '--parser',
       parser,
+      '--ignore-pattern',
+      '**/node_modules/**',
       path,
     ],
     { stdio: 'inherit' },
