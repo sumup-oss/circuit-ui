@@ -28,7 +28,7 @@ const baseStyles = ({ theme }) => css`
   cursor: pointer;
   border-bottom: ${theme.borderWidth.kilo} solid ${theme.colors.n300};
 
-  &:first-child {
+  &:first-of-type {
     border-top-left-radius: ${theme.borderRadius.mega};
     border-top-right-radius: ${theme.borderRadius.mega};
   }
