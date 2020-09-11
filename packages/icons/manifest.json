@@ -156,6 +156,11 @@
       "size": "large"
     },
     {
+      "name": "samsung_pay",
+      "category": "Card scheme",
+      "size": "large"
+    },
+    {
       "name": "union_pay",
       "category": "Card scheme",
       "size": "large"
