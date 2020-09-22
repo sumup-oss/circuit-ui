@@ -31,6 +31,7 @@ const outerStyles = ({ theme }: StyleProps) => css`
   width: 100%;
   background-color: ${theme.colors.white};
   ${shadowSingle({ theme })};
+  border-radius: ${theme.borderRadius.mega};
 `;
 
 const NotificationBannerOuter = styled('div')<{}>(outerStyles);
