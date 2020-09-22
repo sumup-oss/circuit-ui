@@ -29,9 +29,6 @@ import {
 export default {
   title: 'Components/Notification/NotificationBanner',
   component: NotificationBanner,
-  parameters: {
-    layout: 'fullscreen',
-  },
 };
 
 export const Base = (args: NotificationBannerProps) => (
