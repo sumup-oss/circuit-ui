@@ -168,7 +168,7 @@
     "@sumup/icons": "1.x",
     "@sumup/intl": "1.x",
     "emotion-theming": "10.x",
-    "react": ">=16.8.0 < 17",
-    "react-dom": ">=16.8.0 < 17"
+    "react": ">=16.8.0 < 18",
+    "react-dom": ">=16.8.0 < 18"
   }
 }
