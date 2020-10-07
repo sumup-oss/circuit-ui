@@ -28,6 +28,10 @@ const PARSERS = {
   JavaScript: 'babel',
   TypeScript: 'tsx',
 };
+const EXTENSIONS = {
+  JavaScript: 'js,jsx',
+  TypeScript: 'ts,tsx',
+};
 
 export function migrate({ transform, language, path }: MigrateArgs): void {
   const availableTransforms = listTransforms();
@@ -41,6 +45,7 @@ export function migrate({ transform, language, path }: MigrateArgs): void {
   }
 
   const parser = PARSERS[language];
+  const extensions = EXTENSIONS[language];
 
   spawn(
     'npx',
@@ -50,6 +55,8 @@ export function migrate({ transform, language, path }: MigrateArgs): void {
       `${TRANSFORM_DIR}/${transform}.js`,
       '--parser',
       parser,
+      '--extensions',
+      extensions,
       '--ignore-pattern',
       '**/node_modules/**',
       path,
