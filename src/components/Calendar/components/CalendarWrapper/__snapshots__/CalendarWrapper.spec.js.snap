@@ -1086,15 +1086,15 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 }
 
 .circuit-0 .CalendarDay__default {
-  border: 1px solid #E6E6E6;
-  color: #000000;
+  border: 1px solid #CCC;
+  color: #1A1A1A;
   background: #FFF;
   vertical-align: middle;
 }
 
 .circuit-0 .CalendarDay__default:hover {
-  background: #E6E6E6;
-  border: 1px double #999999;
+  background: #CCC;
+  border: 1px double #999;
   color: inherit;
 }
 
@@ -1136,8 +1136,8 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 .circuit-0 .CalendarDay__blocked_out_of_range:active,
 .circuit-0 .CalendarDay__blocked_out_of_range:hover {
   background: #fff;
-  border: 1px solid #E6E6E6;
-  color: #E6E6E6;
+  border: 1px solid #CCC;
+  color: #CCC;
 }
 
 .circuit-0 .DateRangePickerInput,
@@ -1157,7 +1157,7 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 .circuit-0 .SingleDatePickerInput.SingleDatePickerInput__withBorder {
   border-width: 1px;
   border-style: solid;
-  border-color: #E6E6E6;
+  border-color: #CCC;
   border-radius: 4px;
 }
 
@@ -1182,7 +1182,7 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 }
 
 .circuit-0 .DateInput_input {
-  color: #000000;
+  color: #1A1A1A;
   font-size: 16px;
   line-height: 24px;
   font-weight: 200;
@@ -1193,25 +1193,25 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 }
 
 .circuit-0 .DateInput_input::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0 .DateInput_input::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0 .DateInput_input:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0 .DateInput_input::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -1237,9 +1237,9 @@ exports[`CalendarWrapper should render with default styles 1`] = `
   height: auto;
   cursor: pointer;
   text-align: center;
-  border: 1px solid #999999;
+  border: 1px solid #999;
   background-color: #FFF;
-  color: #1A1A1A;
+  color: #333;
   padding: 8px;
   border-radius: 6px;
   -webkit-transition: opacity 120ms ease-in-out,color 120ms ease-in-out,background-color 120ms ease-in-out,border-color 120ms ease-in-out;
@@ -1247,13 +1247,13 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 }
 
 .circuit-0 .DayPickerNavigation_button__horizontal:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-0 .DayPickerNavigation_button__horizontal:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 .circuit-0 .DayPickerNavigation_button__horizontal:focus {
@@ -1294,7 +1294,7 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 }
 
 .circuit-0 .CalendarMonth_caption {
-  color: #000000;
+  color: #1A1A1A;
   font-size: 18px;
   text-align: center;
   padding-top: 22px;
@@ -1303,7 +1303,7 @@ exports[`CalendarWrapper should render with default styles 1`] = `
 }
 
 .circuit-0 .DayPicker_weekHeader {
-  color: #000000;
+  color: #1A1A1A;
   position: absolute;
   top: 67px;
   z-index: 2;

@@ -285,10 +285,10 @@ describe('Style helpers', () => {
       const { styles } = StyleHelpers.inputOutline(light);
       expect(styles).toMatchInlineSnapshot(`
         "
-            box-shadow: 0 0 0 1px #999999;
+            box-shadow: 0 0 0 1px #999;
 
             &:hover {
-              box-shadow: 0 0 0 1px #333333;
+              box-shadow: 0 0 0 1px #666;
             }
 
             &:focus {

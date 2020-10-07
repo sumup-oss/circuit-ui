@@ -35,7 +35,7 @@ label + .circuit-2 {
   top: 1px;
   left: 1px;
   pointer-events: none;
-  color: #333333;
+  color: #666;
   padding: 12px;
   height: 40px;
   width: 40px;
@@ -56,35 +56,35 @@ label + .circuit-2 {
   line-height: 24px;
   text-align: right;
   padding-left: 40px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-1:focus {
@@ -153,7 +153,7 @@ label + .circuit-2 {
   top: 1px;
   left: 1px;
   pointer-events: none;
-  color: #333333;
+  color: #666;
   padding: 12px;
   height: 40px;
   width: 40px;
@@ -174,35 +174,35 @@ label + .circuit-2 {
   line-height: 24px;
   text-align: right;
   padding-left: 40px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-1:focus {

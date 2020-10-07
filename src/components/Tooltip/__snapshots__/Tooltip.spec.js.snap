@@ -6,7 +6,7 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -43,7 +43,7 @@ exports[`Tooltip should override alignment styles with position styles 1`] = `
 
 .circuit-0::after {
   left: 100%;
-  border-left-color: #000000;
+  border-left-color: #1A1A1A;
 }
 
 <div
@@ -59,7 +59,7 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -91,7 +91,7 @@ exports[`Tooltip should render with align bottom, when passed "bottom" for the a
 
 .circuit-0::after {
   right: 100%;
-  border-right-color: #000000;
+  border-right-color: #1A1A1A;
 }
 
 <div
@@ -107,7 +107,7 @@ exports[`Tooltip should render with align center, when passed "center" for the a
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -144,7 +144,7 @@ exports[`Tooltip should render with align center, when passed "center" for the a
 
 .circuit-0::after {
   right: 100%;
-  border-right-color: #000000;
+  border-right-color: #1A1A1A;
 }
 
 <div
@@ -160,7 +160,7 @@ exports[`Tooltip should render with align left, when passed "left" for the align
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -197,7 +197,7 @@ exports[`Tooltip should render with align left, when passed "left" for the align
 
 .circuit-0::after {
   right: 100%;
-  border-right-color: #000000;
+  border-right-color: #1A1A1A;
 }
 
 <div
@@ -213,7 +213,7 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -250,7 +250,7 @@ exports[`Tooltip should render with align right, when passed "right" for the ali
 
 .circuit-0::after {
   right: 100%;
-  border-right-color: #000000;
+  border-right-color: #1A1A1A;
 }
 
 <div
@@ -266,7 +266,7 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -298,7 +298,7 @@ exports[`Tooltip should render with align top, when passed "top" for the align p
 
 .circuit-0::after {
   right: 100%;
-  border-right-color: #000000;
+  border-right-color: #1A1A1A;
 }
 
 <div
@@ -314,7 +314,7 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -351,7 +351,7 @@ exports[`Tooltip should render with position bottom, when passed "bottom" for th
 
 .circuit-0::after {
   bottom: 100%;
-  border-bottom-color: #000000;
+  border-bottom-color: #1A1A1A;
 }
 
 <div
@@ -367,7 +367,7 @@ exports[`Tooltip should render with position left, when passed "left" for the po
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -404,7 +404,7 @@ exports[`Tooltip should render with position left, when passed "left" for the po
 
 .circuit-0::after {
   left: 100%;
-  border-left-color: #000000;
+  border-left-color: #1A1A1A;
 }
 
 <div
@@ -420,7 +420,7 @@ exports[`Tooltip should render with position right, when passed "right" for the 
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -457,7 +457,7 @@ exports[`Tooltip should render with position right, when passed "right" for the 
 
 .circuit-0::after {
   right: 100%;
-  border-right-color: #000000;
+  border-right-color: #1A1A1A;
 }
 
 <div
@@ -473,7 +473,7 @@ exports[`Tooltip should render with position top, when passed "top" for the posi
   width: auto;
   max-width: 280px;
   min-width: 120px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   color: #FFF;
   border-radius: 4px;
   padding: 8px 12px;
@@ -510,7 +510,7 @@ exports[`Tooltip should render with position top, when passed "top" for the posi
 
 .circuit-0::after {
   top: 100%;
-  border-top-color: #000000;
+  border-top-color: #1A1A1A;
 }
 
 <div

@@ -27,7 +27,7 @@ exports[`CardList should render with default styles 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
 }
 
@@ -80,7 +80,7 @@ exports[`CardList should render with default styles 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   background: #F0F6FF;
   outline: none;

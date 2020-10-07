@@ -12,7 +12,7 @@ HTMLCollection [
   flex-direction: column;
   height: 100%;
   min-width: 256px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   -webkit-transition: -webkit-transform 120ms ease-in-out;
   -webkit-transition: transform 120ms ease-in-out;
   transition: transform 120ms ease-in-out;
@@ -51,7 +51,7 @@ HTMLCollection [
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #000000;
+  background-color: #1A1A1A;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   visibility: hidden;
@@ -112,8 +112,8 @@ HTMLCollection [
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 12px;
@@ -148,13 +148,13 @@ HTMLCollection [
 }
 
 .circuit-2:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-2:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 @media (min-width:960px) {
@@ -205,7 +205,7 @@ HTMLCollection [
   flex-direction: column;
   height: 100%;
   min-width: 256px;
-  background-color: #000000;
+  background-color: #1A1A1A;
   -webkit-transition: -webkit-transform 120ms ease-in-out;
   -webkit-transition: transform 120ms ease-in-out;
   transition: transform 120ms ease-in-out;
@@ -232,7 +232,7 @@ HTMLCollection [
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #000000;
+  background-color: #1A1A1A;
   -webkit-transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   transition: opacity 120ms ease-in-out,visibility 120ms ease-in-out;
   visibility: hidden;
@@ -278,8 +278,8 @@ HTMLCollection [
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 12px;
@@ -312,13 +312,13 @@ HTMLCollection [
 }
 
 .circuit-2:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-2:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 @media (min-width:960px) {

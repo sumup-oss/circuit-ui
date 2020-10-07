@@ -22,7 +22,7 @@ HTMLCollection [
 }
 
 .circuit-4 {
-  color: #000000;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -37,7 +37,7 @@ HTMLCollection [
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #000000;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -53,7 +53,7 @@ HTMLCollection [
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1:-moz-focusring {
@@ -66,7 +66,7 @@ HTMLCollection [
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-1:focus {
@@ -78,7 +78,7 @@ HTMLCollection [
 }
 
 .circuit-2 {
-  color: #333333;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -95,7 +95,7 @@ select:active ~ .circuit-2 {
 }
 
 .circuit-3 {
-  color: #333333;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;

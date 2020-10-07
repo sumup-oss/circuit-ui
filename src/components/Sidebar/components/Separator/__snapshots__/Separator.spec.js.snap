@@ -4,10 +4,10 @@ exports[`Separator should render with default styles 1`] = `
 .circuit-0 {
   display: block;
   width: 100%;
-  border: 1px solid #E6E6E6;
+  border: 1px solid #CCC;
   margin-top: 16px;
   margin-bottom: 16px;
-  border: 1px solid #1A1A1A;
+  border: 1px solid #333;
 }
 
 <hr

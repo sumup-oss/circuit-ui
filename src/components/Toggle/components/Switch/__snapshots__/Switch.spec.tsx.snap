@@ -12,7 +12,7 @@ exports[`Switch should have the correct default styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #E6E6E6;
+  background-color: #CCC;
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -34,8 +34,8 @@ exports[`Switch should have the correct default styles 1`] = `
 
 .circuit-0 {
   display: block;
-  background-color: #FAFBFC;
-  box-shadow: 0 2px 0 0 #999999;
+  background-color: #F5F5F5;
+  box-shadow: 0 2px 0 0 #999;
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px,-50%,0);
@@ -104,7 +104,7 @@ exports[`Switch should have the correct on styles 1`] = `
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
-  background-color: #E6E6E6;
+  background-color: #CCC;
   border-radius: 24px;
   position: relative;
   -webkit-transition: background-color 200ms ease-in-out;
@@ -127,8 +127,8 @@ exports[`Switch should have the correct on styles 1`] = `
 
 .circuit-0 {
   display: block;
-  background-color: #FAFBFC;
-  box-shadow: 0 2px 0 0 #999999;
+  background-color: #F5F5F5;
+  box-shadow: 0 2px 0 0 #999;
   position: absolute;
   top: 50%;
   -webkit-transform: translate3d(4px,-50%,0);

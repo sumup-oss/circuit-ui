@@ -12,13 +12,13 @@ tbody .circuit-12:last-child td {
 
 .circuit-6 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #333333;
+  color: #666;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -52,7 +52,7 @@ tbody .circuit-12:last-child td {
 
 .circuit-6:focus-within,
 .circuit-6:hover {
-  background-color: #FAFBFC;
+  background-color: #F5F5F5;
   color: #3063E9;
 }
 
@@ -121,13 +121,13 @@ tbody .circuit-12:last-child td {
 
 .circuit-8 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #333333;
+  color: #666;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -218,13 +218,13 @@ tbody .circuit-12:last-child td {
 
 .circuit-6 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #333333;
+  color: #666;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;
@@ -258,7 +258,7 @@ tbody .circuit-12:last-child td {
 
 .circuit-6:focus-within,
 .circuit-6:hover {
-  background-color: #FAFBFC;
+  background-color: #F5F5F5;
   color: #3063E9;
 }
 
@@ -327,13 +327,13 @@ tbody .circuit-12:last-child td {
 
 .circuit-8 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
   white-space: nowrap;
-  color: #333333;
+  color: #666;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 24px;

@@ -12,7 +12,7 @@ tbody .circuit-4:last-child td {
 
 .circuit-0 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -54,7 +54,7 @@ tbody .circuit-6:last-child td {
 
 .circuit-4 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -65,7 +65,7 @@ tbody .circuit-6:last-child td {
 
 .circuit-0 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out,color 120ms ease-in-out;
@@ -85,7 +85,7 @@ tbody .circuit-6:last-child td {
 
 .circuit-2 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -145,7 +145,7 @@ tbody .circuit-4:last-child td {
 
 .circuit-0 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -187,7 +187,7 @@ tbody .circuit-4:last-child td {
 
 .circuit-2 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
@@ -198,14 +198,14 @@ tbody .circuit-4:last-child td {
 
 .circuit-0 {
   background-color: #FFF;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
   text-align: left;
   -webkit-transition: background-color 120ms ease-in-out;
   transition: background-color 120ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
-  background-color: #FAFBFC;
+  background-color: #F5F5F5;
 }
 
 <tbody>

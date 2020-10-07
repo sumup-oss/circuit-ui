@@ -3296,9 +3296,9 @@
     tti-polyfill "^0.2.2"
 
 "@sumup/design-tokens@^2.0.0-alpha":
-  version "2.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-2.0.0-alpha.1.tgz#e7148f30a8525d9f2ec67dcbb2eb860830bb2806"
-  integrity sha512-nJi+cfVvAcmQL+IkJYwaPIHOABYGozDS+Og3Bu01XqQYc0hleNZ/HvZj8YVTxmBzL8gaTLIFlLyyrkSEWqTOjg==
+  version "2.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-2.0.0-alpha.2.tgz#ca0f8683ed3bcc361248c1c36aa457a52ed51523"
+  integrity sha512-lHkuQ/2Z1o5jSCxxWt9w3NSxV37B04PG+87UqQld1RRmZ2IBS1R4+BL5Joqggl00QPFn69gzxaMwB16iSeiyGg==
 
 "@sumup/foundry@^3.0.0":
   version "3.0.0"

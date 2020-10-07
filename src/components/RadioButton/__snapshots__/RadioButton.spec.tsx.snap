@@ -16,7 +16,7 @@ HTMLCollection [
 }
 
 .circuit-0:hover + label::before {
-  border-color: #333333;
+  border-color: #666;
 }
 
 .circuit-0:focus + label::before {
@@ -47,7 +47,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #333333;
+  color: #666;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -59,7 +59,7 @@ HTMLCollection [
   width: 18px;
   box-shadow: 0;
   background-color: #FFF;
-  border: 1px solid #999999;
+  border: 1px solid #999;
   border-radius: 100%;
   content: '';
   display: block;
@@ -116,7 +116,7 @@ HTMLCollection [
 }
 
 .circuit-0:hover + label::before {
-  border-color: #333333;
+  border-color: #666;
 }
 
 .circuit-0:focus + label::before {
@@ -146,7 +146,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #333333;
+  color: #666;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -158,7 +158,7 @@ HTMLCollection [
   width: 18px;
   box-shadow: 0;
   background-color: #FFF;
-  border: 1px solid #999999;
+  border: 1px solid #999;
   border-radius: 100%;
   content: '';
   display: block;
@@ -215,7 +215,7 @@ HTMLCollection [
 }
 
 .circuit-0:hover + label::before {
-  border-color: #333333;
+  border-color: #666;
 }
 
 .circuit-0:focus + label::before {
@@ -246,7 +246,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #333333;
+  color: #666;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -261,7 +261,7 @@ HTMLCollection [
   width: 18px;
   box-shadow: 0;
   background-color: #FFF;
-  border: 1px solid #999999;
+  border: 1px solid #999;
   border-radius: 100%;
   content: '';
   display: block;
@@ -299,15 +299,15 @@ HTMLCollection [
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  border-color: #333333;
-  background-color: #F5F5F5;
+  border-color: #666;
+  background-color: #E6E6E6;
 }
 
 .circuit-0::after {
   opacity: 0.5;
   pointer-events: none;
   box-shadow: none;
-  background-color: #333333;
+  background-color: #666;
 }
 
 <label
@@ -334,7 +334,7 @@ HTMLCollection [
 }
 
 .circuit-0:hover + label::before {
-  border-color: #333333;
+  border-color: #666;
 }
 
 .circuit-0:focus + label::before {
@@ -372,7 +372,7 @@ HTMLCollection [
     value=""
   />,
   .circuit-0 {
-  color: #333333;
+  color: #666;
   padding-left: 26px;
   position: relative;
   cursor: pointer;
@@ -384,7 +384,7 @@ HTMLCollection [
   width: 18px;
   box-shadow: 0;
   background-color: #FFF;
-  border: 1px solid #999999;
+  border: 1px solid #999;
   border-radius: 100%;
   content: '';
   display: block;

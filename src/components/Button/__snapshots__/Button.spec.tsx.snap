@@ -29,8 +29,8 @@ exports[`Button styles should render a button with icon 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -52,13 +52,13 @@ exports[`Button styles should render a button with icon 1`] = `
 }
 
 .circuit-1:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-1:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 .circuit-0 {
@@ -119,8 +119,8 @@ exports[`Button styles should render a disabled button 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -142,13 +142,13 @@ exports[`Button styles should render a disabled button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-0:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <button
@@ -188,8 +188,8 @@ exports[`Button styles should render a kilo button 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 4px calc(16px - 1px);
   border-radius: 6px;
 }
@@ -211,13 +211,13 @@ exports[`Button styles should render a kilo button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-0:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <button
@@ -256,8 +256,8 @@ exports[`Button styles should render a mega button 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -279,13 +279,13 @@ exports[`Button styles should render a mega button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-0:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <button
@@ -324,8 +324,8 @@ exports[`Button styles should render a primary button by default 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -347,13 +347,13 @@ exports[`Button styles should render a primary button by default 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-0:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <button
@@ -392,8 +392,8 @@ exports[`Button styles should render a secondary button 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
 }
@@ -415,13 +415,13 @@ exports[`Button styles should render a secondary button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-0:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <button
@@ -460,8 +460,8 @@ exports[`Button styles should render a stretched button 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   width: 100%;
@@ -484,13 +484,13 @@ exports[`Button styles should render a stretched button 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-0:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 <button

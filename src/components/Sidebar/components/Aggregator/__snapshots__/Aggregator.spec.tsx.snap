@@ -18,11 +18,11 @@ HTMLCollection [
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #999999;
+  color: #999;
 }
 
 .circuit-2:hover {
-  color: #E6E6E6;
+  color: #CCC;
 }
 
 .circuit-0 {
@@ -71,7 +71,7 @@ HTMLCollection [
 .circuit-0::before {
   content: '';
   width: 2px;
-  background: #333333;
+  background: #666;
   height: calc(32px * );
   position: absolute;
   top: 0;
@@ -108,11 +108,11 @@ HTMLCollection [
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #999999;
+  color: #999;
 }
 
 .circuit-2:hover {
-  color: #E6E6E6;
+  color: #CCC;
 }
 
 .circuit-0 {
@@ -155,7 +155,7 @@ HTMLCollection [
 .circuit-0::before {
   content: '';
   width: 2px;
-  background: #333333;
+  background: #666;
   height: calc(32px * );
   position: absolute;
   top: 0;
@@ -195,9 +195,9 @@ exports[`Aggregator styles should render with disabled state styles and match th
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #999999;
+  color: #999;
   cursor: not-allowed;
-  color: #333333;
+  color: #666;
 }
 
 <div

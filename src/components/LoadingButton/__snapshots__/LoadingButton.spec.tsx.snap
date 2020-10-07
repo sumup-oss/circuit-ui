@@ -43,8 +43,8 @@ exports[`LoadingButton styles should render with default styles 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   position: relative;
@@ -68,13 +68,13 @@ exports[`LoadingButton styles should render with default styles 1`] = `
 }
 
 .circuit-3:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-3:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 .circuit-1 {
@@ -199,8 +199,8 @@ exports[`LoadingButton styles should render with loading styles 1`] = `
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
-  border-color: #999999;
-  color: #1A1A1A;
+  border-color: #999;
+  color: #333;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   position: relative;
@@ -224,13 +224,13 @@ exports[`LoadingButton styles should render with loading styles 1`] = `
 }
 
 .circuit-3:hover {
-  background-color: #FAFBFC;
-  border-color: #333333;
+  background-color: #F5F5F5;
+  border-color: #666;
 }
 
 .circuit-3:active {
-  background-color: #F5F5F5;
-  border-color: #1A1A1A;
+  background-color: #E6E6E6;
+  border-color: #333;
 }
 
 .circuit-0 {

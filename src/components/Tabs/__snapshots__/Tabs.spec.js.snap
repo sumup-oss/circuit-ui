@@ -51,7 +51,7 @@ exports[`Tabs styles should render with default styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding: 12px 32px;
-  color: #333333;
+  color: #666;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -79,11 +79,11 @@ exports[`Tabs styles should render with default styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #FAFBFC;
+  background-color: #F5F5F5;
 }
 
 .circuit-0:active {
-  background-color: #F5F5F5;
+  background-color: #E6E6E6;
 }
 
 .circuit-0:focus {
@@ -99,7 +99,7 @@ exports[`Tabs styles should render with default styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding: 12px 32px;
-  color: #333333;
+  color: #666;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -125,15 +125,15 @@ exports[`Tabs styles should render with default styles 1`] = `
   justify-content: center;
   outline: none;
   position: relative;
-  color: #000000;
+  color: #1A1A1A;
 }
 
 .circuit-2:hover {
-  background-color: #FAFBFC;
+  background-color: #F5F5F5;
 }
 
 .circuit-2:active {
-  background-color: #F5F5F5;
+  background-color: #E6E6E6;
 }
 
 .circuit-2:focus {
@@ -207,7 +207,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding: 12px 32px;
-  color: #333333;
+  color: #666;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -235,11 +235,11 @@ exports[`Tabs styles should render with stretched styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #FAFBFC;
+  background-color: #F5F5F5;
 }
 
 .circuit-0:active {
-  background-color: #F5F5F5;
+  background-color: #E6E6E6;
 }
 
 .circuit-0:focus {
@@ -255,7 +255,7 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   font-size: 16px;
   line-height: 24px;
   padding: 12px 32px;
-  color: #333333;
+  color: #666;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: pointer;
@@ -281,15 +281,15 @@ exports[`Tabs styles should render with stretched styles 1`] = `
   justify-content: center;
   outline: none;
   position: relative;
-  color: #000000;
+  color: #1A1A1A;
 }
 
 .circuit-2:hover {
-  background-color: #FAFBFC;
+  background-color: #F5F5F5;
 }
 
 .circuit-2:active {
-  background-color: #F5F5F5;
+  background-color: #E6E6E6;
 }
 
 .circuit-2:focus {

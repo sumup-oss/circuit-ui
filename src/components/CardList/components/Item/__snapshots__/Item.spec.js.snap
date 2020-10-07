@@ -8,7 +8,7 @@ exports[`Item should render with all paddings 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 12px;
 }
 
@@ -71,7 +71,7 @@ exports[`Item should render with all paddings 2`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 16px;
 }
 
@@ -134,7 +134,7 @@ exports[`Item should render with all paddings 3`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
 }
 
@@ -197,7 +197,7 @@ exports[`Item should render with default styles 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
 }
 
@@ -260,7 +260,7 @@ exports[`Item should render with selected styles 1`] = `
   align-items: center;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #E6E6E6;
+  border-bottom: 1px solid #CCC;
   padding: 24px;
 }
 

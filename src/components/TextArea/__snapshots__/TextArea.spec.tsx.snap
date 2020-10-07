@@ -33,32 +33,32 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #F5F5F5;
+  background-color: #E6E6E6;
   box-shadow: 0 0 0 1px #D23F47;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -129,25 +129,25 @@ label + .circuit-1 {
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -242,37 +242,37 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
@@ -295,7 +295,7 @@ label + .circuit-1 {
   -ms-flex-align: flex-start;
   align-items: flex-start;
   margin-top: 4px;
-  color: #333333;
+  color: #666;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -342,7 +342,7 @@ label + .circuit-2 {
   top: 1px;
   left: 1px;
   pointer-events: none;
-  color: #333333;
+  color: #666;
   padding: 12px;
   height: 40px;
   width: 40px;
@@ -362,37 +362,37 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   padding-left: 40px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-1::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-1:focus {
@@ -453,37 +453,37 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   padding-right: 40px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
@@ -499,7 +499,7 @@ label + .circuit-2 {
   top: 1px;
   right: 1px;
   pointer-events: none;
-  color: #333333;
+  color: #666;
   padding: 12px;
   height: 40px;
   width: 40px;
@@ -556,37 +556,37 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
@@ -645,38 +645,38 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #F5F5F5;
-  box-shadow: 0 0 0 1px #999999;
+  background-color: #E6E6E6;
+  box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
@@ -727,37 +727,37 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
@@ -828,25 +828,25 @@ label + .circuit-1 {
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -918,37 +918,37 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
@@ -1010,38 +1010,38 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #F5F5F5;
-  box-shadow: 0 0 0 1px #999999;
+  background-color: #E6E6E6;
+  box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
@@ -1098,37 +1098,37 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
@@ -1190,25 +1190,25 @@ label + .circuit-1 {
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #999999;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }

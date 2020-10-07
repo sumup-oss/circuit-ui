@@ -567,7 +567,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-6 {
-  color: #000000;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -582,7 +582,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #000000;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -598,7 +598,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #999999;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-3:-moz-focusring {
@@ -611,7 +611,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-3:hover {
-  box-shadow: 0 0 0 1px #333333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-3:focus {
@@ -623,7 +623,7 @@ exports[`Pagination with more than 5 pages should render with default styles 1`]
 }
 
 .circuit-4 {
-  color: #333333;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -640,7 +640,7 @@ select:active ~ .circuit-4 {
 }
 
 .circuit-5 {
-  color: #333333;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;

@@ -172,7 +172,7 @@ exports[`BaseStylesService should return the global base styles 1`] = `
   }
 
   body {
-    background-color: #FAFBFC;
+    background-color: #F5F5F5;
     color: #000;
     
       font-size: 16px;
