@@ -17,52 +17,68 @@ import fs from 'fs';
 
 import { sync as spawn } from 'cross-spawn';
 
+type Language = 'TypeScript' | 'JavaScript' | 'Flow';
+
 export interface MigrateArgs {
   transform: string;
-  language: 'TypeScript' | 'JavaScript';
+  language: Language[];
   path: string;
 }
 
 const TRANSFORM_DIR = __dirname;
-const PARSERS = {
-  JavaScript: 'babel',
+const PARSERS: { [key in Language]: string } = {
   TypeScript: 'tsx',
+  JavaScript: 'babel',
+  Flow: 'flow',
 };
-const EXTENSIONS = {
-  JavaScript: 'js,jsx',
+const EXTENSIONS: { [key in Language]: string } = {
   TypeScript: 'ts,tsx',
+  JavaScript: 'js,jsx',
+  Flow: 'js,jsx',
 };
 
-export function migrate({ transform, language, path }: MigrateArgs): void {
+export function migrate({
+  transform,
+  language: languages,
+  path,
+}: MigrateArgs): void {
   const availableTransforms = listTransforms();
+  const availableLanguages = listLanguages();
 
   if (!availableTransforms.includes(transform)) {
     throw new Error(`Unknown codemod ${transform}. Run --help for options.`);
   }
 
-  if (!['TypeScript', 'JavaScript'].includes(language)) {
-    throw new Error(`Unknown language ${language}. Run --help for options.`);
-  }
+  languages.forEach((language) => {
+    if (!availableLanguages.includes(language)) {
+      throw new Error(`Unknown language ${language}. Run --help for options.`);
+    }
+  });
 
-  const parser = PARSERS[language];
-  const extensions = EXTENSIONS[language];
+  languages.forEach((language) => {
+    console.log('\n');
+    console.log(`Transforming files for ${language}...`);
 
-  spawn(
-    'npx',
-    [
-      'jscodeshift',
-      '--transform',
-      `${TRANSFORM_DIR}/${transform}.js`,
-      '--parser',
-      parser,
-      '--extensions',
-      extensions,
-      '--ignore-pattern',
-      '**/node_modules/**',
-      path,
-    ],
-    { stdio: 'inherit' },
-  );
+    const parser = PARSERS[language];
+    const extensions = EXTENSIONS[language];
+
+    spawn(
+      'npx',
+      [
+        'jscodeshift',
+        '--transform',
+        `${TRANSFORM_DIR}/${transform}.js`,
+        '--parser',
+        parser,
+        '--extensions',
+        extensions,
+        '--ignore-pattern',
+        '**/node_modules/**',
+        path,
+      ],
+      { stdio: 'inherit' },
+    );
+  });
 }
 
 export function listTransforms(): string[] {
@@ -71,4 +87,8 @@ export function listTransforms(): string[] {
     .filter((filename) => filename.endsWith('.js'))
     .filter((filename) => filename !== 'index.js')
     .map((filename) => filename.replace('.js', ''));
+}
+
+export function listLanguages(): Language[] {
+  return ['TypeScript', 'JavaScript', 'Flow'];
 }

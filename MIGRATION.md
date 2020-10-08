@@ -23,12 +23,12 @@ yarn circuit-ui migrate
 Automatically transforms your source code to Circuit UI's latest APIs
 
 Options:
-  --language, -l   The programming language of the files to be transformed
-                       [string] [required] [choices: "TypeScript", "JavaScript"]
+  --language, -l   The programming language(s) of the files to be transformed
+                [array] [required] [choices: "TypeScript", "JavaScript", "Flow"]
   --path, -p       A path to the folder that contains the files to be
                    transformed                           [string] [default: "."]
   --transform, -t  The transform to be applied to the source code
-                            [string] [required] [choices: "button-variant-enum"]
+                       [string] [required] [choices: "button-variant-enum", ...]
 ```
 
 You can only run one codemod at a time and we encourage you to apply the transforms incrementally and review the changes before continuing. The codemods don't cover all edge cases, so further manual changes might be necessary.
