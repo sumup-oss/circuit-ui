@@ -31,23 +31,28 @@ const transform: Transform = (file, api) => {
   if (components) {
     components.forEach((component) => {
       props.forEach((prop) => {
-        root
-          .findJSXElements(component)
-          .find(j.JSXAttribute, {
-            name: {
-              type: 'JSXIdentifier',
-              name: prop,
-            },
-          })
-          .find(j.Property, {
-            key: {
-              type: 'Identifier',
-              name: 'afterTera',
-            },
-          })
-          .replaceWith((nodePath) =>
-            j.objectProperty(j.identifier('tera'), nodePath.node.value),
-          );
+        [j.Property, j.ObjectProperty].forEach((property) => {
+          root
+            .findJSXElements(component)
+            .find(j.JSXAttribute, {
+              name: {
+                type: 'JSXIdentifier',
+                name: prop,
+              },
+            })
+            .find(property as any, {
+              key: {
+                type: 'Identifier',
+                name: 'afterTera',
+              },
+            })
+            .replaceWith((nodePath) =>
+              j.objectProperty(
+                j.identifier('tera'),
+                (nodePath.node as any).value,
+              ),
+            );
+        });
       });
     });
   }
