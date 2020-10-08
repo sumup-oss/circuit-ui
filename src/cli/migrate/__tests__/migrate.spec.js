@@ -20,7 +20,7 @@ import { runInlineTest } from 'jscodeshift/dist/testUtils';
 
 jest.autoMockOff();
 
-const PARSERS = ['babel', 'tsx', 'babel'];
+const PARSERS = ['babel', 'tsx', 'flow'];
 
 defineTest('button-variant-enum');
 defineTest('button-size-giga');
