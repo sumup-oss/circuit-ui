@@ -100,8 +100,8 @@ const primary = {
 const misc = {
   shadow: 'rgba(12, 15, 20, 0.07)',
   overlay: 'rgba(12, 15, 20, 0.21)',
-  bodyBg: neutrals.n100,
-  bodyColor: black,
+  bodyBg: '#FAFBFC',
+  bodyColor: '#0F131A',
   danger: '#D23F47',
   success: '#138849',
   warning: '#F5C625',
