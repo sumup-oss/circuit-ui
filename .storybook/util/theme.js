@@ -15,7 +15,7 @@ export const theme = create({
   fontBase: light.fontStack.default,
   colorPrimary: light.colors.p500,
   colorSecondary: light.colors.p500,
-  appBg: light.colors.n100
+  appBg: light.colors.bodyBg
 });
 
 // FIXME: BaseStyles should only be included once, however, I couldn't find
