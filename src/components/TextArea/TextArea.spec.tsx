@@ -86,7 +86,7 @@ describe('TextArea', () => {
   });
 
   it('should prioritize disabled over warning styles', () => {
-    const actual = create(<TextArea invalid hasWarning />);
+    const actual = create(<TextArea hasWarning disabled />);
     expect(actual).toMatchSnapshot();
   });
 

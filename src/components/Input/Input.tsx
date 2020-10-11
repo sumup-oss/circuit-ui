@@ -163,7 +163,7 @@ const inputWarningStyles = ({
   css`
     label: input--warning;
     &:not(:focus)::placeholder {
-      color: ${theme.colors.y500};
+      color: ${theme.colors.warning};
     }
   `;
 

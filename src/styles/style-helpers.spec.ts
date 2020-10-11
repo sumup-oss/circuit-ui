@@ -333,18 +333,18 @@ describe('Style helpers', () => {
       });
       expect(styles).toMatchInlineSnapshot(`
         "
-            box-shadow: 0 0 0 1px #D8A413;
+            box-shadow: 0 0 0 1px #F5C625;
 
             &:hover {
               box-shadow: 0 0 0 1px #AD7A14;
             }
 
             &:focus {
-              box-shadow: 0 0 0 2px #D8A413;
+              box-shadow: 0 0 0 2px #F5C625;
             }
 
             &:active {
-              box-shadow: 0 0 0 1px #D8A413;
+              box-shadow: 0 0 0 1px #F5C625;
             }
           "
       `);

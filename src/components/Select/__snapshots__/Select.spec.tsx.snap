@@ -82,7 +82,7 @@ select:not(:active) ~ .circuit-2 {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #D23F47;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0:-moz-focusring {
@@ -92,18 +92,6 @@ select:not(:active) ~ .circuit-2 {
 
 .circuit-0::-ms-expand {
   display: none;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #B22426;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #D23F47;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #D23F47;
 }
 
 <span
@@ -1101,56 +1089,6 @@ label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-0 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: #FFF;
-  outline: none;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #1A1A1A;
-  margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
-  box-shadow: 0 0 0 1px #999;
-}
-
-.circuit-0:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-0::-ms-expand {
-  display: none;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #666;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #3063E9;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #3063E9;
-}
-
 .circuit-1 {
   color: #666;
   display: block;
@@ -1193,6 +1131,44 @@ select:not(:active) ~ .circuit-2 {
   pointer-events: none;
   box-shadow: none;
   margin-bottom: 16px;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #1A1A1A;
+  margin: 0;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #999;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-0::-ms-expand {
+  display: none;
 }
 
 <span
