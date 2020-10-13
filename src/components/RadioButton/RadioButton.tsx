@@ -90,12 +90,12 @@ const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
   css`
     label: radio-button--error;
     &:not(:focus)::before {
-      border-color: ${theme.colors.r500};
+      border-color: ${theme.colors.danger};
       background-color: ${theme.colors.r100};
     }
 
     &:not(:focus)::after {
-      background-color: ${theme.colors.r500};
+      background-color: ${theme.colors.danger};
     }
   `;
 
@@ -159,7 +159,7 @@ const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
     }
 
     &:checked + label::before {
-      border-color: ${theme.colors.r500};
+      border-color: ${theme.colors.danger};
     }
   `;
 

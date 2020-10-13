@@ -40,9 +40,9 @@ exports[`PageList styles should render with default styles 1`] = `
   border-style: solid;
   -webkit-transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
-  background-color: #3388FF;
-  border-color: #3388FF;
-  color: #FFFFFF;
+  background-color: #3063E9;
+  border-color: #3063E9;
+  color: #FFF;
   padding: 4px calc(16px - 1px);
   border-radius: 6px;
 }
@@ -64,13 +64,13 @@ exports[`PageList styles should render with default styles 1`] = `
 }
 
 .circuit-0:hover {
-  background-color: #1760CE;
-  border-color: #1760CE;
+  background-color: #234BC3;
+  border-color: #234BC3;
 }
 
 .circuit-0:active {
-  background-color: #003C8B;
-  border-color: #003C8B;
+  background-color: #1A368E;
+  border-color: #1A368E;
 }
 
 .circuit-1 {
@@ -102,7 +102,7 @@ exports[`PageList styles should render with default styles 1`] = `
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: transparent;
   border-color: transparent;
-  color: #3388FF;
+  color: #3063E9;
   padding: 4px calc(16px - 1px);
   border-radius: 6px;
 }
@@ -124,11 +124,11 @@ exports[`PageList styles should render with default styles 1`] = `
 }
 
 .circuit-1:hover {
-  color: #1760CE;
+  color: #234BC3;
 }
 
 .circuit-1:active {
-  color: #003C8B;
+  color: #1A368E;
 }
 
 <ol

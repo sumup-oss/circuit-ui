@@ -71,8 +71,8 @@ const COLOR_MAP = {
   },
   neutral: {
     text: 'bodyColor',
-    default: 'n300',
-    hover: 'n500',
+    default: 'n200',
+    hover: 'n300',
   },
 } as const;
 

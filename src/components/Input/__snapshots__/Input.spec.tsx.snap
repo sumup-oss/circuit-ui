@@ -22,7 +22,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -33,44 +33,32 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #EEF0F2;
-  box-shadow: 0 0 0 1px #DB4D4D;
+  background-color: #E6E6E6;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #B22828;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #DB4D4D;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
 <div
@@ -93,13 +81,6 @@ label + .circuit-1 {
 `;
 
 exports[`Input should prioritize disabled over warning styles 1`] = `
-.circuit-2 {
-  font-size: 13px;
-  line-height: 20px;
-  display: block;
-  margin-bottom: 16px;
-}
-
 .circuit-1 {
   position: relative;
 }
@@ -109,9 +90,19 @@ label + .circuit-1 {
   margin-top: 4px;
 }
 
+.circuit-2 {
+  font-size: 13px;
+  line-height: 20px;
+  display: block;
+  opacity: 0.5;
+  pointer-events: none;
+  box-shadow: none;
+  margin-bottom: 16px;
+}
+
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -122,87 +113,45 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #DB4D4D;
+  background-color: #E6E6E6;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
-.circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #D8A413;
-}
-
-.circuit-0:not(:focus)::-moz-placeholder {
-  color: #D8A413;
-}
-
-.circuit-0:not(:focus):-ms-input-placeholder {
-  color: #D8A413;
-}
-
-.circuit-0:not(:focus)::placeholder {
-  color: #D8A413;
-}
-
-.circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-0:not(:focus)::-moz-placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-0:not(:focus):-ms-input-placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-0:not(:focus)::placeholder {
-  color: #EA7A7A;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #B22828;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #DB4D4D;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #DB4D4D;
-}
-
 <div
   class="circuit-2"
+  disabled=""
   for="input_12"
 >
   <div
     class="circuit-1"
   >
     <input
-      aria-invalid="true"
       class="circuit-0"
+      disabled=""
       id="input_12"
       value=""
     />
@@ -229,7 +178,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -240,43 +189,43 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-2 {
@@ -291,7 +240,7 @@ label + .circuit-1 {
   -ms-flex-align: flex-start;
   align-items: flex-start;
   margin-top: 4px;
-  color: #5C656F;
+  color: #666;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -339,7 +288,7 @@ label + .circuit-2 {
   top: 1px;
   left: 1px;
   pointer-events: none;
-  color: #5C656F;
+  color: #666;
   padding: 12px;
   height: 40px;
   width: 40px;
@@ -347,7 +296,7 @@ label + .circuit-2 {
 
 .circuit-1 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -359,43 +308,43 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   padding-left: 40px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 <div
@@ -437,7 +386,7 @@ label + .circuit-2 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -449,43 +398,43 @@ label + .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   padding-right: 40px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-1 {
@@ -493,7 +442,7 @@ label + .circuit-2 {
   top: 1px;
   right: 1px;
   pointer-events: none;
-  color: #5C656F;
+  color: #666;
   padding: 12px;
   height: 40px;
   width: 40px;
@@ -541,7 +490,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -552,44 +501,44 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
   color: red;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 <div
@@ -627,7 +576,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -638,43 +587,43 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 <div
@@ -715,7 +664,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -726,44 +675,32 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #EEF0F2;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  background-color: #E6E6E6;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
 }
 
 <div
@@ -796,7 +733,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -807,43 +744,43 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-2 {
@@ -890,7 +827,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -901,29 +838,29 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #DB4D4D;
+  box-shadow: 0 0 0 1px #D23F47;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -945,15 +882,15 @@ label + .circuit-1 {
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #B22828;
+  box-shadow: 0 0 0 1px #B22426;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #DB4D4D;
+  box-shadow: 0 0 0 2px #D23F47;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #DB4D4D;
+  box-shadow: 0 0 0 1px #D23F47;
 }
 
 <div
@@ -985,7 +922,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -996,43 +933,43 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-2 {
@@ -1076,7 +1013,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -1087,44 +1024,44 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #EEF0F2;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  background-color: #E6E6E6;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 <div
@@ -1163,7 +1100,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -1175,43 +1112,43 @@ label + .circuit-1 {
   font-size: 16px;
   line-height: 24px;
   text-align: right;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 <div
@@ -1249,7 +1186,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -1260,43 +1197,43 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 <div
@@ -1334,7 +1271,7 @@ label + .circuit-1 {
 
 .circuit-0 {
   -webkit-appearance: none;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border: none;
   outline: 0;
   border-radius: 8px;
@@ -1345,47 +1282,47 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #D8A413;
+  box-shadow: 0 0 0 1px #F5C625;
 }
 
 .circuit-0::-webkit-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::-moz-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:-ms-input-placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0::placeholder {
-  color: #9DA7B1;
+  color: #999;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
 
 .circuit-0:not(:focus)::-webkit-input-placeholder {
-  color: #D8A413;
+  color: #F5C625;
 }
 
 .circuit-0:not(:focus)::-moz-placeholder {
-  color: #D8A413;
+  color: #F5C625;
 }
 
 .circuit-0:not(:focus):-ms-input-placeholder {
-  color: #D8A413;
+  color: #F5C625;
 }
 
 .circuit-0:not(:focus)::placeholder {
-  color: #D8A413;
+  color: #F5C625;
 }
 
 .circuit-0:hover {
@@ -1393,11 +1330,11 @@ label + .circuit-1 {
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #D8A413;
+  box-shadow: 0 0 0 2px #F5C625;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #D8A413;
+  box-shadow: 0 0 0 1px #F5C625;
 }
 
 <div

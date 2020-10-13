@@ -2,7 +2,7 @@
 
 exports[`InlineMessage should render with danger styles 1`] = `
 .circuit-0 {
-  color: #DB4D4D;
+  color: #D23F47;
   position: relative;
   margin-bottom: 16px;
 }
@@ -16,7 +16,7 @@ exports[`InlineMessage should render with danger styles 1`] = `
   left: -24px;
   top: 0;
   height: 100%;
-  background-color: #DB4D4D;
+  background-color: #D23F47;
   width: 3px;
 }
 
@@ -27,7 +27,7 @@ exports[`InlineMessage should render with danger styles 1`] = `
 
 exports[`InlineMessage should render with giga spacing 1`] = `
 .circuit-0 {
-  color: #DB4D4D;
+  color: #D23F47;
   position: relative;
   margin-bottom: 16px;
 }
@@ -41,7 +41,7 @@ exports[`InlineMessage should render with giga spacing 1`] = `
   left: -16px;
   top: 0;
   height: 100%;
-  background-color: #DB4D4D;
+  background-color: #D23F47;
   width: 3px;
 }
 
@@ -52,7 +52,7 @@ exports[`InlineMessage should render with giga spacing 1`] = `
 
 exports[`InlineMessage should render with success styles 1`] = `
 .circuit-0 {
-  color: #0F131A;
+  color: #000;
   position: relative;
   margin-bottom: 16px;
 }
@@ -66,7 +66,7 @@ exports[`InlineMessage should render with success styles 1`] = `
   left: -24px;
   top: 0;
   height: 100%;
-  background-color: #47995A;
+  background-color: #138849;
   width: 3px;
 }
 
@@ -77,7 +77,7 @@ exports[`InlineMessage should render with success styles 1`] = `
 
 exports[`InlineMessage should render with warning styles 1`] = `
 .circuit-0 {
-  color: #0F131A;
+  color: #000;
   position: relative;
   margin-bottom: 16px;
 }
@@ -91,7 +91,7 @@ exports[`InlineMessage should render with warning styles 1`] = `
   left: -24px;
   top: 0;
   height: 100%;
-  background-color: #D8A413;
+  background-color: #F5C625;
   width: 3px;
 }
 

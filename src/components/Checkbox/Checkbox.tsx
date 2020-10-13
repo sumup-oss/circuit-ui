@@ -98,12 +98,12 @@ const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
   css`
     label: checkbox--error;
     &:not(:focus)::before {
-      border-color: ${theme.colors.r500};
+      border-color: ${theme.colors.danger};
       background-color: ${theme.colors.r100};
     }
 
     &:not(:focus) svg {
-      color: ${theme.colors.r500};
+      color: ${theme.colors.danger};
     }
   `;
 
@@ -176,7 +176,7 @@ const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
     }
 
     &:checked + label::before {
-      border-color: ${theme.colors.r500};
+      border-color: ${theme.colors.danger};
     }
   `;
 

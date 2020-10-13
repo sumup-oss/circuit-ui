@@ -2,7 +2,7 @@
 
 exports[`Card should render with default styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-radius: 4px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -26,7 +26,7 @@ exports[`Card should render with default styles 1`] = `
 
 exports[`Card should render with shadow styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-radius: 4px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -50,7 +50,7 @@ exports[`Card should render with shadow styles 1`] = `
 
 exports[`Card should render with shadow styles 2`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-radius: 4px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -74,7 +74,7 @@ exports[`Card should render with shadow styles 2`] = `
 
 exports[`Card should render with shadow styles 3`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-radius: 4px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -98,7 +98,7 @@ exports[`Card should render with shadow styles 3`] = `
 
 exports[`Card should render with spacing styles 1`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-radius: 4px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -122,7 +122,7 @@ exports[`Card should render with spacing styles 1`] = `
 
 exports[`Card should render with spacing styles 2`] = `
 .circuit-0 {
-  background-color: #FFFFFF;
+  background-color: #FFF;
   border-radius: 4px;
   display: -webkit-box;
   display: -webkit-flex;

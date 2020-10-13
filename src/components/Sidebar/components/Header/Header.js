@@ -26,7 +26,7 @@ const baseStyles = ({ theme }) => css`
   min-height: 64px;
   width: 100%;
   padding: ${theme.spacings.mega};
-  background-color: ${theme.colors.bodyColor};
+  background-color: ${theme.colors.black};
   color: ${theme.colors.n100};
 `;
 

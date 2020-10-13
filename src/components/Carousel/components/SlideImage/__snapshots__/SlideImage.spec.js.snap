@@ -35,7 +35,7 @@ exports[`SlideImage styles should render with custom aspect ratio 1`] = `
   height: 0;
   width: 100%;
   padding-top: 50%;
-  background: #FAFBFC;
+  background: #F5F5F5;
 }
 
 <div
@@ -59,7 +59,7 @@ exports[`SlideImage styles should render with default styles 1`] = `
   height: 0;
   width: 100%;
   padding-top: 56%;
-  background: #FAFBFC;
+  background: #F5F5F5;
 }
 
 .circuit-0 {

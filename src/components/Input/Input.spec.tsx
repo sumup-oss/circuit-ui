@@ -92,7 +92,7 @@ describe('Input', () => {
   });
 
   it('should prioritize disabled over warning styles', () => {
-    const actual = create(<Input invalid hasWarning />);
+    const actual = create(<Input hasWarning disabled />);
     expect(actual).toMatchSnapshot();
   });
 

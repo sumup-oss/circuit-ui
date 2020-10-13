@@ -29,8 +29,8 @@ tbody .circuit-0:focus td,
 tbody .circuit-0:hover td,
 tbody .circuit-0:focus th,
 tbody .circuit-0:hover th {
-  color: #3388FF;
-  background-color: #FAFBFC;
+  color: #3063E9;
+  background-color: #F5F5F5;
 }
 
 <tr

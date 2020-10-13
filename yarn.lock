@@ -3295,10 +3295,10 @@
   dependencies:
     tti-polyfill "^0.2.2"
 
-"@sumup/design-tokens@^1.0.0":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-1.0.3.tgz#80bfd7a960c1fda313aaa75f2ee7cda8cb87a42c"
-  integrity sha512-eiKAGMyw968+SWdmNyBFsuT1LnYeeKULjvPF3G92PliCoHtFosebahdIo+yP8SGMImvOgHo4OEl6qqAlf/ZEUQ==
+"@sumup/design-tokens@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@sumup/design-tokens/-/design-tokens-2.0.1.tgz#ff93125c8faa2eaa4cb10ae2dfd7c8758f49c716"
+  integrity sha512-VTnGsVoLT0WC4Boeb84hx+dCaNyXZ0sWFI7rxDBJftFY5uefPMQdqd8Xay8jVlaUn4mzZBgTw+YlDmMKu/nWPw==
 
 "@sumup/foundry@^3.0.0":
   version "3.0.0"

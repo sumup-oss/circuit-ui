@@ -2,7 +2,7 @@
 
 exports[`Select should not render with invalid styles when also passed the disabled prop 1`] = `
 .circuit-3 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -13,7 +13,7 @@ label + .circuit-3 {
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -30,7 +30,7 @@ select:active ~ .circuit-1 {
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -61,12 +61,12 @@ select:not(:active) ~ .circuit-2 {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -82,7 +82,7 @@ select:not(:active) ~ .circuit-2 {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #DB4D4D;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0:-moz-focusring {
@@ -92,18 +92,6 @@ select:not(:active) ~ .circuit-2 {
 
 .circuit-0::-ms-expand {
   display: none;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #B22828;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #DB4D4D;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #DB4D4D;
 }
 
 <span
@@ -186,7 +174,7 @@ exports[`Select should render with a label 1`] = `
 }
 
 .circuit-4 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -201,12 +189,12 @@ label + .circuit-4 {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -222,7 +210,7 @@ label + .circuit-4 {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1:-moz-focusring {
@@ -235,19 +223,19 @@ label + .circuit-4 {
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -264,7 +252,7 @@ select:active ~ .circuit-2 {
 }
 
 .circuit-3 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -362,7 +350,7 @@ exports[`Select should render with a prefix when passed the prefix prop 1`] = `
 }
 
 .circuit-4 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -373,7 +361,7 @@ label + .circuit-4 {
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -390,7 +378,7 @@ select:active ~ .circuit-2 {
 }
 
 .circuit-3 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -423,12 +411,12 @@ select:not(:active) ~ .circuit-3 {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -445,7 +433,7 @@ select:not(:active) ~ .circuit-3 {
   font-size: 16px;
   line-height: 24px;
   padding-left: 40px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1:-moz-focusring {
@@ -458,15 +446,15 @@ select:not(:active) ~ .circuit-3 {
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 <span
@@ -550,7 +538,7 @@ exports[`Select should render with a tooltip when passed a validation hint 1`] =
 }
 
 .circuit-3 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -565,12 +553,12 @@ label + .circuit-3 {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -586,7 +574,7 @@ label + .circuit-3 {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0:-moz-focusring {
@@ -599,19 +587,19 @@ label + .circuit-3 {
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -628,7 +616,7 @@ select:active ~ .circuit-1 {
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -656,7 +644,7 @@ select:not(:active) ~ .circuit-2 {
   -ms-flex-align: flex-start;
   align-items: flex-start;
   margin-top: 4px;
-  color: #5C656F;
+  color: #666;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
 }
@@ -747,12 +735,12 @@ exports[`Select should render with a visually-hidden label 1`] = `
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -768,7 +756,7 @@ exports[`Select should render with a visually-hidden label 1`] = `
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-1:-moz-focusring {
@@ -781,19 +769,19 @@ exports[`Select should render with a visually-hidden label 1`] = `
 }
 
 .circuit-1:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-1:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-1:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -810,7 +798,7 @@ select:active ~ .circuit-2 {
 }
 
 .circuit-3 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -840,7 +828,7 @@ select:not(:active) ~ .circuit-3 {
 }
 
 .circuit-4 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -927,7 +915,7 @@ exports[`Select should render with default styles 1`] = `
 }
 
 .circuit-3 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -942,12 +930,12 @@ label + .circuit-3 {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -963,7 +951,7 @@ label + .circuit-3 {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0:-moz-focusring {
@@ -976,19 +964,19 @@ label + .circuit-3 {
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1005,7 +993,7 @@ select:active ~ .circuit-1 {
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1091,7 +1079,7 @@ select:not(:active) ~ .circuit-2 {
 
 exports[`Select should render with disabled styles when passed the disabled prop 1`] = `
 .circuit-3 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -1101,58 +1089,8 @@ label + .circuit-3 {
   margin-top: 4px;
 }
 
-.circuit-0 {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  background-color: #FFFFFF;
-  outline: none;
-  border: 0;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #212933;
-  margin: 0;
-  padding-top: calc(8px + 1px);
-  padding-right: 32px;
-  padding-bottom: calc(8px + 1px);
-  padding-left: 12px;
-  position: relative;
-  width: 100%;
-  z-index: 20;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
-  font-size: 16px;
-  line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
-}
-
-.circuit-0:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-}
-
-.circuit-0::-ms-expand {
-  display: none;
-}
-
-.circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
-}
-
-.circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
-}
-
-.circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
-}
-
 .circuit-1 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1169,7 +1107,7 @@ select:active ~ .circuit-1 {
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1193,6 +1131,44 @@ select:not(:active) ~ .circuit-2 {
   pointer-events: none;
   box-shadow: none;
   margin-bottom: 16px;
+}
+
+.circuit-0 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background-color: #FFF;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  color: #1A1A1A;
+  margin: 0;
+  padding-top: calc(8px + 1px);
+  padding-right: 32px;
+  padding-bottom: calc(8px + 1px);
+  padding-left: 12px;
+  position: relative;
+  width: 100%;
+  z-index: 20;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
+  font-size: 16px;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px #999;
+}
+
+.circuit-0:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.circuit-0::-ms-expand {
+  display: none;
 }
 
 <span
@@ -1267,7 +1243,7 @@ select:not(:active) ~ .circuit-2 {
 
 exports[`Select should render with inline styles when passed the inline prop 1`] = `
 .circuit-3 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -1282,12 +1258,12 @@ label + .circuit-3 {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -1303,7 +1279,7 @@ label + .circuit-3 {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0:-moz-focusring {
@@ -1316,19 +1292,19 @@ label + .circuit-3 {
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1345,7 +1321,7 @@ select:active ~ .circuit-1 {
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1448,7 +1424,7 @@ exports[`Select should render with invalid styles when passed the invalid prop 1
 }
 
 .circuit-3 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -1459,7 +1435,7 @@ label + .circuit-3 {
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1476,7 +1452,7 @@ select:active ~ .circuit-1 {
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1497,12 +1473,12 @@ select:not(:active) ~ .circuit-2 {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -1519,7 +1495,7 @@ select:not(:active) ~ .circuit-2 {
   font-size: 16px;
   line-height: 24px;
   padding-right: 56px;
-  box-shadow: 0 0 0 1px #DB4D4D;
+  box-shadow: 0 0 0 1px #D23F47;
 }
 
 .circuit-0:-moz-focusring {
@@ -1532,15 +1508,15 @@ select:not(:active) ~ .circuit-2 {
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #B22828;
+  box-shadow: 0 0 0 1px #B22426;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #DB4D4D;
+  box-shadow: 0 0 0 2px #D23F47;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #DB4D4D;
+  box-shadow: 0 0 0 1px #D23F47;
 }
 
 <span
@@ -1614,7 +1590,7 @@ select:not(:active) ~ .circuit-2 {
 
 exports[`Select should render with no margin styles when passed the noMargin prop 1`] = `
 .circuit-3 {
-  color: #212933;
+  color: #1A1A1A;
   display: block;
   position: relative;
 }
@@ -1629,12 +1605,12 @@ label + .circuit-3 {
   -moz-appearance: none;
   appearance: none;
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #FFF;
   outline: none;
   border: 0;
   border-radius: 8px;
   box-shadow: none;
-  color: #212933;
+  color: #1A1A1A;
   margin: 0;
   padding-top: calc(8px + 1px);
   padding-right: 32px;
@@ -1650,7 +1626,7 @@ label + .circuit-3 {
   transition: box-shadow 120ms ease-in-out, padding 120ms ease-in-out;
   font-size: 16px;
   line-height: 24px;
-  box-shadow: 0 0 0 1px #9DA7B1;
+  box-shadow: 0 0 0 1px #999;
 }
 
 .circuit-0:-moz-focusring {
@@ -1663,19 +1639,19 @@ label + .circuit-3 {
 }
 
 .circuit-0:hover {
-  box-shadow: 0 0 0 1px #5C656F;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .circuit-0:focus {
-  box-shadow: 0 0 0 2px #3388FF;
+  box-shadow: 0 0 0 2px #3063E9;
 }
 
 .circuit-0:active {
-  box-shadow: 0 0 0 1px #3388FF;
+  box-shadow: 0 0 0 1px #3063E9;
 }
 
 .circuit-1 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;
@@ -1692,7 +1668,7 @@ select:active ~ .circuit-1 {
 }
 
 .circuit-2 {
-  color: #5C656F;
+  color: #666;
   display: block;
   z-index: 21;
   pointer-events: none;

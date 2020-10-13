@@ -160,32 +160,41 @@ export const inputOutline = (
     | Theme
     | {
         theme: Theme;
+        disabled?: boolean;
         invalid?: boolean;
         hasWarning?: boolean;
         showValid?: boolean;
       },
 ): SerializedStyles => {
   const theme = getTheme(args);
-  const options = isTheme(args) ? { invalid: false, hasWarning: false } : args;
+  const options = isTheme(args)
+    ? { disabled: false, invalid: false, hasWarning: false }
+    : args;
+
+  if (options.disabled) {
+    return css`
+      box-shadow: 0 0 0 1px ${theme.colors.n500};
+    `;
+  }
 
   let colors;
 
   switch (true) {
     case options.invalid: {
       colors = {
-        default: theme.colors.r500,
+        default: theme.colors.danger,
         hover: theme.colors.r700,
-        focus: theme.colors.r500,
-        active: theme.colors.r500,
+        focus: theme.colors.danger,
+        active: theme.colors.danger,
       };
       break;
     }
     case options.hasWarning: {
       colors = {
-        default: theme.colors.y500,
+        default: theme.colors.warning,
         hover: theme.colors.y700,
-        focus: theme.colors.y500,
-        active: theme.colors.y500,
+        focus: theme.colors.warning,
+        active: theme.colors.warning,
       };
       break;
     }

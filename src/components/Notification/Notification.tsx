@@ -16,7 +16,11 @@
 /** @jsx jsx */
 import { FC, SVGProps, ReactNode, MouseEvent, KeyboardEvent } from 'react';
 import { css, jsx } from '@emotion/core';
-import { CircleCheckmark, CircleCross, CircleWarning } from '@sumup/icons';
+import {
+  CircleCheckmarkFilled,
+  CircleCrossFilled,
+  CircleWarningFilled,
+} from '@sumup/icons';
 import { Theme } from '@sumup/design-tokens';
 
 import styled, { StyleProps } from '../../styles/styled';
@@ -57,9 +61,9 @@ const colorMap = {
 } as const;
 
 const iconMap = {
-  success: CircleCheckmark,
-  error: CircleCross,
-  warning: CircleWarning,
+  success: CircleCheckmarkFilled,
+  error: CircleCrossFilled,
+  warning: CircleWarningFilled,
 } as const;
 
 const iconStyles = (variant: Variant) => (theme: Theme) =>
@@ -102,7 +106,7 @@ export const Notification = ({
 
   return (
     <Container {...props}>
-      {Icon && <Icon css={iconStyles(variant)} size="large" />}
+      {Icon && <Icon css={iconStyles(variant)} />}
 
       <Content>{children}</Content>
 
