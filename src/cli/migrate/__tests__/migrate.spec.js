@@ -13,37 +13,74 @@
  * limitations under the License.
  */
 
-import { defineTest } from 'jscodeshift/dist/testUtils';
+import fs from 'fs';
+import path from 'path';
+
+import { runInlineTest } from 'jscodeshift/dist/testUtils';
 
 jest.autoMockOff();
 
-defineTest(__dirname, 'button-variant-enum');
-defineTest(__dirname, 'button-size-giga');
-defineTest(__dirname, 'list-variant-enum');
-defineTest(__dirname, 'onchange-prop');
-defineTest(__dirname, 'as-prop');
-defineTest(__dirname, 'selector-props');
-defineTest(__dirname, 'exit-animations');
-defineTest(__dirname, 'input-deepref-prop');
-defineTest(__dirname, 'input-styles-prop');
-defineTest(__dirname, 'component-names-v2');
-defineTest(__dirname, 'component-static-properties');
-defineTest(__dirname, 'toggle-checked-prop');
-defineTest(__dirname, 'badge-variant-enum');
-defineTest(__dirname, 'inline-message-variant-enum');
-defineTest(__dirname, 'theme-grid-tera');
-defineTest(
-  __dirname,
-  'theme-to-design-tokens',
-  null,
-  'theme-to-design-tokens-1',
-);
-defineTest(
-  __dirname,
-  'theme-to-design-tokens',
-  null,
-  'theme-to-design-tokens-2',
-);
-defineTest(__dirname, 'theme-icon-sizes');
-defineTest(__dirname, 'currency-utils', null, 'currency-utils-1');
-defineTest(__dirname, 'currency-utils', null, 'currency-utils-2');
+const PARSERS = ['babel', 'tsx', 'flow'];
+
+defineTest('button-variant-enum');
+defineTest('button-size-giga');
+defineTest('list-variant-enum');
+defineTest('onchange-prop');
+defineTest('as-prop');
+defineTest('selector-props');
+defineTest('exit-animations');
+defineTest('input-deepref-prop');
+defineTest('input-styles-prop');
+defineTest('component-names-v2');
+defineTest('component-static-properties');
+defineTest('toggle-checked-prop');
+defineTest('badge-variant-enum');
+defineTest('inline-message-variant-enum');
+// Need to skip the TypeScript parser, because the output format slightly
+// differs from the expected format (but it is correct).
+defineTest('theme-grid-tera', null, { parser: 'babel' });
+defineTest('theme-to-design-tokens', 'theme-to-design-tokens-1');
+defineTest('theme-to-design-tokens', 'theme-to-design-tokens-2');
+defineTest('theme-icon-sizes');
+defineTest('currency-utils', 'currency-utils-1');
+defineTest('currency-utils', 'currency-utils-2');
+
+function defineTest(transformName, testFilePrefix, testOptions = {}) {
+  const dirName = __dirname;
+  const fixtureDir = path.join(dirName, '..', '__testfixtures__');
+  const inputPath = path.join(
+    fixtureDir,
+    `${testFilePrefix || transformName}.input.js`,
+  );
+  const source = fs.readFileSync(inputPath, 'utf8');
+  const expectedOutput = fs.readFileSync(
+    path.join(fixtureDir, `${testFilePrefix || transformName}.output.js`),
+    'utf8',
+  );
+  // Assumes transform is one level up from __tests__ directory
+  // eslint-disable-next-line global-require, import/no-dynamic-require
+  const module = require(path.join(dirName, '..', transformName));
+
+  PARSERS.forEach((parser) => {
+    let testName = 'transforms correctly';
+
+    if (testFilePrefix) {
+      testName = `${testName} using ${testFilePrefix} data`;
+    }
+
+    testName = `${testName} with the ${parser} parser`;
+
+    describe(transformName, () => {
+      // eslint-disable-next-line jest/expect-expect
+      it(testName, () => {
+        runInlineTest(
+          module,
+          null,
+          { path: inputPath, source },
+          expectedOutput,
+          { parser, ...testOptions },
+        );
+      });
+    });
+  });
+}

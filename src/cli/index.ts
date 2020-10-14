@@ -17,7 +17,7 @@
 
 import yargs from 'yargs';
 
-import { migrate, listTransforms } from './migrate';
+import { migrate, listTransforms, listLanguages } from './migrate';
 
 type CommandType = 'migrate';
 
@@ -30,9 +30,9 @@ yargs
       yrgs
         .option('language', {
           alias: 'l',
-          desc: 'The programming language of the files to be transformed',
-          choices: ['TypeScript', 'JavaScript'],
-          type: 'string',
+          desc: 'The programming language(s) of the files to be transformed',
+          choices: listLanguages(),
+          type: 'array',
           required: true,
         })
         .option('path', {

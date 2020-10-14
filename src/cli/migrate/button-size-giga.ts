@@ -29,21 +29,24 @@ function transformFactory(
   }
 
   components.forEach((component) => {
-    root
-      .findJSXElements(component)
-      .find(j.JSXAttribute, {
-        name: {
-          type: 'JSXIdentifier',
-          name: 'size',
-        },
-        value: {
-          type: 'Literal',
-          value: 'giga',
-        },
-      })
-      .replaceWith(() =>
-        j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral('mega')),
-      );
+    const jsxElement = root.findJSXElements(component);
+    // The babel and TypeScript parsers use different node types.
+    ['Literal', 'StringLiteral'].forEach((type) => {
+      jsxElement
+        .find(j.JSXAttribute, {
+          name: {
+            type: 'JSXIdentifier',
+            name: 'size',
+          },
+          value: {
+            type,
+            value: 'giga',
+          },
+        })
+        .replaceWith(() =>
+          j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral('mega')),
+        );
+    });
   });
 }
 

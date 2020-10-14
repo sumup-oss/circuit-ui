@@ -21,6 +21,17 @@ type Import = {
   name?: string;
 };
 
+function findNotEmpty(collections: Collection[]) {
+  for (let index = 0; index < collections.length; index += 1) {
+    const collection = collections[index];
+
+    if (collection.length > 0) {
+      return collection;
+    }
+  }
+  return collections[0];
+}
+
 export function findImportsByPath(
   j: JSCodeshift,
   root: Collection,
@@ -28,36 +39,41 @@ export function findImportsByPath(
 ): Import[] {
   const imports: Import[] = [];
 
-  root
-    .find(j.ImportDeclaration, {
-      source: {
-        type: 'Literal',
-        value: importPath,
-      },
-    })
-    .forEach((nodePath) => {
-      nodePath.value.specifiers.forEach((specifier) => {
-        // These TypeScript errors are incorrect,
-        // but I (Connor) am too lazy to submit a fix ¯\_(ツ)_/¯
-        /* eslint-disable @typescript-eslint/ban-ts-ignore */
-        if (j.ImportDefaultSpecifier.check(specifier)) {
-          imports.push({
-            type: 'default',
-            // @ts-ignore
-            local: specifier.local.name,
-          });
-        } else {
-          imports.push({
-            type: 'named',
-            // @ts-ignore
-            name: specifier.imported.name,
-            // @ts-ignore
-            local: specifier.local.name,
-          });
-        }
-        /* eslint-enable @typescript-eslint/ban-ts-ignore */
-      });
+  const importDeclaration = findNotEmpty(
+    // The babel and TypeScript parsers use different node types.
+    ['Literal', 'StringLiteral'].map((type) =>
+      root.find(j.ImportDeclaration, {
+        source: {
+          type,
+          value: importPath,
+        },
+      }),
+    ),
+  );
+
+  importDeclaration.forEach((nodePath) => {
+    nodePath.value.specifiers.forEach((specifier: unknown) => {
+      // These TypeScript errors are incorrect,
+      // but I (Connor) am too lazy to submit a fix ¯\_(ツ)_/¯
+      /* eslint-disable @typescript-eslint/ban-ts-ignore */
+      if (j.ImportDefaultSpecifier.check(specifier)) {
+        imports.push({
+          type: 'default',
+          // @ts-ignore
+          local: specifier.local.name,
+        });
+      } else {
+        imports.push({
+          type: 'named',
+          // @ts-ignore
+          name: specifier.imported.name,
+          // @ts-ignore
+          local: specifier.local.name,
+        });
+      }
+      /* eslint-enable @typescript-eslint/ban-ts-ignore */
     });
+  });
 
   return imports;
 }
