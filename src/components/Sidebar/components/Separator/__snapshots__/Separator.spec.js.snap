@@ -7,10 +7,14 @@ exports[`Separator should render with default styles 1`] = `
   border: 1px solid #CCC;
   margin-top: 16px;
   margin-bottom: 16px;
-  border: 1px solid #333;
+  border: 1px solid #666;
 }
 
-<hr
-  class="circuit-0 circuit-1"
-/>
+<li
+  role="presentation"
+>
+  <hr
+    class="circuit-0"
+  />
+</li>
 `;

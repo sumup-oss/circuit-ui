@@ -13,20 +13,24 @@
  * limitations under the License.
  */
 
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 
 import Hr from '../../../Hr';
 
-const baseStyles = ({ theme }) => css`
+const hrStyles = (theme) => css`
   label: sidebar-separator;
-  border: 1px solid ${theme.colors.n800};
+  border: 1px solid ${theme.colors.n700};
 `;
 
 /**
  * A separator for the Sidebar. Extends the Hr component.
  */
-const Separator = styled(Hr)(baseStyles);
+const Separator = () => (
+  <li role="presentation">
+    <Hr css={hrStyles} />
+  </li>
+);
 
 /**
  * @component

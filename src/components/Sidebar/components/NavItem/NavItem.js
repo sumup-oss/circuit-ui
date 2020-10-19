@@ -34,8 +34,9 @@ const baseStyles = ({ theme }) => css`
   margin: ${theme.spacings.mega};
   padding: ${theme.spacings.bit};
   cursor: pointer;
-  color: ${theme.colors.n500};
+  color: ${theme.colors.n300};
   text-decoration: none;
+  transition: color ${theme.transitions.default};
 `;
 
 const secondaryStyles = ({ theme, secondary }) =>
@@ -44,7 +45,8 @@ const secondaryStyles = ({ theme, secondary }) =>
     label: nav-item--secondary;
     margin: 0px ${theme.spacings.giga};
     padding: ${theme.spacings.bit} 0px;
-    transition: top ${theme.transitions.default};
+    transition: color ${theme.transitions.default},
+      top ${theme.transitions.default};
   `;
 
 const hoverStyles = ({ theme, selected, disabled }) =>
@@ -53,7 +55,7 @@ const hoverStyles = ({ theme, selected, disabled }) =>
   css`
     label: nav-item--hover;
     &:hover {
-      color: ${theme.colors.n300};
+      color: ${theme.colors.n100};
     }
   `;
 
@@ -62,7 +64,7 @@ const selectedStyles = ({ theme, selected }) =>
   css`
     label: nav-item--active;
     font-weight: ${theme.fontWeight.bold};
-    color: ${theme.colors.n100};
+    color: ${theme.colors.white};
   `;
 
 const disabledStyles = ({ theme, disabled }) =>
@@ -70,7 +72,7 @@ const disabledStyles = ({ theme, disabled }) =>
   css`
     label: nav-item--disabled;
     cursor: not-allowed;
-    color: ${theme.colors.n700};
+    color: ${theme.colors.n500};
   `;
 
 const StyledLink = styled('a', {

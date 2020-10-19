@@ -15,7 +15,6 @@
 
 /** @jsx jsx */
 import {
-  Fragment,
   useState,
   useEffect,
   FC,
@@ -79,10 +78,16 @@ const baseStyles = ({ theme }: StyleProps) => css`
   flex-direction: row;
   justify-content: flex-start;
   height: auto;
+  width: calc(100% - (2 * ${theme.spacings.mega}));
   margin: ${theme.spacings.mega};
   padding: ${theme.spacings.bit};
   cursor: pointer;
-  color: ${theme.colors.n500};
+  color: ${theme.colors.n300};
+  transition: color ${theme.transitions.default};
+  font: inherit;
+  background: none;
+  border: 0;
+  outline: none;
 `;
 
 const hoverStyles = ({
@@ -94,8 +99,9 @@ const hoverStyles = ({
   !selected &&
   css`
     label: nav-aggregator--hover;
-    &:hover {
-      color: ${theme.colors.n300};
+    &:hover,
+    &:focus {
+      color: ${theme.colors.n100};
     }
   `;
 
@@ -103,7 +109,7 @@ const selectedStyles = ({ theme, selected }: StyleProps & Selected) =>
   selected &&
   css`
     label: nav-aggregator--active;
-    color: ${theme.colors.n100};
+    color: ${theme.colors.white};
   `;
 
 const disabledStyles = ({ theme, disabled }: StyleProps & Disabled) =>
@@ -111,12 +117,12 @@ const disabledStyles = ({ theme, disabled }: StyleProps & Disabled) =>
   css`
     label: nav-item--disabled;
     cursor: not-allowed;
-    color: ${theme.colors.n700};
+    color: ${theme.colors.n500};
   `;
 
 const NavLabel = BaseNavLabel as any;
 
-const AggregatorContainer = styled('div')<Disabled & Selected>(
+const AggregatorContainer = styled('button')<Disabled & Selected>(
   baseStyles,
   hoverStyles,
   selectedStyles,
@@ -166,10 +172,11 @@ const Aggregator = ({
   });
 
   return (
-    <Fragment>
+    <li>
       <AggregatorContainer
         selected={selectedChild}
         disabled={disabled}
+        aria-disabled={disabled}
         onClick={handleClick}
         {...props}
       >
@@ -181,7 +188,7 @@ const Aggregator = ({
           <SubNavList visible={isOpen}>{children}</SubNavList>
         </TrackingElement>
       )}
-    </Fragment>
+    </li>
   );
 };
 

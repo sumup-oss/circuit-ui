@@ -22,13 +22,15 @@ exports[`NavItem styles should render with default styles and match the snapshot
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #999;
+  color: #CCC;
   -webkit-text-decoration: none;
   text-decoration: none;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
 }
 
 .circuit-2:hover {
-  color: #CCC;
+  color: #F5F5F5;
 }
 
 .circuit-0 {
@@ -70,17 +72,19 @@ exports[`NavItem styles should render with default styles and match the snapshot
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #999;
+  color: #CCC;
   -webkit-text-decoration: none;
   text-decoration: none;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
   margin: 0px 24px;
   padding: 4px 0px;
-  -webkit-transition: top 120ms ease-in-out;
-  transition: top 120ms ease-in-out;
+  -webkit-transition: color 120ms ease-in-out,top 120ms ease-in-out;
+  transition: color 120ms ease-in-out,top 120ms ease-in-out;
 }
 
 .circuit-2:hover {
-  color: #CCC;
+  color: #F5F5F5;
 }
 
 .circuit-0 {
@@ -131,11 +135,13 @@ exports[`NavItem styles should render with disabled state styles and match the s
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #999;
+  color: #CCC;
   -webkit-text-decoration: none;
   text-decoration: none;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
   cursor: not-allowed;
-  color: #666;
+  color: #999;
 }
 
 <li
@@ -178,11 +184,13 @@ exports[`NavItem styles should render with selected state styles and match the s
   margin: 16px;
   padding: 4px;
   cursor: pointer;
-  color: #999;
+  color: #CCC;
   -webkit-text-decoration: none;
   text-decoration: none;
+  -webkit-transition: color 120ms ease-in-out;
+  transition: color 120ms ease-in-out;
   font-weight: 700;
-  color: #F5F5F5;
+  color: #FFF;
 }
 
 <li
