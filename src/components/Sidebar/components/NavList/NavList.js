@@ -25,6 +25,10 @@ const baseStyles = () => css`
   justify-self: flex-start;
   overflow-y: auto;
   width: 100%;
+
+  > li {
+    list-style-type: none;
+  }
 `;
 
 const StyledList = styled('ul')(baseStyles);
@@ -33,7 +37,9 @@ const TRACKING_ELEMENT = 'navList';
 
 const NavList = ({ children, ...props }) => (
   <TrackingElement name={TRACKING_ELEMENT}>
-    <StyledList {...props}>{children}</StyledList>
+    <StyledList {...props} role="list">
+      {children}
+    </StyledList>
   </TrackingElement>
 );
 

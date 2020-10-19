@@ -8,7 +8,12 @@ exports[`NavList styles should render with default styles 1`] = `
   width: 100%;
 }
 
+.circuit-0 > li {
+  list-style-type: none;
+}
+
 <ul
   class="circuit-0 circuit-1"
+  role="list"
 />
 `;
