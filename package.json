@@ -101,7 +101,7 @@
     "@sumup/icons": "^1.0.0",
     "@sumup/intl": "^1.0.0",
     "@svgr/webpack": "^4.3.3",
-    "@testing-library/dom": "^6.5.0",
+    "@testing-library/dom": "^7.26.3",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.1.4",
     "@testing-library/react-hooks": "^3.2.1",
