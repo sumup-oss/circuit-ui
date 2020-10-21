@@ -17,8 +17,8 @@ import warning from 'tiny-warning';
 
 const warned: { [key: string]: true } = {};
 
-export default function deprecate(explanation = ''): void {
-  if (__DEV__) {
+export default function deprecate(explanation: string): void {
+  if (process.env.NODE_ENV !== 'production') {
     const message = `DEPRECATION: ${explanation}`;
 
     if (!warned[message]) {
