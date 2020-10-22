@@ -19,7 +19,6 @@
       "plugins": [
         ["@babel/plugin-proposal-class-properties", { "loose": true }],
         "lodash",
-        "dev-expression",
         "react-docgen"
       ],
       "presets": [

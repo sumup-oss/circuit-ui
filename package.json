@@ -120,7 +120,6 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^25.0.0",
     "babel-loader": "^8.0.5",
-    "babel-plugin-dev-expression": "^0.2.2",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-module-resolver": "^3.2.0",

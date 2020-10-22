@@ -17,7 +17,3 @@ declare module '*.mdx' {
   const MDXComponent: (props: any) => JSX.Element;
   export default MDXComponent;
 }
-
-declare const __PRODUCTION__: boolean;
-declare const __DEV__: boolean;
-declare const __TEST__: boolean;

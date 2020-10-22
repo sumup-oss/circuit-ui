@@ -40,10 +40,6 @@ module.exports = {
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   globals: {
-    'STORYBOOK': false,
-    '__DEV__': false,
-    '__PRODUCTION__': false,
-    '__TEST__': true,
     'ts-jest': {
       tsConfig: {
         jsx: 'react',

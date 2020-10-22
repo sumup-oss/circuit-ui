@@ -20,11 +20,19 @@ import * as StepService from '../StepService';
 import useClickHandler from '../../../hooks/use-click-handler';
 
 export default function useStep(props = {}) {
-  if (__DEV__ && props.cycle && !props.totalSteps) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    props.cycle &&
+    !props.totalSteps
+  ) {
     throw new Error('Cannot use cycle prop without totalSteps prop.');
   }
 
-  if (__DEV__ && props.autoPlay && !props.stepDuration) {
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    props.autoPlay &&
+    !props.stepDuration
+  ) {
     throw new Error('Cannot use autoPlay prop without stepDuration prop.');
   }
 
