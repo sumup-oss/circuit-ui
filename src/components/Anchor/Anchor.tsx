@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import React, { HTMLProps, ReactNode } from 'react';
+import React, { HTMLProps, ReactNode, MouseEvent } from 'react';
 import { css } from '@emotion/core';
 import isPropValid from '@emotion/is-prop-valid';
+import { Dispatch as TrackingProps } from '@sumup/collector';
 
 import styled, { StyleProps } from '../../styles/styled';
 import { focusOutline } from '../../styles/style-helpers';
@@ -23,9 +24,14 @@ import { ReturnType } from '../../types/return-type';
 import Text from '../Text';
 import { TextProps } from '../Text/Text';
 import { useComponents } from '../ComponentsContext';
+import useClickHandler from '../../hooks/use-click-handler';
 
 interface BaseProps extends TextProps {
   children: ReactNode;
+  /**
+   * Additional data that is dispatched with the tracking event.
+   */
+  tracking?: TrackingProps;
   /**
    * The ref to the html dom element, it can be a button an anchor or a span, typed as any for now because of complex js manipulation with styled components
    */
@@ -83,22 +89,44 @@ const StyledAnchor = styled(Text, {
  * a hyperlink. Based on the Text component, so it also supports its props.
  */
 export const Anchor = React.forwardRef(
-  (props: AnchorProps, ref?: BaseProps['ref']): ReturnType => {
+  ({ tracking, ...props }: AnchorProps, ref?: BaseProps['ref']): ReturnType => {
     const components = useComponents();
 
     // Need to typecast here because the StyledAnchor expects a button-like
     // component for its `as` prop. It's safe to ignore that constraint here.
     const Link = components.Link as any;
 
+    const handleClick = useClickHandler<MouseEvent<any>>(
+      props.onClick,
+      tracking,
+      'anchor',
+    );
+
     if (!props.href && !props.onClick) {
       return <Text as="span" {...props} ref={ref} noMargin />;
     }
 
     if (props.href) {
-      return <StyledAnchor {...props} as={Link} ref={ref} noMargin />;
+      return (
+        <StyledAnchor
+          {...props}
+          as={Link}
+          ref={ref}
+          onClick={handleClick}
+          noMargin
+        />
+      );
     }
 
-    return <StyledAnchor as="button" {...props} ref={ref} noMargin />;
+    return (
+      <StyledAnchor
+        as="button"
+        {...props}
+        ref={ref}
+        onClick={handleClick}
+        noMargin
+      />
+    );
   },
 );
 
