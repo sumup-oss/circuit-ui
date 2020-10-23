@@ -84,7 +84,7 @@ const BORDER_WIDTH = '1px';
 
 const baseStyles = ({ theme }: StyleProps) => css`
   label: button;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: auto;
