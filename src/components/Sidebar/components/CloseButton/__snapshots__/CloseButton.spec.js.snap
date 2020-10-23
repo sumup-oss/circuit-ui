@@ -30,7 +30,7 @@ exports[`CloseButton styles should render and match snapshot when not visible 1`
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
-  color: #333;
+  color: #000;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 12px;
@@ -162,7 +162,7 @@ exports[`CloseButton styles should render and match snapshot when visible 1`] = 
   transition: opacity 120ms ease-in-out, color 120ms ease-in-out, background-color 120ms ease-in-out, border-color 120ms ease-in-out;
   background-color: #FFF;
   border-color: #999;
-  color: #333;
+  color: #000;
   padding: 8px calc(24px - 1px);
   border-radius: 8px;
   padding: 12px;
