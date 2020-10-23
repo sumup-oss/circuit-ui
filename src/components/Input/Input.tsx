@@ -105,17 +105,12 @@ export interface InputProps extends Omit<HTMLProps<HTMLInputElement>, 'label'> {
   ref?: Ref<HTMLInputElement & HTMLTextAreaElement>;
 }
 
-const containerStyles = ({ theme }: StyleProps) => css`
+const containerStyles = () => css`
   label: input__container;
   position: relative;
-
-  label &,
-  label + & {
-    margin-top: ${theme.spacings.bit};
-  }
 `;
 
-const InputContainer = styled('div')<{}>(containerStyles);
+const InputContainer = styled('div')(containerStyles);
 
 type LabelElProps = Pick<InputProps, 'noMargin'>;
 
@@ -124,6 +119,11 @@ const labelCustomStyles = ({ theme, noMargin }: StyleProps & LabelElProps) =>
   css`
     label: input__label--margin;
     margin-bottom: ${theme.spacings.mega};
+
+    label &:not(label),
+    label + &:not(label) {
+      margin-top: ${theme.spacings.bit};
+    }
   `;
 
 const InputLabel = styled(Label)<LabelElProps>(labelCustomStyles);
@@ -261,10 +261,23 @@ const suffixStyles = (theme: Theme, hasValidationIcon = false) => css`
   transition: right ${theme.transitions.default};
 `;
 
-const labelTextStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
-  hideLabel && hideVisually();
+const labelTextStyles = ({ theme }: StyleProps) => css`
+  label: input__label-text;
+  display: inline-block;
+  margin-bottom: ${theme.spacings.bit};
+`;
 
-const LabelText = styled('span')(labelTextStyles);
+const labelTextHiddenStyles = ({ hideLabel }: { hideLabel?: boolean }) =>
+  hideLabel &&
+  css`
+    label: input__label-text--hidden;
+    ${hideVisually()};
+  `;
+
+const LabelText = styled('span')<{ hideLabel?: boolean }>(
+  labelTextStyles,
+  labelTextHiddenStyles,
+);
 
 function InputComponent(
   {
@@ -314,10 +327,11 @@ function InputComponent(
       disabled={disabled}
       noMargin={noMargin}
       as={label ? 'label' : 'div'}
+      css={labelStyles}
     >
       {label && <LabelText hideLabel={hideLabel}>{label}</LabelText>}
 
-      <InputContainer css={labelStyles}>
+      <InputContainer>
         {prefix}
         <InputElement
           as={as}

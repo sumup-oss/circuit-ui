@@ -15,26 +15,23 @@
 
 /* istanbul ignore file */
 
-import React from 'react';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 
 import Heading from '../../Heading';
 import Button from '../../Button';
 import ButtonGroup from '../../ButtonGroup';
 import Input from '../../Input';
-import Label from '../../Label';
 import Select from '../../Select';
 import ProgressBar from '../../ProgressBar';
 import Step from '../Step';
 
 const FormOne = ({ onNextClick }) => (
   <section>
-    <Label htmlFor="first">First Name</Label>
-    <Input placeholder="John" id="first" />
-    <Label htmlFor="second">Second Name</Label>
-    <Input placeholder="Doe" id="second" />
+    <Input label="First Name" placeholder="John" />
+    <Input label="Second Name" placeholder="Doe" />
     <Button variant="primary" onClick={() => onNextClick()}>
       Next
     </Button>
@@ -46,17 +43,14 @@ FormOne.propTypes = {
 
 const FormTwo = ({ onNextClick, onBackClick }) => (
   <section>
-    <Label htmlFor="street">Street</Label>
-    <Input placeholder="Madison Ave 5" id="street" />
-    <Label htmlFor="state">State</Label>
-    <Select id="state">
+    <Input label="Street" placeholder="Madison Ave 5" />
+    <Select label="State">
       <option>CA</option>
       <option>TX</option>
       <option>NY</option>
     </Select>
-    <Label htmlFor="postal">Postal Code</Label>
-    <Input placeholder="10179" id="postal" />
-    <ButtonGroup align={'left'}>
+    <Input label="Postal Code" placeholder="10179" />
+    <ButtonGroup align="left">
       <Button variant="primary" onClick={() => onNextClick()}>
         Submit
       </Button>
@@ -97,7 +91,16 @@ const MultiStepForm = () => {
             <Heading size="giga">
               Step {stepNumber} of {totalSteps}
             </Heading>
-            <ProgressBar value={stepNumber} max={totalSteps} size={'kilo'} />
+            <ProgressBar
+              value={stepNumber}
+              max={totalSteps}
+              size={'kilo'}
+              css={(theme) =>
+                css`
+                  margin-bottom: ${theme.spacings.mega};
+                `
+              }
+            />
             <StepComponent
               onNextClick={actions.next}
               onBackClick={actions.previous}
