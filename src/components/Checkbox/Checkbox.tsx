@@ -51,7 +51,7 @@ type LabelElProps = Pick<CheckboxProps, 'invalid' | 'disabled'>;
 
 const labelBaseStyles = ({ theme }: StyleProps) => css`
   label: checkbox__label;
-  color: ${theme.colors.n700};
+  color: ${theme.colors.bodyColor};
   display: inline-block;
   padding-left: 26px;
   position: relative;
@@ -80,7 +80,7 @@ const labelBaseStyles = ({ theme }: StyleProps) => css`
     width: 18px;
     padding: 2px;
     box-sizing: border-box;
-    color: ${theme.colors.p500};
+    color: ${theme.colors.white};
     display: block;
     line-height: 0;
     opacity: 0;
@@ -101,13 +101,9 @@ const labelInvalidStyles = ({ theme, invalid }: StyleProps & LabelElProps) =>
       border-color: ${theme.colors.danger};
       background-color: ${theme.colors.r100};
     }
-
-    &:not(:focus) svg {
-      color: ${theme.colors.danger};
-    }
   `;
 
-const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
+const labelDisabledStyles = ({ disabled }: LabelElProps) =>
   disabled &&
   css`
     label: checkbox--disabled;
@@ -115,13 +111,6 @@ const labelDisabledStyles = ({ theme, disabled }: StyleProps & LabelElProps) =>
 
     &::before {
       ${disableVisually()};
-      border-color: ${theme.colors.n700};
-      background-color: ${theme.colors.n200};
-    }
-
-    & svg {
-      ${disableVisually()};
-      color: ${theme.colors.n700};
     }
   `;
 
@@ -154,6 +143,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 
   &:focus + label::before {
     ${focusOutline({ theme })};
+    border-color: ${theme.colors.p500};
   }
 
   &:checked + label > svg {
@@ -163,6 +153,7 @@ const inputBaseStyles = ({ theme }: StyleProps) => css`
 
   &:checked + label::before {
     border-color: ${theme.colors.p500};
+    background-color: ${theme.colors.p500};
   }
 `;
 
@@ -171,12 +162,14 @@ const inputInvalidStyles = ({ theme, invalid }: StyleProps & InputElProps) =>
   css`
     label: checkbox__input--invalid;
 
-    &:hover + label::before {
+    &:hover + label::before,
+    &:focus + label::before {
       border-color: ${theme.colors.r700};
     }
 
     &:checked + label::before {
       border-color: ${theme.colors.danger};
+      background-color: ${theme.colors.danger};
     }
   `;
 
