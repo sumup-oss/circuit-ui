@@ -51,6 +51,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   label: heading;
   font-weight: ${theme.fontWeight.bold};
   margin-bottom: ${theme.spacings.giga};
+  color: ${theme.colors.black};
 `;
 
 const sizeStyles = ({ theme, size = 'peta' }: StyleProps & HeadingProps) =>

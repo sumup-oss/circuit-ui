@@ -42,6 +42,7 @@ const baseStyles = ({ theme }: StyleProps) => css`
   text-transform: uppercase;
   font-weight: ${theme.fontWeight.bold};
   margin-bottom: ${theme.spacings.kilo};
+  color: ${theme.colors.black};
 `;
 
 const sizeStyles = ({ theme, size = 'kilo' }: StyleProps & SubHeadingProps) =>
