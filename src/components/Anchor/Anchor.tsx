@@ -74,27 +74,29 @@ const baseStyles = ({ theme }: StyleProps) => css`
   }
 `;
 
-const BaseAnchor = styled(Text, {
+const StyledAnchor = styled(Text, {
   shouldForwardProp: (prop) => isPropValid(prop) && prop !== 'size',
 })<AnchorProps>(baseStyles);
 
 function AnchorComponent(
   props: AnchorProps,
-  ref?: React.Ref<HTMLButtonElement & HTMLAnchorElement>,
+  ref?: BaseProps['ref'],
 ): ReturnType {
-  const { Link } = useComponents();
-  const AnchorLink = BaseAnchor.withComponent(Link);
+  const components = useComponents();
+
+  // Need to typecast here because the StyledAnchor expects a button-like
+  // component for its `as` prop. It's safe to ignore that constraint here.
+  const Link = components.Link as any;
 
   if (!props.href && !props.onClick) {
     return <Text as="span" {...props} ref={ref} noMargin />;
   }
 
   if (props.href) {
-    // typing issues with with
-    return <AnchorLink {...props} ref={ref} noMargin />;
+    return <StyledAnchor {...props} as={Link} ref={ref} noMargin />;
   }
 
-  return <BaseAnchor as="button" {...props} ref={ref} noMargin />;
+  return <StyledAnchor as="button" {...props} ref={ref} noMargin />;
 }
 
 /**
