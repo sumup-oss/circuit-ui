@@ -30,7 +30,7 @@ export const Base = () => (
   <Spinner
     css={(theme) =>
       css`
-        color: ${theme.colors.n900};
+        color: ${theme.colors.p500};
       `
     }
   />
