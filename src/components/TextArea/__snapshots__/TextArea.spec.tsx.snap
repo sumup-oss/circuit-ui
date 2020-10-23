@@ -947,7 +947,7 @@ label + .circuit-1 {
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  background-color: #E6E6E6;
+  background-color: #F5F5F5;
   box-shadow: 0 0 0 1px #999;
   overflow: auto;
   resize: vertical;

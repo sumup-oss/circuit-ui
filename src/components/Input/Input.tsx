@@ -185,7 +185,7 @@ const inputReadonlyStyles = ({ theme, readOnly }: StyleProps & InputElProps) =>
   readOnly &&
   css`
     label: input--readonly;
-    background-color: ${theme.colors.n200};
+    background-color: ${theme.colors.n100};
   `;
 
 const inputDisabledStyles = ({ theme, disabled }: StyleProps & InputElProps) =>

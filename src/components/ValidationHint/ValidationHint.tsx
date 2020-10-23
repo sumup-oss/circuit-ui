@@ -40,6 +40,13 @@ const baseStyles = ({ theme }: StyleProps) => css`
   transition: color ${theme.transitions.default};
 `;
 
+const validStyles = ({ theme, showValid }: StyleProps & ValidationHintProps) =>
+  showValid &&
+  css`
+    label: validation-hint--valid;
+    color: ${theme.colors.success};
+  `;
+
 const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
   invalid &&
   css`
@@ -47,7 +54,11 @@ const invalidStyles = ({ theme, invalid }: StyleProps & ValidationHintProps) =>
     color: ${theme.colors.danger};
   `;
 
-const Wrapper = styled('span')<ValidationHintProps>(baseStyles, invalidStyles);
+const Wrapper = styled('span')<ValidationHintProps>(
+  baseStyles,
+  validStyles,
+  invalidStyles,
+);
 
 const iconStyles = (color: 'danger' | 'warning' | 'success') => (
   theme: Theme,
@@ -97,7 +108,7 @@ export const ValidationHint = ({
   const icon = getIcon(props);
 
   return (
-    <Wrapper invalid={props.invalid}>
+    <Wrapper invalid={props.invalid} showValid={props.showValid}>
       {icon}
       {validationHint}
     </Wrapper>

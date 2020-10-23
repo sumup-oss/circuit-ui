@@ -108,6 +108,7 @@ exports[`ValidationHint styles should render with valid styles 1`] = `
   color: #666;
   -webkit-transition: color 120ms ease-in-out;
   transition: color 120ms ease-in-out;
+  color: #138849;
 }
 
 .circuit-0 {
